@@ -1,0 +1,65 @@
+--batch_3ajN40YpXZQ_ABf5ww_gxyg
+Content-Type: application/http
+Content-ID: response-gtlr_5
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=UTF-8
+Date: Mon, 01 Feb 2016 22:50:57 GMT
+Expires: Mon, 01 Feb 2016 22:50:57 GMT
+Cache-Control: private, max-age=0
+Content-Length: 44
+
+{
+ "kind": "drive#fileList",
+ "nextPageToken": "3",
+ "files": [
+  {
+   "kind": "drive#file",
+   "id": "0B7svZDDwthRzdLZFRBRDk4a0E",
+   "name": "0051-Android-functions.patch",
+   "mimeType": "text/x-diff"
+  },
+  {
+   "kind": "drive#file",
+   "id": "0B7svZDDwtKr1BVMkdFcVk3N1k",
+   "name": "Tree Types.pdf",
+   "mimeType": "application/pdf"
+  },
+  {
+   "kind": "drive#file",
+   "id": "0B7svZDDwtKVlBpa1Q1ek1mVWc",
+   "name": "Accounting.pdf",
+   "mimeType": "application/pdf"
+  }
+ ]
+}
+
+--batch_3ajN40YpXZQ_ABf5ww_gxyg
+Content-Type: application/http
+Content-ID: response-gtlr_7
+
+HTTP/1.1 400 Invalid Request
+Content-Type: application/json; charset=UTF-8
+Date: Mon, 01 Feb 2016 22:50:57 GMT
+Expires: Mon, 01 Feb 2016 22:50:57 GMT
+Cache-Control: private, max-age=0
+Content-Length: 17082
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "badRequest",
+    "message": "invalid request.",
+    "locationType": "parameter",
+    "location": "fileId",
+    "debugInfo": "code: INVALID_REQUEST"
+   }
+  ],
+  "code": 400,
+  "message": "Invalid request."
+ }
+}
+
+--batch_3ajN40YpXZQ_ABf5ww_gxyg--

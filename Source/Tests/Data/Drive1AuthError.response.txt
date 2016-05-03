@@ -1,0 +1,16 @@
+{
+  "error" : {
+    "message" : "Invalid Credentials",
+    "errors" : [
+      {
+        "message" : "Invalid Credentials",
+        "locationType" : "header",
+        "reason" : "authError",
+        "domain" : "global",
+        "location" : "Authorization",
+        "debugInfo" : "server details would be here"
+      }
+    ],
+    "code" : 401
+  }
+}

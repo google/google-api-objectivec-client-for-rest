@@ -1,0 +1,62 @@
+--batch_3ajN40YpXZQ_ABf5ww_gxyg
+Content-Type: application/http
+Content-ID: response-gtlr_4
+
+HTTP/1.1 404 Not Found
+Content-Type: application/json; charset=UTF-8
+Date: Mon, 01 Feb 2016 22:50:57 GMT
+Expires: Mon, 01 Feb 2016 22:50:57 GMT
+Cache-Control: private, max-age=0
+Content-Length: 17082
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "notFound",
+    "message": "File not found: badID.",
+    "locationType": "parameter",
+    "location": "fileId",
+    "debugInfo": "code: NOT_FOUND"
+   }
+  ],
+  "code": 404,
+  "message": "File not found: badID."
+ }
+}
+
+--batch_3ajN40YpXZQ_ABf5ww_gxyg
+Content-Type: application/http
+Content-ID: response-gtlr_5
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=UTF-8
+Date: Mon, 01 Feb 2016 22:50:57 GMT
+Expires: Mon, 01 Feb 2016 22:50:57 GMT
+Cache-Control: private, max-age=0
+Content-Length: 44
+
+{
+ "kind": "drive#fileList",
+ "files": []
+}
+
+--batch_3ajN40YpXZQ_ABf5ww_gxyg
+Content-Type: application/http
+Content-ID: response-gtlr_6
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=UTF-8
+Date: Mon, 01 Feb 2016 22:50:57 GMT
+Expires: Mon, 01 Feb 2016 22:50:57 GMT
+Cache-Control: private, max-age=0
+Content-Length: 45
+
+{
+ "parents": [
+  "0ALsvZDDwtKrhUk9PVA"
+ ]
+}
+
+--batch_3ajN40YpXZQ_ABf5ww_gxyg--

@@ -1,0 +1,23 @@
+{
+  "kind" : "drive#fileList",
+  "files" : [
+    {
+      "mimeType" : "image\/png",
+      "thumbnailLink" : "https:\/\/lh6.googleusercontent.com\/0XtKbk33DpQdvloIT4HeTf_QnEyfdR4nG-9jB0Pmg05VsYt1gLrfEp3BOg=s220",
+      "id" : "0B7svZDDwtKrhTTAtQzRRcGpWZ0k",
+      "webViewLink" : "https:\/\/drive.google.com\/file\/d\/0B7svZDDwtKrhTTAtRcGpWZ0k\/view?usp=drivesdk",
+      "kind" : "drive#file",
+      "name" : "calendar-invite.png",
+      "trashed" : false
+    },
+    {
+      "mimeType" : "application\/octet-stream",
+      "id" : "0B7svZDDwtKrhdFItdTBVSktIMVk",
+      "kind" : "drive#file",
+      "name" : "objc style work.txt",
+      "trashed" : false,
+      "webViewLink" : "https:\/\/drive.google.com\/file\/d\/0B7svZDDwtKrhdFItdTBVSktIMVk\/view?usp=drivesdk"
+    },
+  ],
+  "timeFieldForTesting" : "2011-01-02T03:04:05.067Z"
+}

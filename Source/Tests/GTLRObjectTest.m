@@ -1,0 +1,1490 @@
+/* Copyright (c) 2011 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#import <XCTest/XCTest.h>
+
+#import <objc/runtime.h>
+
+#import "GTLRObject.h"
+#import "GTLRDateTime.h"
+
+// Custom subclass for testing the property handling.
+@class GTLRTestingObject;
+@interface GTLRTestingObject : GTLRObject
+// Basic types
+@property(copy) NSString *aStr;
+@property(copy) NSString *str2;
+@property(copy) NSString *identifier;
+@property(retain) NSNumber *aNum;
+@property(retain) NSNumber *aBool;
+@property(retain) GTLRDateTime *aDate;
+@property(retain) GTLRDateTime *date2;
+// Object
+@property(retain) GTLRTestingObject *child;
+// Anything
+@property(retain) id anything;
+// Arrays
+@property(retain) NSArray<NSString *> *arrayString;
+@property(retain) NSArray<NSNumber *> *arrayNumber;
+@property(retain) NSArray<NSNumber *> *arrayBool;
+@property(retain) NSArray<GTLRDateTime *> *arrayDate;
+@property(retain) NSArray<GTLRTestingObject *> *arrayKids;
+@property(retain) NSArray *arrayAnything;
+// Use of getter= for Xcode 5's ARC treatment of init*.
+@property(retain, getter=valueOf_initFoo) NSNumber *initFoo;
+@end
+
+@implementation GTLRTestingObject
+@dynamic aStr, str2, identifier, aNum, aBool, aDate, date2, child, anything;
+@dynamic arrayString, arrayNumber, arrayBool, arrayDate, arrayKids, arrayAnything;
+@dynamic initFoo;
++ (NSDictionary *)propertyToJSONKeyMap {
+  // Use the name mapping on a few...
+  return @{ @"aStr" : @"a_str",
+            @"aNum" : @"a.num",  // Test property names with '.' to be safe.
+            @"aBool" : @"a_bool",
+            @"aDate" : @"a_date" };
+}
++ (NSDictionary *)arrayPropertyToClassMap {
+  return @{ @"arrayString" : [NSString class],
+            @"arrayNumber" : [NSNumber class],
+            @"arrayBool" : [NSNumber class],
+            @"arrayDate" : [GTLRDateTime class],
+            @"arrayKids" : [GTLRTestingObject class],
+            @"arrayAnything" : [NSObject class] };
+}
+@end
+
+@interface GTLRTestingObjectWithPrimeKey : GTLRTestingObject
+@property(copy) NSString *str2Prime;
+@end
+
+@implementation GTLRTestingObjectWithPrimeKey
+@dynamic str2Prime;
+@end
+
+@interface GTLRTestingCollection : GTLRCollectionObject
+@property(retain) NSArray<GTLRTestingObject *> *items;  // of GTLRTestingObject
+@end
+
+@implementation GTLRTestingCollection
+@dynamic items;
+@end
+
+// Subclass we can change the default type for additonal properies to make
+// testing easier.
+@interface GTLRTestingAdditionalPropertiesObject : GTLRObject
++ (void)setAdditionalPropsClass:(Class)aClass;
+@end
+
+@implementation GTLRTestingAdditionalPropertiesObject
+static Class gAdditionalPropsClass = Nil;
++ (void)setAdditionalPropsClass:(Class)aClass {
+  gAdditionalPropsClass = aClass;
+}
+// Override the call needed by GTLRObject subclasses and return the class
+// currently being tested.
++ (Class)classForAdditionalProperties {
+  return gAdditionalPropsClass;
+}
+@end
+
+@interface GTLRTestingResultArray : GTLRResultArray
+@property(retain, readonly) NSArray<GTLRTestingObject *> *items;
+@end
+
+@implementation GTLRTestingResultArray
+- (NSArray *)items {
+  return [self itemsWithItemClass:[GTLRTestingObject class]];
+}
+@end
+
+@interface GTLRTestingResultArray2 : GTLRResultArray
+@property(retain, readonly) NSArray<NSString *> *items;
+@end
+
+@implementation GTLRTestingResultArray2
+- (NSArray *)items {
+  return [self itemsWithItemClass:[NSString class]];
+}
+@end
+
+@interface GTLRObjectTest : XCTestCase
+@end
+
+@implementation GTLRObjectTest
+
+- (NSMutableDictionary *)objectWithString:(NSString *)jsonStr error:(NSError **)error {
+  // Convert the string to NSData, and the data to a JSON dictionary.
+  NSData *data = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+  NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                              options:NSJSONReadingMutableContainers
+                                                                error:error];
+  return dict;
+}
+
+- (void)testCreation {
+  GTLRTestingObject *obj;
+
+  obj = [GTLRTestingObject object];
+  XCTAssertNotNil(obj);
+
+  obj = [GTLRTestingObject objectWithJSON:nil];
+  XCTAssertNotNil(obj);
+
+  obj = [GTLRTestingObject objectWithJSON:[NSMutableDictionary dictionary]];
+  XCTAssertNotNil(obj);
+}
+
+- (void)testCopy {
+  BOOL (^canCopyAsPlist)(NSDictionary *) = ^(NSDictionary *json) {
+    CFPropertyListRef ref = CFPropertyListCreateDeepCopy(kCFAllocatorDefault,
+                                                         (__bridge CFPropertyListRef)(json),
+                                                         kCFPropertyListMutableContainers);
+    BOOL canCopy = (ref != nil);
+    if (ref) CFRelease(ref);
+    return canCopy;
+  };
+
+  // Test an empty object.
+  GTLRTestingObject *obj;
+  GTLRTestingObject *dupe;
+
+  obj = [GTLRTestingObject object];
+  dupe = [obj copy];
+  XCTAssertNil(dupe.JSON);
+
+  // Test an object representable as a plist.
+  NSString *jsonStr = @"{\"a_date\":\"2011-01-14T15:00:00Z\",\"a.num\":1234}";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr error:&err];
+  XCTAssertEqual(json.count, 2U);
+  XCTAssertTrue(canCopyAsPlist(json));
+
+  obj = [GTLRTestingObject objectWithJSON:json];
+  obj.userProperties = @{ @"fish" : @"bass" };
+  dupe = [obj copy];
+  XCTAssertEqualObjects(dupe.JSON, json);
+  XCTAssertNil(dupe.userProperties);  // userProperties are not copied.
+
+  // Test an object not representable as a plist (due to a null).
+  jsonStr = @"{\"a_date\":\"2011-01-14T15:00:00Z\",\"a.num\":null}";
+  json = [self objectWithString:jsonStr error:&err];
+  XCTAssertEqual(json.count, 2U);
+  XCTAssertFalse(canCopyAsPlist(json), @"CFPropertyListCreateDeepCopy can now copy NSNull;"
+                 @" perhaps DeepMutableCopyOfJSONDictionary can be simplified");
+
+  obj = [GTLRTestingObject objectWithJSON:json];
+  obj.userProperties = @{ @"fish" : @"bass" };
+  dupe = [obj copy];
+  XCTAssertEqualObjects(dupe.JSON, json);
+  XCTAssertNil(dupe.userProperties);  // userProperties are not copied.
+}
+
+#pragma mark Getters and Setters
+
+- (void)testSetBasicTypes {
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  XCTAssertNotNil(obj);
+  NSMutableDictionary *expected;
+
+  // test setting basic types
+
+  // string
+  obj.aStr = @"foo bar";
+  obj.str2 = @"mumble";
+  expected = [@{ @"a_str" : @"foo bar",
+                  @"str2" : @"mumble" } mutableCopy];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // number
+  obj.aNum = @1234;
+  expected[@"a.num"] = @1234;
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // number
+  obj.aBool = @YES;
+  expected[@"a_bool"] = @YES;
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // date
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  obj.aDate = [GTLRDateTime dateTimeWithRFC3339String:dateStr];
+  expected[@"a_date"] = dateStr;
+  XCTAssertEqualObjects(obj.JSON, expected);
+}
+
+- (GTLRTestingObject *)objectFromRoundTripArchiveDearchiveWithObject:(GTLRTestingObject *)obj {
+  NSString *key = @"Red iguana";
+  NSMutableData *data = [NSMutableData data];
+
+  NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+  [archiver encodeObject:obj forKey:key];
+  [archiver finishEncoding];
+
+  NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+  GTLRTestingObject *obj2 = [unarchiver decodeObjectForKey:key];
+  [unarchiver finishDecoding];
+
+  return obj2;
+}
+
+- (void)testSecureCodingEmptyObject {
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  XCTAssertNotNil(obj);
+  XCTAssertNil(obj.JSON);
+
+  GTLRTestingObject *obj2 = [self objectFromRoundTripArchiveDearchiveWithObject:obj];
+  XCTAssertNotNil(obj2);
+
+  XCTAssertEqualObjects(obj2.JSON, obj.JSON);
+  XCTAssertNotEqual(obj2, obj);
+  XCTAssertNil(obj2.JSON);
+}
+
+- (void)testSecureCoding {
+  NSString * const jsonStr =
+      @"{\"a_date\":\"2011-01-14T15:00:00Z\",\"a.num\":1234,\"a_str\":\"foo bar\"}";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNotNil(json);
+  GTLRTestingObject *obj = [GTLRTestingObject objectWithJSON:json];
+  obj.userProperties = @{ @"A" : @1 };
+  XCTAssertNotNil(obj);
+
+  GTLRTestingObject *obj2 = [self objectFromRoundTripArchiveDearchiveWithObject:obj];
+  XCTAssertNotNil(obj2);
+
+  XCTAssertEqualObjects(obj2.JSON, obj.JSON);
+  XCTAssertNotEqual(obj2.JSON, obj.JSON);
+  XCTAssertNil(obj2.userProperties);  // userProperties are not encoded.
+  XCTAssert([obj2.JSON isKindOfClass:[NSMutableDictionary class]]);
+}
+
+- (void)testSecureCodingMutability {
+  NSString * const jsonStr =
+      @"{\"arrayDate\":[\"2011-01-14T15:00:00Z\"],\"arrayNumber\":[1234],\"arrayBool\":[true],\""
+      @"arrayString\":[\"foo bar\"],\"arrayAnything\":[789]}";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNotNil(json);
+
+  GTLRTestingObject *obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  GTLRTestingObject *child = [GTLRTestingObject object];
+  child.aStr = @"I'm a kid";
+
+  GTLRTestingObject *grandchild = [GTLRTestingObject object];
+  grandchild.aStr = @"I'm a grandchild";
+  child.arrayKids = @[ grandchild ];
+
+  obj.arrayKids = @[ child ];
+
+  GTLRTestingObject *obj2 = [self objectFromRoundTripArchiveDearchiveWithObject:obj];
+  XCTAssertNotNil(obj2);
+
+  XCTAssertEqualObjects(obj2.arrayString, @[ @"foo bar" ]);
+  XCTAssertEqualObjects(obj2.arrayNumber, @[ @1234 ]);
+  XCTAssertEqualObjects(obj2.arrayBool, @[ @YES ]);
+  XCTAssertEqualObjects(obj2.arrayAnything, @[ @789 ]);
+  XCTAssertEqualObjects(obj2.arrayKids, @[ child ]);
+  XCTAssertEqualObjects(obj2.arrayKids[0].arrayKids, @[ grandchild ]);
+
+  XCTAssertTrue([obj2.arrayDate isKindOfClass:[NSMutableArray class]]);
+  XCTAssertTrue([obj2.arrayString isKindOfClass:[NSMutableArray class]]);
+  XCTAssertTrue([obj2.arrayNumber isKindOfClass:[NSMutableArray class]]);
+  XCTAssertTrue([obj2.arrayBool isKindOfClass:[NSMutableArray class]]);
+  XCTAssertTrue([obj2.arrayAnything isKindOfClass:[NSMutableArray class]]);
+  XCTAssertTrue([obj2.arrayKids isKindOfClass:[NSMutableArray class]]);
+  XCTAssertTrue([obj2.arrayKids[0].arrayKids isKindOfClass:[NSMutableArray class]]);
+
+  XCTAssertTrue([obj2.JSON isKindOfClass:[NSMutableDictionary class]]);
+  XCTAssertTrue([obj2.arrayKids[0].JSON isKindOfClass:[NSMutableDictionary class]]);
+  XCTAssertTrue([obj2.arrayKids[0].arrayKids[0].JSON isKindOfClass:[NSMutableDictionary class]]);
+}
+
+- (void)testGetBasicTypes {
+  NSString * const jsonStr =
+    @"{\"a_date\":\"2011-01-14T15:00:00Z\",\"a.num\":1234,\"a_bool\":true,\"a_str\":\"foo bar\"}";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingObject *obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  // test getting basic types
+
+  // string
+  XCTAssertEqualObjects(obj.aStr, @"foo bar");
+  XCTAssertNil(obj.str2);
+
+  // number
+  XCTAssertEqualObjects(obj.aNum, @1234);
+
+  // bool
+  XCTAssertEqualObjects(obj.aBool, @YES);
+
+  // date
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  XCTAssertEqualObjects(obj.aDate,
+                       [GTLRDateTime dateTimeWithRFC3339String:dateStr]);
+  XCTAssertNil(obj.date2, @"unexpected dateTime: %@", obj.date2);
+}
+
+- (void)testSetArrayBasicTypes {
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  XCTAssertNotNil(obj);
+  NSMutableDictionary *expected = [NSMutableDictionary dictionary];
+
+  // test setting array of basic types
+
+  // string
+  obj.arrayString = @[ @"foo bar" ];
+  expected[@"arrayString"] = @[ @"foo bar" ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // number
+  obj.arrayNumber = @[ @1234 ];
+  expected[@"arrayNumber"] = @[ @1234 ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // bool
+  obj.arrayBool = @[ @YES ];
+  expected[@"arrayBool"] = @[ @YES ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // date
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  obj.arrayDate = @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ];
+  expected[@"arrayDate"] = @[ dateStr ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+}
+
+- (void)testGetArrayBasicTypes {
+  NSString * const jsonStr =
+    @"{\"arrayDate\":[\"2011-01-14T15:00:00Z\"],\"arrayNumber\":[1234],\"arrayBool\":[true],\"arrayString\":[\"foo bar\"]}";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingObject *obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  // test getting basic types
+
+  // string
+  XCTAssertEqualObjects(obj.arrayString, @[ @"foo bar" ]);
+
+  // number
+  XCTAssertEqualObjects(obj.arrayNumber, @[ @1234 ]);
+
+  // number
+  XCTAssertEqualObjects(obj.arrayBool, @[ @YES ]);
+
+  // date
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  XCTAssertEqualObjects(obj.arrayDate,
+                       @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ]);
+}
+
+- (void)testSetAnyTypeProperty {
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  XCTAssertNotNil(obj);
+  NSMutableDictionary *expected = [NSMutableDictionary dictionary];
+
+  NSString *anythingStr = @"as string";
+  NSNumber *anythingNumber = @9876;
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  GTLRDateTime *anythingDate = [GTLRDateTime dateTimeWithRFC3339String:dateStr];
+  NSArray *anythingArray = @[ @"array of string" ];
+
+  // string
+
+  obj.anything = anythingStr;
+  expected[@"anything"] = anythingStr;
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // number
+
+  obj.anything = anythingNumber;
+  expected[@"anything"] = anythingNumber;
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // date
+
+  obj.anything = anythingDate;
+  expected[@"anything"] = dateStr;
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // GTLRObject support tested in the SubObjectSupport test.
+
+  // array (just test of string as plumbing is generic)
+
+  obj.anything = anythingArray;
+  expected[@"anything"] = anythingArray;
+  XCTAssertEqualObjects(obj.JSON, expected);
+}
+
+- (void)testGetAnyPropertyType {
+  NSError *err = nil;
+  NSMutableDictionary *json;
+  GTLRTestingObject *obj;
+
+  NSString * const jsonStrAnyString =
+    @"{\"anything\":\"as string\"}";
+  NSString * const jsonStrAnyNumber =
+    @"{\"anything\":9876}";
+  NSString * const jsonStrAnyDate =
+    @"{\"anything\":\"2011-01-14T15:00:00Z\"}";
+  NSString * const jsonStrAnyArray =
+    @"{\"anything\":[\"array of string\"]}";
+
+  // string
+
+  json = [self objectWithString:jsonStrAnyString
+                          error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  XCTAssertEqualObjects(obj.anything, @"as string");
+
+  // number
+
+  json = [self objectWithString:jsonStrAnyNumber
+                          error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  XCTAssertEqualObjects(obj.anything, @9876);
+
+  // date (there is nothing in the JSON to know it's a date, so it comes
+  // back as a string.
+
+  json = [self objectWithString:jsonStrAnyDate
+                          error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  XCTAssertEqualObjects(obj.anything, dateStr);
+
+  // GTLRObject support tested in the SubObjectSupport test.
+
+  // array (just test of string as plumbing is generic)
+
+  json = [self objectWithString:jsonStrAnyArray
+                          error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  XCTAssertEqualObjects(obj.anything, @[ @"array of string" ]);
+}
+
+- (void)testSetArrayAnyTypeProperty {
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  XCTAssertNotNil(obj);
+  NSMutableDictionary *expected = [NSMutableDictionary dictionary];
+
+  NSArray *arrayAnythingStr = @[ @"as string" ];
+  NSArray *arrayAnythingNumber = @[ @9876 ];
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  NSArray *arrayAnythingDate =
+    @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ];
+
+  // string
+
+  obj.arrayAnything = arrayAnythingStr;
+  expected[@"arrayAnything"] = arrayAnythingStr;
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // number
+
+  obj.arrayAnything = arrayAnythingNumber;
+  expected[@"arrayAnything"] = arrayAnythingNumber;
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // date
+
+  obj.arrayAnything = arrayAnythingDate;
+  expected[@"arrayAnything"] = @[ dateStr ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // GTLRObject support tested in the ArraySubObjectSupport test.
+}
+
+- (void)testGetArrayAnyPropertyType {
+  NSError *err = nil;
+  NSMutableDictionary *json;
+  GTLRTestingObject *obj;
+
+  NSString * const jsonStrArrayAnyString =
+    @"{\"anything\":[\"as string\"]}";
+  NSString * const jsonStrArrayAnyNumber =
+    @"{\"anything\":[9876]}";
+  NSString * const jsonStrArrayAnyDate =
+    @"{\"anything\":[\"2011-01-14T15:00:00Z\"]}";
+
+  // string
+
+  json = [self objectWithString:jsonStrArrayAnyString
+                          error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  XCTAssertEqualObjects(obj.anything, @[ @"as string" ]);
+
+  // number
+
+  json = [self objectWithString:jsonStrArrayAnyNumber
+                          error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  XCTAssertEqualObjects(obj.anything, @[ @9876 ]);
+
+  // date (there is nothing in the JSON to know it's a date, so it comes
+  // back as a string.
+
+  json = [self objectWithString:jsonStrArrayAnyDate
+                          error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  XCTAssertEqualObjects(obj.anything, @[ dateStr ]);
+
+  // GTLRObject support tested in the ArraySubObjectSupport test.
+}
+
+- (void)testSubObjectSupport {
+
+  // test sub (child) objects
+
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  XCTAssertNotNil(obj);
+  GTLRTestingObject *child = [GTLRTestingObject object];
+  XCTAssertNotNil(child);
+  GTLRTestingObject *child2 = [GTLRTestingObject object];
+  XCTAssertNotNil(child2);
+
+  child.aStr = @"I'm the kid";
+  child2.aStr = @"I'm the any kid";
+  obj.child = child;
+  obj.anything = child2;
+  XCTAssertNotNil(obj.child);
+
+  NSString *jsonStr = obj.JSONString;
+  XCTAssertNotNil(jsonStr);
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingObject *obj2 = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj2);
+
+  // object matches (including kids)
+  XCTAssertEqualObjects(obj, obj2);
+  XCTAssertEqualObjects(obj.JSON, obj2.JSON);
+
+  // new object also has kids
+  XCTAssertNotNil(obj2.child);
+  XCTAssertNotNil(obj2.anything);
+
+  // kids match and wasn't same pointer
+  XCTAssertTrue(obj2.child != child);
+  XCTAssertEqualObjects(obj2.child, child);
+  XCTAssertTrue(obj2.anything != child2);
+  XCTAssertEqualObjects(obj2.anything, child2);
+}
+
+- (void)testNestedSetters {
+  // ensure that adding an empty object to an empty object doesn't leave the
+  // internal JSON tree unbuilt
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+
+  obj.child = [GTLRTestingObject object];
+  obj.child.child = [GTLRTestingObject object];
+  obj.child.child.aStr = @"froglegs";
+
+  NSMutableDictionary *json = obj.JSON;
+  XCTAssertNotNil(json);
+
+  GTLRTestingObject *obj2 = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertEqualObjects(obj2.child.child.aStr, @"froglegs");
+
+  // ensure that the internal JSON tree is built even when adding to an
+  // object of ambiguous type
+  obj = [GTLRTestingObject object];
+
+  obj2 = [GTLRTestingObject object];
+  obj.anything = obj2;
+  obj2.child = [GTLRTestingObject object];
+  obj2.child.aStr = @"froglegs";
+
+  json = obj.JSON;
+  XCTAssertNotNil(json);
+}
+
+- (void)testArraySubObjectSupport {
+
+  // test array of sub (child) objects
+
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  XCTAssertNotNil(obj);
+  GTLRTestingObject *child = [GTLRTestingObject object];
+  XCTAssertNotNil(child);
+  GTLRTestingObject *child2 = [GTLRTestingObject object];
+  XCTAssertNotNil(child2);
+
+  child.aStr = @"I'm a kid";
+  child2.aStr = @"I'm a any kid";
+  obj.arrayKids = @[ child ];
+  obj.arrayAnything = @[ child2 ];
+
+  NSString *jsonStr = obj.JSONString;
+  XCTAssertNotNil(jsonStr);
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingObject *obj2 = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj2);
+
+  // object matches (including kids)
+  XCTAssertEqualObjects(obj, obj2);
+  XCTAssertEqualObjects(obj.JSON, obj2.JSON);
+
+  // new object also has kids
+  XCTAssertNotNil(obj2.arrayKids);
+  XCTAssertNotNil(obj2.arrayAnything);
+
+  // kids match and wasn't same pointer
+  XCTAssertTrue(obj2.arrayKids[0] != child);
+  XCTAssertEqualObjects(obj2.arrayKids[0], child);
+  XCTAssertTrue(obj2.arrayAnything[0] != child2);
+  XCTAssertEqualObjects(obj2.arrayAnything[0], child2);
+}
+
+- (void)testPropertyNameSubStrings {
+  // We had a bug where if there were two properties, one a proper substring
+  // of the other, we'd match wrong.  This test makes sure we don't regress
+  // that.
+
+  GTLRTestingObjectWithPrimeKey *obj = [GTLRTestingObjectWithPrimeKey object];
+
+  // Test lookup for a setter.
+
+  XCTAssertNotNil(obj);
+  obj.str2 = @"for base class";
+  obj.str2Prime = @"for subclass";
+  NSDictionary *expected = [@{ @"str2" : @"for base class",
+                               @"str2Prime" : @"for subclass" } mutableCopy];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // Test lookup for a getter.
+
+  XCTAssertEqualObjects(obj.str2, @"for base class");
+  XCTAssertEqualObjects(obj.str2Prime, @"for subclass");
+}
+
+- (void)testSetArrayOfArrayOfDotDotDot {
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  XCTAssertNotNil(obj);
+  NSMutableDictionary *expected = [NSMutableDictionary dictionary];
+
+  // test setting arrays of arrays of...
+
+  obj.arrayString = @[ @[ @"foo" ] ];
+  expected[@"arrayString"] = @[ @[ @"foo" ] ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  obj.arrayNumber = @[ @[ @[ @987 ] ] ];
+  expected[@"arrayNumber"] = @[ @[ @[ @987 ] ] ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  obj.arrayBool = @[ @[ @[ @YES ] ] ];
+  expected[@"arrayBool"] = @[ @[ @[ @YES ] ] ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  obj.arrayDate = @[ @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ] ];
+  expected[@"arrayDate"] = @[ @[ dateStr ] ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  GTLRTestingObject *child = [GTLRTestingObject object];
+  XCTAssertNotNil(child);
+  child.aStr = @"I'm a kid";
+
+  obj.arrayKids = @[ @[ child ] ];
+  expected[@"arrayKids"] = @[ @[ child.JSON ] ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // Array of anything as a string.
+  obj.arrayAnything = @[ @[ @"a string" ] ];
+  expected[@"arrayAnything"] = @[ @[ @"a string" ] ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  GTLRTestingObject *child2 = [GTLRTestingObject object];
+  XCTAssertNotNil(child2);
+  child2.aStr = @"I'm a any kid";
+
+  // Array of anything as an object.
+  obj.arrayAnything = @[ @[ child2 ] ];
+  expected[@"arrayAnything"] = @[ @[ child2.JSON ] ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+}
+
+- (void)testGetArrayOfArrayOfDotDotDot {
+  NSString * const jsonStr =
+    @"{\"arrayString\" : [[\"foo\"]],"
+    @" \"arrayNumber\" : [[[987]]],"
+    @" \"arrayBool\" : [[[true]]],"
+    @" \"arrayDate\" : [[\"2011-01-14T15:00:00Z\"]],"
+    @" \"arrayKids\" : [[{\"a_str\" : \"I'm a kid\"}]],"
+    @" \"arrayAnything\" : [[\"a string\"]]"
+    @"}";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNil(err, @"got error parsing: %@", err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingObject *obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  // test getting arrays of arrays of...
+
+  XCTAssertEqualObjects(obj.arrayString, @[ @[ @"foo" ] ],
+                        @"array of array of string");
+
+  XCTAssertEqualObjects(obj.arrayNumber, @[ @[ @[ @987 ] ] ],
+                        @"array of array of array of number");
+
+  XCTAssertEqualObjects(obj.arrayBool, @[ @[ @[ @YES ] ] ],
+                        @"array of array of array of number(bool)");
+
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  XCTAssertEqualObjects(obj.arrayDate,
+                       @[ @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ] ],
+                       @"array of array of datetime");
+
+  // Kid in array of array.
+  NSArray *aArray = obj.arrayKids;
+  XCTAssertEqual(aArray.count, (NSUInteger)1);
+  aArray = aArray[0];
+  XCTAssertEqual(aArray.count, (NSUInteger)1);
+  GTLRTestingObject *child = aArray[0];
+  XCTAssertEqualObjects(child.aStr, @"I'm a kid");
+
+  // Anything (string) in array of array.
+  XCTAssertEqualObjects(obj.arrayAnything,
+                       @[ @[ @"a string" ] ],
+                       @"array of array of anything as string");
+
+  // anything (kid) in array of array.
+
+  NSString * const jsonStr2 =
+    @"{\"arrayAnything\" : [[{\"a_str\" : \"I'm a any kid\"}]]}";
+  err = nil;
+  json = [self objectWithString:jsonStr2 error:&err];
+  XCTAssertNil(err, @"got error parsing: %@", err);
+  XCTAssertNotNil(json);
+  obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  aArray = obj.arrayAnything;
+  XCTAssertEqual(aArray.count, (NSUInteger)1);
+  aArray = aArray[0];
+  XCTAssertEqual(aArray.count, (NSUInteger)1);
+  // Test doesn't use kinds, so this comes in as a generic object.
+  GTLRObject *anyChild = aArray[0];
+  XCTAssertEqualObjects([anyChild additionalPropertyForName:@"a_str"],
+                       @"I'm a any kid");
+}
+
+- (void)testInitFoo {
+
+  // Set/Get it.
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  XCTAssertNotNil(obj);
+  obj.initFoo = @7;
+  NSDictionary *expected = @{ @"initFoo" : @7 };
+  XCTAssertEqualObjects(obj.JSON, expected);
+  XCTAssertEqualObjects(obj.initFoo, @7);
+
+  // Decode from string and get it.
+  NSString * const jsonStr = @"{\"initFoo\":1234}";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+  XCTAssertEqualObjects(obj.initFoo, @1234);
+}
+
+- (void)testJSONString {
+  // Test an obect with nil JSON.
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  XCTAssertEqualObjects(obj.JSONString, @"");
+
+  // Test an object with valid JSON.
+  obj.aStr = @"catbird";
+  NSString *expected = @"{\n  \"a_str\" : \"catbird\"\n}";
+  XCTAssertEqualObjects(obj.JSONString, expected);
+}
+
+#pragma mark Additional Properties
+
+- (void)testSetAdditionalPropertiesBasicTypes {
+  GTLRTestingAdditionalPropertiesObject *obj =
+    [GTLRTestingAdditionalPropertiesObject object];
+  XCTAssertNotNil(obj);
+  NSMutableDictionary *expected;
+
+  // test setting basic types
+
+  // string
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[NSString class]];
+  [obj setAdditionalProperty:@"foo bar" forName:@"ap1"];
+  expected = [@{ @"ap1" : @"foo bar" } mutableCopy];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // number
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[NSNumber class]];
+  [obj setAdditionalProperty:@987
+                     forName:@"ap2"];
+  expected[@"ap2"] = @987;
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // date
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRDateTime class]];
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  [obj setAdditionalProperty:[GTLRDateTime dateTimeWithRFC3339String:dateStr]
+                     forName:@"ap3"];
+  expected[@"ap3"] = dateStr;
+  XCTAssertEqualObjects(obj.JSON, expected);
+}
+
+- (void)testGetAdditionalPropertiesBasicTypes {
+  NSString * const jsonStr =
+    @"{\"ap3\":\"2011-01-14T15:00:00Z\",\"ap2\":1234,\"ap1\":\"foo bar\"}";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingAdditionalPropertiesObject *obj =
+      [GTLRTestingAdditionalPropertiesObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  // test getting basic types
+
+  // string
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[NSString class]];
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"ap1"],
+                       @"foo bar");
+
+  // number
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[NSNumber class]];
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"ap2"],
+                       @1234);
+
+  // date
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRDateTime class]];
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"ap3"],
+                        [GTLRDateTime dateTimeWithRFC3339String:dateStr]);
+}
+
+- (void)testSetAdditionalPropertiesObject {
+  GTLRTestingAdditionalPropertiesObject *obj =
+    [GTLRTestingAdditionalPropertiesObject object];
+  XCTAssertNotNil(obj);
+  NSMutableDictionary *expected;
+
+  GTLRTestingObject *child = [GTLRTestingObject object];
+  XCTAssertNotNil(child);
+
+  child.aStr = @"I'm a kid";
+
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRTestingObject class]];
+  [obj setAdditionalProperty:child forName:@"aKid"];
+  expected = [@{ @"aKid" : child.JSON } mutableCopy];
+  XCTAssertEqualObjects(obj.JSON, expected);
+}
+
+- (void)testGetAdditionalPropertiesObject {
+  NSString * const jsonStr =
+    @"{\"aKid\":{ \"a_str\": \"I'm a kid\" } }";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingAdditionalPropertiesObject *obj =
+      [GTLRTestingAdditionalPropertiesObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRTestingObject class]];
+  GTLRTestingObject *child = [obj additionalPropertyForName:@"aKid"];
+  XCTAssertNotNil(child);
+  XCTAssertTrue([child isKindOfClass:[GTLRTestingObject class]]);
+  XCTAssertEqualObjects(child.aStr, @"I'm a kid");
+}
+
+- (void)testSetAdditionalPropertiesAnything {
+  GTLRTestingAdditionalPropertiesObject *obj =
+    [GTLRTestingAdditionalPropertiesObject object];
+  XCTAssertNotNil(obj);
+  NSMutableDictionary *expected;
+
+  // test setting when it can be anything
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[NSObject class]];
+
+  // string
+  [obj setAdditionalProperty:@"foo bar" forName:@"ap1"];
+  expected = [@{ @"ap1": @"foo bar" } mutableCopy];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // number
+  [obj setAdditionalProperty:@987
+                     forName:@"ap2"];
+  expected[@"ap2"] = @987;
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // date
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  [obj setAdditionalProperty:[GTLRDateTime dateTimeWithRFC3339String:dateStr]
+                     forName:@"ap3"];
+  expected[@"ap3"] = dateStr;
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // object
+  GTLRTestingObject *child = [GTLRTestingObject object];
+  XCTAssertNotNil(child);
+
+  child.aStr = @"I'm a kid";
+
+  [obj setAdditionalProperty:child forName:@"aKid"];
+  expected[@"aKid"] = child.JSON;
+  XCTAssertEqualObjects(obj.JSON, expected);
+}
+
+- (void)testGetAdditionalPropertiesAnything {
+  NSString * const jsonStr =
+    @"{\"ap3\":\"2011-01-14T15:00:00Z\",\"ap2\":1234,\"ap1\":\"foo bar\", \"aKid\":{ \"a_str\": \"I'm a kid\" } }";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingAdditionalPropertiesObject *obj =
+      [GTLRTestingAdditionalPropertiesObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  // test getting when it can be anything
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[NSObject class]];
+
+  // string
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"ap1"],
+                       @"foo bar");
+
+  // number
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"ap2"],
+                       @1234);
+
+  // date - just get the string back, nothing tells it to conver to a date.
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"ap3"],
+                       dateStr);
+
+  GTLRObject *child = [obj additionalPropertyForName:@"aKid"];
+  XCTAssertNotNil(child);
+  XCTAssertTrue([child isMemberOfClass:[GTLRObject class]]);
+  XCTAssertEqualObjects([child additionalPropertyForName:@"a_str"],
+                       @"I'm a kid");
+}
+
+- (void)testSetAdditionalPropertiesArraysOfBasicTypes {
+  GTLRTestingAdditionalPropertiesObject *obj =
+    [GTLRTestingAdditionalPropertiesObject object];
+  XCTAssertNotNil(obj);
+  NSMutableDictionary *expected;
+
+  // test setting arrays of basic types
+
+  // string
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[NSString class]];
+  [obj setAdditionalProperty:@[ @"foo bar" ]
+                     forName:@"apArray1"];
+  expected = [@{ @"apArray1": @[ @"foo bar" ] } mutableCopy];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // number
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[NSNumber class]];
+  [obj setAdditionalProperty:@[ @987 ]
+                     forName:@"apArray2"];
+  expected[@"apArray2"] = @[ @987 ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // date
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRDateTime class]];
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  [obj setAdditionalProperty:@[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ]
+                     forName:@"apArray3"];
+  expected[@"apArray3"] = @[ dateStr ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+}
+
+- (void)testGetAdditionalPropertiesArraysOfBasicTypes {
+  NSString * const jsonStr =
+    @"{\"apArray3\":[\"2011-01-14T15:00:00Z\"],\"apArray2\":[1234],\"apArray1\":[\"foo bar\"]}";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingAdditionalPropertiesObject *obj =
+      [GTLRTestingAdditionalPropertiesObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  // test getting arrays of basic types
+
+  // string
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[NSString class]];
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"apArray1"],
+                       @[ @"foo bar" ]);
+
+  // number
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[NSNumber class]];
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"apArray2"],
+                       @[ @1234 ]);
+
+  // date
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRDateTime class]];
+  NSString * const dateStr = @"2011-01-14T15:00:00Z";
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"apArray3"],
+                       @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ]);
+}
+
+- (void)testSetAdditionalPropertiesArraysOfObject {
+  GTLRTestingAdditionalPropertiesObject *obj =
+    [GTLRTestingAdditionalPropertiesObject object];
+  XCTAssertNotNil(obj);
+  NSMutableDictionary *expected;
+
+  GTLRTestingObject *child = [GTLRTestingObject object];
+  XCTAssertNotNil(child);
+
+  child.aStr = @"I'm a kid";
+
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRTestingObject class]];
+  [obj setAdditionalProperty:@[ child ]
+                     forName:@"aKidArray"];
+  expected = [@{ @"aKidArray": @[ child.JSON ] } mutableCopy];
+  XCTAssertEqualObjects(obj.JSON, expected);
+}
+
+- (void)testGetAdditionalPropertiesArraysOfObject {
+  NSString * const jsonStr =
+    @"{\"aKidArray\":[ { \"a_str\": \"I'm a kid\" } ] }";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingAdditionalPropertiesObject *obj =
+      [GTLRTestingAdditionalPropertiesObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRTestingObject class]];
+  NSArray *kidArray = [obj additionalPropertyForName:@"aKidArray"];
+  XCTAssertNotNil(kidArray);
+  XCTAssertTrue([kidArray isKindOfClass:[NSArray class]]);
+  XCTAssertEqual(kidArray.count, (NSUInteger)1);
+
+  GTLRTestingObject *child = kidArray[0];
+  XCTAssertNotNil(child);
+  XCTAssertTrue([child isKindOfClass:[GTLRTestingObject class]]);
+  XCTAssertEqualObjects(child.aStr, @"I'm a kid");
+}
+
+- (void)testSetAdditionalPropertiesArraysOfArrayOfDotDotDot {
+  GTLRTestingAdditionalPropertiesObject *obj =
+    [GTLRTestingAdditionalPropertiesObject object];
+  XCTAssertNotNil(obj);
+  NSMutableDictionary *expected;
+
+  // test setting arrays of arrays of...
+
+  // NOTE: We only test with strings, because at this point the plumbing no
+  // matter what type the property is.
+
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[NSString class]];
+
+  [obj setAdditionalProperty:@[ @[ @"foo" ] ]
+                     forName:@"apArray1"];
+  expected = [@{ @"apArray1": @[ @[ @"foo" ] ] } mutableCopy];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  [obj setAdditionalProperty:@[ @[ @[ @"bar" ] ] ]
+                     forName:@"apArray2"];
+  expected[@"apArray2"] = @[ @[ @[ @"bar" ] ] ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+}
+
+- (void)testGetAdditionalPropertiesArraysOfArraysOfDotDotDot {
+  NSString * const jsonStr =
+    @"{\"apArray2\":[[[\"bar\"]]],\"apArray1\":[[\"foo\"]]}";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingAdditionalPropertiesObject *obj =
+      [GTLRTestingAdditionalPropertiesObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  // test getting arrays of arrays of...
+
+  // NOTE: We only test with strings, because at this point the plumbing no
+  // matter what type the property is.
+
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[NSString class]];
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"apArray1"],
+                       @[ @[ @"foo" ] ],
+                       @"array of array of string");
+
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"apArray2"],
+                       @[ @[ @[ @"bar" ] ] ],
+                       @"array of array of array of string");
+}
+
+#pragma mark Partial
+
+- (GTLRTestingObject *)objectForPartialTests {
+  // This helper method returns a new instance of a reasonably complex
+  // object for testing fields and patch
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+
+  // Object hierarchy
+  obj.aStr = @"green";
+  obj.aNum = @123;
+  obj.aDate = [GTLRDateTime dateTimeWithRFC3339String:@"2011-05-04T23:28:20.888Z"];
+  // Nested child object
+  obj.child = [GTLRTestingObject object];
+  obj.child.child = [GTLRTestingObject object];
+  obj.child.child.aStr = @"blue-gold";
+  // Array of objects
+  GTLRTestingObject *a1 = [GTLRTestingObject object];
+  a1.aStr = @"yellow-gold-aqua";
+  a1.child = [GTLRTestingObject object];
+  a1.child.str2 = @"brown";
+  a1.str2 = @"yellow-gold-indigo";
+  GTLRTestingObject *a2 = [GTLRTestingObject object];
+  a2.aStr = @"yellow-gold";
+  obj.child.child.arrayKids = @[ a1, a2 ];
+  // Arrays of basic types
+  obj.child.child.arrayString = @[ @"cat", @"dog" ];
+  obj.child.child.arrayNumber = @[ @111, @222 ];
+  return obj;
+}
+
+- (void)testFieldsDescription {
+  // Empty object
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  NSString *fields = [obj fieldsDescription];
+  XCTAssertEqualObjects(fields, @"");
+
+  // Object hierarchy
+  obj = [self objectForPartialTests];
+
+  fields = [obj fieldsDescription];
+  NSString *expected = @"a.num,a_date,a_str,"
+    @"child/child/a_str,"
+    @"child/child/arrayKids(a_str,child/str2,str2),"
+    @"child/child/arrayNumber,"
+    @"child/child/arrayString";
+  XCTAssertEqualObjects(fields, expected);
+}
+
+- (void)testPatchObjectGeneration {
+  GTLRTestingObject *obj1 = [GTLRTestingObject object];
+  GTLRTestingObject *obj2 = [GTLRTestingObject object];
+
+  GTLRTestingObject *resultObj = [obj1 patchObjectFromOriginal:obj2];
+  XCTAssertNil(resultObj);
+
+  // It might be cleaner to test against expected JSON strings rather than
+  // dictionaries, but SBJSON by default doesn't sort keys so the
+  // JSON strings have keys in random order.
+
+  // Compare the testing object to an empty object; everything should be
+  // marked for deletion (with NSNull)
+  obj1 = [self objectForPartialTests];
+  obj2 = [GTLRTestingObject object];
+  resultObj = [obj2 patchObjectFromOriginal:obj1];
+
+  NSDictionary *expected = @{ @"a_str" : [NSNull null],
+                              @"a_date" : [NSNull null],
+                              @"a.num" : [NSNull null],
+                              @"child" : [NSNull null] };
+  XCTAssertEqualObjects(resultObj.JSON, expected);
+
+  // Reverse: compare an empty object to the testing object,
+  // and everything should be added
+  resultObj = [obj1 patchObjectFromOriginal:obj2];
+
+  expected = obj1.JSON;
+  XCTAssertEqualObjects(resultObj.JSON, expected);
+
+  // Equal objects should return a nil result
+  obj1 = [self objectForPartialTests];
+  obj2 = [self objectForPartialTests];
+  resultObj = [obj1 patchObjectFromOriginal:obj2];
+  XCTAssertNil(resultObj);
+
+  // Selectively add, change, and remove fields
+  obj1 = [self objectForPartialTests];
+  obj2 = [self objectForPartialTests];
+
+  obj1.aNum = @9.5f;
+  obj1.aStr = nil;
+  obj1.str2 = @"raven";
+  resultObj = [obj1 patchObjectFromOriginal:obj2];
+  expected = @{ @"a.num" : @9.5f,
+                @"a_str" : [NSNull null],
+                @"str2" : @"raven" };
+
+  XCTAssertEqualObjects(resultObj.JSON, expected);
+
+  // Reverse the comparison direction
+  resultObj = [obj2 patchObjectFromOriginal:obj1];
+  expected = @{ @"a.num" : @123.0f,
+                @"a_str" : @"green",
+                @"str2" : [NSNull null] };
+  XCTAssertEqualObjects(resultObj.JSON, expected);
+
+  // Change the array of strings; we'll expect the patch to be only the new
+  // array
+  obj1 = [self objectForPartialTests];
+  obj2 = [self objectForPartialTests];
+
+  obj1.child.child.arrayString = @[ @"monkey" ];
+
+  resultObj = [obj1 patchObjectFromOriginal:obj2];
+
+  GTLRTestingObject *expectedObj = [GTLRTestingObject object];
+  expectedObj.child = [GTLRTestingObject object];
+  expectedObj.child.child = [GTLRTestingObject object];
+  expectedObj.child.child.arrayString = @[ @"monkey" ];
+
+  XCTAssertEqualObjects(resultObj.JSON, expectedObj.JSON);
+
+  // Change the array of child objects by omitting the second child;
+  // the result should be only an array with the first child
+  obj1 = [self objectForPartialTests];
+  obj2 = [self objectForPartialTests];
+
+  GTLRObject *firstKid = obj1.child.child.arrayKids[0];
+  obj1.child.child.arrayKids = @[ firstKid ];
+
+  resultObj = [obj1 patchObjectFromOriginal:obj2];
+
+  expectedObj = [GTLRTestingObject object];
+  expectedObj.child = [GTLRTestingObject object];
+  expectedObj.child.child = [GTLRTestingObject object];
+  expectedObj.child.child.arrayKids = @[ firstKid ];
+
+  XCTAssertEqualObjects(resultObj.JSON, expectedObj.JSON);
+}
+
+- (void)testNullPatchValues {
+  // Ensure that we can set and get nulls for use with patch
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  obj.aStr = [GTLRObject nullValue];
+  obj.str2 = [GTLRObject nullValue];
+  obj.aNum = [GTLRObject nullValue];
+  obj.aDate = [GTLRObject nullValue];
+  obj.child = [GTLRObject nullValue];
+  obj.arrayString = [GTLRObject nullValue];
+  obj.arrayNumber = [GTLRObject nullValue];
+  obj.arrayDate = [GTLRObject nullValue];
+  obj.arrayKids = [GTLRObject nullValue];
+  obj.arrayAnything = [GTLRObject nullValue];
+
+  XCTAssertEqualObjects(obj.aStr, [NSNull null]);
+  XCTAssertEqualObjects(obj.str2, [NSNull null]);
+  XCTAssertEqualObjects(obj.aNum, [NSNull null]);
+  XCTAssertEqualObjects(obj.aDate, [NSNull null]);
+  XCTAssertEqualObjects(obj.child, [NSNull null]);
+  XCTAssertEqualObjects(obj.arrayString, [NSNull null]);
+  XCTAssertEqualObjects(obj.arrayNumber, [NSNull null]);
+  XCTAssertEqualObjects(obj.arrayDate, [NSNull null]);
+  XCTAssertEqualObjects(obj.arrayKids, [NSNull null]);
+  XCTAssertEqualObjects(obj.arrayAnything, [NSNull null]);
+
+  NSError *error = nil;
+  NSString *jsonStr = obj.JSONString;
+
+  XCTAssertNil(error);
+  NSMutableDictionary *jsonDict = [self objectWithString:jsonStr
+                                                   error:&error];
+  XCTAssertNil(error);
+
+  GTLRTestingObject *obj2 = [GTLRTestingObject objectWithJSON:jsonDict];
+
+  XCTAssertEqualObjects(obj2.aStr, [NSNull null]);
+  XCTAssertEqualObjects(obj2.str2, [NSNull null]);
+  XCTAssertEqualObjects(obj2.aNum, [NSNull null]);
+  XCTAssertEqualObjects(obj2.aDate, [NSNull null]);
+  XCTAssertEqualObjects(obj2.child, [NSNull null]);
+  XCTAssertEqualObjects(obj2.arrayString, [NSNull null]);
+  XCTAssertEqualObjects(obj2.arrayNumber, [NSNull null]);
+  XCTAssertEqualObjects(obj2.arrayDate, [NSNull null]);
+  XCTAssertEqualObjects(obj2.arrayKids, [NSNull null]);
+  XCTAssertEqualObjects(obj2.arrayAnything, [NSNull null]);
+}
+
+#pragma mark GTLRCollectionObject
+
+- (void)testCollection {
+  GTLRTestingCollection *collection = [GTLRTestingCollection object];
+
+  // Test enumeration and subscripts on empty collection.
+  for (id foundItem in collection) {
+    XCTFail(@"Unexpected: %@", foundItem);
+  }
+  XCTAssertThrows(collection[0]);
+
+  // Put two items in the collection.
+  GTLRTestingObject *obj0 = [GTLRTestingObject object];
+  obj0.aStr = @"aaa";
+  obj0.identifier = @"obj0";
+  GTLRTestingObject *obj1 = [GTLRTestingObject object];
+  obj1.aStr = @"bbb";
+  obj1.identifier = @"obj1";
+  NSArray *items = @[ obj0, obj1 ];
+
+  collection.items = [items copy];
+
+  // Test fast enumeration.
+  NSUInteger counter = 0;
+  for (id foundItem in collection) {
+    XCTAssertEqualObjects(foundItem, items[counter]);
+    counter++;
+  }
+  XCTAssertEqual(counter, (NSUInteger)2);
+
+  // Test indexed subscripts.
+  XCTAssertEqualObjects(collection[0], items[0]);
+  XCTAssertEqualObjects(collection[1], items[1]);
+  XCTAssertThrows(collection[3]);
+}
+
+#pragma mark GTLRResultArray Parsing
+
+- (void)testResultArrayParsing {
+
+  // Of Object
+
+  NSString * const jsonStr =
+    @"[ {\"a_str\":\"obj 1\"}, {\"a_str\":\"obj 2\"} ]";
+  NSError *err = nil;
+  NSMutableDictionary *json = [self objectWithString:jsonStr
+                                               error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingResultArray *arrayResult =
+    [GTLRTestingResultArray objectWithJSON:json];
+  XCTAssertTrue([arrayResult isKindOfClass:[GTLRTestingResultArray class]]);
+  NSArray *items = arrayResult.items;
+  XCTAssertEqual(items.count, (NSUInteger)2);
+
+  GTLRTestingObject *obj = items[0];
+  XCTAssertTrue([obj isKindOfClass:[GTLRTestingObject class]]);
+  XCTAssertEqualObjects(obj.aStr, @"obj 1");
+
+  obj = items[1];
+  XCTAssertTrue([obj isKindOfClass:[GTLRTestingObject class]]);
+  XCTAssertEqualObjects(obj.aStr, @"obj 2");
+
+  // Of String
+
+  NSString * const jsonStr2 = @"[ \"str 1\", \"str 2\" ]";
+  err = nil;
+  json = [self objectWithString:jsonStr2 error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  GTLRTestingResultArray2 *arrayResult2 =
+    [GTLRTestingResultArray2 objectWithJSON:json];
+  XCTAssertTrue([arrayResult2 isKindOfClass:[GTLRTestingResultArray2 class]]);
+  items = arrayResult2.items;
+  XCTAssertEqual(items.count, (NSUInteger)2);
+
+  NSString *str = items[0];
+  XCTAssertTrue([str isKindOfClass:[NSString class]]);
+  XCTAssertEqualObjects(str, @"str 1");
+
+  str = items[1];
+  XCTAssertTrue([str isKindOfClass:[NSString class]]);
+  XCTAssertEqualObjects(str, @"str 2");
+}
+
+@end

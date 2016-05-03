@@ -1,0 +1,8 @@
+Source/GTLRCore.xcodeproj/project.xcworkspace/xcuserdata
+Source/GTLRCore.xcodeproj/xcuserdata
+Source/Tools/ServiceGenerator/ServiceGenerator.xcodeproj/project.xcworkspace/xcuserdata
+Source/Tools/ServiceGenerator/ServiceGenerator.xcodeproj/xcuserdata
+Source/Tools/ServiceGenerator/build
+
+# Any place they exist.
+.DS_Store
