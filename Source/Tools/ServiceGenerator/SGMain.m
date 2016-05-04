@@ -69,7 +69,7 @@ static ArgInfo optionalFlags[] = {
     " provide additional header pairs."
   },
   {
-    "--formattedName SERVICE:VERSION=NAME",
+    "--formattedName SERVICE[:VERSION]=NAME",
     "Causes the given SERVICE:VERSION pair to override its service name in"
     " files, classes, etc. with NAME.  If :VERSION is omitted"
     " the override is for any version of the service.  Can be used repeatedly"
