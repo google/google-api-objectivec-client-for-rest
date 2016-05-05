@@ -502,19 +502,23 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
   if (uploadParams.shouldUploadWithSingleRequest) {
     NSData *uploadData = uploadParams.data;
+    NSString *uploadMIMEType = uploadParams.MIMEType;
     if (!uploadData) {
       GTLR_DEBUG_ASSERT(0, @"Uploading with a single request requires bytes to upload as NSData");
     } else {
       if (uploadParams.shouldSendUploadOnly) {
-        contentType = uploadParams.MIMEType;
-        dataToPost = uploadParams.data;
+        contentType = uploadMIMEType;
+        dataToPost = uploadData;
         contentLength = @(dataToPost.length).stringValue;
       } else {
         GTMMIMEDocument *mimeDoc = [GTMMIMEDocument MIMEDocument];
-        [mimeDoc addPartWithHeaders:@{ @"Content-Type" : contentType }
-                               body:dataToPost];
-        [mimeDoc addPartWithHeaders:@{ @"Content-Type" : uploadParams.MIMEType }
-                               body:uploadParams.data];
+        if (dataToPost) {
+          // Include the object as metadata with the upload.
+          [mimeDoc addPartWithHeaders:@{ @"Content-Type" : contentType }
+                                 body:dataToPost];
+        }
+        [mimeDoc addPartWithHeaders:@{ @"Content-Type" : uploadMIMEType }
+                               body:uploadData];
 
         dispatch_data_t mimeDispatchData;
         unsigned long long mimeLength;
