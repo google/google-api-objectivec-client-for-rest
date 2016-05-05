@@ -121,6 +121,10 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 @property(nonatomic, assign) UIBackgroundTaskIdentifier backgroundTaskIdentifier;
 #endif  // GTM_BACKGROUND_TASK_FETCHING
 
+// Dispatch group enabling waitForTicket: to delay until async callbacks and notifications
+// related to the ticket have completed.
+@property(nonatomic, readonly) dispatch_group_t callbackGroup;
+
 // startBackgroundTask and endBackgroundTask do nothing if !GTM_BACKGROUND_TASK_FETCHING
 - (void)startBackgroundTask;
 - (void)endBackgroundTask;
@@ -128,6 +132,10 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 - (void)notifyStarting:(BOOL)isStarting;
 - (void)releaseTicketCallbacks;
 
+// Posts a notification on the main queue using the ticket's dispatch group.
+- (void)postNotificationOnMainThreadWithName:(NSString *)name
+                                      object:(id)object
+                                    userInfo:(NSDictionary *)userInfo;
 @end
 
 #if !defined(GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT)
@@ -611,7 +619,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
       if (!retryBlock) {
         response(suggestedWillRetry);
       } else {
-        dispatch_async(ticket.callbackQueue, ^{
+        dispatch_group_async(ticket.callbackGroup, ticket.callbackQueue, ^{
           if (ticket.cancelled) {
             response(NO);
             return;
@@ -1019,7 +1027,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
   GTLRServiceUploadProgressBlock block = ticket.uploadProgressBlock;
   if (block) {
-    dispatch_async(ticket.callbackQueue, ^{
+    dispatch_group_async(ticket.callbackGroup, ticket.callbackQueue, ^{
       if (ticket.cancelled) return;
 
       block(ticket, numReadSoFar, total);
@@ -1044,9 +1052,9 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                      completionHandler:(GTLRServiceCompletionHandler)completionHandler {
   GTLR_ASSERT_CURRENT_QUEUE_DEBUG(self.parseQueue);
 
-  [[self class] postNotificationOnMainThreadWithName:kGTLRServiceTicketParsingStartedNotification
-                                              object:ticket
-                                            userInfo:nil];
+  [ticket postNotificationOnMainThreadWithName:kGTLRServiceTicketParsingStartedNotification
+                                        object:ticket
+                                      userInfo:nil];
 
   // For unit tests to cancel during parsing, we need a synchronous notification posted.
   // Because this notification is intended only for unit tests, there is no public symbol
@@ -1198,9 +1206,9 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
   if (hasSentParsingStartNotification) {
     // we want to always balance the start and stop notifications
-    [[self class] postNotificationOnMainThreadWithName:kGTLRServiceTicketParsingStoppedNotification
-                                                object:ticket
-                                              userInfo:nil];
+    [ticket postNotificationOnMainThreadWithName:kGTLRServiceTicketParsingStoppedNotification
+                                          object:ticket
+                                        userInfo:nil];
   }
 
   BOOL shouldCallCallbacks = YES;
@@ -1284,7 +1292,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   if (!shouldCallCallbacks) {
     // More fetches are happening.
   } else {
-    dispatch_async(ticket.callbackQueue, ^{
+    dispatch_group_async(ticket.callbackGroup, ticket.callbackQueue, ^{
       // First, call query-specific callback blocks.  We do this before the
       // fetch callback to let applications do any final clean-up (or update
       // their UI) in the fetch callback.
@@ -1313,7 +1321,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
       [ticket releaseTicketCallbacks];
       [ticket endBackgroundTask];
 
-      // Even if the ticket has been canceled, it should notify that it's stopped.
+      // Even if the ticket has been cancelled, it should notify that it's stopped.
       [ticket notifyStarting:NO];
 
       // Release query callback blocks.
@@ -1601,7 +1609,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   ticket.executingQuery = originalQuery;
 
   testBlock(ticket, ^(id testObject, NSError *testError) {
-    dispatch_async(ticket.callbackQueue, ^{
+    dispatch_group_async(ticket.callbackGroup, ticket.callbackQueue, ^{
       if (testError) {
         // During simulation, we invoke any retry block, but ignore the result.
         const BOOL willRetry = NO;
@@ -1626,12 +1634,12 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                                    deliveredBytes:(unsigned long long)totalSentSoFar
                                        totalBytes:(unsigned long long)uploadLength];
           }
-          [[self class] postNotificationOnMainThreadWithName:kGTLRServiceTicketParsingStartedNotification
-                                                      object:ticket
-                                                    userInfo:nil];
-          [[self class] postNotificationOnMainThreadWithName:kGTLRServiceTicketParsingStoppedNotification
-                                                      object:ticket
-                                                    userInfo:nil];
+          [ticket postNotificationOnMainThreadWithName:kGTLRServiceTicketParsingStartedNotification
+                                                object:ticket
+                                              userInfo:nil];
+          [ticket postNotificationOnMainThreadWithName:kGTLRServiceTicketParsingStoppedNotification
+                                                object:ticket
+                                              userInfo:nil];
         }
       }
 
@@ -1661,7 +1669,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
       [ticket notifyStarting:NO];
 
       [originalQuery invalidateQuery];
-    });  // dispatch_async
+    });  // dispatch_group_async
   });  // testBlock
 }
 
@@ -2117,17 +2125,6 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   [self setExactUserAgent:str];
 }
 
-+ (void)postNotificationOnMainThreadWithName:(NSString *)name
-                                      object:(id)object
-                                    userInfo:(NSDictionary *)userInfo {
-  // We always post these async to ensure they remain in order.
-  dispatch_async(dispatch_get_main_queue(), ^{
-    [[NSNotificationCenter defaultCenter] postNotificationName:name
-                                                        object:object
-                                                      userInfo:userInfo];
-  });
-}
-
 #pragma mark -
 
 + (NSDictionary<NSString *, Class> *)kindStringToClassMap {
@@ -2245,17 +2242,32 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
 - (BOOL)waitForTicket:(GTLRServiceTicket *)ticket
               timeout:(NSTimeInterval)timeoutInSeconds {
-  // Loop until the fetch completes with an object or an error,
-  // or until the timeout has expired.
+  // Loop until the fetch completes or is cancelled, or until the timeout has expired.
   NSDate *giveUpDate = [NSDate dateWithTimeIntervalSinceNow:timeoutInSeconds];
 
-  while (!ticket.hasCalledCallback && giveUpDate.timeIntervalSinceNow > 0) {
+  BOOL hasTimedOut = NO;
+  while (1) {
+    int64_t delta = (int64_t)(100 * NSEC_PER_MSEC);  // 100 ms
+    BOOL areCallbacksPending =
+      (dispatch_group_wait(ticket.callbackGroup, dispatch_time(DISPATCH_TIME_NOW, delta)) != 0);
+
+    if (!areCallbacksPending && (ticket.hasCalledCallback || ticket.cancelled)) break;
+
+    hasTimedOut = (giveUpDate.timeIntervalSinceNow <= 0);
+    if (hasTimedOut) {
+      if (areCallbacksPending) {
+        // A timeout while waiting for the dispatch group to finish is seriously unexpected.
+        GTLR_DEBUG_LOG(@"%s timed out while waiting for the dispatch group", __PRETTY_FUNCTION__);
+      }
+      break;
+    }
+
     // Run the current run loop 1/1000 of a second to give the networking
     // code a chance to work.
     NSDate *stopDate = [NSDate dateWithTimeIntervalSinceNow:0.001];
     [[NSRunLoop currentRunLoop] runUntilDate:stopDate];
   }
-  return ticket.hasCalledCallback;
+  return !hasTimedOut;
 }
 
 @end
@@ -2271,6 +2283,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
             allowInsecureQueries = _allowInsecureQueries,
             authorizer = _authorizer,
             cancelled = _cancelled,
+            callbackGroup = _callbackGroup,
             callbackQueue = _callbackQueue,
             creationDate = _creationDate,
             executingQuery = _executingQuery,
@@ -2342,6 +2355,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     _testBlock = params.testBlock ?: service.testBlock;
 
     _callbackQueue = ((_Nonnull dispatch_queue_t)params.callbackQueue) ?: service.callbackQueue;
+    _callbackGroup = dispatch_group_create();
 
     _apiKey = [service.APIKey copy];
     _allowInsecureQueries = service.allowInsecureQueries;
@@ -2369,6 +2383,17 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
   return [NSString stringWithFormat:@"%@ %p: {service:%@%@%@ fetcher:%@ }",
     [self class], self, _service, devKeyInfo, authorizerInfo, _objectFetcher];
+}
+
+- (void)postNotificationOnMainThreadWithName:(NSString *)name
+                                      object:(id)object
+                                    userInfo:(NSDictionary *)userInfo {
+  // We always post these async to ensure they remain in order.
+  dispatch_group_async(self.callbackGroup, dispatch_get_main_queue(), ^{
+    [[NSNotificationCenter defaultCenter] postNotificationName:name
+                                                        object:object
+                                                      userInfo:userInfo];
+  });
 }
 
 - (void)pauseUpload {
@@ -2511,9 +2536,9 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     name = kGTLRServiceTicketStoppedNotification;
     _needsStopNotification = NO;
   }
-  [GTLRService postNotificationOnMainThreadWithName:name
-                                             object:self
-                                           userInfo:nil];
+  [self postNotificationOnMainThreadWithName:name
+                                      object:self
+                                    userInfo:nil];
 }
 
 - (id)service {

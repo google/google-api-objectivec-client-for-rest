@@ -571,7 +571,7 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
  *  @param ticket           The ticket being executed.
  *  @param timeoutInSeconds Maximum duration to wait.
  *
- *  @return YES if the ticket completed; NO if the wait timed out.
+ *  @return YES if the ticket completed or was cancelled; NO if the wait timed out.
  */
 - (BOOL)waitForTicket:(GTLRServiceTicket *)ticket
               timeout:(NSTimeInterval)timeoutInSeconds;
