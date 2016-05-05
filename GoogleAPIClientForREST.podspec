@@ -10,16 +10,20 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
       Written by Google, this library is a flexible and efficient Objective-C
       framework for accessing JSON REST APIs.  This is the recommended library
-      for accessing JSON-based Google APIs for iOS and Mac OS X applications.
+      for accessing JSON-based Google APIs for iOS, OS X, and tvOS applications.
 
-      This version can be used with iOS ≥ 7.0 or OS X ≥ 10.9.
+      This version can be used with iOS ≥ 7.0, OS X ≥ 10.9, tvOS ≥ 9.0.
                    DESC
   s.ios.deployment_target = '7.0'
   s.osx.deployment_target = '10.9'
+  s.tvos.deployment_target = '9.0'
 
   s.user_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GTLR_USE_FRAMEWORK_IMPORTS=1' }
   s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT=1' }
-  s.dependency 'GTMSessionFetcher', '~> 1.1'
+
+  # Require atleast 1.1.3 of the SessionFetcher so it has the backgroundTask
+  # Testing support.
+  s.dependency 'GTMSessionFetcher', '~> 1.1', '>= 1.1.3'
 
   s.subspec 'Core' do |sp|
     sp.source_files = 'Source/GTLRDefines.h',
