@@ -11,35 +11,29 @@ readonly BUILD_MODE="$1"
 readonly BUILD_CFG="$2"
 
 # Default to "build", based on BUILD_MODE below.
-XCTOOL_ACTION="build"
+XCODEBUILD_ACTION="build"
 
 # Report then run the build
-RunXCTool() {
-  echo xctool "$@"
-  xctool "$@"
+RunXcodeBuild() {
+  echo xcodebuild "$@"
+  xcodebuild "$@"
 }
-
-CMD_BUILDER=(
-  # Always use -reporter plain to avoid escape codes in output (makes travis
-  # logs easier to read).
-  -reporter plain
-)
 
 case "${BUILD_MODE}" in
   iOSCore)
     CMD_BUILDER+=(
       -project Source/GTLRCore.xcodeproj
       -scheme "iOS Framework and Tests"
-      -sdk iphonesimulator
+      -destination "platform=iOS Simulator,name=iPhone 6,OS=latest"
     )
-    XCTOOL_ACTION="test"
+    XCODEBUILD_ACTION="test"
     ;;
   OSXCore)
     CMD_BUILDER+=(
       -project Source/GTLRCore.xcodeproj
       -scheme "OS X Framework and Tests"
     )
-    XCTOOL_ACTION="test"
+    XCODEBUILD_ACTION="test"
     ;;
   Example_*)
     EXAMPLE_NAME="${BUILD_MODE/Example_/}"
@@ -56,11 +50,11 @@ esac
 
 case "${BUILD_CFG}" in
   Debug|Release)
-    RunXCTool "${CMD_BUILDER[@]}" -configuration "${BUILD_CFG}" "${XCTOOL_ACTION}"
+    RunXcodeBuild "${CMD_BUILDER[@]}" -configuration "${BUILD_CFG}" "${XCODEBUILD_ACTION}"
     ;;
   Both)
-    RunXCTool "${CMD_BUILDER[@]}" -configuration Debug "${XCTOOL_ACTION}"
-    RunXCTool "${CMD_BUILDER[@]}" -configuration Release "${XCTOOL_ACTION}"
+    RunXcodeBuild "${CMD_BUILDER[@]}" -configuration Debug "${XCODEBUILD_ACTION}"
+    RunXcodeBuild "${CMD_BUILDER[@]}" -configuration Release "${XCODEBUILD_ACTION}"
     ;;
   *)
     echo "Unknown BUILD_CFG: ${BUILD_CFG}"
