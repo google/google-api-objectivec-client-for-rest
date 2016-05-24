@@ -375,10 +375,30 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
 #pragma mark JSON to GTLRObject Mapping
 
 /**
+ * Specifies subclasses to be created instead of standard library objects, allowing
+ * an app to add properties and methods to GTLR objects.
+ *
+ * This is just a helper method that sets the service's objectClassResolver:.
+ *
+ * Example:
+ * @code
+ *  NSDictionary *surrogates = @{
+ *    [MyDriveFile class]     : [GTLRDrive_File_Surrogate class],
+ *    [MyDriveFileList class] : [GTLRDrive_FileList_Surrogate class]
+ *  };
+ *  [service setSurrogates:surrogates];
+ * @endcode
+ */
+- (void)setSurrogates:(NSDictionary <Class, Class>*)surrogates;
+
+/**
  *  Used to decide what GTLRObject subclass to make from the received JSON.
  *
- *  Defaults to a resolver that will use any kindStringToClassMap the service
+ *  This defaults to a resolver that will use any kindStringToClassMap the service
  *  provides.
+ *
+ *  To use a standard resolver with a surrogates dictionary, invoke setSurrogates: instead
+ *  of setting this property.
  */
 @property(nonatomic, strong) id<GTLRObjectClassResolver> objectClassResolver;
 

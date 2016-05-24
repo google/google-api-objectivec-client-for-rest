@@ -1721,14 +1721,11 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind)";
 
-  NSDictionary *kindMap = [[service class] kindStringToClassMap];
-
   NSDictionary *serviceSurrogates = @{
     (id<NSCopying>)[Test_GTLRDrive_File class]     : [Test_GTLRDrive_File_Surrogate class],
     (id<NSCopying>)[Test_GTLRDrive_FileList class] : [Test_GTLRDrive_FileList_Surrogate class]
   };
-  service.objectClassResolver =
-    [GTLRObjectClassResolver resolverWithKindMap:kindMap surrogates:serviceSurrogates];
+  [service setSurrogates:serviceSurrogates];
 
   XCTestExpectation *queryFinished = [self expectationWithDescription:@"queryFinished"];
 
@@ -1737,8 +1734,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     (id<NSCopying>)[Test_GTLRDrive_File class]     : [Test_GTLRDrive_File_Surrogate class],
     (id<NSCopying>)[Test_GTLRDrive_FileList class] : [Test_GTLRDrive_FileList_Surrogate2 class]
   };
+  NSDictionary *kindMap = [[service class] kindStringToClassMap];
   query.executionParameters.objectClassResolver =
     [GTLRObjectClassResolver resolverWithKindMap:kindMap surrogates:querySurrogates];
+
   __block GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,

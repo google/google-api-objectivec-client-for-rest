@@ -2230,6 +2230,13 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   _uploadChunkSize = val;
 }
 
+- (void)setSurrogates:(NSDictionary <Class, Class>*)surrogates {
+  NSDictionary *kindMap = [[self class] kindStringToClassMap];
+
+  self.objectClassResolver = [GTLRObjectClassResolver resolverWithKindMap:kindMap
+                                                               surrogates:surrogates];
+}
+
 #pragma mark - Internal helper
 
 // If there are already query parameters on urlString, the new ones are simply

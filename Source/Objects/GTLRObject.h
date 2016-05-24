@@ -54,8 +54,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  specific classes.
  *
  *  Surrogates are subclasses to be instantiated instead of standard classes
- *  when creating objects from the JSON. For example, this code will swap a
- *  service's default resolver for one that will then use
+ *  when creating objects from the JSON. For example, this code will, for one query's
+ *  execution, swap a service's default resolver for one that will then use
  *  MyCalendarEventSubclass instead of GTLRCalendarEvent and
  *  MyCalendarReminderSubclass instead of GTLRCalendarReminder.
  *
@@ -68,8 +68,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRObjectClassResolver *updatedResolver =
  *    [GTLRObjectClassResolver resolverWithKindMap:serviceKindMap
  *                                       surrogates:surrogates];
- *  calendarService.objectClassResolver = updatedResolver;
+ *  query.executionParameters.objectClassResolver = updatedResolver;
  * @endcode
+ *
+ * @note To install surrogates for all queries executed by the service, use
+ *       the service's @c -setSurrogates method.
  */
 + (instancetype)resolverWithKindMap:(NSDictionary<NSString *, Class> *)kindStringToClassMap
                          surrogates:(NSDictionary<Class, Class> *)surrogates;

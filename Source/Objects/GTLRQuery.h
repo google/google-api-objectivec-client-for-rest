@@ -152,7 +152,7 @@ typedef void (^GTLRQueryCompletionBlock)(GTLRServiceTicket *callbackTicket,
 #pragma mark Internal
 /////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Properties below are used by the library and should not typically be set by client apps.
+// Properties below are used by the library and aren't typically needed by client apps.
 //
 /////////////////////////////////////////////////////////////////////////////////////////////
 
