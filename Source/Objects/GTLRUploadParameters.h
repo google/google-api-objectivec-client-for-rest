@@ -79,9 +79,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Since background session fetches are slower than foreground fetches, this defaults
  *  to NO.
  *
- *  It's reasonable for an application to set this to YES when uploading large files.
+ *  It's reasonable for an application to set this to YES for a rare upload of a large file.
  *
  *  Default value is NO.
+ *
+ *  For more information about the hazards of background sessions, see the header comments for
+ *  the GTMSessionFetcher useBackgroundSession property.
  */
 @property(assign) BOOL useBackgroundSession;
 
