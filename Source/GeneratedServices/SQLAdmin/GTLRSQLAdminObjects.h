@@ -1212,8 +1212,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nullable) NSNumber *databaseReplicationEnabled;
 
 /**
- *  The size of data disk, in GB. The data disk size minimum is 10GB. This
- *  property is only applicable to Second Generation instances.
+ *  The size of data disk, in GB. The data disk size minimum is 10GB. Applies
+ *  only to Second Generation instances.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1221,8 +1221,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The type of data disk. Only supported for Second Generation instances. The
- *  default type is PD_SSD. This property is only applicable to Second
- *  Generation instances.
+ *  default type is PD_SSD. Applies only to Second Generation instances.
  */
 @property(copy, nullable) NSString *dataDiskType;
 
@@ -1246,8 +1245,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The maintenance window for this instance. This specifies when the instance
- *  may be restarted for maintenance purposes. This property is only applicable
- *  to Second Generation instances.
+ *  may be restarted for maintenance purposes. Applies only to Second Generation
+ *  instances.
  */
 @property(strong, nullable) GTLRSQLAdmin_MaintenanceWindow *maintenanceWindow;
 
@@ -1273,6 +1272,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(strong, nullable) NSNumber *settingsVersion;
+
+/**
+ *  Configuration to increase storage size automatically. The default value is
+ *  false. Applies only to Second Generation instances.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *storageAutoResize;
 
 /**
  *  The tier of service for this instance, for example D1, D2. For more
@@ -1374,12 +1381,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The new client certificate and private key. The new certificate will not
- *  work until the instance is restarted.
+ *  work until the instance is restarted for First Generation instances.
  */
 @property(strong, nullable) GTLRSQLAdmin_SslCertDetail *clientCert;
 
 /** This is always sql#sslCertsInsert. */
 @property(copy, nullable) NSString *kind;
+
+/** The operation to track the ssl certs insert request. */
+@property(strong, nullable) GTLRSQLAdmin_Operation *operation;
 
 /**
  *  The server Certificate Authority's certificate. If this is missing you can

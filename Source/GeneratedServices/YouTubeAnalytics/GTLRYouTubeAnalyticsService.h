@@ -4,7 +4,7 @@
 // API:
 //   YouTube Analytics API (youtubeAnalytics/v1)
 // Description:
-//   Retrieves your YouTube Analytics reports.
+//   Retrieves your YouTube Analytics data.
 // Documentation:
 //   http://developers.google.com/youtube/analytics/
 
@@ -63,7 +63,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly;
 /**
  *  Service for executing YouTube Analytics API queries.
  *
- *  Retrieves your YouTube Analytics reports.
+ *  Retrieves your YouTube Analytics data.
  */
 @interface GTLRYouTubeAnalyticsService : GTLRService
 

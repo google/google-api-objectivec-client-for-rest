@@ -449,7 +449,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAutoscalerQuery_ZonesList : GTLRAutoscalerQuery
 // Previous library name was
-//   +[GTLQueryAutoscaler queryForZonesListWithproject:]
+//   +[GTLQueryAutoscaler queryForZonesList]
 
 @property(copy, nullable) NSString *filter;
 
@@ -468,15 +468,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAutoscaler_ZoneList.
  *
- *  @param project NSString
- *
  *  @returns GTLRAutoscalerQuery_ZonesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithProject:(NSString *)project;
++ (instancetype)query;
 
 @end
 

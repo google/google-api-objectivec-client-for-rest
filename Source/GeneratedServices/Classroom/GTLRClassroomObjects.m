@@ -20,6 +20,23 @@ NSString * const kGTLRClassroom_Course_CourseState_CourseStateUnspecified = @"CO
 NSString * const kGTLRClassroom_Course_CourseState_Declined    = @"DECLINED";
 NSString * const kGTLRClassroom_Course_CourseState_Provisioned = @"PROVISIONED";
 
+// GTLRClassroom_CourseWork.state
+NSString * const kGTLRClassroom_CourseWork_State_CourseWorkStateUnspecified = @"COURSE_WORK_STATE_UNSPECIFIED";
+NSString * const kGTLRClassroom_CourseWork_State_Deleted       = @"DELETED";
+NSString * const kGTLRClassroom_CourseWork_State_Draft         = @"DRAFT";
+NSString * const kGTLRClassroom_CourseWork_State_Published     = @"PUBLISHED";
+
+// GTLRClassroom_CourseWork.submissionModificationMode
+NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMode_Modifiable = @"MODIFIABLE";
+NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMode_ModifiableUntilTurnedIn = @"MODIFIABLE_UNTIL_TURNED_IN";
+NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMode_SubmissionModificationModeUnspecified = @"SUBMISSION_MODIFICATION_MODE_UNSPECIFIED";
+
+// GTLRClassroom_CourseWork.workType
+NSString * const kGTLRClassroom_CourseWork_WorkType_Assignment = @"ASSIGNMENT";
+NSString * const kGTLRClassroom_CourseWork_WorkType_CourseWorkTypeUnspecified = @"COURSE_WORK_TYPE_UNSPECIFIED";
+NSString * const kGTLRClassroom_CourseWork_WorkType_MultipleChoiceQuestion = @"MULTIPLE_CHOICE_QUESTION";
+NSString * const kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuestion = @"SHORT_ANSWER_QUESTION";
+
 // GTLRClassroom_GlobalPermission.permission
 NSString * const kGTLRClassroom_GlobalPermission_Permission_CreateCourse = @"CREATE_COURSE";
 NSString * const kGTLRClassroom_GlobalPermission_Permission_PermissionUnspecified = @"PERMISSION_UNSPECIFIED";
@@ -29,20 +46,86 @@ NSString * const kGTLRClassroom_Invitation_Role_CourseRoleUnspecified = @"COURSE
 NSString * const kGTLRClassroom_Invitation_Role_Student        = @"STUDENT";
 NSString * const kGTLRClassroom_Invitation_Role_Teacher        = @"TEACHER";
 
+// GTLRClassroom_SharedDriveFile.shareMode
+NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_Edit = @"EDIT";
+NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_StudentCopy = @"STUDENT_COPY";
+NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_UnknownShareMode = @"UNKNOWN_SHARE_MODE";
+NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_View = @"VIEW";
+
+// GTLRClassroom_StudentSubmission.courseWorkType
+NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_Assignment = @"ASSIGNMENT";
+NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_CourseWorkTypeUnspecified = @"COURSE_WORK_TYPE_UNSPECIFIED";
+NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_MultipleChoiceQuestion = @"MULTIPLE_CHOICE_QUESTION";
+NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_ShortAnswerQuestion = @"SHORT_ANSWER_QUESTION";
+
+// GTLRClassroom_StudentSubmission.state
+NSString * const kGTLRClassroom_StudentSubmission_State_Created = @"CREATED";
+NSString * const kGTLRClassroom_StudentSubmission_State_New    = @"NEW";
+NSString * const kGTLRClassroom_StudentSubmission_State_ReclaimedByStudent = @"RECLAIMED_BY_STUDENT";
+NSString * const kGTLRClassroom_StudentSubmission_State_Returned = @"RETURNED";
+NSString * const kGTLRClassroom_StudentSubmission_State_SubmissionStateUnspecified = @"SUBMISSION_STATE_UNSPECIFIED";
+NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_Assignment
+//
+
+@implementation GTLRClassroom_Assignment
+@dynamic studentWorkFolder;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_AssignmentSubmission
+//
+
+@implementation GTLRClassroom_AssignmentSubmission
+@dynamic attachments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachments" : [GTLRClassroom_Attachment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_Attachment
+//
+
+@implementation GTLRClassroom_Attachment
+@dynamic driveFile, form, link, youTubeVideo;
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRClassroom_Course
 //
 
 @implementation GTLRClassroom_Course
-@dynamic alternateLink, courseState, creationTime, descriptionProperty,
-         descriptionHeading, enrollmentCode, identifier, name, ownerId, room,
-         section, updateTime;
+@dynamic alternateLink, courseGroupEmail, courseMaterialSets, courseState,
+         creationTime, descriptionProperty, descriptionHeading, enrollmentCode,
+         identifier, name, ownerId, room, section, teacherFolder,
+         teacherGroupEmail, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
     @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"courseMaterialSets" : [GTLRClassroom_CourseMaterialSet class]
   };
   return map;
 }
@@ -62,10 +145,117 @@ NSString * const kGTLRClassroom_Invitation_Role_Teacher        = @"TEACHER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_CourseMaterial
+//
+
+@implementation GTLRClassroom_CourseMaterial
+@dynamic driveFile, form, link, youTubeVideo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_CourseMaterialSet
+//
+
+@implementation GTLRClassroom_CourseMaterialSet
+@dynamic materials, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"materials" : [GTLRClassroom_CourseMaterial class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_CourseWork
+//
+
+@implementation GTLRClassroom_CourseWork
+@dynamic alternateLink, assignment, associatedWithDeveloper, courseId,
+         creationTime, descriptionProperty, dueDate, dueTime, identifier,
+         materials, maxPoints, multipleChoiceQuestion, state,
+         submissionModificationMode, title, updateTime, workType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"materials" : [GTLRClassroom_Material class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_Date
+//
+
+@implementation GTLRClassroom_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_DriveFile
+//
+
+@implementation GTLRClassroom_DriveFile
+@dynamic alternateLink, identifier, thumbnailUrl, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_DriveFolder
+//
+
+@implementation GTLRClassroom_DriveFolder
+@dynamic alternateLink, identifier, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Empty
 //
 
 @implementation GTLRClassroom_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_Form
+//
+
+@implementation GTLRClassroom_Form
+@dynamic formUrl, responseUrl, thumbnailUrl, title;
 @end
 
 
@@ -91,6 +281,16 @@ NSString * const kGTLRClassroom_Invitation_Role_Teacher        = @"TEACHER";
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_Link
+//
+
+@implementation GTLRClassroom_Link
+@dynamic thumbnailUrl, title, url;
 @end
 
 
@@ -133,6 +333,28 @@ NSString * const kGTLRClassroom_Invitation_Role_Teacher        = @"TEACHER";
 
 + (NSString *)collectionItemsKey {
   return @"courses";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ListCourseWorkResponse
+//
+
+@implementation GTLRClassroom_ListCourseWorkResponse
+@dynamic courseWork, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"courseWork" : [GTLRClassroom_CourseWork class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"courseWork";
 }
 
 @end
@@ -184,6 +406,28 @@ NSString * const kGTLRClassroom_Invitation_Role_Teacher        = @"TEACHER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_ListStudentSubmissionsResponse
+//
+
+@implementation GTLRClassroom_ListStudentSubmissionsResponse
+@dynamic nextPageToken, studentSubmissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"studentSubmissions" : [GTLRClassroom_StudentSubmission class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"studentSubmissions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_ListTeachersResponse
 //
 
@@ -206,6 +450,62 @@ NSString * const kGTLRClassroom_Invitation_Role_Teacher        = @"TEACHER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_Material
+//
+
+@implementation GTLRClassroom_Material
+@dynamic driveFile, form, link, youtubeVideo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ModifyAttachmentsRequest
+//
+
+@implementation GTLRClassroom_ModifyAttachmentsRequest
+@dynamic addAttachments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addAttachments" : [GTLRClassroom_Attachment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_MultipleChoiceQuestion
+//
+
+@implementation GTLRClassroom_MultipleChoiceQuestion
+@dynamic choices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"choices" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_MultipleChoiceSubmission
+//
+
+@implementation GTLRClassroom_MultipleChoiceSubmission
+@dynamic answer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Name
 //
 
@@ -216,11 +516,67 @@ NSString * const kGTLRClassroom_Invitation_Role_Teacher        = @"TEACHER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_ReclaimStudentSubmissionRequest
+//
+
+@implementation GTLRClassroom_ReclaimStudentSubmissionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ReturnStudentSubmissionRequest
+//
+
+@implementation GTLRClassroom_ReturnStudentSubmissionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_SharedDriveFile
+//
+
+@implementation GTLRClassroom_SharedDriveFile
+@dynamic driveFile, shareMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ShortAnswerSubmission
+//
+
+@implementation GTLRClassroom_ShortAnswerSubmission
+@dynamic answer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Student
 //
 
 @implementation GTLRClassroom_Student
-@dynamic courseId, profile, userId;
+@dynamic courseId, profile, studentWorkFolder, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_StudentSubmission
+//
+
+@implementation GTLRClassroom_StudentSubmission
+@dynamic alternateLink, assignedGrade, assignmentSubmission,
+         associatedWithDeveloper, courseId, courseWorkId, courseWorkType,
+         creationTime, draftGrade, identifier, late, multipleChoiceSubmission,
+         shortAnswerSubmission, state, updateTime, userId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -231,6 +587,25 @@ NSString * const kGTLRClassroom_Invitation_Role_Teacher        = @"TEACHER";
 
 @implementation GTLRClassroom_Teacher
 @dynamic courseId, profile, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_TimeOfDay
+//
+
+@implementation GTLRClassroom_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_TurnInStudentSubmissionRequest
+//
+
+@implementation GTLRClassroom_TurnInStudentSubmissionRequest
 @end
 
 
@@ -251,6 +626,21 @@ NSString * const kGTLRClassroom_Invitation_Role_Teacher        = @"TEACHER";
     @"permissions" : [GTLRClassroom_GlobalPermission class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_YouTubeVideo
+//
+
+@implementation GTLRClassroom_YouTubeVideo
+@dynamic alternateLink, identifier, thumbnailUrl, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
 }
 
 @end

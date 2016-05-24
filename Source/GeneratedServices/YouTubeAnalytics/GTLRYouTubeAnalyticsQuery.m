@@ -4,7 +4,7 @@
 // API:
 //   YouTube Analytics API (youtubeAnalytics/v1)
 // Description:
-//   Retrieves your YouTube Analytics reports.
+//   Retrieves your YouTube Analytics data.
 // Documentation:
 //   http://developers.google.com/youtube/analytics/
 

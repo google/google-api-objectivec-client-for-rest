@@ -7,7 +7,7 @@
 //   Manages service endpoints in Service Registry and provides integration with
 //   DNS for service discovery and name resolution.
 // Documentation:
-//   https://developers.google.com/cloud-serviceregistry/
+//   https://cloud.google.com/service-registry/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -30,7 +30,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  GTLRServiceRegistry_Endpoint
+ *  Next available tag: 13
  */
 @interface GTLRServiceRegistry_Endpoint : GTLRObject
 
@@ -109,6 +109,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRServiceRegistry_EndpointEndpointVisibility
  */
 @interface GTLRServiceRegistry_EndpointEndpointVisibility : GTLRObject
+
+/**
+ *  [Output Only] Fully qualified domain name for the endpoint; used when
+ *  addressing the endpoint from within Compute Networks specified in the
+ *  networks field.
+ */
+@property(copy, nullable) NSString *internalDnsName;
 
 /**
  *  Google Compute Engine networks for which the name of this endpoint should be

@@ -460,7 +460,7 @@
 //
 
 @implementation GTLRAdExchangeBuyer_DealServingMetadataDealPauseStatus
-@dynamic hasBuyerPaused, hasSellerPaused;
+@dynamic firstPausedBy, hasBuyerPaused, hasSellerPaused;
 @end
 
 

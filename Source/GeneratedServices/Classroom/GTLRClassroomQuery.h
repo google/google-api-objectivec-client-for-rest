@@ -20,11 +20,62 @@
 
 @class GTLRClassroom_Course;
 @class GTLRClassroom_CourseAlias;
+@class GTLRClassroom_CourseWork;
 @class GTLRClassroom_Invitation;
+@class GTLRClassroom_ModifyAttachmentsRequest;
+@class GTLRClassroom_ReclaimStudentSubmissionRequest;
+@class GTLRClassroom_ReturnStudentSubmissionRequest;
 @class GTLRClassroom_Student;
+@class GTLRClassroom_StudentSubmission;
 @class GTLRClassroom_Teacher;
+@class GTLRClassroom_TurnInStudentSubmissionRequest;
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// courseWorkStates
+
+/** Value: "COURSE_WORK_STATE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRClassroomCourseWorkStatesCourseWorkStateUnspecified;
+/** Value: "DELETED" */
+GTLR_EXTERN NSString * const kGTLRClassroomCourseWorkStatesDeleted;
+/** Value: "DRAFT" */
+GTLR_EXTERN NSString * const kGTLRClassroomCourseWorkStatesDraft;
+/** Value: "PUBLISHED" */
+GTLR_EXTERN NSString * const kGTLRClassroomCourseWorkStatesPublished;
+
+// ----------------------------------------------------------------------------
+// late
+
+/** Value: "LATE_ONLY" */
+GTLR_EXTERN NSString * const kGTLRClassroomLateLateOnly;
+/** Value: "LATE_VALUES_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRClassroomLateLateValuesUnspecified;
+/** Value: "NOT_LATE_ONLY" */
+GTLR_EXTERN NSString * const kGTLRClassroomLateNotLateOnly;
+
+// ----------------------------------------------------------------------------
+// states
+
+/** Value: "CREATED" */
+GTLR_EXTERN NSString * const kGTLRClassroomStatesCreated;
+/** Value: "NEW" */
+GTLR_EXTERN NSString * const kGTLRClassroomStatesNew;
+/** Value: "RECLAIMED_BY_STUDENT" */
+GTLR_EXTERN NSString * const kGTLRClassroomStatesReclaimedByStudent;
+/** Value: "RETURNED" */
+GTLR_EXTERN NSString * const kGTLRClassroomStatesReturned;
+/** Value: "SUBMISSION_STATE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRClassroomStatesSubmissionStateUnspecified;
+/** Value: "TURNED_IN" */
+GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
 
 /**
  *  Parent class for other Classroom query classes.
@@ -172,6 +223,743 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId;
+
+@end
+
+/**
+ *  Creates course work. The resulting course work (and corresponding student
+ *  submissions) are associated with the Developer Console project of the [OAuth
+ *  client ID](https://support.google.com/cloud/answer/6158849) used to make the
+ *  request. Classroom API requests to modify course work and student
+ *  submissions must be made with an OAuth client ID from the associated
+ *  Developer Console project. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course, create course work in the requested course, or for access
+ *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
+ *  the requested course does not exist.
+ *
+ *  Method: classroom.courses.courseWork.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkCreate : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkCreateWithObject:courseId:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(copy, nullable) NSString *courseId;
+
+/**
+ *  Fetches a @c GTLRClassroom_CourseWork.
+ *
+ *  Creates course work. The resulting course work (and corresponding student
+ *  submissions) are associated with the Developer Console project of the [OAuth
+ *  client ID](https://support.google.com/cloud/answer/6158849) used to make the
+ *  request. Classroom API requests to modify course work and student
+ *  submissions must be made with an OAuth client ID from the associated
+ *  Developer Console project. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course, create course work in the requested course, or for access
+ *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
+ *  the requested course does not exist.
+ *
+ *  @param object The @c GTLRClassroom_CourseWork to include in the query.
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *
+ *  @returns GTLRClassroomQuery_CoursesCourseWorkCreate
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_CourseWork *)object
+                       courseId:(NSString *)courseId;
+
+@end
+
+/**
+ *  Returns course work. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, or for access errors. * `INVALID_ARGUMENT`
+ *  if the request is malformed. * `NOT_FOUND` if the requested course or course
+ *  work does not exist.
+ *
+ *  Method: classroom.courses.courseWork.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkMe
+ *    @c kGTLRAuthScopeClassroomCourseworkMeReadonly
+ *    @c kGTLRAuthScopeClassroomCourseWorkReadonly
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ *    @c kGTLRAuthScopeClassroomCourseworkStudentsReadonly
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkGet : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkGetWithcourseId:identifier:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the course work.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRClassroom_CourseWork.
+ *
+ *  Returns course work. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, or for access errors. * `INVALID_ARGUMENT`
+ *  if the request is malformed. * `NOT_FOUND` if the requested course or course
+ *  work does not exist.
+ *
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *  @param identifier Identifier of the course work.
+ *
+ *  @returns GTLRClassroomQuery_CoursesCourseWorkGet
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                       identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Returns a list of course work that the requester is permitted to view.
+ *  Course students may only view `PUBLISHED` course work. Course teachers and
+ *  domain administrators may view all course work. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
+ *  permitted to access the requested course or for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
+ *  requested course does not exist.
+ *
+ *  Method: classroom.courses.courseWork.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkMe
+ *    @c kGTLRAuthScopeClassroomCourseworkMeReadonly
+ *    @c kGTLRAuthScopeClassroomCourseWorkReadonly
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ *    @c kGTLRAuthScopeClassroomCourseworkStudentsReadonly
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkList : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkListWithcourseId:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(copy, nullable) NSString *courseId;
+
+/**
+ *  Restriction on the work status to return. Only courseWork that matches is
+ *  returned. If unspecified, items with a work status of `PUBLISHED` is
+ *  returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRClassroomCourseWorkStatesCourseWorkStateUnspecified Value
+ *        "COURSE_WORK_STATE_UNSPECIFIED"
+ *    @arg @c kGTLRClassroomCourseWorkStatesPublished Value "PUBLISHED"
+ *    @arg @c kGTLRClassroomCourseWorkStatesDraft Value "DRAFT"
+ *    @arg @c kGTLRClassroomCourseWorkStatesDeleted Value "DELETED"
+ */
+@property(strong, nullable) NSArray<NSString *> *courseWorkStates;
+
+/**
+ *  Optional sort ordering for results. A comma-separated list of fields with an
+ *  optional sort direction keyword. Supported fields are `updateTime` and
+ *  `dueDate`. Supported direction keywords are `asc` and `desc`. If not
+ *  specified, `updateTime desc` is the default behavior. Examples: `dueDate
+ *  asc,updateTime desc`, `updateTime,dueDate desc`
+ */
+@property(copy, nullable) NSString *orderBy;
+
+/**
+ *  Maximum number of items to return. Zero or unspecified indicates that the
+ *  server may assign a maximum. The server may return fewer than the specified
+ *  number of results.
+ */
+@property(assign) NSInteger pageSize;
+
+/**
+ *  nextPageToken value returned from a previous list call, indicating that the
+ *  subsequent page of results should be returned. The list request must be
+ *  otherwise identical to the one that resulted in this token.
+ */
+@property(copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRClassroom_ListCourseWorkResponse.
+ *
+ *  Returns a list of course work that the requester is permitted to view.
+ *  Course students may only view `PUBLISHED` course work. Course teachers and
+ *  domain administrators may view all course work. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
+ *  permitted to access the requested course or for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
+ *  requested course does not exist.
+ *
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *
+ *  @returns GTLRClassroomQuery_CoursesCourseWorkList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId;
+
+@end
+
+/**
+ *  Returns a student submission. * `PERMISSION_DENIED` if the requesting user
+ *  is not permitted to access the requested course, course work, or student
+ *  submission or for access errors. * `INVALID_ARGUMENT` if the request is
+ *  malformed. * `NOT_FOUND` if the requested course, course work, or student
+ *  submission does not exist.
+ *
+ *  Method: classroom.courses.courseWork.studentSubmissions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkMe
+ *    @c kGTLRAuthScopeClassroomCourseworkMeReadonly
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ *    @c kGTLRAuthScopeClassroomCourseworkStudentsReadonly
+ *    @c kGTLRAuthScopeClassroomStudentSubmissionsMeReadonly
+ *    @c kGTLRAuthScopeClassroomStudentSubmissionsStudentsReadonly
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsGet : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsGetWithcourseId:courseWorkId:identifier:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(copy, nullable) NSString *courseId;
+
+/** Identifier of the course work. */
+@property(copy, nullable) NSString *courseWorkId;
+
+/**
+ *  Identifier of the student submission.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRClassroom_StudentSubmission.
+ *
+ *  Returns a student submission. * `PERMISSION_DENIED` if the requesting user
+ *  is not permitted to access the requested course, course work, or student
+ *  submission or for access errors. * `INVALID_ARGUMENT` if the request is
+ *  malformed. * `NOT_FOUND` if the requested course, course work, or student
+ *  submission does not exist.
+ *
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *  @param courseWorkId Identifier of the course work.
+ *  @param identifier Identifier of the student submission.
+ *
+ *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsGet
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                     courseWorkId:(NSString *)courseWorkId
+                       identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Returns a list of student submissions that the requester is permitted to
+ *  view, factoring in the OAuth scopes of the request. `-` may be specified as
+ *  the `course_work_id` to include student submissions for multiple course work
+ *  items. Course students may only view their own work. Course teachers and
+ *  domain administrators may view all student submissions. This method returns
+ *  the following error codes: * `PERMISSION_DENIED` if the requesting user is
+ *  not permitted to access the requested course or course work, or for access
+ *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
+ *  the requested course does not exist.
+ *
+ *  Method: classroom.courses.courseWork.studentSubmissions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkMe
+ *    @c kGTLRAuthScopeClassroomCourseworkMeReadonly
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ *    @c kGTLRAuthScopeClassroomCourseworkStudentsReadonly
+ *    @c kGTLRAuthScopeClassroomStudentSubmissionsMeReadonly
+ *    @c kGTLRAuthScopeClassroomStudentSubmissionsStudentsReadonly
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsList : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsListWithcourseId:courseWorkId:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(copy, nullable) NSString *courseId;
+
+/**
+ *  Identifer of the student work to request. If `user_id` is specified, this
+ *  may be set to the string literal `"-"` to request student work for all
+ *  course work in the specified course.
+ */
+@property(copy, nullable) NSString *courseWorkId;
+
+/**
+ *  Requested lateness value. If specified, returned student submissions are
+ *  restricted by the requested value. If unspecified, submissions are returned
+ *  regardless of `late` value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRClassroomLateLateValuesUnspecified Value
+ *        "LATE_VALUES_UNSPECIFIED"
+ *    @arg @c kGTLRClassroomLateLateOnly Value "LATE_ONLY"
+ *    @arg @c kGTLRClassroomLateNotLateOnly Value "NOT_LATE_ONLY"
+ */
+@property(copy, nullable) NSString *late;
+
+/**
+ *  Maximum number of items to return. Zero or unspecified indicates that the
+ *  server may assign a maximum. The server may return fewer than the specified
+ *  number of results.
+ */
+@property(assign) NSInteger pageSize;
+
+/**
+ *  nextPageToken value returned from a previous list call, indicating that the
+ *  subsequent page of results should be returned. The list request must be
+ *  otherwise identical to the one that resulted in this token.
+ */
+@property(copy, nullable) NSString *pageToken;
+
+/**
+ *  Requested submission states. If specified, returned student submissions
+ *  match one of the specified submission states.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRClassroomStatesSubmissionStateUnspecified Value
+ *        "SUBMISSION_STATE_UNSPECIFIED"
+ *    @arg @c kGTLRClassroomStatesNew Value "NEW"
+ *    @arg @c kGTLRClassroomStatesCreated Value "CREATED"
+ *    @arg @c kGTLRClassroomStatesTurnedIn Value "TURNED_IN"
+ *    @arg @c kGTLRClassroomStatesReturned Value "RETURNED"
+ *    @arg @c kGTLRClassroomStatesReclaimedByStudent Value
+ *        "RECLAIMED_BY_STUDENT"
+ */
+@property(strong, nullable) NSArray<NSString *> *states;
+
+/**
+ *  Optional argument to restrict returned student work to those owned by the
+ *  student with the specified identifier. The identifier can be one of the
+ *  following: * the numeric identifier for the user * the email address of the
+ *  user * the string literal `"me"`, indicating the requesting user
+ */
+@property(copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRClassroom_ListStudentSubmissionsResponse.
+ *
+ *  Returns a list of student submissions that the requester is permitted to
+ *  view, factoring in the OAuth scopes of the request. `-` may be specified as
+ *  the `course_work_id` to include student submissions for multiple course work
+ *  items. Course students may only view their own work. Course teachers and
+ *  domain administrators may view all student submissions. This method returns
+ *  the following error codes: * `PERMISSION_DENIED` if the requesting user is
+ *  not permitted to access the requested course or course work, or for access
+ *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
+ *  the requested course does not exist.
+ *
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *  @param courseWorkId Identifer of the student work to request. If `user_id`
+ *    is specified, this may be set to the string literal `"-"` to request
+ *    student work for all course work in the specified course.
+ *
+ *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                     courseWorkId:(NSString *)courseWorkId;
+
+@end
+
+/**
+ *  Modifies attachments of student submission. Attachments may only be added to
+ *  student submissions whose type is `ASSIGNMENT`. This request must be made by
+ *  the Developer Console project of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  corresponding course work item. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course or course work, if the user is not permitted to
+ *  modify attachments on the requested student submission, or for access
+ *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
+ *  the requested course, course work, or student submission does not exist.
+ *
+ *  Method: classroom.courses.courseWork.studentSubmissions.modifyAttachments
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkMe
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsModifyAttachments : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsModifyAttachmentsWithObject:courseId:courseWorkId:identifier:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(copy, nullable) NSString *courseId;
+
+/** Identifier of the course work. */
+@property(copy, nullable) NSString *courseWorkId;
+
+/**
+ *  Identifier of the student submission.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRClassroom_StudentSubmission.
+ *
+ *  Modifies attachments of student submission. Attachments may only be added to
+ *  student submissions whose type is `ASSIGNMENT`. This request must be made by
+ *  the Developer Console project of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  corresponding course work item. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course or course work, if the user is not permitted to
+ *  modify attachments on the requested student submission, or for access
+ *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
+ *  the requested course, course work, or student submission does not exist.
+ *
+ *  @param object The @c GTLRClassroom_ModifyAttachmentsRequest to include in
+ *    the query.
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *  @param courseWorkId Identifier of the course work.
+ *  @param identifier Identifier of the student submission.
+ *
+ *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsModifyAttachments
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_ModifyAttachmentsRequest *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId
+                     identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Updates one or more fields of a student submission. See
+ *  google.classroom.v1.StudentSubmission for details of which fields may be
+ *  updated and who may change them. This request must be made by the Developer
+ *  Console project of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  corresponding course work item. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting developer project did not
+ *  create the corresponding course work, if the user is not permitted to make
+ *  the requested modification to the student submission, or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
+ *  requested course, course work, or student submission does not exist.
+ *
+ *  Method: classroom.courses.courseWork.studentSubmissions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkMe
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsPatch : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsPatchWithObject:courseId:courseWorkId:identifier:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(copy, nullable) NSString *courseId;
+
+/** Identifier of the course work. */
+@property(copy, nullable) NSString *courseWorkId;
+
+/**
+ *  Identifier of the student submission.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(copy, nullable) NSString *identifier;
+
+/**
+ *  Mask that identifies which fields on the student submission to update. This
+ *  field is required to do an update. The update fails if invalid fields are
+ *  specified. The following fields may be specified by teachers: *
+ *  `draft_grade` * `assigned_grade`
+ */
+@property(copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRClassroom_StudentSubmission.
+ *
+ *  Updates one or more fields of a student submission. See
+ *  google.classroom.v1.StudentSubmission for details of which fields may be
+ *  updated and who may change them. This request must be made by the Developer
+ *  Console project of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  corresponding course work item. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting developer project did not
+ *  create the corresponding course work, if the user is not permitted to make
+ *  the requested modification to the student submission, or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
+ *  requested course, course work, or student submission does not exist.
+ *
+ *  @param object The @c GTLRClassroom_StudentSubmission to include in the
+ *    query.
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *  @param courseWorkId Identifier of the course work.
+ *  @param identifier Identifier of the student submission.
+ *
+ *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_StudentSubmission *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId
+                     identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Reclaims a student submission on behalf of the student that owns it.
+ *  Reclaiming a student submission transfers ownership of attached Drive files
+ *  to the student and update the submission state. Only the student that ownes
+ *  the requested student submission may call this method, and only for a
+ *  student submission that has been turned in. This request must be made by the
+ *  Developer Console project of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  corresponding course work item. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course or course work, unsubmit the requested student
+ *  submission, or for access errors. * `FAILED_PRECONDITION` if the student
+ *  submission has not been turned in. * `INVALID_ARGUMENT` if the request is
+ *  malformed. * `NOT_FOUND` if the requested course, course work, or student
+ *  submission does not exist.
+ *
+ *  Method: classroom.courses.courseWork.studentSubmissions.reclaim
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkMe
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReclaim : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsReclaimWithObject:courseId:courseWorkId:identifier:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(copy, nullable) NSString *courseId;
+
+/** Identifier of the course work. */
+@property(copy, nullable) NSString *courseWorkId;
+
+/**
+ *  Identifier of the student submission.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRClassroom_Empty.
+ *
+ *  Reclaims a student submission on behalf of the student that owns it.
+ *  Reclaiming a student submission transfers ownership of attached Drive files
+ *  to the student and update the submission state. Only the student that ownes
+ *  the requested student submission may call this method, and only for a
+ *  student submission that has been turned in. This request must be made by the
+ *  Developer Console project of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  corresponding course work item. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course or course work, unsubmit the requested student
+ *  submission, or for access errors. * `FAILED_PRECONDITION` if the student
+ *  submission has not been turned in. * `INVALID_ARGUMENT` if the request is
+ *  malformed. * `NOT_FOUND` if the requested course, course work, or student
+ *  submission does not exist.
+ *
+ *  @param object The @c GTLRClassroom_ReclaimStudentSubmissionRequest to
+ *    include in the query.
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *  @param courseWorkId Identifier of the course work.
+ *  @param identifier Identifier of the student submission.
+ *
+ *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReclaim
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_ReclaimStudentSubmissionRequest *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId
+                     identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Returns a student submission. Returning a student submission transfers
+ *  ownership of attached Drive files to the student and may also update the
+ *  submission state. Unlike the Classroom application, returning a student
+ *  submission does not set assignedGrade to the draftGrade value. Only a
+ *  teacher of the course that contains the requested student submission may
+ *  call this method. This request must be made by the Developer Console project
+ *  of the [OAuth client ID](https://support.google.com/cloud/answer/6158849)
+ *  used to create the corresponding course work item. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
+ *  permitted to access the requested course or course work, return the
+ *  requested student submission, or for access errors. * `INVALID_ARGUMENT` if
+ *  the request is malformed. * `NOT_FOUND` if the requested course, course
+ *  work, or student submission does not exist.
+ *
+ *  Method: classroom.courses.courseWork.studentSubmissions.return
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReturn : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsReturnWithObject:courseId:courseWorkId:identifier:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(copy, nullable) NSString *courseId;
+
+/** Identifier of the course work. */
+@property(copy, nullable) NSString *courseWorkId;
+
+/**
+ *  Identifier of the student submission.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRClassroom_Empty.
+ *
+ *  Returns a student submission. Returning a student submission transfers
+ *  ownership of attached Drive files to the student and may also update the
+ *  submission state. Unlike the Classroom application, returning a student
+ *  submission does not set assignedGrade to the draftGrade value. Only a
+ *  teacher of the course that contains the requested student submission may
+ *  call this method. This request must be made by the Developer Console project
+ *  of the [OAuth client ID](https://support.google.com/cloud/answer/6158849)
+ *  used to create the corresponding course work item. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
+ *  permitted to access the requested course or course work, return the
+ *  requested student submission, or for access errors. * `INVALID_ARGUMENT` if
+ *  the request is malformed. * `NOT_FOUND` if the requested course, course
+ *  work, or student submission does not exist.
+ *
+ *  @param object The @c GTLRClassroom_ReturnStudentSubmissionRequest to include
+ *    in the query.
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *  @param courseWorkId Identifier of the course work.
+ *  @param identifier Identifier of the student submission.
+ *
+ *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReturn
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_ReturnStudentSubmissionRequest *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId
+                     identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Turns in a student submission. Turning in a student submission transfers
+ *  ownership of attached Drive files to the teacher and may also update the
+ *  submission state. This may only be called by the student that owns the
+ *  specified student submission. This request must be made by the Developer
+ *  Console project of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  corresponding course work item. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course or course work, turn in the requested student
+ *  submission, or for access errors. * `INVALID_ARGUMENT` if the request is
+ *  malformed. * `NOT_FOUND` if the requested course, course work, or student
+ *  submission does not exist.
+ *
+ *  Method: classroom.courses.courseWork.studentSubmissions.turnIn
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkMe
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsTurnIn : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsTurnInWithObject:courseId:courseWorkId:identifier:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(copy, nullable) NSString *courseId;
+
+/** Identifier of the course work. */
+@property(copy, nullable) NSString *courseWorkId;
+
+/**
+ *  Identifier of the student submission.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRClassroom_Empty.
+ *
+ *  Turns in a student submission. Turning in a student submission transfers
+ *  ownership of attached Drive files to the teacher and may also update the
+ *  submission state. This may only be called by the student that owns the
+ *  specified student submission. This request must be made by the Developer
+ *  Console project of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  corresponding course work item. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course or course work, turn in the requested student
+ *  submission, or for access errors. * `INVALID_ARGUMENT` if the request is
+ *  malformed. * `NOT_FOUND` if the requested course, course work, or student
+ *  submission does not exist.
+ *
+ *  @param object The @c GTLRClassroom_TurnInStudentSubmissionRequest to include
+ *    in the query.
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *  @param courseWorkId Identifier of the course work.
+ *  @param identifier Identifier of the student submission.
+ *
+ *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsTurnIn
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_TurnInStudentSubmissionRequest *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId
+                     identifier:(NSString *)identifier;
 
 @end
 

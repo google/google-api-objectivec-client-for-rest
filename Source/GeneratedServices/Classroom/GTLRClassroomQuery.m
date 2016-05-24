@@ -12,6 +12,32 @@
 
 #import "GTLRClassroomObjects.h"
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// courseWorkStates
+NSString * const kGTLRClassroomCourseWorkStatesCourseWorkStateUnspecified = @"COURSE_WORK_STATE_UNSPECIFIED";
+NSString * const kGTLRClassroomCourseWorkStatesDeleted         = @"DELETED";
+NSString * const kGTLRClassroomCourseWorkStatesDraft           = @"DRAFT";
+NSString * const kGTLRClassroomCourseWorkStatesPublished       = @"PUBLISHED";
+
+// late
+NSString * const kGTLRClassroomLateLateOnly              = @"LATE_ONLY";
+NSString * const kGTLRClassroomLateLateValuesUnspecified = @"LATE_VALUES_UNSPECIFIED";
+NSString * const kGTLRClassroomLateNotLateOnly           = @"NOT_LATE_ONLY";
+
+// states
+NSString * const kGTLRClassroomStatesCreated                   = @"CREATED";
+NSString * const kGTLRClassroomStatesNew                       = @"NEW";
+NSString * const kGTLRClassroomStatesReclaimedByStudent        = @"RECLAIMED_BY_STUDENT";
+NSString * const kGTLRClassroomStatesReturned                  = @"RETURNED";
+NSString * const kGTLRClassroomStatesSubmissionStateUnspecified = @"SUBMISSION_STATE_UNSPECIFIED";
+NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRClassroomQuery
 
 @dynamic fields;
@@ -80,6 +106,318 @@
   query.courseId = courseId;
   query.expectedObjectClass = [GTLRClassroom_ListCourseAliasesResponse class];
   query.loggingName = @"classroom.courses.aliases.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkCreate
+
+@dynamic courseId;
+
++ (instancetype)queryWithObject:(GTLRClassroom_CourseWork *)object
+                       courseId:(NSString *)courseId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"courseId" ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork";
+  GTLRClassroomQuery_CoursesCourseWorkCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.expectedObjectClass = [GTLRClassroom_CourseWork class];
+  query.loggingName = @"classroom.courses.courseWork.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkGet
+
+@dynamic courseId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                       identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"courseId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{id}";
+  GTLRClassroomQuery_CoursesCourseWorkGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_CourseWork class];
+  query.loggingName = @"classroom.courses.courseWork.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkList
+
+@dynamic courseId, courseWorkStates, orderBy, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"courseWorkStates" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithCourseId:(NSString *)courseId {
+  NSArray *pathParams = @[ @"courseId" ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork";
+  GTLRClassroomQuery_CoursesCourseWorkList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.expectedObjectClass = [GTLRClassroom_ListCourseWorkResponse class];
+  query.loggingName = @"classroom.courses.courseWork.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsGet
+
+@dynamic courseId, courseWorkId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                     courseWorkId:(NSString *)courseWorkId
+                       identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"courseId", @"courseWorkId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions/{id}";
+  GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.courseWorkId = courseWorkId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_StudentSubmission class];
+  query.loggingName = @"classroom.courses.courseWork.studentSubmissions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsList
+
+@dynamic courseId, courseWorkId, late, pageSize, pageToken, states, userId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"states" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                     courseWorkId:(NSString *)courseWorkId {
+  NSArray *pathParams = @[
+    @"courseId", @"courseWorkId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions";
+  GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.courseWorkId = courseWorkId;
+  query.expectedObjectClass = [GTLRClassroom_ListStudentSubmissionsResponse class];
+  query.loggingName = @"classroom.courses.courseWork.studentSubmissions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsModifyAttachments
+
+@dynamic courseId, courseWorkId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithObject:(GTLRClassroom_ModifyAttachmentsRequest *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId
+                     identifier:(NSString *)identifier {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"courseWorkId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions/{id}:modifyAttachments";
+  GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsModifyAttachments *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.courseWorkId = courseWorkId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_StudentSubmission class];
+  query.loggingName = @"classroom.courses.courseWork.studentSubmissions.modifyAttachments";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsPatch
+
+@dynamic courseId, courseWorkId, identifier, updateMask;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithObject:(GTLRClassroom_StudentSubmission *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId
+                     identifier:(NSString *)identifier {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"courseWorkId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions/{id}";
+  GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.courseWorkId = courseWorkId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_StudentSubmission class];
+  query.loggingName = @"classroom.courses.courseWork.studentSubmissions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReclaim
+
+@dynamic courseId, courseWorkId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithObject:(GTLRClassroom_ReclaimStudentSubmissionRequest *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId
+                     identifier:(NSString *)identifier {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"courseWorkId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions/{id}:reclaim";
+  GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReclaim *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.courseWorkId = courseWorkId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_Empty class];
+  query.loggingName = @"classroom.courses.courseWork.studentSubmissions.reclaim";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReturn
+
+@dynamic courseId, courseWorkId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithObject:(GTLRClassroom_ReturnStudentSubmissionRequest *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId
+                     identifier:(NSString *)identifier {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"courseWorkId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions/{id}:return";
+  GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReturn *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.courseWorkId = courseWorkId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_Empty class];
+  query.loggingName = @"classroom.courses.courseWork.studentSubmissions.return";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsTurnIn
+
+@dynamic courseId, courseWorkId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithObject:(GTLRClassroom_TurnInStudentSubmissionRequest *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId
+                     identifier:(NSString *)identifier {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"courseWorkId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions/{id}:turnIn";
+  GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsTurnIn *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.courseWorkId = courseWorkId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_Empty class];
+  query.loggingName = @"classroom.courses.courseWork.studentSubmissions.turnIn";
   return query;
 }
 

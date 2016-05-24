@@ -102,7 +102,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Working;
 @property(strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Time at whihc execution of the build was finished.
+ *  Time at which execution of the build was finished.
  *  \@OutputOnly
  */
 @property(strong, nullable) GTLRDateTime *finishTime;
@@ -175,6 +175,12 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Working;
  *        (Value: "WORKING")
  */
 @property(copy, nullable) NSString *status;
+
+/**
+ *  Customer-readable message about the current status.
+ *  \@OutputOnly
+ */
+@property(copy, nullable) NSString *statusDetail;
 
 /** Describes the operations to be performed on the workspace. */
 @property(strong, nullable) NSArray<GTLRCloudBuild_BuildStep *> *steps;

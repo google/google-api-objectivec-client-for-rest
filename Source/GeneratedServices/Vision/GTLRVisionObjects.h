@@ -1538,7 +1538,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  return r
  *  def NormalizeLatLng(latitude, longitude):
  *  """Wraps decimal degrees latitude and longitude to
- *  [-180.0, 180.0] and [-90.0, 90.0], respectively."""
+ *  [-90.0, 90.0] and [-180.0, 180.0], respectively."""
  *  r = latitude % 360.0
  *  if r <= 90.0:
  *  return r, NormalizeLongitude(longitude)

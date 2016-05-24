@@ -519,7 +519,7 @@
          crashSafeReplicationEnabled, databaseFlags, databaseReplicationEnabled,
          dataDiskSizeGb, dataDiskType, ipConfiguration, kind,
          locationPreference, maintenanceWindow, pricingPlan, replicationType,
-         settingsVersion, tier;
+         settingsVersion, storageAutoResize, tier;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -584,7 +584,7 @@
 //
 
 @implementation GTLRSQLAdmin_SslCertsInsertResponse
-@dynamic clientCert, kind, serverCaCert;
+@dynamic clientCert, kind, operation, serverCaCert;
 @end
 
 

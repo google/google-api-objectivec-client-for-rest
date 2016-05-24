@@ -4,8 +4,8 @@
 // API:
 //   YouTube Reporting API (youtubereporting/v1)
 // Description:
-//   Schedules reporting jobs and downloads the resulting bulk data reports
-//   about YouTube channels, videos, etc. in the form of CSV files.
+//   Schedules reporting jobs containing your YouTube Analytics data and
+//   downloads the resulting bulk data reports in the form of CSV files.
 // Documentation:
 //   https://developers.google.com/youtube/reporting/v1/reports/
 
@@ -26,7 +26,7 @@
 //
 
 @implementation GTLRYouTubeReporting_Job
-@dynamic createTime, identifier, name, reportTypeId, systemManaged;
+@dynamic createTime, expireTime, identifier, name, reportTypeId, systemManaged;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -117,7 +117,8 @@
 //
 
 @implementation GTLRYouTubeReporting_Report
-@dynamic createTime, downloadUrl, endTime, identifier, jobId, startTime;
+@dynamic createTime, downloadUrl, endTime, identifier, jobExpireTime, jobId,
+         startTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -132,7 +133,7 @@
 //
 
 @implementation GTLRYouTubeReporting_ReportType
-@dynamic identifier, name, systemManaged;
+@dynamic deprecateTime, identifier, name, systemManaged;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

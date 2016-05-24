@@ -1522,7 +1522,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Approves the specified product (and the relevant app permissions, if any).
+ *  Approves the specified product and the relevant app permissions, if any. The
+ *  maximum number of products that you can approve per enterprise customer is
+ *  1,000.
+ *  To learn how to use Google Play for Work to design and create a store layout
+ *  to display approved products to your users, see Store Layout Design.
  *
  *  Method: androidenterprise.products.approve
  *
@@ -1543,7 +1547,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Approves the specified product (and the relevant app permissions, if any).
+ *  Approves the specified product and the relevant app permissions, if any. The
+ *  maximum number of products that you can approve per enterprise customer is
+ *  1,000.
+ *  To learn how to use Google Play for Work to design and create a store layout
+ *  to display approved products to your users, see Store Layout Design.
  *
  *  @param object The @c GTLRAndroidEnterprise_ProductsApproveRequest to include
  *    in the query.
@@ -1735,8 +1743,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAndroidEnterprise queryForProductsListWithenterpriseId:]
 
 /**
- *  Whether to search amongst all products or only amongst approved ones. Only
- *  "true" is supported, and should be specified.
+ *  Specifies whether to search among all products (false) or among only
+ *  products that have been approved (true). Only "true" is supported, and
+ *  should be specified.
  */
 @property(assign) BOOL approved;
 
@@ -1745,20 +1754,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The BCP47 tag for the user's preferred language (e.g. "en-US", "de").
- *  Results are returned in the language best matching it.
+ *  Results are returned in the language best matching the preferred language.
  */
 @property(copy, nullable) NSString *language;
 
+/**
+ *  Specifies the maximum number of products that can be returned per request.
+ *  If not specified, uses a default value of 100, which is also the maximum
+ *  retrievable within a single response.
+ */
 @property(assign) NSUInteger maxResults;
 
 /**
  *  The search query as typed in the Google Play Store search box. If omitted,
- *  all approved apps will be returned.
+ *  all approved apps will be returned (using the pagination parameters).
  */
 @property(copy, nullable) NSString *query;
 
-@property(assign) NSUInteger startIndex;
-
+/**
+ *  A pagination token is contained in a requests response when there are more
+ *  products. The token can be used in a subsequent request to obtain more
+ *  products, and so forth. This parameter cannot be used in the initial
+ *  request.
+ */
 @property(copy, nullable) NSString *token;
 
 /**

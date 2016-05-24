@@ -123,6 +123,26 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_Comment
+//
+
+@implementation GTLRAndroidPublisher_Comment
+@dynamic developerComment, userComment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeveloperComment
+//
+
+@implementation GTLRAndroidPublisher_DeveloperComment
+@dynamic lastModified, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Entitlement
 //
 
@@ -514,6 +534,72 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_Review
+//
+
+@implementation GTLRAndroidPublisher_Review
+@dynamic authorName, comments, reviewId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"comments" : [GTLRAndroidPublisher_Comment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ReviewReplyResult
+//
+
+@implementation GTLRAndroidPublisher_ReviewReplyResult
+@dynamic lastEdited, replyText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ReviewsListResponse
+//
+
+@implementation GTLRAndroidPublisher_ReviewsListResponse
+@dynamic pageInfo, reviews, tokenPagination;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reviews" : [GTLRAndroidPublisher_Review class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ReviewsReplyRequest
+//
+
+@implementation GTLRAndroidPublisher_ReviewsReplyRequest
+@dynamic replyText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ReviewsReplyResponse
+//
+
+@implementation GTLRAndroidPublisher_ReviewsReplyResponse
+@dynamic result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Season
 //
 
@@ -593,6 +679,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_Timestamp
+//
+
+@implementation GTLRAndroidPublisher_Timestamp
+@dynamic nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_TokenPagination
 //
 
@@ -634,4 +730,15 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UserComment
+//
+
+@implementation GTLRAndroidPublisher_UserComment
+@dynamic androidOsVersion, appVersionCode, appVersionName, device, lastModified,
+         reviewerLanguage, starRating, text;
 @end

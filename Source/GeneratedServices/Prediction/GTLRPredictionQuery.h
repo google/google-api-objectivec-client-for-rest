@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopePrediction
+ *    @c kGTLRAuthScopePredictionCloudPlatform
  */
 @interface GTLRPredictionQuery_HostedmodelsPredict : GTLRPredictionQuery
 // Previous library name was
@@ -77,6 +78,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopePrediction
+ *    @c kGTLRAuthScopePredictionCloudPlatform
  */
 @interface GTLRPredictionQuery_TrainedmodelsAnalyze : GTLRPredictionQuery
 // Previous library name was
@@ -114,6 +116,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopePrediction
+ *    @c kGTLRAuthScopePredictionCloudPlatform
  */
 @interface GTLRPredictionQuery_TrainedmodelsDelete : GTLRPredictionQuery
 // Previous library name was
@@ -152,6 +155,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopePrediction
+ *    @c kGTLRAuthScopePredictionCloudPlatform
  */
 @interface GTLRPredictionQuery_TrainedmodelsGet : GTLRPredictionQuery
 // Previous library name was
@@ -189,6 +193,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopePrediction
+ *    @c kGTLRAuthScopePredictionCloudPlatform
  *    @c kGTLRAuthScopePredictionDevstorageFullControl
  *    @c kGTLRAuthScopePredictionDevstorageReadOnly
  *    @c kGTLRAuthScopePredictionDevstorageReadWrite
@@ -222,6 +227,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopePrediction
+ *    @c kGTLRAuthScopePredictionCloudPlatform
  */
 @interface GTLRPredictionQuery_TrainedmodelsList : GTLRPredictionQuery
 // Previous library name was
@@ -260,6 +266,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopePrediction
+ *    @c kGTLRAuthScopePredictionCloudPlatform
  */
 @interface GTLRPredictionQuery_TrainedmodelsPredict : GTLRPredictionQuery
 // Previous library name was
@@ -299,6 +306,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopePrediction
+ *    @c kGTLRAuthScopePredictionCloudPlatform
  */
 @interface GTLRPredictionQuery_TrainedmodelsUpdate : GTLRPredictionQuery
 // Previous library name was

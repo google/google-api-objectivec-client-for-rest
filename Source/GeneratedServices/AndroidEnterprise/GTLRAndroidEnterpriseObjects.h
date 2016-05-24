@@ -290,7 +290,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  means that the EMM's app is a device owner. "managedProfile" means that the
  *  EMM's app is the profile owner (and there is a separate personal profile
  *  which is not managed). "containerApp" means that the EMM's app is managing
- *  the Android for Work container app on the device.
+ *  the Android for Work container app on the device. ?unmanagedProfile? means
+ *  that the EMM?s app is managing a managed user on an unmanaged device
  */
 @property(copy, nullable) NSString *managementType;
 

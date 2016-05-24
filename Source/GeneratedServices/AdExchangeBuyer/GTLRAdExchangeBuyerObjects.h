@@ -860,9 +860,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Tracks which parties (if any) have paused a deal. The deal is considered
- *  paused if has_buyer_paused || has_seller_paused.
+ *  paused if has_buyer_paused || has_seller_paused. Each of the
+ *  has_buyer_paused or the has_seller_paused bits can be set independently.
  */
 @interface GTLRAdExchangeBuyer_DealServingMetadataDealPauseStatus : GTLRObject
+
+/** If the deal is paused, records which party paused the deal first. */
+@property(copy, nullable) NSString *firstPausedBy;
 
 /**
  *  hasBuyerPaused

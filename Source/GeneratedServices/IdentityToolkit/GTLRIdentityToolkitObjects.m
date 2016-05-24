@@ -353,7 +353,7 @@
 //
 
 @implementation GTLRIdentityToolkit_RelyingpartyVerifyCustomTokenRequest
-@dynamic instanceId, returnSecureToken, token;
+@dynamic delegatedProjectNumber, instanceId, returnSecureToken, token;
 @end
 
 

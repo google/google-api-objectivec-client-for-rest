@@ -15,6 +15,7 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopePrediction                      = @"https://www.googleapis.com/auth/prediction";
+NSString * const kGTLRAuthScopePredictionCloudPlatform         = @"https://www.googleapis.com/auth/cloud-platform";
 NSString * const kGTLRAuthScopePredictionDevstorageFullControl = @"https://www.googleapis.com/auth/devstorage.full_control";
 NSString * const kGTLRAuthScopePredictionDevstorageReadOnly    = @"https://www.googleapis.com/auth/devstorage.read_only";
 NSString * const kGTLRAuthScopePredictionDevstorageReadWrite   = @"https://www.googleapis.com/auth/devstorage.read_write";

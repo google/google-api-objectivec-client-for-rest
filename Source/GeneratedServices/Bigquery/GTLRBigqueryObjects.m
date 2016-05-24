@@ -341,7 +341,7 @@
 //
 
 @implementation GTLRBigquery_JobConfigurationLoad
-@dynamic allowJaggedRows, allowQuotedNewlines, createDisposition,
+@dynamic allowJaggedRows, allowQuotedNewlines, autodetect, createDisposition,
          destinationTable, encoding, fieldDelimiter, ignoreUnknownValues,
          maxBadRecords, projectionFields, quote, schema, schemaInline,
          schemaInlineFormat, skipLeadingRows, sourceFormat, sourceUris,
@@ -659,8 +659,9 @@
 @implementation GTLRBigquery_Table
 @dynamic creationTime, descriptionProperty, ETag, expirationTime,
          externalDataConfiguration, friendlyName, identifier, kind,
-         lastModifiedTime, location, numBytes, numRows, schema, selfLink,
-         streamingBuffer, tableReference, timePartitioning, type, view;
+         lastModifiedTime, location, numBytes, numLongTermBytes, numRows,
+         schema, selfLink, streamingBuffer, tableReference, timePartitioning,
+         type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

@@ -1096,7 +1096,7 @@
 
 @implementation GTLRAndroidEnterpriseQuery_ProductsList
 
-@dynamic approved, enterpriseId, language, maxResults, query, startIndex, token;
+@dynamic approved, enterpriseId, language, maxResults, query, token;
 
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
   NSArray *pathParams = @[ @"enterpriseId" ];

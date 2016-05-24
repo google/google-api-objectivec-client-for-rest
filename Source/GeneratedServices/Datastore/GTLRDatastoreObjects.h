@@ -4,7 +4,7 @@
 // API:
 //   Google Cloud Datastore API (datastore/v1beta3)
 // Description:
-//   Google Cloud Datastore is a schemaless NoSQL datastore providing robust,
+//   Accesses the schemaless NoSQL database to provide fully managed, robust,
 //   scalable storage for your application.
 // Documentation:
 //   https://cloud.google.com/datastore/
@@ -932,7 +932,9 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  An ending point for the query results. Query cursors are
- *  returned in query result batches.
+ *  returned in query result batches and
+ *  [can only be used to limit the same
+ *  query](https://cloud.google.com/datastore/docs/concepts/queries#cursors_limits_and_offsets).
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -976,7 +978,9 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  A starting point for the query results. Query cursors are
- *  returned in query result batches.
+ *  returned in query result batches and
+ *  [can only be used to continue the same
+ *  query](https://cloud.google.com/datastore/docs/concepts/queries#cursors_limits_and_offsets).
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1080,7 +1084,9 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(copy, nullable) NSString *readConsistency;
 
 /**
- *  The transaction in which to read.
+ *  The identifier of the transaction in which to read. A
+ *  transaction identifier is returned by a call to
+ *  BeginTransaction.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

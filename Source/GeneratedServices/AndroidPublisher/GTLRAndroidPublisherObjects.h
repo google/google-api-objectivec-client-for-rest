@@ -21,6 +21,8 @@
 @class GTLRAndroidPublisher_Apk;
 @class GTLRAndroidPublisher_ApkBinary;
 @class GTLRAndroidPublisher_ApkListing;
+@class GTLRAndroidPublisher_Comment;
+@class GTLRAndroidPublisher_DeveloperComment;
 @class GTLRAndroidPublisher_Entitlement;
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_ExternallyHostedApk;
@@ -41,10 +43,14 @@
 @class GTLRAndroidPublisher_PageInfo;
 @class GTLRAndroidPublisher_Price;
 @class GTLRAndroidPublisher_Prorate;
+@class GTLRAndroidPublisher_Review;
+@class GTLRAndroidPublisher_ReviewReplyResult;
 @class GTLRAndroidPublisher_Season;
 @class GTLRAndroidPublisher_SubscriptionDeferralInfo;
+@class GTLRAndroidPublisher_Timestamp;
 @class GTLRAndroidPublisher_TokenPagination;
 @class GTLRAndroidPublisher_Track;
+@class GTLRAndroidPublisher_UserComment;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -186,6 +192,34 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_Comment
+ */
+@interface GTLRAndroidPublisher_Comment : GTLRObject
+
+/** A comment from a developer. */
+@property(strong, nullable) GTLRAndroidPublisher_DeveloperComment *developerComment;
+
+/** A comment from a user. */
+@property(strong, nullable) GTLRAndroidPublisher_UserComment *userComment;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_DeveloperComment
+ */
+@interface GTLRAndroidPublisher_DeveloperComment : GTLRObject
+
+/** The last time at which this comment was updated. */
+@property(strong, nullable) GTLRAndroidPublisher_Timestamp *lastModified;
+
+/** The content of the comment, i.e. reply body. */
+@property(copy, nullable) NSString *text;
 
 @end
 
@@ -818,6 +852,73 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRAndroidPublisher_Review
+ */
+@interface GTLRAndroidPublisher_Review : GTLRObject
+
+/** The name of the user who wrote the review. */
+@property(copy, nullable) NSString *authorName;
+
+/** A repeated field containing comments for the review. */
+@property(strong, nullable) NSArray<GTLRAndroidPublisher_Comment *> *comments;
+
+/** Unique identifier for this review. */
+@property(copy, nullable) NSString *reviewId;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_ReviewReplyResult
+ */
+@interface GTLRAndroidPublisher_ReviewReplyResult : GTLRObject
+
+/** The time at which the reply took effect. */
+@property(strong, nullable) GTLRAndroidPublisher_Timestamp *lastEdited;
+
+/** The reply text that was applied. */
+@property(copy, nullable) NSString *replyText;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_ReviewsListResponse
+ */
+@interface GTLRAndroidPublisher_ReviewsListResponse : GTLRObject
+
+@property(strong, nullable) GTLRAndroidPublisher_PageInfo *pageInfo;
+@property(strong, nullable) NSArray<GTLRAndroidPublisher_Review *> *reviews;
+@property(strong, nullable) GTLRAndroidPublisher_TokenPagination *tokenPagination;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_ReviewsReplyRequest
+ */
+@interface GTLRAndroidPublisher_ReviewsReplyRequest : GTLRObject
+
+/**
+ *  The text to set as the reply. Replies of more than approximately 350
+ *  characters will be rejected. HTML tags will be stripped.
+ */
+@property(copy, nullable) NSString *replyText;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_ReviewsReplyResponse
+ */
+@interface GTLRAndroidPublisher_ReviewsReplyResponse : GTLRObject
+
+@property(strong, nullable) GTLRAndroidPublisher_ReviewReplyResult *result;
+
+@end
+
+
+/**
  *  GTLRAndroidPublisher_Season
  */
 @interface GTLRAndroidPublisher_Season : GTLRObject
@@ -988,6 +1089,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRAndroidPublisher_Timestamp
+ */
+@interface GTLRAndroidPublisher_Timestamp : GTLRObject
+
+/**
+ *  nanos
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(strong, nullable) NSNumber *nanos;
+
+/**
+ *  seconds
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(strong, nullable) NSNumber *seconds;
+
+@end
+
+
+/**
  *  GTLRAndroidPublisher_TokenPagination
  */
 @interface GTLRAndroidPublisher_TokenPagination : GTLRObject
@@ -1034,6 +1157,63 @@ NS_ASSUME_NONNULL_BEGIN
 @property(copy, nullable) NSString *kind;
 
 @property(strong, nullable) NSArray<GTLRAndroidPublisher_Track *> *tracks;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_UserComment
+ */
+@interface GTLRAndroidPublisher_UserComment : GTLRObject
+
+/**
+ *  Integer Android SDK version of the user's device at the time the review was
+ *  written, e.g. 23 is Marshmallow. May be absent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(strong, nullable) NSNumber *androidOsVersion;
+
+/**
+ *  Integer version code of the app as installed at the time the review was
+ *  written. May be absent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(strong, nullable) NSNumber *appVersionCode;
+
+/**
+ *  String version name of the app as installed at the time the review was
+ *  written. May be absent.
+ */
+@property(copy, nullable) NSString *appVersionName;
+
+/** Codename for the reviewer's device, e.g. klte, flounder. May be absent. */
+@property(copy, nullable) NSString *device;
+
+/** The last time at which this comment was updated. */
+@property(strong, nullable) GTLRAndroidPublisher_Timestamp *lastModified;
+
+/**
+ *  Language code for the reviewer. This is taken from the device settings so is
+ *  not guaranteed to match the language the review is written in. May be
+ *  absent.
+ */
+@property(copy, nullable) NSString *reviewerLanguage;
+
+/**
+ *  The star rating associated with the review, from 1 to 5.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(strong, nullable) NSNumber *starRating;
+
+/**
+ *  The content of the comment, i.e. review body. In some cases users have been
+ *  able to write a review with separate title and body; in those cases the
+ *  title and body are concatenated and separated by a tab character.
+ */
+@property(copy, nullable) NSString *text;
 
 @end
 
