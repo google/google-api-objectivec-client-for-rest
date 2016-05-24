@@ -614,7 +614,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Content-Language of the object data. */
 @property(copy, nullable) NSString *contentLanguage;
 
-/** Content-Type of the object data. */
+/**
+ *  Content-Type of the object data. If contentType is not specified, object
+ *  downloads will be served as application/octet-stream.
+ */
 @property(copy, nullable) NSString *contentType;
 
 /**

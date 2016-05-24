@@ -4,8 +4,8 @@
 // API:
 //   YouTube Reporting API (youtubereporting/v1)
 // Description:
-//   Schedules reporting jobs and downloads the resulting bulk data reports
-//   about YouTube channels, videos, etc. in the form of CSV files.
+//   Schedules reporting jobs containing your YouTube Analytics data and
+//   downloads the resulting bulk data reports in the form of CSV files.
 // Documentation:
 //   https://developers.google.com/youtube/reporting/v1/reports/
 
@@ -315,8 +315,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryYouTubeReporting queryForMediaDownloadWithresourceName:]
 
 /**
- *  Name of the media that is being downloaded. See
- *  ByteStream.ReadRequest.resource_name.
+ *  Name of the media that is being downloaded. See ReadRequest.resource_name.
  */
 @property(copy, nullable) NSString *resourceName;
 
@@ -327,7 +326,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `/v1/media/{+name}?alt=media`.
  *
  *  @param resourceName Name of the media that is being downloaded. See
- *    ByteStream.ReadRequest.resource_name.
+ *    ReadRequest.resource_name.
  *
  *  @returns GTLRYouTubeReportingQuery_MediaDownload
  */
@@ -340,7 +339,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `/v1/media/{+name}?alt=media`.
  *
  *  @param resourceName Name of the media that is being downloaded. See
- *    ByteStream.ReadRequest.resource_name.
+ *    ReadRequest.resource_name.
  *
  *  @returns GTLRYouTubeReportingQuery_MediaDownload
  */

@@ -297,6 +297,14 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  */
 @property(strong, nullable) NSNumber *timedOut;
 
+/**
+ *  If the robo was unable to crawl the app; perhaps because the app did not
+ *  start.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *unableToCrawl;
+
 @end
 
 

@@ -113,6 +113,14 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudResourceManager/*.{h,m}'
   end
+  s.subspec 'CloudRuntimeConfig' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudRuntimeConfig/*.{h,m}'
+  end
+  s.subspec 'CloudTrace' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudTrace/*.{h,m}'
+  end
   s.subspec 'CloudUserAccounts' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudUserAccounts/*.{h,m}'
@@ -169,6 +177,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Drive/*.{h,m}'
   end
+  s.subspec 'FirebaseRulesAPI' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/FirebaseRulesAPI/*.{h,m}'
+  end
   s.subspec 'Fitness' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Fitness/*.{h,m}'
@@ -209,10 +221,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Logging/*.{h,m}'
   end
-  s.subspec 'Manager' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Manager/*.{h,m}'
-  end
   s.subspec 'Mirror' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Mirror/*.{h,m}'
@@ -236,6 +244,10 @@ Pod::Spec.new do |s|
   s.subspec 'People' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/People/*.{h,m}'
+  end
+  s.subspec 'PlayMovies' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/PlayMovies/*.{h,m}'
   end
   s.subspec 'Plus' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -276,6 +288,10 @@ Pod::Spec.new do |s|
   s.subspec 'ServiceRegistry' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ServiceRegistry/*.{h,m}'
+  end
+  s.subspec 'Sheets' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Sheets/*.{h,m}'
   end
   s.subspec 'ShoppingContent' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

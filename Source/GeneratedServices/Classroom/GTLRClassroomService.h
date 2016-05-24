@@ -36,6 +36,41 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomCourses;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomCoursesReadonly;
 /**
+ *  Authorization scope: Manage your course work and view your grades in Google
+ *  Classroom
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.coursework.me"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomCourseworkMe;
+/**
+ *  Authorization scope: View your course work and grades in Google Classroom
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.coursework.me.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomCourseworkMeReadonly;
+/**
+ *  Authorization scope: View instructions for teacher-assigned work in your
+ *  Google Classroom classes
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.course-work.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomCourseWorkReadonly;
+/**
+ *  Authorization scope: Manage course work and grades for students in the
+ *  Google Classroom classes you teach and view the course work and grades for
+ *  classes you administer
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.coursework.students"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomCourseworkStudents;
+/**
+ *  Authorization scope: View course work and grades for students in the Google
+ *  Classroom classes you teach or administer
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.coursework.students.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomCourseworkStudentsReadonly;
+/**
  *  Authorization scope: View the email addresses of people in your classes
  *
  *  Value "https://www.googleapis.com/auth/classroom.profile.emails"
@@ -59,6 +94,19 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomRosters;
  *  Value "https://www.googleapis.com/auth/classroom.rosters.readonly"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomRostersReadonly;
+/**
+ *  Authorization scope: View your course work and grades in Google Classroom
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.student-submissions.me.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomStudentSubmissionsMeReadonly;
+/**
+ *  Authorization scope: View course work and grades for students in the Google
+ *  Classroom classes you teach or administer
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomStudentSubmissionsStudentsReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRClassroomService

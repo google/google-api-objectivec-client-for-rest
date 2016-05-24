@@ -4,7 +4,7 @@
 // API:
 //   Google Cloud Datastore API (datastore/v1beta3)
 // Description:
-//   Google Cloud Datastore is a schemaless NoSQL datastore providing robust,
+//   Accesses the schemaless NoSQL database to provide fully managed, robust,
 //   scalable storage for your application.
 // Documentation:
 //   https://cloud.google.com/datastore/

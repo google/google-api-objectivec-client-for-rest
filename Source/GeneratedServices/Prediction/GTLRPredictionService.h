@@ -31,6 +31,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopePrediction;
 /**
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopePredictionCloudPlatform;
+/**
  *  Authorization scope: Manage your data and permissions in Google Cloud
  *  Storage
  *

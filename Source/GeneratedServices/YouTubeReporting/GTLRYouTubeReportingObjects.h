@@ -4,8 +4,8 @@
 // API:
 //   YouTube Reporting API (youtubereporting/v1)
 // Description:
-//   Schedules reporting jobs and downloads the resulting bulk data reports
-//   about YouTube channels, videos, etc. in the form of CSV files.
+//   Schedules reporting jobs containing your YouTube Analytics data and
+//   downloads the resulting bulk data reports in the form of CSV files.
 // Documentation:
 //   https://developers.google.com/youtube/reporting/v1/reports/
 
@@ -43,6 +43,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The creation date/time of the job. */
 @property(copy, nullable) NSString *createTime;
+
+/**
+ *  The date/time when this job will expire/expired. After a job expired, no new
+ *  reports are generated.
+ */
+@property(copy, nullable) NSString *expireTime;
 
 /**
  *  The server-generated ID of the job (max. 40 characters).
@@ -190,6 +196,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(copy, nullable) NSString *identifier;
 
+/** The date/time when the job this report belongs to will expire/expired. */
+@property(copy, nullable) NSString *jobExpireTime;
+
 /** The ID of the job that created this report. */
 @property(copy, nullable) NSString *jobId;
 
@@ -206,6 +215,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  A report type.
  */
 @interface GTLRYouTubeReporting_ReportType : GTLRObject
+
+/** The date/time when this report type was/will be deprecated. */
+@property(copy, nullable) NSString *deprecateTime;
 
 /**
  *  The ID of the report type (max. 100 characters).

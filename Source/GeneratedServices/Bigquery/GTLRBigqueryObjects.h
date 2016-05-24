@@ -704,12 +704,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Required] The fully-qualified URIs that point to your data in Google Cloud.
  *  For Google Cloud Storage URIs: Each URI can contain one '*' wildcard
  *  character and it must come after the 'bucket' name. Size limits related to
- *  load jobs apply to external data sources, plus an additional limit of 10 GB
- *  maximum size across all URIs. For Google Cloud Bigtable URIs: Exactly one
- *  URI can be specified and it has be a fully specified and valid HTTPS URL for
- *  a Google Cloud Bigtable table. For Google Cloud Datastore backups, exactly
- *  one URI can be specified, and it must end with '.backup_info'. Also, the '*'
- *  wildcard character is not allowed.
+ *  load jobs apply to external data sources. For Google Cloud Bigtable URIs:
+ *  Exactly one URI can be specified and it has be a fully specified and valid
+ *  HTTPS URL for a Google Cloud Bigtable table. For Google Cloud Datastore
+ *  backups, exactly one URI can be specified, and it must end with
+ *  '.backup_info'. Also, the '*' wildcard character is not allowed.
  */
 @property(strong, nullable) NSArray<NSString *> *sourceUris;
 
@@ -986,6 +985,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(strong, nullable) NSNumber *allowQuotedNewlines;
+
+/**
+ *  [Experimental] Indicates if we should automatically infer the options and
+ *  schema for CSV and JSON sources.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *autodetect;
 
 /**
  *  [Optional] Specifies whether the job is allowed to create new tables. The
@@ -1932,6 +1939,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(strong, nullable) NSNumber *numBytes;
+
+/**
+ *  [Output-only] The number of bytes in the table that are considered
+ *  "long-term storage".
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(strong, nullable) NSNumber *numLongTermBytes;
 
 /**
  *  [Output-only] The number of rows of data in this table, excluding any data

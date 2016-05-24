@@ -26,6 +26,7 @@
 @class GTLRAndroidPublisher_InAppProduct;
 @class GTLRAndroidPublisher_InappproductsBatchRequest;
 @class GTLRAndroidPublisher_Listing;
+@class GTLRAndroidPublisher_ReviewsReplyRequest;
 @class GTLRAndroidPublisher_SubscriptionPurchasesDeferRequest;
 @class GTLRAndroidPublisher_Testers;
 @class GTLRAndroidPublisher_Track;
@@ -2727,6 +2728,119 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 + (instancetype)queryWithPackageName:(NSString *)packageName
                       subscriptionId:(NSString *)subscriptionId
                                token:(NSString *)token;
+
+@end
+
+/**
+ *  Returns a single review.
+ *
+ *  Method: androidpublisher.reviews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ReviewsGet : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForReviewsGetWithpackageName:reviewId:]
+
+/**
+ *  Unique identifier for the Android app for which we want reviews; for
+ *  example, "com.spiffygame".
+ */
+@property(copy, nullable) NSString *packageName;
+
+@property(copy, nullable) NSString *reviewId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_Review.
+ *
+ *  Returns a single review.
+ *
+ *  @param packageName Unique identifier for the Android app for which we want
+ *    reviews; for example, "com.spiffygame".
+ *  @param reviewId NSString
+ *
+ *  @returns GTLRAndroidPublisherQuery_ReviewsGet
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                            reviewId:(NSString *)reviewId;
+
+@end
+
+/**
+ *  Returns a list of reviews.
+ *
+ *  Method: androidpublisher.reviews.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ReviewsList : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForReviewsListWithpackageName:]
+
+@property(assign) NSUInteger maxResults;
+
+/**
+ *  Unique identifier for the Android app for which we want reviews; for
+ *  example, "com.spiffygame".
+ */
+@property(copy, nullable) NSString *packageName;
+
+@property(assign) NSUInteger startIndex;
+
+@property(copy, nullable) NSString *token;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ReviewsListResponse.
+ *
+ *  Returns a list of reviews.
+ *
+ *  @param packageName Unique identifier for the Android app for which we want
+ *    reviews; for example, "com.spiffygame".
+ *
+ *  @returns GTLRAndroidPublisherQuery_ReviewsList
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Reply to a single review, or update an existing reply.
+ *
+ *  Method: androidpublisher.reviews.reply
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ReviewsReply : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForReviewsReplyWithObject:packageName:reviewId:]
+
+/**
+ *  Unique identifier for the Android app for which we want reviews; for
+ *  example, "com.spiffygame".
+ */
+@property(copy, nullable) NSString *packageName;
+
+@property(copy, nullable) NSString *reviewId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ReviewsReplyResponse.
+ *
+ *  Reply to a single review, or update an existing reply.
+ *
+ *  @param object The @c GTLRAndroidPublisher_ReviewsReplyRequest to include in
+ *    the query.
+ *  @param packageName Unique identifier for the Android app for which we want
+ *    reviews; for example, "com.spiffygame".
+ *  @param reviewId NSString
+ *
+ *  @returns GTLRAndroidPublisherQuery_ReviewsReply
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_ReviewsReplyRequest *)object
+                    packageName:(NSString *)packageName
+                       reviewId:(NSString *)reviewId;
 
 @end
 

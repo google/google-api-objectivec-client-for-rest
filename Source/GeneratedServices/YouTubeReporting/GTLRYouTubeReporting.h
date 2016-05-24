@@ -4,8 +4,8 @@
 // API:
 //   YouTube Reporting API (youtubereporting/v1)
 // Description:
-//   Schedules reporting jobs and downloads the resulting bulk data reports
-//   about YouTube channels, videos, etc. in the form of CSV files.
+//   Schedules reporting jobs containing your YouTube Analytics data and
+//   downloads the resulting bulk data reports in the form of CSV files.
 // Documentation:
 //   https://developers.google.com/youtube/reporting/v1/reports/
 

@@ -7,7 +7,7 @@
 //   Manages service endpoints in Service Registry and provides integration with
 //   DNS for service discovery and name resolution.
 // Documentation:
-//   https://developers.google.com/cloud-serviceregistry/
+//   https://cloud.google.com/service-registry/
 
 #import "GTLRServiceRegistryObjects.h"
 
@@ -37,7 +37,7 @@
 //
 
 @implementation GTLRServiceRegistry_EndpointEndpointVisibility
-@dynamic networks;
+@dynamic internalDnsName, networks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

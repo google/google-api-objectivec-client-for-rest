@@ -69,7 +69,7 @@ NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 //
 
 @implementation GTLRToolResults_FailureDetail
-@dynamic crashed, notInstalled, otherNativeCrash, timedOut;
+@dynamic crashed, notInstalled, otherNativeCrash, timedOut, unableToCrawl;
 @end
 
 

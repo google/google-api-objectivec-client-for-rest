@@ -31,7 +31,6 @@
 @class GTLRAutoscaler_OperationWarningsItem;
 @class GTLRAutoscaler_OperationWarningsItemDataItem;
 @class GTLRAutoscaler_Zone;
-@class GTLRAutoscaler_ZoneMaintenanceWindowsItem;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -124,10 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(strong, nullable) NSNumber *coolDownPeriodSec;
 
-/**
- *  Exactly one utilization policy should be provided. Configuration parameters
- *  of CPU based autoscaling policy.
- */
+/** Configuration parameters of CPU based autoscaling policy. */
 @property(strong, nullable) GTLRAutoscaler_AutoscalingPolicyCpuUtilization *cpuUtilization;
 
 /** Configuration parameters of autoscaling based on custom metric. */
@@ -240,6 +236,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(copy, nullable) NSString *clientOperationId;
 @property(copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  descriptionProperty
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(copy, nullable) NSString *descriptionProperty;
+
 @property(copy, nullable) NSString *endTime;
 @property(strong, nullable) GTLRAutoscaler_OperationError *error;
 @property(copy, nullable) NSString *httpErrorMessage;
@@ -263,7 +267,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(copy, nullable) NSString *insertTime;
 
 /**
- *  [Output Only] Type of the resource. Always compute#Operation for Operation
+ *  [Output Only] Type of the resource. Always compute#operation for Operation
  *  resources.
  */
 @property(copy, nullable) NSString *kind;
@@ -411,37 +415,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(strong, nullable) NSNumber *identifier;
 
-/** [Output Only] Type of the resource. Always kind#zone for zones. */
+/** [Output Only] Type of the resource. Always compute#zone for zones. */
 @property(copy, nullable) NSString *kind;
 
-@property(strong, nullable) NSArray<GTLRAutoscaler_ZoneMaintenanceWindowsItem *> *maintenanceWindows;
 @property(copy, nullable) NSString *name;
 @property(copy, nullable) NSString *region;
-
-/** [Output Only] Server defined URL for the resource. */
 @property(copy, nullable) NSString *selfLink;
-
 @property(copy, nullable) NSString *status;
-
-@end
-
-
-/**
- *  GTLRAutoscaler_ZoneMaintenanceWindowsItem
- */
-@interface GTLRAutoscaler_ZoneMaintenanceWindowsItem : GTLRObject
-
-@property(copy, nullable) NSString *beginTime;
-
-/**
- *  descriptionProperty
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(copy, nullable) NSString *descriptionProperty;
-
-@property(copy, nullable) NSString *endTime;
-@property(copy, nullable) NSString *name;
 
 @end
 
@@ -476,7 +456,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(copy, nullable) NSString *nextPageToken;
 
-/** Server defined URL for this resource (output only). */
+/** [Output Only] Server-defined URL for this resource. */
 @property(copy, nullable) NSString *selfLink;
 
 @end

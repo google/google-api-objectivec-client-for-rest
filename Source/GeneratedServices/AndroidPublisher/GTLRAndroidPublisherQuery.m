@@ -1412,3 +1412,74 @@ NSString * const kGTLRAndroidPublisherTrackRollout    = @"rollout";
 }
 
 @end
+
+@implementation GTLRAndroidPublisherQuery_ReviewsGet
+
+@dynamic packageName, reviewId;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                            reviewId:(NSString *)reviewId {
+  NSArray *pathParams = @[
+    @"packageName", @"reviewId"
+  ];
+  NSString *pathURITemplate = @"{packageName}/reviews/{reviewId}";
+  GTLRAndroidPublisherQuery_ReviewsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.reviewId = reviewId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_Review class];
+  query.loggingName = @"androidpublisher.reviews.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_ReviewsList
+
+@dynamic maxResults, packageName, startIndex, token;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"{packageName}/reviews";
+  GTLRAndroidPublisherQuery_ReviewsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ReviewsListResponse class];
+  query.loggingName = @"androidpublisher.reviews.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_ReviewsReply
+
+@dynamic packageName, reviewId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_ReviewsReplyRequest *)object
+                    packageName:(NSString *)packageName
+                       reviewId:(NSString *)reviewId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"reviewId"
+  ];
+  NSString *pathURITemplate = @"{packageName}/reviews/{reviewId}:reply";
+  GTLRAndroidPublisherQuery_ReviewsReply *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.reviewId = reviewId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ReviewsReplyResponse class];
+  query.loggingName = @"androidpublisher.reviews.reply";
+  return query;
+}
+
+@end

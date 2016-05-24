@@ -58,7 +58,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_AchievementDefinitionsList
 
-@dynamic language, maxResults, pageToken;
+@dynamic consistencyToken, language, maxResults, pageToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"achievements";
@@ -75,7 +75,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_AchievementsIncrement
 
-@dynamic achievementId, requestId, stepsToIncrement;
+@dynamic achievementId, consistencyToken, requestId, stepsToIncrement;
 
 + (instancetype)queryWithAchievementId:(NSString *)achievementId
                       stepsToIncrement:(NSInteger)stepsToIncrement {
@@ -96,7 +96,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_AchievementsList
 
-@dynamic language, maxResults, pageToken, playerId, state;
+@dynamic consistencyToken, language, maxResults, pageToken, playerId, state;
 
 + (instancetype)queryWithPlayerId:(NSString *)playerId {
   NSArray *pathParams = @[ @"playerId" ];
@@ -115,7 +115,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_AchievementsReveal
 
-@dynamic achievementId;
+@dynamic achievementId, consistencyToken;
 
 + (instancetype)queryWithAchievementId:(NSString *)achievementId {
   NSArray *pathParams = @[ @"achievementId" ];
@@ -134,7 +134,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_AchievementsSetStepsAtLeast
 
-@dynamic achievementId, steps;
+@dynamic achievementId, consistencyToken, steps;
 
 + (instancetype)queryWithAchievementId:(NSString *)achievementId
                                  steps:(NSInteger)steps {
@@ -155,7 +155,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_AchievementsUnlock
 
-@dynamic achievementId;
+@dynamic achievementId, consistencyToken;
 
 + (instancetype)queryWithAchievementId:(NSString *)achievementId {
   NSArray *pathParams = @[ @"achievementId" ];
@@ -173,6 +173,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 @end
 
 @implementation GTLRGamesQuery_AchievementsUpdateMultiple
+
+@dynamic consistencyToken;
 
 + (instancetype)queryWithObject:(GTLRGames_AchievementUpdateMultipleRequest *)object {
   if (object == nil) {
@@ -194,7 +196,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_ApplicationsGet
 
-@dynamic applicationId, language, platformType;
+@dynamic applicationId, consistencyToken, language, platformType;
 
 + (instancetype)queryWithApplicationId:(NSString *)applicationId {
   NSArray *pathParams = @[ @"applicationId" ];
@@ -213,6 +215,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_ApplicationsPlayed
 
+@dynamic consistencyToken;
+
 + (instancetype)query {
   NSString *pathURITemplate = @"applications/played";
   GTLRGamesQuery_ApplicationsPlayed *query =
@@ -227,7 +231,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_ApplicationsVerify
 
-@dynamic applicationId;
+@dynamic applicationId, consistencyToken;
 
 + (instancetype)queryWithApplicationId:(NSString *)applicationId {
   NSArray *pathParams = @[ @"applicationId" ];
@@ -246,7 +250,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_EventsListByPlayer
 
-@dynamic language, maxResults, pageToken;
+@dynamic consistencyToken, language, maxResults, pageToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"events";
@@ -263,7 +267,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_EventsListDefinitions
 
-@dynamic language, maxResults, pageToken;
+@dynamic consistencyToken, language, maxResults, pageToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"eventDefinitions";
@@ -280,7 +284,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_EventsRecord
 
-@dynamic language;
+@dynamic consistencyToken, language;
 
 + (instancetype)queryWithObject:(GTLRGames_EventRecordRequest *)object {
   if (object == nil) {
@@ -302,7 +306,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_LeaderboardsGet
 
-@dynamic language, leaderboardId;
+@dynamic consistencyToken, language, leaderboardId;
 
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId {
   NSArray *pathParams = @[ @"leaderboardId" ];
@@ -321,7 +325,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_LeaderboardsList
 
-@dynamic language, maxResults, pageToken;
+@dynamic consistencyToken, language, maxResults, pageToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"leaderboards";
@@ -338,6 +342,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_MetagameGetMetagameConfig
 
+@dynamic consistencyToken;
+
 + (instancetype)query {
   NSString *pathURITemplate = @"metagameConfig";
   GTLRGamesQuery_MetagameGetMetagameConfig *query =
@@ -353,7 +359,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_MetagameListCategoriesByPlayer
 
-@dynamic collection, language, maxResults, pageToken, playerId;
+@dynamic collection, consistencyToken, language, maxResults, pageToken,
+         playerId;
 
 + (instancetype)queryWithPlayerId:(NSString *)playerId
                        collection:(NSString *)collection {
@@ -376,7 +383,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_PlayersGet
 
-@dynamic language, playerId;
+@dynamic consistencyToken, language, playerId;
 
 + (instancetype)queryWithPlayerId:(NSString *)playerId {
   NSArray *pathParams = @[ @"playerId" ];
@@ -395,7 +402,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_PlayersList
 
-@dynamic collection, language, maxResults, pageToken;
+@dynamic collection, consistencyToken, language, maxResults, pageToken;
 
 + (instancetype)queryWithCollection:(NSString *)collection {
   NSArray *pathParams = @[ @"collection" ];
@@ -413,6 +420,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 @end
 
 @implementation GTLRGamesQuery_PushtokensRemove
+
+@dynamic consistencyToken;
 
 + (instancetype)queryWithObject:(GTLRGames_PushTokenId *)object {
   if (object == nil) {
@@ -433,6 +442,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_PushtokensUpdate
 
+@dynamic consistencyToken;
+
 + (instancetype)queryWithObject:(GTLRGames_PushToken *)object {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -452,7 +463,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_QuestMilestonesClaim
 
-@dynamic milestoneId, questId, requestId;
+@dynamic consistencyToken, milestoneId, questId, requestId;
 
 + (instancetype)queryWithQuestId:(NSString *)questId
                      milestoneId:(NSString *)milestoneId
@@ -476,7 +487,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_QuestsAccept
 
-@dynamic language, questId;
+@dynamic consistencyToken, language, questId;
 
 + (instancetype)queryWithQuestId:(NSString *)questId {
   NSArray *pathParams = @[ @"questId" ];
@@ -495,7 +506,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_QuestsList
 
-@dynamic language, maxResults, pageToken, playerId;
+@dynamic consistencyToken, language, maxResults, pageToken, playerId;
 
 + (instancetype)queryWithPlayerId:(NSString *)playerId {
   NSArray *pathParams = @[ @"playerId" ];
@@ -514,7 +525,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_RevisionsCheck
 
-@dynamic clientRevision;
+@dynamic clientRevision, consistencyToken;
 
 + (instancetype)queryWithClientRevision:(NSString *)clientRevision {
   NSString *pathURITemplate = @"revisions/check";
@@ -532,7 +543,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_RoomsCreate
 
-@dynamic language;
+@dynamic consistencyToken, language;
 
 + (instancetype)queryWithObject:(GTLRGames_RoomCreateRequest *)object {
   if (object == nil) {
@@ -554,7 +565,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_RoomsDecline
 
-@dynamic language, roomId;
+@dynamic consistencyToken, language, roomId;
 
 + (instancetype)queryWithRoomId:(NSString *)roomId {
   NSArray *pathParams = @[ @"roomId" ];
@@ -573,7 +584,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_RoomsDismiss
 
-@dynamic roomId;
+@dynamic consistencyToken, roomId;
 
 + (instancetype)queryWithRoomId:(NSString *)roomId {
   NSArray *pathParams = @[ @"roomId" ];
@@ -591,7 +602,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_RoomsGet
 
-@dynamic language, roomId;
+@dynamic consistencyToken, language, roomId;
 
 + (instancetype)queryWithRoomId:(NSString *)roomId {
   NSArray *pathParams = @[ @"roomId" ];
@@ -610,7 +621,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_RoomsJoin
 
-@dynamic language, roomId;
+@dynamic consistencyToken, language, roomId;
 
 + (instancetype)queryWithObject:(GTLRGames_RoomJoinRequest *)object
                          roomId:(NSString *)roomId {
@@ -635,7 +646,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_RoomsLeave
 
-@dynamic language, roomId;
+@dynamic consistencyToken, language, roomId;
 
 + (instancetype)queryWithObject:(GTLRGames_RoomLeaveRequest *)object
                          roomId:(NSString *)roomId {
@@ -660,7 +671,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_RoomsList
 
-@dynamic language, maxResults, pageToken;
+@dynamic consistencyToken, language, maxResults, pageToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"rooms";
@@ -677,7 +688,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_RoomsReportStatus
 
-@dynamic language, roomId;
+@dynamic consistencyToken, language, roomId;
 
 + (instancetype)queryWithObject:(GTLRGames_RoomP2PStatuses *)object
                          roomId:(NSString *)roomId {
@@ -702,8 +713,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_ScoresGet
 
-@dynamic includeRankType, language, leaderboardId, maxResults, pageToken,
-         playerId, timeSpan;
+@dynamic consistencyToken, includeRankType, language, leaderboardId, maxResults,
+         pageToken, playerId, timeSpan;
 
 + (instancetype)queryWithPlayerId:(NSString *)playerId
                     leaderboardId:(NSString *)leaderboardId
@@ -728,7 +739,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_ScoresList
 
-@dynamic collection, language, leaderboardId, maxResults, pageToken, timeSpan;
+@dynamic collection, consistencyToken, language, leaderboardId, maxResults,
+         pageToken, timeSpan;
 
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId
                             collection:(NSString *)collection
@@ -753,8 +765,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_ScoresListWindow
 
-@dynamic collection, language, leaderboardId, maxResults, pageToken,
-         resultsAbove, returnTopIfAbsent, timeSpan;
+@dynamic collection, consistencyToken, language, leaderboardId, maxResults,
+         pageToken, resultsAbove, returnTopIfAbsent, timeSpan;
 
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId
                             collection:(NSString *)collection
@@ -779,7 +791,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_ScoresSubmit
 
-@dynamic language, leaderboardId, score, scoreTag;
+@dynamic consistencyToken, language, leaderboardId, score, scoreTag;
 
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId
                                  score:(long long)score {
@@ -800,7 +812,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_ScoresSubmitMultiple
 
-@dynamic language;
+@dynamic consistencyToken, language;
 
 + (instancetype)queryWithObject:(GTLRGames_PlayerScoreSubmissionList *)object {
   if (object == nil) {
@@ -822,7 +834,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_SnapshotsGet
 
-@dynamic language, snapshotId;
+@dynamic consistencyToken, language, snapshotId;
 
 + (instancetype)queryWithSnapshotId:(NSString *)snapshotId {
   NSArray *pathParams = @[ @"snapshotId" ];
@@ -841,7 +853,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_SnapshotsList
 
-@dynamic language, maxResults, pageToken, playerId;
+@dynamic consistencyToken, language, maxResults, pageToken, playerId;
 
 + (instancetype)queryWithPlayerId:(NSString *)playerId {
   NSArray *pathParams = @[ @"playerId" ];
@@ -860,7 +872,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_TurnBasedMatchesCancel
 
-@dynamic matchId;
+@dynamic consistencyToken, matchId;
 
 + (instancetype)queryWithMatchId:(NSString *)matchId {
   NSArray *pathParams = @[ @"matchId" ];
@@ -878,7 +890,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_TurnBasedMatchesCreate
 
-@dynamic language;
+@dynamic consistencyToken, language;
 
 + (instancetype)queryWithObject:(GTLRGames_TurnBasedMatchCreateRequest *)object {
   if (object == nil) {
@@ -900,7 +912,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_TurnBasedMatchesDecline
 
-@dynamic language, matchId;
+@dynamic consistencyToken, language, matchId;
 
 + (instancetype)queryWithMatchId:(NSString *)matchId {
   NSArray *pathParams = @[ @"matchId" ];
@@ -919,7 +931,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_TurnBasedMatchesDismiss
 
-@dynamic matchId;
+@dynamic consistencyToken, matchId;
 
 + (instancetype)queryWithMatchId:(NSString *)matchId {
   NSArray *pathParams = @[ @"matchId" ];
@@ -937,7 +949,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_TurnBasedMatchesFinish
 
-@dynamic language, matchId;
+@dynamic consistencyToken, language, matchId;
 
 + (instancetype)queryWithObject:(GTLRGames_TurnBasedMatchResults *)object
                         matchId:(NSString *)matchId {
@@ -962,7 +974,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_TurnBasedMatchesGet
 
-@dynamic includeMatchData, language, matchId;
+@dynamic consistencyToken, includeMatchData, language, matchId;
 
 + (instancetype)queryWithMatchId:(NSString *)matchId {
   NSArray *pathParams = @[ @"matchId" ];
@@ -981,7 +993,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_TurnBasedMatchesJoin
 
-@dynamic language, matchId;
+@dynamic consistencyToken, language, matchId;
 
 + (instancetype)queryWithMatchId:(NSString *)matchId {
   NSArray *pathParams = @[ @"matchId" ];
@@ -1000,7 +1012,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_TurnBasedMatchesLeave
 
-@dynamic language, matchId;
+@dynamic consistencyToken, language, matchId;
 
 + (instancetype)queryWithMatchId:(NSString *)matchId {
   NSArray *pathParams = @[ @"matchId" ];
@@ -1019,7 +1031,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_TurnBasedMatchesLeaveTurn
 
-@dynamic language, matchId, matchVersion, pendingParticipantId;
+@dynamic consistencyToken, language, matchId, matchVersion,
+         pendingParticipantId;
 
 + (instancetype)queryWithMatchId:(NSString *)matchId
                     matchVersion:(NSInteger)matchVersion {
@@ -1040,7 +1053,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_TurnBasedMatchesList
 
-@dynamic includeMatchData, language, maxCompletedMatches, maxResults, pageToken;
+@dynamic consistencyToken, includeMatchData, language, maxCompletedMatches,
+         maxResults, pageToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"turnbasedmatches";
@@ -1057,7 +1071,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_TurnBasedMatchesRematch
 
-@dynamic language, matchId, requestId;
+@dynamic consistencyToken, language, matchId, requestId;
 
 + (instancetype)queryWithMatchId:(NSString *)matchId {
   NSArray *pathParams = @[ @"matchId" ];
@@ -1076,7 +1090,8 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_TurnBasedMatchesSync
 
-@dynamic includeMatchData, language, maxCompletedMatches, maxResults, pageToken;
+@dynamic consistencyToken, includeMatchData, language, maxCompletedMatches,
+         maxResults, pageToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"turnbasedmatches/sync";
@@ -1093,7 +1108,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @implementation GTLRGamesQuery_TurnBasedMatchesTakeTurn
 
-@dynamic language, matchId;
+@dynamic consistencyToken, language, matchId;
 
 + (instancetype)queryWithObject:(GTLRGames_TurnBasedMatchTurn *)object
                         matchId:(NSString *)matchId {

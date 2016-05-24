@@ -114,13 +114,15 @@
 //
 
 @implementation GTLRAutoscaler_Operation
-@dynamic clientOperationId, creationTimestamp, endTime, error, httpErrorMessage,
-         httpErrorStatusCode, identifier, insertTime, kind, name, operationType,
-         progress, region, selfLink, startTime, status, statusMessage, targetId,
-         targetLink, user, warnings, zoneProperty;
+@dynamic clientOperationId, creationTimestamp, descriptionProperty, endTime,
+         error, httpErrorMessage, httpErrorStatusCode, identifier, insertTime,
+         kind, name, operationType, progress, region, selfLink, startTime,
+         status, statusMessage, targetId, targetLink, user, warnings,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
     @"identifier" : @"id",
     @"zoneProperty" : @"zone"
   };
@@ -222,7 +224,7 @@
 
 @implementation GTLRAutoscaler_Zone
 @dynamic creationTimestamp, deprecated, descriptionProperty, identifier, kind,
-         maintenanceWindows, name, region, selfLink, status;
+         name, region, selfLink, status;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -230,28 +232,6 @@
     @"identifier" : @"id"
   };
   return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"maintenanceWindows" : [GTLRAutoscaler_ZoneMaintenanceWindowsItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAutoscaler_ZoneMaintenanceWindowsItem
-//
-
-@implementation GTLRAutoscaler_ZoneMaintenanceWindowsItem
-@dynamic beginTime, descriptionProperty, endTime, name;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end

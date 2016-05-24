@@ -599,13 +599,14 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  This is used for `FIRST_VISIT_DATE` cohort, the cohort selects users
  *  whose first visit date is between start date and end date defined in the
  *  DateRange. The date ranges should be aligned for cohort requests. If the
- *  request contains cohort_nth_day it should be exactly one day long,
+ *  request contains `ga:cohortNthDay` it should be exactly one day long,
  *  if `ga:cohortNthWeek` it should be aligned to the week boundary (starting
- *  at Sunday and ending Saturday), and for cohort_nth_month the date range
+ *  at Sunday and ending Saturday), and for `ga:cohortNthMonth` the date range
  *  should be aligned to the month (starting at the first and ending on the
  *  last day of the month).
  *  For LTV requests there are no such restrictions.
- *  You do not need to supply a date range for the reportsRequest object.
+ *  You do not need to supply a date range for the
+ *  `reportsRequest.dateRanges` field.
  */
 @property(strong, nullable) GTLRAnalyticsReporting_DateRange *dateRange;
 
@@ -677,6 +678,9 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  increment.
  *  - The cohort definition date ranges need not be aligned to the calendar
  *  week and month boundaries.
+ *  - The `viewId` must be an
+ *  [app view
+ *  ID](https://support.google.com/analytics/answer/2649553#WebVersusAppViews)
  *
  *  Uses NSNumber of boolValue.
  */
@@ -915,7 +919,11 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  */
 @interface GTLRAnalyticsReporting_GetReportsRequest : GTLRObject
 
-/** Requests, each request will have a separate response. */
+/**
+ *  Requests, each request will have a separate response.
+ *  There can be a maximum of 5 requests. All requests should have the same
+ *  `dateRange`, `viewId`, `segments`, `samplingLevel`, and `cohortGroup`.
+ */
 @property(strong, nullable) NSArray<GTLRAnalyticsReporting_ReportRequest *> *reportRequests;
 
 @end
@@ -923,7 +931,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 
 /**
  *  The main response class which holds the reports from the Reporting API
- *  batchRequest call.
+ *  `batchGet` call.
  */
 @interface GTLRAnalyticsReporting_GetReportsResponse : GTLRObject
 
@@ -954,6 +962,8 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  Positive cardinal numbers (0-9), can include decimals and is limited to
  *  1024 characters. Example `ga:totalRefunds/ga:users`, in most cases the
  *  metric expression is just a single metric name like `ga:users`.
+ *  Adding mixed `MetricType` (E.g., `CURRENCY` + `PERCENTAGE`) metrics
+ *  will result in unexpected results.
  */
 @property(copy, nullable) NSString *expression;
 
@@ -1207,7 +1217,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 
 /**
  *  Specifies the maximum number of groups to return.
- *  If set to -1, returns all groups. The default value is 5.
+ *  The default value is 10, also the maximum value is 1,000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1380,7 +1390,8 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 
 /**
  *  Cohort group associated with this request. If there is a cohort group
- *  in the request the `ga:cohort` dimension must be present.
+ *  in the request the `ga:cohort` dimension must be present. All requests
+ *  should have the same cohort definitions.
  */
 @property(strong, nullable) GTLRAnalyticsReporting_CohortGroup *cohortGroup;
 
@@ -1390,8 +1401,10 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  combination of the dimensions for each date range in the request. So, if
  *  there are two date ranges, there will be two set of metric values, one for
  *  the original date range and one for the second date range.
- *  Date ranges should not be specified for cohorts or Lifetime value
- *  requests.
+ *  The `reportRequest.dateRanges` field should not be specified for cohorts
+ *  or Lifetime value requests.
+ *  If a date range is not provided, the default date range is (startDate:
+ *  current date - 7 days, endDate: current date - 1 day)
  */
 @property(strong, nullable) NSArray<GTLRAnalyticsReporting_DateRange *> *dateRanges;
 
@@ -1408,7 +1421,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 
 /**
  *  Dimension or metric filters that restrict the data returned for your
- *  request. To use the filtersExpression, supply a dimension or metric on
+ *  request. To use the `filtersExpression`, supply a dimension or metric on
  *  which to filter, followed by the filter expression. For example, the
  *  following expression selects `ga:browser` dimension which starts with
  *  Firefox; `ga:browser=~^Firefox`. For more information on dimensions
@@ -1451,20 +1464,22 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  */
 @property(strong, nullable) NSArray<GTLRAnalyticsReporting_MetricFilterClause *> *metricFilterClauses;
 
-/** Metrics (numbers) requested in the request. */
+/**
+ *  Metrics, the quantitative measurements, requested in the request.
+ *  Requests must specify at least one metric.
+ */
 @property(strong, nullable) NSArray<GTLRAnalyticsReporting_Metric *> *metrics;
 
 /**
  *  Sort order on output rows. To compare two rows, the elements of the
  *  following are applied in order until a difference is found. All date
- *  ranges in the output get the same row order. The `order_by` field gets
- *  applied first followed by the sorts in the `additional_ordering` fields.
+ *  ranges in the output get the same row order.
  */
 @property(strong, nullable) NSArray<GTLRAnalyticsReporting_OrderBy *> *orderBys;
 
 /**
  *  Page size is for paging and specifies the maximum number of returned rows.
- *  Page size should be >= 0. A query returns the default of 1000 rows.
+ *  Page size should be >= 0. A query returns the default of 1,000 rows.
  *  The Analytics Core Reporting API returns a maximum of 10,000 rows per
  *  request, no matter how many you ask for. It can also return fewer rows
  *  than requested, if there aren't as many dimension segments as you expect.
@@ -1489,7 +1504,8 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 
 /**
  *  The desired sampling level. If the sampling level is not specified the
- *  DEFAULT sampling level will be used.
+ *  DEFAULT sampling level will be used. All requests should have same
+ *  `samplingLevel`.
  *
  *  Likely values:
  *    @arg @c kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Default
@@ -1509,7 +1525,8 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 /**
  *  Segment the data returned for the request. A segment definition helps look
  *  at a subset of the segment request. A request can contain up to four
- *  segments.
+ *  segments. All requests should have the same segment definitions. Requests
+ *  with segments must have the `ga:segment` dimension.
  */
 @property(strong, nullable) NSArray<GTLRAnalyticsReporting_Segment *> *segments;
 
@@ -1543,7 +1560,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 /** A dynamic segment definition in the request. */
 @property(strong, nullable) GTLRAnalyticsReporting_DynamicSegment *dynamicSegment;
 
-/** The segment ID of a built-in or custom segment, for example 'gaid::-3'. */
+/** The segment ID of a built-in or custom segment, for example `gaid::-3`. */
 @property(copy, nullable) NSString *segmentId;
 
 @end
@@ -1570,7 +1587,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_SegmentDimensionFilter : GTLRObject
 
 /**
- *  Should the match be case sensitive, ignored for IN_LIST operator.
+ *  Should the match be case sensitive, ignored for `IN_LIST` operator.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1584,10 +1601,10 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  */
 @property(strong, nullable) NSArray<NSString *> *expressions;
 
-/** Maximum comparison values for BETWEEN match type. */
+/** Maximum comparison values for `BETWEEN` match type. */
 @property(copy, nullable) NSString *maxComparisonValue;
 
-/** Minimum comparison values for BETWEEN match type. */
+/** Minimum comparison values for `BETWEEN` match type. */
 @property(copy, nullable) NSString *minComparisonValue;
 
 /**
@@ -1731,7 +1748,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  */
 @property(copy, nullable) NSString *comparisonValue;
 
-/** Max comparison value is only used for BETWEEN operator. */
+/** Max comparison value is only used for `BETWEEN` operator. */
 @property(copy, nullable) NSString *maxComparisonValue;
 
 /**

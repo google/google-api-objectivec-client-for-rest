@@ -805,6 +805,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRIdentityToolkit_RelyingpartyVerifyCustomTokenRequest : GTLRObject
 
+/**
+ *  GCP project number of the requesting delegated app. Currently only intended
+ *  for Firebase V1 migration.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(strong, nullable) NSNumber *delegatedProjectNumber;
+
 /** Instance id token of the app. */
 @property(copy, nullable) NSString *instanceId;
 

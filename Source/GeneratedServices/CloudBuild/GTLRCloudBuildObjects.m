@@ -30,7 +30,7 @@ NSString * const kGTLRCloudBuild_Build_Status_Working       = @"WORKING";
 
 @implementation GTLRCloudBuild_Build
 @dynamic createTime, finishTime, identifier, images, logsBucket, projectId,
-         results, source, startTime, status, steps, timeout;
+         results, source, startTime, status, statusDetail, steps, timeout;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

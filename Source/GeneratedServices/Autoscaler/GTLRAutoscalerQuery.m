@@ -295,14 +295,12 @@
 
 @dynamic filter, maxResults, pageToken, project;
 
-+ (instancetype)queryWithProject:(NSString *)project {
-  NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/zones";
++ (instancetype)query {
+  NSString *pathURITemplate = @"zones";
   GTLRAutoscalerQuery_ZonesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.project = project;
+                       pathParameterNames:nil];
   query.expectedObjectClass = [GTLRAutoscaler_ZoneList class];
   query.loggingName = @"autoscaler.zones.list";
   return query;
