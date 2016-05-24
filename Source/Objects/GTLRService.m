@@ -213,6 +213,19 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 #endif
 @end
 
+// GTLRResourceURLQuery is an internal class used as a query object placeholder
+// when fetchObjectWithURL: is invoked by the client app. This lets the service's
+// plumbing treat the request like other queries, without allowing users to
+// set arbitrary query properties that may not work as anticipated.
+@interface GTLRResourceURLQuery : GTLRQuery
+
+@property(nonatomic, strong, nullable) NSURL *resourceURL;
+
++ (instancetype)queryWithResourceURL:(NSURL *)resourceURL
+                         objectClass:(nullable Class)objectClass;
+
+@end
+
 @implementation GTLRService {
   NSString *_userAgent;
   NSDictionary *_serviceProperties;  // Properties retained for the convenience of the client app.
@@ -1188,8 +1201,10 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                    completionHandler:(GTLRServiceCompletionHandler)completionHandler {
   GTLR_ASSERT_CURRENT_QUEUE_DEBUG(self.parseQueue);
 
+  BOOL isResourceURLQuery = [executingQuery isKindOfClass:[GTLRResourceURLQuery class]];
+
   // There may not be an object due to a fetch or parsing error
-  BOOL shouldFetchNextPages = ticket.shouldFetchNextPages;
+  BOOL shouldFetchNextPages = ticket.shouldFetchNextPages && !isResourceURLQuery;
   GTLRObject *previousObject = ticket.fetchedObject;
   BOOL isFirstPage = (previousObject == nil);
 
@@ -1222,7 +1237,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     // field and a "nextPageToken" field, and queries support a "pageToken"
     // parameter.
 
-    if (ticket.shouldFetchNextPages) {
+    if (shouldFetchNextPages) {
       // Determine if we should fetch more pages of results
 
       GTLRQuery *nextPageQuery =
@@ -1926,10 +1941,31 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 - (NSURL *)URLFromQueryObject:(GTLRQuery *)query
               usePartialPaths:(BOOL)usePartialPaths
  includeServiceURLQueryParams:(BOOL)includeServiceURLQueryParams {
+  NSString *rootURLString = self.rootURLString;
+
+  // Skip URI template expansion if the resource URL was provided.
+  if ([query isKindOfClass:[GTLRResourceURLQuery class]]) {
+    // Because the query is created by the service rather than by the user,
+    // query.additionalURLQueryParameters must be nil, and usePartialPaths
+    // is irrelevant as the query is not in a batch.
+    GTLR_DEBUG_ASSERT(!usePartialPaths,
+                      @"Batch not supported with resource URL fetch");
+    GTLR_DEBUG_ASSERT(!query.uploadParameters && !query.useMediaDownloadService
+                      && !query.downloadAsDataObjectType && !query.additionalURLQueryParameters,
+                      @"Unsupported query properties");
+    NSURL *result = ((GTLRResourceURLQuery *)query).resourceURL;
+    if (includeServiceURLQueryParams) {
+      NSDictionary *additionalParams = self.additionalURLQueryParameters;
+      if (additionalParams.count) {
+        result = [GTLRService URLWithString:result.absoluteString
+                                       queryParameters:additionalParams];
+      }
+    }
+    return result;
+  }
 
   // This is all the dance needed due to having query and path parameters for
   // REST based queries.
-
   NSDictionary *params = query.JSON;
   NSString *queryFilledPathURI = [GTLRURITemplate expandTemplate:query.pathURITemplate
                                                           values:params];
@@ -1937,7 +1973,6 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   // Per https://developers.google.com/discovery/v1/using#build-compose and
   // https://developers.google.com/discovery/v1/using#discovery-doc-methods-mediadownload
   // glue together the parts.
-  NSString *rootURLString = self.rootURLString;
   NSString *servicePath = self.servicePath ?: @"";
   NSString *uploadPath = @"";
   NSString *downloadPath = @"";
@@ -2077,7 +2112,8 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   // is not needed. Developers may override this in the query's additionalURLQueryParameters.
   NSArray *prettyPrintNames = self.prettyPrintQueryParameterNames;
   NSString *firstPrettyPrintName = prettyPrintNames.firstObject;
-  if (firstPrettyPrintName && (query.downloadAsDataObjectType.length == 0)) {
+  if (firstPrettyPrintName && (query.downloadAsDataObjectType.length == 0)
+      && ![query isKindOfClass:[GTLRResourceURLQuery class]]) {
     NSDictionary *queryParams = query.additionalURLQueryParameters;
     BOOL foundOne = NO;
     for (NSString *name in prettyPrintNames) {
@@ -2107,6 +2143,18 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                 completionHandler:handler
                    executingQuery:query
                            ticket:nil];
+}
+
+- (GTLRServiceTicket *)fetchObjectWithURL:(NSURL *)resourceURL
+                              objectClass:(nullable Class)objectClass
+                      executionParameters:(nullable GTLRServiceExecutionParameters *)executionParameters
+                        completionHandler:(nullable GTLRServiceCompletionHandler)handler {
+  GTLRResourceURLQuery *query = [GTLRResourceURLQuery queryWithResourceURL:resourceURL
+                                                               objectClass:objectClass];
+  query.executionParameters = executionParameters;
+
+  return [self executeQuery:query
+          completionHandler:handler];
 }
 
 #pragma mark -
@@ -2184,7 +2232,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
 #pragma mark - Internal helper
 
-// If there are already query parameters on urlString, the new ones are simple
+// If there are already query parameters on urlString, the new ones are simply
 // appended after them.
 + (NSURL *)URLWithString:(NSString *)urlString
          queryParameters:(NSDictionary *)queryParameters {
@@ -2656,3 +2704,29 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 }
 
 @end
+
+
+@implementation GTLRResourceURLQuery
+
+@synthesize resourceURL = _resourceURL;
+
++ (instancetype)queryWithResourceURL:(NSURL *)resourceURL
+                         objectClass:(Class)objectClass {
+  GTLRResourceURLQuery *query = [[self alloc] initWithPathURITemplate:@"_usingGTLRResourceURLQuery_"
+                                                           HTTPMethod:nil
+                                                   pathParameterNames:nil];
+  query.expectedObjectClass = objectClass;
+  query.resourceURL = resourceURL;
+  return query;
+}
+
+- (instancetype)copyWithZone:(NSZone *)zone {
+  GTLRResourceURLQuery *result = [super copyWithZone:zone];
+  result->_resourceURL = self->_resourceURL;
+  return result;
+}
+
+// TODO: description
+
+@end
+

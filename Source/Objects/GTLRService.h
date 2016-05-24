@@ -309,7 +309,27 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
  */
 @property(nonatomic, assign) NSTimeInterval maxRetryInterval;
 
-#pragma mark - Support for Client Tests
+#pragma mark Fetch Object by Resource URL
+
+/**
+ *  Fetch an object given the resource URL. This is appropriate when the object's
+ *  full link is known, such as from a selfLink response property.
+ *
+ *  @param resourceURL         The URL of the object to be fetched.
+ *  @param objectClass         The GTLRObject subclass to be instantiated. If nil, the library
+ *                             will try to infer the class from the object's "kind" string property.
+ *  @param executionParameters Values to override the service's properties when executing the
+ *                             ticket.
+ *  @param handler             The execution callback block.
+ *
+ *  @return A ticket for tracking or canceling query execution.
+ */
+- (GTLRServiceTicket *)fetchObjectWithURL:(NSURL *)resourceURL
+                              objectClass:(nullable Class)objectClass
+                      executionParameters:(nullable GTLRServiceExecutionParameters *)executionParameters
+                        completionHandler:(nullable GTLRServiceCompletionHandler)handler;
+
+#pragma mark Support for Client Tests
 
 /**
  *  A test block can be provided to test service calls without any network activity.
@@ -322,7 +342,7 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
  */
 @property(nonatomic, copy, nullable) GTLRServiceTestBlock testBlock;
 
-#pragma mark - Converting a Query to an NSURLRequest
+#pragma mark Converting a Query to an NSURLRequest
 
 /**
  *  Creates a NSURLRequest from the query object and from properties on this service

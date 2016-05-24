@@ -429,6 +429,55 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   block(callbackTicket, object, callbackError);
 }
 
+- (void)testService_SingleQuery_QueryWithResourceURL {
+  // Successful based on fixed URL.
+  GTLRService *service = [self driveServiceForTest];
+  service.fetcherService.testBlock =
+      [self fetcherTestBlockWithResponseForFileName:@"Drive1.response.txt" status:200];
+
+  [self expectTicketAndParsingNotifications];
+
+  Test_GTLRDriveQuery_FilesList *templateQuery = [Test_GTLRDriveQuery_FilesList query];
+  templateQuery.fields = @"kind,files(id,kind,name)";
+
+  // Set a specific request URL by getting the actual query URL.
+  NSURLRequest *request = [service requestForQuery:templateQuery];
+  NSURL *requestURL = request.URL;
+
+  XCTestExpectation *queryFinished = [self expectationWithDescription:@"queryFinished"];
+
+  GTLRServiceTicket *queryTicket =
+      [service fetchObjectWithURL:requestURL
+                      objectClass:[Test_GTLRDrive_FileList class]
+              executionParameters:nil
+          completionHandler:^(GTLRServiceTicket *callbackTicket,
+                              Test_GTLRDrive_FileList *object,
+                              NSError *callbackError) {
+    // Verify the top-level object and one of its items.
+    XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+    XCTAssertNil(callbackError);
+
+    XCTAssertEqualObjects(object.kind, @"drive#fileList");
+    XCTAssertEqual(object.files.count, 2U, @"%@", object.files);
+
+    XCTAssert([NSThread isMainThread]);
+
+    [queryFinished fulfill];
+  }];
+
+  XCTAssertFalse(queryTicket.hasCalledCallback);
+
+  [self service:service waitForTicket:queryTicket];
+  XCTAssert(queryTicket.hasCalledCallback);
+
+  // Ensure all expectations were satisfied.
+  [self waitForExpectationsWithTimeout:10 handler:nil];
+
+  NSURL *fetcherRequestURL = queryTicket.objectFetcher.mutableRequest.URL;
+  XCTAssertEqualObjects(fetcherRequestURL.host, @"www.googleapis.com");
+  XCTAssertEqualObjects(fetcherRequestURL.path, @"/drive/v3/files");
+}
+
 - (void)testService_SingleQuery_ExpiredBackgroundTasks {
   // Successful request with expired background tasks.
   [self setCountingUIAppWithExpirations:YES];
@@ -1277,6 +1326,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRBatchResponsePart *requestPart = [service responsePartWithMIMEPart:part2];
   NSDictionary *requestPartHeaders = requestPart.headers;
   XCTAssertEqualObjects(requestPartHeaders[@"Tiger"], @"Siberian");
+
+  NSString *part2BodyStr = [[NSString alloc] initWithData:part2.body encoding:NSUTF8StringEncoding];
+  NSString *expectedBodyGet = @"GET /drive/v3/files/0B7svZDDwtKrhS2FDS2JZclU1U0E?fields=parents";
+  XCTAssert([part2BodyStr hasPrefix:expectedBodyGet], @"%@", part2BodyStr);
 
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];
