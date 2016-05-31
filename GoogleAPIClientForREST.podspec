@@ -101,10 +101,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Classroom/*.{h,m}'
   end
-  s.subspec 'CloudBuild' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/CloudBuild/*.{h,m}'
-  end
   s.subspec 'CloudMonitoring' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudMonitoring/*.{h,m}'

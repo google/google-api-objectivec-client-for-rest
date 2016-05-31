@@ -97,6 +97,11 @@
 @class GTLRYouTube_LiveChatMessageSnippet;
 @class GTLRYouTube_LiveChatModerator;
 @class GTLRYouTube_LiveChatModeratorSnippet;
+@class GTLRYouTube_LiveChatPollClosedDetails;
+@class GTLRYouTube_LiveChatPollEditedDetails;
+@class GTLRYouTube_LiveChatPollItem;
+@class GTLRYouTube_LiveChatPollOpenedDetails;
+@class GTLRYouTube_LiveChatPollVotedDetails;
 @class GTLRYouTube_LiveChatTextMessageDetails;
 @class GTLRYouTube_LiveChatUserBannedMessageDetails;
 @class GTLRYouTube_LiveStream;
@@ -1693,6 +1698,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDel
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent;
 /** Value: "newSponsorEvent" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent;
+/** Value: "pollClosedEvent" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollClosedEvent;
+/** Value: "pollEditedEvent" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollEditedEvent;
+/** Value: "pollOpenedEvent" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollOpenedEvent;
+/** Value: "pollVotedEvent" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollVotedEvent;
 /** Value: "sponsorOnlyModeEndedEvent" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent;
 /** Value: "sponsorOnlyModeStartedEvent" */
@@ -6483,6 +6496,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(copy, nullable) NSString *liveChatId;
 @property(strong, nullable) GTLRYouTube_LiveChatMessageDeletedDetails *messageDeletedDetails;
 @property(strong, nullable) GTLRYouTube_LiveChatMessageRetractedDetails *messageRetractedDetails;
+@property(strong, nullable) GTLRYouTube_LiveChatPollClosedDetails *pollClosedDetails;
+@property(strong, nullable) GTLRYouTube_LiveChatPollEditedDetails *pollEditedDetails;
+@property(strong, nullable) GTLRYouTube_LiveChatPollOpenedDetails *pollOpenedDetails;
+@property(strong, nullable) GTLRYouTube_LiveChatPollVotedDetails *pollVotedDetails;
 
 /**
  *  The date and time when the message was orignally published. The value is
@@ -6511,6 +6528,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        Value "messageRetractedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent Value
  *        "newSponsorEvent"
+ *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_PollClosedEvent Value
+ *        "pollClosedEvent"
+ *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_PollEditedEvent Value
+ *        "pollEditedEvent"
+ *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_PollOpenedEvent Value
+ *        "pollOpenedEvent"
+ *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_PollVotedEvent Value
+ *        "pollVotedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent
  *        Value "sponsorOnlyModeEndedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeStartedEvent
@@ -6620,6 +6645,104 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 
 /** Details about the moderator. */
 @property(strong, nullable) GTLRYouTube_ChannelProfileDetails *moderatorDetails;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LiveChatPollClosedDetails
+ */
+@interface GTLRYouTube_LiveChatPollClosedDetails : GTLRObject
+
+/** The id of the poll that was closed. */
+@property(copy, nullable) NSString *pollId;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LiveChatPollEditedDetails
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRYouTube_LiveChatPollEditedDetails : GTLRCollectionObject
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(copy, nullable) NSString *identifier;
+
+/**
+ *  items
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(strong, nullable) NSArray<GTLRYouTube_LiveChatPollItem *> *items;
+
+@property(copy, nullable) NSString *prompt;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LiveChatPollItem
+ */
+@interface GTLRYouTube_LiveChatPollItem : GTLRObject
+
+/**
+ *  Plain text description of the item.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(copy, nullable) NSString *descriptionProperty;
+
+@property(copy, nullable) NSString *itemId;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LiveChatPollOpenedDetails
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRYouTube_LiveChatPollOpenedDetails : GTLRCollectionObject
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(copy, nullable) NSString *identifier;
+
+/**
+ *  items
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(strong, nullable) NSArray<GTLRYouTube_LiveChatPollItem *> *items;
+
+@property(copy, nullable) NSString *prompt;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LiveChatPollVotedDetails
+ */
+@interface GTLRYouTube_LiveChatPollVotedDetails : GTLRObject
+
+/** The poll item the user chose. */
+@property(copy, nullable) NSString *itemId;
+
+/** The poll the user voted on. */
+@property(copy, nullable) NSString *pollId;
 
 @end
 

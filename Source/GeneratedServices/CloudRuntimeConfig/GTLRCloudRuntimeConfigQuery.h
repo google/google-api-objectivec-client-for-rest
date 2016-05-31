@@ -37,8 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateConfig creates a new config resource object.
- *  The configuration name must be unique within project.
+ *  Creates a new RuntimeConfig resource. The configuration name must be
+ *  unique within project.
  *
  *  Method: runtimeconfig.projects.configs.create
  *
@@ -51,21 +51,23 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsCreateWithObject:parent:]
 
 /**
- *  The cloud project to which configuration belongs.
- *  Required. Must be a valid GCP project.
+ *  The [project
+ *  ID](https://support.google.com/cloud/answer/6158840?hl=en&ref_topic=6158848)
+ *  for this request, in the format `projects/[PROJECT_ID]`.
  */
 @property(copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_RuntimeConfig.
  *
- *  CreateConfig creates a new config resource object.
- *  The configuration name must be unique within project.
+ *  Creates a new RuntimeConfig resource. The configuration name must be
+ *  unique within project.
  *
  *  @param object The @c GTLRCloudRuntimeConfig_RuntimeConfig to include in the
  *    query.
- *  @param parent The cloud project to which configuration belongs.
- *    Required. Must be a valid GCP project.
+ *  @param parent The [project
+ *    ID](https://support.google.com/cloud/answer/6158840?hl=en&ref_topic=6158848)
+ *    for this request, in the format `projects/[PROJECT_ID]`.
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsCreate
  */
@@ -75,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the config object.
+ *  Deletes a RuntimeConfig resource.
  *
  *  Method: runtimeconfig.projects.configs.delete
  *
@@ -88,18 +90,18 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsDeleteWithname:]
 
 /**
- *  The configuration resource object to delete.
- *  Required. Must be a valid GCP project.
+ *  The RuntimeConfig resource to delete, in the format:
+ *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  */
 @property(copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Empty.
  *
- *  Deletes the config object.
+ *  Deletes a RuntimeConfig resource.
  *
- *  @param name The configuration resource object to delete.
- *    Required. Must be a valid GCP project.
+ *  @param name The RuntimeConfig resource to delete, in the format:
+ *    `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsDelete
  */
@@ -108,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the config resource object.
+ *  Gets information about a RuntimeConfig resource.
  *
  *  Method: runtimeconfig.projects.configs.get
  *
@@ -120,15 +122,20 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsGetWithname:]
 
-/** The name of the RuntimeConfig resource object to retrieve. */
+/**
+ *  The name of the RuntimeConfig resource to retrieve, in the format:
+ *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
+ */
 @property(copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_RuntimeConfig.
  *
- *  Gets the config resource object.
+ *  Gets information about a RuntimeConfig resource.
  *
- *  @param name The name of the RuntimeConfig resource object to retrieve.
+ *  @param name The name of the RuntimeConfig resource to retrieve, in the
+ *    format:
+ *    `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsGet
  */
@@ -137,7 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all the config objects within project.
+ *  Lists all the RuntimeConfig resources within project.
  *
  *  Method: runtimeconfig.projects.configs.list
  *
@@ -150,28 +157,32 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsListWithparent:]
 
 /**
- *  List pagination support.
- *  The size of the page to return. We may return fewer elements.
+ *  Specifies the number of results to return per page. If there are fewer
+ *  elements than the specified number, returns all elements.
  */
 @property(assign) NSInteger pageSize;
 
-/** The token for pagination. */
+/**
+ *  Specifies a page token to use. Set `pageToken` to a `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
 @property(copy, nullable) NSString *pageToken;
 
 /**
- *  The cloud project, whose configuration resources we want to list.
- *  Required. Must be a valid GCP project.
+ *  The [project
+ *  ID](https://support.google.com/cloud/answer/6158840?hl=en&ref_topic=6158848)
+ *  for this request, in the format `projects/[PROJECT_ID]`.
  */
 @property(copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_ListConfigsResponse.
  *
- *  Lists all the config objects within project.
+ *  Lists all the RuntimeConfig resources within project.
  *
- *  @param parent The cloud project, whose configuration resources we want to
- *    list.
- *    Required. Must be a valid GCP project.
+ *  @param parent The [project
+ *    ID](https://support.google.com/cloud/answer/6158840?hl=en&ref_topic=6158848)
+ *    for this request, in the format `projects/[PROJECT_ID]`.
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsList
  *
@@ -217,8 +228,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the config resource object.
- *  RuntimeConfig object must already exist.
+ *  Updates a RuntimeConfig resource. The configuration must exist beforehand.
  *
  *  Method: runtimeconfig.projects.configs.update
  *
@@ -231,21 +241,20 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsUpdateWithObject:name:]
 
 /**
- *  The name of the config resource to update.
- *  Required. Must be a valid config resource.
+ *  The name of the RuntimeConfig resource to update, in the format:
+ *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  */
 @property(copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_RuntimeConfig.
  *
- *  Updates the config resource object.
- *  RuntimeConfig object must already exist.
+ *  Updates a RuntimeConfig resource. The configuration must exist beforehand.
  *
  *  @param object The @c GTLRCloudRuntimeConfig_RuntimeConfig to include in the
  *    query.
- *  @param name The name of the config resource to update.
- *    Required. Must be a valid config resource.
+ *  @param name The name of the RuntimeConfig resource to update, in the format:
+ *    `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsUpdate
  */
@@ -255,11 +264,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a variable within the given configuration.
- *  Create variable will create all required intermediate path elements.
- *  It is a FAILED_PRECONDITION error to create a variable with a name that is
- *  a prefix of an existing variable name, or that has an existing variable
- *  name as a prefix.
+ *  Creates a variable within the given configuration. You cannot create
+ *  a variable with a name that is a prefix of an existing variable name, or a
+ *  name that has an existing variable name as a prefix.
+ *  To learn more about creating a variable, read the
+ *  [Setting and Getting
+ *  Data](/deployment-manager/runtime-configurator/seta-and-get-variables)
+ *  documentation.
  *
  *  Method: runtimeconfig.projects.configs.variables.create
  *
@@ -272,24 +283,29 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsVariablesCreateWithObject:parent:]
 
 /**
- *  The configuration parent, that will own the variable.
- *  Required, must a valid configuration name within project_id.
+ *  The path to the RutimeConfig resource that this variable should belong to.
+ *  The configuration must exist beforehand; the path must by in the format:
+ *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  */
 @property(copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Variable.
  *
- *  Creates a variable within the given configuration.
- *  Create variable will create all required intermediate path elements.
- *  It is a FAILED_PRECONDITION error to create a variable with a name that is
- *  a prefix of an existing variable name, or that has an existing variable
- *  name as a prefix.
+ *  Creates a variable within the given configuration. You cannot create
+ *  a variable with a name that is a prefix of an existing variable name, or a
+ *  name that has an existing variable name as a prefix.
+ *  To learn more about creating a variable, read the
+ *  [Setting and Getting
+ *  Data](/deployment-manager/runtime-configurator/seta-and-get-variables)
+ *  documentation.
  *
  *  @param object The @c GTLRCloudRuntimeConfig_Variable to include in the
  *    query.
- *  @param parent The configuration parent, that will own the variable.
- *    Required, must a valid configuration name within project_id.
+ *  @param parent The path to the RutimeConfig resource that this variable
+ *    should belong to.
+ *    The configuration must exist beforehand; the path must by in the format:
+ *    `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesCreate
  */
@@ -299,10 +315,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes variable or variables.
- *  If name denotes a variable, that variable is deleted. If name is a prefix
- *  and recursive is true, then all variables with that prefix are deleted,
- *  it's a FAILED_PRECONDITION to delete a prefix without recursive being true.
+ *  Deletes a variable or multiple variables.
+ *  If you specify a variable name, then that variable is deleted. If you
+ *  specify a prefix and `recursive` is true, then all variables with that
+ *  prefix are deleted. You must set a `recursive` to true if you delete
+ *  variables by prefix.
  *
  *  Method: runtimeconfig.projects.configs.variables.delete
  *
@@ -314,24 +331,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsVariablesDeleteWithname:]
 
-/** The name of the variable to delete. */
+/**
+ *  The name of the variable to delete, in the format:
+ *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/variables/[VARIABLE_NAME]`
+ */
 @property(copy, nullable) NSString *name;
 
 /**
- *  If recursive is false and name is a prefix of other variables, then
- *  the request will fail.
+ *  Set to `true` to recursively delete multiple variables with the same
+ *  prefix.
  */
 @property(assign) BOOL recursive;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Empty.
  *
- *  Deletes variable or variables.
- *  If name denotes a variable, that variable is deleted. If name is a prefix
- *  and recursive is true, then all variables with that prefix are deleted,
- *  it's a FAILED_PRECONDITION to delete a prefix without recursive being true.
+ *  Deletes a variable or multiple variables.
+ *  If you specify a variable name, then that variable is deleted. If you
+ *  specify a prefix and `recursive` is true, then all variables with that
+ *  prefix are deleted. You must set a `recursive` to true if you delete
+ *  variables by prefix.
  *
- *  @param name The name of the variable to delete.
+ *  @param name The name of the variable to delete, in the format:
+ *    `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/variables/[VARIABLE_NAME]`
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesDelete
  */
@@ -340,7 +362,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the variable resource object.
+ *  Gets information about a single variable.
  *
  *  Method: runtimeconfig.projects.configs.variables.get
  *
@@ -352,15 +374,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsVariablesGetWithname:]
 
-/** What variable to return. */
+/**
+ *  The name of the variable to return, in the format:
+ *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/variables/[VARIBLE_NAME]`
+ */
 @property(copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Variable.
  *
- *  Gets the variable resource object.
+ *  Gets information about a single variable.
  *
- *  @param name What variable to return.
+ *  @param name The name of the variable to return, in the format:
+ *    `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/variables/[VARIBLE_NAME]`
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesGet
  */
@@ -369,9 +395,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists variables within given RuntimeConfig object, matching optionally
- *  provided filter.
- *  List contains only variable metadata, but not values.
+ *  Lists variables within given a configuration, matching any provided filters.
+ *  This only lists variable names, not the values.
  *
  *  Method: runtimeconfig.projects.configs.variables.list
  *
@@ -384,31 +409,40 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsVariablesListWithparent:]
 
 /**
- *  List only variables matching filter prefix exactly.
- *  e.g. `projects/{project_id}/config/{config_id}/variables/{variable/id}`.
+ *  Filters variables by matching the specified filter. For example:
+ *  `projects/example-project/config/[CONFIG_NAME]/variables/example-variable`.
  */
 @property(copy, nullable) NSString *filter;
 
 /**
- *  List pagination support.
- *  The size of the page to return. We may return fewer elements.
+ *  Specifies the number of results to return per page. If there are fewer
+ *  elements than the specified number, returns all elements.
  */
 @property(assign) NSInteger pageSize;
 
-/** The token for pagination. */
+/**
+ *  Specifies a page token to use. Set `pageToken` to a `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
 @property(copy, nullable) NSString *pageToken;
 
-/** Which RuntimeConfig object to list for variables. */
+/**
+ *  The path to the RuntimeConfig resource for which you want to list variables.
+ *  The configuration must exist beforehand; the path must by in the format:
+ *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
+ */
 @property(copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_ListVariablesResponse.
  *
- *  Lists variables within given RuntimeConfig object, matching optionally
- *  provided filter.
- *  List contains only variable metadata, but not values.
+ *  Lists variables within given a configuration, matching any provided filters.
+ *  This only lists variable names, not the values.
  *
- *  @param parent Which RuntimeConfig object to list for variables.
+ *  @param parent The path to the RuntimeConfig resource for which you want to
+ *    list variables.
+ *    The configuration must exist beforehand; the path must by in the format:
+ *    `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesList
  *
@@ -434,9 +468,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsVariablesUpdateWithObject:name:]
 
 /**
- *  The name of the variable to update.
- *  In the format of:
- *  "projects/{project_id}/configs/{config_id}/variables/{variable_id}"
+ *  The name of the variable to update, in the format:
+ *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/variables/[VARIABLE_NAME]`
  */
 @property(copy, nullable) NSString *name;
 
@@ -447,9 +480,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudRuntimeConfig_Variable to include in the
  *    query.
- *  @param name The name of the variable to update.
- *    In the format of:
- *    "projects/{project_id}/configs/{config_id}/variables/{variable_id}"
+ *  @param name The name of the variable to update, in the format:
+ *    `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/variables/[VARIABLE_NAME]`
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesUpdate
  */
@@ -459,13 +491,17 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  WatchVariable watches for a variable to change and then returns the new
- *  value or times out.
- *  If variable is deleted while being watched, VariableState will be DELETED
- *  and the Value will contain the last known value.
- *  If the operation deadline is set to a larger value than internal timeout
- *  existing, current variable value will be returned and Variable state will
- *  be VARIABLE_STATE_UNSPECIFIED.
+ *  Watches a specific variable and waits for a change in the variable's value.
+ *  When there is a change, this method returns the new value or times out.
+ *  If a variable is deleted while being watched, the `variableState` state is
+ *  set to `DELETED` and the method returns the last known variable `value`.
+ *  If you set the deadline for watching to a larger value than internal timeout
+ *  (60 seconds), the current variable value is returned and the `variableState`
+ *  will be `VARIABLE_STATE_UNSPECIFIED`.
+ *  To learn more about creating a watcher, read the
+ *  [Watching a Variable for
+ *  Changes](/deployment-manager/runtime-configurator/watching-a-variable)
+ *  documentation.
  *
  *  Method: runtimeconfig.projects.configs.variables.watch
  *
@@ -477,23 +513,31 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsVariablesWatchWithObject:name:]
 
-/** The name of the variable to retrieve. */
+/**
+ *  The name of the variable to watch, in the format:
+ *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
+ */
 @property(copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Variable.
  *
- *  WatchVariable watches for a variable to change and then returns the new
- *  value or times out.
- *  If variable is deleted while being watched, VariableState will be DELETED
- *  and the Value will contain the last known value.
- *  If the operation deadline is set to a larger value than internal timeout
- *  existing, current variable value will be returned and Variable state will
- *  be VARIABLE_STATE_UNSPECIFIED.
+ *  Watches a specific variable and waits for a change in the variable's value.
+ *  When there is a change, this method returns the new value or times out.
+ *  If a variable is deleted while being watched, the `variableState` state is
+ *  set to `DELETED` and the method returns the last known variable `value`.
+ *  If you set the deadline for watching to a larger value than internal timeout
+ *  (60 seconds), the current variable value is returned and the `variableState`
+ *  will be `VARIABLE_STATE_UNSPECIFIED`.
+ *  To learn more about creating a watcher, read the
+ *  [Watching a Variable for
+ *  Changes](/deployment-manager/runtime-configurator/watching-a-variable)
+ *  documentation.
  *
  *  @param object The @c GTLRCloudRuntimeConfig_WatchVariableRequest to include
  *    in the query.
- *  @param name The name of the variable to retrieve.
+ *  @param name The name of the variable to watch, in the format:
+ *    `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesWatch
  */
@@ -504,11 +548,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a Waiter resource. This operation returns a long-running Operation
- *  resource which can be polled for completion. However, a Waiter with the
- *  given name will exist (and can be retrieved) prior to the resultant
- *  Operation completing. If the resultant Operation indicates a failure, the
- *  failed Waiter resource will still exist and must be deleted prior to
- *  subsequent creation attempts.
+ *  resource which can be polled for completion. However, a waiter with the
+ *  given name will exist (and can be retrieved) prior to the operation
+ *  completing. If the operation fails, the failed Waiter resource will
+ *  still exist and must be deleted prior to subsequent creation attempts.
  *
  *  Method: runtimeconfig.projects.configs.waiters.create
  *
@@ -521,8 +564,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsWaitersCreateWithObject:parent:]
 
 /**
- *  The fully-qualified name of the configuration that will own the waiter.
- *  Required. Must be a valid configuration name.
+ *  The path to the configuration that will own the waiter.
+ *  The configuration must exist beforehand; the path must by in the format:
+ *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`.
  */
 @property(copy, nullable) NSString *parent;
 
@@ -530,16 +574,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRuntimeConfig_Operation.
  *
  *  Creates a Waiter resource. This operation returns a long-running Operation
- *  resource which can be polled for completion. However, a Waiter with the
- *  given name will exist (and can be retrieved) prior to the resultant
- *  Operation completing. If the resultant Operation indicates a failure, the
- *  failed Waiter resource will still exist and must be deleted prior to
- *  subsequent creation attempts.
+ *  resource which can be polled for completion. However, a waiter with the
+ *  given name will exist (and can be retrieved) prior to the operation
+ *  completing. If the operation fails, the failed Waiter resource will
+ *  still exist and must be deleted prior to subsequent creation attempts.
  *
  *  @param object The @c GTLRCloudRuntimeConfig_Waiter to include in the query.
- *  @param parent The fully-qualified name of the configuration that will own
- *    the waiter.
- *    Required. Must be a valid configuration name.
+ *  @param parent The path to the configuration that will own the waiter.
+ *    The configuration must exist beforehand; the path must by in the format:
+ *    `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`.
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsWaitersCreate
  */
@@ -549,7 +592,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the Waiter with the specified name.
+ *  Deletes the waiter with the specified name.
  *
  *  Method: runtimeconfig.projects.configs.waiters.delete
  *
@@ -561,15 +604,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsWaitersDeleteWithname:]
 
-/** The Waiter resource to delete. */
+/**
+ *  The Waiter resource to delete, in the format:
+ *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/waiters/[WAITER_NAME]`
+ */
 @property(copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Empty.
  *
- *  Deletes the Waiter with the specified name.
+ *  Deletes the waiter with the specified name.
  *
- *  @param name The Waiter resource to delete.
+ *  @param name The Waiter resource to delete, in the format:
+ *    `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/waiters/[WAITER_NAME]`
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsWaitersDelete
  */
@@ -578,7 +625,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the Waiter resource with the specified name.
+ *  Gets information about a single waiter.
  *
  *  Method: runtimeconfig.projects.configs.waiters.get
  *
@@ -590,16 +637,22 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsWaitersGetWithname:]
 
-/** The fully-qualified name of the Waiter resource object to retrieve. */
+/**
+ *  The fully-qualified name of the Waiter resource object to retrieve, in the
+ *  format:
+ *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/waiters/[WAITER_NAME]`
+ */
 @property(copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Waiter.
  *
- *  Gets the Waiter resource with the specified name.
+ *  Gets information about a single waiter.
  *
  *  @param name The fully-qualified name of the Waiter resource object to
- *    retrieve.
+ *    retrieve, in the
+ *    format:
+ *    `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/waiters/[WAITER_NAME]`
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsWaitersGet
  */
@@ -608,7 +661,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List Waiters within the given RuntimeConfig resource.
+ *  List waiters within the given configuration.
  *
  *  Method: runtimeconfig.projects.configs.waiters.list
  *
@@ -621,27 +674,33 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsWaitersListWithparent:]
 
 /**
- *  List pagination support.
- *  The size of the page to return. We may return fewer elements.
+ *  Specifies the number of results to return per page. If there are fewer
+ *  elements than the specified number, returns all elements.
  */
 @property(assign) NSInteger pageSize;
 
-/** The token for pagination. */
+/**
+ *  Specifies a page token to use. Set `pageToken` to a `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
 @property(copy, nullable) NSString *pageToken;
 
 /**
- *  The fully-qualified name of the configuration to list.
- *  Required. Must be a valid configuration name.
+ *  The path to the configuration for which you want to get a list of waiters.
+ *  The configuration must exist beforehand; the path must by in the format:
+ *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  */
 @property(copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_ListWaitersResponse.
  *
- *  List Waiters within the given RuntimeConfig resource.
+ *  List waiters within the given configuration.
  *
- *  @param parent The fully-qualified name of the configuration to list.
- *    Required. Must be a valid configuration name.
+ *  @param parent The path to the configuration for which you want to get a list
+ *    of waiters.
+ *    The configuration must exist beforehand; the path must by in the format:
+ *    `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  *
  *  @returns GTLRCloudRuntimeConfigQuery_ProjectsConfigsWaitersList
  *

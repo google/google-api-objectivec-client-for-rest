@@ -775,6 +775,10 @@ NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent = @"fa
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent = @"messageDeletedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent = @"messageRetractedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent = @"newSponsorEvent";
+NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollClosedEvent = @"pollClosedEvent";
+NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollEditedEvent = @"pollEditedEvent";
+NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollOpenedEvent = @"pollOpenedEvent";
+NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollVotedEvent = @"pollVotedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent = @"sponsorOnlyModeEndedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeStartedEvent = @"sponsorOnlyModeStartedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_TextMessageEvent = @"textMessageEvent";
@@ -2344,8 +2348,9 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCo
 @implementation GTLRYouTube_LiveChatMessageSnippet
 @dynamic authorChannelId, displayMessage, fanFundingEventDetails,
          hasDisplayContent, liveChatId, messageDeletedDetails,
-         messageRetractedDetails, publishedAt, textMessageDetails, type,
-         userBannedDetails;
+         messageRetractedDetails, pollClosedDetails, pollEditedDetails,
+         pollOpenedDetails, pollVotedDetails, publishedAt, textMessageDetails,
+         type, userBannedDetails;
 @end
 
 
@@ -2398,6 +2403,85 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCo
 
 @implementation GTLRYouTube_LiveChatModeratorSnippet
 @dynamic liveChatId, moderatorDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveChatPollClosedDetails
+//
+
+@implementation GTLRYouTube_LiveChatPollClosedDetails
+@dynamic pollId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveChatPollEditedDetails
+//
+
+@implementation GTLRYouTube_LiveChatPollEditedDetails
+@dynamic identifier, items, prompt;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRYouTube_LiveChatPollItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveChatPollItem
+//
+
+@implementation GTLRYouTube_LiveChatPollItem
+@dynamic descriptionProperty, itemId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveChatPollOpenedDetails
+//
+
+@implementation GTLRYouTube_LiveChatPollOpenedDetails
+@dynamic identifier, items, prompt;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRYouTube_LiveChatPollItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveChatPollVotedDetails
+//
+
+@implementation GTLRYouTube_LiveChatPollVotedDetails
+@dynamic itemId, pollId;
 @end
 
 

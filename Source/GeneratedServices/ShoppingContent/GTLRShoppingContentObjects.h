@@ -3327,6 +3327,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nullable) NSArray<NSString *> *additionalImageLinks;
 
 /**
+ *  Additional categories of the item (formatted as in products feed
+ *  specification).
+ */
+@property(strong, nullable) NSArray<NSString *> *additionalProductTypes;
+
+/**
  *  Set to true if the item is targeted towards adults.
  *
  *  Uses NSNumber of boolValue.

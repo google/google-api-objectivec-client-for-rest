@@ -60,6 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFirebaseRulesAPICloudPlatform
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebase
  */
 @interface GTLRFirebaseRulesAPIQuery_ProjectsReleasesCreate : GTLRFirebaseRulesAPIQuery
 // Previous library name was
@@ -112,6 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFirebaseRulesAPICloudPlatform
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebase
  */
 @interface GTLRFirebaseRulesAPIQuery_ProjectsReleasesDelete : GTLRFirebaseRulesAPIQuery
 // Previous library name was
@@ -144,6 +146,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFirebaseRulesAPICloudPlatform
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebase
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebaseReadonly
  */
 @interface GTLRFirebaseRulesAPIQuery_ProjectsReleasesGet : GTLRFirebaseRulesAPIQuery
 // Previous library name was
@@ -177,6 +181,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFirebaseRulesAPICloudPlatform
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebase
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebaseReadonly
  */
 @interface GTLRFirebaseRulesAPIQuery_ProjectsReleasesList : GTLRFirebaseRulesAPIQuery
 // Previous library name was
@@ -252,6 +258,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFirebaseRulesAPICloudPlatform
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebase
  */
 @interface GTLRFirebaseRulesAPIQuery_ProjectsReleasesUpdate : GTLRFirebaseRulesAPIQuery
 // Previous library name was
@@ -328,6 +335,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFirebaseRulesAPICloudPlatform
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebase
  */
 @interface GTLRFirebaseRulesAPIQuery_ProjectsRulesetsCreate : GTLRFirebaseRulesAPIQuery
 // Previous library name was
@@ -367,6 +375,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFirebaseRulesAPICloudPlatform
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebase
  */
 @interface GTLRFirebaseRulesAPIQuery_ProjectsRulesetsDelete : GTLRFirebaseRulesAPIQuery
 // Previous library name was
@@ -400,6 +409,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFirebaseRulesAPICloudPlatform
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebase
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebaseReadonly
  */
 @interface GTLRFirebaseRulesAPIQuery_ProjectsRulesetsGet : GTLRFirebaseRulesAPIQuery
 // Previous library name was
@@ -435,6 +446,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFirebaseRulesAPICloudPlatform
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebase
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebaseReadonly
  */
 @interface GTLRFirebaseRulesAPIQuery_ProjectsRulesetsList : GTLRFirebaseRulesAPIQuery
 // Previous library name was
@@ -502,6 +515,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFirebaseRulesAPICloudPlatform
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebase
+ *    @c kGTLRAuthScopeFirebaseRulesAPIFirebaseReadonly
  */
 @interface GTLRFirebaseRulesAPIQuery_ProjectsTest : GTLRFirebaseRulesAPIQuery
 // Previous library name was

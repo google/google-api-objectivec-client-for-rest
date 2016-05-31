@@ -790,6 +790,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InUseAddresses;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_LocalSsdTotalGb;
 /** Value: "NETWORKS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Networks;
+/** Value: "ROUTERS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Routers;
 /** Value: "ROUTES" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Routes;
 /** Value: "SNAPSHOTS" */
@@ -6738,6 +6740,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *    @arg @c kGTLRCompute_Quota_Metric_LocalSsdTotalGb Value
  *        "LOCAL_SSD_TOTAL_GB"
  *    @arg @c kGTLRCompute_Quota_Metric_Networks Value "NETWORKS"
+ *    @arg @c kGTLRCompute_Quota_Metric_Routers Value "ROUTERS"
  *    @arg @c kGTLRCompute_Quota_Metric_Routes Value "ROUTES"
  *    @arg @c kGTLRCompute_Quota_Metric_Snapshots Value "SNAPSHOTS"
  *    @arg @c kGTLRCompute_Quota_Metric_SsdTotalGb Value "SSD_TOTAL_GB"
