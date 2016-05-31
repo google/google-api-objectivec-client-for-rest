@@ -571,13 +571,13 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
   fetcher.comment = [@"Fetching: " stringByAppendingString:reportingName];
   fetcher.allowLocalhostRequest = YES;
   fetcher.allowedInsecureSchemes = @[ @"file", @"http" ];
+  NSString *requestUserAgent = self.discoveryService.requestUserAgent;
+  [fetcher setRequestValue:requestUserAgent forHTTPHeaderField:@"User-Agent"];
   if (!url.fileURL) {
-    NSString *requestUserAgent = self.discoveryService.requestUserAgent;
-    [fetcher.mutableRequest setValue:requestUserAgent forHTTPHeaderField:@"User-Agent"];
     [self.additionalHTTPHeaders enumerateKeysAndObjectsUsingBlock:^(NSString *key,
                                                                     NSString *value,
                                                                     BOOL *stop) {
-      [fetcher.mutableRequest setValue:value forHTTPHeaderField:key];
+      [fetcher setRequestValue:value forHTTPHeaderField:key];
     }];
   }
 

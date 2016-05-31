@@ -147,7 +147,7 @@ static NSHTTPURLResponse *QueryResponseWithURL(NSURL *url,
       status = 200;
     }
 
-    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.mutableRequest.URL,
+    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.request.URL,
                                                        status,
                                                        topContentType);
     NSData *responseData;
@@ -342,7 +342,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTAssert(queryTicket.hasCalledCallback);
 
   // GTLRQuery query parameters.
-  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.mutableRequest;
+  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.request;
   XCTAssertEqualObjects(QueryValueForURLItem(fetcherRequest.URL, @"fields"), query.fields);
   XCTAssertEqualObjects(QueryValueForURLItem(fetcherRequest.URL, @"pageSize"), @"10");
   XCTAssertEqualObjects(QueryValueForURLItem(fetcherRequest.URL, @"prettyPrint"), @"false");
@@ -473,7 +473,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];
 
-  NSURL *fetcherRequestURL = queryTicket.objectFetcher.mutableRequest.URL;
+  NSURL *fetcherRequestURL = queryTicket.objectFetcher.request.URL;
   XCTAssertEqualObjects(fetcherRequestURL.host, @"www.googleapis.com");
   XCTAssertEqualObjects(fetcherRequestURL.path, @"/drive/v3/files");
 }
@@ -541,12 +541,12 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   service.fetcherService.testBlock = ^(GTMSessionFetcher *fetcherToTest,
                                        GTMSessionFetcherTestResponse testResponse) {
-    checkRequestParamsAndHeaders(fetcherToTest.mutableRequest);
+    checkRequestParamsAndHeaders(fetcherToTest.request);
     XCTAssertEqual(queryTicket.pagesFetchedCounter, (NSUInteger)pageCounter);
 
     ++pageCounter;
 
-    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.mutableRequest.URL,
+    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.request.URL,
                                                        200, @"application/json");
     NSString *fileName = [NSString stringWithFormat:@"Drive1Paging%d.response.txt", pageCounter];
     NSData *responseData = [[self class] dataForTestFileName:fileName];;
@@ -670,7 +670,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   [self service:service waitForTicket:queryTicket];
   XCTAssert(queryTicket.hasCalledCallback);
 
-  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.mutableRequest;
+  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.request;
   XCTAssertEqualObjects(QueryValueForURLItem(fetcherRequest.URL, @"pageToken"), @"NotARealToken");
 
   // Ensure all expectations were satisfied.
@@ -852,7 +852,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
       XCTAssertNotNil(queryTicket);
       [queryTicket cancelTicket];
 
-      NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.mutableRequest.URL,
+      NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.request.URL,
                                                          200, @"text/plain");
       NSData *responseData = [NSData data];
       testResponse(response, responseData, nil);
@@ -975,7 +975,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTAssert(queryTicket.hasCalledCallback);
 
   // File ID should be the tail of the query URL.
-  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.mutableRequest;
+  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.request;
   XCTAssertEqualObjects(fetcherRequest.URL.lastPathComponent, @"1234");
 
   // Ensure all expectations were satisfied.
@@ -1001,7 +1001,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     }
     XCTAssertEqualObjects(fetchJSONBody, expectedJSONBody);
 
-    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.mutableRequest.URL,
+    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.request.URL,
                                                        200,
                                                        @"text/plain");
     testResponse(response, [NSData data], nil);
@@ -1111,7 +1111,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRService *service = [self driveServiceForTest];
   service.fetcherService.testBlock = ^(GTMSessionFetcher *fetcherToTest,
                                        GTMSessionFetcherTestResponse testResponse) {
-    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.mutableRequest.URL,
+    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.request.URL,
                                                        200, expectedContentType);
     NSData *responseData = expectedData;
     testResponse(response, responseData, nil);
@@ -1292,7 +1292,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTAssert(queryTicket.hasCalledCallback);
 
   // The request is to a fixed URL.
-  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.mutableRequest;
+  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.request;
   XCTAssertEqualObjects(fetcherRequest.URL.absoluteString,
                         @"https://www.googleapis.com/batch");
 
@@ -1351,7 +1351,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     ++pageCounter;
 
     NSString *contentType = @"multipart/mixed; boundary=batch_3ajN40YpXZQ_ABf5ww_gxyg";
-    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.mutableRequest.URL,
+    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.request.URL,
                                                        200, contentType);
     NSString *fileName = [NSString stringWithFormat:@"Drive1BatchPaging%d.response.txt",
                           pageCounter];
@@ -2326,7 +2326,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRService *service = [self driveServiceForTest];
   service.fetcherService.testBlock = ^(GTMSessionFetcher *fetcherToTest,
                                        GTMSessionFetcherTestResponse testResponse) {
-    NSURL *fetchURL = fetcherToTest.mutableRequest.URL;
+    NSURL *fetchURL = fetcherToTest.request.URL;
 
     // Upload fetcher testBlock doesn't do chunk fetches, so this must be the initial upload fetch,
     // without an upload_id in the URL.
@@ -2370,7 +2370,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
       @"Content-Type" : @"application/json; charset=UTF-8"
     };
     NSHTTPURLResponse *response =
-        [[NSHTTPURLResponse alloc] initWithURL:(NSURL * _Nonnull)fetcherToTest.mutableRequest.URL
+        [[NSHTTPURLResponse alloc] initWithURL:(NSURL * _Nonnull)fetcherToTest.request.URL
                                     statusCode:200
                                    HTTPVersion:@"HTTP/1.1"
                                   headerFields:responseHeaders];
