@@ -1461,9 +1461,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @implementation GTLRYouTubeQuery_SubscriptionsList
 
-@dynamic channelId, forChannelId, identifier, maxResults, mine, mySubscribers,
-         onBehalfOfContentOwner, onBehalfOfContentOwnerChannel, order,
-         pageToken, part;
+@dynamic channelId, forChannelId, identifier, maxResults, mine,
+         myRecentSubscribers, mySubscribers, onBehalfOfContentOwner,
+         onBehalfOfContentOwnerChannel, order, pageToken, part;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"identifier" : @"id" };

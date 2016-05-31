@@ -329,6 +329,7 @@ NSString * const kGTLRCompute_Quota_Metric_InstanceTemplates   = @"INSTANCE_TEMP
 NSString * const kGTLRCompute_Quota_Metric_InUseAddresses      = @"IN_USE_ADDRESSES";
 NSString * const kGTLRCompute_Quota_Metric_LocalSsdTotalGb     = @"LOCAL_SSD_TOTAL_GB";
 NSString * const kGTLRCompute_Quota_Metric_Networks            = @"NETWORKS";
+NSString * const kGTLRCompute_Quota_Metric_Routers             = @"ROUTERS";
 NSString * const kGTLRCompute_Quota_Metric_Routes              = @"ROUTES";
 NSString * const kGTLRCompute_Quota_Metric_Snapshots           = @"SNAPSHOTS";
 NSString * const kGTLRCompute_Quota_Metric_SsdTotalGb          = @"SSD_TOTAL_GB";

@@ -5000,7 +5000,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
 
 /**
  *  Set this parameter's value to true to retrieve a feed of the subscribers of
- *  the authenticated user.
+ *  the authenticated user in reverse chronological order (newest first).
+ */
+@property(assign) BOOL myRecentSubscribers;
+
+/**
+ *  Set this parameter's value to true to retrieve a feed of the subscribers of
+ *  the authenticated user in no particular order.
  */
 @property(assign) BOOL mySubscribers;
 

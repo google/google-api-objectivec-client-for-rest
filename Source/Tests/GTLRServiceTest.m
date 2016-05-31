@@ -147,7 +147,7 @@ static NSHTTPURLResponse *QueryResponseWithURL(NSURL *url,
       status = 200;
     }
 
-    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.mutableRequest.URL,
+    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.request.URL,
                                                        status,
                                                        topContentType);
     NSData *responseData;
@@ -200,8 +200,9 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   return service;
 }
 
-- (void)service:(GTLRService *)service waitForTicket:(GTLRServiceTicket *)ticket {
-  [service waitForTicket:ticket timeout:10.0];
+- (BOOL)service:(GTLRService *)service waitForTicket:(GTLRServiceTicket *)ticket {
+  BOOL finishedInTime = [service waitForTicket:ticket timeout:10.0];
+  return finishedInTime;
 }
 
 - (void)expectTicketNotifications {
@@ -338,11 +339,11 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // GTLRQuery query parameters.
-  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.mutableRequest;
+  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.request;
   XCTAssertEqualObjects(QueryValueForURLItem(fetcherRequest.URL, @"fields"), query.fields);
   XCTAssertEqualObjects(QueryValueForURLItem(fetcherRequest.URL, @"pageSize"), @"10");
   XCTAssertEqualObjects(QueryValueForURLItem(fetcherRequest.URL, @"prettyPrint"), @"false");
@@ -358,6 +359,13 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTAssertEqualObjects([fetcherRequest valueForHTTPHeaderField:@"X-Feline"], @"Fluffy");
   // URL query parameters.
   XCTAssertEqualObjects(QueryValueForURLItem(fetcherRequest.URL, @"meowParam"), @"Meow");
+
+  // The fetcher releases its authorizer upon completion, so to test the request,
+  // we'll use the service's authorizer.
+  id<GTMFetcherAuthorizationProtocol> authorizer = service.authorizer;
+  XCTAssertNotNil(authorizer);
+  XCTAssert([authorizer isAuthorizedRequest:fetcherRequest],
+            @"%@", fetcherRequest.allHTTPHeaderFields);
 
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];
@@ -412,7 +420,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -467,13 +475,13 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];
 
-  NSURL *fetcherRequestURL = queryTicket.objectFetcher.mutableRequest.URL;
+  NSURL *fetcherRequestURL = queryTicket.objectFetcher.request.URL;
   XCTAssertEqualObjects(fetcherRequestURL.host, @"www.googleapis.com");
   XCTAssertEqualObjects(fetcherRequestURL.path, @"/drive/v3/files");
 }
@@ -501,7 +509,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [completionExp fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
 
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];
@@ -541,12 +549,12 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   service.fetcherService.testBlock = ^(GTMSessionFetcher *fetcherToTest,
                                        GTMSessionFetcherTestResponse testResponse) {
-    checkRequestParamsAndHeaders(fetcherToTest.mutableRequest);
+    checkRequestParamsAndHeaders(fetcherToTest.request);
     XCTAssertEqual(queryTicket.pagesFetchedCounter, (NSUInteger)pageCounter);
 
     ++pageCounter;
 
-    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.mutableRequest.URL,
+    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.request.URL,
                                                        200, @"application/json");
     NSString *fileName = [NSString stringWithFormat:@"Drive1Paging%d.response.txt", pageCounter];
     NSData *responseData = [[self class] dataForTestFileName:fileName];;
@@ -608,7 +616,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -618,6 +626,44 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   // fetcher and GTLRService for each page.
   [self verifyCountingUIAppWithExpectedCount:6
                          expectedExpirations:0];
+}
+
+- (void)testService_SingleQuery_SkipAuth {
+  // Disallow authorizing request.
+  GTLRService *service = [self driveServiceForTest];
+  service.fetcherService.testBlock =
+      [self fetcherTestBlockWithResponseForFileName:@"Drive1.response.txt" status:200];
+
+  // Request with an auth error.
+  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  query.fields = @"kind,nextPageToken,files(id,kind,name)";
+  query.requestID = @"gtlr_1234";
+  query.shouldSkipAuthorization = YES;
+
+  XCTestExpectation *queryFinished = [self expectationWithDescription:@"queryFinished"];
+
+  GTLRServiceTicket *queryTicket =
+      [service executeQuery:query
+          completionHandler:^(GTLRServiceTicket *callbackTicket,
+                              Test_GTLRDrive_FileList *object, NSError *error) {
+            XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+            XCTAssertNil(error);
+
+            [queryFinished fulfill];
+          }];
+
+  XCTAssert([self service:service waitForTicket:queryTicket]);
+  XCTAssert(queryTicket.hasCalledCallback);
+
+  // Authorization should have been skipped.
+  id<GTMFetcherAuthorizationProtocol> authorizer = service.authorizer;
+  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.request;
+  XCTAssertNotNil(authorizer);
+  XCTAssertFalse([authorizer isAuthorizedRequest:fetcherRequest],
+                 @"%@", fetcherRequest.allHTTPHeaderFields);
+
+  // Ensure all expectations were satisfied.
+  [self waitForExpectationsWithTimeout:10 handler:nil];
 }
 
 - (void)testService_SingleQuery_InvalidParam {
@@ -667,10 +713,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinishedExp fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
-  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.mutableRequest;
+  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.request;
   XCTAssertEqualObjects(QueryValueForURLItem(fetcherRequest.URL, @"pageToken"), @"NotARealToken");
 
   // Ensure all expectations were satisfied.
@@ -703,7 +749,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -743,7 +789,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -804,7 +850,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   // Changing the callback queue doesn't affect tickets already issued.
   service.callbackQueue = dispatch_get_main_queue();
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
 
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];
@@ -830,7 +876,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -852,7 +898,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
       XCTAssertNotNil(queryTicket);
       [queryTicket cancelTicket];
 
-      NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.mutableRequest.URL,
+      NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.request.URL,
                                                          200, @"text/plain");
       NSData *responseData = [NSData data];
       testResponse(response, responseData, nil);
@@ -882,7 +928,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
                     }];
 
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -934,7 +980,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
                       XCTFail(@"Cancel should skip callbacks");
                     }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -971,11 +1017,11 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
         [queryFinished fulfill];
       }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // File ID should be the tail of the query URL.
-  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.mutableRequest;
+  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.request;
   XCTAssertEqualObjects(fetcherRequest.URL.lastPathComponent, @"1234");
 
   // Ensure all expectations were satisfied.
@@ -1001,7 +1047,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     }
     XCTAssertEqualObjects(fetchJSONBody, expectedJSONBody);
 
-    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.mutableRequest.URL,
+    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.request.URL,
                                                        200,
                                                        @"text/plain");
     testResponse(response, [NSData data], nil);
@@ -1016,7 +1062,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [executeCompletionExp fulfill];
   }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
 
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];
@@ -1086,7 +1132,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1111,7 +1157,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRService *service = [self driveServiceForTest];
   service.fetcherService.testBlock = ^(GTMSessionFetcher *fetcherToTest,
                                        GTMSessionFetcherTestResponse testResponse) {
-    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.mutableRequest.URL,
+    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.request.URL,
                                                        200, expectedContentType);
     NSData *responseData = expectedData;
     testResponse(response, responseData, nil);
@@ -1147,7 +1193,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1155,6 +1201,14 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 }
 
 - (void)testService_BatchQuery {
+  [self performBatchQueryTestSkippingAuthorization:NO];
+}
+
+- (void)testService_BatchQuery_SkipAuth {
+  [self performBatchQueryTestSkippingAuthorization:YES];
+}
+
+- (void)performBatchQueryTestSkippingAuthorization:(BOOL)shouldSkipAuthorization {
   // Mixed failure and success batch request with valid authorization.
   //
   // Response is file Drive1Batch1.response.txt
@@ -1251,6 +1305,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     XCTAssert([NSThread isMainThread]);
   };
 
+  batchQuery.shouldSkipAuthorization = shouldSkipAuthorization;
+
   __block GTLRServiceTicket *queryTicket =
       [service executeQuery:batchQuery
           completionHandler:^(GTLRServiceTicket *callbackTicket,
@@ -1288,20 +1344,17 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [batchFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // The request is to a fixed URL.
-  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.mutableRequest;
+  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.request;
   XCTAssertEqualObjects(fetcherRequest.URL.absoluteString,
                         @"https://www.googleapis.com/batch");
 
   // Test additionalHTTPHeaders.
-  //
-  // Headers.
-  XCTAssertEqualObjects([fetcherRequest valueForHTTPHeaderField:@"Authorization"],
-                        @"Bearer catpaws");
   XCTAssertEqualObjects([fetcherRequest valueForHTTPHeaderField:@"X-Feline"], @"Fluffy");
+  XCTAssertEqualObjects([fetcherRequest valueForHTTPHeaderField:@"X-Canine"], @"Spot");
 
   // Verify the payload was the expected multipart MIME.
   NSData *requestBody = fetcherRequest.HTTPBody;
@@ -1331,6 +1384,12 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   NSString *expectedBodyGet = @"GET /drive/v3/files/0B7svZDDwtKrhS2FDS2JZclU1U0E?fields=parents";
   XCTAssert([part2BodyStr hasPrefix:expectedBodyGet], @"%@", part2BodyStr);
 
+  // Verify authorization.
+  id<GTMFetcherAuthorizationProtocol> authorizer = service.authorizer;
+  XCTAssertNotNil(authorizer);
+  bool didAuthorize = [authorizer isAuthorizedRequest:fetcherRequest];
+  XCTAssertEqual(didAuthorize, !shouldSkipAuthorization, @"%@", fetcherRequest.allHTTPHeaderFields);
+
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];
 
@@ -1351,7 +1410,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     ++pageCounter;
 
     NSString *contentType = @"multipart/mixed; boundary=batch_3ajN40YpXZQ_ABf5ww_gxyg";
-    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.mutableRequest.URL,
+    NSHTTPURLResponse *response = QueryResponseWithURL(fetcherToTest.request.URL,
                                                        200, contentType);
     NSString *fileName = [NSString stringWithFormat:@"Drive1BatchPaging%d.response.txt",
                           pageCounter];
@@ -1489,7 +1548,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [batchFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1608,7 +1667,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [batchFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1703,7 +1762,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   // Changing the callback queue doesn't affect tickets already issued.
   service.callbackQueue = dispatch_get_main_queue();
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1752,7 +1811,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1837,7 +1896,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [batchFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1892,7 +1951,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1950,7 +2009,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2036,7 +2095,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
               [queryFinished fulfill];
             }];
 
-    [self service:service waitForTicket:queryTicket];
+    XCTAssert([self service:service waitForTicket:queryTicket]);
     XCTAssert(queryTicket.hasCalledCallback);
   }  // @autoreleasepool
 
@@ -2192,7 +2251,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
       [batchFinished fulfill];
     }];
 
-    [self service:service waitForTicket:queryTicket];
+    XCTAssert([self service:service waitForTicket:queryTicket]);
     XCTAssert(queryTicket.hasCalledCallback);
   }  // @autoreleasepool
 
@@ -2326,7 +2385,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRService *service = [self driveServiceForTest];
   service.fetcherService.testBlock = ^(GTMSessionFetcher *fetcherToTest,
                                        GTMSessionFetcherTestResponse testResponse) {
-    NSURL *fetchURL = fetcherToTest.mutableRequest.URL;
+    NSURL *fetchURL = fetcherToTest.request.URL;
 
     // Upload fetcher testBlock doesn't do chunk fetches, so this must be the initial upload fetch,
     // without an upload_id in the URL.
@@ -2370,7 +2429,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
       @"Content-Type" : @"application/json; charset=UTF-8"
     };
     NSHTTPURLResponse *response =
-        [[NSHTTPURLResponse alloc] initWithURL:(NSURL * _Nonnull)fetcherToTest.mutableRequest.URL
+        [[NSHTTPURLResponse alloc] initWithURL:(NSURL * _Nonnull)fetcherToTest.request.URL
                                     statusCode:200
                                    HTTPVersion:@"HTTP/1.1"
                                   headerFields:responseHeaders];
@@ -2414,7 +2473,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [executeCompletionExp fulfill];
   }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2461,7 +2520,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinishedExp fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2491,7 +2550,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinishedExp fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2566,7 +2625,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2611,7 +2670,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinishedExp fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2655,7 +2714,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2704,7 +2763,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2822,7 +2881,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [batchFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // The request is to a fixed URL.
@@ -2930,7 +2989,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [executeCompletionExp fulfill];
   }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.

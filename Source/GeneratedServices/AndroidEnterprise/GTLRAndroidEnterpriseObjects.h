@@ -1151,7 +1151,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(copy, nullable) NSString *kind;
 
-/** The user's primary email, e.g. "jsmith\@example.com". */
+/** The user's primary email address, e.g. "jsmith\@example.com". */
 @property(copy, nullable) NSString *primaryEmail;
 
 @end

@@ -12,9 +12,11 @@
 #import "GTLRFirebaseRulesAPI.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeFirebaseRulesAPICloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeFirebaseRulesAPICloudPlatform   = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeFirebaseRulesAPIFirebase        = @"https://www.googleapis.com/auth/firebase";
+NSString * const kGTLRAuthScopeFirebaseRulesAPIFirebaseReadonly = @"https://www.googleapis.com/auth/firebase.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRFirebaseRulesAPIService

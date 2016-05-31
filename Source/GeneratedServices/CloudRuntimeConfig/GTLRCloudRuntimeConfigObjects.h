@@ -38,13 +38,13 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudRuntimeConfig_Variable.state
 
 /**
- *  Variable had been deleted, while watch was executing.
+ *  The variable was deleted, while `variables().watch` was executing.
  *
  *  Value: "DELETED"
  */
 GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_Deleted;
 /**
- *  Variable had been updated, while watch was executing.
+ *  The variable was updated, while `variables().watch` was executing.
  *
  *  Value: "UPDATED"
  */
@@ -57,27 +57,30 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_Updated;
 GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStateUnspecified;
 
 /**
- *  The Cardinality condition is met when the count of `Variable` resources
- *  under the specified path prefix reaches the specified number.
- *  For example, take the following variables in a RuntimeConfig object:
- *  /foo/variable1 = "value1"
- *  /foo/variable2 = "value2"
- *  /bar/variable3 = "value3"
- *  These variables would satisfy a Cardinality condition with `path` set to
- *  "/foo" and `number` set to 2, but would not satisify the same condition
- *  with `number` set to 3.
+ *  A Cardinality condition for the Waiter resource. A cardinality condition is
+ *  met when the number of variables under a specified path prefix reaches a
+ *  predefined number. For example, if you set a Cardinality condition where
+ *  the `path` is set to `/foo` and the number of paths is set to 2, the
+ *  following variables would meet the condition in a RuntimeConfig resource:
+ *  + `/foo/variable1 = "value1"`
+ *  + `/foo/variable2 = "value2"`
+ *  + `/bar/variable3 = "value3"`
+ *  It would not would not satisify the same condition with the `number` set to
+ *  3, however, because there is only 2 paths that start with `/foo`.
+ *  Cardinality conditions are recursive; all subtrees under the specific
+ *  path prefix are counted.
  */
 @interface GTLRCloudRuntimeConfig_Cardinality : GTLRObject
 
 /**
- *  The number of decendents of `path` that must exist before this condition
- *  is met. Optional; defaults to 1 if not specified.
+ *  The number variables under the `path` that must exist to meet this
+ *  condition. Defaults to 1 if not specified.
  *
  *  Uses NSNumber of intValue.
  */
 @property(strong, nullable) NSNumber *number;
 
-/** The root of the variable subtree to monitor. Required. */
+/** The root of the variable subtree to monitor. For example, `/foo`. */
 @property(copy, nullable) NSString *path;
 
 @end
@@ -97,20 +100,18 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
 
 
 /**
- *  A condition that a Waiter resource is waiting for. The set of possible
- *  conditions may expand over time.
+ *  The condition that a Waiter resource is waiting for.
  */
 @interface GTLRCloudRuntimeConfig_EndCondition : GTLRObject
 
-/** The Cardinality condition type configuration. */
+/** The cardinality of the `EndCondition`. */
 @property(strong, nullable) GTLRCloudRuntimeConfig_Cardinality *cardinality;
 
 @end
 
 
 /**
- *  Response for the `ListConfigs()` method.
- *  Order of returned configuration objects is arbitrary.
+ *  GTLRCloudRuntimeConfig_ListConfigsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "configs" property. If returned as the result of a query, it
@@ -120,22 +121,28 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
 @interface GTLRCloudRuntimeConfig_ListConfigsResponse : GTLRCollectionObject
 
 /**
- *  Found configurations in the project.
+ *  A list of the configurations in the project. The order of returned
+ *  objects is arbitrary; that is, it is not ordered in any particular way.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
 @property(strong, nullable) NSArray<GTLRCloudRuntimeConfig_RuntimeConfig *> *configs;
 
-/** Pagination support. */
+/**
+ *  This token allows you to get the next page of results for list requests.
+ *  If the number of results is larger than `pageSize`, use the `nextPageToken`
+ *  as a value for the query parameter `pageToken` in the next list request.
+ *  Subsequent list requests will have their own `nextPageToken` to continue
+ *  paging through the results
+ */
 @property(copy, nullable) NSString *nextPageToken;
 
 @end
 
 
 /**
- *  Response for the `ListVariables()` method.
- *  Order of returned variable objects is arbitrary.
+ *  GTLRCloudRuntimeConfig_ListVariablesResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "variables" property. If returned as the result of a query, it
@@ -144,11 +151,18 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  */
 @interface GTLRCloudRuntimeConfig_ListVariablesResponse : GTLRCollectionObject
 
-/** Pagination support. */
+/**
+ *  This token allows you to get the next page of results for list requests.
+ *  If the number of results is larger than `pageSize`, use the `nextPageToken`
+ *  as a value for the query parameter `pageToken` in the next list request.
+ *  Subsequent list requests will have their own `nextPageToken` to continue
+ *  paging through the results
+ */
 @property(copy, nullable) NSString *nextPageToken;
 
 /**
- *  Matched variables and their values.
+ *  A list of variables and their values. The order of returned variable
+ *  objects is arbitrary.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -169,7 +183,13 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  */
 @interface GTLRCloudRuntimeConfig_ListWaitersResponse : GTLRCollectionObject
 
-/** Pagination support. */
+/**
+ *  This token allows you to get the next page of results for list requests.
+ *  If the number of results is larger than `pageSize`, use the `nextPageToken`
+ *  as a value for the query parameter `pageToken` in the next list request.
+ *  Subsequent list requests will have their own `nextPageToken` to continue
+ *  paging through the results
+ */
 @property(copy, nullable) NSString *nextPageToken;
 
 /**
@@ -266,28 +286,29 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
 
 
 /**
- *  RuntimeConfig is the primary resource in the Configuration service.
- *  It consists of metadata and a hierarchy of variables.
+ *  A RuntimeConfig resource is the primary resource in the Cloud RuntimeConfig
+ *  service. A RuntimeConfig resource consists of metadata and a hierarchy of
+ *  variables.
  */
 @interface GTLRCloudRuntimeConfig_RuntimeConfig : GTLRObject
 
 /**
- *  Description of the configuration object.
- *  `len(description)` must be less than 256.
+ *  An optional description of the RuntimeConfig object.
+ *  The length of the description must be less than 256 bytes.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The resource name of a runtime config.
- *  It has the format of "projects/{project_id}/configs/{config_id}",
- *  where `project_id` is a valid Google cloud project ID, and the
- *  `config_id` must match RFC 1035 segment specification, and
- *  `len(config_id)` must be less than 64 bytes.
- *  The name is assigned by the client, but will be validated on the server
- *  side to adhere to the format.
- *  Name is immutable and cannot be changed.
+ *  The resource name of a runtime config. The name must have the format:
+ *  projects/[PROJECT_ID]/configs/[CONFIG_NAME]
+ *  The `[PROJECT_ID]` must be a valid project ID, and `[CONFIG_NAME]` is an
+ *  arbitrary name that matches RFC 1035 segment specification. The length of
+ *  `[CONFIG_NAME]` must be less than 64 bytes.
+ *  You pick the RuntimeConfig resource name, but the server will validate that
+ *  the name adheres to this format. After you create the resource, you cannot
+ *  change the resource's name.
  */
 @property(copy, nullable) NSString *name;
 
@@ -377,42 +398,40 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
 
 
 /**
- *  Variable message describes a single variable within a Configuration object.
- *  name denotes the hierarchical variable name, e.g.
- *  ports/serving_port within flags configuration object.
- *  Value is an opaque string and only leaf variables can have values.
+ *  Describes a single variable within a RuntimeConfig resource.
+ *  The name denotes the hierarchical variable name. For example,
+ *  `ports/serving_port` is a valid variable name. The variable value is an
+ *  opaque string and only leaf variables can have values (that is, variables
+ *  that do not have any child variables).
  */
 @interface GTLRCloudRuntimeConfig_Variable : GTLRObject
 
 /**
- *  Name of the variable resource.
- *  It has format of
- *  "projects/{project_id}/configs/{config_id}/variables/{variable_id}",
- *  Where `project_id` must be a valid Google Cloud project ID, `config_id`
- *  must be a valid RuntimeConfig object and `variable_id` follows Unix
- *  file system file path naming.
- *  `variable_id` can contain ASCII letters, numbers, slashes and dashes.
- *  Slashes are used as path element separators and are not part of the
- *  `variable_id` itself, so `variable_id` must contain at least one non-slash
- *  character. Multiple slashes are coalesced into single slash character.
- *  Each path segment should follow RFC 1035 segment specification.
- *  `len(variable_id)` must be less than 256 bytes.
- *  The name is assigned by the client, but will be validated on the server
- *  side to adhere to the format.
- *  Name is immutable and cannot be changed.
+ *  The name of the variable resource, in the format:
+ *  projects/[PROJECT_ID]/configs/[CONFIG_NAME]/variables/[VARIABLE_NAME]
+ *  The `[PROJECT_ID]` must be a valid project ID, `[CONFIG_NAME]` must be a
+ *  valid RuntimeConfig reource and `[VARIABLE_NAME]` follows Unix file system
+ *  file path naming.
+ *  The `[VARIABLE_NAME]` can contain ASCII letters, numbers, slashes and
+ *  dashes. Slashes are used as path element separators and are not part of the
+ *  `[VARIABLE_NAME]` itself, so `[VARIABLE_NAME]` must contain at least one
+ *  non-slash character. Multiple slashes are coalesced into single slash
+ *  character. Each path segment should follow RFC 1035 segment specification.
+ *  The length of a `[VARIABLE_NAME]` must be less than 256 bytes.
+ *  Once you create a variable, you cannot change the variable name.
  */
 @property(copy, nullable) NSString *name;
 
 /**
- *  [Ouput only] The current state of the variable.
- *  State denotes the outcome of the Watch call and is unset by the Get/List
- *  calls.
+ *  [Ouput only] The current state of the variable. The variable state indicates
+ *  the outcome of the `variables().watch` call and is visible through the
+ *  `get` and `list` calls.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudRuntimeConfig_Variable_State_Deleted Variable had been
- *        deleted, while watch was executing. (Value: "DELETED")
- *    @arg @c kGTLRCloudRuntimeConfig_Variable_State_Updated Variable had been
- *        updated, while watch was executing. (Value: "UPDATED")
+ *    @arg @c kGTLRCloudRuntimeConfig_Variable_State_Deleted The variable was
+ *        deleted, while `variables().watch` was executing. (Value: "DELETED")
+ *    @arg @c kGTLRCloudRuntimeConfig_Variable_State_Updated The variable was
+ *        updated, while `variables().watch` was executing. (Value: "UPDATED")
  *    @arg @c kGTLRCloudRuntimeConfig_Variable_State_VariableStateUnspecified
  *        Default variable state. (Value: "VARIABLE_STATE_UNSPECIFIED")
  */
@@ -422,8 +441,8 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
 @property(strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  `len(value)` must be less than 4096 bytes. Empty values are also accepted.
- *  value must be Base64 encoded.
+ *  The value of the variable. The length of the value must be less than 4096
+ *  bytes. Empty values are also accepted. The value must be Base64 encoded.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -434,73 +453,78 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
 
 
 /**
- *  A Waiter resource waits for some condition within a RuntimeConfig resource
- *  to be met. For example: each node in a distributed system startup process
- *  writes a value to a Variable resource indicating its readiness. A Waiter
- *  configured with the proper `success` condition can be used to wait until
- *  some number of nodes have checked in.
+ *  A Waiter resource waits for some end condition within a RuntimeConfig
+ *  resource
+ *  to be met before it returns. For example, assume you have a distributed
+ *  system where each node writes to a Variable resource indidicating the node's
+ *  readiness as part of the startup process.
+ *  You then configure a Waiter resource with the success condition set to wait
+ *  until some number of nodes have checked in. Afterwards, your application
+ *  runs some arbitrary code after the condition has been met and the waiter
+ *  returns successfully.
  *  Once created, a Waiter resource is immutable.
+ *  To learn more about using waiters, read the
+ *  [Creating a Waiter](/deployment-manager/runtime-config/creating-a-water)
+ *  documentation.
  */
 @interface GTLRCloudRuntimeConfig_Waiter : GTLRObject
 
 /**
- *  The instant at which this Waiter was created. Adding the value of `timeout`
- *  to this instant yields the timeout deadline for this Waiter. Output only.
+ *  [Output Only] The instant at which this Waiter resource was created. Adding
+ *  the value of `timeout` to this instant yields the timeout deadline for the
+ *  waiter.
  */
 @property(strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  If the value is `false`, it means the Waiter is still waiting for one of
- *  its conditions to be met.
- *  If true, the Waiter has finished. If the Waiter finished due to a timeout
- *  or failure, `error` will be set. Output only.
+ *  [Output Only] If the value is `false`, it means the waiter is still waiting
+ *  for one of its conditions to be met.
+ *  If true, the waiter has finished. If the waiter finished due to a timeout
+ *  or failure, `error` will be set.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(strong, nullable) NSNumber *done;
 
 /**
- *  If the Waiter ended due to a failure or timeout, this value will be set.
- *  Output only.
+ *  [Output Only] If the waiter ended due to a failure or timeout, this value
+ *  will be set.
  */
 @property(strong, nullable) GTLRCloudRuntimeConfig_Status *error;
 
 /**
- *  The failure condition. If this condition is met, `done` will be set to
- *  `true` and the `error` code will be set to ABORTED. The failure condition
- *  takes precedence over the success condition. If both conditions are met, a
- *  failure will be indicated. This value is optional; if no failure condition
- *  is set, the only failure scenario will be a timeout. Optional.
+ *  [Optional] The failure condition of this waiter. If this condition is met,
+ *  `done` will be set to `true` and the `error` code will be set to `ABORTED`.
+ *  The failure condition takes precedence over the success condition. If both
+ *  conditions are met, a failure will be indicated. This value is optional; if
+ *  no failure condition is set, the only failure scenario will be a timeout.
  */
 @property(strong, nullable) GTLRCloudRuntimeConfig_EndCondition *failure;
 
 /**
- *  Name of the variable resource.
- *  It has format of
- *  "projects/{project_id}/configs/{config_id}/waiters/{waiter_id}",
- *  Where `project_id` must be a valid Google Cloud project ID, `config_id`
- *  must be a valid RuntimeConfig object and the `waiter_id` must match
- *  RFC 1035 segment specification, and `len(waiter_id)` must be less than
- *  64 bytes.
- *  The name is assigned by the client, but will be validated on the server
- *  side to adhere to the format.
- *  Name is immutable and cannot be changed. Required.
+ *  The name of the Waiter resource, in the format:
+ *  projects/[PROJECT_ID]/configs/[CONFIG_NAME]/waiters/[WAITER_NAME]
+ *  The `[PROJECT_ID]` must be a valid Google Cloud project ID,
+ *  the `[CONFIG_NAME]` must be a valid RuntimeConfig resource, the
+ *  `[WAITER_NAME]` must match RFC 1035 segment specification, and the length
+ *  of `[WAITER_NAME]` must be less than 64 bytes.
+ *  After you create a Waiter resource, you cannot change the resource name.
  */
 @property(copy, nullable) NSString *name;
 
 /**
- *  The success condition. If this condition is met, `done` will be set to
- *  `true` and the `error` value will remain unset. The failure condition
+ *  [Required] The success condition. If this condition is met, `done` will be
+ *  set to `true` and the `error` value will remain unset. The failure condition
  *  takes precedence over the success condition. If both conditions are met, a
- *  failure will be indicated. Required.
+ *  failure will be indicated.
  */
 @property(strong, nullable) GTLRCloudRuntimeConfig_EndCondition *success;
 
 /**
- *  The timeout, beginning from the instant that CreateWaiter is called. If
- *  this timeout elapses prior to the success or failure conditions being met,
- *  the Waiter will fail and the `error` code will be set to DEADLINE_EXCEEDED.
- *  Required.
+ *  [Required] Specifies the timeout of the waiter in seconds, beginning from
+ *  the instant that `waiters().create` method is called. If this time elapses
+ *  before the success or failure conditions are met, the waiter fails and sets
+ *  the `error` code to `DEADLINE_EXCEEDED`.
  *
  *  String format is #.###s (seconds).
  */
@@ -515,10 +539,11 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
 @interface GTLRCloudRuntimeConfig_WatchVariableRequest : GTLRObject
 
 /**
- *  If backend has a variable that has a newer value than this timestamp, then
- *  request will return immediately with current value.
- *  If not specified or variable has an older timestamp, will wait for the new
- *  value.
+ *  If specified, checks the current timestamp of the variable and if the
+ *  current timestamp is newer than `newerThan` timestamp, the method returns
+ *  immediately.
+ *  If not specified or the variable has an older timestamp, the watcher waits
+ *  for a the value to change before returning.
  */
 @property(strong, nullable) GTLRDateTime *newerThan;
 
