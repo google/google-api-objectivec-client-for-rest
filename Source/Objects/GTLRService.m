@@ -2313,6 +2313,8 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
       if (areCallbacksPending) {
         // A timeout while waiting for the dispatch group to finish is seriously unexpected.
         GTLR_DEBUG_LOG(@"%s timed out while waiting for the dispatch group", __PRETTY_FUNCTION__);
+      } else {
+        GTLR_DEBUG_LOG(@"%s timed out without callbacks pending", __PRETTY_FUNCTION__);
       }
       break;
     }

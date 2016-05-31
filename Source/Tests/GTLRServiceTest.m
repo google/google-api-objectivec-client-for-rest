@@ -200,8 +200,9 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   return service;
 }
 
-- (void)service:(GTLRService *)service waitForTicket:(GTLRServiceTicket *)ticket {
-  [service waitForTicket:ticket timeout:10.0];
+- (BOOL)service:(GTLRService *)service waitForTicket:(GTLRServiceTicket *)ticket {
+  BOOL finishedInTime = [service waitForTicket:ticket timeout:10.0];
+  return finishedInTime;
 }
 
 - (void)expectTicketNotifications {
@@ -338,7 +339,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // GTLRQuery query parameters.
@@ -412,7 +413,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -467,7 +468,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -501,7 +502,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [completionExp fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
 
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];
@@ -608,7 +609,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -667,7 +668,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinishedExp fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   NSURLRequest *fetcherRequest = queryTicket.objectFetcher.request;
@@ -703,7 +704,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -743,7 +744,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -804,7 +805,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   // Changing the callback queue doesn't affect tickets already issued.
   service.callbackQueue = dispatch_get_main_queue();
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
 
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];
@@ -830,7 +831,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -882,7 +883,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
                     }];
 
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -934,7 +935,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
                       XCTFail(@"Cancel should skip callbacks");
                     }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -971,7 +972,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
         [queryFinished fulfill];
       }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // File ID should be the tail of the query URL.
@@ -1016,7 +1017,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [executeCompletionExp fulfill];
   }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
 
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];
@@ -1086,7 +1087,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1147,7 +1148,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1288,7 +1289,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [batchFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // The request is to a fixed URL.
@@ -1489,7 +1490,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [batchFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1608,7 +1609,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [batchFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1703,7 +1704,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   // Changing the callback queue doesn't affect tickets already issued.
   service.callbackQueue = dispatch_get_main_queue();
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1752,7 +1753,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1837,7 +1838,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [batchFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1892,7 +1893,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -1950,7 +1951,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2036,7 +2037,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
               [queryFinished fulfill];
             }];
 
-    [self service:service waitForTicket:queryTicket];
+    XCTAssert([self service:service waitForTicket:queryTicket]);
     XCTAssert(queryTicket.hasCalledCallback);
   }  // @autoreleasepool
 
@@ -2192,7 +2193,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
       [batchFinished fulfill];
     }];
 
-    [self service:service waitForTicket:queryTicket];
+    XCTAssert([self service:service waitForTicket:queryTicket]);
     XCTAssert(queryTicket.hasCalledCallback);
   }  // @autoreleasepool
 
@@ -2414,7 +2415,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [executeCompletionExp fulfill];
   }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2461,7 +2462,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinishedExp fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2491,7 +2492,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinishedExp fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2566,7 +2567,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2611,7 +2612,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [queryFinishedExp fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2655,7 +2656,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2704,7 +2705,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTAssertFalse(queryTicket.hasCalledCallback);
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
@@ -2822,7 +2823,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             [batchFinished fulfill];
           }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // The request is to a fixed URL.
@@ -2930,7 +2931,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [executeCompletionExp fulfill];
   }];
 
-  [self service:service waitForTicket:queryTicket];
+  XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Ensure all expectations were satisfied.
