@@ -360,6 +360,13 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   // URL query parameters.
   XCTAssertEqualObjects(QueryValueForURLItem(fetcherRequest.URL, @"meowParam"), @"Meow");
 
+  // The fetcher releases its authorizer upon completion, so to test the request,
+  // we'll use the service's authorizer.
+  id<GTMFetcherAuthorizationProtocol> authorizer = service.authorizer;
+  XCTAssertNotNil(authorizer);
+  XCTAssert([authorizer isAuthorizedRequest:fetcherRequest],
+            @"%@", fetcherRequest.allHTTPHeaderFields);
+
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];
 
@@ -619,6 +626,44 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   // fetcher and GTLRService for each page.
   [self verifyCountingUIAppWithExpectedCount:6
                          expectedExpirations:0];
+}
+
+- (void)testService_SingleQuery_SkipAuth {
+  // Disallow authorizing request.
+  GTLRService *service = [self driveServiceForTest];
+  service.fetcherService.testBlock =
+      [self fetcherTestBlockWithResponseForFileName:@"Drive1.response.txt" status:200];
+
+  // Request with an auth error.
+  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  query.fields = @"kind,nextPageToken,files(id,kind,name)";
+  query.requestID = @"gtlr_1234";
+  query.shouldSkipAuthorization = YES;
+
+  XCTestExpectation *queryFinished = [self expectationWithDescription:@"queryFinished"];
+
+  GTLRServiceTicket *queryTicket =
+      [service executeQuery:query
+          completionHandler:^(GTLRServiceTicket *callbackTicket,
+                              Test_GTLRDrive_FileList *object, NSError *error) {
+            XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+            XCTAssertNil(error);
+
+            [queryFinished fulfill];
+          }];
+
+  XCTAssert([self service:service waitForTicket:queryTicket]);
+  XCTAssert(queryTicket.hasCalledCallback);
+
+  // Authorization should have been skipped.
+  id<GTMFetcherAuthorizationProtocol> authorizer = service.authorizer;
+  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.request;
+  XCTAssertNotNil(authorizer);
+  XCTAssertFalse([authorizer isAuthorizedRequest:fetcherRequest],
+                 @"%@", fetcherRequest.allHTTPHeaderFields);
+
+  // Ensure all expectations were satisfied.
+  [self waitForExpectationsWithTimeout:10 handler:nil];
 }
 
 - (void)testService_SingleQuery_InvalidParam {
@@ -1156,6 +1201,14 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 }
 
 - (void)testService_BatchQuery {
+  [self performBatchQueryTestSkippingAuthorization:NO];
+}
+
+- (void)testService_BatchQuery_SkipAuth {
+  [self performBatchQueryTestSkippingAuthorization:YES];
+}
+
+- (void)performBatchQueryTestSkippingAuthorization:(BOOL)shouldSkipAuthorization {
   // Mixed failure and success batch request with valid authorization.
   //
   // Response is file Drive1Batch1.response.txt
@@ -1252,6 +1305,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     XCTAssert([NSThread isMainThread]);
   };
 
+  batchQuery.shouldSkipAuthorization = shouldSkipAuthorization;
+
   __block GTLRServiceTicket *queryTicket =
       [service executeQuery:batchQuery
           completionHandler:^(GTLRServiceTicket *callbackTicket,
@@ -1298,11 +1353,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
                         @"https://www.googleapis.com/batch");
 
   // Test additionalHTTPHeaders.
-  //
-  // Headers.
-  XCTAssertEqualObjects([fetcherRequest valueForHTTPHeaderField:@"Authorization"],
-                        @"Bearer catpaws");
   XCTAssertEqualObjects([fetcherRequest valueForHTTPHeaderField:@"X-Feline"], @"Fluffy");
+  XCTAssertEqualObjects([fetcherRequest valueForHTTPHeaderField:@"X-Canine"], @"Spot");
 
   // Verify the payload was the expected multipart MIME.
   NSData *requestBody = fetcherRequest.HTTPBody;
@@ -1331,6 +1383,12 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   NSString *part2BodyStr = [[NSString alloc] initWithData:part2.body encoding:NSUTF8StringEncoding];
   NSString *expectedBodyGet = @"GET /drive/v3/files/0B7svZDDwtKrhS2FDS2JZclU1U0E?fields=parents";
   XCTAssert([part2BodyStr hasPrefix:expectedBodyGet], @"%@", part2BodyStr);
+
+  // Verify authorization.
+  id<GTMFetcherAuthorizationProtocol> authorizer = service.authorizer;
+  XCTAssertNotNil(authorizer);
+  bool didAuthorize = [authorizer isAuthorizedRequest:fetcherRequest];
+  XCTAssertEqual(didAuthorize, !shouldSkipAuthorization, @"%@", fetcherRequest.allHTTPHeaderFields);
 
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];

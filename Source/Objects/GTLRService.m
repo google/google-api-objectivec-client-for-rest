@@ -976,7 +976,6 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   return resultTicket;
 }
 
-
 #pragma mark -
 
 // Raw REST fetch method.
@@ -1817,6 +1816,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                       completionHandler:handler
                                  ticket:ticket];
   } else {
+    BOOL mayAuthorize = !query.shouldSkipAuthorization;
     NSURL *url = [self URLFromQueryObject:query
                           usePartialPaths:NO
              includeServiceURLQueryParams:YES];
@@ -1825,7 +1825,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                               bodyObject:query.bodyObject
                                     ETag:nil
                               httpMethod:query.httpMethod
-                            mayAuthorize:YES
+                            mayAuthorize:mayAuthorize
                        completionHandler:handler
                           executingQuery:query
                                   ticket:ticket];
@@ -2130,6 +2130,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     }
   }
 
+  BOOL mayAuthorize = !query.shouldSkipAuthorization;
   NSURL *url = [self URLFromQueryObject:query
                         usePartialPaths:NO
            includeServiceURLQueryParams:YES];
@@ -2139,7 +2140,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                        bodyObject:query.bodyObject
                              ETag:nil
                        httpMethod:query.httpMethod
-                     mayAuthorize:YES
+                     mayAuthorize:mayAuthorize
                 completionHandler:handler
                    executingQuery:query
                            ticket:nil];
