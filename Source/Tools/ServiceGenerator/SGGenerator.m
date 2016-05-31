@@ -682,6 +682,32 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     messageHandler(kSGGeneratorHandlerMessageWarning, warning);
   }
 
+  // Check for class name collisions.
+  NSMutableArray *worker = [self.api.sg_topLevelObjectSchemas mutableCopy];
+  for (GTLRDiscovery_JsonSchema *schema in self.api.sg_topLevelObjectSchemas) {
+    NSArray *kids = schema.sg_childObjectSchemas;
+    if (kids.count) {
+      [worker addObjectsFromArray:kids];
+    }
+  }
+  NSMutableDictionary *nameToSchema = [[NSMutableDictionary alloc] init];
+  for (GTLRDiscovery_JsonSchema *schema in worker) {
+    NSString *objcClassName = schema.sg_objcClassName;
+    GTLRDiscovery_JsonSchema *previousSchema = [nameToSchema objectForKey:objcClassName];
+    if (previousSchema) {
+      // Report the previous first as it likely is higher in the chain
+      // (especially if it was top level).
+      NSString *errStr =
+        [NSString stringWithFormat:@"Collision over the class name '%@' (schemas '%@' and '%@')",
+         objcClassName,
+         previousSchema.sg_fullSchemaName, schema.sg_fullSchemaName];
+      messageHandler(kSGGeneratorHandlerMessageError, errStr);
+      allGood = NO;
+    } else {
+      [nameToSchema setObject:schema forKey:objcClassName];
+    }
+  }
+
   return allGood;
 }
 
