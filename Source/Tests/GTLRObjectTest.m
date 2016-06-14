@@ -907,7 +907,8 @@ static Class gAdditionalPropsClass = Nil;
   // date
   [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRDateTime class]];
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
-  [obj setAdditionalProperty:[GTLRDateTime dateTimeWithRFC3339String:dateStr]
+  GTLRDateTime *dateTime = [GTLRDateTime dateTimeWithRFC3339String:dateStr];
+  [obj setAdditionalProperty:dateTime
                      forName:@"ap3"];
   expected[@"ap3"] = dateStr;
   XCTAssertEqualObjects(obj.JSON, expected);
@@ -1004,7 +1005,8 @@ static Class gAdditionalPropsClass = Nil;
 
   // date
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
-  [obj setAdditionalProperty:[GTLRDateTime dateTimeWithRFC3339String:dateStr]
+  GTLRDateTime *dateTime = [GTLRDateTime dateTimeWithRFC3339String:dateStr];
+  [obj setAdditionalProperty:dateTime
                      forName:@"ap3"];
   expected[@"ap3"] = dateStr;
   XCTAssertEqualObjects(obj.JSON, expected);
