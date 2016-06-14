@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setCacheChild:(nullable id)obj forKey:(NSString *)key;
 - (nullable id)cacheChildForKey:(NSString *)key;
 // Object mapper.
-- (id<GTLRObjectClassResolver>)objectClassResolver;
+- (nullable id<GTLRObjectClassResolver>)objectClassResolver;
 // Key map
 + (nullable NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMapForClass:(Class<GTLRRuntimeCommon>)aClass;
 // Array item types

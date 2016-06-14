@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Constructor from a string representation.
  */
-+ (instancetype)dateTimeWithRFC3339String:(nullable NSString *)str;
++ (nullable instancetype)dateTimeWithRFC3339String:(nullable NSString *)str;
 
 /**
  *  Constructor from a date and time representation.
