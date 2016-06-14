@@ -52,13 +52,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The numeric error code.
  */
-@property(strong, nullable) NSNumber *code;
+@property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
  *  An error message string, typically provided by the API server.  This is not localized,
  *  and its reliability depends on the API server.
  */
-@property(strong, nullable) NSString *message;
+@property(nonatomic, strong, nullable) NSString *message;
 
 //
 // V1 properties.
@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Underlying errors that occurred on the server.
  */
-@property(strong, nullable) NSArray<GTLRErrorObjectErrorItem *> *errors;
+@property(nonatomic, strong, nullable) NSArray<GTLRErrorObjectErrorItem *> *errors;
 
 //
 // V2 properties
@@ -76,18 +76,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A status error string, defined by the API server, such as "NOT_FOUND".
  */
-@property(strong, nullable) NSString *status;
+@property(nonatomic, strong, nullable) NSString *status;
 
 /**
  *  Additional diagnostic error details provided by the API server.
  */
-@property(strong, nullable) NSArray<GTLRErrorObjectDetail *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRErrorObjectDetail *> *details;
 
 /**
  *  An NSError, either underlying the error object or manufactured from the error object's
  *  properties.
  */
-@property(readonly) NSError *foundationError;
+@property(nonatomic, readonly) NSError *foundationError;
 
 @end
 
@@ -97,10 +97,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Client applications should not rely on the property values of these items.
  */
 @interface GTLRErrorObjectErrorItem : GTLRObject
-@property(strong, nullable) NSString *domain;
-@property(strong, nullable) NSString *reason;
-@property(strong, nullable) NSString *message;
-@property(strong, nullable) NSString *location;
+@property(nonatomic, strong, nullable) NSString *domain;
+@property(nonatomic, strong, nullable) NSString *reason;
+@property(nonatomic, strong, nullable) NSString *message;
+@property(nonatomic, strong, nullable) NSString *location;
 @end
 
 /**
@@ -109,8 +109,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Client applications should not rely on the property values of these items.
  */
 @interface GTLRErrorObjectDetail : GTLRObject
-@property(strong, nullable) NSString *type;
-@property(strong, nullable) NSString *detail;
+@property(nonatomic, strong, nullable) NSString *type;
+@property(nonatomic, strong, nullable) NSString *detail;
 @end
 
 NS_ASSUME_NONNULL_END

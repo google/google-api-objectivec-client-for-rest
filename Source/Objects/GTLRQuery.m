@@ -94,27 +94,27 @@
   }
 
   // Using the executionParameters ivar avoids creating the object.
-  query.executionParameters = _executionParameters;
+  query.executionParameters = self.executionParameters;
 
   // Copied in the same order as synthesized above.
-  query.additionalHTTPHeaders = _additionalHTTPHeaders;
-  query.additionalURLQueryParameters = _additionalURLQueryParameters;
-  query.bodyObject = _bodyObject;
-  query.completionBlock = _completionBlock;
-  query.downloadAsDataObjectType = _downloadAsDataObjectType;
-  query.expectedObjectClass = _expectedObjectClass;
+  query.additionalHTTPHeaders = self.additionalHTTPHeaders;
+  query.additionalURLQueryParameters = self.additionalURLQueryParameters;
+  query.bodyObject = self.bodyObject;
+  query.completionBlock = self.completionBlock;
+  query.downloadAsDataObjectType = self.downloadAsDataObjectType;
+  query.expectedObjectClass = self.expectedObjectClass;
   // http method passed to init above.
   // JSON copied above.
-  query.loggingName = _loggingName;
+  query.loggingName = self.loggingName;
   // pathParameterNames passed to init above.
   // pathURITemplate passed to init above.
-  query.queryInvalid = _queryInvalid;
-  query.requestID = _requestID;
-  query.resumableUploadPathURITemplateOverride = _resumableUploadPathURITemplateOverride;
-  query.shouldSkipAuthorization = _shouldSkipAuthorization;
-  query.simpleUploadPathURITemplateOverride = _simpleUploadPathURITemplateOverride;
-  query.uploadParameters = _uploadParameters;
-  query.useMediaDownloadService = _useMediaDownloadService;
+  query.queryInvalid = self.queryInvalid;
+  query.requestID = self.requestID;
+  query.resumableUploadPathURITemplateOverride = self.resumableUploadPathURITemplateOverride;
+  query.shouldSkipAuthorization = self.shouldSkipAuthorization;
+  query.simpleUploadPathURITemplateOverride = self.simpleUploadPathURITemplateOverride;
+  query.uploadParameters = self.uploadParameters;
+  query.useMediaDownloadService = self.useMediaDownloadService;
 
   return query;
 }
@@ -180,22 +180,26 @@
 - (void)invalidateQuery {
   self.queryInvalid = YES;
   self.completionBlock = nil;
-  _executionParameters = nil;
+  self.executionParameters = nil;
 }
 
 - (GTLRServiceExecutionParameters *)executionParameters {
-  if (!_executionParameters) {
-    _executionParameters = [[GTLRServiceExecutionParameters alloc] init];
+  @synchronized(self) {
+    if (!_executionParameters) {
+      _executionParameters = [[GTLRServiceExecutionParameters alloc] init];
+    }
+    return _executionParameters;
   }
-  return _executionParameters;
 }
 
 - (void)setExecutionParameters:(nullable GTLRServiceExecutionParameters *)executionParameters {
-  _executionParameters = executionParameters;
+  @synchronized(self) {
+    _executionParameters = executionParameters;
+  }
 }
 
 - (BOOL)hasExecutionParameters {
-  return _executionParameters.hasParameters;
+  return self.executionParameters.hasParameters;
 }
 
 + (NSString *)nextRequestID {

@@ -25,12 +25,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Queries included in this batch.  Each query should have a unique @c requestID.
  */
-@property(nullable) NSArray<GTLRQuery *> *queries;
+@property(atomic, nullable) NSArray<GTLRQuery *> *queries;
 
 /**
  *  Flag indicating if query execution should skip authorization. Defaults to NO.
  */
-@property(assign) BOOL shouldSkipAuthorization;
+@property(atomic, assign) BOOL shouldSkipAuthorization;
 
 /**
  *  Any additional HTTP headers for this batch.
@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  These headers override the same keys from the service object's
  *  @c additionalHTTPHeaders.
  */
-@property(copy, nullable) NSDictionary<NSString *, NSString *> *additionalHTTPHeaders;
+@property(atomic, copy, nullable) NSDictionary<NSString *, NSString *> *additionalHTTPHeaders;
 
 /**
  *  Any additional URL query parameters to add to the batch query.
@@ -46,19 +46,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  These query parameters override the same keys from the service object's
  *  @c additionalURLQueryParameters
  */
-@property(copy, nullable) NSDictionary<NSString *, NSString *> *additionalURLQueryParameters;
+@property(atomic, copy, nullable) NSDictionary<NSString *, NSString *> *additionalURLQueryParameters;
 
 /**
  *  The batch request multipart boundary, once determined.
  */
-@property(copy, nullable) NSString *boundary;
+@property(atomic, copy, nullable) NSString *boundary;
 
 /**
  *  The brief string to identify this query in @c GTMSessionFetcher http logs.
  *
  *  The default logging name for batch requests includes the API method names.
  */
-@property(copy, nullable) NSString *loggingName;
+@property(atomic, copy, nullable) NSString *loggingName;
 
 /**
  *  Constructor for a batch query, for use with @c addQuery:

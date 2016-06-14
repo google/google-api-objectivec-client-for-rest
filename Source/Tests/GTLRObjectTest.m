@@ -24,26 +24,26 @@
 @class GTLRTestingObject;
 @interface GTLRTestingObject : GTLRObject
 // Basic types
-@property(copy) NSString *aStr;
-@property(copy) NSString *str2;
-@property(copy) NSString *identifier;
-@property(retain) NSNumber *aNum;
-@property(retain) NSNumber *aBool;
-@property(retain) GTLRDateTime *aDate;
-@property(retain) GTLRDateTime *date2;
+@property(nonatomic, copy) NSString *aStr;
+@property(nonatomic, copy) NSString *str2;
+@property(nonatomic, copy) NSString *identifier;
+@property(nonatomic, retain) NSNumber *aNum;
+@property(nonatomic, retain) NSNumber *aBool;
+@property(nonatomic, retain) GTLRDateTime *aDate;
+@property(nonatomic, retain) GTLRDateTime *date2;
 // Object
-@property(retain) GTLRTestingObject *child;
+@property(nonatomic, retain) GTLRTestingObject *child;
 // Anything
-@property(retain) id anything;
+@property(nonatomic, retain) id anything;
 // Arrays
-@property(retain) NSArray<NSString *> *arrayString;
-@property(retain) NSArray<NSNumber *> *arrayNumber;
-@property(retain) NSArray<NSNumber *> *arrayBool;
-@property(retain) NSArray<GTLRDateTime *> *arrayDate;
-@property(retain) NSArray<GTLRTestingObject *> *arrayKids;
-@property(retain) NSArray *arrayAnything;
+@property(nonatomic, retain) NSArray<NSString *> *arrayString;
+@property(nonatomic, retain) NSArray<NSNumber *> *arrayNumber;
+@property(nonatomic, retain) NSArray<NSNumber *> *arrayBool;
+@property(nonatomic, retain) NSArray<GTLRDateTime *> *arrayDate;
+@property(nonatomic, retain) NSArray<GTLRTestingObject *> *arrayKids;
+@property(nonatomic, retain) NSArray *arrayAnything;
 // Use of getter= for Xcode 5's ARC treatment of init*.
-@property(retain, getter=valueOf_initFoo) NSNumber *initFoo;
+@property(nonatomic, retain, getter=valueOf_initFoo) NSNumber *initFoo;
 @end
 
 @implementation GTLRTestingObject
@@ -68,7 +68,7 @@
 @end
 
 @interface GTLRTestingObjectWithPrimeKey : GTLRTestingObject
-@property(copy) NSString *str2Prime;
+@property(nonatomic, copy) NSString *str2Prime;
 @end
 
 @implementation GTLRTestingObjectWithPrimeKey
@@ -76,7 +76,7 @@
 @end
 
 @interface GTLRTestingCollection : GTLRCollectionObject
-@property(retain) NSArray<GTLRTestingObject *> *items;  // of GTLRTestingObject
+@property(nonatomic, retain) NSArray<GTLRTestingObject *> *items;  // of GTLRTestingObject
 @end
 
 @implementation GTLRTestingCollection
@@ -102,7 +102,7 @@ static Class gAdditionalPropsClass = Nil;
 @end
 
 @interface GTLRTestingResultArray : GTLRResultArray
-@property(retain, readonly) NSArray<GTLRTestingObject *> *items;
+@property(nonatomic, retain, readonly) NSArray<GTLRTestingObject *> *items;
 @end
 
 @implementation GTLRTestingResultArray
@@ -112,7 +112,7 @@ static Class gAdditionalPropsClass = Nil;
 @end
 
 @interface GTLRTestingResultArray2 : GTLRResultArray
-@property(retain, readonly) NSArray<NSString *> *items;
+@property(nonatomic, retain, readonly) NSArray<NSString *> *items;
 @end
 
 @implementation GTLRTestingResultArray2

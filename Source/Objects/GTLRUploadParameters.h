@@ -33,17 +33,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The type of media being uploaded.
  */
-@property(copy, nullable) NSString *MIMEType;
+@property(atomic, copy, nullable) NSString *MIMEType;
 
 /**
  *  The media to be uploaded, represented as @c NSData.
  */
-@property(retain, nullable) NSData *data;
+@property(atomic, retain, nullable) NSData *data;
 
 /**
  *  The URL for the local file to be uploaded.
  */
-@property(retain, nullable) NSURL *fileURL;
+@property(atomic, retain, nullable) NSURL *fileURL;
 
 /**
  *  The media to be uploaded, represented as @c NSFileHandle.
@@ -51,13 +51,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is provided for compatibility with older code.
  *        Uploading using @c fileURL is preferred over @c fileHandle
  */
-@property(retain, nullable) NSFileHandle *fileHandle;
+@property(atomic, retain, nullable) NSFileHandle *fileHandle;
 
 /**
  *  Resuming an in-progress resumable, chunked upload is done with the upload location URL,
  *  and requires a file URL or file handle for uploading.
  */
-@property(retain, nullable) NSURL *uploadLocationURL;
+@property(atomic, retain, nullable) NSURL *uploadLocationURL;
 
 /**
  *  Small uploads (for example, under 200K) can be done with a single multipart upload
@@ -65,14 +65,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Default value is NO.
  */
-@property(assign) BOOL shouldUploadWithSingleRequest;
+@property(atomic, assign) BOOL shouldUploadWithSingleRequest;
 
 /**
  *  Uploads may be done without a JSON body as metadata in the initial request.
  *
  *  Default value is NO.
  */
-@property(assign) BOOL shouldSendUploadOnly;
+@property(atomic, assign) BOOL shouldSendUploadOnly;
 
 /**
  *  Uploads may use a background session when uploading via GTMSessionUploadFetcher.
@@ -86,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  For more information about the hazards of background sessions, see the header comments for
  *  the GTMSessionFetcher useBackgroundSession property.
  */
-@property(assign) BOOL useBackgroundSession;
+@property(atomic, assign) BOOL useBackgroundSession;
 
 /**
  *  Constructor for uploading from @c NSData.

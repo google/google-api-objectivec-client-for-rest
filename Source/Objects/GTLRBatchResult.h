@@ -57,12 +57,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Queries which do not return an object when successful have a @c NSNull value.
  */
-@property(strong, nullable) NSDictionary<NSString *, __kindof GTLRObject *> *successes;
+@property(atomic, strong, nullable) NSDictionary<NSString *, __kindof GTLRObject *> *successes;
 
 /**
  *  Object results of unsuccessful queries in the batch, keyed by request ID.
  */
-@property(strong, nullable) NSDictionary<NSString *, GTLRErrorObject *> *failures;
+@property(atomic, strong, nullable) NSDictionary<NSString *, GTLRErrorObject *> *failures;
 
 @end
 

@@ -47,8 +47,8 @@
 // Authorization: Bearer value
 + (GTLRTestAuthorizer *)authorizerWithValue:(NSString *)value;
 
-@property(copy) NSString *value;
-@property(retain) NSError *error;
+@property(atomic, copy) NSString *value;
+@property(atomic, retain) NSError *error;
 @end
 
 // GTLRTestLifetimeObject fulfills the expectation when the provided object deallocates.
