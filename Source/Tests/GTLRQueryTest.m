@@ -21,27 +21,27 @@
 
 // Custom subclass for testing the property handling.
 @interface GTLRTestingQuery : GTLRQuery
-@property(copy) NSString *userId;
-@property(copy) NSString *msgId;
-@property(copy) NSString *alt;
-@property(copy) NSString *qS;
-@property(assign) NSUInteger maxResults;
-@property(assign) NSInteger aNumber;
-@property(assign) long long aLongLong;
-@property(assign) unsigned long long aULongLong;
-@property(assign) float cost;
-@property(assign) double minValue;
-@property(assign) BOOL preferred;
-@property(retain) NSArray<NSString *> *arrayString;
-@property(retain) NSArray<NSNumber *> *arrayNumber;
-@property(retain) NSArray<GTLRDateTime *> *arrayDate;
+@property(nonatomic, copy) NSString *userID;
+@property(nonatomic, copy) NSString *msgID;
+@property(nonatomic, copy) NSString *alt;
+@property(nonatomic, copy) NSString *qS;
+@property(nonatomic, assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSInteger aNumber;
+@property(nonatomic, assign) long long aLongLong;
+@property(nonatomic, assign) unsigned long long aULongLong;
+@property(nonatomic, assign) float cost;
+@property(nonatomic, assign) double minValue;
+@property(nonatomic, assign) BOOL preferred;
+@property(nonatomic, retain) NSArray<NSString *> *arrayString;
+@property(nonatomic, retain) NSArray<NSNumber *> *arrayNumber;
+@property(nonatomic, retain) NSArray<GTLRDateTime *> *arrayDate;
 @end
 
 @implementation GTLRTestingQuery
-@dynamic userId, msgId, alt, qS, maxResults, aNumber, aLongLong, aULongLong;
+@dynamic userID, msgID, alt, qS, maxResults, aNumber, aLongLong, aULongLong;
 @dynamic cost, minValue, preferred, arrayString, arrayNumber, arrayDate;
 + (NSDictionary *)parameterNameMap {
-  return @{ @"userId": @"user-id",
+  return @{ @"userID": @"user-id",
             @"qS": @"q.s",  // Test parameter names with '.' to be safe.
             @"maxResults": @"max_results" };
 }
@@ -53,7 +53,7 @@
 @end
 
 @interface GTLRTestingQueryWithPrimeKey : GTLRTestingQuery
-@property(copy) NSString *altPrime;
+@property(nonatomic, copy) NSString *altPrime;
 @end
 
 @implementation GTLRTestingQueryWithPrimeKey
@@ -82,11 +82,11 @@
 
   // test query parameter-setting/getting
 
-  query.userId = @"test user";
-  query.msgId = @"12345";
+  query.userID = @"test user";
+  query.msgID = @"12345";
   expected = [NSMutableDictionary dictionaryWithObjectsAndKeys:
               @"test user", @"user-id",
-              @"12345", @"msgId",
+              @"12345", @"msgID",
               nil];
   XCTAssertEqualObjects(query.JSON, expected);
 

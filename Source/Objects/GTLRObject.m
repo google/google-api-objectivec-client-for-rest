@@ -103,9 +103,9 @@ static NSMutableDictionary *DeepMutableCopyOfJSONDictionary(NSDictionary *initia
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-  GTLRObject* newObject = [[[self class] allocWithZone:zone] init];
-  newObject->_json = DeepMutableCopyOfJSONDictionary(_json);
-  newObject->_objectClassResolver = self->_objectClassResolver;
+  GTLRObject *newObject = [[[self class] allocWithZone:zone] init];
+  newObject.JSON = DeepMutableCopyOfJSONDictionary(self.JSON);
+  newObject.objectClassResolver = self.objectClassResolver;
 
   // What we're not copying:
   //   userProperties

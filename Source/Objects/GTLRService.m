@@ -2688,28 +2688,28 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
 - (id)copyWithZone:(NSZone *)zone {
   GTLRServiceExecutionParameters *newObject = [[self class] allocWithZone:zone];
-  newObject.maxRetryInterval = self->_maxRetryInterval;
-  newObject.retryEnabled = self->_retryEnabled;
-  newObject.retryBlock = self->_retryBlock;
-  newObject.shouldFetchNextPages = self->_shouldFetchNextPages;
-  newObject.objectClassResolver = self->_objectClassResolver;
-  newObject.testBlock = self->_testBlock;
-  newObject.ticketProperties = self->_ticketProperties;
-  newObject.uploadProgressBlock = self->_uploadProgressBlock;
-  newObject.callbackQueue = self->_callbackQueue;
+  newObject.maxRetryInterval = self.maxRetryInterval;
+  newObject.retryEnabled = self.retryEnabled;
+  newObject.retryBlock = self.retryBlock;
+  newObject.shouldFetchNextPages = self.shouldFetchNextPages;
+  newObject.objectClassResolver = self.objectClassResolver;
+  newObject.testBlock = self.testBlock;
+  newObject.ticketProperties = self.ticketProperties;
+  newObject.uploadProgressBlock = self.uploadProgressBlock;
+  newObject.callbackQueue = self.callbackQueue;
   return newObject;
 }
 
 - (BOOL)hasParameters {
-  if (_maxRetryInterval) return YES;
-  if (_retryEnabled) return YES;
-  if (_retryBlock) return YES;
-  if (_shouldFetchNextPages) return YES;
-  if (_objectClassResolver) return YES;
-  if (_testBlock) return YES;
-  if (_ticketProperties) return YES;
-  if (_uploadProgressBlock) return YES;
-  if (_callbackQueue) return YES;
+  if (self.maxRetryInterval) return YES;
+  if (self.retryEnabled) return YES;
+  if (self.retryBlock) return YES;
+  if (self.shouldFetchNextPages) return YES;
+  if (self.objectClassResolver) return YES;
+  if (self.testBlock) return YES;
+  if (self.ticketProperties) return YES;
+  if (self.uploadProgressBlock) return YES;
+  if (self.callbackQueue) return YES;
   return NO;
 }
 

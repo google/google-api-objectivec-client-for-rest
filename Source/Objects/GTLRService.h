@@ -300,7 +300,7 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
  *
  *  This may also be specified for a single query in the query's @c executionParameters property.
  */
-@property(copy, nullable) GTLRServiceRetryBlock retryBlock;
+@property(atomic, copy, nullable) GTLRServiceRetryBlock retryBlock;
 
 /**
  *  The maximum retry interval. Retries occur at increasing intervals, up to the specified maximum.
@@ -465,14 +465,14 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
  *
  *  Individual queries may have additionalURLQueryParameters specified as well.
  */
-@property(copy, nullable) NSDictionary<NSString *, NSString *> *additionalURLQueryParameters;
+@property(atomic, copy, nullable) NSDictionary<NSString *, NSString *> *additionalURLQueryParameters;
 
 /**
  *  Any additional HTTP headers for this queries executed by this service.
  *
  *  Individual queries may have additionalHTTPHeaders specified as well.
  */
-@property(copy, nullable) NSDictionary<NSString *, NSString *> *additionalHTTPHeaders;
+@property(atomic, copy, nullable) NSDictionary<NSString *, NSString *> *additionalHTTPHeaders;
 
 #pragma mark Request URL Construction
 
@@ -521,7 +521,7 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
  *
  *  A query's service execution parameters may be used to override this.
  */
-@property(copy, nullable) GTLRServiceUploadProgressBlock uploadProgressBlock;
+@property(nonatomic, copy, nullable) GTLRServiceUploadProgressBlock uploadProgressBlock;
 
 /**
  *  The default chunk size for resumable uploads.  This defaults to kGTLRStandardUploadChunkSize
@@ -631,7 +631,7 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
  *
  *  A BOOL value should be specified.
  */
-@property(nonatomic) NSNumber *shouldFetchNextPages;
+@property(atomic) NSNumber *shouldFetchNextPages;
 
 /**
  *  Override the service's property @c shouldFetchNextPages for enabling automatic retries.
@@ -640,12 +640,12 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
  *
  *  Retry is also enabled if the retryBlock is not nil
  */
-@property(nonatomic, getter=isRetryEnabled) NSNumber *retryEnabled;
+@property(atomic, getter=isRetryEnabled) NSNumber *retryEnabled;
 
 /**
  *  Override the service's property @c retryBlock for customizing automatic retries.
  */
-@property(copy, nullable) GTLRServiceRetryBlock retryBlock;
+@property(atomic, copy, nullable) GTLRServiceRetryBlock retryBlock;
 
 /**
  *  Override the service's property @c maxRetryInterval for customizing automatic retries.
@@ -657,19 +657,19 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
 /**
  *  Override the service's property @c uploadProgressBlock for monitoring upload progress.
  */
-@property(copy, nullable) GTLRServiceUploadProgressBlock uploadProgressBlock;
+@property(atomic, copy, nullable) GTLRServiceUploadProgressBlock uploadProgressBlock;
 
 /**
  *  Override the service's property @c callbackQueue for invoking callbacks.
  */
-@property(retain, nullable) dispatch_queue_t callbackQueue;
+@property(atomic, retain, nullable) dispatch_queue_t callbackQueue;
 
 /**
  *  Override the service's property @c testBlock for simulating query execution.
  *
  *  See the description of @c GTLRServiceTestBlock for additional details.
  */
-@property(copy, nullable) GTLRServiceTestBlock testBlock;
+@property(atomic, copy, nullable) GTLRServiceTestBlock testBlock;
 
 /**
  *  Override the service's property @c objectClassResolver for controlling object class selection.

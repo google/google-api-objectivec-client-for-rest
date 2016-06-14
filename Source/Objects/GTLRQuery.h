@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Service ticket values may be set in the execution parameters for an individual query
  *  prior to executing the query.
  */
-@property(strong, null_resettable) GTLRServiceExecutionParameters *executionParameters;
+@property(atomic, strong, null_resettable) GTLRServiceExecutionParameters *executionParameters;
 
 - (BOOL)isBatchQuery;
 - (BOOL)hasExecutionParameters;
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol GTLRQueryCollectionProtocol
 @optional
-@property(strong) NSString *pageToken;
+@property(nonatomic, strong) NSString *pageToken;
 @end
 
 /**
@@ -85,20 +85,20 @@ typedef void (^GTLRQueryCompletionBlock)(GTLRServiceTicket *callbackTicket,
  *  The object to be uploaded with the query. The JSON of this object becomes
  *  the body for PUT and POST requests.
  */
-@property(strong, nullable) GTLRObject *bodyObject;
+@property(atomic, strong, nullable) GTLRObject *bodyObject;
 
 /**
  *  Each query must have a request ID string. The client app may replace the
  *  default assigned request ID with a custom string, provided that if
  *  used in a batch query, all request IDs in the batch must be unique.
  */
-@property(copy) NSString *requestID;
+@property(atomic, copy) NSString *requestID;
 
 /**
  *  For queries which support file upload, the MIME type and file URL
  *  or data must be provided.
  */
-@property(copy, nullable) GTLRUploadParameters *uploadParameters;
+@property(atomic, copy, nullable) GTLRUploadParameters *uploadParameters;
 
 /**
  *  Any additional URL query parameters for this query.
@@ -106,14 +106,14 @@ typedef void (^GTLRQueryCompletionBlock)(GTLRServiceTicket *callbackTicket,
  *  These query parameters override the same keys from the service object's
  *  additionalURLQueryParameters
  */
-@property(copy, nullable) NSDictionary<NSString *, NSString *> *additionalURLQueryParameters;
+@property(atomic, copy, nullable) NSDictionary<NSString *, NSString *> *additionalURLQueryParameters;
 
 /**
  *  Any additional HTTP headers for this query.
  *
  *  These headers override the same keys from the service object's additionalHTTPHeaders
  */
-@property(copy, nullable) NSDictionary<NSString *, NSString *> *additionalHTTPHeaders;
+@property(atomic, copy, nullable) NSDictionary<NSString *, NSString *> *additionalHTTPHeaders;
 
 /**
  *  If set, when the query is executed, an @c "alt" query parameter is added
@@ -121,33 +121,33 @@ typedef void (^GTLRQueryCompletionBlock)(GTLRServiceTicket *callbackTicket,
  *  GTLRDataObject. This is useful when the server documents result datatypes
  *  other than JSON ("csv", for example).
  */
-@property(copy) NSString *downloadAsDataObjectType;
+@property(atomic, copy) NSString *downloadAsDataObjectType;
 
 /**
  * If set, and the query also has a non-empty @c downloadAsDataObjectType, the
  * URL to download from will be modified to include "download/". This extra path
  * component avoids the need for a server redirect to the download URL.
  */
-@property(assign) BOOL useMediaDownloadService;
+@property(atomic, assign) BOOL useMediaDownloadService;
 
 /**
  *  Clients may set this to YES to disallow authorization. Defaults to NO.
  */
-@property(assign) BOOL shouldSkipAuthorization;
+@property(atomic, assign) BOOL shouldSkipAuthorization;
 
 /**
  *  An optional callback block to be called immediately before the executeQuery: completion handler.
  *
  *  The completionBlock property is particularly useful for queries executed in a batch.
  */
-@property(copy, nullable) GTLRQueryCompletionBlock completionBlock;
+@property(atomic, copy, nullable) GTLRQueryCompletionBlock completionBlock;
 
 /**
  *  The brief string to identify this query in GTMSessionFetcher http logs.
  *
  *  A default logging name is set by the code generator, but may be overridden by the client app.
  */
-@property(copy, nullable) NSString *loggingName;
+@property(atomic, copy, nullable) NSString *loggingName;
 
 #pragma mark Internal
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -159,12 +159,12 @@ typedef void (^GTLRQueryCompletionBlock)(GTLRServiceTicket *callbackTicket,
 /**
  *  The URITemplate path segment. This is initialized in by the service generator.
  */
-@property(readonly) NSString *pathURITemplate;
+@property(atomic, readonly) NSString *pathURITemplate;
 
 /**
  *  The HTTP method to use for this query. This is initialized in by the service generator.
  */
-@property(readonly, nullable) NSString *httpMethod;
+@property(atomic, readonly, nullable) NSString *httpMethod;
 
 /**
  *  The parameters names that are in the URI Template.
@@ -173,33 +173,33 @@ typedef void (^GTLRQueryCompletionBlock)(GTLRServiceTicket *callbackTicket,
  *  The service generator collects these via the discovery info instead of having to parse the
  *  template to figure out what is part of the path.
  */
-@property(readonly, nullable) NSArray<NSString *> *pathParameterNames;
+@property(atomic, readonly, nullable) NSArray<NSString *> *pathParameterNames;
 
 /**
  *  The JSON dictionary of all the parameters set on this query.
  *
  *  The JSON values are set by setting the query's properties.
  */
-@property(strong, nullable) NSMutableDictionary<NSString *, id> *JSON;
+@property(nonatomic, strong, nullable) NSMutableDictionary<NSString *, id> *JSON;
 
 /**
  *  A custom URI template for resumable uploads.  This is initialized by the service generator
  *  if needed.
  */
-@property(copy, nullable) NSString *resumableUploadPathURITemplateOverride;
+@property(atomic, copy, nullable) NSString *resumableUploadPathURITemplateOverride;
 
 /**
  *  A custom URI template for simple and multipart media uploads.  This is initialized
  *  by the service generator.
  */
-@property(copy, nullable) NSString *simpleUploadPathURITemplateOverride;
+@property(atomic, copy, nullable) NSString *simpleUploadPathURITemplateOverride;
 
 /**
  *  The GTLRObject subclass expected for results.  This is initialized by the service generator.
  *
  *  This is needed if the object returned by the server lacks a known "kind" string.
  */
-@property(assign, nullable) Class expectedObjectClass;
+@property(atomic, assign, nullable) Class expectedObjectClass;
 
 /**
  *  Set when the query has been invalidated, meaning it was slated for execution so it's been copied
@@ -207,7 +207,7 @@ typedef void (^GTLRQueryCompletionBlock)(GTLRServiceTicket *callbackTicket,
  *
  *  Once a query has been invalidated, it cannot be executed, added to a batch, or copied.
  */
-@property(assign, getter=isQueryInvalid) BOOL queryInvalid;
+@property(atomic, assign, getter=isQueryInvalid) BOOL queryInvalid;
 
 /**
  *  Internal query init method.

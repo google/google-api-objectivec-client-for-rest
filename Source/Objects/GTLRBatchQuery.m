@@ -158,14 +158,18 @@ static void DebugAssertValidBatchQueryItem(GTLRQuery *query) { }
 }
 
 - (GTLRServiceExecutionParameters *)executionParameters {
-  if (!_executionParameters) {
-    _executionParameters = [[GTLRServiceExecutionParameters alloc] init];
+  @synchronized(self) {
+    if (!_executionParameters) {
+      _executionParameters = [[GTLRServiceExecutionParameters alloc] init];
+    }
   }
   return _executionParameters;
 }
 
 - (void)setExecutionParameters:(GTLRServiceExecutionParameters *)executionParameters {
-  _executionParameters = executionParameters;
+  @synchronized(self) {
+    _executionParameters = executionParameters;
+  }
 }
 
 - (BOOL)hasExecutionParameters {
