@@ -50,6 +50,11 @@ static ArgInfo optionalFlags[] = {
     " the location to send the requests.  This is useful for running against a"
     " custom or prerelease server."
   },
+  { "--gtlrFrameworkName NAME",
+    "Will generate sources that include GTLR's headers as if they are in a"
+    " framework with the given name.  If you are using GTLR via CocoaPods,"
+    " you'll likely want to pass \"GoogleAPIClient\" as the value for this."
+  },
   { "--apiLogDir DIR",
     "Write out a file into DIR for each JSON API description processed.  These"
     " can be useful for reporting bugs if generation fails with an error."
@@ -178,6 +183,7 @@ typedef enum {
 @property(copy) NSString *appName;
 @property(copy) NSString *outputDir;
 @property(copy) NSString *discoveryRootURLString;
+@property(copy) NSString *gtlrFrameworkName;
 @property(copy) NSString *apiLogDir;
 @property(copy) NSString *httpLogDir;
 @property(copy) NSString *messageFilterPath;
@@ -250,6 +256,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
 @synthesize appName = _appName,
             outputDir = _outputDir,
             discoveryRootURLString = _discoveryRootURLString,
+            gtlrFrameworkName = _gtlrFrameworkName,
             apiLogDir = _apiLogDir,
             httpLogDir = _httpLogDir,
             messageFilterPath = _messageFilterPath,
@@ -659,6 +666,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
   struct option longopts[] = {
     { "outputDir",           required_argument, NULL,                 'o' },
     { "discoveryRootURL",    required_argument, NULL,                 'd' },
+    { "gtlrFrameworkName",   required_argument, NULL,                 'n' },
     { "apiLogDir",           required_argument, NULL,                 'a' },
     { "httpLogDir",          required_argument, NULL,                 'h' },
     { "generatePreferred",   no_argument,       &generatePreferred,   1 },
@@ -684,6 +692,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         break;
       case 'd':
         self.discoveryRootURLString = @(optarg);
+        break;
+      case 'n':
+        self.gtlrFrameworkName = @(optarg);
         break;
       case 'a':
         self.apiLogDir = @(optarg);
@@ -783,6 +794,10 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     // Make sure it ends in '/'.
     self.discoveryRootURLString =
         [self.discoveryRootURLString stringByAppendingString:@"/"];
+  }
+
+  if (self.gtlrFrameworkName.length == 0) {
+    self.gtlrFrameworkName = nil;
   }
 
   // Make sure output dir exists.
@@ -1218,7 +1233,8 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         SGGenerator *aGenerator = [SGGenerator generatorForApi:api
                                                        options:options
                                                   verboseLevel:self.verboseLevel
-                                         formattedNameOverride:formattedNameOverride];
+                                         formattedNameOverride:formattedNameOverride
+                                              useFrameworkName:self.gtlrFrameworkName];
 
         NSDictionary *generatedFiles =
           [aGenerator generateFilesWithHandler:^(SGGeneratorHandlerMessageType msgType,

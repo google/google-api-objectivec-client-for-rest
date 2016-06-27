@@ -246,7 +246,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
 @synthesize api = _api,
             options = _options,
-            verboseLevel = _verboseLevel;
+            verboseLevel = _verboseLevel,
+            frameworkName = _frameworkName;
 
 @synthesize warnings = _warnings,
             infos = _infos;
@@ -254,23 +255,27 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 + (instancetype)generatorForApi:(GTLRDiscovery_RestDescription *)api
                         options:(SGGeneratorOptions)options
                    verboseLevel:(NSUInteger)verboseLevel
-          formattedNameOverride:(NSString *)formattedNameOverride {
+          formattedNameOverride:(NSString *)formattedNameOverride
+               useFrameworkName:(NSString *)frameworkName {
   return [[self alloc] initWithApi:api
                            options:options
                       verboseLevel:verboseLevel
-             formattedNameOverride:formattedNameOverride];
+             formattedNameOverride:formattedNameOverride
+                  useFrameworkName:frameworkName];
 }
 
 - (instancetype)initWithApi:(GTLRDiscovery_RestDescription *)api
                     options:(SGGeneratorOptions)options
                verboseLevel:(NSUInteger)verboseLevel
-      formattedNameOverride:(NSString *)formattedNameOverride {
+      formattedNameOverride:(NSString *)formattedNameOverride
+           useFrameworkName:(NSString *)frameworkName {
   self = [super init];
   if (self != nil) {
     _api = api;
     _options = options;
     _verboseLevel = verboseLevel;
     _formattedName = [formattedNameOverride copy];
+    _frameworkName = [frameworkName copy];
     if (api) {
       NSValue *generatorAsValue = [NSValue valueWithNonretainedObject:self];
       [self.api sg_setProperty:generatorAsValue forKey:kWrappedGeneratorKey];
@@ -2788,11 +2793,17 @@ static NSString *MappedParamName(NSString *name) {
 
 - (NSString *)frameworkedImport:(NSString *)headerName {
   NSMutableString *result = [NSMutableString string];
-  [result appendFormat:@"#if %@\n", kFrameworkIncludeGate];
-  [result appendFormat:@"  #import \"%@/%@.h\"\n", kProjectPrefix, headerName];
-  [result appendString:@"#else\n"];
-  [result appendFormat:@"  #import \"%@.h\"\n", headerName];
-  [result appendString:@"#endif\n"];
+
+  if (self.frameworkName) {
+    [result appendFormat:@"#import <%@/%@.h>\n", self.frameworkName, headerName];
+  } else {
+    [result appendFormat:@"#if %@\n", kFrameworkIncludeGate];
+    [result appendFormat:@"  #import \"%@/%@.h\"\n", kProjectPrefix, headerName];
+    [result appendString:@"#else\n"];
+    [result appendFormat:@"  #import \"%@.h\"\n", headerName];
+    [result appendString:@"#endif\n"];
+  }
+
   return result;
 }
 

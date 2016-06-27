@@ -37,6 +37,7 @@ typedef NS_OPTIONS(NSUInteger, SGGeneratorOptions) {
 @property(readonly) GTLRDiscovery_RestDescription* api;
 @property(readonly) SGGeneratorOptions options;
 @property(readonly) NSUInteger verboseLevel;
+@property(readonly) NSString *frameworkName;
 
 // The API name formatted for use as a directory name.
 @property (readonly) NSString *formattedAPIName;
@@ -44,7 +45,8 @@ typedef NS_OPTIONS(NSUInteger, SGGeneratorOptions) {
 + (instancetype)generatorForApi:(GTLRDiscovery_RestDescription *)api
                         options:(SGGeneratorOptions)options
                    verboseLevel:(NSUInteger)verboseLevel
-          formattedNameOverride:(NSString *)formattedNameOverride;
+          formattedNameOverride:(NSString *)formattedNameOverride
+               useFrameworkName:(NSString *)frameworkName;
 
 // Keys are the file names; values are the contents of the files.
 - (NSDictionary *)generateFilesWithHandler:(SGGeneratorMessageHandler)messageHandler;
