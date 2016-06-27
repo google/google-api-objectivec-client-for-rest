@@ -911,6 +911,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** Name of the type. */
 @property(copy, nullable) NSString *name;
 
+/**
+ *  [Output Only] The Operation that most recently ran, or is currently running,
+ *  on this type.
+ */
+@property(strong, nullable) GTLRDeploymentManager_Operation *operation;
+
 /** [Output Only] Self link for the type. */
 @property(copy, nullable) NSString *selfLink;
 

@@ -50,7 +50,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Agency;
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Brand;
 /**
- *  A placeholder for an undefined client entity type.
+ *  A placeholder for an undefined client entity type. Should not be used.
  *
  *  Value: "ENTITY_TYPE_UNSPECIFIED"
  */
@@ -209,8 +209,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_UserStatus
  *    @arg @c kGTLRAdExchangeBuyerII_Client_EntityType_Brand A brand. (Value:
  *        "BRAND")
  *    @arg @c kGTLRAdExchangeBuyerII_Client_EntityType_EntityTypeUnspecified A
- *        placeholder for an undefined client entity type. (Value:
- *        "ENTITY_TYPE_UNSPECIFIED")
+ *        placeholder for an undefined client entity type. Should not be used.
+ *        (Value: "ENTITY_TYPE_UNSPECIFIED")
  */
 @property(copy, nullable) NSString *entityType;
 

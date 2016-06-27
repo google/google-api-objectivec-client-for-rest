@@ -20,10 +20,14 @@
 #endif
 
 @class GTLRCloudResourceManager_Binding;
+@class GTLRCloudResourceManager_OperationMetadata;
+@class GTLRCloudResourceManager_OperationResponse;
 @class GTLRCloudResourceManager_Policy;
 @class GTLRCloudResourceManager_Project;
 @class GTLRCloudResourceManager_ProjectLabels;
 @class GTLRCloudResourceManager_ResourceId;
+@class GTLRCloudResourceManager_Status;
+@class GTLRCloudResourceManager_StatusDetailsItem;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -127,6 +131,86 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 
 /**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRCloudResourceManager_Operation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  true, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure. */
+@property(strong, nullable) GTLRCloudResourceManager_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(strong, nullable) GTLRCloudResourceManager_OperationMetadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should have the format of `operations/some/unique/name`.
+ */
+@property(copy, nullable) NSString *name;
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(strong, nullable) GTLRCloudResourceManager_OperationResponse *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudResourceManager_OperationMetadata : GTLRObject
+@end
+
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudResourceManager_OperationResponse : GTLRObject
+@end
+
+
+/**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
  *  specify access control policies for Cloud Platform resources. A `Policy`
  *  consists of a list of `bindings`. A `Binding` binds a list of `members` to a
@@ -212,10 +296,10 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 @property(copy, nullable) NSString *lifecycleState;
 
 /**
- *  The user-assigned name of the Project. It must be 4 to 30 characters.
- *  Allowed characters are: lowercase and uppercase letters, numbers, hyphen,
- *  single-quote, double-quote, space, and exclamation point. Example: My
- *  Project Read-write.
+ *  The user-assigned display name of the Project. It must be 4 to 30
+ *  characters. Allowed characters are: lowercase and uppercase letters,
+ *  numbers, hyphen, single-quote, double-quote, space, and exclamation point.
+ *  Example: My Project Read-write.
  */
 @property(copy, nullable) NSString *name;
 
@@ -299,6 +383,78 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  */
 @property(strong, nullable) GTLRCloudResourceManager_Policy *policy;
 
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  - Simple to use and understand for most users - Flexible enough to meet
+ *  unexpected needs # Overview The `Status` message contains three pieces of
+ *  data: error code, error message, and error details. The error code should be
+ *  an enum value of google.rpc.Code, but it may accept additional error codes
+ *  if needed. The error message should be a developer-facing English message
+ *  that helps developers *understand* and *resolve* the error. If a localized
+ *  user-facing error message is needed, put the localized message in the error
+ *  details or localize it in the client. The optional error details may contain
+ *  arbitrary information about the error. There is a predefined set of error
+ *  detail types in the package `google.rpc` which can be used for common error
+ *  conditions. # Language mapping The `Status` message is the logical
+ *  representation of the error model, but it is not necessarily the actual wire
+ *  format. When the `Status` message is exposed in different client libraries
+ *  and different wire protocols, it can be mapped differently. For example, it
+ *  will likely be mapped to some exceptions in Java, but more likely mapped to
+ *  some error codes in C. # Other uses The error model and the `Status` message
+ *  can be used in a variety of environments, either with or without APIs, to
+ *  provide a consistent developer experience across different environments.
+ *  Example uses of this error model include: - Partial errors. If a service
+ *  needs to return partial errors to the client, it may embed the `Status` in
+ *  the normal response to indicate the partial errors. - Workflow errors. A
+ *  typical workflow has multiple steps. Each step may have a `Status` message
+ *  for error reporting purpose. - Batch operations. If a client uses batch
+ *  request and batch response, the `Status` message should be used directly
+ *  inside batch response, one for each error sub-response. - Asynchronous
+ *  operations. If an API call embeds asynchronous operation results in its
+ *  response, the status of those operations should be represented directly
+ *  using the `Status` message. - Logging. If some API errors are stored in
+ *  logs, the message `Status` could be used directly after any stripping needed
+ *  for security/privacy reasons.
+ */
+@interface GTLRCloudResourceManager_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There will be a common set
+ *  of message types for APIs to use.
+ */
+@property(strong, nullable) NSArray<GTLRCloudResourceManager_StatusDetailsItem *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCloudResourceManager_StatusDetailsItem
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudResourceManager_StatusDetailsItem : GTLRObject
 @end
 
 

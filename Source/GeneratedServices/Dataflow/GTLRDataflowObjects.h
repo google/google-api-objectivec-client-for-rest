@@ -36,9 +36,13 @@
 @class GTLRDataflow_EnvironmentUserAgent;
 @class GTLRDataflow_EnvironmentVersion;
 @class GTLRDataflow_FlattenInstruction;
+@class GTLRDataflow_FloatingPointList;
+@class GTLRDataflow_FloatingPointMean;
 @class GTLRDataflow_InstructionInput;
 @class GTLRDataflow_InstructionOutput;
 @class GTLRDataflow_InstructionOutputCodec;
+@class GTLRDataflow_IntegerList;
+@class GTLRDataflow_IntegerMean;
 @class GTLRDataflow_Job;
 @class GTLRDataflow_JobExecutionInfo;
 @class GTLRDataflow_JobExecutionInfoStages;
@@ -48,11 +52,13 @@
 @class GTLRDataflow_KeyRangeDataDiskAssignment;
 @class GTLRDataflow_KeyRangeLocation;
 @class GTLRDataflow_MapTask;
+@class GTLRDataflow_MetricShortId;
 @class GTLRDataflow_MetricStructuredName;
 @class GTLRDataflow_MetricStructuredNameContext;
 @class GTLRDataflow_MetricUpdate;
 @class GTLRDataflow_MountedDataDisk;
 @class GTLRDataflow_MultiOutputInfo;
+@class GTLRDataflow_NameAndKind;
 @class GTLRDataflow_Package;
 @class GTLRDataflow_ParallelInstruction;
 @class GTLRDataflow_ParDoInstruction;
@@ -87,17 +93,22 @@
 @class GTLRDataflow_SourceSplitRequest;
 @class GTLRDataflow_SourceSplitResponse;
 @class GTLRDataflow_SourceSplitShard;
+@class GTLRDataflow_SplitInt64;
 @class GTLRDataflow_StateFamilyConfig;
 @class GTLRDataflow_Status;
 @class GTLRDataflow_StatusDetailsItem;
 @class GTLRDataflow_Step;
 @class GTLRDataflow_StepProperties;
+@class GTLRDataflow_StreamingComputationConfig;
 @class GTLRDataflow_StreamingComputationRanges;
 @class GTLRDataflow_StreamingComputationTask;
+@class GTLRDataflow_StreamingConfigTask;
+@class GTLRDataflow_StreamingConfigTaskUserStepToStateFamilyNameMap;
 @class GTLRDataflow_StreamingSetupTask;
 @class GTLRDataflow_StreamingSideInputLocation;
 @class GTLRDataflow_StreamingStageLocation;
 @class GTLRDataflow_StreamLocation;
+@class GTLRDataflow_StringList;
 @class GTLRDataflow_TaskRunnerSettings;
 @class GTLRDataflow_TopologyConfig;
 @class GTLRDataflow_TopologyConfigUserStageToComputationNameMap;
@@ -114,6 +125,7 @@
 @class GTLRDataflow_WorkerPoolPoolArgs;
 @class GTLRDataflow_WorkerSettings;
 @class GTLRDataflow_WorkItem;
+@class GTLRDataflow_WorkItemMetricUpdate;
 @class GTLRDataflow_WorkItemServiceState;
 @class GTLRDataflow_WorkItemServiceStateHarnessData;
 @class GTLRDataflow_WorkItemStatus;
@@ -300,11 +312,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_ApproximateReportedProgress : GTLRObject
 
 /**
- *  Total amount of parallelism in the portion of input of this work item that
- *  has already been consumed. In the first two examples above (see
- *  remaining_parallelism), the value should be 30 or 3 respectively. The sum of
- *  remaining_parallelism and consumed_parallelism should equal the total amount
- *  of parallelism in this work item. If specified, must be finite.
+ *  Total amount of parallelism in the portion of input of this task that has
+ *  already been consumed and is no longer active. In the first two examples
+ *  above (see remaining_parallelism), the value should be 29 or 2 respectively.
+ *  The sum of remaining_parallelism and consumed_parallelism should equal the
+ *  total amount of parallelism in this work item. If specified, must be finite.
  */
 @property(strong, nullable) GTLRDataflow_ReportedParallelism *consumedParallelism;
 
@@ -320,22 +332,24 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(strong, nullable) GTLRDataflow_Position *position;
 
 /**
- *  Total amount of parallelism in the input of this WorkItem that has not been
- *  consumed yet (i.e. can be delegated to a new WorkItem via dynamic
- *  splitting). "Amount of parallelism" refers to how many non-empty parts of
- *  the input can be read in parallel. This does not necessarily equal number of
- *  records. An input that can be read in parallel down to the individual
- *  records is called "perfectly splittable". An example of non-perfectly
- *  parallelizable input is a block-compressed file format where a block of
- *  records has to be read as a whole, but different blocks can be read in
- *  parallel. Examples: * If we have read 30 records out of 50 in a perfectly
- *  splittable 50-record input, this value should be 20. * If we are reading
- *  through block 3 in a block-compressed file consisting of 5 blocks, this
- *  value should be 2 (since blocks 4 and 5 can be processed in parallel by new
- *  work items via dynamic splitting). * If we are reading through the last
- *  block in a block-compressed file, or reading or processing the last record
- *  in a perfectly splittable input, this value should be 0, because the
- *  remainder of the work item cannot be further split.
+ *  Total amount of parallelism in the input of this task that remains, (i.e.
+ *  can be delegated to this task and any new tasks via dynamic splitting).
+ *  Always at least 1 for non-finished work items and 0 for finished. "Amount of
+ *  parallelism" refers to how many non-empty parts of the input can be read in
+ *  parallel. This does not necessarily equal number of records. An input that
+ *  can be read in parallel down to the individual records is called "perfectly
+ *  splittable". An example of non-perfectly parallelizable input is a
+ *  block-compressed file format where a block of records has to be read as a
+ *  whole, but different blocks can be read in parallel. Examples: * If we are
+ *  processing record #30 (starting at 1) out of 50 in a perfectly splittable
+ *  50-record input, this value should be 21 (20 remaining + 1 current). * If we
+ *  are reading through block 3 in a block-compressed file consisting of 5
+ *  blocks, this value should be 3 (since blocks 4 and 5 can be processed in
+ *  parallel by new tasks via dynamic splitting and the current task remains
+ *  processing block 3). * If we are reading through the last block in a
+ *  block-compressed file, or reading or processing the last record in a
+ *  perfectly splittable input, this value should be 1, because apart from the
+ *  current task, no additional remainder can be split off.
  */
 @property(strong, nullable) GTLRDataflow_ReportedParallelism *remainingParallelism;
 
@@ -687,6 +701,39 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  A metric value representing a list of floating point numbers.
+ */
+@interface GTLRDataflow_FloatingPointList : GTLRObject
+
+/**
+ *  Elements of the list.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(strong, nullable) NSArray<NSNumber *> *elements;
+
+@end
+
+
+/**
+ *  A representation of a floating point mean metric contribution.
+ */
+@interface GTLRDataflow_FloatingPointMean : GTLRObject
+
+/** The number of values being aggregated. */
+@property(strong, nullable) GTLRDataflow_SplitInt64 *count;
+
+/**
+ *  The sum of all values being aggregated.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(strong, nullable) NSNumber *sum;
+
+@end
+
+
+/**
  *  An input of an instruction, as a reference to an output of a producer
  *  instruction.
  */
@@ -737,6 +784,31 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDataflow_InstructionOutputCodec : GTLRObject
+@end
+
+
+/**
+ *  A metric value representing a list of integers.
+ */
+@interface GTLRDataflow_IntegerList : GTLRObject
+
+/** Elements of the list. */
+@property(strong, nullable) NSArray<GTLRDataflow_SplitInt64 *> *elements;
+
+@end
+
+
+/**
+ *  A representation of an integer mean metric contribution.
+ */
+@interface GTLRDataflow_IntegerMean : GTLRObject
+
+/** The number of values being aggregated. */
+@property(strong, nullable) GTLRDataflow_SplitInt64 *count;
+
+/** The sum of all values being aggregated. */
+@property(strong, nullable) GTLRDataflow_SplitInt64 *sum;
+
 @end
 
 
@@ -1177,6 +1249,30 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  The metric short id is returned to the user alongside an offset into
+ *  ReportWorkItemStatusRequest
+ */
+@interface GTLRDataflow_MetricShortId : GTLRObject
+
+/**
+ *  The index of the corresponding metric in the ReportWorkItemStatusRequest.
+ *  Required.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(strong, nullable) NSNumber *metricIndex;
+
+/**
+ *  The service-generated short identifier for the metric.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(strong, nullable) NSNumber *shortId;
+
+@end
+
+
+/**
  *  Identifies a metric, by describing the source which generated the metric.
  */
 @interface GTLRDataflow_MetricStructuredName : GTLRObject
@@ -1326,6 +1422,25 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  correspond to the tag of some SideInputInfo.
  */
 @property(copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  Basic metadata about a metric.
+ */
+@interface GTLRDataflow_NameAndKind : GTLRObject
+
+/**
+ *  Metric aggregation kind. The possible metric aggregation kinds are "Sum",
+ *  "Max", "Min", "Mean", "Set", "And", and "Or". The specified aggregation kind
+ *  is case-insensitive. If omitted, this is not an aggregated value but instead
+ *  a single metric sample value.
+ */
+@property(copy, nullable) NSString *kind;
+
+/** Name of the metric. */
+@property(copy, nullable) NSString *name;
 
 @end
 
@@ -2108,6 +2223,29 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  A representation of an int64, n, that is immune to precision loss when
+ *  encoded in JSON.
+ */
+@interface GTLRDataflow_SplitInt64 : GTLRObject
+
+/**
+ *  The high order bits, including the sign: n >> 32.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(strong, nullable) NSNumber *highBits;
+
+/**
+ *  The low order bits: n & 0xffffffff.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(strong, nullable) NSNumber *lowBits;
+
+@end
+
+
+/**
  *  State family configuration.
  */
 @interface GTLRDataflow_StateFamilyConfig : GTLRObject
@@ -2245,6 +2383,26 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Configuration information for a single streaming computation.
+ */
+@interface GTLRDataflow_StreamingComputationConfig : GTLRObject
+
+/** Unique identifier for this computation. */
+@property(copy, nullable) NSString *computationId;
+
+/** Instructions that comprise the computation. */
+@property(strong, nullable) NSArray<GTLRDataflow_ParallelInstruction *> *instructions;
+
+/** Stage name of this computation. */
+@property(copy, nullable) NSString *stageName;
+
+/** System defined name for this computation. */
+@property(copy, nullable) NSString *systemName;
+
+@end
+
+
+/**
  *  Describes full or partial data disk assignment information of the
  *  computation ranges.
  */
@@ -2284,6 +2442,32 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(copy, nullable) NSString *taskType;
 
+@end
+
+
+/**
+ *  A task that carries configuration information for streaming computations.
+ */
+@interface GTLRDataflow_StreamingConfigTask : GTLRObject
+
+/** Set of computation configuration information. */
+@property(strong, nullable) NSArray<GTLRDataflow_StreamingComputationConfig *> *streamingComputationConfigs;
+
+/** Map from user step names to state families. */
+@property(strong, nullable) GTLRDataflow_StreamingConfigTaskUserStepToStateFamilyNameMap *userStepToStateFamilyNameMap;
+
+@end
+
+
+/**
+ *  Map from user step names to state families.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_StreamingConfigTaskUserStepToStateFamilyNameMap : GTLRObject
 @end
 
 
@@ -2367,6 +2551,17 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Dataflow job.
  */
 @property(strong, nullable) GTLRDataflow_StreamingStageLocation *streamingStageLocation;
+
+@end
+
+
+/**
+ *  A metric value representing a list of strings.
+ */
+@interface GTLRDataflow_StringList : GTLRObject
+
+/** Elements of the list. */
+@property(strong, nullable) NSArray<NSString *> *elements;
 
 @end
 
@@ -2799,7 +2994,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /**
  *  Subnetwork to which VMs will be assigned, if desired. Expected to be of the
- *  form "zones/ZONE/subnetworks/SUBNETWORK".
+ *  form "regions/REGION/subnetworks/SUBNETWORK".
  */
 @property(copy, nullable) NSString *subnetwork;
 
@@ -2981,8 +3176,81 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** Additional information for StreamingComputationTask WorkItems. */
 @property(strong, nullable) GTLRDataflow_StreamingComputationTask *streamingComputationTask;
 
+/** Additional information for StreamingConfigTask WorkItems. */
+@property(strong, nullable) GTLRDataflow_StreamingConfigTask *streamingConfigTask;
+
 /** Additional information for StreamingSetupTask WorkItems. */
 @property(strong, nullable) GTLRDataflow_StreamingSetupTask *streamingSetupTask;
+
+@end
+
+
+/**
+ *  An update to a metric sent from a worker. Unlike MetricUpdate, this format
+ *  does not support: messages: use WorkerMessage API CloudMetrics: use
+ *  MetricUpdate until this includes structured names
+ */
+@interface GTLRDataflow_WorkItemMetricUpdate : GTLRObject
+
+/**
+ *  Boolean value for And, Or.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *boolean;
+
+/**
+ *  True if this metric is reported as the total cumulative aggregate value
+ *  accumulated since the worker started working on this WorkItem. By default
+ *  this is false, indicating that this metric is reported as a delta that is
+ *  not associated with any WorkItem.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *cumulative;
+
+/**
+ *  Floating point value for Sum, Max, Min.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(strong, nullable) NSNumber *floatingPoint;
+
+/** List of floating point numbers, for Set. */
+@property(strong, nullable) GTLRDataflow_FloatingPointList *floatingPointList;
+
+/** Floating point mean aggregation value for Mean. */
+@property(strong, nullable) GTLRDataflow_FloatingPointMean *floatingPointMean;
+
+/** Integer value for Sum, Max, Min. */
+@property(strong, nullable) GTLRDataflow_SplitInt64 *integer;
+
+/** List of integers, for Set. */
+@property(strong, nullable) GTLRDataflow_IntegerList *integerList;
+
+/** Integer mean aggregation value for Mean. */
+@property(strong, nullable) GTLRDataflow_IntegerMean *integerMean;
+
+/**
+ *  Value for internally-defined metrics use by the Dataflow service.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(strong, nullable) id internal;
+
+/** Metric name and aggregation type. */
+@property(strong, nullable) GTLRDataflow_NameAndKind *nameAndKind;
+
+/**
+ *  The service-generated short identifier for this metric. The short_id ->
+ *  (name, metadata) mapping is constant for the lifetime of a job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(strong, nullable) NSNumber *shortId;
+
+/** List of strings, for Set. */
+@property(strong, nullable) GTLRDataflow_StringList *stringList;
 
 @end
 
@@ -3001,6 +3269,15 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** Time at which the current lease will expire. */
 @property(copy, nullable) NSString *leaseExpireTime;
+
+/**
+ *  The short ids that workers should use in subsequent metric updates. Workers
+ *  should strive to use short ids whenever possible, but it is ok to request
+ *  the short_id again if a worker lost track of it (e.g. if the worker is
+ *  recovering from a crash). NOTE: it is possible that the response may have
+ *  short ids for a subset of the metrics.
+ */
+@property(strong, nullable) NSArray<GTLRDataflow_MetricShortId *> *metricShortId;
 
 /**
  *  The index value to use for the next report sent by the worker. Note: If the
@@ -3063,7 +3340,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(strong, nullable) NSArray<GTLRDataflow_Status *> *errors;
 
-/** Worker output metrics (counters) for this WorkItem. */
+/** DEPRECATED in favor of worker_metric_update. */
 @property(strong, nullable) NSArray<GTLRDataflow_MetricUpdate *> *metricUpdates;
 
 /** DEPRECATED in favor of reported_progress. */
@@ -3129,6 +3406,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** Identifies the WorkItem. */
 @property(copy, nullable) NSString *workItemId;
+
+/** Worker output metrics (counters) for this WorkItem. */
+@property(strong, nullable) NSArray<GTLRDataflow_WorkItemMetricUpdate *> *workItemMetricUpdates;
 
 @end
 

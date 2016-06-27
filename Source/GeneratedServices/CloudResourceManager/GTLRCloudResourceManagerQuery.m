@@ -19,6 +19,25 @@
 
 @end
 
+@implementation GTLRCloudResourceManagerQuery_OperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudResourceManagerQuery_OperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudResourceManagerQuery_ProjectsDelete
 
 @dynamic projectId;

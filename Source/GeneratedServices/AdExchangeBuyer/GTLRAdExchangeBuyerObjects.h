@@ -27,6 +27,7 @@
 @class GTLRAdExchangeBuyer_ContactInformation;
 @class GTLRAdExchangeBuyer_Creative;
 @class GTLRAdExchangeBuyer_CreativeCorrectionsItem;
+@class GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem;
 @class GTLRAdExchangeBuyer_CreativeFilteringReasons;
 @class GTLRAdExchangeBuyer_CreativeFilteringReasonsReasonsItem;
 @class GTLRAdExchangeBuyer_CreativeNativeAd;
@@ -495,6 +496,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** Resource type. */
 @property(copy, nullable) NSString *kind;
 
+/**
+ *  Detected languages for this creative. Read-only. This field should not be
+ *  set in requests.
+ */
+@property(strong, nullable) NSArray<NSString *> *languages;
+
 /** If nativeAd is set, HTMLSnippet and videoURL should not be set. */
 @property(strong, nullable) GTLRAdExchangeBuyer_CreativeNativeAd *nativeAd;
 
@@ -570,6 +577,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRAdExchangeBuyer_CreativeCorrectionsItem
  */
 @interface GTLRAdExchangeBuyer_CreativeCorrectionsItem : GTLRObject
+
+/** All known serving contexts containing serving status information. */
+@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem *> *contexts;
 
 /** Additional details about the correction. */
 @property(strong, nullable) NSArray<NSString *> *details;
@@ -667,6 +677,37 @@ NS_ASSUME_NONNULL_BEGIN
  *  explicitly disapproved or is pending review).
  */
 @property(copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem
+ */
+@interface GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem : GTLRObject
+
+/**
+ *  Only set when contextType=AUCTION_TYPE. Represents the auction types this
+ *  correction applies to.
+ */
+@property(strong, nullable) NSArray<NSString *> *auctionType;
+
+/** The type of context (e.g., location, platform, auction type, SSL-ness). */
+@property(copy, nullable) NSString *contextType;
+
+/**
+ *  Only set when contextType=LOCATION. Represents the geo criterias this
+ *  correction applies to.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(strong, nullable) NSArray<NSNumber *> *geoCriteriaId;
+
+/**
+ *  Only set when contextType=PLATFORM. Represents the platforms this correction
+ *  applies to.
+ */
+@property(strong, nullable) NSArray<NSString *> *platform;
 
 @end
 
@@ -979,6 +1020,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nullable) NSNumber *currencyConversionTimeMs;
 
 /**
+ *  The DFP line item id associated with this deal. For features like CPD,
+ *  buyers can retrieve the DFP line item for billing reconciliation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(strong, nullable) NSNumber *dfpLineItemId;
+
+/**
  *  The original contracted quantity (# impressions) for this deal. To ensure
  *  delivery, sometimes publisher will book the deal with a impression buffer,
  *  however clients are billed using the original contracted quantity.
@@ -1128,8 +1177,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(strong, nullable) NSNumber *identifier;
 
-/** Name of the dimension mainly for debugging purposes. */
+/**
+ *  Name of the dimension mainly for debugging purposes, except for the case of
+ *  CREATIVE_SIZE. For CREATIVE_SIZE, strings are used instead of ids.
+ */
 @property(copy, nullable) NSString *name;
+
+/**
+ *  Percent of total impressions for a dimension type. e.g. {dimension_type:
+ *  'GENDER', [{dimension_value: {id: 1, name: 'MALE', percentage: 60}}]} Gender
+ *  MALE is 60% of all impressions which have gender.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(strong, nullable) NSNumber *percentage;
 
 @end
 
@@ -2439,6 +2500,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  For regular or video creative size type, specifies the size of the creative.
  */
 @property(strong, nullable) GTLRAdExchangeBuyer_TargetingValueSize *size;
+
+/** The skippable ad type for video size. */
+@property(copy, nullable) NSString *skippableAdType;
 
 @end
 

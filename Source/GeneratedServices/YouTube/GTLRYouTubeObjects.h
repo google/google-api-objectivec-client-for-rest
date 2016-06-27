@@ -940,6 +940,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbX18;
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbXx;
 
 // ----------------------------------------------------------------------------
+// GTLRYouTube_ContentRating.fpbRatingReasons
+
+/** Value: "fpbBlasphemy" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbBlasphemy;
+/** Value: "fpbCriminalTechniques" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbCriminalTechniques;
+/** Value: "fpbDrugs" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbDrugs;
+/** Value: "fpbHorror" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbHorror;
+/** Value: "fpbImitativeActsTechniques" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbImitativeActsTechniques;
+/** Value: "fpbLanguage" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbLanguage;
+/** Value: "fpbNudity" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbNudity;
+/** Value: "fpbPrejudice" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbPrejudice;
+/** Value: "fpbSex" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbSex;
+/** Value: "fpbSexualViolence" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbSexualViolence;
+/** Value: "fpbViolence" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbViolence;
+
+// ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.fskRating
 
 /** Value: "fsk0" */
@@ -4034,7 +4060,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 
 /**
  *  Ratings schemes. The country-specific ratings are mostly for movies and
- *  shows. NEXT_ID: 67
+ *  shows. NEXT_ID: 68
  */
 @interface GTLRYouTube_ContentRating : GTLRObject
 
@@ -4493,6 +4519,11 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_FpbRating_FpbXx Value "fpbXx"
  */
 @property(copy, nullable) NSString *fpbRating;
+
+/**
+ *  Reasons that explain why the video received its FPB (South Africa) rating.
+ */
+@property(strong, nullable) NSArray<NSString *> *fpbRatingReasons;
 
 /**
  *  The video's Freiwillige Selbstkontrolle der Filmwirtschaft (FSK - Germany)

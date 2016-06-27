@@ -568,7 +568,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsUpdate
 
-@dynamic fileId, permissionId, transferOwnership;
+@dynamic fileId, permissionId, removeExpiration, transferOwnership;
 
 + (instancetype)queryWithObject:(GTLRDrive_Permission *)object
                          fileId:(NSString *)fileId

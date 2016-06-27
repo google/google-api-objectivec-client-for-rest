@@ -4,7 +4,8 @@
 // API:
 //   Fitness (fitness/v1)
 // Description:
-//   Google Fit API
+//   Stores and accesses user data in the fitness store from apps on any
+//   platform.
 // Documentation:
 //   https://developers.google.com/fit/rest/
 
@@ -24,6 +25,7 @@
 @class GTLRFitness_BucketByActivity;
 @class GTLRFitness_BucketBySession;
 @class GTLRFitness_BucketByTime;
+@class GTLRFitness_BucketByTimePeriod;
 @class GTLRFitness_DataPoint;
 @class GTLRFitness_Dataset;
 @class GTLRFitness_DataSource;
@@ -53,6 +55,24 @@ GTLR_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_Session;
 GTLR_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_Time;
 /** Value: "unknown" */
 GTLR_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRFitness_BucketByTimePeriod.type
+
+/** Value: "day" */
+GTLR_EXTERN NSString * const kGTLRFitness_BucketByTimePeriod_Type_Day;
+/** Value: "month" */
+GTLR_EXTERN NSString * const kGTLRFitness_BucketByTimePeriod_Type_Month;
+/** Value: "week" */
+GTLR_EXTERN NSString * const kGTLRFitness_BucketByTimePeriod_Type_Week;
+
+// ----------------------------------------------------------------------------
+// GTLRFitness_DataSource.dataQualityStandard
+
+/** Value: "dataQualityBloodPressureEsh2002" */
+GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureEsh2002;
+/** Value: "dataQualityUnknown" */
+GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRFitness_DataSource.type
@@ -246,8 +266,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 
 
 /**
- *  See:
- *  google3/java/com/google/android/apps/heart/platform/api/Application.java
+ *  GTLRFitness_Application
  */
 @interface GTLRFitness_Application : GTLRObject
 
@@ -331,6 +350,36 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  Uses NSNumber of longLongValue.
  */
 @property(strong, nullable) NSNumber *durationMillis;
+
+@property(strong, nullable) GTLRFitness_BucketByTimePeriod *period;
+
+@end
+
+
+/**
+ *  GTLRFitness_BucketByTimePeriod
+ */
+@interface GTLRFitness_BucketByTimePeriod : GTLRObject
+
+/** org.joda.timezone.DateTimeZone */
+@property(copy, nullable) NSString *timeZoneId;
+
+/**
+ *  type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFitness_BucketByTimePeriod_Type_Day Value "day"
+ *    @arg @c kGTLRFitness_BucketByTimePeriod_Type_Month Value "month"
+ *    @arg @c kGTLRFitness_BucketByTimePeriod_Type_Week Value "week"
+ */
+@property(copy, nullable) NSString *type;
+
+/**
+ *  value
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(strong, nullable) NSNumber *value;
 
 @end
 
@@ -490,6 +539,8 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  */
 @property(strong, nullable) GTLRFitness_Application *application;
 
+@property(strong, nullable) NSArray<NSString *> *dataQualityStandard;
+
 /**
  *  A unique identifier for the data stream produced by this data source. The
  *  identifier includes:
@@ -555,7 +606,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 
 
 /**
- *  See: google3/java/com/google/android/apps/heart/platform/api/DataType.java
+ *  GTLRFitness_DataType
  */
 @interface GTLRFitness_DataType : GTLRObject
 

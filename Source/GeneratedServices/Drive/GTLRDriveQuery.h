@@ -1200,6 +1200,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(copy, nullable) NSString *permissionId;
 
 /**
+ *  Whether to remove the expiration date.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(assign) BOOL removeExpiration;
+
+/**
  *  Whether to transfer ownership to the specified user and downgrade the
  *  current owner to a writer. This parameter is required as an acknowledgement
  *  of the side effect.

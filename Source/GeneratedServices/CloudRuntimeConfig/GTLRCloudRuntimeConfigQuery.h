@@ -7,7 +7,7 @@
 //   Provides capabilities for dynamic configuration and coordination for
 //   applications running on Google Cloud Platform.
 // Documentation:
-//   https://cloud.google.com/deployment-manager/docs/
+//   https://cloud.google.com/deployment-manager/runtime-configurator/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"

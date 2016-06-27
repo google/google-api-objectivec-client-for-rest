@@ -4,7 +4,7 @@
 // API:
 //   Books API (books/v1)
 // Description:
-//   Lets you search for books and manage your Google Books library.
+//   Searches for books and manages your Google Books library.
 // Documentation:
 //   https://developers.google.com/books/docs/v1/getting_started
 

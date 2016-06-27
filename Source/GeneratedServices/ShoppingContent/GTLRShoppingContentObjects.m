@@ -314,7 +314,8 @@
 //
 
 @implementation GTLRShoppingContent_AccountShippingShippingService
-@dynamic active, calculationMethod, costRuleTree, name, saleCountry;
+@dynamic active, calculationMethod, costRuleTree, maxDaysInTransit,
+         minDaysInTransit, name, saleCountry;
 @end
 
 

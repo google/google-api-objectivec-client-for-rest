@@ -38,6 +38,8 @@ GTLR_EXTERN NSString * const kGTLRDataflowFilterActive;
 GTLR_EXTERN NSString * const kGTLRDataflowFilterAll;
 /** Value: "TERMINATED" */
 GTLR_EXTERN NSString * const kGTLRDataflowFilterTerminated;
+/** Value: "UNKNOWN" */
+GTLR_EXTERN NSString * const kGTLRDataflowFilterUnknown;
 
 // ----------------------------------------------------------------------------
 // minimumImportance
@@ -224,6 +226,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
  *  The kind of filter to use.
  *
  *  Likely values:
+ *    @arg @c kGTLRDataflowFilterUnknown Value "UNKNOWN"
  *    @arg @c kGTLRDataflowFilterAll Value "ALL"
  *    @arg @c kGTLRDataflowFilterTerminated Value "TERMINATED"
  *    @arg @c kGTLRDataflowFilterActive Value "ACTIVE"

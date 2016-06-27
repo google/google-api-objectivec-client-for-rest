@@ -1056,6 +1056,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The email address of the user or group to which this permission refers. */
 @property(copy, nullable) NSString *emailAddress;
 
+/** The time at which this permission will expire (RFC 3339 date-time). */
+@property(strong, nullable) GTLRDateTime *expirationTime;
+
 /**
  *  The ID of this permission. This is a unique identifier for the grantee, and
  *  is published in User resources as permissionId.

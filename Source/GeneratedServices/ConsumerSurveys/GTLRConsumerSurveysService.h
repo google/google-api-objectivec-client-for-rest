@@ -2,11 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Books API (books/v1)
+//   Consumer Surveys API (consumersurveys/v2)
 // Description:
-//   Searches for books and manages your Google Books library.
-// Documentation:
-//   https://developers.google.com/books/docs/v1/getting_started
+//   Creates and conducts surveys, lists the surveys that an authenticated user
+//   owns, and retrieves survey results and information about specified surveys.
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -21,31 +20,44 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
- *  Authorization scope: Manage your books
+ *  Authorization scope: View and edit your surveys and results
  *
- *  Value "https://www.googleapis.com/auth/books"
+ *  Value "https://www.googleapis.com/auth/consumersurveys"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBooks;
+GTLR_EXTERN NSString * const kGTLRAuthScopeConsumerSurveys;
+/**
+ *  Authorization scope: View the results for your surveys
+ *
+ *  Value "https://www.googleapis.com/auth/consumersurveys.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeConsumerSurveysReadonly;
+/**
+ *  Authorization scope: View your email address
+ *
+ *  Value "https://www.googleapis.com/auth/userinfo.email"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeConsumerSurveysUserinfoEmail;
 
 // ----------------------------------------------------------------------------
-//   GTLRBooksService
+//   GTLRConsumerSurveysService
 //
 
 /**
- *  Service for executing Books API queries.
+ *  Service for executing Consumer Surveys API queries.
  *
- *  Searches for books and manages your Google Books library.
+ *  Creates and conducts surveys, lists the surveys that an authenticated user
+ *  owns, and retrieves survey results and information about specified surveys.
  */
-@interface GTLRBooksService : GTLRService
+@interface GTLRConsumerSurveysService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRBooksQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRConsumerSurveysQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

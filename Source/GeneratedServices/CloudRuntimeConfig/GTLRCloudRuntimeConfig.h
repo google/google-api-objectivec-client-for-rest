@@ -7,7 +7,7 @@
 //   Provides capabilities for dynamic configuration and coordination for
 //   applications running on Google Cloud Platform.
 // Documentation:
-//   https://cloud.google.com/deployment-manager/docs/
+//   https://cloud.google.com/deployment-manager/runtime-configurator/
 
 #import "GTLRCloudRuntimeConfigObjects.h"
 #import "GTLRCloudRuntimeConfigQuery.h"

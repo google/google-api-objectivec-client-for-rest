@@ -4,7 +4,8 @@
 // API:
 //   Fitness (fitness/v1)
 // Description:
-//   Google Fit API
+//   Stores and accesses user data in the fitness store from apps on any
+//   platform.
 // Documentation:
 //   https://developers.google.com/fit/rest/
 
@@ -351,7 +352,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Delete the data source if there are no datapoints associated with it
+ *  Deletes the specified data source. The request will fail if the data source
+ *  contains any data points.
  *
  *  Method: fitness.users.dataSources.delete
  *
@@ -376,7 +378,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFitness_DataSource.
  *
- *  Delete the data source if there are no datapoints associated with it
+ *  Deletes the specified data source. The request will fail if the data source
+ *  contains any data points.
  *
  *  @param userId Retrieve a data source for the person identified. Use me to
  *    indicate the authenticated user. Only me is supported at this time.
@@ -390,7 +393,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a data source identified by a data stream ID.
+ *  Returns the specified data source.
  *
  *  Method: fitness.users.dataSources.get
  *
@@ -418,7 +421,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFitness_DataSource.
  *
- *  Returns a data source identified by a data stream ID.
+ *  Returns the specified data source.
  *
  *  @param userId Retrieve a data source for the person identified. Use me to
  *    indicate the authenticated user. Only me is supported at this time.
@@ -433,8 +436,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists all data sources that are visible to the developer, using the OAuth
- *  scopes provided. The list is not exhaustive: the user may have private data
- *  sources that are only visible to other developers or calls using other
+ *  scopes provided. The list is not exhaustive; the user may have private data
+ *  sources that are only visible to other developers, or calls using other
  *  scopes.
  *
  *  Method: fitness.users.dataSources.list
@@ -467,8 +470,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRFitness_ListDataSourcesResponse.
  *
  *  Lists all data sources that are visible to the developer, using the OAuth
- *  scopes provided. The list is not exhaustive: the user may have private data
- *  sources that are only visible to other developers or calls using other
+ *  scopes provided. The list is not exhaustive; the user may have private data
+ *  sources that are only visible to other developers, or calls using other
  *  scopes.
  *
  *  @param userId List data sources for the person identified. Use me to
@@ -481,11 +484,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a given data source. It is an error to modify the data source's data
- *  stream ID, data type, type, stream name or device information apart from the
- *  device version. Changing these fields would require a new unique data stream
- *  ID and separate data source.
- *  Data sources are identified by their data stream ID. This method supports
+ *  Updates the specified data source. The dataStreamId, dataType, type,
+ *  dataStreamName, and device properties with the exception of version, cannot
+ *  be modified.
+ *  Data sources are identified by their dataStreamId. This method supports
  *  patch semantics.
  *
  *  Method: fitness.users.dataSources.patch
@@ -511,11 +513,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFitness_DataSource.
  *
- *  Updates a given data source. It is an error to modify the data source's data
- *  stream ID, data type, type, stream name or device information apart from the
- *  device version. Changing these fields would require a new unique data stream
- *  ID and separate data source.
- *  Data sources are identified by their data stream ID. This method supports
+ *  Updates the specified data source. The dataStreamId, dataType, type,
+ *  dataStreamName, and device properties with the exception of version, cannot
+ *  be modified.
+ *  Data sources are identified by their dataStreamId. This method supports
  *  patch semantics.
  *
  *  @param object The @c GTLRFitness_DataSource to include in the query.
@@ -532,11 +533,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a given data source. It is an error to modify the data source's data
- *  stream ID, data type, type, stream name or device information apart from the
- *  device version. Changing these fields would require a new unique data stream
- *  ID and separate data source.
- *  Data sources are identified by their data stream ID.
+ *  Updates the specified data source. The dataStreamId, dataType, type,
+ *  dataStreamName, and device properties with the exception of version, cannot
+ *  be modified.
+ *  Data sources are identified by their dataStreamId.
  *
  *  Method: fitness.users.dataSources.update
  *
@@ -561,11 +561,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFitness_DataSource.
  *
- *  Updates a given data source. It is an error to modify the data source's data
- *  stream ID, data type, type, stream name or device information apart from the
- *  device version. Changing these fields would require a new unique data stream
- *  ID and separate data source.
- *  Data sources are identified by their data stream ID.
+ *  Updates the specified data source. The dataStreamId, dataType, type,
+ *  dataStreamName, and device properties with the exception of version, cannot
+ *  be modified.
+ *  Data sources are identified by their dataStreamId.
  *
  *  @param object The @c GTLRFitness_DataSource to include in the query.
  *  @param userId Update the data source for the person identified. Use me to

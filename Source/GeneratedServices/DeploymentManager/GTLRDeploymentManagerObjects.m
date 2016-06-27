@@ -463,7 +463,7 @@
 //
 
 @implementation GTLRDeploymentManager_Type
-@dynamic identifier, insertTime, name, selfLink;
+@dynamic identifier, insertTime, name, operation, selfLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

@@ -906,7 +906,7 @@
 //
 
 @implementation GTLRBigquery_ViewDefinition
-@dynamic query, userDefinedFunctionResources;
+@dynamic query, useLegacySql, userDefinedFunctionResources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

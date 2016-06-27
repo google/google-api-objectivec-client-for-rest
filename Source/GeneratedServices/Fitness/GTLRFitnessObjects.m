@@ -4,7 +4,8 @@
 // API:
 //   Fitness (fitness/v1)
 // Description:
-//   Google Fit API
+//   Stores and accesses user data in the fitness store from apps on any
+//   platform.
 // Documentation:
 //   https://developers.google.com/fit/rest/
 
@@ -19,6 +20,15 @@ NSString * const kGTLRFitness_AggregateBucket_Type_ActivityType = @"activityType
 NSString * const kGTLRFitness_AggregateBucket_Type_Session     = @"session";
 NSString * const kGTLRFitness_AggregateBucket_Type_Time        = @"time";
 NSString * const kGTLRFitness_AggregateBucket_Type_Unknown     = @"unknown";
+
+// GTLRFitness_BucketByTimePeriod.type
+NSString * const kGTLRFitness_BucketByTimePeriod_Type_Day   = @"day";
+NSString * const kGTLRFitness_BucketByTimePeriod_Type_Month = @"month";
+NSString * const kGTLRFitness_BucketByTimePeriod_Type_Week  = @"week";
+
+// GTLRFitness_DataSource.dataQualityStandard
+NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureEsh2002 = @"dataQualityBloodPressureEsh2002";
+NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityUnknown = @"dataQualityUnknown";
 
 // GTLRFitness_DataSource.type
 NSString * const kGTLRFitness_DataSource_Type_Derived = @"derived";
@@ -142,7 +152,17 @@ NSString * const kGTLRFitness_Device_Type_Watch      = @"watch";
 //
 
 @implementation GTLRFitness_BucketByTime
-@dynamic durationMillis;
+@dynamic durationMillis, period;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFitness_BucketByTimePeriod
+//
+
+@implementation GTLRFitness_BucketByTimePeriod
+@dynamic timeZoneId, type, value;
 @end
 
 
@@ -193,8 +213,16 @@ NSString * const kGTLRFitness_Device_Type_Watch      = @"watch";
 //
 
 @implementation GTLRFitness_DataSource
-@dynamic application, dataStreamId, dataStreamName, dataType, device, name,
-         type;
+@dynamic application, dataQualityStandard, dataStreamId, dataStreamName,
+         dataType, device, name, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataQualityStandard" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

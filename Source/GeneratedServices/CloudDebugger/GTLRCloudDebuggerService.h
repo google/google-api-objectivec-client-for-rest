@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Books API (books/v1)
+//   Google Cloud Debugger API (clouddebugger/v2)
 // Description:
-//   Searches for books and manages your Google Books library.
+//   Examines the call stack and variables of a running application without
+//   stopping or slowing it down.
 // Documentation:
-//   https://developers.google.com/books/docs/v1/getting_started
+//   https://cloud.google.com/tools/cloud-debugger
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -21,31 +22,45 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
- *  Authorization scope: Manage your books
+ *  Authorization scope: Manage cloud debugger
  *
- *  Value "https://www.googleapis.com/auth/books"
+ *  Value "https://www.googleapis.com/auth/cloud_debugger"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBooks;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudDebuggerCloudDebugger;
+/**
+ *  Authorization scope: Manage active breakpoints in cloud debugger
+ *
+ *  Value "https://www.googleapis.com/auth/cloud_debugletcontroller"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudDebuggerCloudDebugletcontroller;
+/**
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudDebuggerCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRBooksService
+//   GTLRCloudDebuggerService
 //
 
 /**
- *  Service for executing Books API queries.
+ *  Service for executing Google Cloud Debugger API queries.
  *
- *  Searches for books and manages your Google Books library.
+ *  Examines the call stack and variables of a running application without
+ *  stopping or slowing it down.
  */
-@interface GTLRBooksService : GTLRService
+@interface GTLRCloudDebuggerService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRBooksQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRCloudDebuggerQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

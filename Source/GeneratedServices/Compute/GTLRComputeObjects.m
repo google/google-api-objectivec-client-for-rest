@@ -348,6 +348,28 @@ NSString * const kGTLRCompute_Quota_Metric_VpnTunnels          = @"VPN_TUNNELS";
 NSString * const kGTLRCompute_Region_Status_Down = @"DOWN";
 NSString * const kGTLRCompute_Region_Status_Up   = @"UP";
 
+// GTLRCompute_RoutersScopedListWarning.code
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_RoutersScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_RouterStatusBgpPeerStatus.status
+NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Down = @"DOWN";
+NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Unknown = @"UNKNOWN";
+NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Up = @"UP";
+
 // GTLRCompute_RouteWarningsItem.code
 NSString * const kGTLRCompute_RouteWarningsItem_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_RouteWarningsItem_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -637,8 +659,8 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_AttachedDisk
-@dynamic autoDelete, boot, deviceName, index, initializeParams, interface, kind,
-         licenses, mode, source, type;
+@dynamic autoDelete, boot, deviceName, diskEncryptionKey, index,
+         initializeParams, interface, kind, licenses, mode, source, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -656,7 +678,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_AttachedDiskInitializeParams
-@dynamic diskName, diskSizeGb, diskType, sourceImage;
+@dynamic diskName, diskSizeGb, diskType, sourceImage, sourceImageEncryptionKey;
 @end
 
 
@@ -849,9 +871,9 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_BackendService
-@dynamic backends, creationTimestamp, descriptionProperty, fingerprint,
-         healthChecks, identifier, kind, name, port, portName, protocol, region,
-         selfLink, timeoutSec;
+@dynamic backends, creationTimestamp, descriptionProperty, enableCDN,
+         fingerprint, healthChecks, identifier, kind, name, port, portName,
+         protocol, region, selfLink, timeoutSec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -914,6 +936,36 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_CacheInvalidationRule
+//
+
+@implementation GTLRCompute_CacheInvalidationRule
+@dynamic path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CustomerEncryptionKey
+//
+
+@implementation GTLRCompute_CustomerEncryptionKey
+@dynamic rawKey, sha256;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CustomerEncryptionKeyProtectedDisk
+//
+
+@implementation GTLRCompute_CustomerEncryptionKeyProtectedDisk
+@dynamic diskEncryptionKey, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_DeprecationStatus
 //
 
@@ -928,9 +980,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_Disk
-@dynamic creationTimestamp, descriptionProperty, identifier, kind,
-         lastAttachTimestamp, lastDetachTimestamp, licenses, name, options,
-         selfLink, sizeGb, sourceImage, sourceImageId, sourceSnapshot,
+@dynamic creationTimestamp, descriptionProperty, diskEncryptionKey, identifier,
+         kind, lastAttachTimestamp, lastDetachTimestamp, licenses, name,
+         options, selfLink, sizeGb, sourceImage, sourceImageEncryptionKey,
+         sourceImageId, sourceSnapshot, sourceSnapshotEncryptionKey,
          sourceSnapshotId, status, type, users, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1510,8 +1563,9 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_Image
 @dynamic archiveSizeBytes, creationTimestamp, deprecated, descriptionProperty,
-         diskSizeGb, family, identifier, kind, licenses, name, rawDisk,
-         selfLink, sourceDisk, sourceDiskId, sourceType, status;
+         diskSizeGb, family, identifier, imageEncryptionKey, kind, licenses,
+         name, rawDisk, selfLink, sourceDisk, sourceDiskEncryptionKey,
+         sourceDiskId, sourceType, status;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2199,6 +2253,24 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_InstancesStartWithEncryptionKeyRequest
+//
+
+@implementation GTLRCompute_InstancesStartWithEncryptionKeyRequest
+@dynamic disks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"disks" : [GTLRCompute_CustomerEncryptionKeyProtectedDisk class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_InstanceTemplate
 //
 
@@ -2274,7 +2346,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_MachineType
 @dynamic creationTimestamp, deprecated, descriptionProperty, guestCpus,
-         identifier, imageSpaceGb, kind, maximumPersistentDisks,
+         identifier, imageSpaceGb, isSharedCpu, kind, maximumPersistentDisks,
          maximumPersistentDisksSizeGb, memoryMb, name, scratchDisks, selfLink,
          zoneProperty;
 
@@ -2792,9 +2864,9 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_Project
-@dynamic commonInstanceMetadata, creationTimestamp, descriptionProperty,
-         enabledFeatures, identifier, kind, name, quotas, selfLink,
-         usageExportLocation;
+@dynamic commonInstanceMetadata, creationTimestamp, defaultServiceAccount,
+         descriptionProperty, enabledFeatures, identifier, kind, name, quotas,
+         selfLink, usageExportLocation;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2966,6 +3038,210 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_Router
+//
+
+@implementation GTLRCompute_Router
+@dynamic bgp, bgpPeers, creationTimestamp, descriptionProperty, identifier,
+         interfaces, kind, name, network, region, selfLink;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bgpPeers" : [GTLRCompute_RouterBgpPeer class],
+    @"interfaces" : [GTLRCompute_RouterInterface class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouterAggregatedList
+//
+
+@implementation GTLRCompute_RouterAggregatedList
+@dynamic identifier, items, kind, nextPageToken, selfLink;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouterAggregatedListItems
+//
+
+@implementation GTLRCompute_RouterAggregatedListItems
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_RoutersScopedList class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouterBgp
+//
+
+@implementation GTLRCompute_RouterBgp
+@dynamic asn;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouterBgpPeer
+//
+
+@implementation GTLRCompute_RouterBgpPeer
+@dynamic advertisedRoutePriority, interfaceName, ipAddress, name, peerAsn,
+         peerIpAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouterInterface
+//
+
+@implementation GTLRCompute_RouterInterface
+@dynamic ipRange, linkedVpnTunnel, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouterList
+//
+
+@implementation GTLRCompute_RouterList
+@dynamic identifier, items, kind, nextPageToken, selfLink;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_Router class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RoutersScopedList
+//
+
+@implementation GTLRCompute_RoutersScopedList
+@dynamic routers, warning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"routers" : [GTLRCompute_Router class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RoutersScopedListWarning
+//
+
+@implementation GTLRCompute_RoutersScopedListWarning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_RoutersScopedListWarningDataItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RoutersScopedListWarningDataItem
+//
+
+@implementation GTLRCompute_RoutersScopedListWarningDataItem
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouterStatus
+//
+
+@implementation GTLRCompute_RouterStatus
+@dynamic bestRoutes, bgpPeerStatus, network;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bestRoutes" : [GTLRCompute_Route class],
+    @"bgpPeerStatus" : [GTLRCompute_RouterStatusBgpPeerStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouterStatusBgpPeerStatus
+//
+
+@implementation GTLRCompute_RouterStatusBgpPeerStatus
+@dynamic advertisedRoutes, ipAddress, linkedVpnTunnel, name, numLearnedRoutes,
+         peerIpAddress, state, status, uptime, uptimeSeconds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"advertisedRoutes" : [GTLRCompute_Route class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouterStatusResponse
+//
+
+@implementation GTLRCompute_RouterStatusResponse
+@dynamic kind, result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_Scheduling
 //
 
@@ -3009,8 +3285,9 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_Snapshot
 @dynamic creationTimestamp, descriptionProperty, diskSizeGb, identifier, kind,
-         licenses, name, selfLink, sourceDisk, sourceDiskId, status,
-         storageBytes, storageBytesStatus;
+         licenses, name, selfLink, snapshotEncryptionKey, sourceDisk,
+         sourceDiskEncryptionKey, sourceDiskId, status, storageBytes,
+         storageBytesStatus;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -3949,8 +4226,9 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_VpnTunnel
 @dynamic creationTimestamp, descriptionProperty, detailedStatus, identifier,
-         ikeVersion, kind, localTrafficSelector, name, peerIp, region, selfLink,
-         sharedSecret, sharedSecretHash, status, targetVpnGateway;
+         ikeVersion, kind, localTrafficSelector, name, peerIp, region,
+         remoteTrafficSelector, router, selfLink, sharedSecret,
+         sharedSecretHash, status, targetVpnGateway;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -3962,7 +4240,8 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"localTrafficSelector" : [NSString class]
+    @"localTrafficSelector" : [NSString class],
+    @"remoteTrafficSelector" : [NSString class]
   };
   return map;
 }

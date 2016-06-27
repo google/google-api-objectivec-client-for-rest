@@ -396,6 +396,19 @@ NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbUnrated = @"fpbUnrated"
 NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbX18   = @"fpbX18";
 NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbXx    = @"fpbXx";
 
+// GTLRYouTube_ContentRating.fpbRatingReasons
+NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbBlasphemy = @"fpbBlasphemy";
+NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbCriminalTechniques = @"fpbCriminalTechniques";
+NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbDrugs = @"fpbDrugs";
+NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbHorror = @"fpbHorror";
+NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbImitativeActsTechniques = @"fpbImitativeActsTechniques";
+NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbLanguage = @"fpbLanguage";
+NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbNudity = @"fpbNudity";
+NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbPrejudice = @"fpbPrejudice";
+NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbSex = @"fpbSex";
+NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbSexualViolence = @"fpbSexualViolence";
+NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbViolence = @"fpbViolence";
+
 // GTLRYouTube_ContentRating.fskRating
 NSString * const kGTLRYouTube_ContentRating_FskRating_Fsk0     = @"fsk0";
 NSString * const kGTLRYouTube_ContentRating_FskRating_Fsk12    = @"fsk12";
@@ -1775,18 +1788,20 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCo
          cceRating, chfilmRating, chvrsRating, cicfRating, cnaRating, cncRating,
          csaRating, cscfRating, czfilmRating, djctqRating, djctqRatingReasons,
          ecbmctRating, eefilmRating, egfilmRating, eirinRating, fcbmRating,
-         fcoRating, fmocRating, fpbRating, fskRating, grfilmRating, icaaRating,
-         ifcoRating, ilfilmRating, incaaRating, kfcbRating, kijkwijzerRating,
-         kmrbRating, lsfRating, mccaaRating, mccypRating, mdaRating,
-         medietilsynetRating, mekuRating, mibacRating, mocRating, moctwRating,
-         mpaaRating, mtrcbRating, nbcplRating, nbcRating, nfrcRating,
-         nfvcbRating, nkclvRating, oflcRating, pefilmRating, rcnofRating,
-         resorteviolenciaRating, rtcRating, rteRating, russiaRating,
-         skfilmRating, smaisRating, smsaRating, tvpgRating, ytRating;
+         fcoRating, fmocRating, fpbRating, fpbRatingReasons, fskRating,
+         grfilmRating, icaaRating, ifcoRating, ilfilmRating, incaaRating,
+         kfcbRating, kijkwijzerRating, kmrbRating, lsfRating, mccaaRating,
+         mccypRating, mdaRating, medietilsynetRating, mekuRating, mibacRating,
+         mocRating, moctwRating, mpaaRating, mtrcbRating, nbcplRating,
+         nbcRating, nfrcRating, nfvcbRating, nkclvRating, oflcRating,
+         pefilmRating, rcnofRating, resorteviolenciaRating, rtcRating,
+         rteRating, russiaRating, skfilmRating, smaisRating, smsaRating,
+         tvpgRating, ytRating;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"djctqRatingReasons" : [NSString class]
+    @"djctqRatingReasons" : [NSString class],
+    @"fpbRatingReasons" : [NSString class]
   };
   return map;
 }

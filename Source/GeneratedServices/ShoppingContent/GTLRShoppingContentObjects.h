@@ -698,6 +698,22 @@ NS_ASSUME_NONNULL_BEGIN
 /** Decision tree for "complicated" shipping cost calculation. */
 @property(strong, nullable) GTLRShoppingContent_AccountShippingShippingServiceCostRule *costRuleTree;
 
+/**
+ *  The maximum number of days in transit. Must be a value between 0 and 250
+ *  included. A value of 0 means same day delivery.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(strong, nullable) NSNumber *maxDaysInTransit;
+
+/**
+ *  The minimum number of days in transit. Must be a value between 0 and
+ *  maxDaysIntransit included. A value of 0 means same day delivery.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(strong, nullable) NSNumber *minDaysInTransit;
+
 /** The name of this shipping service. */
 @property(copy, nullable) NSString *name;
 
