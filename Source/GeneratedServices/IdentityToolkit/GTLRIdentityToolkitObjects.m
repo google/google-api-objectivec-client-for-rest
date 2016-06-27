@@ -115,7 +115,16 @@
 //
 
 @implementation GTLRIdentityToolkit_IdpConfig
-@dynamic clientId, enabled, experimentPercent, provider, secret;
+@dynamic clientId, enabled, experimentPercent, provider, secret,
+         whitelistedAudiences;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"whitelistedAudiences" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -236,11 +245,11 @@
 //
 
 @implementation GTLRIdentityToolkit_RelyingpartySetAccountInfoRequest
-@dynamic captchaChallenge, captchaResponse, delegatedProjectNumber,
+@dynamic captchaChallenge, captchaResponse, createdAt, delegatedProjectNumber,
          deleteAttribute, deleteProvider, disableUser, displayName, email,
-         emailVerified, idToken, instanceId, localId, oobCode, password,
-         photoUrl, provider, returnSecureToken, upgradeToFederatedLogin,
-         validSince;
+         emailVerified, idToken, instanceId, lastLoginAt, localId, oobCode,
+         password, photoUrl, provider, returnSecureToken,
+         upgradeToFederatedLogin, validSince;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -451,9 +460,9 @@
 //
 
 @implementation GTLRIdentityToolkit_UserInfo
-@dynamic disabled, displayName, email, emailVerified, localId, passwordHash,
-         passwordUpdatedAt, photoUrl, providerUserInfo, salt, validSince,
-         version;
+@dynamic createdAt, disabled, displayName, email, emailVerified, lastLoginAt,
+         localId, passwordHash, passwordUpdatedAt, photoUrl, providerUserInfo,
+         salt, validSince, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

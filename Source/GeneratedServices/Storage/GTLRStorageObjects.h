@@ -130,7 +130,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** The bucket's versioning configuration. */
 @property(strong, nullable) GTLRStorage_BucketVersioning *versioning;
 
-/** The bucket's website configuration. */
+/**
+ *  The bucket's website configuration, controlling how the service behaves when
+ *  accessing bucket contents as a web site. See the Static Website Examples for
+ *  more information.
+ */
 @property(strong, nullable) GTLRStorage_BucketWebsite *website;
 
 @end
@@ -233,17 +237,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The bucket's website configuration.
+ *  The bucket's website configuration, controlling how the service behaves when
+ *  accessing bucket contents as a web site. See the Static Website Examples for
+ *  more information.
  */
 @interface GTLRStorage_BucketWebsite : GTLRObject
 
 /**
- *  Behaves as the bucket's directory index where missing objects are treated as
- *  potential directories.
+ *  If the requested object path is missing, the service will ensure the path
+ *  has a trailing '/', append this suffix, and attempt to retrieve the
+ *  resulting object. This allows the creation of index.html objects to
+ *  represent directory pages.
  */
 @property(copy, nullable) NSString *mainPageSuffix;
 
-/** The custom object to return when a requested resource is not found. */
+/**
+ *  If the requested object path is missing, and any mainPageSuffix object is
+ *  missing, if applicable, the service will return the named object from this
+ *  bucket as the content for a 404 Not Found result.
+ */
 @property(copy, nullable) NSString *notFoundPage;
 
 @end

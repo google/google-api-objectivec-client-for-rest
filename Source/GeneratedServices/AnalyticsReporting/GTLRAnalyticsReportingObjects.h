@@ -355,7 +355,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_OrderType
 GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_Smart;
 /**
  *  The sort order is based on the value of the chosen column; looks only at
- *  the first date range
+ *  the first date range.
  *
  *  Value: "VALUE"
  */
@@ -401,7 +401,8 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel
  */
 GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Large;
 /**
- *  If sampling level is unspecified the default sampling level is used.
+ *  If the `samplingLevel` field is unspecified the `DEFAULT` sampling level
+ *  is used.
  *
  *  Value: "SAMPLING_UNSPECIFIED"
  */
@@ -922,7 +923,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 /**
  *  Requests, each request will have a separate response.
  *  There can be a maximum of 5 requests. All requests should have the same
- *  `dateRange`, `viewId`, `segments`, `samplingLevel`, and `cohortGroup`.
+ *  `dateRanges`, `viewId`, `segments`, `samplingLevel`, and `cohortGroup`.
  */
 @property(strong, nullable) NSArray<GTLRAnalyticsReporting_ReportRequest *> *reportRequests;
 
@@ -1159,7 +1160,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *        represent ratios. (Value: "SMART")
  *    @arg @c kGTLRAnalyticsReporting_OrderBy_OrderType_Value The sort order is
  *        based on the value of the chosen column; looks only at
- *        the first date range (Value: "VALUE")
+ *        the first date range. (Value: "VALUE")
  */
 @property(copy, nullable) NSString *orderType;
 
@@ -1271,10 +1272,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  */
 @interface GTLRAnalyticsReporting_PivotHeaderEntry : GTLRObject
 
-/**
- *  The name of the dimensions in the pivotDimensionValues field in the
- *  response.
- */
+/** The name of the dimensions in the pivot response. */
 @property(strong, nullable) NSArray<NSString *> *dimensionNames;
 
 /** The values for the dimensions in the pivot. */
@@ -1353,16 +1351,25 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @property(strong, nullable) NSArray<GTLRAnalyticsReporting_ReportRow *> *rows;
 
 /**
- *  If sampling was enabled, this returns the total number of samples
- *  read, one entry per date range
+ *  If the results are
+ *  [sampled](https://support.google.com/analytics/answer/2637192),
+ *  this returns the total number of samples read, one entry per date range.
+ *  If the results are not sampled this field will not be defined. See
+ *  [developer guide](/analytics/devguides/reporting/core/v4/basics#sampling)
+ *  for details.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(strong, nullable) NSArray<NSNumber *> *samplesReadCounts;
 
 /**
- *  If sampling was enabled, this returns the total number of samples
- *  present, one entry per date range.
+ *  If the results are
+ *  [sampled](https://support.google.com/analytics/answer/2637192),
+ *  this returns the total number of
+ *  samples present, one entry per date range. If the results are not sampled
+ *  this field will not be defined. See
+ *  [developer guide](/analytics/devguides/reporting/core/v4/basics#sampling)
+ *  for details.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1390,8 +1397,9 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 
 /**
  *  Cohort group associated with this request. If there is a cohort group
- *  in the request the `ga:cohort` dimension must be present. All requests
- *  should have the same cohort definitions.
+ *  in the request the `ga:cohort` dimension must be present.
+ *  Every [ReportRequest](#ReportRequest) within a `batchGet` method must
+ *  contain the same `cohortGroup` definition.
  */
 @property(strong, nullable) GTLRAnalyticsReporting_CohortGroup *cohortGroup;
 
@@ -1404,7 +1412,9 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  The `reportRequest.dateRanges` field should not be specified for cohorts
  *  or Lifetime value requests.
  *  If a date range is not provided, the default date range is (startDate:
- *  current date - 7 days, endDate: current date - 1 day)
+ *  current date - 7 days, endDate: current date - 1 day). Every
+ *  [ReportRequest](#ReportRequest) within a `batchGet` method must
+ *  contain the same `dateRanges` definition.
  */
 @property(strong, nullable) NSArray<GTLRAnalyticsReporting_DateRange *> *dateRanges;
 
@@ -1503,9 +1513,13 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @property(strong, nullable) NSArray<GTLRAnalyticsReporting_Pivot *> *pivots;
 
 /**
- *  The desired sampling level. If the sampling level is not specified the
- *  DEFAULT sampling level will be used. All requests should have same
- *  `samplingLevel`.
+ *  The desired report
+ *  [sample](https://support.google.com/analytics/answer/2637192) size.
+ *  If the the `samplingLevel` field is unspecified the `DEFAULT` sampling
+ *  level is used. Every [ReportRequest](#ReportRequest) within a
+ *  `batchGet` method must contain the same `samplingLevel` definition. See
+ *  [developer guide](/analytics/devguides/reporting/core/v4/basics#sampling)
+ *  for details.
  *
  *  Likely values:
  *    @arg @c kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Default
@@ -1515,8 +1529,9 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *        a more accurate response using a large sampling size. But this
  *        may result in response being slower. (Value: "LARGE")
  *    @arg @c kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_SamplingUnspecified
- *        If sampling level is unspecified the default sampling level is used.
- *        (Value: "SAMPLING_UNSPECIFIED")
+ *        If the `samplingLevel` field is unspecified the `DEFAULT` sampling
+ *        level
+ *        is used. (Value: "SAMPLING_UNSPECIFIED")
  *    @arg @c kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Small It
  *        returns a fast response with a smaller sampling size. (Value: "SMALL")
  */
@@ -1525,12 +1540,18 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 /**
  *  Segment the data returned for the request. A segment definition helps look
  *  at a subset of the segment request. A request can contain up to four
- *  segments. All requests should have the same segment definitions. Requests
+ *  segments. Every [ReportRequest](#ReportRequest) within a
+ *  `batchGet` method must contain the same `segments` definition. Requests
  *  with segments must have the `ga:segment` dimension.
  */
 @property(strong, nullable) NSArray<GTLRAnalyticsReporting_Segment *> *segments;
 
-/** Unique View Id for retrieving Analytics data. */
+/**
+ *  The Analytics
+ *  [view ID](https://support.google.com/analytics/answer/1009618)
+ *  from which to retrieve data. Every [ReportRequest](#ReportRequest)
+ *  within a `batchGet` method must contain the same `viewId`.
+ */
 @property(copy, nullable) NSString *viewId;
 
 @end
@@ -1544,7 +1565,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 /** List of requested dimensions. */
 @property(strong, nullable) NSArray<NSString *> *dimensions;
 
-/** List of metrics for each requested DateRange */
+/** List of metrics for each requested DateRange. */
 @property(strong, nullable) NSArray<GTLRAnalyticsReporting_DateRangeValues *> *metrics;
 
 @end

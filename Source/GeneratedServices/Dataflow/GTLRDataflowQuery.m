@@ -20,6 +20,7 @@
 NSString * const kGTLRDataflowFilterActive     = @"ACTIVE";
 NSString * const kGTLRDataflowFilterAll        = @"ALL";
 NSString * const kGTLRDataflowFilterTerminated = @"TERMINATED";
+NSString * const kGTLRDataflowFilterUnknown    = @"UNKNOWN";
 
 // minimumImportance
 NSString * const kGTLRDataflowMinimumImportanceJobMessageBasic = @"JOB_MESSAGE_BASIC";

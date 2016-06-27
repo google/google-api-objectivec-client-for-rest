@@ -23,6 +23,7 @@
 @class GTLRCompute_AttachedDisk;
 @class GTLRCompute_Autoscaler;
 @class GTLRCompute_BackendService;
+@class GTLRCompute_CacheInvalidationRule;
 @class GTLRCompute_DeprecationStatus;
 @class GTLRCompute_Disk;
 @class GTLRCompute_DiskMoveRequest;
@@ -47,11 +48,13 @@
 @class GTLRCompute_InstanceMoveRequest;
 @class GTLRCompute_InstanceReference;
 @class GTLRCompute_InstancesSetMachineTypeRequest;
+@class GTLRCompute_InstancesStartWithEncryptionKeyRequest;
 @class GTLRCompute_InstanceTemplate;
 @class GTLRCompute_Metadata;
 @class GTLRCompute_Network;
 @class GTLRCompute_ResourceGroupReference;
 @class GTLRCompute_Route;
+@class GTLRCompute_Router;
 @class GTLRCompute_Scheduling;
 @class GTLRCompute_Snapshot;
 @class GTLRCompute_SslCertificate;
@@ -3551,10 +3554,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieves the list of private images available to the specified project.
  *  Private images are images you create that belong to your project. This
  *  method does not get any images that belong to other projects, including
- *  publicly-available images, like Debian 7. If you want to get a list of
+ *  publicly-available images, like Debian 8. If you want to get a list of
  *  publicly-available images, use this method to make a request to the
  *  respective image project, such as debian-cloud or windows-cloud.
- *  See Accessing images for more information.
  *
  *  Method: compute.images.list
  *
@@ -3619,10 +3621,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieves the list of private images available to the specified project.
  *  Private images are images you create that belong to your project. This
  *  method does not get any images that belong to other projects, including
- *  publicly-available images, like Debian 7. If you want to get a list of
+ *  publicly-available images, like Debian 8. If you want to get a list of
  *  publicly-available images, use this method to make a request to the
  *  respective image project, such as debian-cloud or windows-cloud.
- *  See Accessing images for more information.
  *
  *  @param project Project ID for this request.
  *
@@ -5773,6 +5774,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Starts an instance that was stopped using the using the instances().stop
+ *  method. For more information, see Restart an instance.
+ *
+ *  Method: compute.instances.startWithEncryptionKey
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesStartWithEncryptionKey : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesStartWithEncryptionKeyWithObject:project:zoneProperty:instance:]
+
+/** Name of the instance resource to start. */
+@property(copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Starts an instance that was stopped using the using the instances().stop
+ *  method. For more information, see Restart an instance.
+ *
+ *  @param object The @c GTLRCompute_InstancesStartWithEncryptionKeyRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance resource to start.
+ *
+ *  @returns GTLRComputeQuery_InstancesStartWithEncryptionKey
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstancesStartWithEncryptionKeyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Stops a running instance, shutting it down cleanly, and allows you to
  *  restart the instance at a later time. Stopped instances do not incur
  *  per-minute, virtual machine usage charges while they are stopped, but any
@@ -6883,6 +6932,404 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Retrieves an aggregated list of routers.
+ *
+ *  Method: compute.routers.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RoutersAggregatedList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRoutersAggregatedListWithproject:]
+
+/**
+ *  Sets a filter expression for filtering listed resources, in the form
+ *  filter={expression}. Your {expression} must be in the format: field_name
+ *  comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use filter=name ne example-instance.
+ *  Compute Engine Beta API Only: When filtering in the Beta API, you can also
+ *  filter on nested fields. For example, you could filter on instances that
+ *  have set the scheduling.automaticRestart field to true. Use filtering on
+ *  nested fields to take advantage of labels to organize and search for results
+ *  based on label values.
+ *  The Beta API also supports filtering on multiple expressions by providing
+ *  each separate expression within parentheses. For example,
+ *  (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+ *  expressions are treated as AND expressions, meaning that resources must
+ *  match all expressions to pass the filters.
+ */
+@property(copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests.
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 0..500).
+ */
+@property(assign) NSUInteger maxResults;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_RouterAggregatedList.
+ *
+ *  Retrieves an aggregated list of routers.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_RoutersAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified Router resource.
+ *
+ *  Method: compute.routers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RoutersDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRoutersDeleteWithproject:region:router:]
+
+/** Project ID for this request. */
+@property(copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(copy, nullable) NSString *region;
+
+/** Name of the Router resource to delete. */
+@property(copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified Router resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource to delete.
+ *
+ *  @returns GTLRComputeQuery_RoutersDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router;
+
+@end
+
+/**
+ *  Returns the specified Router resource. Get a list of available routers by
+ *  making a list() request.
+ *
+ *  Method: compute.routers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RoutersGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRoutersGetWithproject:region:router:]
+
+/** Project ID for this request. */
+@property(copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(copy, nullable) NSString *region;
+
+/** Name of the Router resource to return. */
+@property(copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_Router.
+ *
+ *  Returns the specified Router resource. Get a list of available routers by
+ *  making a list() request.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource to return.
+ *
+ *  @returns GTLRComputeQuery_RoutersGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router;
+
+@end
+
+/**
+ *  Retrieves runtime information of the specified router.
+ *
+ *  Method: compute.routers.getRouterStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RoutersGetRouterStatus : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRoutersGetRouterStatusWithproject:region:router:]
+
+/** Project ID for this request. */
+@property(copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(copy, nullable) NSString *region;
+
+/** Name of the Router resource to query. */
+@property(copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_RouterStatusResponse.
+ *
+ *  Retrieves runtime information of the specified router.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource to query.
+ *
+ *  @returns GTLRComputeQuery_RoutersGetRouterStatus
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router;
+
+@end
+
+/**
+ *  Creates a Router resource in the specified project and region using the data
+ *  included in the request.
+ *
+ *  Method: compute.routers.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RoutersInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRoutersInsertWithObject:project:region:]
+
+/** Project ID for this request. */
+@property(copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a Router resource in the specified project and region using the data
+ *  included in the request.
+ *
+ *  @param object The @c GTLRCompute_Router to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @returns GTLRComputeQuery_RoutersInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Router *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Retrieves a list of Router resources available to the specified project.
+ *
+ *  Method: compute.routers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RoutersList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRoutersListWithproject:region:]
+
+/**
+ *  Sets a filter expression for filtering listed resources, in the form
+ *  filter={expression}. Your {expression} must be in the format: field_name
+ *  comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use filter=name ne example-instance.
+ *  Compute Engine Beta API Only: When filtering in the Beta API, you can also
+ *  filter on nested fields. For example, you could filter on instances that
+ *  have set the scheduling.automaticRestart field to true. Use filtering on
+ *  nested fields to take advantage of labels to organize and search for results
+ *  based on label values.
+ *  The Beta API also supports filtering on multiple expressions by providing
+ *  each separate expression within parentheses. For example,
+ *  (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+ *  expressions are treated as AND expressions, meaning that resources must
+ *  match all expressions to pass the filters.
+ */
+@property(copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests.
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 0..500).
+ */
+@property(assign) NSUInteger maxResults;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_RouterList.
+ *
+ *  Retrieves a list of Router resources available to the specified project.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @returns GTLRComputeQuery_RoutersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Updates the entire content of the Router resource. This method supports
+ *  patch semantics.
+ *
+ *  Method: compute.routers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RoutersPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRoutersPatchWithObject:project:region:router:]
+
+/** Project ID for this request. */
+@property(copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(copy, nullable) NSString *region;
+
+/** Name of the Router resource to update. */
+@property(copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the entire content of the Router resource. This method supports
+ *  patch semantics.
+ *
+ *  @param object The @c GTLRCompute_Router to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource to update.
+ *
+ *  @returns GTLRComputeQuery_RoutersPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Router *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                         router:(NSString *)router;
+
+@end
+
+/**
+ *  Updates the entire content of the Router resource.
+ *
+ *  Method: compute.routers.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RoutersUpdate : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRoutersUpdateWithObject:project:region:router:]
+
+/** Project ID for this request. */
+@property(copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(copy, nullable) NSString *region;
+
+/** Name of the Router resource to update. */
+@property(copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the entire content of the Router resource.
+ *
+ *  @param object The @c GTLRCompute_Router to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource to update.
+ *
+ *  @returns GTLRComputeQuery_RoutersUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Router *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                         router:(NSString *)router;
 
 @end
 
@@ -9364,6 +9811,45 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCompute_UrlMap *)object
                         project:(NSString *)project;
+
+@end
+
+/**
+ *  Initiates a cache invalidation operation, invalidating the specified path,
+ *  scoped to the specified UrlMap.
+ *
+ *  Method: compute.urlMaps.invalidateCache
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_UrlMapsInvalidateCache : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForUrlMapsInvalidateCacheWithObject:project:urlMap:]
+
+/** Project ID for this request. */
+@property(copy, nullable) NSString *project;
+
+/** Name of the UrlMap scoping this request. */
+@property(copy, nullable) NSString *urlMap;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Initiates a cache invalidation operation, invalidating the specified path,
+ *  scoped to the specified UrlMap.
+ *
+ *  @param object The @c GTLRCompute_CacheInvalidationRule to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param urlMap Name of the UrlMap scoping this request.
+ *
+ *  @returns GTLRComputeQuery_UrlMapsInvalidateCache
+ */
++ (instancetype)queryWithObject:(GTLRCompute_CacheInvalidationRule *)object
+                        project:(NSString *)project
+                         urlMap:(NSString *)urlMap;
 
 @end
 

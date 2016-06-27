@@ -114,7 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Optional] The type to convert the value in cells of this column. The values
  *  are expected to be encoded using HBase Bytes.toBytes function when using the
  *  BINARY encoding value. Following BigQuery types are allowed (case-sensitive)
- *  - BYTES STRING INTEGER FLOAT BOOLEAN Defaut type is BYTES. 'type' can also
+ *  - BYTES STRING INTEGER FLOAT BOOLEAN Default type is BYTES. 'type' can also
  *  be set at the column family level. However, the setting at this level takes
  *  precedence if 'type' is set at both levels.
  */
@@ -163,7 +163,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Optional] The type to convert the value in cells of this column family. The
  *  values are expected to be encoded using HBase Bytes.toBytes function when
  *  using the BINARY encoding value. Following BigQuery types are allowed
- *  (case-sensitive) - BYTES STRING INTEGER FLOAT BOOLEAN Defaut type is BYTES.
+ *  (case-sensitive) - BYTES STRING INTEGER FLOAT BOOLEAN Default type is BYTES.
  *  This can be overridden for a specific column by listing that column in
  *  'columns' and specifying a type for it.
  */
@@ -2331,6 +2331,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** [Required] A query that BigQuery executes when the view is referenced. */
 @property(copy, nullable) NSString *query;
+
+/**
+ *  [Experimental] Specifies whether to use BigQuery's legacy SQL for this view.
+ *  The default value is true. If set to false, the view will use BigQuery's
+ *  standard SQL: https://cloud.google.com/bigquery/sql-reference/ Queries and
+ *  views that reference this view must use the same flag value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *useLegacySql;
 
 /**
  *  [Experimental] Describes user-defined function resources used in the query.

@@ -109,7 +109,7 @@ NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 //
 
 @implementation GTLRToolResults_InconclusiveDetail
-@dynamic abortedByUser, infrastructureFailure, nativeCrash;
+@dynamic abortedByUser, infrastructureFailure;
 @end
 
 

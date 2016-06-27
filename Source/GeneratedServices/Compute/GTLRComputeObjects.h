@@ -37,6 +37,8 @@
 @class GTLRCompute_AutoscalingPolicyLoadBalancingUtilization;
 @class GTLRCompute_Backend;
 @class GTLRCompute_BackendService;
+@class GTLRCompute_CustomerEncryptionKey;
+@class GTLRCompute_CustomerEncryptionKeyProtectedDisk;
 @class GTLRCompute_DeprecationStatus;
 @class GTLRCompute_Disk;
 @class GTLRCompute_DiskAggregatedListItems;
@@ -111,6 +113,16 @@
 @class GTLRCompute_Quota;
 @class GTLRCompute_Region;
 @class GTLRCompute_Route;
+@class GTLRCompute_Router;
+@class GTLRCompute_RouterAggregatedListItems;
+@class GTLRCompute_RouterBgp;
+@class GTLRCompute_RouterBgpPeer;
+@class GTLRCompute_RouterInterface;
+@class GTLRCompute_RoutersScopedList;
+@class GTLRCompute_RoutersScopedListWarning;
+@class GTLRCompute_RoutersScopedListWarningDataItem;
+@class GTLRCompute_RouterStatus;
+@class GTLRCompute_RouterStatusBgpPeerStatus;
 @class GTLRCompute_RouteWarningsItem;
 @class GTLRCompute_RouteWarningsItemDataItem;
 @class GTLRCompute_Scheduling;
@@ -828,6 +840,50 @@ GTLR_EXTERN NSString * const kGTLRCompute_Region_Status_Down;
 GTLR_EXTERN NSString * const kGTLRCompute_Region_Status_Up;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_RoutersScopedListWarning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_DeprecatedResourceUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_InjectedKernelsDeprecated;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_ResourceNotDeleted;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_RouterStatusBgpPeerStatus.status
+
+/** Value: "DOWN" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Down;
+/** Value: "UNKNOWN" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Unknown;
+/** Value: "UP" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Up;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_RouteWarningsItem.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -1454,6 +1510,24 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(copy, nullable) NSString *deviceName;
 
 /**
+ *  Encrypts or decrypts a disk using a customer-supplied encryption key.
+ *  If you are creating a new disk, this field encrypts the new disk using an
+ *  encryption key that you provide. If you are attaching an existing disk that
+ *  is already encrypted, this field decrypts the disk using the
+ *  customer-supplied encryption key.
+ *  If you encrypt a disk using a customer-supplied key, you must provide the
+ *  same key again when you attempt to use this resource at a later time. For
+ *  example, you must provide the key when you create a snapshot or an image
+ *  from the disk or when you attach the disk to a virtual machine instance.
+ *  If you do not provide an encryption key, then the disk will be encrypted
+ *  using an automatically generated key and you do not need to provide a key to
+ *  use the disk later.
+ *  Instance templates do not store customer-supplied encryption keys, so you
+ *  cannot use your own keys to encrypt disks in a managed instance group.
+ */
+@property(strong, nullable) GTLRCompute_CustomerEncryptionKey *diskEncryptionKey;
+
+/**
  *  Assigns a zero-based index to this disk, where 0 is reserved for the boot
  *  disk. For example, if you have many disks attached to an instance, each disk
  *  would have a unique index number. If not specified, the server will choose
@@ -1577,6 +1651,15 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  global/images/family/my-private-family
  */
 @property(copy, nullable) NSString *sourceImage;
+
+/**
+ *  The customer-supplied encryption key of the source image. Required if the
+ *  source image is protected by a customer-supplied encryption key.
+ *  Instance templates do not store customer-supplied encryption keys, so you
+ *  cannot create disks for instances in a managed instance group if the source
+ *  images are encrypted with your own keys.
+ */
+@property(strong, nullable) GTLRCompute_CustomerEncryptionKey *sourceImageEncryptionKey;
 
 @end
 
@@ -2079,6 +2162,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  If true, enable Cloud CDN for this BackendService.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *enableCDN;
+
+/**
  *  Fingerprint of this resource. A hash of the contents stored in this object.
  *  This field is used in optimistic locking. This field will be ignored when
  *  inserting a BackendService. An up-to-date fingerprint must be provided in
@@ -2194,8 +2284,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_BackendServiceList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2215,17 +2304,61 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(copy, nullable) NSString *kind;
 
-/**
- *  [Output Only] This token allows you to get the next page of results for list
- *  requests. If the number of results is larger than maxResults, use the
- *  nextPageToken as a value for the query parameter pageToken in the next list
- *  request. Subsequent list requests will have their own nextPageToken to
- *  continue paging through the results.
- */
+/** [Output Only] A token used to continue a truncated list request. */
 @property(copy, nullable) NSString *nextPageToken;
 
 /** [Output Only] Server-defined URL for this resource. */
 @property(copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  GTLRCompute_CacheInvalidationRule
+ */
+@interface GTLRCompute_CacheInvalidationRule : GTLRObject
+
+@property(copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  Represents a customer-supplied encryption key
+ */
+@interface GTLRCompute_CustomerEncryptionKey : GTLRObject
+
+/**
+ *  Specifies a 256-bit customer-supplied encryption key, encoded in RFC 4648
+ *  base64 to either encrypt or decrypt this resource.
+ */
+@property(copy, nullable) NSString *rawKey;
+
+/**
+ *  [Output only] The RFC 4648 base64 encoded SHA-256 hash of the
+ *  customer-supplied encryption key that protects this resource.
+ */
+@property(copy, nullable) NSString *sha256;
+
+@end
+
+
+/**
+ *  GTLRCompute_CustomerEncryptionKeyProtectedDisk
+ */
+@interface GTLRCompute_CustomerEncryptionKeyProtectedDisk : GTLRObject
+
+/**
+ *  Decrypts data associated with the disk with a customer-supplied encryption
+ *  key.
+ */
+@property(strong, nullable) GTLRCompute_CustomerEncryptionKey *diskEncryptionKey;
+
+/**
+ *  Specifies a valid partial or full URL to an existing Persistent Disk
+ *  resource. This field is only applicable for persistent disks.
+ */
+@property(copy, nullable) NSString *source;
 
 @end
 
@@ -2292,6 +2425,19 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Encrypts the disk using a customer-supplied encryption key.
+ *  After you encrypt a disk with a customer-supplied key, you must provide the
+ *  same key if you use the disk later (e.g. to create a disk snapshot or an
+ *  image, or to attach the disk to a virtual machine).
+ *  Customer-supplied encryption keys do not protect access to metadata of the
+ *  disk.
+ *  If you do not provide an encryption key when creating the disk, then the
+ *  disk will be encrypted using an automatically generated key and you do not
+ *  need to provide a key to use the disk later.
+ */
+@property(strong, nullable) GTLRCompute_CustomerEncryptionKey *diskEncryptionKey;
 
 /**
  *  [Output Only] The unique identifier for the resource. This identifier is
@@ -2364,6 +2510,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(copy, nullable) NSString *sourceImage;
 
 /**
+ *  The customer-supplied encryption key of the source image. Required if the
+ *  source image is protected by a customer-supplied encryption key.
+ */
+@property(strong, nullable) GTLRCompute_CustomerEncryptionKey *sourceImageEncryptionKey;
+
+/**
  *  [Output Only] The ID value of the image used to create this disk. This value
  *  identifies the exact image that was used to create this persistent disk. For
  *  example, if you created the persistent disk from an image that was later
@@ -2382,6 +2534,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  - global/snapshots/snapshot
  */
 @property(copy, nullable) NSString *sourceSnapshot;
+
+/**
+ *  The customer-supplied encryption key of the source snapshot. Required if the
+ *  source snapshot is protected by a customer-supplied encryption key.
+ */
+@property(strong, nullable) GTLRCompute_CustomerEncryptionKey *sourceSnapshotEncryptionKey;
 
 /**
  *  [Output Only] The unique ID of the snapshot used to create this disk. This
@@ -3775,10 +3933,23 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(strong, nullable) NSNumber *identifier;
 
+/**
+ *  Encrypts the image using a customer-supplied encryption key.
+ *  After you encrypt an image with a customer-supplied key, you must provide
+ *  the same key if you use the image later (e.g. to create a disk from the
+ *  image).
+ *  Customer-supplied encryption keys do not protect access to metadata of the
+ *  disk.
+ *  If you do not provide an encryption key when creating the image, then the
+ *  disk will be encrypted using an automatically generated key and you do not
+ *  need to provide a key to use the image later.
+ */
+@property(strong, nullable) GTLRCompute_CustomerEncryptionKey *imageEncryptionKey;
+
 /** [Output Only] Type of the resource. Always compute#image for images. */
 @property(copy, nullable) NSString *kind;
 
-/** Any applicable publicly visible licenses. */
+/** Any applicable license URI. */
 @property(strong, nullable) NSArray<NSString *> *licenses;
 
 /**
@@ -3809,6 +3980,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  - zones/zone/disks/disk
  */
 @property(copy, nullable) NSString *sourceDisk;
+
+/**
+ *  The customer-supplied encryption key of the source disk. Required if the
+ *  source disk is protected by a customer-supplied encryption key.
+ */
+@property(strong, nullable) GTLRCompute_CustomerEncryptionKey *sourceDiskEncryptionKey;
 
 /**
  *  The ID value of the disk used to create this image. This value may be used
@@ -4017,14 +4194,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  A list of service accounts, with their specified scopes, authorized for this
  *  instance. Service accounts generate access tokens that can be accessed
  *  through the metadata server and used to authenticate applications on the
- *  instance. See Authenticating from Google Compute Engine for more
- *  information.
+ *  instance. See Service Accounts for more information.
  */
 @property(strong, nullable) NSArray<GTLRCompute_ServiceAccount *> *serviceAccounts;
 
 /**
  *  [Output Only] The status of the instance. One of the following values:
- *  PROVISIONING, STAGING, RUNNING, STOPPING, and TERMINATED.
+ *  PROVISIONING, STAGING, RUNNING, STOPPING, SUSPENDED, SUSPENDING, and
+ *  TERMINATED.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Instance_Status_Provisioning Value "PROVISIONING"
@@ -4303,7 +4480,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_InstanceGroupManager
+ *  An Instance Template Manager resource.
  */
 @interface GTLRCompute_InstanceGroupManager : GTLRObject
 
@@ -5077,8 +5254,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  IP addresses other than their own and receive packets with destination IP
  *  addresses other than their own. If these instances will be used as an IP
  *  gateway or it will be set as the next-hop in a Route resource, specify true.
- *  If unsure, leave this set to false. See the canIpForward documentation for
- *  more information.
+ *  If unsure, leave this set to false. See the Enable IP forwarding for
+ *  instances documentation for more information.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5255,6 +5432,24 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  zones/us-central1-f/machineTypes/n1-standard-1
  */
 @property(copy, nullable) NSString *machineType;
+
+@end
+
+
+/**
+ *  GTLRCompute_InstancesStartWithEncryptionKeyRequest
+ */
+@interface GTLRCompute_InstancesStartWithEncryptionKeyRequest : GTLRObject
+
+/**
+ *  Array of disks associated with this instance that are protected with a
+ *  customer-supplied encryption key.
+ *  In order to start the instance, the disk url and its corresponding key must
+ *  be provided.
+ *  If the disk is not protected with a customer-supplied encryption key it
+ *  should not be specified.
+ */
+@property(strong, nullable) NSArray<GTLRCompute_CustomerEncryptionKeyProtectedDisk *> *disks;
 
 @end
 
@@ -5471,6 +5666,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Uses NSNumber of intValue.
  */
 @property(strong, nullable) NSNumber *imageSpaceGb;
+
+/**
+ *  [Output Only] Whether this machine type has a shared CPU. See Shared-core
+ *  machine types for more information.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *isSharedCpu;
 
 /**
  *  [Output Only] The type of the resource. Always compute#machineType for
@@ -6660,6 +6863,11 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(copy, nullable) NSString *creationTimestamp;
 
 /**
+ *  [Output Only] Default service account used by VMs running in this project.
+ */
+@property(copy, nullable) NSString *defaultServiceAccount;
+
+/**
  *  An optional textual description of the resource.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -7121,6 +7329,418 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
+ *  Router resource.
+ */
+@interface GTLRCompute_Router : GTLRObject
+
+@property(strong, nullable) GTLRCompute_RouterBgp *bgp;
+@property(strong, nullable) NSArray<GTLRCompute_RouterBgpPeer *> *bgpPeers;
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  An optional description of this resource. Provide this property when you
+ *  create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(strong, nullable) NSNumber *identifier;
+
+@property(strong, nullable) NSArray<GTLRCompute_RouterInterface *> *interfaces;
+
+/** [Output Only] Type of resource. Always compute#router for routers. */
+@property(copy, nullable) NSString *kind;
+
+/**
+ *  Name of the resource. Provided by the client when the resource is created.
+ *  The name must be 1-63 characters long, and comply with RFC1035.
+ *  Specifically, the name must be 1-63 characters long and match the regular
+ *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  be a lowercase letter, and all following characters must be a dash,
+ *  lowercase letter, or digit, except the last character, which cannot be a
+ *  dash.
+ */
+@property(copy, nullable) NSString *name;
+
+/** URI of the network to which this router belongs. */
+@property(copy, nullable) NSString *network;
+
+/** [Output Only] URI of the region where the router resides. */
+@property(copy, nullable) NSString *region;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  Contains a list of routers.
+ */
+@interface GTLRCompute_RouterAggregatedList : GTLRObject
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(copy, nullable) NSString *identifier;
+
+/** A map of scoped router lists. */
+@property(strong, nullable) GTLRCompute_RouterAggregatedListItems *items;
+
+/** Type of resource. */
+@property(copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  A map of scoped router lists.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_RoutersScopedList. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCompute_RouterAggregatedListItems : GTLRObject
+@end
+
+
+/**
+ *  GTLRCompute_RouterBgp
+ */
+@interface GTLRCompute_RouterBgp : GTLRObject
+
+/**
+ *  Local BGP Autonomous System Number (ASN). Must be an RFC6996 private ASN,
+ *  either 16-bit or 32-bit. The value will be fixed for this router resource.
+ *  All VPN tunnels that link to this router will have the same local ASN.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(strong, nullable) NSNumber *asn;
+
+@end
+
+
+/**
+ *  BGP information that needs to be configured into the routing stack to
+ *  establish the BGP peering. It must specify peer ASN and either interface
+ *  name, IP, or peer IP. Reference: https://tools.ietf.org/html/rfc4273
+ */
+@interface GTLRCompute_RouterBgpPeer : GTLRObject
+
+/**
+ *  The priority of routes advertised to this BGP peer. In the case where there
+ *  is more than one matching route of maximum length, the routes with lowest
+ *  priority value win.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(strong, nullable) NSNumber *advertisedRoutePriority;
+
+/** Name of the interface the BGP peer is associated with. */
+@property(copy, nullable) NSString *interfaceName;
+
+/** IP address of the interface inside Google Cloud Platform. */
+@property(copy, nullable) NSString *ipAddress;
+
+/**
+ *  Name of this BGP peer. The name must be 1-63 characters long and comply with
+ *  RFC1035.
+ */
+@property(copy, nullable) NSString *name;
+
+/**
+ *  Peer BGP Autonomous System Number (ASN). For VPN use case, this value can be
+ *  different for every tunnel.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(strong, nullable) NSNumber *peerAsn;
+
+/** IP address of the BGP interface outside Google cloud. */
+@property(copy, nullable) NSString *peerIpAddress;
+
+@end
+
+
+/**
+ *  Router interfaces. Each interface requires either one linked resource (e.g.
+ *  linked_vpn_tunnel) or IP address + range (specified in ip_range).
+ */
+@interface GTLRCompute_RouterInterface : GTLRObject
+
+/**
+ *  IP address and range of the interface. The IP range must be in the RFC3927
+ *  link-local IP space. The value must be a CIDR-formatted string, for example:
+ *  169.254.0.1/30. NOTE: Do not truncate the address as it represents the IP
+ *  address of the interface.
+ */
+@property(copy, nullable) NSString *ipRange;
+
+/**
+ *  URI of linked VPN tunnel. It must be in the same region as the router. Each
+ *  interface can have at most one linked resource.
+ */
+@property(copy, nullable) NSString *linkedVpnTunnel;
+
+/**
+ *  Name of this interface entry. The name must be 1-63 characters long and
+ *  comply with RFC1035.
+ */
+@property(copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Contains a list of Router resources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_RouterList : GTLRCollectionObject
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(copy, nullable) NSString *identifier;
+
+/**
+ *  A list of Router resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(strong, nullable) NSArray<GTLRCompute_Router *> *items;
+
+/** [Output Only] Type of resource. Always compute#router for routers. */
+@property(copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  GTLRCompute_RoutersScopedList
+ */
+@interface GTLRCompute_RoutersScopedList : GTLRObject
+
+/** List of routers contained in this scope. */
+@property(strong, nullable) NSArray<GTLRCompute_Router *> *routers;
+
+/**
+ *  Informational warning which replaces the list of routers when the list is
+ *  empty.
+ */
+@property(strong, nullable) GTLRCompute_RoutersScopedListWarning *warning;
+
+@end
+
+
+/**
+ *  Informational warning which replaces the list of routers when the list is
+ *  empty.
+ */
+@interface GTLRCompute_RoutersScopedListWarning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_CleanupFailed Value
+ *        "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NextHopNotRunning Value
+ *        "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NoResultsOnPage Value
+ *        "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NotCriticalError Value
+ *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(strong, nullable) NSArray<GTLRCompute_RoutersScopedListWarningDataItem *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_RoutersScopedListWarningDataItem
+ */
+@interface GTLRCompute_RoutersScopedListWarningDataItem : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_RouterStatus
+ */
+@interface GTLRCompute_RouterStatus : GTLRObject
+
+/** Best routes for this router's network. */
+@property(strong, nullable) NSArray<GTLRCompute_Route *> *bestRoutes;
+
+@property(strong, nullable) NSArray<GTLRCompute_RouterStatusBgpPeerStatus *> *bgpPeerStatus;
+
+/** URI of the network to which this router belongs. */
+@property(copy, nullable) NSString *network;
+
+@end
+
+
+/**
+ *  GTLRCompute_RouterStatusBgpPeerStatus
+ */
+@interface GTLRCompute_RouterStatusBgpPeerStatus : GTLRObject
+
+/** Routes that were advertised to the remote BGP peer */
+@property(strong, nullable) NSArray<GTLRCompute_Route *> *advertisedRoutes;
+
+/** IP address of the local BGP interface. */
+@property(copy, nullable) NSString *ipAddress;
+
+/** URL of the VPN tunnel that this BGP peer controls. */
+@property(copy, nullable) NSString *linkedVpnTunnel;
+
+/** Name of this BGP peer. Unique within the Routers resource. */
+@property(copy, nullable) NSString *name;
+
+/**
+ *  Number of routes learned from the remote BGP Peer.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(strong, nullable) NSNumber *numLearnedRoutes;
+
+/** IP address of the remote BGP interface. */
+@property(copy, nullable) NSString *peerIpAddress;
+
+/** BGP state as specified in RFC1771. */
+@property(copy, nullable) NSString *state;
+
+/**
+ *  Status of the BGP peer: {UP, DOWN}
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_RouterStatusBgpPeerStatus_Status_Down Value "DOWN"
+ *    @arg @c kGTLRCompute_RouterStatusBgpPeerStatus_Status_Unknown Value
+ *        "UNKNOWN"
+ *    @arg @c kGTLRCompute_RouterStatusBgpPeerStatus_Status_Up Value "UP"
+ */
+@property(copy, nullable) NSString *status;
+
+/**
+ *  Time this session has been up. Format: 14 years, 51 weeks, 6 days, 23 hours,
+ *  59 minutes, 59 seconds
+ */
+@property(copy, nullable) NSString *uptime;
+
+/** Time this session has been up, in seconds. Format: 145 */
+@property(copy, nullable) NSString *uptimeSeconds;
+
+@end
+
+
+/**
+ *  GTLRCompute_RouterStatusResponse
+ */
+@interface GTLRCompute_RouterStatusResponse : GTLRObject
+
+/** Type of resource. */
+@property(copy, nullable) NSString *kind;
+
+@property(strong, nullable) GTLRCompute_RouterStatus *result;
+
+@end
+
+
+/**
  *  Sets the scheduling options for an Instance.
  */
 @interface GTLRCompute_Scheduling : GTLRObject
@@ -7252,8 +7872,28 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /** [Output Only] Server-defined URL for the resource. */
 @property(copy, nullable) NSString *selfLink;
 
+/**
+ *  Encrypts the snapshot using a customer-supplied encryption key.
+ *  After you encrypt a snapshot using a customer-supplied key, you must provide
+ *  the same key if you use the image later For example, you must provide the
+ *  encryption key when you create a disk from the encrypted snapshot in a
+ *  future request.
+ *  Customer-supplied encryption keys do not protect access to metadata of the
+ *  disk.
+ *  If you do not provide an encryption key when creating the snapshot, then the
+ *  snapshot will be encrypted using an automatically generated key and you do
+ *  not need to provide a key to use the snapshot later.
+ */
+@property(strong, nullable) GTLRCompute_CustomerEncryptionKey *snapshotEncryptionKey;
+
 /** [Output Only] The source disk used to create this snapshot. */
 @property(copy, nullable) NSString *sourceDisk;
+
+/**
+ *  The customer-supplied encryption key of the source disk. Required if the
+ *  source disk is protected by a customer-supplied encryption key.
+ */
+@property(strong, nullable) GTLRCompute_CustomerEncryptionKey *sourceDiskEncryptionKey;
 
 /**
  *  [Output Only] The ID value of the disk used to create this snapshot. This
@@ -9202,6 +9842,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /** [Output Only] URL of the region where the VPN tunnel resides. */
 @property(copy, nullable) NSString *region;
+
+/**
+ *  Remote traffic selectors to use when establishing the VPN tunnel with peer
+ *  VPN gateway. The value should be a CIDR formatted string, for example:
+ *  192.168.0.0/16. The ranges should be disjoint.
+ */
+@property(strong, nullable) NSArray<NSString *> *remoteTrafficSelector;
+
+/** URL of router resource to be used for dynamic routing. */
+@property(copy, nullable) NSString *router;
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(copy, nullable) NSString *selfLink;

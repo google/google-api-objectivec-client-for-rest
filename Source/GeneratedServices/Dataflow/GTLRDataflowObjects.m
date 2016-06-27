@@ -314,6 +314,34 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_FloatingPointList
+//
+
+@implementation GTLRDataflow_FloatingPointList
+@dynamic elements;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"elements" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_FloatingPointMean
+//
+
+@implementation GTLRDataflow_FloatingPointMean
+@dynamic count, sum;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_InstructionInput
 //
 
@@ -343,6 +371,34 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_IntegerList
+//
+
+@implementation GTLRDataflow_IntegerList
+@dynamic elements;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"elements" : [GTLRDataflow_SplitInt64 class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_IntegerMean
+//
+
+@implementation GTLRDataflow_IntegerMean
+@dynamic count, sum;
 @end
 
 
@@ -583,6 +639,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_MetricShortId
+//
+
+@implementation GTLRDataflow_MetricShortId
+@dynamic metricIndex, shortId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_MetricStructuredName
 //
 
@@ -640,6 +706,23 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_MultiOutputInfo
 @dynamic tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_NameAndKind
+//
+
+@implementation GTLRDataflow_NameAndKind
+@dynamic kind, name;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1158,6 +1241,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_SplitInt64
+//
+
+@implementation GTLRDataflow_SplitInt64
+@dynamic highBits, lowBits;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_StateFamilyConfig
 //
 
@@ -1231,6 +1324,24 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_StreamingComputationConfig
+//
+
+@implementation GTLRDataflow_StreamingComputationConfig
+@dynamic computationId, instructions, stageName, systemName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instructions" : [GTLRDataflow_ParallelInstruction class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_StreamingComputationRanges
 //
 
@@ -1261,6 +1372,38 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
     @"dataDisks" : [GTLRDataflow_MountedDataDisk class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_StreamingConfigTask
+//
+
+@implementation GTLRDataflow_StreamingConfigTask
+@dynamic streamingComputationConfigs, userStepToStateFamilyNameMap;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"streamingComputationConfigs" : [GTLRDataflow_StreamingComputationConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_StreamingConfigTaskUserStepToStateFamilyNameMap
+//
+
+@implementation GTLRDataflow_StreamingConfigTaskUserStepToStateFamilyNameMap
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1305,6 +1448,24 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 @implementation GTLRDataflow_StreamLocation
 @dynamic customSourceLocation, pubsubLocation, sideInputLocation,
          streamingStageLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_StringList
+//
+
+@implementation GTLRDataflow_StringList
+@dynamic elements;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"elements" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1545,7 +1706,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 @dynamic configuration, identifier, initialReportIndex, jobId, leaseExpireTime,
          mapTask, packages, projectId, reportStatusInterval, seqMapTask,
          shellTask, sourceOperationTask, streamingComputationTask,
-         streamingSetupTask;
+         streamingConfigTask, streamingSetupTask;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1563,12 +1724,33 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_WorkItemMetricUpdate
+//
+
+@implementation GTLRDataflow_WorkItemMetricUpdate
+@dynamic boolean, cumulative, floatingPoint, floatingPointList,
+         floatingPointMean, integer, integerList, integerMean, internal,
+         nameAndKind, shortId, stringList;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_WorkItemServiceState
 //
 
 @implementation GTLRDataflow_WorkItemServiceState
-@dynamic harnessData, leaseExpireTime, nextReportIndex, reportStatusInterval,
-         splitRequest, suggestedStopPoint, suggestedStopPosition;
+@dynamic harnessData, leaseExpireTime, metricShortId, nextReportIndex,
+         reportStatusInterval, splitRequest, suggestedStopPoint,
+         suggestedStopPosition;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metricShortId" : [GTLRDataflow_MetricShortId class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1594,12 +1776,14 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 @implementation GTLRDataflow_WorkItemStatus
 @dynamic completed, dynamicSourceSplit, errors, metricUpdates, progress,
          reportedProgress, reportIndex, requestedLeaseDuration, sourceFork,
-         sourceOperationResponse, stopPosition, workItemId;
+         sourceOperationResponse, stopPosition, workItemId,
+         workItemMetricUpdates;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"errors" : [GTLRDataflow_Status class],
-    @"metricUpdates" : [GTLRDataflow_MetricUpdate class]
+    @"metricUpdates" : [GTLRDataflow_MetricUpdate class],
+    @"workItemMetricUpdates" : [GTLRDataflow_WorkItemMetricUpdate class]
   };
   return map;
 }

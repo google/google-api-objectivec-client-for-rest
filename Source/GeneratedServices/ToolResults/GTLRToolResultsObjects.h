@@ -100,6 +100,9 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  Example 2: Pack and unpack a message in Java.
  *  Foo foo = ...; Any any = Any.pack(foo); ... if (any.is(Foo.class)) { foo =
  *  any.unpack(Foo.class); }
+ *  Example 3: Pack and unpack a message in Python.
+ *  foo = Foo(...) any = Any() any.Pack(foo) ... if any.Is(Foo.DESCRIPTOR):
+ *  any.Unpack(foo) ...
  *  The pack methods provided by protobuf library will by default use
  *  'type.googleapis.com/full.type.name' as the type URL and the unpack methods
  *  only use the fully qualified type name after the last '/' in the type URL,
@@ -411,15 +414,6 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  Uses NSNumber of boolValue.
  */
 @property(strong, nullable) NSNumber *infrastructureFailure;
-
-/**
- *  A native process crashed on the device, producing a tombstone. It is unclear
- *  whether the crash was related to the app under test.
- *  For example, OpenGL crashed, but it is unclear if the app is responsible.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(strong, nullable) NSNumber *nativeCrash;
 
 @end
 

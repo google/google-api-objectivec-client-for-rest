@@ -4,7 +4,7 @@
 // API:
 //   Books API (books/v1)
 // Description:
-//   Lets you search for books and manage your Google Books library.
+//   Searches for books and manages your Google Books library.
 // Documentation:
 //   https://developers.google.com/books/docs/v1/getting_started
 
@@ -925,7 +925,7 @@
 //
 
 @implementation GTLRBooks_UsersettingsNotification
-@dynamic moreFromAuthors;
+@dynamic moreFromAuthors, moreFromSeries;
 @end
 
 
@@ -935,6 +935,21 @@
 //
 
 @implementation GTLRBooks_UsersettingsNotificationMoreFromAuthors
+@dynamic optedState;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"optedState" : @"opted_state" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBooks_UsersettingsNotificationMoreFromSeries
+//
+
+@implementation GTLRBooks_UsersettingsNotificationMoreFromSeries
 @dynamic optedState;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1128,7 +1143,7 @@
 //
 
 @implementation GTLRBooks_VolumeSaleInfoOffersItem
-@dynamic finskyOfferType, listPrice, rentalDuration, retailPrice;
+@dynamic finskyOfferType, giftable, listPrice, rentalDuration, retailPrice;
 @end
 
 

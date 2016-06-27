@@ -7,7 +7,7 @@
 //   Provides capabilities for dynamic configuration and coordination for
 //   applications running on Google Cloud Platform.
 // Documentation:
-//   https://cloud.google.com/deployment-manager/docs/
+//   https://cloud.google.com/deployment-manager/runtime-configurator/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -111,7 +111,8 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
 
 
 /**
- *  GTLRCloudRuntimeConfig_ListConfigsResponse
+ *  `ListConfigs()` returns the following response. The order of returned
+ *  objects is arbitrary; that is, it is not ordered in any particular way.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "configs" property. If returned as the result of a query, it
@@ -142,7 +143,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
 
 
 /**
- *  GTLRCloudRuntimeConfig_ListVariablesResponse
+ *  Response for the `ListVariables()` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "variables" property. If returned as the result of a query, it

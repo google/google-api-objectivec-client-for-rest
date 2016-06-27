@@ -4,7 +4,7 @@
 // API:
 //   Books API (books/v1)
 // Description:
-//   Lets you search for books and manage your Google Books library.
+//   Searches for books and manages your Google Books library.
 // Documentation:
 //   https://developers.google.com/books/docs/v1/getting_started
 
@@ -66,6 +66,7 @@
 @class GTLRBooks_UsersettingsNotesExport;
 @class GTLRBooks_UsersettingsNotification;
 @class GTLRBooks_UsersettingsNotificationMoreFromAuthors;
+@class GTLRBooks_UsersettingsNotificationMoreFromSeries;
 @class GTLRBooks_Volume;
 @class GTLRBooks_VolumeAccessInfo;
 @class GTLRBooks_VolumeAccessInfoEpub;
@@ -1641,6 +1642,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBooks_UsersettingsNotification : GTLRObject
 
 @property(strong, nullable) GTLRBooks_UsersettingsNotificationMoreFromAuthors *moreFromAuthors;
+@property(strong, nullable) GTLRBooks_UsersettingsNotificationMoreFromSeries *moreFromSeries;
 
 @end
 
@@ -1649,6 +1651,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRBooks_UsersettingsNotificationMoreFromAuthors
  */
 @interface GTLRBooks_UsersettingsNotificationMoreFromAuthors : GTLRObject
+
+@property(copy, nullable) NSString *optedState;
+
+@end
+
+
+/**
+ *  GTLRBooks_UsersettingsNotificationMoreFromSeries
+ */
+@interface GTLRBooks_UsersettingsNotificationMoreFromSeries : GTLRObject
 
 @property(copy, nullable) NSString *optedState;
 
@@ -2251,6 +2263,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of intValue.
  */
 @property(strong, nullable) NSNumber *finskyOfferType;
+
+/**
+ *  Indicates whether the offer is giftable.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *giftable;
 
 /** Offer list (=undiscounted) price in Micros. */
 @property(strong, nullable) GTLRBooks_VolumeSaleInfoOffersItemListPrice *listPrice;

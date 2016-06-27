@@ -80,6 +80,44 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_Operation
+//
+
+@implementation GTLRCloudResourceManager_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_OperationMetadata
+//
+
+@implementation GTLRCloudResourceManager_OperationMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_OperationResponse
+//
+
+@implementation GTLRCloudResourceManager_OperationResponse
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_Policy
 //
 
@@ -147,6 +185,38 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 @implementation GTLRCloudResourceManager_SetIamPolicyRequest
 @dynamic policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_Status
+//
+
+@implementation GTLRCloudResourceManager_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRCloudResourceManager_StatusDetailsItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_StatusDetailsItem
+//
+
+@implementation GTLRCloudResourceManager_StatusDetailsItem
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

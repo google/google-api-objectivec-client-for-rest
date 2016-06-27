@@ -251,9 +251,10 @@
 @dynamic accountId, adChoicesDestinationUrl, advertiserId, advertiserName,
          agencyId, apiUploadTimestamp, attribute, buyerCreativeId,
          clickThroughUrl, corrections, dealsStatus, filteringReasons, height,
-         HTMLSnippet, impressionTrackingUrl, kind, nativeAd, openAuctionStatus,
-         productCategories, restrictedCategories, sensitiveCategories,
-         servingRestrictions, vendorType, version, videoURL, width;
+         HTMLSnippet, impressionTrackingUrl, kind, languages, nativeAd,
+         openAuctionStatus, productCategories, restrictedCategories,
+         sensitiveCategories, servingRestrictions, vendorType, version,
+         videoURL, width;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -262,6 +263,7 @@
     @"clickThroughUrl" : [NSString class],
     @"corrections" : [GTLRAdExchangeBuyer_CreativeCorrectionsItem class],
     @"impressionTrackingUrl" : [NSString class],
+    @"languages" : [NSString class],
     @"productCategories" : [NSNumber class],
     @"restrictedCategories" : [NSNumber class],
     @"sensitiveCategories" : [NSNumber class],
@@ -280,10 +282,11 @@
 //
 
 @implementation GTLRAdExchangeBuyer_CreativeCorrectionsItem
-@dynamic details, reason;
+@dynamic contexts, details, reason;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"contexts" : [GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem class],
     @"details" : [NSString class]
   };
   return map;
@@ -341,6 +344,26 @@
   NSDictionary<NSString *, Class> *map = @{
     @"contexts" : [GTLRAdExchangeBuyer_CreativeServingRestrictionsItemContextsItem class],
     @"disapprovalReasons" : [GTLRAdExchangeBuyer_CreativeServingRestrictionsItemDisapprovalReasonsItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem
+//
+
+@implementation GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem
+@dynamic auctionType, contextType, geoCriteriaId, platform;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auctionType" : [NSString class],
+    @"geoCriteriaId" : [NSNumber class],
+    @"platform" : [NSString class]
   };
   return map;
 }
@@ -506,7 +529,8 @@
 //
 
 @implementation GTLRAdExchangeBuyer_DealTermsGuaranteedFixedPriceTermsBillingInfo
-@dynamic currencyConversionTimeMs, originalContractedQuantity, price;
+@dynamic currencyConversionTimeMs, dfpLineItemId, originalContractedQuantity,
+         price;
 @end
 
 
@@ -634,7 +658,7 @@
 //
 
 @implementation GTLRAdExchangeBuyer_DimensionDimensionValue
-@dynamic identifier, name;
+@dynamic identifier, name, percentage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1133,7 +1157,7 @@
 //
 
 @implementation GTLRAdExchangeBuyer_TargetingValueCreativeSize
-@dynamic companionSizes, creativeSizeType, size;
+@dynamic companionSizes, creativeSizeType, size, skippableAdType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

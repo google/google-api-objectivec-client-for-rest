@@ -221,6 +221,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** OAuth2 client secret. */
 @property(copy, nullable) NSString *secret;
 
+/** Whitelisted client IDs for audience check. */
+@property(strong, nullable) NSArray<NSString *> *whitelistedAudiences;
+
 @end
 
 
@@ -491,6 +494,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(copy, nullable) NSString *captchaResponse;
 
 /**
+ *  The timestamp when the account is created.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(strong, nullable) NSNumber *createdAt;
+
+/**
  *  GCP project number of the requesting delegated app. Currently only intended
  *  for Firebase V1 migration.
  *
@@ -529,6 +539,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Instance id token of the app. */
 @property(copy, nullable) NSString *instanceId;
+
+/**
+ *  Last login timestamp.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(strong, nullable) NSNumber *lastLoginAt;
 
 /** The local ID of the user. */
 @property(copy, nullable) NSString *localId;
@@ -1038,6 +1055,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_UserInfo : GTLRObject
 
 /**
+ *  User creation timestamp.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(strong, nullable) NSNumber *createdAt;
+
+/**
  *  Whether the user is disabled.
  *
  *  Uses NSNumber of boolValue.
@@ -1056,6 +1080,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(strong, nullable) NSNumber *emailVerified;
+
+/**
+ *  last login timestamp.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(strong, nullable) NSNumber *lastLoginAt;
 
 /** The local ID of the user. */
 @property(copy, nullable) NSString *localId;

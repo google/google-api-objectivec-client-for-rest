@@ -4,7 +4,8 @@
 // API:
 //   Fitness (fitness/v1)
 // Description:
-//   Google Fit API
+//   Stores and accesses user data in the fitness store from apps on any
+//   platform.
 // Documentation:
 //   https://developers.google.com/fit/rest/
 
