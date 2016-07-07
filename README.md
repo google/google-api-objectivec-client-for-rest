@@ -12,9 +12,12 @@ This is the recommended library for accessing JSON-based Google APIs for iOS and
 Mac OS X applications.  The library is compatible with applications built for
 iOS 7 and later, and Mac OS X 10.9 and later.
 
-**To get started** with Google APIs and the Objective-C client library, read
-the [wiki](https://github.com/google/google-api-objectivec-client-for-rest/wiki)
-and study the
+**To get started** with Google APIs and the Objective-C client library, Read the
+[wiki](https://github.com/google/google-api-objectivec-client-for-rest/wiki).
+See
+[BuildingTheLibrary](https://github.com/google/google-api-objectivec-client-for-rest/wiki/BuildingTheLibrary)
+for how to add the library to a Mac or iPhone application project, it covers
+directly adding sources or using CocoaPods. Study the
 [example applications](https://github.com/google/google-api-objectivec-client-for-rest/tree/master/Examples).
 
 Generated interfaces for Google APIs are in the
