@@ -687,6 +687,32 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     messageHandler(kSGGeneratorHandlerMessageWarning, warning);
   }
 
+  // https://developers.google.com/discovery/v1/reference/apis#resource (as of
+  // July 8, 2016) documents the labels with:
+  //   Labels for the status of this API. Valid values include
+  //   limited_availability or deprecated.
+  // So the label could just be included in the -generatedInfo block, but it
+  // isn't clear how useful they really are. A lot of apis currently seem to
+  // include "limited_availability"; but their docs don't say anything about
+  // them really being limited. So to avoid general "noise" from useless labels
+  // we filter out the ones that seem useless, and generate warnings for
+  // anything that isn't expected to call it out to the person generating the
+  // api.
+  NSMutableArray *apiLabels = [self.api.labels mutableCopy];
+  [apiLabels removeObject:@"limited_availability"];
+  // "labs" isn't documented, but also seems useless when looking at the docs
+  // for apis with them.
+  [apiLabels removeObject:@"labs"];
+  if (apiLabels.count > 0) {
+    // TODO(tvl): If some api does include "deprecated", it likely makes sense
+    // to drop it from here and instead generally report it and tag the source
+    // in some way (#warning and/or mark it on the objects from the api).
+    NSString *warning =
+        [NSString stringWithFormat:@"Discovery includes unknown label(s): '%@'",
+            [apiLabels componentsJoinedByString:@"', '"]];
+    messageHandler(kSGGeneratorHandlerMessageWarning, warning);
+  }
+
   // Check for class name collisions.
   NSMutableArray *worker = [self.api.sg_topLevelObjectSchemas mutableCopy];
   for (GTLRDiscovery_JsonSchema *schema in self.api.sg_topLevelObjectSchemas) {
