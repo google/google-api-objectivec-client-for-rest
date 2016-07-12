@@ -13,6 +13,29 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRGmail_AutoForwarding.disposition
+NSString * const kGTLRGmail_AutoForwarding_Disposition_Archive = @"archive";
+NSString * const kGTLRGmail_AutoForwarding_Disposition_DispositionUnspecified = @"dispositionUnspecified";
+NSString * const kGTLRGmail_AutoForwarding_Disposition_LeaveInInbox = @"leaveInInbox";
+NSString * const kGTLRGmail_AutoForwarding_Disposition_MarkRead = @"markRead";
+NSString * const kGTLRGmail_AutoForwarding_Disposition_Trash   = @"trash";
+
+// GTLRGmail_FilterCriteria.sizeComparison
+NSString * const kGTLRGmail_FilterCriteria_SizeComparison_Larger = @"larger";
+NSString * const kGTLRGmail_FilterCriteria_SizeComparison_Smaller = @"smaller";
+NSString * const kGTLRGmail_FilterCriteria_SizeComparison_Unspecified = @"unspecified";
+
+// GTLRGmail_ForwardingAddress.verificationStatus
+NSString * const kGTLRGmail_ForwardingAddress_VerificationStatus_Accepted = @"accepted";
+NSString * const kGTLRGmail_ForwardingAddress_VerificationStatus_Pending = @"pending";
+NSString * const kGTLRGmail_ForwardingAddress_VerificationStatus_VerificationStatusUnspecified = @"verificationStatusUnspecified";
+
+// GTLRGmail_ImapSettings.expungeBehavior
+NSString * const kGTLRGmail_ImapSettings_ExpungeBehavior_Archive = @"archive";
+NSString * const kGTLRGmail_ImapSettings_ExpungeBehavior_DeleteForever = @"deleteForever";
+NSString * const kGTLRGmail_ImapSettings_ExpungeBehavior_ExpungeBehaviorUnspecified = @"expungeBehaviorUnspecified";
+NSString * const kGTLRGmail_ImapSettings_ExpungeBehavior_Trash = @"trash";
+
 // GTLRGmail_Label.labelListVisibility
 NSString * const kGTLRGmail_Label_LabelListVisibility_LabelHide = @"labelHide";
 NSString * const kGTLRGmail_Label_LabelListVisibility_LabelShow = @"labelShow";
@@ -26,9 +49,43 @@ NSString * const kGTLRGmail_Label_MessageListVisibility_Show = @"show";
 NSString * const kGTLRGmail_Label_Type_System = @"system";
 NSString * const kGTLRGmail_Label_Type_User   = @"user";
 
+// GTLRGmail_PopSettings.accessWindow
+NSString * const kGTLRGmail_PopSettings_AccessWindow_AccessWindowUnspecified = @"accessWindowUnspecified";
+NSString * const kGTLRGmail_PopSettings_AccessWindow_AllMail   = @"allMail";
+NSString * const kGTLRGmail_PopSettings_AccessWindow_Disabled  = @"disabled";
+NSString * const kGTLRGmail_PopSettings_AccessWindow_FromNowOn = @"fromNowOn";
+
+// GTLRGmail_PopSettings.disposition
+NSString * const kGTLRGmail_PopSettings_Disposition_Archive    = @"archive";
+NSString * const kGTLRGmail_PopSettings_Disposition_DispositionUnspecified = @"dispositionUnspecified";
+NSString * const kGTLRGmail_PopSettings_Disposition_LeaveInInbox = @"leaveInInbox";
+NSString * const kGTLRGmail_PopSettings_Disposition_MarkRead   = @"markRead";
+NSString * const kGTLRGmail_PopSettings_Disposition_Trash      = @"trash";
+
+// GTLRGmail_SendAs.verificationStatus
+NSString * const kGTLRGmail_SendAs_VerificationStatus_Accepted = @"accepted";
+NSString * const kGTLRGmail_SendAs_VerificationStatus_Pending  = @"pending";
+NSString * const kGTLRGmail_SendAs_VerificationStatus_VerificationStatusUnspecified = @"verificationStatusUnspecified";
+
+// GTLRGmail_SmtpMsa.securityMode
+NSString * const kGTLRGmail_SmtpMsa_SecurityMode_None          = @"none";
+NSString * const kGTLRGmail_SmtpMsa_SecurityMode_SecurityModeUnspecified = @"securityModeUnspecified";
+NSString * const kGTLRGmail_SmtpMsa_SecurityMode_Ssl           = @"ssl";
+NSString * const kGTLRGmail_SmtpMsa_SecurityMode_Starttls      = @"starttls";
+
 // GTLRGmail_WatchRequest.labelFilterAction
 NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Exclude = @"exclude";
 NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_AutoForwarding
+//
+
+@implementation GTLRGmail_AutoForwarding
+@dynamic disposition, emailAddress, enabled;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -60,6 +117,61 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_Filter
+//
+
+@implementation GTLRGmail_Filter
+@dynamic action, criteria, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_FilterAction
+//
+
+@implementation GTLRGmail_FilterAction
+@dynamic addLabelIds, forward, removeLabelIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addLabelIds" : [NSString class],
+    @"removeLabelIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_FilterCriteria
+//
+
+@implementation GTLRGmail_FilterCriteria
+@dynamic excludeChats, from, hasAttachment, negatedQuery, query, size,
+         sizeComparison, subject, to;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_ForwardingAddress
+//
+
+@implementation GTLRGmail_ForwardingAddress
+@dynamic forwardingEmail, verificationStatus;
 @end
 
 
@@ -148,6 +260,16 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGmail_ImapSettings
+//
+
+@implementation GTLRGmail_ImapSettings
+@dynamic autoExpunge, enabled, expungeBehavior, maxFolderSize;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGmail_Label
 //
 
@@ -179,6 +301,42 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
 
 + (NSString *)collectionItemsKey {
   return @"drafts";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_ListFiltersResponse
+//
+
+@implementation GTLRGmail_ListFiltersResponse
+@dynamic filter;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"filter" : [GTLRGmail_Filter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_ListForwardingAddressesResponse
+//
+
+@implementation GTLRGmail_ListForwardingAddressesResponse
+@dynamic forwardingAddresses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"forwardingAddresses" : [GTLRGmail_ForwardingAddress class]
+  };
+  return map;
 }
 
 @end
@@ -241,6 +399,24 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
 
 + (NSString *)collectionItemsKey {
   return @"messages";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_ListSendAsResponse
+//
+
+@implementation GTLRGmail_ListSendAsResponse
+@dynamic sendAs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sendAs" : [GTLRGmail_SendAs class]
+  };
+  return map;
 }
 
 @end
@@ -370,11 +546,42 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGmail_PopSettings
+//
+
+@implementation GTLRGmail_PopSettings
+@dynamic accessWindow, disposition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGmail_Profile
 //
 
 @implementation GTLRGmail_Profile
 @dynamic emailAddress, historyId, messagesTotal, threadsTotal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_SendAs
+//
+
+@implementation GTLRGmail_SendAs
+@dynamic displayName, isDefault, isPrimary, replyToAddress, sendAsEmail,
+         signature, smtpMsa, treatAsAlias, verificationStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_SmtpMsa
+//
+
+@implementation GTLRGmail_SmtpMsa
+@dynamic host, password, port, securityMode, username;
 @end
 
 
@@ -397,6 +604,17 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_VacationSettings
+//
+
+@implementation GTLRGmail_VacationSettings
+@dynamic enableAutoReply, endTime, responseBodyHtml, responseBodyPlainText,
+         responseSubject, restrictToContacts, restrictToDomain, startTime;
 @end
 
 

@@ -74,11 +74,13 @@ static ArgInfo optionalFlags[] = {
     " provide additional header pairs."
   },
   {
-    "--formattedName SERVICE[:VERSION]=NAME",
-    "Causes the given SERVICE:VERSION pair to override its service name in"
-    " files, classes, etc. with NAME.  If :VERSION is omitted"
-    " the override is for any version of the service.  Can be used repeatedly"
-    " to provide several maps when generating a few things in a single run."
+    "--formattedName [SERVICE[:VERSION]=]NAME",
+    "Allows for overriding of service name in files, classes, etc. with NAME."
+    " When only generating one service, the argument can just be NAME.  If"
+    " generating more that one, SERVICE[:VERSION]= are used to say what service"
+    " (and potentially specific version) a given override applies too.  Can be"
+    " used repeatedly to provide several overrides when generating a multiple"
+    " services in a single run."
   },
   { "--addServiceNameDir yes|no  Default: no",
     "Causes the generator to add a directory with the service name"
@@ -157,6 +159,8 @@ static const char *kWARNING          = kWARNING_Plain;
 static const char *kINFO             = kINFO_Plain;
 static const char *kEmBegin          = "";
 static const char *kEmEnd            = "";
+
+static NSString *kGlobalFormattedNameKey = @"__*__";
 
 typedef enum {
   SGMain_ParseArgs,
@@ -656,6 +660,33 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
   return YES;
 }
 
+- (BOOL)parseFormattedNameArg:(NSString *)arg {
+  NSRange range = [arg rangeOfString:@"="];
+  if (range.location == NSNotFound) {
+    // No service qualifier, this is a global.
+    if (self.formattedNames.count > 0) {
+      [self reportError:@"Using --formattedName more than once, all uses must have SERVICE= qualifier: %@",
+       arg];
+      return NO;
+    }
+    [self.formattedNames setObject:arg
+                            forKey:kGlobalFormattedNameKey];
+    return YES;
+  } else {
+    NSString *existingGlobalName =
+        [self.formattedNames objectForKey:kGlobalFormattedNameKey];
+    if ((existingGlobalName != nil)) {
+      [self reportError:@"Using --formattedName more than once, all uses must have SERVICE= qualifier: %@",
+       existingGlobalName];
+      return NO;
+    }
+    NSString *key = [arg substringToIndex:range.location];
+    NSString *value = [arg substringFromIndex:range.location + 1];
+    [self.formattedNames setObject:value forKey:key];
+    return YES;
+  }
+}
+
 - (void)stateParseArgs {
   int generatePreferred = 0;
   int auditJSON = 0;
@@ -708,18 +739,11 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
       case 'v':
         self.verboseLevel += 1;
         break;
-      case 't': {
-        NSString *asString = @(optarg);
-        NSRange range = [asString rangeOfString:@"="];
-        if (range.location == NSNotFound) {
-          [self reportError:@"Invalid formattedName argument: %s.", optarg];
+      case 't':
+        if (![self parseFormattedNameArg:@(optarg)]) {
           [self printUsage:stderr brief:NO];
           return;
         }
-        NSString *key = [asString substringToIndex:range.location];
-        NSString *value = [asString substringFromIndex:range.location + 1];
-        [self.formattedNames setObject:value forKey:key];
-      }
         break;
       case 'w': {
         NSString *asString = @(optarg);
@@ -768,6 +792,21 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     // No error, they asked for usage.
     self.status = 0;
     return;
+  }
+
+  if ([self.formattedNames objectForKey:kGlobalFormattedNameKey]) {
+    if (self.generatePreferred) {
+      [self reportError:
+       @"Can't use --formattedName with --generatePreferred, unless the --formattedName argument includes a service qualifier."];
+      [self printUsage:stderr brief:NO];
+      return;
+    }
+    if (self.argc > 1) {
+      [self reportError:
+       @"When generating more than one service, you can't use --formattedName without the argument including a service qualifier."];
+      [self printUsage:stderr brief:NO];
+      return;
+    }
   }
 
   BOOL missingRequiredArg = NO;
@@ -1215,6 +1254,10 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         if (formattedNameOverride == nil) {
           formattedNameOverride = [self.formattedNames objectForKey:api.name];
         }
+        if (formattedNameOverride == nil) {
+          formattedNameOverride =
+              [self.formattedNames objectForKey:kGlobalFormattedNameKey];
+        }
         if (formattedNameOverride.length > 0) {
           [self reportPrefixed:@" "
                           info:@"With name override: %@", formattedNameOverride];
@@ -1399,7 +1442,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         // Only report on directories there, not files.
         if ([fm fileExistsAtPath:fullPath isDirectory:&isDir] && isDir) {
           [self reportPrefixed:@" "
-                          info:@"'%@' was in the output dir, and wasn't needed during generation.", fileName];
+                       warning:@"'%@' was in the output dir, and wasn't needed during generation.", fileName];
         }
       }
     }

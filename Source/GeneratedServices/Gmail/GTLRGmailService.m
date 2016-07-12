@@ -13,13 +13,15 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeGmailCompose       = @"https://www.googleapis.com/auth/gmail.compose";
-NSString * const kGTLRAuthScopeGmailInsert        = @"https://www.googleapis.com/auth/gmail.insert";
-NSString * const kGTLRAuthScopeGmailLabels        = @"https://www.googleapis.com/auth/gmail.labels";
-NSString * const kGTLRAuthScopeGmailMailGoogleCom = @"https://mail.google.com/";
-NSString * const kGTLRAuthScopeGmailModify        = @"https://www.googleapis.com/auth/gmail.modify";
-NSString * const kGTLRAuthScopeGmailReadonly      = @"https://www.googleapis.com/auth/gmail.readonly";
-NSString * const kGTLRAuthScopeGmailSend          = @"https://www.googleapis.com/auth/gmail.send";
+NSString * const kGTLRAuthScopeGmailCompose         = @"https://www.googleapis.com/auth/gmail.compose";
+NSString * const kGTLRAuthScopeGmailInsert          = @"https://www.googleapis.com/auth/gmail.insert";
+NSString * const kGTLRAuthScopeGmailLabels          = @"https://www.googleapis.com/auth/gmail.labels";
+NSString * const kGTLRAuthScopeGmailMailGoogleCom   = @"https://mail.google.com/";
+NSString * const kGTLRAuthScopeGmailModify          = @"https://www.googleapis.com/auth/gmail.modify";
+NSString * const kGTLRAuthScopeGmailReadonly        = @"https://www.googleapis.com/auth/gmail.readonly";
+NSString * const kGTLRAuthScopeGmailSend            = @"https://www.googleapis.com/auth/gmail.send";
+NSString * const kGTLRAuthScopeGmailSettingsBasic   = @"https://www.googleapis.com/auth/gmail.settings.basic";
+NSString * const kGTLRAuthScopeGmailSettingsSharing = @"https://www.googleapis.com/auth/gmail.settings.sharing";
 
 // ----------------------------------------------------------------------------
 //   GTLRGmailService

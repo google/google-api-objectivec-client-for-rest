@@ -4,7 +4,7 @@
 // API:
 //   Translate API (translate/v2)
 // Description:
-//   Lets you translate text from one language to another
+//   Translates text from one language to another.
 // Documentation:
 //   https://developers.google.com/translate/v2/using_rest
 
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Service for executing Translate API queries.
  *
- *  Lets you translate text from one language to another
+ *  Translates text from one language to another.
  */
 @interface GTLRTranslateService : GTLRService
 

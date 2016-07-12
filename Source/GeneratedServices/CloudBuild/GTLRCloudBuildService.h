@@ -2,12 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Compute Engine Autoscaler API (autoscaler/v1beta2)
+//   Google Cloud Container Builder API (cloudbuild/v1)
 // Description:
-//   The Google Compute Engine Autoscaler API provides autoscaling for groups of
-//   Cloud VMs.
+//   Builds container images in the cloud.
 // Documentation:
-//   http://developers.google.com/compute/docs/autoscaler
+//   https://cloud.google.com/container-builder/docs/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -22,37 +21,31 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 /**
- *  Authorization scope: View and manage your Google Compute Engine resources
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
- *  Value "https://www.googleapis.com/auth/compute"
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAutoscalerCompute;
-/**
- *  Authorization scope: View your Google Compute Engine resources
- *
- *  Value "https://www.googleapis.com/auth/compute.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAutoscalerComputeReadonly;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudBuildCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRAutoscalerService
+//   GTLRCloudBuildService
 //
 
 /**
- *  Service for executing Google Compute Engine Autoscaler API queries.
+ *  Service for executing Google Cloud Container Builder API queries.
  *
- *  The Google Compute Engine Autoscaler API provides autoscaling for groups of
- *  Cloud VMs.
+ *  Builds container images in the cloud.
  */
-@interface GTLRAutoscalerService : GTLRService
+@interface GTLRCloudBuildService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRAutoscalerQuery.h. The query can the be sent with GTLRService's execute
+// GTLRCloudBuildQuery.h. The query can the be sent with GTLRService's execute
 // methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

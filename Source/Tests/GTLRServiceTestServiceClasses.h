@@ -87,6 +87,7 @@
 @property(nonatomic, copy) NSString *pageToken;
 @property(nonatomic, copy) NSString *q;
 @property(nonatomic, copy) NSString *spaces;
+@property(nonatomic, strong) NSArray<NSString *> *extras;
 
 @property(nonatomic, strong) GTLRDateTime *timeParamForTesting;
 

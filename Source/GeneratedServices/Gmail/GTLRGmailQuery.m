@@ -117,7 +117,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 @implementation GTLRGmailQuery_UsersDraftsList
 
-@dynamic includeSpamTrash, maxResults, pageToken, userId;
+@dynamic includeSpamTrash, maxResults, pageToken, q, userId;
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
@@ -699,6 +699,537 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   query.identifier = identifier;
   query.expectedObjectClass = [GTLRGmail_Message class];
   query.loggingName = @"gmail.users.messages.untrash";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsFiltersCreate
+
+@dynamic userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_Filter *)object
+                         userId:(NSString *)userId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/filters";
+  GTLRGmailQuery_UsersSettingsFiltersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_Filter class];
+  query.loggingName = @"gmail.users.settings.filters.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsFiltersDelete
+
+@dynamic identifier, userId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                     identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"id", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/filters/{id}";
+  GTLRGmailQuery_UsersSettingsFiltersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.identifier = identifier;
+  query.loggingName = @"gmail.users.settings.filters.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsFiltersGet
+
+@dynamic identifier, userId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                     identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"id", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/filters/{id}";
+  GTLRGmailQuery_UsersSettingsFiltersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRGmail_Filter class];
+  query.loggingName = @"gmail.users.settings.filters.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsFiltersList
+
+@dynamic userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId {
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/filters";
+  GTLRGmailQuery_UsersSettingsFiltersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_ListFiltersResponse class];
+  query.loggingName = @"gmail.users.settings.filters.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsForwardingAddressesCreate
+
+@dynamic userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_ForwardingAddress *)object
+                         userId:(NSString *)userId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/forwardingAddresses";
+  GTLRGmailQuery_UsersSettingsForwardingAddressesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_ForwardingAddress class];
+  query.loggingName = @"gmail.users.settings.forwardingAddresses.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsForwardingAddressesDelete
+
+@dynamic forwardingEmail, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                forwardingEmail:(NSString *)forwardingEmail {
+  NSArray *pathParams = @[
+    @"forwardingEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/forwardingAddresses/{forwardingEmail}";
+  GTLRGmailQuery_UsersSettingsForwardingAddressesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.forwardingEmail = forwardingEmail;
+  query.loggingName = @"gmail.users.settings.forwardingAddresses.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsForwardingAddressesGet
+
+@dynamic forwardingEmail, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                forwardingEmail:(NSString *)forwardingEmail {
+  NSArray *pathParams = @[
+    @"forwardingEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/forwardingAddresses/{forwardingEmail}";
+  GTLRGmailQuery_UsersSettingsForwardingAddressesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.forwardingEmail = forwardingEmail;
+  query.expectedObjectClass = [GTLRGmail_ForwardingAddress class];
+  query.loggingName = @"gmail.users.settings.forwardingAddresses.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsForwardingAddressesList
+
+@dynamic userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId {
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/forwardingAddresses";
+  GTLRGmailQuery_UsersSettingsForwardingAddressesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_ListForwardingAddressesResponse class];
+  query.loggingName = @"gmail.users.settings.forwardingAddresses.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsGetAutoForwarding
+
+@dynamic userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId {
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/autoForwarding";
+  GTLRGmailQuery_UsersSettingsGetAutoForwarding *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_AutoForwarding class];
+  query.loggingName = @"gmail.users.settings.getAutoForwarding";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsGetImap
+
+@dynamic userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId {
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/imap";
+  GTLRGmailQuery_UsersSettingsGetImap *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_ImapSettings class];
+  query.loggingName = @"gmail.users.settings.getImap";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsGetPop
+
+@dynamic userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId {
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/pop";
+  GTLRGmailQuery_UsersSettingsGetPop *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_PopSettings class];
+  query.loggingName = @"gmail.users.settings.getPop";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsGetVacation
+
+@dynamic userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId {
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/vacation";
+  GTLRGmailQuery_UsersSettingsGetVacation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_VacationSettings class];
+  query.loggingName = @"gmail.users.settings.getVacation";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsSendAsCreate
+
+@dynamic userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_SendAs *)object
+                         userId:(NSString *)userId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/sendAs";
+  GTLRGmailQuery_UsersSettingsSendAsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_SendAs class];
+  query.loggingName = @"gmail.users.settings.sendAs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsSendAsDelete
+
+@dynamic sendAsEmail, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail {
+  NSArray *pathParams = @[
+    @"sendAsEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}";
+  GTLRGmailQuery_UsersSettingsSendAsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.sendAsEmail = sendAsEmail;
+  query.loggingName = @"gmail.users.settings.sendAs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsSendAsGet
+
+@dynamic sendAsEmail, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail {
+  NSArray *pathParams = @[
+    @"sendAsEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}";
+  GTLRGmailQuery_UsersSettingsSendAsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.sendAsEmail = sendAsEmail;
+  query.expectedObjectClass = [GTLRGmail_SendAs class];
+  query.loggingName = @"gmail.users.settings.sendAs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsSendAsList
+
+@dynamic userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId {
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/sendAs";
+  GTLRGmailQuery_UsersSettingsSendAsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_ListSendAsResponse class];
+  query.loggingName = @"gmail.users.settings.sendAs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsSendAsPatch
+
+@dynamic sendAsEmail, userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_SendAs *)object
+                         userId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"sendAsEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}";
+  GTLRGmailQuery_UsersSettingsSendAsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.sendAsEmail = sendAsEmail;
+  query.expectedObjectClass = [GTLRGmail_SendAs class];
+  query.loggingName = @"gmail.users.settings.sendAs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsSendAsUpdate
+
+@dynamic sendAsEmail, userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_SendAs *)object
+                         userId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"sendAsEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}";
+  GTLRGmailQuery_UsersSettingsSendAsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.sendAsEmail = sendAsEmail;
+  query.expectedObjectClass = [GTLRGmail_SendAs class];
+  query.loggingName = @"gmail.users.settings.sendAs.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsSendAsVerify
+
+@dynamic sendAsEmail, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail {
+  NSArray *pathParams = @[
+    @"sendAsEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}/verify";
+  GTLRGmailQuery_UsersSettingsSendAsVerify *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.sendAsEmail = sendAsEmail;
+  query.loggingName = @"gmail.users.settings.sendAs.verify";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsUpdateAutoForwarding
+
+@dynamic userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_AutoForwarding *)object
+                         userId:(NSString *)userId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/autoForwarding";
+  GTLRGmailQuery_UsersSettingsUpdateAutoForwarding *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_AutoForwarding class];
+  query.loggingName = @"gmail.users.settings.updateAutoForwarding";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsUpdateImap
+
+@dynamic userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_ImapSettings *)object
+                         userId:(NSString *)userId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/imap";
+  GTLRGmailQuery_UsersSettingsUpdateImap *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_ImapSettings class];
+  query.loggingName = @"gmail.users.settings.updateImap";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsUpdatePop
+
+@dynamic userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_PopSettings *)object
+                         userId:(NSString *)userId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/pop";
+  GTLRGmailQuery_UsersSettingsUpdatePop *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_PopSettings class];
+  query.loggingName = @"gmail.users.settings.updatePop";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsUpdateVacation
+
+@dynamic userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_VacationSettings *)object
+                         userId:(NSString *)userId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/vacation";
+  GTLRGmailQuery_UsersSettingsUpdateVacation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_VacationSettings class];
+  query.loggingName = @"gmail.users.settings.updateVacation";
   return query;
 }
 

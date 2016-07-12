@@ -51,6 +51,8 @@ static NSString *const kDeveloperAPIQueryParamKey = @"key";
 
 static const NSUInteger kMaxNumberOfNextPagesFetched = 25;
 
+static const NSUInteger kMaxGETURLLength = 2048;
+
 // we'll enforce 50K chunks minimum just to avoid the server getting hit
 // with too many small upload chunks
 static const NSUInteger kMinimumUploadChunkSize = 50000;
@@ -485,7 +487,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   // and we want consistent behavior.  Service properties should be copied to the ticket.
 
   GTLR_DEBUG_ASSERT(executingQuery != nil,
-                    @"no query? service additionalURLQueryParameters need to be added to targetURL");
+                    @"no query? service additionalURLQueryParameters needs to be added to targetURL");
 
   GTLR_DEBUG_ASSERT(targetURL != nil, @"no url?");
   if (targetURL == nil) return nil;
@@ -565,7 +567,6 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                                          httpMethod:httpMethod
                                   additionalHeaders:additionalHeaders
                                              ticket:ticket];
-  ticket.fetchRequest = request;
   ticket.postedObject = bodyObject;
   ticket.executingQuery = executingQuery;
 
@@ -574,6 +575,39 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     originalQuery = (GTLRQuery *)executingQuery;
     ticket.originalQuery = originalQuery;
   }
+
+  // Some proxy servers (and some web servers) have issues with GET URLs being
+  // too long, trap that and move the query parameters into the body. The
+  // uploadParams and dataToPost should be nil for a GET, but playing it safe
+  // and confirming.
+  NSString *requestHTTPMethod = request.HTTPMethod;
+  BOOL isDoingHTTPGet =
+      (requestHTTPMethod == nil
+       || [requestHTTPMethod caseInsensitiveCompare:@"GET"] == NSOrderedSame);
+  if (isDoingHTTPGet &&
+      (request.URL.absoluteString.length >= kMaxGETURLLength) &&
+      (uploadParams == nil) &&
+      (dataToPost == nil)) {
+    NSString *urlString = request.URL.absoluteString;
+    NSRange range = [urlString rangeOfString:@"?"];
+    if (range.location != NSNotFound) {
+      NSURL *trimmedURL = [NSURL URLWithString:[urlString substringToIndex:range.location]];
+      NSString *urlArgsString = [urlString substringFromIndex:(range.location + 1)];
+      if (trimmedURL && (urlArgsString.length > 0)) {
+        dataToPost = [urlArgsString dataUsingEncoding:NSUTF8StringEncoding];
+        NSMutableURLRequest *mutableRequest = [request mutableCopy];
+        mutableRequest.URL = trimmedURL;
+        mutableRequest.HTTPMethod = @"POST";
+        [mutableRequest setValue:@"GET" forHTTPHeaderField:@"X-HTTP-Method-Override"];
+        [mutableRequest setValue:@"application/x-www-form-urlencoded"
+              forHTTPHeaderField:@"Content-Type"];
+        [mutableRequest setValue:@(dataToPost.length).stringValue
+              forHTTPHeaderField:@"Content-Length"];
+        request = mutableRequest;
+      }
+    }
+  }
+  ticket.fetchRequest = request;
 
   GTLRServiceTestBlock testBlock = ticket.testBlock;
   if (testBlock) {

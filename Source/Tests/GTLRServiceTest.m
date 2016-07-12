@@ -182,6 +182,61 @@ static NSString *QueryValueForURLItem(NSURL *url, NSString *itemName) {
   return nil;
 }
 
+// This matches GTLRURITemplate's version.
+static NSString *EscapeString(NSString *str, BOOL allowReserved) {
+  NSMutableCharacterSet *cs = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
+  NSString * const kReservedChars = @":/?#[]@!$&'()*+,;=";
+  if (allowReserved) {
+    [cs addCharactersInString:kReservedChars];
+  } else {
+    [cs removeCharactersInString:kReservedChars];
+  }
+  NSString *resultStr = [str stringByAddingPercentEncodingWithAllowedCharacters:cs];
+  return resultStr;
+}
+
+
+static BOOL WWWFormDataHasValue(NSData *wwwFormData,
+                                NSString *itemName, NSString *itemValue) {
+  NSString *escapedItemValue = EscapeString(itemValue, NO);
+  NSRange fullRange = NSMakeRange(0, wwwFormData.length);
+  NSString *needle = [NSString stringWithFormat:@"&%@=%@&", itemName, escapedItemValue];
+  NSData *needleData = [needle dataUsingEncoding:NSUTF8StringEncoding];
+  NSRange range = [wwwFormData rangeOfData:needleData
+                                   options:0
+                                     range:fullRange];
+  if (range.location != NSNotFound) {
+    return YES;
+  }
+
+  // It could be the first or last, so check those cases.
+  needle = [NSString stringWithFormat:@"%@=%@&", itemName, escapedItemValue];
+  needleData = [needle dataUsingEncoding:NSUTF8StringEncoding];
+  range = [wwwFormData rangeOfData:needleData
+                           options:NSDataSearchAnchored
+                             range:fullRange];
+  if (range.location == 0) {
+    return YES;
+  }
+  needle = [NSString stringWithFormat:@"&%@=%@", itemName, escapedItemValue];
+  needleData = [needle dataUsingEncoding:NSUTF8StringEncoding];
+  range = [wwwFormData rangeOfData:needleData
+                           options:(NSDataSearchAnchored | NSDataSearchBackwards)
+                             range:fullRange];
+  if (range.location != NSNotFound) {
+    return YES;
+  }
+
+  // Last case, the data was just the one pair.
+  needle = [NSString stringWithFormat:@"%@=%@", itemName, escapedItemValue];
+  needleData = [needle dataUsingEncoding:NSUTF8StringEncoding];
+  if ([wwwFormData isEqual:needleData]) {
+    return YES;
+  }
+
+  return NO;
+}
+
 static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   const char *targetQueueLabel = dispatch_queue_get_label(targetQueue);
   const char *currentQueueLabel = dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL);
@@ -359,6 +414,148 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTAssertEqualObjects([fetcherRequest valueForHTTPHeaderField:@"X-Feline"], @"Fluffy");
   // URL query parameters.
   XCTAssertEqualObjects(QueryValueForURLItem(fetcherRequest.URL, @"meowParam"), @"Meow");
+
+  // The fetcher releases its authorizer upon completion, so to test the request,
+  // we'll use the service's authorizer.
+  id<GTMFetcherAuthorizationProtocol> authorizer = service.authorizer;
+  XCTAssertNotNil(authorizer);
+  XCTAssert([authorizer isAuthorizedRequest:fetcherRequest],
+            @"%@", fetcherRequest.allHTTPHeaderFields);
+
+  // Ensure all expectations were satisfied.
+  [self waitForExpectationsWithTimeout:10 handler:nil];
+
+  // The fetcher and GTLRService both start and end background tasks, so we expect 2 invocations of
+  // beginBackgroundTask and endBackgroundTask.
+
+  [self verifyCountingUIAppWithExpectedCount:2
+                         expectedExpirations:0];
+}
+
+- (void)testService_SingleQuery_LongURLToFormPost {
+  // Successful request with valid authorization but with URL query arguments
+  // forcing it into a www forms post.
+  //
+  // Response is file Drive1.response.txt
+  GTLRService *service = [self driveServiceForTest];
+  service.fetcherService.testBlock =
+      [self fetcherTestBlockWithResponseForFileName:@"Drive1.response.txt" status:200];
+
+  service.serviceProperties = @{ @"Marsupial" : @"Koala", @"Dolphin" : @"Spinner" };
+
+  [self expectTicketAndParsingNotifications];
+
+  [self setCountingUIAppWithExpirations:NO];
+
+  NSString *timeParam = @"2011-05-04T23:28:20.888Z";
+
+  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  query.fields = @"kind,nextPageToken,files(mimeType,id,kind,name,webViewLink,thumbnailLink,trashed)";
+  query.pageSize = 10;
+  query.requestID = @"gtlr_1234";
+  query.timeParamForTesting = [GTLRDateTime dateTimeWithRFC3339String:timeParam];
+
+  // Add a bunch of entries to ensure we go over the URL size limit.
+  NSMutableArray<NSString *> *extras = [NSMutableArray array];
+  for (NSUInteger x = 0 ; x < 1024; ++x) {
+    [extras addObject:[@(x) description]];
+  }
+  query.extras = extras;
+
+  query.additionalHTTPHeaders = @{ @"X-Feline": @"Fluffy",
+                                   @"X-Canine": @"Spot" };
+
+  query.additionalURLQueryParameters = @{ @"meowParam": @"Meow" };
+
+  query.executionParameters.retryBlock = ^(GTLRServiceTicket *ticket, BOOL suggestedWillRetry,
+                                           NSError *error) {
+    XCTFail(@"No retry expected.");
+    return NO;
+  };
+  XCTestExpectation *uploadedSomeBytes = [self expectationWithDescription:@"uploadedSomeBytes"];
+  query.executionParameters.uploadProgressBlock = ^(GTLRServiceTicket *ticket,
+                                                    unsigned long long numberOfBytesRead,
+                                                    unsigned long long dataLength) {
+    // The arg will go in the body, so uploadProgressBlock will see them.
+    if (numberOfBytesRead == dataLength) {
+      [uploadedSomeBytes fulfill];
+    }
+    XCTAssert([NSThread isMainThread]);
+  };
+  query.executionParameters.ticketProperties = @{ @"Bird" : @"Kookaburra", @"Dolphin" : @"Tucuxi" };
+
+  XCTestExpectation *queryFinished = [self expectationWithDescription:@"queryFinished"];
+
+  __block GTLRServiceTicket *queryTicket =
+      [service executeQuery:query
+          completionHandler:^(GTLRServiceTicket *callbackTicket,
+                              Test_GTLRDrive_FileList *object, NSError *error) {
+            // Verify the top-level object and one of its items.
+            XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+            XCTAssertNil(error);
+
+            XCTAssertEqualObjects(object.kind, @"drive#fileList");
+            XCTAssertEqual(object.files.count, 2U, @"%@", object.files);
+
+            Test_GTLRDrive_File *item0 = object.files[0];
+
+            XCTAssertEqualObjects([item0 class], [Test_GTLRDrive_File class]);
+            XCTAssertEqualObjects(item0.kind, @"drive#file");
+
+            XCTAssertEqualObjects(object.timeFieldForTesting.RFC3339String,
+                                  @"2011-01-02T03:04:05.067Z");
+
+            XCTAssertEqualObjects(callbackTicket, queryTicket);
+
+            // The ticket's query should be a copy of the original; query execution leaves
+            // the original unmolested so the client can modify and reuse it.
+            GTLRQuery *ticketQuery = callbackTicket.executingQuery;
+            XCTAssertNotEqual(ticketQuery, query);
+            XCTAssertEqualObjects(ticketQuery.requestID, query.requestID);
+
+            // Service properties should be copied to the ticket.
+            XCTAssertEqualObjects(callbackTicket.ticketProperties[@"Marsupial"], @"Koala");
+            XCTAssertEqualObjects(callbackTicket.ticketProperties[@"Bird"], @"Kookaburra");
+            XCTAssertEqualObjects(callbackTicket.ticketProperties[@"Dolphin"], @"Tucuxi");
+
+            XCTAssert([NSThread isMainThread]);
+
+            [queryFinished fulfill];
+          }];
+
+  XCTAssertFalse(queryTicket.hasCalledCallback);
+
+  XCTAssert([self service:service waitForTicket:queryTicket]);
+  XCTAssert(queryTicket.hasCalledCallback);
+
+  NSURLRequest *fetcherRequest = queryTicket.objectFetcher.request;
+
+  // Should be a POST with the X-HTTP-Method-Override header and correct
+  // Content-Type.
+  XCTAssertEqualObjects(fetcherRequest.HTTPMethod, @"POST");
+  XCTAssertEqualObjects([fetcherRequest valueForHTTPHeaderField:@"X-HTTP-Method-Override"],
+                        @"GET");
+  XCTAssertEqualObjects([fetcherRequest valueForHTTPHeaderField:@"Content-Type"],
+                        @"application/x-www-form-urlencoded");
+
+  // GTLRQuery query parameters.
+  XCTAssertNil(fetcherRequest.URL.query); // Should be in the body instead.
+  NSData *dataPosted = queryTicket.objectFetcher.bodyData;
+  XCTAssertNotNil(dataPosted);
+  XCTAssertTrue(WWWFormDataHasValue(dataPosted, @"fields", query.fields));
+  XCTAssertTrue(WWWFormDataHasValue(dataPosted, @"pageSize", @"10"));
+  XCTAssertTrue(WWWFormDataHasValue(dataPosted, @"prettyPrint", @"false"));
+  XCTAssertTrue(WWWFormDataHasValue(dataPosted, @"timeParamForTesting", timeParam));
+
+  // Test things added to the request:
+  // Authorization header, additionalHTTPHeaders, and additionalURLQueryParameters
+  //
+  // Headers.
+  XCTAssertEqualObjects([fetcherRequest valueForHTTPHeaderField:@"Authorization"],
+                        @"Bearer catpaws");
+  XCTAssertEqualObjects([fetcherRequest valueForHTTPHeaderField:@"X-Feline"], @"Fluffy");
+  // URL query parameters.
+  XCTAssertTrue(WWWFormDataHasValue(dataPosted, @"meowParam", @"Meow"));
 
   // The fetcher releases its authorizer upon completion, so to test the request,
   // we'll use the service's authorizer.

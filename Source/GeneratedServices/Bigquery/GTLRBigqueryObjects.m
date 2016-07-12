@@ -365,8 +365,8 @@
 
 @implementation GTLRBigquery_JobConfigurationQuery
 @dynamic allowLargeResults, createDisposition, defaultDataset, destinationTable,
-         flattenResults, maximumBillingTier, preserveNulls, priority, query,
-         tableDefinitions, useLegacySql, useQueryCache,
+         flattenResults, maximumBillingTier, maximumBytesBilled, preserveNulls,
+         priority, query, tableDefinitions, useLegacySql, useQueryCache,
          userDefinedFunctionResources, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

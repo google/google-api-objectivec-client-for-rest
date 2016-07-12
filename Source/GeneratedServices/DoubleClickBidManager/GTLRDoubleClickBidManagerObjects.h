@@ -194,10 +194,16 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTr
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAge;
 /** Value: "FILTER_TRUEVIEW_CATEGORY" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCategory;
+/** Value: "FILTER_TRUEVIEW_CITY" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCity;
 /** Value: "FILTER_TRUEVIEW_CONVERSION_TYPE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewConversionType;
+/** Value: "FILTER_TRUEVIEW_COUNTRY" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCountry;
 /** Value: "FILTER_TRUEVIEW_CUSTOM_AFFINITY" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCustomAffinity;
+/** Value: "FILTER_TRUEVIEW_DMA" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewDma;
 /** Value: "FILTER_TRUEVIEW_GENDER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewGender;
 /** Value: "FILTER_TRUEVIEW_IAR_AGE" */
@@ -232,8 +238,14 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTr
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewParentalStatus;
 /** Value: "FILTER_TRUEVIEW_PLACEMENT" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewPlacement;
+/** Value: "FILTER_TRUEVIEW_REGION" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewRegion;
 /** Value: "FILTER_TRUEVIEW_REMARKETING_LIST" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewRemarketingList;
+/** Value: "FILTER_TRUEVIEW_URL" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewUrl;
+/** Value: "FILTER_TRUEVIEW_ZIPCODE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewZipcode;
 /** Value: "FILTER_UNKNOWN" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterUnknown;
 /** Value: "FILTER_USER_LIST" */
@@ -408,10 +420,16 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAge;
 /** Value: "FILTER_TRUEVIEW_CATEGORY" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewCategory;
+/** Value: "FILTER_TRUEVIEW_CITY" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewCity;
 /** Value: "FILTER_TRUEVIEW_CONVERSION_TYPE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewConversionType;
+/** Value: "FILTER_TRUEVIEW_COUNTRY" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewCountry;
 /** Value: "FILTER_TRUEVIEW_CUSTOM_AFFINITY" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewCustomAffinity;
+/** Value: "FILTER_TRUEVIEW_DMA" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewDma;
 /** Value: "FILTER_TRUEVIEW_GENDER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewGender;
 /** Value: "FILTER_TRUEVIEW_IAR_AGE" */
@@ -446,8 +464,14 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewParentalStatus;
 /** Value: "FILTER_TRUEVIEW_PLACEMENT" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewPlacement;
+/** Value: "FILTER_TRUEVIEW_REGION" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewRegion;
 /** Value: "FILTER_TRUEVIEW_REMARKETING_LIST" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewRemarketingList;
+/** Value: "FILTER_TRUEVIEW_URL" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewUrl;
+/** Value: "FILTER_TRUEVIEW_ZIPCODE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewZipcode;
 /** Value: "FILTER_UNKNOWN" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterUnknown;
 /** Value: "FILTER_USER_LIST" */
@@ -828,6 +852,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_Metri
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricProfitViewableEcpmPartner;
 /** Value: "METRIC_PROFIT_VIEWABLE_ECPM_USD" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricProfitViewableEcpmUsd;
+/** Value: "METRIC_REACH_COOKIE_REACH" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricReachCookieReach;
 /** Value: "METRIC_REVENUE_ADVERTISER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueAdvertiser;
 /** Value: "METRIC_REVENUE_ECPA_ADVERTISER" */
@@ -950,6 +976,12 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_Metri
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaCostViewableEcpmPartner;
 /** Value: "METRIC_TOTAL_MEDIA_COST_VIEWABLE_ECPM_USD" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaCostViewableEcpmUsd;
+/** Value: "METRIC_TRUEVIEW_AVERAGE_CPE_ADVERTISER" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewAverageCpeAdvertiser;
+/** Value: "METRIC_TRUEVIEW_AVERAGE_CPE_PARTNER" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewAverageCpePartner;
+/** Value: "METRIC_TRUEVIEW_AVERAGE_CPE_USD" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewAverageCpeUsd;
 /** Value: "METRIC_TRUEVIEW_CONVERSION_COST_MANY_PER_VIEW_ADVERTISER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewConversionCostManyPerViewAdvertiser;
 /** Value: "METRIC_TRUEVIEW_CONVERSION_COST_MANY_PER_VIEW_PARTNER" */
@@ -1000,6 +1032,10 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_Metri
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewEarnedSubscribers;
 /** Value: "METRIC_TRUEVIEW_EARNED_VIEWS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewEarnedViews;
+/** Value: "METRIC_TRUEVIEW_ENGAGEMENT_RATE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewEngagementRate;
+/** Value: "METRIC_TRUEVIEW_ENGAGEMENTS" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewEngagements;
 /** Value: "METRIC_TRUEVIEW_IMPRESSION_SHARE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewImpressionShare;
 /** Value: "METRIC_TRUEVIEW_LOST_IS_BUDGET" */
@@ -1480,10 +1516,16 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        "FILTER_TRUEVIEW_AGE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCategory
  *        Value "FILTER_TRUEVIEW_CATEGORY"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCity
+ *        Value "FILTER_TRUEVIEW_CITY"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewConversionType
  *        Value "FILTER_TRUEVIEW_CONVERSION_TYPE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCountry
+ *        Value "FILTER_TRUEVIEW_COUNTRY"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCustomAffinity
  *        Value "FILTER_TRUEVIEW_CUSTOM_AFFINITY"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewDma Value
+ *        "FILTER_TRUEVIEW_DMA"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewGender
  *        Value "FILTER_TRUEVIEW_GENDER"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewIarAge
@@ -1518,8 +1560,14 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "FILTER_TRUEVIEW_PARENTAL_STATUS"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewPlacement
  *        Value "FILTER_TRUEVIEW_PLACEMENT"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewRegion
+ *        Value "FILTER_TRUEVIEW_REGION"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewRemarketingList
  *        Value "FILTER_TRUEVIEW_REMARKETING_LIST"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewUrl Value
+ *        "FILTER_TRUEVIEW_URL"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewZipcode
+ *        Value "FILTER_TRUEVIEW_ZIPCODE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterUnknown Value
  *        "FILTER_UNKNOWN"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterUserList Value

@@ -73,10 +73,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AppState/*.{h,m}'
   end
-  s.subspec 'Autoscaler' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Autoscaler/*.{h,m}'
-  end
   s.subspec 'Bigquery' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Bigquery/*.{h,m}'
@@ -100,6 +96,10 @@ Pod::Spec.new do |s|
   s.subspec 'Classroom' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Classroom/*.{h,m}'
+  end
+  s.subspec 'CloudBuild' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudBuild/*.{h,m}'
   end
   s.subspec 'CloudDebugger' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -136,10 +136,6 @@ Pod::Spec.new do |s|
   s.subspec 'Container' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Container/*.{h,m}'
-  end
-  s.subspec 'Coordinate' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Coordinate/*.{h,m}'
   end
   s.subspec 'Customsearch' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -288,10 +284,6 @@ Pod::Spec.new do |s|
   s.subspec 'Script' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Script/*.{h,m}'
-  end
-  s.subspec 'ServiceRegistry' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/ServiceRegistry/*.{h,m}'
   end
   s.subspec 'Sheets' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

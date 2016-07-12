@@ -27,12 +27,36 @@
 @class GTLRAndroidEnterprise_ProductPermissions;
 @class GTLRAndroidEnterprise_ProductsApproveRequest;
 @class GTLRAndroidEnterprise_ProductSet;
+@class GTLRAndroidEnterprise_ServiceAccountKey;
 @class GTLRAndroidEnterprise_StoreCluster;
 @class GTLRAndroidEnterprise_StoreLayout;
 @class GTLRAndroidEnterprise_StorePage;
 @class GTLRAndroidEnterprise_User;
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// keyType
+
+/** Value: "googleCredentials" */
+GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseKeyTypeGoogleCredentials;
+/** Value: "pkcs12" */
+GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseKeyTypePkcs12;
+
+// ----------------------------------------------------------------------------
+// requestMode
+
+/** Value: "returnImmediately" */
+GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeReturnImmediately;
+/** Value: "waitForNotifications" */
+GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
 
 /**
  *  Parent class for other Android Enterprise query classes.
@@ -491,11 +515,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves whether a device is enabled or disabled for access by the user to
- *  Google services. The device state takes effect only if enforcing EMM
- *  policies on Android devices is enabled in the Google Admin Console.
- *  Otherwise, the device state is ignored and all devices are allowed access to
- *  Google services.
+ *  Retrieves whether a device's access to Google services is enabled or
+ *  disabled. The device state takes effect only if enforcing EMM policies on
+ *  Android devices is enabled in the Google Admin Console. Otherwise, the
+ *  device state is ignored and all devices are allowed access to Google
+ *  services. This is only supported for Google-managed users.
  *
  *  Method: androidenterprise.devices.getState
  *
@@ -518,11 +542,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAndroidEnterprise_DeviceState.
  *
- *  Retrieves whether a device is enabled or disabled for access by the user to
- *  Google services. The device state takes effect only if enforcing EMM
- *  policies on Android devices is enabled in the Google Admin Console.
- *  Otherwise, the device state is ignored and all devices are allowed access to
- *  Google services.
+ *  Retrieves whether a device's access to Google services is enabled or
+ *  disabled. The device state takes effect only if enforcing EMM policies on
+ *  Android devices is enabled in the Google Admin Console. Otherwise, the
+ *  device state is ignored and all devices are allowed access to Google
+ *  services. This is only supported for Google-managed users.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.
@@ -570,11 +594,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets whether a device is enabled or disabled for access by the user to
- *  Google services. The device state takes effect only if enforcing EMM
- *  policies on Android devices is enabled in the Google Admin Console.
- *  Otherwise, the device state is ignored and all devices are allowed access to
- *  Google services.
+ *  Sets whether a device's access to Google services is enabled or disabled.
+ *  The device state takes effect only if enforcing EMM policies on Android
+ *  devices is enabled in the Google Admin Console. Otherwise, the device state
+ *  is ignored and all devices are allowed access to Google services. This is
+ *  only supported for Google-managed users.
  *
  *  Method: androidenterprise.devices.setState
  *
@@ -597,11 +621,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAndroidEnterprise_DeviceState.
  *
- *  Sets whether a device is enabled or disabled for access by the user to
- *  Google services. The device state takes effect only if enforcing EMM
- *  policies on Android devices is enabled in the Google Admin Console.
- *  Otherwise, the device state is ignored and all devices are allowed access to
- *  Google services.
+ *  Sets whether a device's access to Google services is enabled or disabled.
+ *  The device state takes effect only if enforcing EMM policies on Android
+ *  devices is enabled in the Google Admin Console. Otherwise, the device state
+ *  is ignored and all devices are allowed access to Google services. This is
+ *  only supported for Google-managed users.
  *
  *  @param object The @c GTLRAndroidEnterprise_DeviceState to include in the
  *    query.
@@ -615,6 +639,73 @@ NS_ASSUME_NONNULL_BEGIN
                    enterpriseId:(NSString *)enterpriseId
                          userId:(NSString *)userId
                        deviceId:(NSString *)deviceId;
+
+@end
+
+/**
+ *  Acknowledges notifications that were received from
+ *  Enterprises.PullNotificationSet to prevent subsequent calls from returning
+ *  the same notifications.
+ *
+ *  Method: androidenterprise.enterprises.acknowledgeNotificationSet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_EnterprisesAcknowledgeNotificationSet : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForEnterprisesAcknowledgeNotificationSet]
+
+/**
+ *  The notification set ID as returned by Enterprises.PullNotificationSet. This
+ *  must be provided.
+ */
+@property(copy, nullable) NSString *notificationSetId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Acknowledges notifications that were received from
+ *  Enterprises.PullNotificationSet to prevent subsequent calls from returning
+ *  the same notifications.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_EnterprisesAcknowledgeNotificationSet
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Completes the signup flow, by specifying the Completion token and Enterprise
+ *  token. This request must not be called multiple times for a given Enterprise
+ *  Token.
+ *
+ *  Method: androidenterprise.enterprises.completeSignup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_EnterprisesCompleteSignup : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForEnterprisesCompleteSignup]
+
+/** The Completion token initially returned by GenerateSignupUrl. */
+@property(copy, nullable) NSString *completionToken;
+
+/** The Enterprise token appended to the Callback URL. */
+@property(copy, nullable) NSString *enterpriseToken;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_Enterprise.
+ *
+ *  Completes the signup flow, by specifying the Completion token and Enterprise
+ *  token. This request must not be called multiple times for a given Enterprise
+ *  Token.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_EnterprisesCompleteSignup
+ */
++ (instancetype)query;
 
 @end
 
@@ -683,6 +774,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Generates a sign-up URL.
+ *
+ *  Method: androidenterprise.enterprises.generateSignupUrl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_EnterprisesGenerateSignupUrl : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForEnterprisesGenerateSignupUrl]
+
+/**
+ *  The callback URL to which the Admin will be redirected after successfully
+ *  creating an enterprise. Before redirecting there the system will add a
+ *  single query parameter to this URL named "enterpriseToken" which will
+ *  contain an opaque token to be used for the CompleteSignup request.
+ *  Beware that this means that the URL will be parsed, the parameter added and
+ *  then a new URL formatted, i.e. there may be some minor formatting changes
+ *  and, more importantly, the URL must be well-formed so that it can be parsed.
+ */
+@property(copy, nullable) NSString *callbackUrl;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_SignupInfo.
+ *
+ *  Generates a sign-up URL.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_EnterprisesGenerateSignupUrl
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Retrieves the name and domain of an enterprise.
  *
  *  Method: androidenterprise.enterprises.get
@@ -705,6 +830,63 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param enterpriseId The ID of the enterprise.
  *
  *  @returns GTLRAndroidEnterpriseQuery_EnterprisesGet
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId;
+
+@end
+
+/**
+ *  Returns a service account and credentials. The service account can be bound
+ *  to the enterprise by calling setAccount. The service account is unique to
+ *  this enterprise and EMM, and will be deleted if the enterprise is unbound.
+ *  The credentials contain private key data and are not stored server-side.
+ *  This method can only be called after calling Enterprises.Enroll or
+ *  Enterprises.CompleteSignup, and before Enterprises.SetAccount; at other
+ *  times it will return an error.
+ *  Subsequent calls after the first will generate a new, unique set of
+ *  credentials, and invalidate the previously generated credentials.
+ *  Once the service account is bound to the enterprise, it can be managed using
+ *  the serviceAccountKeys resource.
+ *
+ *  Method: androidenterprise.enterprises.getServiceAccount
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_EnterprisesGetServiceAccount : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForEnterprisesGetServiceAccountWithenterpriseId:]
+
+@property(copy, nullable) NSString *enterpriseId;
+
+/**
+ *  The type of credential to return with the service account. Required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterpriseKeyTypeGoogleCredentials Value
+ *        "googleCredentials"
+ *    @arg @c kGTLRAndroidEnterpriseKeyTypePkcs12 Value "pkcs12"
+ */
+@property(copy, nullable) NSString *keyType;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_ServiceAccount.
+ *
+ *  Returns a service account and credentials. The service account can be bound
+ *  to the enterprise by calling setAccount. The service account is unique to
+ *  this enterprise and EMM, and will be deleted if the enterprise is unbound.
+ *  The credentials contain private key data and are not stored server-side.
+ *  This method can only be called after calling Enterprises.Enroll or
+ *  Enterprises.CompleteSignup, and before Enterprises.SetAccount; at other
+ *  times it will return an error.
+ *  Subsequent calls after the first will generate a new, unique set of
+ *  credentials, and invalidate the previously generated credentials.
+ *  Once the service account is bound to the enterprise, it can be managed using
+ *  the serviceAccountKeys resource.
+ *
+ *  @param enterpriseId NSString
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_EnterprisesGetServiceAccount
  */
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId;
 
@@ -772,7 +954,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Looks up an enterprise by domain name.
+ *  Looks up an enterprise by domain name. This is only supported for
+ *  enterprises created via the Google-initiated creation flow. Lookup of the id
+ *  is not needed for enterprises created via the EMM-initiated flow since the
+ *  EMM learns the enterprise ID in the callback specified in the
+ *  Enterprises.generateSignupUrl call.
  *
  *  Method: androidenterprise.enterprises.list
  *
@@ -789,13 +975,78 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAndroidEnterprise_EnterprisesListResponse.
  *
- *  Looks up an enterprise by domain name.
+ *  Looks up an enterprise by domain name. This is only supported for
+ *  enterprises created via the Google-initiated creation flow. Lookup of the id
+ *  is not needed for enterprises created via the EMM-initiated flow since the
+ *  EMM learns the enterprise ID in the callback specified in the
+ *  Enterprises.generateSignupUrl call.
  *
  *  @param domain The exact primary domain name of the enterprise to look up.
  *
  *  @returns GTLRAndroidEnterpriseQuery_EnterprisesList
  */
 + (instancetype)queryWithDomain:(NSString *)domain;
+
+@end
+
+/**
+ *  Pulls and returns a notification set for the enterprises associated with the
+ *  service account authenticated for the request. The notification set may be
+ *  empty if no notification are pending.
+ *  A notification set returned needs to be acknowledged within 20 seconds by
+ *  calling Enterprises.AcknowledgeNotificationSet, unless the notification set
+ *  is empty.
+ *  Notifications that are not acknowledged within the 20 seconds will
+ *  eventually be included again in the response to another PullNotificationSet
+ *  request, and those that are never acknowledged will ultimately be deleted
+ *  according to the Google Cloud Platform Pub/Sub system policy.
+ *  Multiple requests might be performed concurrently to retrieve notifications,
+ *  in which case the pending notifications (if any) will be split among each
+ *  caller, if any are pending.
+ *
+ *  Method: androidenterprise.enterprises.pullNotificationSet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_EnterprisesPullNotificationSet : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForEnterprisesPullNotificationSet]
+
+/**
+ *  The request mode for pulling notifications. If omitted, defaults to
+ *  WAIT_FOR_NOTIFCATIONS.
+ *  If this is set to WAIT_FOR_NOTIFCATIONS, the request will eventually
+ *  timeout, in which case it should be retried.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterpriseRequestModeReturnImmediately Value
+ *        "returnImmediately"
+ *    @arg @c kGTLRAndroidEnterpriseRequestModeWaitForNotifications Value
+ *        "waitForNotifications"
+ */
+@property(copy, nullable) NSString *requestMode;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_NotificationSet.
+ *
+ *  Pulls and returns a notification set for the enterprises associated with the
+ *  service account authenticated for the request. The notification set may be
+ *  empty if no notification are pending.
+ *  A notification set returned needs to be acknowledged within 20 seconds by
+ *  calling Enterprises.AcknowledgeNotificationSet, unless the notification set
+ *  is empty.
+ *  Notifications that are not acknowledged within the 20 seconds will
+ *  eventually be included again in the response to another PullNotificationSet
+ *  request, and those that are never acknowledged will ultimately be deleted
+ *  according to the Google Cloud Platform Pub/Sub system policy.
+ *  Multiple requests might be performed concurrently to retrieve notifications,
+ *  in which case the pending notifications (if any) will be split among each
+ *  caller, if any are pending.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_EnterprisesPullNotificationSet
+ */
++ (instancetype)query;
 
 @end
 
@@ -1793,6 +2044,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Unapproves the specified product (and the relevant app permissions, if any)
+ *
+ *  Method: androidenterprise.products.unapprove
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ProductsUnapprove : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForProductsUnapproveWithenterpriseId:productId:]
+
+/** The ID of the enterprise. */
+@property(copy, nullable) NSString *enterpriseId;
+
+/** The ID of the product. */
+@property(copy, nullable) NSString *productId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Unapproves the specified product (and the relevant app permissions, if any)
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param productId The ID of the product.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ProductsUnapprove
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                            productId:(NSString *)productId;
+
+@end
+
+/**
  *  This method has been deprecated. To programmatically approve applications,
  *  you must use the iframe mechanism via the generateApprovalUrl and approve
  *  methods of the Products resource. For more information, see the Play EMM API
@@ -1835,6 +2120,121 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_ProductPermissions *)object
                    enterpriseId:(NSString *)enterpriseId
                       productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Removes and invalidates the specified credentials for the service account
+ *  associated with this enterprise. The calling service account must have been
+ *  retrieved by calling Enterprises.GetServiceAccount and must have been set as
+ *  the enterprise service account by calling Enterprises.SetAccount.
+ *
+ *  Method: androidenterprise.serviceaccountkeys.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ServiceaccountkeysDelete : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForServiceaccountkeysDeleteWithenterpriseId:keyId:]
+
+/** The ID of the enterprise. */
+@property(copy, nullable) NSString *enterpriseId;
+
+/** The ID of the key. */
+@property(copy, nullable) NSString *keyId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Removes and invalidates the specified credentials for the service account
+ *  associated with this enterprise. The calling service account must have been
+ *  retrieved by calling Enterprises.GetServiceAccount and must have been set as
+ *  the enterprise service account by calling Enterprises.SetAccount.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param keyId The ID of the key.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ServiceaccountkeysDelete
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                                keyId:(NSString *)keyId;
+
+@end
+
+/**
+ *  Generates new credentials for the service account associated with this
+ *  enterprise. The calling service account must have been retrieved by calling
+ *  Enterprises.GetServiceAccount and must have been set as the enterprise
+ *  service account by calling Enterprises.SetAccount.
+ *  Only the type of the key should be populated in the resource to be inserted.
+ *
+ *  Method: androidenterprise.serviceaccountkeys.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ServiceaccountkeysInsert : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForServiceaccountkeysInsertWithObject:enterpriseId:]
+
+/** The ID of the enterprise. */
+@property(copy, nullable) NSString *enterpriseId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_ServiceAccountKey.
+ *
+ *  Generates new credentials for the service account associated with this
+ *  enterprise. The calling service account must have been retrieved by calling
+ *  Enterprises.GetServiceAccount and must have been set as the enterprise
+ *  service account by calling Enterprises.SetAccount.
+ *  Only the type of the key should be populated in the resource to be inserted.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_ServiceAccountKey to include in
+ *    the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ServiceaccountkeysInsert
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_ServiceAccountKey *)object
+                   enterpriseId:(NSString *)enterpriseId;
+
+@end
+
+/**
+ *  Lists all active credentials for the service account associated with this
+ *  enterprise. Only the ID and key type are returned. The calling service
+ *  account must have been retrieved by calling Enterprises.GetServiceAccount
+ *  and must have been set as the enterprise service account by calling
+ *  Enterprises.SetAccount.
+ *
+ *  Method: androidenterprise.serviceaccountkeys.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ServiceaccountkeysList : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForServiceaccountkeysListWithenterpriseId:]
+
+/** The ID of the enterprise. */
+@property(copy, nullable) NSString *enterpriseId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_ServiceAccountKeysListResponse.
+ *
+ *  Lists all active credentials for the service account associated with this
+ *  enterprise. Only the ID and key type are returned. The calling service
+ *  account must have been retrieved by calling Enterprises.GetServiceAccount
+ *  and must have been set as the enterprise service account by calling
+ *  Enterprises.SetAccount.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ServiceaccountkeysList
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId;
 
 @end
 
@@ -2265,6 +2665,79 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deleted an EMM-managed user.
+ *
+ *  Method: androidenterprise.users.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_UsersDelete : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForUsersDeleteWithenterpriseId:userId:]
+
+/** The ID of the enterprise. */
+@property(copy, nullable) NSString *enterpriseId;
+
+/** The ID of the user. */
+@property(copy, nullable) NSString *userId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deleted an EMM-managed user.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_UsersDelete
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId;
+
+@end
+
+/**
+ *  Generates an authentication token which the device policy client can use to
+ *  provision the given EMM-managed user account on a device. The generated
+ *  token is single-use and expires after a few minutes.
+ *  This call only works with EMM-managed accounts.
+ *
+ *  Method: androidenterprise.users.generateAuthenticationToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_UsersGenerateAuthenticationToken : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForUsersGenerateAuthenticationTokenWithenterpriseId:userId:]
+
+/** The ID of the enterprise. */
+@property(copy, nullable) NSString *enterpriseId;
+
+/** The ID of the user. */
+@property(copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_AuthenticationToken.
+ *
+ *  Generates an authentication token which the device policy client can use to
+ *  provision the given EMM-managed user account on a device. The generated
+ *  token is single-use and expires after a few minutes.
+ *  This call only works with EMM-managed accounts.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_UsersGenerateAuthenticationToken
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId;
+
+@end
+
+/**
  *  Generates a token (activation code) to allow this user to configure their
  *  work account in the Android Setup Wizard. Revokes any previously generated
  *  token.
@@ -2370,7 +2843,45 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Looks up a user by their primary email address.
+ *  Creates a new EMM-managed user.
+ *  The required details of the user are passed in the Users resource in the
+ *  body of the request. Specifically, the accountIdentifier, accountType, and
+ *  displayName fields must be provided.
+ *
+ *  Method: androidenterprise.users.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_UsersInsert : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForUsersInsertWithObject:enterpriseId:]
+
+/** The ID of the enterprise. */
+@property(copy, nullable) NSString *enterpriseId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_User.
+ *
+ *  Creates a new EMM-managed user.
+ *  The required details of the user are passed in the Users resource in the
+ *  body of the request. Specifically, the accountIdentifier, accountType, and
+ *  displayName fields must be provided.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_User to include in the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_UsersInsert
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_User *)object
+                   enterpriseId:(NSString *)enterpriseId;
+
+@end
+
+/**
+ *  Looks up a user by their primary email address. This is only supported for
+ *  Google-managed users. Lookup of the id is not needed for EMM-managed users
+ *  because the id is already returned in the result of the Users.insert call.
  *
  *  Method: androidenterprise.users.list
  *
@@ -2390,7 +2901,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAndroidEnterprise_UsersListResponse.
  *
- *  Looks up a user by their primary email address.
+ *  Looks up a user by their primary email address. This is only supported for
+ *  Google-managed users. Lookup of the id is not needed for EMM-managed users
+ *  because the id is already returned in the result of the Users.insert call.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param email The exact primary email address of the user to look up.
@@ -2399,6 +2912,49 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
                                 email:(NSString *)email;
+
+@end
+
+/**
+ *  Updates the details of an EMM-managed user.
+ *  This only works with EMM-managed users. Pass the new details in Users
+ *  resource in the request body. Only the displayName field can be changed.
+ *  Other fields must either be unset or have the currently active value. This
+ *  method supports patch semantics.
+ *
+ *  Method: androidenterprise.users.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_UsersPatch : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForUsersPatchWithObject:enterpriseId:userId:]
+
+/** The ID of the enterprise. */
+@property(copy, nullable) NSString *enterpriseId;
+
+/** The ID of the user. */
+@property(copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_User.
+ *
+ *  Updates the details of an EMM-managed user.
+ *  This only works with EMM-managed users. Pass the new details in Users
+ *  resource in the request body. Only the displayName field can be changed.
+ *  Other fields must either be unset or have the currently active value. This
+ *  method supports patch semantics.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_User to include in the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_UsersPatch
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_User *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId;
 
 @end
 
@@ -2467,6 +3023,47 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRAndroidEnterpriseQuery_UsersSetAvailableProductSet
  */
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_ProductSet *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId;
+
+@end
+
+/**
+ *  Updates the details of an EMM-managed user.
+ *  This only works with EMM-managed users. Pass the new details in Users
+ *  resource in the request body. Only the displayName field can be changed.
+ *  Other fields must either be unset or have the currently active value.
+ *
+ *  Method: androidenterprise.users.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_UsersUpdate : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForUsersUpdateWithObject:enterpriseId:userId:]
+
+/** The ID of the enterprise. */
+@property(copy, nullable) NSString *enterpriseId;
+
+/** The ID of the user. */
+@property(copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_User.
+ *
+ *  Updates the details of an EMM-managed user.
+ *  This only works with EMM-managed users. Pass the new details in Users
+ *  resource in the request body. Only the displayName field can be changed.
+ *  Other fields must either be unset or have the currently active value.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_User to include in the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_UsersUpdate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_User *)object
                    enterpriseId:(NSString *)enterpriseId
                          userId:(NSString *)userId;
 

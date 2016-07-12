@@ -4,7 +4,8 @@
 // API:
 //   Google Civic Information API (civicinfo/v2)
 // Description:
-//   An API for accessing civic information.
+//   Provides polling places, early vote locations, contest data, election
+//   officials, and government representatives for U.S. residential addresses.
 // Documentation:
 //   https://developers.google.com/civic-information
 
@@ -43,8 +44,8 @@
 //
 
 @implementation GTLRCivicInfo_AdministrativeBody
-@dynamic absenteeVotingInfoUrl, ballotInfoUrl, correspondenceAddress,
-         electionInfoUrl, electionOfficials,
+@dynamic absenteeVotingInfoUrl, addressLines, ballotInfoUrl,
+         correspondenceAddress, electionInfoUrl, electionOfficials,
          electionRegistrationConfirmationUrl, electionRegistrationUrl,
          electionRulesUrl, hoursOfOperation, name, physicalAddress,
          voterServices, votingLocationFinderUrl;
@@ -55,6 +56,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"addressLines" : [NSString class],
     @"electionOfficials" : [GTLRCivicInfo_ElectionOfficial class],
     @"voter_services" : [NSString class]
   };

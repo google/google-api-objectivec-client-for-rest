@@ -4,7 +4,7 @@
 // API:
 //   Google Mirror API (mirror/v1)
 // Description:
-//   API for interacting with Glass users via the timeline.
+//   Interacts with Glass users via the timeline.
 // Documentation:
 //   https://developers.google.com/glass
 
@@ -43,7 +43,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeMirrorGlassTimeline;
 /**
  *  Service for executing Google Mirror API queries.
  *
- *  API for interacting with Glass users via the timeline.
+ *  Interacts with Glass users via the timeline.
  */
 @interface GTLRMirrorService : GTLRService
 

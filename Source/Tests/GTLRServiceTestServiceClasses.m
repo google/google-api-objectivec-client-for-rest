@@ -133,7 +133,7 @@
 
 
 @implementation Test_GTLRDriveQuery_FilesList
-@dynamic corpus, orderBy, pageSize, pageToken, q, spaces, timeParamForTesting;
+@dynamic corpus, extras, orderBy, pageSize, pageToken, q, spaces, timeParamForTesting;
 + (instancetype)query {
   NSString *pathURITemplate = @"files";
   Test_GTLRDriveQuery_FilesList *query =

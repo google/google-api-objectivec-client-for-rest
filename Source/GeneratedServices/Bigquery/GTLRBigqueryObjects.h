@@ -1181,6 +1181,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nullable) NSNumber *maximumBillingTier;
 
 /**
+ *  [Optional] Limits the bytes billed for this job. Queries that will have
+ *  bytes billed beyond this limit will fail (without incurring a charge). If
+ *  unspecified, this will be set to your project default.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(strong, nullable) NSNumber *maximumBytesBilled;
+
+/**
  *  [Deprecated] This property is deprecated.
  *
  *  Uses NSNumber of boolValue.

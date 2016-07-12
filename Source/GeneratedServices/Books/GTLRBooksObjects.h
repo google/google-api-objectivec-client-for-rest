@@ -96,6 +96,7 @@
 @class GTLRBooks_VolumeVolumeInfoDimensions;
 @class GTLRBooks_VolumeVolumeInfoImageLinks;
 @class GTLRBooks_VolumeVolumeInfoIndustryIdentifiersItem;
+@class GTLRBooks_VolumeVolumeInfoPanelizationSummary;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -2119,6 +2120,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(strong, nullable) NSNumber *pageCount;
 
+/** A top-level summary of the panelization info in this volume. */
+@property(strong, nullable) GTLRBooks_VolumeVolumeInfoPanelizationSummary *panelizationSummary;
+
 /** URL to preview this volume on the Google Books site. */
 @property(copy, nullable) NSString *previewLink;
 
@@ -2456,6 +2460,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Identifier type. Possible values are ISBN_10, ISBN_13, ISSN and OTHER. */
 @property(copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A top-level summary of the panelization info in this volume.
+ */
+@interface GTLRBooks_VolumeVolumeInfoPanelizationSummary : GTLRObject
+
+/**
+ *  containsEpubBubbles
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *containsEpubBubbles;
+
+/**
+ *  containsImageBubbles
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *containsImageBubbles;
+
+@property(copy, nullable) NSString *epubBubbleVersion;
+@property(copy, nullable) NSString *imageBubbleVersion;
 
 @end
 

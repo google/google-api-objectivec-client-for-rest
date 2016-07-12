@@ -16,6 +16,7 @@
 // Constants
 
 // acquireMethod
+NSString * const kGTLRBooksAcquireMethodFamilyShared     = @"FAMILY_SHARED";
 NSString * const kGTLRBooksAcquireMethodPreordered       = @"PREORDERED";
 NSString * const kGTLRBooksAcquireMethodPreviouslyRented = @"PREVIOUSLY_RENTED";
 NSString * const kGTLRBooksAcquireMethodPublicDomain     = @"PUBLIC_DOMAIN";

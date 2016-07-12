@@ -1077,9 +1077,9 @@
 @dynamic allowAnonLogging, authors, averageRating, canonicalVolumeLink,
          categories, contentVersion, descriptionProperty, dimensions,
          imageLinks, industryIdentifiers, infoLink, language, mainCategory,
-         maturityRating, pageCount, previewLink, printedPageCount, printType,
-         publishedDate, publisher, ratingsCount, readingModes, samplePageCount,
-         seriesInfo, subtitle, title;
+         maturityRating, pageCount, panelizationSummary, previewLink,
+         printedPageCount, printType, publishedDate, publisher, ratingsCount,
+         readingModes, samplePageCount, seriesInfo, subtitle, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1229,6 +1229,17 @@
   return @{ @"identifierProperty" : @"identifier" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBooks_VolumeVolumeInfoPanelizationSummary
+//
+
+@implementation GTLRBooks_VolumeVolumeInfoPanelizationSummary
+@dynamic containsEpubBubbles, containsImageBubbles, epubBubbleVersion,
+         imageBubbleVersion;
 @end
 
 

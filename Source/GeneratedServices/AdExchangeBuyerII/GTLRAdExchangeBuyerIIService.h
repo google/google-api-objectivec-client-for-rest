@@ -5,7 +5,7 @@
 //   Ad Exchange Buyer API II (adexchangebuyer2/v2beta1)
 // Description:
 //   Accesses the latest features for managing Ad Exchange accounts and
-//   Real-Time Bidding configurations.
+//   Real-Time Bidding configurations and auction metrics.
 // Documentation:
 //   https://developers.google.com/ad-exchange/buyer-rest/guides/client-access/
 
@@ -39,7 +39,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer;
  *  Service for executing Ad Exchange Buyer API II queries.
  *
  *  Accesses the latest features for managing Ad Exchange accounts and Real-Time
- *  Bidding configurations.
+ *  Bidding configurations and auction metrics.
  */
 @interface GTLRAdExchangeBuyerIIService : GTLRService
 

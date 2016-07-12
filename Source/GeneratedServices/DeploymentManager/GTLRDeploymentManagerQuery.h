@@ -238,16 +238,14 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  literal value must match the entire field.
  *  For example, to filter for instances that do not have a name of
  *  example-instance, you would use filter=name ne example-instance.
- *  Compute Engine Beta API Only: When filtering in the Beta API, you can also
- *  filter on nested fields. For example, you could filter on instances that
- *  have set the scheduling.automaticRestart field to true. Use filtering on
- *  nested fields to take advantage of labels to organize and search for results
- *  based on label values.
- *  The Beta API also supports filtering on multiple expressions by providing
- *  each separate expression within parentheses. For example,
- *  (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
- *  expressions are treated as AND expressions, meaning that resources must
- *  match all expressions to pass the filters.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
  */
 @property(copy, nullable) NSString *filter;
 
@@ -559,16 +557,14 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  literal value must match the entire field.
  *  For example, to filter for instances that do not have a name of
  *  example-instance, you would use filter=name ne example-instance.
- *  Compute Engine Beta API Only: When filtering in the Beta API, you can also
- *  filter on nested fields. For example, you could filter on instances that
- *  have set the scheduling.automaticRestart field to true. Use filtering on
- *  nested fields to take advantage of labels to organize and search for results
- *  based on label values.
- *  The Beta API also supports filtering on multiple expressions by providing
- *  each separate expression within parentheses. For example,
- *  (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
- *  expressions are treated as AND expressions, meaning that resources must
- *  match all expressions to pass the filters.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
  */
 @property(copy, nullable) NSString *filter;
 
@@ -675,16 +671,14 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  literal value must match the entire field.
  *  For example, to filter for instances that do not have a name of
  *  example-instance, you would use filter=name ne example-instance.
- *  Compute Engine Beta API Only: When filtering in the Beta API, you can also
- *  filter on nested fields. For example, you could filter on instances that
- *  have set the scheduling.automaticRestart field to true. Use filtering on
- *  nested fields to take advantage of labels to organize and search for results
- *  based on label values.
- *  The Beta API also supports filtering on multiple expressions by providing
- *  each separate expression within parentheses. For example,
- *  (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
- *  expressions are treated as AND expressions, meaning that resources must
- *  match all expressions to pass the filters.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
  */
 @property(copy, nullable) NSString *filter;
 
@@ -797,16 +791,14 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  literal value must match the entire field.
  *  For example, to filter for instances that do not have a name of
  *  example-instance, you would use filter=name ne example-instance.
- *  Compute Engine Beta API Only: When filtering in the Beta API, you can also
- *  filter on nested fields. For example, you could filter on instances that
- *  have set the scheduling.automaticRestart field to true. Use filtering on
- *  nested fields to take advantage of labels to organize and search for results
- *  based on label values.
- *  The Beta API also supports filtering on multiple expressions by providing
- *  each separate expression within parentheses. For example,
- *  (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
- *  expressions are treated as AND expressions, meaning that resources must
- *  match all expressions to pass the filters.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
  */
 @property(copy, nullable) NSString *filter;
 
@@ -877,16 +869,14 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  literal value must match the entire field.
  *  For example, to filter for instances that do not have a name of
  *  example-instance, you would use filter=name ne example-instance.
- *  Compute Engine Beta API Only: When filtering in the Beta API, you can also
- *  filter on nested fields. For example, you could filter on instances that
- *  have set the scheduling.automaticRestart field to true. Use filtering on
- *  nested fields to take advantage of labels to organize and search for results
- *  based on label values.
- *  The Beta API also supports filtering on multiple expressions by providing
- *  each separate expression within parentheses. For example,
- *  (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
- *  expressions are treated as AND expressions, meaning that resources must
- *  match all expressions to pass the filters.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
  */
 @property(copy, nullable) NSString *filter;
 
