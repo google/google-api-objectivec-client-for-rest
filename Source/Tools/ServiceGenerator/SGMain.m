@@ -1442,7 +1442,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         // Only report on directories there, not files.
         if ([fm fileExistsAtPath:fullPath isDirectory:&isDir] && isDir) {
           [self reportPrefixed:@" "
-                          info:@"'%@' was in the output dir, and wasn't needed during generation.", fileName];
+                       warning:@"'%@' was in the output dir, and wasn't needed during generation.", fileName];
         }
       }
     }
