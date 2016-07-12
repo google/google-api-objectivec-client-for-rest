@@ -4,7 +4,8 @@
 // API:
 //   Google Civic Information API (civicinfo/v2)
 // Description:
-//   An API for accessing civic information.
+//   Provides polling places, early vote locations, contest data, election
+//   officials, and government representatives for U.S. residential addresses.
 // Documentation:
 //   https://developers.google.com/civic-information
 
@@ -84,6 +85,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  voting.
  */
 @property(copy, nullable) NSString *absenteeVotingInfoUrl;
+
+@property(strong, nullable) NSArray<NSString *> *addressLines;
 
 /**
  *  A URL provided by this administrative body to give contest information to

@@ -3492,7 +3492,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCompute queryForImagesGetFromFamilyWithproject:family:]
 
-/** Name of the image resource to return. */
+/** Name of the image family to search for. */
 @property(copy, nullable) NSString *family;
 
 /** Project ID for this request. */
@@ -3505,7 +3505,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  deprecated.
  *
  *  @param project Project ID for this request.
- *  @param family Name of the image resource to return.
+ *  @param family Name of the image family to search for.
  *
  *  @returns GTLRComputeQuery_ImagesGetFromFamily
  */

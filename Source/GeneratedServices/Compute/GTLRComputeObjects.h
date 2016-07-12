@@ -1182,7 +1182,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Down;
 GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /**
- *  An access configuration attached to an instance's network interface.
+ *  An access configuration attached to an instance's network interface. Only
+ *  one access config per instance is supported.
  */
 @interface GTLRCompute_AccessConfig : GTLRObject
 
@@ -2073,6 +2074,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Specifies the balancing mode for this backend. For global HTTP(S) load
  *  balancing, the default is UTILIZATION. Valid values are UTILIZATION and
  *  RATE.
+ *  This cannot be used for internal load balancing.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Backend_BalancingMode_Rate Value "RATE"
@@ -2086,6 +2088,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  up to 100% of its configured CPU or RPS (depending on balancingMode). A
  *  setting of 0 means the group is completely drained, offering 0% of its
  *  available CPU or RPS. Valid range is [0.0,1.0].
+ *  This cannot be used for internal load balancing.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2107,6 +2110,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  use same Instance Group resource.
  *  Note that you must specify an Instance Group resource using the
  *  fully-qualified URL, rather than a partial URL.
+ *  When the BackendService has load balancing scheme INTERNAL, the instance
+ *  group must be in a zone within the same region as the BackendService.
  */
 @property(copy, nullable) NSString *group;
 
@@ -2114,6 +2119,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  The max requests per second (RPS) of the group. Can be used with either RATE
  *  or UTILIZATION balancing modes, but required if RATE mode. For RATE mode,
  *  either maxRate or maxRatePerInstance must be set.
+ *  This cannot be used for internal load balancing.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2124,6 +2130,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  handle.This is used to calculate the capacity of the group. Can be used in
  *  either balancing mode. For RATE mode, either maxRate or maxRatePerInstance
  *  must be set.
+ *  This cannot be used for internal load balancing.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2133,6 +2140,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Used when balancingMode is UTILIZATION. This ratio defines the CPU
  *  utilization target for the group. The default is 0.8. Valid range is [0.0,
  *  1.0].
+ *  This cannot be used for internal load balancing.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2163,6 +2171,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /**
  *  If true, enable Cloud CDN for this BackendService.
+ *  When the load balancing scheme is INTERNAL, this field is not used.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2183,6 +2192,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  The list of URLs to the HttpHealthCheck or HttpsHealthCheck resource for
  *  health checking this BackendService. Currently at most one health check can
  *  be specified, and a health check is required.
+ *  For internal load balancing, a URL to a HealthCheck resource must be
+ *  specified instead.
  */
 @property(strong, nullable) NSArray<NSString *> *healthChecks;
 
@@ -2216,6 +2227,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /**
  *  Deprecated in favor of portName. The TCP port to connect on the backend. The
  *  default value is 80.
+ *  This cannot be used for internal load balancing.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2223,13 +2235,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /**
  *  Name of backend port. The same name should appear in the instance groups
- *  referenced by this service. Required.
+ *  referenced by this service. Required when the load balancing scheme is
+ *  EXTERNAL.
+ *  When the load balancing scheme is INTERNAL, this field is not used.
  */
 @property(copy, nullable) NSString *portName;
 
 /**
  *  The protocol this BackendService uses to communicate with backends.
- *  Possible values are HTTP, HTTPS, HTTP2, TCP and SSL.
+ *  Possible values are HTTP, HTTPS, HTTP2, TCP and SSL. The default is HTTP.
+ *  For internal load balancing, the possible values are TCP and UDP, and the
+ *  default is TCP.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_BackendService_Protocol_Http Value "HTTP"
@@ -2458,7 +2474,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /** [Output Only] Last detach timestamp in RFC3339 text format. */
 @property(copy, nullable) NSString *lastDetachTimestamp;
 
-/** [Output Only] Any applicable publicly visible licenses. */
+/** Any applicable publicly visible licenses. */
 @property(strong, nullable) NSArray<NSString *> *licenses;
 
 /**
@@ -3263,17 +3279,24 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(strong, nullable) NSNumber *identifier;
 
 /**
- *  Value of the reserved IP address that this forwarding rule is serving on
- *  behalf of. For global forwarding rules, the address must be a global IP; for
- *  regional forwarding rules, the address must live in the same region as the
- *  forwarding rule. If left empty (default value), an ephemeral IP from the
- *  same scope (global or regional) will be assigned.
+ *  The IP address that this forwarding rule is serving on behalf of.
+ *  For global forwarding rules, the address must be a global IP; for regional
+ *  forwarding rules, the address must live in the same region as the forwarding
+ *  rule. By default, this field is empty and an ephemeral IP from the same
+ *  scope (global or regional) will be assigned.
+ *  When the load balancing scheme is INTERNAL, this can only be an RFC 1918 IP
+ *  address belonging to the network/subnetwork configured for the forwarding
+ *  rule. A reserved address cannot be used. If the field is empty, the IP
+ *  address will be automatically allocated from the internal IP range of the
+ *  subnetwork or network configured for this forwarding rule.
  */
 @property(copy, nullable) NSString *IPAddress;
 
 /**
  *  The IP protocol to which this rule applies. Valid options are TCP, UDP, ESP,
  *  AH, SCTP or ICMP.
+ *  When the load balancing scheme is INTERNAL</code, only TCP and UDP are
+ *  valid.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_ForwardingRule_IPProtocol_Ah Value "AH"
@@ -3306,6 +3329,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  to ports in the specified range will be forwarded to target. Forwarding
  *  rules with the same [IPAddress, IPProtocol] pair must have disjoint port
  *  ranges.
+ *  This field is not used for internal load balancing.
  */
 @property(copy, nullable) NSString *portRange;
 
@@ -3325,6 +3349,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  TargetHttpProxy or TargetHttpsProxy resource. The forwarded traffic must be
  *  of a type appropriate to the target object. For example, TargetHttpProxy
  *  requires HTTP traffic, and TargetHttpsProxy requires HTTPS traffic.
+ *  This field is not used for internal load balancing.
  */
 @property(copy, nullable) NSString *target;
 
@@ -3919,7 +3944,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /**
  *  The name of the image family to which this image belongs. You can create
  *  disks by specifying an image family instead of a specific image name. The
- *  image family always returns its latest image that is not deprecated.
+ *  image family always returns its latest image that is not deprecated. The
+ *  name of the image family must comply with RFC1035.
  */
 @property(copy, nullable) NSString *family;
 
@@ -4180,7 +4206,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /**
  *  An array of configurations for this interface. This specifies how this
  *  interface is configured to interact with other network services, such as
- *  connecting to the internet.
+ *  connecting to the internet. Only one interface is supported per instance.
  */
 @property(strong, nullable) NSArray<GTLRCompute_NetworkInterface *> *networkInterfaces;
 
@@ -4480,7 +4506,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  An Instance Template Manager resource.
+ *  An Instance Group Manager resource.
  */
 @interface GTLRCompute_InstanceGroupManager : GTLRObject
 
@@ -4608,8 +4634,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /**
  *  [Output Only] The number of instances in the managed instance group that are
  *  scheduled to be created or are currently being created. If the group fails
- *  to create one of these instances, it tries again until it creates the
+ *  to create any of these instances, it tries again until it creates the
  *  instance successfully.
+ *  If you have disabled creation retries, this field will not be populated;
+ *  instead, the creatingWithoutRetries field will be populated.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5944,7 +5972,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  successful.
  *  - CREATING_WITHOUT_RETRIES The managed instance group is attempting to
  *  create this instance only once. If the group fails to create this instance,
- *  it does not try again and the group's target_size value is decreased.
+ *  it does not try again and the group's targetSize value is decreased instead.
  *  - RECREATING The managed instance group is recreating this instance.
  *  - DELETING The managed instance group is permanently deleting this instance.
  *  - ABANDONING The managed instance group is abandoning this instance. The
@@ -6237,9 +6265,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_NetworkInterface : GTLRObject
 
 /**
- *  An array of configurations for this interface. Currently, ONE_TO_ONE_NAT is
- *  the only access config supported. If there are no accessConfigs specified,
- *  then this instance will have no external internet access.
+ *  An array of configurations for this interface. Currently, only one access
+ *  config, ONE_TO_ONE_NAT, is supported. If there are no accessConfigs
+ *  specified, then this instance will have no external internet access.
  */
 @property(strong, nullable) NSArray<GTLRCompute_AccessConfig *> *accessConfigs;
 

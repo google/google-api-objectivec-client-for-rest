@@ -25,6 +25,10 @@
 @class GTLRDataflow_AutoscalingSettings;
 @class GTLRDataflow_ComputationTopology;
 @class GTLRDataflow_ConcatPosition;
+@class GTLRDataflow_CounterMetadata;
+@class GTLRDataflow_CounterStructuredName;
+@class GTLRDataflow_CounterStructuredNameAndMetadata;
+@class GTLRDataflow_CounterUpdate;
 @class GTLRDataflow_CustomSourceLocation;
 @class GTLRDataflow_DataDiskAssignment;
 @class GTLRDataflow_DerivedSource;
@@ -125,7 +129,6 @@
 @class GTLRDataflow_WorkerPoolPoolArgs;
 @class GTLRDataflow_WorkerSettings;
 @class GTLRDataflow_WorkItem;
-@class GTLRDataflow_WorkItemMetricUpdate;
 @class GTLRDataflow_WorkItemServiceState;
 @class GTLRDataflow_WorkItemServiceStateHarnessData;
 @class GTLRDataflow_WorkItemStatus;
@@ -145,6 +148,64 @@ GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_Autosca
 GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmNone;
 /** Value: "AUTOSCALING_ALGORITHM_UNKNOWN" */
 GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_CounterMetadata.kind
+
+/** Value: "AND" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_And;
+/** Value: "INVALID" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Invalid;
+/** Value: "MAX" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Max;
+/** Value: "MEAN" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Mean;
+/** Value: "MIN" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Min;
+/** Value: "OR" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Or;
+/** Value: "SET" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Set;
+/** Value: "SUM" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Sum;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_CounterMetadata.standardUnits
+
+/** Value: "BYTES" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Bytes;
+/** Value: "BYTES_PER_SEC" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_BytesPerSec;
+/** Value: "MICROSECONDS" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Microseconds;
+/** Value: "MILLISECONDS" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Milliseconds;
+/** Value: "NANOSECONDS" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Nanoseconds;
+/** Value: "TIMESTAMP_MSEC" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampMsec;
+/** Value: "TIMESTAMP_NSEC" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampNsec;
+/** Value: "TIMESTAMP_USEC" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampUsec;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_CounterStructuredName.portion
+
+/** Value: "ALL" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_All;
+/** Value: "KEY" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_Key;
+/** Value: "VALUE" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_Value;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_CounterStructuredName.standardOrigin
+
+/** Value: "DATAFLOW" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_StandardOrigin_Dataflow;
+/** Value: "USER" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_StandardOrigin_User;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_DerivedSource.derivationMode
@@ -227,6 +288,26 @@ GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessa
 GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageImportanceUnknown;
 /** Value: "JOB_MESSAGE_WARNING" */
 GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageWarning;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_NameAndKind.kind
+
+/** Value: "AND" */
+GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_And;
+/** Value: "INVALID" */
+GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Invalid;
+/** Value: "MAX" */
+GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Max;
+/** Value: "MEAN" */
+GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Mean;
+/** Value: "MIN" */
+GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Min;
+/** Value: "OR" */
+GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Or;
+/** Value: "SET" */
+GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Set;
+/** Value: "SUM" */
+GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Sum;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SourceSplitResponse.outcome
@@ -448,6 +529,200 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** Position within the inner source. */
 @property(strong, nullable) GTLRDataflow_Position *position;
+
+@end
+
+
+/**
+ *  CounterMetadata includes all static non-name non-value counter attributes.
+ */
+@interface GTLRDataflow_CounterMetadata : GTLRObject
+
+/**
+ *  Human-readable description of the counter semantics.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Counter aggregation kind.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_And Value "AND"
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Invalid Value "INVALID"
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Max Value "MAX"
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Mean Value "MEAN"
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Min Value "MIN"
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Or Value "OR"
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Set Value "SET"
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Sum Value "SUM"
+ */
+@property(copy, nullable) NSString *kind;
+
+/** A string referring to the unit type. */
+@property(copy, nullable) NSString *otherUnits;
+
+/**
+ *  System defined Units, see above enum.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_Bytes Value "BYTES"
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_BytesPerSec Value
+ *        "BYTES_PER_SEC"
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_Microseconds Value
+ *        "MICROSECONDS"
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_Milliseconds Value
+ *        "MILLISECONDS"
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_Nanoseconds Value
+ *        "NANOSECONDS"
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_TimestampMsec Value
+ *        "TIMESTAMP_MSEC"
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_TimestampNsec Value
+ *        "TIMESTAMP_NSEC"
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_TimestampUsec Value
+ *        "TIMESTAMP_USEC"
+ */
+@property(copy, nullable) NSString *standardUnits;
+
+@end
+
+
+/**
+ *  Identifies a counter within a per-job namespace. Counters whose structured
+ *  names are the same get merged into a single value for the job.
+ */
+@interface GTLRDataflow_CounterStructuredName : GTLRObject
+
+/** Name of the optimized step being executed by the workers. */
+@property(copy, nullable) NSString *componentStepName;
+
+/** Name of the stage. An execution step contains multiple component steps. */
+@property(copy, nullable) NSString *executionStepName;
+
+/**
+ *  Counter name. Not necessarily globally-unique, but unique within the context
+ *  of the other fields. Required.
+ */
+@property(copy, nullable) NSString *name;
+
+/**
+ *  System generated name of the original step in the user's graph, before
+ *  optimization.
+ */
+@property(copy, nullable) NSString *originalStepName;
+
+/** A string containing the origin of the counter. */
+@property(copy, nullable) NSString *otherOrigin;
+
+/**
+ *  Portion of this counter, either key or value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_CounterStructuredName_Portion_All Value "ALL"
+ *    @arg @c kGTLRDataflow_CounterStructuredName_Portion_Key Value "KEY"
+ *    @arg @c kGTLRDataflow_CounterStructuredName_Portion_Value Value "VALUE"
+ */
+@property(copy, nullable) NSString *portion;
+
+/**
+ *  One of the standard Origins defined above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_CounterStructuredName_StandardOrigin_Dataflow Value
+ *        "DATAFLOW"
+ *    @arg @c kGTLRDataflow_CounterStructuredName_StandardOrigin_User Value
+ *        "USER"
+ */
+@property(copy, nullable) NSString *standardOrigin;
+
+/** ID of a particular worker. */
+@property(copy, nullable) NSString *workerId;
+
+@end
+
+
+/**
+ *  A single message which encapsulates structured name and metadata for a given
+ *  counter.
+ */
+@interface GTLRDataflow_CounterStructuredNameAndMetadata : GTLRObject
+
+/** Metadata associated with a counter */
+@property(strong, nullable) GTLRDataflow_CounterMetadata *metadata;
+
+/** Structured name of the counter. */
+@property(strong, nullable) GTLRDataflow_CounterStructuredName *name;
+
+@end
+
+
+/**
+ *  An update to a Counter sent from a worker.
+ */
+@interface GTLRDataflow_CounterUpdate : GTLRObject
+
+/**
+ *  Boolean value for And, Or.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *boolean;
+
+/**
+ *  True if this counter is reported as the total cumulative aggregate value
+ *  accumulated since the worker started working on this WorkItem. By default
+ *  this is false, indicating that this counter is reported as a delta.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(strong, nullable) NSNumber *cumulative;
+
+/**
+ *  Floating point value for Sum, Max, Min.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(strong, nullable) NSNumber *floatingPoint;
+
+/** List of floating point numbers, for Set. */
+@property(strong, nullable) GTLRDataflow_FloatingPointList *floatingPointList;
+
+/** Floating point mean aggregation value for Mean. */
+@property(strong, nullable) GTLRDataflow_FloatingPointMean *floatingPointMean;
+
+/** Integer value for Sum, Max, Min. */
+@property(strong, nullable) GTLRDataflow_SplitInt64 *integer;
+
+/** List of integers, for Set. */
+@property(strong, nullable) GTLRDataflow_IntegerList *integerList;
+
+/** Integer mean aggregation value for Mean. */
+@property(strong, nullable) GTLRDataflow_IntegerMean *integerMean;
+
+/**
+ *  Value for internally-defined counters used by the Dataflow service.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(strong, nullable) id internal;
+
+/** Counter name and aggregation type. */
+@property(strong, nullable) GTLRDataflow_NameAndKind *nameAndKind;
+
+/**
+ *  The service-generated short identifier for this counter. The short_id ->
+ *  (name, metadata) mapping is constant for the lifetime of a job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(strong, nullable) NSNumber *shortId;
+
+/** List of strings, for Set. */
+@property(strong, nullable) GTLRDataflow_StringList *stringList;
+
+/** Counter structured name and metadata. */
+@property(strong, nullable) GTLRDataflow_CounterStructuredNameAndMetadata *structuredNameAndMetadata;
 
 @end
 
@@ -1427,19 +1702,26 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Basic metadata about a metric.
+ *  Basic metadata about a counter.
  */
 @interface GTLRDataflow_NameAndKind : GTLRObject
 
 /**
- *  Metric aggregation kind. The possible metric aggregation kinds are "Sum",
- *  "Max", "Min", "Mean", "Set", "And", and "Or". The specified aggregation kind
- *  is case-insensitive. If omitted, this is not an aggregated value but instead
- *  a single metric sample value.
+ *  Counter aggregation kind.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_And Value "AND"
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Invalid Value "INVALID"
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Max Value "MAX"
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Mean Value "MEAN"
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Min Value "MIN"
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Or Value "OR"
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Set Value "SET"
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Sum Value "SUM"
  */
 @property(copy, nullable) NSString *kind;
 
-/** Name of the metric. */
+/** Name of the counter. */
 @property(copy, nullable) NSString *name;
 
 @end
@@ -3186,76 +3468,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  An update to a metric sent from a worker. Unlike MetricUpdate, this format
- *  does not support: messages: use WorkerMessage API CloudMetrics: use
- *  MetricUpdate until this includes structured names
- */
-@interface GTLRDataflow_WorkItemMetricUpdate : GTLRObject
-
-/**
- *  Boolean value for And, Or.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(strong, nullable) NSNumber *boolean;
-
-/**
- *  True if this metric is reported as the total cumulative aggregate value
- *  accumulated since the worker started working on this WorkItem. By default
- *  this is false, indicating that this metric is reported as a delta that is
- *  not associated with any WorkItem.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(strong, nullable) NSNumber *cumulative;
-
-/**
- *  Floating point value for Sum, Max, Min.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(strong, nullable) NSNumber *floatingPoint;
-
-/** List of floating point numbers, for Set. */
-@property(strong, nullable) GTLRDataflow_FloatingPointList *floatingPointList;
-
-/** Floating point mean aggregation value for Mean. */
-@property(strong, nullable) GTLRDataflow_FloatingPointMean *floatingPointMean;
-
-/** Integer value for Sum, Max, Min. */
-@property(strong, nullable) GTLRDataflow_SplitInt64 *integer;
-
-/** List of integers, for Set. */
-@property(strong, nullable) GTLRDataflow_IntegerList *integerList;
-
-/** Integer mean aggregation value for Mean. */
-@property(strong, nullable) GTLRDataflow_IntegerMean *integerMean;
-
-/**
- *  Value for internally-defined metrics use by the Dataflow service.
- *
- *  Can be any valid JSON type.
- */
-@property(strong, nullable) id internal;
-
-/** Metric name and aggregation type. */
-@property(strong, nullable) GTLRDataflow_NameAndKind *nameAndKind;
-
-/**
- *  The service-generated short identifier for this metric. The short_id ->
- *  (name, metadata) mapping is constant for the lifetime of a job.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(strong, nullable) NSNumber *shortId;
-
-/** List of strings, for Set. */
-@property(strong, nullable) GTLRDataflow_StringList *stringList;
-
-@end
-
-
-/**
  *  The Dataflow service's idea of the current state of a WorkItem being
  *  processed by a worker.
  */
@@ -3331,6 +3543,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(strong, nullable) NSNumber *completed;
 
+/** Worker output counters for this WorkItem. */
+@property(strong, nullable) NSArray<GTLRDataflow_CounterUpdate *> *counterUpdates;
+
 /** See documentation of stop_position. */
 @property(strong, nullable) GTLRDataflow_DynamicSourceSplit *dynamicSourceSplit;
 
@@ -3340,7 +3555,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(strong, nullable) NSArray<GTLRDataflow_Status *> *errors;
 
-/** DEPRECATED in favor of worker_metric_update. */
+/** DEPRECATED in favor of counter_updates. */
 @property(strong, nullable) NSArray<GTLRDataflow_MetricUpdate *> *metricUpdates;
 
 /** DEPRECATED in favor of reported_progress. */
@@ -3406,9 +3621,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** Identifies the WorkItem. */
 @property(copy, nullable) NSString *workItemId;
-
-/** Worker output metrics (counters) for this WorkItem. */
-@property(strong, nullable) NSArray<GTLRDataflow_WorkItemMetricUpdate *> *workItemMetricUpdates;
 
 @end
 

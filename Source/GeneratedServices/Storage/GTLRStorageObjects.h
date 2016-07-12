@@ -382,7 +382,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The project team associated with the entity, if any. */
 @property(strong, nullable) GTLRStorage_BucketAccessControlProjectTeam *projectTeam;
 
-/** The access permission for the entity. Can be READER, WRITER, or OWNER. */
+/** The access permission for the entity. */
 @property(copy, nullable) NSString *role;
 
 /** The link to this access-control entry. */
@@ -399,7 +399,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The project number. */
 @property(copy, nullable) NSString *projectNumber;
 
-/** The team. Can be owners, editors, or viewers. */
+/** The team. */
 @property(copy, nullable) NSString *team;
 
 @end
@@ -828,7 +828,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The project team associated with the entity, if any. */
 @property(strong, nullable) GTLRStorage_ObjectAccessControlProjectTeam *projectTeam;
 
-/** The access permission for the entity. Can be READER or OWNER. */
+/** The access permission for the entity. */
 @property(copy, nullable) NSString *role;
 
 /** The link to this access-control entry. */
@@ -845,7 +845,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The project number. */
 @property(copy, nullable) NSString *projectNumber;
 
-/** The team. Can be owners, editors, or viewers. */
+/** The team. */
 @property(copy, nullable) NSString *team;
 
 @end

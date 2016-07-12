@@ -31,6 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
 // acquireMethod
 
 /**
+ *  Books acquired via Family Sharing
+ *
+ *  Value: "FAMILY_SHARED"
+ */
+GTLR_EXTERN NSString * const kGTLRBooksAcquireMethodFamilyShared;
+/**
  *  Preordered books (not yet available)
  *
  *  Value: "PREORDERED"
@@ -2387,9 +2393,11 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForVolumesMybooksList]
 
 /**
- *  How the book was aquired
+ *  How the book was acquired
  *
  *  Likely values:
+ *    @arg @c kGTLRBooksAcquireMethodFamilyShared Books acquired via Family
+ *        Sharing (Value: "FAMILY_SHARED")
  *    @arg @c kGTLRBooksAcquireMethodPreordered Preordered books (not yet
  *        available) (Value: "PREORDERED")
  *    @arg @c kGTLRBooksAcquireMethodPreviouslyRented User-rented books past

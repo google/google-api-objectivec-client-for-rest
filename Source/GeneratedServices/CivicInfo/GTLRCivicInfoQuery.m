@@ -4,7 +4,8 @@
 // API:
 //   Google Civic Information API (civicinfo/v2)
 // Description:
-//   An API for accessing civic information.
+//   Provides polling places, early vote locations, contest data, election
+//   officials, and government representatives for U.S. residential addresses.
 // Documentation:
 //   https://developers.google.com/civic-information
 

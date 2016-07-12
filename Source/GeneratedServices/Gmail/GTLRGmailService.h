@@ -65,6 +65,19 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeGmailReadonly;
  *  Value "https://www.googleapis.com/auth/gmail.send"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeGmailSend;
+/**
+ *  Authorization scope: Manage your basic mail settings
+ *
+ *  Value "https://www.googleapis.com/auth/gmail.settings.basic"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeGmailSettingsBasic;
+/**
+ *  Authorization scope: Manage your sensitive mail settings, including who can
+ *  manage your mail
+ *
+ *  Value "https://www.googleapis.com/auth/gmail.settings.sharing"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeGmailSettingsSharing;
 
 // ----------------------------------------------------------------------------
 //   GTLRGmailService
