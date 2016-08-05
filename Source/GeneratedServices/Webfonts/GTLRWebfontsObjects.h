@@ -31,35 +31,35 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRWebfonts_Webfont : GTLRObject
 
 /** The category of the font. */
-@property(copy, nullable) NSString *category;
+@property(nonatomic, copy, nullable) NSString *category;
 
 /** The name of the font. */
-@property(copy, nullable) NSString *family;
+@property(nonatomic, copy, nullable) NSString *family;
 
 /**
  *  The font files (with all supported scripts) for each one of the available
  *  variants, as a key : value map.
  */
-@property(strong, nullable) GTLRWebfonts_WebfontFiles *files;
+@property(nonatomic, strong, nullable) GTLRWebfonts_WebfontFiles *files;
 
 /** This kind represents a webfont object in the webfonts service. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The date (format "yyyy-MM-dd") the font was modified for the last time.
  *
  *  Date only (yyyy-mm-dd).
  */
-@property(strong, nullable) GTLRDateTime *lastModified;
+@property(nonatomic, strong, nullable) GTLRDateTime *lastModified;
 
 /** The scripts supported by the font. */
-@property(strong, nullable) NSArray<NSString *> *subsets;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subsets;
 
 /** The available variants for the font. */
-@property(strong, nullable) NSArray<NSString *> *variants;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *variants;
 
 /** The font version. */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -91,10 +91,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRWebfonts_Webfont *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRWebfonts_Webfont *> *items;
 
 /** This kind represents a list of webfont objects in the webfonts service. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 

@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRuntimeConfigQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  ID](https://support.google.com/cloud/answer/6158840?hl=en&ref_topic=6158848)
  *  for this request, in the format `projects/[PROJECT_ID]`.
  */
-@property(copy, nullable) NSString *parent;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_RuntimeConfig.
@@ -93,7 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The RuntimeConfig resource to delete, in the format:
  *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Empty.
@@ -126,7 +126,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The name of the RuntimeConfig resource to retrieve, in the format:
  *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_RuntimeConfig.
@@ -160,20 +160,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Specifies the number of results to return per page. If there are fewer
  *  elements than the specified number, returns all elements.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Specifies a page token to use. Set `pageToken` to a `nextPageToken`
  *  returned by a previous list request to get the next page of results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The [project
  *  ID](https://support.google.com/cloud/answer/6158840?hl=en&ref_topic=6158848)
  *  for this request, in the format `projects/[PROJECT_ID]`.
  */
-@property(copy, nullable) NSString *parent;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_ListConfigsResponse.
@@ -210,7 +210,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRuntimeConfig queryForProjectsConfigsOperationsGetWithname:]
 
 /** The name of the operation resource. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Operation.
@@ -244,7 +244,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The name of the RuntimeConfig resource to update, in the format:
  *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_RuntimeConfig.
@@ -269,7 +269,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  name that has an existing variable name as a prefix.
  *  To learn more about creating a variable, read the
  *  [Setting and Getting
- *  Data](/deployment-manager/runtime-configurator/seta-and-get-variables)
+ *  Data](/deployment-manager/runtime-configurator/set-and-get-variables)
  *  documentation.
  *
  *  Method: runtimeconfig.projects.configs.variables.create
@@ -287,7 +287,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The configuration must exist beforehand; the path must by in the format:
  *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  */
-@property(copy, nullable) NSString *parent;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Variable.
@@ -297,7 +297,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  name that has an existing variable name as a prefix.
  *  To learn more about creating a variable, read the
  *  [Setting and Getting
- *  Data](/deployment-manager/runtime-configurator/seta-and-get-variables)
+ *  Data](/deployment-manager/runtime-configurator/set-and-get-variables)
  *  documentation.
  *
  *  @param object The @c GTLRCloudRuntimeConfig_Variable to include in the
@@ -335,13 +335,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The name of the variable to delete, in the format:
  *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/variables/[VARIABLE_NAME]`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Set to `true` to recursively delete multiple variables with the same
  *  prefix.
  */
-@property(assign) BOOL recursive;
+@property(nonatomic, assign) BOOL recursive;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Empty.
@@ -378,7 +378,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The name of the variable to return, in the format:
  *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/variables/[VARIBLE_NAME]`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Variable.
@@ -412,26 +412,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  Filters variables by matching the specified filter. For example:
  *  `projects/example-project/config/[CONFIG_NAME]/variables/example-variable`.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Specifies the number of results to return per page. If there are fewer
  *  elements than the specified number, returns all elements.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Specifies a page token to use. Set `pageToken` to a `nextPageToken`
  *  returned by a previous list request to get the next page of results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The path to the RuntimeConfig resource for which you want to list variables.
  *  The configuration must exist beforehand; the path must by in the format:
  *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  */
-@property(copy, nullable) NSString *parent;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_ListVariablesResponse.
@@ -471,7 +471,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The name of the variable to update, in the format:
  *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/variables/[VARIABLE_NAME]`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Variable.
@@ -517,7 +517,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The name of the variable to watch, in the format:
  *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Variable.
@@ -568,7 +568,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The configuration must exist beforehand; the path must by in the format:
  *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`.
  */
-@property(copy, nullable) NSString *parent;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Operation.
@@ -608,7 +608,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The Waiter resource to delete, in the format:
  *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/waiters/[WAITER_NAME]`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Empty.
@@ -642,7 +642,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  format:
  *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]/waiters/[WAITER_NAME]`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_Waiter.
@@ -677,20 +677,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Specifies the number of results to return per page. If there are fewer
  *  elements than the specified number, returns all elements.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Specifies a page token to use. Set `pageToken` to a `nextPageToken`
  *  returned by a previous list request to get the next page of results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The path to the configuration for which you want to get a list of waiters.
  *  The configuration must exist beforehand; the path must by in the format:
  *  `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`
  */
-@property(copy, nullable) NSString *parent;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudRuntimeConfig_ListWaitersResponse.

@@ -50,7 +50,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTraceViewViewTypeUnspecified;
 @interface GTLRCloudTraceQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -72,7 +72,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTraceViewViewTypeUnspecified;
 //   +[GTLQueryCloudTrace queryForProjectsPatchTracesWithObject:projectId:]
 
 /** ID of the Cloud project where the trace data is stored. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRCloudTrace_Empty.
@@ -107,10 +107,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTraceViewViewTypeUnspecified;
 //   +[GTLQueryCloudTrace queryForProjectsTracesGetWithprojectId:traceId:]
 
 /** ID of the Cloud project where the trace data is stored. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /** ID of the trace to return. */
-@property(copy, nullable) NSString *traceId;
+@property(nonatomic, copy, nullable) NSString *traceId;
 
 /**
  *  Fetches a @c GTLRCloudTrace_Trace.
@@ -144,10 +144,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTraceViewViewTypeUnspecified;
  *  Start of the time interval (inclusive) during which the trace data was
  *  collected from the application.
  */
-@property(copy, nullable) NSString *endTime;
+@property(nonatomic, copy, nullable) NSString *endTime;
 
 /** An optional filter for the request. */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Field used to sort the returned traces. Optional. Can be one of the
@@ -157,29 +157,29 @@ GTLR_EXTERN NSString * const kGTLRCloudTraceViewViewTypeUnspecified;
  *  can be specified by appending `desc` to the sort field (for example, `name
  *  desc`). Only one sort field is permitted.
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Maximum number of traces to return. If not specified or <= 0, the
  *  implementation selects a reasonable value. The implementation may return
  *  fewer traces than the requested page size. Optional.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Token identifying the page of results to return. If provided, use the value
  *  of the `next_page_token` field from a previous request. Optional.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** ID of the Cloud project where the trace data is stored. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  End of the time interval (inclusive) during which the trace data was
  *  collected from the application.
  */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
  *  Type of data returned for traces in the list. Optional. Default is
@@ -192,7 +192,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTraceViewViewTypeUnspecified;
  *    @arg @c kGTLRCloudTraceViewRootspan Value "ROOTSPAN"
  *    @arg @c kGTLRCloudTraceViewComplete Value "COMPLETE"
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRCloudTrace_ListTracesResponse.

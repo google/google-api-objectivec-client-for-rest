@@ -44,7 +44,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
 @interface GTLRPeopleQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -66,20 +66,20 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
  *  The number of connections to include in the response. Valid values are
  *  between 1 and 500, inclusive. Defaults to 100.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /** The token of the page to be returned. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Comma-separated list of fields to be included in the response. Omitting this
  *  field will include all fields. Each path should start with `person.`: for
  *  example, `person.names` or `person.photos`.
  */
-@property(copy, nullable) NSString *requestMaskIncludeField;
+@property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
 
 /** The resource name to return connections for. Only `people/me` is valid. */
-@property(copy, nullable) NSString *resourceName;
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
  *  The order in which the connections should be sorted. Defaults to
@@ -92,13 +92,13 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
  *        "FIRST_NAME_ASCENDING"
  *    @arg @c kGTLRPeopleSortOrderLastNameAscending Value "LAST_NAME_ASCENDING"
  */
-@property(copy, nullable) NSString *sortOrder;
+@property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
  *  A sync token, returned by a previous call to `people.connections.list`. Only
  *  resources changed since the sync token was created are returned.
  */
-@property(copy, nullable) NSString *syncToken;
+@property(nonatomic, copy, nullable) NSString *syncToken;
 
 /**
  *  Fetches a @c GTLRPeople_ListConnectionsResponse.
@@ -145,7 +145,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
  *  field will include all fields. Each path should start with `person.`: for
  *  example, `person.names` or `person.photos`.
  */
-@property(copy, nullable) NSString *requestMaskIncludeField;
+@property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
 
 /**
  *  The resource name of the person to provide information about. - To get
@@ -154,7 +154,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
  *  user, such as the resource names returned by
  *  [`people.connections.list`](/people/api/rest/v1/people.connections/list).
  */
-@property(copy, nullable) NSString *resourceName;
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
  *  Fetches a @c GTLRPeople_Person.
@@ -201,7 +201,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
  *  field will include all fields. Each path should start with `person.`: for
  *  example, `person.names` or `person.photos`.
  */
-@property(copy, nullable) NSString *requestMaskIncludeField;
+@property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
 
 /**
  *  The resource name, such as one returned by
@@ -209,7 +209,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
  *  one of the people to provide information about. You can include this
  *  parameter up to 50 times in one request.
  */
-@property(strong, nullable) NSArray<NSString *> *resourceNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
 /**
  *  Fetches a @c GTLRPeople_GetPeopleResponse.

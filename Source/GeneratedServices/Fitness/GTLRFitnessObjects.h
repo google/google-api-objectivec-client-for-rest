@@ -57,6 +57,30 @@ GTLR_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_Time;
 GTLR_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_Unknown;
 
 // ----------------------------------------------------------------------------
+// GTLRFitness_AggregateRequest.filteredDataQualityStandard
+
+/** Value: "dataQualityBloodGlucoseIso151972003" */
+GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodGlucoseIso151972003;
+/** Value: "dataQualityBloodGlucoseIso151972013" */
+GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodGlucoseIso151972013;
+/** Value: "dataQualityBloodPressureAami" */
+GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureAami;
+/** Value: "dataQualityBloodPressureBhsAA" */
+GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsAA;
+/** Value: "dataQualityBloodPressureBhsAB" */
+GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsAB;
+/** Value: "dataQualityBloodPressureBhsBA" */
+GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsBA;
+/** Value: "dataQualityBloodPressureBhsBB" */
+GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsBB;
+/** Value: "dataQualityBloodPressureEsh2002" */
+GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureEsh2002;
+/** Value: "dataQualityBloodPressureEsh2010" */
+GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureEsh2010;
+/** Value: "dataQualityUnknown" */
+GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityUnknown;
+
+// ----------------------------------------------------------------------------
 // GTLRFitness_BucketByTimePeriod.type
 
 /** Value: "day" */
@@ -69,8 +93,24 @@ GTLR_EXTERN NSString * const kGTLRFitness_BucketByTimePeriod_Type_Week;
 // ----------------------------------------------------------------------------
 // GTLRFitness_DataSource.dataQualityStandard
 
+/** Value: "dataQualityBloodGlucoseIso151972003" */
+GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodGlucoseIso151972003;
+/** Value: "dataQualityBloodGlucoseIso151972013" */
+GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodGlucoseIso151972013;
+/** Value: "dataQualityBloodPressureAami" */
+GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureAami;
+/** Value: "dataQualityBloodPressureBhsAA" */
+GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsAA;
+/** Value: "dataQualityBloodPressureBhsAB" */
+GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsAB;
+/** Value: "dataQualityBloodPressureBhsBA" */
+GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsBA;
+/** Value: "dataQualityBloodPressureBhsBB" */
+GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsBB;
 /** Value: "dataQualityBloodPressureEsh2002" */
 GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureEsh2002;
+/** Value: "dataQualityBloodPressureEsh2010" */
+GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureEsh2010;
 /** Value: "dataQualityUnknown" */
 GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityUnknown;
 
@@ -105,6 +145,8 @@ GTLR_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_String;
 
 /** Value: "chestStrap" */
 GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_ChestStrap;
+/** Value: "headMounted" */
+GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_HeadMounted;
 /** Value: "phone" */
 GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Phone;
 /** Value: "scale" */
@@ -126,10 +168,10 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *activity;
+@property(nonatomic, strong, nullable) NSNumber *activity;
 
 /** There will be one dataset per AggregateBy in the request. */
-@property(strong, nullable) NSArray<GTLRFitness_Dataset *> *dataset;
+@property(nonatomic, strong, nullable) NSArray<GTLRFitness_Dataset *> *dataset;
 
 /**
  *  The end time for the aggregated data, in milliseconds since epoch,
@@ -137,10 +179,10 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *endTimeMillis;
+@property(nonatomic, strong, nullable) NSNumber *endTimeMillis;
 
 /** Available for Bucket.Type.SESSION */
-@property(strong, nullable) GTLRFitness_Session *session;
+@property(nonatomic, strong, nullable) GTLRFitness_Session *session;
 
 /**
  *  The start time for the aggregated data, in milliseconds since epoch,
@@ -148,7 +190,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *startTimeMillis;
+@property(nonatomic, strong, nullable) NSNumber *startTimeMillis;
 
 /**
  *  The type of a bucket signifies how the data aggregation is performed in the
@@ -163,7 +205,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *    @arg @c kGTLRFitness_AggregateBucket_Type_Time Value "time"
  *    @arg @c kGTLRFitness_AggregateBucket_Type_Unknown Value "unknown"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -178,7 +220,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  from the specified data source ID will be included in the aggregation. The
  *  dataset in the response will have the same data source ID.
  */
-@property(copy, nullable) NSString *dataSourceId;
+@property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /**
  *  The data type to aggregate. All data sources providing this data type will
@@ -186,7 +228,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  dataset for this data type name. The dataset will have a data source ID of
  *  derived:com.google.:com.google.android.gms:aggregated
  */
-@property(copy, nullable) NSString *dataTypeName;
+@property(nonatomic, copy, nullable) NSString *dataTypeName;
 
 @end
 
@@ -202,7 +244,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  same bucketing criteria. There will be one dataset in the response for every
  *  aggregateBy spec.
  */
-@property(strong, nullable) NSArray<GTLRFitness_AggregateBy *> *aggregateBy;
+@property(nonatomic, strong, nullable) NSArray<GTLRFitness_AggregateBy *> *aggregateBy;
 
 /**
  *  Specifies that data be aggregated each activity segment recored for a user.
@@ -210,7 +252,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  segment rather than all segments of the same type. Mutually exclusive of
  *  other bucketing specifications.
  */
-@property(strong, nullable) GTLRFitness_BucketByActivity *bucketByActivitySegment;
+@property(nonatomic, strong, nullable) GTLRFitness_BucketByActivity *bucketByActivitySegment;
 
 /**
  *  Specifies that data be aggregated by the type of activity being performed
@@ -220,20 +262,20 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  included in the response. Mutually exclusive of other bucketing
  *  specifications.
  */
-@property(strong, nullable) GTLRFitness_BucketByActivity *bucketByActivityType;
+@property(nonatomic, strong, nullable) GTLRFitness_BucketByActivity *bucketByActivityType;
 
 /**
  *  Specifies that data be aggregated by user sessions. Data that does not fall
  *  within the time range of a session will not be included in the response.
  *  Mutually exclusive of other bucketing specifications.
  */
-@property(strong, nullable) GTLRFitness_BucketBySession *bucketBySession;
+@property(nonatomic, strong, nullable) GTLRFitness_BucketBySession *bucketBySession;
 
 /**
  *  Specifies that data be aggregated by a single time interval. Mutually
  *  exclusive of other bucketing specifications.
  */
-@property(strong, nullable) GTLRFitness_BucketByTime *bucketByTime;
+@property(nonatomic, strong, nullable) GTLRFitness_BucketByTime *bucketByTime;
 
 /**
  *  The end of a window of time. Data that intersects with this time window will
@@ -241,7 +283,14 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *endTimeMillis;
+@property(nonatomic, strong, nullable) NSNumber *endTimeMillis;
+
+/**
+ *  A list of acceptable data quality standards. Only data points which conform
+ *  to at least one of the specified data quality standards will be returned. If
+ *  the list is empty, all data points are returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *filteredDataQualityStandard;
 
 /**
  *  The start of a window of time. Data that intersects with this time window
@@ -249,7 +298,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *startTimeMillis;
+@property(nonatomic, strong, nullable) NSNumber *startTimeMillis;
 
 @end
 
@@ -260,7 +309,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @interface GTLRFitness_AggregateResponse : GTLRObject
 
 /** A list of buckets containing the aggregated data. */
-@property(strong, nullable) NSArray<GTLRFitness_AggregateBucket *> *bucket;
+@property(nonatomic, strong, nullable) NSArray<GTLRFitness_AggregateBucket *> *bucket;
 
 @end
 
@@ -271,7 +320,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @interface GTLRFitness_Application : GTLRObject
 
 /** An optional URI that can be used to link back to the application. */
-@property(copy, nullable) NSString *detailsUrl;
+@property(nonatomic, copy, nullable) NSString *detailsUrl;
 
 /**
  *  The name of this application. This is required for REST clients, but we do
@@ -279,7 +328,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  convenience for other developers who would like to identify which REST
  *  created an Application or Data Source.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Package name for this application. This is used as a unique identifier when
@@ -287,13 +336,13 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  REST clients will have their developer project number reflected into the
  *  Data Source data stream IDs, instead of the packageName.
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Version of the application. You should update this field whenever the
  *  application changes in a way that affects the computation of the data.
  */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -307,7 +356,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  The default activity stream will be used if a specific activityDataSourceId
  *  is not specified.
  */
-@property(copy, nullable) NSString *activityDataSourceId;
+@property(nonatomic, copy, nullable) NSString *activityDataSourceId;
 
 /**
  *  Specifies that only activity segments of duration longer than
@@ -316,7 +365,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *minDurationMillis;
+@property(nonatomic, strong, nullable) NSNumber *minDurationMillis;
 
 @end
 
@@ -332,7 +381,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *minDurationMillis;
+@property(nonatomic, strong, nullable) NSNumber *minDurationMillis;
 
 @end
 
@@ -349,9 +398,9 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *durationMillis;
+@property(nonatomic, strong, nullable) NSNumber *durationMillis;
 
-@property(strong, nullable) GTLRFitness_BucketByTimePeriod *period;
+@property(nonatomic, strong, nullable) GTLRFitness_BucketByTimePeriod *period;
 
 @end
 
@@ -362,7 +411,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @interface GTLRFitness_BucketByTimePeriod : GTLRObject
 
 /** org.joda.timezone.DateTimeZone */
-@property(copy, nullable) NSString *timeZoneId;
+@property(nonatomic, copy, nullable) NSString *timeZoneId;
 
 /**
  *  type
@@ -372,14 +421,14 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *    @arg @c kGTLRFitness_BucketByTimePeriod_Type_Month Value "month"
  *    @arg @c kGTLRFitness_BucketByTimePeriod_Type_Week Value "week"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  value
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *value;
+@property(nonatomic, strong, nullable) NSNumber *value;
 
 @end
 
@@ -403,10 +452,10 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *computationTimeMillis;
+@property(nonatomic, strong, nullable) NSNumber *computationTimeMillis;
 
 /** The data type defining the format of the values in this data point. */
-@property(copy, nullable) NSString *dataTypeName;
+@property(nonatomic, copy, nullable) NSString *dataTypeName;
 
 /**
  *  The end time of the interval represented by this data point, in nanoseconds
@@ -414,7 +463,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *endTimeNanos;
+@property(nonatomic, strong, nullable) NSNumber *endTimeNanos;
 
 /**
  *  Indicates the last time this data point was modified. Useful only in
@@ -423,21 +472,21 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *modifiedTimeMillis;
+@property(nonatomic, strong, nullable) NSNumber *modifiedTimeMillis;
 
 /**
  *  If the data point is contained in a dataset for a derived data source, this
  *  field will be populated with the data source stream ID that created the data
  *  point originally.
  */
-@property(copy, nullable) NSString *originDataSourceId;
+@property(nonatomic, copy, nullable) NSString *originDataSourceId;
 
 /**
  *  The raw timestamp from the original SensorEvent.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *rawTimestampNanos;
+@property(nonatomic, strong, nullable) NSNumber *rawTimestampNanos;
 
 /**
  *  The start time of the interval represented by this data point, in
@@ -445,7 +494,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *startTimeNanos;
+@property(nonatomic, strong, nullable) NSNumber *startTimeNanos;
 
 /**
  *  Values of each data type field for the data point. It is expected that each
@@ -454,7 +503,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  Only one of integer and floating point fields will be populated, depending
  *  on the format enum value within data source's type field.
  */
-@property(strong, nullable) NSArray<GTLRFitness_Value *> *value;
+@property(nonatomic, strong, nullable) NSArray<GTLRFitness_Value *> *value;
 
 @end
 
@@ -475,7 +524,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  The data stream ID of the data source that created the points in this
  *  dataset.
  */
-@property(copy, nullable) NSString *dataSourceId;
+@property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /**
  *  The largest end time of all data points in this possibly partial
@@ -484,7 +533,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *maxEndTimeNs;
+@property(nonatomic, strong, nullable) NSNumber *maxEndTimeNs;
 
 /**
  *  The smallest start time of all data points in this possibly partial
@@ -493,7 +542,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *minStartTimeNs;
+@property(nonatomic, strong, nullable) NSNumber *minStartTimeNs;
 
 /**
  *  This token will be set when a dataset is received in response to a GET
@@ -501,7 +550,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  Provide this value in a subsequent GET request to return the next page of
  *  data points within this dataset.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  A partial list of data points contained in the dataset, ordered by largest
@@ -512,7 +561,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRFitness_DataPoint *> *point;
+@property(nonatomic, strong, nullable) NSArray<GTLRFitness_DataPoint *> *point;
 
 @end
 
@@ -537,9 +586,9 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 /**
  *  Information about an application which feeds sensor data into the platform.
  */
-@property(strong, nullable) GTLRFitness_Application *application;
+@property(nonatomic, strong, nullable) GTLRFitness_Application *application;
 
-@property(strong, nullable) NSArray<NSString *> *dataQualityStandard;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataQualityStandard;
 
 /**
  *  A unique identifier for the data stream produced by this data source. The
@@ -566,7 +615,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  Android client that did not create the data source. Only the data source
  *  creator will see the developer project number in clear and normal form.
  */
-@property(copy, nullable) NSString *dataStreamId;
+@property(nonatomic, copy, nullable) NSString *dataStreamId;
 
 /**
  *  The stream name uniquely identifies this particular data source among other
@@ -575,22 +624,22 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  two streams for the same data type, or when a device has two equivalent
  *  sensors.
  */
-@property(copy, nullable) NSString *dataStreamName;
+@property(nonatomic, copy, nullable) NSString *dataStreamName;
 
 /**
  *  The data type defines the schema for a stream of data being collected by,
  *  inserted into, or queried from the Fitness API.
  */
-@property(strong, nullable) GTLRFitness_DataType *dataType;
+@property(nonatomic, strong, nullable) GTLRFitness_DataType *dataType;
 
 /**
  *  Representation of an integrated device (such as a phone or a wearable) that
  *  can hold sensors.
  */
-@property(strong, nullable) GTLRFitness_Device *device;
+@property(nonatomic, strong, nullable) GTLRFitness_Device *device;
 
 /** An end-user visible name for this data source. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  A constant describing the type of this data source. Indicates whether this
@@ -600,7 +649,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *    @arg @c kGTLRFitness_DataSource_Type_Derived Value "derived"
  *    @arg @c kGTLRFitness_DataSource_Type_Raw Value "raw"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -611,13 +660,13 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @interface GTLRFitness_DataType : GTLRObject
 
 /** A field represents one dimension of a data type. */
-@property(strong, nullable) NSArray<GTLRFitness_DataTypeField *> *field;
+@property(nonatomic, strong, nullable) NSArray<GTLRFitness_DataTypeField *> *field;
 
 /**
  *  Each data type has a unique, namespaced, name. All data types in the
  *  com.google namespace are shared as part of the platform.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -644,20 +693,20 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *    @arg @c kGTLRFitness_DataTypeField_Format_Map Value "map"
  *    @arg @c kGTLRFitness_DataTypeField_Format_String Value "string"
  */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /**
  *  Defines the name and format of data. Unlike data type names, field names are
  *  not namespaced, and only need to be unique within the data type.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  optional
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *optional;
+@property(nonatomic, strong, nullable) NSNumber *optional;
 
 @end
 
@@ -678,23 +727,24 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @interface GTLRFitness_Device : GTLRObject
 
 /** Manufacturer of the product/hardware. */
-@property(copy, nullable) NSString *manufacturer;
+@property(nonatomic, copy, nullable) NSString *manufacturer;
 
 /** End-user visible model name for the device. */
-@property(copy, nullable) NSString *model;
+@property(nonatomic, copy, nullable) NSString *model;
 
 /**
  *  A constant representing the type of the device.
  *
  *  Likely values:
  *    @arg @c kGTLRFitness_Device_Type_ChestStrap Value "chestStrap"
+ *    @arg @c kGTLRFitness_Device_Type_HeadMounted Value "headMounted"
  *    @arg @c kGTLRFitness_Device_Type_Phone Value "phone"
  *    @arg @c kGTLRFitness_Device_Type_Scale Value "scale"
  *    @arg @c kGTLRFitness_Device_Type_Tablet Value "tablet"
  *    @arg @c kGTLRFitness_Device_Type_Unknown Value "unknown"
  *    @arg @c kGTLRFitness_Device_Type_Watch Value "watch"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The serial number or other unique ID for the hardware. This field is
@@ -702,10 +752,10 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  data source. Only the data source creator will see the uid field in clear
  *  and normal form.
  */
-@property(copy, nullable) NSString *uid;
+@property(nonatomic, copy, nullable) NSString *uid;
 
 /** Version string for the device hardware/software. */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -716,7 +766,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @interface GTLRFitness_ListDataSourcesResponse : GTLRObject
 
 /** A previously created data source. */
-@property(strong, nullable) NSArray<GTLRFitness_DataSource *> *dataSource;
+@property(nonatomic, strong, nullable) NSArray<GTLRFitness_DataSource *> *dataSource;
 
 @end
 
@@ -731,20 +781,20 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  sessions deleted with original end times that are within the startTime and
  *  endTime frame.
  */
-@property(strong, nullable) NSArray<GTLRFitness_Session *> *deletedSession;
+@property(nonatomic, strong, nullable) NSArray<GTLRFitness_Session *> *deletedSession;
 
 /**
  *  The continuation token, which is used to page through large result sets.
  *  Provide this value in a subsequent request to return the next page of
  *  results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  Sessions with an end time that is between startTime and endTime of the
  *  request.
  */
-@property(strong, nullable) NSArray<GTLRFitness_Session *> *session;
+@property(nonatomic, strong, nullable) NSArray<GTLRFitness_Session *> *session;
 
 @end
 
@@ -761,7 +811,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *fpVal;
+@property(nonatomic, strong, nullable) NSNumber *fpVal;
 
 @end
 
@@ -781,31 +831,31 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *activeTimeMillis;
+@property(nonatomic, strong, nullable) NSNumber *activeTimeMillis;
 
 /**
  *  The type of activity this session represents.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *activityType;
+@property(nonatomic, strong, nullable) NSNumber *activityType;
 
 /** The application that created the session. */
-@property(strong, nullable) GTLRFitness_Application *application;
+@property(nonatomic, strong, nullable) GTLRFitness_Application *application;
 
 /**
  *  A description for this session.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  An end time, in milliseconds since epoch, inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *endTimeMillis;
+@property(nonatomic, strong, nullable) NSNumber *endTimeMillis;
 
 /**
  *  A client-generated identifier that is unique across all sessions owned by
@@ -813,24 +863,24 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  A timestamp that indicates when the session was last modified.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *modifiedTimeMillis;
+@property(nonatomic, strong, nullable) NSNumber *modifiedTimeMillis;
 
 /** A human readable name of the session. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  A start time, in milliseconds since epoch, inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *startTimeMillis;
+@property(nonatomic, strong, nullable) NSNumber *startTimeMillis;
 
 @end
 
@@ -847,14 +897,14 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *fpVal;
+@property(nonatomic, strong, nullable) NSNumber *fpVal;
 
 /**
  *  Integer value. When this is set, other values must not be set.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *intVal;
+@property(nonatomic, strong, nullable) NSNumber *intVal;
 
 /**
  *  Map value. The valid key space and units for the corresponding value of each
@@ -862,14 +912,14 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  be kept small whenever possible. Data streams with large keys and high data
  *  frequency may be down sampled.
  */
-@property(strong, nullable) NSArray<GTLRFitness_ValueMapValEntry *> *mapVal;
+@property(nonatomic, strong, nullable) NSArray<GTLRFitness_ValueMapValEntry *> *mapVal;
 
 /**
  *  String value. When this is set, other values must not be set. Strings should
  *  be kept small whenever possible. Data streams with large string values and
  *  high data frequency may be down sampled.
  */
-@property(copy, nullable) NSString *stringVal;
+@property(nonatomic, copy, nullable) NSString *stringVal;
 
 @end
 
@@ -879,8 +929,8 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  */
 @interface GTLRFitness_ValueMapValEntry : GTLRObject
 
-@property(copy, nullable) NSString *key;
-@property(strong, nullable) GTLRFitness_MapValue *value;
+@property(nonatomic, copy, nullable) NSString *key;
+@property(nonatomic, strong, nullable) GTLRFitness_MapValue *value;
 
 @end
 

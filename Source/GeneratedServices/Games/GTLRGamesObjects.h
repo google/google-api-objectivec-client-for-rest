@@ -94,31 +94,31 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "STANDARD" - Achievement is either locked or unlocked.
  *  - "INCREMENTAL" - Achievement is incremental.
  */
-@property(copy, nullable) NSString *achievementType;
+@property(nonatomic, copy, nullable) NSString *achievementType;
 
 /**
  *  The description of the achievement.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Experience points which will be earned when unlocking this achievement.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *experiencePoints;
+@property(nonatomic, strong, nullable) NSNumber *experiencePoints;
 
 /** The total steps for an incremental achievement as a string. */
-@property(copy, nullable) NSString *formattedTotalSteps;
+@property(nonatomic, copy, nullable) NSString *formattedTotalSteps;
 
 /**
  *  The ID of the achievement.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The initial state of the achievement.
@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "REVEALED" - Achievement is revealed.
  *  - "UNLOCKED" - Achievement is unlocked.
  */
-@property(copy, nullable) NSString *initialState;
+@property(nonatomic, copy, nullable) NSString *initialState;
 
 /**
  *  Indicates whether the revealed icon image being returned is a default image,
@@ -135,7 +135,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isRevealedIconUrlDefault;
+@property(nonatomic, strong, nullable) NSNumber *isRevealedIconUrlDefault;
 
 /**
  *  Indicates whether the unlocked icon image being returned is a default image,
@@ -143,29 +143,29 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isUnlockedIconUrlDefault;
+@property(nonatomic, strong, nullable) NSNumber *isUnlockedIconUrlDefault;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#achievementDefinition.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The name of the achievement. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The image URL for the revealed achievement icon. */
-@property(copy, nullable) NSString *revealedIconUrl;
+@property(nonatomic, copy, nullable) NSString *revealedIconUrl;
 
 /**
  *  The total steps for an incremental achievement.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalSteps;
+@property(nonatomic, strong, nullable) NSNumber *totalSteps;
 
 /** The image URL for the unlocked achievement icon. */
-@property(copy, nullable) NSString *unlockedIconUrl;
+@property(nonatomic, copy, nullable) NSString *unlockedIconUrl;
 
 @end
 
@@ -186,16 +186,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_AchievementDefinition *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_AchievementDefinition *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#achievementDefinitionsListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token corresponding to the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -210,13 +210,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *currentSteps;
+@property(nonatomic, strong, nullable) NSNumber *currentSteps;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#achievementIncrementResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Whether the current steps for the achievement has reached the number of
@@ -224,7 +224,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *newlyUnlocked;
+@property(nonatomic, strong, nullable) NSNumber *newlyUnlocked;
 
 @end
 
@@ -241,13 +241,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "REVEALED" - Achievement is revealed.
  *  - "UNLOCKED" - Achievement is unlocked.
  */
-@property(copy, nullable) NSString *currentState;
+@property(nonatomic, copy, nullable) NSString *currentState;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#achievementRevealResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -262,13 +262,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *currentSteps;
+@property(nonatomic, strong, nullable) NSNumber *currentSteps;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#achievementSetStepsAtLeastResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Whether the the current steps for the achievement has reached the number of
@@ -276,7 +276,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *newlyUnlocked;
+@property(nonatomic, strong, nullable) NSNumber *newlyUnlocked;
 
 @end
 
@@ -290,7 +290,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#achievementUnlockResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Whether this achievement was newly unlocked (that is, whether the unlock
@@ -298,7 +298,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *newlyUnlocked;
+@property(nonatomic, strong, nullable) NSNumber *newlyUnlocked;
 
 @end
 
@@ -312,10 +312,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#achievementUpdateMultipleRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The individual achievement update requests. */
-@property(strong, nullable) NSArray<GTLRGames_AchievementUpdateRequest *> *updates;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_AchievementUpdateRequest *> *updates;
 
 @end
 
@@ -329,10 +329,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#achievementUpdateListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The updated state of the achievements. */
-@property(strong, nullable) NSArray<GTLRGames_AchievementUpdateResponse *> *updatedAchievements;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_AchievementUpdateResponse *> *updatedAchievements;
 
 @end
 
@@ -343,25 +343,25 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_AchievementUpdateRequest : GTLRObject
 
 /** The achievement this update is being applied to. */
-@property(copy, nullable) NSString *achievementId;
+@property(nonatomic, copy, nullable) NSString *achievementId;
 
 /**
  *  The payload if an update of type INCREMENT was requested for the
  *  achievement.
  */
-@property(strong, nullable) GTLRGames_GamesAchievementIncrement *incrementPayload;
+@property(nonatomic, strong, nullable) GTLRGames_GamesAchievementIncrement *incrementPayload;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#achievementUpdateRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The payload if an update of type SET_STEPS_AT_LEAST was requested for the
  *  achievement.
  */
-@property(strong, nullable) GTLRGames_GamesAchievementSetStepsAtLeast *setStepsAtLeastPayload;
+@property(nonatomic, strong, nullable) GTLRGames_GamesAchievementSetStepsAtLeast *setStepsAtLeastPayload;
 
 /**
  *  The type of update being applied.
@@ -372,7 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "SET_STEPS_AT_LEAST" - Achievement progress is set to at least the passed
  *  value.
  */
-@property(copy, nullable) NSString *updateType;
+@property(nonatomic, copy, nullable) NSString *updateType;
 
 @end
 
@@ -383,7 +383,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_AchievementUpdateResponse : GTLRObject
 
 /** The achievement this update is was applied to. */
-@property(copy, nullable) NSString *achievementId;
+@property(nonatomic, copy, nullable) NSString *achievementId;
 
 /**
  *  The current state of the achievement.
@@ -392,20 +392,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "REVEALED" - Achievement is revealed.
  *  - "UNLOCKED" - Achievement is unlocked.
  */
-@property(copy, nullable) NSString *currentState;
+@property(nonatomic, copy, nullable) NSString *currentState;
 
 /**
  *  The current steps recorded for this achievement if it is incremental.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *currentSteps;
+@property(nonatomic, strong, nullable) NSNumber *currentSteps;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#achievementUpdateResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Whether this achievement was newly unlocked (that is, whether the unlock
@@ -413,14 +413,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *newlyUnlocked;
+@property(nonatomic, strong, nullable) NSNumber *newlyUnlocked;
 
 /**
  *  Whether the requested updates actually affected the achievement.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *updateOccurred;
+@property(nonatomic, strong, nullable) NSNumber *updateOccurred;
 
 @end
 
@@ -435,34 +435,34 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#aggregateStats.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The maximum amount.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *max;
+@property(nonatomic, strong, nullable) NSNumber *max;
 
 /**
  *  The minimum amount.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *min;
+@property(nonatomic, strong, nullable) NSNumber *min;
 
 /**
  *  The total number of bytes sent for messages between a pair of peers.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *sum;
+@property(nonatomic, strong, nullable) NSNumber *sum;
 
 @end
 
@@ -473,16 +473,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_AnonymousPlayer : GTLRObject
 
 /** The base URL for the image to display for the anonymous player. */
-@property(copy, nullable) NSString *avatarImageUrl;
+@property(nonatomic, copy, nullable) NSString *avatarImageUrl;
 
 /** The name to display for the anonymous player. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#anonymousPlayer.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -497,69 +497,69 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *achievementCount;
+@property(nonatomic, strong, nullable) NSNumber *achievementCount;
 
 /** The assets of the application. */
-@property(strong, nullable) NSArray<GTLRGames_ImageAsset *> *assets;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_ImageAsset *> *assets;
 
 /** The author of the application. */
-@property(copy, nullable) NSString *author;
+@property(nonatomic, copy, nullable) NSString *author;
 
 /** The category of the application. */
-@property(strong, nullable) GTLRGames_ApplicationCategory *category;
+@property(nonatomic, strong, nullable) GTLRGames_ApplicationCategory *category;
 
 /**
  *  The description of the application.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  A list of features that have been enabled for the application.
  *  Possible values are:
  *  - "SNAPSHOTS" - Snapshots has been enabled
  */
-@property(strong, nullable) NSArray<NSString *> *enabledFeatures;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledFeatures;
 
 /**
  *  The ID of the application.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The instances of the application. */
-@property(strong, nullable) NSArray<GTLRGames_Instance *> *instances;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_Instance *> *instances;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#application.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The last updated timestamp of the application.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *lastUpdatedTimestamp;
+@property(nonatomic, strong, nullable) NSNumber *lastUpdatedTimestamp;
 
 /**
  *  The number of leaderboards visible to the currently authenticated player.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *leaderboardCount;
+@property(nonatomic, strong, nullable) NSNumber *leaderboardCount;
 
 /** The name of the application. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  A hint to the client UI for what color to use as an app-themed color. The
  *  color is given as an RGB triplet (e.g. "E0E0E0").
  */
-@property(copy, nullable) NSString *themeColor;
+@property(nonatomic, copy, nullable) NSString *themeColor;
 
 @end
 
@@ -573,13 +573,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#applicationCategory.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The primary category. */
-@property(copy, nullable) NSString *primary;
+@property(nonatomic, copy, nullable) NSString *primary;
 
 /** The secondary category. */
-@property(copy, nullable) NSString *secondary;
+@property(nonatomic, copy, nullable) NSString *secondary;
 
 @end
 
@@ -594,18 +594,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  An alternate ID that was once used for the player that was issued the auth
  *  token used in this request. (This field is not normally populated.)
  */
-@property(copy, nullable) NSString *alternatePlayerId;
+@property(nonatomic, copy, nullable) NSString *alternatePlayerId;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#applicationVerifyResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The ID of the player that was issued the auth token used in this request.
  */
-@property(copy, nullable) NSString *playerId;
+@property(nonatomic, copy, nullable) NSString *playerId;
 
 @end
 
@@ -616,20 +616,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_Category : GTLRObject
 
 /** The category name. */
-@property(copy, nullable) NSString *category;
+@property(nonatomic, copy, nullable) NSString *category;
 
 /**
  *  Experience points earned in this category.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *experiencePoints;
+@property(nonatomic, strong, nullable) NSNumber *experiencePoints;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#category.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -650,16 +650,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_Category *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_Category *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#categoryListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token corresponding to the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -684,16 +684,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "RECORD_RATE_HIGH": An attempt was made to record data faster than the
  *  server will apply updates.
  */
-@property(copy, nullable) NSString *failureCause;
+@property(nonatomic, copy, nullable) NSString *failureCause;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#eventBatchRecordFailure.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The time range which was rejected; empty for a request-wide failure. */
-@property(strong, nullable) GTLRGames_EventPeriodRange *range;
+@property(nonatomic, strong, nullable) GTLRGames_EventPeriodRange *range;
 
 @end
 
@@ -704,13 +704,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_EventChild : GTLRObject
 
 /** The ID of the child event. */
-@property(copy, nullable) NSString *childId;
+@property(nonatomic, copy, nullable) NSString *childId;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#eventChild.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -721,27 +721,27 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_EventDefinition : GTLRObject
 
 /** A list of events that are a child of this event. */
-@property(strong, nullable) NSArray<GTLRGames_EventChild *> *childEvents;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_EventChild *> *childEvents;
 
 /**
  *  Description of what this event represents.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** The name to display for the event. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The ID of the event.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The base URL for the image that represents the event. */
-@property(copy, nullable) NSString *imageUrl;
+@property(nonatomic, copy, nullable) NSString *imageUrl;
 
 /**
  *  Indicates whether the icon image being returned is a default image, or is
@@ -749,13 +749,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isDefaultImageUrl;
+@property(nonatomic, strong, nullable) NSNumber *isDefaultImageUrl;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#eventDefinition.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The visibility of event being tracked in this definition.
@@ -764,7 +764,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "HIDDEN": This event should only be shown to users that have recorded this
  *  event at least once.
  */
-@property(copy, nullable) NSString *visibility;
+@property(nonatomic, copy, nullable) NSString *visibility;
 
 @end
 
@@ -785,16 +785,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_EventDefinition *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_EventDefinition *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#eventDefinitionListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The pagination token for the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -808,7 +808,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#eventPeriodRange.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The time when this update period ends, in millis, since 1970 UTC (Unix
@@ -816,7 +816,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *periodEndMillis;
+@property(nonatomic, strong, nullable) NSNumber *periodEndMillis;
 
 /**
  *  The time when this update period begins, in millis, since 1970 UTC (Unix
@@ -824,7 +824,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *periodStartMillis;
+@property(nonatomic, strong, nullable) NSNumber *periodStartMillis;
 
 @end
 
@@ -838,13 +838,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#eventPeriodUpdate.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The time period being covered by this update. */
-@property(strong, nullable) GTLRGames_EventPeriodRange *timePeriod;
+@property(nonatomic, strong, nullable) GTLRGames_EventPeriodRange *timePeriod;
 
 /** The updates being made for this time period. */
-@property(strong, nullable) NSArray<GTLRGames_EventUpdateRequest *> *updates;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_EventUpdateRequest *> *updates;
 
 @end
 
@@ -855,7 +855,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_EventRecordFailure : GTLRObject
 
 /** The ID of the event that was not updated. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  The cause for the update failure.
@@ -864,13 +864,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "INVALID_UPDATE_VALUE" - An attempt was made to increment an event by a
  *  non-positive value.
  */
-@property(copy, nullable) NSString *failureCause;
+@property(nonatomic, copy, nullable) NSString *failureCause;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#eventRecordFailure.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -886,23 +886,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *currentTimeMillis;
+@property(nonatomic, strong, nullable) NSNumber *currentTimeMillis;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#eventRecordRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The request ID used to identify this attempt to record events.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *requestId;
+@property(nonatomic, strong, nullable) NSNumber *requestId;
 
 /** A list of the time period updates being made in this request. */
-@property(strong, nullable) NSArray<GTLRGames_EventPeriodUpdate *> *timePeriods;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_EventPeriodUpdate *> *timePeriods;
 
 @end
 
@@ -913,20 +913,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_EventUpdateRequest : GTLRObject
 
 /** The ID of the event being modified in this update. */
-@property(copy, nullable) NSString *definitionId;
+@property(nonatomic, copy, nullable) NSString *definitionId;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#eventUpdateRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The number of times this event occurred in this time period.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *updateCount;
+@property(nonatomic, strong, nullable) NSNumber *updateCount;
 
 @end
 
@@ -937,19 +937,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_EventUpdateResponse : GTLRObject
 
 /** Any batch-wide failures which occurred applying updates. */
-@property(strong, nullable) NSArray<GTLRGames_EventBatchRecordFailure *> *batchFailures;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_EventBatchRecordFailure *> *batchFailures;
 
 /** Any failures updating a particular event. */
-@property(strong, nullable) NSArray<GTLRGames_EventRecordFailure *> *eventFailures;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_EventRecordFailure *> *eventFailures;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#eventUpdateResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The current status of any updated events */
-@property(strong, nullable) NSArray<GTLRGames_PlayerEvent *> *playerEvents;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_PlayerEvent *> *playerEvents;
 
 @end
 
@@ -964,21 +964,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#GamesAchievementIncrement.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The requestId associated with an increment to an achievement.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *requestId;
+@property(nonatomic, strong, nullable) NSNumber *requestId;
 
 /**
  *  The number of steps to be incremented.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *steps;
+@property(nonatomic, strong, nullable) NSNumber *steps;
 
 @end
 
@@ -993,14 +993,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#GamesAchievementSetStepsAtLeast.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The minimum number of steps for the achievement to be set to.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *steps;
+@property(nonatomic, strong, nullable) NSNumber *steps;
 
 @end
 
@@ -1015,26 +1015,26 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#imageAsset.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The name of the asset. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The URL of the asset. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  The width of the asset.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -1045,22 +1045,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_Instance : GTLRObject
 
 /** URI which shows where a user can acquire this instance. */
-@property(copy, nullable) NSString *acquisitionUri;
+@property(nonatomic, copy, nullable) NSString *acquisitionUri;
 
 /** Platform dependent details for Android. */
-@property(strong, nullable) GTLRGames_InstanceAndroidDetails *androidInstance;
+@property(nonatomic, strong, nullable) GTLRGames_InstanceAndroidDetails *androidInstance;
 
 /** Platform dependent details for iOS. */
-@property(strong, nullable) GTLRGames_InstanceIosDetails *iosInstance;
+@property(nonatomic, strong, nullable) GTLRGames_InstanceIosDetails *iosInstance;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#instance.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Localized display name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The platform type.
@@ -1069,24 +1069,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "IOS" - Instance is for iOS
  *  - "WEB_APP" - Instance is for Web App.
  */
-@property(copy, nullable) NSString *platformType;
+@property(nonatomic, copy, nullable) NSString *platformType;
 
 /**
  *  Flag to show if this game instance supports realtime play.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *realtimePlay;
+@property(nonatomic, strong, nullable) NSNumber *realtimePlay;
 
 /**
  *  Flag to show if this game instance supports turn based play.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *turnBasedPlay;
+@property(nonatomic, strong, nullable) NSNumber *turnBasedPlay;
 
 /** Platform dependent details for Web. */
-@property(strong, nullable) GTLRGames_InstanceWebDetails *webInstance;
+@property(nonatomic, strong, nullable) GTLRGames_InstanceWebDetails *webInstance;
 
 @end
 
@@ -1101,23 +1101,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enablePiracyCheck;
+@property(nonatomic, strong, nullable) NSNumber *enablePiracyCheck;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#instanceAndroidDetails.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Android package name which maps to Google Play URL. */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Indicates that this instance is the default for new installations.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *preferred;
+@property(nonatomic, strong, nullable) NSNumber *preferred;
 
 @end
 
@@ -1128,16 +1128,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_InstanceIosDetails : GTLRObject
 
 /** Bundle identifier. */
-@property(copy, nullable) NSString *bundleIdentifier;
+@property(nonatomic, copy, nullable) NSString *bundleIdentifier;
 
 /** iTunes App ID. */
-@property(copy, nullable) NSString *itunesAppId;
+@property(nonatomic, copy, nullable) NSString *itunesAppId;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#instanceIosDetails.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Indicates that this instance is the default for new installations on iPad
@@ -1145,7 +1145,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *preferredForIpad;
+@property(nonatomic, strong, nullable) NSNumber *preferredForIpad;
 
 /**
  *  Indicates that this instance is the default for new installations on iPhone
@@ -1153,21 +1153,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *preferredForIphone;
+@property(nonatomic, strong, nullable) NSNumber *preferredForIphone;
 
 /**
  *  Flag to indicate if this instance supports iPad.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *supportIpad;
+@property(nonatomic, strong, nullable) NSNumber *supportIpad;
 
 /**
  *  Flag to indicate if this instance supports iPhone.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *supportIphone;
+@property(nonatomic, strong, nullable) NSNumber *supportIphone;
 
 @end
 
@@ -1181,17 +1181,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#instanceWebDetails.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Launch URL for the game. */
-@property(copy, nullable) NSString *launchUrl;
+@property(nonatomic, copy, nullable) NSString *launchUrl;
 
 /**
  *  Indicates that this instance is the default for new installations.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *preferred;
+@property(nonatomic, strong, nullable) NSNumber *preferred;
 
 @end
 
@@ -1202,14 +1202,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_Leaderboard : GTLRObject
 
 /** The icon for the leaderboard. */
-@property(copy, nullable) NSString *iconUrl;
+@property(nonatomic, copy, nullable) NSString *iconUrl;
 
 /**
  *  The leaderboard ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Indicates whether the icon image being returned is a default image, or is
@@ -1217,16 +1217,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isIconUrlDefault;
+@property(nonatomic, strong, nullable) NSNumber *isIconUrlDefault;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#leaderboard.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The name of the leaderboard. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  How scores are ordered.
@@ -1236,7 +1236,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "SMALLER_IS_BETTER" - Smaller values are better; scores are sorted in
  *  ascending order.
  */
-@property(copy, nullable) NSString *order;
+@property(nonatomic, copy, nullable) NSString *order;
 
 @end
 
@@ -1247,39 +1247,39 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_LeaderboardEntry : GTLRObject
 
 /** The localized string for the numerical value of this score. */
-@property(copy, nullable) NSString *formattedScore;
+@property(nonatomic, copy, nullable) NSString *formattedScore;
 
 /** The localized string for the rank of this score for this leaderboard. */
-@property(copy, nullable) NSString *formattedScoreRank;
+@property(nonatomic, copy, nullable) NSString *formattedScoreRank;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#leaderboardEntry.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The player who holds this score. */
-@property(strong, nullable) GTLRGames_Player *player;
+@property(nonatomic, strong, nullable) GTLRGames_Player *player;
 
 /**
  *  The rank of this score for this leaderboard.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *scoreRank;
+@property(nonatomic, strong, nullable) NSNumber *scoreRank;
 
 /**
  *  Additional information about the score. Values must contain no more than 64
  *  URI-safe characters as defined by section 2.3 of RFC 3986.
  */
-@property(copy, nullable) NSString *scoreTag;
+@property(nonatomic, copy, nullable) NSString *scoreTag;
 
 /**
  *  The numerical value of this score.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *scoreValue;
+@property(nonatomic, strong, nullable) NSNumber *scoreValue;
 
 /**
  *  The time span of this high score.
@@ -1288,7 +1288,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "WEEKLY" - The score is a weekly high score.
  *  - "DAILY" - The score is a daily high score.
  */
-@property(copy, nullable) NSString *timeSpan;
+@property(nonatomic, copy, nullable) NSString *timeSpan;
 
 /**
  *  The timestamp at which this score was recorded, in milliseconds since the
@@ -1296,7 +1296,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *writeTimestampMillis;
+@property(nonatomic, strong, nullable) NSNumber *writeTimestampMillis;
 
 @end
 
@@ -1317,16 +1317,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_Leaderboard *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_Leaderboard *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#leaderboardListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token corresponding to the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -1337,30 +1337,30 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_LeaderboardScoreRank : GTLRObject
 
 /** The number of scores in the leaderboard as a string. */
-@property(copy, nullable) NSString *formattedNumScores;
+@property(nonatomic, copy, nullable) NSString *formattedNumScores;
 
 /** The rank in the leaderboard as a string. */
-@property(copy, nullable) NSString *formattedRank;
+@property(nonatomic, copy, nullable) NSString *formattedRank;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#leaderboardScoreRank.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The number of scores in the leaderboard.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *numScores;
+@property(nonatomic, strong, nullable) NSNumber *numScores;
 
 /**
  *  The rank in the leaderboard.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *rank;
+@property(nonatomic, strong, nullable) NSNumber *rank;
 
 @end
 
@@ -1381,23 +1381,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_LeaderboardEntry *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_LeaderboardEntry *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#leaderboardScores.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The pagination token for the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The total number of scores in the leaderboard.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *numScores;
+@property(nonatomic, strong, nullable) NSNumber *numScores;
 
 /**
  *  The score of the requesting player on the leaderboard. The player's score
@@ -1405,10 +1405,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  public leaderboard and the player is not sharing their gameplay information
  *  publicly, the scoreRank and formattedScoreRank values will not be present.
  */
-@property(strong, nullable) GTLRGames_LeaderboardEntry *playerScore;
+@property(nonatomic, strong, nullable) GTLRGames_LeaderboardEntry *playerScore;
 
 /** The pagination token for the previous page of results. */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
 @end
 
@@ -1424,16 +1424,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *currentVersion;
+@property(nonatomic, strong, nullable) NSNumber *currentVersion;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#metagameConfig.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The list of player levels. */
-@property(strong, nullable) NSArray<GTLRGames_PlayerLevel *> *playerLevels;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_PlayerLevel *> *playerLevels;
 
 @end
 
@@ -1448,27 +1448,27 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *androidNetworkSubtype;
+@property(nonatomic, strong, nullable) NSNumber *androidNetworkSubtype;
 
 /**
  *  The Android network type.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *androidNetworkType;
+@property(nonatomic, strong, nullable) NSNumber *androidNetworkType;
 
 /**
  *  iOS network type as defined in Reachability.h.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *iosNetworkType;
+@property(nonatomic, strong, nullable) NSNumber *iosNetworkType;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#networkDiagnostics.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The MCC+MNC code for the client's network connection. On Android:
@@ -1476,7 +1476,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  On iOS, see:
  *  https://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html
  */
-@property(copy, nullable) NSString *networkOperatorCode;
+@property(nonatomic, copy, nullable) NSString *networkOperatorCode;
 
 /**
  *  The name of the carrier of the client's network connection. On Android:
@@ -1484,7 +1484,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  On iOS:
  *  https://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html#//apple_ref/occ/instp/CTCarrier/carrierName
  */
-@property(copy, nullable) NSString *networkOperatorName;
+@property(nonatomic, copy, nullable) NSString *networkOperatorName;
 
 /**
  *  The amount of time in milliseconds it took for the client to establish a
@@ -1492,7 +1492,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *registrationLatencyMillis;
+@property(nonatomic, strong, nullable) NSNumber *registrationLatencyMillis;
 
 @end
 
@@ -1506,10 +1506,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#participantResult.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The ID of the participant. */
-@property(copy, nullable) NSString *participantId;
+@property(nonatomic, copy, nullable) NSString *participantId;
 
 /**
  *  The placement or ranking of the participant in the match results; a number
@@ -1518,7 +1518,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *placing;
+@property(nonatomic, strong, nullable) NSNumber *placing;
 
 /**
  *  The result of the participant for this match.
@@ -1533,7 +1533,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "MATCH_RESULT_DISAGREED" - Different clients reported different results
  *  for this participant.
  */
-@property(copy, nullable) NSString *result;
+@property(nonatomic, copy, nullable) NSString *result;
 
 @end
 
@@ -1544,47 +1544,47 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_PeerChannelDiagnostics : GTLRObject
 
 /** Number of bytes received. */
-@property(strong, nullable) GTLRGames_AggregateStats *bytesReceived;
+@property(nonatomic, strong, nullable) GTLRGames_AggregateStats *bytesReceived;
 
 /** Number of bytes sent. */
-@property(strong, nullable) GTLRGames_AggregateStats *bytesSent;
+@property(nonatomic, strong, nullable) GTLRGames_AggregateStats *bytesSent;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#peerChannelDiagnostics.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Number of messages lost.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numMessagesLost;
+@property(nonatomic, strong, nullable) NSNumber *numMessagesLost;
 
 /**
  *  Number of messages received.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numMessagesReceived;
+@property(nonatomic, strong, nullable) NSNumber *numMessagesReceived;
 
 /**
  *  Number of messages sent.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numMessagesSent;
+@property(nonatomic, strong, nullable) NSNumber *numMessagesSent;
 
 /**
  *  Number of send failures.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numSendFailures;
+@property(nonatomic, strong, nullable) NSNumber *numSendFailures;
 
 /** Roundtrip latency stats in milliseconds. */
-@property(strong, nullable) GTLRGames_AggregateStats *roundtripLatencyMillis;
+@property(nonatomic, strong, nullable) GTLRGames_AggregateStats *roundtripLatencyMillis;
 
 @end
 
@@ -1599,22 +1599,22 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *connectedTimestampMillis;
+@property(nonatomic, strong, nullable) NSNumber *connectedTimestampMillis;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#peerSessionDiagnostics.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The participant ID of the peer. */
-@property(copy, nullable) NSString *participantId;
+@property(nonatomic, copy, nullable) NSString *participantId;
 
 /** Reliable channel diagnostics. */
-@property(strong, nullable) GTLRGames_PeerChannelDiagnostics *reliableChannel;
+@property(nonatomic, strong, nullable) GTLRGames_PeerChannelDiagnostics *reliableChannel;
 
 /** Unreliable channel diagnostics. */
-@property(strong, nullable) GTLRGames_PeerChannelDiagnostics *unreliableChannel;
+@property(nonatomic, strong, nullable) GTLRGames_PeerChannelDiagnostics *unreliableChannel;
 
 @end
 
@@ -1630,13 +1630,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *autoMatched;
+@property(nonatomic, strong, nullable) NSNumber *autoMatched;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#played.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The last time the player played the game in milliseconds since the epoch in
@@ -1644,7 +1644,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *timeMillis;
+@property(nonatomic, strong, nullable) NSNumber *timeMillis;
 
 @end
 
@@ -1655,38 +1655,38 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_Player : GTLRObject
 
 /** The base URL for the image that represents the player. */
-@property(copy, nullable) NSString *avatarImageUrl;
+@property(nonatomic, copy, nullable) NSString *avatarImageUrl;
 
 /** The url to the landscape mode player banner image. */
-@property(copy, nullable) NSString *bannerUrlLandscape;
+@property(nonatomic, copy, nullable) NSString *bannerUrlLandscape;
 
 /** The url to the portrait mode player banner image. */
-@property(copy, nullable) NSString *bannerUrlPortrait;
+@property(nonatomic, copy, nullable) NSString *bannerUrlPortrait;
 
 /** The name to display for the player. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** An object to represent Play Game experience information for the player. */
-@property(strong, nullable) GTLRGames_PlayerExperienceInfo *experienceInfo;
+@property(nonatomic, strong, nullable) GTLRGames_PlayerExperienceInfo *experienceInfo;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#player.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Details about the last time this player played a multiplayer game with the
  *  currently authenticated player. Populated for PLAYED_WITH player collection
  *  members.
  */
-@property(strong, nullable) GTLRGames_Played *lastPlayedWith;
+@property(nonatomic, strong, nullable) GTLRGames_Played *lastPlayedWith;
 
 /**
  *  An object representation of the individual components of the player's name.
  *  For some players, these fields may not be present.
  */
-@property(strong, nullable) GTLRGames_PlayerName *name;
+@property(nonatomic, strong, nullable) GTLRGames_PlayerName *name;
 
 /**
  *  The player ID that was used for this player the first time they signed into
@@ -1694,19 +1694,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  requesting player, only if the player ID has subsequently changed, and only
  *  to clients that support remapping player IDs.
  */
-@property(copy, nullable) NSString *originalPlayerId;
+@property(nonatomic, copy, nullable) NSString *originalPlayerId;
 
 /** The ID of the player. */
-@property(copy, nullable) NSString *playerId;
+@property(nonatomic, copy, nullable) NSString *playerId;
 
 /**
  *  The player's profile settings. Controls whether or not the player's profile
  *  is visible to other players.
  */
-@property(strong, nullable) GTLRGames_ProfileSettings *profileSettings;
+@property(nonatomic, strong, nullable) GTLRGames_ProfileSettings *profileSettings;
 
 /** The player's title rewarded for their game activities. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -1721,13 +1721,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The family name of this player. In some places, this is known as the last
  *  name.
  */
-@property(copy, nullable) NSString *familyName;
+@property(nonatomic, copy, nullable) NSString *familyName;
 
 /**
  *  The given name of this player. In some places, this is known as the first
  *  name.
  */
-@property(copy, nullable) NSString *givenName;
+@property(nonatomic, copy, nullable) NSString *givenName;
 
 @end
 
@@ -1744,14 +1744,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "REVEALED" - Achievement is revealed.
  *  - "UNLOCKED" - Achievement is unlocked.
  */
-@property(copy, nullable) NSString *achievementState;
+@property(nonatomic, copy, nullable) NSString *achievementState;
 
 /**
  *  The current steps for an incremental achievement.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *currentSteps;
+@property(nonatomic, strong, nullable) NSNumber *currentSteps;
 
 /**
  *  Experience points earned for the achievement. This field is absent for
@@ -1760,30 +1760,30 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *experiencePoints;
+@property(nonatomic, strong, nullable) NSNumber *experiencePoints;
 
 /** The current steps for an incremental achievement as a string. */
-@property(copy, nullable) NSString *formattedCurrentStepsString;
+@property(nonatomic, copy, nullable) NSString *formattedCurrentStepsString;
 
 /**
  *  The ID of the achievement.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#playerAchievement.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The timestamp of the last modification to this achievement's state.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *lastUpdatedTimestamp;
+@property(nonatomic, strong, nullable) NSNumber *lastUpdatedTimestamp;
 
 @end
 
@@ -1804,16 +1804,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_PlayerAchievement *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_PlayerAchievement *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#playerAchievementListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token corresponding to the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -1824,30 +1824,30 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_PlayerEvent : GTLRObject
 
 /** The ID of the event definition. */
-@property(copy, nullable) NSString *definitionId;
+@property(nonatomic, copy, nullable) NSString *definitionId;
 
 /**
  *  The current number of times this event has occurred, as a string. The
  *  formatting of this string depends on the configuration of your event in the
  *  Play Games Developer Console.
  */
-@property(copy, nullable) NSString *formattedNumEvents;
+@property(nonatomic, copy, nullable) NSString *formattedNumEvents;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#playerEvent.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The current number of times this event has occurred.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *numEvents;
+@property(nonatomic, strong, nullable) NSNumber *numEvents;
 
 /** The ID of the player. */
-@property(copy, nullable) NSString *playerId;
+@property(nonatomic, copy, nullable) NSString *playerId;
 
 @end
 
@@ -1868,16 +1868,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_PlayerEvent *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_PlayerEvent *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#playerEventListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The pagination token for the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -1892,16 +1892,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *currentExperiencePoints;
+@property(nonatomic, strong, nullable) NSNumber *currentExperiencePoints;
 
 /** The current level of the player. */
-@property(strong, nullable) GTLRGames_PlayerLevel *currentLevel;
+@property(nonatomic, strong, nullable) GTLRGames_PlayerLevel *currentLevel;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#playerExperienceInfo.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The timestamp when the player was leveled up, in millis since Unix epoch
@@ -1909,13 +1909,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *lastLevelUpTimestampMillis;
+@property(nonatomic, strong, nullable) NSNumber *lastLevelUpTimestampMillis;
 
 /**
  *  The next level of the player. If the current level is the maximum level,
  *  this should be same as the current level.
  */
-@property(strong, nullable) GTLRGames_PlayerLevel *nextLevel;
+@property(nonatomic, strong, nullable) GTLRGames_PlayerLevel *nextLevel;
 
 @end
 
@@ -1929,35 +1929,35 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#playerLeaderboardScore.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The ID of the leaderboard this score is in. */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  The public rank of the score in this leaderboard. This object will not be
  *  present if the user is not sharing their scores publicly.
  */
-@property(strong, nullable) GTLRGames_LeaderboardScoreRank *publicRank;
+@property(nonatomic, strong, nullable) GTLRGames_LeaderboardScoreRank *publicRank;
 
 /** The formatted value of this score. */
-@property(copy, nullable) NSString *scoreString;
+@property(nonatomic, copy, nullable) NSString *scoreString;
 
 /**
  *  Additional information about the score. Values must contain no more than 64
  *  URI-safe characters as defined by section 2.3 of RFC 3986.
  */
-@property(copy, nullable) NSString *scoreTag;
+@property(nonatomic, copy, nullable) NSString *scoreTag;
 
 /**
  *  The numerical value of this score.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *scoreValue;
+@property(nonatomic, strong, nullable) NSNumber *scoreValue;
 
 /** The social rank of the score in this leaderboard. */
-@property(strong, nullable) GTLRGames_LeaderboardScoreRank *socialRank;
+@property(nonatomic, strong, nullable) GTLRGames_LeaderboardScoreRank *socialRank;
 
 /**
  *  The time span of this score.
@@ -1966,7 +1966,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "WEEKLY" - The score is a weekly score.
  *  - "DAILY" - The score is a daily score.
  */
-@property(copy, nullable) NSString *timeSpan;
+@property(nonatomic, copy, nullable) NSString *timeSpan;
 
 /**
  *  The timestamp at which this score was recorded, in milliseconds since the
@@ -1974,7 +1974,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *writeTimestamp;
+@property(nonatomic, strong, nullable) NSNumber *writeTimestamp;
 
 @end
 
@@ -1995,19 +1995,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_PlayerLeaderboardScore *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_PlayerLeaderboardScore *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#playerLeaderboardScoreListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The pagination token for the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** The Player resources for the owner of this score. */
-@property(strong, nullable) GTLRGames_Player *player;
+@property(nonatomic, strong, nullable) GTLRGames_Player *player;
 
 @end
 
@@ -2021,28 +2021,28 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#playerLevel.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The level for the user.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *level;
+@property(nonatomic, strong, nullable) NSNumber *level;
 
 /**
  *  The maximum experience points for this level.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *maxExperiencePoints;
+@property(nonatomic, strong, nullable) NSNumber *maxExperiencePoints;
 
 /**
  *  The minimum experience points for this level.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *minExperiencePoints;
+@property(nonatomic, strong, nullable) NSNumber *minExperiencePoints;
 
 @end
 
@@ -2063,16 +2063,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_Player *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_Player *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#playerListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token corresponding to the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -2083,26 +2083,26 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_PlayerScore : GTLRObject
 
 /** The formatted score for this player score. */
-@property(copy, nullable) NSString *formattedScore;
+@property(nonatomic, copy, nullable) NSString *formattedScore;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#playerScore.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The numerical value for this player score.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *score;
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 /**
  *  Additional information about this score. Values will contain no more than 64
  *  URI-safe characters as defined by section 2.3 of RFC 3986.
  */
-@property(copy, nullable) NSString *scoreTag;
+@property(nonatomic, copy, nullable) NSString *scoreTag;
 
 /**
  *  The time span for this player score.
@@ -2111,7 +2111,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "WEEKLY" - The score is a weekly score.
  *  - "DAILY" - The score is a daily score.
  */
-@property(copy, nullable) NSString *timeSpan;
+@property(nonatomic, copy, nullable) NSString *timeSpan;
 
 @end
 
@@ -2125,10 +2125,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#playerScoreListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The score submissions statuses. */
-@property(strong, nullable) NSArray<GTLRGames_PlayerScoreResponse *> *submittedScores;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_PlayerScoreResponse *> *submittedScores;
 
 @end
 
@@ -2146,32 +2146,32 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "WEEKLY" - The score is a weekly score.
  *  - "DAILY" - The score is a daily score.
  */
-@property(strong, nullable) NSArray<NSString *> *beatenScoreTimeSpans;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *beatenScoreTimeSpans;
 
 /** The formatted value of the submitted score. */
-@property(copy, nullable) NSString *formattedScore;
+@property(nonatomic, copy, nullable) NSString *formattedScore;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#playerScoreResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The leaderboard ID that this score was submitted to. */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  Additional information about this score. Values will contain no more than 64
  *  URI-safe characters as defined by section 2.3 of RFC 3986.
  */
-@property(copy, nullable) NSString *scoreTag;
+@property(nonatomic, copy, nullable) NSString *scoreTag;
 
 /**
  *  The scores in time spans that have not been beaten. As an example, the
  *  submitted score may be better than the player's DAILY score, but not better
  *  than the player's scores for the WEEKLY or ALL_TIME time spans.
  */
-@property(strong, nullable) NSArray<GTLRGames_PlayerScore *> *unbeatenScores;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_PlayerScore *> *unbeatenScores;
 
 @end
 
@@ -2185,10 +2185,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#playerScoreSubmissionList.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The score submissions. */
-@property(strong, nullable) NSArray<GTLRGames_ScoreSubmission *> *scores;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_ScoreSubmission *> *scores;
 
 @end
 
@@ -2202,7 +2202,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#profileSettings.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The player's current profile visibility. This field is visible to both 1P
@@ -2210,7 +2210,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *profileVisible;
+@property(nonatomic, strong, nullable) NSNumber *profileVisible;
 
 @end
 
@@ -2227,25 +2227,25 @@ NS_ASSUME_NONNULL_BEGIN
  *  are:
  *  - IOS - Push token is for iOS
  */
-@property(copy, nullable) NSString *clientRevision;
+@property(nonatomic, copy, nullable) NSString *clientRevision;
 
 /**
  *  Unique identifier for this push token.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(strong, nullable) GTLRGames_PushTokenId *identifier;
+@property(nonatomic, strong, nullable) GTLRGames_PushTokenId *identifier;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#pushToken.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The preferred language for notifications that are sent using this token.
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 @end
 
@@ -2256,13 +2256,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_PushTokenId : GTLRObject
 
 /** A push token ID for iOS devices. */
-@property(strong, nullable) GTLRGames_PushTokenIdIos *ios;
+@property(nonatomic, strong, nullable) GTLRGames_PushTokenIdIos *ios;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#pushTokenId.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -2279,13 +2279,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *apnsDeviceToken;
+@property(nonatomic, copy, nullable) NSString *apnsDeviceToken;
 
 /**
  *  Indicates whether this token should be used for the production or sandbox
  *  APNS server.
  */
-@property(copy, nullable) NSString *apnsEnvironment;
+@property(nonatomic, copy, nullable) NSString *apnsEnvironment;
 
 @end
 
@@ -2301,20 +2301,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *acceptedTimestampMillis;
+@property(nonatomic, strong, nullable) NSNumber *acceptedTimestampMillis;
 
 /** The ID of the application this quest is part of. */
-@property(copy, nullable) NSString *applicationId;
+@property(nonatomic, copy, nullable) NSString *applicationId;
 
 /** The banner image URL for the quest. */
-@property(copy, nullable) NSString *bannerUrl;
+@property(nonatomic, copy, nullable) NSString *bannerUrl;
 
 /**
  *  The description of the quest.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The timestamp at which the quest ceases to be active in milliseconds since
@@ -2322,17 +2322,17 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *endTimestampMillis;
+@property(nonatomic, strong, nullable) NSNumber *endTimestampMillis;
 
 /** The icon image URL for the quest. */
-@property(copy, nullable) NSString *iconUrl;
+@property(nonatomic, copy, nullable) NSString *iconUrl;
 
 /**
  *  The ID of the quest.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Indicates whether the banner image being returned is a default image, or is
@@ -2340,7 +2340,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isDefaultBannerUrl;
+@property(nonatomic, strong, nullable) NSNumber *isDefaultBannerUrl;
 
 /**
  *  Indicates whether the icon image being returned is a default image, or is
@@ -2348,13 +2348,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isDefaultIconUrl;
+@property(nonatomic, strong, nullable) NSNumber *isDefaultIconUrl;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#quest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The timestamp at which the quest was last updated by the user in
@@ -2363,13 +2363,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *lastUpdatedTimestampMillis;
+@property(nonatomic, strong, nullable) NSNumber *lastUpdatedTimestampMillis;
 
 /** The quest milestones. */
-@property(strong, nullable) NSArray<GTLRGames_QuestMilestone *> *milestones;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_QuestMilestone *> *milestones;
 
 /** The name of the quest. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The timestamp at which the user should be notified that the quest will end
@@ -2377,7 +2377,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *notifyTimestampMillis;
+@property(nonatomic, strong, nullable) NSNumber *notifyTimestampMillis;
 
 /**
  *  The timestamp at which the quest becomes active in milliseconds since the
@@ -2385,7 +2385,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *startTimestampMillis;
+@property(nonatomic, strong, nullable) NSNumber *startTimestampMillis;
 
 /**
  *  The state of the quest.
@@ -2400,7 +2400,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "EXPIRED": The quest has expired and was not accepted.
  *  - "DELETED": The quest should be deleted from the local database.
  */
-@property(copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -2415,20 +2415,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  configuration for the associated event definition in the Play Games
  *  Developer Console.
  */
-@property(copy, nullable) NSString *formattedValue;
+@property(nonatomic, copy, nullable) NSString *formattedValue;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#questContribution.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The value of the contribution.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *value;
+@property(nonatomic, strong, nullable) NSNumber *value;
 
 @end
 
@@ -2442,7 +2442,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The total number of times the associated event must be incremented for the
  *  player to complete this quest.
  */
-@property(strong, nullable) GTLRGames_QuestContribution *completionContribution;
+@property(nonatomic, strong, nullable) GTLRGames_QuestContribution *completionContribution;
 
 /**
  *  The number of increments the player has made toward the completion count
@@ -2451,10 +2451,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  There will be no currentContribution until the player has accepted the
  *  quest.
  */
-@property(strong, nullable) GTLRGames_QuestContribution *currentContribution;
+@property(nonatomic, strong, nullable) GTLRGames_QuestContribution *currentContribution;
 
 /** The ID of the event the criterion corresponds to. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  The value of the event associated with this quest at the time that the quest
@@ -2463,13 +2463,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  There will be no initialPlayerProgress until the player has accepted the
  *  quest.
  */
-@property(strong, nullable) GTLRGames_QuestContribution *initialPlayerProgress;
+@property(nonatomic, strong, nullable) GTLRGames_QuestContribution *initialPlayerProgress;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#questCriterion.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -2490,16 +2490,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_Quest *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_Quest *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#questListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token corresponding to the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -2517,23 +2517,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *completionRewardData;
+@property(nonatomic, copy, nullable) NSString *completionRewardData;
 
 /** The criteria of the milestone. */
-@property(strong, nullable) NSArray<GTLRGames_QuestCriterion *> *criteria;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_QuestCriterion *> *criteria;
 
 /**
  *  The milestone ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#questMilestone.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The current state of the milestone.
@@ -2545,7 +2545,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "NOT_STARTED" - The milestone is for a quest that has not yet been
  *  accepted.
  */
-@property(copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -2559,13 +2559,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The version of the API this client revision should use when calling API
  *  methods.
  */
-@property(copy, nullable) NSString *apiVersion;
+@property(nonatomic, copy, nullable) NSString *apiVersion;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#revisionCheckResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The result of the revision check.
@@ -2576,7 +2576,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "INVALID" - The revision being used is not supported in any released
  *  version.
  */
-@property(copy, nullable) NSString *revisionStatus;
+@property(nonatomic, copy, nullable) NSString *revisionStatus;
 
 @end
 
@@ -2587,19 +2587,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_Room : GTLRObject
 
 /** The ID of the application being played. */
-@property(copy, nullable) NSString *applicationId;
+@property(nonatomic, copy, nullable) NSString *applicationId;
 
 /** Criteria for auto-matching players into this room. */
-@property(strong, nullable) GTLRGames_RoomAutoMatchingCriteria *autoMatchingCriteria;
+@property(nonatomic, strong, nullable) GTLRGames_RoomAutoMatchingCriteria *autoMatchingCriteria;
 
 /**
  *  Auto-matching status for this room. Not set if the room is not currently in
  *  the auto-matching queue.
  */
-@property(strong, nullable) GTLRGames_RoomAutoMatchStatus *autoMatchingStatus;
+@property(nonatomic, strong, nullable) GTLRGames_RoomAutoMatchStatus *autoMatchingStatus;
 
 /** Details about the room creation. */
-@property(strong, nullable) GTLRGames_RoomModification *creationDetails;
+@property(nonatomic, strong, nullable) GTLRGames_RoomModification *creationDetails;
 
 /**
  *  This short description is generated by our servers and worded relative to
@@ -2608,31 +2608,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The ID of the participant that invited the user to the room. Not set if the
  *  user was not invited to the room.
  */
-@property(copy, nullable) NSString *inviterId;
+@property(nonatomic, copy, nullable) NSString *inviterId;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#room.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Details about the last update to the room. */
-@property(strong, nullable) GTLRGames_RoomModification *lastUpdateDetails;
+@property(nonatomic, strong, nullable) GTLRGames_RoomModification *lastUpdateDetails;
 
 /**
  *  The participants involved in the room, along with their statuses. Includes
  *  participants who have left or declined invitations.
  */
-@property(strong, nullable) NSArray<GTLRGames_RoomParticipant *> *participants;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_RoomParticipant *> *participants;
 
 /** Globally unique ID for a room. */
-@property(copy, nullable) NSString *roomId;
+@property(nonatomic, copy, nullable) NSString *roomId;
 
 /**
  *  The version of the room status: an increasing counter, used by the client to
@@ -2640,7 +2640,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *roomStatusVersion;
+@property(nonatomic, strong, nullable) NSNumber *roomStatusVersion;
 
 /**
  *  The status of the room.
@@ -2655,7 +2655,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returned in sync calls when a player joins a room (as a tombstone), or for
  *  rooms where all joined participants have left.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  The variant / mode of the application being played; can be any integer
@@ -2663,7 +2663,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *variant;
+@property(nonatomic, strong, nullable) NSNumber *variant;
 
 @end
 
@@ -2680,13 +2680,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *exclusiveBitmask;
+@property(nonatomic, strong, nullable) NSNumber *exclusiveBitmask;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#roomAutoMatchingCriteria.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The maximum number of players that should be added to the room by
@@ -2694,7 +2694,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxAutoMatchingPlayers;
+@property(nonatomic, strong, nullable) NSNumber *maxAutoMatchingPlayers;
 
 /**
  *  The minimum number of players that should be added to the room by
@@ -2702,7 +2702,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *minAutoMatchingPlayers;
+@property(nonatomic, strong, nullable) NSNumber *minAutoMatchingPlayers;
 
 @end
 
@@ -2716,7 +2716,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#roomAutoMatchStatus.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  An estimate for the amount of time (in seconds) that auto-matching is
@@ -2724,7 +2724,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *waitEstimateSeconds;
+@property(nonatomic, strong, nullable) NSNumber *waitEstimateSeconds;
 
 @end
 
@@ -2738,10 +2738,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#roomClientAddress.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The XMPP address of the client on the Google Games XMPP network. */
-@property(copy, nullable) NSString *xmppAddress;
+@property(nonatomic, copy, nullable) NSString *xmppAddress;
 
 @end
 
@@ -2752,25 +2752,25 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_RoomCreateRequest : GTLRObject
 
 /** Criteria for auto-matching players into this room. */
-@property(strong, nullable) GTLRGames_RoomAutoMatchingCriteria *autoMatchingCriteria;
+@property(nonatomic, strong, nullable) GTLRGames_RoomAutoMatchingCriteria *autoMatchingCriteria;
 
 /** The capabilities that this client supports for realtime communication. */
-@property(strong, nullable) NSArray<NSString *> *capabilities;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *capabilities;
 
 /** Client address for the player creating the room. */
-@property(strong, nullable) GTLRGames_RoomClientAddress *clientAddress;
+@property(nonatomic, strong, nullable) GTLRGames_RoomClientAddress *clientAddress;
 
 /** The player IDs to invite to the room. */
-@property(strong, nullable) NSArray<NSString *> *invitedPlayerIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *invitedPlayerIds;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#roomCreateRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Network diagnostics for the client creating the room. */
-@property(strong, nullable) GTLRGames_NetworkDiagnostics *networkDiagnostics;
+@property(nonatomic, strong, nullable) GTLRGames_NetworkDiagnostics *networkDiagnostics;
 
 /**
  *  A randomly generated numeric ID. This number is used at the server to ensure
@@ -2778,7 +2778,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *requestId;
+@property(nonatomic, strong, nullable) NSNumber *requestId;
 
 /**
  *  The variant / mode of the application to be played. This can be any integer
@@ -2787,7 +2787,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *variant;
+@property(nonatomic, strong, nullable) NSNumber *variant;
 
 @end
 
@@ -2798,19 +2798,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_RoomJoinRequest : GTLRObject
 
 /** The capabilities that this client supports for realtime communication. */
-@property(strong, nullable) NSArray<NSString *> *capabilities;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *capabilities;
 
 /** Client address for the player joining the room. */
-@property(strong, nullable) GTLRGames_RoomClientAddress *clientAddress;
+@property(nonatomic, strong, nullable) GTLRGames_RoomClientAddress *clientAddress;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#roomJoinRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Network diagnostics for the client joining the room. */
-@property(strong, nullable) GTLRGames_NetworkDiagnostics *networkDiagnostics;
+@property(nonatomic, strong, nullable) GTLRGames_NetworkDiagnostics *networkDiagnostics;
 
 @end
 
@@ -2826,7 +2826,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *androidNetworkSubtype;
+@property(nonatomic, strong, nullable) NSNumber *androidNetworkSubtype;
 
 /**
  *  Android network type.
@@ -2834,20 +2834,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *androidNetworkType;
+@property(nonatomic, strong, nullable) NSNumber *androidNetworkType;
 
 /**
  *  iOS network type as defined in Reachability.h.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *iosNetworkType;
+@property(nonatomic, strong, nullable) NSNumber *iosNetworkType;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#roomLeaveDiagnostics.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The MCC+MNC code for the client's network connection. On Android:
@@ -2855,7 +2855,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  On iOS, see:
  *  https://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html
  */
-@property(copy, nullable) NSString *networkOperatorCode;
+@property(nonatomic, copy, nullable) NSString *networkOperatorCode;
 
 /**
  *  The name of the carrier of the client's network connection. On Android:
@@ -2863,17 +2863,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  On iOS:
  *  https://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html#//apple_ref/occ/instp/CTCarrier/carrierName
  */
-@property(copy, nullable) NSString *networkOperatorName;
+@property(nonatomic, copy, nullable) NSString *networkOperatorName;
 
 /** Diagnostics about all peer sessions. */
-@property(strong, nullable) NSArray<GTLRGames_PeerSessionDiagnostics *> *peerSession;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_PeerSessionDiagnostics *> *peerSession;
 
 /**
  *  Whether or not sockets were used.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *socketsUsed;
+@property(nonatomic, strong, nullable) NSNumber *socketsUsed;
 
 @end
 
@@ -2887,10 +2887,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#roomLeaveRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Diagnostics for a player leaving the room. */
-@property(strong, nullable) GTLRGames_RoomLeaveDiagnostics *leaveDiagnostics;
+@property(nonatomic, strong, nullable) GTLRGames_RoomLeaveDiagnostics *leaveDiagnostics;
 
 /**
  *  Reason for leaving the match.
@@ -2916,7 +2916,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "REALTIME_SAME_CLIENT_ROOM_OPERATION" - The same client is trying to enter
  *  a new room.
  */
-@property(copy, nullable) NSString *reason;
+@property(nonatomic, copy, nullable) NSString *reason;
 
 @end
 
@@ -2937,16 +2937,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_Room *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_Room *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#roomList.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The pagination token for the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -2960,7 +2960,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#roomModification.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The timestamp at which they modified the room, in milliseconds since the
@@ -2968,10 +2968,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *modifiedTimestampMillis;
+@property(nonatomic, strong, nullable) NSNumber *modifiedTimestampMillis;
 
 /** The ID of the participant that modified the room. */
-@property(copy, nullable) NSString *participantId;
+@property(nonatomic, copy, nullable) NSString *participantId;
 
 @end
 
@@ -2987,7 +2987,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *connectionSetupLatencyMillis;
+@property(nonatomic, strong, nullable) NSNumber *connectionSetupLatencyMillis;
 
 /**
  *  The error code in event of a failure.
@@ -2999,19 +2999,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "RELAY_SERVER_FAILED" - The client received an error when trying to use
  *  the relay server to establish a P2P connection with the peer.
  */
-@property(copy, nullable) NSString *error;
+@property(nonatomic, copy, nullable) NSString *error;
 
 /** More detailed diagnostic message returned in event of a failure. */
-@property(copy, nullable) NSString *errorReason;
+@property(nonatomic, copy, nullable) NSString *errorReason;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#roomP2PStatus.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The ID of the participant. */
-@property(copy, nullable) NSString *participantId;
+@property(nonatomic, copy, nullable) NSString *participantId;
 
 /**
  *  The status of the peer in the room.
@@ -3021,7 +3021,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "CONNECTION_FAILED" - The client failed to establish directed presence
  *  with the peer.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  The amount of time in milliseconds it took to send packets back and forth on
@@ -3029,7 +3029,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *unreliableRoundtripLatencyMillis;
+@property(nonatomic, strong, nullable) NSNumber *unreliableRoundtripLatencyMillis;
 
 @end
 
@@ -3043,10 +3043,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#roomP2PStatuses.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The updates for the peers. */
-@property(strong, nullable) NSArray<GTLRGames_RoomP2PStatus *> *updates;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_RoomP2PStatus *> *updates;
 
 @end
 
@@ -3061,28 +3061,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *autoMatched;
+@property(nonatomic, strong, nullable) NSNumber *autoMatched;
 
 /**
  *  Information about a player that has been anonymously auto-matched against
  *  the requesting player. (Either player or autoMatchedPlayer will be set.)
  */
-@property(strong, nullable) GTLRGames_AnonymousPlayer *autoMatchedPlayer;
+@property(nonatomic, strong, nullable) GTLRGames_AnonymousPlayer *autoMatchedPlayer;
 
 /**
  *  The capabilities which can be used when communicating with this participant.
  */
-@property(strong, nullable) NSArray<NSString *> *capabilities;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *capabilities;
 
 /** Client address for the participant. */
-@property(strong, nullable) GTLRGames_RoomClientAddress *clientAddress;
+@property(nonatomic, strong, nullable) GTLRGames_RoomClientAddress *clientAddress;
 
 /**
  *  True if this participant is in the fully connected set of peers in the room.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *connected;
+@property(nonatomic, strong, nullable) NSNumber *connected;
 
 /**
  *  An identifier for the participant in the scope of the room. Cannot be used
@@ -3090,13 +3090,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#roomParticipant.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The reason the participant left the room; populated if the participant
@@ -3114,14 +3114,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  connect.
  *  - "PRESENCE_FAILURE" - The client's XMPP connection ended abruptly.
  */
-@property(copy, nullable) NSString *leaveReason;
+@property(nonatomic, copy, nullable) NSString *leaveReason;
 
 /**
  *  Information about the player. Not populated if this player was anonymously
  *  auto-matched against the requesting player. (Either player or
  *  autoMatchedPlayer will be set.)
  */
-@property(strong, nullable) GTLRGames_Player *player;
+@property(nonatomic, strong, nullable) GTLRGames_Player *player;
 
 /**
  *  The status of the participant with respect to the room.
@@ -3134,7 +3134,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the room.
  *  - "PARTICIPANT_LEFT" - The participant joined the room and then left it.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -3148,22 +3148,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  Auto-matching status for this room. Not set if the room is not currently in
  *  the automatching queue.
  */
-@property(strong, nullable) GTLRGames_RoomAutoMatchStatus *autoMatchingStatus;
+@property(nonatomic, strong, nullable) GTLRGames_RoomAutoMatchStatus *autoMatchingStatus;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#roomStatus.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The participants involved in the room, along with their statuses. Includes
  *  participants who have left or declined invitations.
  */
-@property(strong, nullable) NSArray<GTLRGames_RoomParticipant *> *participants;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_RoomParticipant *> *participants;
 
 /** Globally unique ID for a room. */
-@property(copy, nullable) NSString *roomId;
+@property(nonatomic, copy, nullable) NSString *roomId;
 
 /**
  *  The status of the room.
@@ -3176,7 +3176,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "ROOM_ACTIVE" - All players have joined and connected to each other.
  *  - "ROOM_DELETED" - All joined players have left.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  The version of the status for the room: an increasing counter, used by the
@@ -3184,7 +3184,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *statusVersion;
+@property(nonatomic, strong, nullable) NSNumber *statusVersion;
 
 @end
 
@@ -3198,29 +3198,29 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#scoreSubmission.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The leaderboard this score is being submitted to. */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  The new score being submitted.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *score;
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 /**
  *  Additional information about this score. Values will contain no more than 64
  *  URI-safe characters as defined by section 2.3 of RFC 3986.
  */
-@property(copy, nullable) NSString *scoreTag;
+@property(nonatomic, copy, nullable) NSString *scoreTag;
 
 /**
  *  Signature Values will contain URI-safe characters as defined by section 2.3
  *  of RFC 3986.
  */
-@property(copy, nullable) NSString *signature;
+@property(nonatomic, copy, nullable) NSString *signature;
 
 @end
 
@@ -3231,41 +3231,41 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_Snapshot : GTLRObject
 
 /** The cover image of this snapshot. May be absent if there is no image. */
-@property(strong, nullable) GTLRGames_SnapshotImage *coverImage;
+@property(nonatomic, strong, nullable) GTLRGames_SnapshotImage *coverImage;
 
 /**
  *  The description of this snapshot.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The ID of the file underlying this snapshot in the Drive API. Only present
  *  if the snapshot is a view on a Drive file and the file is owned by the
  *  caller.
  */
-@property(copy, nullable) NSString *driveId;
+@property(nonatomic, copy, nullable) NSString *driveId;
 
 /**
  *  The duration associated with this snapshot, in millis.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *durationMillis;
+@property(nonatomic, strong, nullable) NSNumber *durationMillis;
 
 /**
  *  The ID of the snapshot.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#snapshot.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The timestamp (in millis since Unix epoch) of the last modification to this
@@ -3273,7 +3273,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *lastModifiedMillis;
+@property(nonatomic, strong, nullable) NSNumber *lastModifiedMillis;
 
 /**
  *  The progress value (64-bit integer set by developer) associated with this
@@ -3281,20 +3281,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *progressValue;
+@property(nonatomic, strong, nullable) NSNumber *progressValue;
 
 /** The title of this snapshot. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  The type of this snapshot.
  *  Possible values are:
  *  - "SAVE_GAME" - A snapshot representing a save game.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** The unique name provided when the snapshot was created. */
-@property(copy, nullable) NSString *uniqueName;
+@property(nonatomic, copy, nullable) NSString *uniqueName;
 
 @end
 
@@ -3309,29 +3309,29 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#snapshotImage.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The MIME type of the image. */
-@property(copy, nullable) NSString *mimeType;
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
  *  The URL of the image. This URL may be invalidated at any time and should not
  *  be cached.
  */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  The width of the image.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -3352,19 +3352,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_Snapshot *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_Snapshot *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#snapshotListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Token corresponding to the next page of results. If there are no more
  *  results, the token is omitted.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -3381,13 +3381,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *exclusiveBitmask;
+@property(nonatomic, strong, nullable) NSNumber *exclusiveBitmask;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#turnBasedAutoMatchingCriteria.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The maximum number of players that should be added to the match by
@@ -3395,7 +3395,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxAutoMatchingPlayers;
+@property(nonatomic, strong, nullable) NSNumber *maxAutoMatchingPlayers;
 
 /**
  *  The minimum number of players that should be added to the match by
@@ -3403,7 +3403,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *minAutoMatchingPlayers;
+@property(nonatomic, strong, nullable) NSNumber *minAutoMatchingPlayers;
 
 @end
 
@@ -3414,16 +3414,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_TurnBasedMatch : GTLRObject
 
 /** The ID of the application being played. */
-@property(copy, nullable) NSString *applicationId;
+@property(nonatomic, copy, nullable) NSString *applicationId;
 
 /** Criteria for auto-matching players into this match. */
-@property(strong, nullable) GTLRGames_TurnBasedAutoMatchingCriteria *autoMatchingCriteria;
+@property(nonatomic, strong, nullable) GTLRGames_TurnBasedAutoMatchingCriteria *autoMatchingCriteria;
 
 /** Details about the match creation. */
-@property(strong, nullable) GTLRGames_TurnBasedMatchModification *creationDetails;
+@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatchModification *creationDetails;
 
 /** The data / game state for this match. */
-@property(strong, nullable) GTLRGames_TurnBasedMatchData *data;
+@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatchData *data;
 
 /**
  *  This short description is generated by our servers based on turn state and
@@ -3432,25 +3432,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The ID of the participant that invited the user to the match. Not set if the
  *  user was not invited to the match.
  */
-@property(copy, nullable) NSString *inviterId;
+@property(nonatomic, copy, nullable) NSString *inviterId;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#turnBasedMatch.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Details about the last update to the match. */
-@property(strong, nullable) GTLRGames_TurnBasedMatchModification *lastUpdateDetails;
+@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatchModification *lastUpdateDetails;
 
 /** Globally unique ID for a turn-based match. */
-@property(copy, nullable) NSString *matchId;
+@property(nonatomic, copy, nullable) NSString *matchId;
 
 /**
  *  The number of the match in a chain of rematches. Will be set to 1 for the
@@ -3458,7 +3458,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *matchNumber;
+@property(nonatomic, strong, nullable) NSNumber *matchNumber;
 
 /**
  *  The version of this match: an increasing counter, used to avoid out-of-date
@@ -3466,31 +3466,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *matchVersion;
+@property(nonatomic, strong, nullable) NSNumber *matchVersion;
 
 /**
  *  The participants involved in the match, along with their statuses. Includes
  *  participants who have left or declined invitations.
  */
-@property(strong, nullable) NSArray<GTLRGames_TurnBasedMatchParticipant *> *participants;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_TurnBasedMatchParticipant *> *participants;
 
 /** The ID of the participant that is taking a turn. */
-@property(copy, nullable) NSString *pendingParticipantId;
+@property(nonatomic, copy, nullable) NSString *pendingParticipantId;
 
 /**
  *  The data / game state for the previous match; set for the first turn of
  *  rematches only.
  */
-@property(strong, nullable) GTLRGames_TurnBasedMatchData *previousMatchData;
+@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatchData *previousMatchData;
 
 /**
  *  The ID of a rematch of this match. Only set for completed matches that have
  *  been rematched.
  */
-@property(copy, nullable) NSString *rematchId;
+@property(nonatomic, copy, nullable) NSString *rematchId;
 
 /** The results reported for this match. */
-@property(strong, nullable) NSArray<GTLRGames_ParticipantResult *> *results;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_ParticipantResult *> *results;
 
 /**
  *  The status of the match.
@@ -3504,7 +3504,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "MATCH_DELETED" - The match should no longer be shown on the client.
  *  Returned only for tombstones for matches when sync is called.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  The status of the current user in the match. Derived from the match type,
@@ -3518,7 +3518,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "USER_MATCH_COMPLETED" - The match has ended (it is completed, canceled,
  *  or expired.)
  */
-@property(copy, nullable) NSString *userMatchStatus;
+@property(nonatomic, copy, nullable) NSString *userMatchStatus;
 
 /**
  *  The variant / mode of the application being played; can be any integer
@@ -3526,13 +3526,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *variant;
+@property(nonatomic, strong, nullable) NSNumber *variant;
 
 /**
  *  The ID of another participant in the match that can be used when describing
  *  the participants the user is playing with.
  */
-@property(copy, nullable) NSString *withParticipantId;
+@property(nonatomic, copy, nullable) NSString *withParticipantId;
 
 @end
 
@@ -3543,16 +3543,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_TurnBasedMatchCreateRequest : GTLRObject
 
 /** Criteria for auto-matching players into this match. */
-@property(strong, nullable) GTLRGames_TurnBasedAutoMatchingCriteria *autoMatchingCriteria;
+@property(nonatomic, strong, nullable) GTLRGames_TurnBasedAutoMatchingCriteria *autoMatchingCriteria;
 
 /** The player ids to invite to the match. */
-@property(strong, nullable) NSArray<NSString *> *invitedPlayerIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *invitedPlayerIds;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#turnBasedMatchCreateRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  A randomly generated numeric ID. This number is used at the server to ensure
@@ -3560,7 +3560,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *requestId;
+@property(nonatomic, strong, nullable) NSNumber *requestId;
 
 /**
  *  The variant / mode of the application to be played. This can be any integer
@@ -3569,7 +3569,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *variant;
+@property(nonatomic, strong, nullable) NSNumber *variant;
 
 @end
 
@@ -3586,7 +3586,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *data;
+@property(nonatomic, copy, nullable) NSString *data;
 
 /**
  *  True if this match has data available but it wasn't returned in a list
@@ -3594,13 +3594,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *dataAvailable;
+@property(nonatomic, strong, nullable) NSNumber *dataAvailable;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#turnBasedMatchData.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -3617,13 +3617,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *data;
+@property(nonatomic, copy, nullable) NSString *data;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#turnBasedMatchDataRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -3644,16 +3644,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_TurnBasedMatch *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_TurnBasedMatch *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#turnBasedMatchList.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The pagination token for the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -3667,7 +3667,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#turnBasedMatchModification.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The timestamp at which they modified the match, in milliseconds since the
@@ -3675,10 +3675,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *modifiedTimestampMillis;
+@property(nonatomic, strong, nullable) NSNumber *modifiedTimestampMillis;
 
 /** The ID of the participant that modified the match. */
-@property(copy, nullable) NSString *participantId;
+@property(nonatomic, copy, nullable) NSString *participantId;
 
 @end
 
@@ -3693,13 +3693,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *autoMatched;
+@property(nonatomic, strong, nullable) NSNumber *autoMatched;
 
 /**
  *  Information about a player that has been anonymously auto-matched against
  *  the requesting player. (Either player or autoMatchedPlayer will be set.)
  */
-@property(strong, nullable) GTLRGames_AnonymousPlayer *autoMatchedPlayer;
+@property(nonatomic, strong, nullable) GTLRGames_AnonymousPlayer *autoMatchedPlayer;
 
 /**
  *  An identifier for the participant in the scope of the match. Cannot be used
@@ -3707,20 +3707,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#turnBasedMatchParticipant.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Information about the player. Not populated if this player was anonymously
  *  auto-matched against the requesting player. (Either player or
  *  autoMatchedPlayer will be set.)
  */
-@property(strong, nullable) GTLRGames_Player *player;
+@property(nonatomic, strong, nullable) GTLRGames_Player *player;
 
 /**
  *  The status of the participant with respect to the match.
@@ -3739,7 +3739,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "PARTICIPANT_UNRESPONSIVE" - The participant did not take their turn in
  *  the allotted time.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -3753,19 +3753,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#turnBasedMatchRematch.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The old match that the rematch was created from; will be updated such that
  *  the rematchId field will point at the new match.
  */
-@property(strong, nullable) GTLRGames_TurnBasedMatch *previousMatch;
+@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatch *previousMatch;
 
 /**
  *  The newly created match; a rematch of the old match with the same
  *  participants.
  */
-@property(strong, nullable) GTLRGames_TurnBasedMatch *rematch;
+@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatch *rematch;
 
 @end
 
@@ -3776,23 +3776,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_TurnBasedMatchResults : GTLRObject
 
 /** The final match data. */
-@property(strong, nullable) GTLRGames_TurnBasedMatchDataRequest *data;
+@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatchDataRequest *data;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#turnBasedMatchResults.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The version of the match being updated.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *matchVersion;
+@property(nonatomic, strong, nullable) NSNumber *matchVersion;
 
 /** The match results for the participants in the match. */
-@property(strong, nullable) NSArray<GTLRGames_ParticipantResult *> *results;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_ParticipantResult *> *results;
 
 @end
 
@@ -3814,13 +3814,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGames_TurnBasedMatch *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_TurnBasedMatch *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#turnBasedMatchSync.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  True if there were more matches available to fetch at the time the response
@@ -3828,10 +3828,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *moreAvailable;
+@property(nonatomic, strong, nullable) NSNumber *moreAvailable;
 
 /** The pagination token for the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -3842,13 +3842,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_TurnBasedMatchTurn : GTLRObject
 
 /** The shared game state data after the turn is over. */
-@property(strong, nullable) GTLRGames_TurnBasedMatchDataRequest *data;
+@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatchDataRequest *data;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#turnBasedMatchTurn.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The version of this match: an increasing counter, used to avoid out-of-date
@@ -3856,7 +3856,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *matchVersion;
+@property(nonatomic, strong, nullable) NSNumber *matchVersion;
 
 /**
  *  The ID of the participant who should take their turn next. May be set to the
@@ -3865,10 +3865,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  automatching; this is only valid if automatch criteria is set on the match
  *  with remaining slots for automatched players.
  */
-@property(copy, nullable) NSString *pendingParticipantId;
+@property(nonatomic, copy, nullable) NSString *pendingParticipantId;
 
 /** The match results for the participants in the match. */
-@property(strong, nullable) NSArray<GTLRGames_ParticipantResult *> *results;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_ParticipantResult *> *results;
 
 @end
 

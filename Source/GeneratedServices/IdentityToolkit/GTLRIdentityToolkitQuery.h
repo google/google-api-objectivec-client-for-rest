@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkitQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -170,10 +170,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryIdentityToolkit queryForRelyingpartyGetProjectConfig]
 
 /** Delegated GCP project number of the request. */
-@property(copy, nullable) NSString *delegatedProjectNumber;
+@property(nonatomic, copy, nullable) NSString *delegatedProjectNumber;
 
 /** GCP project number of the request. */
-@property(copy, nullable) NSString *projectNumber;
+@property(nonatomic, copy, nullable) NSString *projectNumber;
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_RelyingpartyGetProjectConfigResponse.

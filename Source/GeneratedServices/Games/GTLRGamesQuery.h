@@ -188,7 +188,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -206,10 +206,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForAchievementDefinitionsList]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of achievement resources to return in the response, used
@@ -218,10 +218,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..200.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRGames_AchievementDefinitionsListResponse.
@@ -253,20 +253,20 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForAchievementsIncrementWithachievementId:stepsToIncrement:]
 
 /** The ID of the achievement used by this method. */
-@property(copy, nullable) NSString *achievementId;
+@property(nonatomic, copy, nullable) NSString *achievementId;
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  A randomly generated numeric ID for each request specified by the caller.
  *  This number is used at the server to ensure that the request is handled
  *  correctly across retries.
  */
-@property(assign) long long requestId;
+@property(nonatomic, assign) long long requestId;
 
 /** The number of steps to increment. */
-@property(assign) NSInteger stepsToIncrement;
+@property(nonatomic, assign) NSInteger stepsToIncrement;
 
 /**
  *  Fetches a @c GTLRGames_AchievementIncrementResponse.
@@ -299,10 +299,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForAchievementsListWithplayerId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of achievement resources to return in the response, used
@@ -311,16 +311,16 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..200.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  A player ID. A value of me may be used in place of the authenticated
  *  player's ID.
  */
-@property(copy, nullable) NSString *playerId;
+@property(nonatomic, copy, nullable) NSString *playerId;
 
 /**
  *  Tells the server to return only achievements with the specified state. If
@@ -336,7 +336,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @arg @c kGTLRGamesStateUnlocked List only unlocked achievements. (Value:
  *        "UNLOCKED")
  */
-@property(copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  Fetches a @c GTLRGames_PlayerAchievementListResponse.
@@ -372,10 +372,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForAchievementsRevealWithachievementId:]
 
 /** The ID of the achievement used by this method. */
-@property(copy, nullable) NSString *achievementId;
+@property(nonatomic, copy, nullable) NSString *achievementId;
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  Fetches a @c GTLRGames_AchievementRevealResponse.
@@ -408,13 +408,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForAchievementsSetStepsAtLeastWithachievementId:steps:]
 
 /** The ID of the achievement used by this method. */
-@property(copy, nullable) NSString *achievementId;
+@property(nonatomic, copy, nullable) NSString *achievementId;
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The minimum value to set the steps to. */
-@property(assign) NSInteger steps;
+@property(nonatomic, assign) NSInteger steps;
 
 /**
  *  Fetches a @c GTLRGames_AchievementSetStepsAtLeastResponse.
@@ -448,10 +448,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForAchievementsUnlockWithachievementId:]
 
 /** The ID of the achievement used by this method. */
-@property(copy, nullable) NSString *achievementId;
+@property(nonatomic, copy, nullable) NSString *achievementId;
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  Fetches a @c GTLRGames_AchievementUnlockResponse.
@@ -480,7 +480,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForAchievementsUpdateMultipleWithObject:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  Fetches a @c GTLRGames_AchievementUpdateMultipleResponse.
@@ -512,13 +512,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForApplicationsGetWithapplicationId:]
 
 /** The application ID from the Google Play developer console. */
-@property(copy, nullable) NSString *applicationId;
+@property(nonatomic, copy, nullable) NSString *applicationId;
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Restrict application details returned to the specific platform.
@@ -531,7 +531,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @arg @c kGTLRGamesPlatformTypeWebApp Retrieve applications that can be
  *        played on desktop web. (Value: "WEB_APP")
  */
-@property(copy, nullable) NSString *platformType;
+@property(nonatomic, copy, nullable) NSString *platformType;
 
 /**
  *  Fetches a @c GTLRGames_Application.
@@ -564,7 +564,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForApplicationsPlayed]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -594,10 +594,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForApplicationsVerifyWithapplicationId:]
 
 /** The application ID from the Google Play developer console. */
-@property(copy, nullable) NSString *applicationId;
+@property(nonatomic, copy, nullable) NSString *applicationId;
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  Fetches a @c GTLRGames_ApplicationVerifyResponse.
@@ -629,10 +629,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForEventsListByPlayer]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of events to return in the response, used for paging. For
@@ -641,10 +641,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..100.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRGames_PlayerEventListResponse.
@@ -676,10 +676,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForEventsListDefinitions]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of event definitions to return in the response, used for
@@ -688,10 +688,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..100.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRGames_EventDefinitionListResponse.
@@ -723,10 +723,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForEventsRecordWithObject:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Fetches a @c GTLRGames_EventUpdateResponse.
@@ -756,13 +756,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForLeaderboardsGetWithleaderboardId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the leaderboard. */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  Fetches a @c GTLRGames_Leaderboard.
@@ -791,10 +791,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForLeaderboardsList]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of leaderboards to return in the response. For any
@@ -803,10 +803,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..200.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRGames_LeaderboardListResponse.
@@ -837,7 +837,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForMetagameGetMetagameConfig]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  Fetches a @c GTLRGames_MetagameConfig.
@@ -871,13 +871,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @arg @c kGTLRGamesCollectionAll Retrieve data for all categories. This is
  *        the default. (Value: "all")
  */
-@property(copy, nullable) NSString *collection;
+@property(nonatomic, copy, nullable) NSString *collection;
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of category resources to return in the response, used for
@@ -886,16 +886,16 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..100.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  A player ID. A value of me may be used in place of the authenticated
  *  player's ID.
  */
-@property(copy, nullable) NSString *playerId;
+@property(nonatomic, copy, nullable) NSString *playerId;
 
 /**
  *  Fetches a @c GTLRGames_CategoryListResponse.
@@ -938,16 +938,16 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForPlayersGetWithplayerId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  A player ID. A value of me may be used in place of the authenticated
  *  player's ID.
  */
-@property(copy, nullable) NSString *playerId;
+@property(nonatomic, copy, nullable) NSString *playerId;
 
 /**
  *  Fetches a @c GTLRGames_Player.
@@ -993,13 +993,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @arg @c kGTLRGamesCollectionVisible Retrieve a list of players in the
  *        user's social graph that are visible to this game. (Value: "visible")
  */
-@property(copy, nullable) NSString *collection;
+@property(nonatomic, copy, nullable) NSString *collection;
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of player resources to return in the response, used for
@@ -1008,10 +1008,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..50.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRGames_PlayerListResponse.
@@ -1058,7 +1058,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForPushtokensRemoveWithObject:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1089,7 +1089,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForPushtokensUpdateWithObject:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1121,19 +1121,19 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForQuestMilestonesClaimWithquestId:milestoneId:requestId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The ID of the milestone. */
-@property(copy, nullable) NSString *milestoneId;
+@property(nonatomic, copy, nullable) NSString *milestoneId;
 
 /** The ID of the quest. */
-@property(copy, nullable) NSString *questId;
+@property(nonatomic, copy, nullable) NSString *questId;
 
 /**
  *  A numeric ID to ensure that the request is handled correctly across retries.
  *  Your client application must generate this ID randomly.
  */
-@property(assign) long long requestId;
+@property(nonatomic, assign) long long requestId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1171,13 +1171,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForQuestsAcceptWithquestId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the quest. */
-@property(copy, nullable) NSString *questId;
+@property(nonatomic, copy, nullable) NSString *questId;
 
 /**
  *  Fetches a @c GTLRGames_Quest.
@@ -1207,10 +1207,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForQuestsListWithplayerId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of quest resources to return in the response, used for
@@ -1220,16 +1220,16 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..50.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  A player ID. A value of me may be used in place of the authenticated
  *  player's ID.
  */
-@property(copy, nullable) NSString *playerId;
+@property(nonatomic, copy, nullable) NSString *playerId;
 
 /**
  *  Fetches a @c GTLRGames_QuestListResponse.
@@ -1270,10 +1270,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  - "IOS" - Client is running the iOS SDK.
  *  - "WEB_APP" - Client is running as a Web App.
  */
-@property(copy, nullable) NSString *clientRevision;
+@property(nonatomic, copy, nullable) NSString *clientRevision;
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  Fetches a @c GTLRGames_RevisionCheckResponse.
@@ -1308,10 +1308,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForRoomsCreateWithObject:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Fetches a @c GTLRGames_Room.
@@ -1342,13 +1342,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForRoomsDeclineWithroomId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the room. */
-@property(copy, nullable) NSString *roomId;
+@property(nonatomic, copy, nullable) NSString *roomId;
 
 /**
  *  Fetches a @c GTLRGames_Room.
@@ -1379,10 +1379,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForRoomsDismissWithroomId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The ID of the room. */
-@property(copy, nullable) NSString *roomId;
+@property(nonatomic, copy, nullable) NSString *roomId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1413,13 +1413,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForRoomsGetWithroomId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the room. */
-@property(copy, nullable) NSString *roomId;
+@property(nonatomic, copy, nullable) NSString *roomId;
 
 /**
  *  Fetches a @c GTLRGames_Room.
@@ -1449,13 +1449,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForRoomsJoinWithObject:roomId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the room. */
-@property(copy, nullable) NSString *roomId;
+@property(nonatomic, copy, nullable) NSString *roomId;
 
 /**
  *  Fetches a @c GTLRGames_Room.
@@ -1488,13 +1488,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForRoomsLeaveWithObject:roomId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the room. */
-@property(copy, nullable) NSString *roomId;
+@property(nonatomic, copy, nullable) NSString *roomId;
 
 /**
  *  Fetches a @c GTLRGames_Room.
@@ -1526,10 +1526,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForRoomsList]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of rooms to return in the response, used for paging. For
@@ -1538,10 +1538,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..500.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRGames_RoomList.
@@ -1574,13 +1574,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForRoomsReportStatusWithObject:roomId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the room. */
-@property(copy, nullable) NSString *roomId;
+@property(nonatomic, copy, nullable) NSString *roomId;
 
 /**
  *  Fetches a @c GTLRGames_RoomStatus.
@@ -1617,7 +1617,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForScoresGetWithplayerId:leaderboardId:timeSpan:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  The types of ranks to return. If the parameter is omitted, no ranks will be
@@ -1631,16 +1631,16 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @arg @c kGTLRGamesIncludeRankTypeSocial Retrieve the social rank. (Value:
  *        "SOCIAL")
  */
-@property(copy, nullable) NSString *includeRankType;
+@property(nonatomic, copy, nullable) NSString *includeRankType;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The ID of the leaderboard. Can be set to 'ALL' to retrieve data for all
  *  leaderboards for this application.
  */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  The maximum number of leaderboard scores to return in the response. For any
@@ -1649,16 +1649,16 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..30.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  A player ID. A value of me may be used in place of the authenticated
  *  player's ID.
  */
-@property(copy, nullable) NSString *playerId;
+@property(nonatomic, copy, nullable) NSString *playerId;
 
 /**
  *  The time span for the scores and ranks you're requesting.
@@ -1673,7 +1673,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @arg @c kGTLRGamesTimeSpanWeekly List the top scores for the current week.
  *        (Value: "WEEKLY")
  */
-@property(copy, nullable) NSString *timeSpan;
+@property(nonatomic, copy, nullable) NSString *timeSpan;
 
 /**
  *  Fetches a @c GTLRGames_PlayerLeaderboardScoreListResponse.
@@ -1736,16 +1736,16 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @arg @c kGTLRGamesCollectionSocial1p List only social scores, not
  *        respecting the fACL. (Value: "SOCIAL_1P")
  */
-@property(copy, nullable) NSString *collection;
+@property(nonatomic, copy, nullable) NSString *collection;
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the leaderboard. */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  The maximum number of leaderboard scores to return in the response. For any
@@ -1754,10 +1754,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..30.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The time span for the scores and ranks you're requesting.
@@ -1770,7 +1770,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @arg @c kGTLRGamesTimeSpanWeekly List the top scores for the current week.
  *        (Value: "WEEKLY")
  */
-@property(copy, nullable) NSString *timeSpan;
+@property(nonatomic, copy, nullable) NSString *timeSpan;
 
 /**
  *  Fetches a @c GTLRGames_LeaderboardScores.
@@ -1833,16 +1833,16 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @arg @c kGTLRGamesCollectionSocial1p List only social scores, not
  *        respecting the fACL. (Value: "SOCIAL_1P")
  */
-@property(copy, nullable) NSString *collection;
+@property(nonatomic, copy, nullable) NSString *collection;
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the leaderboard. */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  The maximum number of leaderboard scores to return in the response. For any
@@ -1851,10 +1851,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..30.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The preferred number of scores to return above the player's score. More
@@ -1862,13 +1862,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  fewer may be returned if the player is at the top. Must be less than or
  *  equal to maxResults.
  */
-@property(assign) NSInteger resultsAbove;
+@property(nonatomic, assign) NSInteger resultsAbove;
 
 /**
  *  True if the top scores should be returned when the player is not in the
  *  leaderboard. Defaults to true.
  */
-@property(assign) BOOL returnTopIfAbsent;
+@property(nonatomic, assign) BOOL returnTopIfAbsent;
 
 /**
  *  The time span for the scores and ranks you're requesting.
@@ -1881,7 +1881,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @arg @c kGTLRGamesTimeSpanWeekly List the top scores for the current week.
  *        (Value: "WEEKLY")
  */
-@property(copy, nullable) NSString *timeSpan;
+@property(nonatomic, copy, nullable) NSString *timeSpan;
 
 /**
  *  Fetches a @c GTLRGames_LeaderboardScores.
@@ -1934,13 +1934,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForScoresSubmitWithleaderboardId:score:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the leaderboard. */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  The score you're submitting. The submitted score is ignored if it is worse
@@ -1950,14 +1950,14 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  score represents elapsed time in milliseconds. For currency, the score
  *  represents a value in micro units.
  */
-@property(assign) long long score;
+@property(nonatomic, assign) long long score;
 
 /**
  *  Additional information about the score you're submitting. Values must
  *  contain no more than 64 URI-safe characters as defined by section 2.3 of RFC
  *  3986.
  */
-@property(copy, nullable) NSString *scoreTag;
+@property(nonatomic, copy, nullable) NSString *scoreTag;
 
 /**
  *  Fetches a @c GTLRGames_PlayerScoreResponse.
@@ -1993,10 +1993,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForScoresSubmitMultipleWithObject:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Fetches a @c GTLRGames_PlayerScoreListResponse.
@@ -2027,13 +2027,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForSnapshotsGetWithsnapshotId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the snapshot. */
-@property(copy, nullable) NSString *snapshotId;
+@property(nonatomic, copy, nullable) NSString *snapshotId;
 
 /**
  *  Fetches a @c GTLRGames_Snapshot.
@@ -2064,10 +2064,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForSnapshotsListWithplayerId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of snapshot resources to return in the response, used for
@@ -2076,16 +2076,16 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..25.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  A player ID. A value of me may be used in place of the authenticated
  *  player's ID.
  */
-@property(copy, nullable) NSString *playerId;
+@property(nonatomic, copy, nullable) NSString *playerId;
 
 /**
  *  Fetches a @c GTLRGames_SnapshotListResponse.
@@ -2120,10 +2120,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForTurnBasedMatchesCancelWithmatchId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The ID of the match. */
-@property(copy, nullable) NSString *matchId;
+@property(nonatomic, copy, nullable) NSString *matchId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2153,10 +2153,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForTurnBasedMatchesCreateWithObject:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Fetches a @c GTLRGames_TurnBasedMatch.
@@ -2186,13 +2186,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForTurnBasedMatchesDeclineWithmatchId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the match. */
-@property(copy, nullable) NSString *matchId;
+@property(nonatomic, copy, nullable) NSString *matchId;
 
 /**
  *  Fetches a @c GTLRGames_TurnBasedMatch.
@@ -2222,10 +2222,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForTurnBasedMatchesDismissWithmatchId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The ID of the match. */
-@property(copy, nullable) NSString *matchId;
+@property(nonatomic, copy, nullable) NSString *matchId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2258,13 +2258,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForTurnBasedMatchesFinishWithObject:matchId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the match. */
-@property(copy, nullable) NSString *matchId;
+@property(nonatomic, copy, nullable) NSString *matchId;
 
 /**
  *  Fetches a @c GTLRGames_TurnBasedMatch.
@@ -2298,16 +2298,16 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForTurnBasedMatchesGetWithmatchId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** Get match data along with metadata. */
-@property(assign) BOOL includeMatchData;
+@property(nonatomic, assign) BOOL includeMatchData;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the match. */
-@property(copy, nullable) NSString *matchId;
+@property(nonatomic, copy, nullable) NSString *matchId;
 
 /**
  *  Fetches a @c GTLRGames_TurnBasedMatch.
@@ -2336,13 +2336,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForTurnBasedMatchesJoinWithmatchId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the match. */
-@property(copy, nullable) NSString *matchId;
+@property(nonatomic, copy, nullable) NSString *matchId;
 
 /**
  *  Fetches a @c GTLRGames_TurnBasedMatch.
@@ -2372,13 +2372,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForTurnBasedMatchesLeaveWithmatchId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the match. */
-@property(copy, nullable) NSString *matchId;
+@property(nonatomic, copy, nullable) NSString *matchId;
 
 /**
  *  Fetches a @c GTLRGames_TurnBasedMatch.
@@ -2409,16 +2409,16 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForTurnBasedMatchesLeaveTurnWithmatchId:matchVersion:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the match. */
-@property(copy, nullable) NSString *matchId;
+@property(nonatomic, copy, nullable) NSString *matchId;
 
 /** The version of the match being updated. */
-@property(assign) NSInteger matchVersion;
+@property(nonatomic, assign) NSInteger matchVersion;
 
 /**
  *  The ID of another participant who should take their turn next. If not set,
@@ -2426,7 +2426,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  only valid if automatch criteria is set on the match with remaining slots
  *  for automatched players.
  */
-@property(copy, nullable) NSString *pendingParticipantId;
+@property(nonatomic, copy, nullable) NSString *pendingParticipantId;
 
 /**
  *  Fetches a @c GTLRGames_TurnBasedMatch.
@@ -2458,7 +2458,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForTurnBasedMatchesList]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  True if match data should be returned in the response. Note that not all
@@ -2467,10 +2467,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  size for the client. The remainder of the data for these matches will be
  *  retrievable on request.
  */
-@property(assign) BOOL includeMatchData;
+@property(nonatomic, assign) BOOL includeMatchData;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of completed or canceled matches to return in the
@@ -2478,7 +2478,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 0..500.
  */
-@property(assign) NSInteger maxCompletedMatches;
+@property(nonatomic, assign) NSInteger maxCompletedMatches;
 
 /**
  *  The maximum number of matches to return in the response, used for paging.
@@ -2487,10 +2487,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..500.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRGames_TurnBasedMatchList.
@@ -2524,20 +2524,20 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForTurnBasedMatchesRematchWithmatchId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the match. */
-@property(copy, nullable) NSString *matchId;
+@property(nonatomic, copy, nullable) NSString *matchId;
 
 /**
  *  A randomly generated numeric ID for each request specified by the caller.
  *  This number is used at the server to ensure that the request is handled
  *  correctly across retries.
  */
-@property(assign) long long requestId;
+@property(nonatomic, assign) long long requestId;
 
 /**
  *  Fetches a @c GTLRGames_TurnBasedMatchRematch.
@@ -2572,7 +2572,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForTurnBasedMatchesSync]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /**
  *  True if match data should be returned in the response. Note that not all
@@ -2581,10 +2581,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  size for the client. The remainder of the data for these matches will be
  *  retrievable on request.
  */
-@property(assign) BOOL includeMatchData;
+@property(nonatomic, assign) BOOL includeMatchData;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of completed or canceled matches to return in the
@@ -2592,7 +2592,7 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 0..500.
  */
-@property(assign) NSInteger maxCompletedMatches;
+@property(nonatomic, assign) NSInteger maxCompletedMatches;
 
 /**
  *  The maximum number of matches to return in the response, used for paging.
@@ -2601,10 +2601,10 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @note The documented range is 1..500.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRGames_TurnBasedMatchSync.
@@ -2638,13 +2638,13 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 //   +[GTLQueryGames queryForTurnBasedMatchesTakeTurnWithObject:matchId:]
 
 /** The last-seen mutation timestamp. */
-@property(assign) long long consistencyToken;
+@property(nonatomic, assign) long long consistencyToken;
 
 /** The preferred language to use for strings returned by this method. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the match. */
-@property(copy, nullable) NSString *matchId;
+@property(nonatomic, copy, nullable) NSString *matchId;
 
 /**
  *  Fetches a @c GTLRGames_TurnBasedMatch.

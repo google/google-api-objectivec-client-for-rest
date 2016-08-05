@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The acknowledgment ID for the messages being acknowledged that was returned
  *  by the Pub/Sub system in the `Pull` response. Must not be empty.
  */
-@property(strong, nullable) NSArray<NSString *> *ackIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ackIds;
 
 @end
 
@@ -65,13 +65,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  name that represents all the users of that domain. For example, `google.com`
  *  or `example.com`.
  */
-@property(strong, nullable) NSArray<NSString *> *members;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
  *  Role that is assigned to `members`. For example, `roles/viewer`,
  *  `roles/editor`, or `roles/owner`. Required
  */
-@property(copy, nullable) NSString *role;
+@property(nonatomic, copy, nullable) NSString *role;
 
 @end
 
@@ -102,7 +102,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  request; this value should be passed in a new `ListSubscriptionsRequest` to
  *  get more subscriptions.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The subscriptions that match the request.
@@ -110,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRPubsub_Subscription *> *subscriptions;
+@property(nonatomic, strong, nullable) NSArray<GTLRPubsub_Subscription *> *subscriptions;
 
 @end
 
@@ -129,7 +129,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  If not empty, indicates that there may be more topics that match the
  *  request; this value should be passed in a new `ListTopicsRequest`.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The resulting topics.
@@ -137,7 +137,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRPubsub_Topic *> *topics;
+@property(nonatomic, strong, nullable) NSArray<GTLRPubsub_Topic *> *topics;
 
 @end
 
@@ -152,10 +152,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  request; this value should be passed in a new
  *  `ListTopicSubscriptionsRequest` to get more subscriptions.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** The names of the subscriptions that match the request. */
-@property(strong, nullable) NSArray<NSString *> *subscriptions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subscriptions;
 
 @end
 
@@ -167,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_Message : GTLRObject
 
 /** Optional attributes for this message. */
-@property(strong, nullable) GTLRPubsub_MessageAttributes *attributes;
+@property(nonatomic, strong, nullable) GTLRPubsub_MessageAttributes *attributes;
 
 /**
  *  The message payload. For JSON requests, the value of this field must be
@@ -176,7 +176,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *data;
+@property(nonatomic, copy, nullable) NSString *data;
 
 /**
  *  ID of this message, assigned by the server when the message is published.
@@ -184,14 +184,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  subscriber that receives a `PubsubMessage` via a `Pull` call or a push
  *  delivery. It must not be populated by the publisher in a `Publish` call.
  */
-@property(copy, nullable) NSString *messageId;
+@property(nonatomic, copy, nullable) NSString *messageId;
 
 /**
  *  The time at which the message was published, populated by the server when it
  *  receives the `Publish` call. It must not be populated by the publisher in a
  *  `Publish` call.
  */
-@property(copy, nullable) NSString *publishTime;
+@property(nonatomic, copy, nullable) NSString *publishTime;
 
 @end
 
@@ -222,10 +222,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *ackDeadlineSeconds;
+@property(nonatomic, strong, nullable) NSNumber *ackDeadlineSeconds;
 
 /** List of acknowledgment IDs. */
-@property(strong, nullable) NSArray<NSString *> *ackIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ackIds;
 
 @end
 
@@ -241,7 +241,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  given subscription and allow messages to be pulled and acknowledged -
  *  effectively pausing the subscription if `Pull` is not called.
  */
-@property(strong, nullable) GTLRPubsub_PushConfig *pushConfig;
+@property(nonatomic, strong, nullable) GTLRPubsub_PushConfig *pushConfig;
 
 @end
 
@@ -267,7 +267,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  specified for the same `role`. `bindings` with no members will result in an
  *  error.
  */
-@property(strong, nullable) NSArray<GTLRPubsub_Binding *> *bindings;
+@property(nonatomic, strong, nullable) NSArray<GTLRPubsub_Binding *> *bindings;
 
 /**
  *  `etag` is used for optimistic concurrency control as a way to help prevent
@@ -282,14 +282,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Version of the `Policy`. The default version is 0.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *version;
+@property(nonatomic, strong, nullable) NSNumber *version;
 
 @end
 
@@ -300,7 +300,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_PublishRequest : GTLRObject
 
 /** The messages to publish. */
-@property(strong, nullable) NSArray<GTLRPubsub_Message *> *messages;
+@property(nonatomic, strong, nullable) NSArray<GTLRPubsub_Message *> *messages;
 
 @end
 
@@ -314,7 +314,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The server-assigned ID of each published message, in the same order as the
  *  messages in the request. IDs are guaranteed to be unique within the topic.
  */
-@property(strong, nullable) NSArray<NSString *> *messageIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *messageIds;
 
 @end
 
@@ -330,7 +330,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxMessages;
+@property(nonatomic, strong, nullable) NSNumber *maxMessages;
 
 /**
  *  If this is specified as true the system will respond immediately even if it
@@ -341,7 +341,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *returnImmediately;
+@property(nonatomic, strong, nullable) NSNumber *returnImmediately;
 
 @end
 
@@ -357,7 +357,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  fewer than the `maxMessages` requested even if there are more messages
  *  available in the backlog.
  */
-@property(strong, nullable) NSArray<GTLRPubsub_ReceivedMessage *> *receivedMessages;
+@property(nonatomic, strong, nullable) NSArray<GTLRPubsub_ReceivedMessage *> *receivedMessages;
 
 @end
 
@@ -383,13 +383,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  defined in the v1beta1 Pub/Sub API. * `v1` or `v1beta2`: uses the push
  *  format defined in the v1 Pub/Sub API.
  */
-@property(strong, nullable) GTLRPubsub_PushConfigAttributes *attributes;
+@property(nonatomic, strong, nullable) GTLRPubsub_PushConfigAttributes *attributes;
 
 /**
  *  A URL locating the endpoint to which messages should be pushed. For example,
  *  a Webhook endpoint might use "https://example.com/push".
  */
-@property(copy, nullable) NSString *pushEndpoint;
+@property(nonatomic, copy, nullable) NSString *pushEndpoint;
 
 @end
 
@@ -425,10 +425,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_ReceivedMessage : GTLRObject
 
 /** This ID can be used to acknowledge the received message. */
-@property(copy, nullable) NSString *ackId;
+@property(nonatomic, copy, nullable) NSString *ackId;
 
 /** The message. */
-@property(strong, nullable) GTLRPubsub_Message *message;
+@property(nonatomic, strong, nullable) GTLRPubsub_Message *message;
 
 @end
 
@@ -443,7 +443,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
  *  but certain Cloud Platform services (such as Projects) might reject them.
  */
-@property(strong, nullable) GTLRPubsub_Policy *policy;
+@property(nonatomic, strong, nullable) GTLRPubsub_Policy *policy;
 
 @end
 
@@ -468,7 +468,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *ackDeadlineSeconds;
+@property(nonatomic, strong, nullable) NSNumber *ackDeadlineSeconds;
 
 /**
  *  The name of the subscription. It must have the format
@@ -478,21 +478,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters
  *  in length, and it must not start with `"goog"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  If push delivery is used with this subscription, this field is used to
  *  configure it. An empty `pushConfig` signifies that the subscriber will pull
  *  and ack messages using API methods.
  */
-@property(strong, nullable) GTLRPubsub_PushConfig *pushConfig;
+@property(nonatomic, strong, nullable) GTLRPubsub_PushConfig *pushConfig;
 
 /**
  *  The name of the topic from which this subscription is receiving messages.
  *  The value of this field will be `_deleted-topic_` if the topic has been
  *  deleted.
  */
-@property(copy, nullable) NSString *topic;
+@property(nonatomic, copy, nullable) NSString *topic;
 
 @end
 
@@ -507,7 +507,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
  *  see IAM Overview.
  */
-@property(strong, nullable) NSArray<NSString *> *permissions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 
@@ -520,7 +520,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
-@property(strong, nullable) NSArray<NSString *> *permissions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 
@@ -538,7 +538,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  (`%`). It must be between 3 and 255 characters in length, and it must not
  *  start with `"goog"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

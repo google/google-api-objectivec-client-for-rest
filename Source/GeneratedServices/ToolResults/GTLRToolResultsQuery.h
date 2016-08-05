@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRToolResultsQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRToolResults_ProjectSettings.
@@ -92,14 +92,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  A unique request ID for server to detect duplicated requests. For example, a
  *  UUID.
  *  Optional, but strongly recommended.
  */
-@property(copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRToolResults_History.
@@ -143,20 +143,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  A History id.
  *  Required.
  */
-@property(copy, nullable) NSString *historyId;
+@property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  A unique request ID for server to detect duplicated requests. For example, a
  *  UUID.
  *  Optional, but strongly recommended.
  */
-@property(copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRToolResults_Execution.
@@ -202,19 +202,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  An Execution id.
  *  Required.
  */
-@property(copy, nullable) NSString *executionId;
+@property(nonatomic, copy, nullable) NSString *executionId;
 
 /**
  *  A History id.
  *  Required.
  */
-@property(copy, nullable) NSString *historyId;
+@property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRToolResults_Execution.
@@ -263,7 +263,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  A History id.
  *  Required.
  */
-@property(copy, nullable) NSString *historyId;
+@property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
  *  The maximum number of Executions to fetch.
@@ -271,19 +271,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  or has a value of 0.
  *  Optional.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A continuation token to resume the query at the next item.
  *  Optional.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRToolResults_ListExecutionsResponse.
@@ -331,20 +331,20 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsPatchWithObject:projectId:historyId:executionId:]
 
 /** Required. */
-@property(copy, nullable) NSString *executionId;
+@property(nonatomic, copy, nullable) NSString *executionId;
 
 /** Required. */
-@property(copy, nullable) NSString *historyId;
+@property(nonatomic, copy, nullable) NSString *historyId;
 
 /** A Project id. Required. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  A unique request ID for server to detect duplicated requests. For example, a
  *  UUID.
  *  Optional, but strongly recommended.
  */
-@property(copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRToolResults_Execution.
@@ -392,26 +392,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  A Execution id.
  *  Required.
  */
-@property(copy, nullable) NSString *executionId;
+@property(nonatomic, copy, nullable) NSString *executionId;
 
 /**
  *  A History id.
  *  Required.
  */
-@property(copy, nullable) NSString *historyId;
+@property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  A unique request ID for server to detect duplicated requests. For example, a
  *  UUID.
  *  Optional, but strongly recommended.
  */
-@property(copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRToolResults_Step.
@@ -461,25 +461,25 @@ NS_ASSUME_NONNULL_BEGIN
  *  A Execution id.
  *  Required.
  */
-@property(copy, nullable) NSString *executionId;
+@property(nonatomic, copy, nullable) NSString *executionId;
 
 /**
  *  A History id.
  *  Required.
  */
-@property(copy, nullable) NSString *historyId;
+@property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  A Step id.
  *  Required.
  */
-@property(copy, nullable) NSString *stepId;
+@property(nonatomic, copy, nullable) NSString *stepId;
 
 /**
  *  Fetches a @c GTLRToolResults_Step.
@@ -532,13 +532,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  A Execution id.
  *  Required.
  */
-@property(copy, nullable) NSString *executionId;
+@property(nonatomic, copy, nullable) NSString *executionId;
 
 /**
  *  A History id.
  *  Required.
  */
-@property(copy, nullable) NSString *historyId;
+@property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
  *  The maximum number of Steps to fetch.
@@ -546,19 +546,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  or has a value of 0.
  *  Optional.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A continuation token to resume the query at the next item.
  *  Optional.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRToolResults_ListStepsResponse.
@@ -614,32 +614,32 @@ NS_ASSUME_NONNULL_BEGIN
  *  A Execution id.
  *  Required.
  */
-@property(copy, nullable) NSString *executionId;
+@property(nonatomic, copy, nullable) NSString *executionId;
 
 /**
  *  A History id.
  *  Required.
  */
-@property(copy, nullable) NSString *historyId;
+@property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  A unique request ID for server to detect duplicated requests. For example, a
  *  UUID.
  *  Optional, but strongly recommended.
  */
-@property(copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  A Step id.
  *  Required.
  */
-@property(copy, nullable) NSString *stepId;
+@property(nonatomic, copy, nullable) NSString *stepId;
 
 /**
  *  Fetches a @c GTLRToolResults_Step.
@@ -694,25 +694,25 @@ NS_ASSUME_NONNULL_BEGIN
  *  A Execution id.
  *  Required.
  */
-@property(copy, nullable) NSString *executionId;
+@property(nonatomic, copy, nullable) NSString *executionId;
 
 /**
  *  A History id.
  *  Required.
  */
-@property(copy, nullable) NSString *historyId;
+@property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  A Step id. Note: This step must include a TestExecutionStep.
  *  Required.
  */
-@property(copy, nullable) NSString *stepId;
+@property(nonatomic, copy, nullable) NSString *stepId;
 
 /**
  *  Fetches a @c GTLRToolResults_Step.
@@ -766,13 +766,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  An Execution id.
  *  Required.
  */
-@property(copy, nullable) NSString *executionId;
+@property(nonatomic, copy, nullable) NSString *executionId;
 
 /**
  *  A History id.
  *  Required.
  */
-@property(copy, nullable) NSString *historyId;
+@property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
  *  The maximum number of thumbnails to fetch.
@@ -780,25 +780,25 @@ NS_ASSUME_NONNULL_BEGIN
  *  or has a value of 0.
  *  Optional.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A continuation token to resume the query at the next item.
  *  Optional.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  A Step id.
  *  Required.
  */
-@property(copy, nullable) NSString *stepId;
+@property(nonatomic, copy, nullable) NSString *stepId;
 
 /**
  *  Fetches a @c GTLRToolResults_ListStepThumbnailsResponse.
@@ -851,13 +851,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  A History id.
  *  Required.
  */
-@property(copy, nullable) NSString *historyId;
+@property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRToolResults_History.
@@ -903,7 +903,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  If set, only return histories with the given name.
  *  Optional.
  */
-@property(copy, nullable) NSString *filterByName;
+@property(nonatomic, copy, nullable) NSString *filterByName;
 
 /**
  *  The maximum number of Histories to fetch.
@@ -911,19 +911,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  or has a value of 0. Any value greater than 100 will be treated as 100.
  *  Optional.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A continuation token to resume the query at the next item.
  *  Optional.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRToolResults_ListHistoriesResponse.
@@ -984,7 +984,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  A Project id.
  *  Required.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRToolResults_ProjectSettings.

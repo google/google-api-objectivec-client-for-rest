@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRYouTubeReportingQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The content owner's external ID on which behalf the user is acting on. If
  *  not set, the user is acting for himself (his own channel).
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Fetches a @c GTLRYouTubeReporting_Job.
@@ -79,13 +79,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryYouTubeReporting queryForJobsDeleteWithjobId:]
 
 /** The ID of the job to delete. */
-@property(copy, nullable) NSString *jobId;
+@property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
  *  The content owner's external ID on which behalf the user is acting on. If
  *  not set, the user is acting for himself (his own channel).
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Fetches a @c GTLRYouTubeReporting_Empty.
@@ -114,13 +114,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryYouTubeReporting queryForJobsGetWithjobId:]
 
 /** The ID of the job to retrieve. */
-@property(copy, nullable) NSString *jobId;
+@property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
  *  The content owner's external ID on which behalf the user is acting on. If
  *  not set, the user is acting for himself (his own channel).
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Fetches a @c GTLRYouTubeReporting_Job.
@@ -153,26 +153,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  user-created jobs will be returned. System-managed jobs can neither be
  *  modified nor deleted.
  */
-@property(assign) BOOL includeSystemManaged;
+@property(nonatomic, assign) BOOL includeSystemManaged;
 
 /**
  *  The content owner's external ID on which behalf the user is acting on. If
  *  not set, the user is acting for himself (his own channel).
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Requested page size. Server may return fewer jobs than requested. If
  *  unspecified, server will pick an appropriate default.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A token identifying a page of results the server should return. Typically,
  *  this is the value of ListReportTypesResponse.next_page_token returned in
  *  response to the previous call to the `ListJobs` method.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRYouTubeReporting_ListJobsResponse.
@@ -203,16 +203,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryYouTubeReporting queryForJobsReportsGetWithjobId:reportId:]
 
 /** The ID of the job. */
-@property(copy, nullable) NSString *jobId;
+@property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
  *  The content owner's external ID on which behalf the user is acting on. If
  *  not set, the user is acting for himself (his own channel).
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /** The ID of the report to retrieve. */
-@property(copy, nullable) NSString *reportId;
+@property(nonatomic, copy, nullable) NSString *reportId;
 
 /**
  *  Fetches a @c GTLRYouTubeReporting_Report.
@@ -246,41 +246,41 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  If set, only reports created after the specified date/time are returned.
  */
-@property(copy, nullable) NSString *createdAfter;
+@property(nonatomic, copy, nullable) NSString *createdAfter;
 
 /** The ID of the job. */
-@property(copy, nullable) NSString *jobId;
+@property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
  *  The content owner's external ID on which behalf the user is acting on. If
  *  not set, the user is acting for himself (his own channel).
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Requested page size. Server may return fewer report types than requested. If
  *  unspecified, server will pick an appropriate default.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A token identifying a page of results the server should return. Typically,
  *  this is the value of ListReportsResponse.next_page_token returned in
  *  response to the previous call to the `ListReports` method.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  If set, only reports whose start time is greater than or equal the specified
  *  date/time are returned.
  */
-@property(copy, nullable) NSString *startTimeAtOrAfter;
+@property(nonatomic, copy, nullable) NSString *startTimeAtOrAfter;
 
 /**
  *  If set, only reports whose start time is smaller than the specified
  *  date/time are returned.
  */
-@property(copy, nullable) NSString *startTimeBefore;
+@property(nonatomic, copy, nullable) NSString *startTimeBefore;
 
 /**
  *  Fetches a @c GTLRYouTubeReporting_ListReportsResponse.
@@ -317,7 +317,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Name of the media that is being downloaded. See ReadRequest.resource_name.
  */
-@property(copy, nullable) NSString *resourceName;
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
  *  Fetches a @c GTLRYouTubeReporting_Media.
@@ -365,26 +365,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  only the report types that can be used to create new reporting jobs will be
  *  returned.
  */
-@property(assign) BOOL includeSystemManaged;
+@property(nonatomic, assign) BOOL includeSystemManaged;
 
 /**
  *  The content owner's external ID on which behalf the user is acting on. If
  *  not set, the user is acting for himself (his own channel).
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Requested page size. Server may return fewer report types than requested. If
  *  unspecified, server will pick an appropriate default.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A token identifying a page of results the server should return. Typically,
  *  this is the value of ListReportTypesResponse.next_page_token returned in
  *  response to the previous call to the `ListReportTypes` method.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRYouTubeReporting_ListReportTypesResponse.

@@ -187,20 +187,20 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *    @arg @c kGTLRGmail_AutoForwarding_Disposition_MarkRead Value "markRead"
  *    @arg @c kGTLRGmail_AutoForwarding_Disposition_Trash Value "trash"
  */
-@property(copy, nullable) NSString *disposition;
+@property(nonatomic, copy, nullable) NSString *disposition;
 
 /**
  *  Email address to which all incoming messages are forwarded. This email
  *  address must be a verified member of the forwarding addresses.
  */
-@property(copy, nullable) NSString *emailAddress;
+@property(nonatomic, copy, nullable) NSString *emailAddress;
 
 /**
  *  Whether all incoming mail is automatically forwarded to another address.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enabled;
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -211,7 +211,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_BatchDeleteMessagesRequest : GTLRObject
 
 /** The IDs of the messages to delete. */
-@property(strong, nullable) NSArray<NSString *> *ids;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ids;
 
 @end
 
@@ -226,10 +226,10 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The message content of the draft. */
-@property(strong, nullable) GTLRGmail_Message *message;
+@property(nonatomic, strong, nullable) GTLRGmail_Message *message;
 
 @end
 
@@ -241,17 +241,17 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_Filter : GTLRObject
 
 /** Action that the filter performs. */
-@property(strong, nullable) GTLRGmail_FilterAction *action;
+@property(nonatomic, strong, nullable) GTLRGmail_FilterAction *action;
 
 /** Matching criteria for the filter. */
-@property(strong, nullable) GTLRGmail_FilterCriteria *criteria;
+@property(nonatomic, strong, nullable) GTLRGmail_FilterCriteria *criteria;
 
 /**
  *  The server assigned ID of the filter.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 
@@ -262,13 +262,13 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_FilterAction : GTLRObject
 
 /** List of labels to add to the message. */
-@property(strong, nullable) NSArray<NSString *> *addLabelIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addLabelIds;
 
 /** Email address that the message should be forwarded to. */
-@property(copy, nullable) NSString *forward;
+@property(nonatomic, copy, nullable) NSString *forward;
 
 /** List of labels to remove from the message. */
-@property(strong, nullable) NSArray<NSString *> *removeLabelIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *removeLabelIds;
 
 @end
 
@@ -283,31 +283,31 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *excludeChats;
+@property(nonatomic, strong, nullable) NSNumber *excludeChats;
 
 /** The sender's display name or email address. */
-@property(copy, nullable) NSString *from;
+@property(nonatomic, copy, nullable) NSString *from;
 
 /**
  *  Whether the message has any attachment.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hasAttachment;
+@property(nonatomic, strong, nullable) NSNumber *hasAttachment;
 
 /**
  *  Only return messages not matching the specified query. Supports the same
  *  query format as the Gmail search box. For example,
  *  "from:someuser\@example.com rfc822msgid: is:unread".
  */
-@property(copy, nullable) NSString *negatedQuery;
+@property(nonatomic, copy, nullable) NSString *negatedQuery;
 
 /**
  *  Only return messages matching the specified query. Supports the same query
  *  format as the Gmail search box. For example, "from:someuser\@example.com
  *  rfc822msgid: is:unread".
  */
-@property(copy, nullable) NSString *query;
+@property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  The size of the entire RFC822 message in bytes, including all headers and
@@ -315,7 +315,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *size;
+@property(nonatomic, strong, nullable) NSNumber *size;
 
 /**
  *  How the message size in bytes should be in relation to the size field.
@@ -326,13 +326,13 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *    @arg @c kGTLRGmail_FilterCriteria_SizeComparison_Unspecified Value
  *        "unspecified"
  */
-@property(copy, nullable) NSString *sizeComparison;
+@property(nonatomic, copy, nullable) NSString *sizeComparison;
 
 /**
  *  Case-insensitive phrase found in the message's subject. Trailing and leading
  *  whitespace are be trimmed and adjacent spaces are collapsed.
  */
-@property(copy, nullable) NSString *subject;
+@property(nonatomic, copy, nullable) NSString *subject;
 
 /**
  *  The recipient's display name or email address. Includes recipients in the
@@ -340,7 +340,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  the email address. For example, "example" and "example\@" both match
  *  "example\@gmail.com". This field is case-insensitive.
  */
-@property(copy, nullable) NSString *to;
+@property(nonatomic, copy, nullable) NSString *to;
 
 @end
 
@@ -351,7 +351,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_ForwardingAddress : GTLRObject
 
 /** An email address to which messages can be forwarded. */
-@property(copy, nullable) NSString *forwardingEmail;
+@property(nonatomic, copy, nullable) NSString *forwardingEmail;
 
 /**
  *  Indicates whether this address has been verified and is usable for
@@ -365,7 +365,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *    @arg @c kGTLRGmail_ForwardingAddress_VerificationStatus_VerificationStatusUnspecified
  *        Value "verificationStatusUnspecified"
  */
-@property(copy, nullable) NSString *verificationStatus;
+@property(nonatomic, copy, nullable) NSString *verificationStatus;
 
 @end
 
@@ -383,26 +383,26 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /** Labels added to messages in this history record. */
-@property(strong, nullable) NSArray<GTLRGmail_HistoryLabelAdded *> *labelsAdded;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_HistoryLabelAdded *> *labelsAdded;
 
 /** Labels removed from messages in this history record. */
-@property(strong, nullable) NSArray<GTLRGmail_HistoryLabelRemoved *> *labelsRemoved;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_HistoryLabelRemoved *> *labelsRemoved;
 
 /**
  *  List of messages changed in this history record. The fields for specific
  *  change types, such as messagesAdded may duplicate messages in this field. We
  *  recommend using the specific change-type fields instead of this.
  */
-@property(strong, nullable) NSArray<GTLRGmail_Message *> *messages;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_Message *> *messages;
 
 /** Messages added to the mailbox in this history record. */
-@property(strong, nullable) NSArray<GTLRGmail_HistoryMessageAdded *> *messagesAdded;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_HistoryMessageAdded *> *messagesAdded;
 
 /** Messages deleted (not Trashed) from the mailbox in this history record. */
-@property(strong, nullable) NSArray<GTLRGmail_HistoryMessageDeleted *> *messagesDeleted;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_HistoryMessageDeleted *> *messagesDeleted;
 
 @end
 
@@ -413,9 +413,9 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_HistoryLabelAdded : GTLRObject
 
 /** Label IDs added to the message. */
-@property(strong, nullable) NSArray<NSString *> *labelIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
 
-@property(strong, nullable) GTLRGmail_Message *message;
+@property(nonatomic, strong, nullable) GTLRGmail_Message *message;
 
 @end
 
@@ -426,9 +426,9 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_HistoryLabelRemoved : GTLRObject
 
 /** Label IDs removed from the message. */
-@property(strong, nullable) NSArray<NSString *> *labelIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
 
-@property(strong, nullable) GTLRGmail_Message *message;
+@property(nonatomic, strong, nullable) GTLRGmail_Message *message;
 
 @end
 
@@ -438,7 +438,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  */
 @interface GTLRGmail_HistoryMessageAdded : GTLRObject
 
-@property(strong, nullable) GTLRGmail_Message *message;
+@property(nonatomic, strong, nullable) GTLRGmail_Message *message;
 
 @end
 
@@ -448,7 +448,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  */
 @interface GTLRGmail_HistoryMessageDeleted : GTLRObject
 
-@property(strong, nullable) GTLRGmail_Message *message;
+@property(nonatomic, strong, nullable) GTLRGmail_Message *message;
 
 @end
 
@@ -465,14 +465,14 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *autoExpunge;
+@property(nonatomic, strong, nullable) NSNumber *autoExpunge;
 
 /**
  *  Whether IMAP is enabled for the account.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enabled;
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
  *  The action that will be executed on a message when it is marked as deleted
@@ -486,7 +486,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *        Value "expungeBehaviorUnspecified"
  *    @arg @c kGTLRGmail_ImapSettings_ExpungeBehavior_Trash Value "trash"
  */
-@property(copy, nullable) NSString *expungeBehavior;
+@property(nonatomic, copy, nullable) NSString *expungeBehavior;
 
 /**
  *  An optional limit on the number of messages that an IMAP folder may contain.
@@ -495,7 +495,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxFolderSize;
+@property(nonatomic, strong, nullable) NSNumber *maxFolderSize;
 
 @end
 
@@ -511,7 +511,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The visibility of the label in the label list in the Gmail web interface.
@@ -522,7 +522,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *    @arg @c kGTLRGmail_Label_LabelListVisibility_LabelShowIfUnread Value
  *        "labelShowIfUnread"
  */
-@property(copy, nullable) NSString *labelListVisibility;
+@property(nonatomic, copy, nullable) NSString *labelListVisibility;
 
 /**
  *  The visibility of the label in the message list in the Gmail web interface.
@@ -531,38 +531,38 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *    @arg @c kGTLRGmail_Label_MessageListVisibility_Hide Value "hide"
  *    @arg @c kGTLRGmail_Label_MessageListVisibility_Show Value "show"
  */
-@property(copy, nullable) NSString *messageListVisibility;
+@property(nonatomic, copy, nullable) NSString *messageListVisibility;
 
 /**
  *  The total number of messages with the label.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *messagesTotal;
+@property(nonatomic, strong, nullable) NSNumber *messagesTotal;
 
 /**
  *  The number of unread messages with the label.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *messagesUnread;
+@property(nonatomic, strong, nullable) NSNumber *messagesUnread;
 
 /** The display name of the label. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The total number of threads with the label.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *threadsTotal;
+@property(nonatomic, strong, nullable) NSNumber *threadsTotal;
 
 /**
  *  The number of unread threads with the label.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *threadsUnread;
+@property(nonatomic, strong, nullable) NSNumber *threadsUnread;
 
 /**
  *  The owner type for the label. User labels are created by the user and can be
@@ -578,7 +578,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *    @arg @c kGTLRGmail_Label_Type_System Value "system"
  *    @arg @c kGTLRGmail_Label_Type_User Value "user"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -599,17 +599,17 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGmail_Draft *> *drafts;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_Draft *> *drafts;
 
 /** Token to retrieve the next page of results in the list. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  Estimated total number of results.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *resultSizeEstimate;
+@property(nonatomic, strong, nullable) NSNumber *resultSizeEstimate;
 
 @end
 
@@ -620,7 +620,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_ListFiltersResponse : GTLRObject
 
 /** List of a user's filters. */
-@property(strong, nullable) NSArray<GTLRGmail_Filter *> *filter;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_Filter *> *filter;
 
 @end
 
@@ -631,7 +631,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_ListForwardingAddressesResponse : GTLRObject
 
 /** List of addresses that may be used for forwarding. */
-@property(strong, nullable) NSArray<GTLRGmail_ForwardingAddress *> *forwardingAddresses;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_ForwardingAddress *> *forwardingAddresses;
 
 @end
 
@@ -653,17 +653,17 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGmail_History *> *history;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_History *> *history;
 
 /**
  *  The ID of the mailbox's current history record.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *historyId;
+@property(nonatomic, strong, nullable) NSNumber *historyId;
 
 /** Page token to retrieve the next page of results in the list. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -674,7 +674,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_ListLabelsResponse : GTLRObject
 
 /** List of labels. */
-@property(strong, nullable) NSArray<GTLRGmail_Label *> *labels;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_Label *> *labels;
 
 @end
 
@@ -695,17 +695,17 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGmail_Message *> *messages;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_Message *> *messages;
 
 /** Token to retrieve the next page of results in the list. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  Estimated total number of results.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *resultSizeEstimate;
+@property(nonatomic, strong, nullable) NSNumber *resultSizeEstimate;
 
 @end
 
@@ -716,7 +716,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_ListSendAsResponse : GTLRObject
 
 /** List of send-as aliases. */
-@property(strong, nullable) NSArray<GTLRGmail_SendAs *> *sendAs;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_SendAs *> *sendAs;
 
 @end
 
@@ -732,14 +732,14 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_ListThreadsResponse : GTLRCollectionObject
 
 /** Page token to retrieve the next page of results in the list. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  Estimated total number of results.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *resultSizeEstimate;
+@property(nonatomic, strong, nullable) NSNumber *resultSizeEstimate;
 
 /**
  *  List of threads.
@@ -747,7 +747,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGmail_Thread *> *threads;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_Thread *> *threads;
 
 @end
 
@@ -762,14 +762,14 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *historyId;
+@property(nonatomic, strong, nullable) NSNumber *historyId;
 
 /**
  *  The immutable ID of the message.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The internal message creation timestamp (epoch ms), which determines
@@ -780,13 +780,13 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *internalDate;
+@property(nonatomic, strong, nullable) NSNumber *internalDate;
 
 /** List of IDs of labels applied to this message. */
-@property(strong, nullable) NSArray<NSString *> *labelIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
 
 /** The parsed email structure in the message parts. */
-@property(strong, nullable) GTLRGmail_MessagePart *payload;
+@property(nonatomic, strong, nullable) GTLRGmail_MessagePart *payload;
 
 /**
  *  The entire email message in an RFC 2822 formatted and base64url encoded
@@ -796,17 +796,17 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *raw;
+@property(nonatomic, copy, nullable) NSString *raw;
 
 /**
  *  Estimated size in bytes of the message.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sizeEstimate;
+@property(nonatomic, strong, nullable) NSNumber *sizeEstimate;
 
 /** A short part of the message text. */
-@property(copy, nullable) NSString *snippet;
+@property(nonatomic, copy, nullable) NSString *snippet;
 
 /**
  *  The ID of the thread the message belongs to. To add a message or draft to a
@@ -817,7 +817,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  RFC 2822 standard.
  *  - The Subject headers must match.
  */
-@property(copy, nullable) NSString *threadId;
+@property(nonatomic, copy, nullable) NSString *threadId;
 
 @end
 
@@ -831,26 +831,26 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  The message part body for this part, which may be empty for container MIME
  *  message parts.
  */
-@property(strong, nullable) GTLRGmail_MessagePartBody *body;
+@property(nonatomic, strong, nullable) GTLRGmail_MessagePartBody *body;
 
 /**
  *  The filename of the attachment. Only present if this message part represents
  *  an attachment.
  */
-@property(copy, nullable) NSString *filename;
+@property(nonatomic, copy, nullable) NSString *filename;
 
 /**
  *  List of headers on this message part. For the top-level message part,
  *  representing the entire message payload, it will contain the standard RFC
  *  2822 email headers such as To, From, and Subject.
  */
-@property(strong, nullable) NSArray<GTLRGmail_MessagePartHeader *> *headers;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_MessagePartHeader *> *headers;
 
 /** The MIME type of the message part. */
-@property(copy, nullable) NSString *mimeType;
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 /** The immutable ID of the message part. */
-@property(copy, nullable) NSString *partId;
+@property(nonatomic, copy, nullable) NSString *partId;
 
 /**
  *  The child MIME message parts of this part. This only applies to container
@@ -858,7 +858,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  message part types, such as text/plain, this field is empty. For more
  *  information, see RFC 1521.
  */
-@property(strong, nullable) NSArray<GTLRGmail_MessagePart *> *parts;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_MessagePart *> *parts;
 
 @end
 
@@ -873,7 +873,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  retrieved in a separate messages.attachments.get request. When not present,
  *  the entire content of the message part body is contained in the data field.
  */
-@property(copy, nullable) NSString *attachmentId;
+@property(nonatomic, copy, nullable) NSString *attachmentId;
 
 /**
  *  The body data of a MIME message part. May be empty for MIME container types
@@ -884,14 +884,14 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *data;
+@property(nonatomic, copy, nullable) NSString *data;
 
 /**
  *  Total number of bytes in the body of the message part.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *size;
+@property(nonatomic, strong, nullable) NSNumber *size;
 
 @end
 
@@ -902,13 +902,13 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_MessagePartHeader : GTLRObject
 
 /** The name of the header before the : separator. For example, To. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The value of the header after the : separator. For example,
  *  someuser\@example.com.
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -919,10 +919,10 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_ModifyMessageRequest : GTLRObject
 
 /** A list of IDs of labels to add to this message. */
-@property(strong, nullable) NSArray<NSString *> *addLabelIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addLabelIds;
 
 /** A list IDs of labels to remove from this message. */
-@property(strong, nullable) NSArray<NSString *> *removeLabelIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *removeLabelIds;
 
 @end
 
@@ -933,10 +933,10 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_ModifyThreadRequest : GTLRObject
 
 /** A list of IDs of labels to add to this thread. */
-@property(strong, nullable) NSArray<NSString *> *addLabelIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addLabelIds;
 
 /** A list of IDs of labels to remove from this thread. */
-@property(strong, nullable) NSArray<NSString *> *removeLabelIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *removeLabelIds;
 
 @end
 
@@ -947,11 +947,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_PopSettings : GTLRObject
 
 /**
- *  The range of messages which are accessible via POP. Setting this to
- *  FROM_NOW_ON causes any existing messages to become inaccessible and causes
- *  all future messages to become accessible. Setting this to ALL_MAIL causes
- *  all messages to become accessible, even if they have been fetched
- *  previously.
+ *  The range of messages which are accessible via POP.
  *
  *  Likely values:
  *    @arg @c kGTLRGmail_PopSettings_AccessWindow_AccessWindowUnspecified Value
@@ -960,7 +956,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *    @arg @c kGTLRGmail_PopSettings_AccessWindow_Disabled Value "disabled"
  *    @arg @c kGTLRGmail_PopSettings_AccessWindow_FromNowOn Value "fromNowOn"
  */
-@property(copy, nullable) NSString *accessWindow;
+@property(nonatomic, copy, nullable) NSString *accessWindow;
 
 /**
  *  The action that will be executed on a message after it has been fetched via
@@ -975,7 +971,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *    @arg @c kGTLRGmail_PopSettings_Disposition_MarkRead Value "markRead"
  *    @arg @c kGTLRGmail_PopSettings_Disposition_Trash Value "trash"
  */
-@property(copy, nullable) NSString *disposition;
+@property(nonatomic, copy, nullable) NSString *disposition;
 
 @end
 
@@ -986,28 +982,28 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_Profile : GTLRObject
 
 /** The user's email address. */
-@property(copy, nullable) NSString *emailAddress;
+@property(nonatomic, copy, nullable) NSString *emailAddress;
 
 /**
  *  The ID of the mailbox's current history record.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *historyId;
+@property(nonatomic, strong, nullable) NSNumber *historyId;
 
 /**
  *  The total number of messages in the mailbox.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *messagesTotal;
+@property(nonatomic, strong, nullable) NSNumber *messagesTotal;
 
 /**
  *  The total number of threads in the mailbox.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *threadsTotal;
+@property(nonatomic, strong, nullable) NSNumber *threadsTotal;
 
 @end
 
@@ -1026,19 +1022,19 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  "From:" header with the name that is used for the primary address associated
  *  with the account.
  */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Whether this address is selected as the default "From:" address in
  *  situations such as composing a new message or sending a vacation auto-reply.
  *  Every Gmail account has exactly one default send-as address, so the only
- *  legal value that clients may write to this field is `true`. Changing this
- *  from `false` to `true` for an address will result in this field becoming
- *  `false` for the other previous default address.
+ *  legal value that clients may write to this field is true. Changing this from
+ *  false to true for an address will result in this field becoming false for
+ *  the other previous default address.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isDefault;
+@property(nonatomic, strong, nullable) NSNumber *isDefault;
 
 /**
  *  Whether this address is the primary address used to login to the account.
@@ -1047,26 +1043,26 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isPrimary;
+@property(nonatomic, strong, nullable) NSNumber *isPrimary;
 
 /**
  *  An optional email address that is included in a "Reply-To:" header for mail
  *  sent using this alias. If this is empty, Gmail will not generate a
  *  "Reply-To:" header.
  */
-@property(copy, nullable) NSString *replyToAddress;
+@property(nonatomic, copy, nullable) NSString *replyToAddress;
 
 /**
  *  The email address that appears in the "From:" header for mail sent using
  *  this alias. This is read-only for all operations except create.
  */
-@property(copy, nullable) NSString *sendAsEmail;
+@property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
  *  An optional HTML signature that is included in messages composed with this
  *  alias in the Gmail web UI.
  */
-@property(copy, nullable) NSString *signature;
+@property(nonatomic, copy, nullable) NSString *signature;
 
 /**
  *  An optional SMTP service that will be used as an outbound relay for mail
@@ -1074,7 +1070,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  from Gmail's servers to the destination SMTP service. This setting only
  *  applies to custom "from" aliases.
  */
-@property(strong, nullable) GTLRGmail_SmtpMsa *smtpMsa;
+@property(nonatomic, strong, nullable) GTLRGmail_SmtpMsa *smtpMsa;
 
 /**
  *  Whether Gmail should treat this address as an alias for the user's primary
@@ -1083,7 +1079,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *treatAsAlias;
+@property(nonatomic, strong, nullable) NSNumber *treatAsAlias;
 
 /**
  *  Indicates whether this address has been verified for use as a send-as alias.
@@ -1095,7 +1091,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *    @arg @c kGTLRGmail_SendAs_VerificationStatus_VerificationStatusUnspecified
  *        Value "verificationStatusUnspecified"
  */
-@property(copy, nullable) NSString *verificationStatus;
+@property(nonatomic, copy, nullable) NSString *verificationStatus;
 
 @end
 
@@ -1106,21 +1102,21 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_SmtpMsa : GTLRObject
 
 /** The hostname of the SMTP service. Required. */
-@property(copy, nullable) NSString *host;
+@property(nonatomic, copy, nullable) NSString *host;
 
 /**
  *  The password that will be used for authentication with the SMTP service.
  *  This is a write-only field that can be specified in requests to create or
  *  update SendAs settings; it is never populated in responses.
  */
-@property(copy, nullable) NSString *password;
+@property(nonatomic, copy, nullable) NSString *password;
 
 /**
  *  The port of the SMTP service. Required.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *port;
+@property(nonatomic, strong, nullable) NSNumber *port;
 
 /**
  *  The protocol that will be used to secure communication with the SMTP
@@ -1133,14 +1129,14 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *    @arg @c kGTLRGmail_SmtpMsa_SecurityMode_Ssl Value "ssl"
  *    @arg @c kGTLRGmail_SmtpMsa_SecurityMode_Starttls Value "starttls"
  */
-@property(copy, nullable) NSString *securityMode;
+@property(nonatomic, copy, nullable) NSString *securityMode;
 
 /**
  *  The username that will be used for authentication with the SMTP service.
  *  This is a write-only field that can be specified in requests to create or
  *  update SendAs settings; it is never populated in responses.
  */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -1155,20 +1151,20 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *historyId;
+@property(nonatomic, strong, nullable) NSNumber *historyId;
 
 /**
  *  The unique ID of the thread.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The list of messages in the thread. */
-@property(strong, nullable) NSArray<GTLRGmail_Message *> *messages;
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_Message *> *messages;
 
 /** A short part of the message text. */
-@property(copy, nullable) NSString *snippet;
+@property(nonatomic, copy, nullable) NSString *snippet;
 
 @end
 
@@ -1184,33 +1180,33 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enableAutoReply;
+@property(nonatomic, strong, nullable) NSNumber *enableAutoReply;
 
 /**
  *  An optional end time for sending auto-replies (epoch ms). When this is
  *  specified, Gmail will automatically reply only to messages that it receives
- *  before the end time. If both `startTime` and `endTime` are specified,
- *  `startTime` must precede `endTime`.
+ *  before the end time. If both startTime and endTime are specified, startTime
+ *  must precede endTime.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *endTime;
+@property(nonatomic, strong, nullable) NSNumber *endTime;
 
 /**
  *  Response body in HTML format. Gmail will sanitize the HTML before storing
  *  it.
  */
-@property(copy, nullable) NSString *responseBodyHtml;
+@property(nonatomic, copy, nullable) NSString *responseBodyHtml;
 
 /** Response body in plain text format. */
-@property(copy, nullable) NSString *responseBodyPlainText;
+@property(nonatomic, copy, nullable) NSString *responseBodyPlainText;
 
 /**
  *  Optional text to prepend to the subject line in vacation responses. In order
  *  to enable auto-replies, either the response subject or the response body
  *  must be nonempty.
  */
-@property(copy, nullable) NSString *responseSubject;
+@property(nonatomic, copy, nullable) NSString *responseSubject;
 
 /**
  *  Flag that determines whether responses are sent to recipients who are not in
@@ -1218,7 +1214,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *restrictToContacts;
+@property(nonatomic, strong, nullable) NSNumber *restrictToContacts;
 
 /**
  *  Flag that determines whether responses are sent to recipients who are
@@ -1227,17 +1223,17 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *restrictToDomain;
+@property(nonatomic, strong, nullable) NSNumber *restrictToDomain;
 
 /**
  *  An optional start time for sending auto-replies (epoch ms). When this is
  *  specified, Gmail will automatically reply only to messages that it receives
- *  after the start time. If both `startTime` and `endTime` are specified,
- *  `startTime` must precede `endTime`.
+ *  after the start time. If both startTime and endTime are specified, startTime
+ *  must precede endTime.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *startTime;
+@property(nonatomic, strong, nullable) NSNumber *startTime;
 
 @end
 
@@ -1254,14 +1250,14 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *    @arg @c kGTLRGmail_WatchRequest_LabelFilterAction_Exclude Value "exclude"
  *    @arg @c kGTLRGmail_WatchRequest_LabelFilterAction_Include Value "include"
  */
-@property(copy, nullable) NSString *labelFilterAction;
+@property(nonatomic, copy, nullable) NSString *labelFilterAction;
 
 /**
  *  List of label_ids to restrict notifications about. By default, if
  *  unspecified, all changes are pushed out. If specified then dictates which
  *  labels are required for a push notification to be generated.
  */
-@property(strong, nullable) NSArray<NSString *> *labelIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
 
 /**
  *  A fully qualified Google Cloud Pub/Sub API topic name to publish the events
@@ -1272,7 +1268,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *  Note that the "my-project-identifier" portion must exactly match your Google
  *  developer project id (the one executing this watch request).
  */
-@property(copy, nullable) NSString *topicName;
+@property(nonatomic, copy, nullable) NSString *topicName;
 
 @end
 
@@ -1288,14 +1284,14 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *expiration;
+@property(nonatomic, strong, nullable) NSNumber *expiration;
 
 /**
  *  The ID of the mailbox's current history record.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *historyId;
+@property(nonatomic, strong, nullable) NSNumber *historyId;
 
 @end
 

@@ -609,13 +609,13 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  You do not need to supply a date range for the
  *  `reportsRequest.dateRanges` field.
  */
-@property(strong, nullable) GTLRAnalyticsReporting_DateRange *dateRange;
+@property(nonatomic, strong, nullable) GTLRAnalyticsReporting_DateRange *dateRange;
 
 /**
  *  A unique name for the cohort. If not defined name will be auto-generated
  *  with values cohort_[1234...].
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Type of the cohort. The only supported type as of now is
@@ -629,7 +629,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *        unspecified it's treated as `FIRST_VISIT_DATE`. (Value:
  *        "UNSPECIFIED_COHORT_TYPE")
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -652,7 +652,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_CohortGroup : GTLRObject
 
 /** The definition for the cohort. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_Cohort *> *cohorts;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Cohort *> *cohorts;
 
 /**
  *  Enable Life Time Value (LTV). LTV measures lifetime value for users
@@ -685,7 +685,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *lifetimeValue;
+@property(nonatomic, strong, nullable) NSNumber *lifetimeValue;
 
 @end
 
@@ -696,10 +696,10 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_ColumnHeader : GTLRObject
 
 /** The dimension names in the response. */
-@property(strong, nullable) NSArray<NSString *> *dimensions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 
 /** Metric headers for the metrics in the response. */
-@property(strong, nullable) GTLRAnalyticsReporting_MetricHeader *metricHeader;
+@property(nonatomic, strong, nullable) GTLRAnalyticsReporting_MetricHeader *metricHeader;
 
 @end
 
@@ -712,10 +712,10 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_DateRange : GTLRObject
 
 /** The end date for the query in the format `YYYY-MM-DD`. */
-@property(copy, nullable) NSString *endDate;
+@property(nonatomic, copy, nullable) NSString *endDate;
 
 /** The start date for the query in the format `YYYY-MM-DD`. */
-@property(copy, nullable) NSString *startDate;
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 @end
 
@@ -727,16 +727,19 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_DateRangeValues : GTLRObject
 
 /** The values of each pivot region. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_PivotValueRegion *> *pivotValueRegions;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_PivotValueRegion *> *pivotValueRegions;
 
 /** Each value corresponds to each Metric in the request. */
-@property(strong, nullable) NSArray<NSString *> *values;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 
 
 /**
- *  A dimension in the request.
+ *  [Dimensions](https://support.google.com/analytics/answer/1033861)
+ *  are attributes of your data. For example, the dimension `ga:city`
+ *  indicates the city, for example, "Paris" or "New York", from which
+ *  a session originates.
  */
 @interface GTLRAnalyticsReporting_Dimension : GTLRObject
 
@@ -769,10 +772,10 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *histogramBuckets;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *histogramBuckets;
 
 /** Name of the dimension to fetch, for example `ga:browser`. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -787,10 +790,10 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *caseSensitive;
+@property(nonatomic, strong, nullable) NSNumber *caseSensitive;
 
 /** The dimension to filter on. A DimensionFilter must contain a dimension. */
-@property(copy, nullable) NSString *dimensionName;
+@property(nonatomic, copy, nullable) NSString *dimensionName;
 
 /**
  *  Strings or regular expression to match against. Only the first value of
@@ -798,7 +801,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  If `IN_LIST` operator, then the entire list is used to filter the
  *  dimensions as explained in the description of the `IN_LIST` operator.
  */
-@property(strong, nullable) NSArray<NSString *> *expressions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *expressions;
 
 /**
  *  Logical `NOT` operator. If this boolean is set to true, then the matching
@@ -808,7 +811,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *notProperty;
+@property(nonatomic, strong, nullable) NSNumber *notProperty;
 
 /**
  *  How to match the dimension to the expression. The default is REGEXP.
@@ -860,7 +863,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
  */
-@property(copy, nullable) NSString *operatorProperty;
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
 
 @end
 
@@ -875,7 +878,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  The repeated set of filters. They are logically combined based on the
  *  operator specified.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_DimensionFilter *> *filters;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DimensionFilter *> *filters;
 
 /**
  *  The operator for combining multiple dimension filters. If unspecified, it
@@ -892,7 +895,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
  */
-@property(copy, nullable) NSString *operatorProperty;
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
 
 @end
 
@@ -904,13 +907,13 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_DynamicSegment : GTLRObject
 
 /** The name of the dynamic segment. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Session Segment to select sessions to include in the segment. */
-@property(strong, nullable) GTLRAnalyticsReporting_SegmentDefinition *sessionSegment;
+@property(nonatomic, strong, nullable) GTLRAnalyticsReporting_SegmentDefinition *sessionSegment;
 
 /** User Segment to select users to include in the segment. */
-@property(strong, nullable) GTLRAnalyticsReporting_SegmentDefinition *userSegment;
+@property(nonatomic, strong, nullable) GTLRAnalyticsReporting_SegmentDefinition *userSegment;
 
 @end
 
@@ -925,7 +928,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  There can be a maximum of 5 requests. All requests should have the same
  *  `dateRanges`, `viewId`, `segments`, `samplingLevel`, and `cohortGroup`.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_ReportRequest *> *reportRequests;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_ReportRequest *> *reportRequests;
 
 @end
 
@@ -937,13 +940,15 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_GetReportsResponse : GTLRObject
 
 /** Responses corresponding to each of the request. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_Report *> *reports;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Report *> *reports;
 
 @end
 
 
 /**
- *  A metric in the request.
+ *  [Metrics](https://support.google.com/analytics/answer/1033861)
+ *  are the quantitative measurements. For example, the metric `ga:users`
+ *  indicates the total number of users for the requested time period.
  */
 @interface GTLRAnalyticsReporting_Metric : GTLRObject
 
@@ -954,7 +959,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  a complex expression which cannot be used in filtering and sorting.
  *  The alias is also used in the response column header.
  */
-@property(copy, nullable) NSString *alias;
+@property(nonatomic, copy, nullable) NSString *alias;
 
 /**
  *  A metric expression in the request. An expression is constructed from one
@@ -966,7 +971,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  Adding mixed `MetricType` (E.g., `CURRENCY` + `PERCENTAGE`) metrics
  *  will result in unexpected results.
  */
-@property(copy, nullable) NSString *expression;
+@property(nonatomic, copy, nullable) NSString *expression;
 
 /**
  *  Specifies how the metric expression should be formatted, for example
@@ -986,7 +991,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *    @arg @c kGTLRAnalyticsReporting_Metric_FormattingType_Time Time metric in
  *        `HH:MM:SS` format. (Value: "TIME")
  */
-@property(copy, nullable) NSString *formattingType;
+@property(nonatomic, copy, nullable) NSString *formattingType;
 
 @end
 
@@ -997,14 +1002,14 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_MetricFilter : GTLRObject
 
 /** The value to compare against. */
-@property(copy, nullable) NSString *comparisonValue;
+@property(nonatomic, copy, nullable) NSString *comparisonValue;
 
 /**
  *  The metric that will be filtered on. A metricFilter must contain a metric
  *  name. A metric name can be an alias earlier defined as a metric or it can
  *  also be a metric expression.
  */
-@property(copy, nullable) NSString *metricName;
+@property(nonatomic, copy, nullable) NSString *metricName;
 
 /**
  *  Logical `NOT` operator. If this boolean is set to true, then the matching
@@ -1014,7 +1019,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *notProperty;
+@property(nonatomic, strong, nullable) NSNumber *notProperty;
 
 /**
  *  Is the metric `EQUAL`, `LESS_THAN` or `GREATER_THAN` the
@@ -1041,7 +1046,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
  */
-@property(copy, nullable) NSString *operatorProperty;
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
 
 @end
 
@@ -1056,7 +1061,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  The repeated set of filters. They are logically combined based on the
  *  operator specified.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_MetricFilter *> *filters;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_MetricFilter *> *filters;
 
 /**
  *  The operator for combining multiple metric filters. If unspecified, it is
@@ -1073,7 +1078,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
  */
-@property(copy, nullable) NSString *operatorProperty;
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
 
 @end
 
@@ -1084,10 +1089,10 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_MetricHeader : GTLRObject
 
 /** Headers for the metrics in the response. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_MetricHeaderEntry *> *metricHeaderEntries;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_MetricHeaderEntry *> *metricHeaderEntries;
 
 /** Headers for the pivots in the response. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_PivotHeader *> *pivotHeaders;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_PivotHeader *> *pivotHeaders;
 
 @end
 
@@ -1098,7 +1103,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_MetricHeaderEntry : GTLRObject
 
 /** The name of the header. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The type of the metric, for example `INTEGER`.
@@ -1117,7 +1122,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *    @arg @c kGTLRAnalyticsReporting_MetricHeaderEntry_Type_Time Time metric in
  *        `HH:MM:SS` format. (Value: "TIME")
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1133,7 +1138,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  Note, that you can only specify one field for sort here. For example,
  *  `ga:browser, ga:city` is not valid.
  */
-@property(copy, nullable) NSString *fieldName;
+@property(nonatomic, copy, nullable) NSString *fieldName;
 
 /**
  *  The order type. The default orderType is `VALUE`.
@@ -1162,7 +1167,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *        based on the value of the chosen column; looks only at
  *        the first date range. (Value: "VALUE")
  */
-@property(copy, nullable) NSString *orderType;
+@property(nonatomic, copy, nullable) NSString *orderType;
 
 /**
  *  The sorting order for the field.
@@ -1178,7 +1183,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *        the sort order is unspecified, the default is ascending. (Value:
  *        "SORT_ORDER_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *sortOrder;
+@property(nonatomic, copy, nullable) NSString *sortOrder;
 
 @end
 
@@ -1190,7 +1195,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_OrFiltersForSegment : GTLRObject
 
 /** List of segment filters to be combined with a `OR` operator. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_SegmentFilterClause *> *segmentFilterClauses;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_SegmentFilterClause *> *segmentFilterClauses;
 
 @end
 
@@ -1211,10 +1216,13 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  specify key filters to restrict `ga:browser` to only "IE" or "Firefox",
  *  then only those two browsers would show up as columns.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_DimensionFilterClause *> *dimensionFilterClauses;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DimensionFilterClause *> *dimensionFilterClauses;
 
-/** A list of dimensions to show as pivot columns. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_Dimension *> *dimensions;
+/**
+ *  A list of dimensions to show as pivot columns. A Pivot can have a maximum
+ *  of 4 dimensions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Dimension *> *dimensions;
 
 /**
  *  Specifies the maximum number of groups to return.
@@ -1222,10 +1230,13 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxGroupCount;
+@property(nonatomic, strong, nullable) NSNumber *maxGroupCount;
 
-/** Metrics to aggregate and return. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_Metric *> *metrics;
+/**
+ *  The pivot metrics. Pivot metrics are part of the
+ *  restriction on total number of metrics in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Metric *> *metrics;
 
 /**
  *  If k metrics were requested, then the response will contain some
@@ -1243,7 +1254,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startGroup;
+@property(nonatomic, strong, nullable) NSNumber *startGroup;
 
 @end
 
@@ -1254,14 +1265,14 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_PivotHeader : GTLRObject
 
 /** A single pivot section header. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_PivotHeaderEntry *> *pivotHeaderEntries;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_PivotHeaderEntry *> *pivotHeaderEntries;
 
 /**
  *  The total number of groups for this pivot.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalPivotGroupsCount;
+@property(nonatomic, strong, nullable) NSNumber *totalPivotGroupsCount;
 
 @end
 
@@ -1273,13 +1284,13 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_PivotHeaderEntry : GTLRObject
 
 /** The name of the dimensions in the pivot response. */
-@property(strong, nullable) NSArray<NSString *> *dimensionNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensionNames;
 
 /** The values for the dimensions in the pivot. */
-@property(strong, nullable) NSArray<NSString *> *dimensionValues;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensionValues;
 
 /** The metric header for the metric in the pivot. */
-@property(strong, nullable) GTLRAnalyticsReporting_MetricHeaderEntry *metric;
+@property(nonatomic, strong, nullable) GTLRAnalyticsReporting_MetricHeaderEntry *metric;
 
 @end
 
@@ -1290,7 +1301,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_PivotValueRegion : GTLRObject
 
 /** The values of the metrics in each of the pivot regions. */
-@property(strong, nullable) NSArray<NSString *> *values;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 
@@ -1301,13 +1312,13 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_Report : GTLRObject
 
 /** The column headers. */
-@property(strong, nullable) GTLRAnalyticsReporting_ColumnHeader *columnHeader;
+@property(nonatomic, strong, nullable) GTLRAnalyticsReporting_ColumnHeader *columnHeader;
 
 /** Response data. */
-@property(strong, nullable) GTLRAnalyticsReporting_ReportData *data;
+@property(nonatomic, strong, nullable) GTLRAnalyticsReporting_ReportData *data;
 
 /** Page token to retrieve the next page of results in the list. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -1324,31 +1335,31 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isDataGolden;
+@property(nonatomic, strong, nullable) NSNumber *isDataGolden;
 
 /**
  *  Minimum and maximum values seen over all matching rows. These are both
  *  empty when `hideValueRanges` in the request is false, or when
  *  rowCount is zero.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_DateRangeValues *> *maximums;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DateRangeValues *> *maximums;
 
 /**
  *  Minimum and maximum values seen over all matching rows. These are both
  *  empty when `hideValueRanges` in the request is false, or when
  *  rowCount is zero.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_DateRangeValues *> *minimums;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DateRangeValues *> *minimums;
 
 /**
  *  Total number of matching rows for this query.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *rowCount;
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
 
 /** There's one ReportRow for every unique combination of dimensions. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_ReportRow *> *rows;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_ReportRow *> *rows;
 
 /**
  *  If the results are
@@ -1360,7 +1371,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *samplesReadCounts;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *samplesReadCounts;
 
 /**
  *  If the results are
@@ -1373,7 +1384,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *samplingSpaceSizes;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *samplingSpaceSizes;
 
 /**
  *  For each requested date range, for the set of all rows that match
@@ -1385,7 +1396,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  `3 / ((sum of all relevant ga:sessions) + 2)`.
  *  Totals are computed before pagination.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_DateRangeValues *> *totals;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DateRangeValues *> *totals;
 
 @end
 
@@ -1401,7 +1412,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  Every [ReportRequest](#ReportRequest) within a `batchGet` method must
  *  contain the same `cohortGroup` definition.
  */
-@property(strong, nullable) GTLRAnalyticsReporting_CohortGroup *cohortGroup;
+@property(nonatomic, strong, nullable) GTLRAnalyticsReporting_CohortGroup *cohortGroup;
 
 /**
  *  Date ranges in the request. The request can have a maximum of 2 date
@@ -1416,7 +1427,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  [ReportRequest](#ReportRequest) within a `batchGet` method must
  *  contain the same `dateRanges` definition.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_DateRange *> *dateRanges;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DateRange *> *dateRanges;
 
 /**
  *  The dimension filter clauses for filtering Dimension Values. They are
@@ -1424,10 +1435,13 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  before any dimensions are aggregated, so that the returned metrics
  *  represent the total for only the relevant dimensions.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_DimensionFilterClause *> *dimensionFilterClauses;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DimensionFilterClause *> *dimensionFilterClauses;
 
-/** Dimensions requested in the request. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_Dimension *> *dimensions;
+/**
+ *  The dimensions requested.
+ *  Requests can have a total of 7 dimensions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Dimension *> *dimensions;
 
 /**
  *  Dimension or metric filters that restrict the data returned for your
@@ -1439,7 +1453,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  [Filters
  *  reference](https://developers.google.com/analytics/devguides/reporting/core/v3/reference#filters).
  */
-@property(copy, nullable) NSString *filtersExpression;
+@property(nonatomic, copy, nullable) NSString *filtersExpression;
 
 /**
  *  If set to true, hides the total of all metrics for all the matching rows,
@@ -1447,7 +1461,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hideTotals;
+@property(nonatomic, strong, nullable) NSNumber *hideTotals;
 
 /**
  *  If set to true, hides the minimum and maximum across all matching rows.
@@ -1455,7 +1469,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hideValueRanges;
+@property(nonatomic, strong, nullable) NSNumber *hideValueRanges;
 
 /**
  *  If set to false, the response does not include rows if all the retrieved
@@ -1464,7 +1478,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *includeEmptyRows;
+@property(nonatomic, strong, nullable) NSNumber *includeEmptyRows;
 
 /**
  *  The metric filter clauses. They are logically combined with the `AND`
@@ -1472,20 +1486,21 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  comparing date range. Note that filtering on metrics occurs after the
  *  metrics are aggregated.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_MetricFilterClause *> *metricFilterClauses;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_MetricFilterClause *> *metricFilterClauses;
 
 /**
- *  Metrics, the quantitative measurements, requested in the request.
- *  Requests must specify at least one metric.
+ *  The metrics requested.
+ *  Requests must specify at least one metric. Requests can have a
+ *  total of 10 metrics.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_Metric *> *metrics;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Metric *> *metrics;
 
 /**
  *  Sort order on output rows. To compare two rows, the elements of the
  *  following are applied in order until a difference is found. All date
  *  ranges in the output get the same row order.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_OrderBy *> *orderBys;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_OrderBy *> *orderBys;
 
 /**
  *  Page size is for paging and specifies the maximum number of returned rows.
@@ -1499,7 +1514,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *pageSize;
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
  *  A continuation token to get the next page of the results. Adding this to
@@ -1507,10 +1522,10 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  be the value returned in the nextPageToken parameter in the response to
  *  the GetReports request.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The pivot definitions. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_Pivot *> *pivots;
+/** The pivot definitions. Requests can have a maximum of 2 pivots. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Pivot *> *pivots;
 
 /**
  *  The desired report
@@ -1535,7 +1550,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *    @arg @c kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Small It
  *        returns a fast response with a smaller sampling size. (Value: "SMALL")
  */
-@property(copy, nullable) NSString *samplingLevel;
+@property(nonatomic, copy, nullable) NSString *samplingLevel;
 
 /**
  *  Segment the data returned for the request. A segment definition helps look
@@ -1544,7 +1559,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  `batchGet` method must contain the same `segments` definition. Requests
  *  with segments must have the `ga:segment` dimension.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_Segment *> *segments;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Segment *> *segments;
 
 /**
  *  The Analytics
@@ -1552,7 +1567,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  from which to retrieve data. Every [ReportRequest](#ReportRequest)
  *  within a `batchGet` method must contain the same `viewId`.
  */
-@property(copy, nullable) NSString *viewId;
+@property(nonatomic, copy, nullable) NSString *viewId;
 
 @end
 
@@ -1563,10 +1578,10 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_ReportRow : GTLRObject
 
 /** List of requested dimensions. */
-@property(strong, nullable) NSArray<NSString *> *dimensions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 
 /** List of metrics for each requested DateRange. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_DateRangeValues *> *metrics;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DateRangeValues *> *metrics;
 
 @end
 
@@ -1579,10 +1594,10 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_Segment : GTLRObject
 
 /** A dynamic segment definition in the request. */
-@property(strong, nullable) GTLRAnalyticsReporting_DynamicSegment *dynamicSegment;
+@property(nonatomic, strong, nullable) GTLRAnalyticsReporting_DynamicSegment *dynamicSegment;
 
 /** The segment ID of a built-in or custom segment, for example `gaid::-3`. */
-@property(copy, nullable) NSString *segmentId;
+@property(nonatomic, copy, nullable) NSString *segmentId;
 
 @end
 
@@ -1597,7 +1612,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  A segment is defined by a set of segment filters which are combined
  *  together with a logical `AND` operation.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_SegmentFilter *> *segmentFilters;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_SegmentFilter *> *segmentFilters;
 
 @end
 
@@ -1612,21 +1627,21 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *caseSensitive;
+@property(nonatomic, strong, nullable) NSNumber *caseSensitive;
 
 /** Name of the dimension for which the filter is being applied. */
-@property(copy, nullable) NSString *dimensionName;
+@property(nonatomic, copy, nullable) NSString *dimensionName;
 
 /**
  *  The list of expressions, only the first element is used for all operators
  */
-@property(strong, nullable) NSArray<NSString *> *expressions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *expressions;
 
 /** Maximum comparison values for `BETWEEN` match type. */
-@property(copy, nullable) NSString *maxComparisonValue;
+@property(nonatomic, copy, nullable) NSString *maxComparisonValue;
 
 /** Minimum comparison values for `BETWEEN` match type. */
-@property(copy, nullable) NSString *minComparisonValue;
+@property(nonatomic, copy, nullable) NSString *minComparisonValue;
 
 /**
  *  The operator to use to match the dimension with the expressions.
@@ -1679,7 +1694,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
  */
-@property(copy, nullable) NSString *operatorProperty;
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
 
 @end
 
@@ -1716,20 +1731,20 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *notProperty;
+@property(nonatomic, strong, nullable) NSNumber *notProperty;
 
 /**
  *  Sequence conditions consist of one or more steps, where each step is
  *  defined by one or more dimension/metric conditions. Multiple steps can
  *  be combined with special sequence operators.
  */
-@property(strong, nullable) GTLRAnalyticsReporting_SequenceSegment *sequenceSegment;
+@property(nonatomic, strong, nullable) GTLRAnalyticsReporting_SequenceSegment *sequenceSegment;
 
 /**
  *  A Simple segment conditions consist of one or more dimension/metric
  *  conditions that can be combined
  */
-@property(strong, nullable) GTLRAnalyticsReporting_SimpleSegment *simpleSegment;
+@property(nonatomic, strong, nullable) GTLRAnalyticsReporting_SimpleSegment *simpleSegment;
 
 @end
 
@@ -1741,10 +1756,10 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_SegmentFilterClause : GTLRObject
 
 /** Dimension Filter for the segment definition. */
-@property(strong, nullable) GTLRAnalyticsReporting_SegmentDimensionFilter *dimensionFilter;
+@property(nonatomic, strong, nullable) GTLRAnalyticsReporting_SegmentDimensionFilter *dimensionFilter;
 
 /** Metric Filter for the segment definition. */
-@property(strong, nullable) GTLRAnalyticsReporting_SegmentMetricFilter *metricFilter;
+@property(nonatomic, strong, nullable) GTLRAnalyticsReporting_SegmentMetricFilter *metricFilter;
 
 /**
  *  Matches the complement (`!`) of the filter.
@@ -1753,7 +1768,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *notProperty;
+@property(nonatomic, strong, nullable) NSNumber *notProperty;
 
 @end
 
@@ -1767,16 +1782,16 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  The value to compare against. If the operator is `BETWEEN`, this value is
  *  treated as minimum comparison value.
  */
-@property(copy, nullable) NSString *comparisonValue;
+@property(nonatomic, copy, nullable) NSString *comparisonValue;
 
 /** Max comparison value is only used for `BETWEEN` operator. */
-@property(copy, nullable) NSString *maxComparisonValue;
+@property(nonatomic, copy, nullable) NSString *maxComparisonValue;
 
 /**
  *  The metric that will be filtered on. A `metricFilter` must contain a
  *  metric name.
  */
-@property(copy, nullable) NSString *metricName;
+@property(nonatomic, copy, nullable) NSString *metricName;
 
 /**
  *  Specifies is the operation to perform to compare the metric. The default
@@ -1800,7 +1815,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
  */
-@property(copy, nullable) NSString *operatorProperty;
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
 
 /**
  *  Scope for a metric defines the level at which that metric is defined. The
@@ -1822,7 +1837,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *    @arg @c kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_User User scope.
  *        (Value: "USER")
  */
-@property(copy, nullable) NSString *scope;
+@property(nonatomic, copy, nullable) NSString *scope;
 
 @end
 
@@ -1848,13 +1863,13 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *        Unspecified match type is treated as precedes. (Value:
  *        "UNSPECIFIED_MATCH_TYPE")
  */
-@property(copy, nullable) NSString *matchType;
+@property(nonatomic, copy, nullable) NSString *matchType;
 
 /**
  *  A sequence is specified with a list of Or grouped filters which are
  *  combined with `AND` operator.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_OrFiltersForSegment *> *orFiltersForSegment;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_OrFiltersForSegment *> *orFiltersForSegment;
 
 @end
 
@@ -1872,10 +1887,10 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *firstStepShouldMatchFirstHit;
+@property(nonatomic, strong, nullable) NSNumber *firstStepShouldMatchFirstHit;
 
 /** The list of steps in the sequence. */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_SegmentSequenceStep *> *segmentSequenceSteps;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_SegmentSequenceStep *> *segmentSequenceSteps;
 
 @end
 
@@ -1890,7 +1905,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *  A list of segment filters groups which are combined with logical `AND`
  *  operator.
  */
-@property(strong, nullable) NSArray<GTLRAnalyticsReporting_OrFiltersForSegment *> *orFiltersForSegment;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_OrFiltersForSegment *> *orFiltersForSegment;
 
 @end
 

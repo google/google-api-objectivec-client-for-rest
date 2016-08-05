@@ -48,26 +48,26 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPrediction_Analyze : GTLRObject
 
 /** Description of the data the model was trained on. */
-@property(strong, nullable) GTLRPrediction_AnalyzeDataDescription *dataDescription;
+@property(nonatomic, strong, nullable) GTLRPrediction_AnalyzeDataDescription *dataDescription;
 
 /** List of errors with the data. */
-@property(strong, nullable) NSArray<GTLRPrediction_AnalyzeErrorsItem *> *errors;
+@property(nonatomic, strong, nullable) NSArray<GTLRPrediction_AnalyzeErrorsItem *> *errors;
 
 /**
  *  The unique name for the predictive model.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** What kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Description of the model. */
-@property(strong, nullable) GTLRPrediction_AnalyzeModelDescription *modelDescription;
+@property(nonatomic, strong, nullable) GTLRPrediction_AnalyzeModelDescription *modelDescription;
 
 /** A URL to re-request this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -78,10 +78,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPrediction_AnalyzeDataDescription : GTLRObject
 
 /** Description of the input features in the data set. */
-@property(strong, nullable) NSArray<GTLRPrediction_AnalyzeDataDescriptionFeaturesItem *> *features;
+@property(nonatomic, strong, nullable) NSArray<GTLRPrediction_AnalyzeDataDescriptionFeaturesItem *> *features;
 
 /** Description of the output value or label. */
-@property(strong, nullable) GTLRPrediction_AnalyzeDataDescriptionOutputFeature *outputFeature;
+@property(nonatomic, strong, nullable) GTLRPrediction_AnalyzeDataDescriptionOutputFeature *outputFeature;
 
 @end
 
@@ -111,13 +111,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  given the true label. Will not output if more then 100 classes (Categorical
  *  models only).
  */
-@property(strong, nullable) GTLRPrediction_AnalyzeModelDescriptionConfusionMatrix *confusionMatrix;
+@property(nonatomic, strong, nullable) GTLRPrediction_AnalyzeModelDescriptionConfusionMatrix *confusionMatrix;
 
 /** A list of the confusion matrix row totals. */
-@property(strong, nullable) GTLRPrediction_AnalyzeModelDescriptionConfusionMatrixRowTotals *confusionMatrixRowTotals;
+@property(nonatomic, strong, nullable) GTLRPrediction_AnalyzeModelDescriptionConfusionMatrixRowTotals *confusionMatrixRowTotals;
 
 /** Basic information about the model. */
-@property(strong, nullable) GTLRPrediction_Insert2 *modelinfo;
+@property(nonatomic, strong, nullable) GTLRPrediction_Insert2 *modelinfo;
 
 @end
 
@@ -128,20 +128,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPrediction_AnalyzeDataDescriptionFeaturesItem : GTLRObject
 
 /** Description of the categorical values of this feature. */
-@property(strong, nullable) GTLRPrediction_AnalyzeDataDescriptionFeaturesItemCategorical *categorical;
+@property(nonatomic, strong, nullable) GTLRPrediction_AnalyzeDataDescriptionFeaturesItemCategorical *categorical;
 
 /**
  *  The feature index.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *index;
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 /** Description of the numeric values of this feature. */
-@property(strong, nullable) GTLRPrediction_AnalyzeDataDescriptionFeaturesItemNumeric *numeric;
+@property(nonatomic, strong, nullable) GTLRPrediction_AnalyzeDataDescriptionFeaturesItemNumeric *numeric;
 
 /** Description of multiple-word text values of this feature. */
-@property(strong, nullable) GTLRPrediction_AnalyzeDataDescriptionFeaturesItemText *text;
+@property(nonatomic, strong, nullable) GTLRPrediction_AnalyzeDataDescriptionFeaturesItemText *text;
 
 @end
 
@@ -152,10 +152,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPrediction_AnalyzeDataDescriptionOutputFeature : GTLRObject
 
 /** Description of the output values in the data set. */
-@property(strong, nullable) GTLRPrediction_AnalyzeDataDescriptionOutputFeatureNumeric *numeric;
+@property(nonatomic, strong, nullable) GTLRPrediction_AnalyzeDataDescriptionOutputFeatureNumeric *numeric;
 
 /** Description of the output labels in the data set. */
-@property(strong, nullable) NSArray<GTLRPrediction_AnalyzeDataDescriptionOutputFeatureTextItem *> *text;
+@property(nonatomic, strong, nullable) NSArray<GTLRPrediction_AnalyzeDataDescriptionOutputFeatureTextItem *> *text;
 
 @end
 
@@ -200,10 +200,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 /** List of all the categories for this feature in the data set. */
-@property(strong, nullable) NSArray<GTLRPrediction_AnalyzeDataDescriptionFeaturesItemCategoricalValuesItem *> *values;
+@property(nonatomic, strong, nullable) NSArray<GTLRPrediction_AnalyzeDataDescriptionFeaturesItemCategoricalValuesItem *> *values;
 
 @end
 
@@ -218,13 +218,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 /** Mean of the numeric values of this feature in the data set. */
-@property(copy, nullable) NSString *mean;
+@property(nonatomic, copy, nullable) NSString *mean;
 
 /** Variance of the numeric values of this feature in the data set. */
-@property(copy, nullable) NSString *variance;
+@property(nonatomic, copy, nullable) NSString *variance;
 
 @end
 
@@ -239,7 +239,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 @end
 
@@ -254,13 +254,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 /** Mean of the output values in the data set. */
-@property(copy, nullable) NSString *mean;
+@property(nonatomic, copy, nullable) NSString *mean;
 
 /** Variance of the output values in the data set. */
-@property(copy, nullable) NSString *variance;
+@property(nonatomic, copy, nullable) NSString *variance;
 
 @end
 
@@ -275,10 +275,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 /** The output label. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -305,10 +305,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 /** The category name. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -319,7 +319,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPrediction_Input : GTLRObject
 
 /** Input to the model for a prediction. */
-@property(strong, nullable) GTLRPrediction_InputInput *input;
+@property(nonatomic, strong, nullable) GTLRPrediction_InputInput *input;
 
 @end
 
@@ -334,7 +334,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) NSArray *csvInstance;
+@property(nonatomic, strong, nullable) NSArray *csvInstance;
 
 @end
 
@@ -349,31 +349,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Type of predictive model (classification or regression). */
-@property(copy, nullable) NSString *modelType;
+@property(nonatomic, copy, nullable) NSString *modelType;
 
 /** The Id of the model to be copied over. */
-@property(copy, nullable) NSString *sourceModel;
+@property(nonatomic, copy, nullable) NSString *sourceModel;
 
 /** Google storage location of the training data file. */
-@property(copy, nullable) NSString *storageDataLocation;
+@property(nonatomic, copy, nullable) NSString *storageDataLocation;
 
 /** Google storage location of the preprocessing pmml file. */
-@property(copy, nullable) NSString *storagePMMLLocation;
+@property(nonatomic, copy, nullable) NSString *storagePMMLLocation;
 
 /** Google storage location of the pmml model file. */
-@property(copy, nullable) NSString *storagePMMLModelLocation;
+@property(nonatomic, copy, nullable) NSString *storagePMMLModelLocation;
 
 /** Instances to train model on. */
-@property(strong, nullable) NSArray<GTLRPrediction_InsertTrainingInstancesItem *> *trainingInstances;
+@property(nonatomic, strong, nullable) NSArray<GTLRPrediction_InsertTrainingInstancesItem *> *trainingInstances;
 
 /**
  *  A class weighting function, which allows the importance weights for class
  *  labels to be specified (Categorical models only).
  */
-@property(strong, nullable) NSArray<GTLRPrediction_InsertUtilityItem *> *utility;
+@property(nonatomic, strong, nullable) NSArray<GTLRPrediction_InsertUtilityItem *> *utility;
 
 @end
 
@@ -388,10 +388,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) NSArray *csvInstance;
+@property(nonatomic, strong, nullable) NSArray *csvInstance;
 
 /** The generic output value - could be regression or class label. */
-@property(copy, nullable) NSString *output;
+@property(nonatomic, copy, nullable) NSString *output;
 
 @end
 
@@ -414,44 +414,44 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPrediction_Insert2 : GTLRObject
 
 /** Insert time of the model (as a RFC 3339 timestamp). */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /**
  *  The unique name for the predictive model.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** What kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Model metadata. */
-@property(strong, nullable) GTLRPrediction_Insert2ModelInfo *modelInfo;
+@property(nonatomic, strong, nullable) GTLRPrediction_Insert2ModelInfo *modelInfo;
 
 /** Type of predictive model (CLASSIFICATION or REGRESSION). */
-@property(copy, nullable) NSString *modelType;
+@property(nonatomic, copy, nullable) NSString *modelType;
 
 /** A URL to re-request this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** Google storage location of the training data file. */
-@property(copy, nullable) NSString *storageDataLocation;
+@property(nonatomic, copy, nullable) NSString *storageDataLocation;
 
 /** Google storage location of the preprocessing pmml file. */
-@property(copy, nullable) NSString *storagePMMLLocation;
+@property(nonatomic, copy, nullable) NSString *storagePMMLLocation;
 
 /** Google storage location of the pmml model file. */
-@property(copy, nullable) NSString *storagePMMLModelLocation;
+@property(nonatomic, copy, nullable) NSString *storagePMMLModelLocation;
 
 /** Training completion time (as a RFC 3339 timestamp). */
-@property(strong, nullable) GTLRDateTime *trainingComplete;
+@property(nonatomic, strong, nullable) GTLRDateTime *trainingComplete;
 
 /**
  *  The current status of the training job. This can be one of following:
  *  RUNNING; DONE; ERROR; ERROR: TRAINING JOB NOT FOUND
  */
-@property(copy, nullable) NSString *trainingStatus;
+@property(nonatomic, copy, nullable) NSString *trainingStatus;
 
 @end
 
@@ -469,36 +469,36 @@ NS_ASSUME_NONNULL_BEGIN
  *  reliable if your real input data is similar to your training data
  *  (Categorical models only).
  */
-@property(copy, nullable) NSString *classificationAccuracy;
+@property(nonatomic, copy, nullable) NSString *classificationAccuracy;
 
 /**
  *  Estimated accuracy of model taking utility weights into account (Categorical
  *  models only).
  */
-@property(copy, nullable) NSString *classWeightedAccuracy;
+@property(nonatomic, copy, nullable) NSString *classWeightedAccuracy;
 
 /**
  *  An estimated mean squared error. The can be used to measure the quality of
  *  the predicted model (Regression models only).
  */
-@property(copy, nullable) NSString *meanSquaredError;
+@property(nonatomic, copy, nullable) NSString *meanSquaredError;
 
 /** Type of predictive model (CLASSIFICATION or REGRESSION). */
-@property(copy, nullable) NSString *modelType;
+@property(nonatomic, copy, nullable) NSString *modelType;
 
 /**
  *  Number of valid data instances used in the trained model.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *numberInstances;
+@property(nonatomic, strong, nullable) NSNumber *numberInstances;
 
 /**
  *  Number of class labels in the trained model (Categorical models only).
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *numberLabels;
+@property(nonatomic, strong, nullable) NSNumber *numberLabels;
 
 @end
 
@@ -519,16 +519,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRPrediction_Insert2 *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRPrediction_Insert2 *> *items;
 
 /** What kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Pagination token to fetch the next page, if one exists. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** A URL to re-request this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -543,25 +543,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** What kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The most likely class label (Categorical models only). */
-@property(copy, nullable) NSString *outputLabel;
+@property(nonatomic, copy, nullable) NSString *outputLabel;
 
 /**
  *  A list of class labels with their estimated probabilities (Categorical
  *  models only).
  */
-@property(strong, nullable) NSArray<GTLRPrediction_OutputOutputMultiItem *> *outputMulti;
+@property(nonatomic, strong, nullable) NSArray<GTLRPrediction_OutputOutputMultiItem *> *outputMulti;
 
 /** The estimated regression value (Regression models only). */
-@property(copy, nullable) NSString *outputValue;
+@property(nonatomic, copy, nullable) NSString *outputValue;
 
 /** A URL to re-request this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -572,10 +572,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPrediction_OutputOutputMultiItem : GTLRObject
 
 /** The class label. */
-@property(copy, nullable) NSString *label;
+@property(nonatomic, copy, nullable) NSString *label;
 
 /** The probability of the class label. */
-@property(copy, nullable) NSString *score;
+@property(nonatomic, copy, nullable) NSString *score;
 
 @end
 
@@ -590,10 +590,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) NSArray *csvInstance;
+@property(nonatomic, strong, nullable) NSArray *csvInstance;
 
 /** The generic output value - could be regression or class label. */
-@property(copy, nullable) NSString *output;
+@property(nonatomic, copy, nullable) NSString *output;
 
 @end
 

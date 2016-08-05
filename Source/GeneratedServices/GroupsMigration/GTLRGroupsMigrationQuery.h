@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGroupsMigrationQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGroupsMigration queryForArchiveInsertWithgroupId:]
 
 /** The group ID */
-@property(copy, nullable) NSString *groupId;
+@property(nonatomic, copy, nullable) NSString *groupId;
 
 /**
  *  Fetches a @c GTLRGroupsMigration_Groups.

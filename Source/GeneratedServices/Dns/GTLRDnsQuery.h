@@ -42,7 +42,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
 @interface GTLRDnsQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -63,10 +63,10 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or id.
  */
-@property(copy, nullable) NSString *managedZone;
+@property(nonatomic, copy, nullable) NSString *managedZone;
 
 /** Identifies the project addressed by this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDns_Change.
@@ -105,16 +105,16 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
  *  The identifier of the requested change, from a previous
  *  ResourceRecordSetsChangeResponse.
  */
-@property(copy, nullable) NSString *changeId;
+@property(nonatomic, copy, nullable) NSString *changeId;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or id.
  */
-@property(copy, nullable) NSString *managedZone;
+@property(nonatomic, copy, nullable) NSString *managedZone;
 
 /** Identifies the project addressed by this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDns_Change.
@@ -154,22 +154,22 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or id.
  */
-@property(copy, nullable) NSString *managedZone;
+@property(nonatomic, copy, nullable) NSString *managedZone;
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
  *  server will decide how many results to return.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  Optional. A tag returned by a previous list request that was truncated. Use
  *  this parameter to continue a previous list request.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Identifies the project addressed by this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Sorting criterion. The only supported value is change sequence.
@@ -180,10 +180,10 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
  *  @note If not set, the documented server-side default will be
  *        kGTLRDnsSortByChangeSequence.
  */
-@property(copy, nullable) NSString *sortBy;
+@property(nonatomic, copy, nullable) NSString *sortBy;
 
 /** Sorting order direction: 'ascending' or 'descending'. */
-@property(copy, nullable) NSString *sortOrder;
+@property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
  *  Fetches a @c GTLRDns_ChangesListResponse.
@@ -219,7 +219,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
 //   +[GTLQueryDns queryForManagedZonesCreateWithObject:project:]
 
 /** Identifies the project addressed by this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDns_ManagedZone.
@@ -253,10 +253,10 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or id.
  */
-@property(copy, nullable) NSString *managedZone;
+@property(nonatomic, copy, nullable) NSString *managedZone;
 
 /** Identifies the project addressed by this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -294,10 +294,10 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or id.
  */
-@property(copy, nullable) NSString *managedZone;
+@property(nonatomic, copy, nullable) NSString *managedZone;
 
 /** Identifies the project addressed by this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDns_ManagedZone.
@@ -331,22 +331,22 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
 //   +[GTLQueryDns queryForManagedZonesListWithproject:]
 
 /** Restricts the list to return only zones with this domain name. */
-@property(copy, nullable) NSString *dnsName;
+@property(nonatomic, copy, nullable) NSString *dnsName;
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
  *  server will decide how many results to return.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  Optional. A tag returned by a previous list request that was truncated. Use
  *  this parameter to continue a previous list request.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Identifies the project addressed by this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDns_ManagedZonesListResponse.
@@ -381,7 +381,7 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
 //   +[GTLQueryDns queryForProjectsGetWithproject:]
 
 /** Identifies the project addressed by this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDns_Project.
@@ -415,34 +415,34 @@ GTLR_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or id.
  */
-@property(copy, nullable) NSString *managedZone;
+@property(nonatomic, copy, nullable) NSString *managedZone;
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
  *  server will decide how many results to return.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  Restricts the list to return only records with this fully qualified domain
  *  name.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. A tag returned by a previous list request that was truncated. Use
  *  this parameter to continue a previous list request.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Identifies the project addressed by this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Restricts the list to return only records of this type. If present, the
  *  "name" parameter must also be present.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRDns_ResourceRecordSetsListResponse.

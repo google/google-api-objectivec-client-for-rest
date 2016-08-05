@@ -21,13 +21,33 @@ NSString * const kGTLRFitness_AggregateBucket_Type_Session     = @"session";
 NSString * const kGTLRFitness_AggregateBucket_Type_Time        = @"time";
 NSString * const kGTLRFitness_AggregateBucket_Type_Unknown     = @"unknown";
 
+// GTLRFitness_AggregateRequest.filteredDataQualityStandard
+NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodGlucoseIso151972003 = @"dataQualityBloodGlucoseIso151972003";
+NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodGlucoseIso151972013 = @"dataQualityBloodGlucoseIso151972013";
+NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureAami = @"dataQualityBloodPressureAami";
+NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsAA = @"dataQualityBloodPressureBhsAA";
+NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsAB = @"dataQualityBloodPressureBhsAB";
+NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsBA = @"dataQualityBloodPressureBhsBA";
+NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsBB = @"dataQualityBloodPressureBhsBB";
+NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureEsh2002 = @"dataQualityBloodPressureEsh2002";
+NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureEsh2010 = @"dataQualityBloodPressureEsh2010";
+NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityUnknown = @"dataQualityUnknown";
+
 // GTLRFitness_BucketByTimePeriod.type
 NSString * const kGTLRFitness_BucketByTimePeriod_Type_Day   = @"day";
 NSString * const kGTLRFitness_BucketByTimePeriod_Type_Month = @"month";
 NSString * const kGTLRFitness_BucketByTimePeriod_Type_Week  = @"week";
 
 // GTLRFitness_DataSource.dataQualityStandard
+NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodGlucoseIso151972003 = @"dataQualityBloodGlucoseIso151972003";
+NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodGlucoseIso151972013 = @"dataQualityBloodGlucoseIso151972013";
+NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureAami = @"dataQualityBloodPressureAami";
+NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsAA = @"dataQualityBloodPressureBhsAA";
+NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsAB = @"dataQualityBloodPressureBhsAB";
+NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsBA = @"dataQualityBloodPressureBhsBA";
+NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsBB = @"dataQualityBloodPressureBhsBB";
 NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureEsh2002 = @"dataQualityBloodPressureEsh2002";
+NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureEsh2010 = @"dataQualityBloodPressureEsh2010";
 NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityUnknown = @"dataQualityUnknown";
 
 // GTLRFitness_DataSource.type
@@ -44,12 +64,13 @@ NSString * const kGTLRFitness_DataTypeField_Format_Map         = @"map";
 NSString * const kGTLRFitness_DataTypeField_Format_String      = @"string";
 
 // GTLRFitness_Device.type
-NSString * const kGTLRFitness_Device_Type_ChestStrap = @"chestStrap";
-NSString * const kGTLRFitness_Device_Type_Phone      = @"phone";
-NSString * const kGTLRFitness_Device_Type_Scale      = @"scale";
-NSString * const kGTLRFitness_Device_Type_Tablet     = @"tablet";
-NSString * const kGTLRFitness_Device_Type_Unknown    = @"unknown";
-NSString * const kGTLRFitness_Device_Type_Watch      = @"watch";
+NSString * const kGTLRFitness_Device_Type_ChestStrap  = @"chestStrap";
+NSString * const kGTLRFitness_Device_Type_HeadMounted = @"headMounted";
+NSString * const kGTLRFitness_Device_Type_Phone       = @"phone";
+NSString * const kGTLRFitness_Device_Type_Scale       = @"scale";
+NSString * const kGTLRFitness_Device_Type_Tablet      = @"tablet";
+NSString * const kGTLRFitness_Device_Type_Unknown     = @"unknown";
+NSString * const kGTLRFitness_Device_Type_Watch       = @"watch";
 
 // ----------------------------------------------------------------------------
 //
@@ -86,11 +107,13 @@ NSString * const kGTLRFitness_Device_Type_Watch      = @"watch";
 
 @implementation GTLRFitness_AggregateRequest
 @dynamic aggregateBy, bucketByActivitySegment, bucketByActivityType,
-         bucketBySession, bucketByTime, endTimeMillis, startTimeMillis;
+         bucketBySession, bucketByTime, endTimeMillis,
+         filteredDataQualityStandard, startTimeMillis;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"aggregateBy" : [GTLRFitness_AggregateBy class]
+    @"aggregateBy" : [GTLRFitness_AggregateBy class],
+    @"filteredDataQualityStandard" : [NSString class]
   };
   return map;
 }

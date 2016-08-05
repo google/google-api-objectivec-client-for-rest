@@ -42,28 +42,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRYouTubeReporting_Job : GTLRObject
 
 /** The creation date/time of the job. */
-@property(copy, nullable) NSString *createTime;
+@property(nonatomic, copy, nullable) NSString *createTime;
 
 /**
  *  The date/time when this job will expire/expired. After a job expired, no new
  *  reports are generated.
  */
-@property(copy, nullable) NSString *expireTime;
+@property(nonatomic, copy, nullable) NSString *expireTime;
 
 /**
  *  The server-generated ID of the job (max. 40 characters).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The name of the job (max. 100 characters). */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The type of reports this job creates. Corresponds to the ID of a ReportType.
  */
-@property(copy, nullable) NSString *reportTypeId;
+@property(nonatomic, copy, nullable) NSString *reportTypeId;
 
 /**
  *  True if this a system-managed job that cannot be modified by the user;
@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *systemManaged;
+@property(nonatomic, strong, nullable) NSNumber *systemManaged;
 
 @end
 
@@ -92,14 +92,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTubeReporting_Job *> *jobs;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTubeReporting_Job *> *jobs;
 
 /**
  *  A token to retrieve next page of results. Pass this value in the
  *  ListJobsRequest.page_token field in the subsequent call to `ListJobs` method
  *  to retrieve the next page of results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -119,7 +119,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  ListReportsRequest.page_token field in the subsequent call to `ListReports`
  *  method to retrieve the next page of results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The list of report types.
@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTubeReporting_Report *> *reports;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTubeReporting_Report *> *reports;
 
 @end
 
@@ -147,7 +147,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  ListReportTypesRequest.page_token field in the subsequent call to
  *  `ListReportTypes` method to retrieve the next page of results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The list of report types.
@@ -155,7 +155,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTubeReporting_ReportType *> *reportTypes;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTubeReporting_ReportType *> *reportTypes;
 
 @end
 
@@ -166,7 +166,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRYouTubeReporting_Media : GTLRObject
 
 /** Name of the media resource. */
-@property(copy, nullable) NSString *resourceName;
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 @end
 
@@ -178,35 +178,35 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRYouTubeReporting_Report : GTLRObject
 
 /** The date/time when this report was created. */
-@property(copy, nullable) NSString *createTime;
+@property(nonatomic, copy, nullable) NSString *createTime;
 
 /** The URL from which the report can be downloaded (max. 1000 characters). */
-@property(copy, nullable) NSString *downloadUrl;
+@property(nonatomic, copy, nullable) NSString *downloadUrl;
 
 /**
  *  The end of the time period that the report instance covers. The value is
  *  exclusive.
  */
-@property(copy, nullable) NSString *endTime;
+@property(nonatomic, copy, nullable) NSString *endTime;
 
 /**
  *  The server-generated ID of the report.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The date/time when the job this report belongs to will expire/expired. */
-@property(copy, nullable) NSString *jobExpireTime;
+@property(nonatomic, copy, nullable) NSString *jobExpireTime;
 
 /** The ID of the job that created this report. */
-@property(copy, nullable) NSString *jobId;
+@property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
  *  The start of the time period that the report instance covers. The value is
  *  inclusive.
  */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 @end
 
@@ -217,17 +217,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRYouTubeReporting_ReportType : GTLRObject
 
 /** The date/time when this report type was/will be deprecated. */
-@property(copy, nullable) NSString *deprecateTime;
+@property(nonatomic, copy, nullable) NSString *deprecateTime;
 
 /**
  *  The ID of the report type (max. 100 characters).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The name of the report type (max. 100 characters). */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  True if this a system-managed report type; otherwise false. Reporting jobs
@@ -236,7 +236,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *systemManaged;
+@property(nonatomic, strong, nullable) NSNumber *systemManaged;
 
 @end
 

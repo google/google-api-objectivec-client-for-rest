@@ -130,21 +130,21 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *cacheFillBytes;
+@property(nonatomic, strong, nullable) NSNumber *cacheFillBytes;
 
 /**
  *  Whether or not an entity was served from cache (with or without validation).
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *cacheHit;
+@property(nonatomic, strong, nullable) NSNumber *cacheHit;
 
 /**
  *  Whether or not a cache lookup was attempted.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *cacheLookup;
+@property(nonatomic, strong, nullable) NSNumber *cacheLookup;
 
 /**
  *  Whether or not the response was validated with the origin server before
@@ -153,22 +153,22 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *cacheValidatedWithOriginServer;
+@property(nonatomic, strong, nullable) NSNumber *cacheValidatedWithOriginServer;
 
 /**
  *  The referer URL of the request, as defined in [HTTP/1.1 Header Field
  *  Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
  */
-@property(copy, nullable) NSString *referer;
+@property(nonatomic, copy, nullable) NSString *referer;
 
 /**
  *  The IP address (IPv4 or IPv6) of the client that issued the HTTP request.
  *  Examples: `"192.168.1.1"`, `"FE80::0202:B3FF:FE1E:8329"`.
  */
-@property(copy, nullable) NSString *remoteIp;
+@property(nonatomic, copy, nullable) NSString *remoteIp;
 
 /** The request method. Examples: `"GET"`, `"HEAD"`, `"PUT"`, `"POST"`. */
-@property(copy, nullable) NSString *requestMethod;
+@property(nonatomic, copy, nullable) NSString *requestMethod;
 
 /**
  *  The size of the HTTP request message in bytes, including the request headers
@@ -176,14 +176,14 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *requestSize;
+@property(nonatomic, strong, nullable) NSNumber *requestSize;
 
 /**
  *  The scheme (http, https), the host name, the path and the query portion of
  *  the URL that was requested. Example:
  *  `"http://example.com/some/info?color=red"`.
  */
-@property(copy, nullable) NSString *requestUrl;
+@property(nonatomic, copy, nullable) NSString *requestUrl;
 
 /**
  *  The size of the HTTP response message sent back to the client, in bytes,
@@ -191,20 +191,20 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *responseSize;
+@property(nonatomic, strong, nullable) NSNumber *responseSize;
 
 /**
  *  The response code indicating the status of response. Examples: 200, 404.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *status;
+@property(nonatomic, strong, nullable) NSNumber *status;
 
 /**
  *  The user agent sent by the client. Example: `"Mozilla/4.0 (compatible; MSIE
  *  6.0; Windows 98; Q312461; .NET CLR 1.0.3705)"`.
  */
-@property(copy, nullable) NSString *userAgent;
+@property(nonatomic, copy, nullable) NSString *userAgent;
 
 @end
 
@@ -219,10 +219,10 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** The label key. */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 /**
  *  The type of data that can be assigned to the label.
@@ -232,7 +232,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *    @arg @c kGTLRLogging_LabelDescriptor_ValueType_Int64 Value "INT64"
  *    @arg @c kGTLRLogging_LabelDescriptor_ValueType_String Value "STRING"
  */
-@property(copy, nullable) NSString *valueType;
+@property(nonatomic, copy, nullable) NSString *valueType;
 
 @end
 
@@ -248,7 +248,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  `projectIds`. Only entries that match the filter are retrieved. An empty
  *  filter matches all log entries.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. How the results should be sorted. Presently, the only permitted
@@ -258,7 +258,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  timestamps (newest first). Entries with equal timestamps are returned in
  *  order of `LogEntry.insertId`.
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional. The maximum number of results to return from this request. You
@@ -268,7 +268,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *pageSize;
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
  *  Optional. If the `pageToken` parameter is supplied, then the next page of
@@ -276,7 +276,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  the `nextPageToken` from the previous response. The values of `projectIds`,
  *  `filter`, and `orderBy` must be the same as in the previous request.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Optional. If true, read access to all projects is not required and results
@@ -285,13 +285,13 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *partialSuccess;
+@property(nonatomic, strong, nullable) NSNumber *partialSuccess;
 
 /**
  *  Required. One or more project IDs or project numbers from which to retrieve
  *  log entries. Examples of a project ID: `"my-project-1A"`, `"1234567890"`.
  */
-@property(strong, nullable) NSArray<NSString *> *projectIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *projectIds;
 
 @end
 
@@ -312,20 +312,20 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRLogging_LogEntry *> *entries;
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogEntry *> *entries;
 
 /**
  *  If there are more results than were returned, then `nextPageToken` is
  *  included in the response. To get the next set of results, call this method
  *  again using the value of `nextPageToken` as `pageToken`.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  If partial_success is true, contains the project ids that had errors and the
  *  associated errors.
  */
-@property(strong, nullable) GTLRLogging_ListLogEntriesResponseProjectIdErrors *projectIdErrors;
+@property(nonatomic, strong, nullable) GTLRLogging_ListLogEntriesResponseProjectIdErrors *projectIdErrors;
 
 @end
 
@@ -359,14 +359,14 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRLogging_LogMetric *> *metrics;
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogMetric *> *metrics;
 
 /**
  *  If there are more results than were returned, then `nextPageToken` is
  *  included in the response. To get the next set of results, call this method
  *  again using the value of `nextPageToken` as `pageToken`.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -386,7 +386,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  included in the response. To get the next set of results, call this method
  *  again using the value of `nextPageToken` as `pageToken`.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  A list of resource descriptors.
@@ -394,7 +394,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRLogging_MonitoredResourceDescriptor *> *resourceDescriptors;
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_MonitoredResourceDescriptor *> *resourceDescriptors;
 
 @end
 
@@ -414,7 +414,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  included in the response. To get the next set of results, call this method
  *  again using the value of `nextPageToken` as `pageToken`.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  A list of sinks.
@@ -422,7 +422,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRLogging_LogSink *> *sinks;
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogSink *> *sinks;
 
 @end
 
@@ -436,7 +436,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  Optional. Information about the HTTP request associated with this log entry,
  *  if applicable.
  */
-@property(strong, nullable) GTLRLogging_HttpRequest *httpRequest;
+@property(nonatomic, strong, nullable) GTLRLogging_HttpRequest *httpRequest;
 
 /**
  *  Optional. A unique ID for the log entry. If you provide this field, the
@@ -444,19 +444,19 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  as duplicates which can be removed. If omitted, Cloud Logging will generate
  *  a unique ID for this log entry.
  */
-@property(copy, nullable) NSString *insertId;
+@property(nonatomic, copy, nullable) NSString *insertId;
 
 /**
  *  The log entry payload, represented as a structure that is expressed as a
  *  JSON object.
  */
-@property(strong, nullable) GTLRLogging_LogEntryJsonPayload *jsonPayload;
+@property(nonatomic, strong, nullable) GTLRLogging_LogEntryJsonPayload *jsonPayload;
 
 /**
  *  Optional. A set of user-defined (key, value) data that provides additional
  *  information about the log entry.
  */
-@property(strong, nullable) GTLRLogging_LogEntryLabels *labels;
+@property(nonatomic, strong, nullable) GTLRLogging_LogEntryLabels *labels;
 
 /**
  *  Required. The resource name of the log to which this log entry belongs. The
@@ -469,19 +469,19 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  underscore, hyphen, and period. Forward-slash (`/`) characters in the log ID
  *  must be URL-encoded.
  */
-@property(copy, nullable) NSString *logName;
+@property(nonatomic, copy, nullable) NSString *logName;
 
 /**
  *  Optional. Information about an operation associated with the log entry, if
  *  applicable.
  */
-@property(strong, nullable) GTLRLogging_LogEntryOperation *operation;
+@property(nonatomic, strong, nullable) GTLRLogging_LogEntryOperation *operation;
 
 /**
  *  The log entry payload, represented as a protocol buffer. You can only use
  *  `protoPayload` values that belong to a set of approved types.
  */
-@property(strong, nullable) GTLRLogging_LogEntryProtoPayload *protoPayload;
+@property(nonatomic, strong, nullable) GTLRLogging_LogEntryProtoPayload *protoPayload;
 
 /**
  *  Required. The monitored resource associated with this log entry. Example: a
@@ -489,7 +489,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  monitored resource designating the particular database that reported the
  *  error.
  */
-@property(strong, nullable) GTLRLogging_MonitoredResource *resource;
+@property(nonatomic, strong, nullable) GTLRLogging_MonitoredResource *resource;
 
 /**
  *  Optional. The severity of the log entry. The default value is
@@ -506,16 +506,16 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *    @arg @c kGTLRLogging_LogEntry_Severity_Notice Value "NOTICE"
  *    @arg @c kGTLRLogging_LogEntry_Severity_Warning Value "WARNING"
  */
-@property(copy, nullable) NSString *severity;
+@property(nonatomic, copy, nullable) NSString *severity;
 
 /** The log entry payload, represented as a Unicode string (UTF-8). */
-@property(copy, nullable) NSString *textPayload;
+@property(nonatomic, copy, nullable) NSString *textPayload;
 
 /**
  *  Optional. The time the event described by the log entry occurred. If
  *  omitted, Cloud Logging will use the time the log entry is written.
  */
-@property(copy, nullable) NSString *timestamp;
+@property(nonatomic, copy, nullable) NSString *timestamp;
 
 @end
 
@@ -570,7 +570,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *first;
+@property(nonatomic, strong, nullable) NSNumber *first;
 
 /**
  *  Required. An arbitrary operation identifier. Log entries with the same
@@ -578,21 +578,21 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Optional. Set this to True if this is the last log entry in the operation.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *last;
+@property(nonatomic, strong, nullable) NSNumber *last;
 
 /**
  *  Required. An arbitrary producer identifier. The combination of `id` and
  *  `producer` must be globally unique. Examples for `producer`:
  *  `"MyDivision.MyBigCompany.com"`, "github.com/MyProject/MyApplication"`.
  */
-@property(copy, nullable) NSString *producer;
+@property(nonatomic, copy, nullable) NSString *producer;
 
 @end
 
@@ -603,7 +603,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @interface GTLRLogging_LogLine : GTLRObject
 
 /** App-provided log message. */
-@property(copy, nullable) NSString *logMessage;
+@property(nonatomic, copy, nullable) NSString *logMessage;
 
 /**
  *  Severity of this log entry.
@@ -619,13 +619,13 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *    @arg @c kGTLRLogging_LogLine_Severity_Notice Value "NOTICE"
  *    @arg @c kGTLRLogging_LogLine_Severity_Warning Value "WARNING"
  */
-@property(copy, nullable) NSString *severity;
+@property(nonatomic, copy, nullable) NSString *severity;
 
 /** Where in the source code this log message was written. */
-@property(strong, nullable) GTLRLogging_SourceLocation *sourceLocation;
+@property(nonatomic, strong, nullable) GTLRLogging_SourceLocation *sourceLocation;
 
 /** Approximate time when this log entry was made. */
-@property(copy, nullable) NSString *time;
+@property(nonatomic, copy, nullable) NSString *time;
 
 @end
 
@@ -641,13 +641,13 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  An [advanced logs filter](/logging/docs/view/advanced_filters). Example:
  *  `"logName:syslog AND severity>=ERROR"`.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Required. The client-assigned metric identifier. Example: `"severe_errors"`.
@@ -656,7 +656,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  `_-.,+!*',()%/\\`. The forward-slash character (`/`) denotes a hierarchy of
  *  name pieces, and it cannot be the first character of the name.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -672,7 +672,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  `"storage.googleapis.com/a-bucket"`,
  *  `"bigquery.googleapis.com/projects/a-project-id/datasets/a-dataset"`.
  */
-@property(copy, nullable) NSString *destination;
+@property(nonatomic, copy, nullable) NSString *destination;
 
 /**
  *  An [advanced logs filter](/logging/docs/view/advanced_filters). Only log
@@ -682,7 +682,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  Cloud Logging. Example (V2 format):
  *  `"logName=projects/my-projectid/logs/syslog AND severity>=ERROR"`.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Required. The client-assigned sink identifier. Example:
@@ -690,7 +690,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  characters and can include only the following characters: `A-Z`, `a-z`,
  *  `0-9`, and the special characters `_-.`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The log entry version to use for this sink's exported log entries. This
@@ -703,7 +703,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *    @arg @c kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecified
  *        Value "VERSION_FORMAT_UNSPECIFIED"
  */
-@property(copy, nullable) NSString *outputVersionFormat;
+@property(nonatomic, copy, nullable) NSString *outputVersionFormat;
 
 @end
 
@@ -727,14 +727,14 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  resource descriptor. For example, Cloud SQL databases use the labels
  *  `"database_id"` and `"zone"`.
  */
-@property(strong, nullable) GTLRLogging_MonitoredResourceLabels *labels;
+@property(nonatomic, strong, nullable) GTLRLogging_MonitoredResourceLabels *labels;
 
 /**
  *  Required. The monitored resource type. This field must match the `type`
  *  field of a MonitoredResourceDescriptor object. For example, the type of a
  *  Cloud SQL database is `"cloudsql_database"`.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -770,20 +770,20 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Optional. A concise name for the monitored resource type that might be
  *  displayed in user interfaces. For example, `"Google Cloud SQL Database"`.
  */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Required. A set of labels used to describe instances of this monitored
  *  resource type. For example, an individual Google Cloud SQL database is
  *  identified by values for the labels `"database_id"` and `"zone"`.
  */
-@property(strong, nullable) NSArray<GTLRLogging_LabelDescriptor *> *labels;
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_LabelDescriptor *> *labels;
 
 /**
  *  Optional. The resource name of the monitored resource descriptor:
@@ -793,13 +793,13 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  that do not use project information can use the resource name format
  *  `"monitoredResourceDescriptors/{type}"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. The monitored resource type. For example, the type
  *  `"cloudsql_database"` represents databases in Google Cloud SQL.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -811,27 +811,27 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @interface GTLRLogging_RequestLog : GTLRObject
 
 /** App Engine release version. */
-@property(copy, nullable) NSString *appEngineRelease;
+@property(nonatomic, copy, nullable) NSString *appEngineRelease;
 
 /** Application that handled this request. */
-@property(copy, nullable) NSString *appId;
+@property(nonatomic, copy, nullable) NSString *appId;
 
 /**
  *  An indication of the relative cost of serving this request.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *cost;
+@property(nonatomic, strong, nullable) NSNumber *cost;
 
 /** Time when the request finished. */
-@property(copy, nullable) NSString *endTime;
+@property(nonatomic, copy, nullable) NSString *endTime;
 
 /**
  *  Whether this request is finished or active.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *finished;
+@property(nonatomic, strong, nullable) NSNumber *finished;
 
 /**
  *  Whether this is the first RequestLog entry for this request. If an active
@@ -840,16 +840,16 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *first;
+@property(nonatomic, strong, nullable) NSNumber *first;
 
 /** Internet host and port number of the resource being requested. */
-@property(copy, nullable) NSString *host;
+@property(nonatomic, copy, nullable) NSString *host;
 
 /** HTTP version of request. Example: `"HTTP/1.1"`. */
-@property(copy, nullable) NSString *httpVersion;
+@property(nonatomic, copy, nullable) NSString *httpVersion;
 
 /** An identifier for the instance that handled the request. */
-@property(copy, nullable) NSString *instanceId;
+@property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
  *  If the instance processing this request belongs to a manually scaled module,
@@ -857,33 +857,33 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *instanceIndex;
+@property(nonatomic, strong, nullable) NSNumber *instanceIndex;
 
 /** Origin IP address. */
-@property(copy, nullable) NSString *ip;
+@property(nonatomic, copy, nullable) NSString *ip;
 
 /** Latency of the request. */
-@property(copy, nullable) NSString *latency;
+@property(nonatomic, copy, nullable) NSString *latency;
 
 /**
  *  A list of log lines emitted by the application while serving this request.
  */
-@property(strong, nullable) NSArray<GTLRLogging_LogLine *> *line;
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogLine *> *line;
 
 /**
  *  Number of CPU megacycles used to process request.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *megaCycles;
+@property(nonatomic, strong, nullable) NSNumber *megaCycles;
 
 /**
  *  Request method. Example: `"GET"`, `"HEAD"`, `"PUT"`, `"POST"`, `"DELETE"`.
  */
-@property(copy, nullable) NSString *method;
+@property(nonatomic, copy, nullable) NSString *method;
 
 /** Module of the application that handled this request. */
-@property(copy, nullable) NSString *moduleId;
+@property(nonatomic, copy, nullable) NSString *moduleId;
 
 /**
  *  The logged-in user who made the request. Most likely, this is the part of
@@ -893,20 +893,20 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  Engine Users API. This field will be populated starting with App Engine
  *  1.9.21.
  */
-@property(copy, nullable) NSString *nickname;
+@property(nonatomic, copy, nullable) NSString *nickname;
 
 /** Time this request spent in the pending request queue. */
-@property(copy, nullable) NSString *pendingTime;
+@property(nonatomic, copy, nullable) NSString *pendingTime;
 
 /** Referrer URL of request. */
-@property(copy, nullable) NSString *referrer;
+@property(nonatomic, copy, nullable) NSString *referrer;
 
 /**
  *  Globally unique identifier for a request, which is based on the request
  *  start time. Request IDs for requests which started later will compare
  *  greater as strings than those for requests which started earlier.
  */
-@property(copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Contains the path and query portion of the URL that was requested. For
@@ -914,56 +914,56 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  would be "/app?name=val". The fragment identifier, which is identified by
  *  the `#` character, is not included.
  */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Size in bytes sent back to client by request.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *responseSize;
+@property(nonatomic, strong, nullable) NSNumber *responseSize;
 
 /**
  *  Source code for the application that handled this request. There can be more
  *  than one source reference per deployed application if source code is
  *  distributed among multiple repositories.
  */
-@property(strong, nullable) NSArray<GTLRLogging_SourceReference *> *sourceReference;
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_SourceReference *> *sourceReference;
 
 /** Time when the request started. */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
  *  HTTP response status code. Example: 200, 404.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *status;
+@property(nonatomic, strong, nullable) NSNumber *status;
 
 /** Task name of the request, in the case of an offline request. */
-@property(copy, nullable) NSString *taskName;
+@property(nonatomic, copy, nullable) NSString *taskName;
 
 /** Queue name of the request, in the case of an offline request. */
-@property(copy, nullable) NSString *taskQueueName;
+@property(nonatomic, copy, nullable) NSString *taskQueueName;
 
 /** Cloud Trace identifier for this request. */
-@property(copy, nullable) NSString *traceId;
+@property(nonatomic, copy, nullable) NSString *traceId;
 
 /** File or class that handled the request. */
-@property(copy, nullable) NSString *urlMapEntry;
+@property(nonatomic, copy, nullable) NSString *urlMapEntry;
 
 /** User agent that made the request. */
-@property(copy, nullable) NSString *userAgent;
+@property(nonatomic, copy, nullable) NSString *userAgent;
 
 /** Version of the application that handled this request. */
-@property(copy, nullable) NSString *versionId;
+@property(nonatomic, copy, nullable) NSString *versionId;
 
 /**
  *  Whether this was a loading request for the instance.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *wasLoadingRequest;
+@property(nonatomic, strong, nullable) NSNumber *wasLoadingRequest;
 
 @end
 
@@ -977,7 +977,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  Source file name. Depending on the runtime environment, this might be a
  *  simple name or a fully-qualified name.
  */
-@property(copy, nullable) NSString *file;
+@property(nonatomic, copy, nullable) NSString *file;
 
 /**
  *  Human-readable name of the function or method being invoked, with optional
@@ -987,14 +987,14 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  `qual.if.ied.Class.method` (Java), `dir/package.func` (Go), `function`
  *  (Python).
  */
-@property(copy, nullable) NSString *functionName;
+@property(nonatomic, copy, nullable) NSString *functionName;
 
 /**
  *  Line within the source file.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *line;
+@property(nonatomic, strong, nullable) NSNumber *line;
 
 @end
 
@@ -1009,13 +1009,13 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  Optional. A URI string identifying the repository. Example:
  *  "https://github.com/GoogleCloudPlatform/kubernetes.git"
  */
-@property(copy, nullable) NSString *repository;
+@property(nonatomic, copy, nullable) NSString *repository;
 
 /**
  *  The canonical and persistent identifier of the deployed revision. Example
  *  (git): "0035781c50ec7aa23385dc841529ce8a4b70db1b"
  */
-@property(copy, nullable) NSString *revisionId;
+@property(nonatomic, copy, nullable) NSString *revisionId;
 
 @end
 
@@ -1062,20 +1062,20 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *code;
+@property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
  *  A list of messages that carry the error details. There will be a common set
  *  of message types for APIs to use.
  */
-@property(strong, nullable) NSArray<GTLRLogging_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_StatusDetailsItem *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
  *  user-facing error message should be localized and sent in the
  *  google.rpc.Status.details field, or localized by the client.
  */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -1101,7 +1101,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  Required. The log entries to write. The log entries must have values for all
  *  required fields.
  */
-@property(strong, nullable) NSArray<GTLRLogging_LogEntry *> *entries;
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogEntry *> *entries;
 
 /**
  *  Optional. User-defined `key:value` items that are added to the `labels`
@@ -1109,14 +1109,14 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  own `key:value` item with the same key. Example: `{ "size": "large",
  *  "color":"red" }`
  */
-@property(strong, nullable) GTLRLogging_WriteLogEntriesRequestLabels *labels;
+@property(nonatomic, strong, nullable) GTLRLogging_WriteLogEntriesRequestLabels *labels;
 
 /**
  *  Optional. A default log resource name for those log entries in `entries`
  *  that do not specify their own `logName`. Example:
  *  `"projects/my-project/logs/syslog"`. See LogEntry.
  */
-@property(copy, nullable) NSString *logName;
+@property(nonatomic, copy, nullable) NSString *logName;
 
 /**
  *  Optional. Whether valid entries should be written even if some other entries
@@ -1127,13 +1127,13 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *partialSuccess;
+@property(nonatomic, strong, nullable) NSNumber *partialSuccess;
 
 /**
  *  Optional. A default monitored resource for those log entries in `entries`
  *  that do not specify their own `resource`.
  */
-@property(strong, nullable) GTLRLogging_MonitoredResource *resource;
+@property(nonatomic, strong, nullable) GTLRLogging_MonitoredResource *resource;
 
 @end
 

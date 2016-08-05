@@ -111,7 +111,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 @interface GTLRPlusDomainsQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -130,7 +130,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 //   +[GTLQueryPlusDomains queryForActivitiesGetWithactivityId:]
 
 /** The ID of the activity to get. */
-@property(copy, nullable) NSString *activityId;
+@property(nonatomic, copy, nullable) NSString *activityId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_Activity.
@@ -164,13 +164,13 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  will include all possible attachments for a URL, including video, photos,
  *  and articles based on the content of the page.
  */
-@property(assign) BOOL preview;
+@property(nonatomic, assign) BOOL preview;
 
 /**
  *  The ID of the user to create the activity on behalf of. Its value should be
  *  "me", to indicate the authenticated user.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_Activity.
@@ -211,7 +211,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *        specified user that the authenticated user is authorized to view.
  *        (Value: "user")
  */
-@property(copy, nullable) NSString *collection;
+@property(nonatomic, copy, nullable) NSString *collection;
 
 /**
  *  The maximum number of activities to include in the response, which is used
@@ -221,20 +221,20 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 1..100).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  "nextPageToken" from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The ID of the user to get activities for. The special value "me" can be used
  *  to indicate the authenticated user.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_ActivityFeed.
@@ -284,20 +284,20 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 1..100).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  "nextPageToken" from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The ID of the user to get audiences for. The special value "me" can be used
  *  to indicate the authenticated user.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_AudiencesFeed.
@@ -332,13 +332,13 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 //   +[GTLQueryPlusDomains queryForCirclesAddPeopleWithcircleId:]
 
 /** The ID of the circle to add the person to. */
-@property(copy, nullable) NSString *circleId;
+@property(nonatomic, copy, nullable) NSString *circleId;
 
 /** Email of the people to add to the circle. Optional, can be repeated. */
-@property(strong, nullable) NSArray<NSString *> *email;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *email;
 
 /** IDs of the people to add to the circle. Optional, can be repeated. */
-@property(strong, nullable) NSArray<NSString *> *userId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_Circle.
@@ -368,7 +368,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 //   +[GTLQueryPlusDomains queryForCirclesGetWithcircleId:]
 
 /** The ID of the circle to get. */
-@property(copy, nullable) NSString *circleId;
+@property(nonatomic, copy, nullable) NSString *circleId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_Circle.
@@ -401,7 +401,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  The ID of the user to create the circle on behalf of. The value "me" can be
  *  used to indicate the authenticated user.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_Circle.
@@ -441,20 +441,20 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 1..100).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  "nextPageToken" from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The ID of the user to get circles for. The special value "me" can be used to
  *  indicate the authenticated user.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_CircleFeed.
@@ -488,7 +488,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 //   +[GTLQueryPlusDomains queryForCirclesPatchWithObject:circleId:]
 
 /** The ID of the circle to update. */
-@property(copy, nullable) NSString *circleId;
+@property(nonatomic, copy, nullable) NSString *circleId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_Circle.
@@ -519,7 +519,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 //   +[GTLQueryPlusDomains queryForCirclesRemoveWithcircleId:]
 
 /** The ID of the circle to delete. */
-@property(copy, nullable) NSString *circleId;
+@property(nonatomic, copy, nullable) NSString *circleId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -549,13 +549,13 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 //   +[GTLQueryPlusDomains queryForCirclesRemovePeopleWithcircleId:]
 
 /** The ID of the circle to remove the person from. */
-@property(copy, nullable) NSString *circleId;
+@property(nonatomic, copy, nullable) NSString *circleId;
 
 /** Email of the people to add to the circle. Optional, can be repeated. */
-@property(strong, nullable) NSArray<NSString *> *email;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *email;
 
 /** IDs of the people to remove from the circle. Optional, can be repeated. */
-@property(strong, nullable) NSArray<NSString *> *userId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -585,7 +585,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 //   +[GTLQueryPlusDomains queryForCirclesUpdateWithObject:circleId:]
 
 /** The ID of the circle to update. */
-@property(copy, nullable) NSString *circleId;
+@property(nonatomic, copy, nullable) NSString *circleId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_Circle.
@@ -616,7 +616,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 //   +[GTLQueryPlusDomains queryForCommentsGetWithcommentId:]
 
 /** The ID of the comment to get. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_Comment.
@@ -645,7 +645,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 //   +[GTLQueryPlusDomains queryForCommentsInsertWithObject:activityId:]
 
 /** The ID of the activity to reply to. */
-@property(copy, nullable) NSString *activityId;
+@property(nonatomic, copy, nullable) NSString *activityId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_Comment.
@@ -676,7 +676,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 //   +[GTLQueryPlusDomains queryForCommentsListWithactivityId:]
 
 /** The ID of the activity to get comments for. */
-@property(copy, nullable) NSString *activityId;
+@property(nonatomic, copy, nullable) NSString *activityId;
 
 /**
  *  The maximum number of comments to include in the response, which is used for
@@ -686,14 +686,14 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 0..500).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  "nextPageToken" from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The order in which to sort the list of comments.
@@ -707,7 +707,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @note If not set, the documented server-side default will be
  *        kGTLRPlusDomainsSortOrderAscending.
  */
-@property(copy, nullable) NSString *sortOrder;
+@property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
  *  Fetches a @c GTLRPlusDomains_CommentFeed.
@@ -750,10 +750,10 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *    @arg @c kGTLRPlusDomainsCollectionCloud Upload the media to share on
  *        Google+. (Value: "cloud")
  */
-@property(copy, nullable) NSString *collection;
+@property(nonatomic, copy, nullable) NSString *collection;
 
 /** The ID of the user to create the activity on behalf of. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_Media.
@@ -802,7 +802,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  The ID of the person to get the profile for. The special value "me" can be
  *  used to indicate the authenticated user.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_Person.
@@ -839,7 +839,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *    @arg @c kGTLRPlusDomainsCollectionCircled The list of people who this user
  *        has added to one or more circles. (Value: "circled")
  */
-@property(copy, nullable) NSString *collection;
+@property(nonatomic, copy, nullable) NSString *collection;
 
 /**
  *  The maximum number of people to include in the response, which is used for
@@ -849,7 +849,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..100).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The order to return people in.
@@ -860,20 +860,20 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *    @arg @c kGTLRPlusDomainsOrderByBest Order people based on the relevence to
  *        the viewer. (Value: "best")
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  "nextPageToken" from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Get the collection of people for the person identified. Use "me" to indicate
  *  the authenticated user.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRPlusDomains_PeopleFeed.
@@ -914,7 +914,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 //   +[GTLQueryPlusDomains queryForPeopleListByActivityWithactivityId:collection:]
 
 /** The ID of the activity to get the list of people for. */
-@property(copy, nullable) NSString *activityId;
+@property(nonatomic, copy, nullable) NSString *activityId;
 
 /**
  *  The collection of people to list.
@@ -927,7 +927,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *    @arg @c kGTLRPlusDomainsCollectionSharedto List all people who this
  *        activity was shared to. (Value: "sharedto")
  */
-@property(copy, nullable) NSString *collection;
+@property(nonatomic, copy, nullable) NSString *collection;
 
 /**
  *  The maximum number of people to include in the response, which is used for
@@ -937,14 +937,14 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 1..100).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  "nextPageToken" from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRPlusDomains_PeopleFeed.
@@ -988,7 +988,7 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
 //   +[GTLQueryPlusDomains queryForPeopleListByCircleWithcircleId:]
 
 /** The ID of the circle to get the members of. */
-@property(copy, nullable) NSString *circleId;
+@property(nonatomic, copy, nullable) NSString *circleId;
 
 /**
  *  The maximum number of people to include in the response, which is used for
@@ -998,14 +998,14 @@ GTLR_EXTERN NSString * const kGTLRPlusDomainsSortOrderDescending;
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 1..100).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  "nextPageToken" from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRPlusDomains_PeopleFeed.

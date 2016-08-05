@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRContainerQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The Google Developers Console [project ID or project
  *  number](https://support.google.com/cloud/answer/6158840).
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The name of the Google Compute Engine [zone](/compute/docs/zones#available)
@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRContainer_Operation.
@@ -112,13 +112,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersDeleteWithprojectId:zoneProperty:clusterId:]
 
 /** The name of the cluster to delete. */
-@property(copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  The Google Developers Console [project ID or project
  *  number](https://support.google.com/cloud/answer/6158840).
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The name of the Google Compute Engine [zone](/compute/docs/zones#available)
@@ -126,7 +126,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRContainer_Operation.
@@ -164,13 +164,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersGetWithprojectId:zoneProperty:clusterId:]
 
 /** The name of the cluster to retrieve. */
-@property(copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  The Google Developers Console [project ID or project
  *  number](https://support.google.com/cloud/answer/6158840).
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The name of the Google Compute Engine [zone](/compute/docs/zones#available)
@@ -178,7 +178,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRContainer_Cluster.
@@ -216,7 +216,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The Google Developers Console [project ID or project
  *  number](https://support.google.com/cloud/answer/6158840).
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The name of the Google Compute Engine [zone](/compute/docs/zones#available)
@@ -224,7 +224,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRContainer_ListClustersResponse.
@@ -258,13 +258,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsCreateWithObject:projectId:zoneProperty:clusterId:]
 
 /** The name of the cluster. */
-@property(copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  The Google Developers Console [project ID or project
  *  number](https://developers.google.com/console/help/new/#projectnumber).
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The name of the Google Compute Engine [zone](/compute/docs/zones#available)
@@ -272,7 +272,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRContainer_Operation.
@@ -309,16 +309,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsDeleteWithprojectId:zoneProperty:clusterId:nodePoolId:]
 
 /** The name of the cluster. */
-@property(copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId;
 
 /** The name of the node pool to delete. */
-@property(copy, nullable) NSString *nodePoolId;
+@property(nonatomic, copy, nullable) NSString *nodePoolId;
 
 /**
  *  The Google Developers Console [project ID or project
  *  number](https://developers.google.com/console/help/new/#projectnumber).
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The name of the Google Compute Engine [zone](/compute/docs/zones#available)
@@ -326,7 +326,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRContainer_Operation.
@@ -362,16 +362,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsGetWithprojectId:zoneProperty:clusterId:nodePoolId:]
 
 /** The name of the cluster. */
-@property(copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId;
 
 /** The name of the node pool. */
-@property(copy, nullable) NSString *nodePoolId;
+@property(nonatomic, copy, nullable) NSString *nodePoolId;
 
 /**
  *  The Google Developers Console [project ID or project
  *  number](https://developers.google.com/console/help/new/#projectnumber).
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The name of the Google Compute Engine [zone](/compute/docs/zones#available)
@@ -379,7 +379,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRContainer_NodePool.
@@ -415,13 +415,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsListWithprojectId:zoneProperty:clusterId:]
 
 /** The name of the cluster. */
-@property(copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  The Google Developers Console [project ID or project
  *  number](https://developers.google.com/console/help/new/#projectnumber).
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The name of the Google Compute Engine [zone](/compute/docs/zones#available)
@@ -429,7 +429,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRContainer_ListNodePoolsResponse.
@@ -463,13 +463,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersUpdateWithObject:projectId:zoneProperty:clusterId:]
 
 /** The name of the cluster to upgrade. */
-@property(copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  The Google Developers Console [project ID or project
  *  number](https://support.google.com/cloud/answer/6158840).
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The name of the Google Compute Engine [zone](/compute/docs/zones#available)
@@ -477,7 +477,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRContainer_Operation.
@@ -517,7 +517,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The Google Developers Console [project ID or project
  *  number](https://support.google.com/cloud/answer/6158840).
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The name of the Google Compute Engine [zone](/compute/docs/zones#available)
@@ -525,7 +525,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRContainer_ServerConfig.
@@ -557,13 +557,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesOperationsGetWithprojectId:zoneProperty:operationId:]
 
 /** The server-assigned `name` of the operation. */
-@property(copy, nullable) NSString *operationId;
+@property(nonatomic, copy, nullable) NSString *operationId;
 
 /**
  *  The Google Developers Console [project ID or project
  *  number](https://support.google.com/cloud/answer/6158840).
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The name of the Google Compute Engine [zone](/compute/docs/zones#available)
@@ -571,7 +571,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRContainer_Operation.
@@ -608,7 +608,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The Google Developers Console [project ID or project
  *  number](https://support.google.com/cloud/answer/6158840).
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The name of the Google Compute Engine [zone](/compute/docs/zones#available)
@@ -616,7 +616,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRContainer_ListOperationsResponse.

@@ -42,29 +42,29 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
 @interface GTLRDns_Change : GTLRObject
 
 /** Which ResourceRecordSets to add? */
-@property(strong, nullable) NSArray<GTLRDns_ResourceRecordSet *> *additions;
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ResourceRecordSet *> *additions;
 
 /** Which ResourceRecordSets to remove? Must match existing data exactly. */
-@property(strong, nullable) NSArray<GTLRDns_ResourceRecordSet *> *deletions;
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ResourceRecordSet *> *deletions;
 
 /**
  *  Unique identifier for the resource; defined by the server (output only).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "dns#change".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The time that this operation was started by the server (output only). This
  *  is in RFC3339 text format.
  */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
  *  Status of the operation (output only).
@@ -73,7 +73,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *    @arg @c kGTLRDns_Change_Status_Done Value "done"
  *    @arg @c kGTLRDns_Change_Status_Pending Value "pending"
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -95,10 +95,10 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDns_Change *> *changes;
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_Change *> *changes;
 
 /** Type of resource. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The presence of this field indicates that there exist more results following
@@ -111,7 +111,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *  no way to retrieve a "snapshot" of collections larger than the maximum page
  *  size.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -127,7 +127,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *  The time that this resource was created on the server. This is in RFC3339
  *  text format. Output only.
  */
-@property(copy, nullable) NSString *creationTime;
+@property(nonatomic, copy, nullable) NSString *creationTime;
 
 /**
  *  A mutable string of at most 1024 characters associated with this resource
@@ -135,10 +135,10 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** The DNS name of this managed zone, for instance "example.com.". */
-@property(copy, nullable) NSString *dnsName;
+@property(nonatomic, copy, nullable) NSString *dnsName;
 
 /**
  *  Unique identifier for the resource; defined by the server (output only)
@@ -147,33 +147,33 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "dns#managedZone".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  User assigned name for this resource. Must be unique within the project. The
  *  name must be 1-32 characters long, must begin with a letter, end with a
  *  letter or digit, and only contain lowercase letters, digits or dashes.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Delegate your managed_zone to these virtual name servers; defined by the
  *  server (output only)
  */
-@property(strong, nullable) NSArray<NSString *> *nameServers;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nameServers;
 
 /**
  *  Optionally specifies the NameServerSet for this ManagedZone. A NameServerSet
  *  is a set of DNS name servers that all host the same ManagedZones. Most users
  *  will leave this field unset.
  */
-@property(copy, nullable) NSString *nameServerSet;
+@property(nonatomic, copy, nullable) NSString *nameServerSet;
 
 @end
 
@@ -189,7 +189,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
 @interface GTLRDns_ManagedZonesListResponse : GTLRCollectionObject
 
 /** Type of resource. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The managed zone resources.
@@ -197,7 +197,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDns_ManagedZone *> *managedZones;
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZone *> *managedZones;
 
 /**
  *  The presence of this field indicates that there exist more results following
@@ -210,7 +210,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *  no way to retrieve a consistent snapshot of a collection larger than the
  *  maximum page size.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -227,13 +227,13 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "dns#project".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Unique numeric identifier for the resource; defined by the server (output
@@ -241,10 +241,10 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *number;
+@property(nonatomic, strong, nullable) NSNumber *number;
 
 /** Quotas assigned to this project (output only). */
-@property(strong, nullable) GTLRDns_Quota *quota;
+@property(nonatomic, strong, nullable) GTLRDns_Quota *quota;
 
 @end
 
@@ -258,21 +258,21 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "dns#quota".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Maximum allowed number of managed zones in the project.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *managedZones;
+@property(nonatomic, strong, nullable) NSNumber *managedZones;
 
 /**
  *  Maximum allowed number of ResourceRecords per ResourceRecordSet.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *resourceRecordsPerRrset;
+@property(nonatomic, strong, nullable) NSNumber *resourceRecordsPerRrset;
 
 /**
  *  Maximum allowed number of ResourceRecordSets to add per
@@ -280,7 +280,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *rrsetAdditionsPerChange;
+@property(nonatomic, strong, nullable) NSNumber *rrsetAdditionsPerChange;
 
 /**
  *  Maximum allowed number of ResourceRecordSets to delete per
@@ -288,21 +288,21 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *rrsetDeletionsPerChange;
+@property(nonatomic, strong, nullable) NSNumber *rrsetDeletionsPerChange;
 
 /**
  *  Maximum allowed number of ResourceRecordSets per zone in the project.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *rrsetsPerManagedZone;
+@property(nonatomic, strong, nullable) NSNumber *rrsetsPerManagedZone;
 
 /**
  *  Maximum allowed size for total rrdata in one ChangesCreateRequest in bytes.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalRrdataSizePerChange;
+@property(nonatomic, strong, nullable) NSNumber *totalRrdataSizePerChange;
 
 @end
 
@@ -316,26 +316,26 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "dns#resourceRecordSet".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** For example, www.example.com. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** As defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1). */
-@property(strong, nullable) NSArray<NSString *> *rrdatas;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rrdatas;
 
 /**
  *  Number of seconds that this ResourceRecordSet can be cached by resolvers.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *ttl;
+@property(nonatomic, strong, nullable) NSNumber *ttl;
 
 /**
  *  The identifier of a supported record type, for example, A, AAAA, MX, TXT,
  *  and so on.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -351,7 +351,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
 @interface GTLRDns_ResourceRecordSetsListResponse : GTLRCollectionObject
 
 /** Type of resource. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The presence of this field indicates that there exist more results following
@@ -364,7 +364,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *  no way to retrieve a consistent snapshot of a collection larger than the
  *  maximum page size.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The resource record set resources.
@@ -372,7 +372,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDns_ResourceRecordSet *> *rrsets;
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ResourceRecordSet *> *rrsets;
 
 @end
 

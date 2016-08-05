@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_ConfigFile : GTLRObject
 
 /** The contents of the file. */
-@property(copy, nullable) NSString *content;
+@property(nonatomic, copy, nullable) NSString *content;
 
 @end
 
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Provides a fingerprint to use in requests to modify a deployment, such as
@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
  *  [Output Only] Unique identifier for the resource; defined by the server.
@@ -89,13 +89,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
  *  [Output Only] Timestamp when the deployment was created, in RFC3339 text
  *  format .
  */
-@property(copy, nullable) NSString *insertTime;
+@property(nonatomic, copy, nullable) NSString *insertTime;
 
 /**
  *  Map of labels; provided by the client when the resource is created or
@@ -105,13 +105,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  long and must conform to the regular expression
  *  ([a-z]([-a-z0-9]*[a-z0-9])?)?
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_DeploymentLabelEntry *> *labels;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_DeploymentLabelEntry *> *labels;
 
 /**
  *  [Output Only] URL of the manifest representing the last manifest that was
  *  successfully deployed.
  */
-@property(copy, nullable) NSString *manifest;
+@property(nonatomic, copy, nullable) NSString *manifest;
 
 /**
  *  Name of the resource; provided by the client when the resource is created.
@@ -122,28 +122,28 @@ NS_ASSUME_NONNULL_BEGIN
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  [Output Only] The Operation that most recently ran, or is currently running,
  *  on this deployment.
  */
-@property(strong, nullable) GTLRDeploymentManager_Operation *operation;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_Operation *operation;
 
 /** [Output Only] Self link for the deployment. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  [Input Only] The parameters that define your deployment, including the
  *  deployment configuration and relevant templates.
  */
-@property(strong, nullable) GTLRDeploymentManager_TargetConfiguration *target;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_TargetConfiguration *target;
 
 /**
  *  [Output Only] If Deployment Manager is currently updating or previewing an
  *  update to this deployment, the updated configuration appears here.
  */
-@property(strong, nullable) GTLRDeploymentManager_DeploymentUpdate *update;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_DeploymentUpdate *update;
 
 @end
 
@@ -153,8 +153,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDeploymentManager_DeploymentLabelEntry : GTLRObject
 
-@property(copy, nullable) NSString *key;
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -178,7 +178,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 @end
 
@@ -200,10 +200,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_Deployment *> *deployments;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Deployment *> *deployments;
 
 /** [Output Only] A token used to continue a truncated list request. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -227,7 +227,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 @end
 
@@ -245,13 +245,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  long and must conform to the regular expression
  *  ([a-z]([-a-z0-9]*[a-z0-9])?)?
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_DeploymentUpdateLabelEntry *> *labels;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_DeploymentUpdateLabelEntry *> *labels;
 
 /**
  *  [Output Only] URL of the manifest representing the update configuration of
  *  this deployment.
  */
-@property(copy, nullable) NSString *manifest;
+@property(nonatomic, copy, nullable) NSString *manifest;
 
 @end
 
@@ -261,8 +261,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDeploymentManager_DeploymentUpdateLabelEntry : GTLRObject
 
-@property(copy, nullable) NSString *key;
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -273,10 +273,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_ImportFile : GTLRObject
 
 /** The contents of the file. */
-@property(copy, nullable) NSString *content;
+@property(nonatomic, copy, nullable) NSString *content;
 
 /** The name of the file. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -287,13 +287,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_Manifest : GTLRObject
 
 /** [Output Only] The YAML configuration for this manifest. */
-@property(strong, nullable) GTLRDeploymentManager_ConfigFile *config;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_ConfigFile *config;
 
 /**
  *  [Output Only] The fully-expanded configuration file, including any templates
  *  and references.
  */
-@property(copy, nullable) NSString *expandedConfig;
+@property(nonatomic, copy, nullable) NSString *expandedConfig;
 
 /**
  *  [Output Only] Unique identifier for the resource; defined by the server.
@@ -302,25 +302,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /** [Output Only] The imported files for this manifest. */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_ImportFile *> *imports;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ImportFile *> *imports;
 
 /**
  *  [Output Only] Timestamp when the manifest was created, in RFC3339 text
  *  format.
  */
-@property(copy, nullable) NSString *insertTime;
+@property(nonatomic, copy, nullable) NSString *insertTime;
 
 /** [Output Only] The YAML layout for this manifest. */
-@property(copy, nullable) NSString *layout;
+@property(nonatomic, copy, nullable) NSString *layout;
 
 /** [Output Only] The name of the manifest. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** [Output Only] Self link for the manifest. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -342,10 +342,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_Manifest *> *manifests;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Manifest *> *manifests;
 
 /** [Output Only] A token used to continue a truncated list request. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -356,10 +356,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_Operation : GTLRObject
 
 /** [Output Only] Reserved for future use. */
-@property(copy, nullable) NSString *clientOperationId;
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
-@property(copy, nullable) NSString *creationTimestamp;
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
 /**
  *  [Output Only] A textual description of the operation, which is set when the
@@ -367,25 +367,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  [Output Only] The time that this operation was completed. This value is in
  *  RFC3339 text format.
  */
-@property(copy, nullable) NSString *endTime;
+@property(nonatomic, copy, nullable) NSString *endTime;
 
 /**
  *  [Output Only] If errors are generated during processing of the operation,
  *  this field will be populated.
  */
-@property(strong, nullable) GTLRDeploymentManager_OperationError *error;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_OperationError *error;
 
 /**
  *  [Output Only] If the operation fails, this field contains the HTTP error
  *  message that was returned, such as NOT FOUND.
  */
-@property(copy, nullable) NSString *httpErrorMessage;
+@property(nonatomic, copy, nullable) NSString *httpErrorMessage;
 
 /**
  *  [Output Only] If the operation fails, this field contains the HTTP error
@@ -394,7 +394,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *httpErrorStatusCode;
+@property(nonatomic, strong, nullable) NSNumber *httpErrorStatusCode;
 
 /**
  *  [Output Only] The unique identifier for the resource. This identifier is
@@ -404,28 +404,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
  *  [Output Only] The time that this operation was requested. This value is in
  *  RFC3339 text format.
  */
-@property(copy, nullable) NSString *insertTime;
+@property(nonatomic, copy, nullable) NSString *insertTime;
 
 /**
  *  [Output Only] Type of the resource. Always compute#operation for Operation
  *  resources.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** [Output Only] Name of the resource. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  [Output Only] The type of operation, such as insert, update, or delete, and
  *  so on.
  */
-@property(copy, nullable) NSString *operationType;
+@property(nonatomic, copy, nullable) NSString *operationType;
 
 /**
  *  [Output Only] An optional progress indicator that ranges from 0 to 100.
@@ -436,34 +436,34 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *progress;
+@property(nonatomic, strong, nullable) NSNumber *progress;
 
 /**
  *  [Output Only] The URL of the region where the operation resides. Only
  *  available when performing regional operations.
  */
-@property(copy, nullable) NSString *region;
+@property(nonatomic, copy, nullable) NSString *region;
 
 /** [Output Only] Server-defined URL for the resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  [Output Only] The time that this operation was started by the server. This
  *  value is in RFC3339 text format.
  */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
  *  [Output Only] The status of the operation, which can be one of the
  *  following: PENDING, RUNNING, or DONE.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  [Output Only] An optional textual description of the current status of the
  *  operation.
  */
-@property(copy, nullable) NSString *statusMessage;
+@property(nonatomic, copy, nullable) NSString *statusMessage;
 
 /**
  *  [Output Only] The unique target ID, which identifies a specific incarnation
@@ -471,22 +471,22 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *targetId;
+@property(nonatomic, strong, nullable) NSNumber *targetId;
 
 /** [Output Only] The URL of the resource that the operation modifies. */
-@property(copy, nullable) NSString *targetLink;
+@property(nonatomic, copy, nullable) NSString *targetLink;
 
 /**
  *  [Output Only] User who requested the operation, for example:
  *  user\@example.com.
  */
-@property(copy, nullable) NSString *user;
+@property(nonatomic, copy, nullable) NSString *user;
 
 /**
  *  [Output Only] If warning messages are generated during processing of the
  *  operation, this field will be populated.
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_OperationWarningsItem *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_OperationWarningsItem *> *warnings;
 
 /**
  *  [Output Only] The URL of the zone where the operation resides. Only
@@ -494,7 +494,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -509,7 +509,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] The array of errors encountered while processing this
  *  operation.
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_OperationErrorErrorsItem *> *errors;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_OperationErrorErrorsItem *> *errors;
 
 @end
 
@@ -523,16 +523,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_OperationWarningsItemDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_OperationWarningsItemDataItem *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -543,16 +543,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_OperationErrorErrorsItem : GTLRObject
 
 /** [Output Only] The error type identifier for this error. */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  [Output Only] Indicates the field in the request that caused the error. This
  *  property is optional.
  */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** [Output Only] An optional, human-readable error message. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -571,10 +571,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  example, if an instance attempts to perform IP forwarding but is not enabled
  *  for IP forwarding).
  */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 /** [Output Only] A warning data value corresponding to the key. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -591,7 +591,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_OperationsListResponse : GTLRCollectionObject
 
 /** [Output Only] A token used to continue a truncated list request. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  [Output Only] Operations contained in this list response.
@@ -599,7 +599,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_Operation *> *operations;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Operation *> *operations;
 
 @end
 
@@ -613,7 +613,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] The evaluated properties of the resource with references
  *  expanded. Returned as serialized YAML.
  */
-@property(copy, nullable) NSString *finalProperties;
+@property(nonatomic, copy, nullable) NSString *finalProperties;
 
 /**
  *  [Output Only] Unique identifier for the resource; defined by the server.
@@ -622,57 +622,57 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
  *  [Output Only] Timestamp when the resource was created or acquired, in
  *  RFC3339 text format .
  */
-@property(copy, nullable) NSString *insertTime;
+@property(nonatomic, copy, nullable) NSString *insertTime;
 
 /**
  *  [Output Only] URL of the manifest representing the current configuration of
  *  this resource.
  */
-@property(copy, nullable) NSString *manifest;
+@property(nonatomic, copy, nullable) NSString *manifest;
 
 /**
  *  [Output Only] The name of the resource as it appears in the YAML config.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  [Output Only] The current properties of the resource before any references
  *  have been filled in. Returned as serialized YAML.
  */
-@property(copy, nullable) NSString *properties;
+@property(nonatomic, copy, nullable) NSString *properties;
 
 /**
  *  [Output Only] The type of the resource, for example compute.v1.instance, or
  *  replicaPools.v1beta2.instanceGroupManager.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  [Output Only] If Deployment Manager is currently updating or previewing an
  *  update to this resource, the updated configuration appears here.
  */
-@property(strong, nullable) GTLRDeploymentManager_ResourceUpdate *update;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_ResourceUpdate *update;
 
 /**
  *  [Output Only] Timestamp when the resource was updated, in RFC3339 text
  *  format .
  */
-@property(copy, nullable) NSString *updateTime;
+@property(nonatomic, copy, nullable) NSString *updateTime;
 
 /** [Output Only] The URL of the actual resource. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  [Output Only] If warning messages are generated during processing of this
  *  resource, this field will be populated.
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_ResourceWarningsItem *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceWarningsItem *> *warnings;
 
 @end
 
@@ -686,16 +686,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_ResourceWarningsItemDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceWarningsItemDataItem *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -714,10 +714,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  example, if an instance attempts to perform IP forwarding but is not enabled
  *  for IP forwarding).
  */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 /** [Output Only] A warning data value corresponding to the key. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -734,7 +734,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_ResourcesListResponse : GTLRCollectionObject
 
 /** A token used to continue a truncated list request. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  Resources contained in this list response.
@@ -742,7 +742,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_Resource *> *resources;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Resource *> *resources;
 
 @end
 
@@ -756,37 +756,37 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] If errors are generated during update of the resource, this
  *  field will be populated.
  */
-@property(strong, nullable) GTLRDeploymentManager_ResourceUpdateError *error;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_ResourceUpdateError *error;
 
 /**
  *  [Output Only] The expanded properties of the resource with reference values
  *  expanded. Returned as serialized YAML.
  */
-@property(copy, nullable) NSString *finalProperties;
+@property(nonatomic, copy, nullable) NSString *finalProperties;
 
 /** [Output Only] The intent of the resource: PREVIEW, UPDATE, or CANCEL. */
-@property(copy, nullable) NSString *intent;
+@property(nonatomic, copy, nullable) NSString *intent;
 
 /**
  *  [Output Only] URL of the manifest representing the update configuration of
  *  this resource.
  */
-@property(copy, nullable) NSString *manifest;
+@property(nonatomic, copy, nullable) NSString *manifest;
 
 /**
  *  [Output Only] The set of updated properties for this resource, before
  *  references are expanded. Returned as serialized YAML.
  */
-@property(copy, nullable) NSString *properties;
+@property(nonatomic, copy, nullable) NSString *properties;
 
 /** [Output Only] The state of the resource. */
-@property(copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  [Output Only] If warning messages are generated during processing of this
  *  resource, this field will be populated.
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdateWarningsItem *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdateWarningsItem *> *warnings;
 
 @end
 
@@ -801,7 +801,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] The array of errors encountered while processing this
  *  operation.
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdateErrorErrorsItem *> *errors;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdateErrorErrorsItem *> *errors;
 
 @end
 
@@ -815,16 +815,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdateWarningsItemDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdateWarningsItemDataItem *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -835,16 +835,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_ResourceUpdateErrorErrorsItem : GTLRObject
 
 /** [Output Only] The error type identifier for this error. */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  [Output Only] Indicates the field in the request that caused the error. This
  *  property is optional.
  */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** [Output Only] An optional, human-readable error message. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -863,10 +863,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  example, if an instance attempts to perform IP forwarding but is not enabled
  *  for IP forwarding).
  */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 /** [Output Only] A warning data value corresponding to the key. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -877,14 +877,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_TargetConfiguration : GTLRObject
 
 /** The configuration to use for this deployment. */
-@property(strong, nullable) GTLRDeploymentManager_ConfigFile *config;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_ConfigFile *config;
 
 /**
  *  Specifies any files to import for this configuration. This can be used to
  *  import templates or other files. For example, you might import a text file
  *  in order to use the file in a template.
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_ImportFile *> *imports;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ImportFile *> *imports;
 
 @end
 
@@ -901,24 +901,24 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
  *  [Output Only] Timestamp when the type was created, in RFC3339 text format.
  */
-@property(copy, nullable) NSString *insertTime;
+@property(nonatomic, copy, nullable) NSString *insertTime;
 
 /** Name of the type. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  [Output Only] The Operation that most recently ran, or is currently running,
  *  on this type.
  */
-@property(strong, nullable) GTLRDeploymentManager_Operation *operation;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_Operation *operation;
 
 /** [Output Only] Self link for the type. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -934,7 +934,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_TypesListResponse : GTLRCollectionObject
 
 /** A token used to continue a truncated list request. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  [Output Only] A list of resource types supported by Deployment Manager.
@@ -942,7 +942,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDeploymentManager_Type *> *types;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Type *> *types;
 
 @end
 

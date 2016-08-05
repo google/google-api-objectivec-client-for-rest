@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLROauth2_Jwk : GTLRObject
 
-@property(strong, nullable) NSArray<GTLROauth2_JwkKeysItem *> *keys;
+@property(nonatomic, strong, nullable) NSArray<GTLROauth2_JwkKeysItem *> *keys;
 
 @end
 
@@ -37,12 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLROauth2_JwkKeysItem : GTLRObject
 
-@property(copy, nullable) NSString *alg;
-@property(copy, nullable) NSString *e;
-@property(copy, nullable) NSString *kid;
-@property(copy, nullable) NSString *kty;
-@property(copy, nullable) NSString *n;
-@property(copy, nullable) NSString *use;
+@property(nonatomic, copy, nullable) NSString *alg;
+@property(nonatomic, copy, nullable) NSString *e;
+@property(nonatomic, copy, nullable) NSString *kid;
+@property(nonatomic, copy, nullable) NSString *kty;
+@property(nonatomic, copy, nullable) NSString *n;
+@property(nonatomic, copy, nullable) NSString *use;
 
 @end
 
@@ -53,38 +53,38 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROauth2_Tokeninfo : GTLRObject
 
 /** The access type granted with this token. It can be offline or online. */
-@property(copy, nullable) NSString *accessType;
+@property(nonatomic, copy, nullable) NSString *accessType;
 
 /**
  *  Who is the intended audience for this token. In general the same as
  *  issued_to.
  */
-@property(copy, nullable) NSString *audience;
+@property(nonatomic, copy, nullable) NSString *audience;
 
 /**
  *  The email address of the user. Present only if the email scope is present in
  *  the request.
  */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /**
  *  The expiry time of the token, as number of seconds left until expiry.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *expiresIn;
+@property(nonatomic, strong, nullable) NSNumber *expiresIn;
 
 /** To whom was the token issued to. In general the same as audience. */
-@property(copy, nullable) NSString *issuedTo;
+@property(nonatomic, copy, nullable) NSString *issuedTo;
 
 /** The space separated list of scopes granted to this token. */
-@property(copy, nullable) NSString *scope;
+@property(nonatomic, copy, nullable) NSString *scope;
 
 /** The token handle associated with this token. */
-@property(copy, nullable) NSString *tokenHandle;
+@property(nonatomic, copy, nullable) NSString *tokenHandle;
 
 /** The obfuscated user id. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Boolean flag which is true if the email address is verified. Present only if
@@ -92,7 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *verifiedEmail;
+@property(nonatomic, strong, nullable) NSNumber *verifiedEmail;
 
 @end
 
@@ -103,38 +103,38 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROauth2_Userinfoplus : GTLRObject
 
 /** The user's email address. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** The user's last name. */
-@property(copy, nullable) NSString *familyName;
+@property(nonatomic, copy, nullable) NSString *familyName;
 
 /** The user's gender. */
-@property(copy, nullable) NSString *gender;
+@property(nonatomic, copy, nullable) NSString *gender;
 
 /** The user's first name. */
-@property(copy, nullable) NSString *givenName;
+@property(nonatomic, copy, nullable) NSString *givenName;
 
 /** The hosted domain e.g. example.com if the user is Google apps user. */
-@property(copy, nullable) NSString *hd;
+@property(nonatomic, copy, nullable) NSString *hd;
 
 /**
  *  The obfuscated ID of the user.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** URL of the profile page. */
-@property(copy, nullable) NSString *link;
+@property(nonatomic, copy, nullable) NSString *link;
 
 /** The user's preferred locale. */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /** The user's full name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** URL of the user's picture image. */
-@property(copy, nullable) NSString *picture;
+@property(nonatomic, copy, nullable) NSString *picture;
 
 /**
  *  Boolean flag which is true if the email address is verified. Always verified
@@ -142,7 +142,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *verifiedEmail;
+@property(nonatomic, strong, nullable) NSNumber *verifiedEmail;
 
 @end
 

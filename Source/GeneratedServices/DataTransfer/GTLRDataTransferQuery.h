@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataTransferQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataTransfer queryForApplicationsGetWithapplicationId:]
 
 /** ID of the application resource to be retrieved. */
-@property(assign) long long applicationId;
+@property(nonatomic, assign) long long applicationId;
 
 /**
  *  Fetches a @c GTLRDataTransfer_Application.
@@ -75,17 +75,17 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataTransfer queryForApplicationsList]
 
 /** Immutable ID of the Google Apps account. */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Maximum number of results to return. Default is 100.
  *
  *  @note The documented range is 1..500.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token to specify next page in the list. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRDataTransfer_ApplicationsListResponse.
@@ -119,7 +119,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  ID of the resource to be retrieved. This is returned in the response from
  *  the insert method.
  */
-@property(copy, nullable) NSString *dataTransferId;
+@property(nonatomic, copy, nullable) NSString *dataTransferId;
 
 /**
  *  Fetches a @c GTLRDataTransfer_DataTransfer.
@@ -175,26 +175,26 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataTransfer queryForTransfersList]
 
 /** Immutable ID of the Google Apps account. */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Maximum number of results to return. Default is 100.
  *
  *  @note The documented range is 1..500.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Destination user's profile ID. */
-@property(copy, nullable) NSString *newOwnerUserId NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, copy, nullable) NSString *newOwnerUserId NS_RETURNS_NOT_RETAINED;
 
 /** Source user's profile ID. */
-@property(copy, nullable) NSString *oldOwnerUserId;
+@property(nonatomic, copy, nullable) NSString *oldOwnerUserId;
 
 /** Token to specify the next page in the list. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Status of the transfer. */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  Fetches a @c GTLRDataTransfer_DataTransfersListResponse.

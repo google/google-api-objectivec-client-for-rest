@@ -39,10 +39,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesManagement#achievementResetAllResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The achievement reset results. */
-@property(strong, nullable) NSArray<GTLRGamesManagement_AchievementResetResponse *> *results;
+@property(nonatomic, strong, nullable) NSArray<GTLRGamesManagement_AchievementResetResponse *> *results;
 
 @end
 
@@ -53,13 +53,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGamesManagement_AchievementResetMultipleForAllRequest : GTLRObject
 
 /** The IDs of achievements to reset. */
-@property(strong, nullable) NSArray<NSString *> *achievementIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *achievementIds;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesManagement#achievementResetMultipleForAllRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -77,23 +77,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "REVEALED" - Achievement is revealed.
  *  - "UNLOCKED" - Achievement is unlocked.
  */
-@property(copy, nullable) NSString *currentState;
+@property(nonatomic, copy, nullable) NSString *currentState;
 
 /** The ID of an achievement for which player state has been updated. */
-@property(copy, nullable) NSString *definitionId;
+@property(nonatomic, copy, nullable) NSString *definitionId;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesManagement#achievementResetResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Flag to indicate if the requested update actually occurred.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *updateOccurred;
+@property(nonatomic, strong, nullable) NSNumber *updateOccurred;
 
 @end
 
@@ -104,13 +104,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGamesManagement_EventsResetMultipleForAllRequest : GTLRObject
 
 /** The IDs of events to reset. */
-@property(strong, nullable) NSArray<NSString *> *eventIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *eventIds;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesManagement#eventsResetMultipleForAllRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -126,7 +126,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *autoMatched;
+@property(nonatomic, strong, nullable) NSNumber *autoMatched;
 
 /**
  *  The last time the player played the game in milliseconds since the epoch in
@@ -134,7 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *timeMillis;
+@property(nonatomic, strong, nullable) NSNumber *timeMillis;
 
 @end
 
@@ -149,10 +149,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *currentExperiencePoints;
+@property(nonatomic, strong, nullable) NSNumber *currentExperiencePoints;
 
 /** The current level of the player. */
-@property(strong, nullable) GTLRGamesManagement_GamesPlayerLevelResource *currentLevel;
+@property(nonatomic, strong, nullable) GTLRGamesManagement_GamesPlayerLevelResource *currentLevel;
 
 /**
  *  The timestamp when the player was leveled up, in millis since Unix epoch
@@ -160,13 +160,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *lastLevelUpTimestampMillis;
+@property(nonatomic, strong, nullable) NSNumber *lastLevelUpTimestampMillis;
 
 /**
  *  The next level of the player. If the current level is the maximum level,
  *  this should be same as the current level.
  */
-@property(strong, nullable) GTLRGamesManagement_GamesPlayerLevelResource *nextLevel;
+@property(nonatomic, strong, nullable) GTLRGamesManagement_GamesPlayerLevelResource *nextLevel;
 
 @end
 
@@ -181,21 +181,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *level;
+@property(nonatomic, strong, nullable) NSNumber *level;
 
 /**
  *  The maximum experience points for this level.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *maxExperiencePoints;
+@property(nonatomic, strong, nullable) NSNumber *maxExperiencePoints;
 
 /**
  *  The minimum experience points for this level.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *minExperiencePoints;
+@property(nonatomic, strong, nullable) NSNumber *minExperiencePoints;
 
 @end
 
@@ -210,16 +210,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *hiddenTimeMillis;
+@property(nonatomic, strong, nullable) NSNumber *hiddenTimeMillis;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesManagement#hiddenPlayer.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The player information. */
-@property(strong, nullable) GTLRGamesManagement_Player *player;
+@property(nonatomic, strong, nullable) GTLRGamesManagement_Player *player;
 
 @end
 
@@ -240,16 +240,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGamesManagement_HiddenPlayer *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGamesManagement_HiddenPlayer *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesManagement#hiddenPlayerList.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The pagination token for the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -260,38 +260,38 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGamesManagement_Player : GTLRObject
 
 /** The base URL for the image that represents the player. */
-@property(copy, nullable) NSString *avatarImageUrl;
+@property(nonatomic, copy, nullable) NSString *avatarImageUrl;
 
 /** The url to the landscape mode player banner image. */
-@property(copy, nullable) NSString *bannerUrlLandscape;
+@property(nonatomic, copy, nullable) NSString *bannerUrlLandscape;
 
 /** The url to the portrait mode player banner image. */
-@property(copy, nullable) NSString *bannerUrlPortrait;
+@property(nonatomic, copy, nullable) NSString *bannerUrlPortrait;
 
 /** The name to display for the player. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** An object to represent Play Game experience information for the player. */
-@property(strong, nullable) GTLRGamesManagement_GamesPlayerExperienceInfoResource *experienceInfo;
+@property(nonatomic, strong, nullable) GTLRGamesManagement_GamesPlayerExperienceInfoResource *experienceInfo;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesManagement#player.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Details about the last time this player played a multiplayer game with the
  *  currently authenticated player. Populated for PLAYED_WITH player collection
  *  members.
  */
-@property(strong, nullable) GTLRGamesManagement_GamesPlayedResource *lastPlayedWith;
+@property(nonatomic, strong, nullable) GTLRGamesManagement_GamesPlayedResource *lastPlayedWith;
 
 /**
  *  An object representation of the individual components of the player's name.
  *  For some players, these fields may not be present.
  */
-@property(strong, nullable) GTLRGamesManagement_PlayerName *name;
+@property(nonatomic, strong, nullable) GTLRGamesManagement_PlayerName *name;
 
 /**
  *  The player ID that was used for this player the first time they signed into
@@ -299,19 +299,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  requesting player, only if the player ID has subsequently changed, and only
  *  to clients that support remapping player IDs.
  */
-@property(copy, nullable) NSString *originalPlayerId;
+@property(nonatomic, copy, nullable) NSString *originalPlayerId;
 
 /** The ID of the player. */
-@property(copy, nullable) NSString *playerId;
+@property(nonatomic, copy, nullable) NSString *playerId;
 
 /**
  *  The player's profile settings. Controls whether or not the player's profile
  *  is visible to other players.
  */
-@property(strong, nullable) GTLRGamesManagement_ProfileSettings *profileSettings;
+@property(nonatomic, strong, nullable) GTLRGamesManagement_ProfileSettings *profileSettings;
 
 /** The player's title rewarded for their game activities. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -326,13 +326,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The family name of this player. In some places, this is known as the last
  *  name.
  */
-@property(copy, nullable) NSString *familyName;
+@property(nonatomic, copy, nullable) NSString *familyName;
 
 /**
  *  The given name of this player. In some places, this is known as the first
  *  name.
  */
-@property(copy, nullable) NSString *givenName;
+@property(nonatomic, copy, nullable) NSString *givenName;
 
 @end
 
@@ -346,10 +346,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesManagement#playerScoreResetResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The leaderboard reset results. */
-@property(strong, nullable) NSArray<GTLRGamesManagement_PlayerScoreResetResponse *> *results;
+@property(nonatomic, strong, nullable) NSArray<GTLRGamesManagement_PlayerScoreResetResponse *> *results;
 
 @end
 
@@ -360,13 +360,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGamesManagement_PlayerScoreResetResponse : GTLRObject
 
 /** The ID of an leaderboard for which player state has been updated. */
-@property(copy, nullable) NSString *definitionId;
+@property(nonatomic, copy, nullable) NSString *definitionId;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesManagement#playerScoreResetResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The time spans of the updated score.
@@ -375,7 +375,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "WEEKLY" - The score is a weekly score.
  *  - "DAILY" - The score is a daily score.
  */
-@property(strong, nullable) NSArray<NSString *> *resetScoreTimeSpans;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resetScoreTimeSpans;
 
 @end
 
@@ -389,7 +389,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesManagement#profileSettings.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The player's current profile visibility. This field is visible to both 1P
@@ -397,7 +397,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *profileVisible;
+@property(nonatomic, strong, nullable) NSNumber *profileVisible;
 
 @end
 
@@ -411,10 +411,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesManagement#questsResetMultipleForAllRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The IDs of quests to reset. */
-@property(strong, nullable) NSArray<NSString *> *questIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *questIds;
 
 @end
 
@@ -428,10 +428,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesManagement#scoresResetMultipleForAllRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The IDs of leaderboards to reset. */
-@property(strong, nullable) NSArray<NSString *> *leaderboardIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *leaderboardIds;
 
 @end
 

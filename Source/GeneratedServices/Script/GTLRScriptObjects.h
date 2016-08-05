@@ -26,6 +26,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRScript_ExecutionResponse.status
+
+/** Value: "CANCELED" */
+GTLR_EXTERN NSString * const kGTLRScript_ExecutionResponse_Status_Canceled;
+/** Value: "SUCCESS" */
+GTLR_EXTERN NSString * const kGTLRScript_ExecutionResponse_Status_Success;
+
 /**
  *  An object that provides information about the nature of an error in the Apps
  *  Script Execution API. If an `run` call succeeds but the script function (or
@@ -39,19 +50,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  The error message thrown by Apps Script, usually localized into the user's
  *  language.
  */
-@property(copy, nullable) NSString *errorMessage;
+@property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
  *  The error type, for example `TypeError` or `ReferenceError`. If the error
  *  type is unavailable, this field is not included.
  */
-@property(copy, nullable) NSString *errorType;
+@property(nonatomic, copy, nullable) NSString *errorType;
 
 /**
  *  An array of objects that provide a stack trace through the script to show
  *  where the execution failed, with the deepest call first.
  */
-@property(strong, nullable) NSArray<GTLRScript_StackTraceElement *> *scriptStackTraceElements;
+@property(nonatomic, strong, nullable) NSArray<GTLRScript_StackTraceElement *> *scriptStackTraceElements;
 
 @end
 
@@ -70,13 +81,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *devMode;
+@property(nonatomic, strong, nullable) NSNumber *devMode;
 
 /**
  *  The name of the function to execute in the given script. The name does not
  *  include parentheses or parameters.
  */
-@property(copy, nullable) NSString *function;
+@property(nonatomic, copy, nullable) NSString *function;
 
 /**
  *  The parameters to be passed to the function being executed. The type for
@@ -87,10 +98,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) NSArray *parameters;
+@property(nonatomic, strong, nullable) NSArray *parameters;
 
 /** This field is not used. */
-@property(copy, nullable) NSString *sessionState;
+@property(nonatomic, copy, nullable) NSString *sessionState;
 
 @end
 
@@ -112,7 +123,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) id result;
+@property(nonatomic, strong, nullable) id result;
+
+/**
+ *  status
+ *
+ *  Likely values:
+ *    @arg @c kGTLRScript_ExecutionResponse_Status_Canceled Value "CANCELED"
+ *    @arg @c kGTLRScript_ExecutionResponse_Status_Success Value "SUCCESS"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -140,7 +160,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *done;
+@property(nonatomic, strong, nullable) NSNumber *done;
 
 /**
  *  If a `run` call succeeds but the script function (or Apps Script itself)
@@ -149,20 +169,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  `ExecutionError` object that provides information about the nature of the
  *  error.
  */
-@property(strong, nullable) GTLRScript_Status *error;
+@property(nonatomic, strong, nullable) GTLRScript_Status *error;
 
 /** This field is not used. */
-@property(strong, nullable) GTLRScript_OperationMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRScript_OperationMetadata *metadata;
 
 /** This field is not used. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  If the script function returns successfully, this field will contain an
  *  `ExecutionResponse` object with the function's return value as the object's
  *  `result` field.
  */
-@property(strong, nullable) GTLRScript_OperationResponse *response;
+@property(nonatomic, strong, nullable) GTLRScript_OperationResponse *response;
 
 @end
 
@@ -199,14 +219,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRScript_StackTraceElement : GTLRObject
 
 /** The name of the function that failed. */
-@property(copy, nullable) NSString *function;
+@property(nonatomic, copy, nullable) NSString *function;
 
 /**
  *  The line number where the script failed.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *lineNumber;
+@property(nonatomic, strong, nullable) NSNumber *lineNumber;
 
 @end
 
@@ -223,20 +243,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *code;
+@property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
  *  An array that contains a single `ExecutionError` object that provides
  *  information about the nature of the error.
  */
-@property(strong, nullable) NSArray<GTLRScript_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRScript_StatusDetailsItem *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
  *  user-facing error message should be localized and sent in the
  *  google.rpc.Status.details field, or localized by the client.
  */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 

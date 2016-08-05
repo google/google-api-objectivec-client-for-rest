@@ -56,13 +56,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
  *  If the height is required, then the height type (AGL for above ground level
  *  or AMSL for above mean sea level) is also required. The default is AGL.
  */
-@property(copy, nullable) NSString *heightType;
+@property(nonatomic, copy, nullable) NSString *heightType;
 
 /**
  *  The height uncertainty in meters. Whether this is required depends on the
@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *heightUncertainty;
+@property(nonatomic, strong, nullable) NSNumber *heightUncertainty;
 
 @end
 
@@ -81,10 +81,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSpectrum_DatabaseSpec : GTLRObject
 
 /** The display name for a database. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The corresponding URI of the database. */
-@property(copy, nullable) NSString *uri;
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -100,7 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  preconfigured list of databases to replace (only) the database that provided
  *  the response with the specified entries.
  */
-@property(strong, nullable) NSArray<GTLRSpectrum_DatabaseSpec *> *databases;
+@property(nonatomic, strong, nullable) NSArray<GTLRSpectrum_DatabaseSpec *> *databases;
 
 @end
 
@@ -119,7 +119,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Channel identifiers are optional. When specified, the database should not
  *  return available spectrum that falls outside these ranges or channel IDs.
  */
-@property(strong, nullable) NSArray<GTLRSpectrum_FrequencyRange *> *frequencyRanges;
+@property(nonatomic, strong, nullable) NSArray<GTLRSpectrum_FrequencyRange *> *frequencyRanges;
 
 @end
 
@@ -137,41 +137,41 @@ NS_ASSUME_NONNULL_BEGIN
  *  master and slave. This field is case-insensitive. Consult the ETSI
  *  documentation for details about the device types.
  */
-@property(copy, nullable) NSString *etsiEnDeviceCategory;
+@property(nonatomic, copy, nullable) NSString *etsiEnDeviceCategory;
 
 /**
  *  Specifies the ETSI white space device emissions class. The values are
  *  represented by numeric strings, such as 1, 2, etc. Consult the ETSI
  *  documentation for details about the device types.
  */
-@property(copy, nullable) NSString *etsiEnDeviceEmissionsClass;
+@property(nonatomic, copy, nullable) NSString *etsiEnDeviceEmissionsClass;
 
 /**
  *  Specifies the ETSI white space device type. Valid values are single-letter
  *  strings, such as A, B, etc. Consult the ETSI documentation for details about
  *  the device types.
  */
-@property(copy, nullable) NSString *etsiEnDeviceType;
+@property(nonatomic, copy, nullable) NSString *etsiEnDeviceType;
 
 /**
  *  Specifies the ETSI white space device technology identifier. The string
  *  value must not exceed 64 characters in length. Consult the ETSI
  *  documentation for details about the device types.
  */
-@property(copy, nullable) NSString *etsiEnTechnologyId;
+@property(nonatomic, copy, nullable) NSString *etsiEnTechnologyId;
 
 /**
  *  Specifies the device's FCC certification identifier. The value is an
  *  identifier string whose length should not exceed 32 characters. Note that,
  *  in practice, a valid FCC ID may be limited to 19 characters.
  */
-@property(copy, nullable) NSString *fccId;
+@property(nonatomic, copy, nullable) NSString *fccId;
 
 /**
  *  Specifies the TV Band White Space device type, as defined by the FCC. Valid
  *  values are FIXED, MODE_1, MODE_2.
  */
-@property(copy, nullable) NSString *fccTvbdDeviceType;
+@property(nonatomic, copy, nullable) NSString *fccTvbdDeviceType;
 
 /**
  *  The manufacturer's ID may be required by the regulatory domain. This should
@@ -180,13 +180,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  other manufacturers. The string value must not exceed 64 characters in
  *  length.
  */
-@property(copy, nullable) NSString *manufacturerId;
+@property(nonatomic, copy, nullable) NSString *manufacturerId;
 
 /**
  *  The device's model ID may be required by the regulatory domain. The string
  *  value must not exceed 64 characters in length.
  */
-@property(copy, nullable) NSString *modelId;
+@property(nonatomic, copy, nullable) NSString *modelId;
 
 /**
  *  The list of identifiers for rulesets supported by the device. A database may
@@ -198,13 +198,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  specification. Currently, FccTvBandWhiteSpace-2010 is the only supported
  *  ruleset.
  */
-@property(strong, nullable) NSArray<NSString *> *rulesetIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rulesetIds;
 
 /**
  *  The manufacturer's device serial number; required by the applicable
  *  regulatory domain. The length of the value must not exceed 64 characters.
  */
-@property(copy, nullable) NSString *serialNumber;
+@property(nonatomic, copy, nullable) NSString *serialNumber;
 
 @end
 
@@ -229,13 +229,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
  */
-@property(strong, nullable) GTLRSpectrum_Vcard *operatorProperty;
+@property(nonatomic, strong, nullable) GTLRSpectrum_Vcard *operatorProperty;
 
 /**
  *  The vCard contact information for the individual or business that owns the
  *  device is required.
  */
-@property(strong, nullable) GTLRSpectrum_Vcard *owner;
+@property(nonatomic, strong, nullable) GTLRSpectrum_Vcard *owner;
 
 @end
 
@@ -250,7 +250,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The descriptor of the device for which the validity check was requested. It
  *  will always be present.
  */
-@property(strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
 
 /**
  *  The validity status: true if the device is valid for operation, false
@@ -258,14 +258,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isValid;
+@property(nonatomic, strong, nullable) NSNumber *isValid;
 
 /**
  *  If the device identifier is not valid, the database may include a reason.
  *  The reason may be in any language. The length of the value should not exceed
  *  128 characters.
  */
-@property(copy, nullable) NSString *reason;
+@property(nonatomic, copy, nullable) NSString *reason;
 
 @end
 
@@ -279,10 +279,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSpectrum_EventTime : GTLRObject
 
 /** The inclusive start of the event. It will be present. */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 /** The exclusive end of the event. It will be present. */
-@property(copy, nullable) NSString *stopTime;
+@property(nonatomic, copy, nullable) NSString *stopTime;
 
 @end
 
@@ -298,7 +298,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  included, the device should treat it as informative. The length of the
  *  identifier should not exceed 16 characters.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  The maximum total power level (EIRP)—computed over the corresponding
@@ -311,21 +311,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *maxPowerDBm;
+@property(nonatomic, strong, nullable) NSNumber *maxPowerDBm;
 
 /**
  *  The required inclusive start of the frequency range (in Hertz).
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *startHz;
+@property(nonatomic, strong, nullable) NSNumber *startHz;
 
 /**
  *  The required exclusive end of the frequency range (in Hertz).
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *stopHz;
+@property(nonatomic, strong, nullable) NSNumber *stopHz;
 
 @end
 
@@ -345,7 +345,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *confidence;
+@property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
  *  If present, indicates that the geolocation represents a point.
@@ -354,13 +354,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  minor axes represent the uncertainty. The uncertainty values may be
  *  required, depending on the regulatory domain.
  */
-@property(strong, nullable) GTLRSpectrum_GeoLocationEllipse *point;
+@property(nonatomic, strong, nullable) GTLRSpectrum_GeoLocationEllipse *point;
 
 /**
  *  If present, indicates that the geolocation represents a region. Database
  *  support for regions is optional.
  */
-@property(strong, nullable) GTLRSpectrum_GeoLocationPolygon *region;
+@property(nonatomic, strong, nullable) GTLRSpectrum_GeoLocationPolygon *region;
 
 @end
 
@@ -371,7 +371,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSpectrum_GeoLocationEllipse : GTLRObject
 
 /** A required geo-spatial point representing the center of the ellipse. */
-@property(strong, nullable) GTLRSpectrum_GeoLocationPoint *center;
+@property(nonatomic, strong, nullable) GTLRSpectrum_GeoLocationPoint *center;
 
 /**
  *  A floating-point number that expresses the orientation of the ellipse,
@@ -384,7 +384,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *orientation;
+@property(nonatomic, strong, nullable) NSNumber *orientation;
 
 /**
  *  A floating-point number that expresses the location uncertainty along the
@@ -393,7 +393,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *semiMajorAxis;
+@property(nonatomic, strong, nullable) NSNumber *semiMajorAxis;
 
 /**
  *  A floating-point number that expresses the location uncertainty along the
@@ -402,7 +402,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *semiMinorAxis;
+@property(nonatomic, strong, nullable) NSNumber *semiMinorAxis;
 
 @end
 
@@ -419,7 +419,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *latitude;
+@property(nonatomic, strong, nullable) NSNumber *latitude;
 
 /**
  *  A required floating-point number that expresses the longitude in degrees
@@ -428,7 +428,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *longitude;
+@property(nonatomic, strong, nullable) NSNumber *longitude;
 
 @end
 
@@ -453,7 +453,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - Polygon shapes should be restricted to a maximum of 15 vertices (16 points
  *  that include the repeated vertex).
  */
-@property(strong, nullable) NSArray<GTLRSpectrum_GeoLocationPoint *> *exterior;
+@property(nonatomic, strong, nullable) NSArray<GTLRSpectrum_GeoLocationPoint *> *exterior;
 
 @end
 
@@ -467,7 +467,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The geolocation identifies the location at which the spectrum schedule
  *  applies. It will always be present.
  */
-@property(strong, nullable) GTLRSpectrum_GeoLocation *location;
+@property(nonatomic, strong, nullable) GTLRSpectrum_GeoLocation *location;
 
 /**
  *  A list of available spectrum profiles and associated times. It will always
@@ -475,7 +475,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  empty if there is no available spectrum). More than one schedule may be
  *  included to represent future changes to the available spectrum.
  */
-@property(strong, nullable) NSArray<GTLRSpectrum_Schedule *> *spectrumSchedules;
+@property(nonatomic, strong, nullable) NSArray<GTLRSpectrum_Schedule *> *spectrumSchedules;
 
 @end
 
@@ -495,13 +495,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *bandwidth;
+@property(nonatomic, strong, nullable) NSNumber *bandwidth;
 
 /**
  *  The list of frequency ranges and permissible power levels. The list may be
  *  empty if there is no available spectrum, otherwise it will be present.
  */
-@property(strong, nullable) NSArray<GTLRSpectrum_FrequencyRange *> *frequencyRanges;
+@property(nonatomic, strong, nullable) NSArray<GTLRSpectrum_FrequencyRange *> *frequencyRanges;
 
 @end
 
@@ -515,7 +515,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Depending on device type and regulatory domain, antenna characteristics may
  *  be required.
  */
-@property(strong, nullable) GTLRSpectrum_AntennaCharacteristics *antenna;
+@property(nonatomic, strong, nullable) GTLRSpectrum_AntennaCharacteristics *antenna;
 
 /**
  *  The master device may include its device capabilities to limit the
@@ -523,7 +523,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  its capabilities. The database should not return spectrum that is
  *  incompatible with the specified capabilities.
  */
-@property(strong, nullable) GTLRSpectrum_DeviceCapabilities *capabilities;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceCapabilities *capabilities;
 
 /**
  *  When the available spectrum request is made on behalf of a specific device
@@ -533,7 +533,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  descriptor information may be optional or required according to the rules of
  *  the applicable regulatory domain.
  */
-@property(strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
 
 /**
  *  A geolocation list is required. This allows a device to specify its current
@@ -551,7 +551,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  its own behalf or on behalf of a slave device (one without geolocation
  *  capability).
  */
-@property(strong, nullable) NSArray<GTLRSpectrum_GeoLocation *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRSpectrum_GeoLocation *> *locations;
 
 /**
  *  When an available spectrum batch request is made by the master device (a
@@ -561,14 +561,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  information (in addition to device descriptor information for the slave
  *  device in a separate parameter).
  */
-@property(strong, nullable) GTLRSpectrum_DeviceDescriptor *masterDeviceDesc;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceDescriptor *masterDeviceDesc;
 
 /**
  *  Depending on device type and regulatory domain, device owner information may
  *  be included in an available spectrum batch request. This allows the device
  *  to register and get spectrum-availability information in a single request.
  */
-@property(strong, nullable) GTLRSpectrum_DeviceOwner *owner;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceOwner *owner;
 
 /**
  *  The request type parameter is an optional parameter that can be used to
@@ -579,19 +579,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  for a specific device (master or slave), and the device descriptor parameter
  *  for the device on whose behalf the batch request is made is required.
  */
-@property(copy, nullable) NSString *requestType;
+@property(nonatomic, copy, nullable) NSString *requestType;
 
 /**
  *  The message type (e.g., INIT_REQ, AVAIL_SPECTRUM_REQ, ...).
  *  Required field.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The PAWS version. Must be exactly 1.0.
  *  Required field.
  */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -609,14 +609,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  databases by (only) replacing its entry for the responding database with the
  *  list of alternate URIs.
  */
-@property(strong, nullable) GTLRSpectrum_DbUpdateSpec *databaseChange;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DbUpdateSpec *databaseChange;
 
 /**
  *  The database must return in its available spectrum response the device
  *  descriptor information it received in the master device's available spectrum
  *  batch request.
  */
-@property(strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
 
 /**
  *  The available spectrum batch response must contain a geo-spectrum schedule
@@ -629,13 +629,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  use the geolocation value in each geo-spectrum schedule entry to match
  *  available spectrum to a location.
  */
-@property(strong, nullable) NSArray<GTLRSpectrum_GeoSpectrumSchedule *> *geoSpectrumSchedules;
+@property(nonatomic, strong, nullable) NSArray<GTLRSpectrum_GeoSpectrumSchedule *> *geoSpectrumSchedules;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "spectrum#pawsGetSpectrumBatchResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The database may return a constraint on the allowed maximum contiguous
@@ -646,7 +646,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *maxContiguousBwHz;
+@property(nonatomic, strong, nullable) NSNumber *maxContiguousBwHz;
 
 /**
  *  The database may return a constraint on the allowed maximum total bandwidth
@@ -658,7 +658,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *maxTotalBwHz;
+@property(nonatomic, strong, nullable) NSNumber *maxTotalBwHz;
 
 /**
  *  For regulatory domains that require a spectrum-usage report from devices,
@@ -670,7 +670,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *needsSpectrumReport;
+@property(nonatomic, strong, nullable) NSNumber *needsSpectrumReport;
 
 /**
  *  The database should return ruleset information, which identifies the
@@ -681,7 +681,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  provided in the ruleset information returned in a prior initialization
  *  response sent by the database to the device.
  */
-@property(strong, nullable) GTLRSpectrum_RulesetInfo *rulesetInfo;
+@property(nonatomic, strong, nullable) GTLRSpectrum_RulesetInfo *rulesetInfo;
 
 /**
  *  The database includes a timestamp of the form, YYYY-MM-DDThh:mm:ssZ
@@ -689,19 +689,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  response. The timestamp should be used by the device as a reference for the
  *  start and stop times specified in the response spectrum schedules.
  */
-@property(copy, nullable) NSString *timestamp;
+@property(nonatomic, copy, nullable) NSString *timestamp;
 
 /**
  *  The message type (e.g., INIT_REQ, AVAIL_SPECTRUM_REQ, ...).
  *  Required field.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The PAWS version. Must be exactly 1.0.
  *  Required field.
  */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -716,7 +716,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Depending on device type and regulatory domain, the characteristics of the
  *  antenna may be required.
  */
-@property(strong, nullable) GTLRSpectrum_AntennaCharacteristics *antenna;
+@property(nonatomic, strong, nullable) GTLRSpectrum_AntennaCharacteristics *antenna;
 
 /**
  *  The master device may include its device capabilities to limit the
@@ -724,7 +724,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  capabilities. The database should not return spectrum that is incompatible
  *  with the specified capabilities.
  */
-@property(strong, nullable) GTLRSpectrum_DeviceCapabilities *capabilities;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceCapabilities *capabilities;
 
 /**
  *  When the available spectrum request is made on behalf of a specific device
@@ -734,7 +734,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  optional or required according to the rules of the applicable regulatory
  *  domain.
  */
-@property(strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
 
 /**
  *  The geolocation of the master device (a device with geolocation capability
@@ -747,7 +747,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  rather than a point, the database may return an UNIMPLEMENTED error code if
  *  it does not support query by region.
  */
-@property(strong, nullable) GTLRSpectrum_GeoLocation *location;
+@property(nonatomic, strong, nullable) GTLRSpectrum_GeoLocation *location;
 
 /**
  *  When an available spectrum request is made by the master device (a device
@@ -757,14 +757,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  (in addition to device descriptor information for the slave device, which is
  *  provided in a separate parameter).
  */
-@property(strong, nullable) GTLRSpectrum_DeviceDescriptor *masterDeviceDesc;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceDescriptor *masterDeviceDesc;
 
 /**
  *  Depending on device type and regulatory domain, device owner information may
  *  be included in an available spectrum request. This allows the device to
  *  register and get spectrum-availability information in a single request.
  */
-@property(strong, nullable) GTLRSpectrum_DeviceOwner *owner;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceOwner *owner;
 
 /**
  *  The request type parameter is an optional parameter that can be used to
@@ -775,19 +775,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  for a specific device (master or slave), and the deviceDesc parameter for
  *  the device on whose behalf the request is made is required.
  */
-@property(copy, nullable) NSString *requestType;
+@property(nonatomic, copy, nullable) NSString *requestType;
 
 /**
  *  The message type (e.g., INIT_REQ, AVAIL_SPECTRUM_REQ, ...).
  *  Required field.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The PAWS version. Must be exactly 1.0.
  *  Required field.
  */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -805,20 +805,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  databases by (only) replacing its entry for the responding database with the
  *  list of alternate URIs.
  */
-@property(strong, nullable) GTLRSpectrum_DbUpdateSpec *databaseChange;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DbUpdateSpec *databaseChange;
 
 /**
  *  The database must return, in its available spectrum response, the device
  *  descriptor information it received in the master device's available spectrum
  *  request.
  */
-@property(strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "spectrum#pawsGetSpectrumResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The database may return a constraint on the allowed maximum contiguous
@@ -829,7 +829,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *maxContiguousBwHz;
+@property(nonatomic, strong, nullable) NSNumber *maxContiguousBwHz;
 
 /**
  *  The database may return a constraint on the allowed maximum total bandwidth
@@ -841,7 +841,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *maxTotalBwHz;
+@property(nonatomic, strong, nullable) NSNumber *maxTotalBwHz;
 
 /**
  *  For regulatory domains that require a spectrum-usage report from devices,
@@ -853,7 +853,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *needsSpectrumReport;
+@property(nonatomic, strong, nullable) NSNumber *needsSpectrumReport;
 
 /**
  *  The database should return ruleset information, which identifies the
@@ -864,7 +864,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  provided in the ruleset information returned in a prior initialization
  *  response sent by the database to the device.
  */
-@property(strong, nullable) GTLRSpectrum_RulesetInfo *rulesetInfo;
+@property(nonatomic, strong, nullable) GTLRSpectrum_RulesetInfo *rulesetInfo;
 
 /**
  *  The available spectrum response must contain a spectrum schedule list. The
@@ -873,7 +873,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  spectrum. How far in advance a schedule may be provided depends on the
  *  applicable regulatory domain.
  */
-@property(strong, nullable) NSArray<GTLRSpectrum_Schedule *> *spectrumSchedules;
+@property(nonatomic, strong, nullable) NSArray<GTLRSpectrum_Schedule *> *spectrumSchedules;
 
 /**
  *  The database includes a timestamp of the form YYYY-MM-DDThh:mm:ssZ (Internet
@@ -881,19 +881,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  timestamp should be used by the device as a reference for the start and stop
  *  times specified in the response spectrum schedules.
  */
-@property(copy, nullable) NSString *timestamp;
+@property(nonatomic, copy, nullable) NSString *timestamp;
 
 /**
  *  The message type (e.g., INIT_REQ, AVAIL_SPECTRUM_REQ, ...).
  *  Required field.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The PAWS version. Must be exactly 1.0.
  *  Required field.
  */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -909,22 +909,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  the device or any of the rulesets specified in the device descriptor, it
  *  must return an UNSUPPORTED error code in the error response.
  */
-@property(strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
 
 /** A device's geolocation is required. */
-@property(strong, nullable) GTLRSpectrum_GeoLocation *location;
+@property(nonatomic, strong, nullable) GTLRSpectrum_GeoLocation *location;
 
 /**
  *  The message type (e.g., INIT_REQ, AVAIL_SPECTRUM_REQ, ...).
  *  Required field.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The PAWS version. Must be exactly 1.0.
  *  Required field.
  */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -942,13 +942,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  databases by (only) replacing its entry for the responding database with the
  *  list of alternate URIs.
  */
-@property(strong, nullable) GTLRSpectrum_DbUpdateSpec *databaseChange;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DbUpdateSpec *databaseChange;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "spectrum#pawsInitResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The rulesetInfo parameter must be included in the response. This parameter
@@ -956,19 +956,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  The database must include the authority field, which defines the regulatory
  *  domain for the location specified in the INIT_REQ message.
  */
-@property(strong, nullable) GTLRSpectrum_RulesetInfo *rulesetInfo;
+@property(nonatomic, strong, nullable) GTLRSpectrum_RulesetInfo *rulesetInfo;
 
 /**
  *  The message type (e.g., INIT_REQ, AVAIL_SPECTRUM_REQ, ...).
  *  Required field.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The PAWS version. Must be exactly 1.0.
  *  Required field.
  */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -983,14 +983,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Device descriptor information is required in the spectrum-use notification
  *  message.
  */
-@property(strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
 
 /**
  *  The geolocation of the master device (the device that is sending the
  *  spectrum-use notification) to the database is required in the spectrum-use
  *  notification message.
  */
-@property(strong, nullable) GTLRSpectrum_GeoLocation *location;
+@property(nonatomic, strong, nullable) GTLRSpectrum_GeoLocation *location;
 
 /**
  *  A spectrum list is required in the spectrum-use notification. The list
@@ -1007,19 +1007,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  maximum power over any 100 kHz band, then the psdBandwidthHz value should be
  *  set to 100 kHz, even though the actual bandwidth used can be 20 kHz.
  */
-@property(strong, nullable) NSArray<GTLRSpectrum_Message *> *spectra;
+@property(nonatomic, strong, nullable) NSArray<GTLRSpectrum_Message *> *spectra;
 
 /**
  *  The message type (e.g., INIT_REQ, AVAIL_SPECTRUM_REQ, ...).
  *  Required field.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The PAWS version. Must be exactly 1.0.
  *  Required field.
  */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1033,19 +1033,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "spectrum#pawsNotifySpectrumUseResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The message type (e.g., INIT_REQ, AVAIL_SPECTRUM_REQ, ...).
  *  Required field.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The PAWS version. Must be exactly 1.0.
  *  Required field.
  */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1057,28 +1057,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSpectrum_PawsRegisterRequest : GTLRObject
 
 /** Antenna characteristics, including its height and height type. */
-@property(strong, nullable) GTLRSpectrum_AntennaCharacteristics *antenna;
+@property(nonatomic, strong, nullable) GTLRSpectrum_AntennaCharacteristics *antenna;
 
 /** A DeviceDescriptor is required. */
-@property(strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceDescriptor *deviceDesc;
 
 /** Device owner information is required. */
-@property(strong, nullable) GTLRSpectrum_DeviceOwner *deviceOwner;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DeviceOwner *deviceOwner;
 
 /** A device's geolocation is required. */
-@property(strong, nullable) GTLRSpectrum_GeoLocation *location;
+@property(nonatomic, strong, nullable) GTLRSpectrum_GeoLocation *location;
 
 /**
  *  The message type (e.g., INIT_REQ, AVAIL_SPECTRUM_REQ, ...).
  *  Required field.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The PAWS version. Must be exactly 1.0.
  *  Required field.
  */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1096,25 +1096,25 @@ NS_ASSUME_NONNULL_BEGIN
  *  databases by (only) replacing its entry for the responding database with the
  *  list of alternate URIs.
  */
-@property(strong, nullable) GTLRSpectrum_DbUpdateSpec *databaseChange;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DbUpdateSpec *databaseChange;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "spectrum#pawsRegisterResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The message type (e.g., INIT_REQ, AVAIL_SPECTRUM_REQ, ...).
  *  Required field.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The PAWS version. Must be exactly 1.0.
  *  Required field.
  */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1128,19 +1128,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  A list of device descriptors, which specifies the slave devices to be
  *  validated, is required.
  */
-@property(strong, nullable) NSArray<GTLRSpectrum_DeviceDescriptor *> *deviceDescs;
+@property(nonatomic, strong, nullable) NSArray<GTLRSpectrum_DeviceDescriptor *> *deviceDescs;
 
 /**
  *  The message type (e.g., INIT_REQ, AVAIL_SPECTRUM_REQ, ...).
  *  Required field.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The PAWS version. Must be exactly 1.0.
  *  Required field.
  */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1157,7 +1157,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  databases by (only) replacing its entry for the responding database with the
  *  list of alternate URIs.
  */
-@property(strong, nullable) GTLRSpectrum_DbUpdateSpec *databaseChange;
+@property(nonatomic, strong, nullable) GTLRSpectrum_DbUpdateSpec *databaseChange;
 
 /**
  *  A device validities list is required in the device validation response to
@@ -1165,25 +1165,25 @@ NS_ASSUME_NONNULL_BEGIN
  *  request is valid. The number of entries must match the number of device
  *  descriptors listed in the previous device validation request.
  */
-@property(strong, nullable) NSArray<GTLRSpectrum_DeviceValidity *> *deviceValidities;
+@property(nonatomic, strong, nullable) NSArray<GTLRSpectrum_DeviceValidity *> *deviceValidities;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "spectrum#pawsVerifyDeviceResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The message type (e.g., INIT_REQ, AVAIL_SPECTRUM_REQ, ...).
  *  Required field.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The PAWS version. Must be exactly 1.0.
  *  Required field.
  */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1199,7 +1199,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  2-letter country code. The device should use this to determine additional
  *  device behavior required by the associated regulatory domain.
  */
-@property(copy, nullable) NSString *authority;
+@property(nonatomic, copy, nullable) NSString *authority;
 
 /**
  *  The maximum location change in meters is required in the initialization
@@ -1213,7 +1213,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *maxLocationChange;
+@property(nonatomic, strong, nullable) NSNumber *maxLocationChange;
 
 /**
  *  The maximum duration, in seconds, between requests for available spectrum.
@@ -1228,7 +1228,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxPollingSecs;
+@property(nonatomic, strong, nullable) NSNumber *maxPollingSecs;
 
 /**
  *  The identifiers of the rulesets supported for the device's location. The
@@ -1241,7 +1241,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  interpret the response. If the device does not support the indicated
  *  ruleset, it must not operate in the spectrum governed by the ruleset.
  */
-@property(strong, nullable) NSArray<NSString *> *rulesetIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rulesetIds;
 
 @end
 
@@ -1256,13 +1256,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The event time expresses when the spectrum profile is valid. It will always
  *  be present.
  */
-@property(strong, nullable) GTLRSpectrum_EventTime *eventTime;
+@property(nonatomic, strong, nullable) GTLRSpectrum_EventTime *eventTime;
 
 /**
  *  A list of spectrum messages representing the usable profile. It will always
  *  be present, but may be empty when there is no available spectrum.
  */
-@property(strong, nullable) NSArray<GTLRSpectrum_Message *> *spectra;
+@property(nonatomic, strong, nullable) NSArray<GTLRSpectrum_Message *> *spectra;
 
 @end
 
@@ -1278,19 +1278,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSpectrum_Vcard : GTLRObject
 
 /** The street address of the entity. */
-@property(strong, nullable) GTLRSpectrum_VcardAddress *adr;
+@property(nonatomic, strong, nullable) GTLRSpectrum_VcardAddress *adr;
 
 /** An email address that can be used to reach the contact. */
-@property(strong, nullable) GTLRSpectrum_VcardTypedText *email;
+@property(nonatomic, strong, nullable) GTLRSpectrum_VcardTypedText *email;
 
 /** The full name of the contact person. For example: John A. Smith. */
-@property(copy, nullable) NSString *fn;
+@property(nonatomic, copy, nullable) NSString *fn;
 
 /** The organization associated with the registering entity. */
-@property(strong, nullable) GTLRSpectrum_VcardTypedText *org;
+@property(nonatomic, strong, nullable) GTLRSpectrum_VcardTypedText *org;
 
 /** A telephone number that can be used to call the contact. */
-@property(strong, nullable) GTLRSpectrum_VcardTelephone *tel;
+@property(nonatomic, strong, nullable) GTLRSpectrum_VcardTelephone *tel;
 
 @end
 
@@ -1301,24 +1301,24 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSpectrum_VcardAddress : GTLRObject
 
 /** The postal code associated with the address. For example: 94423. */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /** The country name. For example: US. */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /**
  *  The city or local equivalent portion of the address. For example: San Jose.
  */
-@property(copy, nullable) NSString *locality;
+@property(nonatomic, copy, nullable) NSString *locality;
 
 /** An optional post office box number. */
-@property(copy, nullable) NSString *pobox;
+@property(nonatomic, copy, nullable) NSString *pobox;
 
 /** The state or local equivalent portion of the address. For example: CA. */
-@property(copy, nullable) NSString *region;
+@property(nonatomic, copy, nullable) NSString *region;
 
 /** The street number and name. For example: 123 Any St. */
-@property(copy, nullable) NSString *street;
+@property(nonatomic, copy, nullable) NSString *street;
 
 @end
 
@@ -1329,7 +1329,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSpectrum_VcardTelephone : GTLRObject
 
 /** A nested telephone URI of the form: tel:+1-123-456-7890. */
-@property(copy, nullable) NSString *uri;
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -1343,7 +1343,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The text string associated with this item. For example, for an org field:
  *  ACME, inc. For an email field: smith\@example.com.
  */
-@property(copy, nullable) NSString *text;
+@property(nonatomic, copy, nullable) NSString *text;
 
 @end
 

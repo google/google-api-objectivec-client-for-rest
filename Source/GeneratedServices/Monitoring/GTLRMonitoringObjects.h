@@ -223,13 +223,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @interface GTLRMonitoring_BucketOptions : GTLRObject
 
 /** The explicit buckets. */
-@property(strong, nullable) GTLRMonitoring_Explicit *explicitBuckets;
+@property(nonatomic, strong, nullable) GTLRMonitoring_Explicit *explicitBuckets;
 
 /** The exponential buckets. */
-@property(strong, nullable) GTLRMonitoring_Exponential *exponentialBuckets;
+@property(nonatomic, strong, nullable) GTLRMonitoring_Exponential *exponentialBuckets;
 
 /** The linear bucket. */
-@property(strong, nullable) GTLRMonitoring_Linear *linearBuckets;
+@property(nonatomic, strong, nullable) GTLRMonitoring_Linear *linearBuckets;
 
 @end
 
@@ -241,31 +241,31 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @interface GTLRMonitoring_CollectdPayload : GTLRObject
 
 /** The end time of the interval. */
-@property(copy, nullable) NSString *endTime;
+@property(nonatomic, copy, nullable) NSString *endTime;
 
 /** The measurement metadata. Example: `"process_id" -> 12345` */
-@property(strong, nullable) GTLRMonitoring_CollectdPayloadMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRMonitoring_CollectdPayloadMetadata *metadata;
 
 /** The name of the plugin. Example: `"disk"`. */
-@property(copy, nullable) NSString *plugin;
+@property(nonatomic, copy, nullable) NSString *plugin;
 
 /** The instance name of the plugin Example: `"hdcl"`. */
-@property(copy, nullable) NSString *pluginInstance;
+@property(nonatomic, copy, nullable) NSString *pluginInstance;
 
 /** The start time of the interval. */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 /** The measurement type. Example: `"memory"`. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** The measurement type instance. Example: `"used"`. */
-@property(copy, nullable) NSString *typeInstance;
+@property(nonatomic, copy, nullable) NSString *typeInstance;
 
 /**
  *  The measured values during this time interval. Each value must have a
  *  different `dataSourceName`.
  */
-@property(strong, nullable) NSArray<GTLRMonitoring_CollectdValue *> *values;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_CollectdValue *> *values;
 
 @end
 
@@ -291,7 +291,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  The data source for the `collectd` value. For example there are two data
  *  sources for network measurements: `"rx"` and `"tx"`.
  */
-@property(copy, nullable) NSString *dataSourceName;
+@property(nonatomic, copy, nullable) NSString *dataSourceName;
 
 /**
  *  The type of measurement.
@@ -306,10 +306,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *    @arg @c kGTLRMonitoring_CollectdValue_DataSourceType_UnspecifiedDataSourceType
  *        Value "UNSPECIFIED_DATA_SOURCE_TYPE"
  */
-@property(copy, nullable) NSString *dataSourceType;
+@property(nonatomic, copy, nullable) NSString *dataSourceType;
 
 /** The measurement value. */
-@property(strong, nullable) GTLRMonitoring_TypedValue *value;
+@property(nonatomic, strong, nullable) GTLRMonitoring_TypedValue *value;
 
 @end
 
@@ -325,16 +325,16 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  can have the same values for all of the fields `plugin`, `plugin_instance`,
  *  `type`, and `type_instance`.
  */
-@property(strong, nullable) NSArray<GTLRMonitoring_CollectdPayload *> *collectdPayloads;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_CollectdPayload *> *collectdPayloads;
 
 /**
  *  The version of `collectd` that collected the data. Example:
  *  `"5.3.0-192.el6"`.
  */
-@property(copy, nullable) NSString *collectdVersion;
+@property(nonatomic, copy, nullable) NSString *collectdVersion;
 
 /** The monitored resource associated with the time series. */
-@property(strong, nullable) GTLRMonitoring_MonitoredResource *resource;
+@property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *resource;
 
 @end
 
@@ -351,7 +351,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  specify a unique time series by supplying all label values for the metric
  *  and the monitored resource.
  */
-@property(strong, nullable) NSArray<GTLRMonitoring_TimeSeries *> *timeSeries;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_TimeSeries *> *timeSeries;
 
 @end
 
@@ -384,17 +384,17 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *bucketCounts;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *bucketCounts;
 
 /** Defines the histogram bucket boundaries. */
-@property(strong, nullable) GTLRMonitoring_BucketOptions *bucketOptions;
+@property(nonatomic, strong, nullable) GTLRMonitoring_BucketOptions *bucketOptions;
 
 /**
  *  The number of values in the population. Must be non-negative.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
  *  The arithmetic mean of the values in the population. If `count` is zero then
@@ -402,13 +402,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *mean;
+@property(nonatomic, strong, nullable) NSNumber *mean;
 
 /**
  *  If specified, contains the range of the population values. The field must
  *  not be present if the `count` is zero.
  */
-@property(strong, nullable) GTLRMonitoring_Range *range;
+@property(nonatomic, strong, nullable) GTLRMonitoring_Range *range;
 
 /**
  *  The sum of squared deviations from the mean of the values in the population.
@@ -419,7 +419,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *sumOfSquaredDeviation;
+@property(nonatomic, strong, nullable) NSNumber *sumOfSquaredDeviation;
 
 @end
 
@@ -450,7 +450,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *bounds;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *bounds;
 
 @end
 
@@ -470,21 +470,21 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *growthFactor;
+@property(nonatomic, strong, nullable) NSNumber *growthFactor;
 
 /**
  *  must be greater than 0
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numFiniteBuckets;
+@property(nonatomic, strong, nullable) NSNumber *numFiniteBuckets;
 
 /**
  *  Must be greater than 0
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *scale;
+@property(nonatomic, strong, nullable) NSNumber *scale;
 
 @end
 
@@ -507,15 +507,15 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *    @arg @c kGTLRMonitoring_Field_Cardinality_CardinalityUnknown Value
  *        "CARDINALITY_UNKNOWN"
  */
-@property(copy, nullable) NSString *cardinality;
+@property(nonatomic, copy, nullable) NSString *cardinality;
 
 /**
  *  The string value of the default value of this field. Proto2 syntax only.
  */
-@property(copy, nullable) NSString *defaultValue;
+@property(nonatomic, copy, nullable) NSString *defaultValue;
 
 /** The field JSON name. */
-@property(copy, nullable) NSString *jsonName;
+@property(nonatomic, copy, nullable) NSString *jsonName;
 
 /**
  *  The field type.
@@ -541,17 +541,17 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *    @arg @c kGTLRMonitoring_Field_Kind_TypeUint64 Value "TYPE_UINT64"
  *    @arg @c kGTLRMonitoring_Field_Kind_TypeUnknown Value "TYPE_UNKNOWN"
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The field name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The field number.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *number;
+@property(nonatomic, strong, nullable) NSNumber *number;
 
 /**
  *  The index of the field type in `Type.oneofs`, for message or enumeration
@@ -559,23 +559,23 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *oneofIndex;
+@property(nonatomic, strong, nullable) NSNumber *oneofIndex;
 
 /** The protocol buffer options. */
-@property(strong, nullable) NSArray<GTLRMonitoring_Option *> *options;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Option *> *options;
 
 /**
  *  Whether to use alternative packed wire representation.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *packed;
+@property(nonatomic, strong, nullable) NSNumber *packed;
 
 /**
  *  The field type URL, without the scheme, for message or enumeration types.
  *  Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
  */
-@property(copy, nullable) NSString *typeUrl;
+@property(nonatomic, copy, nullable) NSString *typeUrl;
 
 @end
 
@@ -606,12 +606,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @interface GTLRMonitoring_Group : GTLRObject
 
 /** A user-assigned name for this group, used only for display purposes. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The filter used to determine which monitored resources belong to this group.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  If true, the members of this group are considered to be a cluster. The
@@ -619,7 +619,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isCluster;
+@property(nonatomic, strong, nullable) NSNumber *isCluster;
 
 /**
  *  The name of this group. The format is
@@ -628,14 +628,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  project specified in the call to `CreateGroup` and a unique `{group_id}`
  *  that is generated automatically. \@OutputOnly
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The name of the group's parent, if it has one. The format is
  *  `"projects/{project_id_or_number}/groups/{group_id}"`. For groups with no
  *  parent, `parentName` is the empty string, `""`.
  */
-@property(copy, nullable) NSString *parentName;
+@property(nonatomic, copy, nullable) NSString *parentName;
 
 @end
 
@@ -650,10 +650,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** The label key. */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 /**
  *  The type of data that can be assigned to the label.
@@ -663,7 +663,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *    @arg @c kGTLRMonitoring_LabelDescriptor_ValueType_Int64 Value "INT64"
  *    @arg @c kGTLRMonitoring_LabelDescriptor_ValueType_String Value "STRING"
  */
-@property(copy, nullable) NSString *valueType;
+@property(nonatomic, copy, nullable) NSString *valueType;
 
 @end
 
@@ -682,21 +682,21 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numFiniteBuckets;
+@property(nonatomic, strong, nullable) NSNumber *numFiniteBuckets;
 
 /**
  *  Lower bound of the first bucket.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *offset;
+@property(nonatomic, strong, nullable) NSNumber *offset;
 
 /**
  *  Must be greater than 0.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -717,21 +717,21 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRMonitoring_MonitoredResource *> *members;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_MonitoredResource *> *members;
 
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
  *  `pageToken` in the next call to this method.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The total number of elements matching this request.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalSize;
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
 
 @end
 
@@ -752,14 +752,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRMonitoring_Group *> *group;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Group *> *group;
 
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
  *  `pageToken` in the next call to this method.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -781,14 +781,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRMonitoring_MetricDescriptor *> *metricDescriptors;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_MetricDescriptor *> *metricDescriptors;
 
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
  *  `pageToken` in the next call to this method.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -808,7 +808,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  a non-empty value. To see the additional results, use that value as
  *  `pageToken` in the next call to this method.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The monitored resource descriptors that are available to this project and
@@ -817,7 +817,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRMonitoring_MonitoredResourceDescriptor *> *resourceDescriptors;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_MonitoredResourceDescriptor *> *resourceDescriptors;
 
 @end
 
@@ -837,7 +837,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  a non-empty value. To see the additional results, use that value as
  *  `pageToken` in the next call to this method.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  One or more time series that match the filter included in the request.
@@ -845,7 +845,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRMonitoring_TimeSeries *> *timeSeries;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_TimeSeries *> *timeSeries;
 
 @end
 
@@ -860,13 +860,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  The set of labels that uniquely identify a metric. To specify a metric, all
  *  labels enumerated in the `MetricDescriptor` must be assigned values.
  */
-@property(strong, nullable) GTLRMonitoring_MetricLabels *labels;
+@property(nonatomic, strong, nullable) GTLRMonitoring_MetricLabels *labels;
 
 /**
  *  An existing metric type, see google.api.MetricDescriptor. For example,
  *  `compute.googleapis.com/instance/cpu/usage_time`.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -894,13 +894,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  A concise name for the metric, which can be displayed in user interfaces.
  *  Use sentence case without an ending period, for example "Request count".
  */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The set of labels that can be used to describe a specific instance of this
@@ -909,7 +909,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  has a label, `loadbalanced`, that specifies whether the traffic was received
  *  through a load balanced IP address.
  */
-@property(strong, nullable) NSArray<GTLRMonitoring_LabelDescriptor *> *labels;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_LabelDescriptor *> *labels;
 
 /**
  *  Whether the metric records instantaneous values, changes to a value, etc.
@@ -922,7 +922,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *    @arg @c kGTLRMonitoring_MetricDescriptor_MetricKind_MetricKindUnspecified
  *        Value "METRIC_KIND_UNSPECIFIED"
  */
-@property(copy, nullable) NSString *metricKind;
+@property(nonatomic, copy, nullable) NSString *metricKind;
 
 /**
  *  Resource name. The format of the name may vary between different
@@ -930,7 +930,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  projects/{project_id}/metricDescriptors/{type=**}
  *  metricDescriptors/{type=**}
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The metric type including a DNS name prefix, for example
@@ -944,7 +944,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  rules and quota limits. Therefore, once a metric has been published, its
  *  type should be immutable.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The unit in which the metric value is reported. It is only applicable if the
@@ -969,7 +969,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  `NAME` is a sequence of non-blank printable ASCII characters not containing
  *  '{' or '}'.
  */
-@property(copy, nullable) NSString *unit;
+@property(nonatomic, copy, nullable) NSString *unit;
 
 /**
  *  Whether the measurement is an integer, a floating-point number, etc.
@@ -985,7 +985,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_ValueTypeUnspecified
  *        Value "VALUE_TYPE_UNSPECIFIED"
  */
-@property(copy, nullable) NSString *valueType;
+@property(nonatomic, copy, nullable) NSString *valueType;
 
 @end
 
@@ -1009,14 +1009,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  resource descriptor. For example, Cloud SQL databases use the labels
  *  `"database_id"` and `"zone"`.
  */
-@property(strong, nullable) GTLRMonitoring_MonitoredResourceLabels *labels;
+@property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResourceLabels *labels;
 
 /**
  *  Required. The monitored resource type. This field must match the `type`
  *  field of a MonitoredResourceDescriptor object. For example, the type of a
  *  Cloud SQL database is `"cloudsql_database"`.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1052,20 +1052,20 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Optional. A concise name for the monitored resource type that might be
  *  displayed in user interfaces. For example, `"Google Cloud SQL Database"`.
  */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Required. A set of labels used to describe instances of this monitored
  *  resource type. For example, an individual Google Cloud SQL database is
  *  identified by values for the labels `"database_id"` and `"zone"`.
  */
-@property(strong, nullable) NSArray<GTLRMonitoring_LabelDescriptor *> *labels;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_LabelDescriptor *> *labels;
 
 /**
  *  Optional. The resource name of the monitored resource descriptor:
@@ -1075,13 +1075,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  that do not use project information can use the resource name format
  *  `"monitoredResourceDescriptors/{type}"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. The monitored resource type. For example, the type
  *  `"cloudsql_database"` represents databases in Google Cloud SQL.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1093,10 +1093,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @interface GTLRMonitoring_Option : GTLRObject
 
 /** The option's name. For example, `"java_package"`. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The option's value. For example, `"com.google.protobuf"`. */
-@property(strong, nullable) GTLRMonitoring_OptionValue *value;
+@property(nonatomic, strong, nullable) GTLRMonitoring_OptionValue *value;
 
 @end
 
@@ -1119,10 +1119,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @interface GTLRMonitoring_Point : GTLRObject
 
 /** The time interval to which the value applies. */
-@property(strong, nullable) GTLRMonitoring_TimeInterval *interval;
+@property(nonatomic, strong, nullable) GTLRMonitoring_TimeInterval *interval;
 
 /** The value of the data point. */
-@property(strong, nullable) GTLRMonitoring_TypedValue *value;
+@property(nonatomic, strong, nullable) GTLRMonitoring_TypedValue *value;
 
 @end
 
@@ -1137,14 +1137,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *max;
+@property(nonatomic, strong, nullable) NSNumber *max;
 
 /**
  *  The minimum of the population values.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *min;
+@property(nonatomic, strong, nullable) NSNumber *min;
 
 @end
 
@@ -1159,7 +1159,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  The path-qualified name of the .proto file that contained the associated
  *  protobuf element. For example: `"google/protobuf/source.proto"`.
  */
-@property(copy, nullable) NSString *fileName;
+@property(nonatomic, copy, nullable) NSString *fileName;
 
 @end
 
@@ -1171,14 +1171,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @interface GTLRMonitoring_TimeInterval : GTLRObject
 
 /** Required. The end of the interval. The interval includes this time. */
-@property(copy, nullable) NSString *endTime;
+@property(nonatomic, copy, nullable) NSString *endTime;
 
 /**
  *  If this value is omitted, the interval is a point in time, `endTime`. If
  *  `startTime` is present, it must be earlier than (less than) `endTime`. The
  *  interval begins after `startTime`—it does not include `startTime`.
  */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 @end
 
@@ -1191,7 +1191,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @interface GTLRMonitoring_TimeSeries : GTLRObject
 
 /** The fully-specified metric used to identify the time series. */
-@property(strong, nullable) GTLRMonitoring_Metric *metric;
+@property(nonatomic, strong, nullable) GTLRMonitoring_Metric *metric;
 
 /**
  *  The metric kind of the time series. This can be different than the metric
@@ -1207,19 +1207,19 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *    @arg @c kGTLRMonitoring_TimeSeries_MetricKind_MetricKindUnspecified Value
  *        "METRIC_KIND_UNSPECIFIED"
  */
-@property(copy, nullable) NSString *metricKind;
+@property(nonatomic, copy, nullable) NSString *metricKind;
 
 /**
  *  The data points of this time series. When used as output, points will be
  *  sorted by decreasing time order. When used as input, points could be written
  *  in any orders.
  */
-@property(strong, nullable) NSArray<GTLRMonitoring_Point *> *points;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Point *> *points;
 
 /**
  *  The fully-specified monitored resource used to identify the time series.
  */
-@property(strong, nullable) GTLRMonitoring_MonitoredResource *resource;
+@property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *resource;
 
 /**
  *  The value type of the time series. This can be different than the value type
@@ -1238,7 +1238,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_ValueTypeUnspecified Value
  *        "VALUE_TYPE_UNSPECIFIED"
  */
-@property(copy, nullable) NSString *valueType;
+@property(nonatomic, copy, nullable) NSString *valueType;
 
 @end
 
@@ -1249,19 +1249,19 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @interface GTLRMonitoring_Type : GTLRObject
 
 /** The list of fields. */
-@property(strong, nullable) NSArray<GTLRMonitoring_Field *> *fields;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Field *> *fields;
 
 /** The fully qualified message name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The list of types appearing in `oneof` definitions in this type. */
-@property(strong, nullable) NSArray<NSString *> *oneofs;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *oneofs;
 
 /** The protocol buffer options. */
-@property(strong, nullable) NSArray<GTLRMonitoring_Option *> *options;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Option *> *options;
 
 /** The source context. */
-@property(strong, nullable) GTLRMonitoring_SourceContext *sourceContext;
+@property(nonatomic, strong, nullable) GTLRMonitoring_SourceContext *sourceContext;
 
 /**
  *  The source syntax.
@@ -1270,7 +1270,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *    @arg @c kGTLRMonitoring_Type_Syntax_SyntaxProto2 Value "SYNTAX_PROTO2"
  *    @arg @c kGTLRMonitoring_Type_Syntax_SyntaxProto3 Value "SYNTAX_PROTO3"
  */
-@property(copy, nullable) NSString *syntax;
+@property(nonatomic, copy, nullable) NSString *syntax;
 
 @end
 
@@ -1285,10 +1285,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *boolValue;
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
 
 /** A distribution value. */
-@property(strong, nullable) GTLRMonitoring_Distribution *distributionValue;
+@property(nonatomic, strong, nullable) GTLRMonitoring_Distribution *distributionValue;
 
 /**
  *  A 64-bit double-precision floating-point number. Its magnitude is
@@ -1296,17 +1296,17 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *doubleValue;
+@property(nonatomic, strong, nullable) NSNumber *doubleValue;
 
 /**
  *  A 64-bit integer. Its range is approximately ±9.2x1018.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *int64Value;
+@property(nonatomic, strong, nullable) NSNumber *int64Value;
 
 /** A variable-length string value. */
-@property(copy, nullable) NSString *stringValue;
+@property(nonatomic, copy, nullable) NSString *stringValue;
 
 @end
 

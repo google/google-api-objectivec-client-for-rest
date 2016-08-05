@@ -112,7 +112,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @interface GTLRMonitoringQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -136,7 +136,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  The project in which to create the time series. The format is
  *  `"projects/PROJECT_ID_OR_NUMBER"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMonitoring_Empty.
@@ -174,10 +174,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  The project in which to create the group. The format is
  *  `"projects/{project_id_or_number}"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** If true, validate this request but do not create the group. */
-@property(assign) BOOL validateOnly;
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRMonitoring_Group.
@@ -212,7 +212,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  The group to delete. The format is
  *  `"projects/{project_id_or_number}/groups/{group_id}"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMonitoring_Empty.
@@ -246,7 +246,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  The group to retrieve. The format is
  *  `"projects/{project_id_or_number}/groups/{group_id}"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMonitoring_Group.
@@ -283,14 +283,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  ancestor. If the specified group has no immediate parent, the results are
  *  empty.
  */
-@property(copy, nullable) NSString *ancestorsOfGroup;
+@property(nonatomic, copy, nullable) NSString *ancestorsOfGroup;
 
 /**
  *  A group name: `"projects/{project_id_or_number}/groups/{group_id}"`. Returns
  *  groups whose `parentName` field contains the group name. If no groups have
  *  this parent, the results are empty.
  */
-@property(copy, nullable) NSString *childrenOfGroup;
+@property(nonatomic, copy, nullable) NSString *childrenOfGroup;
 
 /**
  *  A group name: `"projects/{project_id_or_number}/groups/{group_id}"`. Returns
@@ -298,23 +298,23 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  returned by the `childrenOfGroup` filter, and includes children-of-children,
  *  and so forth.
  */
-@property(copy, nullable) NSString *descendantsOfGroup;
+@property(nonatomic, copy, nullable) NSString *descendantsOfGroup;
 
 /**
  *  The project whose groups are to be listed. The format is
  *  `"projects/{project_id_or_number}"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** A positive number that is the maximum number of results to return. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  If this field is not empty then it must contain the `nextPageToken` value
  *  returned by a previous call to this method. Using this field causes the
  *  method to return additional results from the previous method call.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRMonitoring_ListGroupsResponse.
@@ -355,33 +355,33 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  return only resources representing Compute Engine VM instances, use this
  *  filter: resource.type = "gce_instance"
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Required. The end of the interval. The interval includes this time. */
-@property(copy, nullable) NSString *intervalEndTime;
+@property(nonatomic, copy, nullable) NSString *intervalEndTime;
 
 /**
  *  If this value is omitted, the interval is a point in time, `endTime`. If
  *  `startTime` is present, it must be earlier than (less than) `endTime`. The
  *  interval begins after `startTime`—it does not include `startTime`.
  */
-@property(copy, nullable) NSString *intervalStartTime;
+@property(nonatomic, copy, nullable) NSString *intervalStartTime;
 
 /**
  *  The group whose members are listed. The format is
  *  `"projects/{project_id_or_number}/groups/{group_id}"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** A positive number that is the maximum number of results to return. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  If this field is not empty then it must contain the `nextPageToken` value
  *  returned by a previous call to this method. Using this field causes the
  *  method to return additional results from the previous method call.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRMonitoring_ListGroupMembersResponse.
@@ -422,10 +422,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  project specified in the call to `CreateGroup` and a unique `{group_id}`
  *  that is generated automatically. \@OutputOnly
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** If true, validate this request but do not update the existing group. */
-@property(assign) BOOL validateOnly;
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRMonitoring_Group.
@@ -466,7 +466,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  The project on which to execute the request. The format is
  *  `"projects/{project_id_or_number}"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMonitoring_MetricDescriptor.
@@ -505,7 +505,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  `"projects/{project_id_or_number}/metricDescriptors/{metric_id}"`. An
  *  example of `{metric_id}` is: `"custom.googleapis.com/my_test_metric"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMonitoring_Empty.
@@ -546,7 +546,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  example value of `{metric_id}` is
  *  `"compute.googleapis.com/instance/disk/read_bytes_count"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMonitoring_MetricDescriptor.
@@ -589,23 +589,23 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  filter matches all [custom metrics](/monitoring/custom-metrics): metric.type
  *  = starts_with("custom.googleapis.com/")
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The project on which to execute the request. The format is
  *  `"projects/{project_id_or_number}"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** A positive number that is the maximum number of results to return. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  If this field is not empty then it must contain the `nextPageToken` value
  *  returned by a previous call to this method. Using this field causes the
  *  method to return additional results from the previous method call.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRMonitoring_ListMetricDescriptorsResponse.
@@ -647,7 +647,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  `"projects/{project_id_or_number}/monitoredResourceDescriptors/{resource_type}"`.
  *  The `{resource_type}` is a predefined type, such as `cloudsql_database`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMonitoring_MonitoredResourceDescriptor.
@@ -688,23 +688,23 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  descriptors that have an `id` label: resource.type = starts_with("gce_") AND
  *  resource.label:id
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The project on which to execute the request. The format is
  *  `"projects/{project_id_or_number}"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** A positive number that is the maximum number of results to return. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  If this field is not empty then it must contain the `nextPageToken` value
  *  returned by a previous call to this method. Using this field causes the
  *  method to return additional results from the previous method call.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRMonitoring_ListMonitoredResourceDescriptorsResponse.
@@ -745,7 +745,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  The project on which to execute the request. The format is
  *  `"projects/{project_id_or_number}"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMonitoring_Empty.
@@ -790,7 +790,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  and does not equal `ALIGN_NONE`, then this field must be defined; otherwise
  *  an error is returned.
  */
-@property(copy, nullable) NSString *aggregationAlignmentPeriod;
+@property(nonatomic, copy, nullable) NSString *aggregationAlignmentPeriod;
 
 /**
  *  The approach to be used to combine time series. Not all reducer functions
@@ -830,7 +830,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile05
  *        Value "REDUCE_PERCENTILE_05"
  */
-@property(copy, nullable) NSString *aggregationCrossSeriesReducer;
+@property(nonatomic, copy, nullable) NSString *aggregationCrossSeriesReducer;
 
 /**
  *  The set of fields to preserve when `crossSeriesReducer` is specified. The
@@ -843,7 +843,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  the time series are aggregated into a single output time series. If
  *  `crossSeriesReducer` is not defined, this field is ignored.
  */
-@property(strong, nullable) NSArray<NSString *> *aggregationGroupByFields;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aggregationGroupByFields;
 
 /**
  *  The approach to be used to align individual time series. Not all alignment
@@ -883,7 +883,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignFractionTrue Value
  *        "ALIGN_FRACTION_TRUE"
  */
-@property(copy, nullable) NSString *aggregationPerSeriesAligner;
+@property(nonatomic, copy, nullable) NSString *aggregationPerSeriesAligner;
 
 /**
  *  A [monitoring filter](/monitoring/api/v3/filters) that specifies which time
@@ -892,30 +892,30 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
  *  metric.label.instance_name = "my-instance-name"
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Required. The end of the interval. The interval includes this time. */
-@property(copy, nullable) NSString *intervalEndTime;
+@property(nonatomic, copy, nullable) NSString *intervalEndTime;
 
 /**
  *  If this value is omitted, the interval is a point in time, `endTime`. If
  *  `startTime` is present, it must be earlier than (less than) `endTime`. The
  *  interval begins after `startTime`—it does not include `startTime`.
  */
-@property(copy, nullable) NSString *intervalStartTime;
+@property(nonatomic, copy, nullable) NSString *intervalStartTime;
 
 /**
  *  The project on which to execute the request. The format is
  *  "projects/{project_id_or_number}".
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Specifies the order in which the points of the time series should be
  *  returned. By default, results are not ordered. Currently, this field must be
  *  left blank.
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  A positive number that is the maximum number of results to return. When
@@ -923,14 +923,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  return; if `view` field is `HEADERS`, it limits the number of `TimeSeries`
  *  server will return.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  If this field is not empty then it must contain the `nextPageToken` value
  *  returned by a previous call to this method. Using this field causes the
  *  method to return additional results from the previous method call.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Specifies which information is returned about the time series.
@@ -939,7 +939,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *    @arg @c kGTLRMonitoringViewFull Value "FULL"
  *    @arg @c kGTLRMonitoringViewHeaders Value "HEADERS"
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRMonitoring_ListTimeSeriesResponse.

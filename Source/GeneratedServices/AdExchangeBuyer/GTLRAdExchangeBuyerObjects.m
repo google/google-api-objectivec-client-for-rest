@@ -250,11 +250,11 @@
 @implementation GTLRAdExchangeBuyer_Creative
 @dynamic accountId, adChoicesDestinationUrl, advertiserId, advertiserName,
          agencyId, apiUploadTimestamp, attribute, buyerCreativeId,
-         clickThroughUrl, corrections, dealsStatus, filteringReasons, height,
-         HTMLSnippet, impressionTrackingUrl, kind, languages, nativeAd,
-         openAuctionStatus, productCategories, restrictedCategories,
-         sensitiveCategories, servingRestrictions, vendorType, version,
-         videoURL, width;
+         clickThroughUrl, corrections, dealsStatus, detectedDomains,
+         filteringReasons, height, HTMLSnippet, impressionTrackingUrl, kind,
+         languages, nativeAd, openAuctionStatus, productCategories,
+         restrictedCategories, sensitiveCategories, servingRestrictions,
+         vendorType, version, videoURL, width;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -262,6 +262,7 @@
     @"attribute" : [NSNumber class],
     @"clickThroughUrl" : [NSString class],
     @"corrections" : [GTLRAdExchangeBuyer_CreativeCorrectionsItem class],
+    @"detectedDomains" : [NSString class],
     @"impressionTrackingUrl" : [NSString class],
     @"languages" : [NSString class],
     @"productCategories" : [NSNumber class],
@@ -483,7 +484,8 @@
 //
 
 @implementation GTLRAdExchangeBuyer_DealServingMetadataDealPauseStatus
-@dynamic firstPausedBy, hasBuyerPaused, hasSellerPaused;
+@dynamic buyerPauseReason, firstPausedBy, hasBuyerPaused, hasSellerPaused,
+         sellerPauseReason;
 @end
 
 
@@ -496,7 +498,7 @@
 @dynamic brandingType, descriptionProperty, estimatedGrossSpend,
          estimatedImpressionsPerDay, guaranteedFixedPriceTerms,
          nonGuaranteedAuctionTerms, nonGuaranteedFixedPriceTerms,
-         sellerTimeZone;
+         rubiconNonGuaranteedTerms, sellerTimeZone;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -511,7 +513,8 @@
 //
 
 @implementation GTLRAdExchangeBuyer_DealTermsGuaranteedFixedPriceTerms
-@dynamic billingInfo, fixedPrices, guaranteedImpressions, guaranteedLooks;
+@dynamic billingInfo, fixedPrices, guaranteedImpressions, guaranteedLooks,
+         minimumDailyLooks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -567,6 +570,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyer_DealTermsRubiconNonGuaranteedTerms
+//
+
+@implementation GTLRAdExchangeBuyer_DealTermsRubiconNonGuaranteedTerms
+@dynamic priorityPrice, standardPrice;
 @end
 
 
@@ -999,7 +1012,7 @@
 //
 
 @implementation GTLRAdExchangeBuyer_Price
-@dynamic amountMicros, currencyCode, pricingType;
+@dynamic amountMicros, currencyCode, expectedCpmMicros, pricingType;
 @end
 
 

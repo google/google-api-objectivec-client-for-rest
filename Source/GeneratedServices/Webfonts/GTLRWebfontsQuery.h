@@ -69,7 +69,7 @@ GTLR_EXTERN NSString * const kGTLRWebfontsSortTrending;
 @interface GTLRWebfontsQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -94,7 +94,7 @@ GTLR_EXTERN NSString * const kGTLRWebfontsSortTrending;
  *    @arg @c kGTLRWebfontsSortStyle Sort by number of styles (Value: "style")
  *    @arg @c kGTLRWebfontsSortTrending Sort by trending (Value: "trending")
  */
-@property(copy, nullable) NSString *sort;
+@property(nonatomic, copy, nullable) NSString *sort;
 
 /**
  *  Fetches a @c GTLRWebfonts_WebfontList.

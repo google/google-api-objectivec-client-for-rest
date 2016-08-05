@@ -260,7 +260,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  A list of keys with incomplete key paths for which to allocate IDs.
  *  No key may be reserved/read-only.
  */
-@property(strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
 
 @end
 
@@ -274,7 +274,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The keys specified in the request (in the same order), each with
  *  its key path completed with a newly allocated ID.
  */
-@property(strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
 
 @end
 
@@ -289,7 +289,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The order of this array may not be preserved if it contains a mix of
  *  indexed and unindexed values.
  */
-@property(strong, nullable) NSArray<GTLRDatastore_Value *> *values;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Value *> *values;
 
 @end
 
@@ -312,7 +312,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *transaction;
+@property(nonatomic, copy, nullable) NSString *transaction;
 
 @end
 
@@ -337,7 +337,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        [here](https://cloud.google.com/datastore/docs/concepts/transactions).
  *        (Value: "TRANSACTIONAL")
  */
-@property(copy, nullable) NSString *mode;
+@property(nonatomic, copy, nullable) NSString *mode;
 
 /**
  *  The mutations to perform.
@@ -351,7 +351,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  When mode is `NON_TRANSACTIONAL`, no two mutations may affect a single
  *  entity.
  */
-@property(strong, nullable) NSArray<GTLRDatastore_Mutation *> *mutations;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Mutation *> *mutations;
 
 /**
  *  The identifier of the transaction associated with the commit. A
@@ -361,7 +361,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *transaction;
+@property(nonatomic, copy, nullable) NSString *transaction;
 
 @end
 
@@ -377,13 +377,13 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *indexUpdates;
+@property(nonatomic, strong, nullable) NSNumber *indexUpdates;
 
 /**
  *  The result of performing the mutations.
  *  The i-th mutation result corresponds to the i-th mutation in the request.
  */
-@property(strong, nullable) NSArray<GTLRDatastore_MutationResult *> *mutationResults;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_MutationResult *> *mutationResults;
 
 @end
 
@@ -397,7 +397,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The list of filters to combine.
  *  Must contain at least one filter.
  */
-@property(strong, nullable) NSArray<GTLRDatastore_Filter *> *filters;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Filter *> *filters;
 
 /**
  *  The operator for combining multiple filters.
@@ -408,7 +408,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *    @arg @c kGTLRDatastore_CompositeFilter_Op_OperatorUnspecified Unspecified.
  *        This value must not be used. (Value: "OPERATOR_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *op;
+@property(nonatomic, copy, nullable) NSString *op;
 
 @end
 
@@ -428,7 +428,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  An entity's kind is its key path's last element's kind,
  *  or null if it has no key.
  */
-@property(strong, nullable) GTLRDatastore_Key *key;
+@property(nonatomic, strong, nullable) GTLRDatastore_Key *key;
 
 /**
  *  The entity's properties.
@@ -438,7 +438,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The name must not contain more than 500 characters.
  *  The name cannot be `""`.
  */
-@property(strong, nullable) GTLRDatastore_EntityProperties *properties;
+@property(nonatomic, strong, nullable) GTLRDatastore_EntityProperties *properties;
 
 @end
 
@@ -472,10 +472,10 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *cursor;
+@property(nonatomic, copy, nullable) NSString *cursor;
 
 /** The resulting entity. */
-@property(strong, nullable) GTLRDatastore_Entity *entity;
+@property(nonatomic, strong, nullable) GTLRDatastore_Entity *entity;
 
 @end
 
@@ -486,10 +486,10 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_Filter : GTLRObject
 
 /** A composite filter. */
-@property(strong, nullable) GTLRDatastore_CompositeFilter *compositeFilter;
+@property(nonatomic, strong, nullable) GTLRDatastore_CompositeFilter *compositeFilter;
 
 /** A filter on a property. */
-@property(strong, nullable) GTLRDatastore_PropertyFilter *propertyFilter;
+@property(nonatomic, strong, nullable) GTLRDatastore_PropertyFilter *propertyFilter;
 
 @end
 
@@ -508,7 +508,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *allowLiterals;
+@property(nonatomic, strong, nullable) NSNumber *allowLiterals;
 
 /**
  *  For each non-reserved named binding site in the query string,
@@ -517,7 +517,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Key must match regex `A-Za-z_$*`, must not match regex
  *  `__.*__`, and must not be `""`.
  */
-@property(strong, nullable) GTLRDatastore_GqlQueryNamedBindings *namedBindings;
+@property(nonatomic, strong, nullable) GTLRDatastore_GqlQueryNamedBindings *namedBindings;
 
 /**
  *  Numbered binding site \@1 references the first numbered parameter,
@@ -526,13 +526,13 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  there must be an i-th numbered parameter.
  *  The inverse must also be true.
  */
-@property(strong, nullable) NSArray<GTLRDatastore_GqlQueryParameter *> *positionalBindings;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_GqlQueryParameter *> *positionalBindings;
 
 /**
  *  A string of the format described
  *  [here](https://cloud.google.com/datastore/docs/apis/gql/gql_reference).
  */
-@property(copy, nullable) NSString *queryString;
+@property(nonatomic, copy, nullable) NSString *queryString;
 
 @end
 
@@ -565,10 +565,10 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *cursor;
+@property(nonatomic, copy, nullable) NSString *cursor;
 
 /** A value parameter. */
-@property(strong, nullable) GTLRDatastore_Value *value;
+@property(nonatomic, strong, nullable) GTLRDatastore_Value *value;
 
 @end
 
@@ -586,7 +586,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  ID and namespace ID.
  *  Queries are scoped to a single partition.
  */
-@property(strong, nullable) GTLRDatastore_PartitionId *partitionId;
+@property(nonatomic, strong, nullable) GTLRDatastore_PartitionId *partitionId;
 
 /**
  *  The entity path.
@@ -604,7 +604,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  identifier.
  *  A path can never be empty, and a path can have at most 100 elements.
  */
-@property(strong, nullable) NSArray<GTLRDatastore_PathElement *> *path;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_PathElement *> *path;
 
 @end
 
@@ -615,7 +615,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_KindExpression : GTLRObject
 
 /** The name of the kind. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -665,14 +665,14 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *latitude;
+@property(nonatomic, strong, nullable) NSNumber *latitude;
 
 /**
  *  The longitude in degrees. It must be in the range [-180.0, +180.0].
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *longitude;
+@property(nonatomic, strong, nullable) NSNumber *longitude;
 
 @end
 
@@ -683,10 +683,10 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_LookupRequest : GTLRObject
 
 /** Keys of entities to look up. */
-@property(strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
 
 /** The options for this lookup request. */
-@property(strong, nullable) GTLRDatastore_ReadOptions *readOptions;
+@property(nonatomic, strong, nullable) GTLRDatastore_ReadOptions *readOptions;
 
 @end
 
@@ -701,21 +701,21 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  order of results in this field is undefined and has no relation to the
  *  order of the keys in the input.
  */
-@property(strong, nullable) NSArray<GTLRDatastore_Key *> *deferred;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *deferred;
 
 /**
  *  Entities found as `ResultType.FULL` entities. The order of results in this
  *  field is undefined and has no relation to the order of the keys in the
  *  input.
  */
-@property(strong, nullable) NSArray<GTLRDatastore_EntityResult *> *found;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_EntityResult *> *found;
 
 /**
  *  Entities not found as `ResultType.KEY_ONLY` entities. The order of results
  *  in this field is undefined and has no relation to the order of the keys
  *  in the input.
  */
-@property(strong, nullable) NSArray<GTLRDatastore_EntityResult *> *missing;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_EntityResult *> *missing;
 
 @end
 
@@ -731,25 +731,25 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *
  *  Remapped to 'deleteProperty' to avoid language reserved word 'delete'.
  */
-@property(strong, nullable) GTLRDatastore_Key *deleteProperty;
+@property(nonatomic, strong, nullable) GTLRDatastore_Key *deleteProperty;
 
 /**
  *  The entity to insert. The entity must not already exist.
  *  The entity key's final path element may be incomplete.
  */
-@property(strong, nullable) GTLRDatastore_Entity *insert;
+@property(nonatomic, strong, nullable) GTLRDatastore_Entity *insert;
 
 /**
  *  The entity to update. The entity must already exist.
  *  Must have a complete key path.
  */
-@property(strong, nullable) GTLRDatastore_Entity *update;
+@property(nonatomic, strong, nullable) GTLRDatastore_Entity *update;
 
 /**
  *  The entity to upsert. The entity may or may not already exist.
  *  The entity key's final path element may be incomplete.
  */
-@property(strong, nullable) GTLRDatastore_Entity *upsert;
+@property(nonatomic, strong, nullable) GTLRDatastore_Entity *upsert;
 
 @end
 
@@ -763,7 +763,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The automatically allocated key.
  *  Set only when the mutation allocated a key.
  */
-@property(strong, nullable) GTLRDatastore_Key *key;
+@property(nonatomic, strong, nullable) GTLRDatastore_Key *key;
 
 @end
 
@@ -789,10 +789,10 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_PartitionId : GTLRObject
 
 /** If not empty, the ID of the namespace to which the entities belong. */
-@property(copy, nullable) NSString *namespaceId;
+@property(nonatomic, copy, nullable) NSString *namespaceId;
 
 /** The ID of the project to which the entities belong. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
 
@@ -813,7 +813,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
  *  The kind of the entity.
@@ -821,7 +821,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  A kind must not contain more than 1500 bytes when UTF-8 encoded.
  *  Cannot be `""`.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The name of the entity.
@@ -829,7 +829,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  A name must not be more than 1500 bytes when UTF-8 encoded.
  *  Cannot be `""`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -840,7 +840,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_Projection : GTLRObject
 
 /** The property to project. */
-@property(strong, nullable) GTLRDatastore_PropertyReference *property;
+@property(nonatomic, strong, nullable) GTLRDatastore_PropertyReference *property;
 
 @end
 
@@ -868,13 +868,13 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *    @arg @c kGTLRDatastore_PropertyFilter_Op_OperatorUnspecified Unspecified.
  *        This value must not be used. (Value: "OPERATOR_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *op;
+@property(nonatomic, copy, nullable) NSString *op;
 
 /** The property to filter by. */
-@property(strong, nullable) GTLRDatastore_PropertyReference *property;
+@property(nonatomic, strong, nullable) GTLRDatastore_PropertyReference *property;
 
 /** The value to compare the property to. */
-@property(strong, nullable) GTLRDatastore_Value *value;
+@property(nonatomic, strong, nullable) GTLRDatastore_Value *value;
 
 @end
 
@@ -896,10 +896,10 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        Unspecified. This value must not be used. (Value:
  *        "DIRECTION_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *direction;
+@property(nonatomic, copy, nullable) NSString *direction;
 
 /** The property to order by. */
-@property(strong, nullable) GTLRDatastore_PropertyReference *property;
+@property(nonatomic, strong, nullable) GTLRDatastore_PropertyReference *property;
 
 @end
 
@@ -913,7 +913,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The name of the property.
  *  If name includes "."s, it may be interpreted as a property name path.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -928,7 +928,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  result for each distinct combination of values for the given properties
  *  (if empty, all results are returned).
  */
-@property(strong, nullable) NSArray<GTLRDatastore_PropertyReference *> *distinctOn;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_PropertyReference *> *distinctOn;
 
 /**
  *  An ending point for the query results. Query cursors are
@@ -939,16 +939,16 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *endCursor;
+@property(nonatomic, copy, nullable) NSString *endCursor;
 
 /** The filter to apply. */
-@property(strong, nullable) GTLRDatastore_Filter *filter;
+@property(nonatomic, strong, nullable) GTLRDatastore_Filter *filter;
 
 /**
  *  The kinds to query (if empty, returns entities of all kinds).
  *  Currently at most 1 kind may be specified.
  */
-@property(strong, nullable) NSArray<GTLRDatastore_KindExpression *> *kind;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_KindExpression *> *kind;
 
 /**
  *  The maximum number of results to return. Applies after all other
@@ -958,7 +958,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *limit;
+@property(nonatomic, strong, nullable) NSNumber *limit;
 
 /**
  *  The number of results to skip. Applies before limit, but after all other
@@ -966,15 +966,15 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *offset;
+@property(nonatomic, strong, nullable) NSNumber *offset;
 
 /**
  *  The order to apply to the query results (if empty, order is unspecified).
  */
-@property(strong, nullable) NSArray<GTLRDatastore_PropertyOrder *> *order;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_PropertyOrder *> *order;
 
 /** The projection to return. Defaults to returning all properties. */
-@property(strong, nullable) NSArray<GTLRDatastore_Projection *> *projection;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Projection *> *projection;
 
 /**
  *  A starting point for the query results. Query cursors are
@@ -985,7 +985,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *startCursor;
+@property(nonatomic, copy, nullable) NSString *startCursor;
 
 @end
 
@@ -1001,10 +1001,10 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *endCursor;
+@property(nonatomic, copy, nullable) NSString *endCursor;
 
 /** The results for this batch. */
-@property(strong, nullable) NSArray<GTLRDatastore_EntityResult *> *entityResults;
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_EntityResult *> *entityResults;
 
 /**
  *  The result type for every entity in `entity_results`.
@@ -1021,7 +1021,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        Unspecified. This value is never used. (Value:
  *        "RESULT_TYPE_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *entityResultType;
+@property(nonatomic, copy, nullable) NSString *entityResultType;
 
 /**
  *  The state of the query after the current batch.
@@ -1042,7 +1042,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        be additional batches to fetch from this query. (Value:
  *        "NOT_FINISHED")
  */
-@property(copy, nullable) NSString *moreResults;
+@property(nonatomic, copy, nullable) NSString *moreResults;
 
 /**
  *  A cursor that points to the position after the last skipped result.
@@ -1051,14 +1051,14 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *skippedCursor;
+@property(nonatomic, copy, nullable) NSString *skippedCursor;
 
 /**
  *  The number of results skipped, typically because of an offset.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *skippedResults;
+@property(nonatomic, strong, nullable) NSNumber *skippedResults;
 
 @end
 
@@ -1081,7 +1081,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *    @arg @c kGTLRDatastore_ReadOptions_ReadConsistency_Strong Strong
  *        consistency. (Value: "STRONG")
  */
-@property(copy, nullable) NSString *readConsistency;
+@property(nonatomic, copy, nullable) NSString *readConsistency;
 
 /**
  *  The identifier of the transaction in which to read. A
@@ -1091,7 +1091,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *transaction;
+@property(nonatomic, copy, nullable) NSString *transaction;
 
 @end
 
@@ -1108,7 +1108,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *transaction;
+@property(nonatomic, copy, nullable) NSString *transaction;
 
 @end
 
@@ -1127,7 +1127,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_RunQueryRequest : GTLRObject
 
 /** The GQL query to run. */
-@property(strong, nullable) GTLRDatastore_GqlQuery *gqlQuery;
+@property(nonatomic, strong, nullable) GTLRDatastore_GqlQuery *gqlQuery;
 
 /**
  *  Entities are partitioned into subsets, identified by a partition ID.
@@ -1135,13 +1135,13 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  This partition ID is normalized with the standard default context
  *  partition ID.
  */
-@property(strong, nullable) GTLRDatastore_PartitionId *partitionId;
+@property(nonatomic, strong, nullable) GTLRDatastore_PartitionId *partitionId;
 
 /** The query to run. */
-@property(strong, nullable) GTLRDatastore_Query *query;
+@property(nonatomic, strong, nullable) GTLRDatastore_Query *query;
 
 /** The options for this query. */
-@property(strong, nullable) GTLRDatastore_ReadOptions *readOptions;
+@property(nonatomic, strong, nullable) GTLRDatastore_ReadOptions *readOptions;
 
 @end
 
@@ -1152,10 +1152,10 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_RunQueryResponse : GTLRObject
 
 /** A batch of query results (always present). */
-@property(strong, nullable) GTLRDatastore_QueryResultBatch *batch;
+@property(nonatomic, strong, nullable) GTLRDatastore_QueryResultBatch *batch;
 
 /** The parsed form of the `GqlQuery` from the request, if it was set. */
-@property(strong, nullable) GTLRDatastore_Query *query;
+@property(nonatomic, strong, nullable) GTLRDatastore_Query *query;
 
 @end
 
@@ -1172,7 +1172,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  A `Value` instance that sets field `array_value` must not set fields
  *  `meaning` or `exclude_from_indexes`.
  */
-@property(strong, nullable) GTLRDatastore_ArrayValue *arrayValue;
+@property(nonatomic, strong, nullable) GTLRDatastore_ArrayValue *arrayValue;
 
 /**
  *  A blob value.
@@ -1183,21 +1183,21 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *blobValue;
+@property(nonatomic, copy, nullable) NSString *blobValue;
 
 /**
  *  A boolean value.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *booleanValue;
+@property(nonatomic, strong, nullable) NSNumber *booleanValue;
 
 /**
  *  A double value.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *doubleValue;
+@property(nonatomic, strong, nullable) NSNumber *doubleValue;
 
 /**
  *  An entity value.
@@ -1205,7 +1205,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  - May have a key with an incomplete key path.
  *  - May have a reserved/read-only key.
  */
-@property(strong, nullable) GTLRDatastore_Entity *entityValue;
+@property(nonatomic, strong, nullable) GTLRDatastore_Entity *entityValue;
 
 /**
  *  If the value should be excluded from all indexes including those defined
@@ -1213,27 +1213,27 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *excludeFromIndexes;
+@property(nonatomic, strong, nullable) NSNumber *excludeFromIndexes;
 
 /** A geo point value representing a point on the surface of Earth. */
-@property(strong, nullable) GTLRDatastore_LatLng *geoPointValue;
+@property(nonatomic, strong, nullable) GTLRDatastore_LatLng *geoPointValue;
 
 /**
  *  An integer value.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *integerValue;
+@property(nonatomic, strong, nullable) NSNumber *integerValue;
 
 /** A key value. */
-@property(strong, nullable) GTLRDatastore_Key *keyValue;
+@property(nonatomic, strong, nullable) GTLRDatastore_Key *keyValue;
 
 /**
  *  The `meaning` field should only be populated for backwards compatibility.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *meaning;
+@property(nonatomic, strong, nullable) NSNumber *meaning;
 
 /**
  *  A null value.
@@ -1242,7 +1242,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *    @arg @c kGTLRDatastore_Value_NullValue_NullValue Null value. (Value:
  *        "NULL_VALUE")
  */
-@property(copy, nullable) NSString *nullValue;
+@property(nonatomic, copy, nullable) NSString *nullValue;
 
 /**
  *  A UTF-8 encoded string value.
@@ -1250,14 +1250,14 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  bytes.
  *  Otherwise, may be set to at least 1,000,000 bytes.
  */
-@property(copy, nullable) NSString *stringValue;
+@property(nonatomic, copy, nullable) NSString *stringValue;
 
 /**
  *  A timestamp value.
  *  When stored in the Datastore, precise only to microseconds;
  *  any additional precision is rounded down.
  */
-@property(strong, nullable) GTLRDateTime *timestampValue;
+@property(nonatomic, strong, nullable) GTLRDateTime *timestampValue;
 
 @end
 

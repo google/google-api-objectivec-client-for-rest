@@ -41,30 +41,30 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *clicks;
+@property(nonatomic, strong, nullable) NSNumber *clicks;
 
 /**
  *  ctr
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *ctr;
+@property(nonatomic, strong, nullable) NSNumber *ctr;
 
 /**
  *  impressions
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *impressions;
+@property(nonatomic, strong, nullable) NSNumber *impressions;
 
-@property(strong, nullable) NSArray<NSString *> *keys;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *keys;
 
 /**
  *  position
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *position;
+@property(nonatomic, strong, nullable) NSNumber *position;
 
 @end
 
@@ -74,15 +74,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRWebmasters_ApiDimensionFilter : GTLRObject
 
-@property(copy, nullable) NSString *dimension;
-@property(copy, nullable) NSString *expression;
+@property(nonatomic, copy, nullable) NSString *dimension;
+@property(nonatomic, copy, nullable) NSString *expression;
 
 /**
  *  operatorProperty
  *
  *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
  */
-@property(copy, nullable) NSString *operatorProperty;
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
 
 @end
 
@@ -92,8 +92,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRWebmasters_ApiDimensionFilterGroup : GTLRObject
 
-@property(strong, nullable) NSArray<GTLRWebmasters_ApiDimensionFilter *> *filters;
-@property(copy, nullable) NSString *groupType;
+@property(nonatomic, strong, nullable) NSArray<GTLRWebmasters_ApiDimensionFilter *> *filters;
+@property(nonatomic, copy, nullable) NSString *groupType;
 
 @end
 
@@ -117,7 +117,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  get an error. The API will never change your aggregation type if the
  *  requested type is invalid.
  */
-@property(copy, nullable) NSString *aggregationType;
+@property(nonatomic, copy, nullable) NSString *aggregationType;
 
 /**
  *  [Optional] Zero or more filters to apply to the dimension grouping values;
@@ -125,7 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  contains the substring "buy" (not case-sensitive). You can filter by a
  *  dimension without grouping by it.
  */
-@property(strong, nullable) NSArray<GTLRWebmasters_ApiDimensionFilterGroup *> *dimensionFilterGroups;
+@property(nonatomic, strong, nullable) NSArray<GTLRWebmasters_ApiDimensionFilterGroup *> *dimensionFilterGroups;
 
 /**
  *  [Optional] Zero or more dimensions to group results by. Dimensions are the
@@ -133,14 +133,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  create a unique row key for each row. Results are grouped in the order that
  *  you supply these dimensions.
  */
-@property(strong, nullable) NSArray<NSString *> *dimensions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 
 /**
  *  [Required] End date of the requested date range, in YYYY-MM-DD format, in
  *  PST (UTC - 8:00). Must be greater than or equal to the start date. This
  *  value is included in the range.
  */
-@property(copy, nullable) NSString *endDate;
+@property(nonatomic, copy, nullable) NSString *endDate;
 
 /**
  *  [Optional; Default is 1000] The maximum number of rows to return. Must be a
@@ -148,17 +148,17 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *rowLimit;
+@property(nonatomic, strong, nullable) NSNumber *rowLimit;
 
 /** [Optional; Default is "web"] The search type to filter for. */
-@property(copy, nullable) NSString *searchType;
+@property(nonatomic, copy, nullable) NSString *searchType;
 
 /**
  *  [Required] Start date of the requested date range, in YYYY-MM-DD format, in
  *  PST time (UTC - 8:00). Must be less than or equal to the end date. This
  *  value is included in the range.
  */
-@property(copy, nullable) NSString *startDate;
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 /**
  *  [Optional; Default is 0] Zero-based index of the first row in the response.
@@ -166,7 +166,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startRow;
+@property(nonatomic, strong, nullable) NSNumber *startRow;
 
 @end
 
@@ -179,12 +179,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRWebmasters_SearchAnalyticsQueryResponse : GTLRObject
 
 /** How the results were aggregated. */
-@property(copy, nullable) NSString *responseAggregationType;
+@property(nonatomic, copy, nullable) NSString *responseAggregationType;
 
 /**
  *  A list of rows grouped by the key values in the order given in the query.
  */
-@property(strong, nullable) NSArray<GTLRWebmasters_ApiDataRow *> *rows;
+@property(nonatomic, strong, nullable) NSArray<GTLRWebmasters_ApiDataRow *> *rows;
 
 @end
 
@@ -197,7 +197,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Contains detailed information about a specific URL submitted as a sitemap.
  */
-@property(strong, nullable) NSArray<GTLRWebmasters_WmxSitemap *> *sitemap;
+@property(nonatomic, strong, nullable) NSArray<GTLRWebmasters_WmxSitemap *> *sitemap;
 
 @end
 
@@ -211,7 +211,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains permission level information about a Search Console site. For more
  *  information, see Permissions in Search Console.
  */
-@property(strong, nullable) NSArray<GTLRWebmasters_WmxSite *> *siteEntry;
+@property(nonatomic, strong, nullable) NSArray<GTLRWebmasters_WmxSite *> *siteEntry;
 
 @end
 
@@ -226,12 +226,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
  *  The date and time when the crawl attempt took place, in RFC 3339 format.
  */
-@property(strong, nullable) GTLRDateTime *timestamp;
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
 @end
 
@@ -243,16 +243,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRWebmasters_UrlCrawlErrorCountsPerType : GTLRObject
 
 /** The crawl error type. */
-@property(copy, nullable) NSString *category;
+@property(nonatomic, copy, nullable) NSString *category;
 
 /** The error count entries time series. */
-@property(strong, nullable) NSArray<GTLRWebmasters_UrlCrawlErrorCount *> *entries;
+@property(nonatomic, strong, nullable) NSArray<GTLRWebmasters_UrlCrawlErrorCount *> *entries;
 
 /**
  *  The general type of Googlebot that made the request (see list of Googlebot
  *  user-agents for the user-agents used).
  */
-@property(copy, nullable) NSString *platform;
+@property(nonatomic, copy, nullable) NSString *platform;
 
 @end
 
@@ -267,7 +267,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The time series of the number of URL crawl errors per error category and
  *  platform.
  */
-@property(strong, nullable) NSArray<GTLRWebmasters_UrlCrawlErrorCountsPerType *> *countPerTypes;
+@property(nonatomic, strong, nullable) NSArray<GTLRWebmasters_UrlCrawlErrorCountsPerType *> *countPerTypes;
 
 @end
 
@@ -278,23 +278,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRWebmasters_UrlCrawlErrorsSample : GTLRObject
 
 /** The time the error was first detected, in RFC 3339 format. */
-@property(strong, nullable) GTLRDateTime *firstDetected;
+@property(nonatomic, strong, nullable) GTLRDateTime *firstDetected;
 
 /** The time when the URL was last crawled, in RFC 3339 format. */
-@property(strong, nullable) GTLRDateTime *lastCrawled;
+@property(nonatomic, strong, nullable) GTLRDateTime *lastCrawled;
 
 /** The URL of an error, relative to the site. */
-@property(copy, nullable) NSString *pageUrl;
+@property(nonatomic, copy, nullable) NSString *pageUrl;
 
 /**
  *  The HTTP response code, if any.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *responseCode;
+@property(nonatomic, strong, nullable) NSNumber *responseCode;
 
 /** Additional details about the URL, set only when calling get(). */
-@property(strong, nullable) GTLRWebmasters_UrlSampleDetails *urlDetails;
+@property(nonatomic, strong, nullable) GTLRWebmasters_UrlSampleDetails *urlDetails;
 
 @end
 
@@ -305,7 +305,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRWebmasters_UrlCrawlErrorsSamplesListResponse : GTLRObject
 
 /** Information about the sample URL and its crawl error. */
-@property(strong, nullable) NSArray<GTLRWebmasters_UrlCrawlErrorsSample *> *urlCrawlErrorSample;
+@property(nonatomic, strong, nullable) NSArray<GTLRWebmasters_UrlCrawlErrorsSample *> *urlCrawlErrorSample;
 
 @end
 
@@ -316,10 +316,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRWebmasters_UrlSampleDetails : GTLRObject
 
 /** List of sitemaps pointing at this URL. */
-@property(strong, nullable) NSArray<NSString *> *containingSitemaps;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *containingSitemaps;
 
 /** A sample set of URLs linking to this URL. */
-@property(strong, nullable) NSArray<NSString *> *linkedFromUrls;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *linkedFromUrls;
 
 @end
 
@@ -331,10 +331,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRWebmasters_WmxSite : GTLRObject
 
 /** The user's permission level for the site. */
-@property(copy, nullable) NSString *permissionLevel;
+@property(nonatomic, copy, nullable) NSString *permissionLevel;
 
 /** The URL of the site. */
-@property(copy, nullable) NSString *siteUrl;
+@property(nonatomic, copy, nullable) NSString *siteUrl;
 
 @end
 
@@ -345,7 +345,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRWebmasters_WmxSitemap : GTLRObject
 
 /** The various content types in the sitemap. */
-@property(strong, nullable) NSArray<GTLRWebmasters_WmxSitemapContent *> *contents;
+@property(nonatomic, strong, nullable) NSArray<GTLRWebmasters_WmxSitemapContent *> *contents;
 
 /**
  *  Number of errors in the sitemap. These are issues with the sitemap itself
@@ -353,39 +353,39 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *errors;
+@property(nonatomic, strong, nullable) NSNumber *errors;
 
 /**
  *  If true, the sitemap has not been processed.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isPending;
+@property(nonatomic, strong, nullable) NSNumber *isPending;
 
 /**
  *  If true, the sitemap is a collection of sitemaps.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isSitemapsIndex;
+@property(nonatomic, strong, nullable) NSNumber *isSitemapsIndex;
 
 /**
  *  Date & time in which this sitemap was last downloaded. Date format is in RFC
  *  3339 format (yyyy-mm-dd).
  */
-@property(strong, nullable) GTLRDateTime *lastDownloaded;
+@property(nonatomic, strong, nullable) GTLRDateTime *lastDownloaded;
 
 /**
  *  Date & time in which this sitemap was submitted. Date format is in RFC 3339
  *  format (yyyy-mm-dd).
  */
-@property(strong, nullable) GTLRDateTime *lastSubmitted;
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSubmitted;
 
 /** The url of the sitemap. */
-@property(copy, nullable) NSString *path;
+@property(nonatomic, copy, nullable) NSString *path;
 
 /** The type of the sitemap. For example: rssFeed. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Number of warnings for the sitemap. These are generally non-critical issues
@@ -393,7 +393,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *warnings;
+@property(nonatomic, strong, nullable) NSNumber *warnings;
 
 @end
 
@@ -408,17 +408,17 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *indexed;
+@property(nonatomic, strong, nullable) NSNumber *indexed;
 
 /**
  *  The number of URLs in the sitemap (of the content type).
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *submitted;
+@property(nonatomic, strong, nullable) NSNumber *submitted;
 
 /** The specific type of content in this sitemap. For example: web. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

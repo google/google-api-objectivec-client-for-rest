@@ -51,7 +51,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
 @interface GTLRCloudMonitoringQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -72,7 +72,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *  The project id. The value can be the numeric project ID or string-based
  *  project name.
  */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudMonitoring_MetricDescriptor.
@@ -105,10 +105,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
 //   +[GTLQueryCloudMonitoring queryForMetricDescriptorsDeleteWithproject:metric:]
 
 /** Name of the metric. */
-@property(copy, nullable) NSString *metric;
+@property(nonatomic, copy, nullable) NSString *metric;
 
 /** The project ID to which the metric belongs. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudMonitoring_DeleteMetricDescriptorResponse.
@@ -149,20 +149,20 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
  */
-@property(assign) NSInteger count;
+@property(nonatomic, assign) NSInteger count;
 
 /**
  *  The pagination token, which is used to page through large result sets. Set
  *  this value to the value of the nextPageToken to retrieve the next page of
  *  results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The project id. The value can be the numeric project ID or string-based
  *  project name.
  */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  The query used to search against existing metrics. Separate keywords with a
@@ -171,7 +171,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *  metrics are returned. If an empty string is passed with this field, no
  *  metrics are returned.
  */
-@property(copy, nullable) NSString *query;
+@property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  Fetches a @c GTLRCloudMonitoring_ListMetricDescriptorsResponse.
@@ -226,7 +226,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *    @arg @c kGTLRCloudMonitoringAggregatorMin Value "min"
  *    @arg @c kGTLRCloudMonitoringAggregatorSum Value "sum"
  */
-@property(copy, nullable) NSString *aggregator;
+@property(nonatomic, copy, nullable) NSString *aggregator;
 
 /**
  *  Maximum number of time series descriptors per page. Used for pagination. If
@@ -235,7 +235,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
  */
-@property(assign) NSInteger count;
+@property(nonatomic, assign) NSInteger count;
 
 /**
  *  A collection of labels for the matching time series, which are represented
@@ -247,33 +247,33 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *  the time series descriptors for the region us-central1, you could specify:
  *  label=cloud.googleapis.com%2Flocation=~us-central1.*
  */
-@property(strong, nullable) NSArray<NSString *> *labels;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
 
 /**
  *  Metric names are protocol-free URLs as listed in the Supported Metrics page.
  *  For example, compute.googleapis.com/instance/disk/read_ops_count.
  */
-@property(copy, nullable) NSString *metric;
+@property(nonatomic, copy, nullable) NSString *metric;
 
 /**
  *  Start of the time interval (exclusive), which is expressed as an RFC 3339
  *  timestamp. If neither oldest nor timespan is specified, the default time
  *  interval will be (youngest - 4 hours, youngest]
  */
-@property(copy, nullable) NSString *oldest;
+@property(nonatomic, copy, nullable) NSString *oldest;
 
 /**
  *  The pagination token, which is used to page through large result sets. Set
  *  this value to the value of the nextPageToken to retrieve the next page of
  *  results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The project ID to which this time series belongs. The value can be the
  *  numeric project ID or string-based project name.
  */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Length of the time interval to query, which is an alternative way to declare
@@ -288,7 +288,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *  If neither oldest nor timespan is specified, the default time interval will
  *  be (youngest - 4 hours, youngest].
  */
-@property(copy, nullable) NSString *timespan;
+@property(nonatomic, copy, nullable) NSString *timespan;
 
 /**
  *  The sampling window. At most one data point will be returned for each window
@@ -300,13 +300,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *  - w: week Examples: 3m, 4w. Only one unit is allowed, for example: 2w3d is
  *  not allowed; you should use 17d instead.
  */
-@property(copy, nullable) NSString *window;
+@property(nonatomic, copy, nullable) NSString *window;
 
 /**
  *  End of the time interval (inclusive), which is expressed as an RFC 3339
  *  timestamp.
  */
-@property(copy, nullable) NSString *youngest;
+@property(nonatomic, copy, nullable) NSString *youngest;
 
 /**
  *  Fetches a @c GTLRCloudMonitoring_ListTimeseriesDescriptorsResponse.
@@ -368,7 +368,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *    @arg @c kGTLRCloudMonitoringAggregatorMin Value "min"
  *    @arg @c kGTLRCloudMonitoringAggregatorSum Value "sum"
  */
-@property(copy, nullable) NSString *aggregator;
+@property(nonatomic, copy, nullable) NSString *aggregator;
 
 /**
  *  Maximum number of data points per page, which is used for pagination of
@@ -377,7 +377,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *  @note If not set, the documented server-side default will be 6000 (from the
  *        range 1..12000).
  */
-@property(assign) NSInteger count;
+@property(nonatomic, assign) NSInteger count;
 
 /**
  *  A collection of labels for the matching time series, which are represented
@@ -389,33 +389,33 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *  the time series descriptors for the region us-central1, you could specify:
  *  label=cloud.googleapis.com%2Flocation=~us-central1.*
  */
-@property(strong, nullable) NSArray<NSString *> *labels;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
 
 /**
  *  Metric names are protocol-free URLs as listed in the Supported Metrics page.
  *  For example, compute.googleapis.com/instance/disk/read_ops_count.
  */
-@property(copy, nullable) NSString *metric;
+@property(nonatomic, copy, nullable) NSString *metric;
 
 /**
  *  Start of the time interval (exclusive), which is expressed as an RFC 3339
  *  timestamp. If neither oldest nor timespan is specified, the default time
  *  interval will be (youngest - 4 hours, youngest]
  */
-@property(copy, nullable) NSString *oldest;
+@property(nonatomic, copy, nullable) NSString *oldest;
 
 /**
  *  The pagination token, which is used to page through large result sets. Set
  *  this value to the value of the nextPageToken to retrieve the next page of
  *  results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The project ID to which this time series belongs. The value can be the
  *  numeric project ID or string-based project name.
  */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Length of the time interval to query, which is an alternative way to declare
@@ -430,7 +430,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *  If neither oldest nor timespan is specified, the default time interval will
  *  be (youngest - 4 hours, youngest].
  */
-@property(copy, nullable) NSString *timespan;
+@property(nonatomic, copy, nullable) NSString *timespan;
 
 /**
  *  The sampling window. At most one data point will be returned for each window
@@ -442,13 +442,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *  - w: week Examples: 3m, 4w. Only one unit is allowed, for example: 2w3d is
  *  not allowed; you should use 17d instead.
  */
-@property(copy, nullable) NSString *window;
+@property(nonatomic, copy, nullable) NSString *window;
 
 /**
  *  End of the time interval (inclusive), which is expressed as an RFC 3339
  *  timestamp.
  */
-@property(copy, nullable) NSString *youngest;
+@property(nonatomic, copy, nullable) NSString *youngest;
 
 /**
  *  Fetches a @c GTLRCloudMonitoring_ListTimeseriesResponse.
@@ -505,7 +505,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
  *  The project ID. The value can be the numeric project ID or string-based
  *  project name.
  */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudMonitoring_WriteTimeseriesResponse.

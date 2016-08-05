@@ -272,23 +272,23 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_Account : GTLRObject
 
 /** The Account ID uniquely identifies the GTM Account. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  The fingerprint of the GTM Account as computed at storage time. This value
  *  is recomputed whenever the account is modified.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /** Account display name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Whether the account shares data anonymously with Google and others.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *shareData;
+@property(nonatomic, strong, nullable) NSNumber *shareData;
 
 @end
 
@@ -301,7 +301,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 /**
  *  List of Account permissions. Valid account permissions are read and manage.
  */
-@property(strong, nullable) NSArray<NSString *> *permission;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permission;
 
 @end
 
@@ -323,7 +323,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *  - To negate an operator, include a boolean parameter named negate boolean
  *  parameter that is set to true.
  */
-@property(strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
 
 /**
  *  The type of operator for this condition.
@@ -342,7 +342,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *    @arg @c kGTLRTagManager_Condition_Type_StartsWith Value "startsWith"
  *    @arg @c kGTLRTagManager_Condition_Type_UrlMatches Value "urlMatches"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -353,13 +353,13 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_Container : GTLRObject
 
 /** GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The Container ID uniquely identifies the GTM Container. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** Optional list of domain names associated with the Container. */
-@property(strong, nullable) NSArray<NSString *> *domainName;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *domainName;
 
 /**
  *  List of enabled built-in variables. Valid values include: pageUrl,
@@ -369,34 +369,34 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *  newHistoryFragment, oldHistoryFragment, newHistoryState, oldHistoryState,
  *  historySource, containerVersion, debugMode, randomNumber, containerId.
  */
-@property(strong, nullable) NSArray<NSString *> *enabledBuiltInVariable;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledBuiltInVariable;
 
 /**
  *  The fingerprint of the GTM Container as computed at storage time. This value
  *  is recomputed whenever the account is modified.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /** Container display name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Container Notes. */
-@property(copy, nullable) NSString *notes;
+@property(nonatomic, copy, nullable) NSString *notes;
 
 /** Container Public ID. */
-@property(copy, nullable) NSString *publicId;
+@property(nonatomic, copy, nullable) NSString *publicId;
 
 /** Container Country ID. */
-@property(copy, nullable) NSString *timeZoneCountryId;
+@property(nonatomic, copy, nullable) NSString *timeZoneCountryId;
 
 /** Container Time Zone ID. */
-@property(copy, nullable) NSString *timeZoneId;
+@property(nonatomic, copy, nullable) NSString *timeZoneId;
 
 /**
  *  List of Usage Contexts for the Container. Valid values include: web,
  *  android, ios.
  */
-@property(strong, nullable) NSArray<NSString *> *usageContext;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *usageContext;
 
 @end
 
@@ -407,13 +407,13 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_ContainerAccess : GTLRObject
 
 /** GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  List of Container permissions. Valid container permissions are: read, edit,
  *  delete, publish.
  */
-@property(strong, nullable) NSArray<NSString *> *permission;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permission;
 
 @end
 
@@ -424,53 +424,53 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_ContainerVersion : GTLRObject
 
 /** GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The container that this version was taken from. */
-@property(strong, nullable) GTLRTagManager_Container *container;
+@property(nonatomic, strong, nullable) GTLRTagManager_Container *container;
 
 /** GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The Container Version ID uniquely identifies the GTM Container Version. */
-@property(copy, nullable) NSString *containerVersionId;
+@property(nonatomic, copy, nullable) NSString *containerVersionId;
 
 /**
  *  A value of true indicates this container version has been deleted.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *deleted;
+@property(nonatomic, strong, nullable) NSNumber *deleted;
 
 /**
  *  The fingerprint of the GTM Container Version as computed at storage time.
  *  This value is recomputed whenever the container version is modified.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /** The folders in the container that this version was taken from. */
-@property(strong, nullable) NSArray<GTLRTagManager_Folder *> *folder;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Folder *> *folder;
 
 /** The macros in the container that this version was taken from. */
-@property(strong, nullable) NSArray<GTLRTagManager_Macro *> *macro;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Macro *> *macro;
 
 /** Container version display name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** User notes on how to apply this container version in the container. */
-@property(copy, nullable) NSString *notes;
+@property(nonatomic, copy, nullable) NSString *notes;
 
 /** The rules in the container that this version was taken from. */
-@property(strong, nullable) NSArray<GTLRTagManager_Rule *> *rule;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Rule *> *rule;
 
 /** The tags in the container that this version was taken from. */
-@property(strong, nullable) NSArray<GTLRTagManager_Tag *> *tag;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Tag *> *tag;
 
 /** The triggers in the container that this version was taken from. */
-@property(strong, nullable) NSArray<GTLRTagManager_Trigger *> *trigger;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Trigger *> *trigger;
 
 /** The variables in the container that this version was taken from. */
-@property(strong, nullable) NSArray<GTLRTagManager_Variable *> *variable;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Variable *> *variable;
 
 @end
 
@@ -481,38 +481,38 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_ContainerVersionHeader : GTLRObject
 
 /** GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The Container Version ID uniquely identifies the GTM Container Version. */
-@property(copy, nullable) NSString *containerVersionId;
+@property(nonatomic, copy, nullable) NSString *containerVersionId;
 
 /**
  *  A value of true indicates this container version has been deleted.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *deleted;
+@property(nonatomic, strong, nullable) NSNumber *deleted;
 
 /** Container version display name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Number of macros in the container version. */
-@property(copy, nullable) NSString *numMacros;
+@property(nonatomic, copy, nullable) NSString *numMacros;
 
 /** Number of rules in the container version. */
-@property(copy, nullable) NSString *numRules;
+@property(nonatomic, copy, nullable) NSString *numRules;
 
 /** Number of tags in the container version. */
-@property(copy, nullable) NSString *numTags;
+@property(nonatomic, copy, nullable) NSString *numTags;
 
 /** Number of triggers in the container version. */
-@property(copy, nullable) NSString *numTriggers;
+@property(nonatomic, copy, nullable) NSString *numTriggers;
 
 /** Number of variables in the container version. */
-@property(copy, nullable) NSString *numVariables;
+@property(nonatomic, copy, nullable) NSString *numVariables;
 
 @end
 
@@ -523,10 +523,10 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_CreateContainerVersionRequestVersionOptions : GTLRObject
 
 /** The name of the container version to be created. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The notes of the container version to be created. */
-@property(copy, nullable) NSString *notes;
+@property(nonatomic, copy, nullable) NSString *notes;
 
 /**
  *  The creation of this version may be for quick preview and shouldn't be
@@ -534,7 +534,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *quickPreview;
+@property(nonatomic, strong, nullable) NSNumber *quickPreview;
 
 @end
 
@@ -549,10 +549,10 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *compilerError;
+@property(nonatomic, strong, nullable) NSNumber *compilerError;
 
 /** The container version created. */
-@property(strong, nullable) GTLRTagManager_ContainerVersion *containerVersion;
+@property(nonatomic, strong, nullable) GTLRTagManager_ContainerVersion *containerVersion;
 
 @end
 
@@ -565,22 +565,22 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_Environment : GTLRObject
 
 /** GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The environment authorization code. */
-@property(copy, nullable) NSString *authorizationCode;
+@property(nonatomic, copy, nullable) NSString *authorizationCode;
 
 /**
  *  The last update time-stamp for the authorization code.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *authorizationTimestampMs;
+@property(nonatomic, strong, nullable) NSNumber *authorizationTimestampMs;
 
 /** GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
-@property(copy, nullable) NSString *containerVersionId;
+@property(nonatomic, copy, nullable) NSString *containerVersionId;
 
 /**
  *  The environment description. Can be set or changed only on USER type
@@ -588,29 +588,29 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Whether or not to enable debug by default on for the environment.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enableDebug;
+@property(nonatomic, strong, nullable) NSNumber *enableDebug;
 
 /** GTM Environment ID uniquely identifies the GTM Environment. */
-@property(copy, nullable) NSString *environmentId;
+@property(nonatomic, copy, nullable) NSString *environmentId;
 
 /**
  *  The fingerprint of the GTM environment as computed at storage time. This
  *  value is recomputed whenever the environment is modified.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
  *  The environment display name. Can be set or changed only on USER type
  *  environments.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The type of this environment.
@@ -621,10 +621,10 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *    @arg @c kGTLRTagManager_Environment_Type_Live Value "live"
  *    @arg @c kGTLRTagManager_Environment_Type_User Value "user"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Default preview page url for the environment. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -635,22 +635,22 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_Folder : GTLRObject
 
 /** GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  The fingerprint of the GTM Folder as computed at storage time. This value is
  *  recomputed whenever the folder is modified.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /** The Folder ID uniquely identifies the GTM Folder. */
-@property(copy, nullable) NSString *folderId;
+@property(nonatomic, copy, nullable) NSString *folderId;
 
 /** Folder display name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -661,13 +661,13 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_FolderEntities : GTLRObject
 
 /** The list of tags inside the folder. */
-@property(strong, nullable) NSArray<GTLRTagManager_Tag *> *tag;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Tag *> *tag;
 
 /** The list of triggers inside the folder. */
-@property(strong, nullable) NSArray<GTLRTagManager_Trigger *> *trigger;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Trigger *> *trigger;
 
 /** The list of variables inside the folder. */
-@property(strong, nullable) NSArray<GTLRTagManager_Variable *> *variable;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Variable *> *variable;
 
 @end
 
@@ -678,7 +678,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_ListAccountsResponse : GTLRObject
 
 /** List of GTM Accounts that a user has access to. */
-@property(strong, nullable) NSArray<GTLRTagManager_Account *> *accounts;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Account *> *accounts;
 
 @end
 
@@ -689,7 +689,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_ListAccountUsersResponse : GTLRObject
 
 /** All GTM AccountUsers of a GTM Account. */
-@property(strong, nullable) NSArray<GTLRTagManager_UserAccess *> *userAccess;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_UserAccess *> *userAccess;
 
 @end
 
@@ -700,7 +700,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_ListContainersResponse : GTLRObject
 
 /** All Containers of a GTM Account. */
-@property(strong, nullable) NSArray<GTLRTagManager_Container *> *containers;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Container *> *containers;
 
 @end
 
@@ -711,10 +711,10 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_ListContainerVersionsResponse : GTLRObject
 
 /** All versions of a GTM Container. */
-@property(strong, nullable) NSArray<GTLRTagManager_ContainerVersion *> *containerVersion;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_ContainerVersion *> *containerVersion;
 
 /** All container version headers of a GTM Container. */
-@property(strong, nullable) NSArray<GTLRTagManager_ContainerVersionHeader *> *containerVersionHeader;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_ContainerVersionHeader *> *containerVersionHeader;
 
 @end
 
@@ -725,7 +725,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_ListEnvironmentsResponse : GTLRObject
 
 /** All Environments of a GTM Container. */
-@property(strong, nullable) NSArray<GTLRTagManager_Environment *> *environments;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Environment *> *environments;
 
 @end
 
@@ -736,7 +736,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_ListFoldersResponse : GTLRObject
 
 /** All GTM Folders of a GTM Container. */
-@property(strong, nullable) NSArray<GTLRTagManager_Folder *> *folders;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Folder *> *folders;
 
 @end
 
@@ -747,7 +747,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_ListTagsResponse : GTLRObject
 
 /** All GTM Tags of a GTM Container. */
-@property(strong, nullable) NSArray<GTLRTagManager_Tag *> *tags;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Tag *> *tags;
 
 @end
 
@@ -758,7 +758,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_ListTriggersResponse : GTLRObject
 
 /** All GTM Triggers of a GTM Container. */
-@property(strong, nullable) NSArray<GTLRTagManager_Trigger *> *triggers;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Trigger *> *triggers;
 
 @end
 
@@ -769,7 +769,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_ListVariablesResponse : GTLRObject
 
 /** All GTM Variables of a GTM Container. */
-@property(strong, nullable) NSArray<GTLRTagManager_Variable *> *variables;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Variable *> *variables;
 
 @end
 
@@ -780,62 +780,62 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_Macro : GTLRObject
 
 /** GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  For mobile containers only: A list of rule IDs for disabling conditional
  *  macros; the macro is enabled if one of the enabling rules is true while all
  *  the disabling rules are false. Treated as an unordered set.
  */
-@property(strong, nullable) NSArray<NSString *> *disablingRuleId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *disablingRuleId;
 
 /**
  *  For mobile containers only: A list of rule IDs for enabling conditional
  *  macros; the macro is enabled if one of the enabling rules is true while all
  *  the disabling rules are false. Treated as an unordered set.
  */
-@property(strong, nullable) NSArray<NSString *> *enablingRuleId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enablingRuleId;
 
 /**
  *  The fingerprint of the GTM Macro as computed at storage time. This value is
  *  recomputed whenever the macro is modified.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /** The Macro ID uniquely identifies the GTM Macro. */
-@property(copy, nullable) NSString *macroId;
+@property(nonatomic, copy, nullable) NSString *macroId;
 
 /** Macro display name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** User notes on how to apply this macro in the container. */
-@property(copy, nullable) NSString *notes;
+@property(nonatomic, copy, nullable) NSString *notes;
 
 /** The macro's parameters. */
-@property(strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
 
 /** Parent folder id. */
-@property(copy, nullable) NSString *parentFolderId;
+@property(nonatomic, copy, nullable) NSString *parentFolderId;
 
 /**
  *  The end timestamp in milliseconds to schedule a macro.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *scheduleEndMs;
+@property(nonatomic, strong, nullable) NSNumber *scheduleEndMs;
 
 /**
  *  The start timestamp in milliseconds to schedule a macro.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *scheduleStartMs;
+@property(nonatomic, strong, nullable) NSNumber *scheduleStartMs;
 
 /** GTM Macro Type. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -849,13 +849,13 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *  The named key that uniquely identifies a parameter. Required for top-level
  *  parameters, as well as map values. Ignored for list values.
  */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 /** This list parameter's parameters (keys will be ignored). */
-@property(strong, nullable) NSArray<GTLRTagManager_Parameter *> *list;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *list;
 
 /** This map parameter's parameters (must have keys; keys must be unique). */
-@property(strong, nullable) NSArray<GTLRTagManager_Parameter *> *map;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *map;
 
 /**
  *  The parameter type. Valid values are:
@@ -873,13 +873,13 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *    @arg @c kGTLRTagManager_Parameter_Type_Map Value "map"
  *    @arg @c kGTLRTagManager_Parameter_Type_Template Value "template"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  A parameter's value (may contain variable references such as
  *  "{{myVariable}}") as appropriate to the specified type.
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -894,10 +894,10 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *compilerError;
+@property(nonatomic, strong, nullable) NSNumber *compilerError;
 
 /** The container version created. */
-@property(strong, nullable) GTLRTagManager_ContainerVersion *containerVersion;
+@property(nonatomic, strong, nullable) GTLRTagManager_ContainerVersion *containerVersion;
 
 @end
 
@@ -908,30 +908,30 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_Rule : GTLRObject
 
 /** GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  The list of conditions that make up this rule (implicit AND between them).
  */
-@property(strong, nullable) NSArray<GTLRTagManager_Condition *> *condition;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Condition *> *condition;
 
 /** GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  The fingerprint of the GTM Rule as computed at storage time. This value is
  *  recomputed whenever the rule is modified.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /** Rule display name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** User notes on how to apply this rule in the container. */
-@property(copy, nullable) NSString *notes;
+@property(nonatomic, copy, nullable) NSString *notes;
 
 /** The Rule ID uniquely identifies the GTM Rule. */
-@property(copy, nullable) NSString *ruleId;
+@property(nonatomic, copy, nullable) NSString *ruleId;
 
 @end
 
@@ -947,10 +947,10 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *stopOnSetupFailure;
+@property(nonatomic, strong, nullable) NSNumber *stopOnSetupFailure;
 
 /** The name of the setup tag. */
-@property(copy, nullable) NSString *tagName;
+@property(nonatomic, copy, nullable) NSString *tagName;
 
 @end
 
@@ -961,40 +961,40 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_Tag : GTLRObject
 
 /** GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Blocking rule IDs. If any of the listed rules evaluate to true, the tag will
  *  not fire.
  */
-@property(strong, nullable) NSArray<NSString *> *blockingRuleId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *blockingRuleId;
 
 /**
  *  Blocking trigger IDs. If any of the listed triggers evaluate to true, the
  *  tag will not fire.
  */
-@property(strong, nullable) NSArray<NSString *> *blockingTriggerId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *blockingTriggerId;
 
 /** GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  The fingerprint of the GTM Tag as computed at storage time. This value is
  *  recomputed whenever the tag is modified.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
  *  Firing rule IDs. A tag will fire when any of the listed rules are true and
  *  all of its blockingRuleIds (if any specified) are false.
  */
-@property(strong, nullable) NSArray<NSString *> *firingRuleId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *firingRuleId;
 
 /**
  *  Firing trigger IDs. A tag will fire when any of the listed triggers are true
  *  and all of its blockingTriggerIds (if any specified) are false.
  */
-@property(strong, nullable) NSArray<NSString *> *firingTriggerId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *firingTriggerId;
 
 /**
  *  If set to true, this tag will only fire in the live environment (e.g. not in
@@ -1002,43 +1002,43 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *liveOnly;
+@property(nonatomic, strong, nullable) NSNumber *liveOnly;
 
 /** Tag display name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** User notes on how to apply this tag in the container. */
-@property(copy, nullable) NSString *notes;
+@property(nonatomic, copy, nullable) NSString *notes;
 
 /** The tag's parameters. */
-@property(strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
 
 /** Parent folder id. */
-@property(copy, nullable) NSString *parentFolderId;
+@property(nonatomic, copy, nullable) NSString *parentFolderId;
 
 /**
  *  User defined numeric priority of the tag. Tags are fired asynchronously in
  *  order of priority. Tags with higher numeric value fire first. A tag's
  *  priority can be a positive or negative value. The default value is 0.
  */
-@property(strong, nullable) GTLRTagManager_Parameter *priority;
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *priority;
 
 /**
  *  The end timestamp in milliseconds to schedule a tag.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *scheduleEndMs;
+@property(nonatomic, strong, nullable) NSNumber *scheduleEndMs;
 
 /**
  *  The start timestamp in milliseconds to schedule a tag.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *scheduleStartMs;
+@property(nonatomic, strong, nullable) NSNumber *scheduleStartMs;
 
 /** The list of setup tags. Currently we only allow one. */
-@property(strong, nullable) NSArray<GTLRTagManager_SetupTag *> *setupTag;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_SetupTag *> *setupTag;
 
 /**
  *  Option to fire this tag.
@@ -1050,16 +1050,16 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *        "oncePerLoad"
  *    @arg @c kGTLRTagManager_Tag_TagFiringOption_Unlimited Value "unlimited"
  */
-@property(copy, nullable) NSString *tagFiringOption;
+@property(nonatomic, copy, nullable) NSString *tagFiringOption;
 
 /** The Tag ID uniquely identifies the GTM Tag. */
-@property(copy, nullable) NSString *tagId;
+@property(nonatomic, copy, nullable) NSString *tagId;
 
 /** The list of teardown tags. Currently we only allow one. */
-@property(strong, nullable) NSArray<GTLRTagManager_TeardownTag *> *teardownTag;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_TeardownTag *> *teardownTag;
 
 /** GTM Tag Type. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1076,10 +1076,10 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *stopTeardownOnFailure;
+@property(nonatomic, strong, nullable) NSNumber *stopTeardownOnFailure;
 
 /** The name of the teardown tag. */
-@property(copy, nullable) NSString *tagName;
+@property(nonatomic, copy, nullable) NSString *tagName;
 
 @end
 
@@ -1090,67 +1090,67 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_Trigger : GTLRObject
 
 /** GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Used in the case of auto event tracking. */
-@property(strong, nullable) NSArray<GTLRTagManager_Condition *> *autoEventFilter;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Condition *> *autoEventFilter;
 
 /**
  *  Whether or not we should only fire tags if the form submit or link click
  *  event is not cancelled by some other event handler (e.g. because of
  *  validation). Only valid for Form Submission and Link Click triggers.
  */
-@property(strong, nullable) GTLRTagManager_Parameter *checkValidation;
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *checkValidation;
 
 /** GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Used in the case of custom event, which is fired iff all Conditions are
  *  true.
  */
-@property(strong, nullable) NSArray<GTLRTagManager_Condition *> *customEventFilter;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Condition *> *customEventFilter;
 
 /**
  *  Reloads the videos in the page that don't already have the YT API enabled.
  *  If false, only capture events from videos that already have the API enabled.
  *  Only valid for YouTube triggers.
  */
-@property(strong, nullable) GTLRTagManager_Parameter *enableAllVideos;
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *enableAllVideos;
 
 /** Name of the GTM event that is fired. Only valid for Timer triggers. */
-@property(strong, nullable) GTLRTagManager_Parameter *eventName;
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *eventName;
 
 /** The trigger will only fire iff all Conditions are true. */
-@property(strong, nullable) NSArray<GTLRTagManager_Condition *> *filter;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Condition *> *filter;
 
 /**
  *  The fingerprint of the GTM Trigger as computed at storage time. This value
  *  is recomputed whenever the trigger is modified.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
  *  Time between triggering recurring Timer Events (in milliseconds). Only valid
  *  for Timer triggers.
  */
-@property(strong, nullable) GTLRTagManager_Parameter *interval;
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *interval;
 
 /**
  *  Limit of the number of GTM events this Timer Trigger will fire. If no limit
  *  is set, we will continue to fire GTM events until the user leaves the page.
  *  Only valid for Timer triggers.
  */
-@property(strong, nullable) GTLRTagManager_Parameter *limit;
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *limit;
 
 /** Trigger display name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Parent folder id. */
-@property(copy, nullable) NSString *parentFolderId;
+@property(nonatomic, copy, nullable) NSString *parentFolderId;
 
 /** The Trigger ID uniquely identifies the GTM Trigger. */
-@property(copy, nullable) NSString *triggerId;
+@property(nonatomic, copy, nullable) NSString *triggerId;
 
 /**
  *  Defines the data layer event that causes this trigger.
@@ -1170,7 +1170,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *    @arg @c kGTLRTagManager_Trigger_Type_WindowLoaded Value "windowLoaded"
  *    @arg @c kGTLRTagManager_Trigger_Type_YouTube Value "youTube"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Globally unique id of the trigger that auto-generates this (a Form Submit,
@@ -1179,13 +1179,13 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *  populated during output generation since the tags implied by triggers don't
  *  exist until then. Only valid for Form Submit, Link Click and Timer triggers.
  */
-@property(strong, nullable) GTLRTagManager_Parameter *uniqueTriggerId;
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *uniqueTriggerId;
 
 /**
  *  List of integer percentage values. The trigger will fire as each percentage
  *  is reached in any instrumented videos. Only valid for YouTube triggers.
  */
-@property(strong, nullable) GTLRTagManager_Parameter *videoPercentageList;
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *videoPercentageList;
 
 /**
  *  Whether or not we should delay the form submissions or link opening until
@@ -1193,14 +1193,14 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *  simulating the default action). Only valid for Form Submission and Link
  *  Click triggers.
  */
-@property(strong, nullable) GTLRTagManager_Parameter *waitForTags;
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *waitForTags;
 
 /**
  *  How long to wait (in milliseconds) for tags to fire when 'waits_for_tags'
  *  above evaluates to true. Only valid for Form Submission and Link Click
  *  triggers.
  */
-@property(strong, nullable) GTLRTagManager_Parameter *waitForTagsTimeout;
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *waitForTagsTimeout;
 
 @end
 
@@ -1211,19 +1211,19 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_UserAccess : GTLRObject
 
 /** GTM Account access permissions. */
-@property(strong, nullable) GTLRTagManager_AccountAccess *accountAccess;
+@property(nonatomic, strong, nullable) GTLRTagManager_AccountAccess *accountAccess;
 
 /** GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** GTM Container access permissions. */
-@property(strong, nullable) NSArray<GTLRTagManager_ContainerAccess *> *containerAccess;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_ContainerAccess *> *containerAccess;
 
 /** User's email address. */
-@property(copy, nullable) NSString *emailAddress;
+@property(nonatomic, copy, nullable) NSString *emailAddress;
 
 /** Account Permission ID. */
-@property(copy, nullable) NSString *permissionId;
+@property(nonatomic, copy, nullable) NSString *permissionId;
 
 @end
 
@@ -1234,62 +1234,62 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_Variable : GTLRObject
 
 /** GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  For mobile containers only: A list of trigger IDs for disabling conditional
  *  variables; the variable is enabled if one of the enabling trigger is true
  *  while all the disabling trigger are false. Treated as an unordered set.
  */
-@property(strong, nullable) NSArray<NSString *> *disablingTriggerId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *disablingTriggerId;
 
 /**
  *  For mobile containers only: A list of trigger IDs for enabling conditional
  *  variables; the variable is enabled if one of the enabling triggers is true
  *  while all the disabling triggers are false. Treated as an unordered set.
  */
-@property(strong, nullable) NSArray<NSString *> *enablingTriggerId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enablingTriggerId;
 
 /**
  *  The fingerprint of the GTM Variable as computed at storage time. This value
  *  is recomputed whenever the variable is modified.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /** Variable display name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** User notes on how to apply this variable in the container. */
-@property(copy, nullable) NSString *notes;
+@property(nonatomic, copy, nullable) NSString *notes;
 
 /** The variable's parameters. */
-@property(strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
 
 /** Parent folder id. */
-@property(copy, nullable) NSString *parentFolderId;
+@property(nonatomic, copy, nullable) NSString *parentFolderId;
 
 /**
  *  The end timestamp in milliseconds to schedule a variable.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *scheduleEndMs;
+@property(nonatomic, strong, nullable) NSNumber *scheduleEndMs;
 
 /**
  *  The start timestamp in milliseconds to schedule a variable.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *scheduleStartMs;
+@property(nonatomic, strong, nullable) NSNumber *scheduleStartMs;
 
 /** GTM Variable Type. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** The Variable ID uniquely identifies the GTM Variable. */
-@property(copy, nullable) NSString *variableId;
+@property(nonatomic, copy, nullable) NSString *variableId;
 
 @end
 

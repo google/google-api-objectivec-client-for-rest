@@ -22,7 +22,6 @@
 @class GTLRAdExchangeBuyerII_Client;
 @class GTLRAdExchangeBuyerII_ClientUser;
 @class GTLRAdExchangeBuyerII_ClientUserInvitation;
-@class GTLRAdExchangeBuyerII_FilterSet;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyerIIQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -52,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Unique numerical account ID for the buyer of which the client buyer
  *  is a customer; the sponsor buyer to create a client for. (required)
  */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyerII_Client.
@@ -84,10 +83,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsGetWithaccountId:clientAccountId:]
 
 /** Numerical account ID of the client's sponsor buyer. (required) */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /** Numerical account ID of the client buyer to retrieve. (required) */
-@property(assign) long long clientAccountId;
+@property(nonatomic, assign) long long clientAccountId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyerII_Client.
@@ -120,13 +119,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsInvitationsCreateWithObject:accountId:clientAccountId:]
 
 /** Numerical account ID of the client's sponsor buyer. (required) */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /**
  *  Numerical account ID of the client buyer that the user
  *  should be associated with. (required)
  */
-@property(assign) long long clientAccountId;
+@property(nonatomic, assign) long long clientAccountId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyerII_ClientUserInvitation.
@@ -163,16 +162,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsInvitationsGetWithaccountId:clientAccountId:invitationId:]
 
 /** Numerical account ID of the client's sponsor buyer. (required) */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /**
  *  Numerical account ID of the client buyer that the user invitation
  *  to be retrieved is associated with. (required)
  */
-@property(assign) long long clientAccountId;
+@property(nonatomic, assign) long long clientAccountId;
 
 /** Numerical identifier of the user invitation to retrieve. (required) */
-@property(assign) long long invitationId;
+@property(nonatomic, assign) long long invitationId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyerII_ClientUserInvitation.
@@ -209,7 +208,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsInvitationsListWithaccountId:clientAccountId:]
 
 /** Numerical account ID of the client's sponsor buyer. (required) */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /**
  *  Numerical account ID of the client buyer to list invitations for.
@@ -219,13 +218,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  to list all the invitations for all the clients
  *  of a given sponsor buyer.
  */
-@property(copy, nullable) NSString *clientAccountId;
+@property(nonatomic, copy, nullable) NSString *clientAccountId;
 
 /**
  *  Requested page size. Server may return fewer clients than requested.
  *  If unspecified, server will pick an appropriate default.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A token identifying a page of results the server should return.
@@ -235,7 +234,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  clients.invitations.list
  *  method.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyerII_ListClientUserInvitationsResponse.
@@ -279,13 +278,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Unique numerical account ID of the sponsor buyer to list the clients for.
  */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /**
  *  Requested page size. The server may return fewer clients than requested.
  *  If unspecified, the server will pick an appropriate default.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A token identifying a page of results the server should return.
@@ -294,7 +293,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  returned from the previous call to the
  *  accounts.clients.list method.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyerII_ListClientsResponse.
@@ -330,10 +329,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Unique numerical account ID for the buyer of which the client buyer
  *  is a customer; the sponsor buyer to update a client for. (required)
  */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /** Unique numerical account ID of the client to update. (required) */
-@property(assign) long long clientAccountId;
+@property(nonatomic, assign) long long clientAccountId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyerII_Client.
@@ -368,16 +367,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsUsersGetWithaccountId:clientAccountId:userId:]
 
 /** Numerical account ID of the client's sponsor buyer. (required) */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /**
  *  Numerical account ID of the client buyer
  *  that the user to be retrieved is associated with. (required)
  */
-@property(assign) long long clientAccountId;
+@property(nonatomic, assign) long long clientAccountId;
 
 /** Numerical identifier of the user to retrieve. (required) */
-@property(assign) long long userId;
+@property(nonatomic, assign) long long userId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyerII_ClientUser.
@@ -415,7 +414,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Numerical account ID of the sponsor buyer of the client to list users for.
  *  (required)
  */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /**
  *  The account ID of the client buyer to list users for. (required)
@@ -424,13 +423,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  to list all the client users for all the clients
  *  of a given sponsor buyer.
  */
-@property(copy, nullable) NSString *clientAccountId;
+@property(nonatomic, copy, nullable) NSString *clientAccountId;
 
 /**
  *  Requested page size. The server may return fewer clients than requested.
  *  If unspecified, the server will pick an appropriate default.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A token identifying a page of results the server should return.
@@ -439,7 +438,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  returned from the previous call to the
  *  accounts.clients.users.list method.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyerII_ListClientUsersResponse.
@@ -482,16 +481,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsUsersUpdateWithObject:accountId:clientAccountId:userId:]
 
 /** Numerical account ID of the client's sponsor buyer. (required) */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /**
  *  Numerical account ID of the client buyer that the user to be retrieved
  *  is associated with. (required)
  */
-@property(assign) long long clientAccountId;
+@property(nonatomic, assign) long long clientAccountId;
 
 /** Numerical identifier of the user to retrieve. (required) */
-@property(assign) long long userId;
+@property(nonatomic, assign) long long userId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyerII_ClientUser.
@@ -514,606 +513,6 @@ NS_ASSUME_NONNULL_BEGIN
                       accountId:(long long)accountId
                 clientAccountId:(long long)clientAccountId
                          userId:(long long)userId;
-
-@end
-
-/**
- *  Creates the specified filter set for the account with the given account ID.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsCreate : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsCreateWithObject:accountId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/**
- *  Whether the filter set is transient, or should be persisted indefinitely.
- *  By default, filter sets are not transient.
- *  If transient, it will be available for at least 1 hour after creation.
- */
-@property(assign) BOOL isTransient;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_FilterSet.
- *
- *  Creates the specified filter set for the account with the given account ID.
- *
- *  @param object The @c GTLRAdExchangeBuyerII_FilterSet to include in the
- *    query.
- *  @param accountId Account ID of the buyer.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsCreate
- */
-+ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_FilterSet *)object
-                      accountId:(long long)accountId;
-
-@end
-
-/**
- *  Deletes the requested filter set from the account with the given account
- *  ID.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsDelete : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsDeleteWithaccountId:filterSetId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/** The ID of the filter set to delete. */
-@property(assign) NSInteger filterSetId;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_Empty.
- *
- *  Deletes the requested filter set from the account with the given account
- *  ID.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to delete.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsDelete
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(NSInteger)filterSetId;
-
-@end
-
-/**
- *  List all details associated with a specific reason for which bids were
- *  filtered and a specific creative that was filtered for that reason, with
- *  the number of bids filtered for each detail.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.filteredBids.creatives.details.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesDetailsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidsCreativesDetailsListWithaccountId:filterSetId:creativeStatusId:creativeId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/** The creative ID for which to retrieve a breakdown by detail. */
-@property(copy, nullable) NSString *creativeId;
-
-/**
- *  The ID of the creative status for which to retrieve a breakdown by detail.
- *  See creative-status-codes.
- */
-@property(assign) NSInteger creativeStatusId;
-
-/** The ID of the filter set to apply. */
-@property(assign) NSInteger filterSetId;
-
-/**
- *  Fetches a @c
- *  GTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse.
- *
- *  List all details associated with a specific reason for which bids were
- *  filtered and a specific creative that was filtered for that reason, with
- *  the number of bids filtered for each detail.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
- *  @param creativeStatusId The ID of the creative status for which to retrieve
- *    a breakdown by detail.
- *    See creative-status-codes.
- *  @param creativeId The creative ID for which to retrieve a breakdown by
- *    detail.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesDetailsList
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(NSInteger)filterSetId
-                  creativeStatusId:(NSInteger)creativeStatusId
-                        creativeId:(NSString *)creativeId;
-
-@end
-
-/**
- *  List all creatives associated with a specific reason for which bids were
- *  filtered, with the number of bids filtered for each creative.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.filteredBids.creatives.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidsCreativesListWithaccountId:filterSetId:creativeStatusId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/**
- *  The ID of the creative status for which to retrieve a breakdown by
- *  creative.
- *  See creative-status-codes.
- */
-@property(assign) NSInteger creativeStatusId;
-
-/** The ID of the filter set to apply. */
-@property(assign) NSInteger filterSetId;
-
-/**
- *  Requested page size. The server may return fewer than requested.
- *  If unspecified, the server will pick an appropriate default.
- */
-@property(assign) NSInteger pageSize;
-
-/**
- *  A token identifying a page of results the server should return.
- *  Typically, this is the value of
- *  ListCreativeStatusBreakdownByCreativeResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.filterSets.filteredBids.creatives.list method.
- */
-@property(copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c
- *  GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByCreativeResponse.
- *
- *  List all creatives associated with a specific reason for which bids were
- *  filtered, with the number of bids filtered for each creative.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
- *  @param creativeStatusId The ID of the creative status for which to retrieve
- *    a breakdown by
- *    creative.
- *    See creative-status-codes.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(NSInteger)filterSetId
-                  creativeStatusId:(NSInteger)creativeStatusId;
-
-@end
-
-/**
- *  List all details associated with a specific reason for which bids were
- *  filtered, with the number of bids filtered for each detail.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.filteredBids.details.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsDetailsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidsDetailsListWithaccountId:filterSetId:creativeStatusId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/**
- *  The ID of the creative status for which to retrieve a breakdown by detail.
- *  See creative-status-codes.
- */
-@property(assign) NSInteger creativeStatusId;
-
-/** The ID of the filter set to apply. */
-@property(assign) NSInteger filterSetId;
-
-/**
- *  Fetches a @c
- *  GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse.
- *
- *  List all details associated with a specific reason for which bids were
- *  filtered, with the number of bids filtered for each detail.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
- *  @param creativeStatusId The ID of the creative status for which to retrieve
- *    a breakdown by detail.
- *    See creative-status-codes.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsDetailsList
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(NSInteger)filterSetId
-                  creativeStatusId:(NSInteger)creativeStatusId;
-
-@end
-
-/**
- *  List all reasons for which bids were filtered, with the number of bids
- *  filtered for each reason.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.filteredBids.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidsListWithaccountId:filterSetId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(assign) NSInteger filterSetId;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_ListFilteredBidsResponse.
- *
- *  List all reasons for which bids were filtered, with the number of bids
- *  filtered for each reason.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsList
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(NSInteger)filterSetId;
-
-@end
-
-/**
- *  List all reasons that caused an impression to be filtered (i.e. not
- *  considered as an inventory match), with the number of impressions that were
- *  filtered for each reason.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.filteredImpressions.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredImpressionsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredImpressionsListWithaccountId:filterSetId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(assign) NSInteger filterSetId;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_ListFilteredImpressionsResponse.
- *
- *  List all reasons that caused an impression to be filtered (i.e. not
- *  considered as an inventory match), with the number of impressions that were
- *  filtered for each reason.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredImpressionsList
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(NSInteger)filterSetId;
-
-@end
-
-/**
- *  List all reasons that caused a bid request not to be sent for an
- *  impression, with the number of bid requests not sent for each reason.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.filteredRequests.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredRequestsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredRequestsListWithaccountId:filterSetId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(assign) NSInteger filterSetId;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_ListFilteredRequestsResponse.
- *
- *  List all reasons that caused a bid request not to be sent for an
- *  impression, with the number of bid requests not sent for each reason.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredRequestsList
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(NSInteger)filterSetId;
-
-@end
-
-/**
- *  Retrieves the requested filter set for the account with the given account
- *  ID.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsGet : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsGetWithaccountId:filterSetId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/** The ID of the filter set to get. */
-@property(assign) NSInteger filterSetId;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_FilterSet.
- *
- *  Retrieves the requested filter set for the account with the given account
- *  ID.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to get.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsGet
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(NSInteger)filterSetId;
-
-@end
-
-/**
- *  Gets all metrics that are measured in terms of number of bids.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.getBidMetrics
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsGetBidMetrics : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsGetBidMetricsWithaccountId:filterSetId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(assign) NSInteger filterSetId;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_BidMetrics.
- *
- *  Gets all metrics that are measured in terms of number of bids.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsGetBidMetrics
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(NSInteger)filterSetId;
-
-@end
-
-/**
- *  Gets all metrics that are measured in terms of number of impressions.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.getImpressionMetrics
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsGetImpressionMetrics : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsGetImpressionMetricsWithaccountId:filterSetId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(assign) NSInteger filterSetId;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_ImpressionMetrics.
- *
- *  Gets all metrics that are measured in terms of number of impressions.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsGetImpressionMetrics
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(NSInteger)filterSetId;
-
-@end
-
-/**
- *  Lists all filter sets for the account with the given account ID.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsListWithaccountId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/**
- *  Requested page size. The server may return fewer than requested.
- *  If unspecified, the server will pick an appropriate default.
- */
-@property(assign) NSInteger pageSize;
-
-/**
- *  A token identifying a page of results the server should return.
- *  Typically, this is the value of
- *  ListFilterSetsResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.rtbBreakout.filterSets.list method.
- */
-@property(copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_ListFilterSetsResponse.
- *
- *  Lists all filter sets for the account with the given account ID.
- *
- *  @param accountId Account ID of the buyer.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithAccountId:(long long)accountId;
-
-@end
-
-/**
- *  List all reasons for which bids lost in the auction, with the number of
- *  bids that lost for each reason.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.losingBids.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsLosingBidsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsLosingBidsListWithaccountId:filterSetId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(assign) NSInteger filterSetId;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_ListLosingBidsResponse.
- *
- *  List all reasons for which bids lost in the auction, with the number of
- *  bids that lost for each reason.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsLosingBidsList
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(NSInteger)filterSetId;
-
-@end
-
-/**
- *  List all errors that occurred in bid responses, with the number of bid
- *  responses affected for each reason.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.responseErrors.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsResponseErrorsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsResponseErrorsListWithaccountId:filterSetId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(assign) NSInteger filterSetId;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_ListResponseErrorsResponse.
- *
- *  List all errors that occurred in bid responses, with the number of bid
- *  responses affected for each reason.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsResponseErrorsList
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(NSInteger)filterSetId;
-
-@end
-
-/**
- *  List all reasons for which bid responses were considered to have no
- *  applicable bids, with the number of bid responses affected for each reason.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.responsesWithoutBids.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsResponsesWithoutBidsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsResponsesWithoutBidsListWithaccountId:filterSetId:]
-
-/** Account ID of the buyer. */
-@property(assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(assign) NSInteger filterSetId;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_ListResponsesWithoutBidsResponse.
- *
- *  List all reasons for which bid responses were considered to have no
- *  applicable bids, with the number of bid responses affected for each reason.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsResponsesWithoutBidsList
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(NSInteger)filterSetId;
 
 @end
 

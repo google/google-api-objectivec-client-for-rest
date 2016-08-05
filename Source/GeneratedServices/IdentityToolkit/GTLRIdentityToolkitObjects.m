@@ -145,8 +145,9 @@
 //
 
 @implementation GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequest
-@dynamic appId, clientId, context, continueUri, identifierProperty,
-         oauthConsumerKey, oauthScope, openidRealm, otaApp, providerId;
+@dynamic appId, clientId, context, continueUri, hostedDomain,
+         identifierProperty, oauthConsumerKey, oauthScope, openidRealm, otaApp,
+         providerId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifierProperty" : @"identifier" };
@@ -496,7 +497,8 @@
          lastName, localId, needConfirmation, needEmail, nickName,
          oauthAccessToken, oauthAuthorizationCode, oauthExpireIn, oauthIdToken,
          oauthRequestToken, oauthScope, oauthTokenSecret, originalEmail,
-         photoUrl, providerId, refreshToken, timeZone, verifiedProvider;
+         photoUrl, providerId, refreshToken, screenName, timeZone,
+         verifiedProvider;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

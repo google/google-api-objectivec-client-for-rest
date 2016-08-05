@@ -141,7 +141,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 @interface GTLRBloggerQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -159,10 +159,10 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForBlogsGetWithblogId:]
 
 /** The ID of the blog to get. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** Maximum number of posts to pull back with the blog. */
-@property(assign) NSUInteger maxPosts;
+@property(nonatomic, assign) NSUInteger maxPosts;
 
 /**
  *  Access level with which to view the blog. Note that some fields require
@@ -173,7 +173,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerViewAuthor Author level detail. (Value: "AUTHOR")
  *    @arg @c kGTLRBloggerViewReader Reader level detail. (Value: "READER")
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBlogger_Blog.
@@ -202,7 +202,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForBlogsGetByUrlWithurl:]
 
 /** The URL of the blog to retrieve. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  Access level with which to view the blog. Note that some fields require
@@ -213,7 +213,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerViewAuthor Author level detail. (Value: "AUTHOR")
  *    @arg @c kGTLRBloggerViewReader Reader level detail. (Value: "READER")
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBlogger_Blog.
@@ -245,7 +245,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  Whether the response is a list of blogs with per-user information instead of
  *  just blogs.
  */
-@property(assign) BOOL fetchUserInfo;
+@property(nonatomic, assign) BOOL fetchUserInfo;
 
 /**
  *  User access types for blogs to include in the results, e.g. AUTHOR will
@@ -260,7 +260,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerRoleReader Reader role - Blogs where the user has
  *        Reader level access (to a private blog). (Value: "READER")
  */
-@property(strong, nullable) NSArray<NSString *> *role;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *role;
 
 /**
  *  Blog statuses to include in the result (default: Live blogs only). Note that
@@ -274,13 +274,13 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  @note If not set, the documented server-side default will be
  *        kGTLRBloggerStatusLive.
  */
-@property(strong, nullable) NSArray<NSString *> *status;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 
 /**
  *  ID of the user whose blogs are to be fetched. Either the word 'self' (sans
  *  quote marks) or the user's profile identifier.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Access level with which to view the blogs. Note that some fields require
@@ -291,7 +291,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerViewAuthor Author level detail. (Value: "AUTHOR")
  *    @arg @c kGTLRBloggerViewReader Reader level detail. (Value: "READER")
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBlogger_BlogList.
@@ -321,16 +321,16 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForBlogUserInfosGetWithuserId:blogId:]
 
 /** The ID of the blog to get. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** Maximum number of posts to pull back with the blog. */
-@property(assign) NSUInteger maxPosts;
+@property(nonatomic, assign) NSUInteger maxPosts;
 
 /**
  *  ID of the user whose blogs are to be fetched. Either the word 'self' (sans
  *  quote marks) or the user's profile identifier.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRBlogger_BlogUserInfo.
@@ -361,13 +361,13 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForCommentsApproveWithblogId:postId:commentId:]
 
 /** The ID of the Blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the comment to mark as not spam. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /** The ID of the Post. */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  Fetches a @c GTLRBlogger_Comment.
@@ -399,13 +399,13 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForCommentsDeleteWithblogId:postId:commentId:]
 
 /** The ID of the Blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the comment to delete. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /** The ID of the Post. */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -439,13 +439,13 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForCommentsGetWithblogId:postId:commentId:]
 
 /** ID of the blog to containing the comment. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the comment to get. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /** ID of the post to fetch posts from. */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  Access level for the requested comment (default: READER). Note that some
@@ -458,7 +458,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerViewAuthor Author level detail (Value: "AUTHOR")
  *    @arg @c kGTLRBloggerViewReader Admin level detail (Value: "READER")
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBlogger_Comment.
@@ -491,27 +491,27 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForCommentsListWithblogId:postId:]
 
 /** ID of the blog to fetch comments from. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** Latest date of comment to fetch, a date-time with RFC 3339 formatting. */
-@property(strong, nullable) GTLRDateTime *endDate;
+@property(nonatomic, strong, nullable) GTLRDateTime *endDate;
 
 /** Whether the body content of the comments is included. */
-@property(assign) BOOL fetchBodies;
+@property(nonatomic, assign) BOOL fetchBodies;
 
 /** Maximum number of comments to include in the result. */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** Continuation token if request is paged. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** ID of the post to fetch posts from. */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  Earliest date of comment to fetch, a date-time with RFC 3339 formatting.
  */
-@property(strong, nullable) GTLRDateTime *startDate;
+@property(nonatomic, strong, nullable) GTLRDateTime *startDate;
 
 /**
  *  status
@@ -526,7 +526,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerStatusSpam Comments marked as spam by the
  *        administrator (Value: "spam")
  */
-@property(strong, nullable) NSArray<NSString *> *status;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 
 /**
  *  Access level with which to view the returned result. Note that some fields
@@ -537,7 +537,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerViewAuthor Author level detail (Value: "AUTHOR")
  *    @arg @c kGTLRBloggerViewReader Reader level detail (Value: "READER")
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBlogger_CommentList.
@@ -572,24 +572,24 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForCommentsListByBlogWithblogId:]
 
 /** ID of the blog to fetch comments from. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** Latest date of comment to fetch, a date-time with RFC 3339 formatting. */
-@property(strong, nullable) GTLRDateTime *endDate;
+@property(nonatomic, strong, nullable) GTLRDateTime *endDate;
 
 /** Whether the body content of the comments is included. */
-@property(assign) BOOL fetchBodies;
+@property(nonatomic, assign) BOOL fetchBodies;
 
 /** Maximum number of comments to include in the result. */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** Continuation token if request is paged. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Earliest date of comment to fetch, a date-time with RFC 3339 formatting.
  */
-@property(strong, nullable) GTLRDateTime *startDate;
+@property(nonatomic, strong, nullable) GTLRDateTime *startDate;
 
 /**
  *  status
@@ -604,7 +604,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerStatusSpam Comments marked as spam by the
  *        administrator (Value: "spam")
  */
-@property(strong, nullable) NSArray<NSString *> *status;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 
 /**
  *  Fetches a @c GTLRBlogger_CommentList.
@@ -636,13 +636,13 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForCommentsMarkAsSpamWithblogId:postId:commentId:]
 
 /** The ID of the Blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the comment to mark as spam. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /** The ID of the Post. */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  Fetches a @c GTLRBlogger_Comment.
@@ -674,13 +674,13 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForCommentsRemoveContentWithblogId:postId:commentId:]
 
 /** The ID of the Blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the comment to delete content from. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /** The ID of the Post. */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  Fetches a @c GTLRBlogger_Comment.
@@ -712,10 +712,10 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPagesDeleteWithblogId:pageId:]
 
 /** The ID of the Blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the Page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -747,10 +747,10 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPagesGetWithblogId:pageId:]
 
 /** ID of the blog containing the page. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the page to get. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  view
@@ -760,7 +760,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerViewAuthor Author level detail (Value: "AUTHOR")
  *    @arg @c kGTLRBloggerViewReader Reader level detail (Value: "READER")
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBlogger_Page.
@@ -790,10 +790,10 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPagesInsertWithObject:blogId:]
 
 /** ID of the blog to add the page to. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** Whether to create the page as a draft (default: false). */
-@property(assign) BOOL isDraft;
+@property(nonatomic, assign) BOOL isDraft;
 
 /**
  *  Fetches a @c GTLRBlogger_Page.
@@ -824,16 +824,16 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPagesListWithblogId:]
 
 /** ID of the blog to fetch Pages from. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** Whether to retrieve the Page bodies. */
-@property(assign) BOOL fetchBodies;
+@property(nonatomic, assign) BOOL fetchBodies;
 
 /** Maximum number of Pages to fetch. */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** Continuation token if the request is paged. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  status
@@ -843,7 +843,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerStatusLive Pages that are publicly visible (Value:
  *        "live")
  */
-@property(strong, nullable) NSArray<NSString *> *status;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 
 /**
  *  Access level with which to view the returned result. Note that some fields
@@ -854,7 +854,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerViewAuthor Author level detail (Value: "AUTHOR")
  *    @arg @c kGTLRBloggerViewReader Reader level detail (Value: "READER")
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBlogger_PageList.
@@ -886,22 +886,22 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPagesPatchWithObject:blogId:pageId:]
 
 /** The ID of the Blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the Page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Whether a publish action should be performed when the page is updated
  *  (default: false).
  */
-@property(assign) BOOL publish;
+@property(nonatomic, assign) BOOL publish;
 
 /**
  *  Whether a revert action should be performed when the page is updated
  *  (default: false).
  */
-@property(assign) BOOL revert;
+@property(nonatomic, assign) BOOL revert;
 
 /**
  *  Fetches a @c GTLRBlogger_Page.
@@ -933,10 +933,10 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPagesPublishWithblogId:pageId:]
 
 /** The ID of the blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Fetches a @c GTLRBlogger_Page.
@@ -966,10 +966,10 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPagesRevertWithblogId:pageId:]
 
 /** The ID of the blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Fetches a @c GTLRBlogger_Page.
@@ -999,22 +999,22 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPagesUpdateWithObject:blogId:pageId:]
 
 /** The ID of the Blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the Page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Whether a publish action should be performed when the page is updated
  *  (default: false).
  */
-@property(assign) BOOL publish;
+@property(nonatomic, assign) BOOL publish;
 
 /**
  *  Whether a revert action should be performed when the page is updated
  *  (default: false).
  */
-@property(assign) BOOL revert;
+@property(nonatomic, assign) BOOL revert;
 
 /**
  *  Fetches a @c GTLRBlogger_Page.
@@ -1046,7 +1046,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPageViewsGetWithblogId:]
 
 /** The ID of the blog to get. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /**
  *  range
@@ -1059,7 +1059,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerRangeAll Total page view counts from all time. (Value:
  *        "all")
  */
-@property(strong, nullable) NSArray<NSString *> *range;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *range;
 
 /**
  *  Fetches a @c GTLRBlogger_Pageviews.
@@ -1087,10 +1087,10 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPostsDeleteWithblogId:postId:]
 
 /** The ID of the Blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the Post. */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1122,7 +1122,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPostsGetWithblogId:postId:]
 
 /** ID of the blog to fetch the post from. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /**
  *  Whether the body content of the post is included (default: true). This
@@ -1131,16 +1131,16 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @note If not set, the documented server-side default will be true.
  */
-@property(assign) BOOL fetchBody;
+@property(nonatomic, assign) BOOL fetchBody;
 
 /** Whether image URL metadata for each post is included (default: false). */
-@property(assign) BOOL fetchImages;
+@property(nonatomic, assign) BOOL fetchImages;
 
 /** Maximum number of comments to pull back on a post. */
-@property(assign) NSUInteger maxComments;
+@property(nonatomic, assign) NSUInteger maxComments;
 
 /** The ID of the post */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  Access level with which to view the returned result. Note that some fields
@@ -1151,7 +1151,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerViewAuthor Author level detail (Value: "AUTHOR")
  *    @arg @c kGTLRBloggerViewReader Reader level detail (Value: "READER")
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBlogger_Post.
@@ -1182,13 +1182,13 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPostsGetByPathWithblogId:path:]
 
 /** ID of the blog to fetch the post from. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** Maximum number of comments to pull back on a post. */
-@property(assign) NSUInteger maxComments;
+@property(nonatomic, assign) NSUInteger maxComments;
 
 /** Path of the Post to retrieve. */
-@property(copy, nullable) NSString *path;
+@property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  Access level with which to view the returned result. Note that some fields
@@ -1199,7 +1199,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerViewAuthor Author level detail (Value: "AUTHOR")
  *    @arg @c kGTLRBloggerViewReader Reader level detail (Value: "READER")
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBlogger_Post.
@@ -1229,7 +1229,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPostsInsertWithObject:blogId:]
 
 /** ID of the blog to add the post to. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /**
  *  Whether the body content of the post is included with the result (default:
@@ -1237,16 +1237,16 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @note If not set, the documented server-side default will be true.
  */
-@property(assign) BOOL fetchBody;
+@property(nonatomic, assign) BOOL fetchBody;
 
 /**
  *  Whether image URL metadata for each post is included in the returned result
  *  (default: false).
  */
-@property(assign) BOOL fetchImages;
+@property(nonatomic, assign) BOOL fetchImages;
 
 /** Whether to create the post as a draft (default: false). */
-@property(assign) BOOL isDraft;
+@property(nonatomic, assign) BOOL isDraft;
 
 /**
  *  Fetches a @c GTLRBlogger_Post.
@@ -1277,10 +1277,10 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPostsListWithblogId:]
 
 /** ID of the blog to fetch posts from. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** Latest post date to fetch, a date-time with RFC 3339 formatting. */
-@property(strong, nullable) GTLRDateTime *endDate;
+@property(nonatomic, strong, nullable) GTLRDateTime *endDate;
 
 /**
  *  Whether the body content of posts is included (default: true). This should
@@ -1289,16 +1289,16 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @note If not set, the documented server-side default will be true.
  */
-@property(assign) BOOL fetchBodies;
+@property(nonatomic, assign) BOOL fetchBodies;
 
 /** Whether image URL metadata for each post is included. */
-@property(assign) BOOL fetchImages;
+@property(nonatomic, assign) BOOL fetchImages;
 
 /** Comma-separated list of labels to search for. */
-@property(copy, nullable) NSString *labels;
+@property(nonatomic, copy, nullable) NSString *labels;
 
 /** Maximum number of posts to fetch. */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Sort search results
@@ -1311,13 +1311,13 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @note If not set, the documented server-side default will be "PUBLISHED".
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Continuation token if the request is paged. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Earliest post date to fetch, a date-time with RFC 3339 formatting. */
-@property(strong, nullable) GTLRDateTime *startDate;
+@property(nonatomic, strong, nullable) GTLRDateTime *startDate;
 
 /**
  *  Statuses to include in the results.
@@ -1329,7 +1329,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerStatusScheduled Posts that are scheduled to publish in
  *        the future. (Value: "scheduled")
  */
-@property(strong, nullable) NSArray<NSString *> *status;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 
 /**
  *  Access level with which to view the returned result. Note that some fields
@@ -1340,7 +1340,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerViewAuthor Author level detail (Value: "AUTHOR")
  *    @arg @c kGTLRBloggerViewReader Reader level detail (Value: "READER")
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBlogger_PostList.
@@ -1372,7 +1372,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPostsPatchWithObject:blogId:postId:]
 
 /** The ID of the Blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /**
  *  Whether the body content of the post is included with the result (default:
@@ -1380,31 +1380,31 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @note If not set, the documented server-side default will be true.
  */
-@property(assign) BOOL fetchBody;
+@property(nonatomic, assign) BOOL fetchBody;
 
 /**
  *  Whether image URL metadata for each post is included in the returned result
  *  (default: false).
  */
-@property(assign) BOOL fetchImages;
+@property(nonatomic, assign) BOOL fetchImages;
 
 /** Maximum number of comments to retrieve with the returned post. */
-@property(assign) NSUInteger maxComments;
+@property(nonatomic, assign) NSUInteger maxComments;
 
 /** The ID of the Post. */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  Whether a publish action should be performed when the post is updated
  *  (default: false).
  */
-@property(assign) BOOL publish;
+@property(nonatomic, assign) BOOL publish;
 
 /**
  *  Whether a revert action should be performed when the post is updated
  *  (default: false).
  */
-@property(assign) BOOL revert;
+@property(nonatomic, assign) BOOL revert;
 
 /**
  *  Fetches a @c GTLRBlogger_Post.
@@ -1437,10 +1437,10 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPostsPublishWithblogId:postId:]
 
 /** The ID of the Blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the Post. */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  Optional date and time to schedule the publishing of the Blog. If no
@@ -1448,7 +1448,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  previously saved schedule date (if present), or the current time. If a
  *  future date is given, the post will be scheduled to be published.
  */
-@property(strong, nullable) GTLRDateTime *publishDate;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishDate;
 
 /**
  *  Fetches a @c GTLRBlogger_Post.
@@ -1479,10 +1479,10 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPostsRevertWithblogId:postId:]
 
 /** The ID of the Blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The ID of the Post. */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  Fetches a @c GTLRBlogger_Post.
@@ -1513,7 +1513,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPostsSearchWithblogId:q:]
 
 /** ID of the blog to fetch the post from. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /**
  *  Whether the body content of posts is included (default: true). This should
@@ -1522,7 +1522,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @note If not set, the documented server-side default will be true.
  */
-@property(assign) BOOL fetchBodies;
+@property(nonatomic, assign) BOOL fetchBodies;
 
 /**
  *  Sort search results
@@ -1535,10 +1535,10 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @note If not set, the documented server-side default will be "PUBLISHED".
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Query terms to search this blog for matching posts. */
-@property(copy, nullable) NSString *q;
+@property(nonatomic, copy, nullable) NSString *q;
 
 /**
  *  Fetches a @c GTLRBlogger_PostList.
@@ -1568,7 +1568,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPostsUpdateWithObject:blogId:postId:]
 
 /** The ID of the Blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /**
  *  Whether the body content of the post is included with the result (default:
@@ -1576,31 +1576,31 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @note If not set, the documented server-side default will be true.
  */
-@property(assign) BOOL fetchBody;
+@property(nonatomic, assign) BOOL fetchBody;
 
 /**
  *  Whether image URL metadata for each post is included in the returned result
  *  (default: false).
  */
-@property(assign) BOOL fetchImages;
+@property(nonatomic, assign) BOOL fetchImages;
 
 /** Maximum number of comments to retrieve with the returned post. */
-@property(assign) NSUInteger maxComments;
+@property(nonatomic, assign) NSUInteger maxComments;
 
 /** The ID of the Post. */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  Whether a publish action should be performed when the post is updated
  *  (default: false).
  */
-@property(assign) BOOL publish;
+@property(nonatomic, assign) BOOL publish;
 
 /**
  *  Whether a revert action should be performed when the post is updated
  *  (default: false).
  */
-@property(assign) BOOL revert;
+@property(nonatomic, assign) BOOL revert;
 
 /**
  *  Fetches a @c GTLRBlogger_Post.
@@ -1635,19 +1635,19 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPostUserInfosGetWithuserId:blogId:postId:]
 
 /** The ID of the blog. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** Maximum number of comments to pull back on a post. */
-@property(assign) NSUInteger maxComments;
+@property(nonatomic, assign) NSUInteger maxComments;
 
 /** The ID of the post to get. */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  ID of the user for the per-user information to be fetched. Either the word
  *  'self' (sans quote marks) or the user's profile identifier.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRBlogger_PostUserInfo.
@@ -1686,23 +1686,23 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForPostUserInfosListWithuserId:blogId:]
 
 /** ID of the blog to fetch posts from. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** Latest post date to fetch, a date-time with RFC 3339 formatting. */
-@property(strong, nullable) GTLRDateTime *endDate;
+@property(nonatomic, strong, nullable) GTLRDateTime *endDate;
 
 /**
  *  Whether the body content of posts is included. Default is false.
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL fetchBodies;
+@property(nonatomic, assign) BOOL fetchBodies;
 
 /** Comma-separated list of labels to search for. */
-@property(copy, nullable) NSString *labels;
+@property(nonatomic, copy, nullable) NSString *labels;
 
 /** Maximum number of posts to fetch. */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Sort order applied to search results. Default is published.
@@ -1715,13 +1715,13 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *
  *  @note If not set, the documented server-side default will be "PUBLISHED".
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Continuation token if the request is paged. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Earliest post date to fetch, a date-time with RFC 3339 formatting. */
-@property(strong, nullable) GTLRDateTime *startDate;
+@property(nonatomic, strong, nullable) GTLRDateTime *startDate;
 
 /**
  *  status
@@ -1732,13 +1732,13 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerStatusScheduled Posts that are scheduled to publish in
  *        future. (Value: "scheduled")
  */
-@property(strong, nullable) NSArray<NSString *> *status;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 
 /**
  *  ID of the user for the per-user information to be fetched. Either the word
  *  'self' (sans quote marks) or the user's profile identifier.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Access level with which to view the returned result. Note that some fields
@@ -1749,7 +1749,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *    @arg @c kGTLRBloggerViewAuthor Author level detail (Value: "AUTHOR")
  *    @arg @c kGTLRBloggerViewReader Reader level detail (Value: "READER")
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBlogger_PostUserInfosList.
@@ -1788,7 +1788,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 //   +[GTLQueryBlogger queryForUsersGetWithuserId:]
 
 /** The ID of the user to get. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRBlogger_User.

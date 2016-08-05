@@ -1328,7 +1328,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *    @arg @c kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FileSpec_Sdf
  *        Value "SDF"
  */
-@property(copy, nullable) NSString *fileSpec;
+@property(nonatomic, copy, nullable) NSString *fileSpec;
 
 /**
  *  Ids of the specified filter type used to filter line items to fetch. If
@@ -1336,7 +1336,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *filterIds;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *filterIds;
 
 /**
  *  Filter type used to filter line items to fetch.
@@ -1349,7 +1349,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *    @arg @c kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FilterType_LineItemId
  *        Value "LINE_ITEM_ID"
  */
-@property(copy, nullable) NSString *filterType;
+@property(nonatomic, copy, nullable) NSString *filterType;
 
 /**
  *  Format in which the line items will be returned. Default to CSV.
@@ -1358,7 +1358,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *    @arg @c kGTLRDoubleClickBidManager_DownloadLineItemsRequest_Format_Csv
  *        Value "CSV"
  */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 @end
 
@@ -1372,7 +1372,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *  Retrieved line items in CSV format. Refer to Entity Write File Format or
  *  Structured Data File Format for more information on file formats.
  */
-@property(copy, nullable) NSString *lineItems;
+@property(nonatomic, copy, nullable) NSString *lineItems;
 
 @end
 
@@ -1609,10 +1609,10 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterZipCode Value
  *        "FILTER_ZIP_CODE"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Filter value. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1626,10 +1626,10 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "doubleclickbidmanager#listQueriesResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Retrieved queries. */
-@property(strong, nullable) NSArray<GTLRDoubleClickBidManager_Query *> *queries;
+@property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickBidManager_Query *> *queries;
 
 @end
 
@@ -1643,10 +1643,10 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "doubleclickbidmanager#listReportsResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Retrieved reports. */
-@property(strong, nullable) NSArray<GTLRDoubleClickBidManager_Report *> *reports;
+@property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickBidManager_Report *> *reports;
 
 @end
 
@@ -1663,19 +1663,19 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /** Message from publisher. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 /** Equals "publisher" for notification from Rubicon. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** Time when the note was added, e.g. "2015-12-16T17:25:35.000-08:00". */
-@property(copy, nullable) NSString *timestamp;
+@property(nonatomic, copy, nullable) NSString *timestamp;
 
 /** Publisher user name. */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -1686,10 +1686,10 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 @interface GTLRDoubleClickBidManager_NotifyProposalChangeRequest : GTLRObject
 
 /** Action taken by publisher. One of: Accept, Decline, Append */
-@property(copy, nullable) NSString *action;
+@property(nonatomic, copy, nullable) NSString *action;
 
 /** URL to access proposal detail. */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /**
  *  Below are contents of notification from Rubicon. Proposal id.
@@ -1698,13 +1698,13 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /** Notes from publisher */
-@property(strong, nullable) NSArray<GTLRDoubleClickBidManager_Note *> *notes;
+@property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickBidManager_Note *> *notes;
 
 /** Deal token, available when proposal is accepted by publisher. */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 @end
 
@@ -1715,20 +1715,20 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 @interface GTLRDoubleClickBidManager_Parameters : GTLRObject
 
 /** Filters used to match traffic data in your report. */
-@property(strong, nullable) NSArray<GTLRDoubleClickBidManager_FilterPair *> *filters;
+@property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickBidManager_FilterPair *> *filters;
 
 /** Data is grouped by the filters listed in this field. */
-@property(strong, nullable) NSArray<NSString *> *groupBys;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *groupBys;
 
 /**
  *  Whether to include data from Invite Media.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *includeInviteData;
+@property(nonatomic, strong, nullable) NSNumber *includeInviteData;
 
 /** Metrics to include as columns in your report. */
-@property(strong, nullable) NSArray<NSString *> *metrics;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /**
  *  Report type.
@@ -1795,7 +1795,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_TypeYoutubeVertical
  *        Value "TYPE_YOUTUBE_VERTICAL"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1809,20 +1809,20 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "doubleclickbidmanager#query".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Query metadata. */
-@property(strong, nullable) GTLRDoubleClickBidManager_QueryMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_QueryMetadata *metadata;
 
 /** Query parameters. */
-@property(strong, nullable) GTLRDoubleClickBidManager_Parameters *params;
+@property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_Parameters *params;
 
 /**
  *  Query ID.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *queryId;
+@property(nonatomic, strong, nullable) NSNumber *queryId;
 
 /**
  *  The ending time for the data that is shown in the report. Note,
@@ -1831,7 +1831,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *reportDataEndTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *reportDataEndTimeMs;
 
 /**
  *  The starting time for the data that is shown in the report. Note,
@@ -1840,15 +1840,15 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *reportDataStartTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *reportDataStartTimeMs;
 
 /** Information on how often and when to run a query. */
-@property(strong, nullable) GTLRDoubleClickBidManager_QuerySchedule *schedule;
+@property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_QuerySchedule *schedule;
 
 /**
  *  Canonical timezone code for report data time. Defaults to America/New_York.
  */
-@property(copy, nullable) NSString *timezoneCode;
+@property(nonatomic, copy, nullable) NSString *timezoneCode;
 
 @end
 
@@ -1901,7 +1901,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *    @arg @c kGTLRDoubleClickBidManager_QueryMetadata_DataRange_YearToDate
  *        Value "YEAR_TO_DATE"
  */
-@property(copy, nullable) NSString *dataRange;
+@property(nonatomic, copy, nullable) NSString *dataRange;
 
 /**
  *  Format of the generated report.
@@ -1912,23 +1912,23 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        "EXCEL_CSV"
  *    @arg @c kGTLRDoubleClickBidManager_QueryMetadata_Format_Xlsx Value "XLSX"
  */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /**
  *  The path to the location in Google Cloud Storage where the latest report is
  *  stored.
  */
-@property(copy, nullable) NSString *googleCloudStoragePathForLatestReport;
+@property(nonatomic, copy, nullable) NSString *googleCloudStoragePathForLatestReport;
 
 /** The path in Google Drive for the latest report. */
-@property(copy, nullable) NSString *googleDrivePathForLatestReport;
+@property(nonatomic, copy, nullable) NSString *googleDrivePathForLatestReport;
 
 /**
  *  The time when the latest report started to run.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *latestReportRunTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *latestReportRunTimeMs;
 
 /**
  *  Locale of the generated reports. Valid values are cs CZECH de GERMAN en
@@ -1937,21 +1937,21 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *  CHINA_CHINESE zh-TW TAIWAN_CHINESE
  *  An locale string not in the list above will generate reports in English.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  Number of reports that have been generated for the query.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *reportCount;
+@property(nonatomic, strong, nullable) NSNumber *reportCount;
 
 /**
  *  Whether the latest report is currently running.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *running;
+@property(nonatomic, strong, nullable) NSNumber *running;
 
 /**
  *  Whether to send an email notification when a report is ready. Default to
@@ -1959,16 +1959,16 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *sendNotification;
+@property(nonatomic, strong, nullable) NSNumber *sendNotification;
 
 /**
  *  List of email addresses which are sent email notifications when the report
  *  is finished. Separate from sendNotification.
  */
-@property(strong, nullable) NSArray<NSString *> *shareEmailAddress;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *shareEmailAddress;
 
 /** Query title. It is used to name the reports generated from this query. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -1983,7 +1983,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *endTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *endTimeMs;
 
 /**
  *  How often the query is run.
@@ -2002,7 +2002,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Weekly Value
  *        "WEEKLY"
  */
-@property(copy, nullable) NSString *frequency;
+@property(nonatomic, copy, nullable) NSString *frequency;
 
 /**
  *  Time of day at which a new report will be generated, represented as minutes
@@ -2010,13 +2010,13 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *nextRunMinuteOfDay;
+@property(nonatomic, strong, nullable) NSNumber *nextRunMinuteOfDay;
 
 /**
  *  Canonical timezone code for report generation time. Defaults to
  *  America/New_York.
  */
-@property(copy, nullable) NSString *nextRunTimezoneCode;
+@property(nonatomic, copy, nullable) NSString *nextRunTimezoneCode;
 
 @end
 
@@ -2027,13 +2027,13 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 @interface GTLRDoubleClickBidManager_Report : GTLRObject
 
 /** Key used to identify a report. */
-@property(strong, nullable) GTLRDoubleClickBidManager_ReportKey *key;
+@property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_ReportKey *key;
 
 /** Report metadata. */
-@property(strong, nullable) GTLRDoubleClickBidManager_ReportMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_ReportMetadata *metadata;
 
 /** Report parameters. */
-@property(strong, nullable) GTLRDoubleClickBidManager_Parameters *params;
+@property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_Parameters *params;
 
 @end
 
@@ -2084,7 +2084,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *    @arg @c kGTLRDoubleClickBidManager_ReportFailure_ErrorCode_ValidationError
  *        Value "VALIDATION_ERROR"
  */
-@property(copy, nullable) NSString *errorCode;
+@property(nonatomic, copy, nullable) NSString *errorCode;
 
 @end
 
@@ -2099,14 +2099,14 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *queryId;
+@property(nonatomic, strong, nullable) NSNumber *queryId;
 
 /**
  *  Report ID.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *reportId;
+@property(nonatomic, strong, nullable) NSNumber *reportId;
 
 @end
 
@@ -2119,24 +2119,24 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 /**
  *  The path to the location in Google Cloud Storage where the report is stored.
  */
-@property(copy, nullable) NSString *googleCloudStoragePath;
+@property(nonatomic, copy, nullable) NSString *googleCloudStoragePath;
 
 /**
  *  The ending time for the data that is shown in the report.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *reportDataEndTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *reportDataEndTimeMs;
 
 /**
  *  The starting time for the data that is shown in the report.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *reportDataStartTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *reportDataStartTimeMs;
 
 /** Report status. */
-@property(strong, nullable) GTLRDoubleClickBidManager_ReportStatus *status;
+@property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_ReportStatus *status;
 
 @end
 
@@ -2147,14 +2147,14 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 @interface GTLRDoubleClickBidManager_ReportStatus : GTLRObject
 
 /** If the report failed, this records the cause. */
-@property(strong, nullable) GTLRDoubleClickBidManager_ReportFailure *failure;
+@property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_ReportFailure *failure;
 
 /**
  *  The time when this report either completed successfully or failed.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *finishTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *finishTimeMs;
 
 /**
  *  The file type of the report.
@@ -2165,7 +2165,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        "EXCEL_CSV"
  *    @arg @c kGTLRDoubleClickBidManager_ReportStatus_Format_Xlsx Value "XLSX"
  */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /**
  *  The state of the report.
@@ -2177,7 +2177,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *    @arg @c kGTLRDoubleClickBidManager_ReportStatus_State_Running Value
  *        "RUNNING"
  */
-@property(copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -2192,38 +2192,38 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *changed;
+@property(nonatomic, strong, nullable) NSNumber *changed;
 
 /**
  *  Entity Id.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *entityId;
+@property(nonatomic, strong, nullable) NSNumber *entityId;
 
 /**
  *  Entity name.
  *
  *  Remapped to 'entityNameProperty' to avoid NSObject's 'entityName'.
  */
-@property(copy, nullable) NSString *entityNameProperty;
+@property(nonatomic, copy, nullable) NSString *entityNameProperty;
 
 /** Reasons why the entity can't be uploaded. */
-@property(strong, nullable) NSArray<NSString *> *errors;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
 
 /**
  *  Whether the entity is persisted.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *persisted;
+@property(nonatomic, strong, nullable) NSNumber *persisted;
 
 /**
  *  Row number.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *rowNumber;
+@property(nonatomic, strong, nullable) NSNumber *rowNumber;
 
 @end
 
@@ -2276,7 +2276,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *    @arg @c kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_YearToDate
  *        Value "YEAR_TO_DATE"
  */
-@property(copy, nullable) NSString *dataRange;
+@property(nonatomic, copy, nullable) NSString *dataRange;
 
 /**
  *  The ending time for the data that is shown in the report. Note,
@@ -2285,7 +2285,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *reportDataEndTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *reportDataEndTimeMs;
 
 /**
  *  The starting time for the data that is shown in the report. Note,
@@ -2294,12 +2294,12 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *reportDataStartTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *reportDataStartTimeMs;
 
 /**
  *  Canonical timezone code for report data time. Defaults to America/New_York.
  */
-@property(copy, nullable) NSString *timezoneCode;
+@property(nonatomic, copy, nullable) NSString *timezoneCode;
 
 @end
 
@@ -2314,7 +2314,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *dryRun;
+@property(nonatomic, strong, nullable) NSNumber *dryRun;
 
 /**
  *  Format the line items are in. Default to CSV.
@@ -2323,13 +2323,13 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *    @arg @c kGTLRDoubleClickBidManager_UploadLineItemsRequest_Format_Csv Value
  *        "CSV"
  */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /**
  *  Line items in CSV to upload. Refer to Entity Write File Format for more
  *  information on file format.
  */
-@property(copy, nullable) NSString *lineItems;
+@property(nonatomic, copy, nullable) NSString *lineItems;
 
 @end
 
@@ -2340,7 +2340,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 @interface GTLRDoubleClickBidManager_UploadLineItemsResponse : GTLRObject
 
 /** Status of upload. */
-@property(strong, nullable) GTLRDoubleClickBidManager_UploadStatus *uploadStatus;
+@property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_UploadStatus *uploadStatus;
 
 @end
 
@@ -2351,10 +2351,10 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 @interface GTLRDoubleClickBidManager_UploadStatus : GTLRObject
 
 /** Reasons why upload can't be completed. */
-@property(strong, nullable) NSArray<NSString *> *errors;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
 
 /** Per-row upload status. */
-@property(strong, nullable) NSArray<GTLRDoubleClickBidManager_RowStatus *> *rowStatus;
+@property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickBidManager_RowStatus *> *rowStatus;
 
 @end
 

@@ -68,7 +68,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @interface GTLRGmailQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -92,7 +92,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Draft.
@@ -133,7 +133,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -141,7 +141,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -188,14 +188,14 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  @note If not set, the documented server-side default will be
  *        kGTLRGmailFormatFull.
  */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /**
  *  The ID of the draft to retrieve.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -203,7 +203,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Draft.
@@ -241,24 +241,24 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL includeSpamTrash;
+@property(nonatomic, assign) BOOL includeSpamTrash;
 
 /**
  *  Maximum number of drafts to return.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** Page token to retrieve a specific page of results in the list. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Only return draft messages matching the specified query. Supports the same
  *  query format as the Gmail search box. For example,
  *  "from:someuser\@example.com rfc822msgid: is:unread".
  */
-@property(copy, nullable) NSString *q;
+@property(nonatomic, copy, nullable) NSString *q;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -266,7 +266,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_ListDraftsResponse.
@@ -307,7 +307,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Message.
@@ -348,7 +348,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -356,7 +356,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Draft.
@@ -400,7 +400,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Profile.
@@ -432,17 +432,17 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersHistoryListWithuserId:]
 
 /** Only return messages with a label matching the ID. */
-@property(copy, nullable) NSString *labelId;
+@property(nonatomic, copy, nullable) NSString *labelId;
 
 /**
  *  The maximum number of history records to return.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** Page token to retrieve a specific page of results in the list. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. Returns history records after the specified startHistoryId. The
@@ -456,7 +456,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  no nextPageToken in the response, there are no updates to retrieve and you
  *  can store the returned historyId for a future request.
  */
-@property(assign) unsigned long long startHistoryId;
+@property(nonatomic, assign) unsigned long long startHistoryId;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -464,7 +464,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_ListHistoryResponse.
@@ -505,7 +505,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Label.
@@ -543,7 +543,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -551,7 +551,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -591,7 +591,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -599,7 +599,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Label.
@@ -638,7 +638,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_ListLabelsResponse.
@@ -673,7 +673,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -681,7 +681,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Label.
@@ -720,7 +720,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -728,7 +728,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Label.
@@ -767,10 +767,10 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The ID of the message containing the attachment. */
-@property(copy, nullable) NSString *messageId;
+@property(nonatomic, copy, nullable) NSString *messageId;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -778,7 +778,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_MessagePartBody.
@@ -817,7 +817,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -856,7 +856,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -864,7 +864,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -910,17 +910,17 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  @note If not set, the documented server-side default will be
  *        kGTLRGmailFormatFull.
  */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /**
  *  The ID of the message to retrieve.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** When given and format is METADATA, only include headers specified. */
-@property(strong, nullable) NSArray<NSString *> *metadataHeaders;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metadataHeaders;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -928,7 +928,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Message.
@@ -969,7 +969,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL deleted;
+@property(nonatomic, assign) BOOL deleted;
 
 /**
  *  Source for Gmail's internal date of the message.
@@ -981,7 +981,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  @note If not set, the documented server-side default will be
  *        kGTLRGmailInternalDateSourceDateHeader.
  */
-@property(copy, nullable) NSString *internalDateSource;
+@property(nonatomic, copy, nullable) NSString *internalDateSource;
 
 /**
  *  Ignore the Gmail spam classifier decision and never mark this email as SPAM
@@ -989,7 +989,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL neverMarkSpam;
+@property(nonatomic, assign) BOOL neverMarkSpam;
 
 /**
  *  Process calendar invites in the email and add any extracted meetings to the
@@ -997,7 +997,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL processForCalendar;
+@property(nonatomic, assign) BOOL processForCalendar;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -1005,7 +1005,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Message.
@@ -1050,7 +1050,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL deleted;
+@property(nonatomic, assign) BOOL deleted;
 
 /**
  *  Source for Gmail's internal date of the message.
@@ -1062,7 +1062,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  @note If not set, the documented server-side default will be
  *        kGTLRGmailInternalDateSourceReceivedTime.
  */
-@property(copy, nullable) NSString *internalDateSource;
+@property(nonatomic, copy, nullable) NSString *internalDateSource;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -1070,7 +1070,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Message.
@@ -1111,29 +1111,29 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL includeSpamTrash;
+@property(nonatomic, assign) BOOL includeSpamTrash;
 
 /**
  *  Only return messages with labels that match all of the specified label IDs.
  */
-@property(strong, nullable) NSArray<NSString *> *labelIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
 
 /**
  *  Maximum number of messages to return.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** Page token to retrieve a specific page of results in the list. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Only return messages matching the specified query. Supports the same query
  *  format as the Gmail search box. For example, "from:someuser\@example.com
  *  rfc822msgid: is:unread".
  */
-@property(copy, nullable) NSString *q;
+@property(nonatomic, copy, nullable) NSString *q;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -1141,7 +1141,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_ListMessagesResponse.
@@ -1179,7 +1179,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -1187,7 +1187,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Message.
@@ -1229,7 +1229,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Message.
@@ -1269,7 +1269,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -1277,7 +1277,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Message.
@@ -1313,7 +1313,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -1321,7 +1321,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Message.
@@ -1357,7 +1357,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Filter.
@@ -1392,7 +1392,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -1400,7 +1400,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1439,7 +1439,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -1447,7 +1447,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Filter.
@@ -1486,7 +1486,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_ListFiltersResponse.
@@ -1505,8 +1505,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Creates a forwarding address. If ownership verification is required, a
  *  message will be sent to the recipient and the resource's verification status
- *  will be set to `pending`; otherwise, the resource will be created with
- *  verification status set to `accepted`.
+ *  will be set to pending; otherwise, the resource will be created with
+ *  verification status set to accepted.
  *
  *  Method: gmail.users.settings.forwardingAddresses.create
  *
@@ -1523,15 +1523,15 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_ForwardingAddress.
  *
  *  Creates a forwarding address. If ownership verification is required, a
  *  message will be sent to the recipient and the resource's verification status
- *  will be set to `pending`; otherwise, the resource will be created with
- *  verification status set to `accepted`.
+ *  will be set to pending; otherwise, the resource will be created with
+ *  verification status set to accepted.
  *
  *  @param object The @c GTLRGmail_ForwardingAddress to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -1558,7 +1558,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsForwardingAddressesDeleteWithuserId:forwardingEmail:]
 
 /** The forwarding address to be deleted. */
-@property(copy, nullable) NSString *forwardingEmail;
+@property(nonatomic, copy, nullable) NSString *forwardingEmail;
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -1566,7 +1566,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1602,7 +1602,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsForwardingAddressesGetWithuserId:forwardingEmail:]
 
 /** The forwarding address to be retrieved. */
-@property(copy, nullable) NSString *forwardingEmail;
+@property(nonatomic, copy, nullable) NSString *forwardingEmail;
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -1610,7 +1610,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_ForwardingAddress.
@@ -1649,7 +1649,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_ListForwardingAddressesResponse.
@@ -1686,7 +1686,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_AutoForwarding.
@@ -1723,7 +1723,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_ImapSettings.
@@ -1760,7 +1760,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_PopSettings.
@@ -1797,7 +1797,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_VacationSettings.
@@ -1818,8 +1818,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  will attempt to connect to the SMTP service to validate the configuration
  *  before creating the alias. If ownership verification is required for the
  *  alias, a message will be sent to the email address and the resource's
- *  verification status will be set to `pending`; otherwise, the resource will
- *  be created with verification status set to `accepted`. If a signature is
+ *  verification status will be set to pending; otherwise, the resource will be
+ *  created with verification status set to accepted. If a signature is
  *  provided, Gmail will sanitize the HTML before saving it with the alias.
  *
  *  Method: gmail.users.settings.sendAs.create
@@ -1837,7 +1837,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_SendAs.
@@ -1846,8 +1846,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  will attempt to connect to the SMTP service to validate the configuration
  *  before creating the alias. If ownership verification is required for the
  *  alias, a message will be sent to the email address and the resource's
- *  verification status will be set to `pending`; otherwise, the resource will
- *  be created with verification status set to `accepted`. If a signature is
+ *  verification status will be set to pending; otherwise, the resource will be
+ *  created with verification status set to accepted. If a signature is
  *  provided, Gmail will sanitize the HTML before saving it with the alias.
  *
  *  @param object The @c GTLRGmail_SendAs to include in the query.
@@ -1875,7 +1875,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsSendAsDeleteWithuserId:sendAsEmail:]
 
 /** The send-as alias to be deleted. */
-@property(copy, nullable) NSString *sendAsEmail;
+@property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -1883,7 +1883,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1920,7 +1920,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsSendAsGetWithuserId:sendAsEmail:]
 
 /** The send-as alias to be retrieved. */
-@property(copy, nullable) NSString *sendAsEmail;
+@property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -1928,7 +1928,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_SendAs.
@@ -1970,7 +1970,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_ListSendAsResponse.
@@ -2003,7 +2003,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsSendAsPatchWithObject:userId:sendAsEmail:]
 
 /** The send-as alias to be updated. */
-@property(copy, nullable) NSString *sendAsEmail;
+@property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2011,7 +2011,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_SendAs.
@@ -2047,7 +2047,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsSendAsUpdateWithObject:userId:sendAsEmail:]
 
 /** The send-as alias to be updated. */
-@property(copy, nullable) NSString *sendAsEmail;
+@property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2055,7 +2055,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_SendAs.
@@ -2078,7 +2078,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Sends a verification email to the specified send-as alias address. The
- *  verification status must be `pending`.
+ *  verification status must be pending.
  *
  *  Method: gmail.users.settings.sendAs.verify
  *
@@ -2090,7 +2090,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsSendAsVerifyWithuserId:sendAsEmail:]
 
 /** The send-as alias to be verified. */
-@property(copy, nullable) NSString *sendAsEmail;
+@property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2098,14 +2098,14 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
  *  Sends a verification email to the specified send-as alias address. The
- *  verification status must be `pending`.
+ *  verification status must be pending.
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2137,7 +2137,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_AutoForwarding.
@@ -2174,7 +2174,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_ImapSettings.
@@ -2210,7 +2210,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_PopSettings.
@@ -2246,7 +2246,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_VacationSettings.
@@ -2284,7 +2284,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2319,7 +2319,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -2327,7 +2327,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2372,17 +2372,17 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  @note If not set, the documented server-side default will be
  *        kGTLRGmailFormatFull.
  */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /**
  *  The ID of the thread to retrieve.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** When given and format is METADATA, only include headers specified. */
-@property(strong, nullable) NSArray<NSString *> *metadataHeaders;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metadataHeaders;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -2390,7 +2390,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Thread.
@@ -2427,29 +2427,29 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL includeSpamTrash;
+@property(nonatomic, assign) BOOL includeSpamTrash;
 
 /**
  *  Only return threads with labels that match all of the specified label IDs.
  */
-@property(strong, nullable) NSArray<NSString *> *labelIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
 
 /**
  *  Maximum number of threads to return.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** Page token to retrieve a specific page of results in the list. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Only return threads matching the specified query. Supports the same query
  *  format as the Gmail search box. For example, "from:someuser\@example.com
  *  rfc822msgid: is:unread".
  */
-@property(copy, nullable) NSString *q;
+@property(nonatomic, copy, nullable) NSString *q;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -2457,7 +2457,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_ListThreadsResponse.
@@ -2496,7 +2496,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -2504,7 +2504,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Thread.
@@ -2543,7 +2543,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -2551,7 +2551,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Thread.
@@ -2587,7 +2587,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The user's email address. The special value me can be used to indicate the
@@ -2595,7 +2595,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_Thread.
@@ -2633,7 +2633,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @note If not set, the documented server-side default will be me.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGmail_WatchResponse.

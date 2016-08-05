@@ -343,7 +343,8 @@
 //
 
 @implementation GTLRQPXExpress_TripOptionsRequest
-@dynamic maxPrice, passengers, refundable, saleCountry, slice, solutions;
+@dynamic maxPrice, passengers, refundable, saleCountry, slice, solutions,
+         ticketingCountry;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

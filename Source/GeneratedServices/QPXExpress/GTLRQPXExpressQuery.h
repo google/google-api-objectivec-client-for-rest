@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRQPXExpressQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 

@@ -369,7 +369,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 @interface GTLRBooksQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -386,13 +386,13 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForBookshelvesGetWithuserId:shelf:]
 
 /** ID of bookshelf to retrieve. */
-@property(copy, nullable) NSString *shelf;
+@property(nonatomic, copy, nullable) NSString *shelf;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** ID of user for whom to retrieve bookshelves. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRBooks_Bookshelf.
@@ -422,10 +422,10 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForBookshelvesListWithuserId:]
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** ID of user for whom to retrieve bookshelves. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRBooks_Bookshelves.
@@ -453,22 +453,22 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForBookshelvesVolumesListWithuserId:shelf:]
 
 /** Maximum number of results to return */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** ID of bookshelf to retrieve volumes. */
-@property(copy, nullable) NSString *shelf;
+@property(nonatomic, copy, nullable) NSString *shelf;
 
 /** Set to true to show pre-ordered books. Defaults to false. */
-@property(assign) BOOL showPreorders;
+@property(nonatomic, assign) BOOL showPreorders;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** Index of the first element to return (starts at 0) */
-@property(assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex;
 
 /** ID of user for whom to retrieve bookshelf volumes. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRBooks_Volumes.
@@ -498,17 +498,17 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForCloudloadingAddBook]
 
 /** A drive document id. The upload_client_token must not be set. */
-@property(copy, nullable) NSString *driveDocumentId;
+@property(nonatomic, copy, nullable) NSString *driveDocumentId;
 
 /**
  *  The document MIME type. It can be set only if the drive_document_id is set.
  */
-@property(copy, nullable) NSString *mimeType;
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 /** The document name. It can be set only if the drive_document_id is set. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
-@property(copy, nullable) NSString *uploadClientToken;
+@property(nonatomic, copy, nullable) NSString *uploadClientToken;
 
 /**
  *  Fetches a @c GTLRBooks_CloudloadingResource.
@@ -532,7 +532,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForCloudloadingDeleteBookWithvolumeId:]
 
 /** The id of the book to be removed. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -584,7 +584,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForDictionaryListOfflineMetadataWithcpksver:]
 
 /** The device/version ID from which to request the data. */
-@property(copy, nullable) NSString *cpksver;
+@property(nonatomic, copy, nullable) NSString *cpksver;
 
 /**
  *  Fetches a @c GTLRBooks_Metadata.
@@ -612,43 +612,43 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForLayersAnnotationDataGetWithvolumeId:layerId:annotationDataId:contentVersion:]
 
 /** For the dictionary layer. Whether or not to allow web definitions. */
-@property(assign) BOOL allowWebDefinitions;
+@property(nonatomic, assign) BOOL allowWebDefinitions;
 
 /** The ID of the annotation data to retrieve. */
-@property(copy, nullable) NSString *annotationDataId;
+@property(nonatomic, copy, nullable) NSString *annotationDataId;
 
 /** The content version for the volume you are trying to retrieve. */
-@property(copy, nullable) NSString *contentVersion;
+@property(nonatomic, copy, nullable) NSString *contentVersion;
 
 /**
  *  The requested pixel height for any images. If height is provided width must
  *  also be provided.
  */
-@property(assign) NSInteger h;
+@property(nonatomic, assign) NSInteger h;
 
 /** The ID for the layer to get the annotations. */
-@property(copy, nullable) NSString *layerId;
+@property(nonatomic, copy, nullable) NSString *layerId;
 
 /**
  *  The locale information for the data. ISO-639-1 language and ISO-3166-1
  *  country code. Ex: 'en_US'.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /** The requested scale for the image. */
-@property(assign) NSInteger scale;
+@property(nonatomic, assign) NSInteger scale;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** The volume to retrieve annotations for. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  The requested pixel width for any images. If width is provided height must
  *  also be provided.
  */
-@property(assign) NSInteger w;
+@property(nonatomic, assign) NSInteger w;
 
 /**
  *  Fetches a @c GTLRBooks_Annotationdata.
@@ -686,62 +686,62 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  The list of Annotation Data Ids to retrieve. Pagination is ignored if this
  *  is set.
  */
-@property(strong, nullable) NSArray<NSString *> *annotationDataId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *annotationDataId;
 
 /** The content version for the requested volume. */
-@property(copy, nullable) NSString *contentVersion;
+@property(nonatomic, copy, nullable) NSString *contentVersion;
 
 /**
  *  The requested pixel height for any images. If height is provided width must
  *  also be provided.
  */
-@property(assign) NSInteger h;
+@property(nonatomic, assign) NSInteger h;
 
 /** The ID for the layer to get the annotation data. */
-@property(copy, nullable) NSString *layerId;
+@property(nonatomic, copy, nullable) NSString *layerId;
 
 /**
  *  The locale information for the data. ISO-639-1 language and ISO-3166-1
  *  country code. Ex: 'en_US'.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  Maximum number of results to return
  *
  *  @note The documented range is 0..200.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The value of the nextToken from the previous page. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** The requested scale for the image. */
-@property(assign) NSInteger scale;
+@property(nonatomic, assign) NSInteger scale;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /**
  *  RFC 3339 timestamp to restrict to items updated prior to this timestamp
  *  (exclusive).
  */
-@property(copy, nullable) NSString *updatedMax;
+@property(nonatomic, copy, nullable) NSString *updatedMax;
 
 /**
  *  RFC 3339 timestamp to restrict to items updated since this timestamp
  *  (inclusive).
  */
-@property(copy, nullable) NSString *updatedMin;
+@property(nonatomic, copy, nullable) NSString *updatedMin;
 
 /** The volume to retrieve annotation data for. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  The requested pixel width for any images. If width is provided height must
  *  also be provided.
  */
-@property(assign) NSInteger w;
+@property(nonatomic, assign) NSInteger w;
 
 /**
  *  Fetches a @c GTLRBooks_Annotationsdata.
@@ -777,16 +777,16 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForLayersGetWithvolumeId:summaryId:]
 
 /** The content version for the requested volume. */
-@property(copy, nullable) NSString *contentVersion;
+@property(nonatomic, copy, nullable) NSString *contentVersion;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** The ID for the layer to get the summary for. */
-@property(copy, nullable) NSString *summaryId;
+@property(nonatomic, copy, nullable) NSString *summaryId;
 
 /** The volume to retrieve layers for. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Fetches a @c GTLRBooks_Layersummary.
@@ -816,23 +816,23 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForLayersListWithvolumeId:]
 
 /** The content version for the requested volume. */
-@property(copy, nullable) NSString *contentVersion;
+@property(nonatomic, copy, nullable) NSString *contentVersion;
 
 /**
  *  Maximum number of results to return
  *
  *  @note The documented range is 0..200.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The value of the nextToken from the previous page. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** The volume to retrieve layers for. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Fetches a @c GTLRBooks_Layersummaries.
@@ -860,22 +860,22 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForLayersVolumeAnnotationsGetWithvolumeId:layerId:annotationId:]
 
 /** The ID of the volume annotation to retrieve. */
-@property(copy, nullable) NSString *annotationId;
+@property(nonatomic, copy, nullable) NSString *annotationId;
 
 /** The ID for the layer to get the annotations. */
-@property(copy, nullable) NSString *layerId;
+@property(nonatomic, copy, nullable) NSString *layerId;
 
 /**
  *  The locale information for the data. ISO-639-1 language and ISO-3166-1
  *  country code. Ex: 'en_US'.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** The volume to retrieve annotations for. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Fetches a @c GTLRBooks_Volumeannotation.
@@ -907,65 +907,65 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForLayersVolumeAnnotationsListWithvolumeId:layerId:contentVersion:]
 
 /** The content version for the requested volume. */
-@property(copy, nullable) NSString *contentVersion;
+@property(nonatomic, copy, nullable) NSString *contentVersion;
 
 /** The end offset to end retrieving data from. */
-@property(copy, nullable) NSString *endOffset;
+@property(nonatomic, copy, nullable) NSString *endOffset;
 
 /** The end position to end retrieving data from. */
-@property(copy, nullable) NSString *endPosition;
+@property(nonatomic, copy, nullable) NSString *endPosition;
 
 /** The ID for the layer to get the annotations. */
-@property(copy, nullable) NSString *layerId;
+@property(nonatomic, copy, nullable) NSString *layerId;
 
 /**
  *  The locale information for the data. ISO-639-1 language and ISO-3166-1
  *  country code. Ex: 'en_US'.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  Maximum number of results to return
  *
  *  @note The documented range is 0..200.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The value of the nextToken from the previous page. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Set to true to return deleted annotations. updatedMin must be in the request
  *  to use this. Defaults to false.
  */
-@property(assign) BOOL showDeleted;
+@property(nonatomic, assign) BOOL showDeleted;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** The start offset to start retrieving data from. */
-@property(copy, nullable) NSString *startOffset;
+@property(nonatomic, copy, nullable) NSString *startOffset;
 
 /** The start position to start retrieving data from. */
-@property(copy, nullable) NSString *startPosition;
+@property(nonatomic, copy, nullable) NSString *startPosition;
 
 /**
  *  RFC 3339 timestamp to restrict to items updated prior to this timestamp
  *  (exclusive).
  */
-@property(copy, nullable) NSString *updatedMax;
+@property(nonatomic, copy, nullable) NSString *updatedMax;
 
 /**
  *  RFC 3339 timestamp to restrict to items updated since this timestamp
  *  (inclusive).
  */
-@property(copy, nullable) NSString *updatedMin;
+@property(nonatomic, copy, nullable) NSString *updatedMin;
 
 /** The version of the volume annotations that you are requesting. */
-@property(copy, nullable) NSString *volumeAnnotationsVersion;
+@property(nonatomic, copy, nullable) NSString *volumeAnnotationsVersion;
 
 /** The volume to retrieve annotations for. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Fetches a @c GTLRBooks_Volumeannotations.
@@ -1024,16 +1024,16 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMyconfigReleaseDownloadAccessWithvolumeIds:cpksver:]
 
 /** The device/version ID from which to release the restriction. */
-@property(copy, nullable) NSString *cpksver;
+@property(nonatomic, copy, nullable) NSString *cpksver;
 
 /** ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US. */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** The volume(s) to release restrictions for. */
-@property(strong, nullable) NSArray<NSString *> *volumeIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *volumeIds;
 
 /**
  *  Fetches a @c GTLRBooks_DownloadAccesses.
@@ -1063,7 +1063,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMyconfigRequestAccessWithsource:volumeId:nonce:cpksver:]
 
 /** The device/version ID from which to request the restrictions. */
-@property(copy, nullable) NSString *cpksver;
+@property(nonatomic, copy, nullable) NSString *cpksver;
 
 /**
  *  The type of access license to request. If not specified, the default is
@@ -1077,19 +1077,19 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksLicenseTypesDownload Offline download access license.
  *        (Value: "DOWNLOAD")
  */
-@property(copy, nullable) NSString *licenseTypes;
+@property(nonatomic, copy, nullable) NSString *licenseTypes;
 
 /** ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US. */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /** The client nonce value. */
-@property(copy, nullable) NSString *nonce;
+@property(nonatomic, copy, nullable) NSString *nonce;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** The volume to request concurrent/download restrictions for. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Fetches a @c GTLRBooks_RequestAccess.
@@ -1124,7 +1124,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMyconfigSyncVolumeLicensesWithsource:nonce:cpksver:]
 
 /** The device/version ID from which to release the restriction. */
-@property(copy, nullable) NSString *cpksver;
+@property(nonatomic, copy, nullable) NSString *cpksver;
 
 /**
  *  List of features supported by the client, i.e., 'RENTALS'
@@ -1133,25 +1133,25 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksFeaturesRentals Client supports rentals. (Value:
  *        "RENTALS")
  */
-@property(strong, nullable) NSArray<NSString *> *features;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *features;
 
 /** Set to true to include non-comics series. Defaults to false. */
-@property(assign) BOOL includeNonComicsSeries;
+@property(nonatomic, assign) BOOL includeNonComicsSeries;
 
 /** ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US. */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /** The client nonce value. */
-@property(copy, nullable) NSString *nonce;
+@property(nonatomic, copy, nullable) NSString *nonce;
 
 /** Set to true to show pre-ordered books. Defaults to false. */
-@property(assign) BOOL showPreorders;
+@property(nonatomic, assign) BOOL showPreorders;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** The volume(s) to request download restrictions for. */
-@property(strong, nullable) NSArray<NSString *> *volumeIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *volumeIds;
 
 /**
  *  Fetches a @c GTLRBooks_Volumes.
@@ -1213,10 +1213,10 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMylibraryAnnotationsDeleteWithannotationId:]
 
 /** The ID for the annotation to delete. */
-@property(copy, nullable) NSString *annotationId;
+@property(nonatomic, copy, nullable) NSString *annotationId;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1245,16 +1245,16 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMylibraryAnnotationsInsertWithObject:]
 
 /** ISO-3166-1 code to override the IP-based location. */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /**
  *  Requests that only the summary of the specified layer be provided in the
  *  response.
  */
-@property(assign) BOOL showOnlySummaryInResponse;
+@property(nonatomic, assign) BOOL showOnlySummaryInResponse;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /**
  *  Fetches a @c GTLRBooks_Annotation.
@@ -1282,47 +1282,47 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMylibraryAnnotationsList]
 
 /** The content version for the requested volume. */
-@property(copy, nullable) NSString *contentVersion;
+@property(nonatomic, copy, nullable) NSString *contentVersion;
 
 /** The layer ID to limit annotation by. */
-@property(copy, nullable) NSString *layerId;
+@property(nonatomic, copy, nullable) NSString *layerId;
 
 /** The layer ID(s) to limit annotation by. */
-@property(strong, nullable) NSArray<NSString *> *layerIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *layerIds;
 
 /**
  *  Maximum number of results to return
  *
  *  @note The documented range is 0..40.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The value of the nextToken from the previous page. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Set to true to return deleted annotations. updatedMin must be in the request
  *  to use this. Defaults to false.
  */
-@property(assign) BOOL showDeleted;
+@property(nonatomic, assign) BOOL showDeleted;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /**
  *  RFC 3339 timestamp to restrict to items updated prior to this timestamp
  *  (exclusive).
  */
-@property(copy, nullable) NSString *updatedMax;
+@property(nonatomic, copy, nullable) NSString *updatedMax;
 
 /**
  *  RFC 3339 timestamp to restrict to items updated since this timestamp
  *  (inclusive).
  */
-@property(copy, nullable) NSString *updatedMin;
+@property(nonatomic, copy, nullable) NSString *updatedMin;
 
 /** The volume to restrict annotations to. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Fetches a @c GTLRBooks_Annotations.
@@ -1352,10 +1352,10 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMylibraryAnnotationsSummaryWithlayerIds:volumeId:]
 
 /** Array of layer IDs to get the summary for. */
-@property(strong, nullable) NSArray<NSString *> *layerIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *layerIds;
 
 /** Volume id to get the summary for. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Fetches a @c GTLRBooks_AnnotationsSummary.
@@ -1385,10 +1385,10 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMylibraryAnnotationsUpdateWithObject:annotationId:]
 
 /** The ID for the annotation to update. */
-@property(copy, nullable) NSString *annotationId;
+@property(nonatomic, copy, nullable) NSString *annotationId;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /**
  *  Fetches a @c GTLRBooks_Annotation.
@@ -1428,16 +1428,16 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksReasonOnboarding Volumes added from the Onboarding flow.
  *        (Value: "ONBOARDING")
  */
-@property(copy, nullable) NSString *reason;
+@property(nonatomic, copy, nullable) NSString *reason;
 
 /** ID of bookshelf to which to add a volume. */
-@property(copy, nullable) NSString *shelf;
+@property(nonatomic, copy, nullable) NSString *shelf;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** ID of volume to add. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1468,10 +1468,10 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMylibraryBookshelvesClearVolumesWithshelf:]
 
 /** ID of bookshelf from which to remove a volume. */
-@property(copy, nullable) NSString *shelf;
+@property(nonatomic, copy, nullable) NSString *shelf;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1501,10 +1501,10 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMylibraryBookshelvesGetWithshelf:]
 
 /** ID of bookshelf to retrieve. */
-@property(copy, nullable) NSString *shelf;
+@property(nonatomic, copy, nullable) NSString *shelf;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /**
  *  Fetches a @c GTLRBooks_Bookshelf.
@@ -1533,7 +1533,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMylibraryBookshelvesList]
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /**
  *  Fetches a @c GTLRBooks_Bookshelves.
@@ -1559,19 +1559,19 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMylibraryBookshelvesMoveVolumeWithshelf:volumeId:volumePosition:]
 
 /** ID of bookshelf with the volume. */
-@property(copy, nullable) NSString *shelf;
+@property(nonatomic, copy, nullable) NSString *shelf;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** ID of volume to move. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Position on shelf to move the item (0 puts the item before the current first
  *  item, 1 puts it between the first and the second and so on.)
  */
-@property(assign) NSInteger volumePosition;
+@property(nonatomic, assign) NSInteger volumePosition;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1612,16 +1612,16 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksReasonOnboarding Samples removed from the Onboarding
  *        flow. (Value: "ONBOARDING")
  */
-@property(copy, nullable) NSString *reason;
+@property(nonatomic, copy, nullable) NSString *reason;
 
 /** ID of bookshelf from which to remove a volume. */
-@property(copy, nullable) NSString *shelf;
+@property(nonatomic, copy, nullable) NSString *shelf;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** ID of volume to remove. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1652,10 +1652,10 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMylibraryBookshelvesVolumesListWithshelf:]
 
 /** ISO-3166-1 code to override the IP-based location. */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /** Maximum number of results to return */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Restrict information returned to a set of selected fields.
@@ -1665,22 +1665,22 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksProjectionLite Includes a subset of fields in volumeInfo
  *        and accessInfo. (Value: "lite")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /** Full-text search query string in this bookshelf. */
-@property(copy, nullable) NSString *q;
+@property(nonatomic, copy, nullable) NSString *q;
 
 /** The bookshelf ID or name retrieve volumes for. */
-@property(copy, nullable) NSString *shelf;
+@property(nonatomic, copy, nullable) NSString *shelf;
 
 /** Set to true to show pre-ordered books. Defaults to false. */
-@property(assign) BOOL showPreorders;
+@property(nonatomic, assign) BOOL showPreorders;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** Index of the first element to return (starts at 0) */
-@property(assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex;
 
 /**
  *  Fetches a @c GTLRBooks_Volumes.
@@ -1708,13 +1708,13 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForMylibraryReadingpositionsGetWithvolumeId:]
 
 /** Volume content version for which this reading position is requested. */
-@property(copy, nullable) NSString *contentVersion;
+@property(nonatomic, copy, nullable) NSString *contentVersion;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** ID of volume for which to retrieve a reading position. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Fetches a @c GTLRBooks_ReadingPosition.
@@ -1755,25 +1755,25 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksActionSearch User chose search results within volume.
  *        (Value: "search")
  */
-@property(copy, nullable) NSString *action;
+@property(nonatomic, copy, nullable) NSString *action;
 
 /** Volume content version for which this reading position applies. */
-@property(copy, nullable) NSString *contentVersion;
+@property(nonatomic, copy, nullable) NSString *contentVersion;
 
 /** Random persistent device cookie optional on set position. */
-@property(copy, nullable) NSString *deviceCookie;
+@property(nonatomic, copy, nullable) NSString *deviceCookie;
 
 /** Position string for the new volume reading position. */
-@property(copy, nullable) NSString *position;
+@property(nonatomic, copy, nullable) NSString *position;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** RFC 3339 UTC format timestamp associated with this reading position. */
-@property(copy, nullable) NSString *timestamp;
+@property(nonatomic, copy, nullable) NSString *timestamp;
 
 /** ID of volume for which to update the reading position. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1810,13 +1810,13 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for
  *  generating notification title and body.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /** String to identify the notification. */
-@property(copy, nullable) NSString *notificationId;
+@property(nonatomic, copy, nullable) NSString *notificationId;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /**
  *  Fetches a @c GTLRBooks_Notification.
@@ -1846,7 +1846,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 /**
  *  ISO-639-1 language and ISO-3166-1 country code. Default is en-US if unset.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  Fetches a @c GTLRBooks_Category.
@@ -1872,12 +1872,12 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForOnboardingListCategoryVolumes]
 
 /** List of category ids requested. */
-@property(strong, nullable) NSArray<NSString *> *categoryId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *categoryId;
 
 /**
  *  ISO-639-1 language and ISO-3166-1 country code. Default is en-US if unset.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  The maximum allowed maturity rating of returned volumes. Books with a higher
@@ -1889,13 +1889,13 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Show books which are
  *        rated not mature. (Value: "not-mature")
  */
-@property(copy, nullable) NSString *maxAllowedMaturityRating;
+@property(nonatomic, copy, nullable) NSString *maxAllowedMaturityRating;
 
 /** Number of maximum results per page to be included in the response. */
-@property(assign) NSUInteger pageSize;
+@property(nonatomic, assign) NSUInteger pageSize;
 
 /** The value of the nextToken from the previous page. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRBooks_Volume2.
@@ -1928,7 +1928,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for
  *  generating recommendations.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  The maximum allowed maturity rating of returned recommendations. Books with
@@ -1940,10 +1940,10 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Show books which are
  *        rated not mature. (Value: "not-mature")
  */
-@property(copy, nullable) NSString *maxAllowedMaturityRating;
+@property(nonatomic, copy, nullable) NSString *maxAllowedMaturityRating;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /**
  *  Fetches a @c GTLRBooks_Discoveryclusters.
@@ -1969,27 +1969,27 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForPromoofferAccept]
 
 /** device android_id */
-@property(copy, nullable) NSString *androidId;
+@property(nonatomic, copy, nullable) NSString *androidId;
 
 /** device device */
-@property(copy, nullable) NSString *device;
+@property(nonatomic, copy, nullable) NSString *device;
 
 /** device manufacturer */
-@property(copy, nullable) NSString *manufacturer;
+@property(nonatomic, copy, nullable) NSString *manufacturer;
 
 /** device model */
-@property(copy, nullable) NSString *model;
+@property(nonatomic, copy, nullable) NSString *model;
 
-@property(copy, nullable) NSString *offerId;
+@property(nonatomic, copy, nullable) NSString *offerId;
 
 /** device product */
-@property(copy, nullable) NSString *product;
+@property(nonatomic, copy, nullable) NSString *product;
 
 /** device serial */
-@property(copy, nullable) NSString *serial;
+@property(nonatomic, copy, nullable) NSString *serial;
 
 /** Volume id to exercise the offer */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2014,25 +2014,25 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForPromoofferDismiss]
 
 /** device android_id */
-@property(copy, nullable) NSString *androidId;
+@property(nonatomic, copy, nullable) NSString *androidId;
 
 /** device device */
-@property(copy, nullable) NSString *device;
+@property(nonatomic, copy, nullable) NSString *device;
 
 /** device manufacturer */
-@property(copy, nullable) NSString *manufacturer;
+@property(nonatomic, copy, nullable) NSString *manufacturer;
 
 /** device model */
-@property(copy, nullable) NSString *model;
+@property(nonatomic, copy, nullable) NSString *model;
 
 /** Offer to dimiss */
-@property(copy, nullable) NSString *offerId;
+@property(nonatomic, copy, nullable) NSString *offerId;
 
 /** device product */
-@property(copy, nullable) NSString *product;
+@property(nonatomic, copy, nullable) NSString *product;
 
 /** device serial */
-@property(copy, nullable) NSString *serial;
+@property(nonatomic, copy, nullable) NSString *serial;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2057,22 +2057,22 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForPromoofferGet]
 
 /** device android_id */
-@property(copy, nullable) NSString *androidId;
+@property(nonatomic, copy, nullable) NSString *androidId;
 
 /** device device */
-@property(copy, nullable) NSString *device;
+@property(nonatomic, copy, nullable) NSString *device;
 
 /** device manufacturer */
-@property(copy, nullable) NSString *manufacturer;
+@property(nonatomic, copy, nullable) NSString *manufacturer;
 
 /** device model */
-@property(copy, nullable) NSString *model;
+@property(nonatomic, copy, nullable) NSString *model;
 
 /** device product */
-@property(copy, nullable) NSString *product;
+@property(nonatomic, copy, nullable) NSString *product;
 
 /** device serial */
-@property(copy, nullable) NSString *serial;
+@property(nonatomic, copy, nullable) NSString *serial;
 
 /**
  *  Fetches a @c GTLRBooks_Offers.
@@ -2098,7 +2098,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForSeriesGetWithseriesId:]
 
 /** String that identifies the series */
-@property(strong, nullable) NSArray<NSString *> *seriesId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *seriesId;
 
 /**
  *  Fetches a @c GTLRBooks_Series.
@@ -2126,13 +2126,13 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForSeriesMembershipGetWithseriesId:]
 
 /** Number of maximum results per page to be included in the response. */
-@property(assign) NSUInteger pageSize;
+@property(nonatomic, assign) NSUInteger pageSize;
 
 /** The value of the nextToken from the previous page. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** String that identifies the series */
-@property(copy, nullable) NSString *seriesId;
+@property(nonatomic, copy, nullable) NSString *seriesId;
 
 /**
  *  Fetches a @c GTLRBooks_Seriesmembership.
@@ -2174,13 +2174,13 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksAssociationRelatedForPlay Related volumes for Play
  *        Store. (Value: "related-for-play")
  */
-@property(copy, nullable) NSString *association;
+@property(nonatomic, copy, nullable) NSString *association;
 
 /**
  *  ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for
  *  generating recommendations.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  The maximum allowed maturity rating of returned recommendations. Books with
@@ -2192,13 +2192,13 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Show books which are
  *        rated not mature. (Value: "not-mature")
  */
-@property(copy, nullable) NSString *maxAllowedMaturityRating;
+@property(nonatomic, copy, nullable) NSString *maxAllowedMaturityRating;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** ID of the source volume. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Fetches a @c GTLRBooks_Volumes.
@@ -2226,13 +2226,13 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 //   +[GTLQueryBooks queryForVolumesGetWithvolumeId:]
 
 /** ISO-3166-1 code to override the IP-based location. */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /** Set to true to include non-comics series. Defaults to false. */
-@property(assign) BOOL includeNonComicsSeries;
+@property(nonatomic, assign) BOOL includeNonComicsSeries;
 
 /** Brand results for partner ID. */
-@property(copy, nullable) NSString *partner;
+@property(nonatomic, copy, nullable) NSString *partner;
 
 /**
  *  Restrict information returned to a set of selected fields.
@@ -2242,15 +2242,15 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksProjectionLite Includes a subset of fields in volumeInfo
  *        and accessInfo. (Value: "lite")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
-@property(assign) BOOL userLibraryConsistentRead;
+@property(nonatomic, assign) BOOL userLibraryConsistentRead;
 
 /** ID of volume to retrieve. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Fetches a @c GTLRBooks_Volume.
@@ -2283,7 +2283,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  Likely values:
  *    @arg @c kGTLRBooksDownloadEpub All volumes with epub. (Value: "epub")
  */
-@property(copy, nullable) NSString *download;
+@property(nonatomic, copy, nullable) NSString *download;
 
 /**
  *  Filter search results.
@@ -2299,10 +2299,10 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksFilterPartial Public able to see parts of text. (Value:
  *        "partial")
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Restrict results to books with this language code. */
-@property(copy, nullable) NSString *langRestrict;
+@property(nonatomic, copy, nullable) NSString *langRestrict;
 
 /**
  *  Restrict search to this user's library.
@@ -2313,14 +2313,14 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksLibraryRestrictNoRestrict Do not restrict based on
  *        user's library. (Value: "no-restrict")
  */
-@property(copy, nullable) NSString *libraryRestrict;
+@property(nonatomic, copy, nullable) NSString *libraryRestrict;
 
 /**
  *  Maximum number of results to return.
  *
  *  @note The documented range is 0..40.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Sort search results.
@@ -2330,10 +2330,10 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksOrderByRelevance Relevance to search terms. (Value:
  *        "relevance")
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Restrict and brand results for partner ID. */
-@property(copy, nullable) NSString *partner;
+@property(nonatomic, copy, nullable) NSString *partner;
 
 /**
  *  Restrict to books or magazines.
@@ -2343,7 +2343,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksPrintTypeBooks Just books. (Value: "books")
  *    @arg @c kGTLRBooksPrintTypeMagazines Just magazines. (Value: "magazines")
  */
-@property(copy, nullable) NSString *printType;
+@property(nonatomic, copy, nullable) NSString *printType;
 
 /**
  *  Restrict information returned to a set of selected fields.
@@ -2353,19 +2353,19 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksProjectionLite Includes a subset of fields in volumeInfo
  *        and accessInfo. (Value: "lite")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /** Full-text search query string. */
-@property(copy, nullable) NSString *q;
+@property(nonatomic, copy, nullable) NSString *q;
 
 /** Set to true to show books available for preorder. Defaults to false. */
-@property(assign) BOOL showPreorders;
+@property(nonatomic, assign) BOOL showPreorders;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** Index of the first result to return (starts at 0) */
-@property(assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex;
 
 /**
  *  Fetches a @c GTLRBooks_Volumes.
@@ -2411,23 +2411,23 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksAcquireMethodUploaded User uploaded books (Value:
  *        "UPLOADED")
  */
-@property(strong, nullable) NSArray<NSString *> *acquireMethod;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *acquireMethod;
 
 /** ISO-3166-1 code to override the IP-based location. */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /**
  *  ISO-639-1 language and ISO-3166-1 country code. Ex:'en_US'. Used for
  *  generating recommendations.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  Maximum number of results to return.
  *
  *  @note The documented range is 0..100.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The processing state of the user uploaded volumes to be returned. Applicable
@@ -2441,13 +2441,13 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksProcessingStateRunning The volume processing is not
  *        completed. (Value: "RUNNING")
  */
-@property(strong, nullable) NSArray<NSString *> *processingState;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *processingState;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** Index of the first result to return (starts at 0) */
-@property(assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex;
 
 /**
  *  Fetches a @c GTLRBooks_Volumes.
@@ -2476,7 +2476,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for
  *  generating recommendations.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  The maximum allowed maturity rating of returned recommendations. Books with
@@ -2488,10 +2488,10 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Show books which are
  *        rated not mature. (Value: "not-mature")
  */
-@property(copy, nullable) NSString *maxAllowedMaturityRating;
+@property(nonatomic, copy, nullable) NSString *maxAllowedMaturityRating;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /**
  *  Fetches a @c GTLRBooks_Volumes.
@@ -2520,7 +2520,7 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for
  *  generating recommendations.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  Rating to be given to the volume.
@@ -2531,13 +2531,13 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksRatingNotInterested Rating indicating a negative
  *        dismissal of a volume. (Value: "NOT_INTERESTED")
  */
-@property(copy, nullable) NSString *rating;
+@property(nonatomic, copy, nullable) NSString *rating;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** ID of the source volume. */
-@property(copy, nullable) NSString *volumeId;
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
  *  Fetches a @c GTLRBooks_VolumesRecommendedRateResponse.
@@ -2576,14 +2576,14 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *  ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for
  *  generating recommendations.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  Maximum number of results to return.
  *
  *  @note The documented range is 0..40.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The processing state of the user uploaded volumes to be returned.
@@ -2596,19 +2596,19 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
  *    @arg @c kGTLRBooksProcessingStateRunning The volume processing is not
  *        completed. (Value: "RUNNING")
  */
-@property(strong, nullable) NSArray<NSString *> *processingState;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *processingState;
 
 /** String to identify the originator of this request. */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** Index of the first result to return (starts at 0) */
-@property(assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex;
 
 /**
  *  The ids of the volumes to be returned. If not specified all that match the
  *  processingState are returned.
  */
-@property(strong, nullable) NSArray<NSString *> *volumeId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *volumeId;
 
 /**
  *  Fetches a @c GTLRBooks_Volumes.

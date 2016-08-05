@@ -82,7 +82,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 @interface GTLRCivicInfoQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -102,7 +102,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  library are supported. See
  *  http://lucene.apache.org/core/2_9_4/queryparsersyntax.html
  */
-@property(copy, nullable) NSString *query;
+@property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  Fetches a @c GTLRCivicInfo_DivisionSearchResponse.
@@ -146,7 +146,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 //   +[GTLQueryCivicInfo queryForElectionsVoterInfoQueryWithaddress:]
 
 /** The registered address of the voter to look up. */
-@property(copy, nullable) NSString *address;
+@property(nonatomic, copy, nullable) NSString *address;
 
 /**
  *  The unique ID of the election to look up. A list of election IDs can be
@@ -154,14 +154,14 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *
  *  @note If not set, the documented server-side default will be 0.
  */
-@property(assign) long long electionId;
+@property(nonatomic, assign) long long electionId;
 
 /**
  *  If set to true, only data from official state sources will be returned.
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL officialOnly;
+@property(nonatomic, assign) BOOL officialOnly;
 
 /**
  *  Fetches a @c GTLRCivicInfo_VoterInfoResponse.
@@ -191,7 +191,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  The address to look up. May only be specified if the field ocdId is not
  *  given in the URL.
  */
-@property(copy, nullable) NSString *address;
+@property(nonatomic, copy, nullable) NSString *address;
 
 /**
  *  Whether to return information about offices and officials. If false, only
@@ -199,7 +199,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *
  *  @note If not set, the documented server-side default will be true.
  */
-@property(assign) BOOL includeOffices;
+@property(nonatomic, assign) BOOL includeOffices;
 
 /**
  *  A list of office levels to filter by. Only offices that serve at least one
@@ -219,7 +219,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *    @arg @c kGTLRCivicInfoLevelsSubLocality1 Value "subLocality1"
  *    @arg @c kGTLRCivicInfoLevelsSubLocality2 Value "subLocality2"
  */
-@property(strong, nullable) NSArray<NSString *> *levels;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *levels;
 
 /**
  *  A list of office roles to filter by. Only offices fulfilling one of these
@@ -241,7 +241,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *    @arg @c kGTLRCivicInfoRolesSpecialPurposeOfficer Value
  *        "specialPurposeOfficer"
  */
-@property(strong, nullable) NSArray<NSString *> *roles;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 /**
  *  Fetches a @c GTLRCivicInfo_RepresentativeInfoResponse.
@@ -282,10 +282,10 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *    @arg @c kGTLRCivicInfoLevelsSubLocality1 Value "subLocality1"
  *    @arg @c kGTLRCivicInfoLevelsSubLocality2 Value "subLocality2"
  */
-@property(strong, nullable) NSArray<NSString *> *levels;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *levels;
 
 /** The Open Civic Data division identifier of the division to look up. */
-@property(copy, nullable) NSString *ocdId;
+@property(nonatomic, copy, nullable) NSString *ocdId;
 
 /**
  *  If true, information about all divisions contained in the division requested
@@ -293,7 +293,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  ocd-division/country:us/district:dc, this would also return all DC's wards
  *  and ANCs.
  */
-@property(assign) BOOL recursive;
+@property(nonatomic, assign) BOOL recursive;
 
 /**
  *  A list of office roles to filter by. Only offices fulfilling one of these
@@ -315,7 +315,7 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *    @arg @c kGTLRCivicInfoRolesSpecialPurposeOfficer Value
  *        "specialPurposeOfficer"
  */
-@property(strong, nullable) NSArray<NSString *> *roles;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 /**
  *  Fetches a @c GTLRCivicInfo_RepresentativeInfoData.

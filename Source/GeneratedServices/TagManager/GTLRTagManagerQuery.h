@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTagManagerQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersCreateWithObject:accountId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Fetches a @c GTLRTagManager_Container.
@@ -84,10 +84,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersDeleteWithaccountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -118,10 +118,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsCreateWithObject:accountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Fetches a @c GTLRTagManager_Environment.
@@ -153,13 +153,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsDeleteWithaccountId:containerId:environmentId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Environment ID. */
-@property(copy, nullable) NSString *environmentId;
+@property(nonatomic, copy, nullable) NSString *environmentId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -193,13 +193,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsGetWithaccountId:containerId:environmentId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Environment ID. */
-@property(copy, nullable) NSString *environmentId;
+@property(nonatomic, copy, nullable) NSString *environmentId;
 
 /**
  *  Fetches a @c GTLRTagManager_Environment.
@@ -232,10 +232,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsListWithaccountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Fetches a @c GTLRTagManager_ListEnvironmentsResponse.
@@ -265,19 +265,19 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsPatchWithObject:accountId:containerId:environmentId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Environment ID. */
-@property(copy, nullable) NSString *environmentId;
+@property(nonatomic, copy, nullable) NSString *environmentId;
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the
  *  environment in storage.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
  *  Fetches a @c GTLRTagManager_Environment.
@@ -311,19 +311,19 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsUpdateWithObject:accountId:containerId:environmentId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Environment ID. */
-@property(copy, nullable) NSString *environmentId;
+@property(nonatomic, copy, nullable) NSString *environmentId;
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the
  *  environment in storage.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
  *  Fetches a @c GTLRTagManager_Environment.
@@ -357,10 +357,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersFoldersCreateWithObject:accountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Fetches a @c GTLRTagManager_Folder.
@@ -392,13 +392,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersFoldersDeleteWithaccountId:containerId:folderId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Folder ID. */
-@property(copy, nullable) NSString *folderId;
+@property(nonatomic, copy, nullable) NSString *folderId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -432,13 +432,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersFoldersEntitiesListWithaccountId:containerId:folderId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Folder ID. */
-@property(copy, nullable) NSString *folderId;
+@property(nonatomic, copy, nullable) NSString *folderId;
 
 /**
  *  Fetches a @c GTLRTagManager_FolderEntities.
@@ -471,13 +471,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersFoldersGetWithaccountId:containerId:folderId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Folder ID. */
-@property(copy, nullable) NSString *folderId;
+@property(nonatomic, copy, nullable) NSString *folderId;
 
 /**
  *  Fetches a @c GTLRTagManager_Folder.
@@ -510,10 +510,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersFoldersListWithaccountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Fetches a @c GTLRTagManager_ListFoldersResponse.
@@ -543,19 +543,19 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersFoldersUpdateWithObject:accountId:containerId:folderId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the folder in
  *  storage.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /** The GTM Folder ID. */
-@property(copy, nullable) NSString *folderId;
+@property(nonatomic, copy, nullable) NSString *folderId;
 
 /**
  *  Fetches a @c GTLRTagManager_Folder.
@@ -590,10 +590,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersGetWithaccountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Fetches a @c GTLRTagManager_Container.
@@ -624,7 +624,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersListWithaccountId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Fetches a @c GTLRTagManager_ListContainersResponse.
@@ -652,22 +652,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersMoveFoldersUpdateWithObject:accountId:containerId:folderId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Folder ID. */
-@property(copy, nullable) NSString *folderId;
+@property(nonatomic, copy, nullable) NSString *folderId;
 
 /** The tags to be moved to the folder. */
-@property(strong, nullable) NSArray<NSString *> *tagId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tagId;
 
 /** The triggers to be moved to the folder. */
-@property(strong, nullable) NSArray<NSString *> *triggerId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *triggerId;
 
 /** The variables to be moved to the folder. */
-@property(strong, nullable) NSArray<NSString *> *variableId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *variableId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -702,13 +702,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersReauthorizeEnvironmentsUpdateWithObject:accountId:containerId:environmentId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Environment ID. */
-@property(copy, nullable) NSString *environmentId;
+@property(nonatomic, copy, nullable) NSString *environmentId;
 
 /**
  *  Fetches a @c GTLRTagManager_Environment.
@@ -742,10 +742,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersTagsCreateWithObject:accountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Fetches a @c GTLRTagManager_Tag.
@@ -777,13 +777,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersTagsDeleteWithaccountId:containerId:tagId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Tag ID. */
-@property(copy, nullable) NSString *tagId;
+@property(nonatomic, copy, nullable) NSString *tagId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -817,13 +817,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersTagsGetWithaccountId:containerId:tagId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Tag ID. */
-@property(copy, nullable) NSString *tagId;
+@property(nonatomic, copy, nullable) NSString *tagId;
 
 /**
  *  Fetches a @c GTLRTagManager_Tag.
@@ -856,10 +856,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersTagsListWithaccountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Fetches a @c GTLRTagManager_ListTagsResponse.
@@ -889,19 +889,19 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersTagsUpdateWithObject:accountId:containerId:tagId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the tag in
  *  storage.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /** The GTM Tag ID. */
-@property(copy, nullable) NSString *tagId;
+@property(nonatomic, copy, nullable) NSString *tagId;
 
 /**
  *  Fetches a @c GTLRTagManager_Tag.
@@ -935,10 +935,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersTriggersCreateWithObject:accountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Fetches a @c GTLRTagManager_Trigger.
@@ -970,13 +970,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersTriggersDeleteWithaccountId:containerId:triggerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Trigger ID. */
-@property(copy, nullable) NSString *triggerId;
+@property(nonatomic, copy, nullable) NSString *triggerId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1010,13 +1010,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersTriggersGetWithaccountId:containerId:triggerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Trigger ID. */
-@property(copy, nullable) NSString *triggerId;
+@property(nonatomic, copy, nullable) NSString *triggerId;
 
 /**
  *  Fetches a @c GTLRTagManager_Trigger.
@@ -1049,10 +1049,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersTriggersListWithaccountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Fetches a @c GTLRTagManager_ListTriggersResponse.
@@ -1082,19 +1082,19 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersTriggersUpdateWithObject:accountId:containerId:triggerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the trigger in
  *  storage.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /** The GTM Trigger ID. */
-@property(copy, nullable) NSString *triggerId;
+@property(nonatomic, copy, nullable) NSString *triggerId;
 
 /**
  *  Fetches a @c GTLRTagManager_Trigger.
@@ -1128,16 +1128,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersUpdateWithObject:accountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the container
  *  in storage.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
  *  Fetches a @c GTLRTagManager_Container.
@@ -1169,10 +1169,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersVariablesCreateWithObject:accountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Fetches a @c GTLRTagManager_Variable.
@@ -1204,13 +1204,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersVariablesDeleteWithaccountId:containerId:variableId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Variable ID. */
-@property(copy, nullable) NSString *variableId;
+@property(nonatomic, copy, nullable) NSString *variableId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1244,13 +1244,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersVariablesGetWithaccountId:containerId:variableId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Variable ID. */
-@property(copy, nullable) NSString *variableId;
+@property(nonatomic, copy, nullable) NSString *variableId;
 
 /**
  *  Fetches a @c GTLRTagManager_Variable.
@@ -1283,10 +1283,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersVariablesListWithaccountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Fetches a @c GTLRTagManager_ListVariablesResponse.
@@ -1316,19 +1316,19 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersVariablesUpdateWithObject:accountId:containerId:variableId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the variable
  *  in storage.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /** The GTM Variable ID. */
-@property(copy, nullable) NSString *variableId;
+@property(nonatomic, copy, nullable) NSString *variableId;
 
 /**
  *  Fetches a @c GTLRTagManager_Variable.
@@ -1362,10 +1362,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsCreateWithObject:accountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Fetches a @c GTLRTagManager_CreateContainerVersionResponse.
@@ -1399,13 +1399,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsDeleteWithaccountId:containerId:containerVersionId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Container Version ID. */
-@property(copy, nullable) NSString *containerVersionId;
+@property(nonatomic, copy, nullable) NSString *containerVersionId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1440,16 +1440,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsGetWithaccountId:containerId:containerVersionId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  The GTM Container Version ID. Specify published to retrieve the currently
  *  published version.
  */
-@property(copy, nullable) NSString *containerVersionId;
+@property(nonatomic, copy, nullable) NSString *containerVersionId;
 
 /**
  *  Fetches a @c GTLRTagManager_ContainerVersion.
@@ -1484,24 +1484,24 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsListWithaccountId:containerId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
  *  Retrieve headers only when true.
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL headers;
+@property(nonatomic, assign) BOOL headers;
 
 /**
  *  Also retrieve deleted (archived) versions when true.
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL includeDeleted;
+@property(nonatomic, assign) BOOL includeDeleted;
 
 /**
  *  Fetches a @c GTLRTagManager_ListContainerVersionsResponse.
@@ -1531,19 +1531,19 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsPublishWithaccountId:containerId:containerVersionId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Container Version ID. */
-@property(copy, nullable) NSString *containerVersionId;
+@property(nonatomic, copy, nullable) NSString *containerVersionId;
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the container
  *  version in storage.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
  *  Fetches a @c GTLRTagManager_PublishContainerVersionResponse.
@@ -1578,13 +1578,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsRestoreWithaccountId:containerId:containerVersionId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Container Version ID. */
-@property(copy, nullable) NSString *containerVersionId;
+@property(nonatomic, copy, nullable) NSString *containerVersionId;
 
 /**
  *  Fetches a @c GTLRTagManager_ContainerVersion.
@@ -1619,13 +1619,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsUndeleteWithaccountId:containerId:containerVersionId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Container Version ID. */
-@property(copy, nullable) NSString *containerVersionId;
+@property(nonatomic, copy, nullable) NSString *containerVersionId;
 
 /**
  *  Fetches a @c GTLRTagManager_ContainerVersion.
@@ -1657,19 +1657,19 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsUpdateWithObject:accountId:containerId:containerVersionId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM Container ID. */
-@property(copy, nullable) NSString *containerId;
+@property(nonatomic, copy, nullable) NSString *containerId;
 
 /** The GTM Container Version ID. */
-@property(copy, nullable) NSString *containerVersionId;
+@property(nonatomic, copy, nullable) NSString *containerVersionId;
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the container
  *  version in storage.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
  *  Fetches a @c GTLRTagManager_ContainerVersion.
@@ -1706,7 +1706,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsGetWithaccountId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Fetches a @c GTLRTagManager_Account.
@@ -1759,7 +1759,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsPermissionsCreateWithObject:accountId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Fetches a @c GTLRTagManager_UserAccess.
@@ -1790,10 +1790,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsPermissionsDeleteWithaccountId:permissionId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM User ID. */
-@property(copy, nullable) NSString *permissionId;
+@property(nonatomic, copy, nullable) NSString *permissionId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1825,10 +1825,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsPermissionsGetWithaccountId:permissionId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM User ID. */
-@property(copy, nullable) NSString *permissionId;
+@property(nonatomic, copy, nullable) NSString *permissionId;
 
 /**
  *  Fetches a @c GTLRTagManager_UserAccess.
@@ -1859,7 +1859,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsPermissionsListWithaccountId:]
 
 /** The GTM Account ID. \@required tagmanager.accounts.permissions.list */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Fetches a @c GTLRTagManager_ListAccountUsersResponse.
@@ -1889,10 +1889,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsPermissionsUpdateWithObject:accountId:permissionId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** The GTM User ID. */
-@property(copy, nullable) NSString *permissionId;
+@property(nonatomic, copy, nullable) NSString *permissionId;
 
 /**
  *  Fetches a @c GTLRTagManager_UserAccess.
@@ -1924,13 +1924,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTagManager queryForAccountsUpdateWithObject:accountId:]
 
 /** The GTM Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the account in
  *  storage.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
  *  Fetches a @c GTLRTagManager_Account.

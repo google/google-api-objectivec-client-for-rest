@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsubQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsAcknowledgeWithObject:subscription:]
 
 /** The subscription whose message is being acknowledged. */
-@property(copy, nullable) NSString *subscription;
+@property(nonatomic, copy, nullable) NSString *subscription;
 
 /**
  *  Fetches a @c GTLRPubsub_Empty.
@@ -104,7 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters
  *  in length, and it must not start with `"goog"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRPubsub_Subscription.
@@ -147,7 +147,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsDeleteWithsubscription:]
 
 /** The subscription to delete. */
-@property(copy, nullable) NSString *subscription;
+@property(nonatomic, copy, nullable) NSString *subscription;
 
 /**
  *  Fetches a @c GTLRPubsub_Empty.
@@ -180,7 +180,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsGetWithsubscription:]
 
 /** The name of the subscription to get. */
-@property(copy, nullable) NSString *subscription;
+@property(nonatomic, copy, nullable) NSString *subscription;
 
 /**
  *  Fetches a @c GTLRPubsub_Subscription.
@@ -215,7 +215,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  /disks/ *disk*`. The format for the path specified in this value is resource
  *  specific and is specified in the `getIamPolicy` documentation.
  */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_Policy.
@@ -249,17 +249,17 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsListWithproject:]
 
 /** Maximum number of subscriptions to return. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The value returned by the last `ListSubscriptionsResponse`; indicates that
  *  this is a continuation of a prior `ListSubscriptions` call, and that the
  *  system should return the next page of data.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** The name of the cloud project that subscriptions belong to. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRPubsub_ListSubscriptionsResponse.
@@ -295,7 +295,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsModifyAckDeadlineWithObject:subscription:]
 
 /** The name of the subscription. */
-@property(copy, nullable) NSString *subscription;
+@property(nonatomic, copy, nullable) NSString *subscription;
 
 /**
  *  Fetches a @c GTLRPubsub_Empty.
@@ -334,7 +334,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsModifyPushConfigWithObject:subscription:]
 
 /** The name of the subscription. */
-@property(copy, nullable) NSString *subscription;
+@property(nonatomic, copy, nullable) NSString *subscription;
 
 /**
  *  Fetches a @c GTLRPubsub_Empty.
@@ -373,7 +373,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsPullWithObject:subscription:]
 
 /** The subscription from which messages should be pulled. */
-@property(copy, nullable) NSString *subscription;
+@property(nonatomic, copy, nullable) NSString *subscription;
 
 /**
  *  Fetches a @c GTLRPubsub_PullResponse.
@@ -413,7 +413,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  /disks/ *disk*`. The format for the path specified in this value is resource
  *  specific and is specified in the `setIamPolicy` documentation.
  */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_Policy.
@@ -455,7 +455,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  value is resource specific and is specified in the `testIamPermissions`
  *  documentation.
  */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_TestIamPermissionsResponse.
@@ -498,7 +498,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  (`%`). It must be between 3 and 255 characters in length, and it must not
  *  start with `"goog"`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRPubsub_Topic.
@@ -538,7 +538,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsDeleteWithtopic:]
 
 /** Name of the topic to delete. */
-@property(copy, nullable) NSString *topic;
+@property(nonatomic, copy, nullable) NSString *topic;
 
 /**
  *  Fetches a @c GTLRPubsub_Empty.
@@ -571,7 +571,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsGetWithtopic:]
 
 /** The name of the topic to get. */
-@property(copy, nullable) NSString *topic;
+@property(nonatomic, copy, nullable) NSString *topic;
 
 /**
  *  Fetches a @c GTLRPubsub_Topic.
@@ -606,7 +606,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  /disks/ *disk*`. The format for the path specified in this value is resource
  *  specific and is specified in the `getIamPolicy` documentation.
  */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_Policy.
@@ -640,17 +640,17 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsListWithproject:]
 
 /** Maximum number of topics to return. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The value returned by the last `ListTopicsResponse`; indicates that this is
  *  a continuation of a prior `ListTopics` call, and that the system should
  *  return the next page of data.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** The name of the cloud project that topics belong to. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRPubsub_ListTopicsResponse.
@@ -685,7 +685,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsPublishWithObject:topic:]
 
 /** The messages in the request will be published on this topic. */
-@property(copy, nullable) NSString *topic;
+@property(nonatomic, copy, nullable) NSString *topic;
 
 /**
  *  Fetches a @c GTLRPubsub_PublishResponse.
@@ -724,7 +724,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  /disks/ *disk*`. The format for the path specified in this value is resource
  *  specific and is specified in the `setIamPolicy` documentation.
  */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_Policy.
@@ -760,17 +760,17 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsSubscriptionsListWithtopic:]
 
 /** Maximum number of subscription names to return. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The value returned by the last `ListTopicSubscriptionsResponse`; indicates
  *  that this is a continuation of a prior `ListTopicSubscriptions` call, and
  *  that the system should return the next page of data.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** The name of the topic that subscriptions are attached to. */
-@property(copy, nullable) NSString *topic;
+@property(nonatomic, copy, nullable) NSString *topic;
 
 /**
  *  Fetches a @c GTLRPubsub_ListTopicSubscriptionsResponse.
@@ -805,7 +805,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  value is resource specific and is specified in the `testIamPermissions`
  *  documentation.
  */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_TestIamPermissionsResponse.

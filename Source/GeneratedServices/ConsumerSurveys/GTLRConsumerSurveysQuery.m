@@ -113,6 +113,25 @@
 
 @end
 
+@implementation GTLRConsumerSurveysQuery_SurveysDelete
+
+@dynamic surveyUrlId;
+
++ (instancetype)queryWithSurveyUrlId:(NSString *)surveyUrlId {
+  NSArray *pathParams = @[ @"surveyUrlId" ];
+  NSString *pathURITemplate = @"surveys/{surveyUrlId}";
+  GTLRConsumerSurveysQuery_SurveysDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.surveyUrlId = surveyUrlId;
+  query.expectedObjectClass = [GTLRConsumerSurveys_SurveysDeleteResponse class];
+  query.loggingName = @"consumersurveys.surveys.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRConsumerSurveysQuery_SurveysGet
 
 @dynamic surveyUrlId;

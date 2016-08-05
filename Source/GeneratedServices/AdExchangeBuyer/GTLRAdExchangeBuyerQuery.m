@@ -495,7 +495,7 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized = @"updateFinal
 
 @implementation GTLRAdExchangeBuyerQuery_MarketplacenotesList
 
-@dynamic proposalId;
+@dynamic pqlQuery, proposalId;
 
 + (instancetype)queryWithProposalId:(NSString *)proposalId {
   NSArray *pathParams = @[ @"proposalId" ];

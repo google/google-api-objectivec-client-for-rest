@@ -426,6 +426,16 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_AppendValuesResponse
+//
+
+@implementation GTLRSheets_AppendValuesResponse
+@dynamic spreadsheetId, tableRange, updates;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_AutoFillRequest
 //
 

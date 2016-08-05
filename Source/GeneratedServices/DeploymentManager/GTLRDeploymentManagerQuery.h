@@ -54,7 +54,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 @interface GTLRDeploymentManagerQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -72,10 +72,10 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 //   +[GTLQueryDeploymentManager queryForDeploymentsCancelPreviewWithObject:project:deployment:]
 
 /** The name of the deployment for this request. */
-@property(copy, nullable) NSString *deployment;
+@property(nonatomic, copy, nullable) NSString *deployment;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_Operation.
@@ -109,10 +109,10 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 //   +[GTLQueryDeploymentManager queryForDeploymentsDeleteWithproject:deployment:]
 
 /** The name of the deployment for this request. */
-@property(copy, nullable) NSString *deployment;
+@property(nonatomic, copy, nullable) NSString *deployment;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_Operation.
@@ -145,10 +145,10 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 //   +[GTLQueryDeploymentManager queryForDeploymentsGetWithproject:deployment:]
 
 /** The name of the deployment for this request. */
-@property(copy, nullable) NSString *deployment;
+@property(nonatomic, copy, nullable) NSString *deployment;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_Deployment.
@@ -188,10 +188,10 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  deployment will still exist after you cancel the preview and you must
  *  separately delete this deployment if you want to remove it.
  */
-@property(assign) BOOL preview;
+@property(nonatomic, assign) BOOL preview;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_Operation.
@@ -247,7 +247,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
  *  that resources must match all expressions to pass the filters.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -258,16 +258,16 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @note If not set, the documented server-side default will be 500 (from the
  *        range 0..500).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_DeploymentsListResponse.
@@ -311,7 +311,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @note If not set, the documented server-side default will be
  *        kGTLRDeploymentManagerCreatePolicyCreateOrAcquire.
  */
-@property(copy, nullable) NSString *createPolicy;
+@property(nonatomic, copy, nullable) NSString *createPolicy;
 
 /**
  *  Sets the policy to use for deleting resources.
@@ -323,10 +323,10 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @note If not set, the documented server-side default will be
  *        kGTLRDeploymentManagerDeletePolicyDelete.
  */
-@property(copy, nullable) NSString *deletePolicy;
+@property(nonatomic, copy, nullable) NSString *deletePolicy;
 
 /** The name of the deployment for this request. */
-@property(copy, nullable) NSString *deployment;
+@property(nonatomic, copy, nullable) NSString *deployment;
 
 /**
  *  If set to true, updates the deployment and creates and updates the "shell"
@@ -342,10 +342,10 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL preview;
+@property(nonatomic, assign) BOOL preview;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_Operation.
@@ -381,10 +381,10 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 //   +[GTLQueryDeploymentManager queryForDeploymentsStopWithObject:project:deployment:]
 
 /** The name of the deployment for this request. */
-@property(copy, nullable) NSString *deployment;
+@property(nonatomic, copy, nullable) NSString *deployment;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_Operation.
@@ -430,7 +430,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @note If not set, the documented server-side default will be
  *        kGTLRDeploymentManagerCreatePolicyCreateOrAcquire.
  */
-@property(copy, nullable) NSString *createPolicy;
+@property(nonatomic, copy, nullable) NSString *createPolicy;
 
 /**
  *  Sets the policy to use for deleting resources.
@@ -442,10 +442,10 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @note If not set, the documented server-side default will be
  *        kGTLRDeploymentManagerDeletePolicyDelete.
  */
-@property(copy, nullable) NSString *deletePolicy;
+@property(nonatomic, copy, nullable) NSString *deletePolicy;
 
 /** The name of the deployment for this request. */
-@property(copy, nullable) NSString *deployment;
+@property(nonatomic, copy, nullable) NSString *deployment;
 
 /**
  *  If set to true, updates the deployment and creates and updates the "shell"
@@ -461,10 +461,10 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL preview;
+@property(nonatomic, assign) BOOL preview;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_Operation.
@@ -501,13 +501,13 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 //   +[GTLQueryDeploymentManager queryForManifestsGetWithproject:deployment:manifest:]
 
 /** The name of the deployment for this request. */
-@property(copy, nullable) NSString *deployment;
+@property(nonatomic, copy, nullable) NSString *deployment;
 
 /** The name of the manifest for this request. */
-@property(copy, nullable) NSString *manifest;
+@property(nonatomic, copy, nullable) NSString *manifest;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_Manifest.
@@ -542,7 +542,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 //   +[GTLQueryDeploymentManager queryForManifestsListWithproject:deployment:]
 
 /** The name of the deployment for this request. */
-@property(copy, nullable) NSString *deployment;
+@property(nonatomic, copy, nullable) NSString *deployment;
 
 /**
  *  Sets a filter expression for filtering listed resources, in the form
@@ -566,7 +566,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
  *  that resources must match all expressions to pass the filters.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -577,16 +577,16 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @note If not set, the documented server-side default will be 500 (from the
  *        range 0..500).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_ManifestsListResponse.
@@ -623,10 +623,10 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 //   +[GTLQueryDeploymentManager queryForOperationsGetWithproject:operation:]
 
 /** The name of the operation for this request. */
-@property(copy, nullable) NSString *operation;
+@property(nonatomic, copy, nullable) NSString *operation;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_Operation.
@@ -680,7 +680,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
  *  that resources must match all expressions to pass the filters.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -691,16 +691,16 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @note If not set, the documented server-side default will be 500 (from the
  *        range 0..500).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_OperationsListResponse.
@@ -735,13 +735,13 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 //   +[GTLQueryDeploymentManager queryForResourcesGetWithproject:deployment:resource:]
 
 /** The name of the deployment for this request. */
-@property(copy, nullable) NSString *deployment;
+@property(nonatomic, copy, nullable) NSString *deployment;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** The name of the resource for this request. */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_Resource.
@@ -776,7 +776,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 //   +[GTLQueryDeploymentManager queryForResourcesListWithproject:deployment:]
 
 /** The name of the deployment for this request. */
-@property(copy, nullable) NSString *deployment;
+@property(nonatomic, copy, nullable) NSString *deployment;
 
 /**
  *  Sets a filter expression for filtering listed resources, in the form
@@ -800,7 +800,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
  *  that resources must match all expressions to pass the filters.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -811,16 +811,16 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @note If not set, the documented server-side default will be 500 (from the
  *        range 0..500).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_ResourcesListResponse.
@@ -878,7 +878,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
  *  that resources must match all expressions to pass the filters.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -889,16 +889,16 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  @note If not set, the documented server-side default will be 500 (from the
  *        range 0..500).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** The project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_TypesListResponse.

@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDoubleClickBidManagerQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDoubleClickBidManager queryForQueriesDeletequeryWithqueryId:]
 
 /** Query ID to delete. */
-@property(assign) long long queryId;
+@property(nonatomic, assign) long long queryId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -141,7 +141,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDoubleClickBidManager queryForQueriesGetqueryWithqueryId:]
 
 /** Query ID to retrieve. */
-@property(assign) long long queryId;
+@property(nonatomic, assign) long long queryId;
 
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_Query.
@@ -186,7 +186,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDoubleClickBidManager queryForQueriesRunqueryWithObject:queryId:]
 
 /** Query ID to run. */
-@property(assign) long long queryId;
+@property(nonatomic, assign) long long queryId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -215,7 +215,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDoubleClickBidManager queryForReportsListreportsWithqueryId:]
 
 /** Query ID with which the reports are associated. */
-@property(assign) long long queryId;
+@property(nonatomic, assign) long long queryId;
 
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_ListReportsResponse.

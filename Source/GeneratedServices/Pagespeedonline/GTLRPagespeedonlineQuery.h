@@ -50,7 +50,7 @@ GTLR_EXTERN NSString * const kGTLRPagespeedonlineStrategyMobile;
 @interface GTLRPagespeedonlineQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -71,20 +71,20 @@ GTLR_EXTERN NSString * const kGTLRPagespeedonlineStrategyMobile;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL filterThirdPartyResources;
+@property(nonatomic, assign) BOOL filterThirdPartyResources;
 
 /** The locale used to localize formatted results */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /** A PageSpeed rule to run; if none are given, all rules are run */
-@property(strong, nullable) NSArray<NSString *> *rule;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rule;
 
 /**
  *  Indicates if binary data containing a screenshot should be included
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL screenshot;
+@property(nonatomic, assign) BOOL screenshot;
 
 /**
  *  The analysis strategy to use
@@ -95,10 +95,10 @@ GTLR_EXTERN NSString * const kGTLRPagespeedonlineStrategyMobile;
  *    @arg @c kGTLRPagespeedonlineStrategyMobile Fetch and analyze the URL for
  *        mobile devices (Value: "mobile")
  */
-@property(copy, nullable) NSString *strategy;
+@property(nonatomic, copy, nullable) NSString *strategy;
 
 /** The URL to fetch and analyze */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  Fetches a @c GTLRPagespeedonline_Result.

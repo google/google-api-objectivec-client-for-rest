@@ -63,16 +63,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  The time when this access control entry expires in RFC 3339 format, for
  *  example 2012-11-15T16:19:00.094Z.
  */
-@property(strong, nullable) GTLRDateTime *expirationTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
 /** This is always sql#aclEntry. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** An optional label to identify this entry. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The whitelisted value for the access control list. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -88,23 +88,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *binaryLogEnabled;
+@property(nonatomic, strong, nullable) NSNumber *binaryLogEnabled;
 
 /**
  *  Whether this configuration is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enabled;
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /** This is always sql#backupConfiguration. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Start time for the daily backup configuration in UTC timezone in the 24 hour
  *  format - HH:MM.
  */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 @end
 
@@ -115,22 +115,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_BackupRun : GTLRObject
 
 /**
+ *  The description of this run, only applicable to on-demand backups.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
  *  The time the backup operation completed in UTC timezone in RFC 3339 format,
  *  for example 2012-11-15T16:19:00.094Z.
  */
-@property(strong, nullable) GTLRDateTime *endTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
  *  The time the run was enqueued in UTC timezone in RFC 3339 format, for
  *  example 2012-11-15T16:19:00.094Z.
  */
-@property(strong, nullable) GTLRDateTime *enqueuedTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *enqueuedTime;
 
 /**
  *  Information about why the backup operation failed. This is only present if
  *  the run has the FAILED status.
  */
-@property(strong, nullable) GTLRSQLAdmin_OperationError *error;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_OperationError *error;
 
 /**
  *  A unique identifier for this backup run. Note that this is unique only
@@ -140,31 +147,34 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /** Name of the database instance. */
-@property(copy, nullable) NSString *instance;
+@property(nonatomic, copy, nullable) NSString *instance;
 
 /** This is always sql#backupRun. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The URI of this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  The time the backup operation actually started in UTC timezone in RFC 3339
  *  format, for example 2012-11-15T16:19:00.094Z.
  */
-@property(strong, nullable) GTLRDateTime *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /** The status of this run. */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** The type of this run; can be either "AUTOMATED" or "ON_DEMAND". */
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The start time of the backup window during which this the backup was
  *  attempted in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
  */
-@property(strong, nullable) GTLRDateTime *windowStartTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *windowStartTime;
 
 @end
 
@@ -185,16 +195,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRSQLAdmin_BackupRun *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_BackupRun *> *items;
 
 /** This is always sql#backupRunsList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The continuation token, used to page through large result sets. Provide this
  *  value in a subsequent request to return the next page of results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -205,17 +215,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_BinLogCoordinates : GTLRObject
 
 /** Name of the binary log file for a Cloud SQL instance. */
-@property(copy, nullable) NSString *binLogFileName;
+@property(nonatomic, copy, nullable) NSString *binLogFileName;
 
 /**
  *  Position (offset) within the binary log file.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *binLogPosition;
+@property(nonatomic, strong, nullable) NSNumber *binLogPosition;
 
 /** This is always sql#binLogCoordinates. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -230,13 +240,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  the source instance should be cloned. If not specified, the source instance
  *  is cloned up to the most recent binary log coordintes.
  */
-@property(strong, nullable) GTLRSQLAdmin_BinLogCoordinates *binLogCoordinates;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_BinLogCoordinates *binLogCoordinates;
 
 /** Name of the Cloud SQL instance to be created as a clone. */
-@property(copy, nullable) NSString *destinationInstanceName;
+@property(nonatomic, copy, nullable) NSString *destinationInstanceName;
 
 /** This is always sql#cloneContext. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -247,36 +257,36 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_Database : GTLRObject
 
 /** The MySQL charset value. */
-@property(copy, nullable) NSString *charset;
+@property(nonatomic, copy, nullable) NSString *charset;
 
 /** The MySQL collation value. */
-@property(copy, nullable) NSString *collation;
+@property(nonatomic, copy, nullable) NSString *collation;
 
 /** HTTP 1.1 Entity tag for the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The name of the Cloud SQL instance. This does not include the project ID.
  */
-@property(copy, nullable) NSString *instance;
+@property(nonatomic, copy, nullable) NSString *instance;
 
 /** This is always sql#database. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The name of the database in the Cloud SQL instance. This does not include
  *  the project ID or instance name.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The project ID of the project containing the Cloud SQL database. The Google
  *  apps domain is prefixed if applicable.
  */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** The URI of this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -293,13 +303,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Configuring MySQL Flags in the Google Cloud SQL documentation, as well as
  *  the official MySQL documentation for server options and system variables.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The value of the flag. Booleans should be set to on for true and off for
  *  false. This field must be omitted if the flag doesn't take a value.
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -314,7 +324,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  SECOND_GEN: A newer Cloud SQL backend that runs in a Compute Engine VM.
  *  EXTERNAL: A MySQL server that is not managed by Google.
  */
-@property(copy, nullable) NSString *backendType;
+@property(nonatomic, copy, nullable) NSString *backendType;
 
 /**
  *  The current disk usage of the instance in bytes. This property has been
@@ -326,23 +336,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *currentDiskSize;
+@property(nonatomic, strong, nullable) NSNumber *currentDiskSize;
 
 /**
  *  The database engine type and version. The databaseVersion can not be changed
  *  after instance creation. Can be MYSQL_5_5, MYSQL_5_6 or MYSQL_5_7. Defaults
  *  to MYSQL_5_6. MYSQL_5_7 is applicable only to Second Generation instances.
  */
-@property(copy, nullable) NSString *databaseVersion;
+@property(nonatomic, copy, nullable) NSString *databaseVersion;
 
 /** HTTP 1.1 Entity tag for the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The name and status of the failover replica. This property is applicable
  *  only to Second Generation instances.
  */
-@property(strong, nullable) GTLRSQLAdmin_DatabaseInstanceFailoverReplica *failoverReplica;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DatabaseInstanceFailoverReplica *failoverReplica;
 
 /**
  *  The instance type. This can be one of the following.
@@ -351,43 +361,43 @@ NS_ASSUME_NONNULL_BEGIN
  *  ON_PREMISES_INSTANCE: An instance running on the customer's premises.
  *  READ_REPLICA_INSTANCE: A Cloud SQL instance configured as a read-replica.
  */
-@property(copy, nullable) NSString *instanceType;
+@property(nonatomic, copy, nullable) NSString *instanceType;
 
 /** The assigned IP addresses for the instance. */
-@property(strong, nullable) NSArray<GTLRSQLAdmin_IpMapping *> *ipAddresses;
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_IpMapping *> *ipAddresses;
 
 /**
  *  The IPv6 address assigned to the instance. This property is applicable only
  *  to First Generation instances.
  */
-@property(copy, nullable) NSString *ipv6Address;
+@property(nonatomic, copy, nullable) NSString *ipv6Address;
 
 /** This is always sql#instance. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The name of the instance which will act as master in the replication setup.
  */
-@property(copy, nullable) NSString *masterInstanceName;
+@property(nonatomic, copy, nullable) NSString *masterInstanceName;
 
 /**
  *  The maximum disk size of the instance in bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *maxDiskSize;
+@property(nonatomic, strong, nullable) NSNumber *maxDiskSize;
 
 /** Name of the Cloud SQL instance. This does not include the project ID. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Configuration specific to on-premises instances. */
-@property(strong, nullable) GTLRSQLAdmin_OnPremisesConfiguration *onPremisesConfiguration;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_OnPremisesConfiguration *onPremisesConfiguration;
 
 /**
  *  The project ID of the project containing the Cloud SQL instance. The Google
  *  apps domain is prefixed if applicable.
  */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  The geographical region. Can be us-central (FIRST_GEN instances only),
@@ -396,31 +406,31 @@ NS_ASSUME_NONNULL_BEGIN
  *  Generation or Second Generation). The region can not be changed after
  *  instance creation.
  */
-@property(copy, nullable) NSString *region;
+@property(nonatomic, copy, nullable) NSString *region;
 
 /**
  *  Configuration specific to read-replicas replicating from on-premises
  *  masters.
  */
-@property(strong, nullable) GTLRSQLAdmin_ReplicaConfiguration *replicaConfiguration;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ReplicaConfiguration *replicaConfiguration;
 
 /** The replicas of the instance. */
-@property(strong, nullable) NSArray<NSString *> *replicaNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *replicaNames;
 
 /** The URI of this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** SSL configuration. */
-@property(strong, nullable) GTLRSQLAdmin_SslCert *serverCaCert;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_SslCert *serverCaCert;
 
 /**
  *  The service account email address assigned to the instance. This property is
  *  applicable only to Second Generation instances.
  */
-@property(copy, nullable) NSString *serviceAccountEmailAddress;
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmailAddress;
 
 /** The user settings. */
-@property(strong, nullable) GTLRSQLAdmin_Settings *settings;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_Settings *settings;
 
 /**
  *  The current serving state of the Cloud SQL instance. This can be one of the
@@ -433,10 +443,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  FAILED: The instance creation failed.
  *  UNKNOWN_STATE: The state of the instance is unknown.
  */
-@property(copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *state;
 
 /** If the instance state is SUSPENDED, the reason for the suspension. */
-@property(strong, nullable) NSArray<NSString *> *suspensionReason;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReason;
 
 @end
 
@@ -454,14 +464,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *available;
+@property(nonatomic, strong, nullable) NSNumber *available;
 
 /**
  *  The name of the failover replica. If specified at instance creation, a
  *  failover replica is created for the instance. The name doesn't include the
  *  project ID. This property is applicable only to Second Generation instances.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -480,10 +490,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRSQLAdmin_Database *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Database *> *items;
 
 /** This is always sql#databasesList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -494,7 +504,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_ExportContext : GTLRObject
 
 /** Options for exporting data as CSV. */
-@property(strong, nullable) GTLRSQLAdmin_ExportContextCsvExportOptions *csvExportOptions;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContextCsvExportOptions *csvExportOptions;
 
 /**
  *  Databases (for example, guestbook) from which the export is made. If
@@ -503,20 +513,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  If csvExportOptions.selectQuery also specifies the database, this field will
  *  be ignored.
  */
-@property(strong, nullable) NSArray<NSString *> *databases;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *databases;
 
 /**
  *  The file type for the specified uri.
  *  SQL: The file contains SQL statements.
  *  CSV: The file contains CSV data.
  */
-@property(copy, nullable) NSString *fileType;
+@property(nonatomic, copy, nullable) NSString *fileType;
 
 /** This is always sql#exportContext. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Options for exporting data as SQL statements. */
-@property(strong, nullable) GTLRSQLAdmin_ExportContextSqlExportOptions *sqlExportOptions;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContextSqlExportOptions *sqlExportOptions;
 
 /**
  *  The path to the file in Google Cloud Storage where the export will be
@@ -524,7 +534,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  exists, the operation fails. If fileType is SQL and the filename ends with
  *  .gz, the contents are compressed.
  */
-@property(copy, nullable) NSString *uri;
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -535,7 +545,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_ExportContextCsvExportOptions : GTLRObject
 
 /** The select query used to extract the data. */
-@property(copy, nullable) NSString *selectQuery;
+@property(nonatomic, copy, nullable) NSString *selectQuery;
 
 @end
 
@@ -550,13 +560,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *schemaOnly;
+@property(nonatomic, strong, nullable) NSNumber *schemaOnly;
 
 /**
  *  Tables to export, or that were exported, from the specified database. If you
  *  specify tables, specify one and only one database.
  */
-@property(strong, nullable) NSArray<NSString *> *tables;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tables;
 
 @end
 
@@ -567,7 +577,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_FailoverContext : GTLRObject
 
 /** This is always sql#failoverContext. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The current settings version of this instance. Request will be rejected if
@@ -575,7 +585,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *settingsVersion;
+@property(nonatomic, strong, nullable) NSNumber *settingsVersion;
 
 @end
 
@@ -586,36 +596,36 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_Flag : GTLRObject
 
 /** For STRING flags, a list of strings that the value can be set to. */
-@property(strong, nullable) NSArray<NSString *> *allowedStringValues;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedStringValues;
 
 /**
  *  The database version this flag applies to. Can be MYSQL_5_5, MYSQL_5_6, or
  *  MYSQL_5_7. MYSQL_5_7 is applicable only to Second Generation instances.
  */
-@property(strong, nullable) NSArray<NSString *> *appliesTo;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *appliesTo;
 
 /** This is always sql#flag. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  For INTEGER flags, the maximum allowed value.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *maxValue;
+@property(nonatomic, strong, nullable) NSNumber *maxValue;
 
 /**
  *  For INTEGER flags, the minimum allowed value.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *minValue;
+@property(nonatomic, strong, nullable) NSNumber *minValue;
 
 /**
  *  This is the name of the flag. Flag names always use underscores, not
  *  hyphens, e.g. max_allowed_packet
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Indicates whether changing this flag will trigger a database restart. Only
@@ -623,14 +633,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *requiresRestart;
+@property(nonatomic, strong, nullable) NSNumber *requiresRestart;
 
 /**
  *  The type of the flag. Flags are typed to being BOOLEAN, STRING, INTEGER or
  *  NONE. NONE is used for flags which do not take a value, such as
  *  skip_grant_tables.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -649,10 +659,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRSQLAdmin_Flag *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Flag *> *items;
 
 /** This is always sql#flagsList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -663,7 +673,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_ImportContext : GTLRObject
 
 /** Options for importing data as CSV. */
-@property(strong, nullable) GTLRSQLAdmin_ImportContextCsvImportOptions *csvImportOptions;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContextCsvImportOptions *csvImportOptions;
 
 /**
  *  The database (for example, guestbook) to which the import is made. If
@@ -671,24 +681,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  database is specified in the file to be imported. If fileType is CSV, it
  *  must be specified.
  */
-@property(copy, nullable) NSString *database;
+@property(nonatomic, copy, nullable) NSString *database;
 
 /**
  *  The file type for the specified uri.
  *  SQL: The file contains SQL statements.
  *  CSV: The file contains CSV data.
  */
-@property(copy, nullable) NSString *fileType;
+@property(nonatomic, copy, nullable) NSString *fileType;
 
 /** This is always sql#importContext. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  A path to the file in Google Cloud Storage from which the import is made.
  *  The URI is in the form gs://bucketName/fileName. Compressed gzip files (.gz)
  *  are supported when fileType is SQL.
  */
-@property(copy, nullable) NSString *uri;
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -702,10 +712,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The columns to which CSV data is imported. If not specified, all columns of
  *  the database table are loaded with CSV data.
  */
-@property(strong, nullable) NSArray<NSString *> *columns;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *columns;
 
 /** The table to which CSV data is imported. */
-@property(copy, nullable) NSString *table;
+@property(nonatomic, copy, nullable) NSString *table;
 
 @end
 
@@ -716,7 +726,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_InstancesCloneRequest : GTLRObject
 
 /** Contains details about the clone operation. */
-@property(strong, nullable) GTLRSQLAdmin_CloneContext *cloneContext;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_CloneContext *cloneContext;
 
 @end
 
@@ -727,7 +737,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_InstancesExportRequest : GTLRObject
 
 /** Contains details about the export operation. */
-@property(strong, nullable) GTLRSQLAdmin_ExportContext *exportContext;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext *exportContext;
 
 @end
 
@@ -738,7 +748,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_InstancesFailoverRequest : GTLRObject
 
 /** Failover Context. */
-@property(strong, nullable) GTLRSQLAdmin_FailoverContext *failoverContext;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_FailoverContext *failoverContext;
 
 @end
 
@@ -749,7 +759,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_InstancesImportRequest : GTLRObject
 
 /** Contains details about the import operation. */
-@property(strong, nullable) GTLRSQLAdmin_ImportContext *importContext;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext *importContext;
 
 @end
 
@@ -770,16 +780,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRSQLAdmin_DatabaseInstance *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DatabaseInstance *> *items;
 
 /** This is always sql#instancesList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The continuation token, used to page through large result sets. Provide this
  *  value in a subsequent request to return the next page of results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -790,7 +800,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_InstancesRestoreBackupRequest : GTLRObject
 
 /** Parameters required to perform the restore backup operation. */
-@property(strong, nullable) GTLRSQLAdmin_RestoreBackupContext *restoreBackupContext;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_RestoreBackupContext *restoreBackupContext;
 
 @end
 
@@ -805,14 +815,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  using the IP. In CIDR notation, also known as 'slash' notation (e.g.
  *  192.168.100.0/24).
  */
-@property(strong, nullable) NSArray<GTLRSQLAdmin_AclEntry *> *authorizedNetworks;
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_AclEntry *> *authorizedNetworks;
 
 /**
  *  Whether the instance should be assigned an IP address or not.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *ipv4Enabled;
+@property(nonatomic, strong, nullable) NSNumber *ipv4Enabled;
 
 /**
  *  Whether the mysqld should default to 'REQUIRE X509' for users connecting
@@ -820,7 +830,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *requireSsl;
+@property(nonatomic, strong, nullable) NSNumber *requireSsl;
 
 @end
 
@@ -831,14 +841,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_IpMapping : GTLRObject
 
 /** The IP address assigned. */
-@property(copy, nullable) NSString *ipAddress;
+@property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
  *  The due time for this IP to be retired in RFC 3339 format, for example
  *  2012-11-15T16:19:00.094Z. This field is only available when the IP is
  *  scheduled to be retired.
  */
-@property(strong, nullable) GTLRDateTime *timeToRetire;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeToRetire;
 
 @end
 
@@ -856,17 +866,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  The AppEngine application to follow, it must be in the same region as the
  *  Cloud SQL instance.
  */
-@property(copy, nullable) NSString *followGaeApplication;
+@property(nonatomic, copy, nullable) NSString *followGaeApplication;
 
 /** This is always sql#locationPreference. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The preferred Compute Engine zone (e.g. us-centra1-a, us-central1-b, etc.).
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -882,19 +892,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *day;
+@property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
  *  hour of day - 0 to 23.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *hour;
+@property(nonatomic, strong, nullable) NSNumber *hour;
 
 /** This is always sql#maintenanceWindow. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
-@property(copy, nullable) NSString *updateTrack;
+@property(nonatomic, copy, nullable) NSString *updateTrack;
 
 @end
 
@@ -905,23 +915,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_MySqlReplicaConfiguration : GTLRObject
 
 /** PEM representation of the trusted CA's x509 certificate. */
-@property(copy, nullable) NSString *caCertificate;
+@property(nonatomic, copy, nullable) NSString *caCertificate;
 
 /** PEM representation of the slave's x509 certificate. */
-@property(copy, nullable) NSString *clientCertificate;
+@property(nonatomic, copy, nullable) NSString *clientCertificate;
 
 /**
  *  PEM representation of the slave's private key. The corresponsing public key
  *  is encoded in the client's certificate.
  */
-@property(copy, nullable) NSString *clientKey;
+@property(nonatomic, copy, nullable) NSString *clientKey;
 
 /**
  *  Seconds to wait between connect retries. MySQL's default is 60 seconds.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *connectRetryInterval;
+@property(nonatomic, strong, nullable) NSNumber *connectRetryInterval;
 
 /**
  *  Path to a SQL dump file in Google Cloud Storage from which the slave
@@ -930,26 +940,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  co-ordinates from which replication should begin. This can be accomplished
  *  by setting --master-data to 1 when using mysqldump.
  */
-@property(copy, nullable) NSString *dumpFilePath;
+@property(nonatomic, copy, nullable) NSString *dumpFilePath;
 
 /** This is always sql#mysqlReplicaConfiguration. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Interval in milliseconds between replication heartbeats.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *masterHeartbeatPeriod;
+@property(nonatomic, strong, nullable) NSNumber *masterHeartbeatPeriod;
 
 /** The password for the replication connection. */
-@property(copy, nullable) NSString *password;
+@property(nonatomic, copy, nullable) NSString *password;
 
 /** A list of permissible ciphers to use for SSL encryption. */
-@property(copy, nullable) NSString *sslCipher;
+@property(nonatomic, copy, nullable) NSString *sslCipher;
 
 /** The username for the replication connection. */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 /**
  *  Whether or not to check the master's Common Name value in the certificate
@@ -957,7 +967,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *verifyServerCertificate;
+@property(nonatomic, strong, nullable) NSNumber *verifyServerCertificate;
 
 @end
 
@@ -968,10 +978,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_OnPremisesConfiguration : GTLRObject
 
 /** The host and port of the on-premises instance in host:port format */
-@property(copy, nullable) NSString *hostPort;
+@property(nonatomic, copy, nullable) NSString *hostPort;
 
 /** This is always sql#onPremisesConfiguration. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -988,69 +998,69 @@ NS_ASSUME_NONNULL_BEGIN
  *  The time this operation finished in UTC timezone in RFC 3339 format, for
  *  example 2012-11-15T16:19:00.094Z.
  */
-@property(strong, nullable) GTLRDateTime *endTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
  *  If errors occurred during processing of this operation, this field will be
  *  populated.
  */
-@property(strong, nullable) GTLRSQLAdmin_OperationErrors *error;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_OperationErrors *error;
 
 /** The context for export operation, if applicable. */
-@property(strong, nullable) GTLRSQLAdmin_ExportContext *exportContext;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext *exportContext;
 
 /** The context for import operation, if applicable. */
-@property(strong, nullable) GTLRSQLAdmin_ImportContext *importContext;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext *importContext;
 
 /**
  *  The time this operation was enqueued in UTC timezone in RFC 3339 format, for
  *  example 2012-11-15T16:19:00.094Z.
  */
-@property(strong, nullable) GTLRDateTime *insertTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *insertTime;
 
 /** This is always sql#operation. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  An identifier that uniquely identifies the operation. You can use this
  *  identifier to retrieve the Operations resource that has information about
  *  the operation.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The type of the operation. Valid values are CREATE, DELETE, UPDATE, RESTART,
  *  IMPORT, EXPORT, BACKUP_VOLUME, RESTORE_VOLUME, CREATE_USER, DELETE_USER,
  *  CREATE_DATABASE, DELETE_DATABASE .
  */
-@property(copy, nullable) NSString *operationType;
+@property(nonatomic, copy, nullable) NSString *operationType;
 
 /** The URI of this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  The time this operation actually started in UTC timezone in RFC 3339 format,
  *  for example 2012-11-15T16:19:00.094Z.
  */
-@property(strong, nullable) GTLRDateTime *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  The status of an operation. Valid values are PENDING, RUNNING, DONE,
  *  UNKNOWN.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /** Name of the database instance related to this operation. */
-@property(copy, nullable) NSString *targetId;
+@property(nonatomic, copy, nullable) NSString *targetId;
 
 /** The URI of the instance related to the operation. */
-@property(copy, nullable) NSString *targetLink;
+@property(nonatomic, copy, nullable) NSString *targetLink;
 
 /** The project ID of the target instance related to this operation. */
-@property(copy, nullable) NSString *targetProject;
+@property(nonatomic, copy, nullable) NSString *targetProject;
 
 /** The email address of the user who initiated this operation. */
-@property(copy, nullable) NSString *user;
+@property(nonatomic, copy, nullable) NSString *user;
 
 @end
 
@@ -1061,13 +1071,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_OperationError : GTLRObject
 
 /** Identifies the specific error that occurred. */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /** This is always sql#operationError. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Additional information about the error encountered. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -1078,10 +1088,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_OperationErrors : GTLRObject
 
 /** The list of errors encountered while processing this operation. */
-@property(strong, nullable) NSArray<GTLRSQLAdmin_OperationError *> *errors;
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_OperationError *> *errors;
 
 /** This is always sql#operationErrors. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -1102,16 +1112,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRSQLAdmin_Operation *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Operation *> *items;
 
 /** This is always sql#operationsList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The continuation token, used to page through large result sets. Provide this
  *  value in a subsequent request to return the next page of results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -1131,10 +1141,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *failoverTarget;
+@property(nonatomic, strong, nullable) NSNumber *failoverTarget;
 
 /** This is always sql#replicaConfiguration. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  MySQL specific configuration when replicating from a MySQL on-premises
@@ -1144,7 +1154,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  connection and is stored by MySQL in a file named master.info in the data
  *  directory.
  */
-@property(strong, nullable) GTLRSQLAdmin_MySqlReplicaConfiguration *mysqlReplicaConfiguration;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_MySqlReplicaConfiguration *mysqlReplicaConfiguration;
 
 @end
 
@@ -1159,13 +1169,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *backupRunId;
+@property(nonatomic, strong, nullable) NSNumber *backupRunId;
 
 /** The ID of the instance that the backup was taken from. */
-@property(copy, nullable) NSString *instanceId;
+@property(nonatomic, copy, nullable) NSString *instanceId;
 
 /** This is always sql#restoreBackupContext. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -1188,16 +1198,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  inactivity. Instances with PER_PACKAGE pricing turn off after 12 hours of
  *  inactivity.
  */
-@property(copy, nullable) NSString *activationPolicy;
+@property(nonatomic, copy, nullable) NSString *activationPolicy;
 
 /**
  *  The App Engine app IDs that can access this instance. This property is only
  *  applicable to First Generation instances.
  */
-@property(strong, nullable) NSArray<NSString *> *authorizedGaeApplications;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedGaeApplications;
 
 /** The daily backup configuration for the instance. */
-@property(strong, nullable) GTLRSQLAdmin_BackupConfiguration *backupConfiguration;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_BackupConfiguration *backupConfiguration;
 
 /**
  *  Configuration specific to read replica instances. Indicates whether database
@@ -1206,10 +1216,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *crashSafeReplicationEnabled;
+@property(nonatomic, strong, nullable) NSNumber *crashSafeReplicationEnabled;
 
 /** The database flags passed to the instance at startup. */
-@property(strong, nullable) NSArray<GTLRSQLAdmin_DatabaseFlags *> *databaseFlags;
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DatabaseFlags *> *databaseFlags;
 
 /**
  *  Configuration specific to read replica instances. Indicates whether
@@ -1217,7 +1227,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *databaseReplicationEnabled;
+@property(nonatomic, strong, nullable) NSNumber *databaseReplicationEnabled;
 
 /**
  *  The size of data disk, in GB. The data disk size minimum is 10GB. Applies
@@ -1225,23 +1235,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *dataDiskSizeGb;
+@property(nonatomic, strong, nullable) NSNumber *dataDiskSizeGb;
 
 /**
  *  The type of data disk. Only supported for Second Generation instances. The
  *  default type is PD_SSD. Applies only to Second Generation instances.
  */
-@property(copy, nullable) NSString *dataDiskType;
+@property(nonatomic, copy, nullable) NSString *dataDiskType;
 
 /**
  *  The settings for IP Management. This allows to enable or disable the
  *  instance IP and manage which external networks can connect to the instance.
  *  The IPv4 address cannot be disabled for Second Generation instances.
  */
-@property(strong, nullable) GTLRSQLAdmin_IpConfiguration *ipConfiguration;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_IpConfiguration *ipConfiguration;
 
 /** This is always sql#settings. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The location preference settings. This allows the instance to be located as
@@ -1249,27 +1259,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  performance. App Engine co-location is only applicable to First Generation
  *  instances.
  */
-@property(strong, nullable) GTLRSQLAdmin_LocationPreference *locationPreference;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_LocationPreference *locationPreference;
 
 /**
  *  The maintenance window for this instance. This specifies when the instance
  *  may be restarted for maintenance purposes. Applies only to Second Generation
  *  instances.
  */
-@property(strong, nullable) GTLRSQLAdmin_MaintenanceWindow *maintenanceWindow;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_MaintenanceWindow *maintenanceWindow;
 
 /**
  *  The pricing plan for this instance. This can be either PER_USE or PACKAGE.
  *  Only PER_USE is supported for Second Generation instances.
  */
-@property(copy, nullable) NSString *pricingPlan;
+@property(nonatomic, copy, nullable) NSString *pricingPlan;
 
 /**
  *  The type of replication this instance uses. This can be either ASYNCHRONOUS
  *  or SYNCHRONOUS. This property is only applicable to First Generation
  *  instances.
  */
-@property(copy, nullable) NSString *replicationType;
+@property(nonatomic, copy, nullable) NSString *replicationType;
 
 /**
  *  The version of instance settings. This is a required field for update method
@@ -1279,7 +1289,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *settingsVersion;
+@property(nonatomic, strong, nullable) NSNumber *settingsVersion;
 
 /**
  *  Configuration to increase storage size automatically. The default value is
@@ -1287,13 +1297,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *storageAutoResize;
+@property(nonatomic, strong, nullable) NSNumber *storageAutoResize;
 
 /**
  *  The tier of service for this instance, for example D1, D2. For more
  *  information, see pricing.
  */
-@property(copy, nullable) NSString *tier;
+@property(nonatomic, copy, nullable) NSString *tier;
 
 @end
 
@@ -1304,37 +1314,37 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_SslCert : GTLRObject
 
 /** PEM representation. */
-@property(copy, nullable) NSString *cert;
+@property(nonatomic, copy, nullable) NSString *cert;
 
 /** Serial number, as extracted from the certificate. */
-@property(copy, nullable) NSString *certSerialNumber;
+@property(nonatomic, copy, nullable) NSString *certSerialNumber;
 
 /** User supplied name. Constrained to [a-zA-Z.-_ ]+. */
-@property(copy, nullable) NSString *commonName;
+@property(nonatomic, copy, nullable) NSString *commonName;
 
 /**
  *  The time when the certificate was created in RFC 3339 format, for example
  *  2012-11-15T16:19:00.094Z
  */
-@property(strong, nullable) GTLRDateTime *createTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
  *  The time when the certificate expires in RFC 3339 format, for example
  *  2012-11-15T16:19:00.094Z.
  */
-@property(strong, nullable) GTLRDateTime *expirationTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
 /** Name of the database instance. */
-@property(copy, nullable) NSString *instance;
+@property(nonatomic, copy, nullable) NSString *instance;
 
 /** This is always sql#sslCert. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The URI of this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** Sha1 Fingerprint. */
-@property(copy, nullable) NSString *sha1Fingerprint;
+@property(nonatomic, copy, nullable) NSString *sha1Fingerprint;
 
 @end
 
@@ -1345,13 +1355,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_SslCertDetail : GTLRObject
 
 /** The public information about the cert. */
-@property(strong, nullable) GTLRSQLAdmin_SslCert *certInfo;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_SslCert *certInfo;
 
 /**
  *  The private key for the client cert, in pem format. Keep private in order to
  *  protect your security.
  */
-@property(copy, nullable) NSString *certPrivateKey;
+@property(nonatomic, copy, nullable) NSString *certPrivateKey;
 
 @end
 
@@ -1362,7 +1372,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_SslCertsCreateEphemeralRequest : GTLRObject
 
 /** PEM encoded public key to include in the signed certificate. */
-@property(copy, nullable) NSString *publicKey;
+@property(nonatomic, copy, nullable) NSString *publicKey;
 
 @end
 
@@ -1377,7 +1387,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  this instance. New certificates will not be usable until the instance is
  *  restarted.
  */
-@property(copy, nullable) NSString *commonName;
+@property(nonatomic, copy, nullable) NSString *commonName;
 
 @end
 
@@ -1391,20 +1401,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  The new client certificate and private key. The new certificate will not
  *  work until the instance is restarted for First Generation instances.
  */
-@property(strong, nullable) GTLRSQLAdmin_SslCertDetail *clientCert;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_SslCertDetail *clientCert;
 
 /** This is always sql#sslCertsInsert. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The operation to track the ssl certs insert request. */
-@property(strong, nullable) GTLRSQLAdmin_Operation *operation;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_Operation *operation;
 
 /**
  *  The server Certificate Authority's certificate. If this is missing you can
  *  force a new one to be generated by calling resetSslConfig method on
  *  instances resource.
  */
-@property(strong, nullable) GTLRSQLAdmin_SslCert *serverCaCert;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_SslCert *serverCaCert;
 
 @end
 
@@ -1423,10 +1433,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRSQLAdmin_SslCert *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_SslCert *> *items;
 
 /** This is always sql#sslCertsList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -1441,29 +1451,29 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *DiskQuota;
+@property(nonatomic, strong, nullable) NSNumber *DiskQuota;
 
 /** This is always sql#tier. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The maximum RAM usage of this tier in bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *RAM;
+@property(nonatomic, strong, nullable) NSNumber *RAM;
 
 /**
  *  The applicable regions for this tier. Can be us-east1, europe-west1 or
  *  asia-east1.
  */
-@property(strong, nullable) NSArray<NSString *> *region;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *region;
 
 /**
  *  An identifier for the service tier, for example D1, D2 etc. For related
  *  information, see Pricing.
  */
-@property(copy, nullable) NSString *tier;
+@property(nonatomic, copy, nullable) NSString *tier;
 
 @end
 
@@ -1482,10 +1492,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRSQLAdmin_Tier *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Tier *> *items;
 
 /** This is always sql#tiersList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -1496,39 +1506,39 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_User : GTLRObject
 
 /** HTTP 1.1 Entity tag for the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The host name from which the user can connect. For insert operations, host
  *  defaults to an empty string. For update operations, host is specified as
  *  part of the request URL. The host name cannot be updated after insertion.
  */
-@property(copy, nullable) NSString *host;
+@property(nonatomic, copy, nullable) NSString *host;
 
 /**
  *  The name of the Cloud SQL instance. This does not include the project ID.
  *  Can be omitted for update since it is already specified on the URL.
  */
-@property(copy, nullable) NSString *instance;
+@property(nonatomic, copy, nullable) NSString *instance;
 
 /** This is always sql#user. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The name of the user in the Cloud SQL instance. Can be omitted for update
  *  since it is already specified on the URL.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The password for the user. */
-@property(copy, nullable) NSString *password;
+@property(nonatomic, copy, nullable) NSString *password;
 
 /**
  *  The project ID of the project containing the Cloud SQL database. The Google
  *  apps domain is prefixed if applicable. Can be omitted for update since it is
  *  already specified on the URL.
  */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 @end
 
@@ -1549,17 +1559,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRSQLAdmin_User *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_User *> *items;
 
 /** This is always sql#usersList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  An identifier that uniquely identifies the operation. You can use this
  *  identifier to retrieve the Operations resource that has information about
  *  the operation.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

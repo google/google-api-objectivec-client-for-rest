@@ -49,16 +49,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRQPXExpress_AircraftData : GTLRObject
 
 /** The aircraft code. For example, for a Boeing 777 the code would be 777. */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  Identifies this as an aircraftData object. Value: the fixed string
  *  qpxexpress#aircraftData
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The name of an aircraft, for example Boeing 777. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -72,22 +72,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  The city code an airport is located in. For example, for JFK airport, this
  *  is NYC.
  */
-@property(copy, nullable) NSString *city;
+@property(nonatomic, copy, nullable) NSString *city;
 
 /** An airport's code. For example, for Boston Logan airport, this is BOS. */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  Identifies this as an airport object. Value: the fixed string
  *  qpxexpress#airportData.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The name of an airport. For example, for airport BOS the name is "Boston
  *  Logan International".
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -98,30 +98,30 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRQPXExpress_BagDescriptor : GTLRObject
 
 /** Provides the commercial name for an optional service. */
-@property(copy, nullable) NSString *commercialName;
+@property(nonatomic, copy, nullable) NSString *commercialName;
 
 /**
  *  How many of this type of bag will be checked on this flight.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
  *  A description of the baggage.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(strong, nullable) NSArray<NSString *> *descriptionProperty;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *descriptionProperty;
 
 /**
  *  Identifies this as a baggage object. Value: the fixed string
  *  qpxexpress#bagDescriptor.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The standard IATA subcode used to identify this optional service. */
-@property(copy, nullable) NSString *subcode;
+@property(nonatomic, copy, nullable) NSString *subcode;
 
 @end
 
@@ -136,16 +136,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  The IATA designator of a carrier (airline, etc). For example, for American
  *  Airlines, the code is AA.
  */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  Identifies this as a kind of carrier (ie. an airline, bus line, railroad,
  *  etc). Value: the fixed string qpxexpress#carrierData.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The long, full name of a carrier. For example: American Airlines. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -157,22 +157,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRQPXExpress_CityData : GTLRObject
 
 /** The IATA character ID of a city. For example, for Boston this is BOS. */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  The two-character country code of the country the city is located in. For
  *  example, US for the United States of America.
  */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /**
  *  Identifies this as a city, typically with one or more airports. Value: the
  *  fixed string qpxexpress#cityData.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The full name of a city. An example would be: New York. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -184,29 +184,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRQPXExpress_Data : GTLRObject
 
 /** The aircraft that is flying between an origin and destination. */
-@property(strong, nullable) NSArray<GTLRQPXExpress_AircraftData *> *aircraft;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_AircraftData *> *aircraft;
 
 /** The airport of an origin or destination. */
-@property(strong, nullable) NSArray<GTLRQPXExpress_AirportData *> *airport;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_AirportData *> *airport;
 
 /**
  *  The airline carrier of the aircraft flying between an origin and
  *  destination. Allowed values are IATA carrier codes.
  */
-@property(strong, nullable) NSArray<GTLRQPXExpress_CarrierData *> *carrier;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_CarrierData *> *carrier;
 
 /** The city that is either the origin or destination of part of a trip. */
-@property(strong, nullable) NSArray<GTLRQPXExpress_CityData *> *city;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_CityData *> *city;
 
 /**
  *  Identifies this as QPX Express response resource, including a trip's
  *  airport, city, taxes, airline, and aircraft. Value: the fixed string
  *  qpxexpress#data.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The taxes due for flying between an origin and a destination. */
-@property(strong, nullable) NSArray<GTLRQPXExpress_TaxData *> *tax;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_TaxData *> *tax;
 
 @end
 
@@ -220,31 +220,31 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRQPXExpress_FareInfo : GTLRObject
 
-@property(copy, nullable) NSString *basisCode;
+@property(nonatomic, copy, nullable) NSString *basisCode;
 
 /**
  *  The carrier of the aircraft or other vehicle commuting between two points.
  */
-@property(copy, nullable) NSString *carrier;
+@property(nonatomic, copy, nullable) NSString *carrier;
 
 /** The city code of the city the trip ends at. */
-@property(copy, nullable) NSString *destination;
+@property(nonatomic, copy, nullable) NSString *destination;
 
 /**
  *  A unique identifier of the fare.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies this as a fare object. Value: the fixed string
  *  qpxexpress#fareInfo.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The city code of the city the trip begins at. */
-@property(copy, nullable) NSString *origin;
+@property(nonatomic, copy, nullable) NSString *origin;
 
 /**
  *  Whether this is a private fare, for example one offered only to select
@@ -254,7 +254,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *privateProperty;
+@property(nonatomic, strong, nullable) NSNumber *privateProperty;
 
 @end
 
@@ -270,10 +270,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRQPXExpress_FlightInfo : GTLRObject
 
-@property(copy, nullable) NSString *carrier;
+@property(nonatomic, copy, nullable) NSString *carrier;
 
 /** The flight number. */
-@property(copy, nullable) NSString *number;
+@property(nonatomic, copy, nullable) NSString *number;
 
 @end
 
@@ -287,41 +287,41 @@ NS_ASSUME_NONNULL_BEGIN
  *  A representation of a type of bag, such as an ATPCo subcode, Commercial
  *  Name, or other description.
  */
-@property(strong, nullable) NSArray<GTLRQPXExpress_BagDescriptor *> *bagDescriptor;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_BagDescriptor *> *bagDescriptor;
 
 /**
  *  The maximum number of kilos all the free baggage together may weigh.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *kilos;
+@property(nonatomic, strong, nullable) NSNumber *kilos;
 
 /**
  *  The maximum number of kilos any one piece of baggage may weigh.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *kilosPerPiece;
+@property(nonatomic, strong, nullable) NSNumber *kilosPerPiece;
 
 /**
  *  Identifies this as free baggage object, allowed on one segment of a trip.
  *  Value: the fixed string qpxexpress#freeBaggageAllowance.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The number of free pieces of baggage allowed.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *pieces;
+@property(nonatomic, strong, nullable) NSNumber *pieces;
 
 /**
  *  The number of pounds of free baggage allowed.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *pounds;
+@property(nonatomic, strong, nullable) NSNumber *pounds;
 
 @end
 
@@ -337,13 +337,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The aircraft (or bus, ferry, railcar, etc) travelling between the two points
  *  of this leg.
  */
-@property(copy, nullable) NSString *aircraft;
+@property(nonatomic, copy, nullable) NSString *aircraft;
 
 /**
  *  The scheduled time of arrival at the destination of the leg, local to the
  *  point of arrival.
  */
-@property(copy, nullable) NSString *arrivalTime;
+@property(nonatomic, copy, nullable) NSString *arrivalTime;
 
 /**
  *  Whether you have to change planes following this leg. Only applies to the
@@ -351,39 +351,39 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *changePlane;
+@property(nonatomic, strong, nullable) NSNumber *changePlane;
 
 /**
  *  Duration of a connection following this leg, in minutes.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *connectionDuration;
+@property(nonatomic, strong, nullable) NSNumber *connectionDuration;
 
 /**
  *  The scheduled departure time of the leg, local to the point of departure.
  */
-@property(copy, nullable) NSString *departureTime;
+@property(nonatomic, copy, nullable) NSString *departureTime;
 
 /** The leg destination as a city and airport. */
-@property(copy, nullable) NSString *destination;
+@property(nonatomic, copy, nullable) NSString *destination;
 
 /** The terminal the flight is scheduled to arrive at. */
-@property(copy, nullable) NSString *destinationTerminal;
+@property(nonatomic, copy, nullable) NSString *destinationTerminal;
 
 /**
  *  The scheduled travelling time from the origin to the destination.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *duration;
+@property(nonatomic, strong, nullable) NSNumber *duration;
 
 /**
  *  An identifier that uniquely identifies this leg in the solution.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies this as a leg object. A leg is the smallest unit of travel, in
@@ -391,27 +391,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  points on a particular carrier with a particular flight number. Value: the
  *  fixed string qpxexpress#legInfo.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  A simple, general description of the meal(s) served on the flight, for
  *  example: "Hot meal".
  */
-@property(copy, nullable) NSString *meal;
+@property(nonatomic, copy, nullable) NSString *meal;
 
 /**
  *  The number of miles in this leg.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *mileage;
+@property(nonatomic, strong, nullable) NSNumber *mileage;
 
 /**
  *  In percent, the published on time performance on this leg.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *onTimePerformance;
+@property(nonatomic, strong, nullable) NSNumber *onTimePerformance;
 
 /**
  *  Department of Transportation disclosure information on the actual operator
@@ -419,13 +419,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  between two carriers, where one carrier will list in its schedules (and take
  *  bookings for) flights that are actually operated by another carrier.)
  */
-@property(copy, nullable) NSString *operatingDisclosure;
+@property(nonatomic, copy, nullable) NSString *operatingDisclosure;
 
 /** The leg origin as a city and airport. */
-@property(copy, nullable) NSString *origin;
+@property(nonatomic, copy, nullable) NSString *origin;
 
 /** The terminal the flight is scheduled to depart from. */
-@property(copy, nullable) NSString *originTerminal;
+@property(nonatomic, copy, nullable) NSString *originTerminal;
 
 /**
  *  Whether passenger information must be furnished to the United States
@@ -433,7 +433,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *secure;
+@property(nonatomic, strong, nullable) NSNumber *secure;
 
 @end
 
@@ -450,41 +450,41 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *adultCount;
+@property(nonatomic, strong, nullable) NSNumber *adultCount;
 
 /**
  *  The number of passengers that are children.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *childCount;
+@property(nonatomic, strong, nullable) NSNumber *childCount;
 
 /**
  *  The number of passengers that are infants travelling in the lap of an adult.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *infantInLapCount;
+@property(nonatomic, strong, nullable) NSNumber *infantInLapCount;
 
 /**
  *  The number of passengers that are infants each assigned a seat.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *infantInSeatCount;
+@property(nonatomic, strong, nullable) NSNumber *infantInSeatCount;
 
 /**
  *  Identifies this as a passenger count object, representing the number of
  *  passengers. Value: the fixed string qpxexpress#passengerCounts.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The number of passengers that are senior citizens.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *seniorCount;
+@property(nonatomic, strong, nullable) NSNumber *seniorCount;
 
 @end
 
@@ -502,63 +502,63 @@ NS_ASSUME_NONNULL_BEGIN
  *  origin). This element is only present when the sales currency and the
  *  currency of the country of commencement are different.
  */
-@property(copy, nullable) NSString *baseFareTotal;
+@property(nonatomic, copy, nullable) NSString *baseFareTotal;
 
 /** The fare used to price one or more segments. */
-@property(strong, nullable) NSArray<GTLRQPXExpress_FareInfo *> *fare;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_FareInfo *> *fare;
 
 /**
  *  The horizontal fare calculation. This is a field on a ticket that displays
  *  all of the relevant items that go into the calculation of the fare.
  */
-@property(copy, nullable) NSString *fareCalculation;
+@property(nonatomic, copy, nullable) NSString *fareCalculation;
 
 /**
  *  Identifies this as a pricing object, representing the price of one or more
  *  travel segments. Value: the fixed string qpxexpress#pricingInfo.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The latest ticketing time for this pricing assuming the reservation occurs
  *  at ticketing time and there is no change in fares/rules. The time is local
  *  to the point of sale (POS).
  */
-@property(copy, nullable) NSString *latestTicketingTime;
+@property(nonatomic, copy, nullable) NSString *latestTicketingTime;
 
 /** The number of passengers to which this price applies. */
-@property(strong, nullable) GTLRQPXExpress_PassengerCounts *passengers;
+@property(nonatomic, strong, nullable) GTLRQPXExpress_PassengerCounts *passengers;
 
 /**
  *  The passenger type code for this pricing. An alphanumeric code used by a
  *  carrier to restrict fares to certain categories of passenger. For instance,
  *  a fare might be valid only for senior citizens.
  */
-@property(copy, nullable) NSString *ptc;
+@property(nonatomic, copy, nullable) NSString *ptc;
 
 /**
  *  Whether the fares on this pricing are refundable.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *refundable;
+@property(nonatomic, strong, nullable) NSNumber *refundable;
 
 /** The total fare in the sale or equivalent currency. */
-@property(copy, nullable) NSString *saleFareTotal;
+@property(nonatomic, copy, nullable) NSString *saleFareTotal;
 
 /** The taxes in the sale or equivalent currency. */
-@property(copy, nullable) NSString *saleTaxTotal;
+@property(nonatomic, copy, nullable) NSString *saleTaxTotal;
 
 /**
  *  Total per-passenger price (fare and tax) in the sale or equivalent currency.
  */
-@property(copy, nullable) NSString *saleTotal;
+@property(nonatomic, copy, nullable) NSString *saleTotal;
 
 /** The per-segment price and baggage information. */
-@property(strong, nullable) NSArray<GTLRQPXExpress_SegmentPricing *> *segmentPricing;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_SegmentPricing *> *segmentPricing;
 
 /** The taxes used to calculate the tax total per ticket. */
-@property(strong, nullable) NSArray<GTLRQPXExpress_TaxInfo *> *tax;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_TaxInfo *> *tax;
 
 @end
 
@@ -572,41 +572,41 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRQPXExpress_SegmentInfo : GTLRObject
 
 /** The booking code or class for this segment. */
-@property(copy, nullable) NSString *bookingCode;
+@property(nonatomic, copy, nullable) NSString *bookingCode;
 
 /**
  *  The number of seats available in this booking code on this segment.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *bookingCodeCount;
+@property(nonatomic, strong, nullable) NSNumber *bookingCodeCount;
 
 /** The cabin booked for this segment. */
-@property(copy, nullable) NSString *cabin;
+@property(nonatomic, copy, nullable) NSString *cabin;
 
 /**
  *  In minutes, the duration of the connection following this segment.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *connectionDuration;
+@property(nonatomic, strong, nullable) NSNumber *connectionDuration;
 
 /**
  *  The duration of the flight segment in minutes.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *duration;
+@property(nonatomic, strong, nullable) NSNumber *duration;
 
 /** The flight this is a segment of. */
-@property(strong, nullable) GTLRQPXExpress_FlightInfo *flight;
+@property(nonatomic, strong, nullable) GTLRQPXExpress_FlightInfo *flight;
 
 /**
  *  An id uniquely identifying the segment in the solution.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies this as a segment object. A segment is one or more consecutive
@@ -614,10 +614,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  to OGG, could have one segment with two legs: DFW to HNL (leg 1), HNL to OGG
  *  (leg 2). Value: the fixed string qpxexpress#segmentInfo.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The legs composing this segment. */
-@property(strong, nullable) NSArray<GTLRQPXExpress_LegInfo *> *leg;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_LegInfo *> *leg;
 
 /**
  *  The solution-based index of a segment in a married segment group. Married
@@ -630,7 +630,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  segments belong to married segment group 0, and the return segment belongs
  *  to married segment group 1.
  */
-@property(copy, nullable) NSString *marriedSegmentGroup;
+@property(nonatomic, copy, nullable) NSString *marriedSegmentGroup;
 
 /**
  *  Whether the operation of this segment remains subject to government
@@ -638,7 +638,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *subjectToGovernmentApproval;
+@property(nonatomic, strong, nullable) NSNumber *subjectToGovernmentApproval;
 
 @end
 
@@ -652,19 +652,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  A segment identifier unique within a single solution. It is used to refer to
  *  different parts of the same solution.
  */
-@property(copy, nullable) NSString *fareId;
+@property(nonatomic, copy, nullable) NSString *fareId;
 
 /** Details of the free baggage allowance on this segment. */
-@property(strong, nullable) NSArray<GTLRQPXExpress_FreeBaggageAllowance *> *freeBaggageOption;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_FreeBaggageAllowance *> *freeBaggageOption;
 
 /**
  *  Identifies this as a segment pricing object, representing the price of this
  *  segment. Value: the fixed string qpxexpress#segmentPricing.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Unique identifier in the response of this segment. */
-@property(copy, nullable) NSString *segmentId;
+@property(nonatomic, copy, nullable) NSString *segmentId;
 
 @end
 
@@ -686,7 +686,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *duration;
+@property(nonatomic, strong, nullable) NSNumber *duration;
 
 /**
  *  Identifies this as a slice object. A slice represents a traveller's intent,
@@ -694,10 +694,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  get between two points. One-way journeys are generally expressed using 1
  *  slice, round-trips using 2. Value: the fixed string qpxexpress#sliceInfo.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The segment(s) constituting the slice. */
-@property(strong, nullable) NSArray<GTLRQPXExpress_SegmentInfo *> *segment;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_SegmentInfo *> *segment;
 
 @end
 
@@ -712,19 +712,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  use this field with permittedCarrier. Allowed values are ONEWORLD, SKYTEAM,
  *  and STAR.
  */
-@property(copy, nullable) NSString *alliance;
+@property(nonatomic, copy, nullable) NSString *alliance;
 
 /** Departure date in YYYY-MM-DD format. */
-@property(copy, nullable) NSString *date;
+@property(nonatomic, copy, nullable) NSString *date;
 
 /** Airport or city IATA designator of the destination. */
-@property(copy, nullable) NSString *destination;
+@property(nonatomic, copy, nullable) NSString *destination;
 
 /**
  *  Identifies this as a slice input object, representing the criteria a desired
  *  slice must satisfy. Value: the fixed string qpxexpress#sliceInput.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The longest connection between two legs, in minutes, you are willing to
@@ -732,41 +732,41 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxConnectionDuration;
+@property(nonatomic, strong, nullable) NSNumber *maxConnectionDuration;
 
 /**
  *  The maximum number of stops you are willing to accept in this slice.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxStops;
+@property(nonatomic, strong, nullable) NSNumber *maxStops;
 
 /** Airport or city IATA designator of the origin. */
-@property(copy, nullable) NSString *origin;
+@property(nonatomic, copy, nullable) NSString *origin;
 
 /**
  *  A list of 2-letter IATA airline designators. Slices with only these carriers
  *  should be returned.
  */
-@property(strong, nullable) NSArray<NSString *> *permittedCarrier;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permittedCarrier;
 
 /**
  *  Slices must depart in this time of day range, local to the point of
  *  departure.
  */
-@property(strong, nullable) GTLRQPXExpress_TimeOfDayRange *permittedDepartureTime;
+@property(nonatomic, strong, nullable) GTLRQPXExpress_TimeOfDayRange *permittedDepartureTime;
 
 /**
  *  Prefer solutions that book in this cabin for this slice. Allowed values are
  *  COACH, PREMIUM_COACH, BUSINESS, and FIRST.
  */
-@property(copy, nullable) NSString *preferredCabin;
+@property(nonatomic, copy, nullable) NSString *preferredCabin;
 
 /**
  *  A list of 2-letter IATA airline designators. Exclude slices that use these
  *  carriers.
  */
-@property(strong, nullable) NSArray<NSString *> *prohibitedCarrier;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *prohibitedCarrier;
 
 @end
 
@@ -781,16 +781,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies this as a tax data object, representing some tax. Value: the
  *  fixed string qpxexpress#taxData.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The name of a tax. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -801,13 +801,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRQPXExpress_TaxInfo : GTLRObject
 
 /** Whether this is a government charge or a carrier surcharge. */
-@property(copy, nullable) NSString *chargeType;
+@property(nonatomic, copy, nullable) NSString *chargeType;
 
 /** The code to enter in the ticket's tax box. */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /** For government charges, the country levying the charge. */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /**
  *  Identifier uniquely identifying this tax in a response. Not present for
@@ -815,16 +815,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies this as a tax information object. Value: the fixed string
  *  qpxexpress#taxInfo.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The price of the tax in the sales or equivalent currency. */
-@property(copy, nullable) NSString *salePrice;
+@property(nonatomic, copy, nullable) NSString *salePrice;
 
 @end
 
@@ -835,17 +835,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRQPXExpress_TimeOfDayRange : GTLRObject
 
 /** The earliest time of day in HH:MM format. */
-@property(copy, nullable) NSString *earliestTime;
+@property(nonatomic, copy, nullable) NSString *earliestTime;
 
 /**
  *  Identifies this as a time of day range object, representing two times in a
  *  single day defining a time range. Value: the fixed string
  *  qpxexpress#timeOfDayRange.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The latest time of day in HH:MM format. */
-@property(copy, nullable) NSString *latestTime;
+@property(nonatomic, copy, nullable) NSString *latestTime;
 
 @end
 
@@ -860,25 +860,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies this as a trip information object. Value: the fixed string
  *  qpxexpress#tripOption.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Per passenger pricing information. */
-@property(strong, nullable) NSArray<GTLRQPXExpress_PricingInfo *> *pricing;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_PricingInfo *> *pricing;
 
 /**
  *  The total price for all passengers on the trip, in the form of a currency
  *  followed by an amount, e.g. USD253.35.
  */
-@property(copy, nullable) NSString *saleTotal;
+@property(nonatomic, copy, nullable) NSString *saleTotal;
 
 /** The slices that make up this trip's itinerary. */
-@property(strong, nullable) NSArray<GTLRQPXExpress_SliceInfo *> *slice;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_SliceInfo *> *slice;
 
 @end
 
@@ -893,23 +893,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  part of the price is in ISO 4217. The format, in regex, is
  *  [A-Z]{3}\\d+(\\.\\d+)? Example: $102.07
  */
-@property(copy, nullable) NSString *maxPrice;
+@property(nonatomic, copy, nullable) NSString *maxPrice;
 
 /** Counts for each passenger type in the request. */
-@property(strong, nullable) GTLRQPXExpress_PassengerCounts *passengers;
+@property(nonatomic, strong, nullable) GTLRQPXExpress_PassengerCounts *passengers;
 
 /**
  *  Return only solutions with refundable fares.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *refundable;
+@property(nonatomic, strong, nullable) NSNumber *refundable;
 
 /**
  *  IATA country code representing the point of sale. This determines the
  *  "equivalent amount paid" currency for the ticket.
  */
-@property(copy, nullable) NSString *saleCountry;
+@property(nonatomic, copy, nullable) NSString *saleCountry;
 
 /**
  *  The slices that make up the itinerary of this trip. A slice represents a
@@ -919,14 +919,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  trip with three segments might be BOS-SYD, SYD-LAX, LAX-BOS if the traveler
  *  only stopped in SYD and LAX just long enough to change planes.
  */
-@property(strong, nullable) NSArray<GTLRQPXExpress_SliceInput *> *slice;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_SliceInput *> *slice;
 
 /**
  *  The number of solutions to return, maximum 500.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *solutions;
+@property(nonatomic, strong, nullable) NSNumber *solutions;
+
+/** IATA country code representing the point of ticketing. */
+@property(nonatomic, copy, nullable) NSString *ticketingCountry;
 
 @end
 
@@ -937,19 +940,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRQPXExpress_TripOptionsResponse : GTLRObject
 
 /** Informational data global to list of solutions. */
-@property(strong, nullable) GTLRQPXExpress_Data *data;
+@property(nonatomic, strong, nullable) GTLRQPXExpress_Data *data;
 
 /**
  *  Identifies this as a QPX Express trip response object, which consists of
  *  zero or more solutions. Value: the fixed string qpxexpress#tripOptions.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** An identifier uniquely identifying this response. */
-@property(copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /** A list of priced itinerary solutions to the QPX Express query. */
-@property(strong, nullable) NSArray<GTLRQPXExpress_TripOption *> *tripOption;
+@property(nonatomic, strong, nullable) NSArray<GTLRQPXExpress_TripOption *> *tripOption;
 
 @end
 
@@ -963,7 +966,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  A QPX Express search request. Required values are at least one adult or
  *  senior passenger, an origin, a destination, and a date.
  */
-@property(strong, nullable) GTLRQPXExpress_TripOptionsRequest *request;
+@property(nonatomic, strong, nullable) GTLRQPXExpress_TripOptionsRequest *request;
 
 @end
 
@@ -977,10 +980,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies this as a QPX Express API search response resource. Value: the
  *  fixed string qpxExpress#tripsSearch.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** All possible solutions to the QPX Express search request. */
-@property(strong, nullable) GTLRQPXExpress_TripOptionsResponse *trips;
+@property(nonatomic, strong, nullable) GTLRQPXExpress_TripOptionsResponse *trips;
 
 @end
 

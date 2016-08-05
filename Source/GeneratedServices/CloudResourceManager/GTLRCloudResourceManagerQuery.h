@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudResourceManager queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudResourceManager_Operation.
@@ -94,7 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudResourceManager queryForProjectsDeleteWithprojectId:]
 
 /** The Project ID (for example, `foo-bar-123`). Required. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRCloudResourceManager_Empty.
@@ -135,7 +135,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudResourceManager queryForProjectsGetWithprojectId:]
 
 /** The Project ID (for example, `my-project-123`). Required. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRCloudResourceManager_Project.
@@ -171,7 +171,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  /disks/ *disk*`. The format for the path specified in this value is resource
  *  specific and is specified in the `getIamPolicy` documentation.
  */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudResourceManager_Policy.
@@ -221,20 +221,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  label.size:big|The project's label `color` has the value `red` and its label
  *  `size` has the value `big`. Optional.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of Projects to return in the response. The server can
  *  return fewer Projects than requested. If unspecified, server picks an
  *  appropriate default. Optional.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A pagination token returned from a previous call to ListProjects that
  *  indicates from where listing should continue. Optional.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRCloudResourceManager_ListProjectsResponse.
@@ -294,7 +294,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  /disks/ *disk*`. The format for the path specified in this value is resource
  *  specific and is specified in the `setIamPolicy` documentation.
  */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudResourceManager_Policy.
@@ -359,7 +359,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  value is resource specific and is specified in the `testIamPermissions`
  *  documentation.
  */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudResourceManager_TestIamPermissionsResponse.
@@ -398,7 +398,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudResourceManager queryForProjectsUndeleteWithObject:projectId:]
 
 /** The project ID (for example, `foo-bar-123`). Required. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRCloudResourceManager_Empty.
@@ -435,7 +435,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudResourceManager queryForProjectsUpdateWithObject:projectId:]
 
 /** The project ID (for example, `my-project-123`). Required. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRCloudResourceManager_Project.

@@ -50,33 +50,33 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *creationTime;
+@property(nonatomic, strong, nullable) NSNumber *creationTime;
 
 /**
  *  Unique identifier of this account.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adsense#account. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of this account. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Whether this account is premium.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *premium;
+@property(nonatomic, strong, nullable) NSNumber *premium;
 
 /** Sub accounts of the this account. */
-@property(strong, nullable) NSArray<GTLRAdSense_Account *> *subAccounts;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdSense_Account *> *subAccounts;
 
 /** AdSense timezone of this account. */
-@property(copy, nullable) NSString *timezone;
+@property(nonatomic, copy, nullable) NSString *timezone;
 
 @end
 
@@ -92,7 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_Accounts : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The accounts returned in this list response.
@@ -100,16 +100,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdSense_Account *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdSense_Account *> *items;
 
 /** Kind of list this is, in this case adsense#accounts. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Continuation token used to page through accounts. To retrieve the next page
  *  of results, set the next request's "pageToken" value to this.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -124,30 +124,30 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *arcOptIn;
+@property(nonatomic, strong, nullable) NSNumber *arcOptIn;
 
 /**
  *  Unique identifier of this ad client.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adsense#adClient. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  This ad client's product code, which corresponds to the PRODUCT_CODE report
  *  dimension.
  */
-@property(copy, nullable) NSString *productCode;
+@property(nonatomic, copy, nullable) NSString *productCode;
 
 /**
  *  Whether this ad client supports being reported on.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *supportsReporting;
+@property(nonatomic, strong, nullable) NSNumber *supportsReporting;
 
 @end
 
@@ -163,7 +163,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_AdClients : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ad clients returned in this list response.
@@ -171,16 +171,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdSense_AdClient *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdSense_AdClient *> *items;
 
 /** Kind of list this is, in this case adsense#adClients. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Continuation token used to page through ad clients. To retrieve the next
  *  page of results, set the next request's "pageToken" value to this.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -191,10 +191,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_AdCode : GTLRObject
 
 /** The ad code snippet. */
-@property(copy, nullable) NSString *adCode;
+@property(nonatomic, copy, nullable) NSString *adCode;
 
 /** Kind this is, in this case adsense#adCode. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -208,30 +208,30 @@ NS_ASSUME_NONNULL_BEGIN
  *  The averages of the report. This is the same length as any other row in the
  *  report; cells corresponding to dimension columns are empty.
  */
-@property(strong, nullable) NSArray<NSString *> *averages;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *averages;
 
 /** The requested end date in yyyy-mm-dd format. */
-@property(copy, nullable) NSString *endDate;
+@property(nonatomic, copy, nullable) NSString *endDate;
 
 /**
  *  The header information of the columns requested in the report. This is a
  *  list of headers; one for each dimension in the request, followed by one for
  *  each metric in the request.
  */
-@property(strong, nullable) NSArray<GTLRAdSense_AdsenseReportsGenerateResponseHeadersItem *> *headers;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdSense_AdsenseReportsGenerateResponseHeadersItem *> *headers;
 
 /** Kind this is, in this case adsense#report. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The output rows of the report. Each row is a list of cells; one for each
  *  dimension in the request, followed by one for each metric in the request.
  *  The dimension cells contain strings, and the metric cells contain numbers.
  */
-@property(strong, nullable) NSArray<NSArray<NSString *> *> *rows;
+@property(nonatomic, strong, nullable) NSArray<NSArray<NSString *> *> *rows;
 
 /** The requested start date in yyyy-mm-dd format. */
-@property(copy, nullable) NSString *startDate;
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 /**
  *  The total number of rows matched by the report request. Fewer rows may be
@@ -240,16 +240,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *totalMatchedRows;
+@property(nonatomic, strong, nullable) NSNumber *totalMatchedRows;
 
 /**
  *  The totals of the report. This is the same length as any other row in the
  *  report; cells corresponding to dimension columns are empty.
  */
-@property(strong, nullable) NSArray<NSString *> *totals;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *totals;
 
 /** Any warnings associated with generation of the report. */
-@property(strong, nullable) NSArray<NSString *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
 
 @end
 
@@ -263,16 +263,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  The currency of this column. Only present if the header type is
  *  METRIC_CURRENCY.
  */
-@property(copy, nullable) NSString *currency;
+@property(nonatomic, copy, nullable) NSString *currency;
 
 /** The name of the header. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The type of the header; one of DIMENSION, METRIC_TALLY, METRIC_RATIO, or
  *  METRIC_CURRENCY.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -287,16 +287,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  hexadecimal characters, similar to HTML color codes, but without the leading
  *  hash.
  */
-@property(strong, nullable) GTLRAdSense_AdStyleColors *colors;
+@property(nonatomic, strong, nullable) GTLRAdSense_AdStyleColors *colors;
 
 /** The style of the corners in the ad. */
-@property(copy, nullable) NSString *corners;
+@property(nonatomic, copy, nullable) NSString *corners;
 
 /** The font which is included in the style. */
-@property(strong, nullable) GTLRAdSense_AdStyleFont *font;
+@property(nonatomic, strong, nullable) GTLRAdSense_AdStyleFont *font;
 
 /** Kind this is, in this case adsense#adStyle. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -309,19 +309,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_AdStyleColors : GTLRObject
 
 /** The color of the ad background. */
-@property(copy, nullable) NSString *background;
+@property(nonatomic, copy, nullable) NSString *background;
 
 /** The color of the ad border. */
-@property(copy, nullable) NSString *border;
+@property(nonatomic, copy, nullable) NSString *border;
 
 /** The color of the ad text. */
-@property(copy, nullable) NSString *text;
+@property(nonatomic, copy, nullable) NSString *text;
 
 /** The color of the ad title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** The color of the ad url. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -332,10 +332,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_AdStyleFont : GTLRObject
 
 /** The family of the font. */
-@property(copy, nullable) NSString *family;
+@property(nonatomic, copy, nullable) NSString *family;
 
 /** The size of the font. */
-@property(copy, nullable) NSString *size;
+@property(nonatomic, copy, nullable) NSString *size;
 
 @end
 
@@ -348,19 +348,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Identity code of this ad unit, not necessarily unique across ad clients.
  */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  Settings specific to content ads (AFC) and highend mobile content ads (AFMC
  *  - deprecated).
  */
-@property(strong, nullable) GTLRAdSense_AdUnitContentAdsSettings *contentAdsSettings;
+@property(nonatomic, strong, nullable) GTLRAdSense_AdUnitContentAdsSettings *contentAdsSettings;
 
 /** Custom style information specific to this ad unit. */
-@property(strong, nullable) GTLRAdSense_AdStyle *customStyle;
+@property(nonatomic, strong, nullable) GTLRAdSense_AdStyle *customStyle;
 
 /** Settings specific to feed ads (AFF) - deprecated. */
-@property(strong, nullable) GTLRAdSense_AdUnitFeedAdsSettings *feedAdsSettings;
+@property(nonatomic, strong, nullable) GTLRAdSense_AdUnitFeedAdsSettings *feedAdsSettings;
 
 /**
  *  Unique identifier of this ad unit. This should be considered an opaque
@@ -368,19 +368,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adsense#adUnit. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Settings specific to WAP mobile content ads (AFMC) - deprecated. */
-@property(strong, nullable) GTLRAdSense_AdUnitMobileContentAdsSettings *mobileContentAdsSettings;
+@property(nonatomic, strong, nullable) GTLRAdSense_AdUnitMobileContentAdsSettings *mobileContentAdsSettings;
 
 /** Name of this ad unit. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** ID of the saved ad style which holds this ad unit's style information. */
-@property(copy, nullable) NSString *savedStyleId;
+@property(nonatomic, copy, nullable) NSString *savedStyleId;
 
 /**
  *  Status of this ad unit. Possible values are:
@@ -391,7 +391,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  INACTIVE: Indicates that there has been no activity on this ad unit in the
  *  last seven days.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -403,13 +403,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_AdUnitContentAdsSettings : GTLRObject
 
 /** The backup option to be used in instances where no ad is available. */
-@property(strong, nullable) GTLRAdSense_AdUnitContentAdsSettingsBackupOption *backupOption;
+@property(nonatomic, strong, nullable) GTLRAdSense_AdUnitContentAdsSettingsBackupOption *backupOption;
 
 /** Size of this ad unit. */
-@property(copy, nullable) NSString *size;
+@property(nonatomic, copy, nullable) NSString *size;
 
 /** Type of this ad unit. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -420,24 +420,24 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_AdUnitFeedAdsSettings : GTLRObject
 
 /** The position of the ads relative to the feed entries. */
-@property(copy, nullable) NSString *adPosition;
+@property(nonatomic, copy, nullable) NSString *adPosition;
 
 /**
  *  The frequency at which ads should appear in the feed (i.e. every N entries).
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *frequency;
+@property(nonatomic, strong, nullable) NSNumber *frequency;
 
 /**
  *  The minimum length an entry should be in order to have attached ads.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *minimumWordCount;
+@property(nonatomic, strong, nullable) NSNumber *minimumWordCount;
 
 /** The type of ads which should appear. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -448,16 +448,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_AdUnitMobileContentAdsSettings : GTLRObject
 
 /** The markup language to use for this ad unit. */
-@property(copy, nullable) NSString *markupLanguage;
+@property(nonatomic, copy, nullable) NSString *markupLanguage;
 
 /** The scripting language to use for this ad unit. */
-@property(copy, nullable) NSString *scriptingLanguage;
+@property(nonatomic, copy, nullable) NSString *scriptingLanguage;
 
 /** Size of this ad unit. */
-@property(copy, nullable) NSString *size;
+@property(nonatomic, copy, nullable) NSString *size;
 
 /** Type of this ad unit. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -468,13 +468,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_AdUnitContentAdsSettingsBackupOption : GTLRObject
 
 /** Color to use when type is set to COLOR. */
-@property(copy, nullable) NSString *color;
+@property(nonatomic, copy, nullable) NSString *color;
 
 /** Type of the backup option. Possible values are BLANK, COLOR and URL. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** URL to use when type is set to URL. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -490,7 +490,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_AdUnits : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ad units returned in this list response.
@@ -498,16 +498,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdSense_AdUnit *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdSense_AdUnit *> *items;
 
 /** Kind of list this is, in this case adsense#adUnits. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Continuation token used to page through ad units. To retrieve the next page
  *  of results, set the next request's "pageToken" value to this.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -523,30 +523,30 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Whether this alert can be dismissed.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isDismissible;
+@property(nonatomic, strong, nullable) NSNumber *isDismissible;
 
 /** Kind of resource this is, in this case adsense#alert. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The localized alert message. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 /** Severity of this alert. Possible values: INFO, WARNING, SEVERE. */
-@property(copy, nullable) NSString *severity;
+@property(nonatomic, copy, nullable) NSString *severity;
 
 /**
  *  Type of this alert. Possible values: SELF_HOLD, MIGRATED_TO_BILLING3,
  *  ADDRESS_PIN_VERIFICATION, PHONE_PIN_VERIFICATION, CORPORATE_ENTITY,
  *  GRAYLISTED_PUBLISHER, API_HOLD.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -565,10 +565,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdSense_Alert *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdSense_Alert *> *items;
 
 /** Kind of list this is, in this case adsense#alerts. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -579,7 +579,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_CustomChannel : GTLRObject
 
 /** Code of this custom channel, not necessarily unique across ad clients. */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  Unique identifier of this custom channel. This should be considered an
@@ -588,16 +588,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adsense#customChannel. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of this custom channel. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The targeting information of this custom channel, if activated. */
-@property(strong, nullable) GTLRAdSense_CustomChannelTargetingInfo *targetingInfo;
+@property(nonatomic, strong, nullable) GTLRAdSense_CustomChannelTargetingInfo *targetingInfo;
 
 @end
 
@@ -608,14 +608,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_CustomChannelTargetingInfo : GTLRObject
 
 /** The name used to describe this channel externally. */
-@property(copy, nullable) NSString *adsAppearOn;
+@property(nonatomic, copy, nullable) NSString *adsAppearOn;
 
 /**
  *  The external description of the channel.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The locations in which ads appear. (Only valid for content and mobile
@@ -625,10 +625,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  values for mobile content ads (deprecated) are: TOP, MIDDLE, BOTTOM,
  *  MULTIPLE_LOCATIONS.
  */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** The language of the sites ads will be displayed on. */
-@property(copy, nullable) NSString *siteLanguage;
+@property(nonatomic, copy, nullable) NSString *siteLanguage;
 
 @end
 
@@ -644,7 +644,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_CustomChannels : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The custom channels returned in this list response.
@@ -652,16 +652,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdSense_CustomChannel *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdSense_CustomChannel *> *items;
 
 /** Kind of list this is, in this case adsense#customChannels. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Continuation token used to page through custom channels. To retrieve the
  *  next page of results, set the next request's "pageToken" value to this.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -680,10 +680,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdSense_ReportingMetadataEntry *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdSense_ReportingMetadataEntry *> *items;
 
 /** Kind of list this is, in this case adsense#metadata. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -698,22 +698,22 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adsense#payment. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The amount to be paid. */
-@property(copy, nullable) NSString *paymentAmount;
+@property(nonatomic, copy, nullable) NSString *paymentAmount;
 
 /** The currency code for the amount to be paid. */
-@property(copy, nullable) NSString *paymentAmountCurrencyCode;
+@property(nonatomic, copy, nullable) NSString *paymentAmountCurrencyCode;
 
 /**
  *  The date this payment was/will be credited to the user, or none if the
  *  payment threshold has not been met.
  */
-@property(copy, nullable) NSString *paymentDate;
+@property(nonatomic, copy, nullable) NSString *paymentDate;
 
 @end
 
@@ -733,10 +733,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdSense_Payment *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdSense_Payment *> *items;
 
 /** Kind of list this is, in this case adsense#payments. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -751,13 +751,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  with, for dimensions it is a list of compatibility groups the dimension
  *  belongs to.
  */
-@property(strong, nullable) NSArray<NSString *> *compatibleDimensions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *compatibleDimensions;
 
 /**
  *  The names of the metrics the dimension or metric this reporting metadata
  *  entry describes is compatible with.
  */
-@property(strong, nullable) NSArray<NSString *> *compatibleMetrics;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *compatibleMetrics;
 
 /**
  *  Unique identifier of this reporting metadata entry, corresponding to the
@@ -765,10 +765,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adsense#reportingMetadataEntry. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The names of the dimensions which the dimension or metric this reporting
@@ -776,7 +776,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  to be valid. Omitting these will not cause an error or warning, but may
  *  result in data which cannot be correctly interpreted.
  */
-@property(strong, nullable) NSArray<NSString *> *requiredDimensions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requiredDimensions;
 
 /**
  *  The names of the metrics which the dimension or metric this reporting
@@ -784,13 +784,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  to be valid. Omitting these will not cause an error or warning, but may
  *  result in data which cannot be correctly interpreted.
  */
-@property(strong, nullable) NSArray<NSString *> *requiredMetrics;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requiredMetrics;
 
 /**
  *  The codes of the projects supported by the dimension or metric this
  *  reporting metadata entry describes.
  */
-@property(strong, nullable) NSArray<NSString *> *supportedProducts;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedProducts;
 
 @end
 
@@ -801,7 +801,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_SavedAdStyle : GTLRObject
 
 /** The AdStyle itself. */
-@property(strong, nullable) GTLRAdSense_AdStyle *adStyle;
+@property(nonatomic, strong, nullable) GTLRAdSense_AdStyle *adStyle;
 
 /**
  *  Unique identifier of this saved ad style. This should be considered an
@@ -810,13 +810,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adsense#savedAdStyle. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The user selected name of this SavedAdStyle. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -832,7 +832,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_SavedAdStyles : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The saved ad styles returned in this list response.
@@ -840,16 +840,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdSense_SavedAdStyle *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdSense_SavedAdStyle *> *items;
 
 /** Kind of list this is, in this case adsense#savedAdStyles. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Continuation token used to page through ad units. To retrieve the next page
  *  of results, set the next request's "pageToken" value to this.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -864,13 +864,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adsense#savedReport. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** This saved report's name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -886,7 +886,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_SavedReports : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The saved reports returned in this list response.
@@ -894,16 +894,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdSense_SavedReport *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdSense_SavedReport *> *items;
 
 /** Kind of list this is, in this case adsense#savedReports. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Continuation token used to page through saved reports. To retrieve the next
  *  page of results, set the next request's "pageToken" value to this.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -919,16 +919,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adsense#urlChannel. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  URL Pattern of this URL channel. Does not include "http://" or "https://".
  *  Example: www.example.com/home
  */
-@property(copy, nullable) NSString *urlPattern;
+@property(nonatomic, copy, nullable) NSString *urlPattern;
 
 @end
 
@@ -944,7 +944,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdSense_UrlChannels : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The URL channels returned in this list response.
@@ -952,16 +952,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdSense_UrlChannel *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdSense_UrlChannel *> *items;
 
 /** Kind of list this is, in this case adsense#urlChannels. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Continuation token used to page through URL channels. To retrieve the next
  *  page of results, set the next request's "pageToken" value to this.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

@@ -46,7 +46,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 @interface GTLRCloudDebuggerQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -72,7 +72,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 //   +[GTLQueryCloudDebugger queryForControllerDebuggeesBreakpointsListWithdebuggeeId:]
 
 /** Identifies the debuggee. */
-@property(copy, nullable) NSString *debuggeeId;
+@property(nonatomic, copy, nullable) NSString *debuggeeId;
 
 /**
  *  If set to `true`, returns `google.rpc.Code.OK` status and sets the
@@ -80,14 +80,14 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *  expired (recommended). If set to `false`, returns `google.rpc.Code.ABORTED`
  *  status when the server-selected timeout has expired (deprecated).
  */
-@property(assign) BOOL successOnTimeout;
+@property(nonatomic, assign) BOOL successOnTimeout;
 
 /**
  *  A wait token that, if specified, blocks the method call until the list of
  *  active breakpoints has changed, or a server selected timeout has expired.
  *  The value should be set from the last returned response.
  */
-@property(copy, nullable) NSString *waitToken;
+@property(nonatomic, copy, nullable) NSString *waitToken;
 
 /**
  *  Fetches a @c GTLRCloudDebugger_ListActiveBreakpointsResponse.
@@ -130,14 +130,14 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 //   +[GTLQueryCloudDebugger queryForControllerDebuggeesBreakpointsUpdateWithObject:debuggeeId:identifier:]
 
 /** Identifies the debuggee being debugged. */
-@property(copy, nullable) NSString *debuggeeId;
+@property(nonatomic, copy, nullable) NSString *debuggeeId;
 
 /**
  *  Breakpoint identifier, unique in the scope of the debuggee.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRCloudDebugger_UpdateActiveBreakpointResponse.
@@ -217,16 +217,16 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 //   +[GTLQueryCloudDebugger queryForDebuggerDebuggeesBreakpointsDeleteWithdebuggeeId:breakpointId:]
 
 /** ID of the breakpoint to delete. */
-@property(copy, nullable) NSString *breakpointId;
+@property(nonatomic, copy, nullable) NSString *breakpointId;
 
 /**
  *  The client version making the call. Following: `domain/type/version` (e.g.,
  *  `google.com/intellij/v1`).
  */
-@property(copy, nullable) NSString *clientVersion;
+@property(nonatomic, copy, nullable) NSString *clientVersion;
 
 /** ID of the debuggee whose breakpoint to delete. */
-@property(copy, nullable) NSString *debuggeeId;
+@property(nonatomic, copy, nullable) NSString *debuggeeId;
 
 /**
  *  Fetches a @c GTLRCloudDebugger_Empty.
@@ -257,16 +257,16 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 //   +[GTLQueryCloudDebugger queryForDebuggerDebuggeesBreakpointsGetWithdebuggeeId:breakpointId:]
 
 /** ID of the breakpoint to get. */
-@property(copy, nullable) NSString *breakpointId;
+@property(nonatomic, copy, nullable) NSString *breakpointId;
 
 /**
  *  The client version making the call. Following: `domain/type/version` (e.g.,
  *  `google.com/intellij/v1`).
  */
-@property(copy, nullable) NSString *clientVersion;
+@property(nonatomic, copy, nullable) NSString *clientVersion;
 
 /** ID of the debuggee whose breakpoint to get. */
-@property(copy, nullable) NSString *debuggeeId;
+@property(nonatomic, copy, nullable) NSString *debuggeeId;
 
 /**
  *  Fetches a @c GTLRCloudDebugger_GetBreakpointResponse.
@@ -303,34 +303,34 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *    @arg @c kGTLRCloudDebuggerActionValueCapture Value "CAPTURE"
  *    @arg @c kGTLRCloudDebuggerActionValueLog Value "LOG"
  */
-@property(copy, nullable) NSString *actionValue;
+@property(nonatomic, copy, nullable) NSString *actionValue;
 
 /**
  *  The client version making the call. Following: `domain/type/version` (e.g.,
  *  `google.com/intellij/v1`).
  */
-@property(copy, nullable) NSString *clientVersion;
+@property(nonatomic, copy, nullable) NSString *clientVersion;
 
 /** ID of the debuggee whose breakpoints to list. */
-@property(copy, nullable) NSString *debuggeeId;
+@property(nonatomic, copy, nullable) NSString *debuggeeId;
 
 /**
  *  When set to `true`, the response includes the list of breakpoints set by any
  *  user. Otherwise, it includes only breakpoints set by the caller.
  */
-@property(assign) BOOL includeAllUsers;
+@property(nonatomic, assign) BOOL includeAllUsers;
 
 /**
  *  When set to `true`, the response includes active and inactive breakpoints.
  *  Otherwise, it includes only active breakpoints.
  */
-@property(assign) BOOL includeInactive;
+@property(nonatomic, assign) BOOL includeInactive;
 
 /**
  *  When set to `true`, the response breakpoints are stripped of the results
  *  fields: `stack_frames`, `evaluated_expressions` and `variable_table`.
  */
-@property(assign) BOOL stripResults;
+@property(nonatomic, assign) BOOL stripResults;
 
 /**
  *  A wait token that, if specified, blocks the call until the breakpoints list
@@ -339,7 +339,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *  is returned on wait timeout, which should be called again with the same
  *  `wait_token`.
  */
-@property(copy, nullable) NSString *waitToken;
+@property(nonatomic, copy, nullable) NSString *waitToken;
 
 /**
  *  Fetches a @c GTLRCloudDebugger_ListBreakpointsResponse.
@@ -371,10 +371,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *  The client version making the call. Following: `domain/type/version` (e.g.,
  *  `google.com/intellij/v1`).
  */
-@property(copy, nullable) NSString *clientVersion;
+@property(nonatomic, copy, nullable) NSString *clientVersion;
 
 /** ID of the debuggee where the breakpoint is to be set. */
-@property(copy, nullable) NSString *debuggeeId;
+@property(nonatomic, copy, nullable) NSString *debuggeeId;
 
 /**
  *  Fetches a @c GTLRCloudDebugger_SetBreakpointResponse.
@@ -408,16 +408,16 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *  The client version making the call. Following: `domain/type/version` (e.g.,
  *  `google.com/intellij/v1`).
  */
-@property(copy, nullable) NSString *clientVersion;
+@property(nonatomic, copy, nullable) NSString *clientVersion;
 
 /**
  *  When set to `true`, the result includes all debuggees. Otherwise, the result
  *  includes only debuggees that are active.
  */
-@property(assign) BOOL includeInactive;
+@property(nonatomic, assign) BOOL includeInactive;
 
 /** Project number of a Google Cloud project whose debuggees to list. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudDebugger_ListDebuggeesResponse.

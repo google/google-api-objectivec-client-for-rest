@@ -42,13 +42,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adexchangeseller#account. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of this account. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeSeller_Accounts : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The accounts returned in this list response.
@@ -72,16 +72,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeSeller_Account *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeSeller_Account *> *items;
 
 /** Kind of list this is, in this case adexchangeseller#accounts. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Continuation token used to page through accounts. To retrieve the next page
  *  of results, set the next request's "pageToken" value to this.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -96,30 +96,30 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *arcOptIn;
+@property(nonatomic, strong, nullable) NSNumber *arcOptIn;
 
 /**
  *  Unique identifier of this ad client.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adexchangeseller#adClient. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  This ad client's product code, which corresponds to the PRODUCT_CODE report
  *  dimension.
  */
-@property(copy, nullable) NSString *productCode;
+@property(nonatomic, copy, nullable) NSString *productCode;
 
 /**
  *  Whether this ad client supports being reported on.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *supportsReporting;
+@property(nonatomic, strong, nullable) NSNumber *supportsReporting;
 
 @end
 
@@ -135,7 +135,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeSeller_AdClients : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ad clients returned in this list response.
@@ -143,16 +143,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeSeller_AdClient *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeSeller_AdClient *> *items;
 
 /** Kind of list this is, in this case adexchangeseller#adClients. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Continuation token used to page through ad clients. To retrieve the next
  *  page of results, set the next request's "pageToken" value to this.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -168,23 +168,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adexchangeseller#alert. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The localized alert message. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 /** Severity of this alert. Possible values: INFO, WARNING, SEVERE. */
-@property(copy, nullable) NSString *severity;
+@property(nonatomic, copy, nullable) NSString *severity;
 
 /**
  *  Type of this alert. Possible values: SELF_HOLD, MIGRATED_TO_BILLING3,
  *  ADDRESS_PIN_VERIFICATION, PHONE_PIN_VERIFICATION, CORPORATE_ENTITY,
  *  GRAYLISTED_PUBLISHER, API_HOLD.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -203,10 +203,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeSeller_Alert *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeSeller_Alert *> *items;
 
 /** Kind of list this is, in this case adexchangeseller#alerts. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -217,7 +217,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeSeller_CustomChannel : GTLRObject
 
 /** Code of this custom channel, not necessarily unique across ad clients. */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  Unique identifier of this custom channel. This should be considered an
@@ -226,16 +226,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adexchangeseller#customChannel. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of this custom channel. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The targeting information of this custom channel, if activated. */
-@property(strong, nullable) GTLRAdExchangeSeller_CustomChannelTargetingInfo *targetingInfo;
+@property(nonatomic, strong, nullable) GTLRAdExchangeSeller_CustomChannelTargetingInfo *targetingInfo;
 
 @end
 
@@ -246,14 +246,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeSeller_CustomChannelTargetingInfo : GTLRObject
 
 /** The name used to describe this channel externally. */
-@property(copy, nullable) NSString *adsAppearOn;
+@property(nonatomic, copy, nullable) NSString *adsAppearOn;
 
 /**
  *  The external description of the channel.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The locations in which ads appear. (Only valid for content and mobile
@@ -262,10 +262,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  BOTTOM_CENTER, BOTTOM_RIGHT, MULTIPLE_LOCATIONS. Acceptable values for
  *  mobile content ads are: TOP, MIDDLE, BOTTOM, MULTIPLE_LOCATIONS.
  */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** The language of the sites ads will be displayed on. */
-@property(copy, nullable) NSString *siteLanguage;
+@property(nonatomic, copy, nullable) NSString *siteLanguage;
 
 @end
 
@@ -281,7 +281,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeSeller_CustomChannels : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The custom channels returned in this list response.
@@ -289,16 +289,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeSeller_CustomChannel *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeSeller_CustomChannel *> *items;
 
 /** Kind of list this is, in this case adexchangeseller#customChannels. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Continuation token used to page through custom channels. To retrieve the
  *  next page of results, set the next request's "pageToken" value to this.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -317,10 +317,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeSeller_ReportingMetadataEntry *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeSeller_ReportingMetadataEntry *> *items;
 
 /** Kind of list this is, in this case adexchangeseller#metadata. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -331,16 +331,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeSeller_PreferredDeal : GTLRObject
 
 /** The name of the advertiser this deal is for. */
-@property(copy, nullable) NSString *advertiserName;
+@property(nonatomic, copy, nullable) NSString *advertiserName;
 
 /** The name of the buyer network this deal is for. */
-@property(copy, nullable) NSString *buyerNetworkName;
+@property(nonatomic, copy, nullable) NSString *buyerNetworkName;
 
 /**
  *  The currency code that applies to the fixed_cpm value. If not set then
  *  assumed to be USD.
  */
-@property(copy, nullable) NSString *currencyCode;
+@property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
  *  Time when this deal stops being active in seconds since the epoch (GMT). If
@@ -348,7 +348,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *endTime;
+@property(nonatomic, strong, nullable) NSNumber *endTime;
 
 /**
  *  The fixed price for this preferred deal. In cpm micros of currency according
@@ -358,7 +358,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *fixedCpm;
+@property(nonatomic, strong, nullable) NSNumber *fixedCpm;
 
 /**
  *  Unique identifier of this preferred deal.
@@ -367,10 +367,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /** Kind of resource this is, in this case adexchangeseller#preferredDeal. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Time when this deal becomes active in seconds since the epoch (GMT). If not
@@ -378,7 +378,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *startTime;
+@property(nonatomic, strong, nullable) NSNumber *startTime;
 
 @end
 
@@ -397,10 +397,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeSeller_PreferredDeal *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeSeller_PreferredDeal *> *items;
 
 /** Kind of list this is, in this case adexchangeseller#preferredDeals. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -414,24 +414,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  The averages of the report. This is the same length as any other row in the
  *  report; cells corresponding to dimension columns are empty.
  */
-@property(strong, nullable) NSArray<NSString *> *averages;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *averages;
 
 /**
  *  The header information of the columns requested in the report. This is a
  *  list of headers; one for each dimension in the request, followed by one for
  *  each metric in the request.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeSeller_ReportHeadersItem *> *headers;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeSeller_ReportHeadersItem *> *headers;
 
 /** Kind this is, in this case adexchangeseller#report. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The output rows of the report. Each row is a list of cells; one for each
  *  dimension in the request, followed by one for each metric in the request.
  *  The dimension cells contain strings, and the metric cells contain numbers.
  */
-@property(strong, nullable) NSArray<NSArray<NSString *> *> *rows;
+@property(nonatomic, strong, nullable) NSArray<NSArray<NSString *> *> *rows;
 
 /**
  *  The total number of rows matched by the report request. Fewer rows may be
@@ -440,16 +440,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *totalMatchedRows;
+@property(nonatomic, strong, nullable) NSNumber *totalMatchedRows;
 
 /**
  *  The totals of the report. This is the same length as any other row in the
  *  report; cells corresponding to dimension columns are empty.
  */
-@property(strong, nullable) NSArray<NSString *> *totals;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *totals;
 
 /** Any warnings associated with generation of the report. */
-@property(strong, nullable) NSArray<NSString *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
 
 @end
 
@@ -463,16 +463,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  The currency of this column. Only present if the header type is
  *  METRIC_CURRENCY.
  */
-@property(copy, nullable) NSString *currency;
+@property(nonatomic, copy, nullable) NSString *currency;
 
 /** The name of the header. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The type of the header; one of DIMENSION, METRIC_TALLY, METRIC_RATIO, or
  *  METRIC_CURRENCY.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -487,13 +487,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  with, for dimensions it is a list of compatibility groups the dimension
  *  belongs to.
  */
-@property(strong, nullable) NSArray<NSString *> *compatibleDimensions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *compatibleDimensions;
 
 /**
  *  The names of the metrics the dimension or metric this reporting metadata
  *  entry describes is compatible with.
  */
-@property(strong, nullable) NSArray<NSString *> *compatibleMetrics;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *compatibleMetrics;
 
 /**
  *  Unique identifier of this reporting metadata entry, corresponding to the
@@ -501,13 +501,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Kind of resource this is, in this case
  *  adexchangeseller#reportingMetadataEntry.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The names of the dimensions which the dimension or metric this reporting
@@ -515,7 +515,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  to be valid. Omitting these will not cause an error or warning, but may
  *  result in data which cannot be correctly interpreted.
  */
-@property(strong, nullable) NSArray<NSString *> *requiredDimensions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requiredDimensions;
 
 /**
  *  The names of the metrics which the dimension or metric this reporting
@@ -523,13 +523,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  to be valid. Omitting these will not cause an error or warning, but may
  *  result in data which cannot be correctly interpreted.
  */
-@property(strong, nullable) NSArray<NSString *> *requiredMetrics;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requiredMetrics;
 
 /**
  *  The codes of the projects supported by the dimension or metric this
  *  reporting metadata entry describes.
  */
-@property(strong, nullable) NSArray<NSString *> *supportedProducts;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedProducts;
 
 @end
 
@@ -544,13 +544,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adexchangeseller#savedReport. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** This saved report's name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -566,7 +566,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeSeller_SavedReports : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The saved reports returned in this list response.
@@ -574,16 +574,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeSeller_SavedReport *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeSeller_SavedReport *> *items;
 
 /** Kind of list this is, in this case adexchangeseller#savedReports. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Continuation token used to page through saved reports. To retrieve the next
  *  page of results, set the next request's "pageToken" value to this.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -599,16 +599,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is, in this case adexchangeseller#urlChannel. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  URL Pattern of this URL channel. Does not include "http://" or "https://".
  *  Example: www.example.com/home
  */
-@property(copy, nullable) NSString *urlPattern;
+@property(nonatomic, copy, nullable) NSString *urlPattern;
 
 @end
 
@@ -624,7 +624,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeSeller_UrlChannels : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The URL channels returned in this list response.
@@ -632,16 +632,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeSeller_UrlChannel *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeSeller_UrlChannel *> *items;
 
 /** Kind of list this is, in this case adexchangeseller#urlChannels. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Continuation token used to page through URL channels. To retrieve the next
  *  page of results, set the next request's "pageToken" value to this.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

@@ -95,12 +95,17 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_BuildStep
-@dynamic args, dir, env, name;
+@dynamic args, dir, env, identifier, name, waitFor;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"args" : [NSString class],
-    @"env" : [NSString class]
+    @"env" : [NSString class],
+    @"waitFor" : [NSString class]
   };
   return map;
 }
@@ -239,14 +244,25 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_RepoSource
+//
+
+@implementation GTLRCloudBuild_RepoSource
+@dynamic branchName, commitSha, projectId, repoName, tagName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_Results
 //
 
 @implementation GTLRCloudBuild_Results
-@dynamic images;
+@dynamic buildStepImages, images;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"buildStepImages" : [NSString class],
     @"images" : [GTLRCloudBuild_BuiltImage class]
   };
   return map;
@@ -261,7 +277,7 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_Source
-@dynamic storageSource;
+@dynamic repoSource, storageSource;
 @end
 
 
@@ -271,7 +287,7 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_SourceProvenance
-@dynamic fileHashes;
+@dynamic fileHashes, resolvedRepoSource, resolvedStorageSource;
 @end
 
 

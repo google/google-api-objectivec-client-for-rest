@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_AdministrationRegion : GTLRObject
 
 /** The election administration body for this area. */
-@property(strong, nullable) GTLRCivicInfo_AdministrativeBody *electionAdministrationBody;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_AdministrativeBody *electionAdministrationBody;
 
 /**
  *  An ID for this object. IDs may change in future requests and should not be
@@ -54,22 +54,22 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The city or county that provides election information for this voter. This
  *  object can have the same elements as state.
  */
-@property(strong, nullable) GTLRCivicInfo_AdministrationRegion *localJurisdiction;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_AdministrationRegion *localJurisdiction;
 
 /** The name of the jurisdiction. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  A list of sources for this area. If multiple sources are listed the data has
  *  been aggregated from those sources.
  */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Source *> *sources;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Source *> *sources;
 
 @end
 
@@ -84,62 +84,62 @@ NS_ASSUME_NONNULL_BEGIN
  *  A URL provided by this administrative body for information on absentee
  *  voting.
  */
-@property(copy, nullable) NSString *absenteeVotingInfoUrl;
+@property(nonatomic, copy, nullable) NSString *absenteeVotingInfoUrl;
 
-@property(strong, nullable) NSArray<NSString *> *addressLines;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addressLines;
 
 /**
  *  A URL provided by this administrative body to give contest information to
  *  the voter.
  */
-@property(copy, nullable) NSString *ballotInfoUrl;
+@property(nonatomic, copy, nullable) NSString *ballotInfoUrl;
 
 /** The mailing address of this administrative body. */
-@property(strong, nullable) GTLRCivicInfo_SimpleAddressType *correspondenceAddress;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_SimpleAddressType *correspondenceAddress;
 
 /**
  *  A URL provided by this administrative body for looking up general election
  *  information.
  */
-@property(copy, nullable) NSString *electionInfoUrl;
+@property(nonatomic, copy, nullable) NSString *electionInfoUrl;
 
 /** The election officials for this election administrative body. */
-@property(strong, nullable) NSArray<GTLRCivicInfo_ElectionOfficial *> *electionOfficials;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_ElectionOfficial *> *electionOfficials;
 
 /**
  *  A URL provided by this administrative body for confirming that the voter is
  *  registered to vote.
  */
-@property(copy, nullable) NSString *electionRegistrationConfirmationUrl;
+@property(nonatomic, copy, nullable) NSString *electionRegistrationConfirmationUrl;
 
 /**
  *  A URL provided by this administrative body for looking up how to register to
  *  vote.
  */
-@property(copy, nullable) NSString *electionRegistrationUrl;
+@property(nonatomic, copy, nullable) NSString *electionRegistrationUrl;
 
 /**
  *  A URL provided by this administrative body describing election rules to the
  *  voter.
  */
-@property(copy, nullable) NSString *electionRulesUrl;
+@property(nonatomic, copy, nullable) NSString *electionRulesUrl;
 
 /** A description of the hours of operation for this administrative body. */
-@property(copy, nullable) NSString *hoursOfOperation;
+@property(nonatomic, copy, nullable) NSString *hoursOfOperation;
 
 /** The name of this election administrative body. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The physical address of this administrative body. */
-@property(strong, nullable) GTLRCivicInfo_SimpleAddressType *physicalAddress;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_SimpleAddressType *physicalAddress;
 
 /** A description of the services this administrative body may provide. */
-@property(strong, nullable) NSArray<NSString *> *voterServices;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *voterServices;
 
 /**
  *  A URL provided by this administrative body for looking up where to vote.
  */
-@property(copy, nullable) NSString *votingLocationFinderUrl;
+@property(nonatomic, copy, nullable) NSString *votingLocationFinderUrl;
 
 @end
 
@@ -150,32 +150,32 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_Candidate : GTLRObject
 
 /** The URL for the candidate's campaign web site. */
-@property(copy, nullable) NSString *candidateUrl;
+@property(nonatomic, copy, nullable) NSString *candidateUrl;
 
 /** A list of known (social) media channels for this candidate. */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Channel *> *channels;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Channel *> *channels;
 
 /** The email address for the candidate's campaign. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** The candidate's name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The order the candidate appears on the ballot for this contest.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *orderOnBallot;
+@property(nonatomic, strong, nullable) NSNumber *orderOnBallot;
 
 /** The full name of the party the candidate is a member of. */
-@property(copy, nullable) NSString *party;
+@property(nonatomic, copy, nullable) NSString *party;
 
 /** The voice phone number for the candidate's campaign office. */
-@property(copy, nullable) NSString *phone;
+@property(nonatomic, copy, nullable) NSString *phone;
 
 /** A URL for a photo of the candidate. */
-@property(copy, nullable) NSString *photoUrl;
+@property(nonatomic, copy, nullable) NSString *photoUrl;
 
 @end
 
@@ -190,14 +190,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The type of channel. The following is a list of types of channels, but is
  *  not exhaustive. More channel types may be added at a later time. One of:
  *  GooglePlus, YouTube, Facebook, Twitter
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -212,19 +212,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *ballotPlacement;
+@property(nonatomic, strong, nullable) NSNumber *ballotPlacement;
 
 /** The candidate choices for this contest. */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Candidate *> *candidates;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Candidate *> *candidates;
 
 /** Information about the electoral district that this contest is in. */
-@property(strong, nullable) GTLRCivicInfo_ElectoralDistrict *district;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_ElectoralDistrict *district;
 
 /**
  *  A description of any additional eligibility requirements for voting in this
  *  contest.
  */
-@property(copy, nullable) NSString *electorateSpecifications;
+@property(nonatomic, copy, nullable) NSString *electorateSpecifications;
 
 /**
  *  An ID for this object. IDs may change in future requests and should not be
@@ -233,7 +233,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The levels of government of the office for this contest. There may be more
@@ -242,27 +242,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  acts at "locality" level, but also effectively at both
  *  "administrative-area-2" and "administrative-area-1".
  */
-@property(strong, nullable) NSArray<NSString *> *level;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *level;
 
 /**
  *  The number of candidates that will be elected to office in this contest.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *numberElected;
+@property(nonatomic, strong, nullable) NSNumber *numberElected;
 
 /**
  *  The number of candidates that a voter may vote for in this contest.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *numberVotingFor;
+@property(nonatomic, strong, nullable) NSNumber *numberVotingFor;
 
 /** The name of the office for this contest. */
-@property(copy, nullable) NSString *office;
+@property(nonatomic, copy, nullable) NSString *office;
 
 /** If this is a partisan election, the name of the party it is for. */
-@property(copy, nullable) NSString *primaryParty;
+@property(nonatomic, copy, nullable) NSString *primaryParty;
 
 /**
  *  The set of ballot responses for the referendum. A ballot response represents
@@ -270,86 +270,86 @@ NS_ASSUME_NONNULL_BEGIN
  *  referenda, or a judge's name for a retention contest. This field is only
  *  populated for contests of type 'Referendum'.
  */
-@property(strong, nullable) NSArray<NSString *> *referendumBallotResponses;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *referendumBallotResponses;
 
 /**
  *  Specifies a short summary of the referendum that is typically on the ballot
  *  below the title but above the text. This field is only populated for
  *  contests of type 'Referendum'.
  */
-@property(copy, nullable) NSString *referendumBrief;
+@property(nonatomic, copy, nullable) NSString *referendumBrief;
 
 /**
  *  A statement in opposition to the referendum. It does not necessarily appear
  *  on the ballot. This field is only populated for contests of type
  *  'Referendum'.
  */
-@property(copy, nullable) NSString *referendumConStatement;
+@property(nonatomic, copy, nullable) NSString *referendumConStatement;
 
 /**
  *  Specifies what effect abstaining (not voting) on the proposition will have
  *  (i.e. whether abstaining is considered a vote against it). This field is
  *  only populated for contests of type 'Referendum'.
  */
-@property(copy, nullable) NSString *referendumEffectOfAbstain;
+@property(nonatomic, copy, nullable) NSString *referendumEffectOfAbstain;
 
 /**
  *  The threshold of votes that the referendum needs in order to pass, e.g.
  *  "two-thirds". This field is only populated for contests of type
  *  'Referendum'.
  */
-@property(copy, nullable) NSString *referendumPassageThreshold;
+@property(nonatomic, copy, nullable) NSString *referendumPassageThreshold;
 
 /**
  *  A statement in favor of the referendum. It does not necessarily appear on
  *  the ballot. This field is only populated for contests of type 'Referendum'.
  */
-@property(copy, nullable) NSString *referendumProStatement;
+@property(nonatomic, copy, nullable) NSString *referendumProStatement;
 
 /**
  *  A brief description of the referendum. This field is only populated for
  *  contests of type 'Referendum'.
  */
-@property(copy, nullable) NSString *referendumSubtitle;
+@property(nonatomic, copy, nullable) NSString *referendumSubtitle;
 
 /**
  *  The full text of the referendum. This field is only populated for contests
  *  of type 'Referendum'.
  */
-@property(copy, nullable) NSString *referendumText;
+@property(nonatomic, copy, nullable) NSString *referendumText;
 
 /**
  *  The title of the referendum (e.g. 'Proposition 42'). This field is only
  *  populated for contests of type 'Referendum'.
  */
-@property(copy, nullable) NSString *referendumTitle;
+@property(nonatomic, copy, nullable) NSString *referendumTitle;
 
 /**
  *  A link to the referendum. This field is only populated for contests of type
  *  'Referendum'.
  */
-@property(copy, nullable) NSString *referendumUrl;
+@property(nonatomic, copy, nullable) NSString *referendumUrl;
 
 /** The roles which this office fulfills. */
-@property(strong, nullable) NSArray<NSString *> *roles;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 /**
  *  A list of sources for this contest. If multiple sources are listed, the data
  *  has been aggregated from those sources.
  */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Source *> *sources;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Source *> *sources;
 
 /**
  *  "Yes" or "No" depending on whether this a contest being held outside the
  *  normal election cycle.
  */
-@property(copy, nullable) NSString *special;
+@property(nonatomic, copy, nullable) NSString *special;
 
 /**
  *  The type of contest. Usually this will be 'General', 'Primary', or 'Run-off'
  *  for contests with candidates. For referenda this will be 'Referendum'.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -363,9 +363,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "civicinfo#divisionSearchResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
-@property(strong, nullable) NSArray<GTLRCivicInfo_DivisionSearchResult *> *results;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_DivisionSearchResult *> *results;
 
 @end
 
@@ -383,13 +383,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  ocd-division/country:us/state:wy/cd:1, since Wyoming has only one
  *  Congressional district.
  */
-@property(strong, nullable) NSArray<NSString *> *aliases;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /** The name of the division. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The unique Open Civic Data identifier for this division. */
-@property(copy, nullable) NSString *ocdId;
+@property(nonatomic, copy, nullable) NSString *ocdId;
 
 @end
 
@@ -400,7 +400,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_Election : GTLRObject
 
 /** Day of the election in YYYY-MM-DD format. */
-@property(copy, nullable) NSString *electionDay;
+@property(nonatomic, copy, nullable) NSString *electionDay;
 
 /**
  *  The unique ID of this election.
@@ -409,10 +409,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /** A displayable name for the election. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The political division of the election. Represented as an OCD Division ID.
@@ -421,7 +421,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the midterms or general election the entire US (i.e.
  *  ocd-division/country:us).
  */
-@property(copy, nullable) NSString *ocdDivisionId;
+@property(nonatomic, copy, nullable) NSString *ocdDivisionId;
 
 @end
 
@@ -432,19 +432,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_ElectionOfficial : GTLRObject
 
 /** The email address of the election official. */
-@property(copy, nullable) NSString *emailAddress;
+@property(nonatomic, copy, nullable) NSString *emailAddress;
 
 /** The fax number of the election official. */
-@property(copy, nullable) NSString *faxNumber;
+@property(nonatomic, copy, nullable) NSString *faxNumber;
 
 /** The full name of the election official. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The office phone number of the election official. */
-@property(copy, nullable) NSString *officePhoneNumber;
+@property(nonatomic, copy, nullable) NSString *officePhoneNumber;
 
 /** The title of the election official. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -455,13 +455,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_ElectionsQueryResponse : GTLRObject
 
 /** A list of available elections */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Election *> *elections;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Election *> *elections;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "civicinfo#electionsQueryResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -477,10 +477,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The name of the district. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The geographic scope of this district. If unspecified the district's
@@ -488,7 +488,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  stateUpper, stateLower, countywide, judicial, schoolBoard, cityWide,
  *  township, countyCouncil, cityCouncil, ward, special
  */
-@property(copy, nullable) NSString *scope;
+@property(nonatomic, copy, nullable) NSString *scope;
 
 @end
 
@@ -510,10 +510,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  ocd-division/country:us/district:dc, this will contain
  *  ocd-division/country:us/state:dc.
  */
-@property(strong, nullable) NSArray<NSString *> *alsoKnownAs;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *alsoKnownAs;
 
 /** The name of the division. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  List of indices in the offices array, one for each office elected from this
@@ -522,7 +522,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *officeIndices;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *officeIndices;
 
 @end
 
@@ -533,7 +533,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_Office : GTLRObject
 
 /** The OCD ID of the division with which this office is associated. */
-@property(copy, nullable) NSString *divisionId;
+@property(nonatomic, copy, nullable) NSString *divisionId;
 
 /**
  *  The levels of government of which this office is part. There may be more
@@ -542,10 +542,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  acts at "locality" level, but also effectively at both
  *  "administrative-area-2" and "administrative-area-1".
  */
-@property(strong, nullable) NSArray<NSString *> *levels;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *levels;
 
 /** The human-readable name of the office. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  List of indices in the officials array of people who presently hold this
@@ -553,7 +553,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *officialIndices;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *officialIndices;
 
 /**
  *  The roles which this office fulfills. Roles are not meant to be exhaustive,
@@ -561,13 +561,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  but are meant to be rough categories that are useful for general selection
  *  from or sorting of a list of offices.
  */
-@property(strong, nullable) NSArray<NSString *> *roles;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 /**
  *  A list of sources for this office. If multiple sources are listed, the data
  *  has been aggregated from those sources.
  */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Source *> *sources;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Source *> *sources;
 
 @end
 
@@ -578,28 +578,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_Official : GTLRObject
 
 /** Addresses at which to contact the official. */
-@property(strong, nullable) NSArray<GTLRCivicInfo_SimpleAddressType *> *address;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_SimpleAddressType *> *address;
 
 /** A list of known (social) media channels for this official. */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Channel *> *channels;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Channel *> *channels;
 
 /** The direct email addresses for the official. */
-@property(strong, nullable) NSArray<NSString *> *emails;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *emails;
 
 /** The official's name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The full name of the party the official belongs to. */
-@property(copy, nullable) NSString *party;
+@property(nonatomic, copy, nullable) NSString *party;
 
 /** The official's public contact phone numbers. */
-@property(strong, nullable) NSArray<NSString *> *phones;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *phones;
 
 /** A URL for a photo of the official. */
-@property(copy, nullable) NSString *photoUrl;
+@property(nonatomic, copy, nullable) NSString *photoUrl;
 
 /** The official's public website URLs. */
-@property(strong, nullable) NSArray<NSString *> *urls;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *urls;
 
 @end
 
@@ -611,13 +611,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_PollingLocation : GTLRObject
 
 /** The address of the location. */
-@property(strong, nullable) GTLRCivicInfo_SimpleAddressType *address;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_SimpleAddressType *address;
 
 /**
  *  The last date that this early vote site or drop off location may be used.
  *  This field is not populated for polling locations.
  */
-@property(copy, nullable) NSString *endDate;
+@property(nonatomic, copy, nullable) NSString *endDate;
 
 /**
  *  An ID for this object. IDs may change in future requests and should not be
@@ -626,37 +626,37 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The name of the early vote site or drop off location. This field is not
  *  populated for polling locations.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Notes about this location (e.g. accessibility ramp or entrance to use). */
-@property(copy, nullable) NSString *notes;
+@property(nonatomic, copy, nullable) NSString *notes;
 
 /** A description of when this location is open. */
-@property(copy, nullable) NSString *pollingHours;
+@property(nonatomic, copy, nullable) NSString *pollingHours;
 
 /**
  *  A list of sources for this location. If multiple sources are listed the data
  *  has been aggregated from those sources.
  */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Source *> *sources;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Source *> *sources;
 
 /**
  *  The first date that this early vote site or drop off location may be used.
  *  This field is not populated for polling locations.
  */
-@property(copy, nullable) NSString *startDate;
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 /**
  *  The services provided by this early vote site or drop off location. This
  *  field is not populated for polling locations.
  */
-@property(copy, nullable) NSString *voterServices;
+@property(nonatomic, copy, nullable) NSString *voterServices;
 
 @end
 
@@ -667,19 +667,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_RepresentativeInfoData : GTLRObject
 
 /** Political geographic divisions that contain the requested address. */
-@property(strong, nullable) GTLRCivicInfo_RepresentativeInfoDataDivisions *divisions;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_RepresentativeInfoDataDivisions *divisions;
 
 /**
  *  Elected offices referenced by the divisions listed above. Will only be
  *  present if includeOffices was true in the request.
  */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Office *> *offices;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Office *> *offices;
 
 /**
  *  Officials holding the offices listed above. Will only be present if
  *  includeOffices was true in the request.
  */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Official *> *officials;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Official *> *officials;
 
 @end
 
@@ -702,28 +702,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_RepresentativeInfoResponse : GTLRObject
 
 /** Political geographic divisions that contain the requested address. */
-@property(strong, nullable) GTLRCivicInfo_RepresentativeInfoResponseDivisions *divisions;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_RepresentativeInfoResponseDivisions *divisions;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "civicinfo#representativeInfoResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The normalized version of the requested address */
-@property(strong, nullable) GTLRCivicInfo_SimpleAddressType *normalizedInput;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_SimpleAddressType *normalizedInput;
 
 /**
  *  Elected offices referenced by the divisions listed above. Will only be
  *  present if includeOffices was true in the request.
  */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Office *> *offices;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Office *> *offices;
 
 /**
  *  Officials holding the offices listed above. Will only be present if
  *  includeOffices was true in the request.
  */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Official *> *officials;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Official *> *officials;
 
 @end
 
@@ -746,25 +746,25 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_SimpleAddressType : GTLRObject
 
 /** The city or town for the address. */
-@property(copy, nullable) NSString *city;
+@property(nonatomic, copy, nullable) NSString *city;
 
 /** The street name and number of this address. */
-@property(copy, nullable) NSString *line1;
+@property(nonatomic, copy, nullable) NSString *line1;
 
 /** The second line the address, if needed. */
-@property(copy, nullable) NSString *line2;
+@property(nonatomic, copy, nullable) NSString *line2;
 
 /** The third line of the address, if needed. */
-@property(copy, nullable) NSString *line3;
+@property(nonatomic, copy, nullable) NSString *line3;
 
 /** The name of the location. */
-@property(copy, nullable) NSString *locationName;
+@property(nonatomic, copy, nullable) NSString *locationName;
 
 /** The US two letter state abbreviation of the address. */
-@property(copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *state;
 
 /** The US Postal Zip Code of the address. */
-@property(copy, nullable) NSString *zip;
+@property(nonatomic, copy, nullable) NSString *zip;
 
 @end
 
@@ -775,14 +775,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_Source : GTLRObject
 
 /** The name of the data source. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Whether this data comes from an official government source.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *official;
+@property(nonatomic, strong, nullable) NSNumber *official;
 
 @end
 
@@ -793,7 +793,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_VoterInfoResponse : GTLRObject
 
 /** Contests that will appear on the voter's ballot. */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Contest *> *contests;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Contest *> *contests;
 
 /**
  *  Locations where a voter is eligible to drop off a completed ballot. The
@@ -802,21 +802,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  locations could be open on or before election day as indicated in the
  *  pollingHours field.
  */
-@property(strong, nullable) NSArray<GTLRCivicInfo_PollingLocation *> *dropOffLocations;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_PollingLocation *> *dropOffLocations;
 
 /**
  *  Locations where the voter is eligible to vote early, prior to election day.
  */
-@property(strong, nullable) NSArray<GTLRCivicInfo_PollingLocation *> *earlyVoteSites;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_PollingLocation *> *earlyVoteSites;
 
 /** The election that was queried. */
-@property(strong, nullable) GTLRCivicInfo_Election *election;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_Election *election;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "civicinfo#voterInfoResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Specifies whether voters in the precinct vote only by mailing their ballots
@@ -824,28 +824,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *mailOnly;
+@property(nonatomic, strong, nullable) NSNumber *mailOnly;
 
 /** The normalized version of the requested address */
-@property(strong, nullable) GTLRCivicInfo_SimpleAddressType *normalizedInput;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_SimpleAddressType *normalizedInput;
 
 /**
  *  If no election ID was specified in the query, and there was more than one
  *  election with data for the given voter, this will contain information about
  *  the other elections that could apply.
  */
-@property(strong, nullable) NSArray<GTLRCivicInfo_Election *> *otherElections;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Election *> *otherElections;
 
 /** Locations where the voter is eligible to vote on election day. */
-@property(strong, nullable) NSArray<GTLRCivicInfo_PollingLocation *> *pollingLocations;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_PollingLocation *> *pollingLocations;
 
-@property(copy, nullable) NSString *precinctId;
+@property(nonatomic, copy, nullable) NSString *precinctId;
 
 /**
  *  Local Election Information for the state that the voter votes in. For the
  *  US, there will only be one element in this array.
  */
-@property(strong, nullable) NSArray<GTLRCivicInfo_AdministrationRegion *> *state;
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_AdministrationRegion *> *state;
 
 @end
 

@@ -66,13 +66,13 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  name that represents all the users of that domain. For example, `google.com`
  *  or `example.com`.
  */
-@property(strong, nullable) NSArray<NSString *> *members;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
  *  Role that is assigned to `members`. For example, `roles/viewer`,
  *  `roles/editor`, or `roles/owner`. Required
  */
-@property(copy, nullable) NSString *role;
+@property(nonatomic, copy, nullable) NSString *role;
 
 @end
 
@@ -116,7 +116,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  returned is the last page in the result set. Pagination tokens have a
  *  limited lifetime.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The list of Projects that matched the list filter. This list can be
@@ -125,7 +125,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCloudResourceManager_Project *> *projects;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Project *> *projects;
 
 @end
 
@@ -143,10 +143,10 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *done;
+@property(nonatomic, strong, nullable) NSNumber *done;
 
 /** The error result of the operation in case of failure. */
-@property(strong, nullable) GTLRCloudResourceManager_Status *error;
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_Status *error;
 
 /**
  *  Service-specific metadata associated with the operation. It typically
@@ -154,14 +154,14 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
-@property(strong, nullable) GTLRCloudResourceManager_OperationMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_OperationMetadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the `name`
  *  should have the format of `operations/some/unique/name`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The normal response of the operation in case of success. If the original
@@ -172,7 +172,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  original method name. For example, if the original method name is
  *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
-@property(strong, nullable) GTLRCloudResourceManager_OperationResponse *response;
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_OperationResponse *response;
 
 @end
 
@@ -231,7 +231,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  specified for the same `role`. `bindings` with no members will result in an
  *  error.
  */
-@property(strong, nullable) NSArray<GTLRCloudResourceManager_Binding *> *bindings;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Binding *> *bindings;
 
 /**
  *  `etag` is used for optimistic concurrency control as a way to help prevent
@@ -246,14 +246,14 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Version of the `Policy`. The default version is 0.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *version;
+@property(nonatomic, strong, nullable) NSNumber *version;
 
 @end
 
@@ -266,7 +266,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 @interface GTLRCloudResourceManager_Project : GTLRObject
 
 /** Creation time. Read-only. */
-@property(copy, nullable) NSString *createTime;
+@property(nonatomic, copy, nullable) NSString *createTime;
 
 /**
  *  The labels associated with this Project. Label keys must be between 1 and 63
@@ -278,7 +278,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  representation such as JSON that does not depend on specific characters
  *  being disallowed. Example: "environment" : "dev" Read-write.
  */
-@property(strong, nullable) GTLRCloudResourceManager_ProjectLabels *labels;
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_ProjectLabels *labels;
 
 /**
  *  The Project lifecycle state. Read-only.
@@ -293,7 +293,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *    @arg @c kGTLRCloudResourceManager_Project_LifecycleState_LifecycleStateUnspecified
  *        Value "LIFECYCLE_STATE_UNSPECIFIED"
  */
-@property(copy, nullable) NSString *lifecycleState;
+@property(nonatomic, copy, nullable) NSString *lifecycleState;
 
 /**
  *  The user-assigned display name of the Project. It must be 4 to 30
@@ -301,20 +301,20 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  numbers, hyphen, single-quote, double-quote, space, and exclamation point.
  *  Example: My Project Read-write.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  An optional reference to a parent Resource. The only supported parent type
  *  is "organization". Once set, the parent cannot be modified. Read-write.
  */
-@property(strong, nullable) GTLRCloudResourceManager_ResourceId *parent;
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_ResourceId *parent;
 
 /**
  *  The unique, user-assigned ID of the Project. It must be 6 to 30 lowercase
  *  letters, digits, or hyphens. It must start with a letter. Trailing hyphens
  *  are prohibited. Example: tokyo-rain-123 Read-only after creation.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The number uniquely identifying the project. Example: 415104041262
@@ -322,7 +322,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *projectNumber;
+@property(nonatomic, strong, nullable) NSNumber *projectNumber;
 
 @end
 
@@ -360,13 +360,13 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Required field representing the resource type this id is for. At present,
  *  the only valid type is "organization".
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -381,7 +381,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
  *  but certain Cloud Platform services (such as Projects) might reject them.
  */
-@property(strong, nullable) GTLRCloudResourceManager_Policy *policy;
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_Policy *policy;
 
 @end
 
@@ -428,20 +428,20 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *code;
+@property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
  *  A list of messages that carry the error details. There will be a common set
  *  of message types for APIs to use.
  */
-@property(strong, nullable) NSArray<GTLRCloudResourceManager_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_StatusDetailsItem *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
  *  user-facing error message should be localized and sent in the
  *  google.rpc.Status.details field, or localized by the client.
  */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -468,7 +468,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
  *  see IAM Overview.
  */
-@property(strong, nullable) NSArray<NSString *> *permissions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 
@@ -481,7 +481,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 /**
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
-@property(strong, nullable) NSArray<NSString *> *permissions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 

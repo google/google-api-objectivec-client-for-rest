@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRYouTubeAnalyticsQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The onBehalfOfContentOwner parameter identifies the content owner that the
  *  user is acting on behalf of.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Fetches a @c GTLRYouTubeAnalytics_BatchReportDefinitionList.
@@ -83,13 +83,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The batchReportDefinitionId parameter specifies the ID of the batch
  *  reportort definition for which you are retrieving reports.
  */
-@property(copy, nullable) NSString *batchReportDefinitionId;
+@property(nonatomic, copy, nullable) NSString *batchReportDefinitionId;
 
 /**
  *  The onBehalfOfContentOwner parameter identifies the content owner that the
  *  user is acting on behalf of.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Fetches a @c GTLRYouTubeAnalytics_BatchReportList.
@@ -128,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -142,7 +142,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -184,7 +184,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Fetches a @c GTLRYouTubeAnalytics_GroupItem.
@@ -218,7 +218,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The id parameter specifies the unique ID of the group for which you want to
  *  retrieve group items.
  */
-@property(copy, nullable) NSString *groupId;
+@property(nonatomic, copy, nullable) NSString *groupId;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -232,7 +232,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Fetches a @c GTLRYouTubeAnalytics_GroupItemListResponse.
@@ -267,7 +267,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -281,7 +281,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -323,7 +323,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Fetches a @c GTLRYouTubeAnalytics_Group.
@@ -362,13 +362,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Set this parameter's value to true to instruct the API to only return groups
  *  owned by the authenticated user.
  */
-@property(assign) BOOL mine;
+@property(nonatomic, assign) BOOL mine;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -382,14 +382,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken property
  *  identifies the next page that can be retrieved.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRYouTubeAnalytics_GroupListResponse.
@@ -433,7 +433,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Fetches a @c GTLRYouTubeAnalytics_Group.
@@ -469,7 +469,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  be ignored. Responds with an error if the specified currency is not
  *  recognized.
  */
-@property(copy, nullable) NSString *currency;
+@property(nonatomic, copy, nullable) NSString *currency;
 
 /**
  *  A comma-separated list of YouTube Analytics dimensions, such as views or
@@ -477,13 +477,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  reports that you can retrieve and the dimensions used for those reports.
  *  Also see the Dimensions document for definitions of those dimensions.
  */
-@property(copy, nullable) NSString *dimensions;
+@property(nonatomic, copy, nullable) NSString *dimensions;
 
 /**
  *  The end date for fetching YouTube Analytics data. The value should be in
  *  YYYY-MM-DD format.
  */
-@property(copy, nullable) NSString *endDate;
+@property(nonatomic, copy, nullable) NSString *endDate;
 
 /**
  *  A list of filters that should be applied when retrieving YouTube Analytics
@@ -494,7 +494,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  example, a filters parameter value of video==dMH0bHeiRNg;country==IT
  *  restricts the result set to include data for the given video in Italy.
  */
-@property(copy, nullable) NSString *filters;
+@property(nonatomic, copy, nullable) NSString *filters;
 
 /**
  *  Identifies the YouTube channel or content owner for which you are retrieving
@@ -506,10 +506,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  value to contentOwner==OWNER_NAME, where OWNER_NAME is the CMS name of the
  *  content owner.
  */
-@property(copy, nullable) NSString *ids;
+@property(nonatomic, copy, nullable) NSString *ids;
 
 /** The maximum number of rows to include in the response. */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  A comma-separated list of YouTube Analytics metrics, such as views or
@@ -517,26 +517,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  that you can retrieve and the metrics available in each report, and see the
  *  Metrics document for definitions of those metrics.
  */
-@property(copy, nullable) NSString *metrics;
+@property(nonatomic, copy, nullable) NSString *metrics;
 
 /**
  *  A comma-separated list of dimensions or metrics that determine the sort
  *  order for YouTube Analytics data. By default the sort order is ascending.
  *  The '-' prefix causes descending sort order.
  */
-@property(copy, nullable) NSString *sort;
+@property(nonatomic, copy, nullable) NSString *sort;
 
 /**
  *  The start date for fetching YouTube Analytics data. The value should be in
  *  YYYY-MM-DD format.
  */
-@property(copy, nullable) NSString *startDate;
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 /**
  *  An index of the first entity to retrieve. Use this parameter as a pagination
  *  mechanism along with the max-results parameter (one-based, inclusive).
  */
-@property(assign) NSInteger startIndex;
+@property(nonatomic, assign) NSInteger startIndex;
 
 /**
  *  Fetches a @c GTLRYouTubeAnalytics_ResultTable.

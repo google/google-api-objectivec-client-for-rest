@@ -1623,9 +1623,11 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /**
  *  The chart that should be added to the spreadsheet, including the position
- *  where it should be placed.
+ *  where it should be placed. The chartId
+ *  field is optional; if one is not set, an id will be randomly generated. (It
+ *  is an error to specify the ID of a chart that already exists.)
  */
-@property(strong, nullable) GTLRSheets_EmbeddedChart *chart;
+@property(nonatomic, strong, nullable) GTLRSheets_EmbeddedChart *chart;
 
 @end
 
@@ -1636,7 +1638,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_AddChartResponse : GTLRObject
 
 /** The newly added chart. */
-@property(strong, nullable) GTLRSheets_EmbeddedChart *chart;
+@property(nonatomic, strong, nullable) GTLRSheets_EmbeddedChart *chart;
 
 @end
 
@@ -1652,10 +1654,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *index;
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 /** The rule to add. */
-@property(strong, nullable) GTLRSheets_ConditionalFormatRule *rule;
+@property(nonatomic, strong, nullable) GTLRSheets_ConditionalFormatRule *rule;
 
 @end
 
@@ -1665,8 +1667,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  */
 @interface GTLRSheets_AddFilterViewRequest : GTLRObject
 
-/** The filter to add. */
-@property(strong, nullable) GTLRSheets_FilterView *filter;
+/**
+ *  The filter to add. The filterViewId
+ *  field is optional; if one is not set, an id will be randomly generated. (It
+ *  is an error to specify the ID of a filter that already exists.)
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_FilterView *filter;
 
 @end
 
@@ -1677,7 +1683,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_AddFilterViewResponse : GTLRObject
 
 /** The newly added filter view. */
-@property(strong, nullable) GTLRSheets_FilterView *filter;
+@property(nonatomic, strong, nullable) GTLRSheets_FilterView *filter;
 
 @end
 
@@ -1688,12 +1694,11 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_AddNamedRangeRequest : GTLRObject
 
 /**
- *  The named range to add. If a non-empty
- *  namedRangeId is specified, the named range
- *  will use that ID. (It is an error to specify the ID of a named
- *  range that already exists.)
+ *  The named range to add. The namedRangeId
+ *  field is optional; if one is not set, an id will be randomly generated. (It
+ *  is an error to specify the ID of a range that already exists.)
  */
-@property(strong, nullable) GTLRSheets_NamedRange *namedRange;
+@property(nonatomic, strong, nullable) GTLRSheets_NamedRange *namedRange;
 
 @end
 
@@ -1704,7 +1709,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_AddNamedRangeResponse : GTLRObject
 
 /** The named range to add. */
-@property(strong, nullable) GTLRSheets_NamedRange *namedRange;
+@property(nonatomic, strong, nullable) GTLRSheets_NamedRange *namedRange;
 
 @end
 
@@ -1714,8 +1719,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  */
 @interface GTLRSheets_AddProtectedRangeRequest : GTLRObject
 
-/** The protected range to be added. */
-@property(strong, nullable) GTLRSheets_ProtectedRange *protectedRange;
+/**
+ *  The protected range to be added. The
+ *  protectedRangeId field is optional; if
+ *  one is not set, an id will be randomly generated. (It is an error to
+ *  specify the ID of a range that already exists.)
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ProtectedRange *protectedRange;
 
 @end
 
@@ -1726,7 +1736,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_AddProtectedRangeResponse : GTLRObject
 
 /** The newly added protected range. */
-@property(strong, nullable) GTLRSheets_ProtectedRange *protectedRange;
+@property(nonatomic, strong, nullable) GTLRSheets_ProtectedRange *protectedRange;
 
 @end
 
@@ -1744,11 +1754,11 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 /**
  *  The properties the new sheet should have.
  *  All properties are optional.
- *  If a sheetId
- *  is specified, the sheet will use that ID.
- *  (It is an error to specify the ID of a sheet that already exists.)
+ *  The sheetId field is optional; if one is not
+ *  set, an id will be randomly generated. (It is an error to specify the ID
+ *  of a sheet that already exists.)
  */
-@property(strong, nullable) GTLRSheets_SheetProperties *properties;
+@property(nonatomic, strong, nullable) GTLRSheets_SheetProperties *properties;
 
 @end
 
@@ -1759,7 +1769,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_AddSheetResponse : GTLRObject
 
 /** The properties of the newly added sheet. */
-@property(strong, nullable) GTLRSheets_SheetProperties *properties;
+@property(nonatomic, strong, nullable) GTLRSheets_SheetProperties *properties;
 
 @end
 
@@ -1778,17 +1788,17 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  String format is a comma-separated list of fields.
  */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 /** The data to append. */
-@property(strong, nullable) NSArray<GTLRSheets_RowData *> *rows;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_RowData *> *rows;
 
 /**
  *  The sheet ID to append the data to.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sheetId;
+@property(nonatomic, strong, nullable) NSNumber *sheetId;
 
 @end
 
@@ -1809,21 +1819,42 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_AppendDimensionRequest_Dimension_Rows Operates on the
  *        rows of a sheet. (Value: "ROWS")
  */
-@property(copy, nullable) NSString *dimension;
+@property(nonatomic, copy, nullable) NSString *dimension;
 
 /**
  *  The number of rows or columns to append.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *length;
+@property(nonatomic, strong, nullable) NSNumber *length;
 
 /**
  *  The sheet to append rows or columns to.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sheetId;
+@property(nonatomic, strong, nullable) NSNumber *sheetId;
+
+@end
+
+
+/**
+ *  The response when updating a range of values in a spreadsheet.
+ */
+@interface GTLRSheets_AppendValuesResponse : GTLRObject
+
+/** The spreadsheet the updates were applied to. */
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
+
+/**
+ *  The range (in A1 notation) of the table that values are being appended to
+ *  (before the values were appended).
+ *  Empty if no table was found.
+ */
+@property(nonatomic, copy, nullable) NSString *tableRange;
+
+/** Information about the updates that were applied. */
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateValuesResponse *updates;
 
 @end
 
@@ -1838,14 +1869,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  the location that has data and automatically fill that data
  *  in to the rest of the range.
  */
-@property(strong, nullable) GTLRSheets_GridRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 /**
  *  The source and destination areas to autofill.
  *  This explicitly lists the source of the autofill and where to
  *  extend that data.
  */
-@property(strong, nullable) GTLRSheets_SourceAndDestination *sourceAndDestination;
+@property(nonatomic, strong, nullable) GTLRSheets_SourceAndDestination *sourceAndDestination;
 
 /**
  *  True if we should generate data with the "alternate" series.
@@ -1853,7 +1884,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *useAlternateSeries;
+@property(nonatomic, strong, nullable) NSNumber *useAlternateSeries;
 
 @end
 
@@ -1868,7 +1899,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  The dimensions to automatically resize.
  *  Only COLUMNS are supported.
  */
-@property(strong, nullable) GTLRSheets_DimensionRange *dimensions;
+@property(nonatomic, strong, nullable) GTLRSheets_DimensionRange *dimensions;
 
 @end
 
@@ -1884,7 +1915,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  The format of the title.
  *  Only valid if the axis is not associated with the domain.
  */
-@property(strong, nullable) GTLRSheets_TextFormat *format;
+@property(nonatomic, strong, nullable) GTLRSheets_TextFormat *format;
 
 /**
  *  The position of this axis.
@@ -1906,13 +1937,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        For most charts, this is a minor axis.
  *        For bar charts, this is an unusual major axis. (Value: "RIGHT_AXIS")
  */
-@property(copy, nullable) NSString *position;
+@property(nonatomic, copy, nullable) NSString *position;
 
 /**
  *  The title of this axis. If set, this overrides any title inferred
  *  from headers of the data.
  */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -1927,7 +1958,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  The data of the domain. For example, if charting stock prices over time,
  *  this is the data representing the dates.
  */
-@property(strong, nullable) GTLRSheets_ChartData *domain;
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *domain;
 
 @end
 
@@ -1940,7 +1971,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_BasicChartSeries : GTLRObject
 
 /** The data being visualized in this chart series. */
-@property(strong, nullable) GTLRSheets_ChartData *series;
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *series;
 
 /**
  *  The minor axis that will specify the range of values for this series.
@@ -1968,7 +1999,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        For most charts, this is a minor axis.
  *        For bar charts, this is an unusual major axis. (Value: "RIGHT_AXIS")
  */
-@property(copy, nullable) NSString *targetAxis;
+@property(nonatomic, copy, nullable) NSString *targetAxis;
 
 /**
  *  The type of this series. Valid only if the
@@ -2000,7 +2031,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        href="/chart/interactive/docs/gallery/scatterchart">scatter chart</a>.
  *        (Value: "SCATTER")
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2012,7 +2043,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_BasicChartSpec : GTLRObject
 
 /** The axis on the chart. */
-@property(strong, nullable) NSArray<GTLRSheets_BasicChartAxis *> *axis;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_BasicChartAxis *> *axis;
 
 /**
  *  The type of the chart.
@@ -2039,13 +2070,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        href="/chart/interactive/docs/gallery/scatterchart">scatter chart</a>.
  *        (Value: "SCATTER")
  */
-@property(copy, nullable) NSString *chartType;
+@property(nonatomic, copy, nullable) NSString *chartType;
 
 /**
  *  The domain of data this is charting.
  *  Only a single domain is currently supported.
  */
-@property(strong, nullable) NSArray<GTLRSheets_BasicChartDomain *> *domains;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_BasicChartDomain *> *domains;
 
 /**
  *  The number of rows or columns in the data that are "headers".
@@ -2056,7 +2087,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *headerCount;
+@property(nonatomic, strong, nullable) NSNumber *headerCount;
 
 /**
  *  The position of the chart legend.
@@ -2076,10 +2107,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_BasicChartSpec_LegendPosition_TopLegend The legend is
  *        rendered on the top of the chart. (Value: "TOP_LEGEND")
  */
-@property(copy, nullable) NSString *legendPosition;
+@property(nonatomic, copy, nullable) NSString *legendPosition;
 
 /** The data this chart is visualizing. */
-@property(strong, nullable) NSArray<GTLRSheets_BasicChartSeries *> *series;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_BasicChartSeries *> *series;
 
 @end
 
@@ -2094,16 +2125,16 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  The map's key is the column index, and the value is the criteria for
  *  that column.
  */
-@property(strong, nullable) GTLRSheets_BasicFilterCriteria *criteria;
+@property(nonatomic, strong, nullable) GTLRSheets_BasicFilterCriteria *criteria;
 
 /** The range the filter covers. */
-@property(strong, nullable) GTLRSheets_GridRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 /**
  *  The sort order per column. Later specifications are used when values
  *  are equal in the earlier specifications.
  */
-@property(strong, nullable) NSArray<GTLRSheets_SortSpec *> *sortSpecs;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_SortSpec *> *sortSpecs;
 
 @end
 
@@ -2128,13 +2159,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_BatchGetValuesResponse : GTLRObject
 
 /** The ID of the spreadsheet the data was retrieved from. */
-@property(copy, nullable) NSString *spreadsheetId;
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 /**
  *  The requested values. The order of the ValueRanges is the same as the
  *  order of the requested ranges.
  */
-@property(strong, nullable) NSArray<GTLRSheets_ValueRange *> *valueRanges;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_ValueRange *> *valueRanges;
 
 @end
 
@@ -2145,7 +2176,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_BatchUpdateSpreadsheetRequest : GTLRObject
 
 /** A list of updates to apply to the spreadsheet. */
-@property(strong, nullable) NSArray<GTLRSheets_Request *> *requests;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_Request *> *requests;
 
 @end
 
@@ -2159,10 +2190,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  The reply of the updates. This maps 1:1 with the updates, although
  *  replies to some requests may be empty.
  */
-@property(strong, nullable) NSArray<GTLRSheets_Response *> *replies;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_Response *> *replies;
 
 /** The spreadsheet the updates were applied to. */
-@property(copy, nullable) NSString *spreadsheetId;
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 @end
 
@@ -2173,7 +2204,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_BatchUpdateValuesRequest : GTLRObject
 
 /** The new values to apply to the spreadsheet. */
-@property(strong, nullable) NSArray<GTLRSheets_ValueRange *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_ValueRange *> *data;
 
 /**
  *  How the input data should be interpreted.
@@ -2191,7 +2222,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        dates, etc. following the same rules that are applied when entering
  *        text into a cell via the Google Sheets UI. (Value: "USER_ENTERED")
  */
-@property(copy, nullable) NSString *valueInputOption;
+@property(nonatomic, copy, nullable) NSString *valueInputOption;
 
 @end
 
@@ -2205,17 +2236,17 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  One UpdateValuesResponse per requested range, in the same order as
  *  the requests appeared.
  */
-@property(strong, nullable) NSArray<GTLRSheets_UpdateValuesResponse *> *responses;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_UpdateValuesResponse *> *responses;
 
 /** The spreadsheet the updates were applied to. */
-@property(copy, nullable) NSString *spreadsheetId;
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 /**
  *  The total number of cells updated.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalUpdatedCells;
+@property(nonatomic, strong, nullable) NSNumber *totalUpdatedCells;
 
 /**
  *  The total number of columns where at least one cell in the column was
@@ -2223,14 +2254,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalUpdatedColumns;
+@property(nonatomic, strong, nullable) NSNumber *totalUpdatedColumns;
 
 /**
  *  The total number of rows where at least one cell in the row was updated.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalUpdatedRows;
+@property(nonatomic, strong, nullable) NSNumber *totalUpdatedRows;
 
 /**
  *  The total number of sheets where at least one cell in the sheet was
@@ -2238,7 +2269,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalUpdatedSheets;
+@property(nonatomic, strong, nullable) NSNumber *totalUpdatedSheets;
 
 @end
 
@@ -2377,7 +2408,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        Supported by data validation, conditional formatting and filters.
  *        Requires a single ConditionValue. (Value: "TEXT_STARTS_WITH")
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The values of the condition. The number of supported values depends
@@ -2385,7 +2416,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  others one or two values,
  *  and ConditionType.ONE_OF_LIST supports an arbitrary number of values.
  */
-@property(strong, nullable) NSArray<GTLRSheets_ConditionValue *> *values;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_ConditionValue *> *values;
 
 @end
 
@@ -2399,7 +2430,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  The condition of the rule. If the condition evaluates to true,
  *  the format will be applied.
  */
-@property(strong, nullable) GTLRSheets_BooleanCondition *condition;
+@property(nonatomic, strong, nullable) GTLRSheets_BooleanCondition *condition;
 
 /**
  *  The format to apply.
@@ -2409,7 +2440,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  foreground color &
  *  background color.
  */
-@property(strong, nullable) GTLRSheets_CellFormat *format;
+@property(nonatomic, strong, nullable) GTLRSheets_CellFormat *format;
 
 @end
 
@@ -2420,7 +2451,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_Border : GTLRObject
 
 /** The color of the border. */
-@property(strong, nullable) GTLRSheets_Color *color;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *color;
 
 /**
  *  The style of the border.
@@ -2439,7 +2470,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_Border_Style_StyleUnspecified The style is not
  *        specified. Do not use this. (Value: "STYLE_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *style;
+@property(nonatomic, copy, nullable) NSString *style;
 
 /**
  *  The width of the border, in pixels.
@@ -2447,7 +2478,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -2458,16 +2489,16 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_Borders : GTLRObject
 
 /** The bottom border of the cell. */
-@property(strong, nullable) GTLRSheets_Border *bottom;
+@property(nonatomic, strong, nullable) GTLRSheets_Border *bottom;
 
 /** The left border of the cell. */
-@property(strong, nullable) GTLRSheets_Border *left;
+@property(nonatomic, strong, nullable) GTLRSheets_Border *left;
 
 /** The right border of the cell. */
-@property(strong, nullable) GTLRSheets_Border *right;
+@property(nonatomic, strong, nullable) GTLRSheets_Border *right;
 
 /** The top border of the cell. */
-@property(strong, nullable) GTLRSheets_Border *top;
+@property(nonatomic, strong, nullable) GTLRSheets_Border *top;
 
 @end
 
@@ -2481,7 +2512,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  A data validation rule on the cell, if any.
  *  When writing, the new data validation rule will overwrite any prior rule.
  */
-@property(strong, nullable) GTLRSheets_DataValidationRule *dataValidation;
+@property(nonatomic, strong, nullable) GTLRSheets_DataValidationRule *dataValidation;
 
 /**
  *  The effective format being used by the cell.
@@ -2491,7 +2522,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  not be written.
  *  This field is read-only.
  */
-@property(strong, nullable) GTLRSheets_CellFormat *effectiveFormat;
+@property(nonatomic, strong, nullable) GTLRSheets_CellFormat *effectiveFormat;
 
 /**
  *  The effective value of the cell. For cells with formulas, this will be
@@ -2499,23 +2530,23 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  the same as the user_entered_value.
  *  This field is read-only.
  */
-@property(strong, nullable) GTLRSheets_ExtendedValue *effectiveValue;
+@property(nonatomic, strong, nullable) GTLRSheets_ExtendedValue *effectiveValue;
 
 /**
  *  The formatted value of the cell.
  *  This is the value as it's shown to the user.
  *  This field is read-only.
  */
-@property(copy, nullable) NSString *formattedValue;
+@property(nonatomic, copy, nullable) NSString *formattedValue;
 
 /**
  *  A hyperlink this cell points to, if any.
  *  This field is read-only. (To set it, use a `=HYPERLINK` formula.)
  */
-@property(copy, nullable) NSString *hyperlink;
+@property(nonatomic, copy, nullable) NSString *hyperlink;
 
 /** Any note on the cell. */
-@property(copy, nullable) NSString *note;
+@property(nonatomic, copy, nullable) NSString *note;
 
 /**
  *  A pivot table anchored at this cell. The size of pivot table itself
@@ -2524,7 +2555,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  definition. The other cells will contain the calculated values of the
  *  results of the pivot in their effective_value fields.
  */
-@property(strong, nullable) GTLRSheets_PivotTable *pivotTable;
+@property(nonatomic, strong, nullable) GTLRSheets_PivotTable *pivotTable;
 
 /**
  *  Runs of rich text applied to subsections of the cell. Runs are only valid
@@ -2536,20 +2567,20 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  When writing, the new runs will overwrite any prior runs. When writing a
  *  new user_entered_value, previous runs will be erased.
  */
-@property(strong, nullable) NSArray<GTLRSheets_TextFormatRun *> *textFormatRuns;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_TextFormatRun *> *textFormatRuns;
 
 /**
  *  The format the user entered for the cell.
  *  When writing, the new format will be merged with the existing format.
  */
-@property(strong, nullable) GTLRSheets_CellFormat *userEnteredFormat;
+@property(nonatomic, strong, nullable) GTLRSheets_CellFormat *userEnteredFormat;
 
 /**
  *  The value the user entered in the cell. e.g, `1234`, `'Hello'`, or `=NOW()`
  *  Note: Dates, Times and DateTimes are represented as doubles in
  *  serial number format.
  */
-@property(strong, nullable) GTLRSheets_ExtendedValue *userEnteredValue;
+@property(nonatomic, strong, nullable) GTLRSheets_ExtendedValue *userEnteredValue;
 
 @end
 
@@ -2560,10 +2591,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_CellFormat : GTLRObject
 
 /** The background color of the cell. */
-@property(strong, nullable) GTLRSheets_Color *backgroundColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor;
 
 /** The borders of the cell. */
-@property(strong, nullable) GTLRSheets_Borders *borders;
+@property(nonatomic, strong, nullable) GTLRSheets_Borders *borders;
 
 /**
  *  The horizontal alignment of the value in the cell.
@@ -2579,7 +2610,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_CellFormat_HorizontalAlignment_Right The text is
  *        explicitly aligned to the right of the cell. (Value: "RIGHT")
  */
-@property(copy, nullable) NSString *horizontalAlignment;
+@property(nonatomic, copy, nullable) NSString *horizontalAlignment;
 
 /**
  *  How a hyperlink, if it exists, should be displayed in the cell.
@@ -2593,15 +2624,15 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_CellFormat_HyperlinkDisplayType_PlainText A hyperlink
  *        should not be rendered. (Value: "PLAIN_TEXT")
  */
-@property(copy, nullable) NSString *hyperlinkDisplayType;
+@property(nonatomic, copy, nullable) NSString *hyperlinkDisplayType;
 
 /**
  *  A format describing how number values should be represented to the user.
  */
-@property(strong, nullable) GTLRSheets_NumberFormat *numberFormat;
+@property(nonatomic, strong, nullable) GTLRSheets_NumberFormat *numberFormat;
 
 /** The padding of the cell. */
-@property(strong, nullable) GTLRSheets_Padding *padding;
+@property(nonatomic, strong, nullable) GTLRSheets_Padding *padding;
 
 /**
  *  The direction of the text in the cell.
@@ -2617,10 +2648,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        text direction is not specified. Do not use this. (Value:
  *        "TEXT_DIRECTION_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *textDirection;
+@property(nonatomic, copy, nullable) NSString *textDirection;
 
 /** The format of the text in the cell (unless overridden by a format run). */
-@property(strong, nullable) GTLRSheets_TextFormat *textFormat;
+@property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 /**
  *  The vertical alignment of the value in the cell.
@@ -2636,7 +2667,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        The vertical alignment is not specified. Do not use this. (Value:
  *        "VERTICAL_ALIGN_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *verticalAlignment;
+@property(nonatomic, copy, nullable) NSString *verticalAlignment;
 
 /**
  *  The wrap strategy for the value in the cell.
@@ -2677,7 +2708,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_CellFormat_WrapStrategy_WrapStrategyUnspecified The
  *        default value, do not use. (Value: "WRAP_STRATEGY_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *wrapStrategy;
+@property(nonatomic, copy, nullable) NSString *wrapStrategy;
 
 @end
 
@@ -2688,7 +2719,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_ChartData : GTLRObject
 
 /** The source ranges of the data. */
-@property(strong, nullable) GTLRSheets_ChartSourceRange *sourceRange;
+@property(nonatomic, strong, nullable) GTLRSheets_ChartSourceRange *sourceRange;
 
 @end
 
@@ -2714,7 +2745,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  series1 sources: B1:B5, D10:D12
  *  series2 sources: C1:C5, E10:E12
  */
-@property(strong, nullable) NSArray<GTLRSheets_GridRange *> *sources;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_GridRange *> *sources;
 
 @end
 
@@ -2729,7 +2760,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  See BasicChartType for the list of all
  *  charts this supports.
  */
-@property(strong, nullable) GTLRSheets_BasicChartSpec *basicChart;
+@property(nonatomic, strong, nullable) GTLRSheets_BasicChartSpec *basicChart;
 
 /**
  *  Determines how the charts will use hidden rows or columns.
@@ -2748,13 +2779,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        Charts will skip hidden rows and columns. (Value:
  *        "SKIP_HIDDEN_ROWS_AND_COLUMNS")
  */
-@property(copy, nullable) NSString *hiddenDimensionStrategy;
+@property(nonatomic, copy, nullable) NSString *hiddenDimensionStrategy;
 
 /** A pie chart specification. */
-@property(strong, nullable) GTLRSheets_PieChartSpec *pieChart;
+@property(nonatomic, strong, nullable) GTLRSheets_PieChartSpec *pieChart;
 
 /** The title of the chart. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -2769,7 +2800,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sheetId;
+@property(nonatomic, strong, nullable) NSNumber *sheetId;
 
 @end
 
@@ -2890,28 +2921,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *alpha;
+@property(nonatomic, strong, nullable) NSNumber *alpha;
 
 /**
  *  The amount of blue in the color as a value in the interval [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *blue;
+@property(nonatomic, strong, nullable) NSNumber *blue;
 
 /**
  *  The amount of green in the color as a value in the interval [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *green;
+@property(nonatomic, strong, nullable) NSNumber *green;
 
 /**
  *  The amount of red in the color as a value in the interval [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *red;
+@property(nonatomic, strong, nullable) NSNumber *red;
 
 @end
 
@@ -2922,16 +2953,16 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_ConditionalFormatRule : GTLRObject
 
 /** The formatting is either "on" or "off" according to the rule. */
-@property(strong, nullable) GTLRSheets_BooleanRule *booleanRule;
+@property(nonatomic, strong, nullable) GTLRSheets_BooleanRule *booleanRule;
 
 /** The formatting will vary based on the gradients in the rule. */
-@property(strong, nullable) GTLRSheets_GradientRule *gradientRule;
+@property(nonatomic, strong, nullable) GTLRSheets_GradientRule *gradientRule;
 
 /**
  *  The ranges that will be formatted if the condition is true.
  *  All the ranges must be on the same grid.
  */
-@property(strong, nullable) NSArray<GTLRSheets_GridRange *> *ranges;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_GridRange *> *ranges;
 
 @end
 
@@ -2968,14 +2999,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_ConditionValue_RelativeDate_Yesterday The value is
  *        yesterday. (Value: "YESTERDAY")
  */
-@property(copy, nullable) NSString *relativeDate;
+@property(nonatomic, copy, nullable) NSString *relativeDate;
 
 /**
  *  A value the condition is based on.
  *  The value will be parsed as if the user typed into a cell.
  *  Formulas are supported (and must begin with an `=`).
  */
-@property(copy, nullable) NSString *userEnteredValue;
+@property(nonatomic, copy, nullable) NSString *userEnteredValue;
 
 @end
 
@@ -2992,7 +3023,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  If the range is smaller than the source range, the entire
  *  source data will still be copied (beyond the end of the destination range).
  */
-@property(strong, nullable) GTLRSheets_GridRange *destination;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *destination;
 
 /**
  *  How that data should be oriented when pasting.
@@ -3004,7 +3035,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        transposed, where all rows become columns and vice versa. (Value:
  *        "TRANSPOSE")
  */
-@property(copy, nullable) NSString *pasteOrientation;
+@property(nonatomic, copy, nullable) NSString *pasteOrientation;
 
 /**
  *  What kind of data to paste.
@@ -3027,10 +3058,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        values ONLY without formats, formulas, or merges. (Value:
  *        "PASTE_VALUES")
  */
-@property(copy, nullable) NSString *pasteType;
+@property(nonatomic, copy, nullable) NSString *pasteType;
 
 /** The source range to copy. */
-@property(strong, nullable) GTLRSheets_GridRange *source;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *source;
 
 @end
 
@@ -3041,7 +3072,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_CopySheetToAnotherSpreadsheetRequest : GTLRObject
 
 /** The ID of the spreadsheet to copy the sheet to. */
-@property(copy, nullable) NSString *destinationSpreadsheetId;
+@property(nonatomic, copy, nullable) NSString *destinationSpreadsheetId;
 
 @end
 
@@ -3052,7 +3083,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_CutPasteRequest : GTLRObject
 
 /** The top-left coordinate where the data should be pasted. */
-@property(strong, nullable) GTLRSheets_GridCoordinate *destination;
+@property(nonatomic, strong, nullable) GTLRSheets_GridCoordinate *destination;
 
 /**
  *  What kind of data to paste. All the source data will be cut, regardless
@@ -3075,10 +3106,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_CutPasteRequest_PasteType_PasteValues Paste the values
  *        ONLY without formats, formulas, or merges. (Value: "PASTE_VALUES")
  */
-@property(copy, nullable) NSString *pasteType;
+@property(nonatomic, copy, nullable) NSString *pasteType;
 
 /** The source data to cut. */
-@property(strong, nullable) GTLRSheets_GridRange *source;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *source;
 
 @end
 
@@ -3089,10 +3120,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_DataValidationRule : GTLRObject
 
 /** The condition that data in the cell must match. */
-@property(strong, nullable) GTLRSheets_BooleanCondition *condition;
+@property(nonatomic, strong, nullable) GTLRSheets_BooleanCondition *condition;
 
 /** A message to show the user when adding data to the cell. */
-@property(copy, nullable) NSString *inputMessage;
+@property(nonatomic, copy, nullable) NSString *inputMessage;
 
 /**
  *  True if the UI should be customized based on the kind of condition.
@@ -3100,14 +3131,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *showCustomUi;
+@property(nonatomic, strong, nullable) NSNumber *showCustomUi;
 
 /**
  *  True if invalid data should be rejected.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *strict;
+@property(nonatomic, strong, nullable) NSNumber *strict;
 
 @end
 
@@ -3123,14 +3154,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *index;
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
  *  The sheet the rule is being deleted from.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sheetId;
+@property(nonatomic, strong, nullable) NSNumber *sheetId;
 
 @end
 
@@ -3141,7 +3172,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_DeleteConditionalFormatRuleResponse : GTLRObject
 
 /** The rule that was deleted. */
-@property(strong, nullable) GTLRSheets_ConditionalFormatRule *rule;
+@property(nonatomic, strong, nullable) GTLRSheets_ConditionalFormatRule *rule;
 
 @end
 
@@ -3152,7 +3183,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_DeleteDimensionRequest : GTLRObject
 
 /** The dimensions to delete from the sheet. */
-@property(strong, nullable) GTLRSheets_DimensionRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_DimensionRange *range;
 
 @end
 
@@ -3167,7 +3198,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *objectId;
+@property(nonatomic, strong, nullable) NSNumber *objectId;
 
 @end
 
@@ -3182,7 +3213,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *filterId;
+@property(nonatomic, strong, nullable) NSNumber *filterId;
 
 @end
 
@@ -3193,7 +3224,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_DeleteNamedRangeRequest : GTLRObject
 
 /** The ID of the named range to delete. */
-@property(copy, nullable) NSString *namedRangeId;
+@property(nonatomic, copy, nullable) NSString *namedRangeId;
 
 @end
 
@@ -3208,7 +3239,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *protectedRangeId;
+@property(nonatomic, strong, nullable) NSNumber *protectedRangeId;
 
 @end
 
@@ -3223,7 +3254,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sheetId;
+@property(nonatomic, strong, nullable) NSNumber *sheetId;
 
 @end
 
@@ -3239,21 +3270,21 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hiddenByFilter;
+@property(nonatomic, strong, nullable) NSNumber *hiddenByFilter;
 
 /**
  *  True if this dimension is explicitly hidden.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hiddenByUser;
+@property(nonatomic, strong, nullable) NSNumber *hiddenByUser;
 
 /**
  *  The height (if a row) or width (if a column) of the dimension in pixels.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *pixelSize;
+@property(nonatomic, strong, nullable) NSNumber *pixelSize;
 
 @end
 
@@ -3278,28 +3309,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_DimensionRange_Dimension_Rows Operates on the rows of
  *        a sheet. (Value: "ROWS")
  */
-@property(copy, nullable) NSString *dimension;
+@property(nonatomic, copy, nullable) NSString *dimension;
 
 /**
  *  The end (exclusive) of the span, or not set if unbounded.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *endIndex;
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
 
 /**
  *  The sheet this span is on.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sheetId;
+@property(nonatomic, strong, nullable) NSNumber *sheetId;
 
 /**
  *  The start (inclusive) of the span, or not set if unbounded.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 @end
 
@@ -3314,7 +3345,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *filterId;
+@property(nonatomic, strong, nullable) NSNumber *filterId;
 
 @end
 
@@ -3325,7 +3356,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_DuplicateFilterViewResponse : GTLRObject
 
 /** The newly created filter. */
-@property(strong, nullable) GTLRSheets_FilterView *filter;
+@property(nonatomic, strong, nullable) GTLRSheets_FilterView *filter;
 
 @end
 
@@ -3341,7 +3372,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *insertSheetIndex;
+@property(nonatomic, strong, nullable) NSNumber *insertSheetIndex;
 
 /**
  *  If set, the ID of the new sheet. If not set, an ID is chosen.
@@ -3350,17 +3381,17 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *newSheetId NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, strong, nullable) NSNumber *newSheetId NS_RETURNS_NOT_RETAINED;
 
 /** The name of the new sheet. If empty, a new name is chosen for you. */
-@property(copy, nullable) NSString *newSheetName NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, copy, nullable) NSString *newSheetName NS_RETURNS_NOT_RETAINED;
 
 /**
  *  The sheet to duplicate.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sourceSheetId;
+@property(nonatomic, strong, nullable) NSNumber *sourceSheetId;
 
 @end
 
@@ -3371,7 +3402,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_DuplicateSheetResponse : GTLRObject
 
 /** The properties of the duplicate sheet. */
-@property(strong, nullable) GTLRSheets_SheetProperties *properties;
+@property(nonatomic, strong, nullable) GTLRSheets_SheetProperties *properties;
 
 @end
 
@@ -3387,13 +3418,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *domainUsersCanEdit;
+@property(nonatomic, strong, nullable) NSNumber *domainUsersCanEdit;
 
 /** The email addresses of groups with edit access to the protected range. */
-@property(strong, nullable) NSArray<NSString *> *groups;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *groups;
 
 /** The email addresses of users with edit access to the protected range. */
-@property(strong, nullable) NSArray<NSString *> *users;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *users;
 
 @end
 
@@ -3408,13 +3439,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *chartId;
+@property(nonatomic, strong, nullable) NSNumber *chartId;
 
 /** The position of the chart. */
-@property(strong, nullable) GTLRSheets_EmbeddedObjectPosition *position;
+@property(nonatomic, strong, nullable) GTLRSheets_EmbeddedObjectPosition *position;
 
 /** The specification of the chart. */
-@property(strong, nullable) GTLRSheets_ChartSpec *spec;
+@property(nonatomic, strong, nullable) GTLRSheets_ChartSpec *spec;
 
 @end
 
@@ -3430,10 +3461,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *newSheet NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, strong, nullable) NSNumber *newSheet NS_RETURNS_NOT_RETAINED;
 
 /** The position at which the object is overlaid on top of a grid. */
-@property(strong, nullable) GTLRSheets_OverlayPosition *overlayPosition;
+@property(nonatomic, strong, nullable) GTLRSheets_OverlayPosition *overlayPosition;
 
 /**
  *  The sheet this is on. Set only if the embedded object
@@ -3441,7 +3472,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sheetId;
+@property(nonatomic, strong, nullable) NSNumber *sheetId;
 
 @end
 
@@ -3455,7 +3486,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  A message with more information about the error
  *  (in the spreadsheet's locale).
  */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 /**
  *  The type of error.
@@ -3482,7 +3513,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_ErrorValue_Type_Value Corresponds to the `#VALUE!`
  *        error. (Value: "VALUE")
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -3497,16 +3528,16 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *boolValue;
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
 
 /**
  *  Represents an error.
  *  This field is read-only.
  */
-@property(strong, nullable) GTLRSheets_ErrorValue *errorValue;
+@property(nonatomic, strong, nullable) GTLRSheets_ErrorValue *errorValue;
 
 /** Represents a formula. */
-@property(copy, nullable) NSString *formulaValue;
+@property(nonatomic, copy, nullable) NSString *formulaValue;
 
 /**
  *  Represents a double value.
@@ -3515,7 +3546,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *numberValue;
+@property(nonatomic, strong, nullable) NSNumber *numberValue;
 
 /**
  *  Represents a string value.
@@ -3523,7 +3554,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  `'123` into the UI, this would be represented as a `stringValue` of
  *  `"123"`.
  */
-@property(copy, nullable) NSString *stringValue;
+@property(nonatomic, copy, nullable) NSString *stringValue;
 
 @end
 
@@ -3538,10 +3569,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  (This does not override hiddenValues -- if a value is listed there,
  *  it will still be hidden.)
  */
-@property(strong, nullable) GTLRSheets_BooleanCondition *condition;
+@property(nonatomic, strong, nullable) GTLRSheets_BooleanCondition *condition;
 
 /** Values that should be hidden. */
-@property(strong, nullable) NSArray<NSString *> *hiddenValues;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *hiddenValues;
 
 @end
 
@@ -3556,37 +3587,37 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  The map's key is the column index, and the value is the criteria for
  *  that column.
  */
-@property(strong, nullable) GTLRSheets_FilterViewCriteria *criteria;
+@property(nonatomic, strong, nullable) GTLRSheets_FilterViewCriteria *criteria;
 
 /**
  *  The ID of the filter view.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *filterViewId;
+@property(nonatomic, strong, nullable) NSNumber *filterViewId;
 
 /**
  *  The named range this filter view is backed by, if any.
  *  When writing, only one of range or named_range_id
  *  may be set.
  */
-@property(copy, nullable) NSString *namedRangeId;
+@property(nonatomic, copy, nullable) NSString *namedRangeId;
 
 /**
  *  The range this filter view covers.
  *  When writing, only one of range or named_range_id
  *  may be set.
  */
-@property(strong, nullable) GTLRSheets_GridRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 /**
  *  The sort order per column. Later specifications are used when values
  *  are equal in the earlier specifications.
  */
-@property(strong, nullable) NSArray<GTLRSheets_SortSpec *> *sortSpecs;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_SortSpec *> *sortSpecs;
 
 /** The name of the filter view. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -3615,10 +3646,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *allSheets;
+@property(nonatomic, strong, nullable) NSNumber *allSheets;
 
 /** The value to search. */
-@property(copy, nullable) NSString *find;
+@property(nonatomic, copy, nullable) NSString *find;
 
 /**
  *  True if the search should include cells with formulas.
@@ -3626,27 +3657,27 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *includeFormulas;
+@property(nonatomic, strong, nullable) NSNumber *includeFormulas;
 
 /**
  *  True if the search is case sensitive.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *matchCase;
+@property(nonatomic, strong, nullable) NSNumber *matchCase;
 
 /**
  *  True if the find value should match the entire cell.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *matchEntireCell;
+@property(nonatomic, strong, nullable) NSNumber *matchEntireCell;
 
 /** The range to find/replace over. */
-@property(strong, nullable) GTLRSheets_GridRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 /** The value to use as the replacement. */
-@property(copy, nullable) NSString *replacement;
+@property(nonatomic, copy, nullable) NSString *replacement;
 
 /**
  *  True if the find value is a regex.
@@ -3660,14 +3691,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *searchByRegex;
+@property(nonatomic, strong, nullable) NSNumber *searchByRegex;
 
 /**
  *  The sheet to find/replace over.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sheetId;
+@property(nonatomic, strong, nullable) NSNumber *sheetId;
 
 @end
 
@@ -3682,7 +3713,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *formulasChanged;
+@property(nonatomic, strong, nullable) NSNumber *formulasChanged;
 
 /**
  *  The number of occurrences (possibly multiple within a cell) changed.
@@ -3691,28 +3722,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *occurrencesChanged;
+@property(nonatomic, strong, nullable) NSNumber *occurrencesChanged;
 
 /**
  *  The number of rows changed.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *rowsChanged;
+@property(nonatomic, strong, nullable) NSNumber *rowsChanged;
 
 /**
  *  The number of sheets changed.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sheetsChanged;
+@property(nonatomic, strong, nullable) NSNumber *sheetsChanged;
 
 /**
  *  The number of non-formula cells changed.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *valuesChanged;
+@property(nonatomic, strong, nullable) NSNumber *valuesChanged;
 
 @end
 
@@ -3726,13 +3757,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_GradientRule : GTLRObject
 
 /** The final interpolation point. */
-@property(strong, nullable) GTLRSheets_InterpolationPoint *maxpoint;
+@property(nonatomic, strong, nullable) GTLRSheets_InterpolationPoint *maxpoint;
 
 /** An optional midway interpolation point. */
-@property(strong, nullable) GTLRSheets_InterpolationPoint *midpoint;
+@property(nonatomic, strong, nullable) GTLRSheets_InterpolationPoint *midpoint;
 
 /** The starting interpolation point. */
-@property(strong, nullable) GTLRSheets_InterpolationPoint *minpoint;
+@property(nonatomic, strong, nullable) GTLRSheets_InterpolationPoint *minpoint;
 
 @end
 
@@ -3748,21 +3779,21 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *columnIndex;
+@property(nonatomic, strong, nullable) NSNumber *columnIndex;
 
 /**
  *  The row index of the coordinate.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *rowIndex;
+@property(nonatomic, strong, nullable) NSNumber *rowIndex;
 
 /**
  *  The sheet this coordinate is on.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sheetId;
+@property(nonatomic, strong, nullable) NSNumber *sheetId;
 
 @end
 
@@ -3776,7 +3807,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  Metadata about the requested columns in the grid, starting with the column
  *  in start_column.
  */
-@property(strong, nullable) NSArray<GTLRSheets_DimensionProperties *> *columnMetadata;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DimensionProperties *> *columnMetadata;
 
 /**
  *  The data in the grid, one entry per row,
@@ -3784,27 +3815,27 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  The values in RowData will correspond to columns starting
  *  at start_column.
  */
-@property(strong, nullable) NSArray<GTLRSheets_RowData *> *rowData;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_RowData *> *rowData;
 
 /**
  *  Metadata about the requested rows in the grid, starting with the row
  *  in start_row.
  */
-@property(strong, nullable) NSArray<GTLRSheets_DimensionProperties *> *rowMetadata;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DimensionProperties *> *rowMetadata;
 
 /**
  *  The first column this GridData refers to, zero-based.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startColumn;
+@property(nonatomic, strong, nullable) NSNumber *startColumn;
 
 /**
  *  The first row this GridData refers to, zero-based.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startRow;
+@property(nonatomic, strong, nullable) NSNumber *startRow;
 
 @end
 
@@ -3819,35 +3850,35 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *columnCount;
+@property(nonatomic, strong, nullable) NSNumber *columnCount;
 
 /**
  *  The number of columns that are frozen in the grid.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *frozenColumnCount;
+@property(nonatomic, strong, nullable) NSNumber *frozenColumnCount;
 
 /**
  *  The number of rows that are frozen in the grid.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *frozenRowCount;
+@property(nonatomic, strong, nullable) NSNumber *frozenRowCount;
 
 /**
  *  True if the grid isn't showing gridlines in the UI.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hideGridlines;
+@property(nonatomic, strong, nullable) NSNumber *hideGridlines;
 
 /**
  *  The number of rows in the grid.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *rowCount;
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
 
 @end
 
@@ -3883,35 +3914,35 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *endColumnIndex;
+@property(nonatomic, strong, nullable) NSNumber *endColumnIndex;
 
 /**
  *  The end row (exclusive) of the range, or not set if unbounded.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *endRowIndex;
+@property(nonatomic, strong, nullable) NSNumber *endRowIndex;
 
 /**
  *  The sheet this range is on.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sheetId;
+@property(nonatomic, strong, nullable) NSNumber *sheetId;
 
 /**
  *  The start column (inclusive) of the range, or not set if unbounded.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startColumnIndex;
+@property(nonatomic, strong, nullable) NSNumber *startColumnIndex;
 
 /**
  *  The start row (inclusive) of the range, or not set if unbounded.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startRowIndex;
+@property(nonatomic, strong, nullable) NSNumber *startRowIndex;
 
 @end
 
@@ -3936,12 +3967,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *inheritFromBefore;
+@property(nonatomic, strong, nullable) NSNumber *inheritFromBefore;
 
 /**
  *  The dimensions to insert. Both the start and end indexes must be bounded.
  */
-@property(strong, nullable) GTLRSheets_DimensionRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_DimensionRange *range;
 
 @end
 
@@ -3954,7 +3985,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_InterpolationPoint : GTLRObject
 
 /** The color this interpolation point should use. */
-@property(strong, nullable) GTLRSheets_Color *color;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *color;
 
 /**
  *  How the value should be interpreted.
@@ -3988,14 +4019,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        (where errors in the range are ignored when flattening). (Value:
  *        "PERCENTILE")
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The value this interpolation point uses. May be a formula.
  *  Unused if type is MIN or
  *  MAX.
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -4016,10 +4047,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_MergeCellsRequest_MergeType_MergeRows Create a merge
  *        for each row in the range (Value: "MERGE_ROWS")
  */
-@property(copy, nullable) NSString *mergeType;
+@property(nonatomic, copy, nullable) NSString *mergeType;
 
 /** The range of cells to merge. */
-@property(strong, nullable) GTLRSheets_GridRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 @end
 
@@ -4044,10 +4075,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *destinationIndex;
+@property(nonatomic, strong, nullable) NSNumber *destinationIndex;
 
 /** The source dimensions to move. */
-@property(strong, nullable) GTLRSheets_DimensionRange *source;
+@property(nonatomic, strong, nullable) GTLRSheets_DimensionRange *source;
 
 @end
 
@@ -4058,13 +4089,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_NamedRange : GTLRObject
 
 /** The name of the named range. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The ID of the named range. */
-@property(copy, nullable) NSString *namedRangeId;
+@property(nonatomic, copy, nullable) NSString *namedRangeId;
 
 /** The range this represents. */
-@property(strong, nullable) GTLRSheets_GridRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 @end
 
@@ -4078,7 +4109,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  Pattern string used for formatting. If not set, a default pattern based on
  *  the user's locale will be used if necessary for the given type.
  */
-@property(copy, nullable) NSString *pattern;
+@property(nonatomic, copy, nullable) NSString *pattern;
 
 /**
  *  The type of the number format.
@@ -4106,7 +4137,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_NumberFormat_Type_Time Time formatting, e.g `3:59:00
  *        PM` (Value: "TIME")
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -4117,14 +4148,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_OverlayPosition : GTLRObject
 
 /** The cell the object is anchored to. */
-@property(strong, nullable) GTLRSheets_GridCoordinate *anchorCell;
+@property(nonatomic, strong, nullable) GTLRSheets_GridCoordinate *anchorCell;
 
 /**
  *  The height of the object, in pixels. Defaults to 371.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *heightPixels;
+@property(nonatomic, strong, nullable) NSNumber *heightPixels;
 
 /**
  *  The horizontal offset, in pixels, that the object is offset
@@ -4132,7 +4163,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *offsetXPixels;
+@property(nonatomic, strong, nullable) NSNumber *offsetXPixels;
 
 /**
  *  The vertical offset, in pixels, that the object is offset
@@ -4140,14 +4171,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *offsetYPixels;
+@property(nonatomic, strong, nullable) NSNumber *offsetYPixels;
 
 /**
  *  The width of the object, in pixels. Defaults to 600.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *widthPixels;
+@property(nonatomic, strong, nullable) NSNumber *widthPixels;
 
 @end
 
@@ -4163,28 +4194,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *bottom;
+@property(nonatomic, strong, nullable) NSNumber *bottom;
 
 /**
  *  The left padding of the cell.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *left;
+@property(nonatomic, strong, nullable) NSNumber *left;
 
 /**
  *  The right padding of the cell.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *right;
+@property(nonatomic, strong, nullable) NSNumber *right;
 
 /**
  *  The top padding of the cell.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *top;
+@property(nonatomic, strong, nullable) NSNumber *top;
 
 @end
 
@@ -4195,20 +4226,20 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_PasteDataRequest : GTLRObject
 
 /** The coordinate at which the data should start being inserted. */
-@property(strong, nullable) GTLRSheets_GridCoordinate *coordinate;
+@property(nonatomic, strong, nullable) GTLRSheets_GridCoordinate *coordinate;
 
 /** The data to insert. */
-@property(copy, nullable) NSString *data;
+@property(nonatomic, copy, nullable) NSString *data;
 
 /** The delimiter in the data. */
-@property(copy, nullable) NSString *delimiter;
+@property(nonatomic, copy, nullable) NSString *delimiter;
 
 /**
  *  True if the data is HTML.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *html;
+@property(nonatomic, strong, nullable) NSNumber *html;
 
 /**
  *  How the data should be pasted.
@@ -4230,7 +4261,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteValues Paste the values
  *        ONLY without formats, formulas, or merges. (Value: "PASTE_VALUES")
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -4241,7 +4272,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_PieChartSpec : GTLRObject
 
 /** The data that covers the domain of the pie chart. */
-@property(strong, nullable) GTLRSheets_ChartData *domain;
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *domain;
 
 /**
  *  Where the legend of the pie chart should be drawn.
@@ -4263,24 +4294,24 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_PieChartSpec_LegendPosition_TopLegend The legend is
  *        rendered on the top of the chart. (Value: "TOP_LEGEND")
  */
-@property(copy, nullable) NSString *legendPosition;
+@property(nonatomic, copy, nullable) NSString *legendPosition;
 
 /**
  *  The size of the hole in the pie chart.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *pieHole;
+@property(nonatomic, strong, nullable) NSNumber *pieHole;
 
 /** The data that covers the one and only series of the pie chart. */
-@property(strong, nullable) GTLRSheets_ChartData *series;
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *series;
 
 /**
  *  True if the pie is three dimensional.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *threeDimensional;
+@property(nonatomic, strong, nullable) NSNumber *threeDimensional;
 
 @end
 
@@ -4291,7 +4322,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_PivotFilterCriteria : GTLRObject
 
 /** Values that should be included. Values not listed here are excluded. */
-@property(strong, nullable) NSArray<NSString *> *visibleValues;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *visibleValues;
 
 @end
 
@@ -4306,7 +4337,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *showTotals;
+@property(nonatomic, strong, nullable) NSNumber *showTotals;
 
 /**
  *  The order the values in this group should be sorted.
@@ -4319,7 +4350,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_PivotGroup_SortOrder_SortOrderUnspecified Default
  *        value, do not use this. (Value: "SORT_ORDER_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *sortOrder;
+@property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
  *  The column offset of the source range that this grouping is based on.
@@ -4329,16 +4360,16 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sourceColumnOffset;
+@property(nonatomic, strong, nullable) NSNumber *sourceColumnOffset;
 
 /**
  *  The bucket of the opposite pivot group to sort by.
  *  If not specified, sorting is alphabetical by this group's values.
  */
-@property(strong, nullable) GTLRSheets_PivotGroupSortValueBucket *valueBucket;
+@property(nonatomic, strong, nullable) GTLRSheets_PivotGroupSortValueBucket *valueBucket;
 
 /** Metadata about values in the grouping. */
-@property(strong, nullable) NSArray<GTLRSheets_PivotGroupValueMetadata *> *valueMetadata;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_PivotGroupValueMetadata *> *valueMetadata;
 
 @end
 
@@ -4358,7 +4389,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  to the "Grand Total" over the column groups. If a single value is listed,
  *  this would correspond to using the "Total" of that bucket.
  */
-@property(strong, nullable) NSArray<GTLRSheets_ExtendedValue *> *buckets;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_ExtendedValue *> *buckets;
 
 /**
  *  The offset in the PivotTable.values list which the values in this
@@ -4366,7 +4397,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *valuesIndex;
+@property(nonatomic, strong, nullable) NSNumber *valuesIndex;
 
 @end
 
@@ -4381,14 +4412,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *collapsed;
+@property(nonatomic, strong, nullable) NSNumber *collapsed;
 
 /**
  *  The calculated value the metadata corresponds to.
  *  (Note that formulaValue is not valid,
  *  because the values will be calculated.)
  */
-@property(strong, nullable) GTLRSheets_ExtendedValue *value;
+@property(nonatomic, strong, nullable) GTLRSheets_ExtendedValue *value;
 
 @end
 
@@ -4399,7 +4430,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_PivotTable : GTLRObject
 
 /** Each column grouping in the pivot table. */
-@property(strong, nullable) NSArray<GTLRSheets_PivotGroup *> *columns;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_PivotGroup *> *columns;
 
 /**
  *  An optional mapping of filters per source column offset.
@@ -4409,13 +4440,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  For example, if the source was `C10:E15`, a key of `0` will have the filter
  *  for column `C`, whereas the key `1` is for column `D`.
  */
-@property(strong, nullable) GTLRSheets_PivotTableCriteria *criteria;
+@property(nonatomic, strong, nullable) GTLRSheets_PivotTableCriteria *criteria;
 
 /** Each row grouping in the pivot table. */
-@property(strong, nullable) NSArray<GTLRSheets_PivotGroup *> *rows;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_PivotGroup *> *rows;
 
 /** The range the pivot table is reading data from. */
-@property(strong, nullable) GTLRSheets_GridRange *source;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *source;
 
 /**
  *  Whether values should be listed horizontally (as columns)
@@ -4427,10 +4458,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_PivotTable_ValueLayout_Vertical Values are laid out
  *        vertically (as rows). (Value: "VERTICAL")
  */
-@property(copy, nullable) NSString *valueLayout;
+@property(nonatomic, copy, nullable) NSString *valueLayout;
 
 /** A list of values to include in the pivot table. */
-@property(strong, nullable) NSArray<GTLRSheets_PivotValue *> *values;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_PivotValue *> *values;
 
 @end
 
@@ -4461,13 +4492,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  A custom formula to calculate the value. The formula must start
  *  with an `=` character.
  */
-@property(copy, nullable) NSString *formula;
+@property(nonatomic, copy, nullable) NSString *formula;
 
 /**
  *  A name to use for the value. This is only used if formula was set.
  *  Otherwise, the column name is used.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The column offset of the source range that this value reads from.
@@ -4477,7 +4508,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sourceColumnOffset;
+@property(nonatomic, strong, nullable) NSNumber *sourceColumnOffset;
 
 /**
  *  A function to summarize the value.
@@ -4521,7 +4552,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_PivotValue_SummarizeFunction_Varp Corresponds to the
  *        `VARP` function. (Value: "VARP")
  */
-@property(copy, nullable) NSString *summarizeFunction;
+@property(nonatomic, copy, nullable) NSString *summarizeFunction;
 
 @end
 
@@ -4536,7 +4567,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The users and groups with edit access to the protected range.
@@ -4544,14 +4575,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  range and the document.
  *  Editors are not supported with warning_only protection.
  */
-@property(strong, nullable) GTLRSheets_Editors *editors;
+@property(nonatomic, strong, nullable) GTLRSheets_Editors *editors;
 
 /**
  *  The named range this protected range is backed by, if any.
  *  When writing, only one of range or named_range_id
  *  may be set.
  */
-@property(copy, nullable) NSString *namedRangeId;
+@property(nonatomic, copy, nullable) NSString *namedRangeId;
 
 /**
  *  The ID of the protected range.
@@ -4559,7 +4590,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *protectedRangeId;
+@property(nonatomic, strong, nullable) NSNumber *protectedRangeId;
 
 /**
  *  The range that is being protected.
@@ -4568,7 +4599,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  When writing, only one of range or named_range_id
  *  may be set.
  */
-@property(strong, nullable) GTLRSheets_GridRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 /**
  *  True if the user who requested this protected range can edit the
@@ -4577,13 +4608,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *requestingUserCanEdit;
+@property(nonatomic, strong, nullable) NSNumber *requestingUserCanEdit;
 
 /**
  *  The list of unprotected ranges within a protected sheet.
  *  Unprotected ranges are only supported on protected sheets.
  */
-@property(strong, nullable) NSArray<GTLRSheets_GridRange *> *unprotectedRanges;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_GridRange *> *unprotectedRanges;
 
 /**
  *  True if this protected range will show a warning when editing.
@@ -4597,7 +4628,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *warningOnly;
+@property(nonatomic, strong, nullable) NSNumber *warningOnly;
 
 @end
 
@@ -4618,7 +4649,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_RepeatCellRequest : GTLRObject
 
 /** The data to write. */
-@property(strong, nullable) GTLRSheets_CellData *cell;
+@property(nonatomic, strong, nullable) GTLRSheets_CellData *cell;
 
 /**
  *  The fields that should be updated. At least one field must be specified.
@@ -4627,10 +4658,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  String format is a comma-separated list of fields.
  */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 /** The range to repeat the cell in. */
-@property(strong, nullable) GTLRSheets_GridRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 @end
 
@@ -4641,139 +4672,139 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_Request : GTLRObject
 
 /** Adds a chart. */
-@property(strong, nullable) GTLRSheets_AddChartRequest *addChart;
+@property(nonatomic, strong, nullable) GTLRSheets_AddChartRequest *addChart;
 
 /** Adds a new conditional format rule. */
-@property(strong, nullable) GTLRSheets_AddConditionalFormatRuleRequest *addConditionalFormatRule;
+@property(nonatomic, strong, nullable) GTLRSheets_AddConditionalFormatRuleRequest *addConditionalFormatRule;
 
 /** Adds a filter view. */
-@property(strong, nullable) GTLRSheets_AddFilterViewRequest *addFilterView;
+@property(nonatomic, strong, nullable) GTLRSheets_AddFilterViewRequest *addFilterView;
 
 /** Adds a named range. */
-@property(strong, nullable) GTLRSheets_AddNamedRangeRequest *addNamedRange;
+@property(nonatomic, strong, nullable) GTLRSheets_AddNamedRangeRequest *addNamedRange;
 
 /** Adds a protected range. */
-@property(strong, nullable) GTLRSheets_AddProtectedRangeRequest *addProtectedRange;
+@property(nonatomic, strong, nullable) GTLRSheets_AddProtectedRangeRequest *addProtectedRange;
 
 /** Adds a sheet. */
-@property(strong, nullable) GTLRSheets_AddSheetRequest *addSheet;
+@property(nonatomic, strong, nullable) GTLRSheets_AddSheetRequest *addSheet;
 
 /** Appends cells after the last row with data in a sheet. */
-@property(strong, nullable) GTLRSheets_AppendCellsRequest *appendCells;
+@property(nonatomic, strong, nullable) GTLRSheets_AppendCellsRequest *appendCells;
 
 /** Appends dimensions to the end of a sheet. */
-@property(strong, nullable) GTLRSheets_AppendDimensionRequest *appendDimension;
+@property(nonatomic, strong, nullable) GTLRSheets_AppendDimensionRequest *appendDimension;
 
 /** Automatically fills in more data based on existing data. */
-@property(strong, nullable) GTLRSheets_AutoFillRequest *autoFill;
+@property(nonatomic, strong, nullable) GTLRSheets_AutoFillRequest *autoFill;
 
 /**
  *  Automatically resizes one or more dimensions based on the contents
  *  of the cells in that dimension.
  */
-@property(strong, nullable) GTLRSheets_AutoResizeDimensionsRequest *autoResizeDimensions;
+@property(nonatomic, strong, nullable) GTLRSheets_AutoResizeDimensionsRequest *autoResizeDimensions;
 
 /** Clears the basic filter on a sheet. */
-@property(strong, nullable) GTLRSheets_ClearBasicFilterRequest *clearBasicFilter;
+@property(nonatomic, strong, nullable) GTLRSheets_ClearBasicFilterRequest *clearBasicFilter;
 
 /** Copies data from one area and pastes it to another. */
-@property(strong, nullable) GTLRSheets_CopyPasteRequest *copyPaste NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, strong, nullable) GTLRSheets_CopyPasteRequest *copyPaste NS_RETURNS_NOT_RETAINED;
 
 /** Cuts data from one area and pastes it to another. */
-@property(strong, nullable) GTLRSheets_CutPasteRequest *cutPaste;
+@property(nonatomic, strong, nullable) GTLRSheets_CutPasteRequest *cutPaste;
 
 /** Deletes an existing conditional format rule. */
-@property(strong, nullable) GTLRSheets_DeleteConditionalFormatRuleRequest *deleteConditionalFormatRule;
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteConditionalFormatRuleRequest *deleteConditionalFormatRule;
 
 /** Deletes rows or columns in a sheet. */
-@property(strong, nullable) GTLRSheets_DeleteDimensionRequest *deleteDimension;
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteDimensionRequest *deleteDimension;
 
 /** Deletes an embedded object (e.g, chart, image) in a sheet. */
-@property(strong, nullable) GTLRSheets_DeleteEmbeddedObjectRequest *deleteEmbeddedObject;
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteEmbeddedObjectRequest *deleteEmbeddedObject;
 
 /** Deletes a filter view from a sheet. */
-@property(strong, nullable) GTLRSheets_DeleteFilterViewRequest *deleteFilterView;
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteFilterViewRequest *deleteFilterView;
 
 /** Deletes a named range. */
-@property(strong, nullable) GTLRSheets_DeleteNamedRangeRequest *deleteNamedRange;
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteNamedRangeRequest *deleteNamedRange;
 
 /** Deletes a protected range. */
-@property(strong, nullable) GTLRSheets_DeleteProtectedRangeRequest *deleteProtectedRange;
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteProtectedRangeRequest *deleteProtectedRange;
 
 /** Deletes a sheet. */
-@property(strong, nullable) GTLRSheets_DeleteSheetRequest *deleteSheet;
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteSheetRequest *deleteSheet;
 
 /** Duplicates a filter view. */
-@property(strong, nullable) GTLRSheets_DuplicateFilterViewRequest *duplicateFilterView;
+@property(nonatomic, strong, nullable) GTLRSheets_DuplicateFilterViewRequest *duplicateFilterView;
 
 /** Duplicates a sheet. */
-@property(strong, nullable) GTLRSheets_DuplicateSheetRequest *duplicateSheet;
+@property(nonatomic, strong, nullable) GTLRSheets_DuplicateSheetRequest *duplicateSheet;
 
 /** Finds and replaces occurrences of some text with other text. */
-@property(strong, nullable) GTLRSheets_FindReplaceRequest *findReplace;
+@property(nonatomic, strong, nullable) GTLRSheets_FindReplaceRequest *findReplace;
 
 /** Inserts new rows or columns in a sheet. */
-@property(strong, nullable) GTLRSheets_InsertDimensionRequest *insertDimension;
+@property(nonatomic, strong, nullable) GTLRSheets_InsertDimensionRequest *insertDimension;
 
 /** Merges cells together. */
-@property(strong, nullable) GTLRSheets_MergeCellsRequest *mergeCells;
+@property(nonatomic, strong, nullable) GTLRSheets_MergeCellsRequest *mergeCells;
 
 /** Moves rows or columns to another location in a sheet. */
-@property(strong, nullable) GTLRSheets_MoveDimensionRequest *moveDimension;
+@property(nonatomic, strong, nullable) GTLRSheets_MoveDimensionRequest *moveDimension;
 
 /** Pastes data (HTML or delimited) into a sheet. */
-@property(strong, nullable) GTLRSheets_PasteDataRequest *pasteData;
+@property(nonatomic, strong, nullable) GTLRSheets_PasteDataRequest *pasteData;
 
 /** Repeats a single cell across a range. */
-@property(strong, nullable) GTLRSheets_RepeatCellRequest *repeatCell;
+@property(nonatomic, strong, nullable) GTLRSheets_RepeatCellRequest *repeatCell;
 
 /** Sets the basic filter on a sheet. */
-@property(strong, nullable) GTLRSheets_SetBasicFilterRequest *setBasicFilter;
+@property(nonatomic, strong, nullable) GTLRSheets_SetBasicFilterRequest *setBasicFilter;
 
 /** Sets data validation for one or more cells. */
-@property(strong, nullable) GTLRSheets_SetDataValidationRequest *setDataValidation;
+@property(nonatomic, strong, nullable) GTLRSheets_SetDataValidationRequest *setDataValidation;
 
 /** Sorts data in a range. */
-@property(strong, nullable) GTLRSheets_SortRangeRequest *sortRange;
+@property(nonatomic, strong, nullable) GTLRSheets_SortRangeRequest *sortRange;
 
 /** Converts a column of text into many columns of text. */
-@property(strong, nullable) GTLRSheets_TextToColumnsRequest *textToColumns;
+@property(nonatomic, strong, nullable) GTLRSheets_TextToColumnsRequest *textToColumns;
 
 /** Unmerges merged cells. */
-@property(strong, nullable) GTLRSheets_UnmergeCellsRequest *unmergeCells;
+@property(nonatomic, strong, nullable) GTLRSheets_UnmergeCellsRequest *unmergeCells;
 
 /** Updates the borders in a range of cells. */
-@property(strong, nullable) GTLRSheets_UpdateBordersRequest *updateBorders;
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateBordersRequest *updateBorders;
 
 /** Updates many cells at once. */
-@property(strong, nullable) GTLRSheets_UpdateCellsRequest *updateCells;
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateCellsRequest *updateCells;
 
 /** Updates a chart's specifications. */
-@property(strong, nullable) GTLRSheets_UpdateChartSpecRequest *updateChartSpec;
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateChartSpecRequest *updateChartSpec;
 
 /** Updates an existing conditional format rule. */
-@property(strong, nullable) GTLRSheets_UpdateConditionalFormatRuleRequest *updateConditionalFormatRule;
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateConditionalFormatRuleRequest *updateConditionalFormatRule;
 
 /** Updates dimensions' properties. */
-@property(strong, nullable) GTLRSheets_UpdateDimensionPropertiesRequest *updateDimensionProperties;
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateDimensionPropertiesRequest *updateDimensionProperties;
 
 /** Updates an embedded object's (e.g. chart, image) position. */
-@property(strong, nullable) GTLRSheets_UpdateEmbeddedObjectPositionRequest *updateEmbeddedObjectPosition;
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateEmbeddedObjectPositionRequest *updateEmbeddedObjectPosition;
 
 /** Updates the properties of a filter view. */
-@property(strong, nullable) GTLRSheets_UpdateFilterViewRequest *updateFilterView;
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateFilterViewRequest *updateFilterView;
 
 /** Updates a named range. */
-@property(strong, nullable) GTLRSheets_UpdateNamedRangeRequest *updateNamedRange;
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateNamedRangeRequest *updateNamedRange;
 
 /** Updates a protected range. */
-@property(strong, nullable) GTLRSheets_UpdateProtectedRangeRequest *updateProtectedRange;
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateProtectedRangeRequest *updateProtectedRange;
 
 /** Updates a sheet's properties. */
-@property(strong, nullable) GTLRSheets_UpdateSheetPropertiesRequest *updateSheetProperties;
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateSheetPropertiesRequest *updateSheetProperties;
 
 /** Updates the spreadsheet's properties. */
-@property(strong, nullable) GTLRSheets_UpdateSpreadsheetPropertiesRequest *updateSpreadsheetProperties;
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateSpreadsheetPropertiesRequest *updateSpreadsheetProperties;
 
 @end
 
@@ -4784,37 +4815,37 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_Response : GTLRObject
 
 /** A reply from adding a chart. */
-@property(strong, nullable) GTLRSheets_AddChartResponse *addChart;
+@property(nonatomic, strong, nullable) GTLRSheets_AddChartResponse *addChart;
 
 /** A reply from adding a filter view. */
-@property(strong, nullable) GTLRSheets_AddFilterViewResponse *addFilterView;
+@property(nonatomic, strong, nullable) GTLRSheets_AddFilterViewResponse *addFilterView;
 
 /** A reply from adding a named range. */
-@property(strong, nullable) GTLRSheets_AddNamedRangeResponse *addNamedRange;
+@property(nonatomic, strong, nullable) GTLRSheets_AddNamedRangeResponse *addNamedRange;
 
 /** A reply from adding a protected range. */
-@property(strong, nullable) GTLRSheets_AddProtectedRangeResponse *addProtectedRange;
+@property(nonatomic, strong, nullable) GTLRSheets_AddProtectedRangeResponse *addProtectedRange;
 
 /** A reply from adding a sheet. */
-@property(strong, nullable) GTLRSheets_AddSheetResponse *addSheet;
+@property(nonatomic, strong, nullable) GTLRSheets_AddSheetResponse *addSheet;
 
 /** A reply from deleting a conditional format rule. */
-@property(strong, nullable) GTLRSheets_DeleteConditionalFormatRuleResponse *deleteConditionalFormatRule;
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteConditionalFormatRuleResponse *deleteConditionalFormatRule;
 
 /** A reply from duplicating a filter view. */
-@property(strong, nullable) GTLRSheets_DuplicateFilterViewResponse *duplicateFilterView;
+@property(nonatomic, strong, nullable) GTLRSheets_DuplicateFilterViewResponse *duplicateFilterView;
 
 /** A reply from duplicating a sheet. */
-@property(strong, nullable) GTLRSheets_DuplicateSheetResponse *duplicateSheet;
+@property(nonatomic, strong, nullable) GTLRSheets_DuplicateSheetResponse *duplicateSheet;
 
 /** A reply from doing a find/replace. */
-@property(strong, nullable) GTLRSheets_FindReplaceResponse *findReplace;
+@property(nonatomic, strong, nullable) GTLRSheets_FindReplaceResponse *findReplace;
 
 /** A reply from updating a conditional format rule. */
-@property(strong, nullable) GTLRSheets_UpdateConditionalFormatRuleResponse *updateConditionalFormatRule;
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateConditionalFormatRuleResponse *updateConditionalFormatRule;
 
 /** A reply from updating an embedded object's position. */
-@property(strong, nullable) GTLRSheets_UpdateEmbeddedObjectPositionResponse *updateEmbeddedObjectPosition;
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateEmbeddedObjectPositionResponse *updateEmbeddedObjectPosition;
 
 @end
 
@@ -4825,7 +4856,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_RowData : GTLRObject
 
 /** The values in the row, one per column. */
-@property(strong, nullable) NSArray<GTLRSheets_CellData *> *values;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_CellData *> *values;
 
 @end
 
@@ -4836,7 +4867,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_SetBasicFilterRequest : GTLRObject
 
 /** The filter to set. */
-@property(strong, nullable) GTLRSheets_BasicFilter *filter;
+@property(nonatomic, strong, nullable) GTLRSheets_BasicFilter *filter;
 
 @end
 
@@ -4848,13 +4879,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_SetDataValidationRequest : GTLRObject
 
 /** The range the data validation rule should apply to. */
-@property(strong, nullable) GTLRSheets_GridRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 /**
  *  The data validation rule to set on each cell in the range,
  *  or empty to clear the data validation in the range.
  */
-@property(strong, nullable) GTLRSheets_DataValidationRule *rule;
+@property(nonatomic, strong, nullable) GTLRSheets_DataValidationRule *rule;
 
 @end
 
@@ -4865,13 +4896,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_Sheet : GTLRObject
 
 /** The filter on this sheet, if any. */
-@property(strong, nullable) GTLRSheets_BasicFilter *basicFilter;
+@property(nonatomic, strong, nullable) GTLRSheets_BasicFilter *basicFilter;
 
 /** The specifications of every chart on this sheet. */
-@property(strong, nullable) NSArray<GTLRSheets_EmbeddedChart *> *charts;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_EmbeddedChart *> *charts;
 
 /** The conditional format rules in this sheet. */
-@property(strong, nullable) NSArray<GTLRSheets_ConditionalFormatRule *> *conditionalFormats;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_ConditionalFormatRule *> *conditionalFormats;
 
 /**
  *  Data in the grid, if this is a grid sheet.
@@ -4883,19 +4914,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  while the second one will have `startRow 14` (zero-based row 15),
  *  and `startColumn 3` (zero-based column D).
  */
-@property(strong, nullable) NSArray<GTLRSheets_GridData *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_GridData *> *data;
 
 /** The filter views in this sheet. */
-@property(strong, nullable) NSArray<GTLRSheets_FilterView *> *filterViews;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_FilterView *> *filterViews;
 
 /** The ranges that are merged together. */
-@property(strong, nullable) NSArray<GTLRSheets_GridRange *> *merges;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_GridRange *> *merges;
 
 /** The properties of the sheet. */
-@property(strong, nullable) GTLRSheets_SheetProperties *properties;
+@property(nonatomic, strong, nullable) GTLRSheets_SheetProperties *properties;
 
 /** The protected ranges in this sheet. */
-@property(strong, nullable) NSArray<GTLRSheets_ProtectedRange *> *protectedRanges;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_ProtectedRange *> *protectedRanges;
 
 @end
 
@@ -4911,14 +4942,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  this field will be absent.)
  *  When writing it is an error to set any grid properties on non-grid sheets.
  */
-@property(strong, nullable) GTLRSheets_GridProperties *gridProperties;
+@property(nonatomic, strong, nullable) GTLRSheets_GridProperties *gridProperties;
 
 /**
  *  True if the sheet is hidden in the UI, false if it's visible.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hidden;
+@property(nonatomic, strong, nullable) NSNumber *hidden;
 
 /**
  *  The index of the sheet within the spreadsheet.
@@ -4928,14 +4959,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *index;
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
  *  True if the sheet is an RTL sheet instead of an LTR sheet.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *rightToLeft;
+@property(nonatomic, strong, nullable) NSNumber *rightToLeft;
 
 /**
  *  The ID of the sheet. Must be non-negative.
@@ -4943,7 +4974,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sheetId;
+@property(nonatomic, strong, nullable) NSNumber *sheetId;
 
 /**
  *  The type of sheet. Defaults to GRID.
@@ -4957,13 +4988,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_SheetProperties_SheetType_SheetTypeUnspecified Default
  *        value, do not use. (Value: "SHEET_TYPE_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *sheetType;
+@property(nonatomic, copy, nullable) NSString *sheetType;
 
 /** The color of the tab in the UI. */
-@property(strong, nullable) GTLRSheets_Color *tabColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *tabColor;
 
 /** The name of the sheet. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -4974,13 +5005,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_SortRangeRequest : GTLRObject
 
 /** The range to sort. */
-@property(strong, nullable) GTLRSheets_GridRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 /**
  *  The sort order per column. Later specifications are used when values
  *  are equal in the earlier specifications.
  */
-@property(strong, nullable) NSArray<GTLRSheets_SortSpec *> *sortSpecs;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_SortSpec *> *sortSpecs;
 
 @end
 
@@ -4995,7 +5026,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *dimensionIndex;
+@property(nonatomic, strong, nullable) NSNumber *dimensionIndex;
 
 /**
  *  The order data should be sorted.
@@ -5008,7 +5039,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_SortSpec_SortOrder_SortOrderUnspecified Default value,
  *        do not use this. (Value: "SORT_ORDER_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *sortOrder;
+@property(nonatomic, copy, nullable) NSString *sortOrder;
 
 @end
 
@@ -5029,7 +5060,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_SourceAndDestination_Dimension_Rows Operates on the
  *        rows of a sheet. (Value: "ROWS")
  */
-@property(copy, nullable) NSString *dimension;
+@property(nonatomic, copy, nullable) NSString *dimension;
 
 /**
  *  The number of rows or columns that data should be filled into.
@@ -5039,10 +5070,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *fillLength;
+@property(nonatomic, strong, nullable) NSNumber *fillLength;
 
 /** The location of the data to use as the source of the autofill. */
-@property(strong, nullable) GTLRSheets_GridRange *source;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *source;
 
 @end
 
@@ -5053,19 +5084,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_Spreadsheet : GTLRObject
 
 /** The named ranges defined in a spreadsheet. */
-@property(strong, nullable) NSArray<GTLRSheets_NamedRange *> *namedRanges;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_NamedRange *> *namedRanges;
 
 /** Overall properties of a spreadsheet. */
-@property(strong, nullable) GTLRSheets_SpreadsheetProperties *properties;
+@property(nonatomic, strong, nullable) GTLRSheets_SpreadsheetProperties *properties;
 
 /** The sheets that are part of a spreadsheet. */
-@property(strong, nullable) NSArray<GTLRSheets_Sheet *> *sheets;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_Sheet *> *sheets;
 
 /**
  *  The ID of the spreadsheet.
  *  This field is read-only.
  */
-@property(copy, nullable) NSString *spreadsheetId;
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 @end
 
@@ -5090,7 +5121,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        Default value. This value must not be used. (Value:
  *        "RECALCULATION_INTERVAL_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *autoRecalc;
+@property(nonatomic, copy, nullable) NSString *autoRecalc;
 
 /**
  *  The default format of all cells in the spreadsheet.
@@ -5098,7 +5129,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  cell's format is equal to this default format.
  *  This field is read-only.
  */
-@property(strong, nullable) GTLRSheets_CellFormat *defaultFormat;
+@property(nonatomic, strong, nullable) GTLRSheets_CellFormat *defaultFormat;
 
 /**
  *  The locale of the spreadsheet in one of the following formats:
@@ -5107,17 +5138,17 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  * a combination of the ISO language code and country code, such as `en_US`
  *  Note: when updating this field, not all locales/languages are supported.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  The time zone of the spreadsheet, in CLDR format such as
  *  `America/New_York`. If the time zone isn't recognized, this may
  *  be a custom time zone such as `GMT-07:00`.
  */
-@property(copy, nullable) NSString *timeZone;
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /** The title of the spreadsheet. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -5133,41 +5164,41 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *bold;
+@property(nonatomic, strong, nullable) NSNumber *bold;
 
 /** The font family. */
-@property(copy, nullable) NSString *fontFamily;
+@property(nonatomic, copy, nullable) NSString *fontFamily;
 
 /**
  *  The size of the font.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *fontSize;
+@property(nonatomic, strong, nullable) NSNumber *fontSize;
 
 /** The foreground color of the text. */
-@property(strong, nullable) GTLRSheets_Color *foregroundColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *foregroundColor;
 
 /**
  *  True if the text is italicized.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *italic;
+@property(nonatomic, strong, nullable) NSNumber *italic;
 
 /**
  *  True if the text has a strikethrough.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *strikethrough;
+@property(nonatomic, strong, nullable) NSNumber *strikethrough;
 
 /**
  *  True if the text is underlined.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *underline;
+@property(nonatomic, strong, nullable) NSNumber *underline;
 
 @end
 
@@ -5180,14 +5211,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_TextFormatRun : GTLRObject
 
 /** The format of this run. Absent values inherit the cell's format. */
-@property(strong, nullable) GTLRSheets_TextFormat *format;
+@property(nonatomic, strong, nullable) GTLRSheets_TextFormat *format;
 
 /**
  *  The character index where this run starts.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 @end
 
@@ -5202,7 +5233,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  The delimiter to use. Used only if delimiterType is
  *  CUSTOM.
  */
-@property(copy, nullable) NSString *delimiter;
+@property(nonatomic, copy, nullable) NSString *delimiter;
 
 /**
  *  The delimiter type to use.
@@ -5222,10 +5253,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_TextToColumnsRequest_DelimiterType_Space " " (Value:
  *        "SPACE")
  */
-@property(copy, nullable) NSString *delimiterType;
+@property(nonatomic, copy, nullable) NSString *delimiterType;
 
 /** The source data range. This must span exactly one column. */
-@property(strong, nullable) GTLRSheets_GridRange *source;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *source;
 
 @end
 
@@ -5240,7 +5271,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  If the range spans multiple merges, all will be unmerged.
  *  The range must not partially span any merge.
  */
-@property(strong, nullable) GTLRSheets_GridRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 @end
 
@@ -5259,25 +5290,25 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_UpdateBordersRequest : GTLRObject
 
 /** The border to put at the bottom of the range. */
-@property(strong, nullable) GTLRSheets_Border *bottom;
+@property(nonatomic, strong, nullable) GTLRSheets_Border *bottom;
 
 /** The horizontal border to put within the range. */
-@property(strong, nullable) GTLRSheets_Border *innerHorizontal;
+@property(nonatomic, strong, nullable) GTLRSheets_Border *innerHorizontal;
 
 /** The vertical border to put within the range. */
-@property(strong, nullable) GTLRSheets_Border *innerVertical;
+@property(nonatomic, strong, nullable) GTLRSheets_Border *innerVertical;
 
 /** The border to put at the left of the range. */
-@property(strong, nullable) GTLRSheets_Border *left;
+@property(nonatomic, strong, nullable) GTLRSheets_Border *left;
 
 /** The range whose borders should be updated. */
-@property(strong, nullable) GTLRSheets_GridRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 /** The border to put at the right of the range. */
-@property(strong, nullable) GTLRSheets_Border *right;
+@property(nonatomic, strong, nullable) GTLRSheets_Border *right;
 
 /** The border to put at the top of the range. */
-@property(strong, nullable) GTLRSheets_Border *top;
+@property(nonatomic, strong, nullable) GTLRSheets_Border *top;
 
 @end
 
@@ -5295,24 +5326,24 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  String format is a comma-separated list of fields.
  */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 /**
  *  The range to write data to.
  *  If the data in rows does not cover the entire requested range,
  *  the fields matching those set in fields will be cleared.
  */
-@property(strong, nullable) GTLRSheets_GridRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 /** The data to write. */
-@property(strong, nullable) NSArray<GTLRSheets_RowData *> *rows;
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_RowData *> *rows;
 
 /**
  *  The coordinate to start writing data at.
  *  Any number of rows and columns (including a different number of
  *  columns per row) may be written.
  */
-@property(strong, nullable) GTLRSheets_GridCoordinate *start;
+@property(nonatomic, strong, nullable) GTLRSheets_GridCoordinate *start;
 
 @end
 
@@ -5329,10 +5360,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *chartId;
+@property(nonatomic, strong, nullable) NSNumber *chartId;
 
 /** The specification to apply to the chart. */
-@property(strong, nullable) GTLRSheets_ChartSpec *spec;
+@property(nonatomic, strong, nullable) GTLRSheets_ChartSpec *spec;
 
 @end
 
@@ -5348,17 +5379,17 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *index;
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
  *  The zero-based new index the rule should end up at.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *newIndex NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, strong, nullable) NSNumber *newIndex NS_RETURNS_NOT_RETAINED;
 
 /** The rule that should replace the rule at the given index. */
-@property(strong, nullable) GTLRSheets_ConditionalFormatRule *rule;
+@property(nonatomic, strong, nullable) GTLRSheets_ConditionalFormatRule *rule;
 
 /**
  *  The sheet of the rule to move. Required if new_index is set,
@@ -5366,7 +5397,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sheetId;
+@property(nonatomic, strong, nullable) NSNumber *sheetId;
 
 @end
 
@@ -5381,13 +5412,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *newIndex NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, strong, nullable) NSNumber *newIndex NS_RETURNS_NOT_RETAINED;
 
 /**
  *  The new rule that replaced the old rule (if replacing),
  *  or the rule that was moved (if moved)
  */
-@property(strong, nullable) GTLRSheets_ConditionalFormatRule *newRule NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, strong, nullable) GTLRSheets_ConditionalFormatRule *newRule NS_RETURNS_NOT_RETAINED;
 
 /**
  *  The old index of the rule. Not set if a rule was replaced
@@ -5395,13 +5426,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *oldIndex;
+@property(nonatomic, strong, nullable) NSNumber *oldIndex;
 
 /**
  *  The old (deleted) rule. Not set if a rule was moved
  *  (because it is the same as new_rule).
  */
-@property(strong, nullable) GTLRSheets_ConditionalFormatRule *oldRule;
+@property(nonatomic, strong, nullable) GTLRSheets_ConditionalFormatRule *oldRule;
 
 @end
 
@@ -5418,13 +5449,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  String format is a comma-separated list of fields.
  */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 /** Properties to update. */
-@property(strong, nullable) GTLRSheets_DimensionProperties *properties;
+@property(nonatomic, strong, nullable) GTLRSheets_DimensionProperties *properties;
 
 /** The rows or columns to update. */
-@property(strong, nullable) GTLRSheets_DimensionRange *range;
+@property(nonatomic, strong, nullable) GTLRSheets_DimensionRange *range;
 
 @end
 
@@ -5446,7 +5477,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  String format is a comma-separated list of fields.
  */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 /**
  *  An explicit position to move the embedded object to.
@@ -5455,14 +5486,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  If newPosition.newSheet is set to true,
  *  a new sheet will be created with an ID that will be chosen for you.
  */
-@property(strong, nullable) GTLRSheets_EmbeddedObjectPosition *newPosition NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, strong, nullable) GTLRSheets_EmbeddedObjectPosition *newPosition NS_RETURNS_NOT_RETAINED;
 
 /**
  *  The ID of the object to moved.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *objectId;
+@property(nonatomic, strong, nullable) NSNumber *objectId;
 
 @end
 
@@ -5473,7 +5504,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_UpdateEmbeddedObjectPositionResponse : GTLRObject
 
 /** The new position of the embedded object. */
-@property(strong, nullable) GTLRSheets_EmbeddedObjectPosition *position;
+@property(nonatomic, strong, nullable) GTLRSheets_EmbeddedObjectPosition *position;
 
 @end
 
@@ -5490,10 +5521,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  String format is a comma-separated list of fields.
  */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 /** The new properties of the filter view. */
-@property(strong, nullable) GTLRSheets_FilterView *filter;
+@property(nonatomic, strong, nullable) GTLRSheets_FilterView *filter;
 
 @end
 
@@ -5511,10 +5542,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  String format is a comma-separated list of fields.
  */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 /** The named range to update with the new properties. */
-@property(strong, nullable) GTLRSheets_NamedRange *namedRange;
+@property(nonatomic, strong, nullable) GTLRSheets_NamedRange *namedRange;
 
 @end
 
@@ -5532,15 +5563,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  String format is a comma-separated list of fields.
  */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
-/**
- *  The protected range to update with the new properties. If a nonzero
- *  protectedRangeId is
- *  specified, the protected range will use that ID. (It is an error to
- *  specify the ID of a protected range that already exists.)
- */
-@property(strong, nullable) GTLRSheets_ProtectedRange *protectedRange;
+/** The protected range to update with the new properties. */
+@property(nonatomic, strong, nullable) GTLRSheets_ProtectedRange *protectedRange;
 
 @end
 
@@ -5558,10 +5584,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  String format is a comma-separated list of fields.
  */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 /** The properties to update. */
-@property(strong, nullable) GTLRSheets_SheetProperties *properties;
+@property(nonatomic, strong, nullable) GTLRSheets_SheetProperties *properties;
 
 @end
 
@@ -5578,10 +5604,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  String format is a comma-separated list of fields.
  */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 /** The properties to update. */
-@property(strong, nullable) GTLRSheets_SpreadsheetProperties *properties;
+@property(nonatomic, strong, nullable) GTLRSheets_SpreadsheetProperties *properties;
 
 @end
 
@@ -5592,31 +5618,31 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_UpdateValuesResponse : GTLRObject
 
 /** The spreadsheet the updates were applied to. */
-@property(copy, nullable) NSString *spreadsheetId;
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 /**
  *  The number of cells updated.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *updatedCells;
+@property(nonatomic, strong, nullable) NSNumber *updatedCells;
 
 /**
  *  The number of columns where at least one cell in the column was updated.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *updatedColumns;
+@property(nonatomic, strong, nullable) NSNumber *updatedColumns;
 
 /** The range (in A1 notation) that updates were applied to. */
-@property(copy, nullable) NSString *updatedRange;
+@property(nonatomic, copy, nullable) NSString *updatedRange;
 
 /**
  *  The number of rows where at least one cell in the row was updated.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *updatedRows;
+@property(nonatomic, strong, nullable) NSNumber *updatedRows;
 
 @end
 
@@ -5646,14 +5672,16 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_ValueRange_MajorDimension_Rows Operates on the rows of
  *        a sheet. (Value: "ROWS")
  */
-@property(copy, nullable) NSString *majorDimension;
+@property(nonatomic, copy, nullable) NSString *majorDimension;
 
 /**
  *  The range the values cover, in A1 notation.
  *  For output, this range indicates the entire requested range,
  *  even though the values will exclude trailing rows and columns.
+ *  When appending values, this field represents the range to search for a
+ *  table, after which values will be appended.
  */
-@property(copy, nullable) NSString *range;
+@property(nonatomic, copy, nullable) NSString *range;
 
 /**
  *  The data that was read or to be written. This is an array of arrays,
@@ -5667,7 +5695,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) NSArray<NSArray *> *values;
+@property(nonatomic, strong, nullable) NSArray<NSArray *> *values;
 
 @end
 

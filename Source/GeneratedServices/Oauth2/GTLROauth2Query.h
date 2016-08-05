@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROauth2Query : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -57,11 +57,11 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryOauth2 queryForTokeninfo]
 
-@property(copy, nullable) NSString *accessToken;
+@property(nonatomic, copy, nullable) NSString *accessToken;
 
-@property(copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *idToken;
 
-@property(copy, nullable) NSString *tokenHandle;
+@property(nonatomic, copy, nullable) NSString *tokenHandle;
 
 /**
  *  Fetches a @c GTLROauth2_Tokeninfo.

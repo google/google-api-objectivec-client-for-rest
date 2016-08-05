@@ -4,8 +4,8 @@
 // API:
 //   Admin Reports API (admin/reports_v1)
 // Description:
-//   Allows the administrators of Google Apps customers to fetch reports about
-//   the usage, collaboration, security and risk for their users.
+//   Fetches reports for the administrators of Google Apps customers about the
+//   usage, collaboration, security, and risk for their users.
 // Documentation:
 //   https://developers.google.com/admin-sdk/reports/
 
@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReportsQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -49,45 +49,45 @@ NS_ASSUME_NONNULL_BEGIN
  *  IP Address of host where the event was performed. Supports both IPv4 and
  *  IPv6 addresses.
  */
-@property(copy, nullable) NSString *actorIpAddress;
+@property(nonatomic, copy, nullable) NSString *actorIpAddress;
 
 /** Application name for which the events are to be retrieved. */
-@property(copy, nullable) NSString *applicationName;
+@property(nonatomic, copy, nullable) NSString *applicationName;
 
 /** Represents the customer for which the data is to be fetched. */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Return events which occured at or before this time. */
-@property(copy, nullable) NSString *endTime;
+@property(nonatomic, copy, nullable) NSString *endTime;
 
 /** Name of the event being queried. */
-@property(copy, nullable) NSString *eventName;
+@property(nonatomic, copy, nullable) NSString *eventName;
 
 /**
  *  Event parameters in the form [parameter1 name][operator][parameter1
  *  value],[parameter2 name][operator][parameter2 value],...
  */
-@property(copy, nullable) NSString *filters;
+@property(nonatomic, copy, nullable) NSString *filters;
 
 /**
  *  Number of activity records to be shown in each page.
  *
  *  @note The documented range is 1..1000.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token to specify next page. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Return events which occured at or after this time. */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
  *  Represents the profile id or the user email for which the data should be
  *  filtered. When 'all' is specified as the userKey, it returns usageReports
  *  for all users.
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRReports_Activities.
@@ -127,45 +127,45 @@ NS_ASSUME_NONNULL_BEGIN
  *  IP Address of host where the event was performed. Supports both IPv4 and
  *  IPv6 addresses.
  */
-@property(copy, nullable) NSString *actorIpAddress;
+@property(nonatomic, copy, nullable) NSString *actorIpAddress;
 
 /** Application name for which the events are to be retrieved. */
-@property(copy, nullable) NSString *applicationName;
+@property(nonatomic, copy, nullable) NSString *applicationName;
 
 /** Represents the customer for which the data is to be fetched. */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Return events which occured at or before this time. */
-@property(copy, nullable) NSString *endTime;
+@property(nonatomic, copy, nullable) NSString *endTime;
 
 /** Name of the event being queried. */
-@property(copy, nullable) NSString *eventName;
+@property(nonatomic, copy, nullable) NSString *eventName;
 
 /**
  *  Event parameters in the form [parameter1 name][operator][parameter1
  *  value],[parameter2 name][operator][parameter2 value],...
  */
-@property(copy, nullable) NSString *filters;
+@property(nonatomic, copy, nullable) NSString *filters;
 
 /**
  *  Number of activity records to be shown in each page.
  *
  *  @note The documented range is 1..1000.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token to specify next page. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Return events which occured at or after this time. */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
  *  Represents the profile id or the user email for which the data should be
  *  filtered. When 'all' is specified as the userKey, it returns usageReports
  *  for all users.
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRReports_Channel.
@@ -227,22 +227,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryReports queryForCustomerUsageReportsGetWithdate:]
 
 /** Represents the customer for which the data is to be fetched. */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Represents the date in yyyy-mm-dd format for which the data is to be
  *  fetched.
  */
-@property(copy, nullable) NSString *date;
+@property(nonatomic, copy, nullable) NSString *date;
 
 /** Token to specify next page. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Represents the application name, parameter name pairs to fetch in csv as
  *  app_name1:param_name1, app_name2:param_name2.
  */
-@property(copy, nullable) NSString *parameters;
+@property(nonatomic, copy, nullable) NSString *parameters;
 
 /**
  *  Fetches a @c GTLRReports_UsageReports.
@@ -273,34 +273,34 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryReports queryForUserUsageReportGetWithuserKey:date:]
 
 /** Represents the customer for which the data is to be fetched. */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Represents the date in yyyy-mm-dd format for which the data is to be
  *  fetched.
  */
-@property(copy, nullable) NSString *date;
+@property(nonatomic, copy, nullable) NSString *date;
 
 /** Represents the set of filters including parameter operator value. */
-@property(copy, nullable) NSString *filters;
+@property(nonatomic, copy, nullable) NSString *filters;
 
 /** Maximum number of results to return. Maximum allowed is 1000 */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** Token to specify next page. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Represents the application name, parameter name pairs to fetch in csv as
  *  app_name1:param_name1, app_name2:param_name2.
  */
-@property(copy, nullable) NSString *parameters;
+@property(nonatomic, copy, nullable) NSString *parameters;
 
 /**
  *  Represents the profile id or the user email for which the data should be
  *  filtered.
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRReports_UsageReports.

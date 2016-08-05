@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudBuildQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudBuild queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudBuild_Operation.
@@ -81,16 +81,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudBuild queryForOperationsListWithname:]
 
 /** The standard list filter. */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** The name of the operation collection. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The standard list page size. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /** The standard list page token. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRCloudBuild_ListOperationsResponse.
@@ -129,10 +129,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** ID of the project. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRCloudBuild_Build.
@@ -168,7 +168,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudBuild queryForProjectsBuildsCreateWithObject:projectId:]
 
 /** ID of the project. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRCloudBuild_Operation.
@@ -207,10 +207,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** ID of the project. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRCloudBuild_Build.
@@ -244,13 +244,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudBuild queryForProjectsBuildsListWithprojectId:]
 
 /** Number of results to return in the list. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /** Token to provide to skip to a particular spot in the list. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** ID of the project. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRCloudBuild_ListBuildsResponse.

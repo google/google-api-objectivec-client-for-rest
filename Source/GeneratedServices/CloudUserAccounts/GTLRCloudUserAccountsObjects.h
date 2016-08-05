@@ -154,14 +154,14 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  for the `service` specified above. Follows the same format of
  *  Binding.members.
  */
-@property(strong, nullable) NSArray<NSString *> *exemptedMembers;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
  *  Specifies a service that will be enabled for "data access" audit logging.
  *  For example, `resourcemanager`, `storage`, `compute`. `allServices` is a
  *  special value that covers all services.
  */
-@property(copy, nullable) NSString *service;
+@property(nonatomic, copy, nullable) NSString *service;
 
 @end
 
@@ -172,7 +172,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_AuthorizedKeysView : GTLRObject
 
 /** [Output Only] The list of authorized public keys in SSH format. */
-@property(strong, nullable) NSArray<NSString *> *keys;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *keys;
 
 /**
  *  [Output Only] Whether the user has the ability to elevate on the instance
@@ -180,7 +180,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *sudoer;
+@property(nonatomic, strong, nullable) NSNumber *sudoer;
 
 @end
 
@@ -206,13 +206,13 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  * `domain:{domain}`: A Google Apps domain name that represents all the users
  *  of that domain. For example, `google.com` or `example.com`.
  */
-@property(strong, nullable) NSArray<NSString *> *members;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
  *  Role that is assigned to `members`. For example, `roles/viewer`,
  *  `roles/editor`, or `roles/owner`.
  */
-@property(copy, nullable) NSString *role;
+@property(nonatomic, copy, nullable) NSString *role;
 
 @end
 
@@ -231,7 +231,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *    @arg @c kGTLRCloudUserAccounts_Condition_Iam_Authority Value "AUTHORITY"
  *    @arg @c kGTLRCloudUserAccounts_Condition_Iam_NoAttr Value "NO_ATTR"
  */
-@property(copy, nullable) NSString *iam;
+@property(nonatomic, copy, nullable) NSString *iam;
 
 /**
  *  An operator to apply the subject with.
@@ -244,10 +244,10 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *    @arg @c kGTLRCloudUserAccounts_Condition_Op_NotEquals Value "NOT_EQUALS"
  *    @arg @c kGTLRCloudUserAccounts_Condition_Op_NotIn Value "NOT_IN"
  */
-@property(copy, nullable) NSString *op;
+@property(nonatomic, copy, nullable) NSString *op;
 
 /** Trusted attributes discharged by the service. */
-@property(copy, nullable) NSString *svc;
+@property(nonatomic, copy, nullable) NSString *svc;
 
 /**
  *  Trusted attributes supplied by any service that owns resources and uses the
@@ -260,13 +260,13 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *    @arg @c kGTLRCloudUserAccounts_Condition_Sys_Region Value "REGION"
  *    @arg @c kGTLRCloudUserAccounts_Condition_Sys_Service Value "SERVICE"
  */
-@property(copy, nullable) NSString *sys;
+@property(nonatomic, copy, nullable) NSString *sys;
 
 /** The object of the condition. Exactly one of these must be set. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 /** The objects of the condition. This is mutually exclusive with 'value'. */
-@property(strong, nullable) NSArray<NSString *> *values;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 
@@ -277,7 +277,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_Group : GTLRObject
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
-@property(copy, nullable) NSString *creationTimestamp;
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
 /**
  *  An optional textual description of the resource; provided by the client when
@@ -285,7 +285,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  [Output Only] Unique identifier for the resource; defined by the server.
@@ -294,27 +294,27 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
  *  [Output Only] Type of the resource. Always clouduseraccounts#group for
  *  groups.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  [Output Only] A list of URLs to User resources who belong to the group.
  *  Users may only be members of groups in the same project.
  */
-@property(strong, nullable) NSArray<NSString *> *members;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
  *  Name of the resource; provided by the client when the resource is created.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** [Output Only] Server defined URL for the resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -334,7 +334,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  [Output Only] A list of Group resources.
@@ -342,19 +342,19 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_Group *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_Group *> *items;
 
 /**
  *  [Output Only] Type of resource. Always clouduseraccounts#groupList for lists
  *  of groups.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** [Output Only] A token used to continue a truncated list request. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** [Output Only] Server defined URL for this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -365,7 +365,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_GroupsAddMemberRequest : GTLRObject
 
 /** Fully-qualified URLs of the User resources to add. */
-@property(strong, nullable) NSArray<NSString *> *users;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *users;
 
 @end
 
@@ -376,7 +376,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_GroupsRemoveMemberRequest : GTLRObject
 
 /** Fully-qualified URLs of the User resources to remove. */
-@property(strong, nullable) NSArray<NSString *> *users;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *users;
 
 @end
 
@@ -390,16 +390,16 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_LinuxAccountViews : GTLRObject
 
 /** [Output Only] A list of all groups within a project. */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_LinuxGroupView *> *groupViews;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_LinuxGroupView *> *groupViews;
 
 /**
  *  [Output Only] Type of the resource. Always
  *  clouduseraccounts#linuxAccountViews for Linux resources.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** [Output Only] A list of all users within a project. */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_LinuxUserView *> *userViews;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_LinuxUserView *> *userViews;
 
 @end
 
@@ -410,7 +410,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_LinuxGetAuthorizedKeysViewResponse : GTLRObject
 
 /** [Output Only] A list of authorized public keys for a user. */
-@property(strong, nullable) GTLRCloudUserAccounts_AuthorizedKeysView *resource;
+@property(nonatomic, strong, nullable) GTLRCloudUserAccounts_AuthorizedKeysView *resource;
 
 @end
 
@@ -421,7 +421,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_LinuxGetLinuxAccountViewsResponse : GTLRObject
 
 /** [Output Only] A list of authorized user accounts and groups. */
-@property(strong, nullable) GTLRCloudUserAccounts_LinuxAccountViews *resource;
+@property(nonatomic, strong, nullable) GTLRCloudUserAccounts_LinuxAccountViews *resource;
 
 @end
 
@@ -436,13 +436,13 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *gid;
+@property(nonatomic, strong, nullable) NSNumber *gid;
 
 /** [Output Only] Group name. */
-@property(copy, nullable) NSString *groupName;
+@property(nonatomic, copy, nullable) NSString *groupName;
 
 /** [Output Only] List of user accounts that belong to the group. */
-@property(strong, nullable) NSArray<NSString *> *members;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 @end
 
@@ -453,30 +453,30 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_LinuxUserView : GTLRObject
 
 /** [Output Only] The GECOS (user information) entry for this account. */
-@property(copy, nullable) NSString *gecos;
+@property(nonatomic, copy, nullable) NSString *gecos;
 
 /**
  *  [Output Only] User's default group ID.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *gid;
+@property(nonatomic, strong, nullable) NSNumber *gid;
 
 /** [Output Only] The path to the home directory for this account. */
-@property(copy, nullable) NSString *homeDirectory;
+@property(nonatomic, copy, nullable) NSString *homeDirectory;
 
 /** [Output Only] The path to the login shell for this account. */
-@property(copy, nullable) NSString *shell;
+@property(nonatomic, copy, nullable) NSString *shell;
 
 /**
  *  [Output Only] User ID.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *uid;
+@property(nonatomic, strong, nullable) NSNumber *uid;
 
 /** [Output Only] The username of the account. */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -487,7 +487,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_LogConfig : GTLRObject
 
 /** Counter options. */
-@property(strong, nullable) GTLRCloudUserAccounts_LogConfigCounterOptions *counter;
+@property(nonatomic, strong, nullable) GTLRCloudUserAccounts_LogConfigCounterOptions *counter;
 
 @end
 
@@ -498,10 +498,10 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_LogConfigCounterOptions : GTLRObject
 
 /** The field value to attribute. */
-@property(copy, nullable) NSString *field;
+@property(nonatomic, copy, nullable) NSString *field;
 
 /** The metric to update. */
-@property(copy, nullable) NSString *metric;
+@property(nonatomic, copy, nullable) NSString *metric;
 
 @end
 
@@ -512,10 +512,10 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_Operation : GTLRObject
 
 /** [Output Only] Reserved for future use. */
-@property(copy, nullable) NSString *clientOperationId;
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
-@property(copy, nullable) NSString *creationTimestamp;
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
 /**
  *  [Output Only] A textual description of the operation, which is set when the
@@ -523,25 +523,25 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  [Output Only] The time that this operation was completed. This value is in
  *  RFC3339 text format.
  */
-@property(copy, nullable) NSString *endTime;
+@property(nonatomic, copy, nullable) NSString *endTime;
 
 /**
  *  [Output Only] If errors are generated during processing of the operation,
  *  this field will be populated.
  */
-@property(strong, nullable) GTLRCloudUserAccounts_OperationError *error;
+@property(nonatomic, strong, nullable) GTLRCloudUserAccounts_OperationError *error;
 
 /**
  *  [Output Only] If the operation fails, this field contains the HTTP error
  *  message that was returned, such as NOT FOUND.
  */
-@property(copy, nullable) NSString *httpErrorMessage;
+@property(nonatomic, copy, nullable) NSString *httpErrorMessage;
 
 /**
  *  [Output Only] If the operation fails, this field contains the HTTP error
@@ -550,7 +550,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *httpErrorStatusCode;
+@property(nonatomic, strong, nullable) NSNumber *httpErrorStatusCode;
 
 /**
  *  [Output Only] The unique identifier for the resource. This identifier is
@@ -560,28 +560,28 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
  *  [Output Only] The time that this operation was requested. This value is in
  *  RFC3339 text format.
  */
-@property(copy, nullable) NSString *insertTime;
+@property(nonatomic, copy, nullable) NSString *insertTime;
 
 /**
  *  [Output Only] Type of the resource. Always compute#operation for Operation
  *  resources.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** [Output Only] Name of the resource. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  [Output Only] The type of operation, such as insert, update, or delete, and
  *  so on.
  */
-@property(copy, nullable) NSString *operationType;
+@property(nonatomic, copy, nullable) NSString *operationType;
 
 /**
  *  [Output Only] An optional progress indicator that ranges from 0 to 100.
@@ -592,22 +592,22 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *progress;
+@property(nonatomic, strong, nullable) NSNumber *progress;
 
 /**
  *  [Output Only] The URL of the region where the operation resides. Only
  *  available when performing regional operations.
  */
-@property(copy, nullable) NSString *region;
+@property(nonatomic, copy, nullable) NSString *region;
 
 /** [Output Only] Server-defined URL for the resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  [Output Only] The time that this operation was started by the server. This
  *  value is in RFC3339 text format.
  */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
  *  [Output Only] The status of the operation, which can be one of the
@@ -618,13 +618,13 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *    @arg @c kGTLRCloudUserAccounts_Operation_Status_Pending Value "PENDING"
  *    @arg @c kGTLRCloudUserAccounts_Operation_Status_Running Value "RUNNING"
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  [Output Only] An optional textual description of the current status of the
  *  operation.
  */
-@property(copy, nullable) NSString *statusMessage;
+@property(nonatomic, copy, nullable) NSString *statusMessage;
 
 /**
  *  [Output Only] The unique target ID, which identifies a specific incarnation
@@ -632,22 +632,22 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *targetId;
+@property(nonatomic, strong, nullable) NSNumber *targetId;
 
 /** [Output Only] The URL of the resource that the operation modifies. */
-@property(copy, nullable) NSString *targetLink;
+@property(nonatomic, copy, nullable) NSString *targetLink;
 
 /**
  *  [Output Only] User who requested the operation, for example:
  *  user\@example.com.
  */
-@property(copy, nullable) NSString *user;
+@property(nonatomic, copy, nullable) NSString *user;
 
 /**
  *  [Output Only] If warning messages are generated during processing of the
  *  operation, this field will be populated.
  */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_OperationWarningsItem *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_OperationWarningsItem *> *warnings;
 
 /**
  *  [Output Only] The URL of the zone where the operation resides. Only
@@ -655,7 +655,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -670,7 +670,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  [Output Only] The array of errors encountered while processing this
  *  operation.
  */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_OperationErrorErrorsItem *> *errors;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_OperationErrorErrorsItem *> *errors;
 
 @end
 
@@ -716,16 +716,16 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_Unreachable
  *        Value "UNREACHABLE"
  */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_OperationWarningsItemDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_OperationWarningsItemDataItem *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -736,16 +736,16 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_OperationErrorErrorsItem : GTLRObject
 
 /** [Output Only] The error type identifier for this error. */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /**
  *  [Output Only] Indicates the field in the request that caused the error. This
  *  property is optional.
  */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** [Output Only] An optional, human-readable error message. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -764,10 +764,10 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  example, if an instance attempts to perform IP forwarding but is not enabled
  *  for IP forwarding).
  */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 /** [Output Only] A warning data value corresponding to the key. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -788,7 +788,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  [Output Only] A list of Operation resources.
@@ -796,13 +796,13 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_Operation *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_Operation *> *items;
 
 /**
  *  [Output Only] Type of resource. Always compute#operations for Operations
  *  resource.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  [Output Only] This token allows you to get the next page of results for list
@@ -811,10 +811,10 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  request. Subsequent list requests will have their own nextPageToken to
  *  continue paging through the results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** [Output Only] Server-defined URL for this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -843,14 +843,14 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  Note: `AuditConfig` doesn't apply to "admin activity", which always enables
  *  audit logging.
  */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_AuditConfig *> *auditConfigs;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_AuditConfig *> *auditConfigs;
 
 /**
  *  Associates a list of `members` to a `role`. Multiple `bindings` must not be
  *  specified for the same `role`. `bindings` with no members will result in an
  *  error.
  */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_Binding *> *bindings;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_Binding *> *bindings;
 
 /**
  *  `etag` is used for optimistic concurrency control as a way to help prevent
@@ -866,14 +866,14 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  iamOwned
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *iamOwned;
+@property(nonatomic, strong, nullable) NSNumber *iamOwned;
 
 /**
  *  If more than one rule is specified, the rules are applied in the following
@@ -884,14 +884,14 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  applied if one or more matching rule requires logging. - Otherwise, if no
  *  rule applies, permission is denied.
  */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_Rule *> *rules;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_Rule *> *rules;
 
 /**
  *  Version of the `Policy`. The default version is 0.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *version;
+@property(nonatomic, strong, nullable) NSNumber *version;
 
 @end
 
@@ -902,7 +902,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_PublicKey : GTLRObject
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
-@property(copy, nullable) NSString *creationTimestamp;
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
 /**
  *  An optional textual description of the resource; provided by the client when
@@ -910,22 +910,22 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Optional expiration timestamp. If provided, the timestamp must be in RFC3339
  *  text format. If not provided, the public key never expires.
  */
-@property(copy, nullable) NSString *expirationTimestamp;
+@property(nonatomic, copy, nullable) NSString *expirationTimestamp;
 
 /**
  *  [Output Only] The fingerprint of the key is defined by RFC4716 to be the MD5
  *  digest of the public key.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /** Public key text in SSH format, defined by RFC4253 section 6.6. */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 @end
 
@@ -948,42 +948,42 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *    @arg @c kGTLRCloudUserAccounts_Rule_Action_Log Value "LOG"
  *    @arg @c kGTLRCloudUserAccounts_Rule_Action_NoAction Value "NO_ACTION"
  */
-@property(copy, nullable) NSString *action;
+@property(nonatomic, copy, nullable) NSString *action;
 
 /** Additional restrictions that must be met */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_Condition *> *conditions;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_Condition *> *conditions;
 
 /**
  *  Human-readable description of the rule.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The rule matches if the PRINCIPAL/AUTHORITY_SELECTOR is in this set of
  *  entries.
  */
-@property(strong, nullable) NSArray<NSString *> *ins;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ins;
 
 /**
  *  The config returned to callers of tech.iam.IAM.CheckPolicy for any entries
  *  that match the LOG action.
  */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_LogConfig *> *logConfigs;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_LogConfig *> *logConfigs;
 
 /**
  *  The rule matches if the PRINCIPAL/AUTHORITY_SELECTOR is not in this set of
  *  entries.
  */
-@property(strong, nullable) NSArray<NSString *> *notIns;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *notIns;
 
 /**
  *  A permission is a string of form '..' (e.g., 'storage.buckets.list'). A
  *  value of '*' matches all permissions, and a verb part of '*' (e.g.,
  *  'storage.buckets.*') matches all verbs.
  */
-@property(strong, nullable) NSArray<NSString *> *permissions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 
@@ -997,7 +997,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  The set of permissions to check for the 'resource'. Permissions with
  *  wildcards (such as '*' or 'storage.*') are not allowed.
  */
-@property(strong, nullable) NSArray<NSString *> *permissions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 
@@ -1010,7 +1010,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 /**
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
-@property(strong, nullable) NSArray<NSString *> *permissions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 
@@ -1021,7 +1021,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 @interface GTLRCloudUserAccounts_User : GTLRObject
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
-@property(copy, nullable) NSString *creationTimestamp;
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
 /**
  *  An optional textual description of the resource; provided by the client when
@@ -1029,13 +1029,13 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  [Output Only] A list of URLs to Group resources who contain the user. Users
  *  are only members of groups in the same project.
  */
-@property(strong, nullable) NSArray<NSString *> *groups;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *groups;
 
 /**
  *  [Output Only] Unique identifier for the resource; defined by the server.
@@ -1044,30 +1044,30 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
  *  [Output Only] Type of the resource. Always clouduseraccounts#user for users.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Name of the resource; provided by the client when the resource is created.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Email address of account's owner. This account will be validated to make
  *  sure it exists. The email can belong to any domain, but it must be tied to a
  *  Google account.
  */
-@property(copy, nullable) NSString *owner;
+@property(nonatomic, copy, nullable) NSString *owner;
 
 /** [Output Only] Public keys that this user may use to login. */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_PublicKey *> *publicKeys;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_PublicKey *> *publicKeys;
 
 /** [Output Only] Server defined URL for the resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -1087,7 +1087,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  [Output Only] A list of User resources.
@@ -1095,19 +1095,19 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCloudUserAccounts_User *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_User *> *items;
 
 /**
  *  [Output Only] Type of resource. Always clouduseraccounts#userList for lists
  *  of users.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** [Output Only] A token used to continue a truncated list request. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** [Output Only] Server defined URL for this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 

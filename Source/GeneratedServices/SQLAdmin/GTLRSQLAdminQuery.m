@@ -77,6 +77,35 @@
 
 @end
 
+@implementation GTLRSQLAdminQuery_BackupRunsInsert
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_BackupRun *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/instances/{instance}/backupRuns";
+  GTLRSQLAdminQuery_BackupRunsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.backupRuns.insert";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_BackupRunsList
 
 @dynamic instance, maxResults, pageToken, project;

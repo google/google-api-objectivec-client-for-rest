@@ -988,10 +988,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FskRating_FskUnrated;
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmE;
 /** Value: "grfilmK" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK;
+/** Value: "grfilmK12" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK12;
 /** Value: "grfilmK13" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK13;
+/** Value: "grfilmK15" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK15;
 /** Value: "grfilmK17" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK17;
+/** Value: "grfilmK18" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK18;
 /** Value: "grfilmUnrated" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmUnrated;
 
@@ -2158,13 +2164,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *allowed;
+@property(nonatomic, strong, nullable) NSNumber *allowed;
 
 /**
  *  A list of region codes that identify countries where the default policy do
  *  not apply.
  */
-@property(strong, nullable) NSArray<NSString *> *exception;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exception;
 
 @end
 
@@ -2185,29 +2191,29 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  with the activity. For example, if the snippet.type value is videoRated,
  *  then the contentDetails object's content identifies the rated video.
  */
-@property(strong, nullable) GTLRYouTube_ActivityContentDetails *contentDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetails *contentDetails;
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube uses to uniquely identify the activity.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#activity".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The snippet object contains basic details about the activity, including the
  *  activity's type and group ID.
  */
-@property(strong, nullable) GTLRYouTube_ActivitySnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_ActivitySnippet *snippet;
 
 @end
 
@@ -2222,70 +2228,70 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The bulletin object contains details about a channel bulletin post. This
  *  object is only present if the snippet.type is bulletin.
  */
-@property(strong, nullable) GTLRYouTube_ActivityContentDetailsBulletin *bulletin;
+@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsBulletin *bulletin;
 
 /**
  *  The channelItem object contains details about a resource which was added to
  *  a channel. This property is only present if the snippet.type is channelItem.
  */
-@property(strong, nullable) GTLRYouTube_ActivityContentDetailsChannelItem *channelItem;
+@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsChannelItem *channelItem;
 
 /**
  *  The comment object contains information about a resource that received a
  *  comment. This property is only present if the snippet.type is comment.
  */
-@property(strong, nullable) GTLRYouTube_ActivityContentDetailsComment *comment;
+@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsComment *comment;
 
 /**
  *  The favorite object contains information about a video that was marked as a
  *  favorite video. This property is only present if the snippet.type is
  *  favorite.
  */
-@property(strong, nullable) GTLRYouTube_ActivityContentDetailsFavorite *favorite;
+@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsFavorite *favorite;
 
 /**
  *  The like object contains information about a resource that received a
  *  positive (like) rating. This property is only present if the snippet.type is
  *  like.
  */
-@property(strong, nullable) GTLRYouTube_ActivityContentDetailsLike *like;
+@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsLike *like;
 
 /**
  *  The playlistItem object contains information about a new playlist item. This
  *  property is only present if the snippet.type is playlistItem.
  */
-@property(strong, nullable) GTLRYouTube_ActivityContentDetailsPlaylistItem *playlistItem;
+@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsPlaylistItem *playlistItem;
 
 /**
  *  The promotedItem object contains details about a resource which is being
  *  promoted. This property is only present if the snippet.type is promotedItem.
  */
-@property(strong, nullable) GTLRYouTube_ActivityContentDetailsPromotedItem *promotedItem;
+@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsPromotedItem *promotedItem;
 
 /**
  *  The recommendation object contains information about a recommended resource.
  *  This property is only present if the snippet.type is recommendation.
  */
-@property(strong, nullable) GTLRYouTube_ActivityContentDetailsRecommendation *recommendation;
+@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsRecommendation *recommendation;
 
 /**
  *  The social object contains details about a social network post. This
  *  property is only present if the snippet.type is social.
  */
-@property(strong, nullable) GTLRYouTube_ActivityContentDetailsSocial *social;
+@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsSocial *social;
 
 /**
  *  The subscription object contains information about a channel that a user
  *  subscribed to. This property is only present if the snippet.type is
  *  subscription.
  */
-@property(strong, nullable) GTLRYouTube_ActivityContentDetailsSubscription *subscription;
+@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsSubscription *subscription;
 
 /**
  *  The upload object contains information about the uploaded video. This
  *  property is only present if the snippet.type is upload.
  */
-@property(strong, nullable) GTLRYouTube_ActivityContentDetailsUpload *upload;
+@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsUpload *upload;
 
 @end
 
@@ -2299,7 +2305,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The resourceId object contains information that identifies the resource
  *  associated with a bulletin post.
  */
-@property(strong, nullable) GTLRYouTube_ResourceId *resourceId;
+@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
 @end
 
@@ -2313,7 +2319,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The resourceId object contains information that identifies the resource that
  *  was added to the channel.
  */
-@property(strong, nullable) GTLRYouTube_ResourceId *resourceId;
+@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
 @end
 
@@ -2327,7 +2333,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The resourceId object contains information that identifies the resource
  *  associated with the comment.
  */
-@property(strong, nullable) GTLRYouTube_ResourceId *resourceId;
+@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
 @end
 
@@ -2341,7 +2347,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The resourceId object contains information that identifies the resource that
  *  was marked as a favorite.
  */
-@property(strong, nullable) GTLRYouTube_ResourceId *resourceId;
+@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
 @end
 
@@ -2355,7 +2361,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The resourceId object contains information that identifies the rated
  *  resource.
  */
-@property(strong, nullable) GTLRYouTube_ResourceId *resourceId;
+@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
 @end
 
@@ -2366,16 +2372,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ActivityContentDetailsPlaylistItem : GTLRObject
 
 /** The value that YouTube uses to uniquely identify the playlist. */
-@property(copy, nullable) NSString *playlistId;
+@property(nonatomic, copy, nullable) NSString *playlistId;
 
 /** ID of the item within the playlist. */
-@property(copy, nullable) NSString *playlistItemId;
+@property(nonatomic, copy, nullable) NSString *playlistItemId;
 
 /**
  *  The resourceId object contains information about the resource that was added
  *  to the playlist.
  */
-@property(strong, nullable) GTLRYouTube_ResourceId *resourceId;
+@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
 @end
 
@@ -2386,19 +2392,19 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ActivityContentDetailsPromotedItem : GTLRObject
 
 /** The URL the client should fetch to request a promoted item. */
-@property(copy, nullable) NSString *adTag;
+@property(nonatomic, copy, nullable) NSString *adTag;
 
 /**
  *  The URL the client should ping to indicate that the user clicked through on
  *  this promoted item.
  */
-@property(copy, nullable) NSString *clickTrackingUrl;
+@property(nonatomic, copy, nullable) NSString *clickTrackingUrl;
 
 /**
  *  The URL the client should ping to indicate that the user was shown this
  *  promoted item.
  */
-@property(copy, nullable) NSString *creativeViewUrl;
+@property(nonatomic, copy, nullable) NSString *creativeViewUrl;
 
 /**
  *  The type of call-to-action, a message to the user indicating action that can
@@ -2410,38 +2416,38 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ActivityContentDetailsPromotedItem_CtaType_VisitAdvertiserSite
  *        Value "visitAdvertiserSite"
  */
-@property(copy, nullable) NSString *ctaType;
+@property(nonatomic, copy, nullable) NSString *ctaType;
 
 /**
  *  The custom call-to-action button text. If specified, it will override the
  *  default button text for the cta_type.
  */
-@property(copy, nullable) NSString *customCtaButtonText;
+@property(nonatomic, copy, nullable) NSString *customCtaButtonText;
 
 /** The text description to accompany the promoted item. */
-@property(copy, nullable) NSString *descriptionText;
+@property(nonatomic, copy, nullable) NSString *descriptionText;
 
 /**
  *  The URL the client should direct the user to, if the user chooses to visit
  *  the advertiser's website.
  */
-@property(copy, nullable) NSString *destinationUrl;
+@property(nonatomic, copy, nullable) NSString *destinationUrl;
 
 /**
  *  The list of forecasting URLs. The client should ping all of these URLs when
  *  a promoted item is not available, to indicate that a promoted item could
  *  have been shown.
  */
-@property(strong, nullable) NSArray<NSString *> *forecastingUrl;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *forecastingUrl;
 
 /**
  *  The list of impression URLs. The client should ping all of these URLs to
  *  indicate that the user was shown this promoted item.
  */
-@property(strong, nullable) NSArray<NSString *> *impressionUrl;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *impressionUrl;
 
 /** The ID that YouTube uses to uniquely identify the promoted video. */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
 
@@ -2464,19 +2470,19 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoWatched
  *        Value "videoWatched"
  */
-@property(copy, nullable) NSString *reason;
+@property(nonatomic, copy, nullable) NSString *reason;
 
 /**
  *  The resourceId object contains information that identifies the recommended
  *  resource.
  */
-@property(strong, nullable) GTLRYouTube_ResourceId *resourceId;
+@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
 /**
  *  The seedResourceId object contains information about the resource that
  *  caused the recommendation.
  */
-@property(strong, nullable) GTLRYouTube_ResourceId *seedResourceId;
+@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *seedResourceId;
 
 @end
 
@@ -2487,19 +2493,19 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ActivityContentDetailsSocial : GTLRObject
 
 /** The author of the social network post. */
-@property(copy, nullable) NSString *author;
+@property(nonatomic, copy, nullable) NSString *author;
 
 /** An image of the post's author. */
-@property(copy, nullable) NSString *imageUrl;
+@property(nonatomic, copy, nullable) NSString *imageUrl;
 
 /** The URL of the social network post. */
-@property(copy, nullable) NSString *referenceUrl;
+@property(nonatomic, copy, nullable) NSString *referenceUrl;
 
 /**
  *  The resourceId object encapsulates information that identifies the resource
  *  associated with a social network post.
  */
-@property(strong, nullable) GTLRYouTube_ResourceId *resourceId;
+@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
 /**
  *  The name of the social network.
@@ -2514,7 +2520,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ActivityContentDetailsSocial_Type_Unspecified Value
  *        "unspecified"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2528,7 +2534,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The resourceId object contains information that identifies the resource that
  *  the user subscribed to.
  */
-@property(strong, nullable) GTLRYouTube_ResourceId *resourceId;
+@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
 @end
 
@@ -2539,7 +2545,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ActivityContentDetailsUpload : GTLRObject
 
 /** The ID that YouTube uses to uniquely identify the uploaded video. */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
 
@@ -2555,10 +2561,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ActivityListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of activities, or events, that match the request criteria.
@@ -2566,32 +2572,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_Activity *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_Activity *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#activityListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the previous page in the result set.
  */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -2606,17 +2612,17 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The ID that YouTube uses to uniquely identify the channel associated with
  *  the activity.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /** Channel title for the channel responsible for this activity */
-@property(copy, nullable) NSString *channelTitle;
+@property(nonatomic, copy, nullable) NSString *channelTitle;
 
 /**
  *  The description of the resource primarily associated with the activity.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The group ID associated with the activity. A group ID identifies user events
@@ -2626,13 +2632,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  user interface, you can avoid repetition by grouping events with the same
  *  groupId value.
  */
-@property(copy, nullable) NSString *groupId;
+@property(nonatomic, copy, nullable) NSString *groupId;
 
 /**
  *  The date and time that the video was uploaded. The value is specified in ISO
  *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *publishedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  A map of thumbnail images associated with the resource that is primarily
@@ -2640,10 +2646,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  name of the thumbnail image, and the value is an object that contains other
  *  information about the thumbnail.
  */
-@property(strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
 
 /** The title of the resource primarily associated with the activity. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  The type of activity that the resource describes.
@@ -2665,7 +2671,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "subscription"
  *    @arg @c kGTLRYouTube_ActivitySnippet_Type_Upload Value "upload"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2677,23 +2683,23 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_Caption : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube uses to uniquely identify the caption track.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#caption".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The snippet object contains basic details about the caption. */
-@property(strong, nullable) GTLRYouTube_CaptionSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_CaptionSnippet *snippet;
 
 @end
 
@@ -2707,10 +2713,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_CaptionListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of captions that match the request criteria.
@@ -2718,16 +2724,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_Caption *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_Caption *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#captionListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -2748,7 +2754,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_CaptionSnippet_AudioTrackType_Primary Value "primary"
  *    @arg @c kGTLRYouTube_CaptionSnippet_AudioTrackType_Unknown Value "unknown"
  */
-@property(copy, nullable) NSString *audioTrackType;
+@property(nonatomic, copy, nullable) NSString *audioTrackType;
 
 /**
  *  The reason that YouTube failed to process the caption track. This property
@@ -2762,7 +2768,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_CaptionSnippet_FailureReason_UnsupportedFormat Value
  *        "unsupportedFormat"
  */
-@property(copy, nullable) NSString *failureReason;
+@property(nonatomic, copy, nullable) NSString *failureReason;
 
 /**
  *  Indicates whether YouTube synchronized the caption track to the audio track
@@ -2775,7 +2781,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isAutoSynced;
+@property(nonatomic, strong, nullable) NSNumber *isAutoSynced;
 
 /**
  *  Indicates whether the track contains closed captions for the deaf and hard
@@ -2783,7 +2789,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isCC;
+@property(nonatomic, strong, nullable) NSNumber *isCC;
 
 /**
  *  Indicates whether the caption track is a draft. If the value is true, then
@@ -2791,7 +2797,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isDraft;
+@property(nonatomic, strong, nullable) NSNumber *isDraft;
 
 /**
  *  Indicates whether caption track is formatted for "easy reader," meaning it
@@ -2799,7 +2805,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isEasyReader;
+@property(nonatomic, strong, nullable) NSNumber *isEasyReader;
 
 /**
  *  Indicates whether the caption track uses large text for the vision-impaired.
@@ -2807,25 +2813,25 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isLarge;
+@property(nonatomic, strong, nullable) NSNumber *isLarge;
 
 /**
  *  The language of the caption track. The property value is a BCP-47 language
  *  tag.
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The date and time when the caption track was last updated. The value is
  *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *lastUpdated;
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdated;
 
 /**
  *  The name of the caption track. The name is intended to be visible to the
  *  user as an option during playback.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The caption track's status.
@@ -2835,7 +2841,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_CaptionSnippet_Status_Serving Value "serving"
  *    @arg @c kGTLRYouTube_CaptionSnippet_Status_Syncing Value "syncing"
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  The caption track's type.
@@ -2845,13 +2851,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_CaptionSnippet_TrackKind_Forced Value "forced"
  *    @arg @c kGTLRYouTube_CaptionSnippet_TrackKind_Standard Value "standard"
  */
-@property(copy, nullable) NSString *trackKind;
+@property(nonatomic, copy, nullable) NSString *trackKind;
 
 /**
  *  The ID that YouTube uses to uniquely identify the video associated with the
  *  caption track.
  */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
 
@@ -2862,7 +2868,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_CdnSettings : GTLRObject
 
 /** The format of the video stream that you are sending to Youtube. */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /**
  *  The frame rate of the inbound video data.
@@ -2871,13 +2877,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_CdnSettings_FrameRate_X30fps Value "30fps"
  *    @arg @c kGTLRYouTube_CdnSettings_FrameRate_X60fps Value "60fps"
  */
-@property(copy, nullable) NSString *frameRate;
+@property(nonatomic, copy, nullable) NSString *frameRate;
 
 /**
  *  The ingestionInfo object contains information that YouTube provides that you
  *  need to transmit your RTMP or HTTP stream to YouTube.
  */
-@property(strong, nullable) GTLRYouTube_IngestionInfo *ingestionInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_IngestionInfo *ingestionInfo;
 
 /**
  *  The method or protocol used to transmit the video stream.
@@ -2886,7 +2892,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Dash Value "dash"
  *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Rtmp Value "rtmp"
  */
-@property(copy, nullable) NSString *ingestionType;
+@property(nonatomic, copy, nullable) NSString *ingestionType;
 
 /**
  *  The resolution of the inbound video data.
@@ -2899,7 +2905,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_CdnSettings_Resolution_X480p Value "480p"
  *    @arg @c kGTLRYouTube_CdnSettings_Resolution_X720p Value "720p"
  */
-@property(copy, nullable) NSString *resolution;
+@property(nonatomic, copy, nullable) NSString *resolution;
 
 @end
 
@@ -2913,77 +2919,77 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The auditionDetails object encapsulates channel data that is relevant for
  *  YouTube Partners during the audition process.
  */
-@property(strong, nullable) GTLRYouTube_ChannelAuditDetails *auditDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelAuditDetails *auditDetails;
 
 /**
  *  The brandingSettings object encapsulates information about the branding of
  *  the channel.
  */
-@property(strong, nullable) GTLRYouTube_ChannelBrandingSettings *brandingSettings;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelBrandingSettings *brandingSettings;
 
 /**
  *  The contentDetails object encapsulates information about the channel's
  *  content.
  */
-@property(strong, nullable) GTLRYouTube_ChannelContentDetails *contentDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelContentDetails *contentDetails;
 
 /**
  *  The contentOwnerDetails object encapsulates channel data that is relevant
  *  for YouTube Partners linked with the channel.
  */
-@property(strong, nullable) GTLRYouTube_ChannelContentOwnerDetails *contentOwnerDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelContentOwnerDetails *contentOwnerDetails;
 
 /**
  *  The conversionPings object encapsulates information about conversion pings
  *  that need to be respected by the channel.
  */
-@property(strong, nullable) GTLRYouTube_ChannelConversionPings *conversionPings;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelConversionPings *conversionPings;
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube uses to uniquely identify the channel.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The invideoPromotion object encapsulates information about promotion
  *  campaign associated with the channel.
  */
-@property(strong, nullable) GTLRYouTube_InvideoPromotion *invideoPromotion;
+@property(nonatomic, strong, nullable) GTLRYouTube_InvideoPromotion *invideoPromotion;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#channel".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Localizations for different languages */
-@property(strong, nullable) GTLRYouTube_ChannelLocalizations *localizations;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelLocalizations *localizations;
 
 /**
  *  The snippet object contains basic details about the channel, such as its
  *  title, description, and thumbnail images.
  */
-@property(strong, nullable) GTLRYouTube_ChannelSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSnippet *snippet;
 
 /** The statistics object encapsulates statistics for the channel. */
-@property(strong, nullable) GTLRYouTube_ChannelStatistics *statistics;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelStatistics *statistics;
 
 /**
  *  The status object encapsulates information about the privacy status of the
  *  channel.
  */
-@property(strong, nullable) GTLRYouTube_ChannelStatus *status;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelStatus *status;
 
 /**
  *  The topicDetails object encapsulates information about Freebase topics
  *  associated with the channel.
  */
-@property(strong, nullable) GTLRYouTube_ChannelTopicDetails *topicDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelTopicDetails *topicDetails;
 
 @end
 
@@ -3011,21 +3017,21 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *communityGuidelinesGoodStanding;
+@property(nonatomic, strong, nullable) NSNumber *communityGuidelinesGoodStanding;
 
 /**
  *  Whether or not the channel has any unresolved claims.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *contentIdClaimsGoodStanding;
+@property(nonatomic, strong, nullable) NSNumber *contentIdClaimsGoodStanding;
 
 /**
  *  Whether or not the channel has any copyright strikes.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *copyrightStrikesGoodStanding;
+@property(nonatomic, strong, nullable) NSNumber *copyrightStrikesGoodStanding;
 
 /**
  *  Describes the general state of the channel. This field will always show if
@@ -3036,7 +3042,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *overallGoodStanding;
+@property(nonatomic, strong, nullable) NSNumber *overallGoodStanding;
 
 @end
 
@@ -3047,16 +3053,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ChannelBannerResource : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#channelBannerResource".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The URL of this banner image. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -3067,16 +3073,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ChannelBrandingSettings : GTLRObject
 
 /** Branding properties for the channel view. */
-@property(strong, nullable) GTLRYouTube_ChannelSettings *channel;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSettings *channel;
 
 /** Additional experimental branding properties. */
-@property(strong, nullable) NSArray<GTLRYouTube_PropertyValue *> *hints;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_PropertyValue *> *hints;
 
 /** Branding properties for branding images. */
-@property(strong, nullable) GTLRYouTube_ImageSettings *image;
+@property(nonatomic, strong, nullable) GTLRYouTube_ImageSettings *image;
 
 /** Branding properties for the watch page. */
-@property(strong, nullable) GTLRYouTube_WatchSettings *watch;
+@property(nonatomic, strong, nullable) GTLRYouTube_WatchSettings *watch;
 
 @end
 
@@ -3090,9 +3096,9 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The googlePlusUserId object identifies the Google+ profile ID associated
  *  with this channel.
  */
-@property(copy, nullable) NSString *googlePlusUserId;
+@property(nonatomic, copy, nullable) NSString *googlePlusUserId;
 
-@property(strong, nullable) GTLRYouTube_ChannelContentDetailsRelatedPlaylists *relatedPlaylists;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelContentDetailsRelatedPlaylists *relatedPlaylists;
 
 @end
 
@@ -3107,35 +3113,35 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  playlistItems.insert and playlistItems.delete to add or remove items from
  *  that list.
  */
-@property(copy, nullable) NSString *favorites;
+@property(nonatomic, copy, nullable) NSString *favorites;
 
 /**
  *  The ID of the playlist that contains the channel"s liked videos. Use the
  *  playlistItems.insert and playlistItems.delete to add or remove items from
  *  that list.
  */
-@property(copy, nullable) NSString *likes;
+@property(nonatomic, copy, nullable) NSString *likes;
 
 /**
  *  The ID of the playlist that contains the channel"s uploaded videos. Use the
  *  videos.insert method to upload new videos and the videos.delete method to
  *  delete previously uploaded videos.
  */
-@property(copy, nullable) NSString *uploads;
+@property(nonatomic, copy, nullable) NSString *uploads;
 
 /**
  *  The ID of the playlist that contains the channel"s watch history. Use the
  *  playlistItems.insert and playlistItems.delete to add or remove items from
  *  that list.
  */
-@property(copy, nullable) NSString *watchHistory;
+@property(nonatomic, copy, nullable) NSString *watchHistory;
 
 /**
  *  The ID of the playlist that contains the channel"s watch later playlist. Use
  *  the playlistItems.insert and playlistItems.delete to add or remove items
  *  from that list.
  */
-@property(copy, nullable) NSString *watchLater;
+@property(nonatomic, copy, nullable) NSString *watchLater;
 
 @end
 
@@ -3147,13 +3153,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ChannelContentOwnerDetails : GTLRObject
 
 /** The ID of the content owner linked to the channel. */
-@property(copy, nullable) NSString *contentOwner;
+@property(nonatomic, copy, nullable) NSString *contentOwner;
 
 /**
  *  The date and time of when the channel was linked to the content owner. The
  *  value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *timeLinked;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeLinked;
 
 @end
 
@@ -3175,7 +3181,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ChannelConversionPing_Context_Unsubscribe Value
  *        "unsubscribe"
  */
-@property(copy, nullable) NSString *context;
+@property(nonatomic, copy, nullable) NSString *context;
 
 /**
  *  The url (without the schema) that the player shall send the ping to. It's at
@@ -3186,7 +3192,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  biscotti authentication (ms param in case of mobile, for example) to this
  *  ping.
  */
-@property(copy, nullable) NSString *conversionUrl;
+@property(nonatomic, copy, nullable) NSString *conversionUrl;
 
 @end
 
@@ -3202,7 +3208,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  has a context, in which the app must fire the ping, and a url identifying
  *  the ping.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_ChannelConversionPing *> *pings;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_ChannelConversionPing *> *pings;
 
 @end
 
@@ -3218,10 +3224,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ChannelListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of channels that match the request criteria.
@@ -3229,32 +3235,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_Channel *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_Channel *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#channelListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the previous page in the result set.
  */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -3269,10 +3275,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** The localized strings for channel's title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -3283,16 +3289,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ChannelProfileDetails : GTLRObject
 
 /** The YouTube channel ID. */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /** The channel's URL. */
-@property(copy, nullable) NSString *channelUrl;
+@property(nonatomic, copy, nullable) NSString *channelUrl;
 
 /** The channel's display name. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The channels's avatar URL. */
-@property(copy, nullable) NSString *profileImageUrl;
+@property(nonatomic, copy, nullable) NSString *profileImageUrl;
 
 @end
 
@@ -3306,38 +3312,38 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The contentDetails object contains details about the channel section
  *  content, such as a list of playlists or channels featured in the section.
  */
-@property(strong, nullable) GTLRYouTube_ChannelSectionContentDetails *contentDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSectionContentDetails *contentDetails;
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube uses to uniquely identify the channel section.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#channelSection".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Localizations for different languages */
-@property(strong, nullable) GTLRYouTube_ChannelSectionLocalizations *localizations;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSectionLocalizations *localizations;
 
 /**
  *  The snippet object contains basic details about the channel section, such as
  *  its type, style and title.
  */
-@property(strong, nullable) GTLRYouTube_ChannelSectionSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSectionSnippet *snippet;
 
 /**
  *  The targeting object contains basic targeting settings about the channel
  *  section.
  */
-@property(strong, nullable) GTLRYouTube_ChannelSectionTargeting *targeting;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSectionTargeting *targeting;
 
 @end
 
@@ -3360,13 +3366,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ChannelSectionContentDetails : GTLRObject
 
 /** The channel ids for type multiple_channels. */
-@property(strong, nullable) NSArray<NSString *> *channels;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *channels;
 
 /**
  *  The playlist ids for type single_playlist and multiple_playlists. For
  *  singlePlaylist, only one playlistId is allowed.
  */
-@property(strong, nullable) NSArray<NSString *> *playlists;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *playlists;
 
 @end
 
@@ -3380,10 +3386,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ChannelSectionListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of ChannelSections that match the request criteria.
@@ -3391,16 +3397,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_ChannelSection *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_ChannelSection *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#channelSectionListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -3411,7 +3417,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ChannelSectionLocalization : GTLRObject
 
 /** The localized strings for channel section's title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -3425,20 +3431,20 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The ID that YouTube uses to uniquely identify the channel that published the
  *  channel section.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /** The language of the channel section's default title and description. */
-@property(copy, nullable) NSString *defaultLanguage;
+@property(nonatomic, copy, nullable) NSString *defaultLanguage;
 
 /** Localized title, read-only. */
-@property(strong, nullable) GTLRYouTube_ChannelSectionLocalization *localized;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSectionLocalization *localized;
 
 /**
  *  The position of the channel section in the channel.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *position;
+@property(nonatomic, strong, nullable) NSNumber *position;
 
 /**
  *  The style of the channel section.
@@ -3451,12 +3457,12 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ChannelSectionSnippet_Style_VerticalList Value
  *        "verticalList"
  */
-@property(copy, nullable) NSString *style;
+@property(nonatomic, copy, nullable) NSString *style;
 
 /**
  *  The channel section's title for multiple_playlists and multiple_channels.
  */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  The type of the channel section.
@@ -3496,7 +3502,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ChannelSectionSnippet_Type_UpcomingEvents Value
  *        "upcomingEvents"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -3507,13 +3513,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ChannelSectionTargeting : GTLRObject
 
 /** The country the channel section is targeting. */
-@property(strong, nullable) NSArray<NSString *> *countries;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *countries;
 
 /** The language the channel section is targeting. */
-@property(strong, nullable) NSArray<NSString *> *languages;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *languages;
 
 /** The region the channel section is targeting. */
-@property(strong, nullable) NSArray<NSString *> *regions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
 
 @end
 
@@ -3524,28 +3530,28 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ChannelSettings : GTLRObject
 
 /** The country of the channel. */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
-@property(copy, nullable) NSString *defaultLanguage;
+@property(nonatomic, copy, nullable) NSString *defaultLanguage;
 
 /** Which content tab users should see when viewing the channel. */
-@property(copy, nullable) NSString *defaultTab;
+@property(nonatomic, copy, nullable) NSString *defaultTab;
 
 /**
  *  Specifies the channel description.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** Title for the featured channels tab. */
-@property(copy, nullable) NSString *featuredChannelsTitle;
+@property(nonatomic, copy, nullable) NSString *featuredChannelsTitle;
 
 /** The list of featured channels. */
-@property(strong, nullable) NSArray<NSString *> *featuredChannelsUrls;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *featuredChannelsUrls;
 
 /** Lists keywords associated with the channel, comma-separated. */
-@property(copy, nullable) NSString *keywords;
+@property(nonatomic, copy, nullable) NSString *keywords;
 
 /**
  *  Whether user-submitted comments left on the channel page need to be approved
@@ -3553,36 +3559,36 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *moderateComments;
+@property(nonatomic, strong, nullable) NSNumber *moderateComments;
 
 /** A prominent color that can be rendered on this channel page. */
-@property(copy, nullable) NSString *profileColor;
+@property(nonatomic, copy, nullable) NSString *profileColor;
 
 /**
  *  Whether the tab to browse the videos should be displayed.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *showBrowseView;
+@property(nonatomic, strong, nullable) NSNumber *showBrowseView;
 
 /**
  *  Whether related channels should be proposed.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *showRelatedChannels;
+@property(nonatomic, strong, nullable) NSNumber *showRelatedChannels;
 
 /** Specifies the channel title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  The ID for a Google Analytics account to track and measure traffic to the
  *  channels.
  */
-@property(copy, nullable) NSString *trackingAnalyticsAccountId;
+@property(nonatomic, copy, nullable) NSString *trackingAnalyticsAccountId;
 
 /** The trailer of the channel, for users that are not subscribers. */
-@property(copy, nullable) NSString *unsubscribedTrailer;
+@property(nonatomic, copy, nullable) NSString *unsubscribedTrailer;
 
 @end
 
@@ -3594,39 +3600,39 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ChannelSnippet : GTLRObject
 
 /** The country of the channel. */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /** The custom url of the channel. */
-@property(copy, nullable) NSString *customUrl;
+@property(nonatomic, copy, nullable) NSString *customUrl;
 
 /** The language of the channel's default title and description. */
-@property(copy, nullable) NSString *defaultLanguage;
+@property(nonatomic, copy, nullable) NSString *defaultLanguage;
 
 /**
  *  The description of the channel.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** Localized title and description, read-only. */
-@property(strong, nullable) GTLRYouTube_ChannelLocalization *localized;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelLocalization *localized;
 
 /**
  *  The date and time that the channel was created. The value is specified in
  *  ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *publishedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  A map of thumbnail images associated with the channel. For each object in
  *  the map, the key is the name of the thumbnail image, and the value is an
  *  object that contains other information about the thumbnail.
  */
-@property(strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
 
 /** The channel's title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -3642,35 +3648,35 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *commentCount;
+@property(nonatomic, strong, nullable) NSNumber *commentCount;
 
 /**
  *  Whether or not the number of subscribers is shown for this user.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hiddenSubscriberCount;
+@property(nonatomic, strong, nullable) NSNumber *hiddenSubscriberCount;
 
 /**
  *  The number of subscribers that the channel has.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *subscriberCount;
+@property(nonatomic, strong, nullable) NSNumber *subscriberCount;
 
 /**
  *  The number of videos uploaded to the channel.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *videoCount;
+@property(nonatomic, strong, nullable) NSNumber *videoCount;
 
 /**
  *  The number of times the channel has been viewed.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *viewCount;
+@property(nonatomic, strong, nullable) NSNumber *viewCount;
 
 @end
 
@@ -3686,7 +3692,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isLinked;
+@property(nonatomic, strong, nullable) NSNumber *isLinked;
 
 /**
  *  The long uploads status of this channel. See
@@ -3701,7 +3707,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ChannelStatus_LongUploadsStatus_LongUploadsUnspecified
  *        Value "longUploadsUnspecified"
  */
-@property(copy, nullable) NSString *longUploadsStatus;
+@property(nonatomic, copy, nullable) NSString *longUploadsStatus;
 
 /**
  *  Privacy status of the channel.
@@ -3711,7 +3717,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ChannelStatus_PrivacyStatus_Public Value "public"
  *    @arg @c kGTLRYouTube_ChannelStatus_PrivacyStatus_Unlisted Value "unlisted"
  */
-@property(copy, nullable) NSString *privacyStatus;
+@property(nonatomic, copy, nullable) NSString *privacyStatus;
 
 @end
 
@@ -3725,7 +3731,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  A list of Freebase topic IDs associated with the channel. You can retrieve
  *  information about each topic using the Freebase Topic API.
  */
-@property(strong, nullable) NSArray<NSString *> *topicIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *topicIds;
 
 @end
 
@@ -3736,23 +3742,23 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_Comment : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube uses to uniquely identify the comment.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#comment".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The snippet object contains basic details about the comment. */
-@property(strong, nullable) GTLRYouTube_CommentSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_CommentSnippet *snippet;
 
 @end
 
@@ -3768,10 +3774,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_CommentListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of comments that match the request criteria.
@@ -3779,25 +3785,25 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_Comment *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_Comment *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#commentListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -3812,40 +3818,40 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) id authorChannelId;
+@property(nonatomic, strong, nullable) id authorChannelId;
 
 /** Link to the author's YouTube channel, if any. */
-@property(copy, nullable) NSString *authorChannelUrl;
+@property(nonatomic, copy, nullable) NSString *authorChannelUrl;
 
 /** The name of the user who posted the comment. */
-@property(copy, nullable) NSString *authorDisplayName;
+@property(nonatomic, copy, nullable) NSString *authorDisplayName;
 
 /** Link to the author's Google+ profile, if any. */
-@property(copy, nullable) NSString *authorGoogleplusProfileUrl;
+@property(nonatomic, copy, nullable) NSString *authorGoogleplusProfileUrl;
 
 /** The URL for the avatar of the user who posted the comment. */
-@property(copy, nullable) NSString *authorProfileImageUrl;
+@property(nonatomic, copy, nullable) NSString *authorProfileImageUrl;
 
 /**
  *  Whether the current viewer can rate this comment.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *canRate;
+@property(nonatomic, strong, nullable) NSNumber *canRate;
 
 /**
  *  The id of the corresponding YouTube channel. In case of a channel comment
  *  this is the channel the comment refers to. In case of a video comment it's
  *  the video's channel.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  The total number of likes this comment has received.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *likeCount;
+@property(nonatomic, strong, nullable) NSNumber *likeCount;
 
 /**
  *  The comment's moderation status. Will not be set if the comments were
@@ -3861,16 +3867,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_CommentSnippet_ModerationStatus_Rejected Value
  *        "rejected"
  */
-@property(copy, nullable) NSString *moderationStatus;
+@property(nonatomic, copy, nullable) NSString *moderationStatus;
 
 /** The unique id of the parent comment, only set for replies. */
-@property(copy, nullable) NSString *parentId;
+@property(nonatomic, copy, nullable) NSString *parentId;
 
 /**
  *  The date and time when the comment was orignally published. The value is
  *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *publishedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  The comment's text. The format is either plain text or HTML dependent on
@@ -3878,23 +3884,23 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  the text originally posted in that it may replace video links with video
  *  titles etc.
  */
-@property(copy, nullable) NSString *textDisplay;
+@property(nonatomic, copy, nullable) NSString *textDisplay;
 
 /**
  *  The comment's original raw text as initially posted or last updated. The
  *  original text will only be returned if it is accessible to the viewer, which
  *  is only guaranteed if the viewer is the comment's author.
  */
-@property(copy, nullable) NSString *textOriginal;
+@property(nonatomic, copy, nullable) NSString *textOriginal;
 
 /**
  *  The date and time when was last updated . The value is specified in ISO 8601
  *  (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *updatedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *updatedAt;
 
 /** The ID of the video the comment refers to, if any. */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 /**
  *  The rating the viewer has given to this comment. For the time being this
@@ -3908,7 +3914,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_CommentSnippet_ViewerRating_Unspecified Value
  *        "unspecified"
  */
-@property(copy, nullable) NSString *viewerRating;
+@property(nonatomic, copy, nullable) NSString *viewerRating;
 
 @end
 
@@ -3921,32 +3927,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_CommentThread : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube uses to uniquely identify the comment thread.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#commentThread".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The replies object contains a limited number of replies (if any) to the top
  *  level comment found in the snippet.
  */
-@property(strong, nullable) GTLRYouTube_CommentThreadReplies *replies;
+@property(nonatomic, strong, nullable) GTLRYouTube_CommentThreadReplies *replies;
 
 /**
  *  The snippet object contains basic details about the comment thread and also
  *  the top level comment.
  */
-@property(strong, nullable) GTLRYouTube_CommentThreadSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_CommentThreadSnippet *snippet;
 
 @end
 
@@ -3962,10 +3968,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_CommentThreadListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of comment threads that match the request criteria.
@@ -3973,25 +3979,25 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_CommentThread *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_CommentThread *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#commentThreadListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -4006,7 +4012,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  total_reply_count in the snippet the returned replies are only a subset of
  *  the total number of replies.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_Comment *> *comments;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_Comment *> *comments;
 
 @end
 
@@ -4022,14 +4028,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *canReply;
+@property(nonatomic, strong, nullable) NSNumber *canReply;
 
 /**
  *  The YouTube channel the comments in the thread refer to or the channel with
  *  the video the comments refer to. If video_id isn't set the comments refer to
  *  the channel itself.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  Whether the thread (and therefore all its comments) is visible to all
@@ -4037,23 +4043,23 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isPublic;
+@property(nonatomic, strong, nullable) NSNumber *isPublic;
 
 /** The top level comment of this thread. */
-@property(strong, nullable) GTLRYouTube_Comment *topLevelComment;
+@property(nonatomic, strong, nullable) GTLRYouTube_Comment *topLevelComment;
 
 /**
  *  The total number of replies (not including the top level comment).
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *totalReplyCount;
+@property(nonatomic, strong, nullable) NSNumber *totalReplyCount;
 
 /**
  *  The ID of the video the comments refer to, if any. No video_id implies a
  *  channel discussion comment.
  */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
 
@@ -4081,7 +4087,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_AcbRating_AcbR18plus Value "acbR18plus"
  *    @arg @c kGTLRYouTube_ContentRating_AcbRating_AcbUnrated Value "acbUnrated"
  */
-@property(copy, nullable) NSString *acbRating;
+@property(nonatomic, copy, nullable) NSString *acbRating;
 
 /**
  *  The video's rating from Italy's Autorità per le Garanzie nelle Comunicazioni
@@ -4094,7 +4100,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_AgcomRating_AgcomVm14 Value "agcomVm14"
  *    @arg @c kGTLRYouTube_ContentRating_AgcomRating_AgcomVm18 Value "agcomVm18"
  */
-@property(copy, nullable) NSString *agcomRating;
+@property(nonatomic, copy, nullable) NSString *agcomRating;
 
 /**
  *  The video's Anatel (Asociación Nacional de Televisión) rating for Chilean
@@ -4113,7 +4119,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_AnatelRating_AnatelUnrated Value
  *        "anatelUnrated"
  */
-@property(copy, nullable) NSString *anatelRating;
+@property(nonatomic, copy, nullable) NSString *anatelRating;
 
 /**
  *  The video's British Board of Film Classification (BBFC) rating.
@@ -4129,7 +4135,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_BbfcRating_BbfcUnrated Value
  *        "bbfcUnrated"
  */
-@property(copy, nullable) NSString *bbfcRating;
+@property(nonatomic, copy, nullable) NSString *bbfcRating;
 
 /**
  *  The video's rating from Thailand's Board of Film and Video Censors.
@@ -4145,7 +4151,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_BfvcRating_BfvcUnrated Value
  *        "bfvcUnrated"
  */
-@property(copy, nullable) NSString *bfvcRating;
+@property(nonatomic, copy, nullable) NSString *bfvcRating;
 
 /**
  *  The video's rating from the Austrian Board of Media Classification
@@ -4162,7 +4168,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_BmukkRating_BmukkUnrated Value
  *        "bmukkUnrated"
  */
-@property(copy, nullable) NSString *bmukkRating;
+@property(nonatomic, copy, nullable) NSString *bmukkRating;
 
 /**
  *  The video's rating from the Canadian Radio-Television and Telecommunications
@@ -4182,7 +4188,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_CatvfrRating_CatvfrUnrated Value
  *        "catvfrUnrated"
  */
-@property(copy, nullable) NSString *catvfrRating;
+@property(nonatomic, copy, nullable) NSString *catvfrRating;
 
 /**
  *  Rating system for Canadian TV - Canadian TV Classification System The
@@ -4202,7 +4208,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_CatvRating_CatvUnrated Value
  *        "catvUnrated"
  */
-@property(copy, nullable) NSString *catvRating;
+@property(nonatomic, copy, nullable) NSString *catvRating;
 
 /**
  *  The video's Central Board of Film Certification (CBFC - India) rating.
@@ -4215,7 +4221,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_CbfcRating_CbfcUnrated Value
  *        "cbfcUnrated"
  */
-@property(copy, nullable) NSString *cbfcRating;
+@property(nonatomic, copy, nullable) NSString *cbfcRating;
 
 /**
  *  The video's Consejo de Calificación Cinematográfica (Chile) rating.
@@ -4229,7 +4235,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_CccRating_CccTe Value "cccTe"
  *    @arg @c kGTLRYouTube_ContentRating_CccRating_CccUnrated Value "cccUnrated"
  */
-@property(copy, nullable) NSString *cccRating;
+@property(nonatomic, copy, nullable) NSString *cccRating;
 
 /**
  *  The video's rating from Portugal's Comissão de Classificação de
@@ -4244,7 +4250,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_CceRating_CceM6 Value "cceM6"
  *    @arg @c kGTLRYouTube_ContentRating_CceRating_CceUnrated Value "cceUnrated"
  */
-@property(copy, nullable) NSString *cceRating;
+@property(nonatomic, copy, nullable) NSString *cceRating;
 
 /**
  *  The video's rating in Switzerland.
@@ -4258,7 +4264,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_ChfilmRating_ChfilmUnrated Value
  *        "chfilmUnrated"
  */
-@property(copy, nullable) NSString *chfilmRating;
+@property(nonatomic, copy, nullable) NSString *chfilmRating;
 
 /**
  *  The video's Canadian Home Video Rating System (CHVRS) rating.
@@ -4273,7 +4279,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_ChvrsRating_ChvrsUnrated Value
  *        "chvrsUnrated"
  */
-@property(copy, nullable) NSString *chvrsRating;
+@property(nonatomic, copy, nullable) NSString *chvrsRating;
 
 /**
  *  The video's rating from the Commission de Contrôle des Films (Belgium).
@@ -4286,7 +4292,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_CicfRating_CicfUnrated Value
  *        "cicfUnrated"
  */
-@property(copy, nullable) NSString *cicfRating;
+@property(nonatomic, copy, nullable) NSString *cicfRating;
 
 /**
  *  The video's rating from Romania's CONSILIUL NATIONAL AL AUDIOVIZUALULUI
@@ -4300,7 +4306,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_CnaRating_CnaAp Value "cnaAp"
  *    @arg @c kGTLRYouTube_ContentRating_CnaRating_CnaUnrated Value "cnaUnrated"
  */
-@property(copy, nullable) NSString *cnaRating;
+@property(nonatomic, copy, nullable) NSString *cnaRating;
 
 /**
  *  Rating system in France - Commission de classification cinematographique
@@ -4314,7 +4320,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_CncRating_CncT Value "cncT"
  *    @arg @c kGTLRYouTube_ContentRating_CncRating_CncUnrated Value "cncUnrated"
  */
-@property(copy, nullable) NSString *cncRating;
+@property(nonatomic, copy, nullable) NSString *cncRating;
 
 /**
  *  The video's rating from France's Conseil supérieur de l?audiovisuel, which
@@ -4330,7 +4336,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_CsaRating_CsaT Value "csaT"
  *    @arg @c kGTLRYouTube_ContentRating_CsaRating_CsaUnrated Value "csaUnrated"
  */
-@property(copy, nullable) NSString *csaRating;
+@property(nonatomic, copy, nullable) NSString *csaRating;
 
 /**
  *  The video's rating from Luxembourg's Commission de surveillance de la
@@ -4347,7 +4353,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_CscfRating_CscfUnrated Value
  *        "cscfUnrated"
  */
-@property(copy, nullable) NSString *cscfRating;
+@property(nonatomic, copy, nullable) NSString *cscfRating;
 
 /**
  *  The video's rating in the Czech Republic.
@@ -4360,7 +4366,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_CzfilmRating_CzfilmUnrated Value
  *        "czfilmUnrated"
  */
-@property(copy, nullable) NSString *czfilmRating;
+@property(nonatomic, copy, nullable) NSString *czfilmRating;
 
 /**
  *  The video's Departamento de Justiça, Classificação, Qualificação e Títulos
@@ -4376,10 +4382,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_DjctqRating_DjctqUnrated Value
  *        "djctqUnrated"
  */
-@property(copy, nullable) NSString *djctqRating;
+@property(nonatomic, copy, nullable) NSString *djctqRating;
 
 /** Reasons that explain why the video received its DJCQT (Brazil) rating. */
-@property(strong, nullable) NSArray<NSString *> *djctqRatingReasons;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *djctqRatingReasons;
 
 /**
  *  Rating system in Turkey - Evaluation and Classification Board of the
@@ -4403,7 +4409,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_EcbmctRating_EcbmctUnrated Value
  *        "ecbmctUnrated"
  */
-@property(copy, nullable) NSString *ecbmctRating;
+@property(nonatomic, copy, nullable) NSString *ecbmctRating;
 
 /**
  *  The video's rating in Estonia.
@@ -4426,7 +4432,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_EefilmRating_EefilmUnrated Value
  *        "eefilmUnrated"
  */
-@property(copy, nullable) NSString *eefilmRating;
+@property(nonatomic, copy, nullable) NSString *eefilmRating;
 
 /**
  *  The video's rating in Egypt.
@@ -4438,7 +4444,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_EgfilmRating_EgfilmUnrated Value
  *        "egfilmUnrated"
  */
-@property(copy, nullable) NSString *egfilmRating;
+@property(nonatomic, copy, nullable) NSString *egfilmRating;
 
 /**
  *  The video's Eirin (映倫) rating. Eirin is the Japanese rating system.
@@ -4453,7 +4459,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_EirinRating_EirinUnrated Value
  *        "eirinUnrated"
  */
-@property(copy, nullable) NSString *eirinRating;
+@property(nonatomic, copy, nullable) NSString *eirinRating;
 
 /**
  *  The video's rating from Malaysia's Film Censorship Board.
@@ -4470,7 +4476,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_FcbmRating_FcbmUnrated Value
  *        "fcbmUnrated"
  */
-@property(copy, nullable) NSString *fcbmRating;
+@property(nonatomic, copy, nullable) NSString *fcbmRating;
 
 /**
  *  The video's rating from Hong Kong's Office for Film, Newspaper and Article
@@ -4484,7 +4490,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_FcoRating_FcoIii Value "fcoIii"
  *    @arg @c kGTLRYouTube_ContentRating_FcoRating_FcoUnrated Value "fcoUnrated"
  */
-@property(copy, nullable) NSString *fcoRating;
+@property(nonatomic, copy, nullable) NSString *fcoRating;
 
 /**
  *  This property has been deprecated. Use the
@@ -4500,7 +4506,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_FmocRating_FmocUnrated Value
  *        "fmocUnrated"
  */
-@property(copy, nullable) NSString *fmocRating;
+@property(nonatomic, copy, nullable) NSString *fmocRating;
 
 /**
  *  The video's rating from South Africa's Film and Publication Board.
@@ -4518,12 +4524,12 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_FpbRating_FpbX18 Value "fpbX18"
  *    @arg @c kGTLRYouTube_ContentRating_FpbRating_FpbXx Value "fpbXx"
  */
-@property(copy, nullable) NSString *fpbRating;
+@property(nonatomic, copy, nullable) NSString *fpbRating;
 
 /**
  *  Reasons that explain why the video received its FPB (South Africa) rating.
  */
-@property(strong, nullable) NSArray<NSString *> *fpbRatingReasons;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fpbRatingReasons;
 
 /**
  *  The video's Freiwillige Selbstkontrolle der Filmwirtschaft (FSK - Germany)
@@ -4537,7 +4543,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_FskRating_Fsk6 Value "fsk6"
  *    @arg @c kGTLRYouTube_ContentRating_FskRating_FskUnrated Value "fskUnrated"
  */
-@property(copy, nullable) NSString *fskRating;
+@property(nonatomic, copy, nullable) NSString *fskRating;
 
 /**
  *  The video's rating in Greece.
@@ -4545,14 +4551,20 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  Likely values:
  *    @arg @c kGTLRYouTube_ContentRating_GrfilmRating_GrfilmE Value "grfilmE"
  *    @arg @c kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK Value "grfilmK"
+ *    @arg @c kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK12 Value
+ *        "grfilmK12"
  *    @arg @c kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK13 Value
  *        "grfilmK13"
+ *    @arg @c kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK15 Value
+ *        "grfilmK15"
  *    @arg @c kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK17 Value
  *        "grfilmK17"
+ *    @arg @c kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK18 Value
+ *        "grfilmK18"
  *    @arg @c kGTLRYouTube_ContentRating_GrfilmRating_GrfilmUnrated Value
  *        "grfilmUnrated"
  */
-@property(copy, nullable) NSString *grfilmRating;
+@property(nonatomic, copy, nullable) NSString *grfilmRating;
 
 /**
  *  The video's Instituto de la Cinematografía y de las Artes Audiovisuales
@@ -4569,7 +4581,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "icaaUnrated"
  *    @arg @c kGTLRYouTube_ContentRating_IcaaRating_IcaaX Value "icaaX"
  */
-@property(copy, nullable) NSString *icaaRating;
+@property(nonatomic, copy, nullable) NSString *icaaRating;
 
 /**
  *  The video's Irish Film Classification Office (IFCO - Ireland) rating. See
@@ -4587,7 +4599,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_IfcoRating_IfcoUnrated Value
  *        "ifcoUnrated"
  */
-@property(copy, nullable) NSString *ifcoRating;
+@property(nonatomic, copy, nullable) NSString *ifcoRating;
 
 /**
  *  The video's rating in Israel.
@@ -4600,7 +4612,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_IlfilmRating_IlfilmUnrated Value
  *        "ilfilmUnrated"
  */
-@property(copy, nullable) NSString *ilfilmRating;
+@property(nonatomic, copy, nullable) NSString *ilfilmRating;
 
 /**
  *  The video's INCAA (Instituto Nacional de Cine y Artes Audiovisuales -
@@ -4618,7 +4630,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_IncaaRating_IncaaUnrated Value
  *        "incaaUnrated"
  */
-@property(copy, nullable) NSString *incaaRating;
+@property(nonatomic, copy, nullable) NSString *incaaRating;
 
 /**
  *  The video's rating from the Kenya Film Classification Board.
@@ -4632,7 +4644,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_KfcbRating_KfcbUnrated Value
  *        "kfcbUnrated"
  */
-@property(copy, nullable) NSString *kfcbRating;
+@property(nonatomic, copy, nullable) NSString *kfcbRating;
 
 /**
  *  voor de Classificatie van Audiovisuele Media (Netherlands).
@@ -4653,7 +4665,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_KijkwijzerRating_KijkwijzerUnrated
  *        Value "kijkwijzerUnrated"
  */
-@property(copy, nullable) NSString *kijkwijzerRating;
+@property(nonatomic, copy, nullable) NSString *kijkwijzerRating;
 
 /**
  *  The video's Korea Media Rating Board (영상물등급위원회) rating. The KMRB rates
@@ -4670,7 +4682,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_KmrbRating_KmrbUnrated Value
  *        "kmrbUnrated"
  */
-@property(copy, nullable) NSString *kmrbRating;
+@property(nonatomic, copy, nullable) NSString *kmrbRating;
 
 /**
  *  The video's rating from Indonesia's Lembaga Sensor Film.
@@ -4686,7 +4698,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_LsfRating_LsfSu Value "lsfSu"
  *    @arg @c kGTLRYouTube_ContentRating_LsfRating_LsfUnrated Value "lsfUnrated"
  */
-@property(copy, nullable) NSString *lsfRating;
+@property(nonatomic, copy, nullable) NSString *lsfRating;
 
 /**
  *  The video's rating from Malta's Film Age-Classification Board.
@@ -4703,7 +4715,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_MccaaRating_MccaaUnrated Value
  *        "mccaaUnrated"
  */
-@property(copy, nullable) NSString *mccaaRating;
+@property(nonatomic, copy, nullable) NSString *mccaaRating;
 
 /**
  *  The video's rating from the Danish Film Institute's (Det Danske
@@ -4717,7 +4729,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_MccypRating_MccypUnrated Value
  *        "mccypUnrated"
  */
-@property(copy, nullable) NSString *mccypRating;
+@property(nonatomic, copy, nullable) NSString *mccypRating;
 
 /**
  *  The video's rating from Singapore's Media Development Authority (MDA) and,
@@ -4732,7 +4744,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_MdaRating_MdaR21 Value "mdaR21"
  *    @arg @c kGTLRYouTube_ContentRating_MdaRating_MdaUnrated Value "mdaUnrated"
  */
-@property(copy, nullable) NSString *mdaRating;
+@property(nonatomic, copy, nullable) NSString *mdaRating;
 
 /**
  *  The video's rating from Medietilsynet, the Norwegian Media Authority.
@@ -4757,7 +4769,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_MedietilsynetRating_MedietilsynetUnrated
  *        Value "medietilsynetUnrated"
  */
-@property(copy, nullable) NSString *medietilsynetRating;
+@property(nonatomic, copy, nullable) NSString *medietilsynetRating;
 
 /**
  *  The video's rating from Finland's Kansallinen Audiovisuaalinen Instituutti
@@ -4772,7 +4784,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_MekuRating_MekuUnrated Value
  *        "mekuUnrated"
  */
-@property(copy, nullable) NSString *mekuRating;
+@property(nonatomic, copy, nullable) NSString *mekuRating;
 
 /**
  *  The video's rating from the Ministero dei Beni e delle Attività Culturali e
@@ -4787,7 +4799,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_MibacRating_MibacVm14 Value "mibacVm14"
  *    @arg @c kGTLRYouTube_ContentRating_MibacRating_MibacVm18 Value "mibacVm18"
  */
-@property(copy, nullable) NSString *mibacRating;
+@property(nonatomic, copy, nullable) NSString *mibacRating;
 
 /**
  *  The video's Ministerio de Cultura (Colombia) rating.
@@ -4803,7 +4815,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_MocRating_MocUnrated Value "mocUnrated"
  *    @arg @c kGTLRYouTube_ContentRating_MocRating_MocX Value "mocX"
  */
-@property(copy, nullable) NSString *mocRating;
+@property(nonatomic, copy, nullable) NSString *mocRating;
 
 /**
  *  The video's rating from Taiwan's Ministry of Culture (文化部).
@@ -4818,7 +4830,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_MoctwRating_MoctwUnrated Value
  *        "moctwUnrated"
  */
-@property(copy, nullable) NSString *moctwRating;
+@property(nonatomic, copy, nullable) NSString *moctwRating;
 
 /**
  *  The video's Motion Picture Association of America (MPAA) rating.
@@ -4832,7 +4844,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_MpaaRating_MpaaUnrated Value
  *        "mpaaUnrated"
  */
-@property(copy, nullable) NSString *mpaaRating;
+@property(nonatomic, copy, nullable) NSString *mpaaRating;
 
 /**
  *  The video's rating from the Movie and Television Review and Classification
@@ -4848,7 +4860,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "mtrcbUnrated"
  *    @arg @c kGTLRYouTube_ContentRating_MtrcbRating_MtrcbX Value "mtrcbX"
  */
-@property(copy, nullable) NSString *mtrcbRating;
+@property(nonatomic, copy, nullable) NSString *mtrcbRating;
 
 /**
  *  The video's rating in Poland.
@@ -4863,7 +4875,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_NbcplRating_NbcplUnrated Value
  *        "nbcplUnrated"
  */
-@property(copy, nullable) NSString *nbcplRating;
+@property(nonatomic, copy, nullable) NSString *nbcplRating;
 
 /**
  *  The video's rating from the Maldives National Bureau of Classification.
@@ -4878,7 +4890,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_NbcRating_NbcPu Value "nbcPu"
  *    @arg @c kGTLRYouTube_ContentRating_NbcRating_NbcUnrated Value "nbcUnrated"
  */
-@property(copy, nullable) NSString *nbcRating;
+@property(nonatomic, copy, nullable) NSString *nbcRating;
 
 /**
  *  The video's rating from the Bulgarian National Film Center.
@@ -4892,7 +4904,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "nfrcUnrated"
  *    @arg @c kGTLRYouTube_ContentRating_NfrcRating_NfrcX Value "nfrcX"
  */
-@property(copy, nullable) NSString *nfrcRating;
+@property(nonatomic, copy, nullable) NSString *nfrcRating;
 
 /**
  *  The video's rating from Nigeria's National Film and Video Censors Board.
@@ -4908,7 +4920,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_NfvcbRating_NfvcbUnrated Value
  *        "nfvcbUnrated"
  */
-@property(copy, nullable) NSString *nfvcbRating;
+@property(nonatomic, copy, nullable) NSString *nfvcbRating;
 
 /**
  *  The video's rating from the Nacionãlais Kino centrs (National Film Centre of
@@ -4925,7 +4937,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_NkclvRating_NkclvUnrated Value
  *        "nkclvUnrated"
  */
-@property(copy, nullable) NSString *nkclvRating;
+@property(nonatomic, copy, nullable) NSString *nkclvRating;
 
 /**
  *  The video's Office of Film and Literature Classification (OFLC - New
@@ -4944,7 +4956,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_OflcRating_OflcUnrated Value
  *        "oflcUnrated"
  */
-@property(copy, nullable) NSString *oflcRating;
+@property(nonatomic, copy, nullable) NSString *oflcRating;
 
 /**
  *  The video's rating in Peru.
@@ -4957,7 +4969,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_PefilmRating_PefilmUnrated Value
  *        "pefilmUnrated"
  */
-@property(copy, nullable) NSString *pefilmRating;
+@property(nonatomic, copy, nullable) NSString *pefilmRating;
 
 /**
  *  The video's rating from the Hungarian Nemzeti Filmiroda, the Rating
@@ -4973,7 +4985,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_RcnofRating_RcnofV Value "rcnofV"
  *    @arg @c kGTLRYouTube_ContentRating_RcnofRating_RcnofVi Value "rcnofVi"
  */
-@property(copy, nullable) NSString *rcnofRating;
+@property(nonatomic, copy, nullable) NSString *rcnofRating;
 
 /**
  *  The video's rating in Venezuela.
@@ -4992,7 +5004,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_ResorteviolenciaRating_ResorteviolenciaUnrated
  *        Value "resorteviolenciaUnrated"
  */
-@property(copy, nullable) NSString *resorteviolenciaRating;
+@property(nonatomic, copy, nullable) NSString *resorteviolenciaRating;
 
 /**
  *  The video's General Directorate of Radio, Television and Cinematography
@@ -5007,7 +5019,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_RtcRating_RtcD Value "rtcD"
  *    @arg @c kGTLRYouTube_ContentRating_RtcRating_RtcUnrated Value "rtcUnrated"
  */
-@property(copy, nullable) NSString *rtcRating;
+@property(nonatomic, copy, nullable) NSString *rtcRating;
 
 /**
  *  The video's rating from Ireland's Raidió Teilifís Éireann.
@@ -5019,7 +5031,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_RteRating_RtePs Value "rtePs"
  *    @arg @c kGTLRYouTube_ContentRating_RteRating_RteUnrated Value "rteUnrated"
  */
-@property(copy, nullable) NSString *rteRating;
+@property(nonatomic, copy, nullable) NSString *rteRating;
 
 /**
  *  The video's National Film Registry of the Russian Federation (MKRF - Russia)
@@ -5034,7 +5046,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_RussiaRating_RussiaUnrated Value
  *        "russiaUnrated"
  */
-@property(copy, nullable) NSString *russiaRating;
+@property(nonatomic, copy, nullable) NSString *russiaRating;
 
 /**
  *  The video's rating in Slovakia.
@@ -5047,7 +5059,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_SkfilmRating_SkfilmUnrated Value
  *        "skfilmUnrated"
  */
-@property(copy, nullable) NSString *skfilmRating;
+@property(nonatomic, copy, nullable) NSString *skfilmRating;
 
 /**
  *  The video's rating in Iceland.
@@ -5062,7 +5074,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_SmaisRating_SmaisUnrated Value
  *        "smaisUnrated"
  */
-@property(copy, nullable) NSString *smaisRating;
+@property(nonatomic, copy, nullable) NSString *smaisRating;
 
 /**
  *  The video's rating from Statens medieråd (Sweden's National Media Council).
@@ -5075,7 +5087,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_SmsaRating_SmsaUnrated Value
  *        "smsaUnrated"
  */
-@property(copy, nullable) NSString *smsaRating;
+@property(nonatomic, copy, nullable) NSString *smsaRating;
 
 /**
  *  The video's TV Parental Guidelines (TVPG) rating.
@@ -5091,7 +5103,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_TvpgRating_TvpgY7 Value "tvpgY7"
  *    @arg @c kGTLRYouTube_ContentRating_TvpgRating_TvpgY7Fv Value "tvpgY7Fv"
  */
-@property(copy, nullable) NSString *tvpgRating;
+@property(nonatomic, copy, nullable) NSString *tvpgRating;
 
 /**
  *  A rating that YouTube uses to identify age-restricted content.
@@ -5100,7 +5112,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ContentRating_YtRating_YtAgeRestricted Value
  *        "ytAgeRestricted"
  */
-@property(copy, nullable) NSString *ytRating;
+@property(nonatomic, copy, nullable) NSString *ytRating;
 
 @end
 
@@ -5113,23 +5125,23 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_FanFundingEvent : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube assigns to uniquely identify the fan funding event.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#fanFundingEvent".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The snippet object contains basic details about the fan funding event. */
-@property(strong, nullable) GTLRYouTube_FanFundingEventSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_FanFundingEventSnippet *snippet;
 
 @end
 
@@ -5145,10 +5157,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_FanFundingEventListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of fan funding events that match the request criteria.
@@ -5156,25 +5168,25 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_FanFundingEvent *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_FanFundingEvent *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#fanFundingEventListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -5189,34 +5201,34 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *amountMicros;
+@property(nonatomic, strong, nullable) NSNumber *amountMicros;
 
 /** Channel id where the funding event occurred. */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /** The text contents of the comment left by the user. */
-@property(copy, nullable) NSString *commentText;
+@property(nonatomic, copy, nullable) NSString *commentText;
 
 /**
  *  The date and time when the funding occurred. The value is specified in ISO
  *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *createdAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *createdAt;
 
 /** The currency in which the fund was made. ISO 4217. */
-@property(copy, nullable) NSString *currency;
+@property(nonatomic, copy, nullable) NSString *currency;
 
 /**
  *  A rendered string that displays the fund amount and currency (e.g.,
  *  "$1.00"). The string is rendered for the given language.
  */
-@property(copy, nullable) NSString *displayString;
+@property(nonatomic, copy, nullable) NSString *displayString;
 
 /**
  *  Details about the supporter. Only filled if the event was made public by the
  *  user.
  */
-@property(strong, nullable) GTLRYouTube_ChannelProfileDetails *supporterDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *supporterDetails;
 
 @end
 
@@ -5231,21 +5243,21 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *altitude;
+@property(nonatomic, strong, nullable) NSNumber *altitude;
 
 /**
  *  Latitude in degrees.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *latitude;
+@property(nonatomic, strong, nullable) NSNumber *latitude;
 
 /**
  *  Longitude in degrees.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *longitude;
+@property(nonatomic, strong, nullable) NSNumber *longitude;
 
 @end
 
@@ -5260,26 +5272,26 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_GuideCategory : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube uses to uniquely identify the guide category.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#guideCategory".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The snippet object contains basic details about the category, such as its
  *  title.
  */
-@property(strong, nullable) GTLRYouTube_GuideCategorySnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_GuideCategorySnippet *snippet;
 
 @end
 
@@ -5295,10 +5307,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_GuideCategoryListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of categories that can be associated with YouTube channels. In this
@@ -5308,32 +5320,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_GuideCategory *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_GuideCategory *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#guideCategoryListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the previous page in the result set.
  */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -5343,10 +5355,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  */
 @interface GTLRYouTube_GuideCategorySnippet : GTLRObject
 
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /** Description of the guide category. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -5358,26 +5370,26 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_I18nLanguage : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube uses to uniquely identify the i18n language.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#i18nLanguage".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The snippet object contains basic details about the i18n language, such as
  *  language code and human-readable name.
  */
-@property(strong, nullable) GTLRYouTube_I18nLanguageSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_I18nLanguageSnippet *snippet;
 
 @end
 
@@ -5391,10 +5403,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_I18nLanguageListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of supported i18n languages. In this map, the i18n language ID is the
@@ -5403,16 +5415,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_I18nLanguage *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_I18nLanguage *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#i18nLanguageListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -5424,10 +5436,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_I18nLanguageSnippet : GTLRObject
 
 /** A short BCP-47 code that uniquely identifies a language. */
-@property(copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl;
 
 /** The human-readable name of the language in the language itself. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -5438,26 +5450,26 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_I18nRegion : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube uses to uniquely identify the i18n region.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#i18nRegion".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The snippet object contains basic details about the i18n region, such as
  *  region code and human-readable name.
  */
-@property(strong, nullable) GTLRYouTube_I18nRegionSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_I18nRegionSnippet *snippet;
 
 @end
 
@@ -5471,10 +5483,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_I18nRegionListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of regions where YouTube is available. In this map, the i18n region
@@ -5483,16 +5495,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_I18nRegion *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_I18nRegion *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#i18nRegionListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -5504,10 +5516,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_I18nRegionSnippet : GTLRObject
 
 /** The region code as a 2-letter ISO country code. */
-@property(copy, nullable) NSString *gl;
+@property(nonatomic, copy, nullable) NSString *gl;
 
 /** The human-readable name of the region. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -5521,86 +5533,86 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The URL for the background image shown on the video watch page. The image
  *  should be 1200px by 615px, with a maximum file size of 128k.
  */
-@property(strong, nullable) GTLRYouTube_LocalizedProperty *backgroundImageUrl;
+@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *backgroundImageUrl;
 
 /**
  *  This is used only in update requests; if it's set, we use this URL to
  *  generate all of the above banner URLs.
  */
-@property(copy, nullable) NSString *bannerExternalUrl;
+@property(nonatomic, copy, nullable) NSString *bannerExternalUrl;
 
 /** Banner image. Desktop size (1060x175). */
-@property(copy, nullable) NSString *bannerImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerImageUrl;
 
 /** Banner image. Mobile size high resolution (1440x395). */
-@property(copy, nullable) NSString *bannerMobileExtraHdImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerMobileExtraHdImageUrl;
 
 /** Banner image. Mobile size high resolution (1280x360). */
-@property(copy, nullable) NSString *bannerMobileHdImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerMobileHdImageUrl;
 
 /** Banner image. Mobile size (640x175). */
-@property(copy, nullable) NSString *bannerMobileImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerMobileImageUrl;
 
 /** Banner image. Mobile size low resolution (320x88). */
-@property(copy, nullable) NSString *bannerMobileLowImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerMobileLowImageUrl;
 
 /** Banner image. Mobile size medium/high resolution (960x263). */
-@property(copy, nullable) NSString *bannerMobileMediumHdImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerMobileMediumHdImageUrl;
 
 /** Banner image. Tablet size extra high resolution (2560x424). */
-@property(copy, nullable) NSString *bannerTabletExtraHdImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTabletExtraHdImageUrl;
 
 /** Banner image. Tablet size high resolution (2276x377). */
-@property(copy, nullable) NSString *bannerTabletHdImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTabletHdImageUrl;
 
 /** Banner image. Tablet size (1707x283). */
-@property(copy, nullable) NSString *bannerTabletImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTabletImageUrl;
 
 /** Banner image. Tablet size low resolution (1138x188). */
-@property(copy, nullable) NSString *bannerTabletLowImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTabletLowImageUrl;
 
 /** Banner image. TV size high resolution (1920x1080). */
-@property(copy, nullable) NSString *bannerTvHighImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTvHighImageUrl;
 
 /** Banner image. TV size extra high resolution (2120x1192). */
-@property(copy, nullable) NSString *bannerTvImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTvImageUrl;
 
 /** Banner image. TV size low resolution (854x480). */
-@property(copy, nullable) NSString *bannerTvLowImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTvLowImageUrl;
 
 /** Banner image. TV size medium resolution (1280x720). */
-@property(copy, nullable) NSString *bannerTvMediumImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTvMediumImageUrl;
 
 /** The image map script for the large banner image. */
-@property(strong, nullable) GTLRYouTube_LocalizedProperty *largeBrandedBannerImageImapScript;
+@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *largeBrandedBannerImageImapScript;
 
 /**
  *  The URL for the 854px by 70px image that appears below the video player in
  *  the expanded video view of the video watch page.
  */
-@property(strong, nullable) GTLRYouTube_LocalizedProperty *largeBrandedBannerImageUrl;
+@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *largeBrandedBannerImageUrl;
 
 /** The image map script for the small banner image. */
-@property(strong, nullable) GTLRYouTube_LocalizedProperty *smallBrandedBannerImageImapScript;
+@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *smallBrandedBannerImageImapScript;
 
 /**
  *  The URL for the 640px by 70px banner image that appears below the video
  *  player in the default view of the video watch page.
  */
-@property(strong, nullable) GTLRYouTube_LocalizedProperty *smallBrandedBannerImageUrl;
+@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *smallBrandedBannerImageUrl;
 
 /**
  *  The URL for a 1px by 1px tracking pixel that can be used to collect
  *  statistics for views of the channel or video pages.
  */
-@property(copy, nullable) NSString *trackingImageUrl;
+@property(nonatomic, copy, nullable) NSString *trackingImageUrl;
 
 /**
  *  The URL for the image that appears above the top-left corner of the video
  *  player. This is a 25-pixel-high image with a flexible width that cannot
  *  exceed 170 pixels.
  */
-@property(copy, nullable) NSString *watchIconImageUrl;
+@property(nonatomic, copy, nullable) NSString *watchIconImageUrl;
 
 @end
 
@@ -5615,7 +5627,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  have the option of simultaneously streaming the content that you are sending
  *  to the ingestionAddress to this URL.
  */
-@property(copy, nullable) NSString *backupIngestionAddress;
+@property(nonatomic, copy, nullable) NSString *backupIngestionAddress;
 
 /**
  *  The primary ingestion URL that you should use to stream video to YouTube.
@@ -5625,10 +5637,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  need to concatenate them in the following format:
  *  STREAM_URL/STREAM_NAME
  */
-@property(copy, nullable) NSString *ingestionAddress;
+@property(nonatomic, copy, nullable) NSString *ingestionAddress;
 
 /** The HTTP or RTMP stream name that YouTube assigns to the video stream. */
-@property(copy, nullable) NSString *streamName;
+@property(nonatomic, copy, nullable) NSString *streamName;
 
 @end
 
@@ -5644,12 +5656,12 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *imageBytes;
+@property(nonatomic, copy, nullable) NSString *imageBytes;
 
-@property(copy, nullable) NSString *imageUrl;
-@property(strong, nullable) GTLRYouTube_InvideoPosition *position;
-@property(copy, nullable) NSString *targetChannelId;
-@property(strong, nullable) GTLRYouTube_InvideoTiming *timing;
+@property(nonatomic, copy, nullable) NSString *imageUrl;
+@property(nonatomic, strong, nullable) GTLRYouTube_InvideoPosition *position;
+@property(nonatomic, copy, nullable) NSString *targetChannelId;
+@property(nonatomic, strong, nullable) GTLRYouTube_InvideoTiming *timing;
 
 @end
 
@@ -5673,7 +5685,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_InvideoPosition_CornerPosition_TopRight Value
  *        "topRight"
  */
-@property(copy, nullable) NSString *cornerPosition;
+@property(nonatomic, copy, nullable) NSString *cornerPosition;
 
 /**
  *  Defines the position type.
@@ -5681,7 +5693,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  Likely values:
  *    @arg @c kGTLRYouTube_InvideoPosition_Type_Corner Value "corner"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -5699,7 +5711,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The default temporal position within the video where the promoted item will
  *  be displayed. Can be overriden by more specific timing in the item.
  */
-@property(strong, nullable) GTLRYouTube_InvideoTiming *defaultTiming;
+@property(nonatomic, strong, nullable) GTLRYouTube_InvideoTiming *defaultTiming;
 
 /**
  *  List of promoted items in decreasing priority.
@@ -5707,13 +5719,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_PromotedItem *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_PromotedItem *> *items;
 
 /**
  *  The spatial position within the video where the promoted item will be
  *  displayed.
  */
-@property(strong, nullable) GTLRYouTube_InvideoPosition *position;
+@property(nonatomic, strong, nullable) GTLRYouTube_InvideoPosition *position;
 
 /**
  *  Indicates whether the channel's promotional campaign uses "smart timing."
@@ -5724,7 +5736,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *useSmartTiming;
+@property(nonatomic, strong, nullable) NSNumber *useSmartTiming;
 
 @end
 
@@ -5740,7 +5752,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *durationMs;
+@property(nonatomic, strong, nullable) NSNumber *durationMs;
 
 /**
  *  Defines the time at which the promotion will appear. Depending on the value
@@ -5749,7 +5761,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *offsetMs;
+@property(nonatomic, strong, nullable) NSNumber *offsetMs;
 
 /**
  *  Describes a timing type. If the value is offsetFromStart, then the offsetMs
@@ -5763,7 +5775,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_InvideoTiming_Type_OffsetFromStart Value
  *        "offsetFromStart"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -5773,7 +5785,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  */
 @interface GTLRYouTube_LanguageTag : GTLRObject
 
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -5790,29 +5802,29 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  player or if it will be archived and therefore available for viewing after
  *  the event has concluded.
  */
-@property(strong, nullable) GTLRYouTube_LiveBroadcastContentDetails *contentDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveBroadcastContentDetails *contentDetails;
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube assigns to uniquely identify the broadcast.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#liveBroadcast".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The snippet object contains basic details about the event, including its
  *  title, description, start time, and end time.
  */
-@property(strong, nullable) GTLRYouTube_LiveBroadcastSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveBroadcastSnippet *snippet;
 
 /**
  *  The statistics object contains info about the event's current stats. These
@@ -5820,12 +5832,12 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  either direction) during the lifetime of an event. Statistics are only
  *  returned while the event is live.
  */
-@property(strong, nullable) GTLRYouTube_LiveBroadcastStatistics *statistics;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveBroadcastStatistics *statistics;
 
 /** The status object contains information about the event's status. */
-@property(strong, nullable) GTLRYouTube_LiveBroadcastStatus *status;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveBroadcastStatus *status;
 
-@property(strong, nullable) GTLRYouTube_LiveBroadcastTopicDetails *topicDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveBroadcastTopicDetails *topicDetails;
 
 @end
 
@@ -5836,13 +5848,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveBroadcastContentDetails : GTLRObject
 
 /** This value uniquely identifies the live stream bound to the broadcast. */
-@property(copy, nullable) NSString *boundStreamId;
+@property(nonatomic, copy, nullable) NSString *boundStreamId;
 
 /**
  *  The date and time that the live stream referenced by boundStreamId was last
  *  updated.
  */
-@property(strong, nullable) GTLRDateTime *boundStreamLastUpdateTimeMs;
+@property(nonatomic, strong, nullable) GTLRDateTime *boundStreamLastUpdateTimeMs;
 
 /**
  *  closedCaptionsType
@@ -5855,7 +5867,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_ClosedCaptionsType_ClosedCaptionsHttpPost
  *        Value "closedCaptionsHttpPost"
  */
-@property(copy, nullable) NSString *closedCaptionsType;
+@property(nonatomic, copy, nullable) NSString *closedCaptionsType;
 
 /**
  *  This setting indicates whether HTTP POST closed captioning is enabled for
@@ -5866,7 +5878,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enableClosedCaptions;
+@property(nonatomic, strong, nullable) NSNumber *enableClosedCaptions;
 
 /**
  *  This setting indicates whether YouTube should enable content encryption for
@@ -5874,7 +5886,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enableContentEncryption;
+@property(nonatomic, strong, nullable) NSNumber *enableContentEncryption;
 
 /**
  *  This setting determines whether viewers can access DVR controls while
@@ -5887,7 +5899,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enableDvr;
+@property(nonatomic, strong, nullable) NSNumber *enableDvr;
 
 /**
  *  This setting indicates whether the broadcast video can be played in an
@@ -5896,21 +5908,21 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enableEmbed;
+@property(nonatomic, strong, nullable) NSNumber *enableEmbed;
 
 /**
  *  Indicates whether this broadcast has low latency enabled.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enableLowLatency;
+@property(nonatomic, strong, nullable) NSNumber *enableLowLatency;
 
 /**
  *  The monitorStream object contains information about the monitor stream,
  *  which the broadcaster can use to review the event content before the
  *  broadcast stream is shown publicly.
  */
-@property(strong, nullable) GTLRYouTube_MonitorStreamInfo *monitorStream;
+@property(nonatomic, strong, nullable) GTLRYouTube_MonitorStreamInfo *monitorStream;
 
 /**
  *  The projection format of this broadcast. This defaults to rectangular.
@@ -5921,7 +5933,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_Projection_X360 Value
  *        "360"
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Automatically start recording after the event goes live. The default value
@@ -5934,7 +5946,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *recordFromStart;
+@property(nonatomic, strong, nullable) NSNumber *recordFromStart;
 
 /**
  *  This setting indicates whether the broadcast should automatically begin with
@@ -5945,7 +5957,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *startWithSlate;
+@property(nonatomic, strong, nullable) NSNumber *startWithSlate;
 
 @end
 
@@ -5961,10 +5973,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveBroadcastListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of broadcasts that match the request criteria.
@@ -5972,32 +5984,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_LiveBroadcast *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_LiveBroadcast *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#liveBroadcastListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the previous page in the result set.
  */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -6012,20 +6024,20 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  only available once the broadcast's state is complete. The value is
  *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *actualEndTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *actualEndTime;
 
 /**
  *  The date and time that the broadcast actually started. This information is
  *  only available once the broadcast's state is live. The value is specified in
  *  ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *actualStartTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *actualStartTime;
 
 /**
  *  The ID that YouTube uses to uniquely identify the channel that is publishing
  *  the broadcast.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  The broadcast's description. As with the title, you can set this field by
@@ -6034,50 +6046,50 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  isDefaultBroadcast
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isDefaultBroadcast;
+@property(nonatomic, strong, nullable) NSNumber *isDefaultBroadcast;
 
 /** The id of the live chat for this broadcast. */
-@property(copy, nullable) NSString *liveChatId;
+@property(nonatomic, copy, nullable) NSString *liveChatId;
 
 /**
  *  The date and time that the broadcast was added to YouTube's live broadcast
  *  schedule. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ)
  *  format.
  */
-@property(strong, nullable) GTLRDateTime *publishedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  The date and time that the broadcast is scheduled to end. The value is
  *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *scheduledEndTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledEndTime;
 
 /**
  *  The date and time that the broadcast is scheduled to start. The value is
  *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *scheduledStartTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledStartTime;
 
 /**
  *  A map of thumbnail images associated with the broadcast. For each nested
  *  object in this object, the key is the name of the thumbnail image, and the
  *  value is an object that contains other information about the thumbnail.
  */
-@property(strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
 
 /**
  *  The broadcast's title. Note that the broadcast represents exactly one
  *  YouTube video. You can set this field by modifying the broadcast resource or
  *  by setting the title field of the corresponding video resource.
  */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -6099,7 +6111,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *concurrentViewers;
+@property(nonatomic, strong, nullable) NSNumber *concurrentViewers;
 
 /**
  *  The total number of live chat messages currently on the broadcast. The
@@ -6111,7 +6123,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *totalChatCount;
+@property(nonatomic, strong, nullable) NSNumber *totalChatCount;
 
 @end
 
@@ -6148,7 +6160,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_TestStarting
  *        Value "testStarting"
  */
-@property(copy, nullable) NSString *lifeCycleStatus;
+@property(nonatomic, copy, nullable) NSString *lifeCycleStatus;
 
 /**
  *  Priority of the live broadcast event (internal state).
@@ -6161,7 +6173,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_LiveBroadcastStatus_LiveBroadcastPriority_Normal
  *        Value "normal"
  */
-@property(copy, nullable) NSString *liveBroadcastPriority;
+@property(nonatomic, copy, nullable) NSString *liveBroadcastPriority;
 
 /**
  *  The broadcast's privacy status. Note that the broadcast represents exactly
@@ -6178,7 +6190,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Unlisted Value
  *        "unlisted"
  */
-@property(copy, nullable) NSString *privacyStatus;
+@property(nonatomic, copy, nullable) NSString *privacyStatus;
 
 /**
  *  The broadcast's recording status.
@@ -6191,7 +6203,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_Recording Value
  *        "recording"
  */
-@property(copy, nullable) NSString *recordingStatus;
+@property(nonatomic, copy, nullable) NSString *recordingStatus;
 
 @end
 
@@ -6202,7 +6214,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveBroadcastTopic : GTLRObject
 
 /** Information about the topic matched. */
-@property(strong, nullable) GTLRYouTube_LiveBroadcastTopicSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveBroadcastTopicSnippet *snippet;
 
 /**
  *  The type of the topic.
@@ -6210,7 +6222,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  Likely values:
  *    @arg @c kGTLRYouTube_LiveBroadcastTopic_Type_VideoGame Value "videoGame"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  If this flag is set it means that we have not been able to match the topic
@@ -6218,7 +6230,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *unmatched;
+@property(nonatomic, strong, nullable) NSNumber *unmatched;
 
 @end
 
@@ -6228,7 +6240,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  */
 @interface GTLRYouTube_LiveBroadcastTopicDetails : GTLRObject
 
-@property(strong, nullable) NSArray<GTLRYouTube_LiveBroadcastTopic *> *topics;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_LiveBroadcastTopic *> *topics;
 
 @end
 
@@ -6239,10 +6251,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveBroadcastTopicSnippet : GTLRObject
 
 /** The name of the topic. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The date at which the topic was released. Filled for types: videoGame */
-@property(copy, nullable) NSString *releaseDate;
+@property(nonatomic, copy, nullable) NSString *releaseDate;
 
 @end
 
@@ -6253,23 +6265,23 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveChatBan : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube assigns to uniquely identify the ban.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#liveChatBan".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The snippet object contains basic details about the ban. */
-@property(strong, nullable) GTLRYouTube_LiveChatBanSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatBanSnippet *snippet;
 
 @end
 
@@ -6284,12 +6296,12 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *banDurationSeconds;
+@property(nonatomic, strong, nullable) NSNumber *banDurationSeconds;
 
-@property(strong, nullable) GTLRYouTube_ChannelProfileDetails *bannedUserDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *bannedUserDetails;
 
 /** The chat this ban is pertinent to. */
-@property(copy, nullable) NSString *liveChatId;
+@property(nonatomic, copy, nullable) NSString *liveChatId;
 
 /**
  *  The type of ban.
@@ -6298,7 +6310,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_LiveChatBanSnippet_Type_Permanent Value "permanent"
  *    @arg @c kGTLRYouTube_LiveChatBanSnippet_Type_Temporary Value "temporary"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -6311,20 +6323,20 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 /**
  *  A rendered string that displays the fund amount and currency to the user.
  */
-@property(copy, nullable) NSString *amountDisplayString;
+@property(nonatomic, copy, nullable) NSString *amountDisplayString;
 
 /**
  *  The amount of the fund.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *amountMicros;
+@property(nonatomic, strong, nullable) NSNumber *amountMicros;
 
 /** The currency in which the fund was made. */
-@property(copy, nullable) NSString *currency;
+@property(nonatomic, copy, nullable) NSString *currency;
 
 /** The comment added by the user to this fan funding event. */
-@property(copy, nullable) NSString *userComment;
+@property(nonatomic, copy, nullable) NSString *userComment;
 
 @end
 
@@ -6338,26 +6350,26 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The authorDetails object contains basic details about the user that posted
  *  this message.
  */
-@property(strong, nullable) GTLRYouTube_LiveChatMessageAuthorDetails *authorDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageAuthorDetails *authorDetails;
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube assigns to uniquely identify the message.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#liveChatMessage".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The snippet object contains basic details about the message. */
-@property(strong, nullable) GTLRYouTube_LiveChatMessageSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageSnippet *snippet;
 
 @end
 
@@ -6368,44 +6380,44 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveChatMessageAuthorDetails : GTLRObject
 
 /** The YouTube channel ID. */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /** The channel's URL. */
-@property(copy, nullable) NSString *channelUrl;
+@property(nonatomic, copy, nullable) NSString *channelUrl;
 
 /** The channel's display name. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Whether the author is a moderator of the live chat.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isChatModerator;
+@property(nonatomic, strong, nullable) NSNumber *isChatModerator;
 
 /**
  *  Whether the author is the owner of the live chat.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isChatOwner;
+@property(nonatomic, strong, nullable) NSNumber *isChatOwner;
 
 /**
  *  Whether the author is a sponsor of the live chat.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isChatSponsor;
+@property(nonatomic, strong, nullable) NSNumber *isChatSponsor;
 
 /**
  *  Whether the author's identity has been verified by YouTube.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isVerified;
+@property(nonatomic, strong, nullable) NSNumber *isVerified;
 
 /** The channels's avatar URL. */
-@property(copy, nullable) NSString *profileImageUrl;
+@property(nonatomic, copy, nullable) NSString *profileImageUrl;
 
 @end
 
@@ -6415,7 +6427,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  */
 @interface GTLRYouTube_LiveChatMessageDeletedDetails : GTLRObject
 
-@property(copy, nullable) NSString *deletedMessageId;
+@property(nonatomic, copy, nullable) NSString *deletedMessageId;
 
 @end
 
@@ -6431,10 +6443,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveChatMessageListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of live chat messages.
@@ -6442,39 +6454,39 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_LiveChatMessage *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_LiveChatMessage *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#liveChatMessageListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The date and time when the underlying stream went offline. The value is
  *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *offlineAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *offlineAt;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
 /**
  *  The amount of time the client should wait before polling again.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *pollingIntervalMillis;
+@property(nonatomic, strong, nullable) NSNumber *pollingIntervalMillis;
 
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -6484,7 +6496,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  */
 @interface GTLRYouTube_LiveChatMessageRetractedDetails : GTLRObject
 
-@property(copy, nullable) NSString *retractedMessageId;
+@property(nonatomic, copy, nullable) NSString *retractedMessageId;
 
 @end
 
@@ -6502,47 +6514,47 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  messageRetractedEvent - the author that retracted their message
  *  userBannedEvent - the moderator that took the action
  */
-@property(copy, nullable) NSString *authorChannelId;
+@property(nonatomic, copy, nullable) NSString *authorChannelId;
 
 /**
  *  Contains a string that can be displayed to the user. If this field is not
  *  present the message is silent, at the moment only messages of type TOMBSTONE
  *  and CHAT_ENDED_EVENT are silent.
  */
-@property(copy, nullable) NSString *displayMessage;
+@property(nonatomic, copy, nullable) NSString *displayMessage;
 
 /**
  *  Details about the funding event, this is only set if the type is
  *  'fanFundingEvent'.
  */
-@property(strong, nullable) GTLRYouTube_LiveChatFanFundingEventDetails *fanFundingEventDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatFanFundingEventDetails *fanFundingEventDetails;
 
 /**
  *  Whether the message has display content that should be displayed to users.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hasDisplayContent;
+@property(nonatomic, strong, nullable) NSNumber *hasDisplayContent;
 
-@property(copy, nullable) NSString *liveChatId;
-@property(strong, nullable) GTLRYouTube_LiveChatMessageDeletedDetails *messageDeletedDetails;
-@property(strong, nullable) GTLRYouTube_LiveChatMessageRetractedDetails *messageRetractedDetails;
-@property(strong, nullable) GTLRYouTube_LiveChatPollClosedDetails *pollClosedDetails;
-@property(strong, nullable) GTLRYouTube_LiveChatPollEditedDetails *pollEditedDetails;
-@property(strong, nullable) GTLRYouTube_LiveChatPollOpenedDetails *pollOpenedDetails;
-@property(strong, nullable) GTLRYouTube_LiveChatPollVotedDetails *pollVotedDetails;
+@property(nonatomic, copy, nullable) NSString *liveChatId;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageDeletedDetails *messageDeletedDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageRetractedDetails *messageRetractedDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatPollClosedDetails *pollClosedDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatPollEditedDetails *pollEditedDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatPollOpenedDetails *pollOpenedDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatPollVotedDetails *pollVotedDetails;
 
 /**
  *  The date and time when the message was orignally published. The value is
  *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *publishedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  Details about the text message, this is only set if the type is
  *  'textMessageEvent'.
  */
-@property(strong, nullable) GTLRYouTube_LiveChatTextMessageDetails *textMessageDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatTextMessageDetails *textMessageDetails;
 
 /**
  *  The type of message, this will always be present, it determines the contents
@@ -6578,9 +6590,9 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_UserBannedEvent Value
  *        "userBannedEvent"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
-@property(strong, nullable) GTLRYouTube_LiveChatUserBannedMessageDetails *userBannedDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatUserBannedMessageDetails *userBannedDetails;
 
 @end
 
@@ -6593,23 +6605,23 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveChatModerator : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube assigns to uniquely identify the moderator.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#liveChatModerator".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The snippet object contains basic details about the moderator. */
-@property(strong, nullable) GTLRYouTube_LiveChatModeratorSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatModeratorSnippet *snippet;
 
 @end
 
@@ -6625,10 +6637,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveChatModeratorListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of moderators that match the request criteria.
@@ -6636,32 +6648,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_LiveChatModerator *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_LiveChatModerator *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#liveChatModeratorListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the previous page in the result set.
  */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -6672,10 +6684,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveChatModeratorSnippet : GTLRObject
 
 /** The ID of the live chat this moderator can act on. */
-@property(copy, nullable) NSString *liveChatId;
+@property(nonatomic, copy, nullable) NSString *liveChatId;
 
 /** Details about the moderator. */
-@property(strong, nullable) GTLRYouTube_ChannelProfileDetails *moderatorDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *moderatorDetails;
 
 @end
 
@@ -6686,7 +6698,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveChatPollClosedDetails : GTLRObject
 
 /** The id of the poll that was closed. */
-@property(copy, nullable) NSString *pollId;
+@property(nonatomic, copy, nullable) NSString *pollId;
 
 @end
 
@@ -6704,7 +6716,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  items
@@ -6712,9 +6724,9 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_LiveChatPollItem *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_LiveChatPollItem *> *items;
 
-@property(copy, nullable) NSString *prompt;
+@property(nonatomic, copy, nullable) NSString *prompt;
 
 @end
 
@@ -6729,9 +6741,9 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-@property(copy, nullable) NSString *itemId;
+@property(nonatomic, copy, nullable) NSString *itemId;
 
 @end
 
@@ -6749,7 +6761,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  items
@@ -6757,9 +6769,9 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_LiveChatPollItem *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_LiveChatPollItem *> *items;
 
-@property(copy, nullable) NSString *prompt;
+@property(nonatomic, copy, nullable) NSString *prompt;
 
 @end
 
@@ -6770,10 +6782,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveChatPollVotedDetails : GTLRObject
 
 /** The poll item the user chose. */
-@property(copy, nullable) NSString *itemId;
+@property(nonatomic, copy, nullable) NSString *itemId;
 
 /** The poll the user voted on. */
-@property(copy, nullable) NSString *pollId;
+@property(nonatomic, copy, nullable) NSString *pollId;
 
 @end
 
@@ -6784,7 +6796,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveChatTextMessageDetails : GTLRObject
 
 /** The user's message. */
-@property(copy, nullable) NSString *messageText;
+@property(nonatomic, copy, nullable) NSString *messageText;
 
 @end
 
@@ -6800,10 +6812,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *banDurationSeconds;
+@property(nonatomic, strong, nullable) NSNumber *banDurationSeconds;
 
 /** The details of the user that was banned. */
-@property(strong, nullable) GTLRYouTube_ChannelProfileDetails *bannedUserDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *bannedUserDetails;
 
 /**
  *  The type of ban.
@@ -6814,7 +6826,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_LiveChatUserBannedMessageDetails_BanType_Temporary
  *        Value "temporary"
  */
-@property(copy, nullable) NSString *banType;
+@property(nonatomic, copy, nullable) NSString *banType;
 
 @end
 
@@ -6829,38 +6841,38 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  settings. These settings provide details about the manner in which you
  *  stream your content to YouTube.
  */
-@property(strong, nullable) GTLRYouTube_CdnSettings *cdn;
+@property(nonatomic, strong, nullable) GTLRYouTube_CdnSettings *cdn;
 
 /**
  *  The content_details object contains information about the stream, including
  *  the closed captions ingestion URL.
  */
-@property(strong, nullable) GTLRYouTube_LiveStreamContentDetails *contentDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveStreamContentDetails *contentDetails;
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube assigns to uniquely identify the stream.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#liveStream".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The snippet object contains basic details about the stream, including its
  *  channel, title, and description.
  */
-@property(strong, nullable) GTLRYouTube_LiveStreamSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveStreamSnippet *snippet;
 
 /** The status object contains information about live stream's status. */
-@property(strong, nullable) GTLRYouTube_LiveStreamStatus *status;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveStreamStatus *status;
 
 @end
 
@@ -6875,10 +6887,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** The short-form reason for this issue. */
-@property(copy, nullable) NSString *reason;
+@property(nonatomic, copy, nullable) NSString *reason;
 
 /**
  *  How severe this issue is to the stream.
@@ -6891,7 +6903,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_LiveStreamConfigurationIssue_Severity_Warning Value
  *        "warning"
  */
-@property(copy, nullable) NSString *severity;
+@property(nonatomic, copy, nullable) NSString *severity;
 
 /**
  *  The kind of error happening.
@@ -6964,7 +6976,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoResolutionUnsupported
  *        Value "videoResolutionUnsupported"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -6975,7 +6987,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveStreamContentDetails : GTLRObject
 
 /** The ingestion URL where the closed captions of this stream are sent. */
-@property(copy, nullable) NSString *closedCaptionsIngestionUrl;
+@property(nonatomic, copy, nullable) NSString *closedCaptionsIngestionUrl;
 
 /**
  *  Indicates whether the stream is reusable, which means that it can be bound
@@ -6995,7 +7007,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isReusable;
+@property(nonatomic, strong, nullable) NSNumber *isReusable;
 
 @end
 
@@ -7006,14 +7018,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveStreamHealthStatus : GTLRObject
 
 /** The configurations issues on this stream */
-@property(strong, nullable) NSArray<GTLRYouTube_LiveStreamConfigurationIssue *> *configurationIssues;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_LiveStreamConfigurationIssue *> *configurationIssues;
 
 /**
  *  The last time this status was updated (in seconds)
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *lastUpdateTimeSeconds;
+@property(nonatomic, strong, nullable) NSNumber *lastUpdateTimeSeconds;
 
 /**
  *  The status code of this stream
@@ -7025,7 +7037,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_LiveStreamHealthStatus_Status_Ok Value "ok"
  *    @arg @c kGTLRYouTube_LiveStreamHealthStatus_Status_Revoked Value "revoked"
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -7041,10 +7053,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveStreamListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of live streams that match the request criteria.
@@ -7052,32 +7064,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_LiveStream *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_LiveStream *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#liveStreamListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the previous page in the result set.
  */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -7091,32 +7103,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The ID that YouTube uses to uniquely identify the channel that is
  *  transmitting the stream.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  The stream's description. The value cannot be longer than 10000 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  isDefaultStream
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isDefaultStream;
+@property(nonatomic, strong, nullable) NSNumber *isDefaultStream;
 
 /**
  *  The date and time that the stream was created. The value is specified in ISO
  *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *publishedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  The stream's title. The value must be between 1 and 128 characters long.
  */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -7127,7 +7139,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LiveStreamStatus : GTLRObject
 
 /** The health status of the stream. */
-@property(strong, nullable) GTLRYouTube_LiveStreamHealthStatus *healthStatus;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveStreamHealthStatus *healthStatus;
 
 /**
  *  streamStatus
@@ -7140,7 +7152,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "inactive"
  *    @arg @c kGTLRYouTube_LiveStreamStatus_StreamStatus_Ready Value "ready"
  */
-@property(copy, nullable) NSString *streamStatus;
+@property(nonatomic, copy, nullable) NSString *streamStatus;
 
 @end
 
@@ -7155,12 +7167,12 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Remapped to 'defaultProperty' to avoid language reserved word 'default'.
  */
-@property(copy, nullable) NSString *defaultProperty;
+@property(nonatomic, copy, nullable) NSString *defaultProperty;
 
 /** The language of the default property. */
-@property(strong, nullable) GTLRYouTube_LanguageTag *defaultLanguage;
+@property(nonatomic, strong, nullable) GTLRYouTube_LanguageTag *defaultLanguage;
 
-@property(strong, nullable) NSArray<GTLRYouTube_LocalizedString *> *localized;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_LocalizedString *> *localized;
 
 @end
 
@@ -7170,8 +7182,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  */
 @interface GTLRYouTube_LocalizedString : GTLRObject
 
-@property(copy, nullable) NSString *language;
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -7187,10 +7199,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *broadcastStreamDelayMs;
+@property(nonatomic, strong, nullable) NSNumber *broadcastStreamDelayMs;
 
 /** HTML code that embeds a player that plays the monitor stream. */
-@property(copy, nullable) NSString *embedHtml;
+@property(nonatomic, copy, nullable) NSString *embedHtml;
 
 /**
  *  This value determines whether the monitor stream is enabled for the
@@ -7205,7 +7217,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enableMonitorStream;
+@property(nonatomic, strong, nullable) NSNumber *enableMonitorStream;
 
 @end
 
@@ -7221,14 +7233,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *resultsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *resultsPerPage;
 
 /**
  *  The total number of results in the result set.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 @end
 
@@ -7256,41 +7268,41 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_Playlist : GTLRObject
 
 /** The contentDetails object contains information like video count. */
-@property(strong, nullable) GTLRYouTube_PlaylistContentDetails *contentDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_PlaylistContentDetails *contentDetails;
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube uses to uniquely identify the playlist.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#playlist".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Localizations for different languages */
-@property(strong, nullable) GTLRYouTube_PlaylistLocalizations *localizations;
+@property(nonatomic, strong, nullable) GTLRYouTube_PlaylistLocalizations *localizations;
 
 /**
  *  The player object contains information that you would use to play the
  *  playlist in an embedded player.
  */
-@property(strong, nullable) GTLRYouTube_PlaylistPlayer *player;
+@property(nonatomic, strong, nullable) GTLRYouTube_PlaylistPlayer *player;
 
 /**
  *  The snippet object contains basic details about the playlist, such as its
  *  title and description.
  */
-@property(strong, nullable) GTLRYouTube_PlaylistSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_PlaylistSnippet *snippet;
 
 /** The status object contains status information for the playlist. */
-@property(strong, nullable) GTLRYouTube_PlaylistStatus *status;
+@property(nonatomic, strong, nullable) GTLRYouTube_PlaylistStatus *status;
 
 @end
 
@@ -7317,7 +7329,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *itemCount;
+@property(nonatomic, strong, nullable) NSNumber *itemCount;
 
 @end
 
@@ -7350,35 +7362,35 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  is a YouTube video. The object contains additional information about the
  *  video.
  */
-@property(strong, nullable) GTLRYouTube_PlaylistItemContentDetails *contentDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_PlaylistItemContentDetails *contentDetails;
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube uses to uniquely identify the playlist item.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#playlistItem".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The snippet object contains basic details about the playlist item, such as
  *  its title and position in the playlist.
  */
-@property(strong, nullable) GTLRYouTube_PlaylistItemSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_PlaylistItemSnippet *snippet;
 
 /**
  *  The status object contains information about the playlist item's privacy
  *  status.
  */
-@property(strong, nullable) GTLRYouTube_PlaylistItemStatus *status;
+@property(nonatomic, strong, nullable) GTLRYouTube_PlaylistItemStatus *status;
 
 @end
 
@@ -7395,10 +7407,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  of the playlist.) By default, assume that the video.endTime is the end of
  *  the video.
  */
-@property(copy, nullable) NSString *endAt;
+@property(nonatomic, copy, nullable) NSString *endAt;
 
 /** A user-generated note for this item. */
-@property(copy, nullable) NSString *note;
+@property(nonatomic, copy, nullable) NSString *note;
 
 /**
  *  The time, measured in seconds from the start of the video, when the video
@@ -7406,13 +7418,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  video should start and stop playing when the video is played in the context
  *  of the playlist.) The default value is 0.
  */
-@property(copy, nullable) NSString *startAt;
+@property(nonatomic, copy, nullable) NSString *startAt;
 
 /**
  *  The ID that YouTube uses to uniquely identify a video. To retrieve the video
  *  resource, set the id query parameter to this value in your API request.
  */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
 
@@ -7428,10 +7440,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_PlaylistItemListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of playlist items that match the request criteria.
@@ -7439,32 +7451,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_PlaylistItem *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_PlaylistItem *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#playlistItemListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the previous page in the result set.
  */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -7478,23 +7490,23 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The ID that YouTube uses to uniquely identify the user that added the item
  *  to the playlist.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /** Channel title for the channel that the playlist item belongs to. */
-@property(copy, nullable) NSString *channelTitle;
+@property(nonatomic, copy, nullable) NSString *channelTitle;
 
 /**
  *  The item's description.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The ID that YouTube uses to uniquely identify the playlist that the playlist
  *  item is in.
  */
-@property(copy, nullable) NSString *playlistId;
+@property(nonatomic, copy, nullable) NSString *playlistId;
 
 /**
  *  The order in which the item appears in the playlist. The value uses a
@@ -7503,29 +7515,29 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *position;
+@property(nonatomic, strong, nullable) NSNumber *position;
 
 /**
  *  The date and time that the item was added to the playlist. The value is
  *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *publishedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  The id object contains information that can be used to uniquely identify the
  *  resource that is included in the playlist as the playlist item.
  */
-@property(strong, nullable) GTLRYouTube_ResourceId *resourceId;
+@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
 /**
  *  A map of thumbnail images associated with the playlist item. For each object
  *  in the map, the key is the name of the thumbnail image, and the value is an
  *  object that contains other information about the thumbnail.
  */
-@property(strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
 
 /** The item's title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -7546,7 +7558,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Unlisted Value
  *        "unlisted"
  */
-@property(copy, nullable) NSString *privacyStatus;
+@property(nonatomic, copy, nullable) NSString *privacyStatus;
 
 @end
 
@@ -7562,10 +7574,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_PlaylistListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of playlists that match the request criteria.
@@ -7573,32 +7585,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_Playlist *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_Playlist *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#playlistListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the previous page in the result set.
  */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -7613,10 +7625,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** The localized strings for playlist's title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -7627,7 +7639,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_PlaylistPlayer : GTLRObject
 
 /** An <iframe> tag that embeds a player that will play the playlist. */
-@property(copy, nullable) NSString *embedHtml;
+@property(nonatomic, copy, nullable) NSString *embedHtml;
 
 @end
 
@@ -7641,42 +7653,42 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The ID that YouTube uses to uniquely identify the channel that published the
  *  playlist.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /** The channel title of the channel that the video belongs to. */
-@property(copy, nullable) NSString *channelTitle;
+@property(nonatomic, copy, nullable) NSString *channelTitle;
 
 /** The language of the playlist's default title and description. */
-@property(copy, nullable) NSString *defaultLanguage;
+@property(nonatomic, copy, nullable) NSString *defaultLanguage;
 
 /**
  *  The playlist's description.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** Localized title and description, read-only. */
-@property(strong, nullable) GTLRYouTube_PlaylistLocalization *localized;
+@property(nonatomic, strong, nullable) GTLRYouTube_PlaylistLocalization *localized;
 
 /**
  *  The date and time that the playlist was created. The value is specified in
  *  ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *publishedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /** Keyword tags associated with the playlist. */
-@property(strong, nullable) NSArray<NSString *> *tags;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 /**
  *  A map of thumbnail images associated with the playlist. For each object in
  *  the map, the key is the name of the thumbnail image, and the value is an
  *  object that contains other information about the thumbnail.
  */
-@property(strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
 
 /** The playlist's title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -7695,7 +7707,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_PlaylistStatus_PrivacyStatus_Unlisted Value
  *        "unlisted"
  */
-@property(copy, nullable) NSString *privacyStatus;
+@property(nonatomic, copy, nullable) NSString *privacyStatus;
 
 @end
 
@@ -7709,14 +7721,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  A custom message to display for this promotion. This field is currently
  *  ignored unless the promoted item is a website.
  */
-@property(copy, nullable) NSString *customMessage;
+@property(nonatomic, copy, nullable) NSString *customMessage;
 
 /**
  *  Identifies the promoted item.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(strong, nullable) GTLRYouTube_PromotedItemId *identifier;
+@property(nonatomic, strong, nullable) GTLRYouTube_PromotedItemId *identifier;
 
 /**
  *  If true, the content owner's name will be used when displaying the
@@ -7725,13 +7737,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *promotedByContentOwner;
+@property(nonatomic, strong, nullable) NSNumber *promotedByContentOwner;
 
 /**
  *  The temporal position within the video where the promoted item will be
  *  displayed. If present, it overrides the default timing.
  */
-@property(strong, nullable) GTLRYouTube_InvideoTiming *timing;
+@property(nonatomic, strong, nullable) GTLRYouTube_InvideoTiming *timing;
 
 @end
 
@@ -7747,7 +7759,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  take the recent upload. If missing, the channel is assumed to be the same
  *  channel for which the invideoPromotion is set.
  */
-@property(copy, nullable) NSString *recentlyUploadedBy;
+@property(nonatomic, copy, nullable) NSString *recentlyUploadedBy;
 
 /**
  *  Describes the type of the promoted item.
@@ -7757,21 +7769,21 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_PromotedItemId_Type_Video Value "video"
  *    @arg @c kGTLRYouTube_PromotedItemId_Type_Website Value "website"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  If the promoted item represents a video, this field represents the unique
  *  YouTube ID identifying it. This field will be present only if type has the
  *  value video.
  */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 /**
  *  If the promoted item represents a website, this field represents the url
  *  pointing to the website. This field will be present only if type has the
  *  value website.
  */
-@property(copy, nullable) NSString *websiteUrl;
+@property(nonatomic, copy, nullable) NSString *websiteUrl;
 
 @end
 
@@ -7782,10 +7794,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_PropertyValue : GTLRObject
 
 /** A property. */
-@property(copy, nullable) NSString *property;
+@property(nonatomic, copy, nullable) NSString *property;
 
 /** The property's value. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -7801,24 +7813,24 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  resource is a channel. This property is only present if the resourceId.kind
  *  value is youtube#channel.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /** The type of the API resource. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The ID that YouTube uses to uniquely identify the referred resource, if that
  *  resource is a playlist. This property is only present if the resourceId.kind
  *  value is youtube#playlist.
  */
-@property(copy, nullable) NSString *playlistId;
+@property(nonatomic, copy, nullable) NSString *playlistId;
 
 /**
  *  The ID that YouTube uses to uniquely identify the referred resource, if that
  *  resource is a video. This property is only present if the resourceId.kind
  *  value is youtube#video.
  */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
 
@@ -7834,10 +7846,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_SearchListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of results that match the search criteria.
@@ -7845,33 +7857,33 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_SearchResult *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_SearchResult *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#searchListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the previous page in the result set.
  */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(copy, nullable) NSString *regionCode;
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, copy, nullable) NSString *regionCode;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -7885,7 +7897,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_SearchResult : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The id object contains information that can be used to uniquely identify the
@@ -7893,13 +7905,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(strong, nullable) GTLRYouTube_ResourceId *identifier;
+@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#searchResult".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The snippet object contains basic details about a search result, such as its
@@ -7907,7 +7919,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  title will be the video's title and the description will be the video's
  *  description.
  */
-@property(strong, nullable) GTLRYouTube_SearchResultSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_SearchResultSnippet *snippet;
 
 @end
 
@@ -7922,20 +7934,20 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  The value that YouTube uses to uniquely identify the channel that published
  *  the resource that the search result identifies.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  The title of the channel that published the resource that the search result
  *  identifies.
  */
-@property(copy, nullable) NSString *channelTitle;
+@property(nonatomic, copy, nullable) NSString *channelTitle;
 
 /**
  *  A description of the search result.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  It indicates if the resource (video or channel) has upcoming/active live
@@ -7950,24 +7962,24 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_Upcoming
  *        Value "upcoming"
  */
-@property(copy, nullable) NSString *liveBroadcastContent;
+@property(nonatomic, copy, nullable) NSString *liveBroadcastContent;
 
 /**
  *  The creation date and time of the resource that the search result
  *  identifies. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ)
  *  format.
  */
-@property(strong, nullable) GTLRDateTime *publishedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  A map of thumbnail images associated with the search result. For each object
  *  in the map, the key is the name of the thumbnail image, and the value is an
  *  object that contains other information about the thumbnail.
  */
-@property(strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
 
 /** The title of the search result. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -7980,23 +7992,23 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_Sponsor : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube assigns to uniquely identify the sponsor.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#sponsor".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The snippet object contains basic details about the sponsor. */
-@property(strong, nullable) GTLRYouTube_SponsorSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_SponsorSnippet *snippet;
 
 @end
 
@@ -8012,10 +8024,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_SponsorListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of sponsors that match the request criteria.
@@ -8023,25 +8035,25 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_Sponsor *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_Sponsor *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#sponsorListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -8052,16 +8064,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_SponsorSnippet : GTLRObject
 
 /** The id of the channel being sponsored. */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /** Details about the sponsor. */
-@property(strong, nullable) GTLRYouTube_ChannelProfileDetails *sponsorDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *sponsorDetails;
 
 /**
  *  The date and time when the user became a sponsor. The value is specified in
  *  ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *sponsorSince;
+@property(nonatomic, strong, nullable) GTLRDateTime *sponsorSince;
 
 @end
 
@@ -8077,34 +8089,34 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 /**
  *  The contentDetails object contains basic statistics about the subscription.
  */
-@property(strong, nullable) GTLRYouTube_SubscriptionContentDetails *contentDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_SubscriptionContentDetails *contentDetails;
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube uses to uniquely identify the subscription.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#subscription".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The snippet object contains basic details about the subscription, including
  *  its title and the channel that the user subscribed to.
  */
-@property(strong, nullable) GTLRYouTube_SubscriptionSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_SubscriptionSnippet *snippet;
 
 /**
  *  The subscriberSnippet object contains basic details about the sbuscriber.
  */
-@property(strong, nullable) GTLRYouTube_SubscriptionSubscriberSnippet *subscriberSnippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_SubscriptionSubscriberSnippet *subscriberSnippet;
 
 @end
 
@@ -8123,21 +8135,21 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_SubscriptionContentDetails_ActivityType_Uploads Value
  *        "uploads"
  */
-@property(copy, nullable) NSString *activityType;
+@property(nonatomic, copy, nullable) NSString *activityType;
 
 /**
  *  The number of new items in the subscription since its content was last read.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *newItemCount NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, strong, nullable) NSNumber *newItemCount NS_RETURNS_NOT_RETAINED;
 
 /**
  *  The approximate number of items that the subscription points to.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *totalItemCount;
+@property(nonatomic, strong, nullable) NSNumber *totalItemCount;
 
 @end
 
@@ -8153,10 +8165,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_SubscriptionListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of subscriptions that match the request criteria.
@@ -8164,32 +8176,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_Subscription *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_Subscription *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#subscriptionListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the previous page in the result set.
  */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -8201,39 +8213,39 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_SubscriptionSnippet : GTLRObject
 
 /** The ID that YouTube uses to uniquely identify the subscriber's channel. */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /** Channel title for the channel that the subscription belongs to. */
-@property(copy, nullable) NSString *channelTitle;
+@property(nonatomic, copy, nullable) NSString *channelTitle;
 
 /**
  *  The subscription's details.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The date and time that the subscription was created. The value is specified
  *  in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *publishedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  The id object contains information about the channel that the user
  *  subscribed to.
  */
-@property(strong, nullable) GTLRYouTube_ResourceId *resourceId;
+@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
 /**
  *  A map of thumbnail images associated with the video. For each object in the
  *  map, the key is the name of the thumbnail image, and the value is an object
  *  that contains other information about the thumbnail.
  */
-@property(strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
 
 /** The subscription's title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -8245,20 +8257,20 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_SubscriptionSubscriberSnippet : GTLRObject
 
 /** The channel ID of the subscriber. */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  The description of the subscriber.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** Thumbnails for this subscriber. */
-@property(strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
 
 /** The title of the subscriber. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -8273,17 +8285,17 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /** The thumbnail image's URL. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  (Optional) Width of the thumbnail image.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -8298,19 +8310,19 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Remapped to 'defaultProperty' to avoid language reserved word 'default'.
  */
-@property(strong, nullable) GTLRYouTube_Thumbnail *defaultProperty;
+@property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *defaultProperty;
 
 /** The high quality image for this resource. */
-@property(strong, nullable) GTLRYouTube_Thumbnail *high;
+@property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *high;
 
 /** The maximum resolution quality image for this resource. */
-@property(strong, nullable) GTLRYouTube_Thumbnail *maxres;
+@property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *maxres;
 
 /** The medium quality image for this resource. */
-@property(strong, nullable) GTLRYouTube_Thumbnail *medium;
+@property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *medium;
 
 /** The standard quality image for this resource. */
-@property(strong, nullable) GTLRYouTube_Thumbnail *standard;
+@property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *standard;
 
 @end
 
@@ -8324,10 +8336,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_ThumbnailSetResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of thumbnails.
@@ -8335,16 +8347,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_ThumbnailDetails *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_ThumbnailDetails *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#thumbnailSetResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -8365,16 +8377,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  Age restriction details related to a video. This data can only be retrieved
  *  by the video owner.
  */
-@property(strong, nullable) GTLRYouTube_VideoAgeGating *ageGating;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoAgeGating *ageGating;
 
 /**
  *  The contentDetails object contains information about the video content,
  *  including the length of the video and its aspect ratio.
  */
-@property(strong, nullable) GTLRYouTube_VideoContentDetails *contentDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoContentDetails *contentDetails;
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The fileDetails object encapsulates information about the video file that
@@ -8382,42 +8394,42 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  and video codecs, stream bitrates, and more. This data can only be retrieved
  *  by the video owner.
  */
-@property(strong, nullable) GTLRYouTube_VideoFileDetails *fileDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoFileDetails *fileDetails;
 
 /**
  *  The ID that YouTube uses to uniquely identify the video.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#video".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The liveStreamingDetails object contains metadata about a live video
  *  broadcast. The object will only be present in a video resource if the video
  *  is an upcoming, live, or completed live broadcast.
  */
-@property(strong, nullable) GTLRYouTube_VideoLiveStreamingDetails *liveStreamingDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoLiveStreamingDetails *liveStreamingDetails;
 
 /** List with all localizations. */
-@property(strong, nullable) GTLRYouTube_VideoLocalizations *localizations;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoLocalizations *localizations;
 
 /**
  *  The monetizationDetails object encapsulates information about the
  *  monetization status of the video.
  */
-@property(strong, nullable) GTLRYouTube_VideoMonetizationDetails *monetizationDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoMonetizationDetails *monetizationDetails;
 
 /**
  *  The player object contains information that you would use to play the video
  *  in an embedded player.
  */
-@property(strong, nullable) GTLRYouTube_VideoPlayer *player;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoPlayer *player;
 
 /**
  *  The processingProgress object encapsulates information about YouTube's
@@ -8430,47 +8442,47 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  uploaded can track the progress that YouTube has made in processing the
  *  uploaded video file. This data can only be retrieved by the video owner.
  */
-@property(strong, nullable) GTLRYouTube_VideoProcessingDetails *processingDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoProcessingDetails *processingDetails;
 
 /**
  *  The projectDetails object contains information about the project specific
  *  video metadata.
  */
-@property(strong, nullable) GTLRYouTube_VideoProjectDetails *projectDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoProjectDetails *projectDetails;
 
 /**
  *  The recordingDetails object encapsulates information about the location,
  *  date and address where the video was recorded.
  */
-@property(strong, nullable) GTLRYouTube_VideoRecordingDetails *recordingDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoRecordingDetails *recordingDetails;
 
 /**
  *  The snippet object contains basic details about the video, such as its
  *  title, description, and category.
  */
-@property(strong, nullable) GTLRYouTube_VideoSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoSnippet *snippet;
 
 /** The statistics object contains statistics about the video. */
-@property(strong, nullable) GTLRYouTube_VideoStatistics *statistics;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoStatistics *statistics;
 
 /**
  *  The status object contains information about the video's uploading,
  *  processing, and privacy statuses.
  */
-@property(strong, nullable) GTLRYouTube_VideoStatus *status;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoStatus *status;
 
 /**
  *  The suggestions object encapsulates suggestions that identify opportunities
  *  to improve the video quality or the metadata for the uploaded video. This
  *  data can only be retrieved by the video owner.
  */
-@property(strong, nullable) GTLRYouTube_VideoSuggestions *suggestions;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoSuggestions *suggestions;
 
 /**
  *  The topicDetails object encapsulates information about Freebase topics
  *  associated with the video.
  */
-@property(strong, nullable) GTLRYouTube_VideoTopicDetails *topicDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoTopicDetails *topicDetails;
 
 @end
 
@@ -8493,26 +8505,26 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_VideoAbuseReport : GTLRObject
 
 /** Additional comments regarding the abuse report. */
-@property(copy, nullable) NSString *comments;
+@property(nonatomic, copy, nullable) NSString *comments;
 
 /** The language that the content was viewed in. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The high-level, or primary, reason that the content is abusive. The value is
  *  an abuse report reason ID.
  */
-@property(copy, nullable) NSString *reasonId;
+@property(nonatomic, copy, nullable) NSString *reasonId;
 
 /**
  *  The specific, or secondary, reason that this content is abusive (if
  *  available). The value is an abuse report reason ID that is a valid secondary
  *  reason for the primary reason.
  */
-@property(copy, nullable) NSString *secondaryReasonId;
+@property(nonatomic, copy, nullable) NSString *secondaryReasonId;
 
 /** The ID that YouTube uses to uniquely identify the video. */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
 
@@ -8525,25 +8537,25 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_VideoAbuseReportReason : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID of this abuse report reason.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#videoAbuseReportReason".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The snippet object contains basic details about the abuse report reason.
  */
-@property(strong, nullable) GTLRYouTube_VideoAbuseReportReasonSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoAbuseReportReasonSnippet *snippet;
 
 @end
 
@@ -8557,10 +8569,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_VideoAbuseReportReasonListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of valid abuse reasons that are used with video.ReportAbuse.
@@ -8568,16 +8580,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_VideoAbuseReportReason *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_VideoAbuseReportReason *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#videoAbuseReportReasonListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -8588,13 +8600,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_VideoAbuseReportReasonSnippet : GTLRObject
 
 /** The localized label belonging to this abuse report reason. */
-@property(copy, nullable) NSString *label;
+@property(nonatomic, copy, nullable) NSString *label;
 
 /**
  *  The secondary reasons associated with this reason, if any are available.
  *  (There might be 0 or more.)
  */
-@property(strong, nullable) NSArray<GTLRYouTube_VideoAbuseReportSecondaryReason *> *secondaryReasons;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_VideoAbuseReportSecondaryReason *> *secondaryReasons;
 
 @end
 
@@ -8609,10 +8621,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The localized label for this abuse report secondary reason. */
-@property(copy, nullable) NSString *label;
+@property(nonatomic, copy, nullable) NSString *label;
 
 @end
 
@@ -8629,7 +8641,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *alcoholContent;
+@property(nonatomic, strong, nullable) NSNumber *alcoholContent;
 
 /**
  *  Age-restricted trailers. For redband trailers and adult-rated video-games.
@@ -8638,7 +8650,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *restricted;
+@property(nonatomic, strong, nullable) NSNumber *restricted;
 
 /**
  *  Video game rating, if any.
@@ -8652,7 +8664,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoAgeGating_VideoGameRating_M17Plus Value
  *        "m17Plus"
  */
-@property(copy, nullable) NSString *videoGameRating;
+@property(nonatomic, copy, nullable) NSString *videoGameRating;
 
 @end
 
@@ -8664,26 +8676,26 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_VideoCategory : GTLRObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID that YouTube uses to uniquely identify the video category.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#videoCategory".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The snippet object contains basic details about the video category,
  *  including its title.
  */
-@property(strong, nullable) GTLRYouTube_VideoCategorySnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoCategorySnippet *snippet;
 
 @end
 
@@ -8699,10 +8711,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_VideoCategoryListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of video categories that can be associated with YouTube videos. In
@@ -8712,32 +8724,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_VideoCategory *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_VideoCategory *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#videoCategoryListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the previous page in the result set.
  */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -8752,13 +8764,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *assignable;
+@property(nonatomic, strong, nullable) NSNumber *assignable;
 
 /** The YouTube channel that created the video category. */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /** The video category's title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -8775,18 +8787,18 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoContentDetails_Caption_False Value "false"
  *    @arg @c kGTLRYouTube_VideoContentDetails_Caption_True Value "true"
  */
-@property(copy, nullable) NSString *caption;
+@property(nonatomic, copy, nullable) NSString *caption;
 
 /**
  *  Specifies the ratings that the video received under various rating schemes.
  */
-@property(strong, nullable) GTLRYouTube_ContentRating *contentRating;
+@property(nonatomic, strong, nullable) GTLRYouTube_ContentRating *contentRating;
 
 /**
  *  The countryRestriction object contains information about the countries where
  *  a video is (or is not) viewable.
  */
-@property(strong, nullable) GTLRYouTube_AccessPolicy *countryRestriction;
+@property(nonatomic, strong, nullable) GTLRYouTube_AccessPolicy *countryRestriction;
 
 /**
  *  The value of definition indicates whether the video is available in high
@@ -8796,13 +8808,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoContentDetails_Definition_Hd Value "hd"
  *    @arg @c kGTLRYouTube_VideoContentDetails_Definition_Sd Value "sd"
  */
-@property(copy, nullable) NSString *definition;
+@property(nonatomic, copy, nullable) NSString *definition;
 
 /**
  *  The value of dimension indicates whether the video is available in 3D or in
  *  2D.
  */
-@property(copy, nullable) NSString *dimension;
+@property(nonatomic, copy, nullable) NSString *dimension;
 
 /**
  *  The length of the video. The tag value is an ISO 8601 duration in the format
@@ -8813,7 +8825,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  example, a value of PT15M51S indicates that the video is 15 minutes and 51
  *  seconds long.
  */
-@property(copy, nullable) NSString *duration;
+@property(nonatomic, copy, nullable) NSString *duration;
 
 /**
  *  The value of is_license_content indicates whether the video is licensed
@@ -8821,7 +8833,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *licensedContent;
+@property(nonatomic, strong, nullable) NSNumber *licensedContent;
 
 /**
  *  Specifies the projection format of the video.
@@ -8831,7 +8843,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "rectangular"
  *    @arg @c kGTLRYouTube_VideoContentDetails_Projection_X360 Value "360"
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  The regionRestriction object contains information about the countries where
@@ -8839,7 +8851,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  contentDetails.regionRestriction.allowed property or the
  *  contentDetails.regionRestriction.blocked property.
  */
-@property(strong, nullable) GTLRYouTube_VideoContentDetailsRegionRestriction *regionRestriction;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoContentDetailsRegionRestriction *regionRestriction;
 
 @end
 
@@ -8855,7 +8867,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  the video is blocked from appearing in that country. If this property is
  *  present and contains an empty list, the video is blocked in all countries.
  */
-@property(strong, nullable) NSArray<NSString *> *allowed;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowed;
 
 /**
  *  A list of region codes that identify countries where the video is blocked.
@@ -8863,7 +8875,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  the video is viewable in that country. If this property is present and
  *  contains an empty list, the video is viewable in all countries.
  */
-@property(strong, nullable) NSArray<NSString *> *blocked;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *blocked;
 
 @end
 
@@ -8879,7 +8891,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  A list of audio streams contained in the uploaded video file. Each item in
  *  the list contains detailed metadata about an audio stream.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_VideoFileDetailsAudioStream *> *audioStreams;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_VideoFileDetailsAudioStream *> *audioStreams;
 
 /**
  *  The uploaded video file's combined (video and audio) bitrate in bits per
@@ -8887,10 +8899,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *bitrateBps;
+@property(nonatomic, strong, nullable) NSNumber *bitrateBps;
 
 /** The uploaded video file's container format. */
-@property(copy, nullable) NSString *container;
+@property(nonatomic, copy, nullable) NSString *container;
 
 /**
  *  The date and time when the uploaded video file was created. The value is
@@ -8900,20 +8912,20 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  - Naive time: YYYY-MM-DDTHH:MM:SS
  *  - Time with timezone: YYYY-MM-DDTHH:MM:SS+HH:MM
  */
-@property(copy, nullable) NSString *creationTime;
+@property(nonatomic, copy, nullable) NSString *creationTime;
 
 /**
  *  The length of the uploaded video in milliseconds.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *durationMs;
+@property(nonatomic, strong, nullable) NSNumber *durationMs;
 
 /**
  *  The uploaded file's name. This field is present whether a video file or
  *  another type of file was uploaded.
  */
-@property(copy, nullable) NSString *fileName;
+@property(nonatomic, copy, nullable) NSString *fileName;
 
 /**
  *  The uploaded file's size in bytes. This field is present whether a video
@@ -8921,7 +8933,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *fileSize;
+@property(nonatomic, strong, nullable) NSNumber *fileSize;
 
 /**
  *  The uploaded file's type as detected by YouTube's video processing engine.
@@ -8937,19 +8949,19 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoFileDetails_FileType_Project Value "project"
  *    @arg @c kGTLRYouTube_VideoFileDetails_FileType_Video Value "video"
  */
-@property(copy, nullable) NSString *fileType;
+@property(nonatomic, copy, nullable) NSString *fileType;
 
 /**
  *  Geographic coordinates that identify the place where the uploaded video was
  *  recorded. Coordinates are defined using WGS 84.
  */
-@property(strong, nullable) GTLRYouTube_GeoPoint *recordingLocation;
+@property(nonatomic, strong, nullable) GTLRYouTube_GeoPoint *recordingLocation;
 
 /**
  *  A list of video streams contained in the uploaded video file. Each item in
  *  the list contains detailed metadata about a video stream.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_VideoFileDetailsVideoStream *> *videoStreams;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_VideoFileDetailsVideoStream *> *videoStreams;
 
 @end
 
@@ -8964,23 +8976,23 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *bitrateBps;
+@property(nonatomic, strong, nullable) NSNumber *bitrateBps;
 
 /**
  *  The number of audio channels that the stream contains.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *channelCount;
+@property(nonatomic, strong, nullable) NSNumber *channelCount;
 
 /** The audio codec that the stream uses. */
-@property(copy, nullable) NSString *codec;
+@property(nonatomic, copy, nullable) NSString *codec;
 
 /**
  *  A value that uniquely identifies a video vendor. Typically, the value is a
  *  four-letter vendor code.
  */
-@property(copy, nullable) NSString *vendor;
+@property(nonatomic, copy, nullable) NSString *vendor;
 
 @end
 
@@ -8996,31 +9008,31 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *aspectRatio;
+@property(nonatomic, strong, nullable) NSNumber *aspectRatio;
 
 /**
  *  The video stream's bitrate, in bits per second.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *bitrateBps;
+@property(nonatomic, strong, nullable) NSNumber *bitrateBps;
 
 /** The video codec that the stream uses. */
-@property(copy, nullable) NSString *codec;
+@property(nonatomic, copy, nullable) NSString *codec;
 
 /**
  *  The video stream's frame rate, in frames per second.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *frameRateFps;
+@property(nonatomic, strong, nullable) NSNumber *frameRateFps;
 
 /**
  *  The encoded video content's height in pixels.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *heightPixels;
+@property(nonatomic, strong, nullable) NSNumber *heightPixels;
 
 /**
  *  The amount that YouTube needs to rotate the original source content to
@@ -9038,13 +9050,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoFileDetailsVideoStream_Rotation_UpsideDown Value
  *        "upsideDown"
  */
-@property(copy, nullable) NSString *rotation;
+@property(nonatomic, copy, nullable) NSString *rotation;
 
 /**
  *  A value that uniquely identifies a video vendor. Typically, the value is a
  *  four-letter vendor code.
  */
-@property(copy, nullable) NSString *vendor;
+@property(nonatomic, copy, nullable) NSString *vendor;
 
 /**
  *  The encoded video content's width in pixels. You can calculate the video's
@@ -9052,7 +9064,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *widthPixels;
+@property(nonatomic, strong, nullable) NSNumber *widthPixels;
 
 @end
 
@@ -9066,10 +9078,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_VideoGetRatingResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of ratings that match the request criteria.
@@ -9077,16 +9089,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_VideoRating *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_VideoRating *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#videoGetRatingResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -9102,10 +9114,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_VideoListResponse : GTLRCollectionObject
 
 /** Etag of this resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  A list of videos that match the request criteria.
@@ -9113,32 +9125,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_Video *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_Video *> *items;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#videoListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the next page in the result set.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@property(strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
 /**
  *  The token that can be used as the value of the pageToken parameter to
  *  retrieve the previous page in the result set.
  */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
 
 /** The visitorId identifies the visitor. */
-@property(copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 
@@ -9156,21 +9168,21 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  will no longer be tied to this video but rather to the new video being
  *  displayed at the persistent page.
  */
-@property(copy, nullable) NSString *activeLiveChatId;
+@property(nonatomic, copy, nullable) NSString *activeLiveChatId;
 
 /**
  *  The time that the broadcast actually ended. The value is specified in ISO
  *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format. This value will not be available until
  *  the broadcast is over.
  */
-@property(strong, nullable) GTLRDateTime *actualEndTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *actualEndTime;
 
 /**
  *  The time that the broadcast actually started. The value is specified in ISO
  *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format. This value will not be available until
  *  the broadcast begins.
  */
-@property(strong, nullable) GTLRDateTime *actualStartTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *actualStartTime;
 
 /**
  *  The number of viewers currently watching the broadcast. The property and its
@@ -9182,7 +9194,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *concurrentViewers;
+@property(nonatomic, strong, nullable) NSNumber *concurrentViewers;
 
 /**
  *  The time that the broadcast is scheduled to end. The value is specified in
@@ -9190,13 +9202,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  property is not present, then the broadcast is scheduled to continue
  *  indefinitely.
  */
-@property(strong, nullable) GTLRDateTime *scheduledEndTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledEndTime;
 
 /**
  *  The time that the broadcast is scheduled to begin. The value is specified in
  *  ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *scheduledStartTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledStartTime;
 
 @end
 
@@ -9211,10 +9223,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** Localized version of the video's title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -9227,7 +9239,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 /**
  *  The value of access indicates whether the video can be monetized or not.
  */
-@property(strong, nullable) GTLRYouTube_AccessPolicy *access;
+@property(nonatomic, strong, nullable) GTLRYouTube_AccessPolicy *access;
 
 @end
 
@@ -9238,7 +9250,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_VideoPlayer : GTLRObject
 
 /** An <iframe> tag that embeds a player that will play the video. */
-@property(copy, nullable) NSString *embedHtml;
+@property(nonatomic, copy, nullable) NSString *embedHtml;
 
 @end
 
@@ -9255,14 +9267,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  can retrieve these suggestions by requesting the suggestions part in your
  *  videos.list() request.
  */
-@property(copy, nullable) NSString *editorSuggestionsAvailability;
+@property(nonatomic, copy, nullable) NSString *editorSuggestionsAvailability;
 
 /**
  *  This value indicates whether file details are available for the uploaded
  *  video. You can retrieve a video's file details by requesting the fileDetails
  *  part in your videos.list() request.
  */
-@property(copy, nullable) NSString *fileDetailsAvailability;
+@property(nonatomic, copy, nullable) NSString *fileDetailsAvailability;
 
 /**
  *  The reason that YouTube failed to process the video. This property will only
@@ -9278,7 +9290,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoProcessingDetails_ProcessingFailureReason_UploadFailed
  *        Value "uploadFailed"
  */
-@property(copy, nullable) NSString *processingFailureReason;
+@property(nonatomic, copy, nullable) NSString *processingFailureReason;
 
 /**
  *  This value indicates whether the video processing engine has generated
@@ -9287,14 +9299,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  processing problems. You can retrieve these suggestions by requesting the
  *  suggestions part in your videos.list() request.
  */
-@property(copy, nullable) NSString *processingIssuesAvailability;
+@property(nonatomic, copy, nullable) NSString *processingIssuesAvailability;
 
 /**
  *  The processingProgress object contains information about the progress
  *  YouTube has made in processing the video. The values are really only
  *  relevant if the video's processing status is processing.
  */
-@property(strong, nullable) GTLRYouTube_VideoProcessingDetailsProcessingProgress *processingProgress;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoProcessingDetailsProcessingProgress *processingProgress;
 
 /**
  *  The video's processing status. This value indicates whether YouTube was able
@@ -9310,7 +9322,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoProcessingDetails_ProcessingStatus_Terminated
  *        Value "terminated"
  */
-@property(copy, nullable) NSString *processingStatus;
+@property(nonatomic, copy, nullable) NSString *processingStatus;
 
 /**
  *  This value indicates whether keyword (tag) suggestions are available for the
@@ -9318,13 +9330,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  users to find the video. You can retrieve these suggestions by requesting
  *  the suggestions part in your videos.list() request.
  */
-@property(copy, nullable) NSString *tagSuggestionsAvailability;
+@property(nonatomic, copy, nullable) NSString *tagSuggestionsAvailability;
 
 /**
  *  This value indicates whether thumbnail images have been generated for the
  *  video.
  */
-@property(copy, nullable) NSString *thumbnailsAvailability;
+@property(nonatomic, copy, nullable) NSString *thumbnailsAvailability;
 
 @end
 
@@ -9346,7 +9358,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *partsProcessed;
+@property(nonatomic, strong, nullable) NSNumber *partsProcessed;
 
 /**
  *  An estimate of the total number of parts that need to be processed for the
@@ -9355,7 +9367,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *partsTotal;
+@property(nonatomic, strong, nullable) NSNumber *partsTotal;
 
 /**
  *  An estimate of the amount of time, in millseconds, that YouTube needs to
@@ -9363,7 +9375,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *timeLeftMs;
+@property(nonatomic, strong, nullable) NSNumber *timeLeftMs;
 
 @end
 
@@ -9374,7 +9386,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_VideoProjectDetails : GTLRObject
 
 /** A list of project tags associated with the video during the upload. */
-@property(strong, nullable) NSArray<NSString *> *tags;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 @end
 
@@ -9393,9 +9405,9 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoRating_Rating_None Value "none"
  *    @arg @c kGTLRYouTube_VideoRating_Rating_Unspecified Value "unspecified"
  */
-@property(copy, nullable) NSString *rating;
+@property(nonatomic, copy, nullable) NSString *rating;
 
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
 
@@ -9406,16 +9418,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_VideoRecordingDetails : GTLRObject
 
 /** The geolocation information associated with the video. */
-@property(strong, nullable) GTLRYouTube_GeoPoint *location;
+@property(nonatomic, strong, nullable) GTLRYouTube_GeoPoint *location;
 
 /** The text description of the location where the video was recorded. */
-@property(copy, nullable) NSString *locationDescription;
+@property(nonatomic, copy, nullable) NSString *locationDescription;
 
 /**
  *  The date and time when the video was recorded. The value is specified in ISO
  *  8601 (YYYY-MM-DDThh:mm:ss.sssZ) format.
  */
-@property(strong, nullable) GTLRDateTime *recordingDate;
+@property(nonatomic, strong, nullable) GTLRDateTime *recordingDate;
 
 @end
 
@@ -9427,32 +9439,32 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_VideoSnippet : GTLRObject
 
 /** The YouTube video category associated with the video. */
-@property(copy, nullable) NSString *categoryId;
+@property(nonatomic, copy, nullable) NSString *categoryId;
 
 /**
  *  The ID that YouTube uses to uniquely identify the channel that the video was
  *  uploaded to.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /** Channel title for the channel that the video belongs to. */
-@property(copy, nullable) NSString *channelTitle;
+@property(nonatomic, copy, nullable) NSString *channelTitle;
 
 /**
  *  The default_audio_language property specifies the language spoken in the
  *  video's default audio track.
  */
-@property(copy, nullable) NSString *defaultAudioLanguage;
+@property(nonatomic, copy, nullable) NSString *defaultAudioLanguage;
 
 /** The language of the videos's default snippet. */
-@property(copy, nullable) NSString *defaultLanguage;
+@property(nonatomic, copy, nullable) NSString *defaultLanguage;
 
 /**
  *  The video's description.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Indicates if the video is an upcoming/active live broadcast. Or it's "none"
@@ -9464,34 +9476,34 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoSnippet_LiveBroadcastContent_Upcoming Value
  *        "upcoming"
  */
-@property(copy, nullable) NSString *liveBroadcastContent;
+@property(nonatomic, copy, nullable) NSString *liveBroadcastContent;
 
 /**
  *  Localized snippet selected with the hl parameter. If no such localization
  *  exists, this field is populated with the default snippet. (Read-only)
  */
-@property(strong, nullable) GTLRYouTube_VideoLocalization *localized;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoLocalization *localized;
 
 /**
  *  The date and time that the video was uploaded. The value is specified in ISO
  *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *publishedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  A list of keyword tags associated with the video. Tags may contain spaces.
  */
-@property(strong, nullable) NSArray<NSString *> *tags;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 /**
  *  A map of thumbnail images associated with the video. For each object in the
  *  map, the key is the name of the thumbnail image, and the value is an object
  *  that contains other information about the thumbnail.
  */
-@property(strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
+@property(nonatomic, strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
 
 /** The video's title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -9507,7 +9519,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *commentCount;
+@property(nonatomic, strong, nullable) NSNumber *commentCount;
 
 /**
  *  The number of users who have indicated that they disliked the video by
@@ -9515,14 +9527,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *dislikeCount;
+@property(nonatomic, strong, nullable) NSNumber *dislikeCount;
 
 /**
  *  The number of users who currently have the video marked as a favorite video.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *favoriteCount;
+@property(nonatomic, strong, nullable) NSNumber *favoriteCount;
 
 /**
  *  The number of users who have indicated that they liked the video by giving
@@ -9530,14 +9542,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *likeCount;
+@property(nonatomic, strong, nullable) NSNumber *likeCount;
 
 /**
  *  The number of times the video has been viewed.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *viewCount;
+@property(nonatomic, strong, nullable) NSNumber *viewCount;
 
 @end
 
@@ -9552,7 +9564,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *embeddable;
+@property(nonatomic, strong, nullable) NSNumber *embeddable;
 
 /**
  *  This value explains why a video failed to upload. This property is only
@@ -9569,7 +9581,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoStatus_FailureReason_UploadAborted Value
  *        "uploadAborted"
  */
-@property(copy, nullable) NSString *failureReason;
+@property(nonatomic, copy, nullable) NSString *failureReason;
 
 /**
  *  The video's license.
@@ -9579,7 +9591,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "creativeCommon"
  *    @arg @c kGTLRYouTube_VideoStatus_License_Youtube Value "youtube"
  */
-@property(copy, nullable) NSString *license;
+@property(nonatomic, copy, nullable) NSString *license;
 
 /**
  *  The video's privacy status.
@@ -9589,7 +9601,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoStatus_PrivacyStatus_Public Value "public"
  *    @arg @c kGTLRYouTube_VideoStatus_PrivacyStatus_Unlisted Value "unlisted"
  */
-@property(copy, nullable) NSString *privacyStatus;
+@property(nonatomic, copy, nullable) NSString *privacyStatus;
 
 /**
  *  This value indicates if the extended video statistics on the watch page can
@@ -9598,14 +9610,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *publicStatsViewable;
+@property(nonatomic, strong, nullable) NSNumber *publicStatsViewable;
 
 /**
  *  The date and time when the video is scheduled to publish. It can be set only
  *  if the privacy status of the video is private. The value is specified in ISO
  *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *publishAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishAt;
 
 /**
  *  This value explains why YouTube rejected an uploaded video. This property is
@@ -9631,7 +9643,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoStatus_RejectionReason_UploaderAccountSuspended
  *        Value "uploaderAccountSuspended"
  */
-@property(copy, nullable) NSString *rejectionReason;
+@property(nonatomic, copy, nullable) NSString *rejectionReason;
 
 /**
  *  The status of the uploaded video.
@@ -9643,7 +9655,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoStatus_UploadStatus_Rejected Value "rejected"
  *    @arg @c kGTLRYouTube_VideoStatus_UploadStatus_Uploaded Value "uploaded"
  */
-@property(copy, nullable) NSString *uploadStatus;
+@property(nonatomic, copy, nullable) NSString *uploadStatus;
 
 @end
 
@@ -9658,7 +9670,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  A list of video editing operations that might improve the video quality or
  *  playback experience of the uploaded video.
  */
-@property(strong, nullable) NSArray<NSString *> *editorSuggestions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *editorSuggestions;
 
 /**
  *  A list of errors that will prevent YouTube from successfully processing the
@@ -9666,13 +9678,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  current processing status, eventually, that status will almost certainly be
  *  failed.
  */
-@property(strong, nullable) NSArray<NSString *> *processingErrors;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *processingErrors;
 
 /**
  *  A list of suggestions that may improve YouTube's ability to process the
  *  video.
  */
-@property(strong, nullable) NSArray<NSString *> *processingHints;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *processingHints;
 
 /**
  *  A list of reasons why YouTube may have difficulty transcoding the uploaded
@@ -9682,14 +9694,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  processing to fail but that might cause problems such as sync issues, video
  *  artifacts, or a missing audio track.
  */
-@property(strong, nullable) NSArray<NSString *> *processingWarnings;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *processingWarnings;
 
 /**
  *  A list of keyword tags that could be added to the video's metadata to
  *  increase the likelihood that users will locate your video when searching or
  *  browsing on YouTube.
  */
-@property(strong, nullable) NSArray<GTLRYouTube_VideoSuggestionsTagSuggestion *> *tagSuggestions;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_VideoSuggestionsTagSuggestion *> *tagSuggestions;
 
 @end
 
@@ -9706,10 +9718,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  suggestions are relevant for all categories if there are no restricts
  *  defined for the keyword.
  */
-@property(strong, nullable) NSArray<NSString *> *categoryRestricts;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *categoryRestricts;
 
 /** The keyword tag suggested for the video. */
-@property(copy, nullable) NSString *tag;
+@property(nonatomic, copy, nullable) NSString *tag;
 
 @end
 
@@ -9724,7 +9736,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  video. These are topics that may be mentioned in, or appear in the video.
  *  You can retrieve information about each topic using Freebase Topic API.
  */
-@property(strong, nullable) NSArray<NSString *> *relevantTopicIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *relevantTopicIds;
 
 /**
  *  A list of Freebase topic IDs that are centrally associated with the video.
@@ -9732,7 +9744,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  said that the video is mainly about each of these. You can retrieve
  *  information about each topic using the Freebase Topic API.
  */
-@property(strong, nullable) NSArray<NSString *> *topicIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *topicIds;
 
 @end
 
@@ -9743,16 +9755,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_WatchSettings : GTLRObject
 
 /** The text color for the video watch page's branded area. */
-@property(copy, nullable) NSString *backgroundColor;
+@property(nonatomic, copy, nullable) NSString *backgroundColor;
 
 /**
  *  An ID that uniquely identifies a playlist that displays next to the video
  *  player.
  */
-@property(copy, nullable) NSString *featuredPlaylistId;
+@property(nonatomic, copy, nullable) NSString *featuredPlaylistId;
 
 /** The background color for the video watch page's branded area. */
-@property(copy, nullable) NSString *textColor;
+@property(nonatomic, copy, nullable) NSString *textColor;
 
 @end
 

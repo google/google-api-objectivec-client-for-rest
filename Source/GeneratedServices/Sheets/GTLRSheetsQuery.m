@@ -19,6 +19,10 @@
 NSString * const kGTLRSheetsDateTimeRenderOptionFormattedString = @"FORMATTED_STRING";
 NSString * const kGTLRSheetsDateTimeRenderOptionSerialNumber   = @"SERIAL_NUMBER";
 
+// insertDataOption
+NSString * const kGTLRSheetsInsertDataOptionInsertRows = @"INSERT_ROWS";
+NSString * const kGTLRSheetsInsertDataOptionOverwrite  = @"OVERWRITE";
+
 // majorDimension
 NSString * const kGTLRSheetsMajorDimensionColumns              = @"COLUMNS";
 NSString * const kGTLRSheetsMajorDimensionDimensionUnspecified = @"DIMENSION_UNSPECIFIED";
@@ -139,6 +143,35 @@ NSString * const kGTLRSheetsValueRenderOptionUnformattedValue = @"UNFORMATTED_VA
   query.sheetId = sheetId;
   query.expectedObjectClass = [GTLRSheets_SheetProperties class];
   query.loggingName = @"sheets.spreadsheets.sheets.copyTo";
+  return query;
+}
+
+@end
+
+@implementation GTLRSheetsQuery_SpreadsheetsValuesAppend
+
+@dynamic insertDataOption, range, spreadsheetId, valueInputOption;
+
++ (instancetype)queryWithObject:(GTLRSheets_ValueRange *)object
+                  spreadsheetId:(NSString *)spreadsheetId
+                          range:(NSString *)range {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"range", @"spreadsheetId"
+  ];
+  NSString *pathURITemplate = @"v4/spreadsheets/{spreadsheetId}/values/{range}:append";
+  GTLRSheetsQuery_SpreadsheetsValuesAppend *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.spreadsheetId = spreadsheetId;
+  query.range = range;
+  query.expectedObjectClass = [GTLRSheets_AppendValuesResponse class];
+  query.loggingName = @"sheets.spreadsheets.values.append";
   return query;
 }
 

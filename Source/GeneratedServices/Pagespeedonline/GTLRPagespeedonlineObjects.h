@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPagespeedonline_PagespeedApiFormatStringV2 : GTLRObject
 
 /** List of arguments for the format string. */
-@property(strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItem *> *args;
+@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItem *> *args;
 
 /**
  *  A localized format string with {{FOO}} placeholders, where 'FOO' is the key
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the format string will instead contain {{BEGIN_FOO}} and {{END_FOO}} for the
  *  argument with key 'FOO'.
  */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 @end
 
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItem : GTLRObject
 
 /** The placeholder key for this arg, as a string. */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 /**
  *  The screen rectangles being referred to, with dimensions measured in CSS
@@ -70,22 +70,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  absent for a SNAPSHOT_RECT argument, it means that that argument refers to
  *  the entire snapshot.
  */
-@property(strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItemRectsItem *> *rects;
+@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItemRectsItem *> *rects;
 
 /**
  *  Secondary screen rectangles being referred to, with dimensions measured in
  *  CSS pixels. This is only ever used for SNAPSHOT_RECT arguments.
  */
-@property(strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItemSecondaryRectsItem *> *secondaryRects;
+@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItemSecondaryRectsItem *> *secondaryRects;
 
 /**
  *  Type of argument. One of URL, STRING_LITERAL, INT_LITERAL, BYTES, DURATION,
  *  VERBATIM_STRING, PERCENTAGE, HYPERLINK, or SNAPSHOT_RECT.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Argument value, as a localized string. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -100,28 +100,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
  *  The left coordinate of the rect, in page coordinates.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *left;
+@property(nonatomic, strong, nullable) NSNumber *left;
 
 /**
  *  The top coordinate of the rect, in page coordinates.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *top;
+@property(nonatomic, strong, nullable) NSNumber *top;
 
 /**
  *  The width of the rect.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -136,28 +136,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
  *  The left coordinate of the rect, in page coordinates.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *left;
+@property(nonatomic, strong, nullable) NSNumber *left;
 
 /**
  *  The top coordinate of the rect, in page coordinates.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *top;
+@property(nonatomic, strong, nullable) NSNumber *top;
 
 /**
  *  The width of the rect.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -173,33 +173,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *data;
+@property(nonatomic, copy, nullable) NSString *data;
 
 /**
  *  Height of screenshot in pixels.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /** Unique string key, if any, identifying this image. */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 /** Mime type of image data (e.g. "image/jpeg"). */
-@property(copy, nullable) NSString *mimeType;
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
  *  The region of the page that is captured by this image, with dimensions
  *  measured in CSS pixels.
  */
-@property(strong, nullable) GTLRPagespeedonline_PagespeedApiImageV2PageRect *pageRect;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_PagespeedApiImageV2PageRect *pageRect;
 
 /**
  *  Width of screenshot in pixels.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -215,28 +215,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
  *  The left coordinate of the rect, in page coordinates.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *left;
+@property(nonatomic, strong, nullable) NSNumber *left;
 
 /**
  *  The top coordinate of the rect, in page coordinates.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *top;
+@property(nonatomic, strong, nullable) NSNumber *top;
 
 /**
  *  The width of the rect.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -250,7 +250,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Localized PageSpeed results. Contains a ruleResults entry for each PageSpeed
  *  rule instantiated and run by the server.
  */
-@property(strong, nullable) GTLRPagespeedonline_ResultFormattedResults *formattedResults;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_ResultFormattedResults *formattedResults;
 
 /**
  *  Canonicalized and final URL for the document, after following page redirects
@@ -258,22 +258,22 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  List of rules that were specified in the request, but which the server did
  *  not know how to instantiate.
  */
-@property(strong, nullable) NSArray<NSString *> *invalidRules;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *invalidRules;
 
 /** Kind of result. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Summary statistics for the page, such as number of JavaScript bytes, number
  *  of HTML bytes, etc.
  */
-@property(strong, nullable) GTLRPagespeedonline_ResultPageStats *pageStats;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_ResultPageStats *pageStats;
 
 /**
  *  Response code for the document. 200 indicates a normal page load. 4xx/5xx
@@ -281,19 +281,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *responseCode;
+@property(nonatomic, strong, nullable) NSNumber *responseCode;
 
 /** A map with one entry for each rule group in these results. */
-@property(strong, nullable) GTLRPagespeedonline_ResultRuleGroups *ruleGroups;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_ResultRuleGroups *ruleGroups;
 
 /** Base64-encoded screenshot of the page that was analyzed. */
-@property(strong, nullable) GTLRPagespeedonline_PagespeedApiImageV2 *screenshot;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_PagespeedApiImageV2 *screenshot;
 
 /** Title of the page, as displayed in the browser's title bar. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** The version of PageSpeed used to generate these results. */
-@property(strong, nullable) GTLRPagespeedonline_ResultVersion *version;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_ResultVersion *version;
 
 @end
 
@@ -305,13 +305,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPagespeedonline_ResultFormattedResults : GTLRObject
 
 /** The locale of the formattedResults, e.g. "en_US". */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  Dictionary of formatted rule results, with one entry for each PageSpeed rule
  *  instantiated and run by the server.
  */
-@property(strong, nullable) GTLRPagespeedonline_ResultFormattedResultsRuleResults *ruleResults;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_ResultFormattedResultsRuleResults *ruleResults;
 
 @end
 
@@ -327,14 +327,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *cssResponseBytes;
+@property(nonatomic, strong, nullable) NSNumber *cssResponseBytes;
 
 /**
  *  Number of response bytes for flash resources on the page.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *flashResponseBytes;
+@property(nonatomic, strong, nullable) NSNumber *flashResponseBytes;
 
 /**
  *  Number of uncompressed response bytes for the main HTML document and all
@@ -342,63 +342,63 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *htmlResponseBytes;
+@property(nonatomic, strong, nullable) NSNumber *htmlResponseBytes;
 
 /**
  *  Number of response bytes for image resources on the page.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *imageResponseBytes;
+@property(nonatomic, strong, nullable) NSNumber *imageResponseBytes;
 
 /**
  *  Number of uncompressed response bytes for JS resources on the page.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *javascriptResponseBytes;
+@property(nonatomic, strong, nullable) NSNumber *javascriptResponseBytes;
 
 /**
  *  Number of CSS resources referenced by the page.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numberCssResources;
+@property(nonatomic, strong, nullable) NSNumber *numberCssResources;
 
 /**
  *  Number of unique hosts referenced by the page.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numberHosts;
+@property(nonatomic, strong, nullable) NSNumber *numberHosts;
 
 /**
  *  Number of JavaScript resources referenced by the page.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numberJsResources;
+@property(nonatomic, strong, nullable) NSNumber *numberJsResources;
 
 /**
  *  Number of HTTP resources loaded by the page.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numberResources;
+@property(nonatomic, strong, nullable) NSNumber *numberResources;
 
 /**
  *  Number of static (i.e. cacheable) resources on the page.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numberStaticResources;
+@property(nonatomic, strong, nullable) NSNumber *numberStaticResources;
 
 /**
  *  Number of response bytes for other resources on the page.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *otherResponseBytes;
+@property(nonatomic, strong, nullable) NSNumber *otherResponseBytes;
 
 /**
  *  Number of uncompressed response bytes for text resources not covered by
@@ -406,14 +406,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *textResponseBytes;
+@property(nonatomic, strong, nullable) NSNumber *textResponseBytes;
 
 /**
  *  Total size of all request bytes sent by the page.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *totalRequestBytes;
+@property(nonatomic, strong, nullable) NSNumber *totalRequestBytes;
 
 @end
 
@@ -441,14 +441,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *major;
+@property(nonatomic, strong, nullable) NSNumber *major;
 
 /**
  *  The minor version number of PageSpeed used to generate these results.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *minor;
+@property(nonatomic, strong, nullable) NSNumber *minor;
 
 @end
 
@@ -480,7 +480,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *score;
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 
@@ -495,10 +495,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  List of rule groups that this rule belongs to. Each entry in the list is one
  *  of "SPEED" or "USABILITY".
  */
-@property(strong, nullable) NSArray<NSString *> *groups;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *groups;
 
 /** Localized name of the rule, intended for presentation to a user. */
-@property(copy, nullable) NSString *localizedRuleName;
+@property(nonatomic, copy, nullable) NSString *localizedRuleName;
 
 /**
  *  The impact (unbounded floating point value) that implementing the
@@ -511,20 +511,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *ruleImpact;
+@property(nonatomic, strong, nullable) NSNumber *ruleImpact;
 
 /**
  *  A brief summary description for the rule, indicating at a high level what
  *  should be done to follow the rule and what benefit can be gained by doing
  *  so.
  */
-@property(strong, nullable) GTLRPagespeedonline_PagespeedApiFormatStringV2 *summary;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_PagespeedApiFormatStringV2 *summary;
 
 /**
  *  List of blocks of URLs. Each block may contain a heading and a list of URLs.
  *  Each URL may optionally include additional details.
  */
-@property(strong, nullable) NSArray<GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResultUrlBlocksItem *> *urlBlocks;
+@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResultUrlBlocksItem *> *urlBlocks;
 
 @end
 
@@ -535,13 +535,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResultUrlBlocksItem : GTLRObject
 
 /** Heading to be displayed with the list of URLs. */
-@property(strong, nullable) GTLRPagespeedonline_PagespeedApiFormatStringV2 *header;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_PagespeedApiFormatStringV2 *header;
 
 /**
  *  List of entries that provide information about URLs in the url block.
  *  Optional.
  */
-@property(strong, nullable) NSArray<GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResultUrlBlocksItemUrlsItem *> *urls;
+@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResultUrlBlocksItemUrlsItem *> *urls;
 
 @end
 
@@ -555,13 +555,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  List of entries that provide additional details about a single URL.
  *  Optional.
  */
-@property(strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2 *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2 *> *details;
 
 /**
  *  A format string that gives information about the URL, and a list of
  *  arguments for that format string.
  */
-@property(strong, nullable) GTLRPagespeedonline_PagespeedApiFormatStringV2 *result;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_PagespeedApiFormatStringV2 *result;
 
 @end
 

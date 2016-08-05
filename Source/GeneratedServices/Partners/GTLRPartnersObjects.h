@@ -637,7 +637,7 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numberUsersPass;
+@property(nonatomic, strong, nullable) NSNumber *numberUsersPass;
 
 /**
  *  The type of certification exam.
@@ -660,7 +660,7 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *    @arg @c kGTLRPartners_CertificationExamStatus_Type_CetVideoAds Value
  *        "CET_VIDEO_ADS"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -671,14 +671,14 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_CertificationStatus : GTLRObject
 
 /** List of certification exam statuses. */
-@property(strong, nullable) NSArray<GTLRPartners_CertificationExamStatus *> *examStatuses;
+@property(nonatomic, strong, nullable) NSArray<GTLRPartners_CertificationExamStatus *> *examStatuses;
 
 /**
  *  Whether certification is passing.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isCertified;
+@property(nonatomic, strong, nullable) NSNumber *isCertified;
 
 /**
  *  The type of the certification.
@@ -700,7 +700,7 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *    @arg @c kGTLRPartners_CertificationStatus_Type_CtYoutube Value
  *        "CT_YOUTUBE"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -712,53 +712,53 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_Company : GTLRObject
 
 /** The list of Google Partners certification statuses for the company. */
-@property(strong, nullable) NSArray<GTLRPartners_CertificationStatus *> *certificationStatuses;
+@property(nonatomic, strong, nullable) NSArray<GTLRPartners_CertificationStatus *> *certificationStatuses;
 
 /**
  *  The minimum monthly budget that the company accepts for partner business,
  *  converted to the requested currency code.
  */
-@property(strong, nullable) GTLRPartners_Money *convertedMinMonthlyBudget;
+@property(nonatomic, strong, nullable) GTLRPartners_Money *convertedMinMonthlyBudget;
 
 /**
  *  The ID of the company.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Industries the company can help with. */
-@property(strong, nullable) NSArray<NSString *> *industries;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *industries;
 
 /** The list of localized info for the company. */
-@property(strong, nullable) NSArray<GTLRPartners_LocalizedCompanyInfo *> *localizedInfos;
+@property(nonatomic, strong, nullable) NSArray<GTLRPartners_LocalizedCompanyInfo *> *localizedInfos;
 
 /** The list of company locations. */
-@property(strong, nullable) NSArray<GTLRPartners_Location *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRPartners_Location *> *locations;
 
 /** The name of the company. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The unconverted minimum monthly budget that the company accepts for partner
  *  business.
  */
-@property(strong, nullable) GTLRPartners_Money *originalMinMonthlyBudget;
+@property(nonatomic, strong, nullable) GTLRPartners_Money *originalMinMonthlyBudget;
 
 /** Basic information from the company's public profile. */
-@property(strong, nullable) GTLRPartners_PublicProfile *publicProfile;
+@property(nonatomic, strong, nullable) GTLRPartners_PublicProfile *publicProfile;
 
 /**
  *  Information related to the ranking of the company within the list of
  *  companies.
  */
-@property(strong, nullable) NSArray<GTLRPartners_Rank *> *ranks;
+@property(nonatomic, strong, nullable) NSArray<GTLRPartners_Rank *> *ranks;
 
 /** Services the company can help with. */
-@property(strong, nullable) NSArray<NSString *> *services;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
 /** URL of the company's website. */
-@property(copy, nullable) NSString *websiteUrl;
+@property(nonatomic, copy, nullable) NSString *websiteUrl;
 
 @end
 
@@ -772,13 +772,13 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *  The lead resource. The `LeadType` must not be `LEAD_TYPE_UNSPECIFIED` and
  *  either `email` or `phone_number` must be provided.
  */
-@property(strong, nullable) GTLRPartners_Lead *lead;
+@property(nonatomic, strong, nullable) GTLRPartners_Lead *lead;
 
 /** reCaptcha challenge info. */
-@property(strong, nullable) GTLRPartners_RecaptchaChallenge *recaptchaChallenge;
+@property(nonatomic, strong, nullable) GTLRPartners_RecaptchaChallenge *recaptchaChallenge;
 
 /** Current request metadata. */
-@property(strong, nullable) GTLRPartners_RequestMetadata *requestMetadata;
+@property(nonatomic, strong, nullable) GTLRPartners_RequestMetadata *requestMetadata;
 
 @end
 
@@ -789,7 +789,7 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_CreateLeadResponse : GTLRObject
 
 /** Lead that was created depending on the outcome of reCaptcha validation. */
-@property(strong, nullable) GTLRPartners_Lead *lead;
+@property(nonatomic, strong, nullable) GTLRPartners_Lead *lead;
 
 /**
  *  The outcome of reCaptcha validation.
@@ -804,10 +804,10 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *    @arg @c kGTLRPartners_CreateLeadResponse_RecaptchaStatus_RsPassed Value
  *        "RS_PASSED"
  */
-@property(copy, nullable) NSString *recaptchaStatus;
+@property(nonatomic, copy, nullable) NSString *recaptchaStatus;
 
 /** Current response metadata. */
-@property(strong, nullable) GTLRPartners_ResponseMetadata *responseMetadata;
+@property(nonatomic, strong, nullable) GTLRPartners_ResponseMetadata *responseMetadata;
 
 @end
 
@@ -818,13 +818,13 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_DebugInfo : GTLRObject
 
 /** Info about the server that serviced this request. */
-@property(copy, nullable) NSString *serverInfo;
+@property(nonatomic, copy, nullable) NSString *serverInfo;
 
 /** Server-side debug stack trace. */
-@property(copy, nullable) NSString *serverTraceInfo;
+@property(nonatomic, copy, nullable) NSString *serverTraceInfo;
 
 /** URL of the service that handled this request. */
-@property(copy, nullable) NSString *serviceUrl;
+@property(nonatomic, copy, nullable) NSString *serviceUrl;
 
 @end
 
@@ -883,10 +883,10 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *    @arg @c kGTLRPartners_EventData_Key_ViewPort Value "VIEW_PORT"
  *    @arg @c kGTLRPartners_EventData_Key_Website Value "WEBSITE"
  */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 /** Data values. */
-@property(strong, nullable) NSArray<NSString *> *values;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 
@@ -897,10 +897,10 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_GetCompanyResponse : GTLRObject
 
 /** The company. */
-@property(strong, nullable) GTLRPartners_Company *company;
+@property(nonatomic, strong, nullable) GTLRPartners_Company *company;
 
 /** Current response metadata. */
-@property(strong, nullable) GTLRPartners_ResponseMetadata *responseMetadata;
+@property(nonatomic, strong, nullable) GTLRPartners_ResponseMetadata *responseMetadata;
 
 @end
 
@@ -935,14 +935,14 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *latitude;
+@property(nonatomic, strong, nullable) NSNumber *latitude;
 
 /**
  *  The longitude in degrees. It must be in the range [-180.0, +180.0].
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *longitude;
+@property(nonatomic, strong, nullable) NSNumber *longitude;
 
 @end
 
@@ -954,32 +954,32 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_Lead : GTLRObject
 
 /** Comments lead source gave. */
-@property(copy, nullable) NSString *comments;
+@property(nonatomic, copy, nullable) NSString *comments;
 
 /** Email address of lead source. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** Last name of lead source. */
-@property(copy, nullable) NSString *familyName;
+@property(nonatomic, copy, nullable) NSString *familyName;
 
 /** First name of lead source. */
-@property(copy, nullable) NSString *givenName;
+@property(nonatomic, copy, nullable) NSString *givenName;
 
 /** List of reasons for using Google Partner Search and creating a lead. */
-@property(strong, nullable) NSArray<NSString *> *gpsMotivations;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gpsMotivations;
 
 /**
  *  ID of the lead.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The minimum monthly budget lead source is willing to spend. */
-@property(strong, nullable) GTLRPartners_Money *minMonthlyBudget;
+@property(nonatomic, strong, nullable) GTLRPartners_Money *minMonthlyBudget;
 
 /** Phone number of lead source. */
-@property(copy, nullable) NSString *phoneNumber;
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
 
 /**
  *  Type of lead.
@@ -989,10 +989,10 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *        "LEAD_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRPartners_Lead_Type_LtGps Value "LT_GPS"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Website URL of lead source. */
-@property(copy, nullable) NSString *websiteUrl;
+@property(nonatomic, copy, nullable) NSString *websiteUrl;
 
 @end
 
@@ -1013,17 +1013,17 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRPartners_Company *> *companies;
+@property(nonatomic, strong, nullable) NSArray<GTLRPartners_Company *> *companies;
 
 /**
  *  A token to retrieve next page of results. Pass this value in the
  *  `ListCompaniesRequest.page_token` field in the subsequent call to
  *  ListCompanies to retrieve the next page of results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Current response metadata. */
-@property(strong, nullable) GTLRPartners_ResponseMetadata *responseMetadata;
+@property(nonatomic, strong, nullable) GTLRPartners_ResponseMetadata *responseMetadata;
 
 @end
 
@@ -1034,10 +1034,10 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_ListUserStatesResponse : GTLRObject
 
 /** Current response metadata. */
-@property(strong, nullable) GTLRPartners_ResponseMetadata *responseMetadata;
+@property(nonatomic, strong, nullable) GTLRPartners_ResponseMetadata *responseMetadata;
 
 /** User's states. */
-@property(strong, nullable) NSArray<NSString *> *userStates;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userStates;
 
 @end
 
@@ -1048,21 +1048,21 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_LocalizedCompanyInfo : GTLRObject
 
 /** List of country codes for the localized company info. */
-@property(strong, nullable) NSArray<NSString *> *countryCodes;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *countryCodes;
 
 /** Localized display name. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Language code of the localized company info, as defined by BCP 47 (IETF BCP
  *  47, "Tags for Identifying Languages").
  */
-@property(copy, nullable) NSString *languageCode;
+@property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  Localized brief description that the company uses to advertise themselves.
  */
-@property(copy, nullable) NSString *overview;
+@property(nonatomic, copy, nullable) NSString *overview;
 
 @end
 
@@ -1073,10 +1073,10 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_Location : GTLRObject
 
 /** The complete address of the location. */
-@property(copy, nullable) NSString *address;
+@property(nonatomic, copy, nullable) NSString *address;
 
 /** The latitude and longitude of the location, in degrees. */
-@property(strong, nullable) GTLRPartners_LatLng *latLng;
+@property(nonatomic, strong, nullable) GTLRPartners_LatLng *latLng;
 
 @end
 
@@ -1089,10 +1089,10 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 /**
  *  Map of client info, such as URL, browser navigator, browser platform, etc.
  */
-@property(strong, nullable) GTLRPartners_LogMessageRequestClientInfo *clientInfo;
+@property(nonatomic, strong, nullable) GTLRPartners_LogMessageRequestClientInfo *clientInfo;
 
 /** Details about the client message. */
-@property(copy, nullable) NSString *details;
+@property(nonatomic, copy, nullable) NSString *details;
 
 /**
  *  Message level of client message.
@@ -1105,10 +1105,10 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *    @arg @c kGTLRPartners_LogMessageRequest_Level_MlSevere Value "ML_SEVERE"
  *    @arg @c kGTLRPartners_LogMessageRequest_Level_MlWarning Value "ML_WARNING"
  */
-@property(copy, nullable) NSString *level;
+@property(nonatomic, copy, nullable) NSString *level;
 
 /** Current request metadata. */
-@property(strong, nullable) GTLRPartners_RequestMetadata *requestMetadata;
+@property(nonatomic, strong, nullable) GTLRPartners_RequestMetadata *requestMetadata;
 
 @end
 
@@ -1131,7 +1131,7 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_LogMessageResponse : GTLRObject
 
 /** Current response metadata. */
-@property(strong, nullable) GTLRPartners_ResponseMetadata *responseMetadata;
+@property(nonatomic, strong, nullable) GTLRPartners_ResponseMetadata *responseMetadata;
 
 @end
 
@@ -1453,7 +1453,7 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_VisitedLanding Value
  *        "VISITED_LANDING"
  */
-@property(copy, nullable) NSString *eventAction;
+@property(nonatomic, copy, nullable) NSString *eventAction;
 
 /**
  *  The category the action belongs to.
@@ -1492,10 +1492,10 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *    @arg @c kGTLRPartners_LogUserEventRequest_EventCategory_GooglePartnerSignupFlow
  *        Value "GOOGLE_PARTNER_SIGNUP_FLOW"
  */
-@property(copy, nullable) NSString *eventCategory;
+@property(nonatomic, copy, nullable) NSString *eventCategory;
 
 /** List of event data for the event. */
-@property(strong, nullable) NSArray<GTLRPartners_EventData *> *eventDatas;
+@property(nonatomic, strong, nullable) NSArray<GTLRPartners_EventData *> *eventDatas;
 
 /**
  *  The scope of the event.
@@ -1509,16 +1509,16 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *    @arg @c kGTLRPartners_LogUserEventRequest_EventScope_Visitor Value
  *        "VISITOR"
  */
-@property(copy, nullable) NSString *eventScope;
+@property(nonatomic, copy, nullable) NSString *eventScope;
 
 /** Advertiser lead information. */
-@property(strong, nullable) GTLRPartners_Lead *lead;
+@property(nonatomic, strong, nullable) GTLRPartners_Lead *lead;
 
 /** Current request metadata. */
-@property(strong, nullable) GTLRPartners_RequestMetadata *requestMetadata;
+@property(nonatomic, strong, nullable) GTLRPartners_RequestMetadata *requestMetadata;
 
 /** The URL where the event occurred. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -1529,7 +1529,7 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_LogUserEventResponse : GTLRObject
 
 /** Current response metadata. */
-@property(strong, nullable) GTLRPartners_ResponseMetadata *responseMetadata;
+@property(nonatomic, strong, nullable) GTLRPartners_ResponseMetadata *responseMetadata;
 
 @end
 
@@ -1540,7 +1540,7 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_Money : GTLRObject
 
 /** The 3-letter currency code defined in ISO 4217. */
-@property(copy, nullable) NSString *currencyCode;
+@property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
  *  Number of nano (10^-9) units of the amount. The value must be between
@@ -1551,7 +1551,7 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *nanos;
+@property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
  *  The whole units of the amount. For example if `currencyCode` is `"USD"`,
@@ -1559,7 +1559,7 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *units;
+@property(nonatomic, strong, nullable) NSNumber *units;
 
 @end
 
@@ -1570,20 +1570,20 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_PublicProfile : GTLRObject
 
 /** The URL to the main display image of the public profile. */
-@property(copy, nullable) NSString *displayImageUrl;
+@property(nonatomic, copy, nullable) NSString *displayImageUrl;
 
 /** The display name of the public profile. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The ID which can be used to retrieve more details about the public profile.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The URL of the public profile. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -1601,14 +1601,14 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *        "RANK_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRPartners_Rank_Type_RtFinalScore Value "RT_FINAL_SCORE"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The numerical value of the rank.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *value;
+@property(nonatomic, strong, nullable) NSNumber *value;
 
 @end
 
@@ -1623,10 +1623,10 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The response to the reCaptcha challenge. */
-@property(copy, nullable) NSString *response;
+@property(nonatomic, copy, nullable) NSString *response;
 
 @end
 
@@ -1637,22 +1637,22 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_RequestMetadata : GTLRObject
 
 /** Experiment IDs the current request belongs to. */
-@property(strong, nullable) NSArray<NSString *> *experimentIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *experimentIds;
 
 /** Locale to use for the current request. */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /** Google Partners session ID. */
-@property(copy, nullable) NSString *partnersSessionId;
+@property(nonatomic, copy, nullable) NSString *partnersSessionId;
 
 /** Source of traffic for the current request. */
-@property(strong, nullable) GTLRPartners_TrafficSource *trafficSource;
+@property(nonatomic, strong, nullable) GTLRPartners_TrafficSource *trafficSource;
 
 /**
  *  Values to use instead of the user's respective defaults for the current
  *  request. These are only honored by whitelisted products.
  */
-@property(strong, nullable) GTLRPartners_UserOverrides *userOverrides;
+@property(nonatomic, strong, nullable) GTLRPartners_UserOverrides *userOverrides;
 
 @end
 
@@ -1663,7 +1663,7 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_ResponseMetadata : GTLRObject
 
 /** Debug information about this request. */
-@property(strong, nullable) GTLRPartners_DebugInfo *debugInfo;
+@property(nonatomic, strong, nullable) GTLRPartners_DebugInfo *debugInfo;
 
 @end
 
@@ -1677,14 +1677,14 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *  Identifier to indicate where the traffic comes from. An identifier has
  *  multiple letters created by a team which redirected the traffic to us.
  */
-@property(copy, nullable) NSString *trafficSourceId;
+@property(nonatomic, copy, nullable) NSString *trafficSourceId;
 
 /**
  *  Second level identifier to indicate where the traffic comes from. An
  *  identifier has multiple letters created by a team which redirected the
  *  traffic to us.
  */
-@property(copy, nullable) NSString *trafficSubId;
+@property(nonatomic, copy, nullable) NSString *trafficSubId;
 
 @end
 
@@ -1696,10 +1696,10 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 @interface GTLRPartners_UserOverrides : GTLRObject
 
 /** IP address to use instead of the user's geo-located IP address. */
-@property(copy, nullable) NSString *ipAddress;
+@property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /** Logged-in user ID to impersonate instead of the user's ID. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 

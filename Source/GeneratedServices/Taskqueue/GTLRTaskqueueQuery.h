@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTaskqueueQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -46,13 +46,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTaskqueue queryForTaskqueuesGetWithproject:taskqueue:]
 
 /** Whether to get stats. Optional. */
-@property(assign) BOOL getStats;
+@property(nonatomic, assign) BOOL getStats;
 
 /** The project under which the queue lies. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** The id of the taskqueue to get the properties of. */
-@property(copy, nullable) NSString *taskqueue;
+@property(nonatomic, copy, nullable) NSString *taskqueue;
 
 /**
  *  Fetches a @c GTLRTaskqueue_TaskQueue.
@@ -83,13 +83,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTaskqueue queryForTasksDeleteWithproject:taskqueue:task:]
 
 /** The project under which the queue lies. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** The id of the task to delete. */
-@property(copy, nullable) NSString *task;
+@property(nonatomic, copy, nullable) NSString *task;
 
 /** The taskqueue to delete a task from. */
-@property(copy, nullable) NSString *taskqueue;
+@property(nonatomic, copy, nullable) NSString *taskqueue;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -123,13 +123,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTaskqueue queryForTasksGetWithproject:taskqueue:task:]
 
 /** The project under which the queue lies. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** The task to get properties of. */
-@property(copy, nullable) NSString *task;
+@property(nonatomic, copy, nullable) NSString *task;
 
 /** The taskqueue in which the task belongs. */
-@property(copy, nullable) NSString *taskqueue;
+@property(nonatomic, copy, nullable) NSString *taskqueue;
 
 /**
  *  Fetches a @c GTLRTaskqueue_Task.
@@ -162,10 +162,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTaskqueue queryForTasksInsertWithObject:project:taskqueue:]
 
 /** The project under which the queue lies */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** The taskqueue to insert the task into */
-@property(copy, nullable) NSString *taskqueue;
+@property(nonatomic, copy, nullable) NSString *taskqueue;
 
 /**
  *  Fetches a @c GTLRTaskqueue_Task.
@@ -198,26 +198,26 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTaskqueue queryForTasksLeaseWithproject:taskqueue:numTasks:leaseSecs:]
 
 /** When true, all returned tasks will have the same tag */
-@property(assign) BOOL groupByTag;
+@property(nonatomic, assign) BOOL groupByTag;
 
 /** The lease in seconds. */
-@property(assign) NSInteger leaseSecs;
+@property(nonatomic, assign) NSInteger leaseSecs;
 
 /** The number of tasks to lease. */
-@property(assign) NSInteger numTasks;
+@property(nonatomic, assign) NSInteger numTasks;
 
 /** The project under which the queue lies. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  The tag allowed for tasks in the response. Must only be specified if
  *  group_by_tag is true. If group_by_tag is true and tag is not specified the
  *  tag will be that of the oldest task by eta, i.e. the first available tag
  */
-@property(copy, nullable) NSString *tag;
+@property(nonatomic, copy, nullable) NSString *tag;
 
 /** The taskqueue to lease a task from. */
-@property(copy, nullable) NSString *taskqueue;
+@property(nonatomic, copy, nullable) NSString *taskqueue;
 
 /**
  *  Fetches a @c GTLRTaskqueue_Tasks.
@@ -252,10 +252,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTaskqueue queryForTasksListWithproject:taskqueue:]
 
 /** The project under which the queue lies. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** The id of the taskqueue to list tasks from. */
-@property(copy, nullable) NSString *taskqueue;
+@property(nonatomic, copy, nullable) NSString *taskqueue;
 
 /**
  *  Fetches a @c GTLRTaskqueue_Tasks2.
@@ -287,14 +287,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTaskqueue queryForTasksPatchWithObject:project:taskqueue:task:newLeaseSeconds:]
 
 /** The new lease in seconds. */
-@property(assign) NSInteger newLeaseSeconds;
+@property(nonatomic, assign) NSInteger newLeaseSeconds;
 
 /** The project under which the queue lies. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
-@property(copy, nullable) NSString *task;
+@property(nonatomic, copy, nullable) NSString *task;
 
-@property(copy, nullable) NSString *taskqueue;
+@property(nonatomic, copy, nullable) NSString *taskqueue;
 
 /**
  *  Fetches a @c GTLRTaskqueue_Task.
@@ -332,14 +332,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTaskqueue queryForTasksUpdateWithObject:project:taskqueue:task:newLeaseSeconds:]
 
 /** The new lease in seconds. */
-@property(assign) NSInteger newLeaseSeconds;
+@property(nonatomic, assign) NSInteger newLeaseSeconds;
 
 /** The project under which the queue lies. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
-@property(copy, nullable) NSString *task;
+@property(nonatomic, copy, nullable) NSString *task;
 
-@property(copy, nullable) NSString *taskqueue;
+@property(nonatomic, copy, nullable) NSString *taskqueue;
 
 /**
  *  Fetches a @c GTLRTaskqueue_Task.

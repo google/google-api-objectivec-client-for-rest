@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTasksQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTasks queryForTasklistsDeleteWithtasklist:]
 
 /** Task list identifier. */
-@property(copy, nullable) NSString *tasklist;
+@property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -76,7 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTasks queryForTasklistsGetWithtasklist:]
 
 /** Task list identifier. */
-@property(copy, nullable) NSString *tasklist;
+@property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
  *  Fetches a @c GTLRTasks_TaskList.
@@ -133,10 +133,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Maximum number of task lists returned on one page. Optional. The default is
  *  100.
  */
-@property(assign) long long maxResults;
+@property(nonatomic, assign) long long maxResults;
 
 /** Token specifying the result page to return. Optional. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRTasks_TaskLists.
@@ -167,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTasks queryForTasklistsPatchWithObject:tasklist:]
 
 /** Task list identifier. */
-@property(copy, nullable) NSString *tasklist;
+@property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
  *  Fetches a @c GTLRTasks_TaskList.
@@ -198,7 +198,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTasks queryForTasklistsUpdateWithObject:tasklist:]
 
 /** Task list identifier. */
-@property(copy, nullable) NSString *tasklist;
+@property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
  *  Fetches a @c GTLRTasks_TaskList.
@@ -230,7 +230,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTasks queryForTasksClearWithtasklist:]
 
 /** Task list identifier. */
-@property(copy, nullable) NSString *tasklist;
+@property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -261,10 +261,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTasks queryForTasksDeleteWithtasklist:task:]
 
 /** Task identifier. */
-@property(copy, nullable) NSString *task;
+@property(nonatomic, copy, nullable) NSString *task;
 
 /** Task list identifier. */
-@property(copy, nullable) NSString *tasklist;
+@property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -296,10 +296,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTasks queryForTasksGetWithtasklist:task:]
 
 /** Task identifier. */
-@property(copy, nullable) NSString *task;
+@property(nonatomic, copy, nullable) NSString *task;
 
 /** Task list identifier. */
-@property(copy, nullable) NSString *tasklist;
+@property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
  *  Fetches a @c GTLRTasks_Task.
@@ -332,16 +332,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent task identifier. If the task is created at the top level, this
  *  parameter is omitted. Optional.
  */
-@property(copy, nullable) NSString *parent;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Previous sibling task identifier. If the task is created at the first
  *  position among its siblings, this parameter is omitted. Optional.
  */
-@property(copy, nullable) NSString *previous;
+@property(nonatomic, copy, nullable) NSString *previous;
 
 /** Task list identifier. */
-@property(copy, nullable) NSString *tasklist;
+@property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
  *  Fetches a @c GTLRTasks_Task.
@@ -375,61 +375,61 @@ NS_ASSUME_NONNULL_BEGIN
  *  Upper bound for a task's completion date (as a RFC 3339 timestamp) to filter
  *  by. Optional. The default is not to filter by completion date.
  */
-@property(copy, nullable) NSString *completedMax;
+@property(nonatomic, copy, nullable) NSString *completedMax;
 
 /**
  *  Lower bound for a task's completion date (as a RFC 3339 timestamp) to filter
  *  by. Optional. The default is not to filter by completion date.
  */
-@property(copy, nullable) NSString *completedMin;
+@property(nonatomic, copy, nullable) NSString *completedMin;
 
 /**
  *  Upper bound for a task's due date (as a RFC 3339 timestamp) to filter by.
  *  Optional. The default is not to filter by due date.
  */
-@property(copy, nullable) NSString *dueMax;
+@property(nonatomic, copy, nullable) NSString *dueMax;
 
 /**
  *  Lower bound for a task's due date (as a RFC 3339 timestamp) to filter by.
  *  Optional. The default is not to filter by due date.
  */
-@property(copy, nullable) NSString *dueMin;
+@property(nonatomic, copy, nullable) NSString *dueMin;
 
 /**
  *  Maximum number of task lists returned on one page. Optional. The default is
  *  100.
  */
-@property(assign) long long maxResults;
+@property(nonatomic, assign) long long maxResults;
 
 /** Token specifying the result page to return. Optional. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Flag indicating whether completed tasks are returned in the result.
  *  Optional. The default is True.
  */
-@property(assign) BOOL showCompleted;
+@property(nonatomic, assign) BOOL showCompleted;
 
 /**
  *  Flag indicating whether deleted tasks are returned in the result. Optional.
  *  The default is False.
  */
-@property(assign) BOOL showDeleted;
+@property(nonatomic, assign) BOOL showDeleted;
 
 /**
  *  Flag indicating whether hidden tasks are returned in the result. Optional.
  *  The default is False.
  */
-@property(assign) BOOL showHidden;
+@property(nonatomic, assign) BOOL showHidden;
 
 /** Task list identifier. */
-@property(copy, nullable) NSString *tasklist;
+@property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
  *  Lower bound for a task's last modification time (as a RFC 3339 timestamp) to
  *  filter by. Optional. The default is not to filter by last modification time.
  */
-@property(copy, nullable) NSString *updatedMin;
+@property(nonatomic, copy, nullable) NSString *updatedMin;
 
 /**
  *  Fetches a @c GTLRTasks_Tasks.
@@ -466,19 +466,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  New parent task identifier. If the task is moved to the top level, this
  *  parameter is omitted. Optional.
  */
-@property(copy, nullable) NSString *parent;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  New previous sibling task identifier. If the task is moved to the first
  *  position among its siblings, this parameter is omitted. Optional.
  */
-@property(copy, nullable) NSString *previous;
+@property(nonatomic, copy, nullable) NSString *previous;
 
 /** Task identifier. */
-@property(copy, nullable) NSString *task;
+@property(nonatomic, copy, nullable) NSString *task;
 
 /** Task list identifier. */
-@property(copy, nullable) NSString *tasklist;
+@property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
  *  Fetches a @c GTLRTasks_Task.
@@ -510,10 +510,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTasks queryForTasksPatchWithObject:tasklist:task:]
 
 /** Task identifier. */
-@property(copy, nullable) NSString *task;
+@property(nonatomic, copy, nullable) NSString *task;
 
 /** Task list identifier. */
-@property(copy, nullable) NSString *tasklist;
+@property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
  *  Fetches a @c GTLRTasks_Task.
@@ -545,10 +545,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTasks queryForTasksUpdateWithObject:tasklist:task:]
 
 /** Task identifier. */
-@property(copy, nullable) NSString *task;
+@property(nonatomic, copy, nullable) NSString *task;
 
 /** Task list identifier. */
-@property(copy, nullable) NSString *tasklist;
+@property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
  *  Fetches a @c GTLRTasks_Task.

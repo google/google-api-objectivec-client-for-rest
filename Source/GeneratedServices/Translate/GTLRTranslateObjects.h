@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_DetectionsListResponse : GTLRObject
 
 /** A detections contains detection results of several text */
-@property(strong, nullable) NSArray<NSArray<GTLRTranslate_DetectionsResourceItem *> *> *detections;
+@property(nonatomic, strong, nullable) NSArray<NSArray<GTLRTranslate_DetectionsResourceItem *> *> *detections;
 
 @end
 
@@ -45,17 +45,17 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *confidence;
+@property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
  *  A boolean to indicate is the language detection result reliable.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isReliable;
+@property(nonatomic, strong, nullable) NSNumber *isReliable;
 
 /** The language we detect */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 @end
 
@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  of the language code. If target parameter is specified, the list is sorted
  *  by the collation order of the language name in the target language.
  */
-@property(strong, nullable) NSArray<GTLRTranslate_LanguagesResource *> *languages;
+@property(nonatomic, strong, nullable) NSArray<GTLRTranslate_LanguagesResource *> *languages;
 
 @end
 
@@ -82,10 +82,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_LanguagesResource : GTLRObject
 
 /** The language code. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The localized name of the language if target parameter is given. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -96,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_TranslationsListResponse : GTLRObject
 
 /** Translations contains list of translation results of given text */
-@property(strong, nullable) NSArray<GTLRTranslate_TranslationsResource *> *translations;
+@property(nonatomic, strong, nullable) NSArray<GTLRTranslate_TranslationsResource *> *translations;
 
 @end
 
@@ -107,10 +107,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_TranslationsResource : GTLRObject
 
 /** Detected source language if source parameter is unspecified. */
-@property(copy, nullable) NSString *detectedSourceLanguage;
+@property(nonatomic, copy, nullable) NSString *detectedSourceLanguage;
 
 /** The translation. */
-@property(copy, nullable) NSString *translatedText;
+@property(nonatomic, copy, nullable) NSString *translatedText;
 
 @end
 

@@ -67,7 +67,7 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
 @interface GTLRWebmastersQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -93,7 +93,7 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
 /**
  *  The site's URL, including protocol. For example: http://www.example.com/
  */
-@property(copy, nullable) NSString *siteUrl;
+@property(nonatomic, copy, nullable) NSString *siteUrl;
 
 /**
  *  Fetches a @c GTLRWebmasters_SearchAnalyticsQueryResponse.
@@ -134,12 +134,12 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *  The URL of the actual sitemap. For example:
  *  http://www.example.com/sitemap.xml
  */
-@property(copy, nullable) NSString *feedpath;
+@property(nonatomic, copy, nullable) NSString *feedpath;
 
 /**
  *  The site's URL, including protocol. For example: http://www.example.com/
  */
-@property(copy, nullable) NSString *siteUrl;
+@property(nonatomic, copy, nullable) NSString *siteUrl;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -176,12 +176,12 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *  The URL of the actual sitemap. For example:
  *  http://www.example.com/sitemap.xml
  */
-@property(copy, nullable) NSString *feedpath;
+@property(nonatomic, copy, nullable) NSString *feedpath;
 
 /**
  *  The site's URL, including protocol. For example: http://www.example.com/
  */
-@property(copy, nullable) NSString *siteUrl;
+@property(nonatomic, copy, nullable) NSString *siteUrl;
 
 /**
  *  Fetches a @c GTLRWebmasters_WmxSitemap.
@@ -218,12 +218,12 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *  A URL of a site's sitemap index. For example:
  *  http://www.example.com/sitemapindex.xml
  */
-@property(copy, nullable) NSString *sitemapIndex;
+@property(nonatomic, copy, nullable) NSString *sitemapIndex;
 
 /**
  *  The site's URL, including protocol. For example: http://www.example.com/
  */
-@property(copy, nullable) NSString *siteUrl;
+@property(nonatomic, copy, nullable) NSString *siteUrl;
 
 /**
  *  Fetches a @c GTLRWebmasters_SitemapsListResponse.
@@ -256,12 +256,12 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *  The URL of the sitemap to add. For example:
  *  http://www.example.com/sitemap.xml
  */
-@property(copy, nullable) NSString *feedpath;
+@property(nonatomic, copy, nullable) NSString *feedpath;
 
 /**
  *  The site's URL, including protocol. For example: http://www.example.com/
  */
-@property(copy, nullable) NSString *siteUrl;
+@property(nonatomic, copy, nullable) NSString *siteUrl;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -294,7 +294,7 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
 //   +[GTLQueryWebmasters queryForSitesAddWithsiteUrl:]
 
 /** The URL of the site to add. */
-@property(copy, nullable) NSString *siteUrl;
+@property(nonatomic, copy, nullable) NSString *siteUrl;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -326,7 +326,7 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *  The URI of the property as defined in Search Console. Examples:
  *  http://www.example.com/ or android-app://com.example/
  */
-@property(copy, nullable) NSString *siteUrl;
+@property(nonatomic, copy, nullable) NSString *siteUrl;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -360,7 +360,7 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *  The URI of the property as defined in Search Console. Examples:
  *  http://www.example.com/ or android-app://com.example/
  */
-@property(copy, nullable) NSString *siteUrl;
+@property(nonatomic, copy, nullable) NSString *siteUrl;
 
 /**
  *  Fetches a @c GTLRWebmasters_WmxSite.
@@ -429,14 +429,14 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *    @arg @c kGTLRWebmastersCategoryServerError Value "serverError"
  *    @arg @c kGTLRWebmastersCategorySoft404 Value "soft404"
  */
-@property(copy, nullable) NSString *category;
+@property(nonatomic, copy, nullable) NSString *category;
 
 /**
  *  If true, returns only the latest crawl error counts.
  *
  *  @note If not set, the documented server-side default will be true.
  */
-@property(assign) BOOL latestCountsOnly;
+@property(nonatomic, assign) BOOL latestCountsOnly;
 
 /**
  *  The user agent type (platform) that made the request. For example: web. If
@@ -447,12 +447,12 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *    @arg @c kGTLRWebmastersPlatformSmartphoneOnly Value "smartphoneOnly"
  *    @arg @c kGTLRWebmastersPlatformWeb Value "web"
  */
-@property(copy, nullable) NSString *platform;
+@property(nonatomic, copy, nullable) NSString *platform;
 
 /**
  *  The site's URL, including protocol. For example: http://www.example.com/
  */
-@property(copy, nullable) NSString *siteUrl;
+@property(nonatomic, copy, nullable) NSString *siteUrl;
 
 /**
  *  Fetches a @c GTLRWebmasters_UrlCrawlErrorsCountsQueryResponse.
@@ -496,7 +496,7 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *    @arg @c kGTLRWebmastersCategoryServerError Value "serverError"
  *    @arg @c kGTLRWebmastersCategorySoft404 Value "soft404"
  */
-@property(copy, nullable) NSString *category;
+@property(nonatomic, copy, nullable) NSString *category;
 
 /**
  *  The user agent type (platform) that made the request. For example: web
@@ -506,12 +506,12 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *    @arg @c kGTLRWebmastersPlatformSmartphoneOnly Value "smartphoneOnly"
  *    @arg @c kGTLRWebmastersPlatformWeb Value "web"
  */
-@property(copy, nullable) NSString *platform;
+@property(nonatomic, copy, nullable) NSString *platform;
 
 /**
  *  The site's URL, including protocol. For example: http://www.example.com/
  */
-@property(copy, nullable) NSString *siteUrl;
+@property(nonatomic, copy, nullable) NSString *siteUrl;
 
 /**
  *  The relative path (without the site) of the sample URL. It must be one of
@@ -519,7 +519,7 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *  https://www.example.com/pagename on the site https://www.example.com/, the
  *  url value is pagename
  */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  Fetches a @c GTLRWebmasters_UrlCrawlErrorsSample.
@@ -589,7 +589,7 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *    @arg @c kGTLRWebmastersCategoryServerError Value "serverError"
  *    @arg @c kGTLRWebmastersCategorySoft404 Value "soft404"
  */
-@property(copy, nullable) NSString *category;
+@property(nonatomic, copy, nullable) NSString *category;
 
 /**
  *  The user agent type (platform) that made the request. For example: web
@@ -599,12 +599,12 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *    @arg @c kGTLRWebmastersPlatformSmartphoneOnly Value "smartphoneOnly"
  *    @arg @c kGTLRWebmastersPlatformWeb Value "web"
  */
-@property(copy, nullable) NSString *platform;
+@property(nonatomic, copy, nullable) NSString *platform;
 
 /**
  *  The site's URL, including protocol. For example: http://www.example.com/
  */
-@property(copy, nullable) NSString *siteUrl;
+@property(nonatomic, copy, nullable) NSString *siteUrl;
 
 /**
  *  Fetches a @c GTLRWebmasters_UrlCrawlErrorsSamplesListResponse.
@@ -669,7 +669,7 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *    @arg @c kGTLRWebmastersCategoryServerError Value "serverError"
  *    @arg @c kGTLRWebmastersCategorySoft404 Value "soft404"
  */
-@property(copy, nullable) NSString *category;
+@property(nonatomic, copy, nullable) NSString *category;
 
 /**
  *  The user agent type (platform) that made the request. For example: web
@@ -679,12 +679,12 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *    @arg @c kGTLRWebmastersPlatformSmartphoneOnly Value "smartphoneOnly"
  *    @arg @c kGTLRWebmastersPlatformWeb Value "web"
  */
-@property(copy, nullable) NSString *platform;
+@property(nonatomic, copy, nullable) NSString *platform;
 
 /**
  *  The site's URL, including protocol. For example: http://www.example.com/
  */
-@property(copy, nullable) NSString *siteUrl;
+@property(nonatomic, copy, nullable) NSString *siteUrl;
 
 /**
  *  The relative path (without the site) of the sample URL. It must be one of
@@ -692,7 +692,7 @@ GTLR_EXTERN NSString * const kGTLRWebmastersPlatformWeb;
  *  https://www.example.com/pagename on the site https://www.example.com/, the
  *  url value is pagename
  */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will

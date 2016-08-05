@@ -78,10 +78,10 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *number;
+@property(nonatomic, strong, nullable) NSNumber *number;
 
 /** The root of the variable subtree to monitor. For example, `/foo`. */
-@property(copy, nullable) NSString *path;
+@property(nonatomic, copy, nullable) NSString *path;
 
 @end
 
@@ -105,7 +105,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
 @interface GTLRCloudRuntimeConfig_EndCondition : GTLRObject
 
 /** The cardinality of the `EndCondition`. */
-@property(strong, nullable) GTLRCloudRuntimeConfig_Cardinality *cardinality;
+@property(nonatomic, strong, nullable) GTLRCloudRuntimeConfig_Cardinality *cardinality;
 
 @end
 
@@ -128,7 +128,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCloudRuntimeConfig_RuntimeConfig *> *configs;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRuntimeConfig_RuntimeConfig *> *configs;
 
 /**
  *  This token allows you to get the next page of results for list requests.
@@ -137,7 +137,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  Subsequent list requests will have their own `nextPageToken` to continue
  *  paging through the results
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -159,7 +159,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  Subsequent list requests will have their own `nextPageToken` to continue
  *  paging through the results
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  A list of variables and their values. The order of returned variable
@@ -168,7 +168,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCloudRuntimeConfig_Variable *> *variables;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRuntimeConfig_Variable *> *variables;
 
 @end
 
@@ -191,7 +191,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  Subsequent list requests will have their own `nextPageToken` to continue
  *  paging through the results
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  Found waiters in the project.
@@ -199,7 +199,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCloudRuntimeConfig_Waiter *> *waiters;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRuntimeConfig_Waiter *> *waiters;
 
 @end
 
@@ -217,10 +217,10 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *done;
+@property(nonatomic, strong, nullable) NSNumber *done;
 
 /** The error result of the operation in case of failure. */
-@property(strong, nullable) GTLRCloudRuntimeConfig_Status *error;
+@property(nonatomic, strong, nullable) GTLRCloudRuntimeConfig_Status *error;
 
 /**
  *  Service-specific metadata associated with the operation. It typically
@@ -228,14 +228,14 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  Some services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
-@property(strong, nullable) GTLRCloudRuntimeConfig_OperationMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRCloudRuntimeConfig_OperationMetadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
  *  `name` should have the format of `operations/some/unique/name`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The normal response of the operation in case of success. If the original
@@ -247,7 +247,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  is `TakeSnapshot()`, the inferred response type is
  *  `TakeSnapshotResponse`.
  */
-@property(strong, nullable) GTLRCloudRuntimeConfig_OperationResponse *response;
+@property(nonatomic, strong, nullable) GTLRCloudRuntimeConfig_OperationResponse *response;
 
 @end
 
@@ -299,7 +299,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The resource name of a runtime config. The name must have the format:
@@ -311,7 +311,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  the name adheres to this format. After you create the resource, you cannot
  *  change the resource's name.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -368,20 +368,20 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *code;
+@property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
  *  A list of messages that carry the error details. There will be a
  *  common set of message types for APIs to use.
  */
-@property(strong, nullable) NSArray<GTLRCloudRuntimeConfig_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRuntimeConfig_StatusDetailsItem *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
  *  user-facing error message should be localized and sent in the
  *  google.rpc.Status.details field, or localized by the client.
  */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -421,7 +421,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  The length of a `[VARIABLE_NAME]` must be less than 256 bytes.
  *  Once you create a variable, you cannot change the variable name.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  [Ouput only] The current state of the variable. The variable state indicates
@@ -436,19 +436,28 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *    @arg @c kGTLRCloudRuntimeConfig_Variable_State_VariableStateUnspecified
  *        Default variable state. (Value: "VARIABLE_STATE_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *state;
-
-/** [Output Only] The time of the last variable update. */
-@property(strong, nullable) GTLRDateTime *updateTime;
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  The value of the variable. The length of the value must be less than 4096
- *  bytes. Empty values are also accepted. The value must be Base64 encoded.
+ *  The textual value of the variable. The length of the value must be less
+ *  than 4096 bytes. Empty values are also accepted.
+ *  NB: Only one of value and string_value can be set at the same time.
+ */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/** [Output Only] The time of the last variable update. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  The binary value of the variable. The length of the value must be less
+ *  than 4096 bytes. Empty values are also accepted. The value must be
+ *  Base64 encoded.
+ *  NB: Only one of value and string_value can be set at the same time.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -465,7 +474,8 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  returns successfully.
  *  Once created, a Waiter resource is immutable.
  *  To learn more about using waiters, read the
- *  [Creating a Waiter](/deployment-manager/runtime-config/creating-a-water)
+ *  [Creating a
+ *  Waiter](/deployment-manager/runtime-configurator/creating-a-waiter)
  *  documentation.
  */
 @interface GTLRCloudRuntimeConfig_Waiter : GTLRObject
@@ -475,7 +485,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  the value of `timeout` to this instant yields the timeout deadline for the
  *  waiter.
  */
-@property(strong, nullable) GTLRDateTime *createTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
  *  [Output Only] If the value is `false`, it means the waiter is still waiting
@@ -485,13 +495,13 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *done;
+@property(nonatomic, strong, nullable) NSNumber *done;
 
 /**
  *  [Output Only] If the waiter ended due to a failure or timeout, this value
  *  will be set.
  */
-@property(strong, nullable) GTLRCloudRuntimeConfig_Status *error;
+@property(nonatomic, strong, nullable) GTLRCloudRuntimeConfig_Status *error;
 
 /**
  *  [Optional] The failure condition of this waiter. If this condition is met,
@@ -500,7 +510,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  conditions are met, a failure will be indicated. This value is optional; if
  *  no failure condition is set, the only failure scenario will be a timeout.
  */
-@property(strong, nullable) GTLRCloudRuntimeConfig_EndCondition *failure;
+@property(nonatomic, strong, nullable) GTLRCloudRuntimeConfig_EndCondition *failure;
 
 /**
  *  The name of the Waiter resource, in the format:
@@ -511,7 +521,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  of `[WAITER_NAME]` must be less than 64 bytes.
  *  After you create a Waiter resource, you cannot change the resource name.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  [Required] The success condition. If this condition is met, `done` will be
@@ -519,7 +529,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  takes precedence over the success condition. If both conditions are met, a
  *  failure will be indicated.
  */
-@property(strong, nullable) GTLRCloudRuntimeConfig_EndCondition *success;
+@property(nonatomic, strong, nullable) GTLRCloudRuntimeConfig_EndCondition *success;
 
 /**
  *  [Required] Specifies the timeout of the waiter in seconds, beginning from
@@ -529,7 +539,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *
  *  String format is #.###s (seconds).
  */
-@property(copy, nullable) NSString *timeout;
+@property(nonatomic, copy, nullable) NSString *timeout;
 
 @end
 
@@ -546,7 +556,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  If not specified or the variable has an older timestamp, the watcher waits
  *  for a the value to change before returning.
  */
-@property(strong, nullable) GTLRDateTime *newerThan;
+@property(nonatomic, strong, nullable) GTLRDateTime *newerThan;
 
 @end
 

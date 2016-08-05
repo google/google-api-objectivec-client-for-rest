@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "cloudmonitoring#deleteMetricDescriptorResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "cloudmonitoring#listMetricDescriptorsRequest".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -76,7 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "cloudmonitoring#listMetricDescriptorsResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The returned metric descriptors.
@@ -84,14 +84,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCloudMonitoring_MetricDescriptor *> *metrics;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMonitoring_MetricDescriptor *> *metrics;
 
 /**
  *  Pagination token. If present, indicates that additional results are
  *  available for retrieval. To access the results past the pagination limit,
  *  pass this value to the pageToken query parameter.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -105,7 +105,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "cloudmonitoring#listTimeseriesDescriptorsRequest".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -124,19 +124,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "cloudmonitoring#listTimeseriesDescriptorsResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Pagination token. If present, indicates that additional results are
  *  available for retrieval. To access the results past the pagination limit,
  *  set this value to the pageToken query parameter.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The oldest timestamp of the interval of this query, as an RFC 3339 string.
  */
-@property(strong, nullable) GTLRDateTime *oldest;
+@property(nonatomic, strong, nullable) GTLRDateTime *oldest;
 
 /**
  *  The returned time series descriptors.
@@ -144,12 +144,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCloudMonitoring_TimeseriesDescriptor *> *timeseries;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMonitoring_TimeseriesDescriptor *> *timeseries;
 
 /**
  *  The youngest timestamp of the interval of this query, as an RFC 3339 string.
  */
-@property(strong, nullable) GTLRDateTime *youngest;
+@property(nonatomic, strong, nullable) GTLRDateTime *youngest;
 
 @end
 
@@ -163,7 +163,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "cloudmonitoring#listTimeseriesRequest".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -182,7 +182,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "cloudmonitoring#listTimeseriesResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Pagination token. If present, indicates that additional results are
@@ -191,12 +191,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  series will be returned before returning any point of the subsequent time
  *  series.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The oldest timestamp of the interval of this query as an RFC 3339 string.
  */
-@property(strong, nullable) GTLRDateTime *oldest;
+@property(nonatomic, strong, nullable) GTLRDateTime *oldest;
 
 /**
  *  The returned time series.
@@ -204,12 +204,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCloudMonitoring_Timeseries *> *timeseries;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMonitoring_Timeseries *> *timeseries;
 
 /**
  *  The youngest timestamp of the interval of this query as an RFC 3339 string.
  */
-@property(strong, nullable) GTLRDateTime *youngest;
+@property(nonatomic, strong, nullable) GTLRDateTime *youngest;
 
 @end
 
@@ -225,19 +225,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** Labels defined for this metric. */
-@property(strong, nullable) NSArray<GTLRCloudMonitoring_MetricDescriptorLabelDescriptor *> *labels;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMonitoring_MetricDescriptorLabelDescriptor *> *labels;
 
 /** The name of this metric. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The project ID to which the metric belongs. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** Type description for this metric. */
-@property(strong, nullable) GTLRCloudMonitoring_MetricDescriptorTypeDescriptor *typeDescriptor;
+@property(nonatomic, strong, nullable) GTLRCloudMonitoring_MetricDescriptorTypeDescriptor *typeDescriptor;
 
 @end
 
@@ -254,10 +254,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** Label key. */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 @end
 
@@ -269,13 +269,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudMonitoring_MetricDescriptorTypeDescriptor : GTLRObject
 
 /** The method of collecting data for the metric. See Metric types. */
-@property(copy, nullable) NSString *metricType;
+@property(nonatomic, copy, nullable) NSString *metricType;
 
 /**
  *  The data type of of individual points in the metric's time series. See
  *  Metric value types.
  */
-@property(copy, nullable) NSString *valueType;
+@property(nonatomic, copy, nullable) NSString *valueType;
 
 @end
 
@@ -291,21 +291,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *boolValue;
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
 
 /**
  *  The value of this data point as a distribution. A distribution value can
  *  contain a list of buckets and/or an underflowBucket and an overflowBucket.
  *  The values of these points can be used to create a histogram.
  */
-@property(strong, nullable) GTLRCloudMonitoring_PointDistribution *distributionValue;
+@property(nonatomic, strong, nullable) GTLRCloudMonitoring_PointDistribution *distributionValue;
 
 /**
  *  The value of this data point as a double-precision floating-point number.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *doubleValue;
+@property(nonatomic, strong, nullable) NSNumber *doubleValue;
 
 /**
  *  The interval [start, end] is the time period to which the point's value
@@ -314,14 +314,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  metrics (of which deltas and rates are special cases), the interval should
  *  be non-empty. Both start and end are RFC 3339 strings.
  */
-@property(strong, nullable) GTLRDateTime *end;
+@property(nonatomic, strong, nullable) GTLRDateTime *end;
 
 /**
  *  The value of this data point as a 64-bit integer.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *int64Value;
+@property(nonatomic, strong, nullable) NSNumber *int64Value;
 
 /**
  *  The interval [start, end] is the time period to which the point's value
@@ -330,10 +330,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  metrics (of which deltas and rates are special cases), the interval should
  *  be non-empty. Both start and end are RFC 3339 strings.
  */
-@property(strong, nullable) GTLRDateTime *start;
+@property(nonatomic, strong, nullable) GTLRDateTime *start;
 
 /** The value of this data point in string format. */
-@property(copy, nullable) NSString *stringValue;
+@property(nonatomic, copy, nullable) NSString *stringValue;
 
 @end
 
@@ -347,13 +347,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudMonitoring_PointDistribution : GTLRObject
 
 /** The finite buckets. */
-@property(strong, nullable) NSArray<GTLRCloudMonitoring_PointDistributionBucket *> *buckets;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMonitoring_PointDistributionBucket *> *buckets;
 
 /** The overflow bucket. */
-@property(strong, nullable) GTLRCloudMonitoring_PointDistributionOverflowBucket *overflowBucket;
+@property(nonatomic, strong, nullable) GTLRCloudMonitoring_PointDistributionOverflowBucket *overflowBucket;
 
 /** The underflow bucket. */
-@property(strong, nullable) GTLRCloudMonitoring_PointDistributionUnderflowBucket *underflowBucket;
+@property(nonatomic, strong, nullable) GTLRCloudMonitoring_PointDistributionUnderflowBucket *underflowBucket;
 
 @end
 
@@ -372,21 +372,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
  *  The lower bound of the value interval of this bucket (inclusive).
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *lowerBound;
+@property(nonatomic, strong, nullable) NSNumber *lowerBound;
 
 /**
  *  The upper bound of the value interval of this bucket (exclusive).
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *upperBound;
+@property(nonatomic, strong, nullable) NSNumber *upperBound;
 
 @end
 
@@ -403,14 +403,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
  *  The lower bound of the value interval of this bucket (inclusive).
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *lowerBound;
+@property(nonatomic, strong, nullable) NSNumber *lowerBound;
 
 @end
 
@@ -427,14 +427,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
  *  The upper bound of the value interval of this bucket (exclusive).
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *upperBound;
+@property(nonatomic, strong, nullable) NSNumber *upperBound;
 
 @end
 
@@ -451,10 +451,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The data points of this time series. The points are listed in order of their
  *  end timestamp, from younger to older.
  */
-@property(strong, nullable) NSArray<GTLRCloudMonitoring_Point *> *points;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMonitoring_Point *> *points;
 
 /** The descriptor of this time series. */
-@property(strong, nullable) GTLRCloudMonitoring_TimeseriesDescriptor *timeseriesDesc;
+@property(nonatomic, strong, nullable) GTLRCloudMonitoring_TimeseriesDescriptor *timeseriesDesc;
 
 @end
 
@@ -465,15 +465,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudMonitoring_TimeseriesDescriptor : GTLRObject
 
 /** The label's name. */
-@property(strong, nullable) GTLRCloudMonitoring_TimeseriesDescriptorLabels *labels;
+@property(nonatomic, strong, nullable) GTLRCloudMonitoring_TimeseriesDescriptorLabels *labels;
 
 /** The name of the metric. */
-@property(copy, nullable) NSString *metric;
+@property(nonatomic, copy, nullable) NSString *metric;
 
 /**
  *  The Developers Console project number to which this time series belongs.
  */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 @end
 
@@ -496,10 +496,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudMonitoring_TimeseriesDescriptorLabel : GTLRObject
 
 /** The label's name. */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 /** The label's value. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -512,10 +512,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudMonitoring_TimeseriesPoint : GTLRObject
 
 /** The data point in this time series snapshot. */
-@property(strong, nullable) GTLRCloudMonitoring_Point *point;
+@property(nonatomic, strong, nullable) GTLRCloudMonitoring_Point *point;
 
 /** The descriptor of this time series. */
-@property(strong, nullable) GTLRCloudMonitoring_TimeseriesDescriptor *timeseriesDesc;
+@property(nonatomic, strong, nullable) GTLRCloudMonitoring_TimeseriesDescriptor *timeseriesDesc;
 
 @end
 
@@ -526,14 +526,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudMonitoring_WriteTimeseriesRequest : GTLRObject
 
 /** The label's name. */
-@property(strong, nullable) GTLRCloudMonitoring_WriteTimeseriesRequestCommonLabels *commonLabels;
+@property(nonatomic, strong, nullable) GTLRCloudMonitoring_WriteTimeseriesRequestCommonLabels *commonLabels;
 
 /**
  *  Provide time series specific labels and the data points for each time
  *  series. The labels in timeseries and the common_labels should form a
  *  complete list of labels that required by the metric.
  */
-@property(strong, nullable) NSArray<GTLRCloudMonitoring_TimeseriesPoint *> *timeseries;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMonitoring_TimeseriesPoint *> *timeseries;
 
 @end
 
@@ -559,7 +559,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "cloudmonitoring#writeTimeseriesResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
