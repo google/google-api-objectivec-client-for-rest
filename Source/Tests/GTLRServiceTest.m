@@ -1514,19 +1514,26 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
             XCTAssertEqual(batchResult.successes.count, 2U);
             XCTAssertEqual(batchResult.failures.count, 1U);
+            XCTAssertEqual(batchResult.responseHeaders.count, 3U);
 
             GTLRErrorObject *failureError = batchResult.failures[@"gtlr_4"];
             XCTAssertEqualObjects([failureError class], [GTLRErrorObject class]);
             XCTAssertEqual(failureError.code.intValue, 404);
 
+            NSDictionary *responseHeaderGTLR_4 = batchResult.responseHeaders[@"gtlr_4"];
+            XCTAssertEqualObjects(responseHeaderGTLR_4[@"X-Rejected-Reason"],
+                           @"Failed to remove Excalibur from stone");
+
             Test_GTLRDrive_FileList *fileList = batchResult.successes[@"gtlr_5"];
             XCTAssertEqualObjects([fileList class], [Test_GTLRDrive_FileList class]);
             XCTAssertEqualObjects(fileList.kind, @"drive#fileList");
 
+            NSDictionary *responseHeaderGTLR_5 = batchResult.responseHeaders[@"gtlr_5"];
+            XCTAssertEqual(((NSNumber *)responseHeaderGTLR_5[@"Retry-After"]).intValue, 300);
+
             Test_GTLRDrive_File *file = batchResult.successes[@"gtlr_6"];
             XCTAssertEqualObjects([file class], [Test_GTLRDrive_File class]);
             XCTAssertEqualObjects(file.parents, @[ @"0ALsvZDDwtKrhUk9PVA" ]);
-
             // As with a single query, the batch ticket's query should be a copy of the original;
             // query execution leaves the original unmolested so the client can modify and reuse it.
             GTLRBatchQuery *ticketQuery = callbackTicket.executingQuery;
@@ -1535,6 +1542,11 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             // queries should be the same.
             XCTAssertEqualObjects([ticketQuery.queries valueForKey:@"requestID"],
                                   [batchQuery.queries valueForKey:@"requestID"]);
+
+
+            NSDictionary *responseHeaderGTLR_6 = batchResult.responseHeaders[@"gtlr_6"];
+            XCTAssertNil(responseHeaderGTLR_6[@"X-Rejected-Reason"]);
+            XCTAssertNil(responseHeaderGTLR_6[@"Retry-After"]);
 
             XCTAssert([NSThread isMainThread]);
 
@@ -1713,6 +1725,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
             XCTAssertEqual(batchResult.successes.count, (NSUInteger)2);
             XCTAssertEqual(batchResult.failures.count, (NSUInteger)2);
+            XCTAssertEqual(batchResult.responseHeaders.count, (NSUInteger)4);
             XCTAssertEqual(callbackTicket.pagesFetchedCounter, 3U);
 
             // The first query, gtlr_5, requires all three pages to fetch the full file list.
@@ -1839,6 +1852,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
             XCTAssertEqual(batchResult.successes.count, 1U);
             XCTAssertEqual(batchResult.failures.count, 2U);
+            XCTAssertEqual(batchResult.responseHeaders.count, 3U);
 
             GTLRErrorObject *failureError = batchResult.failures[@"gtlr_4"];
             XCTAssertEqualObjects([failureError class], [GTLRErrorObject class]);
@@ -2068,6 +2082,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
             XCTAssertEqual(batchResult.successes.count, 2U);
             XCTAssertEqual(batchResult.failures.count, 1U);
+            XCTAssertEqual(batchResult.responseHeaders.count, 3U);
 
             GTLRErrorObject *failureError = batchResult.failures[@"gtlr_4"];
             XCTAssertEqualObjects([failureError class], [GTLRErrorObject class]);
@@ -3024,6 +3039,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     GTLRBatchResult *batchResult = [GTLRBatchResult object];
     batchResult.successes = @{ childQuery.requestID : fileList };
     batchResult.failures = @{ parentsQuery.requestID : expectedErrorObject };
+    batchResult.responseHeaders = @{ childQuery.requestID : @{} , parentsQuery.requestID : @{} };
 
     testResponse(batchResult, nil);
   };
@@ -3055,6 +3071,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
             XCTAssertEqual(batchResult.successes.count, 1U);
             XCTAssertEqual(batchResult.failures.count, 1U);
+            XCTAssertEqual(batchResult.responseHeaders.count, 2U);
 
             Test_GTLRDrive_FileList *fileList = batchResult.successes[@"gtlr_5"];
             XCTAssertEqualObjects([fileList class], [Test_GTLRDrive_FileList class]);
