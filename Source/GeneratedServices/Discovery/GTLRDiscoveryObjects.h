@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_DirectoryList : GTLRCollectionObject
 
 /** Indicate the version of the Discovery API used to generate this doc. */
-@property(copy, nullable) NSString *discoveryVersion;
+@property(nonatomic, copy, nullable) NSString *discoveryVersion;
 
 /**
  *  The individual directory entries. One entry per api/version pair.
@@ -66,10 +66,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDiscovery_DirectoryListItemsItem *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscovery_DirectoryListItemsItem *> *items;
 
 /** The kind for this response. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -84,48 +84,48 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** A link to the discovery document. */
-@property(copy, nullable) NSString *discoveryLink;
+@property(nonatomic, copy, nullable) NSString *discoveryLink;
 
 /** The URL for the discovery REST document. */
-@property(copy, nullable) NSString *discoveryRestUrl;
+@property(nonatomic, copy, nullable) NSString *discoveryRestUrl;
 
 /** A link to human readable documentation for the API. */
-@property(copy, nullable) NSString *documentationLink;
+@property(nonatomic, copy, nullable) NSString *documentationLink;
 
 /** Links to 16x16 and 32x32 icons representing the API. */
-@property(strong, nullable) GTLRDiscovery_DirectoryListItemsItemIcons *icons;
+@property(nonatomic, strong, nullable) GTLRDiscovery_DirectoryListItemsItemIcons *icons;
 
 /**
  *  The id of this API.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The kind for this response. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Labels for the status of this API, such as labs or deprecated. */
-@property(strong, nullable) NSArray<NSString *> *labels;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
 
 /** The name of the API. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  True if this version is the preferred version to use.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *preferred;
+@property(nonatomic, strong, nullable) NSNumber *preferred;
 
 /** The title of this API. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** The version of the API. */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -136,10 +136,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_DirectoryListItemsItemIcons : GTLRObject
 
 /** The URL of the 16x16 icon. */
-@property(copy, nullable) NSString *x16;
+@property(nonatomic, copy, nullable) NSString *x16;
 
 /** The URL of the 32x32 icon. */
-@property(copy, nullable) NSString *x32;
+@property(nonatomic, copy, nullable) NSString *x32;
 
 @end
 
@@ -153,7 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  A reference to another schema. The value of this property is the "id" of
  *  another schema.
  */
-@property(copy, nullable) NSString *xRef;
+@property(nonatomic, copy, nullable) NSString *xRef;
 
 /**
  *  If this is a schema for an object, this property is the schema for any
@@ -162,79 +162,79 @@ NS_ASSUME_NONNULL_BEGIN
  *  Remapped to 'additionalPropertiesProperty' to avoid GTLRObject's
  *  'additionalProperties'.
  */
-@property(strong, nullable) GTLRDiscovery_JsonSchema *additionalPropertiesProperty;
+@property(nonatomic, strong, nullable) GTLRDiscovery_JsonSchema *additionalPropertiesProperty;
 
 /** Additional information about this property. */
-@property(strong, nullable) GTLRDiscovery_JsonSchemaAnnotations *annotations;
+@property(nonatomic, strong, nullable) GTLRDiscovery_JsonSchemaAnnotations *annotations;
 
 /**
  *  The default value of this property (if one exists).
  *
  *  Remapped to 'defaultProperty' to avoid language reserved word 'default'.
  */
-@property(copy, nullable) NSString *defaultProperty;
+@property(nonatomic, copy, nullable) NSString *defaultProperty;
 
 /**
  *  A description of this object.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Values this parameter may take (if it is an enum).
  *
  *  Remapped to 'enumProperty' to avoid language reserved word 'enum'.
  */
-@property(strong, nullable) NSArray<NSString *> *enumProperty;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enumProperty;
 
 /**
  *  The descriptions for the enums. Each position maps to the corresponding
  *  value in the "enum" array.
  */
-@property(strong, nullable) NSArray<NSString *> *enumDescriptions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enumDescriptions;
 
 /**
  *  An additional regular expression or key that helps constrain the value. For
  *  more details see:
  *  http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.23
  */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /**
  *  Unique identifier for this schema.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  If this is a schema for an array, this property is the schema for each
  *  element in the array.
  */
-@property(strong, nullable) GTLRDiscovery_JsonSchema *items;
+@property(nonatomic, strong, nullable) GTLRDiscovery_JsonSchema *items;
 
 /** Whether this parameter goes in the query or the path for REST requests. */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** The maximum value of this parameter. */
-@property(copy, nullable) NSString *maximum;
+@property(nonatomic, copy, nullable) NSString *maximum;
 
 /** The minimum value of this parameter. */
-@property(copy, nullable) NSString *minimum;
+@property(nonatomic, copy, nullable) NSString *minimum;
 
 /**
  *  The regular expression this parameter must conform to. Uses Java 6 regex
  *  format:
  *  http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html
  */
-@property(copy, nullable) NSString *pattern;
+@property(nonatomic, copy, nullable) NSString *pattern;
 
 /**
  *  If this is a schema for an object, list the schema for each property of this
  *  object.
  */
-@property(strong, nullable) GTLRDiscovery_JsonSchemaProperties *properties;
+@property(nonatomic, strong, nullable) GTLRDiscovery_JsonSchemaProperties *properties;
 
 /**
  *  The value is read-only, generated by the service. The value cannot be
@@ -243,34 +243,34 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *readOnly;
+@property(nonatomic, strong, nullable) NSNumber *readOnly;
 
 /**
  *  Whether this parameter may appear multiple times.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *repeated;
+@property(nonatomic, strong, nullable) NSNumber *repeated;
 
 /**
  *  Whether the parameter is required.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *required;
+@property(nonatomic, strong, nullable) NSNumber *required;
 
 /**
  *  The value type for this schema. A list of values can be found here:
  *  http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.1
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  In a variant data type, the value of one property is used to determine how
  *  to interpret the entire entity. Its value must exist in a map of
  *  descriminant values to schema names.
  */
-@property(strong, nullable) GTLRDiscovery_JsonSchemaVariant *variant;
+@property(nonatomic, strong, nullable) GTLRDiscovery_JsonSchemaVariant *variant;
 
 @end
 
@@ -281,7 +281,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_JsonSchemaAnnotations : GTLRObject
 
 /** A list of methods for which this property is required on requests. */
-@property(strong, nullable) NSArray<NSString *> *required;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *required;
 
 @end
 
@@ -307,10 +307,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_JsonSchemaVariant : GTLRObject
 
 /** The name of the type discriminant property. */
-@property(copy, nullable) NSString *discriminant;
+@property(nonatomic, copy, nullable) NSString *discriminant;
 
 /** The map of discriminant value to schema to use for parsing.. */
-@property(strong, nullable) NSArray<GTLRDiscovery_JsonSchemaVariantMapItem *> *map;
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscovery_JsonSchemaVariantMapItem *> *map;
 
 @end
 
@@ -320,8 +320,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDiscovery_JsonSchemaVariantMapItem : GTLRObject
 
-@property(copy, nullable) NSString *xRef;
-@property(copy, nullable) NSString *typeValue;
+@property(nonatomic, copy, nullable) NSString *xRef;
+@property(nonatomic, copy, nullable) NSString *typeValue;
 
 @end
 
@@ -332,117 +332,117 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_RestDescription : GTLRObject
 
 /** Authentication information. */
-@property(strong, nullable) GTLRDiscovery_RestDescriptionAuth *auth;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestDescriptionAuth *auth;
 
 /** [DEPRECATED] The base path for REST requests. */
-@property(copy, nullable) NSString *basePath;
+@property(nonatomic, copy, nullable) NSString *basePath;
 
 /** [DEPRECATED] The base URL for REST requests. */
-@property(copy, nullable) NSString *baseUrl;
+@property(nonatomic, copy, nullable) NSString *baseUrl;
 
 /** The path for REST batch requests. */
-@property(copy, nullable) NSString *batchPath;
+@property(nonatomic, copy, nullable) NSString *batchPath;
 
 /**
  *  Indicates how the API name should be capitalized and split into various
  *  parts. Useful for generating pretty class names.
  */
-@property(copy, nullable) NSString *canonicalName;
+@property(nonatomic, copy, nullable) NSString *canonicalName;
 
 /**
  *  The description of this API.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** Indicate the version of the Discovery API used to generate this doc. */
-@property(copy, nullable) NSString *discoveryVersion;
+@property(nonatomic, copy, nullable) NSString *discoveryVersion;
 
 /** A link to human readable documentation for the API. */
-@property(copy, nullable) NSString *documentationLink;
+@property(nonatomic, copy, nullable) NSString *documentationLink;
 
 /** The ETag for this response. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Enable exponential backoff for suitable methods in the generated clients.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *exponentialBackoffDefault;
+@property(nonatomic, strong, nullable) NSNumber *exponentialBackoffDefault;
 
 /** A list of supported features for this API. */
-@property(strong, nullable) NSArray<NSString *> *features;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *features;
 
 /** Links to 16x16 and 32x32 icons representing the API. */
-@property(strong, nullable) GTLRDiscovery_RestDescriptionIcons *icons;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestDescriptionIcons *icons;
 
 /**
  *  The ID of this API.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The kind for this response. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Labels for the status of this API, such as labs or deprecated. */
-@property(strong, nullable) NSArray<NSString *> *labels;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
 
 /** API-level methods for this API. */
-@property(strong, nullable) GTLRDiscovery_RestDescriptionMethods *methods;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestDescriptionMethods *methods;
 
 /** The name of this API. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The domain of the owner of this API. Together with the ownerName and a
  *  packagePath values, this can be used to generate a library for this API
  *  which would have a unique fully qualified name.
  */
-@property(copy, nullable) NSString *ownerDomain;
+@property(nonatomic, copy, nullable) NSString *ownerDomain;
 
 /** The name of the owner of this API. See ownerDomain. */
-@property(copy, nullable) NSString *ownerName;
+@property(nonatomic, copy, nullable) NSString *ownerName;
 
 /** The package of the owner of this API. See ownerDomain. */
-@property(copy, nullable) NSString *packagePath;
+@property(nonatomic, copy, nullable) NSString *packagePath;
 
 /** Common parameters that apply across all apis. */
-@property(strong, nullable) GTLRDiscovery_RestDescriptionParameters *parameters;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestDescriptionParameters *parameters;
 
 /** The protocol described by this document. */
-@property(copy, nullable) NSString *protocol;
+@property(nonatomic, copy, nullable) NSString *protocol;
 
 /** The resources in this API. */
-@property(strong, nullable) GTLRDiscovery_RestDescriptionResources *resources;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestDescriptionResources *resources;
 
 /** The version of this API. */
-@property(copy, nullable) NSString *revision;
+@property(nonatomic, copy, nullable) NSString *revision;
 
 /** The root URL under which all API services live. */
-@property(copy, nullable) NSString *rootUrl;
+@property(nonatomic, copy, nullable) NSString *rootUrl;
 
 /** The schemas for this API. */
-@property(strong, nullable) GTLRDiscovery_RestDescriptionSchemas *schemas;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestDescriptionSchemas *schemas;
 
 /** The base path for all REST requests. */
-@property(copy, nullable) NSString *servicePath;
+@property(nonatomic, copy, nullable) NSString *servicePath;
 
 /** The title of this API. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** The version of this API. */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 /**
  *  versionModule
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *versionModule;
+@property(nonatomic, strong, nullable) NSNumber *versionModule;
 
 @end
 
@@ -453,7 +453,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_RestDescriptionAuth : GTLRObject
 
 /** OAuth 2.0 authentication information. */
-@property(strong, nullable) GTLRDiscovery_RestDescriptionAuthOauth2 *oauth2;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestDescriptionAuthOauth2 *oauth2;
 
 @end
 
@@ -464,10 +464,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_RestDescriptionIcons : GTLRObject
 
 /** The URL of the 16x16 icon. */
-@property(copy, nullable) NSString *x16;
+@property(nonatomic, copy, nullable) NSString *x16;
 
 /** The URL of the 32x32 icon. */
-@property(copy, nullable) NSString *x32;
+@property(nonatomic, copy, nullable) NSString *x32;
 
 @end
 
@@ -526,7 +526,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_RestDescriptionAuthOauth2 : GTLRObject
 
 /** Available OAuth 2.0 scopes. */
-@property(strong, nullable) GTLRDiscovery_RestDescriptionAuthOauth2Scopes *scopes;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestDescriptionAuthOauth2Scopes *scopes;
 
 @end
 
@@ -554,7 +554,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 @end
 
@@ -569,7 +569,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Whether this method requires an ETag to be specified. The ETag is sent as an
@@ -577,10 +577,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *etagRequired;
+@property(nonatomic, strong, nullable) NSNumber *etagRequired;
 
 /** HTTP method used by this method. */
-@property(copy, nullable) NSString *httpMethod;
+@property(nonatomic, copy, nullable) NSString *httpMethod;
 
 /**
  *  A unique ID for this method. This property can be used to match methods
@@ -588,56 +588,56 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Media upload parameters. */
-@property(strong, nullable) GTLRDiscovery_RestMethodMediaUpload *mediaUpload;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestMethodMediaUpload *mediaUpload;
 
 /**
  *  Ordered list of required parameters, serves as a hint to clients on how to
  *  structure their method signatures. The array is ordered such that the
  *  "most-significant" parameter appears first.
  */
-@property(strong, nullable) NSArray<NSString *> *parameterOrder;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *parameterOrder;
 
 /** Details for all parameters in this method. */
-@property(strong, nullable) GTLRDiscovery_RestMethodParameters *parameters;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestMethodParameters *parameters;
 
 /**
  *  The URI path of this REST method. Should be used in conjunction with the
  *  basePath property at the api-level.
  */
-@property(copy, nullable) NSString *path;
+@property(nonatomic, copy, nullable) NSString *path;
 
 /** The schema for the request. */
-@property(strong, nullable) GTLRDiscovery_RestMethodRequest *request;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestMethodRequest *request;
 
 /** The schema for the response. */
-@property(strong, nullable) GTLRDiscovery_RestMethodResponse *response;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestMethodResponse *response;
 
 /** OAuth 2.0 scopes applicable to this method. */
-@property(strong, nullable) NSArray<NSString *> *scopes;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
 /**
  *  Whether this method supports media downloads.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *supportsMediaDownload;
+@property(nonatomic, strong, nullable) NSNumber *supportsMediaDownload;
 
 /**
  *  Whether this method supports media uploads.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *supportsMediaUpload;
+@property(nonatomic, strong, nullable) NSNumber *supportsMediaUpload;
 
 /**
  *  Whether this method supports subscriptions.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *supportsSubscription;
+@property(nonatomic, strong, nullable) NSNumber *supportsSubscription;
 
 /**
  *  Indicates that downloads from this method should use the download service
@@ -645,7 +645,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *useMediaDownloadService;
+@property(nonatomic, strong, nullable) NSNumber *useMediaDownloadService;
 
 @end
 
@@ -656,13 +656,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_RestMethodMediaUpload : GTLRObject
 
 /** MIME Media Ranges for acceptable media uploads to this method. */
-@property(strong, nullable) NSArray<NSString *> *accept;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *accept;
 
 /** Maximum size of a media upload, such as "1MB", "2GB" or "3TB". */
-@property(copy, nullable) NSString *maxSize;
+@property(nonatomic, copy, nullable) NSString *maxSize;
 
 /** Supported upload protocols. */
-@property(strong, nullable) GTLRDiscovery_RestMethodMediaUploadProtocols *protocols;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestMethodMediaUploadProtocols *protocols;
 
 @end
 
@@ -685,10 +685,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_RestMethodRequest : GTLRObject
 
 /** Schema ID for the request schema. */
-@property(copy, nullable) NSString *xRef;
+@property(nonatomic, copy, nullable) NSString *xRef;
 
 /** parameter name. */
-@property(copy, nullable) NSString *parameterName;
+@property(nonatomic, copy, nullable) NSString *parameterName;
 
 @end
 
@@ -699,7 +699,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_RestMethodResponse : GTLRObject
 
 /** Schema ID for the response schema. */
-@property(copy, nullable) NSString *xRef;
+@property(nonatomic, copy, nullable) NSString *xRef;
 
 @end
 
@@ -710,10 +710,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_RestMethodMediaUploadProtocols : GTLRObject
 
 /** Supports the Resumable Media Upload protocol. */
-@property(strong, nullable) GTLRDiscovery_RestMethodMediaUploadProtocolsResumable *resumable;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestMethodMediaUploadProtocolsResumable *resumable;
 
 /** Supports uploading as a single HTTP request. */
-@property(strong, nullable) GTLRDiscovery_RestMethodMediaUploadProtocolsSimple *simple;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestMethodMediaUploadProtocolsSimple *simple;
 
 @end
 
@@ -728,13 +728,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *multipart;
+@property(nonatomic, strong, nullable) NSNumber *multipart;
 
 /**
  *  The URI path to be used for upload. Should be used in conjunction with the
  *  basePath property at the api-level.
  */
-@property(copy, nullable) NSString *path;
+@property(nonatomic, copy, nullable) NSString *path;
 
 @end
 
@@ -749,13 +749,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *multipart;
+@property(nonatomic, strong, nullable) NSNumber *multipart;
 
 /**
  *  The URI path to be used for upload. Should be used in conjunction with the
  *  basePath property at the api-level.
  */
-@property(copy, nullable) NSString *path;
+@property(nonatomic, copy, nullable) NSString *path;
 
 @end
 
@@ -766,10 +766,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_RestResource : GTLRObject
 
 /** Methods on this resource. */
-@property(strong, nullable) GTLRDiscovery_RestResourceMethods *methods;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestResourceMethods *methods;
 
 /** Sub-resources on this resource. */
-@property(strong, nullable) GTLRDiscovery_RestResourceResources *resources;
+@property(nonatomic, strong, nullable) GTLRDiscovery_RestResourceResources *resources;
 
 @end
 

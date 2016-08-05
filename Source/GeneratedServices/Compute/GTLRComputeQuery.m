@@ -3767,6 +3767,37 @@
 
 @end
 
+@implementation GTLRComputeQuery_RoutersPreview
+
+@dynamic project, region, router;
+
++ (instancetype)queryWithObject:(GTLRCompute_Router *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                         router:(NSString *)router {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/routers/{router}/preview";
+  GTLRComputeQuery_RoutersPreview *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_RoutersPreviewResponse class];
+  query.loggingName = @"compute.routers.preview";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RoutersUpdate
 
 @dynamic project, region, router;

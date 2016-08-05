@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAppStateQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -50,14 +50,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  The version of the data to be cleared. Version strings are returned by the
  *  server.
  */
-@property(copy, nullable) NSString *currentDataVersion;
+@property(nonatomic, copy, nullable) NSString *currentDataVersion;
 
 /**
  *  The key for the data to be retrieved.
  *
  *  @note The documented range is 0..3.
  */
-@property(assign) NSInteger stateKey;
+@property(nonatomic, assign) NSInteger stateKey;
 
 /**
  *  Fetches a @c GTLRAppState_WriteResult.
@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @note The documented range is 0..3.
  */
-@property(assign) NSInteger stateKey;
+@property(nonatomic, assign) NSInteger stateKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -133,7 +133,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @note The documented range is 0..3.
  */
-@property(assign) NSInteger stateKey;
+@property(nonatomic, assign) NSInteger stateKey;
 
 /**
  *  Fetches a @c GTLRAppState_GetResponse.
@@ -166,7 +166,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL includeData;
+@property(nonatomic, assign) BOOL includeData;
 
 /**
  *  Fetches a @c GTLRAppState_ListResponse.
@@ -199,14 +199,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  error. If there is no data stored on the server for this key, the update
  *  will succeed irrespective of the value of this parameter.
  */
-@property(copy, nullable) NSString *currentStateVersion;
+@property(nonatomic, copy, nullable) NSString *currentStateVersion;
 
 /**
  *  The key for the data to be retrieved.
  *
  *  @note The documented range is 0..3.
  */
-@property(assign) NSInteger stateKey;
+@property(nonatomic, assign) NSInteger stateKey;
 
 /**
  *  Fetches a @c GTLRAppState_WriteResult.

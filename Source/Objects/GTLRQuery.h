@@ -245,7 +245,7 @@ typedef void (^GTLRQueryCompletionBlock)(GTLRServiceTicket *callbackTicket,
 
 /**
  *  The library doesn't use GTLRQueryCollectionImpl, but it provides a concrete implementation
- *  of the protocol so the methods do not cause a private method error in Xcode.
+ *  of the protocol so the methods do not cause private method errors in Xcode/AppStore review.
  */
 @interface GTLRQueryCollectionImpl : GTLRQuery <GTLRQueryCollectionProtocol>
 @end

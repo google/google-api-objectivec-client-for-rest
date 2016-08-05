@@ -1489,7 +1489,7 @@ static NSString *MappedParamName(NSString *name) {
           && [_notRetainedPredicate evaluateWithObject:paramObjCName]) {
         clangDirective = @" NS_RETURNS_NOT_RETAINED";
       }
-      NSString *propertyLine = [NSString stringWithFormat:@"@property(%@%@) %@%@%@%@;\n",
+      NSString *propertyLine = [NSString stringWithFormat:@"@property(nonatomic, %@%@) %@%@%@%@;\n",
                                   objcPropertySemantics, extraAttributes, objcType,
                                 (asPtr ? @" *" : @" "),
                                 paramObjCName,
@@ -2392,7 +2392,7 @@ static NSString *MappedParamName(NSString *name) {
       } else {
         comment = [@"  // " stringByAppendingString:comment];
       }
-      NSString *propertyLine = [NSString stringWithFormat:@"@property(%@, readonly) %@%@%@;%@\n",
+      NSString *propertyLine = [NSString stringWithFormat:@"@property(nonatomic, %@, readonly) %@%@%@;%@\n",
                                 objcPropertySemantics, objcType,
                                 (asPtr ? @" *" : @" "),
                                 @"items", comment];
@@ -2502,7 +2502,7 @@ static NSString *MappedParamName(NSString *name) {
         if ([_notRetainedPredicate evaluateWithObject:propertyObjCName]) {
           clangDirective = @" NS_RETURNS_NOT_RETAINED";
         }
-        NSString *propertyLine = [NSString stringWithFormat:@"@property(%@%@) %@%@%@%@;\n",
+        NSString *propertyLine = [NSString stringWithFormat:@"@property(nonatomic, %@%@) %@%@%@%@;\n",
                                   objcPropertySemantics, extraAttributes, objcType,
                                   (asPtr ? @" *" : @" "),
                                   propertyObjCName, clangDirective];

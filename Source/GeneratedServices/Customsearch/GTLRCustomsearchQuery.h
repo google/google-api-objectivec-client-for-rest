@@ -477,7 +477,7 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
 @interface GTLRCustomsearchQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -492,36 +492,36 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
 //   +[GTLQueryCustomsearch queryForCseListWithq:]
 
 /** Turns off the translation between zh-CN and zh-TW. */
-@property(copy, nullable) NSString *c2coff;
+@property(nonatomic, copy, nullable) NSString *c2coff;
 
 /** Country restrict(s). */
-@property(copy, nullable) NSString *cr;
+@property(nonatomic, copy, nullable) NSString *cr;
 
 /** The URL of a linked custom search engine */
-@property(copy, nullable) NSString *cref;
+@property(nonatomic, copy, nullable) NSString *cref;
 
 /** The custom search engine ID to scope this search query */
-@property(copy, nullable) NSString *cx;
+@property(nonatomic, copy, nullable) NSString *cx;
 
 /** Specifies all search results are from a time period */
-@property(copy, nullable) NSString *dateRestrict;
+@property(nonatomic, copy, nullable) NSString *dateRestrict;
 
 /**
  *  Identifies a phrase that all documents in the search results must contain
  */
-@property(copy, nullable) NSString *exactTerms;
+@property(nonatomic, copy, nullable) NSString *exactTerms;
 
 /**
  *  Identifies a word or phrase that should not appear in any documents in the
  *  search results
  */
-@property(copy, nullable) NSString *excludeTerms;
+@property(nonatomic, copy, nullable) NSString *excludeTerms;
 
 /**
  *  Returns images of a specified type. Some of the allowed values are: bmp,
  *  gif, png, jpg, svg, pdf, ...
  */
-@property(copy, nullable) NSString *fileType;
+@property(nonatomic, copy, nullable) NSString *fileType;
 
 /**
  *  Controls turning on or off the duplicate content filter.
@@ -532,25 +532,25 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *    @arg @c kGTLRCustomsearchFilterX1 Turns on duplicate content filter.
  *        (Value: "1")
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Geolocation of end user. */
-@property(copy, nullable) NSString *gl;
+@property(nonatomic, copy, nullable) NSString *gl;
 
 /** The local Google domain to use to perform the search. */
-@property(copy, nullable) NSString *googlehost;
+@property(nonatomic, copy, nullable) NSString *googlehost;
 
 /**
  *  Creates a range in form as_nlo value..as_nhi value and attempts to append it
  *  to query
  */
-@property(copy, nullable) NSString *highRange;
+@property(nonatomic, copy, nullable) NSString *highRange;
 
 /** Sets the user interface language. */
-@property(copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl;
 
 /** Appends the extra query terms to the query. */
-@property(copy, nullable) NSString *hq;
+@property(nonatomic, copy, nullable) NSString *hq;
 
 /**
  *  Returns black and white, grayscale, or color images: mono, gray, and color.
@@ -560,7 +560,7 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *    @arg @c kGTLRCustomsearchImgColorTypeGray gray (Value: "gray")
  *    @arg @c kGTLRCustomsearchImgColorTypeMono mono (Value: "mono")
  */
-@property(copy, nullable) NSString *imgColorType;
+@property(nonatomic, copy, nullable) NSString *imgColorType;
 
 /**
  *  Returns images of a specific dominant color: yellow, green, teal, blue,
@@ -578,7 +578,7 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *    @arg @c kGTLRCustomsearchImgDominantColorWhite white (Value: "white")
  *    @arg @c kGTLRCustomsearchImgDominantColorYellow yellow (Value: "yellow")
  */
-@property(copy, nullable) NSString *imgDominantColor;
+@property(nonatomic, copy, nullable) NSString *imgDominantColor;
 
 /**
  *  Returns images of a specified size, where size can be one of: icon, small,
@@ -593,7 +593,7 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *    @arg @c kGTLRCustomsearchImgSizeXlarge xlarge (Value: "xlarge")
  *    @arg @c kGTLRCustomsearchImgSizeXxlarge xxlarge (Value: "xxlarge")
  */
-@property(copy, nullable) NSString *imgSize;
+@property(nonatomic, copy, nullable) NSString *imgSize;
 
 /**
  *  Returns images of a type, which can be one of: clipart, face, lineart, news,
@@ -606,18 +606,18 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *    @arg @c kGTLRCustomsearchImgTypeNews news (Value: "news")
  *    @arg @c kGTLRCustomsearchImgTypePhoto photo (Value: "photo")
  */
-@property(copy, nullable) NSString *imgType;
+@property(nonatomic, copy, nullable) NSString *imgType;
 
 /**
  *  Specifies that all search results should contain a link to a particular URL
  */
-@property(copy, nullable) NSString *linkSite;
+@property(nonatomic, copy, nullable) NSString *linkSite;
 
 /**
  *  Creates a range in form as_nlo value..as_nhi value and attempts to append it
  *  to query
  */
-@property(copy, nullable) NSString *lowRange;
+@property(nonatomic, copy, nullable) NSString *lowRange;
 
 /**
  *  The language restriction for the search results
@@ -661,37 +661,37 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *    @arg @c kGTLRCustomsearchLrLangZhTW Chinese (Traditional) (Value:
  *        "lang_zh-TW")
  */
-@property(copy, nullable) NSString *lr;
+@property(nonatomic, copy, nullable) NSString *lr;
 
 /**
  *  Number of search results to return
  *
  *  @note If not set, the documented server-side default will be 10.
  */
-@property(assign) NSUInteger num;
+@property(nonatomic, assign) NSUInteger num;
 
 /**
  *  Provides additional search terms to check for in a document, where each
  *  document in the search results must contain at least one of the additional
  *  search terms
  */
-@property(copy, nullable) NSString *orTerms;
+@property(nonatomic, copy, nullable) NSString *orTerms;
 
 /** Query */
-@property(copy, nullable) NSString *q;
+@property(nonatomic, copy, nullable) NSString *q;
 
 /**
  *  Specifies that all search results should be pages that are related to the
  *  specified URL
  */
-@property(copy, nullable) NSString *relatedSite;
+@property(nonatomic, copy, nullable) NSString *relatedSite;
 
 /**
  *  Filters based on licensing. Supported values include: cc_publicdomain,
  *  cc_attribute, cc_sharealike, cc_noncommercial, cc_nonderived and
  *  combinations of these.
  */
-@property(copy, nullable) NSString *rights;
+@property(nonatomic, copy, nullable) NSString *rights;
 
 /**
  *  Search safety level
@@ -707,7 +707,7 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *  @note If not set, the documented server-side default will be
  *        kGTLRCustomsearchSafeOff.
  */
-@property(copy, nullable) NSString *safe;
+@property(nonatomic, copy, nullable) NSString *safe;
 
 /**
  *  Specifies the search type: image.
@@ -716,10 +716,10 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *    @arg @c kGTLRCustomsearchSearchTypeImage custom image search (Value:
  *        "image")
  */
-@property(copy, nullable) NSString *searchType;
+@property(nonatomic, copy, nullable) NSString *searchType;
 
 /** Specifies all search results should be pages from a given site */
-@property(copy, nullable) NSString *siteSearch;
+@property(nonatomic, copy, nullable) NSString *siteSearch;
 
 /**
  *  Controls whether to include or exclude results from the site named in the
@@ -729,13 +729,13 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
  *    @arg @c kGTLRCustomsearchSiteSearchFilterE exclude (Value: "e")
  *    @arg @c kGTLRCustomsearchSiteSearchFilterI include (Value: "i")
  */
-@property(copy, nullable) NSString *siteSearchFilter;
+@property(nonatomic, copy, nullable) NSString *siteSearchFilter;
 
 /** The sort expression to apply to the results */
-@property(copy, nullable) NSString *sort;
+@property(nonatomic, copy, nullable) NSString *sort;
 
 /** The index of the first result to return */
-@property(assign) NSUInteger start;
+@property(nonatomic, assign) NSUInteger start;
 
 /**
  *  Fetches a @c GTLRCustomsearch_Search.

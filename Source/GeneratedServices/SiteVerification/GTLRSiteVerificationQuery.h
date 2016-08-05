@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSiteVerificationQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRSiteVerification_WebResourceResource.
@@ -139,7 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySiteVerification queryForWebResourceInsertWithObject:verificationMethod:]
 
 /** The method to use for verifying a site or domain. */
-@property(copy, nullable) NSString *verificationMethod;
+@property(nonatomic, copy, nullable) NSString *verificationMethod;
 
 /**
  *  Fetches a @c GTLRSiteVerification_WebResourceResource.
@@ -198,7 +198,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRSiteVerification_WebResourceResource.
@@ -234,7 +234,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRSiteVerification_WebResourceResource.

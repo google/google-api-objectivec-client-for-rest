@@ -24,6 +24,7 @@
 @class GTLRAndroidEnterprise_EnterpriseAccount;
 @class GTLRAndroidEnterprise_Entitlement;
 @class GTLRAndroidEnterprise_Install;
+@class GTLRAndroidEnterprise_ManagedConfiguration;
 @class GTLRAndroidEnterprise_ProductPermissions;
 @class GTLRAndroidEnterprise_ProductsApproveRequest;
 @class GTLRAndroidEnterprise_ProductSet;
@@ -64,7 +65,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @interface GTLRAndroidEnterpriseQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -81,10 +82,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForCollectionsDeleteWithenterpriseId:collectionId:]
 
 /** The ID of the collection. */
-@property(copy, nullable) NSString *collectionId;
+@property(nonatomic, copy, nullable) NSString *collectionId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -115,10 +116,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForCollectionsGetWithenterpriseId:collectionId:]
 
 /** The ID of the collection. */
-@property(copy, nullable) NSString *collectionId;
+@property(nonatomic, copy, nullable) NSString *collectionId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Collection.
@@ -148,7 +149,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForCollectionsInsertWithObject:enterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Collection.
@@ -179,7 +180,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForCollectionsListWithenterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_CollectionsListResponse.
@@ -207,10 +208,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForCollectionsPatchWithObject:enterpriseId:collectionId:]
 
 /** The ID of the collection. */
-@property(copy, nullable) NSString *collectionId;
+@property(nonatomic, copy, nullable) NSString *collectionId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Collection.
@@ -243,10 +244,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForCollectionsUpdateWithObject:enterpriseId:collectionId:]
 
 /** The ID of the collection. */
-@property(copy, nullable) NSString *collectionId;
+@property(nonatomic, copy, nullable) NSString *collectionId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Collection.
@@ -281,13 +282,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForCollectionviewersDeleteWithenterpriseId:collectionId:userId:]
 
 /** The ID of the collection. */
-@property(copy, nullable) NSString *collectionId;
+@property(nonatomic, copy, nullable) NSString *collectionId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -324,13 +325,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForCollectionviewersGetWithenterpriseId:collectionId:userId:]
 
 /** The ID of the collection. */
-@property(copy, nullable) NSString *collectionId;
+@property(nonatomic, copy, nullable) NSString *collectionId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_User.
@@ -366,10 +367,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForCollectionviewersListWithenterpriseId:collectionId:]
 
 /** The ID of the collection. */
-@property(copy, nullable) NSString *collectionId;
+@property(nonatomic, copy, nullable) NSString *collectionId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_CollectionViewersListResponse.
@@ -403,13 +404,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForCollectionviewersPatchWithObject:enterpriseId:collectionId:userId:]
 
 /** The ID of the collection. */
-@property(copy, nullable) NSString *collectionId;
+@property(nonatomic, copy, nullable) NSString *collectionId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_User.
@@ -447,13 +448,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForCollectionviewersUpdateWithObject:enterpriseId:collectionId:userId:]
 
 /** The ID of the collection. */
-@property(copy, nullable) NSString *collectionId;
+@property(nonatomic, copy, nullable) NSString *collectionId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_User.
@@ -489,13 +490,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForDevicesGetWithenterpriseId:userId:deviceId:]
 
 /** The ID of the device. */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Device.
@@ -531,13 +532,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForDevicesGetStateWithenterpriseId:userId:deviceId:]
 
 /** The ID of the device. */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_DeviceState.
@@ -573,10 +574,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForDevicesListWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_DevicesListResponse.
@@ -610,13 +611,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForDevicesSetStateWithObject:enterpriseId:userId:deviceId:]
 
 /** The ID of the device. */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_DeviceState.
@@ -660,7 +661,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  The notification set ID as returned by Enterprises.PullNotificationSet. This
  *  must be provided.
  */
-@property(copy, nullable) NSString *notificationSetId;
+@property(nonatomic, copy, nullable) NSString *notificationSetId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -691,10 +692,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesCompleteSignup]
 
 /** The Completion token initially returned by GenerateSignupUrl. */
-@property(copy, nullable) NSString *completionToken;
+@property(nonatomic, copy, nullable) NSString *completionToken;
 
 /** The Enterprise token appended to the Callback URL. */
-@property(copy, nullable) NSString *enterpriseToken;
+@property(nonatomic, copy, nullable) NSString *enterpriseToken;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Enterprise.
@@ -724,7 +725,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesDeleteWithenterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -755,7 +756,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesEnrollWithObject:token:]
 
 /** The token provided by the enterprise to register the EMM. */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Enterprise.
@@ -794,7 +795,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  then a new URL formatted, i.e. there may be some minor formatting changes
  *  and, more importantly, the URL must be well-formed so that it can be parsed.
  */
-@property(copy, nullable) NSString *callbackUrl;
+@property(nonatomic, copy, nullable) NSString *callbackUrl;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_SignupInfo.
@@ -820,7 +821,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesGetWithenterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Enterprise.
@@ -857,7 +858,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 // Previous library name was
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesGetServiceAccountWithenterpriseId:]
 
-@property(copy, nullable) NSString *enterpriseId;
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  The type of credential to return with the service account. Required.
@@ -867,7 +869,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *        "googleCredentials"
  *    @arg @c kGTLRAndroidEnterpriseKeyTypePkcs12 Value "pkcs12"
  */
-@property(copy, nullable) NSString *keyType;
+@property(nonatomic, copy, nullable) NSString *keyType;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ServiceAccount.
@@ -884,7 +886,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  Once the service account is bound to the enterprise, it can be managed using
  *  the serviceAccountKeys resource.
  *
- *  @param enterpriseId NSString
+ *  @param enterpriseId The ID of the enterprise.
  *
  *  @returns GTLRAndroidEnterpriseQuery_EnterprisesGetServiceAccount
  */
@@ -893,7 +895,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Returns the store layout resource.
+ *  Returns the store layout for the enterprise. If the store layout has not
+ *  been set, or if the store layout has no homepageId set, returns a NOT_FOUND
+ *  error.
  *
  *  Method: androidenterprise.enterprises.getStoreLayout
  *
@@ -905,12 +909,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesGetStoreLayoutWithenterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StoreLayout.
  *
- *  Returns the store layout resource.
+ *  Returns the store layout for the enterprise. If the store layout has not
+ *  been set, or if the store layout has no homepageId set, returns a NOT_FOUND
+ *  error.
  *
  *  @param enterpriseId The ID of the enterprise.
  *
@@ -934,7 +940,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesInsertWithObject:token:]
 
 /** The token provided by the enterprise to register the EMM. */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Enterprise.
@@ -970,7 +976,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesListWithdomain:]
 
 /** The exact primary domain name of the enterprise to look up. */
-@property(copy, nullable) NSString *domain;
+@property(nonatomic, copy, nullable) NSString *domain;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_EnterprisesListResponse.
@@ -1025,7 +1031,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *    @arg @c kGTLRAndroidEnterpriseRequestModeWaitForNotifications Value
  *        "waitForNotifications"
  */
-@property(copy, nullable) NSString *requestMode;
+@property(nonatomic, copy, nullable) NSString *requestMode;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_NotificationSet.
@@ -1064,7 +1070,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesSendTestPushNotificationWithenterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c
@@ -1095,7 +1101,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesSetAccountWithObject:enterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_EnterpriseAccount.
@@ -1115,7 +1121,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Sets the store layout resource.
+ *  Sets the store layout for the enterprise.
  *
  *  Method: androidenterprise.enterprises.setStoreLayout
  *
@@ -1127,12 +1133,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesSetStoreLayoutWithObject:enterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StoreLayout.
  *
- *  Sets the store layout resource.
+ *  Sets the store layout for the enterprise.
  *
  *  @param object The @c GTLRAndroidEnterprise_StoreLayout to include in the
  *    query.
@@ -1158,7 +1164,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesUnenrollWithenterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1187,15 +1193,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEntitlementsDeleteWithenterpriseId:userId:entitlementId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  The ID of the entitlement (a product ID), e.g. "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *entitlementId;
+@property(nonatomic, copy, nullable) NSString *entitlementId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1229,15 +1235,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEntitlementsGetWithenterpriseId:userId:entitlementId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  The ID of the entitlement (a product ID), e.g. "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *entitlementId;
+@property(nonatomic, copy, nullable) NSString *entitlementId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Entitlement.
@@ -1270,10 +1276,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEntitlementsListWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_EntitlementsListResponse.
@@ -1304,12 +1310,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEntitlementsPatchWithObject:enterpriseId:userId:entitlementId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  The ID of the entitlement (a product ID), e.g. "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *entitlementId;
+@property(nonatomic, copy, nullable) NSString *entitlementId;
 
 /**
  *  Set to true to also install the product on all the user's devices where
@@ -1317,10 +1323,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  operation from returning successfully, as long as the entitlement was
  *  successfully assigned to the user.
  */
-@property(assign) BOOL install;
+@property(nonatomic, assign) BOOL install;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Entitlement.
@@ -1357,12 +1363,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForEntitlementsUpdateWithObject:enterpriseId:userId:entitlementId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  The ID of the entitlement (a product ID), e.g. "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *entitlementId;
+@property(nonatomic, copy, nullable) NSString *entitlementId;
 
 /**
  *  Set to true to also install the product on all the user's devices where
@@ -1370,10 +1376,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  operation from returning successfully, as long as the entitlement was
  *  successfully assigned to the user.
  */
-@property(assign) BOOL install;
+@property(nonatomic, assign) BOOL install;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Entitlement.
@@ -1409,13 +1415,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForGrouplicensesGetWithenterpriseId:groupLicenseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  The ID of the product the group license is for, e.g.
  *  "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *groupLicenseId;
+@property(nonatomic, copy, nullable) NSString *groupLicenseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_GroupLicense.
@@ -1446,7 +1452,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForGrouplicensesListWithenterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_GroupLicensesListResponse.
@@ -1475,13 +1481,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForGrouplicenseusersListWithenterpriseId:groupLicenseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  The ID of the product the group license is for, e.g.
  *  "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *groupLicenseId;
+@property(nonatomic, copy, nullable) NSString *groupLicenseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_GroupLicenseUsersListResponse.
@@ -1514,19 +1520,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForInstallsDeleteWithenterpriseId:userId:deviceId:installId:]
 
 /** The Android ID of the device. */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  The ID of the product represented by the install, e.g.
  *  "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *installId;
+@property(nonatomic, copy, nullable) NSString *installId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1563,19 +1569,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForInstallsGetWithenterpriseId:userId:deviceId:installId:]
 
 /** The Android ID of the device. */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  The ID of the product represented by the install, e.g.
  *  "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *installId;
+@property(nonatomic, copy, nullable) NSString *installId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Install.
@@ -1610,13 +1616,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForInstallsListWithenterpriseId:userId:deviceId:]
 
 /** The Android ID of the device. */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_InstallsListResponse.
@@ -1650,19 +1656,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForInstallsPatchWithObject:enterpriseId:userId:deviceId:installId:]
 
 /** The Android ID of the device. */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  The ID of the product represented by the install, e.g.
  *  "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *installId;
+@property(nonatomic, copy, nullable) NSString *installId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Install.
@@ -1702,19 +1708,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForInstallsUpdateWithObject:enterpriseId:userId:deviceId:installId:]
 
 /** The Android ID of the device. */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  The ID of the product represented by the install, e.g.
  *  "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *installId;
+@property(nonatomic, copy, nullable) NSString *installId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Install.
@@ -1740,6 +1746,464 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
+ *  Removes a per-device managed configuration for an app for the specified
+ *  device.
+ *
+ *  Method: androidenterprise.managedconfigurationsfordevice.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceDelete : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsfordeviceDeleteWithenterpriseId:userId:deviceId:managedConfigurationForDeviceId:]
+
+/** The Android ID of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  The ID of the managed configuration (a product ID), e.g.
+ *  "app:com.google.android.gm".
+ */
+@property(nonatomic, copy, nullable) NSString *managedConfigurationForDeviceId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Removes a per-device managed configuration for an app for the specified
+ *  device.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param deviceId The Android ID of the device.
+ *  @param managedConfigurationForDeviceId The ID of the managed configuration
+ *    (a product ID), e.g. "app:com.google.android.gm".
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceDelete
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+                             deviceId:(NSString *)deviceId
+      managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
+
+@end
+
+/**
+ *  Retrieves details of a per-device managed configuration.
+ *
+ *  Method: androidenterprise.managedconfigurationsfordevice.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceGet : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsfordeviceGetWithenterpriseId:userId:deviceId:managedConfigurationForDeviceId:]
+
+/** The Android ID of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  The ID of the managed configuration (a product ID), e.g.
+ *  "app:com.google.android.gm".
+ */
+@property(nonatomic, copy, nullable) NSString *managedConfigurationForDeviceId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_ManagedConfiguration.
+ *
+ *  Retrieves details of a per-device managed configuration.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param deviceId The Android ID of the device.
+ *  @param managedConfigurationForDeviceId The ID of the managed configuration
+ *    (a product ID), e.g. "app:com.google.android.gm".
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceGet
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+                             deviceId:(NSString *)deviceId
+      managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
+
+@end
+
+/**
+ *  Lists all the per-device managed configurations for the specified device.
+ *  Only the ID is set.
+ *
+ *  Method: androidenterprise.managedconfigurationsfordevice.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceList : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsfordeviceListWithenterpriseId:userId:deviceId:]
+
+/** The Android ID of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c
+ *  GTLRAndroidEnterprise_ManagedConfigurationsForDeviceListResponse.
+ *
+ *  Lists all the per-device managed configurations for the specified device.
+ *  Only the ID is set.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param deviceId The Android ID of the device.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceList
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+                             deviceId:(NSString *)deviceId;
+
+@end
+
+/**
+ *  Adds or updates a per-device managed configuration for an app for the
+ *  specified device. This method supports patch semantics.
+ *
+ *  Method: androidenterprise.managedconfigurationsfordevice.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordevicePatch : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsfordevicePatchWithObject:enterpriseId:userId:deviceId:managedConfigurationForDeviceId:]
+
+/** The Android ID of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  The ID of the managed configuration (a product ID), e.g.
+ *  "app:com.google.android.gm".
+ */
+@property(nonatomic, copy, nullable) NSString *managedConfigurationForDeviceId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_ManagedConfiguration.
+ *
+ *  Adds or updates a per-device managed configuration for an app for the
+ *  specified device. This method supports patch semantics.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_ManagedConfiguration to include
+ *    in the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param deviceId The Android ID of the device.
+ *  @param managedConfigurationForDeviceId The ID of the managed configuration
+ *    (a product ID), e.g. "app:com.google.android.gm".
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordevicePatch
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_ManagedConfiguration *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId
+                       deviceId:(NSString *)deviceId
+managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
+
+@end
+
+/**
+ *  Adds or updates a per-device managed configuration for an app for the
+ *  specified device.
+ *
+ *  Method: androidenterprise.managedconfigurationsfordevice.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceUpdate : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsfordeviceUpdateWithObject:enterpriseId:userId:deviceId:managedConfigurationForDeviceId:]
+
+/** The Android ID of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  The ID of the managed configuration (a product ID), e.g.
+ *  "app:com.google.android.gm".
+ */
+@property(nonatomic, copy, nullable) NSString *managedConfigurationForDeviceId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_ManagedConfiguration.
+ *
+ *  Adds or updates a per-device managed configuration for an app for the
+ *  specified device.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_ManagedConfiguration to include
+ *    in the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param deviceId The Android ID of the device.
+ *  @param managedConfigurationForDeviceId The ID of the managed configuration
+ *    (a product ID), e.g. "app:com.google.android.gm".
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceUpdate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_ManagedConfiguration *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId
+                       deviceId:(NSString *)deviceId
+managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
+
+@end
+
+/**
+ *  Removes a per-user managed configuration for an app for the specified user.
+ *
+ *  Method: androidenterprise.managedconfigurationsforuser.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserDelete : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsforuserDeleteWithenterpriseId:userId:managedConfigurationForUserId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  The ID of the managed configuration (a product ID), e.g.
+ *  "app:com.google.android.gm".
+ */
+@property(nonatomic, copy, nullable) NSString *managedConfigurationForUserId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Removes a per-user managed configuration for an app for the specified user.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param managedConfigurationForUserId The ID of the managed configuration (a
+ *    product ID), e.g. "app:com.google.android.gm".
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserDelete
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+        managedConfigurationForUserId:(NSString *)managedConfigurationForUserId;
+
+@end
+
+/**
+ *  Retrieves details of a per-user managed configuration for an app for the
+ *  specified user.
+ *
+ *  Method: androidenterprise.managedconfigurationsforuser.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserGet : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsforuserGetWithenterpriseId:userId:managedConfigurationForUserId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  The ID of the managed configuration (a product ID), e.g.
+ *  "app:com.google.android.gm".
+ */
+@property(nonatomic, copy, nullable) NSString *managedConfigurationForUserId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_ManagedConfiguration.
+ *
+ *  Retrieves details of a per-user managed configuration for an app for the
+ *  specified user.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param managedConfigurationForUserId The ID of the managed configuration (a
+ *    product ID), e.g. "app:com.google.android.gm".
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserGet
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+        managedConfigurationForUserId:(NSString *)managedConfigurationForUserId;
+
+@end
+
+/**
+ *  Lists all the per-user managed configurations for the specified user. Only
+ *  the ID is set.
+ *
+ *  Method: androidenterprise.managedconfigurationsforuser.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserList : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsforuserListWithenterpriseId:userId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_ManagedConfigurationsForUserListResponse.
+ *
+ *  Lists all the per-user managed configurations for the specified user. Only
+ *  the ID is set.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserList
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId;
+
+@end
+
+/**
+ *  Adds or updates a per-user managed configuration for an app for the
+ *  specified user. This method supports patch semantics.
+ *
+ *  Method: androidenterprise.managedconfigurationsforuser.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserPatch : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsforuserPatchWithObject:enterpriseId:userId:managedConfigurationForUserId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  The ID of the managed configuration (a product ID), e.g.
+ *  "app:com.google.android.gm".
+ */
+@property(nonatomic, copy, nullable) NSString *managedConfigurationForUserId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_ManagedConfiguration.
+ *
+ *  Adds or updates a per-user managed configuration for an app for the
+ *  specified user. This method supports patch semantics.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_ManagedConfiguration to include
+ *    in the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param managedConfigurationForUserId The ID of the managed configuration (a
+ *    product ID), e.g. "app:com.google.android.gm".
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserPatch
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_ManagedConfiguration *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId
+  managedConfigurationForUserId:(NSString *)managedConfigurationForUserId;
+
+@end
+
+/**
+ *  Adds or updates a per-user managed configuration for an app for the
+ *  specified user.
+ *
+ *  Method: androidenterprise.managedconfigurationsforuser.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserUpdate : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsforuserUpdateWithObject:enterpriseId:userId:managedConfigurationForUserId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  The ID of the managed configuration (a product ID), e.g.
+ *  "app:com.google.android.gm".
+ */
+@property(nonatomic, copy, nullable) NSString *managedConfigurationForUserId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_ManagedConfiguration.
+ *
+ *  Adds or updates a per-user managed configuration for an app for the
+ *  specified user.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_ManagedConfiguration to include
+ *    in the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param managedConfigurationForUserId The ID of the managed configuration (a
+ *    product ID), e.g. "app:com.google.android.gm".
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserUpdate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_ManagedConfiguration *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId
+  managedConfigurationForUserId:(NSString *)managedConfigurationForUserId;
+
+@end
+
+/**
  *  Retrieves details of an Android app permission for display to an enterprise
  *  admin.
  *
@@ -1753,10 +2217,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForPermissionsGetWithpermissionId:]
 
 /** The BCP47 tag for the user's preferred language (e.g. "en-US", "de") */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the permission. */
-@property(copy, nullable) NSString *permissionId;
+@property(nonatomic, copy, nullable) NSString *permissionId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Permission.
@@ -1789,10 +2253,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForProductsApproveWithObject:enterpriseId:productId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the product. */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1838,16 +2302,16 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForProductsGenerateApprovalUrlWithenterpriseId:productId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  The BCP 47 language code used for permission names and descriptions in the
  *  returned iframe, for instance "en-US".
  */
-@property(copy, nullable) NSString *languageCode;
+@property(nonatomic, copy, nullable) NSString *languageCode;
 
 /** The ID of the product. */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ProductsGenerateApprovalUrlResponse.
@@ -1885,13 +2349,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForProductsGetWithenterpriseId:productId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The BCP47 tag for the user's preferred language (e.g. "en-US", "de"). */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the product, e.g. "app:com.google.android.gm". */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Product.
@@ -1909,9 +2373,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Retrieves the schema defining app restrictions configurable for this
- *  product. All products have a schema, but this may be empty if no app
- *  restrictions are defined.
+ *  Retrieves the schema that defines the configurable properties for this
+ *  product. All products have a schema, but this schema may be empty if no
+ *  managed configurations have been defined. This schema can be used to
+ *  populate a UI that allows an administrator to configure the product. To
+ *  apply a managed configuration based on the schema obtained using this API,
+ *  see Managed Configurations through Play.
  *
  *  Method: androidenterprise.products.getAppRestrictionsSchema
  *
@@ -1923,20 +2390,23 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForProductsGetAppRestrictionsSchemaWithenterpriseId:productId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The BCP47 tag for the user's preferred language (e.g. "en-US", "de"). */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The ID of the product. */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_AppRestrictionsSchema.
  *
- *  Retrieves the schema defining app restrictions configurable for this
- *  product. All products have a schema, but this may be empty if no app
- *  restrictions are defined.
+ *  Retrieves the schema that defines the configurable properties for this
+ *  product. All products have a schema, but this schema may be empty if no
+ *  managed configurations have been defined. This schema can be used to
+ *  populate a UI that allows an administrator to configure the product. To
+ *  apply a managed configuration based on the schema obtained using this API,
+ *  see Managed Configurations through Play.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param productId The ID of the product.
@@ -1961,10 +2431,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForProductsGetPermissionsWithenterpriseId:productId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the product. */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ProductPermissions.
@@ -1982,7 +2452,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Finds approved products that match a query.
+ *  Finds approved products that match a query, or all approved products if
+ *  there is no query.
  *
  *  Method: androidenterprise.products.list
  *
@@ -1998,29 +2469,30 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  products that have been approved (true). Only "true" is supported, and
  *  should be specified.
  */
-@property(assign) BOOL approved;
+@property(nonatomic, assign) BOOL approved;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  The BCP47 tag for the user's preferred language (e.g. "en-US", "de").
  *  Results are returned in the language best matching the preferred language.
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Specifies the maximum number of products that can be returned per request.
  *  If not specified, uses a default value of 100, which is also the maximum
  *  retrievable within a single response.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The search query as typed in the Google Play Store search box. If omitted,
- *  all approved apps will be returned (using the pagination parameters).
+ *  all approved apps will be returned (using the pagination parameters),
+ *  including apps that are not available in the store (e.g. unpublished apps).
  */
-@property(copy, nullable) NSString *query;
+@property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  A pagination token is contained in a requests response when there are more
@@ -2028,12 +2500,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  products, and so forth. This parameter cannot be used in the initial
  *  request.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ProductsListResponse.
  *
- *  Finds approved products that match a query.
+ *  Finds approved products that match a query, or all approved products if
+ *  there is no query.
  *
  *  @param enterpriseId The ID of the enterprise.
  *
@@ -2056,10 +2529,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForProductsUnapproveWithenterpriseId:productId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the product. */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2095,10 +2568,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForProductsUpdatePermissionsWithObject:enterpriseId:productId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the product. */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ProductPermissions.
@@ -2139,10 +2612,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForServiceaccountkeysDeleteWithenterpriseId:keyId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the key. */
-@property(copy, nullable) NSString *keyId;
+@property(nonatomic, copy, nullable) NSString *keyId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2180,7 +2653,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForServiceaccountkeysInsertWithObject:enterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ServiceAccountKey.
@@ -2219,7 +2692,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForServiceaccountkeysListWithenterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ServiceAccountKeysListResponse.
@@ -2251,13 +2724,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForStorelayoutclustersDeleteWithenterpriseId:pageId:clusterId:]
 
 /** The ID of the cluster. */
-@property(copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2290,13 +2763,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForStorelayoutclustersGetWithenterpriseId:pageId:clusterId:]
 
 /** The ID of the cluster. */
-@property(copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StoreCluster.
@@ -2328,10 +2801,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForStorelayoutclustersInsertWithObject:enterpriseId:pageId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StoreCluster.
@@ -2364,10 +2837,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForStorelayoutclustersListWithenterpriseId:pageId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StoreLayoutClustersListResponse.
@@ -2397,13 +2870,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForStorelayoutclustersPatchWithObject:enterpriseId:pageId:clusterId:]
 
 /** The ID of the cluster. */
-@property(copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StoreCluster.
@@ -2438,13 +2911,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForStorelayoutclustersUpdateWithObject:enterpriseId:pageId:clusterId:]
 
 /** The ID of the cluster. */
-@property(copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StoreCluster.
@@ -2479,10 +2952,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForStorelayoutpagesDeleteWithenterpriseId:pageId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2513,10 +2986,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForStorelayoutpagesGetWithenterpriseId:pageId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StorePage.
@@ -2546,7 +3019,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForStorelayoutpagesInsertWithObject:enterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StorePage.
@@ -2577,7 +3050,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForStorelayoutpagesListWithenterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StoreLayoutPagesListResponse.
@@ -2605,10 +3078,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForStorelayoutpagesPatchWithObject:enterpriseId:pageId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StorePage.
@@ -2641,10 +3114,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForStorelayoutpagesUpdateWithObject:enterpriseId:pageId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the page. */
-@property(copy, nullable) NSString *pageId;
+@property(nonatomic, copy, nullable) NSString *pageId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StorePage.
@@ -2677,10 +3150,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForUsersDeleteWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2714,10 +3187,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForUsersGenerateAuthenticationTokenWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_AuthenticationToken.
@@ -2753,10 +3226,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForUsersGenerateTokenWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_UserToken.
@@ -2789,10 +3262,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForUsersGetWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_User.
@@ -2822,10 +3295,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForUsersGetAvailableProductSetWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ProductSet.
@@ -2844,9 +3317,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 
 /**
  *  Creates a new EMM-managed user.
- *  The required details of the user are passed in the Users resource in the
- *  body of the request. Specifically, the accountIdentifier, accountType, and
- *  displayName fields must be provided.
+ *  The Users resource passed in the body of the request should include an
+ *  accountIdentifier and an accountType.
  *
  *  Method: androidenterprise.users.insert
  *
@@ -2858,15 +3330,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForUsersInsertWithObject:enterpriseId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_User.
  *
  *  Creates a new EMM-managed user.
- *  The required details of the user are passed in the Users resource in the
- *  body of the request. Specifically, the accountIdentifier, accountType, and
- *  displayName fields must be provided.
+ *  The Users resource passed in the body of the request should include an
+ *  accountIdentifier and an accountType.
  *
  *  @param object The @c GTLRAndroidEnterprise_User to include in the query.
  *  @param enterpriseId The ID of the enterprise.
@@ -2879,7 +3350,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Looks up a user by their primary email address. This is only supported for
+ *  Looks up a user by primary email address. This is only supported for
  *  Google-managed users. Lookup of the id is not needed for EMM-managed users
  *  because the id is already returned in the result of the Users.insert call.
  *
@@ -2893,15 +3364,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForUsersListWithenterpriseId:email:]
 
 /** The exact primary email address of the user to look up. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_UsersListResponse.
  *
- *  Looks up a user by their primary email address. This is only supported for
+ *  Looks up a user by primary email address. This is only supported for
  *  Google-managed users. Lookup of the id is not needed for EMM-managed users
  *  because the id is already returned in the result of the Users.insert call.
  *
@@ -2917,10 +3388,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 
 /**
  *  Updates the details of an EMM-managed user.
- *  This only works with EMM-managed users. Pass the new details in Users
- *  resource in the request body. Only the displayName field can be changed.
- *  Other fields must either be unset or have the currently active value. This
- *  method supports patch semantics.
+ *  Can be used with EMM-managed users only (not Google managed users). Pass the
+ *  new details in the Users resource in the request body. Only the displayName
+ *  field can be changed. Other fields must either be unset or have the
+ *  currently active value. This method supports patch semantics.
  *
  *  Method: androidenterprise.users.patch
  *
@@ -2932,19 +3403,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForUsersPatchWithObject:enterpriseId:userId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_User.
  *
  *  Updates the details of an EMM-managed user.
- *  This only works with EMM-managed users. Pass the new details in Users
- *  resource in the request body. Only the displayName field can be changed.
- *  Other fields must either be unset or have the currently active value. This
- *  method supports patch semantics.
+ *  Can be used with EMM-managed users only (not Google managed users). Pass the
+ *  new details in the Users resource in the request body. Only the displayName
+ *  field can be changed. Other fields must either be unset or have the
+ *  currently active value. This method supports patch semantics.
  *
  *  @param object The @c GTLRAndroidEnterprise_User to include in the query.
  *  @param enterpriseId The ID of the enterprise.
@@ -2971,10 +3442,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForUsersRevokeTokenWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3005,10 +3476,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForUsersSetAvailableProductSetWithObject:enterpriseId:userId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ProductSet.
@@ -3030,9 +3501,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 
 /**
  *  Updates the details of an EMM-managed user.
- *  This only works with EMM-managed users. Pass the new details in Users
- *  resource in the request body. Only the displayName field can be changed.
- *  Other fields must either be unset or have the currently active value.
+ *  Can be used with EMM-managed users only (not Google managed users). Pass the
+ *  new details in the Users resource in the request body. Only the displayName
+ *  field can be changed. Other fields must either be unset or have the
+ *  currently active value.
  *
  *  Method: androidenterprise.users.update
  *
@@ -3044,18 +3516,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 //   +[GTLQueryAndroidEnterprise queryForUsersUpdateWithObject:enterpriseId:userId:]
 
 /** The ID of the enterprise. */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** The ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_User.
  *
  *  Updates the details of an EMM-managed user.
- *  This only works with EMM-managed users. Pass the new details in Users
- *  resource in the request body. Only the displayName field can be changed.
- *  Other fields must either be unset or have the currently active value.
+ *  Can be used with EMM-managed users only (not Google managed users). Pass the
+ *  new details in the Users resource in the request body. Only the displayName
+ *  field can be changed. Other fields must either be unset or have the
+ *  currently active value.
  *
  *  @param object The @c GTLRAndroidEnterprise_User to include in the query.
  *  @param enterpriseId The ID of the enterprise.

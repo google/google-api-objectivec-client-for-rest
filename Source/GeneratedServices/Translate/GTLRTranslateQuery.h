@@ -49,7 +49,7 @@ GTLR_EXTERN NSString * const kGTLRTranslateFormatText;
 @interface GTLRTranslateQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -63,7 +63,7 @@ GTLR_EXTERN NSString * const kGTLRTranslateFormatText;
 //   +[GTLQueryTranslate queryForDetectionsListWithq:]
 
 /** The text to detect */
-@property(strong, nullable) NSArray<NSString *> *q;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *q;
 
 /**
  *  Fetches a @c GTLRTranslate_DetectionsListResponse.
@@ -90,7 +90,7 @@ GTLR_EXTERN NSString * const kGTLRTranslateFormatText;
 /**
  *  the language and collation in which the localized results should be returned
  */
-@property(copy, nullable) NSString *target;
+@property(nonatomic, copy, nullable) NSString *target;
 
 /**
  *  Fetches a @c GTLRTranslate_LanguagesListResponse.
@@ -113,7 +113,7 @@ GTLR_EXTERN NSString * const kGTLRTranslateFormatText;
 //   +[GTLQueryTranslate queryForTranslationsListWithq:target:]
 
 /** The customization id for translate */
-@property(strong, nullable) NSArray<NSString *> *cid;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *cid;
 
 /**
  *  The format of the text
@@ -124,16 +124,16 @@ GTLR_EXTERN NSString * const kGTLRTranslateFormatText;
  *    @arg @c kGTLRTranslateFormatText Specifies the input is in plain textual
  *        format (Value: "text")
  */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /** The text to translate */
-@property(strong, nullable) NSArray<NSString *> *q;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *q;
 
 /** The source language of the text */
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** The target language into which the text should be translated */
-@property(copy, nullable) NSString *target;
+@property(nonatomic, copy, nullable) NSString *target;
 
 /**
  *  Fetches a @c GTLRTranslate_TranslationsListResponse.

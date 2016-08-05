@@ -121,6 +121,11 @@ NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetNon
 NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetPython = @"DEFAULT_PACKAGE_SET_PYTHON";
 NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetUnknown = @"DEFAULT_PACKAGE_SET_UNKNOWN";
 
+// GTLRDataflow_WorkerPool.ipConfiguration
+NSString * const kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpPrivate = @"WORKER_IP_PRIVATE";
+NSString * const kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpPublic = @"WORKER_IP_PUBLIC";
+NSString * const kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpUnspecified = @"WORKER_IP_UNSPECIFIED";
+
 // GTLRDataflow_WorkerPool.teardownPolicy
 NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownAlways = @"TEARDOWN_ALWAYS";
 NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownNever = @"TEARDOWN_NEVER";
@@ -250,6 +255,30 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 @dynamic boolean, cumulative, floatingPoint, floatingPointList,
          floatingPointMean, integer, integerList, integerMean, internal,
          nameAndKind, shortId, stringList, structuredNameAndMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_CreateJobFromTemplateRequest
+//
+
+@implementation GTLRDataflow_CreateJobFromTemplateRequest
+@dynamic gcsPath, parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_CreateJobFromTemplateRequestParameters
+//
+
+@implementation GTLRDataflow_CreateJobFromTemplateRequestParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -435,6 +464,26 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_GetDebugConfigRequest
+//
+
+@implementation GTLRDataflow_GetDebugConfigRequest
+@dynamic componentId, workerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_GetDebugConfigResponse
+//
+
+@implementation GTLRDataflow_GetDebugConfigResponse
+@dynamic config;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_InstructionInput
 //
 
@@ -449,7 +498,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_InstructionOutput
-@dynamic codec, name, systemName;
+@dynamic codec, name, onlyCountKeyBytes, onlyCountValueBytes, originalName,
+         systemName;
 @end
 
 
@@ -502,7 +552,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_Job
 @dynamic clientRequestId, createTime, currentState, currentStateTime,
-         environment, executionInfo, identifier, name, projectId,
+         environment, executionInfo, identifier, labels, name, projectId,
          replacedByJobId, replaceJobId, requestedState, steps, tempFiles,
          transformNameMapping, type;
 
@@ -516,6 +566,20 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
     @"tempFiles" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_JobLabels
+//
+
+@implementation GTLRDataflow_JobLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -835,8 +899,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_ParallelInstruction
-@dynamic flatten, name, outputs, parDo, partialGroupByKey, read, systemName,
-         write;
+@dynamic flatten, name, originalName, outputs, parDo, partialGroupByKey, read,
+         systemName, write;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -887,7 +951,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_PartialGroupByKeyInstruction
-@dynamic input, inputElementCodec, sideInputs, valueCombiningFn;
+@dynamic input, inputElementCodec, originalCombineValuesInputStoreName,
+         originalCombineValuesStepName, sideInputs, valueCombiningFn;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1001,6 +1066,25 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_SendDebugCaptureRequest
+//
+
+@implementation GTLRDataflow_SendDebugCaptureRequest
+@dynamic componentId, data, workerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_SendDebugCaptureResponse
+//
+
+@implementation GTLRDataflow_SendDebugCaptureResponse
 @end
 
 
@@ -1725,9 +1809,9 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_WorkerPool
 @dynamic autoscalingSettings, dataDisks, defaultPackageSet, diskSizeGb,
-         diskSourceImage, diskType, kind, machineType, metadata, network,
-         numThreadsPerWorker, numWorkers, onHostMaintenance, packages, poolArgs,
-         subnetwork, taskrunnerSettings, teardownPolicy,
+         diskSourceImage, diskType, ipConfiguration, kind, machineType,
+         metadata, network, numThreadsPerWorker, numWorkers, onHostMaintenance,
+         packages, poolArgs, subnetwork, taskrunnerSettings, teardownPolicy,
          workerHarnessContainerImage, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

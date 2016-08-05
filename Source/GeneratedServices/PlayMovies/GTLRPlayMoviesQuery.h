@@ -67,7 +67,7 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
 @interface GTLRPlayMoviesQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -84,10 +84,10 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
 //   +[GTLQueryPlayMovies queryForAccountsAvailsGetWithaccountId:availId:]
 
 /** REQUIRED. See _General rules_ for more information about this field. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** REQUIRED. Avail ID. */
-@property(copy, nullable) NSString *availId;
+@property(nonatomic, copy, nullable) NSString *availId;
 
 /**
  *  Fetches a @c GTLRPlayMovies_Avail.
@@ -120,38 +120,38 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
 //   +[GTLQueryPlayMovies queryForAccountsAvailsListWithaccountId:]
 
 /** REQUIRED. See _General rules_ for more information about this field. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Filter Avails that match a case-insensitive, partner-specific custom id.
  *  NOTE: this field is deprecated and will be removed on V2; `alt_ids` should
  *  be used instead.
  */
-@property(copy, nullable) NSString *altId;
+@property(nonatomic, copy, nullable) NSString *altId;
 
 /**
  *  Filter Avails that match (case-insensitive) any of the given
  *  partner-specific custom ids.
  */
-@property(strong, nullable) NSArray<NSString *> *altIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *altIds;
 
 /** See _List methods rules_ for info about this field. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /** See _List methods rules_ for info about this field. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** See _List methods rules_ for info about this field. */
-@property(strong, nullable) NSArray<NSString *> *pphNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pphNames;
 
 /** See _List methods rules_ for info about this field. */
-@property(strong, nullable) NSArray<NSString *> *studioNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *studioNames;
 
 /**
  *  Filter Avails that match (case-insensitive) any of the given country codes,
  *  using the "ISO 3166-1 alpha-2" format (examples: "US", "us", "Us").
  */
-@property(strong, nullable) NSArray<NSString *> *territories;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *territories;
 
 /**
  *  Filter that matches Avails with a `title_internal_alias`,
@@ -159,10 +159,10 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
  *  `episode_title_internal_alias` that contains the given case-insensitive
  *  title.
  */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** Filter Avails that match any of the given `video_id`s. */
-@property(strong, nullable) NSArray<NSString *> *videoIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *videoIds;
 
 /**
  *  Fetches a @c GTLRPlayMovies_ListAvailsResponse.
@@ -199,48 +199,48 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
 //   +[GTLQueryPlayMovies queryForAccountsComponentsListWithaccountId:]
 
 /** REQUIRED. See _General rules_ for more information about this field. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Filter Components that match a case-insensitive, partner-specific
  *  Alternative Cut ID.
  */
-@property(copy, nullable) NSString *altCutId;
+@property(nonatomic, copy, nullable) NSString *altCutId;
 
 /**
  *  Filter Components that match a case-insensitive partner-specific custom id.
  */
-@property(copy, nullable) NSString *customId;
+@property(nonatomic, copy, nullable) NSString *customId;
 
 /** Filter Components that match a given edit-level EIDR. */
-@property(copy, nullable) NSString *editLevelEidr;
+@property(nonatomic, copy, nullable) NSString *editLevelEidr;
 
 /** Experience ID, as defined by Google. */
-@property(copy, nullable) NSString *elId;
+@property(nonatomic, copy, nullable) NSString *elId;
 
 /**
  *  Filter Components that match a case-insensitive substring of the physical
  *  name of the delivered file.
  */
-@property(copy, nullable) NSString *filename;
+@property(nonatomic, copy, nullable) NSString *filename;
 
 /** InventoryID available in Common Manifest. */
-@property(copy, nullable) NSString *inventoryId;
+@property(nonatomic, copy, nullable) NSString *inventoryId;
 
 /** See _List methods rules_ for info about this field. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /** See _List methods rules_ for info about this field. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** PlayableSequenceID available in Common Manifest. */
-@property(copy, nullable) NSString *playableSequenceId;
+@property(nonatomic, copy, nullable) NSString *playableSequenceId;
 
 /** See _List methods rules_ for info about this field. */
-@property(strong, nullable) NSArray<NSString *> *pphNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pphNames;
 
 /** PresentationID available in Common Manifest. */
-@property(copy, nullable) NSString *presentationId;
+@property(nonatomic, copy, nullable) NSString *presentationId;
 
 /**
  *  Filter Components that match one of the given status.
@@ -254,13 +254,13 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
  *    @arg @c kGTLRPlayMoviesStatusStatusNotAvailable Value
  *        "STATUS_NOT_AVAILABLE"
  */
-@property(strong, nullable) NSArray<NSString *> *status;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 
 /** See _List methods rules_ for info about this field. */
-@property(strong, nullable) NSArray<NSString *> *studioNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *studioNames;
 
 /** Filter Components that match a given title-level EIDR. */
-@property(copy, nullable) NSString *titleLevelEidr;
+@property(nonatomic, copy, nullable) NSString *titleLevelEidr;
 
 /**
  *  Fetches a @c GTLRPlayMovies_ListComponentsResponse.
@@ -295,10 +295,10 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
 //   +[GTLQueryPlayMovies queryForAccountsComponentsTypeGetWithaccountId:componentId:type:]
 
 /** REQUIRED. See _General rules_ for more information about this field. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** REQUIRED. Component ID. */
-@property(copy, nullable) NSString *componentId;
+@property(nonatomic, copy, nullable) NSString *componentId;
 
 /**
  *  REQUIRED. Component Type.
@@ -313,7 +313,7 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
  *    @arg @c kGTLRPlayMoviesTypeArtwork Value "ARTWORK"
  *    @arg @c kGTLRPlayMoviesTypeMetadata Value "METADATA"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRPlayMovies_Component.
@@ -357,10 +357,10 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
 //   +[GTLQueryPlayMovies queryForAccountsExperienceLocalesGetWithaccountId:elId:]
 
 /** REQUIRED. See _General rules_ for more information about this field. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** REQUIRED. ExperienceLocale ID, as defined by Google. */
-@property(copy, nullable) NSString *elId;
+@property(nonatomic, copy, nullable) NSString *elId;
 
 /**
  *  Fetches a @c GTLRPlayMovies_ExperienceLocale.
@@ -394,31 +394,31 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
 //   +[GTLQueryPlayMovies queryForAccountsExperienceLocalesListWithaccountId:]
 
 /** REQUIRED. See _General rules_ for more information about this field. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Filter ExperienceLocales that match a case-insensitive, partner-specific
  *  Alternative Cut ID.
  */
-@property(copy, nullable) NSString *altCutId;
+@property(nonatomic, copy, nullable) NSString *altCutId;
 
 /**
  *  Filter ExperienceLocales that match a case-insensitive, partner-specific
  *  custom id.
  */
-@property(copy, nullable) NSString *customId;
+@property(nonatomic, copy, nullable) NSString *customId;
 
 /** Filter ExperienceLocales that match a given edit-level EIDR. */
-@property(copy, nullable) NSString *editLevelEidr;
+@property(nonatomic, copy, nullable) NSString *editLevelEidr;
 
 /** See _List methods rules_ for info about this field. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /** See _List methods rules_ for info about this field. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** See _List methods rules_ for info about this field. */
-@property(strong, nullable) NSArray<NSString *> *pphNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pphNames;
 
 /**
  *  Filter ExperienceLocales that match one of the given status.
@@ -432,13 +432,13 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
  *    @arg @c kGTLRPlayMoviesStatusStatusNotAvailable Value
  *        "STATUS_NOT_AVAILABLE"
  */
-@property(strong, nullable) NSArray<NSString *> *status;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 
 /** See _List methods rules_ for info about this field. */
-@property(strong, nullable) NSArray<NSString *> *studioNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *studioNames;
 
 /** Filter ExperienceLocales that match a given title-level EIDR. */
-@property(copy, nullable) NSString *titleLevelEidr;
+@property(nonatomic, copy, nullable) NSString *titleLevelEidr;
 
 /**
  *  Fetches a @c GTLRPlayMovies_ListExperienceLocalesResponse.
@@ -474,10 +474,10 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
 //   +[GTLQueryPlayMovies queryForAccountsOrdersGetWithaccountId:orderId:]
 
 /** REQUIRED. See _General rules_ for more information about this field. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** REQUIRED. Order ID. */
-@property(copy, nullable) NSString *orderId;
+@property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
  *  Fetches a @c GTLRPlayMovies_Order.
@@ -511,27 +511,27 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
 //   +[GTLQueryPlayMovies queryForAccountsOrdersListWithaccountId:]
 
 /** REQUIRED. See _General rules_ for more information about this field. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Filter Orders that match a case-insensitive, partner-specific custom id.
  */
-@property(copy, nullable) NSString *customId;
+@property(nonatomic, copy, nullable) NSString *customId;
 
 /**
  *  Filter that matches Orders with a `name`, `show`, `season` or `episode` that
  *  contains the given case-insensitive name.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** See _List methods rules_ for info about this field. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /** See _List methods rules_ for info about this field. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** See _List methods rules_ for info about this field. */
-@property(strong, nullable) NSArray<NSString *> *pphNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pphNames;
 
 /**
  *  Filter Orders that match one of the given status.
@@ -545,13 +545,13 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
  *    @arg @c kGTLRPlayMoviesStatusStatusNotAvailable Value
  *        "STATUS_NOT_AVAILABLE"
  */
-@property(strong, nullable) NSArray<NSString *> *status;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 
 /** See _List methods rules_ for info about this field. */
-@property(strong, nullable) NSArray<NSString *> *studioNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *studioNames;
 
 /** Filter Orders that match any of the given `video_id`s. */
-@property(strong, nullable) NSArray<NSString *> *videoIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *videoIds;
 
 /**
  *  Fetches a @c GTLRPlayMovies_ListOrdersResponse.
@@ -588,13 +588,13 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
 //   +[GTLQueryPlayMovies queryForAccountsStoreInfosCountryGetWithaccountId:videoId:country:]
 
 /** REQUIRED. See _General rules_ for more information about this field. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** REQUIRED. Edit country. */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /** REQUIRED. Video ID. */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 /**
  *  Fetches a @c GTLRPlayMovies_StoreInfo.
@@ -631,46 +631,46 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesTypeVideo;
 //   +[GTLQueryPlayMovies queryForAccountsStoreInfosListWithaccountId:]
 
 /** REQUIRED. See _General rules_ for more information about this field. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Filter StoreInfos that match (case-insensitive) any of the given country
  *  codes, using the "ISO 3166-1 alpha-2" format (examples: "US", "us", "Us").
  */
-@property(strong, nullable) NSArray<NSString *> *countries;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *countries;
 
 /** Filter StoreInfos that match any of the given `mid`s. */
-@property(strong, nullable) NSArray<NSString *> *mids;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mids;
 
 /**
  *  Filter that matches StoreInfos with a `name` or `show_name` that contains
  *  the given case-insensitive name.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** See _List methods rules_ for info about this field. */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /** See _List methods rules_ for info about this field. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** See _List methods rules_ for info about this field. */
-@property(strong, nullable) NSArray<NSString *> *pphNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pphNames;
 
 /** Filter StoreInfos that match any of the given `season_id`s. */
-@property(strong, nullable) NSArray<NSString *> *seasonIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *seasonIds;
 
 /** See _List methods rules_ for info about this field. */
-@property(strong, nullable) NSArray<NSString *> *studioNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *studioNames;
 
 /**
  *  Filter StoreInfos that match a given `video_id`. NOTE: this field is
  *  deprecated and will be removed on V2; `video_ids` should be used instead.
  */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 /** Filter StoreInfos that match any of the given `video_id`s. */
-@property(strong, nullable) NSArray<NSString *> *videoIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *videoIds;
 
 /**
  *  Fetches a @c GTLRPlayMovies_ListStoreInfosResponse.

@@ -38,6 +38,14 @@ GTLR_EXTERN NSString * const kGTLRSheetsDateTimeRenderOptionFormattedString;
 GTLR_EXTERN NSString * const kGTLRSheetsDateTimeRenderOptionSerialNumber;
 
 // ----------------------------------------------------------------------------
+// insertDataOption
+
+/** Value: "INSERT_ROWS" */
+GTLR_EXTERN NSString * const kGTLRSheetsInsertDataOptionInsertRows;
+/** Value: "OVERWRITE" */
+GTLR_EXTERN NSString * const kGTLRSheetsInsertDataOptionOverwrite;
+
+// ----------------------------------------------------------------------------
 // majorDimension
 
 /** Value: "COLUMNS" */
@@ -77,7 +85,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @interface GTLRSheetsQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -110,7 +118,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 //   +[GTLQuerySheets queryForSpreadsheetsBatchUpdateWithObject:spreadsheetId:]
 
 /** The spreadsheet to apply the updates to. */
-@property(copy, nullable) NSString *spreadsheetId;
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 /**
  *  Fetches a @c GTLRSheets_BatchUpdateSpreadsheetResponse.
@@ -203,13 +211,13 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  True if grid data should be returned.
  *  This parameter is ignored if a field mask was set in the request.
  */
-@property(assign) BOOL includeGridData;
+@property(nonatomic, assign) BOOL includeGridData;
 
 /** The ranges to retrieve from the spreadsheet. */
-@property(strong, nullable) NSArray<NSString *> *ranges;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ranges;
 
 /** The spreadsheet to request. */
-@property(copy, nullable) NSString *spreadsheetId;
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 /**
  *  Fetches a @c GTLRSheets_Spreadsheet.
@@ -254,10 +262,10 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 //   +[GTLQuerySheets queryForSpreadsheetsSheetsCopyToWithObject:spreadsheetId:sheetId:]
 
 /** The ID of the sheet to copy. */
-@property(assign) NSInteger sheetId;
+@property(nonatomic, assign) NSInteger sheetId;
 
 /** The ID of the spreadsheet containing the sheet to copy. */
-@property(copy, nullable) NSString *spreadsheetId;
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 /**
  *  Fetches a @c GTLRSheets_SheetProperties.
@@ -275,6 +283,91 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 + (instancetype)queryWithObject:(GTLRSheets_CopySheetToAnotherSpreadsheetRequest *)object
                   spreadsheetId:(NSString *)spreadsheetId
                         sheetId:(NSInteger)sheetId;
+
+@end
+
+/**
+ *  Appends values to a spreadsheet. The input range is used to search for
+ *  existing data and find a "table" within that range. Values will be
+ *  appended to the next row of the table, starting with the first column of
+ *  the table. See the
+ *  [guide](/sheets/guides/values#appending_values)
+ *  and
+ *  [sample code](/sheets/samples/writing#append_values)
+ *  for specific details of how tables are detected and data is appended.
+ *  The caller must specify the spreadsheet ID, range, and
+ *  a valueInputOption. The `valueInputOption` only
+ *  controls how the input data will be added to the sheet (column-wise or
+ *  row-wise), it does not influence what cell the data starts being written
+ *  to.
+ *
+ *  Method: sheets.spreadsheets.values.append
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSheetsDrive
+ *    @c kGTLRAuthScopeSheetsSpreadsheets
+ */
+@interface GTLRSheetsQuery_SpreadsheetsValuesAppend : GTLRSheetsQuery
+// Previous library name was
+//   +[GTLQuerySheets queryForSpreadsheetsValuesAppendWithObject:spreadsheetId:range:]
+
+/**
+ *  How the input data should be inserted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheetsInsertDataOptionOverwrite Value "OVERWRITE"
+ *    @arg @c kGTLRSheetsInsertDataOptionInsertRows Value "INSERT_ROWS"
+ */
+@property(nonatomic, copy, nullable) NSString *insertDataOption;
+
+/**
+ *  The A1 notation of a range to search for a logical table of data.
+ *  Values will be appended after the last row of the table.
+ */
+@property(nonatomic, copy, nullable) NSString *range;
+
+/** The ID of the spreadsheet to update. */
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
+
+/**
+ *  How the input data should be interpreted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheetsValueInputOptionInputValueOptionUnspecified Value
+ *        "INPUT_VALUE_OPTION_UNSPECIFIED"
+ *    @arg @c kGTLRSheetsValueInputOptionRaw Value "RAW"
+ *    @arg @c kGTLRSheetsValueInputOptionUserEntered Value "USER_ENTERED"
+ */
+@property(nonatomic, copy, nullable) NSString *valueInputOption;
+
+/**
+ *  Fetches a @c GTLRSheets_AppendValuesResponse.
+ *
+ *  Appends values to a spreadsheet. The input range is used to search for
+ *  existing data and find a "table" within that range. Values will be
+ *  appended to the next row of the table, starting with the first column of
+ *  the table. See the
+ *  [guide](/sheets/guides/values#appending_values)
+ *  and
+ *  [sample code](/sheets/samples/writing#append_values)
+ *  for specific details of how tables are detected and data is appended.
+ *  The caller must specify the spreadsheet ID, range, and
+ *  a valueInputOption. The `valueInputOption` only
+ *  controls how the input data will be added to the sheet (column-wise or
+ *  row-wise), it does not influence what cell the data starts being written
+ *  to.
+ *
+ *  @param object The @c GTLRSheets_ValueRange to include in the query.
+ *  @param spreadsheetId The ID of the spreadsheet to update.
+ *  @param range The A1 notation of a range to search for a logical table of
+ *    data.
+ *    Values will be appended after the last row of the table.
+ *
+ *  @returns GTLRSheetsQuery_SpreadsheetsValuesAppend
+ */
++ (instancetype)queryWithObject:(GTLRSheets_ValueRange *)object
+                  spreadsheetId:(NSString *)spreadsheetId
+                          range:(NSString *)range;
 
 @end
 
@@ -304,7 +397,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @arg @c kGTLRSheetsDateTimeRenderOptionFormattedString Value
  *        "FORMATTED_STRING"
  */
-@property(copy, nullable) NSString *dateTimeRenderOption;
+@property(nonatomic, copy, nullable) NSString *dateTimeRenderOption;
 
 /**
  *  The major dimension that results should use.
@@ -320,13 +413,13 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @arg @c kGTLRSheetsMajorDimensionRows Value "ROWS"
  *    @arg @c kGTLRSheetsMajorDimensionColumns Value "COLUMNS"
  */
-@property(copy, nullable) NSString *majorDimension;
+@property(nonatomic, copy, nullable) NSString *majorDimension;
 
 /** The A1 notation of the values to retrieve. */
-@property(strong, nullable) NSArray<NSString *> *ranges;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ranges;
 
 /** The ID of the spreadsheet to retrieve data from. */
-@property(copy, nullable) NSString *spreadsheetId;
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 /**
  *  How values should be represented in the output.
@@ -337,7 +430,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *        "UNFORMATTED_VALUE"
  *    @arg @c kGTLRSheetsValueRenderOptionFormula Value "FORMULA"
  */
-@property(copy, nullable) NSString *valueRenderOption;
+@property(nonatomic, copy, nullable) NSString *valueRenderOption;
 
 /**
  *  Fetches a @c GTLRSheets_BatchGetValuesResponse.
@@ -370,7 +463,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 //   +[GTLQuerySheets queryForSpreadsheetsValuesBatchUpdateWithObject:spreadsheetId:]
 
 /** The ID of the spreadsheet to update. */
-@property(copy, nullable) NSString *spreadsheetId;
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 /**
  *  Fetches a @c GTLRSheets_BatchUpdateValuesResponse.
@@ -417,7 +510,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @arg @c kGTLRSheetsDateTimeRenderOptionFormattedString Value
  *        "FORMATTED_STRING"
  */
-@property(copy, nullable) NSString *dateTimeRenderOption;
+@property(nonatomic, copy, nullable) NSString *dateTimeRenderOption;
 
 /**
  *  The major dimension that results should use.
@@ -433,13 +526,13 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @arg @c kGTLRSheetsMajorDimensionRows Value "ROWS"
  *    @arg @c kGTLRSheetsMajorDimensionColumns Value "COLUMNS"
  */
-@property(copy, nullable) NSString *majorDimension;
+@property(nonatomic, copy, nullable) NSString *majorDimension;
 
 /** The A1 notation of the values to retrieve. */
-@property(copy, nullable) NSString *range;
+@property(nonatomic, copy, nullable) NSString *range;
 
 /** The ID of the spreadsheet to retrieve data from. */
-@property(copy, nullable) NSString *spreadsheetId;
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 /**
  *  How values should be represented in the output.
@@ -450,7 +543,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *        "UNFORMATTED_VALUE"
  *    @arg @c kGTLRSheetsValueRenderOptionFormula Value "FORMULA"
  */
-@property(copy, nullable) NSString *valueRenderOption;
+@property(nonatomic, copy, nullable) NSString *valueRenderOption;
 
 /**
  *  Fetches a @c GTLRSheets_ValueRange.
@@ -484,10 +577,10 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 //   +[GTLQuerySheets queryForSpreadsheetsValuesUpdateWithObject:spreadsheetId:range:]
 
 /** The A1 notation of the values to update. */
-@property(copy, nullable) NSString *range;
+@property(nonatomic, copy, nullable) NSString *range;
 
 /** The ID of the spreadsheet to update. */
-@property(copy, nullable) NSString *spreadsheetId;
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 /**
  *  How the input data should be interpreted.
@@ -498,7 +591,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @arg @c kGTLRSheetsValueInputOptionRaw Value "RAW"
  *    @arg @c kGTLRSheetsValueInputOptionUserEntered Value "USER_ENTERED"
  */
-@property(copy, nullable) NSString *valueInputOption;
+@property(nonatomic, copy, nullable) NSString *valueInputOption;
 
 /**
  *  Fetches a @c GTLRSheets_UpdateValuesResponse.

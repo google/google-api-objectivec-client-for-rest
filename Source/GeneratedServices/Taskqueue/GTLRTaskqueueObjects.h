@@ -34,17 +34,17 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *enqueueTimestamp;
+@property(nonatomic, strong, nullable) NSNumber *enqueueTimestamp;
 
 /**
  *  Name of the task.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The kind of object returned, in this case set to task. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Time (in seconds since the epoch) at which the task lease will expire. This
@@ -52,29 +52,29 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *leaseTimestamp;
+@property(nonatomic, strong, nullable) NSNumber *leaseTimestamp;
 
 /**
  *  A bag of bytes which is the task payload. The payload on the JSON side is
  *  always Base64 encoded.
  */
-@property(copy, nullable) NSString *payloadBase64;
+@property(nonatomic, copy, nullable) NSString *payloadBase64;
 
 /** Name of the queue that the task is in. */
-@property(copy, nullable) NSString *queueName;
+@property(nonatomic, copy, nullable) NSString *queueName;
 
 /**
  *  The number of leases applied to this task.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *retryCount;
+@property(nonatomic, strong, nullable) NSNumber *retryCount;
 
 /**
  *  Tag for the task, could be used later to lease tasks grouped by a specific
  *  tag.
  */
-@property(copy, nullable) NSString *tag;
+@property(nonatomic, copy, nullable) NSString *tag;
 
 @end
 
@@ -85,17 +85,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTaskqueue_TaskQueue : GTLRObject
 
 /** ACLs that are applicable to this TaskQueue object. */
-@property(strong, nullable) GTLRTaskqueue_TaskQueueAcl *acl;
+@property(nonatomic, strong, nullable) GTLRTaskqueue_TaskQueueAcl *acl;
 
 /**
  *  Name of the taskqueue.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The kind of REST object returned, in this case taskqueue. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The number of times we should lease out tasks before giving up on them. If
@@ -103,10 +103,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxLeases;
+@property(nonatomic, strong, nullable) NSNumber *maxLeases;
 
 /** Statistics for the TaskQueue object in question. */
-@property(strong, nullable) GTLRTaskqueue_TaskQueueStats *stats;
+@property(nonatomic, strong, nullable) GTLRTaskqueue_TaskQueueStats *stats;
 
 @end
 
@@ -120,19 +120,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  Email addresses of users who are "admins" of the TaskQueue. This means they
  *  can control the queue, eg set ACLs for the queue.
  */
-@property(strong, nullable) NSArray<NSString *> *adminEmails;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *adminEmails;
 
 /**
  *  Email addresses of users who can "consume" tasks from the TaskQueue. This
  *  means they can Dequeue and Delete tasks from the queue.
  */
-@property(strong, nullable) NSArray<NSString *> *consumerEmails;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *consumerEmails;
 
 /**
  *  Email addresses of users who can "produce" tasks into the TaskQueue. This
  *  means they can Insert tasks into the queue.
  */
-@property(strong, nullable) NSArray<NSString *> *producerEmails;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *producerEmails;
 
 @end
 
@@ -147,28 +147,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *leasedLastHour;
+@property(nonatomic, strong, nullable) NSNumber *leasedLastHour;
 
 /**
  *  Number of tasks leased in the last minute.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *leasedLastMinute;
+@property(nonatomic, strong, nullable) NSNumber *leasedLastMinute;
 
 /**
  *  The timestamp (in seconds since the epoch) of the oldest unfinished task.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *oldestTask;
+@property(nonatomic, strong, nullable) NSNumber *oldestTask;
 
 /**
  *  Number of tasks in the queue.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalTasks;
+@property(nonatomic, strong, nullable) NSNumber *totalTasks;
 
 @end
 
@@ -187,10 +187,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRTaskqueue_Task *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRTaskqueue_Task *> *items;
 
 /** The kind of object returned, a list of tasks. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -209,10 +209,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRTaskqueue_Task *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRTaskqueue_Task *> *items;
 
 /** The kind of object returned, a list of tasks. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 

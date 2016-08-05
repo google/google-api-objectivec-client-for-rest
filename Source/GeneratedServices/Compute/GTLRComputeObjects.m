@@ -79,6 +79,12 @@ NSString * const kGTLRCompute_Backend_BalancingMode_Utilization = @"UTILIZATION"
 NSString * const kGTLRCompute_BackendService_Protocol_Http  = @"HTTP";
 NSString * const kGTLRCompute_BackendService_Protocol_Https = @"HTTPS";
 
+// GTLRCompute_BackendService.sessionAffinity
+NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIp = @"CLIENT_IP";
+NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIpProto = @"CLIENT_IP_PROTO";
+NSString * const kGTLRCompute_BackendService_SessionAffinity_GeneratedCookie = @"GENERATED_COOKIE";
+NSString * const kGTLRCompute_BackendService_SessionAffinity_None = @"NONE";
+
 // GTLRCompute_DeprecationStatus.state
 NSString * const kGTLRCompute_DeprecationStatus_State_Deleted  = @"DELETED";
 NSString * const kGTLRCompute_DeprecationStatus_State_Deprecated = @"DEPRECATED";
@@ -442,6 +448,7 @@ NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_Unreachable 
 // GTLRCompute_TargetPool.sessionAffinity
 NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIp = @"CLIENT_IP";
 NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIpProto = @"CLIENT_IP_PROTO";
+NSString * const kGTLRCompute_TargetPool_SessionAffinity_GeneratedCookie = @"GENERATED_COOKIE";
 NSString * const kGTLRCompute_TargetPool_SessionAffinity_None  = @"NONE";
 
 // GTLRCompute_TargetPoolsScopedListWarning.code
@@ -871,9 +878,9 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_BackendService
-@dynamic backends, creationTimestamp, descriptionProperty, enableCDN,
-         fingerprint, healthChecks, identifier, kind, name, port, portName,
-         protocol, region, selfLink, timeoutSec;
+@dynamic affinityCookieTtlSec, backends, creationTimestamp, descriptionProperty,
+         enableCDN, fingerprint, healthChecks, identifier, kind, name, port,
+         portName, protocol, region, selfLink, sessionAffinity, timeoutSec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -3143,6 +3150,16 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RoutersPreviewResponse
+//
+
+@implementation GTLRCompute_RoutersPreviewResponse
+@dynamic resource;
 @end
 
 

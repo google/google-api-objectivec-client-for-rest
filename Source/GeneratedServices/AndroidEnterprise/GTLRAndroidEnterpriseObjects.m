@@ -55,7 +55,7 @@
 
 @implementation GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction
 @dynamic defaultValue, descriptionProperty, entry, entryValue, key,
-         restrictionType, title;
+         nestedRestriction, restrictionType, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -64,7 +64,8 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"entry" : [NSString class],
-    @"entryValue" : [NSString class]
+    @"entryValue" : [NSString class],
+    @"nestedRestriction" : [GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction class]
   };
   return map;
 }
@@ -402,6 +403,98 @@
 
 @implementation GTLRAndroidEnterprise_LocalizedText
 @dynamic locale, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_ManagedConfiguration
+//
+
+@implementation GTLRAndroidEnterprise_ManagedConfiguration
+@dynamic kind, managedProperty, productId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"managedProperty" : [GTLRAndroidEnterprise_ManagedProperty class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_ManagedConfigurationsForDeviceListResponse
+//
+
+@implementation GTLRAndroidEnterprise_ManagedConfigurationsForDeviceListResponse
+@dynamic kind, managedConfigurationForDevice;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"managedConfigurationForDevice" : [GTLRAndroidEnterprise_ManagedConfiguration class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_ManagedConfigurationsForUserListResponse
+//
+
+@implementation GTLRAndroidEnterprise_ManagedConfigurationsForUserListResponse
+@dynamic kind, managedConfigurationForUser;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"managedConfigurationForUser" : [GTLRAndroidEnterprise_ManagedConfiguration class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_ManagedProperty
+//
+
+@implementation GTLRAndroidEnterprise_ManagedProperty
+@dynamic key, valueBool, valueBundle, valueBundleArray, valueInteger,
+         valueString, valueStringArray;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"valueBundleArray" : [GTLRAndroidEnterprise_ManagedPropertyBundle class],
+    @"valueStringArray" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_ManagedPropertyBundle
+//
+
+@implementation GTLRAndroidEnterprise_ManagedPropertyBundle
+@dynamic managedProperty;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"managedProperty" : [GTLRAndroidEnterprise_ManagedProperty class]
+  };
+  return map;
+}
+
 @end
 
 

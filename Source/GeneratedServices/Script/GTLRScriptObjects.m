@@ -11,6 +11,13 @@
 #import "GTLRScriptObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRScript_ExecutionResponse.status
+NSString * const kGTLRScript_ExecutionResponse_Status_Canceled = @"CANCELED";
+NSString * const kGTLRScript_ExecutionResponse_Status_Success  = @"SUCCESS";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRScript_ExecutionError
 //
@@ -52,7 +59,7 @@
 //
 
 @implementation GTLRScript_ExecutionResponse
-@dynamic result;
+@dynamic result, status;
 @end
 
 

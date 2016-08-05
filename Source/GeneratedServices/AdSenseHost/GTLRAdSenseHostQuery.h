@@ -72,7 +72,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 @interface GTLRAdSenseHostQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -90,10 +90,10 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAccountsAdclientsGetWithaccountId:adClientId:]
 
 /** Account which contains the ad client. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Ad client to get. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_AdClient.
@@ -124,7 +124,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAccountsAdclientsListWithaccountId:]
 
 /** Account for which to list ad clients. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  The maximum number of ad clients to include in the response, used for
@@ -132,14 +132,14 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *
  *  @note The documented range is 0..10000.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  A continuation token, used to page through ad clients. To retrieve the next
  *  page, set this parameter to the value of "nextPageToken" from the previous
  *  response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_AdClients.
@@ -171,13 +171,13 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAccountsAdunitsDeleteWithaccountId:adClientId:adUnitId:]
 
 /** Account which contains the ad unit. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Ad client for which to get ad unit. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /** Ad unit to delete. */
-@property(copy, nullable) NSString *adUnitId;
+@property(nonatomic, copy, nullable) NSString *adUnitId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_AdUnit.
@@ -209,13 +209,13 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAccountsAdunitsGetWithaccountId:adClientId:adUnitId:]
 
 /** Account which contains the ad unit. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Ad client for which to get ad unit. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /** Ad unit to get. */
-@property(copy, nullable) NSString *adUnitId;
+@property(nonatomic, copy, nullable) NSString *adUnitId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_AdUnit.
@@ -248,16 +248,16 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAccountsAdunitsGetAdCodeWithaccountId:adClientId:adUnitId:]
 
 /** Account which contains the ad client. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Ad client with contains the ad unit. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /** Ad unit to get the code for. */
-@property(copy, nullable) NSString *adUnitId;
+@property(nonatomic, copy, nullable) NSString *adUnitId;
 
 /** Host custom channel to attach to the ad code. */
-@property(strong, nullable) NSArray<NSString *> *hostCustomChannelId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *hostCustomChannelId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_AdCode.
@@ -290,10 +290,10 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAccountsAdunitsInsertWithObject:accountId:adClientId:]
 
 /** Account which will contain the ad unit. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Ad client into which to insert the ad unit. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_AdUnit.
@@ -325,27 +325,27 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAccountsAdunitsListWithaccountId:adClientId:]
 
 /** Account which contains the ad client. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Ad client for which to list ad units. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /** Whether to include inactive ad units. Default: true. */
-@property(assign) BOOL includeInactive;
+@property(nonatomic, assign) BOOL includeInactive;
 
 /**
  *  The maximum number of ad units to include in the response, used for paging.
  *
  *  @note The documented range is 0..10000.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  A continuation token, used to page through ad units. To retrieve the next
  *  page, set this parameter to the value of "nextPageToken" from the previous
  *  response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_AdUnits.
@@ -380,13 +380,13 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAccountsAdunitsPatchWithObject:accountId:adClientId:adUnitId:]
 
 /** Account which contains the ad client. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Ad client which contains the ad unit. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /** Ad unit to get. */
-@property(copy, nullable) NSString *adUnitId;
+@property(nonatomic, copy, nullable) NSString *adUnitId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_AdUnit.
@@ -421,10 +421,10 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAccountsAdunitsUpdateWithObject:accountId:adClientId:]
 
 /** Account which contains the ad client. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Ad client which contains the ad unit. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_AdUnit.
@@ -456,7 +456,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAccountsGetWithaccountId:]
 
 /** Account to get information about. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_Account.
@@ -484,7 +484,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAccountsListWithfilterAdClientId:]
 
 /** Ad clients to list accounts for. */
-@property(strong, nullable) NSArray<NSString *> *filterAdClientId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *filterAdClientId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_Accounts.
@@ -514,49 +514,49 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAccountsReportsGenerateWithaccountId:startDate:endDate:]
 
 /** Hosted account upon which to report. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Dimensions to base the report on. */
-@property(strong, nullable) NSArray<NSString *> *dimension;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimension;
 
 /** End of the date range to report on in "YYYY-MM-DD" format, inclusive. */
-@property(copy, nullable) NSString *endDate;
+@property(nonatomic, copy, nullable) NSString *endDate;
 
 /** Filters to be run on the report. */
-@property(strong, nullable) NSArray<NSString *> *filter;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *filter;
 
 /**
  *  Optional locale to use for translating report output to a local language.
  *  Defaults to "en_US" if not specified.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  The maximum number of rows of report data to return.
  *
  *  @note The documented range is 0..50000.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** Numeric columns to include in the report. */
-@property(strong, nullable) NSArray<NSString *> *metric;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metric;
 
 /**
  *  The name of a dimension or metric to sort the resulting report on,
  *  optionally prefixed with "+" to sort ascending or "-" to sort descending. If
  *  no prefix is specified, the column is sorted ascending.
  */
-@property(strong, nullable) NSArray<NSString *> *sort;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sort;
 
 /** Start of the date range to report on in "YYYY-MM-DD" format, inclusive. */
-@property(copy, nullable) NSString *startDate;
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 /**
  *  Index of the first row of report data to return.
  *
  *  @note The documented range is 0..5000.
  */
-@property(assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_Report.
@@ -592,7 +592,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAdclientsGetWithadClientId:]
 
 /** Ad client to get. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_AdClient.
@@ -625,14 +625,14 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *
  *  @note The documented range is 0..10000.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  A continuation token, used to page through ad clients. To retrieve the next
  *  page, set this parameter to the value of "nextPageToken" from the previous
  *  response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_AdClients.
@@ -674,16 +674,16 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *        (Value: "AFS")
  *    @arg @c kGTLRAdSenseHostProductCodeAfv AdSense For Video (Value: "AFV")
  */
-@property(strong, nullable) NSArray<NSString *> *productCode;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productCode;
 
 /** The preferred locale of the user. */
-@property(copy, nullable) NSString *userLocale;
+@property(nonatomic, copy, nullable) NSString *userLocale;
 
 /** The locale of the user's hosted website. */
-@property(copy, nullable) NSString *websiteLocale;
+@property(nonatomic, copy, nullable) NSString *websiteLocale;
 
 /** The URL of the user's hosted website. */
-@property(copy, nullable) NSString *websiteUrl;
+@property(nonatomic, copy, nullable) NSString *websiteUrl;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_AssociationSession.
@@ -724,7 +724,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAssociationsessionsVerifyWithtoken:]
 
 /** The token returned to the association callback URL. */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_AssociationSession.
@@ -753,10 +753,10 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForCustomchannelsDeleteWithadClientId:customChannelId:]
 
 /** Ad client from which to delete the custom channel. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /** Custom channel to delete. */
-@property(copy, nullable) NSString *customChannelId;
+@property(nonatomic, copy, nullable) NSString *customChannelId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_CustomChannel.
@@ -786,10 +786,10 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForCustomchannelsGetWithadClientId:customChannelId:]
 
 /** Ad client from which to get the custom channel. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /** Custom channel to get. */
-@property(copy, nullable) NSString *customChannelId;
+@property(nonatomic, copy, nullable) NSString *customChannelId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_CustomChannel.
@@ -819,7 +819,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForCustomchannelsInsertWithObject:adClientId:]
 
 /** Ad client to which the new custom channel will be added. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_CustomChannel.
@@ -849,7 +849,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForCustomchannelsListWithadClientId:]
 
 /** Ad client for which to list custom channels. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /**
  *  The maximum number of custom channels to include in the response, used for
@@ -857,14 +857,14 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *
  *  @note The documented range is 0..10000.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  A continuation token, used to page through custom channels. To retrieve the
  *  next page, set this parameter to the value of "nextPageToken" from the
  *  previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_CustomChannels.
@@ -897,10 +897,10 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForCustomchannelsPatchWithObject:adClientId:customChannelId:]
 
 /** Ad client in which the custom channel will be updated. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /** Custom channel to get. */
-@property(copy, nullable) NSString *customChannelId;
+@property(nonatomic, copy, nullable) NSString *customChannelId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_CustomChannel.
@@ -933,7 +933,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForCustomchannelsUpdateWithObject:adClientId:]
 
 /** Ad client in which the custom channel will be updated. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_CustomChannel.
@@ -965,46 +965,46 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForReportsGenerateWithstartDate:endDate:]
 
 /** Dimensions to base the report on. */
-@property(strong, nullable) NSArray<NSString *> *dimension;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimension;
 
 /** End of the date range to report on in "YYYY-MM-DD" format, inclusive. */
-@property(copy, nullable) NSString *endDate;
+@property(nonatomic, copy, nullable) NSString *endDate;
 
 /** Filters to be run on the report. */
-@property(strong, nullable) NSArray<NSString *> *filter;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *filter;
 
 /**
  *  Optional locale to use for translating report output to a local language.
  *  Defaults to "en_US" if not specified.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  The maximum number of rows of report data to return.
  *
  *  @note The documented range is 0..50000.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** Numeric columns to include in the report. */
-@property(strong, nullable) NSArray<NSString *> *metric;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metric;
 
 /**
  *  The name of a dimension or metric to sort the resulting report on,
  *  optionally prefixed with "+" to sort ascending or "-" to sort descending. If
  *  no prefix is specified, the column is sorted ascending.
  */
-@property(strong, nullable) NSArray<NSString *> *sort;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sort;
 
 /** Start of the date range to report on in "YYYY-MM-DD" format, inclusive. */
-@property(copy, nullable) NSString *startDate;
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 /**
  *  Index of the first row of report data to return.
  *
  *  @note The documented range is 0..5000.
  */
-@property(assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_Report.
@@ -1038,10 +1038,10 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForUrlchannelsDeleteWithadClientId:urlChannelId:]
 
 /** Ad client from which to delete the URL channel. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /** URL channel to delete. */
-@property(copy, nullable) NSString *urlChannelId;
+@property(nonatomic, copy, nullable) NSString *urlChannelId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_UrlChannel.
@@ -1071,7 +1071,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForUrlchannelsInsertWithObject:adClientId:]
 
 /** Ad client to which the new URL channel will be added. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_UrlChannel.
@@ -1101,7 +1101,7 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForUrlchannelsListWithadClientId:]
 
 /** Ad client for which to list URL channels. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /**
  *  The maximum number of URL channels to include in the response, used for
@@ -1109,14 +1109,14 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *
  *  @note The documented range is 0..10000.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  A continuation token, used to page through URL channels. To retrieve the
  *  next page, set this parameter to the value of "nextPageToken" from the
  *  previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdSenseHost_UrlChannels.

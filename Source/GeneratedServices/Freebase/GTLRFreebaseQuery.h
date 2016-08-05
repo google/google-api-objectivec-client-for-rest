@@ -159,7 +159,7 @@ GTLR_EXTERN NSString * const kGTLRFreebaseSpellNoSpelling;
 @interface GTLRFreebaseQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -178,16 +178,16 @@ GTLR_EXTERN NSString * const kGTLRFreebaseSpellNoSpelling;
  *  @note If not set, the documented server-side default will be 0.99 (from the
  *        range 0.0..1.0).
  */
-@property(assign) float confidence;
+@property(nonatomic, assign) float confidence;
 
 /** Classifications of entity e.g. type, category, title. */
-@property(strong, nullable) NSArray<NSString *> *kind;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *kind;
 
 /**
  *  Languages for names and values. First language is used for display. Default
  *  is 'en'.
  */
-@property(strong, nullable) NSArray<NSString *> *lang;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *lang;
 
 /**
  *  Maximum number of candidates to return.
@@ -195,16 +195,16 @@ GTLR_EXTERN NSString * const kGTLRFreebaseSpellNoSpelling;
  *  @note If not set, the documented server-side default will be 3 (from the
  *        range 0..25).
  */
-@property(assign) NSInteger limit;
+@property(nonatomic, assign) NSInteger limit;
 
 /** Name of entity. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Property values for entity formatted as
  *  :
  */
-@property(strong, nullable) NSArray<NSString *> *prop;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *prop;
 
 /**
  *  Fetches a @c GTLRFreebase_ReconcileGet.
@@ -227,16 +227,16 @@ GTLR_EXTERN NSString * const kGTLRFreebaseSpellNoSpelling;
 //   +[GTLQueryFreebase queryForSearch]
 
 /** A mql as_of_time value to use with mql_output queries. */
-@property(copy, nullable) NSString *asOfTime;
+@property(nonatomic, copy, nullable) NSString *asOfTime;
 
 /** JS method name for JSONP callbacks. */
-@property(copy, nullable) NSString *callback;
+@property(nonatomic, copy, nullable) NSString *callback;
 
 /** The cursor value to use for the next page of results. */
-@property(assign) NSInteger cursor;
+@property(nonatomic, assign) NSInteger cursor;
 
 /** Restrict to topics with this Freebase domain id. */
-@property(strong, nullable) NSArray<NSString *> *domain;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *domain;
 
 /**
  *  The encoding of the response. You can use this parameter to enable html
@@ -252,13 +252,13 @@ GTLR_EXTERN NSString * const kGTLRFreebaseSpellNoSpelling;
  *  @note If not set, the documented server-side default will be
  *        kGTLRFreebaseEncodeOff.
  */
-@property(copy, nullable) NSString *encode;
+@property(nonatomic, copy, nullable) NSString *encode;
 
 /** Query on exact name and keys only. */
-@property(assign) BOOL exact;
+@property(nonatomic, assign) BOOL exact;
 
 /** A filter to apply to the query. */
-@property(strong, nullable) NSArray<NSString *> *filter;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *filter;
 
 /**
  *  Structural format of the json response.
@@ -280,7 +280,7 @@ GTLR_EXTERN NSString * const kGTLRFreebaseSpellNoSpelling;
  *  @note If not set, the documented server-side default will be
  *        kGTLRFreebaseFormatEntity.
  */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /**
  *  The keyword to request help on.
@@ -294,35 +294,35 @@ GTLR_EXTERN NSString * const kGTLRFreebaseSpellNoSpelling;
  *        properties supported by the filter and output request parameters.
  *        (Value: "predicates")
  */
-@property(copy, nullable) NSString *help;
+@property(nonatomic, copy, nullable) NSString *help;
 
 /** Whether to indent the json results or not. */
-@property(assign) BOOL indent;
+@property(nonatomic, assign) BOOL indent;
 
 /** The code of the language to run the query with. Default is 'en'. */
-@property(strong, nullable) NSArray<NSString *> *lang;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *lang;
 
 /**
  *  Maximum number of results to return.
  *
  *  @note If not set, the documented server-side default will be 20.
  */
-@property(assign) NSInteger limit;
+@property(nonatomic, assign) NSInteger limit;
 
 /** A mid to use instead of a query. */
-@property(strong, nullable) NSArray<NSString *> *mid;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mid;
 
 /** The MQL query to run againist the results to extract more data. */
-@property(copy, nullable) NSString *mqlOutput;
+@property(nonatomic, copy, nullable) NSString *mqlOutput;
 
 /** An output expression to request data from matches. */
-@property(copy, nullable) NSString *output;
+@property(nonatomic, copy, nullable) NSString *output;
 
 /** Prefix match against names and aliases. */
-@property(assign) BOOL prefixed;
+@property(nonatomic, assign) BOOL prefixed;
 
 /** Query term to search for. */
-@property(copy, nullable) NSString *query;
+@property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  Relevance scoring algorithm to use.
@@ -338,7 +338,7 @@ GTLR_EXTERN NSString * const kGTLRFreebaseSpellNoSpelling;
  *  @note If not set, the documented server-side default will be
  *        kGTLRFreebaseScoringEntity.
  */
-@property(copy, nullable) NSString *scoring;
+@property(nonatomic, copy, nullable) NSString *scoring;
 
 /**
  *  Request 'did you mean' suggestions
@@ -354,19 +354,19 @@ GTLR_EXTERN NSString * const kGTLRFreebaseSpellNoSpelling;
  *  @note If not set, the documented server-side default will be
  *        kGTLRFreebaseSpellNoSpelling.
  */
-@property(copy, nullable) NSString *spell;
+@property(nonatomic, copy, nullable) NSString *spell;
 
 /** Query on stemmed names and aliases. May not be used with prefixed. */
-@property(assign) BOOL stemmed;
+@property(nonatomic, assign) BOOL stemmed;
 
 /** Restrict to topics with this Freebase type id. */
-@property(strong, nullable) NSArray<NSString *> *type;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
 /** A rule to match against. */
-@property(strong, nullable) NSArray<NSString *> *with;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *with;
 
 /** A rule to not match against. */
-@property(strong, nullable) NSArray<NSString *> *without;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *without;
 
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.

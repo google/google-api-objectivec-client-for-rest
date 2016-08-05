@@ -115,53 +115,53 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_Address : GTLRObject
 
 /** The city of the address. */
-@property(copy, nullable) NSString *city;
+@property(nonatomic, copy, nullable) NSString *city;
 
 /** The country of the address. */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /**
  *  The [ISO 3166-1 alpha-2](http://www.iso.org/iso/country_codes.htm) country
  *  code of the address.
  */
-@property(copy, nullable) NSString *countryCode;
+@property(nonatomic, copy, nullable) NSString *countryCode;
 
 /** The extended address of the address; for example, the apartment number. */
-@property(copy, nullable) NSString *extendedAddress;
+@property(nonatomic, copy, nullable) NSString *extendedAddress;
 
 /**
  *  The read-only type of the address translated and formatted in the viewer's
  *  account locale or the `Accept-Language` HTTP header locale.
  */
-@property(copy, nullable) NSString *formattedType;
+@property(nonatomic, copy, nullable) NSString *formattedType;
 
 /**
  *  The read-only value of the address formatted in the viewer's account locale
  *  or the `Accept-Language` HTTP header locale.
  */
-@property(copy, nullable) NSString *formattedValue;
+@property(nonatomic, copy, nullable) NSString *formattedValue;
 
 /** Metadata about the address. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** The P.O. box of the address. */
-@property(copy, nullable) NSString *poBox;
+@property(nonatomic, copy, nullable) NSString *poBox;
 
 /** The postal code of the address. */
-@property(copy, nullable) NSString *postalCode;
+@property(nonatomic, copy, nullable) NSString *postalCode;
 
 /** The region of the address; for example, the state or province. */
-@property(copy, nullable) NSString *region;
+@property(nonatomic, copy, nullable) NSString *region;
 
 /** The street address. */
-@property(copy, nullable) NSString *streetAddress;
+@property(nonatomic, copy, nullable) NSString *streetAddress;
 
 /**
  *  The type of the address. The type can be custom or predefined. Possible
  *  values include, but are not limited to, the following: * `home` * `work` *
  *  `other`
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -172,10 +172,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_Biography : GTLRObject
 
 /** Metadata about the biography. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** The short biography. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -188,13 +188,13 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_Birthday : GTLRObject
 
 /** The date of the birthday. */
-@property(strong, nullable) GTLRPeople_Date *date;
+@property(nonatomic, strong, nullable) GTLRPeople_Date *date;
 
 /** Metadata about the birthday. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** A free-form string representing the user's birthday. */
-@property(copy, nullable) NSString *text;
+@property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
@@ -205,10 +205,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_BraggingRights : GTLRObject
 
 /** Metadata about the bragging rights. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** The bragging rights; for example, `climbed mount everest`. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -224,7 +224,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  to, the following: * `myContacts` * `starred` * A numerical ID for
  *  user-created groups.
  */
-@property(copy, nullable) NSString *contactGroupId;
+@property(nonatomic, copy, nullable) NSString *contactGroupId;
 
 @end
 
@@ -243,13 +243,13 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *defaultProperty;
+@property(nonatomic, strong, nullable) NSNumber *defaultProperty;
 
 /** Metadata about the cover photo. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** The URL of the cover photo. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -271,14 +271,14 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *day;
+@property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
  *  Month of year. Must be from 1 to 12.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *month;
+@property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
  *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
@@ -286,7 +286,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *year;
+@property(nonatomic, strong, nullable) NSNumber *year;
 
 @end
 
@@ -301,7 +301,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *inViewerDomain;
+@property(nonatomic, strong, nullable) NSNumber *inViewerDomain;
 
 @end
 
@@ -315,20 +315,20 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  The read-only type of the email address translated and formatted in the
  *  viewer's account locale or the `Accept-Language` HTTP header locale.
  */
-@property(copy, nullable) NSString *formattedType;
+@property(nonatomic, copy, nullable) NSString *formattedType;
 
 /** Metadata about the email address. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /**
  *  The type of the email address. The type can be custom or predefined.
  *  Possible values include, but are not limited to, the following: * `home` *
  *  `work` * `other`
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** The email address. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -339,22 +339,22 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_Event : GTLRObject
 
 /** The date of the event. */
-@property(strong, nullable) GTLRPeople_Date *date;
+@property(nonatomic, strong, nullable) GTLRPeople_Date *date;
 
 /**
  *  The read-only type of the event translated and formatted in the viewer's
  *  account locale or the `Accept-Language` HTTP header locale.
  */
-@property(copy, nullable) NSString *formattedType;
+@property(nonatomic, copy, nullable) NSString *formattedType;
 
 /** Metadata about the event. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /**
  *  The type of the event. The type can be custom or predefined. Possible values
  *  include, but are not limited to, the following: * `anniversary` * `other`
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -370,10 +370,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *primary;
+@property(nonatomic, strong, nullable) NSNumber *primary;
 
 /** The source of the field. */
-@property(strong, nullable) GTLRPeople_Source *source;
+@property(nonatomic, strong, nullable) GTLRPeople_Source *source;
 
 /**
  *  True if the field is verified; false if the field is unverified. A verified
@@ -382,7 +382,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *verified;
+@property(nonatomic, strong, nullable) NSNumber *verified;
 
 @end
 
@@ -396,17 +396,17 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  The read-only value of the gender translated and formatted in the viewer's
  *  account locale or the `Accept-Language` HTTP header locale.
  */
-@property(copy, nullable) NSString *formattedValue;
+@property(nonatomic, copy, nullable) NSString *formattedValue;
 
 /** Metadata about the gender. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /**
  *  The gender for the person. The gender can be custom or predefined. Possible
  *  values include, but are not limited to, the following: * `male` * `female` *
  *  `other` * `unknown`
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -417,7 +417,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_GetPeopleResponse : GTLRObject
 
 /** The response for each requested resource name. */
-@property(strong, nullable) NSArray<GTLRPeople_PersonResponse *> *responses;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_PersonResponse *> *responses;
 
 @end
 
@@ -431,16 +431,16 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  The read-only protocol of the IM client formatted in the viewer's account
  *  locale or the `Accept-Language` HTTP header locale.
  */
-@property(copy, nullable) NSString *formattedProtocol;
+@property(nonatomic, copy, nullable) NSString *formattedProtocol;
 
 /**
  *  The read-only type of the IM client translated and formatted in the viewer's
  *  account locale or the `Accept-Language` HTTP header locale.
  */
-@property(copy, nullable) NSString *formattedType;
+@property(nonatomic, copy, nullable) NSString *formattedType;
 
 /** Metadata about the IM client. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /**
  *  The protocol of the IM client. The protocol can be custom or predefined.
@@ -448,17 +448,17 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  `msn` * `yahoo` * `skype` * `qq` * `googleTalk` * `icq` * `jabber` *
  *  `netMeeting`
  */
-@property(copy, nullable) NSString *protocol;
+@property(nonatomic, copy, nullable) NSString *protocol;
 
 /**
  *  The type of the IM client. The type can be custom or predefined. Possible
  *  values include, but are not limited to, the following: * `home` * `work` *
  *  `other`
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** The user name used in the IM client. */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -469,10 +469,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_Interest : GTLRObject
 
 /** Metadata about the interest. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** The interest; for example, `stargazing`. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -493,13 +493,13 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRPeople_Person *> *connections;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Person *> *connections;
 
 /** The token that can be used to retrieve the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** The token that can be used to retrieve changes since the last request. */
-@property(copy, nullable) NSString *nextSyncToken;
+@property(nonatomic, copy, nullable) NSString *nextSyncToken;
 
 @end
 
@@ -510,13 +510,13 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_Locale : GTLRObject
 
 /** Metadata about the locale. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /**
  *  The well-formed [IETF BCP 47](https://tools.ietf.org/html/bcp47) language
  *  tag representing the locale.
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -527,13 +527,13 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_Membership : GTLRObject
 
 /** The contact group membership. */
-@property(strong, nullable) GTLRPeople_ContactGroupMembership *contactGroupMembership;
+@property(nonatomic, strong, nullable) GTLRPeople_ContactGroupMembership *contactGroupMembership;
 
 /** The domain membership. */
-@property(strong, nullable) GTLRPeople_DomainMembership *domainMembership;
+@property(nonatomic, strong, nullable) GTLRPeople_DomainMembership *domainMembership;
 
 /** Metadata about the membership. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 @end
 
@@ -547,40 +547,40 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  The display name formatted according to the locale specified by the viewer's
  *  account or the Accept-Language HTTP header.
  */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The family name. */
-@property(copy, nullable) NSString *familyName;
+@property(nonatomic, copy, nullable) NSString *familyName;
 
 /** The given name. */
-@property(copy, nullable) NSString *givenName;
+@property(nonatomic, copy, nullable) NSString *givenName;
 
 /** The honorific prefixes, such as `Mrs.` or `Dr.` */
-@property(copy, nullable) NSString *honorificPrefix;
+@property(nonatomic, copy, nullable) NSString *honorificPrefix;
 
 /** The honorific suffixes, such as `Jr.` */
-@property(copy, nullable) NSString *honorificSuffix;
+@property(nonatomic, copy, nullable) NSString *honorificSuffix;
 
 /** Metadata about the name. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** The middle name(s). */
-@property(copy, nullable) NSString *middleName;
+@property(nonatomic, copy, nullable) NSString *middleName;
 
 /** The family name spelled as it sounds. */
-@property(copy, nullable) NSString *phoneticFamilyName;
+@property(nonatomic, copy, nullable) NSString *phoneticFamilyName;
 
 /** The given name spelled as it sounds. */
-@property(copy, nullable) NSString *phoneticGivenName;
+@property(nonatomic, copy, nullable) NSString *phoneticGivenName;
 
 /** The honorific prefixes spelled as they sound. */
-@property(copy, nullable) NSString *phoneticHonorificPrefix;
+@property(nonatomic, copy, nullable) NSString *phoneticHonorificPrefix;
 
 /** The honorific suffixes spelled as they sound. */
-@property(copy, nullable) NSString *phoneticHonorificSuffix;
+@property(nonatomic, copy, nullable) NSString *phoneticHonorificSuffix;
 
 /** The middle name(s) spelled as they sound. */
-@property(copy, nullable) NSString *phoneticMiddleName;
+@property(nonatomic, copy, nullable) NSString *phoneticMiddleName;
 
 @end
 
@@ -591,7 +591,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_Nickname : GTLRObject
 
 /** Metadata about the nickname. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /**
  *  The type of the nickname.
@@ -603,10 +603,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *    @arg @c kGTLRPeople_Nickname_Type_MaidenName Value "MAIDEN_NAME"
  *    @arg @c kGTLRPeople_Nickname_Type_OtherName Value "OTHER_NAME"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** The nickname. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -617,10 +617,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_Occupation : GTLRObject
 
 /** Metadata about the occupation. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** The occupation; for example, `carpenter`. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -637,57 +637,57 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *current;
+@property(nonatomic, strong, nullable) NSNumber *current;
 
 /** The person's department at the organization. */
-@property(copy, nullable) NSString *department;
+@property(nonatomic, copy, nullable) NSString *department;
 
 /**
  *  The domain name associated with the organization; for example, `google.com`.
  */
-@property(copy, nullable) NSString *domain;
+@property(nonatomic, copy, nullable) NSString *domain;
 
 /** The end date when the person left the organization. */
-@property(strong, nullable) GTLRPeople_Date *endDate;
+@property(nonatomic, strong, nullable) GTLRPeople_Date *endDate;
 
 /**
  *  The read-only type of the organization translated and formatted in the
  *  viewer's account locale or the `Accept-Language` HTTP header locale.
  */
-@property(copy, nullable) NSString *formattedType;
+@property(nonatomic, copy, nullable) NSString *formattedType;
 
 /** The person's job description at the organization. */
-@property(copy, nullable) NSString *jobDescription;
+@property(nonatomic, copy, nullable) NSString *jobDescription;
 
 /** The location of the organization office the person works at. */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Metadata about the organization. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** The name of the organization. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The phonetic name of the organization. */
-@property(copy, nullable) NSString *phoneticName;
+@property(nonatomic, copy, nullable) NSString *phoneticName;
 
 /** The start date when the person joined the organization. */
-@property(strong, nullable) GTLRPeople_Date *startDate;
+@property(nonatomic, strong, nullable) GTLRPeople_Date *startDate;
 
 /**
  *  The symbol associated with the organization; for example, a stock ticker
  *  symbol, abbreviation, or acronym.
  */
-@property(copy, nullable) NSString *symbol;
+@property(nonatomic, copy, nullable) NSString *symbol;
 
 /** The person's job title at the organization. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  The type of the organization. The type can be custom or predefined. Possible
  *  values include, but are not limited to, the following: * `work` * `school`
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -703,7 +703,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_Person : GTLRObject
 
 /** The person's street addresses. */
-@property(strong, nullable) NSArray<GTLRPeople_Address *> *addresses;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Address *> *addresses;
 
 /**
  *  The person's age range.
@@ -718,94 +718,94 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *    @arg @c kGTLRPeople_Person_AgeRange_TwentyOneOrOlder Value
  *        "TWENTY_ONE_OR_OLDER"
  */
-@property(copy, nullable) NSString *ageRange;
+@property(nonatomic, copy, nullable) NSString *ageRange;
 
 /** The person's biographies. */
-@property(strong, nullable) NSArray<GTLRPeople_Biography *> *biographies;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Biography *> *biographies;
 
 /** The person's birthdays. */
-@property(strong, nullable) NSArray<GTLRPeople_Birthday *> *birthdays;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Birthday *> *birthdays;
 
 /** The person's bragging rights. */
-@property(strong, nullable) NSArray<GTLRPeople_BraggingRights *> *braggingRights;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_BraggingRights *> *braggingRights;
 
 /** The person's cover photos. */
-@property(strong, nullable) NSArray<GTLRPeople_CoverPhoto *> *coverPhotos;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_CoverPhoto *> *coverPhotos;
 
 /** The person's email addresses. */
-@property(strong, nullable) NSArray<GTLRPeople_EmailAddress *> *emailAddresses;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_EmailAddress *> *emailAddresses;
 
 /**
  *  The [HTTP entity tag](https://en.wikipedia.org/wiki/HTTP_ETag) of the
  *  resource. Used for web cache validation.
  */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** The person's events. */
-@property(strong, nullable) NSArray<GTLRPeople_Event *> *events;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Event *> *events;
 
 /** The person's genders. */
-@property(strong, nullable) NSArray<GTLRPeople_Gender *> *genders;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Gender *> *genders;
 
 /** The person's instant messaging clients. */
-@property(strong, nullable) NSArray<GTLRPeople_ImClient *> *imClients;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_ImClient *> *imClients;
 
 /** The person's interests. */
-@property(strong, nullable) NSArray<GTLRPeople_Interest *> *interests;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Interest *> *interests;
 
 /** The person's locale preferences. */
-@property(strong, nullable) NSArray<GTLRPeople_Locale *> *locales;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Locale *> *locales;
 
 /** The person's group memberships. */
-@property(strong, nullable) NSArray<GTLRPeople_Membership *> *memberships;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Membership *> *memberships;
 
 /** Metadata about the person. */
-@property(strong, nullable) GTLRPeople_PersonMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_PersonMetadata *metadata;
 
 /** The person's names. */
-@property(strong, nullable) NSArray<GTLRPeople_Name *> *names;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Name *> *names;
 
 /** The person's nicknames. */
-@property(strong, nullable) NSArray<GTLRPeople_Nickname *> *nicknames;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Nickname *> *nicknames;
 
 /** The person's occupations. */
-@property(strong, nullable) NSArray<GTLRPeople_Occupation *> *occupations;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Occupation *> *occupations;
 
 /** The person's past or current organizations. */
-@property(strong, nullable) NSArray<GTLRPeople_Organization *> *organizations;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Organization *> *organizations;
 
 /** The person's phone numbers. */
-@property(strong, nullable) NSArray<GTLRPeople_PhoneNumber *> *phoneNumbers;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_PhoneNumber *> *phoneNumbers;
 
 /** The person's photos. */
-@property(strong, nullable) NSArray<GTLRPeople_Photo *> *photos;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Photo *> *photos;
 
 /** The person's relations. */
-@property(strong, nullable) NSArray<GTLRPeople_Relation *> *relations;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Relation *> *relations;
 
 /** The kind of relationship the person is looking for. */
-@property(strong, nullable) NSArray<GTLRPeople_RelationshipInterest *> *relationshipInterests;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_RelationshipInterest *> *relationshipInterests;
 
 /** The person's relationship statuses. */
-@property(strong, nullable) NSArray<GTLRPeople_RelationshipStatus *> *relationshipStatuses;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_RelationshipStatus *> *relationshipStatuses;
 
 /** The person's residences. */
-@property(strong, nullable) NSArray<GTLRPeople_Residence *> *residences;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Residence *> *residences;
 
 /**
  *  The resource name for the person, assigned by the server. An ASCII string
  *  with a max length of 27 characters. Always starts with `people/`.
  */
-@property(copy, nullable) NSString *resourceName;
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 /** The person's skills. */
-@property(strong, nullable) NSArray<GTLRPeople_Skill *> *skills;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Skill *> *skills;
 
 /** The person's taglines. */
-@property(strong, nullable) NSArray<GTLRPeople_Tagline *> *taglines;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Tagline *> *taglines;
 
 /** The person's associated URLs. */
-@property(strong, nullable) NSArray<GTLRPeople_Url *> *urls;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Url *> *urls;
 
 @end
 
@@ -822,7 +822,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *deleted;
+@property(nonatomic, strong, nullable) NSNumber *deleted;
 
 /**
  *  The type of the person object.
@@ -833,7 +833,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *    @arg @c kGTLRPeople_PersonMetadata_ObjectType_Page Value "PAGE"
  *    @arg @c kGTLRPeople_PersonMetadata_ObjectType_Person Value "PERSON"
  */
-@property(copy, nullable) NSString *objectType;
+@property(nonatomic, copy, nullable) NSString *objectType;
 
 /**
  *  Any former resource names this person has had. Populated only for
@@ -842,10 +842,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  removing fields that link a contact and profile such as a verified email,
  *  verified phone number, or profile URL.
  */
-@property(strong, nullable) NSArray<NSString *> *previousResourceNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *previousResourceNames;
 
 /** The sources of data for the person. */
-@property(strong, nullable) NSArray<GTLRPeople_Source *> *sources;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeople_Source *> *sources;
 
 @end
 
@@ -861,10 +861,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *httpStatusCode;
+@property(nonatomic, strong, nullable) NSNumber *httpStatusCode;
 
 /** The person. */
-@property(strong, nullable) GTLRPeople_Person *person;
+@property(nonatomic, strong, nullable) GTLRPeople_Person *person;
 
 /**
  *  The original requested resource name. May be different than the resource
@@ -872,7 +872,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  removing fields that link a contact and profile such as a verified email,
  *  verified phone number, or a profile URL.
  */
-@property(copy, nullable) NSString *requestedResourceName;
+@property(nonatomic, copy, nullable) NSString *requestedResourceName;
 
 @end
 
@@ -887,16 +887,16 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  E.164](https://law.resource.org/pub/us/cfr/ibr/004/itu-t.E.164.1.2008.pdf)
  *  form of the phone number.
  */
-@property(copy, nullable) NSString *canonicalForm;
+@property(nonatomic, copy, nullable) NSString *canonicalForm;
 
 /**
  *  The read-only type of the phone number translated and formatted in the
  *  viewer's account locale or the the `Accept-Language` HTTP header locale.
  */
-@property(copy, nullable) NSString *formattedType;
+@property(nonatomic, copy, nullable) NSString *formattedType;
 
 /** Metadata about the phone number. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /**
  *  The type of the phone number. The type can be custom or predefined. Possible
@@ -904,10 +904,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  `mobile` * `homeFax` * `workFax` * `otherFax` * `pager` * `workMobile` *
  *  `workPager` * `main` * `googleVoice` * `other`
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** The phone number. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -919,10 +919,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_Photo : GTLRObject
 
 /** Metadata about the photo. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** The URL of the photo. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -936,13 +936,13 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  The type of the relation translated and formatted in the viewer's account
  *  locale or the locale specified in the Accept-Language HTTP header.
  */
-@property(copy, nullable) NSString *formattedType;
+@property(nonatomic, copy, nullable) NSString *formattedType;
 
 /** Metadata about the relation. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** The name of the other person this relation refers to. */
-@property(copy, nullable) NSString *person;
+@property(nonatomic, copy, nullable) NSString *person;
 
 /**
  *  The person's relation to the other person. The type can be custom or
@@ -951,7 +951,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  `sister` * `friend` * `relative` * `domesticPartner` * `manager` *
  *  `assistant` * `referredBy` * `partner`
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -966,17 +966,17 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  viewer's account locale or the locale specified in the Accept-Language HTTP
  *  header.
  */
-@property(copy, nullable) NSString *formattedValue;
+@property(nonatomic, copy, nullable) NSString *formattedValue;
 
 /** Metadata about the relationship interest. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /**
  *  The kind of relationship the person is looking for. The value can be custom
  *  or predefined. Possible values include, but are not limited to, the
  *  following values: * `friend` * `date` * `relationship` * `networking`
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -990,10 +990,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  The read-only value of the relationship status translated and formatted in
  *  the viewer's account locale or the `Accept-Language` HTTP header locale.
  */
-@property(copy, nullable) NSString *formattedValue;
+@property(nonatomic, copy, nullable) NSString *formattedValue;
 
 /** Metadata about the relationship status. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /**
  *  The relationship status. The value can be custom or predefined. Possible
@@ -1001,7 +1001,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  `inARelationship` * `engaged` * `married` * `itsComplicated` *
  *  `openRelationship` * `widowed` * `inDomesticPartnership` * `inCivilUnion`
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1017,13 +1017,13 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *current;
+@property(nonatomic, strong, nullable) NSNumber *current;
 
 /** Metadata about the residence. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** The address of the residence. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1034,10 +1034,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_Skill : GTLRObject
 
 /** Metadata about the skill. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** The skill; for example, `underwater basket weaving`. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1052,7 +1052,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The source type.
@@ -1064,7 +1064,7 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *    @arg @c kGTLRPeople_Source_Type_Other Value "OTHER"
  *    @arg @c kGTLRPeople_Source_Type_Profile Value "PROFILE"
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1075,10 +1075,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
 @interface GTLRPeople_Tagline : GTLRObject
 
 /** Metadata about the tagline. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /** The tagline. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1092,10 +1092,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  The read-only type of the URL translated and formatted in the viewer's
  *  account locale or the `Accept-Language` HTTP header locale.
  */
-@property(copy, nullable) NSString *formattedType;
+@property(nonatomic, copy, nullable) NSString *formattedType;
 
 /** Metadata about the URL. */
-@property(strong, nullable) GTLRPeople_FieldMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRPeople_FieldMetadata *metadata;
 
 /**
  *  The type of the URL. The type can be custom or predefined. Possible values
@@ -1103,10 +1103,10 @@ GTLR_EXTERN NSString * const kGTLRPeople_Source_Type_Profile;
  *  `profile` * `homePage` * `ftp` * `reservations` * `appInstallPage`: website
  *  for a Google+ application. * `other`
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** The URL. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

@@ -28,23 +28,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAppState_GetResponse : GTLRObject
 
 /** The current app state version. */
-@property(copy, nullable) NSString *currentStateVersion;
+@property(nonatomic, copy, nullable) NSString *currentStateVersion;
 
 /** The requested data. */
-@property(copy, nullable) NSString *data;
+@property(nonatomic, copy, nullable) NSString *data;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string appstate#getResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The key for the data.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *stateKey;
+@property(nonatomic, strong, nullable) NSNumber *stateKey;
 
 @end
 
@@ -63,20 +63,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAppState_GetResponse *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAppState_GetResponse *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string appstate#listResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The maximum number of keys allowed for this user.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maximumKeyCount;
+@property(nonatomic, strong, nullable) NSNumber *maximumKeyCount;
 
 @end
 
@@ -87,13 +87,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAppState_UpdateRequest : GTLRObject
 
 /** The new app state data that your application is trying to update with. */
-@property(copy, nullable) NSString *data;
+@property(nonatomic, copy, nullable) NSString *data;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string appstate#updateRequest.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -104,20 +104,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAppState_WriteResult : GTLRObject
 
 /** The version of the data for this key on the server. */
-@property(copy, nullable) NSString *currentStateVersion;
+@property(nonatomic, copy, nullable) NSString *currentStateVersion;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string appstate#writeResult.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The written key.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *stateKey;
+@property(nonatomic, strong, nullable) NSNumber *stateKey;
 
 @end
 

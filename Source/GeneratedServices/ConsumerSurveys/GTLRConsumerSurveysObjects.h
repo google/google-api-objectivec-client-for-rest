@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRConsumerSurveys_FieldMask : GTLRObject
 
-@property(strong, nullable) NSArray<GTLRConsumerSurveys_FieldMask *> *fields;
+@property(nonatomic, strong, nullable) NSArray<GTLRConsumerSurveys_FieldMask *> *fields;
 
 /**
  *  identifier
@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 @end
 
@@ -61,37 +61,37 @@ NS_ASSUME_NONNULL_BEGIN
  *  United States, and 'GB' for the United Kingdom. Any survey created targeting
  *  this panel must also target the corresponding country.
  */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /**
  *  Whether or not the panel is accessible to all API users.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isPublicPanel;
+@property(nonatomic, strong, nullable) NSNumber *isPublicPanel;
 
 /**
  *  Language code that the panel can target. For instance, 'en-US'. Uses
  *  standard BCP47 language codes. See specification. Any survey created
  *  targeting this panel must also target the corresponding language.
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Unique panel ID string. This corresponds to the mobile_app_panel_id used in
  *  Survey Insert requests.
  */
-@property(copy, nullable) NSString *mobileAppPanelId;
+@property(nonatomic, copy, nullable) NSString *mobileAppPanelId;
 
 /** Human readable name of the audience panel. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  List of email addresses for users who can target members of this panel. Must
  *  contain at least the address of the user making the API call for panels that
  *  are not public. This field will be empty for public panels.
  */
-@property(strong, nullable) NSArray<NSString *> *owners;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *owners;
 
 @end
 
@@ -101,18 +101,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRConsumerSurveys_MobileAppPanelsListResponse : GTLRObject
 
-@property(strong, nullable) GTLRConsumerSurveys_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRConsumerSurveys_PageInfo *pageInfo;
 
 /**
  *  Unique request ID used for logging and debugging. Please include in any
  *  error reporting or troubleshooting requests.
  */
-@property(copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /** An individual predefined panel of Opinion Rewards mobile users. */
-@property(strong, nullable) NSArray<GTLRConsumerSurveys_MobileAppPanel *> *resources;
+@property(nonatomic, strong, nullable) NSArray<GTLRConsumerSurveys_MobileAppPanel *> *resources;
 
-@property(strong, nullable) GTLRConsumerSurveys_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRConsumerSurveys_TokenPagination *tokenPagination;
 
 @end
 
@@ -127,21 +127,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *resultPerPage;
+@property(nonatomic, strong, nullable) NSNumber *resultPerPage;
 
 /**
  *  startIndex
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  totalResults
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 @end
 
@@ -151,7 +151,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRConsumerSurveys_ResultsGetRequest : GTLRObject
 
-@property(strong, nullable) GTLRConsumerSurveys_ResultsMask *resultMask;
+@property(nonatomic, strong, nullable) GTLRConsumerSurveys_ResultsMask *resultMask;
 
 @end
 
@@ -161,8 +161,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRConsumerSurveys_ResultsMask : GTLRObject
 
-@property(strong, nullable) NSArray<GTLRConsumerSurveys_FieldMask *> *fields;
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, strong, nullable) NSArray<GTLRConsumerSurveys_FieldMask *> *fields;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 @end
 
@@ -173,10 +173,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRConsumerSurveys_Survey : GTLRObject
 
 /** Targeting-criteria message containing demographic information */
-@property(strong, nullable) GTLRConsumerSurveys_SurveyAudience *audience;
+@property(nonatomic, strong, nullable) GTLRConsumerSurveys_SurveyAudience *audience;
 
 /** Cost to run the survey and collect the necessary number of responses. */
-@property(strong, nullable) GTLRConsumerSurveys_SurveyCost *cost;
+@property(nonatomic, strong, nullable) GTLRConsumerSurveys_SurveyCost *cost;
 
 /**
  *  Additional information to store on behalf of the API consumer and associate
@@ -186,39 +186,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *customerData;
+@property(nonatomic, copy, nullable) NSString *customerData;
 
 /**
  *  Text description of the survey.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  List of email addresses for survey owners. Must contain at least the address
  *  of the user making the API call.
  */
-@property(strong, nullable) NSArray<NSString *> *owners;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *owners;
 
 /** List of questions defining the survey. */
-@property(strong, nullable) NSArray<GTLRConsumerSurveys_SurveyQuestion *> *questions;
+@property(nonatomic, strong, nullable) NSArray<GTLRConsumerSurveys_SurveyQuestion *> *questions;
 
 /** State that the survey is in. */
-@property(copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *state;
 
 /** Unique survey ID, that is viewable in the URL of the Survey Creator UI */
-@property(copy, nullable) NSString *surveyUrlId;
+@property(nonatomic, copy, nullable) NSString *surveyUrlId;
 
 /** Optional name that will be given to the survey. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  Number of responses desired for the survey.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *wantedResponseCount;
+@property(nonatomic, strong, nullable) NSNumber *wantedResponseCount;
 
 @end
 
@@ -232,14 +232,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Optional list of age buckets to target. Supported age buckets are: ['18-24',
  *  '25-34', '35-44', '45-54', '55-64', '65+']
  */
-@property(strong, nullable) NSArray<NSString *> *ages;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ages;
 
 /**
  *  Required country code that surveys should be targeted to. Accepts standard
  *  ISO 3166-1 2 character language codes. For instance, 'US' for the United
  *  States, and 'GB' for the United Kingdom.
  */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /**
  *  Country subdivision (states/provinces/etc) that surveys should be targeted
@@ -248,10 +248,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  codes for the United Kingdom is required (eg. 'UK-UKC' for North East
  *  England).
  */
-@property(copy, nullable) NSString *countrySubdivision;
+@property(nonatomic, copy, nullable) NSString *countrySubdivision;
 
 /** Optional gender to target. */
-@property(copy, nullable) NSString *gender;
+@property(nonatomic, copy, nullable) NSString *gender;
 
 /**
  *  Language code that surveys should be targeted to. For instance, 'en-US'.
@@ -261,17 +261,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  the first language listed. Accepts standard BCP47 language codes. See
  *  specification.
  */
-@property(strong, nullable) NSArray<NSString *> *languages;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *languages;
 
 /**
  *  Key for predefined panel that causes survey to be sent to a predefined set
  *  of Opinion Rewards App users. You must set PopulationSource to
  *  ANDROID_APP_PANEL to use this field.
  */
-@property(copy, nullable) NSString *mobileAppPanelId;
+@property(nonatomic, copy, nullable) NSString *mobileAppPanelId;
 
 /** Online population source where the respondents are sampled from. */
-@property(copy, nullable) NSString *populationSource;
+@property(nonatomic, copy, nullable) NSString *populationSource;
 
 @end
 
@@ -287,10 +287,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *costPerResponseNanos;
+@property(nonatomic, strong, nullable) NSNumber *costPerResponseNanos;
 
 /** Currency code that the cost is given in. */
-@property(copy, nullable) NSString *currencyCode;
+@property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
  *  Threshold to start a survey automatically if the quoted price is at most
@@ -312,7 +312,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *maxCostPerResponseNanos;
+@property(nonatomic, strong, nullable) NSNumber *maxCostPerResponseNanos;
 
 /**
  *  Cost of survey in nano units of the given currency. DEPRECATED in favor of
@@ -320,7 +320,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *nanos;
+@property(nonatomic, strong, nullable) NSNumber *nanos;
 
 @end
 
@@ -334,10 +334,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The randomization option for multiple choice and multi-select questions. If
  *  not specified, this option defaults to randomize.
  */
-@property(copy, nullable) NSString *answerOrder;
+@property(nonatomic, copy, nullable) NSString *answerOrder;
 
 /** Required list of answer options for a question. */
-@property(strong, nullable) NSArray<NSString *> *answers;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *answers;
 
 /**
  *  Option to allow open-ended text box for Single Answer and Multiple Answer
@@ -347,30 +347,30 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hasOther;
+@property(nonatomic, strong, nullable) NSNumber *hasOther;
 
 /**
  *  For rating questions, the text for the higher end of the scale, such as
  *  'Best'. For numeric questions, a string representing a floating-point that
  *  is the maximum allowed number for a response.
  */
-@property(copy, nullable) NSString *highValueLabel;
+@property(nonatomic, copy, nullable) NSString *highValueLabel;
 
-@property(strong, nullable) NSArray<GTLRConsumerSurveys_SurveyQuestionImage *> *images;
+@property(nonatomic, strong, nullable) NSArray<GTLRConsumerSurveys_SurveyQuestionImage *> *images;
 
 /**
  *  Currently only support pinning an answer option to the last position.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *lastAnswerPositionPinned;
+@property(nonatomic, strong, nullable) NSNumber *lastAnswerPositionPinned;
 
 /**
  *  For rating questions, the text for the lower end of the scale, such as
  *  'Worst'. For numeric questions, a string representing a floating-point that
  *  is the minimum allowed number for a response.
  */
-@property(copy, nullable) NSString *lowValueLabel;
+@property(nonatomic, copy, nullable) NSString *lowValueLabel;
 
 /**
  *  Option to force the user to pick one of the open text suggestions. This
@@ -378,29 +378,29 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *mustPickSuggestion;
+@property(nonatomic, strong, nullable) NSNumber *mustPickSuggestion;
 
 /** Number of stars to use for ratings questions. */
-@property(copy, nullable) NSString *numStars;
+@property(nonatomic, copy, nullable) NSString *numStars;
 
 /** Placeholder text for an open text question. */
-@property(copy, nullable) NSString *openTextPlaceholder;
+@property(nonatomic, copy, nullable) NSString *openTextPlaceholder;
 
 /**
  *  A list of suggested answers for open text question auto-complete. This is
  *  only valid if single_line_response is true.
  */
-@property(strong, nullable) NSArray<NSString *> *openTextSuggestions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *openTextSuggestions;
 
 /** Required question text shown to the respondent. */
-@property(copy, nullable) NSString *question;
+@property(nonatomic, copy, nullable) NSString *question;
 
 /**
  *  Used by the Rating Scale with Text question type. This text goes along with
  *  the question field that is presented to the respondent, and is the actual
  *  text that the respondent is asked to rate.
  */
-@property(copy, nullable) NSString *sentimentText;
+@property(nonatomic, copy, nullable) NSString *sentimentText;
 
 /**
  *  Option to allow multiple line open text responses instead of a single line
@@ -409,28 +409,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *singleLineResponse;
+@property(nonatomic, strong, nullable) NSNumber *singleLineResponse;
 
 /**
  *  The threshold/screener answer options, which will screen a user into the
  *  rest of the survey. These will be a subset of the answer option strings.
  */
-@property(strong, nullable) NSArray<NSString *> *thresholdAnswers;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *thresholdAnswers;
 
 /**
  *  Required field defining the question type. For details about configuring
  *  different type of questions, consult the question configuration guide.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Optional unit of measurement for display (for example: hours, people,
  *  miles).
  */
-@property(copy, nullable) NSString *unitOfMeasurementLabel;
+@property(nonatomic, copy, nullable) NSString *unitOfMeasurementLabel;
 
 /** The YouTube video ID to be show in video questions. */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
 
@@ -441,7 +441,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRConsumerSurveys_SurveyQuestionImage : GTLRObject
 
 /** The alt text property used in image tags is required for all images. */
-@property(copy, nullable) NSString *altText;
+@property(nonatomic, copy, nullable) NSString *altText;
 
 /**
  *  Inline jpeg, gif, tiff, bmp, or png image raw bytes for an image question
@@ -450,10 +450,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *data;
+@property(nonatomic, copy, nullable) NSString *data;
 
 /** The read-only URL for the hosted images. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -464,10 +464,24 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRConsumerSurveys_SurveyResults : GTLRObject
 
 /** Human readable string describing the status of the request. */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /** External survey ID as viewable by survey owners in the editor view. */
-@property(copy, nullable) NSString *surveyUrlId;
+@property(nonatomic, copy, nullable) NSString *surveyUrlId;
+
+@end
+
+
+/**
+ *  GTLRConsumerSurveys_SurveysDeleteResponse
+ */
+@interface GTLRConsumerSurveys_SurveysDeleteResponse : GTLRObject
+
+/**
+ *  Unique request ID used for logging and debugging. Please include in any
+ *  error reporting or troubleshooting requests.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 @end
 
@@ -477,18 +491,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRConsumerSurveys_SurveysListResponse : GTLRObject
 
-@property(strong, nullable) GTLRConsumerSurveys_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRConsumerSurveys_PageInfo *pageInfo;
 
 /**
  *  Unique request ID used for logging and debugging. Please include in any
  *  error reporting or troubleshooting requests.
  */
-@property(copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /** An individual survey resource. */
-@property(strong, nullable) NSArray<GTLRConsumerSurveys_Survey *> *resources;
+@property(nonatomic, strong, nullable) NSArray<GTLRConsumerSurveys_Survey *> *resources;
 
-@property(strong, nullable) GTLRConsumerSurveys_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRConsumerSurveys_TokenPagination *tokenPagination;
 
 @end
 
@@ -504,7 +518,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *maxCostPerResponseNanos;
+@property(nonatomic, strong, nullable) NSNumber *maxCostPerResponseNanos;
 
 @end
 
@@ -518,10 +532,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Unique request ID used for logging and debugging. Please include in any
  *  error reporting or troubleshooting requests.
  */
-@property(copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /** Survey object containing the specification of the started Survey. */
-@property(strong, nullable) GTLRConsumerSurveys_Survey *resource;
+@property(nonatomic, strong, nullable) GTLRConsumerSurveys_Survey *resource;
 
 @end
 
@@ -535,10 +549,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Unique request ID used for logging and debugging. Please include in any
  *  error reporting or troubleshooting requests.
  */
-@property(copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /** Survey object containing the specification of the stopped Survey. */
-@property(strong, nullable) GTLRConsumerSurveys_Survey *resource;
+@property(nonatomic, strong, nullable) GTLRConsumerSurveys_Survey *resource;
 
 @end
 
@@ -548,8 +562,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRConsumerSurveys_TokenPagination : GTLRObject
 
-@property(copy, nullable) NSString *nextPageToken;
-@property(copy, nullable) NSString *previousPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *previousPageToken;
 
 @end
 

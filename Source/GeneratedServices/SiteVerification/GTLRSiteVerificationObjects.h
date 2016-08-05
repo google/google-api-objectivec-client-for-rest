@@ -30,13 +30,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSiteVerification_WebResourceGettokenRequest : GTLRObject
 
 /** The site for which a verification token will be generated. */
-@property(strong, nullable) GTLRSiteVerification_WebResourceGettokenRequestSite *site;
+@property(nonatomic, strong, nullable) GTLRSiteVerification_WebResourceGettokenRequestSite *site;
 
 /**
  *  The verification method that will be used to verify this site. For sites,
  *  'FILE' or 'META' methods may be used. For domains, only 'DNS' may be used.
  */
-@property(copy, nullable) NSString *verificationMethod;
+@property(nonatomic, copy, nullable) NSString *verificationMethod;
 
 @end
 
@@ -53,13 +53,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifierProperty property maps to 'identifier' in the JSON ('identifier'
  *  is reserved for remapping 'id').
  */
-@property(copy, nullable) NSString *identifierProperty;
+@property(nonatomic, copy, nullable) NSString *identifierProperty;
 
 /**
  *  The type of resource to be verified. Can be SITE or INET_DOMAIN (domain
  *  name).
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -76,13 +76,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  tag of the default page that is loaded for the site. For DNS, the token
  *  should be placed in a TXT record of the domain.
  */
-@property(copy, nullable) NSString *method;
+@property(nonatomic, copy, nullable) NSString *method;
 
 /**
  *  The verification token. The token must be placed appropriately in order for
  *  verification to succeed.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 @end
 
@@ -101,7 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRSiteVerification_WebResourceResource *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRSiteVerification_WebResourceResource *> *items;
 
 @end
 
@@ -117,13 +117,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The email addresses of all verified owners. */
-@property(strong, nullable) NSArray<NSString *> *owners;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *owners;
 
 /** The address and type of a site that is verified or will be verified. */
-@property(strong, nullable) GTLRSiteVerification_WebResourceResourceSite *site;
+@property(nonatomic, strong, nullable) GTLRSiteVerification_WebResourceResourceSite *site;
 
 @end
 
@@ -140,10 +140,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifierProperty property maps to 'identifier' in the JSON ('identifier'
  *  is reserved for remapping 'id').
  */
-@property(copy, nullable) NSString *identifierProperty;
+@property(nonatomic, copy, nullable) NSString *identifierProperty;
 
 /** The site type. Can be SITE or INET_DOMAIN (domain name). */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

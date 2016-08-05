@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDatastoreQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDatastore queryForProjectsAllocateIdsWithObject:projectId:]
 
 /** The ID of the project against which to make the request. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRDatastore_AllocateIdsResponse.
@@ -86,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDatastore queryForProjectsBeginTransactionWithObject:projectId:]
 
 /** The ID of the project against which to make the request. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRDatastore_BeginTransactionResponse.
@@ -119,7 +119,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDatastore queryForProjectsCommitWithObject:projectId:]
 
 /** The ID of the project against which to make the request. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRDatastore_CommitResponse.
@@ -151,7 +151,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDatastore queryForProjectsLookupWithObject:projectId:]
 
 /** The ID of the project against which to make the request. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRDatastore_LookupResponse.
@@ -182,7 +182,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDatastore queryForProjectsRollbackWithObject:projectId:]
 
 /** The ID of the project against which to make the request. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRDatastore_RollbackResponse.
@@ -213,7 +213,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDatastore queryForProjectsRunQueryWithObject:projectId:]
 
 /** The ID of the project against which to make the request. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRDatastore_RunQueryResponse.

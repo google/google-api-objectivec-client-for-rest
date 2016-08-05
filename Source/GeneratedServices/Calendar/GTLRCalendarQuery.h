@@ -85,7 +85,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @interface GTLRCalendarQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -106,10 +106,10 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /** ACL rule identifier. */
-@property(copy, nullable) NSString *ruleId;
+@property(nonatomic, copy, nullable) NSString *ruleId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -147,10 +147,10 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /** ACL rule identifier. */
-@property(copy, nullable) NSString *ruleId;
+@property(nonatomic, copy, nullable) NSString *ruleId;
 
 /**
  *  Fetches a @c GTLRCalendar_AclRule.
@@ -186,7 +186,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Fetches a @c GTLRCalendar_AclRule.
@@ -222,24 +222,24 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Maximum number of entries returned on one result page. By default the value
  *  is 100 entries. The page size can never be larger than 250 entries.
  *  Optional.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token specifying which result page to return. Optional. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Whether to include deleted ACLs in the result. Deleted ACLs are represented
  *  by role equal to "none". Deleted ACLs will always be included if syncToken
  *  is provided. Optional. The default is False.
  */
-@property(assign) BOOL showDeleted;
+@property(nonatomic, assign) BOOL showDeleted;
 
 /**
  *  Token obtained from the nextSyncToken field returned on the last page of
@@ -253,7 +253,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Learn more about incremental synchronization.
  *  Optional. The default is to return all entries.
  */
-@property(copy, nullable) NSString *syncToken;
+@property(nonatomic, copy, nullable) NSString *syncToken;
 
 /**
  *  Fetches a @c GTLRCalendar_Acl.
@@ -291,10 +291,10 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /** ACL rule identifier. */
-@property(copy, nullable) NSString *ruleId;
+@property(nonatomic, copy, nullable) NSString *ruleId;
 
 /**
  *  Fetches a @c GTLRCalendar_AclRule.
@@ -332,10 +332,10 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /** ACL rule identifier. */
-@property(copy, nullable) NSString *ruleId;
+@property(nonatomic, copy, nullable) NSString *ruleId;
 
 /**
  *  Fetches a @c GTLRCalendar_AclRule.
@@ -373,24 +373,24 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Maximum number of entries returned on one result page. By default the value
  *  is 100 entries. The page size can never be larger than 250 entries.
  *  Optional.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token specifying which result page to return. Optional. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Whether to include deleted ACLs in the result. Deleted ACLs are represented
  *  by role equal to "none". Deleted ACLs will always be included if syncToken
  *  is provided. Optional. The default is False.
  */
-@property(assign) BOOL showDeleted;
+@property(nonatomic, assign) BOOL showDeleted;
 
 /**
  *  Token obtained from the nextSyncToken field returned on the last page of
@@ -404,7 +404,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Learn more about incremental synchronization.
  *  Optional. The default is to return all entries.
  */
-@property(copy, nullable) NSString *syncToken;
+@property(nonatomic, copy, nullable) NSString *syncToken;
 
 /**
  *  Fetches a @c GTLRCalendar_Channel.
@@ -440,7 +440,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -476,7 +476,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Fetches a @c GTLRCalendar_CalendarListEntry.
@@ -511,7 +511,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  field will be set to the best matching option automatically. Optional. The
  *  default is False.
  */
-@property(assign) BOOL colorRgbFormat;
+@property(nonatomic, assign) BOOL colorRgbFormat;
 
 /**
  *  Fetches a @c GTLRCalendar_CalendarListEntry.
@@ -544,7 +544,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  is 100 entries. The page size can never be larger than 250 entries.
  *  Optional.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  The minimum access role for the user in the returned entries. Optional. The
@@ -560,19 +560,19 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *    @arg @c kGTLRCalendarMinAccessRoleWriter The user can read and modify
  *        events. (Value: "writer")
  */
-@property(copy, nullable) NSString *minAccessRole;
+@property(nonatomic, copy, nullable) NSString *minAccessRole;
 
 /** Token specifying which result page to return. Optional. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Whether to include deleted calendar list entries in the result. Optional.
  *  The default is False.
  */
-@property(assign) BOOL showDeleted;
+@property(nonatomic, assign) BOOL showDeleted;
 
 /** Whether to show hidden entries. Optional. The default is False. */
-@property(assign) BOOL showHidden;
+@property(nonatomic, assign) BOOL showHidden;
 
 /**
  *  Token obtained from the nextSyncToken field returned on the last page of
@@ -590,7 +590,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Learn more about incremental synchronization.
  *  Optional. The default is to return all entries.
  */
-@property(copy, nullable) NSString *syncToken;
+@property(nonatomic, copy, nullable) NSString *syncToken;
 
 /**
  *  Fetches a @c GTLRCalendar_CalendarList.
@@ -625,7 +625,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Whether to use the foregroundColor and backgroundColor fields to write the
@@ -633,7 +633,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  field will be set to the best matching option automatically. Optional. The
  *  default is False.
  */
-@property(assign) BOOL colorRgbFormat;
+@property(nonatomic, assign) BOOL colorRgbFormat;
 
 /**
  *  Fetches a @c GTLRCalendar_CalendarListEntry.
@@ -670,7 +670,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Whether to use the foregroundColor and backgroundColor fields to write the
@@ -678,7 +678,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  field will be set to the best matching option automatically. Optional. The
  *  default is False.
  */
-@property(assign) BOOL colorRgbFormat;
+@property(nonatomic, assign) BOOL colorRgbFormat;
 
 /**
  *  Fetches a @c GTLRCalendar_CalendarListEntry.
@@ -715,7 +715,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  is 100 entries. The page size can never be larger than 250 entries.
  *  Optional.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  The minimum access role for the user in the returned entries. Optional. The
@@ -731,19 +731,19 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *    @arg @c kGTLRCalendarMinAccessRoleWriter The user can read and modify
  *        events. (Value: "writer")
  */
-@property(copy, nullable) NSString *minAccessRole;
+@property(nonatomic, copy, nullable) NSString *minAccessRole;
 
 /** Token specifying which result page to return. Optional. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Whether to include deleted calendar list entries in the result. Optional.
  *  The default is False.
  */
-@property(assign) BOOL showDeleted;
+@property(nonatomic, assign) BOOL showDeleted;
 
 /** Whether to show hidden entries. Optional. The default is False. */
-@property(assign) BOOL showHidden;
+@property(nonatomic, assign) BOOL showHidden;
 
 /**
  *  Token obtained from the nextSyncToken field returned on the last page of
@@ -761,7 +761,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Learn more about incremental synchronization.
  *  Optional. The default is to return all entries.
  */
-@property(copy, nullable) NSString *syncToken;
+@property(nonatomic, copy, nullable) NSString *syncToken;
 
 /**
  *  Fetches a @c GTLRCalendar_Channel.
@@ -794,7 +794,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -831,7 +831,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -868,7 +868,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Fetches a @c GTLRCalendar_Calendar.
@@ -927,7 +927,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Fetches a @c GTLRCalendar_Calendar.
@@ -963,7 +963,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Fetches a @c GTLRCalendar_Calendar.
@@ -1050,16 +1050,16 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /** Event identifier. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  Whether to send notifications about the deletion of the event. Optional. The
  *  default is False.
  */
-@property(assign) BOOL sendNotifications;
+@property(nonatomic, assign) BOOL sendNotifications;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1099,30 +1099,30 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  and should only be used by clients which cannot handle the absence of an
  *  email address value in the mentioned places. Optional. The default is False.
  */
-@property(assign) BOOL alwaysIncludeEmail;
+@property(nonatomic, assign) BOOL alwaysIncludeEmail;
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /** Event identifier. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  The maximum number of attendees to include in the response. If there are
  *  more than the specified number of attendees, only the participant is
  *  returned. Optional.
  */
-@property(assign) NSInteger maxAttendees;
+@property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
  *  Time zone used in the response. Optional. The default is the time zone of
  *  the calendar.
  */
-@property(copy, nullable) NSString *timeZone;
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /**
  *  Fetches a @c GTLRCalendar_Event.
@@ -1159,13 +1159,13 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Whether API client performing operation supports event attachments.
  *  Optional. The default is False.
  */
-@property(assign) BOOL supportsAttachments;
+@property(nonatomic, assign) BOOL supportsAttachments;
 
 /**
  *  Fetches a @c GTLRCalendar_Event.
@@ -1202,26 +1202,26 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  The maximum number of attendees to include in the response. If there are
  *  more than the specified number of attendees, only the participant is
  *  returned. Optional.
  */
-@property(assign) NSInteger maxAttendees;
+@property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
  *  Whether to send notifications about the creation of the new event. Optional.
  *  The default is False.
  */
-@property(assign) BOOL sendNotifications;
+@property(nonatomic, assign) BOOL sendNotifications;
 
 /**
  *  Whether API client performing operation supports event attachments.
  *  Optional. The default is False.
  */
-@property(assign) BOOL supportsAttachments;
+@property(nonatomic, assign) BOOL supportsAttachments;
 
 /**
  *  Fetches a @c GTLRCalendar_Event.
@@ -1260,63 +1260,63 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  and should only be used by clients which cannot handle the absence of an
  *  email address value in the mentioned places. Optional. The default is False.
  */
-@property(assign) BOOL alwaysIncludeEmail;
+@property(nonatomic, assign) BOOL alwaysIncludeEmail;
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /** Recurring event identifier. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  The maximum number of attendees to include in the response. If there are
  *  more than the specified number of attendees, only the participant is
  *  returned. Optional.
  */
-@property(assign) NSInteger maxAttendees;
+@property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
  *  Maximum number of events returned on one result page. By default the value
  *  is 250 events. The page size can never be larger than 2500 events. Optional.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The original start time of the instance in the result. Optional. */
-@property(copy, nullable) NSString *originalStart;
+@property(nonatomic, copy, nullable) NSString *originalStart;
 
 /** Token specifying which result page to return. Optional. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Whether to include deleted events (with status equals "cancelled") in the
  *  result. Cancelled instances of recurring events will still be included if
  *  singleEvents is False. Optional. The default is False.
  */
-@property(assign) BOOL showDeleted;
+@property(nonatomic, assign) BOOL showDeleted;
 
 /**
  *  Upper bound (exclusive) for an event's start time to filter by. Optional.
  *  The default is not to filter by start time. Must be an RFC3339 timestamp
  *  with mandatory time zone offset.
  */
-@property(strong, nullable) GTLRDateTime *timeMax;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeMax;
 
 /**
  *  Lower bound (inclusive) for an event's end time to filter by. Optional. The
  *  default is not to filter by end time. Must be an RFC3339 timestamp with
  *  mandatory time zone offset.
  */
-@property(strong, nullable) GTLRDateTime *timeMin;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeMin;
 
 /**
  *  Time zone used in the response. Optional. The default is the time zone of
  *  the calendar.
  */
-@property(copy, nullable) NSString *timeZone;
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /**
  *  Fetches a @c GTLRCalendar_Events.
@@ -1359,33 +1359,33 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  and should only be used by clients which cannot handle the absence of an
  *  email address value in the mentioned places. Optional. The default is False.
  */
-@property(assign) BOOL alwaysIncludeEmail;
+@property(nonatomic, assign) BOOL alwaysIncludeEmail;
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Specifies event ID in the iCalendar format to be included in the response.
  *  Optional.
  */
-@property(copy, nullable) NSString *iCalUID;
+@property(nonatomic, copy, nullable) NSString *iCalUID;
 
 /**
  *  The maximum number of attendees to include in the response. If there are
  *  more than the specified number of attendees, only the participant is
  *  returned. Optional.
  */
-@property(assign) NSInteger maxAttendees;
+@property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
  *  Maximum number of events returned on one result page. By default the value
  *  is 250 events. The page size can never be larger than 2500 events. Optional.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  The order of the events returned in the result. Optional. The default is an
@@ -1398,30 +1398,30 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *    @arg @c kGTLRCalendarOrderByUpdated Order by last modification time
  *        (ascending). (Value: "updated")
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Token specifying which result page to return. Optional. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Extended properties constraint specified as propertyName=value. Matches only
  *  private properties. This parameter might be repeated multiple times to
  *  return events that match all given constraints.
  */
-@property(strong, nullable) NSArray<NSString *> *privateExtendedProperty;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *privateExtendedProperty;
 
 /**
  *  Free text search terms to find events that match these terms in any field,
  *  except for extended properties. Optional.
  */
-@property(copy, nullable) NSString *q;
+@property(nonatomic, copy, nullable) NSString *q;
 
 /**
  *  Extended properties constraint specified as propertyName=value. Matches only
  *  shared properties. This parameter might be repeated multiple times to return
  *  events that match all given constraints.
  */
-@property(strong, nullable) NSArray<NSString *> *sharedExtendedProperty;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sharedExtendedProperty;
 
 /**
  *  Whether to include deleted events (with status equals "cancelled") in the
@@ -1431,20 +1431,20 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  instances of deleted events (but not the underlying recurring events) are
  *  returned. Optional. The default is False.
  */
-@property(assign) BOOL showDeleted;
+@property(nonatomic, assign) BOOL showDeleted;
 
 /**
  *  Whether to include hidden invitations in the result. Optional. The default
  *  is False.
  */
-@property(assign) BOOL showHiddenInvitations;
+@property(nonatomic, assign) BOOL showHiddenInvitations;
 
 /**
  *  Whether to expand recurring events into instances and only return single
  *  one-off events and instances of recurring events, but not the underlying
  *  recurring events themselves. Optional. The default is False.
  */
-@property(assign) BOOL singleEvents;
+@property(nonatomic, assign) BOOL singleEvents;
 
 /**
  *  Token obtained from the nextSyncToken field returned on the last page of
@@ -1468,7 +1468,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Learn more about incremental synchronization.
  *  Optional. The default is to return all entries.
  */
-@property(copy, nullable) NSString *syncToken;
+@property(nonatomic, copy, nullable) NSString *syncToken;
 
 /**
  *  Upper bound (exclusive) for an event's start time to filter by. Optional.
@@ -1476,7 +1476,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00,
  *  2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored.
  */
-@property(strong, nullable) GTLRDateTime *timeMax;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeMax;
 
 /**
  *  Lower bound (inclusive) for an event's end time to filter by. Optional. The
@@ -1484,13 +1484,13 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00,
  *  2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored.
  */
-@property(strong, nullable) GTLRDateTime *timeMin;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeMin;
 
 /**
  *  Time zone used in the response. Optional. The default is the time zone of
  *  the calendar.
  */
-@property(copy, nullable) NSString *timeZone;
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /**
  *  Lower bound for an event's last modification time (as a RFC3339 timestamp)
@@ -1498,7 +1498,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  included regardless of showDeleted. Optional. The default is not to filter
  *  by last modification time.
  */
-@property(strong, nullable) GTLRDateTime *updatedMin;
+@property(nonatomic, strong, nullable) GTLRDateTime *updatedMin;
 
 /**
  *  Fetches a @c GTLRCalendar_Events.
@@ -1534,22 +1534,22 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 /**
  *  Calendar identifier of the source calendar where the event currently is on.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Calendar identifier of the target calendar where the event is to be moved
  *  to.
  */
-@property(copy, nullable) NSString *destination;
+@property(nonatomic, copy, nullable) NSString *destination;
 
 /** Event identifier. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  Whether to send notifications about the change of the event's organizer.
  *  Optional. The default is False.
  */
-@property(assign) BOOL sendNotifications;
+@property(nonatomic, assign) BOOL sendNotifications;
 
 /**
  *  Fetches a @c GTLRCalendar_Event.
@@ -1589,36 +1589,36 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  and should only be used by clients which cannot handle the absence of an
  *  email address value in the mentioned places. Optional. The default is False.
  */
-@property(assign) BOOL alwaysIncludeEmail;
+@property(nonatomic, assign) BOOL alwaysIncludeEmail;
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /** Event identifier. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  The maximum number of attendees to include in the response. If there are
  *  more than the specified number of attendees, only the participant is
  *  returned. Optional.
  */
-@property(assign) NSInteger maxAttendees;
+@property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
  *  Whether to send notifications about the event update (e.g. attendee's
  *  responses, title changes, etc.). Optional. The default is False.
  */
-@property(assign) BOOL sendNotifications;
+@property(nonatomic, assign) BOOL sendNotifications;
 
 /**
  *  Whether API client performing operation supports event attachments.
  *  Optional. The default is False.
  */
-@property(assign) BOOL supportsAttachments;
+@property(nonatomic, assign) BOOL supportsAttachments;
 
 /**
  *  Fetches a @c GTLRCalendar_Event.
@@ -1656,16 +1656,16 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Whether to send notifications about the creation of the event. Optional. The
  *  default is False.
  */
-@property(assign) BOOL sendNotifications;
+@property(nonatomic, assign) BOOL sendNotifications;
 
 /** The text describing the event to be created. */
-@property(copy, nullable) NSString *text;
+@property(nonatomic, copy, nullable) NSString *text;
 
 /**
  *  Fetches a @c GTLRCalendar_Event.
@@ -1703,36 +1703,36 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  and should only be used by clients which cannot handle the absence of an
  *  email address value in the mentioned places. Optional. The default is False.
  */
-@property(assign) BOOL alwaysIncludeEmail;
+@property(nonatomic, assign) BOOL alwaysIncludeEmail;
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /** Event identifier. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  The maximum number of attendees to include in the response. If there are
  *  more than the specified number of attendees, only the participant is
  *  returned. Optional.
  */
-@property(assign) NSInteger maxAttendees;
+@property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
  *  Whether to send notifications about the event update (e.g. attendee's
  *  responses, title changes, etc.). Optional. The default is False.
  */
-@property(assign) BOOL sendNotifications;
+@property(nonatomic, assign) BOOL sendNotifications;
 
 /**
  *  Whether API client performing operation supports event attachments.
  *  Optional. The default is False.
  */
-@property(assign) BOOL supportsAttachments;
+@property(nonatomic, assign) BOOL supportsAttachments;
 
 /**
  *  Fetches a @c GTLRCalendar_Event.
@@ -1773,33 +1773,33 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  and should only be used by clients which cannot handle the absence of an
  *  email address value in the mentioned places. Optional. The default is False.
  */
-@property(assign) BOOL alwaysIncludeEmail;
+@property(nonatomic, assign) BOOL alwaysIncludeEmail;
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
  *  method. If you want to access the primary calendar of the currently logged
  *  in user, use the "primary" keyword.
  */
-@property(copy, nullable) NSString *calendarId;
+@property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
  *  Specifies event ID in the iCalendar format to be included in the response.
  *  Optional.
  */
-@property(copy, nullable) NSString *iCalUID;
+@property(nonatomic, copy, nullable) NSString *iCalUID;
 
 /**
  *  The maximum number of attendees to include in the response. If there are
  *  more than the specified number of attendees, only the participant is
  *  returned. Optional.
  */
-@property(assign) NSInteger maxAttendees;
+@property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
  *  Maximum number of events returned on one result page. By default the value
  *  is 250 events. The page size can never be larger than 2500 events. Optional.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  The order of the events returned in the result. Optional. The default is an
@@ -1812,30 +1812,30 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *    @arg @c kGTLRCalendarOrderByUpdated Order by last modification time
  *        (ascending). (Value: "updated")
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Token specifying which result page to return. Optional. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Extended properties constraint specified as propertyName=value. Matches only
  *  private properties. This parameter might be repeated multiple times to
  *  return events that match all given constraints.
  */
-@property(strong, nullable) NSArray<NSString *> *privateExtendedProperty;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *privateExtendedProperty;
 
 /**
  *  Free text search terms to find events that match these terms in any field,
  *  except for extended properties. Optional.
  */
-@property(copy, nullable) NSString *q;
+@property(nonatomic, copy, nullable) NSString *q;
 
 /**
  *  Extended properties constraint specified as propertyName=value. Matches only
  *  shared properties. This parameter might be repeated multiple times to return
  *  events that match all given constraints.
  */
-@property(strong, nullable) NSArray<NSString *> *sharedExtendedProperty;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sharedExtendedProperty;
 
 /**
  *  Whether to include deleted events (with status equals "cancelled") in the
@@ -1845,20 +1845,20 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  instances of deleted events (but not the underlying recurring events) are
  *  returned. Optional. The default is False.
  */
-@property(assign) BOOL showDeleted;
+@property(nonatomic, assign) BOOL showDeleted;
 
 /**
  *  Whether to include hidden invitations in the result. Optional. The default
  *  is False.
  */
-@property(assign) BOOL showHiddenInvitations;
+@property(nonatomic, assign) BOOL showHiddenInvitations;
 
 /**
  *  Whether to expand recurring events into instances and only return single
  *  one-off events and instances of recurring events, but not the underlying
  *  recurring events themselves. Optional. The default is False.
  */
-@property(assign) BOOL singleEvents;
+@property(nonatomic, assign) BOOL singleEvents;
 
 /**
  *  Token obtained from the nextSyncToken field returned on the last page of
@@ -1882,7 +1882,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Learn more about incremental synchronization.
  *  Optional. The default is to return all entries.
  */
-@property(copy, nullable) NSString *syncToken;
+@property(nonatomic, copy, nullable) NSString *syncToken;
 
 /**
  *  Upper bound (exclusive) for an event's start time to filter by. Optional.
@@ -1890,7 +1890,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00,
  *  2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored.
  */
-@property(strong, nullable) GTLRDateTime *timeMax;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeMax;
 
 /**
  *  Lower bound (inclusive) for an event's end time to filter by. Optional. The
@@ -1898,13 +1898,13 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00,
  *  2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored.
  */
-@property(strong, nullable) GTLRDateTime *timeMin;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeMin;
 
 /**
  *  Time zone used in the response. Optional. The default is the time zone of
  *  the calendar.
  */
-@property(copy, nullable) NSString *timeZone;
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /**
  *  Lower bound for an event's last modification time (as a RFC3339 timestamp)
@@ -1912,7 +1912,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  included regardless of showDeleted. Optional. The default is not to filter
  *  by last modification time.
  */
-@property(strong, nullable) GTLRDateTime *updatedMin;
+@property(nonatomic, strong, nullable) GTLRDateTime *updatedMin;
 
 /**
  *  Fetches a @c GTLRCalendar_Channel.
@@ -1971,7 +1971,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 //   +[GTLQueryCalendar queryForSettingsGetWithsetting:]
 
 /** The id of the user setting. */
-@property(copy, nullable) NSString *setting;
+@property(nonatomic, copy, nullable) NSString *setting;
 
 /**
  *  Fetches a @c GTLRCalendar_Setting.
@@ -2004,10 +2004,10 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  is 100 entries. The page size can never be larger than 250 entries.
  *  Optional.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token specifying which result page to return. Optional. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Token obtained from the nextSyncToken field returned on the last page of
@@ -2019,7 +2019,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Learn more about incremental synchronization.
  *  Optional. The default is to return all entries.
  */
-@property(copy, nullable) NSString *syncToken;
+@property(nonatomic, copy, nullable) NSString *syncToken;
 
 /**
  *  Fetches a @c GTLRCalendar_Settings.
@@ -2054,10 +2054,10 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  is 100 entries. The page size can never be larger than 250 entries.
  *  Optional.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token specifying which result page to return. Optional. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Token obtained from the nextSyncToken field returned on the last page of
@@ -2069,7 +2069,7 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Learn more about incremental synchronization.
  *  Optional. The default is to return all entries.
  */
-@property(copy, nullable) NSString *syncToken;
+@property(nonatomic, copy, nullable) NSString *syncToken;
 
 /**
  *  Fetches a @c GTLRCalendar_Channel.

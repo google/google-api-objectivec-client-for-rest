@@ -106,7 +106,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @interface GTLRShoppingContentQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -147,7 +147,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForAccountsCustombatchWithObject:]
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountsCustomBatchResponse.
@@ -177,13 +177,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForAccountsDeleteWithmerchantId:accountId:]
 
 /** The ID of the account. */
-@property(assign) unsigned long long accountId;
+@property(nonatomic, assign) unsigned long long accountId;
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -214,10 +214,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForAccountsGetWithmerchantId:accountId:]
 
 /** The ID of the account. */
-@property(assign) unsigned long long accountId;
+@property(nonatomic, assign) unsigned long long accountId;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_Account.
@@ -248,7 +248,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForAccountshippingCustombatchWithObject:]
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountshippingCustomBatchResponse.
@@ -280,10 +280,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  The ID of the account for which to get/update account shipping settings.
  */
-@property(assign) unsigned long long accountId;
+@property(nonatomic, assign) unsigned long long accountId;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountShipping.
@@ -318,13 +318,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  The maximum number of shipping settings to return in the response, used for
  *  paging.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountshippingListResponse.
@@ -360,13 +360,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  The ID of the account for which to get/update account shipping settings.
  */
-@property(assign) unsigned long long accountId;
+@property(nonatomic, assign) unsigned long long accountId;
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountShipping.
@@ -403,13 +403,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  The ID of the account for which to get/update account shipping settings.
  */
-@property(assign) unsigned long long accountId;
+@property(nonatomic, assign) unsigned long long accountId;
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountShipping.
@@ -443,10 +443,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForAccountsInsertWithObject:merchantId:]
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_Account.
@@ -478,13 +478,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  The maximum number of accounts to return in the response, used for paging.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountsListResponse.
@@ -516,13 +516,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForAccountsPatchWithObject:merchantId:accountId:]
 
 /** The ID of the account. */
-@property(assign) unsigned long long accountId;
+@property(nonatomic, assign) unsigned long long accountId;
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_Account.
@@ -578,10 +578,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForAccountstatusesGetWithmerchantId:accountId:]
 
 /** The ID of the account. */
-@property(assign) unsigned long long accountId;
+@property(nonatomic, assign) unsigned long long accountId;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountStatus.
@@ -614,13 +614,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  The maximum number of account statuses to return in the response, used for
  *  paging.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountstatusesListResponse.
@@ -652,13 +652,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForAccountsUpdateWithObject:merchantId:accountId:]
 
 /** The ID of the account. */
-@property(assign) unsigned long long accountId;
+@property(nonatomic, assign) unsigned long long accountId;
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_Account.
@@ -690,7 +690,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForAccounttaxCustombatchWithObject:]
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccounttaxCustomBatchResponse.
@@ -719,10 +719,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForAccounttaxGetWithmerchantId:accountId:]
 
 /** The ID of the account for which to get/update account tax settings. */
-@property(assign) unsigned long long accountId;
+@property(nonatomic, assign) unsigned long long accountId;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountTax.
@@ -756,13 +756,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  The maximum number of tax settings to return in the response, used for
  *  paging.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccounttaxListResponse.
@@ -795,13 +795,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForAccounttaxPatchWithObject:merchantId:accountId:]
 
 /** The ID of the account for which to get/update account tax settings. */
-@property(assign) unsigned long long accountId;
+@property(nonatomic, assign) unsigned long long accountId;
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountTax.
@@ -835,13 +835,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForAccounttaxUpdateWithObject:merchantId:accountId:]
 
 /** The ID of the account for which to get/update account tax settings. */
-@property(assign) unsigned long long accountId;
+@property(nonatomic, assign) unsigned long long accountId;
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountTax.
@@ -874,7 +874,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForDatafeedsCustombatchWithObject:]
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /**
  *  Fetches a @c GTLRShoppingContent_DatafeedsCustomBatchResponse.
@@ -900,12 +900,12 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForDatafeedsDeleteWithmerchantId:datafeedId:]
 
-@property(assign) unsigned long long datafeedId;
+@property(nonatomic, assign) unsigned long long datafeedId;
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -935,9 +935,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForDatafeedsGetWithmerchantId:datafeedId:]
 
-@property(assign) unsigned long long datafeedId;
+@property(nonatomic, assign) unsigned long long datafeedId;
 
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_Datafeed.
@@ -967,9 +967,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForDatafeedsInsertWithObject:merchantId:]
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_Datafeed.
@@ -1001,13 +1001,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  The maximum number of products to return in the response, used for paging.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRShoppingContent_DatafeedsListResponse.
@@ -1039,12 +1039,12 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForDatafeedsPatchWithObject:merchantId:datafeedId:]
 
-@property(assign) unsigned long long datafeedId;
+@property(nonatomic, assign) unsigned long long datafeedId;
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_Datafeed.
@@ -1100,9 +1100,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForDatafeedstatusesGetWithmerchantId:datafeedId:]
 
-@property(assign) unsigned long long datafeedId;
+@property(nonatomic, assign) unsigned long long datafeedId;
 
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_DatafeedStatus.
@@ -1134,13 +1134,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  The maximum number of products to return in the response, used for paging.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRShoppingContent_DatafeedstatusesListResponse.
@@ -1171,12 +1171,12 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForDatafeedsUpdateWithObject:merchantId:datafeedId:]
 
-@property(assign) unsigned long long datafeedId;
+@property(nonatomic, assign) unsigned long long datafeedId;
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_Datafeed.
@@ -1209,7 +1209,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForInventoryCustombatchWithObject:]
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /**
  *  Fetches a @c GTLRShoppingContent_InventoryCustomBatchResponse.
@@ -1240,19 +1240,19 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForInventorySetWithObject:merchantId:storeCode:productId:]
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the product for which to update price and availability. */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The code of the store for which to update price and availability. Use online
  *  to update price and availability of an online product.
  */
-@property(copy, nullable) NSString *storeCode;
+@property(nonatomic, copy, nullable) NSString *storeCode;
 
 /**
  *  Fetches a @c GTLRShoppingContent_InventorySetResponse.
@@ -1291,10 +1291,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForOrdersAcknowledgeWithObject:merchantId:orderId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the order. */
-@property(copy, nullable) NSString *orderId;
+@property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersAcknowledgeResponse.
@@ -1328,10 +1328,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForOrdersAdvancetestorderWithmerchantId:orderId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the test order to modify. */
-@property(copy, nullable) NSString *orderId;
+@property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersAdvanceTestOrderResponse.
@@ -1362,10 +1362,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForOrdersCancelWithObject:merchantId:orderId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the order to cancel. */
-@property(copy, nullable) NSString *orderId;
+@property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersCancelResponse.
@@ -1398,10 +1398,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForOrdersCancellineitemWithObject:merchantId:orderId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the order. */
-@property(copy, nullable) NSString *orderId;
+@property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersCancelLineItemResponse.
@@ -1434,7 +1434,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForOrdersCreatetestorderWithObject:merchantId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersCreateTestOrderResponse.
@@ -1491,10 +1491,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForOrdersGetWithmerchantId:orderId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the order. */
-@property(copy, nullable) NSString *orderId;
+@property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_Order.
@@ -1524,10 +1524,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForOrdersGetbymerchantorderidWithmerchantId:merchantOrderId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The merchant order id to be looked for. */
-@property(copy, nullable) NSString *merchantOrderId;
+@property(nonatomic, copy, nullable) NSString *merchantOrderId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersGetByMerchantOrderIdResponse.
@@ -1558,7 +1558,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForOrdersGettestordertemplateWithmerchantId:templateName:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  The name of the template to retrieve.
@@ -1569,7 +1569,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate1b Value "template1b"
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate2 Value "template2"
  */
-@property(copy, nullable) NSString *templateName;
+@property(nonatomic, copy, nullable) NSString *templateName;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersGetTestOrderTemplateResponse.
@@ -1612,7 +1612,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  We recommend using this filter set to false, in conjunction with the
  *  acknowledge call, such that only un-acknowledged orders are returned.
  */
-@property(assign) BOOL acknowledged;
+@property(nonatomic, assign) BOOL acknowledged;
 
 /**
  *  The maximum number of orders to return in the response, used for paging. The
@@ -1621,10 +1621,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  Known issue: All List calls will return all Orders without limit regardless
  *  of the value of this field.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  The ordering of the returned list. The only supported value are placedDate
@@ -1638,20 +1638,20 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *    @arg @c kGTLRShoppingContentOrderByPlacedDateAsc Value "placedDate asc"
  *    @arg @c kGTLRShoppingContentOrderByPlacedDateDesc Value "placedDate desc"
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Obtains orders placed before this date (exclusively), in ISO 8601 format.
  */
-@property(copy, nullable) NSString *placedDateEnd;
+@property(nonatomic, copy, nullable) NSString *placedDateEnd;
 
 /**
  *  Obtains orders placed after this date (inclusively), in ISO 8601 format.
  */
-@property(copy, nullable) NSString *placedDateStart;
+@property(nonatomic, copy, nullable) NSString *placedDateStart;
 
 /**
  *  Obtains orders that match any of the specified statuses. Multiple values can
@@ -1677,7 +1677,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *    @arg @c kGTLRShoppingContentStatusesReturned Value "returned"
  *    @arg @c kGTLRShoppingContentStatusesShipped Value "shipped"
  */
-@property(strong, nullable) NSArray<NSString *> *statuses;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *statuses;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersListResponse.
@@ -1709,10 +1709,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForOrdersRefundWithObject:merchantId:orderId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the order to refund. */
-@property(copy, nullable) NSString *orderId;
+@property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersRefundResponse.
@@ -1745,10 +1745,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForOrdersReturnlineitemWithObject:merchantId:orderId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the order. */
-@property(copy, nullable) NSString *orderId;
+@property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersReturnLineItemResponse.
@@ -1781,10 +1781,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForOrdersShiplineitemsWithObject:merchantId:orderId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the order. */
-@property(copy, nullable) NSString *orderId;
+@property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersShipLineItemsResponse.
@@ -1817,10 +1817,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForOrdersUpdatemerchantorderidWithObject:merchantId:orderId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the order. */
-@property(copy, nullable) NSString *orderId;
+@property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersUpdateMerchantOrderIdResponse.
@@ -1853,10 +1853,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForOrdersUpdateshipmentWithObject:merchantId:orderId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the order. */
-@property(copy, nullable) NSString *orderId;
+@property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersUpdateShipmentResponse.
@@ -1889,7 +1889,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForProductsCustombatchWithObject:]
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /**
  *  Fetches a @c GTLRShoppingContent_ProductsCustomBatchResponse.
@@ -1918,13 +1918,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForProductsDeleteWithmerchantId:productId:]
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the product. */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1955,10 +1955,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForProductsGetWithmerchantId:productId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the product. */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_Product.
@@ -1988,10 +1988,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForProductsInsertWithObject:merchantId:]
 
 /** Flag to run the request in dry-run mode. */
-@property(assign) BOOL dryRun;
+@property(nonatomic, assign) BOOL dryRun;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_Product.
@@ -2025,18 +2025,18 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  request. By default the invalid items are not shown (the default value is
  *  false).
  */
-@property(assign) BOOL includeInvalidInsertedItems;
+@property(nonatomic, assign) BOOL includeInvalidInsertedItems;
 
 /**
  *  The maximum number of products to return in the response, used for paging.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRShoppingContent_ProductsListResponse.
@@ -2094,10 +2094,10 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForProductstatusesGetWithmerchantId:productId:]
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The ID of the product. */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Fetches a @c GTLRShoppingContent_ProductStatus.
@@ -2131,19 +2131,19 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  request. By default the invalid items are not shown (the default value is
  *  false).
  */
-@property(assign) BOOL includeInvalidInsertedItems;
+@property(nonatomic, assign) BOOL includeInvalidInsertedItems;
 
 /**
  *  The maximum number of product statuses to return in the response, used for
  *  paging.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The ID of the managing account. */
-@property(assign) unsigned long long merchantId;
+@property(nonatomic, assign) unsigned long long merchantId;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRShoppingContent_ProductstatusesListResponse.

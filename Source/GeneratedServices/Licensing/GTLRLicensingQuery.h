@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLicensingQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -46,13 +46,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLicensing queryForLicenseAssignmentsDeleteWithproductId:skuId:userId:]
 
 /** Name for product */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /** Name for sku */
-@property(copy, nullable) NSString *skuId;
+@property(nonatomic, copy, nullable) NSString *skuId;
 
 /** email id or unique Id of the user */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -85,13 +85,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLicensing queryForLicenseAssignmentsGetWithproductId:skuId:userId:]
 
 /** Name for product */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /** Name for sku */
-@property(copy, nullable) NSString *skuId;
+@property(nonatomic, copy, nullable) NSString *skuId;
 
 /** email id or unique Id of the user */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRLicensing_LicenseAssignment.
@@ -123,10 +123,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLicensing queryForLicenseAssignmentsInsertWithObject:productId:skuId:]
 
 /** Name for product */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /** Name for sku */
-@property(copy, nullable) NSString *skuId;
+@property(nonatomic, copy, nullable) NSString *skuId;
 
 /**
  *  Fetches a @c GTLRLicensing_LicenseAssignment.
@@ -161,7 +161,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  CustomerId represents the customer for whom licenseassignments are queried
  */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Maximum number of campaigns to return at one time. Must be positive.
@@ -170,16 +170,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Token to fetch the next page.Optional. By default server will return first
  *  page
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Name for product */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Fetches a @c GTLRLicensing_LicenseAssignmentList.
@@ -216,7 +216,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  CustomerId represents the customer for whom licenseassignments are queried
  */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Maximum number of campaigns to return at one time. Must be positive.
@@ -225,19 +225,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Token to fetch the next page.Optional. By default server will return first
  *  page
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Name for product */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /** Name for sku */
-@property(copy, nullable) NSString *skuId;
+@property(nonatomic, copy, nullable) NSString *skuId;
 
 /**
  *  Fetches a @c GTLRLicensing_LicenseAssignmentList.
@@ -274,13 +274,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLicensing queryForLicenseAssignmentsPatchWithObject:productId:skuId:userId:]
 
 /** Name for product */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /** Name for sku for which license would be revoked */
-@property(copy, nullable) NSString *skuId;
+@property(nonatomic, copy, nullable) NSString *skuId;
 
 /** email id or unique Id of the user */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRLicensing_LicenseAssignment.
@@ -315,13 +315,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLicensing queryForLicenseAssignmentsUpdateWithObject:productId:skuId:userId:]
 
 /** Name for product */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /** Name for sku for which license would be revoked */
-@property(copy, nullable) NSString *skuId;
+@property(nonatomic, copy, nullable) NSString *skuId;
 
 /** email id or unique Id of the user */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRLicensing_LicenseAssignment.

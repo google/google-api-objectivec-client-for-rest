@@ -400,7 +400,7 @@
 //
 
 @implementation GTLRDirectory_Member
-@dynamic email, ETag, identifier, kind, role, type;
+@dynamic email, ETag, identifier, kind, role, status, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_Acl : GTLRCollectionObject
 
 /** ETag of the collection. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  List of rules on the access control list.
@@ -71,23 +71,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCalendar_AclRule *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_AclRule *> *items;
 
 /** Type of the collection ("calendar#acl"). */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Token used to access the next page of this result. Omitted if no further
  *  results are available, in which case nextSyncToken is provided.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  Token used at a later point in time to retrieve only the entries that have
  *  changed since this result was returned. Omitted if further results are
  *  available, in which case nextPageToken is provided.
  */
-@property(copy, nullable) NSString *nextSyncToken;
+@property(nonatomic, copy, nullable) NSString *nextSyncToken;
 
 @end
 
@@ -98,17 +98,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_AclRule : GTLRObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Identifier of the ACL rule.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Type of the resource ("calendar#aclRule"). */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The role assigned to the scope. Possible values are:
@@ -122,10 +122,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  permissions of the writer role with the additional ability to see and
  *  manipulate ACLs.
  */
-@property(copy, nullable) NSString *role;
+@property(nonatomic, copy, nullable) NSString *role;
 
 /** The scope of the rule. */
-@property(strong, nullable) GTLRCalendar_AclRuleScope *scope;
+@property(nonatomic, strong, nullable) GTLRCalendar_AclRuleScope *scope;
 
 @end
 
@@ -143,13 +143,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "domain" - Limits the scope to a domain. Note: The permissions granted to
  *  the "default", or public, scope apply to any user, authenticated or not.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The email address of a user or group, or the name of a domain, depending on
  *  the scope type. Omitted for type "default".
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -164,10 +164,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Identifier of the calendar. To retrieve IDs call the calendarList.list()
@@ -175,22 +175,22 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Type of the resource ("calendar#calendar"). */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Geographic location of the calendar as free-form text. Optional. */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Title of the calendar. */
-@property(copy, nullable) NSString *summary;
+@property(nonatomic, copy, nullable) NSString *summary;
 
 /**
  *  The time zone of the calendar. (Formatted as an IANA Time Zone Database
  *  name, e.g. "Europe/Zurich".) Optional.
  */
-@property(copy, nullable) NSString *timeZone;
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 @end
 
@@ -206,7 +206,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_CalendarList : GTLRCollectionObject
 
 /** ETag of the collection. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Calendars that are present on the user's calendar list.
@@ -214,23 +214,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCalendar_CalendarListEntry *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_CalendarListEntry *> *items;
 
 /** Type of the collection ("calendar#calendarList"). */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Token used to access the next page of this result. Omitted if no further
  *  results are available, in which case nextSyncToken is provided.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  Token used at a later point in time to retrieve only the entries that have
  *  changed since this result was returned. Omitted if further results are
  *  available, in which case nextPageToken is provided.
  */
-@property(copy, nullable) NSString *nextSyncToken;
+@property(nonatomic, copy, nullable) NSString *nextSyncToken;
 
 @end
 
@@ -252,7 +252,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  permissions of the writer role with the additional ability to see and
  *  manipulate ACLs.
  */
-@property(copy, nullable) NSString *accessRole;
+@property(nonatomic, copy, nullable) NSString *accessRole;
 
 /**
  *  The main color of the calendar in the hexadecimal format "#0088aa". This
@@ -260,7 +260,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  property, you need to specify colorRgbFormat=true in the parameters of the
  *  insert, update and patch methods. Optional.
  */
-@property(copy, nullable) NSString *backgroundColor;
+@property(nonatomic, copy, nullable) NSString *backgroundColor;
 
 /**
  *  The color of the calendar. This is an ID referring to an entry in the
@@ -268,12 +268,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  property is superseded by the backgroundColor and foregroundColor properties
  *  and can be ignored when using these properties. Optional.
  */
-@property(copy, nullable) NSString *colorId;
+@property(nonatomic, copy, nullable) NSString *colorId;
 
 /**
  *  The default reminders that the authenticated user has for this calendar.
  */
-@property(strong, nullable) NSArray<GTLRCalendar_EventReminder *> *defaultReminders;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_EventReminder *> *defaultReminders;
 
 /**
  *  Whether this calendar list entry has been deleted from the calendar list.
@@ -281,17 +281,17 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *deleted;
+@property(nonatomic, strong, nullable) NSNumber *deleted;
 
 /**
  *  Description of the calendar. Optional. Read-only.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The foreground color of the calendar in the hexadecimal format "#ffffff".
@@ -299,7 +299,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  this property, you need to specify colorRgbFormat=true in the parameters of
  *  the insert, update and patch methods. Optional.
  */
-@property(copy, nullable) NSString *foregroundColor;
+@property(nonatomic, copy, nullable) NSString *foregroundColor;
 
 /**
  *  Whether the calendar has been hidden from the list. Optional. The default is
@@ -307,28 +307,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hidden;
+@property(nonatomic, strong, nullable) NSNumber *hidden;
 
 /**
  *  Identifier of the calendar.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Type of the resource ("calendar#calendarListEntry"). */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Geographic location of the calendar as free-form text. Optional. Read-only.
  */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  The notifications that the authenticated user is receiving for this
  *  calendar.
  */
-@property(strong, nullable) GTLRCalendar_CalendarListEntryNotificationSettings *notificationSettings;
+@property(nonatomic, strong, nullable) GTLRCalendar_CalendarListEntryNotificationSettings *notificationSettings;
 
 /**
  *  Whether the calendar is the primary calendar of the authenticated user.
@@ -336,7 +336,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *primary;
+@property(nonatomic, strong, nullable) NSNumber *primary;
 
 /**
  *  Whether the calendar content shows up in the calendar UI. Optional. The
@@ -344,18 +344,18 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *selected;
+@property(nonatomic, strong, nullable) NSNumber *selected;
 
 /** Title of the calendar. Read-only. */
-@property(copy, nullable) NSString *summary;
+@property(nonatomic, copy, nullable) NSString *summary;
 
 /**
  *  The summary that the authenticated user has set for this calendar. Optional.
  */
-@property(copy, nullable) NSString *summaryOverride;
+@property(nonatomic, copy, nullable) NSString *summaryOverride;
 
 /** The time zone of the calendar. Optional. Read-only. */
-@property(copy, nullable) NSString *timeZone;
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 @end
 
@@ -367,7 +367,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_CalendarListEntryNotificationSettings : GTLRObject
 
 /** The list of notifications set for this calendar. */
-@property(strong, nullable) NSArray<GTLRCalendar_Notification *> *notifications;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_Notification *> *notifications;
 
 @end
 
@@ -378,7 +378,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_Channel : GTLRObject
 
 /** The address where notifications are delivered for this channel. */
-@property(copy, nullable) NSString *address;
+@property(nonatomic, copy, nullable) NSString *address;
 
 /**
  *  Date and time of notification channel expiration, expressed as a Unix
@@ -386,48 +386,48 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *expiration;
+@property(nonatomic, strong, nullable) NSNumber *expiration;
 
 /**
  *  A UUID or similar unique string that identifies this channel.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies this as a notification channel used to watch for changes to a
  *  resource. Value: the fixed string "api#channel".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Additional parameters controlling delivery channel behavior. Optional. */
-@property(strong, nullable) GTLRCalendar_ChannelParams *params;
+@property(nonatomic, strong, nullable) GTLRCalendar_ChannelParams *params;
 
 /**
  *  A Boolean value to indicate whether payload is wanted. Optional.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *payload;
+@property(nonatomic, strong, nullable) NSNumber *payload;
 
 /**
  *  An opaque ID that identifies the resource being watched on this channel.
  *  Stable across different API versions.
  */
-@property(copy, nullable) NSString *resourceId;
+@property(nonatomic, copy, nullable) NSString *resourceId;
 
 /** A version-specific identifier for the watched resource. */
-@property(copy, nullable) NSString *resourceUri;
+@property(nonatomic, copy, nullable) NSString *resourceUri;
 
 /**
  *  An arbitrary string delivered to the target address with each notification
  *  delivered over this channel. Optional.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /** The type of delivery mechanism used for this channel. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -450,13 +450,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_ColorDefinition : GTLRObject
 
 /** The background color associated with this color definition. */
-@property(copy, nullable) NSString *background;
+@property(nonatomic, copy, nullable) NSString *background;
 
 /**
  *  The foreground color that can be used to write on top of a background with
  *  'background' color.
  */
-@property(copy, nullable) NSString *foreground;
+@property(nonatomic, copy, nullable) NSString *foreground;
 
 @end
 
@@ -471,23 +471,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  definition. A calendarListEntry resource refers to one of these color IDs in
  *  its color field. Read-only.
  */
-@property(strong, nullable) GTLRCalendar_ColorsCalendar *calendar;
+@property(nonatomic, strong, nullable) GTLRCalendar_ColorsCalendar *calendar;
 
 /**
  *  A global palette of event colors, mapping from the color ID to its
  *  definition. An event resource may refer to one of these color IDs in its
  *  color field. Read-only.
  */
-@property(strong, nullable) GTLRCalendar_ColorsEvent *event;
+@property(nonatomic, strong, nullable) GTLRCalendar_ColorsEvent *event;
 
 /** Type of the resource ("calendar#colors"). */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Last modification time of the color palette (as a RFC3339 timestamp).
  *  Read-only.
  */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 @end
 
@@ -526,7 +526,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_Error : GTLRObject
 
 /** Domain, or broad category, of the error. */
-@property(copy, nullable) NSString *domain;
+@property(nonatomic, copy, nullable) NSString *domain;
 
 /**
  *  Specific reason for the error. Some of the possible values are:
@@ -539,7 +539,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Additional error types may be added in the future, so clients should
  *  gracefully handle additional error statuses not included in this list.
  */
-@property(copy, nullable) NSString *reason;
+@property(nonatomic, copy, nullable) NSString *reason;
 
 @end
 
@@ -555,7 +555,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *anyoneCanAddSelf;
+@property(nonatomic, strong, nullable) NSNumber *anyoneCanAddSelf;
 
 /**
  *  File attachments for the event. Currently only Google Drive attachments are
@@ -564,13 +564,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  should be set to true.
  *  There can be at most 25 attachments per event,
  */
-@property(strong, nullable) NSArray<GTLRCalendar_EventAttachment *> *attachments;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_EventAttachment *> *attachments;
 
 /**
  *  The attendees of the event. See the Events with attendees guide for more
  *  information on scheduling events with other calendar users.
  */
-@property(strong, nullable) NSArray<GTLRCalendar_EventAttendee *> *attendees;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_EventAttendee *> *attendees;
 
 /**
  *  Whether attendees may have been omitted from the event's representation.
@@ -580,32 +580,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *attendeesOmitted;
+@property(nonatomic, strong, nullable) NSNumber *attendeesOmitted;
 
 /**
  *  The color of the event. This is an ID referring to an entry in the event
  *  section of the colors definition (see the colors endpoint). Optional.
  */
-@property(copy, nullable) NSString *colorId;
+@property(nonatomic, copy, nullable) NSString *colorId;
 
 /** Creation time of the event (as a RFC3339 timestamp). Read-only. */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /** The creator of the event. Read-only. */
-@property(strong, nullable) GTLRCalendar_EventCreator *creator;
+@property(nonatomic, strong, nullable) GTLRCalendar_EventCreator *creator;
 
 /**
  *  Description of the event. Optional.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The (exclusive) end time of the event. For a recurring event, this is the
  *  end time of the first instance.
  */
-@property(strong, nullable) GTLRCalendar_EventDateTime *end;
+@property(nonatomic, strong, nullable) GTLRCalendar_EventDateTime *end;
 
 /**
  *  Whether the end time is actually unspecified. An end time is still provided
@@ -614,16 +614,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *endTimeUnspecified;
+@property(nonatomic, strong, nullable) NSNumber *endTimeUnspecified;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Extended properties of the event. */
-@property(strong, nullable) GTLRCalendar_EventExtendedProperties *extendedProperties;
+@property(nonatomic, strong, nullable) GTLRCalendar_EventExtendedProperties *extendedProperties;
 
 /** A gadget that extends this event. */
-@property(strong, nullable) GTLRCalendar_EventGadget *gadget;
+@property(nonatomic, strong, nullable) GTLRCalendar_EventGadget *gadget;
 
 /**
  *  Whether attendees other than the organizer can invite others to the event.
@@ -631,7 +631,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *guestsCanInviteOthers;
+@property(nonatomic, strong, nullable) NSNumber *guestsCanInviteOthers;
 
 /**
  *  Whether attendees other than the organizer can modify the event. Optional.
@@ -639,7 +639,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *guestsCanModify;
+@property(nonatomic, strong, nullable) NSNumber *guestsCanModify;
 
 /**
  *  Whether attendees other than the organizer can see who the event's attendees
@@ -647,18 +647,18 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *guestsCanSeeOtherGuests;
+@property(nonatomic, strong, nullable) NSNumber *guestsCanSeeOtherGuests;
 
 /**
  *  An absolute link to the Google+ hangout associated with this event.
  *  Read-only.
  */
-@property(copy, nullable) NSString *hangoutLink;
+@property(nonatomic, copy, nullable) NSString *hangoutLink;
 
 /**
  *  An absolute link to this event in the Google Calendar Web UI. Read-only.
  */
-@property(copy, nullable) NSString *htmlLink;
+@property(nonatomic, copy, nullable) NSString *htmlLink;
 
 /**
  *  Event unique identifier as defined in RFC5545. It is used to uniquely
@@ -669,7 +669,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  is that in recurring events, all occurrences of one event have different ids
  *  while they all share the same icalUIDs.
  */
-@property(copy, nullable) NSString *iCalUID;
+@property(nonatomic, copy, nullable) NSString *iCalUID;
 
 /**
  *  Opaque identifier of the event. When creating new single or recurring
@@ -690,13 +690,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Type of the resource ("calendar#event"). */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Geographic location of the event as free-form text. Optional. */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Whether this is a locked event copy where no changes can be made to the main
@@ -705,7 +705,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *locked;
+@property(nonatomic, strong, nullable) NSNumber *locked;
 
 /**
  *  The organizer of the event. If the organizer is also an attendee, this is
@@ -713,14 +713,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  True. To change the organizer, use the move operation. Read-only, except
  *  when importing an event.
  */
-@property(strong, nullable) GTLRCalendar_EventOrganizer *organizer;
+@property(nonatomic, strong, nullable) GTLRCalendar_EventOrganizer *organizer;
 
 /**
  *  For an instance of a recurring event, this is the time at which this event
  *  would start according to the recurrence data in the recurring event
  *  identified by recurringEventId. Immutable.
  */
-@property(strong, nullable) GTLRCalendar_EventDateTime *originalStartTime;
+@property(nonatomic, strong, nullable) GTLRCalendar_EventDateTime *originalStartTime;
 
 /**
  *  Whether this is a private event copy where changes are not shared with other
@@ -728,7 +728,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *privateCopy;
+@property(nonatomic, strong, nullable) NSNumber *privateCopy;
 
 /**
  *  List of RRULE, EXRULE, RDATE and EXDATE lines for a recurring event, as
@@ -737,36 +737,36 @@ NS_ASSUME_NONNULL_BEGIN
  *  fields. This field is omitted for single events or instances of recurring
  *  events.
  */
-@property(strong, nullable) NSArray<NSString *> *recurrence;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *recurrence;
 
 /**
  *  For an instance of a recurring event, this is the id of the recurring event
  *  to which this instance belongs. Immutable.
  */
-@property(copy, nullable) NSString *recurringEventId;
+@property(nonatomic, copy, nullable) NSString *recurringEventId;
 
 /** Information about the event's reminders for the authenticated user. */
-@property(strong, nullable) GTLRCalendar_EventReminders *reminders;
+@property(nonatomic, strong, nullable) GTLRCalendar_EventReminders *reminders;
 
 /**
  *  Sequence number as per iCalendar.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sequence;
+@property(nonatomic, strong, nullable) NSNumber *sequence;
 
 /**
  *  Source from which the event was created. For example, a web page, an email
  *  message or any document identifiable by an URL with HTTP or HTTPS scheme.
  *  Can only be seen or modified by the creator of the event.
  */
-@property(strong, nullable) GTLRCalendar_EventSource *source;
+@property(nonatomic, strong, nullable) GTLRCalendar_EventSource *source;
 
 /**
  *  The (inclusive) start time of the event. For a recurring event, this is the
  *  start time of the first instance.
  */
-@property(strong, nullable) GTLRCalendar_EventDateTime *start;
+@property(nonatomic, strong, nullable) GTLRCalendar_EventDateTime *start;
 
 /**
  *  Status of the event. Optional. Possible values are:
@@ -774,10 +774,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "tentative" - The event is tentatively confirmed.
  *  - "cancelled" - The event is cancelled.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /** Title of the event. */
-@property(copy, nullable) NSString *summary;
+@property(nonatomic, copy, nullable) NSString *summary;
 
 /**
  *  Whether the event blocks time on the calendar. Optional. Possible values
@@ -786,12 +786,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  value.
  *  - "transparent" - The event does not block time on the calendar.
  */
-@property(copy, nullable) NSString *transparency;
+@property(nonatomic, copy, nullable) NSString *transparency;
 
 /**
  *  Last modification time of the event (as a RFC3339 timestamp). Read-only.
  */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /**
  *  Visibility of the event. Optional. Possible values are:
@@ -804,7 +804,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "confidential" - The event is private. This value is provided for
  *  compatibility reasons.
  */
-@property(copy, nullable) NSString *visibility;
+@property(nonatomic, copy, nullable) NSString *visibility;
 
 @end
 
@@ -815,10 +815,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_EventCreator : GTLRObject
 
 /** The creator's name, if available. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The creator's email address, if available. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /**
  *  The creator's Profile ID, if available. It corresponds to theid field in the
@@ -826,7 +826,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Whether the creator corresponds to the calendar on which this copy of the
@@ -836,7 +836,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *selfProperty;
+@property(nonatomic, strong, nullable) NSNumber *selfProperty;
 
 @end
 
@@ -852,13 +852,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'privateProperty' to avoid language reserved word 'private'.
  */
-@property(strong, nullable) GTLRCalendar_EventExtendedPropertiesPrivate *privateProperty;
+@property(nonatomic, strong, nullable) GTLRCalendar_EventExtendedPropertiesPrivate *privateProperty;
 
 /**
  *  Properties that are shared between copies of the event on other attendees'
  *  calendars.
  */
-@property(strong, nullable) GTLRCalendar_EventExtendedPropertiesShared *shared;
+@property(nonatomic, strong, nullable) GTLRCalendar_EventExtendedPropertiesShared *shared;
 
 @end
 
@@ -874,7 +874,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  view.
  *  - "chip" - The gadget displays when the event is clicked.
  */
-@property(copy, nullable) NSString *display;
+@property(nonatomic, copy, nullable) NSString *display;
 
 /**
  *  The gadget's height in pixels. The height must be an integer greater than 0.
@@ -882,22 +882,22 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /** The gadget's icon URL. The URL scheme must be HTTPS. */
-@property(copy, nullable) NSString *iconLink;
+@property(nonatomic, copy, nullable) NSString *iconLink;
 
 /** The gadget's URL. The URL scheme must be HTTPS. */
-@property(copy, nullable) NSString *link;
+@property(nonatomic, copy, nullable) NSString *link;
 
 /** Preferences. */
-@property(strong, nullable) GTLRCalendar_EventGadgetPreferences *preferences;
+@property(nonatomic, strong, nullable) GTLRCalendar_EventGadgetPreferences *preferences;
 
 /** The gadget's title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** The gadget's type. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The gadget's width in pixels. The width must be an integer greater than 0.
@@ -905,7 +905,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -919,13 +919,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_EventOrganizer : GTLRObject
 
 /** The organizer's name, if available. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The organizer's email address, if available. It must be a valid email
  *  address as per RFC5322.
  */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /**
  *  The organizer's Profile ID, if available. It corresponds to theid field in
@@ -933,7 +933,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Whether the organizer corresponds to the calendar on which this copy of the
@@ -943,7 +943,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *selfProperty;
+@property(nonatomic, strong, nullable) NSNumber *selfProperty;
 
 @end
 
@@ -958,14 +958,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  specific to the event, or, if not set, indicates that no reminders are set
  *  for this event. The maximum number of override reminders is 5.
  */
-@property(strong, nullable) NSArray<GTLRCalendar_EventReminder *> *overrides;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_EventReminder *> *overrides;
 
 /**
  *  Whether the default reminders of the calendar apply to the event.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *useDefault;
+@property(nonatomic, strong, nullable) NSNumber *useDefault;
 
 @end
 
@@ -980,13 +980,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Title of the source; for example a title of a web page or an email subject.
  */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  URL of the source pointing to a resource. The URL scheme must be HTTP or
  *  HTTPS.
  */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -1039,23 +1039,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  For Google Drive files, this is the ID of the corresponding Files resource
  *  entry in the Drive API.
  */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  URL link to the attachment.
  *  For adding Google Drive file attachments use the same format as in
  *  alternateLink property of the Files resource in the Drive API.
  */
-@property(copy, nullable) NSString *fileUrl;
+@property(nonatomic, copy, nullable) NSString *fileUrl;
 
 /** URL link to the attachment's icon. Read-only. */
-@property(copy, nullable) NSString *iconLink;
+@property(nonatomic, copy, nullable) NSString *iconLink;
 
 /** Internet media type (MIME type) of the attachment. */
-@property(copy, nullable) NSString *mimeType;
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 /** Attachment title. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -1070,19 +1070,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *additionalGuests;
+@property(nonatomic, strong, nullable) NSNumber *additionalGuests;
 
 /** The attendee's response comment. Optional. */
-@property(copy, nullable) NSString *comment;
+@property(nonatomic, copy, nullable) NSString *comment;
 
 /** The attendee's name, if available. Optional. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The attendee's email address, if available. This field must be present when
  *  adding an attendee. It must be a valid email address as per RFC5322.
  */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /**
  *  The attendee's Profile ID, if available. It corresponds to theid field in
@@ -1090,14 +1090,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Whether this is an optional attendee. Optional. The default is False.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *optional;
+@property(nonatomic, strong, nullable) NSNumber *optional;
 
 /**
  *  Whether the attendee is the organizer of the event. Read-only. The default
@@ -1105,14 +1105,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *organizer;
+@property(nonatomic, strong, nullable) NSNumber *organizer;
 
 /**
  *  Whether the attendee is a resource. Read-only. The default is False.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *resource;
+@property(nonatomic, strong, nullable) NSNumber *resource;
 
 /**
  *  The attendee's response status. Possible values are:
@@ -1121,7 +1121,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "tentative" - The attendee has tentatively accepted the invitation.
  *  - "accepted" - The attendee has accepted the invitation.
  */
-@property(copy, nullable) NSString *responseStatus;
+@property(nonatomic, copy, nullable) NSString *responseStatus;
 
 /**
  *  Whether this entry represents the calendar on which this copy of the event
@@ -1131,7 +1131,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *selfProperty;
+@property(nonatomic, strong, nullable) NSNumber *selfProperty;
 
 @end
 
@@ -1146,14 +1146,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Date only (yyyy-mm-dd).
  */
-@property(strong, nullable) GTLRDateTime *date;
+@property(nonatomic, strong, nullable) GTLRDateTime *date;
 
 /**
  *  The time, as a combined date-time value (formatted according to RFC3339). A
  *  time zone offset is required unless a time zone is explicitly specified in
  *  timeZone.
  */
-@property(strong, nullable) GTLRDateTime *dateTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *dateTime;
 
 /**
  *  The time zone in which the time is specified. (Formatted as an IANA Time
@@ -1162,7 +1162,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  For single events this field is optional and indicates a custom time zone
  *  for the event start/end.
  */
-@property(copy, nullable) NSString *timeZone;
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 @end
 
@@ -1180,7 +1180,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  reminders for other account types are ignored.
  *  - "popup" - Reminders are sent via a UI popup.
  */
-@property(copy, nullable) NSString *method;
+@property(nonatomic, copy, nullable) NSString *method;
 
 /**
  *  Number of minutes before the start of the event when the reminder should
@@ -1188,7 +1188,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *minutes;
+@property(nonatomic, strong, nullable) NSNumber *minutes;
 
 @end
 
@@ -1216,24 +1216,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  permissions of the writer role with the additional ability to see and
  *  manipulate ACLs.
  */
-@property(copy, nullable) NSString *accessRole;
+@property(nonatomic, copy, nullable) NSString *accessRole;
 
 /**
  *  The default reminders on the calendar for the authenticated user. These
  *  reminders apply to all events on this calendar that do not explicitly
  *  override them (i.e. do not have reminders.useDefault set to True).
  */
-@property(strong, nullable) NSArray<GTLRCalendar_EventReminder *> *defaultReminders;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_EventReminder *> *defaultReminders;
 
 /**
  *  Description of the calendar. Read-only.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** ETag of the collection. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  List of events on the calendar.
@@ -1241,34 +1241,34 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCalendar_Event *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_Event *> *items;
 
 /** Type of the collection ("calendar#events"). */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Token used to access the next page of this result. Omitted if no further
  *  results are available, in which case nextSyncToken is provided.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  Token used at a later point in time to retrieve only the entries that have
  *  changed since this result was returned. Omitted if further results are
  *  available, in which case nextPageToken is provided.
  */
-@property(copy, nullable) NSString *nextSyncToken;
+@property(nonatomic, copy, nullable) NSString *nextSyncToken;
 
 /** Title of the calendar. Read-only. */
-@property(copy, nullable) NSString *summary;
+@property(nonatomic, copy, nullable) NSString *summary;
 
 /** The time zone of the calendar. Read-only. */
-@property(copy, nullable) NSString *timeZone;
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /**
  *  Last modification time of the calendar (as a RFC3339 timestamp). Read-only.
  */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 @end
 
@@ -1281,10 +1281,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  List of time ranges during which this calendar should be regarded as busy.
  */
-@property(strong, nullable) NSArray<GTLRCalendar_TimePeriod *> *busy;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_TimePeriod *> *busy;
 
 /** Optional error(s) (if computation for the calendar failed). */
-@property(strong, nullable) NSArray<GTLRCalendar_Error *> *errors;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_Error *> *errors;
 
 @end
 
@@ -1295,10 +1295,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_FreeBusyGroup : GTLRObject
 
 /** List of calendars' identifiers within a group. */
-@property(strong, nullable) NSArray<NSString *> *calendars;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *calendars;
 
 /** Optional error(s) (if computation for the group failed). */
-@property(strong, nullable) NSArray<GTLRCalendar_Error *> *errors;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_Error *> *errors;
 
 @end
 
@@ -1317,7 +1317,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *calendarExpansionMax;
+@property(nonatomic, strong, nullable) NSNumber *calendarExpansionMax;
 
 /**
  *  Maximal number of calendar identifiers to be provided for a single group.
@@ -1326,7 +1326,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *groupExpansionMax;
+@property(nonatomic, strong, nullable) NSNumber *groupExpansionMax;
 
 /**
  *  List of calendars and/or groups to query.
@@ -1334,16 +1334,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCalendar_FreeBusyRequestItem *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_FreeBusyRequestItem *> *items;
 
 /** The end of the interval for the query. */
-@property(strong, nullable) GTLRDateTime *timeMax;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeMax;
 
 /** The start of the interval for the query. */
-@property(strong, nullable) GTLRDateTime *timeMin;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeMin;
 
 /** Time zone used in the response. Optional. The default is UTC. */
-@property(copy, nullable) NSString *timeZone;
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 @end
 
@@ -1358,7 +1358,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 
@@ -1369,19 +1369,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_FreeBusyResponse : GTLRObject
 
 /** List of free/busy information for calendars. */
-@property(strong, nullable) GTLRCalendar_FreeBusyResponseCalendars *calendars;
+@property(nonatomic, strong, nullable) GTLRCalendar_FreeBusyResponseCalendars *calendars;
 
 /** Expansion of groups. */
-@property(strong, nullable) GTLRCalendar_FreeBusyResponseGroups *groups;
+@property(nonatomic, strong, nullable) GTLRCalendar_FreeBusyResponseGroups *groups;
 
 /** Type of the resource ("calendar#freeBusy"). */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The end of the interval. */
-@property(strong, nullable) GTLRDateTime *timeMax;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeMax;
 
 /** The start of the interval. */
-@property(strong, nullable) GTLRDateTime *timeMin;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeMin;
 
 @end
 
@@ -1422,7 +1422,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  on inserts and updates. SMS reminders are only available for Google Apps for
  *  Work, Education, and Government customers.
  */
-@property(copy, nullable) NSString *method;
+@property(nonatomic, copy, nullable) NSString *method;
 
 /**
  *  The type of notification. Possible values are:
@@ -1433,7 +1433,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "eventResponse" - Notification sent when an event is changed.
  *  - "agenda" - An agenda with the events of the day (sent out in the morning).
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1444,23 +1444,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_Setting : GTLRObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The id of the user setting.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Type of the resource ("calendar#setting"). */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Value of the user setting. The format of the value depends on the ID of the
  *  setting. It must always be a UTF-8 string of length up to 1024 characters.
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1476,7 +1476,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_Settings : GTLRCollectionObject
 
 /** Etag of the collection. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  List of user settings.
@@ -1484,23 +1484,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCalendar_Setting *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_Setting *> *items;
 
 /** Type of the collection ("calendar#settings"). */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Token used to access the next page of this result. Omitted if no further
  *  results are available, in which case nextSyncToken is provided.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  Token used at a later point in time to retrieve only the entries that have
  *  changed since this result was returned. Omitted if further results are
  *  available, in which case nextPageToken is provided.
  */
-@property(copy, nullable) NSString *nextSyncToken;
+@property(nonatomic, copy, nullable) NSString *nextSyncToken;
 
 @end
 
@@ -1511,10 +1511,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_TimePeriod : GTLRObject
 
 /** The (exclusive) end of the time period. */
-@property(strong, nullable) GTLRDateTime *end;
+@property(nonatomic, strong, nullable) GTLRDateTime *end;
 
 /** The (inclusive) start of the time period. */
-@property(strong, nullable) GTLRDateTime *start;
+@property(nonatomic, strong, nullable) GTLRDateTime *start;
 
 @end
 

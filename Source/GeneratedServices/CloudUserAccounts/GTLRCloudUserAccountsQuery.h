@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudUserAccountsQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -53,10 +53,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForGlobalAccountsOperationsDeleteWithproject:operation:]
 
 /** Name of the Operations resource to delete. */
-@property(copy, nullable) NSString *operation;
+@property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -90,10 +90,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForGlobalAccountsOperationsGetWithproject:operation:]
 
 /** Name of the Operations resource to return. */
-@property(copy, nullable) NSString *operation;
+@property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Operation.
@@ -150,7 +150,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  expressions are treated as AND expressions, meaning that resources must
  *  match all expressions to pass the filters.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -161,7 +161,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note If not set, the documented server-side default will be 500 (from the
  *        range 0..500).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
@@ -173,16 +173,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  operation is returned first.
  *  Currently, only sorting by name or creationTimestamp desc is supported.
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_OperationList.
@@ -216,10 +216,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForGroupsAddMemberWithObject:project:groupName:]
 
 /** Name of the group for this request. */
-@property(copy, nullable) NSString *groupName;
+@property(nonatomic, copy, nullable) NSString *groupName;
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Operation.
@@ -253,10 +253,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForGroupsDeleteWithproject:groupName:]
 
 /** Name of the Group resource to delete. */
-@property(copy, nullable) NSString *groupName;
+@property(nonatomic, copy, nullable) NSString *groupName;
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Operation.
@@ -289,10 +289,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForGroupsGetWithproject:groupName:]
 
 /** Name of the Group resource to return. */
-@property(copy, nullable) NSString *groupName;
+@property(nonatomic, copy, nullable) NSString *groupName;
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Group.
@@ -326,10 +326,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForGroupsGetIamPolicyWithproject:resource:]
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** Name of the resource for this request. */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Policy.
@@ -362,7 +362,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForGroupsInsertWithObject:project:]
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Operation.
@@ -419,7 +419,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  expressions are treated as AND expressions, meaning that resources must
  *  match all expressions to pass the filters.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -430,7 +430,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note If not set, the documented server-side default will be 500 (from the
  *        range 0..500).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
@@ -442,16 +442,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  operation is returned first.
  *  Currently, only sorting by name or creationTimestamp desc is supported.
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_GroupList.
@@ -484,10 +484,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForGroupsRemoveMemberWithObject:project:groupName:]
 
 /** Name of the group for this request. */
-@property(copy, nullable) NSString *groupName;
+@property(nonatomic, copy, nullable) NSString *groupName;
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Operation.
@@ -524,10 +524,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForGroupsSetIamPolicyWithObject:project:resource:]
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** Name of the resource for this request. */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Policy.
@@ -563,10 +563,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForGroupsTestIamPermissionsWithObject:project:resource:]
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** Name of the resource for this request. */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_TestPermissionsResponse.
@@ -602,25 +602,25 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForLinuxGetAuthorizedKeysViewWithproject:zoneProperty:user:instance:]
 
 /** The fully-qualified URL of the virtual machine requesting the view. */
-@property(copy, nullable) NSString *instance;
+@property(nonatomic, copy, nullable) NSString *instance;
 
 /** Whether the view was requested as part of a user-initiated login. */
-@property(assign) BOOL login;
+@property(nonatomic, assign) BOOL login;
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  The user account for which you want to get a list of authorized public keys.
  */
-@property(copy, nullable) NSString *user;
+@property(nonatomic, copy, nullable) NSString *user;
 
 /**
  *  Name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_LinuxGetAuthorizedKeysViewResponse.
@@ -682,10 +682,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  expressions are treated as AND expressions, meaning that resources must
  *  match all expressions to pass the filters.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** The fully-qualified URL of the virtual machine requesting the views. */
-@property(copy, nullable) NSString *instance;
+@property(nonatomic, copy, nullable) NSString *instance;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -696,7 +696,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note If not set, the documented server-side default will be 500 (from the
  *        range 0..500).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
@@ -708,23 +708,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  operation is returned first.
  *  Currently, only sorting by name or creationTimestamp desc is supported.
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_LinuxGetLinuxAccountViewsResponse.
@@ -759,10 +759,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForUsersAddPublicKeyWithObject:project:user:]
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** Name of the user for this request. */
-@property(copy, nullable) NSString *user;
+@property(nonatomic, copy, nullable) NSString *user;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Operation.
@@ -797,10 +797,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForUsersDeleteWithproject:user:]
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** Name of the user resource to delete. */
-@property(copy, nullable) NSString *user;
+@property(nonatomic, copy, nullable) NSString *user;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Operation.
@@ -833,10 +833,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForUsersGetWithproject:user:]
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** Name of the user resource to return. */
-@property(copy, nullable) NSString *user;
+@property(nonatomic, copy, nullable) NSString *user;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_User.
@@ -870,10 +870,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForUsersGetIamPolicyWithproject:resource:]
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** Name of the resource for this request. */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Policy.
@@ -906,7 +906,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForUsersInsertWithObject:project:]
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Operation.
@@ -963,7 +963,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  expressions are treated as AND expressions, meaning that resources must
  *  match all expressions to pass the filters.
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -974,7 +974,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note If not set, the documented server-side default will be 500 (from the
  *        range 0..500).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
@@ -986,16 +986,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  operation is returned first.
  *  Currently, only sorting by name or creationTimestamp desc is supported.
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_UserList.
@@ -1032,13 +1032,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  their fingerprint, which is defined by RFC4716 to be the MD5 digest of the
  *  public key.
  */
-@property(copy, nullable) NSString *fingerprint;
+@property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** Name of the user for this request. */
-@property(copy, nullable) NSString *user;
+@property(nonatomic, copy, nullable) NSString *user;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Operation.
@@ -1076,10 +1076,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForUsersSetIamPolicyWithObject:project:resource:]
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** Name of the resource for this request. */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_Policy.
@@ -1115,10 +1115,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudUserAccounts queryForUsersTestIamPermissionsWithObject:project:resource:]
 
 /** Project ID for this request. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /** Name of the resource for this request. */
-@property(copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudUserAccounts_TestPermissionsResponse.

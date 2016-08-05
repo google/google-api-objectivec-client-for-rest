@@ -33,6 +33,9 @@
 @class GTLRAndroidEnterprise_Install;
 @class GTLRAndroidEnterprise_InstallFailureEvent;
 @class GTLRAndroidEnterprise_LocalizedText;
+@class GTLRAndroidEnterprise_ManagedConfiguration;
+@class GTLRAndroidEnterprise_ManagedProperty;
+@class GTLRAndroidEnterprise_ManagedPropertyBundle;
 @class GTLRAndroidEnterprise_NewPermissionsEvent;
 @class GTLRAndroidEnterprise_Notification;
 @class GTLRAndroidEnterprise_PageInfo;
@@ -55,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_Administrator : GTLRObject
 
 /** The administrator's email address. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 @end
 
@@ -70,10 +73,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#appRestrictionsSchema".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The set of restrictions that make up this schema. */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction *> *restrictions;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction *> *restrictions;
 
 @end
 
@@ -89,7 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The id of the product (e.g. "app:com.google.android.gm") for which the app
  *  restriction schema changed. This field will always be present.
  */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 @end
 
@@ -101,7 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction : GTLRObject
 
 /** The default value of the restriction. */
-@property(strong, nullable) GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue *defaultValue;
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue *defaultValue;
 
 /**
  *  A longer description of the restriction, giving more detail of what it
@@ -109,31 +112,36 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  For choice or multiselect restrictions, the list of possible entries'
  *  human-readable names.
  */
-@property(strong, nullable) NSArray<NSString *> *entry;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entry;
 
 /**
  *  For choice or multiselect restrictions, the list of possible entries'
  *  machine-readable values.
  */
-@property(strong, nullable) NSArray<NSString *> *entryValue;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entryValue;
 
 /**
  *  The unique key that the product uses to identify the restriction, e.g.
  *  "com.google.android.gm.fieldname".
  */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  For bundle or bundleArray restrictions, the list of nested restrictions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction *> *nestedRestriction;
 
 /** The type of the restriction. */
-@property(copy, nullable) NSString *restrictionType;
+@property(nonatomic, copy, nullable) NSString *restrictionType;
 
 /** The name of the restriction. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -144,32 +152,32 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue : GTLRObject
 
 /** The type of the value being provided. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The boolean value - this will only be present if type is bool.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *valueBool;
+@property(nonatomic, strong, nullable) NSNumber *valueBool;
 
 /**
  *  The integer value - this will only be present if type is integer.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *valueInteger;
+@property(nonatomic, strong, nullable) NSNumber *valueInteger;
 
 /**
  *  The list of string values - this will only be present if type is
  *  multiselect.
  */
-@property(strong, nullable) NSArray<NSString *> *valueMultiselect;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *valueMultiselect;
 
 /**
  *  The string value - this will be present for types string, choice and hidden.
  */
-@property(copy, nullable) NSString *valueString;
+@property(nonatomic, copy, nullable) NSString *valueString;
 
 @end
 
@@ -183,13 +191,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  A URL that displays a product's permissions and that can also be used to
  *  approve the product with the Products.approve call.
  */
-@property(copy, nullable) NSString *approvalUrl;
+@property(nonatomic, copy, nullable) NSString *approvalUrl;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#approvalUrlInfo".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -206,7 +214,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The id of the product (e.g. "app:com.google.android.gm") that was updated.
  *  This field will always be present.
  */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 @end
 
@@ -221,14 +229,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *versionCode;
+@property(nonatomic, strong, nullable) NSNumber *versionCode;
 
 /**
  *  The string used in the Play Store by the app developer to identify the
  *  version. The string is not necessarily unique or localized (for example, the
  *  string could be "1.4").
  */
-@property(copy, nullable) NSString *versionString;
+@property(nonatomic, copy, nullable) NSString *versionString;
 
 @end
 
@@ -243,14 +251,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#authenticationToken".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The authentication token to be passed to the device policy client on the
  *  device where it can be used to provision the account for which this token
  *  was generated.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 @end
 
@@ -271,25 +279,25 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_Collection : GTLRObject
 
 /** Arbitrary unique ID, allocated by the API on creation. */
-@property(copy, nullable) NSString *collectionId;
+@property(nonatomic, copy, nullable) NSString *collectionId;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#collection".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  A user-friendly name for the collection (should be unique), e.g. "Accounting
  *  apps".
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The IDs of the products in the collection, in the order in which they should
  *  be displayed.
  */
-@property(strong, nullable) NSArray<NSString *> *productId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productId;
 
 /**
  *  Whether this collection is visible to all users, or only to the users that
@@ -299,7 +307,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "availableProductSet" for all users within a domain.
  *  The "allUsers" setting is deprecated, and will be removed.
  */
-@property(copy, nullable) NSString *visibility;
+@property(nonatomic, copy, nullable) NSString *visibility;
 
 @end
 
@@ -313,13 +321,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  An ordered collection of products which can be made visible on the Google
  *  Play Store to a selected group of users.
  */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_Collection *> *collection;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Collection *> *collection;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#collectionsListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -333,10 +341,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#collectionViewersListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** A user of an enterprise. */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_User *> *user;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_User *> *user;
 
 @end
 
@@ -353,13 +361,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The Google Play Services Android ID for the device encoded as a lowercase
  *  hex string, e.g. "123456789abcdef0".
  */
-@property(copy, nullable) NSString *androidId;
+@property(nonatomic, copy, nullable) NSString *androidId;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#device".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The mechanism by which this device is managed by the EMM. "managedDevice"
@@ -368,7 +376,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  which is not managed). "containerApp" means that the EMM's app is managing
  *  the Android for Work container app on the device.
  */
-@property(copy, nullable) NSString *managementType;
+@property(nonatomic, copy, nullable) NSString *managementType;
 
 @end
 
@@ -379,13 +387,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_DevicesListResponse : GTLRObject
 
 /** A managed device. */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_Device *> *device;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Device *> *device;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#devicesListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -402,33 +410,30 @@ NS_ASSUME_NONNULL_BEGIN
  *  (including Google Play), while "disabled" means that it cannot. A new device
  *  is initially in the "disabled" state.
  */
-@property(copy, nullable) NSString *accountState;
+@property(nonatomic, copy, nullable) NSString *accountState;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#deviceState".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
 
 /**
- *  An enterprise resource represents the binding between an EMM and a specific
- *  organization.
- *  That binding can be instantiated in one of two different ways using this API
- *  as follows:
+ *  An Enterprises resource represents the binding between an EMM and a specific
+ *  organization. That binding can be instantiated in one of two different ways
+ *  using this API as follows:
  *  - For Google managed domain customers, the process involves using
  *  Enterprises.enroll and Enterprises.setAccount (in conjunction with artifacts
- *  obtained from the Admin console and the Google Developers console) and
- *  submitted to the EMM through a more-or-less manual process.
- *  - An alternative process that takes advantage of Google-provided mechanisms
- *  (Android for Work Sign-up UI) that expedite the process involves
- *  Enterprises.generateSignupUrl, Enterprises.completeSignup,
- *  Enterprises.getServiceAccount (optional), and Enterprises.setAccount.
- *  The overall processes are very different and involve different identity
- *  models, but as an EMM, you can support either or both approaches in your EMM
- *  console. See EMM Developer's Guide for details.
+ *  obtained from the Admin console and the Google API Console) and submitted to
+ *  the EMM through a more-or-less manual process.
+ *  - For Android for Work Accounts customers, the process involves using
+ *  Enterprises.generateSignupUrl and Enterprises.completeSignup in conjunction
+ *  with the Android for Work Sign-up UI (Google-provided mechanism) to create
+ *  the binding without manual steps. As an EMM, you can support either or both
+ *  approaches in your EMM console. See Create an Enterprise for details.
  */
 @interface GTLRAndroidEnterprise_Enterprise : GTLRObject
 
@@ -436,26 +441,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  Administrators of the enterprise. This is only supported for enterprises
  *  created via the EMM-initiated flow.
  */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_Administrator *> *administrator;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Administrator *> *administrator;
 
 /**
  *  The unique ID for the enterprise.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#enterprise".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
-/** The name of the enterprise, e.g. "Example Inc". */
-@property(copy, nullable) NSString *name;
+/** The name of the enterprise, for example, "Example, Inc". */
+@property(nonatomic, copy, nullable) NSString *name;
 
-/** The enterprise's primary domain, e.g. "example.com". */
-@property(copy, nullable) NSString *primaryDomain;
+/** The enterprise's primary domain, such as "example.com". */
+@property(nonatomic, copy, nullable) NSString *primaryDomain;
 
 @end
 
@@ -467,13 +472,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_EnterpriseAccount : GTLRObject
 
 /** The email address of the service account. */
-@property(copy, nullable) NSString *accountEmail;
+@property(nonatomic, copy, nullable) NSString *accountEmail;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#enterpriseAccount".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -484,13 +489,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_EnterprisesListResponse : GTLRObject
 
 /** An enterprise. */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_Enterprise *> *enterprise;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Enterprise *> *enterprise;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#enterprisesListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -501,13 +506,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_EnterprisesSendTestPushNotificationResponse : GTLRObject
 
 /** The message ID of the test push notification that was sent. */
-@property(copy, nullable) NSString *messageId;
+@property(nonatomic, copy, nullable) NSString *messageId;
 
 /**
  *  The name of the Cloud Pub/Sub topic to which notifications for this
  *  enterprise's enrolled account will be sent.
  */
-@property(copy, nullable) NSString *topicName;
+@property(nonatomic, copy, nullable) NSString *topicName;
 
 @end
 
@@ -545,20 +550,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#entitlement".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The ID of the product that the entitlement is for, e.g.
  *  "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The reason for the entitlement, e.g. "free" for free apps. This is
  *  temporary, it will be replaced by the acquisition kind field of group
  *  licenses.
  */
-@property(copy, nullable) NSString *reason;
+@property(nonatomic, copy, nullable) NSString *reason;
 
 @end
 
@@ -573,13 +578,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  that they have installed, or a paid app that they have been allocated a
  *  license to.
  */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_Entitlement *> *entitlement;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Entitlement *> *entitlement;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#entitlementsListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -610,7 +615,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  license object was created because the enterprise purchased licenses for
  *  this product; this is "free" otherwise (for free products).
  */
-@property(copy, nullable) NSString *acquisitionKind;
+@property(nonatomic, copy, nullable) NSString *acquisitionKind;
 
 /**
  *  Whether the product to which this group license relates is currently
@@ -620,13 +625,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  be visible to end users in collections and new entitlements to them should
  *  not normally be created.
  */
-@property(copy, nullable) NSString *approval;
+@property(nonatomic, copy, nullable) NSString *approval;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#groupLicense".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The total number of provisioned licenses for this product. Returned by read
@@ -634,7 +639,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numProvisioned;
+@property(nonatomic, strong, nullable) NSNumber *numProvisioned;
 
 /**
  *  The number of purchased licenses (possibly in multiple purchases). If this
@@ -643,13 +648,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numPurchased;
+@property(nonatomic, strong, nullable) NSNumber *numPurchased;
 
 /**
  *  The ID of the product that the license is for, e.g.
  *  "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 @end
 
@@ -660,13 +665,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_GroupLicensesListResponse : GTLRObject
 
 /** A group license for a product approved for use in the enterprise. */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_GroupLicense *> *groupLicense;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_GroupLicense *> *groupLicense;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#groupLicensesListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -680,10 +685,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#groupLicenseUsersListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** A user of an enterprise. */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_User *> *user;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_User *> *user;
 
 @end
 
@@ -717,19 +722,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  recently been made and download to the device is in progress. The state
  *  "installed" means that the app has been installed. This field is read-only.
  */
-@property(copy, nullable) NSString *installState;
+@property(nonatomic, copy, nullable) NSString *installState;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#install".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The ID of the product that the install is for, e.g.
  *  "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The version of the installed product. Guaranteed to be set only if the
@@ -737,7 +742,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *versionCode;
+@property(nonatomic, strong, nullable) NSNumber *versionCode;
 
 @end
 
@@ -748,24 +753,24 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_InstallFailureEvent : GTLRObject
 
 /** The Android ID of the device. This field will always be present. */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** Additional details on the failure if applicable. */
-@property(copy, nullable) NSString *failureDetails;
+@property(nonatomic, copy, nullable) NSString *failureDetails;
 
 /**
  *  The reason for the installation failure. This field will always be present.
  */
-@property(copy, nullable) NSString *failureReason;
+@property(nonatomic, copy, nullable) NSString *failureReason;
 
 /**
  *  The id of the product (e.g. "app:com.google.android.gm") for which the
  *  install failure event occured. This field will always be present.
  */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /** The ID of the user. This field will always be present. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 
@@ -779,13 +784,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  An installation of an app for a user on a specific device. The existence of
  *  an install implies that the user must have an entitlement to the app.
  */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_Install *> *install;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Install *> *install;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#installsListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -796,10 +801,134 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_LocalizedText : GTLRObject
 
 /** The BCP47 tag for a locale. (e.g. "en-US", "de"). */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /** The text localized in the associated locale. */
-@property(copy, nullable) NSString *text;
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A managed configuration resource contains the set of managed properties that
+ *  have been configured for an Android app. The app's developer would have
+ *  defined configurable properties in the managed configurations schema.
+ */
+@interface GTLRAndroidEnterprise_ManagedConfiguration : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "androidenterprise#managedConfiguration".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The set of managed properties for this configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedProperty *> *managedProperty;
+
+/**
+ *  The ID of the product that the managed configuration is for, e.g.
+ *  "app:com.google.android.gm".
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+@end
+
+
+/**
+ *  The managed configuration resources for the device.
+ */
+@interface GTLRAndroidEnterprise_ManagedConfigurationsForDeviceListResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "androidenterprise#managedConfigurationsForDeviceListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** A managed configuration for an app on a specific device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedConfiguration *> *managedConfigurationForDevice;
+
+@end
+
+
+/**
+ *  The managed configuration resources for the user.
+ */
+@interface GTLRAndroidEnterprise_ManagedConfigurationsForUserListResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "androidenterprise#managedConfigurationsForUserListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** A managed configuration for an app for a specific user. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedConfiguration *> *managedConfigurationForUser;
+
+@end
+
+
+/**
+ *  A managed property of a managed configuration. The property must match one
+ *  of the properties in the app restrictions schema of the product. Exactly one
+ *  of the value fields must be populated, and it must match the property's type
+ *  in the app restrictions schema.
+ */
+@interface GTLRAndroidEnterprise_ManagedProperty : GTLRObject
+
+/** The unique key that identifies the property. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  The boolean value - this will only be present if type of the property is
+ *  bool.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *valueBool;
+
+/**
+ *  The bundle of managed properties - this will only be present if type of the
+ *  property is bundle.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ManagedPropertyBundle *valueBundle;
+
+/**
+ *  The list of bundles of properties - this will only be present if type of the
+ *  property is bundle_array.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedPropertyBundle *> *valueBundleArray;
+
+/**
+ *  The integer value - this will only be present if type of the property is
+ *  integer.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *valueInteger;
+
+/**
+ *  The string value - this will only be present if type of the property is
+ *  string, choice or hidden.
+ */
+@property(nonatomic, copy, nullable) NSString *valueString;
+
+/**
+ *  The list of string values - this will only be present if type of the
+ *  property is multiselect.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *valueStringArray;
+
+@end
+
+
+/**
+ *  A bundle of managed properties.
+ */
+@interface GTLRAndroidEnterprise_ManagedPropertyBundle : GTLRObject
+
+/** The list of managed properties. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedProperty *> *managedProperty;
 
 @end
 
@@ -814,19 +943,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  this application. Use Permissions.Get on the EMM API to retrieve details
  *  about these permissions.
  */
-@property(strong, nullable) NSArray<NSString *> *approvedPermissions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *approvedPermissions;
 
 /**
  *  The id of the product (e.g. "app:com.google.android.gm") for which new
  *  permissions were added. This field will always be present.
  */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The set of permissions that the app is currently requesting. Use
  *  Permissions.Get on the EMM API to retrieve details about these permissions.
  */
-@property(strong, nullable) NSArray<NSString *> *requestedPermissions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestedPermissions;
 
 @end
 
@@ -837,28 +966,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_Notification : GTLRObject
 
 /** Notifications about new app restrictions schema changes. */
-@property(strong, nullable) GTLRAndroidEnterprise_AppRestrictionsSchemaChangeEvent *appRestrictionsSchemaChangeEvent;
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AppRestrictionsSchemaChangeEvent *appRestrictionsSchemaChangeEvent;
 
 /** Notifications about app updates. */
-@property(strong, nullable) GTLRAndroidEnterprise_AppUpdateEvent *appUpdateEvent;
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AppUpdateEvent *appUpdateEvent;
 
 /**
  *  The ID of the enterprise for which the notification is sent. This will
  *  always be present.
  */
-@property(copy, nullable) NSString *enterpriseId;
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /** Notifications about an app installation failure. */
-@property(strong, nullable) GTLRAndroidEnterprise_InstallFailureEvent *installFailureEvent;
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_InstallFailureEvent *installFailureEvent;
 
 /** Notifications about new app permissions. */
-@property(strong, nullable) GTLRAndroidEnterprise_NewPermissionsEvent *newPermissionsEvent NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_NewPermissionsEvent *newPermissionsEvent NS_RETURNS_NOT_RETAINED;
 
 /** Notifications about changes to a product's approval status. */
-@property(strong, nullable) GTLRAndroidEnterprise_ProductApprovalEvent *productApprovalEvent;
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ProductApprovalEvent *productApprovalEvent;
 
 /** Notifications about product availability changes. */
-@property(strong, nullable) GTLRAndroidEnterprise_ProductAvailabilityChangeEvent *productAvailabilityChangeEvent;
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ProductAvailabilityChangeEvent *productAvailabilityChangeEvent;
 
 /**
  *  The time when the notification was published in milliseconds since
@@ -866,7 +995,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *timestampMillis;
+@property(nonatomic, strong, nullable) NSNumber *timestampMillis;
 
 @end
 
@@ -882,17 +1011,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#notificationSet".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The notifications received, or empty if no notifications are present. */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_Notification *> *notification;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Notification *> *notification;
 
 /**
  *  The notification set ID, required to mark the notification as received with
  *  the Enterprises.AcknowledgeNotification API. This will be omitted if no
  *  notifications are present.
  */
-@property(copy, nullable) NSString *notificationSetId;
+@property(nonatomic, copy, nullable) NSString *notificationSetId;
 
 @end
 
@@ -907,21 +1036,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *resultPerPage;
+@property(nonatomic, strong, nullable) NSNumber *resultPerPage;
 
 /**
  *  startIndex
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  totalResults
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 @end
 
@@ -943,19 +1072,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#permission".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The name of the permission. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** An opaque string uniquely identifying the permission. */
-@property(copy, nullable) NSString *permissionId;
+@property(nonatomic, copy, nullable) NSString *permissionId;
 
 @end
 
@@ -975,13 +1104,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  App versions currently available for this product. The returned list
  *  contains only public versions. Alpha and beta versions are not included.
  */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_AppVersion *> *appVersion;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AppVersion *> *appVersion;
 
 /** The name of the author of the product (e.g. the app developer). */
-@property(copy, nullable) NSString *authorName;
+@property(nonatomic, copy, nullable) NSString *authorName;
 
 /** A link to the (consumer) Google Play details page for the product. */
-@property(copy, nullable) NSString *detailsUrl;
+@property(nonatomic, copy, nullable) NSString *detailsUrl;
 
 /**
  *  How and to whom the package is made available. The value publicGoogleHosted
@@ -991,28 +1120,32 @@ NS_ASSUME_NONNULL_BEGIN
  *  by Google. The value privateSelfHosted means that the package is a private
  *  app (restricted to an enterprise) and is privately hosted.
  */
-@property(copy, nullable) NSString *distributionChannel;
+@property(nonatomic, copy, nullable) NSString *distributionChannel;
 
 /**
  *  A link to an image that can be used as an icon for the product. This image
  *  is suitable for use at up to 512px x 512px.
  */
-@property(copy, nullable) NSString *iconUrl;
+@property(nonatomic, copy, nullable) NSString *iconUrl;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#product".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  A string of the form app:<package name>. For example,
  *  app:com.google.android.gm represents the Gmail app.
  */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
-/** Whether this product is free, free with in-app purchases, or paid. */
-@property(copy, nullable) NSString *productPricing;
+/**
+ *  Whether this product is free, free with in-app purchases, or paid. If the
+ *  pricing is unknown, this means the product is not generally available
+ *  anymore (even though it might still be available to people who own it).
+ */
+@property(nonatomic, copy, nullable) NSString *productPricing;
 
 /**
  *  Whether this app can only be installed on devices using the Android for Work
@@ -1020,22 +1153,22 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *requiresContainerApp;
+@property(nonatomic, strong, nullable) NSNumber *requiresContainerApp;
 
 /**
  *  A link to a smaller image that can be used as an icon for the product. This
  *  image is suitable for use at up to 128px x 128px.
  */
-@property(copy, nullable) NSString *smallIconUrl;
+@property(nonatomic, copy, nullable) NSString *smallIconUrl;
 
 /** The name of the product. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  A link to the Google Play for Work details page for the product, for use by
  *  an Enterprise administrator.
  */
-@property(copy, nullable) NSString *workDetailsUrl;
+@property(nonatomic, copy, nullable) NSString *workDetailsUrl;
 
 @end
 
@@ -1049,13 +1182,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Whether the product was approved or unapproved. This field will always be
  *  present.
  */
-@property(copy, nullable) NSString *approved;
+@property(nonatomic, copy, nullable) NSString *approved;
 
 /**
  *  The id of the product (e.g. "app:com.google.android.gm") for which the
  *  approval status has changed. This field will always be present.
  */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 @end
 
@@ -1066,13 +1199,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_ProductAvailabilityChangeEvent : GTLRObject
 
 /** The new state of the product. This field will always be present. */
-@property(copy, nullable) NSString *availabilityStatus;
+@property(nonatomic, copy, nullable) NSString *availabilityStatus;
 
 /**
  *  The id of the product (e.g. "app:com.google.android.gm") for which the
  *  product availability changed. This field will always be present.
  */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 @end
 
@@ -1087,10 +1220,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_ProductPermission : GTLRObject
 
 /** An opaque string uniquely identifying the permission. */
-@property(copy, nullable) NSString *permissionId;
+@property(nonatomic, copy, nullable) NSString *permissionId;
 
 /** Whether the permission has been accepted or not. */
-@property(copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -1105,16 +1238,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#productPermissions".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The permissions required by the app. */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_ProductPermission *> *permission;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ProductPermission *> *permission;
 
 /**
  *  The ID of the app that the permissions relate to, e.g.
  *  "app:com.google.android.gm".
  */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 @end
 
@@ -1131,7 +1264,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  permissions from an update after the product was approved, or not include
  *  new permissions if the product was updated since the URL was generated.
  */
-@property(strong, nullable) GTLRAndroidEnterprise_ApprovalUrlInfo *approvalUrlInfo;
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ApprovalUrlInfo *approvalUrlInfo;
 
 @end
 
@@ -1145,10 +1278,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#productSet".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The list of product IDs making up the set of products. */
-@property(strong, nullable) NSArray<NSString *> *productId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productId;
 
 @end
 
@@ -1168,7 +1301,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  and the URL will only display those new permissions that have not yet been
  *  accepted.
  */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -1182,19 +1315,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#productsListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** General pagination information. */
-@property(strong, nullable) GTLRAndroidEnterprise_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_PageInfo *pageInfo;
 
 /**
  *  Information about a product (e.g. an app) in the Google Play Store, for
  *  display to an enterprise admin.
  */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_Product *> *product;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Product *> *product;
 
 /** Pagination information for token pagination. */
-@property(strong, nullable) GTLRAndroidEnterprise_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_TokenPagination *tokenPagination;
 
 @end
 
@@ -1206,19 +1339,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_ServiceAccount : GTLRObject
 
 /** Credentials that can be used to authenticate as this ServiceAccount. */
-@property(strong, nullable) GTLRAndroidEnterprise_ServiceAccountKey *key;
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ServiceAccountKey *key;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#serviceAccount".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The account name of the service account, in the form of an email address.
  *  Assigned by the server.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -1233,7 +1366,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  populated when the ServiceAccountKey is created, and is not stored by
  *  Google.
  */
-@property(copy, nullable) NSString *data;
+@property(nonatomic, copy, nullable) NSString *data;
 
 /**
  *  An opaque, unique identifier for this ServiceAccountKey. Assigned by the
@@ -1241,16 +1374,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#serviceAccountKey".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The file format of the generated key data. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1261,7 +1394,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_ServiceAccountKeysListResponse : GTLRObject
 
 /** The service account credentials. */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_ServiceAccountKey *> *serviceAccountKey;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ServiceAccountKey *> *serviceAccountKey;
 
 @end
 
@@ -1276,19 +1409,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  An opaque token that will be required, along with the Enterprise Token, for
  *  obtaining the enterprise resource from CompleteSignup.
  */
-@property(copy, nullable) NSString *completionToken;
+@property(nonatomic, copy, nullable) NSString *completionToken;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#signupInfo".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  A URL under which the Admin can sign up for an enterprise. The page pointed
  *  to cannot be rendered in an iframe.
  */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -1304,20 +1437,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#storeCluster".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Ordered list of localized strings giving the name of this page. The text
  *  displayed is the one that best matches the user locale, or the first entry
  *  if there is no good match. There needs to be at least one entry.
  */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_LocalizedText *> *name;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_LocalizedText *> *name;
 
 /**
  *  String (US-ASCII only) used to determine order of this cluster within the
@@ -1327,13 +1460,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The value of this field is never visible to a user, it is used solely for
  *  the purpose of defining an ordering. Maximum length is 256 characters.
  */
-@property(copy, nullable) NSString *orderInPage;
+@property(nonatomic, copy, nullable) NSString *orderInPage;
 
 /**
  *  List of products in the order they are displayed in the cluster. There
  *  should not be duplicates within a cluster.
  */
-@property(strong, nullable) NSArray<NSString *> *productId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productId;
 
 @end
 
@@ -1347,18 +1480,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The ID of the store page to be used as the homepage. The homepage will be
  *  used as the first page shown in the Google Play for Work store.
- *  If there is no homepage set, an empty store is shown. The homepage can be
- *  unset (by not specifying it) to empty the store.
+ *  If a homepage has not been set, the Play store shown on devices will be
+ *  empty. Not specifying a homepage on a store layout effectively empties the
+ *  store.
  *  If there exists at least one page, this field must be set to the ID of a
  *  valid page.
  */
-@property(copy, nullable) NSString *homepageId;
+@property(nonatomic, copy, nullable) NSString *homepageId;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#storeLayout".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -1369,13 +1503,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_StoreLayoutClustersListResponse : GTLRObject
 
 /** A store cluster of an enterprise. */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_StoreCluster *> *cluster;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_StoreCluster *> *cluster;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#storeLayoutClustersListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -1389,10 +1523,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#storeLayoutPagesListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** A store page of an enterprise. */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_StorePage *> *page;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_StorePage *> *page;
 
 @end
 
@@ -1409,13 +1543,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#storePage".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Ordered list of pages a user should be able to reach from this page. The
@@ -1425,14 +1559,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  between pages.
  *  No attempt is made to verify that all pages are reachable from the homepage.
  */
-@property(strong, nullable) NSArray<NSString *> *link;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *link;
 
 /**
  *  Ordered list of localized strings giving the name of this page. The text
  *  displayed is the one that best matches the user locale, or the first entry
  *  if there is no good match. There needs to be at least one entry.
  */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_LocalizedText *> *name;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_LocalizedText *> *name;
 
 @end
 
@@ -1442,8 +1576,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_TokenPagination : GTLRObject
 
-@property(copy, nullable) NSString *nextPageToken;
-@property(copy, nullable) NSString *previousPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *previousPageToken;
 
 @end
 
@@ -1453,65 +1587,65 @@ NS_ASSUME_NONNULL_BEGIN
  *  account may be specific to a device or to an individual user (who can then
  *  use the account across multiple devices). The account may provide access to
  *  Google Play for Work only, or to other Google services, depending on the
- *  identity model used:
+ *  identity model:
  *  - Google managed domain identity model requires synchronization to Google
  *  account sources (via primaryEmail).
- *  - Android for Work accounts identity model provides a dynamic means for
+ *  - Android for Work Accounts identity model provides a dynamic means for
  *  enterprises to create user or device accounts as needed. These accounts
  *  provide access to Google Play for Work only.
  */
 @interface GTLRAndroidEnterprise_User : GTLRObject
 
 /**
- *  The id as used by the EMM for this user, e.g. "user342" or "asset#44418".
- *  Will always be set for EMM managed users and not set for Google managed
- *  users. For privacy sensitive deployments it should not be possible to
- *  identify the individual with this identifier.
+ *  A unique identifier you create for this user, such as "user342" or
+ *  "asset#44418". Do not use personally identifiable information (PII) for this
+ *  property. Must always be set for EMM-managed users. Not set for
+ *  Google-managed users.
  */
-@property(copy, nullable) NSString *accountIdentifier;
+@property(nonatomic, copy, nullable) NSString *accountIdentifier;
 
 /**
- *  The type of account that this user represents. A "deviceAccount" is specific
- *  to a single device while a "userAccount" represents a traditional user
- *  account, i.e. one that can be installed on multiple devices. "googleManaged"
- *  users will always be a "userAccount" but "emmManaged" users can be either a
- *  "userAccount" or a "deviceAccount".
+ *  The type of account that this user represents. A userAccount can be
+ *  installed on multiple devices, but a deviceAccount is specific to a single
+ *  device. An EMM-managed user (emmManaged) can be either type (userAccount,
+ *  deviceAccount), but a Google-managed user (googleManaged) is always a
+ *  userAccount.
  */
-@property(copy, nullable) NSString *accountType;
+@property(nonatomic, copy, nullable) NSString *accountType;
 
 /**
- *  The user's name as it is to be presented in user interfaces, e.g. "John".
- *  Can optionally be set for EMM managed users and will not be set for Google
- *  managed users. For privacy sensitive deployments this should be left unset
- *  or set to something generic.
+ *  The name that will appear in user interfaces. Setting this property is
+ *  optional when creating EMM-managed users. If you do set this property, use
+ *  something generic about the organization (such as "Example, Inc.") or your
+ *  name (as EMM). Not used for Google-managed user accounts.
  */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The unique ID for the user.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#user".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The entity that manages the user. With "googleManaged" users, the source of
- *  truth is Google so EMMs have to make sure a Google account exists for the
- *  user. With "emmManaged" users, the EMM is in charge.
+ *  The entity that manages the user. With googleManaged users, the source of
+ *  truth is Google so EMMs have to make sure a Google Account exists for the
+ *  user. With emmManaged users, the EMM is in charge.
  */
-@property(copy, nullable) NSString *managementType;
+@property(nonatomic, copy, nullable) NSString *managementType;
 
 /**
  *  The user's primary email address, for example, "jsmith\@example.com". Will
  *  always be set for Google managed users and not set for EMM managed users.
  */
-@property(copy, nullable) NSString *primaryEmail;
+@property(nonatomic, copy, nullable) NSString *primaryEmail;
 
 @end
 
@@ -1525,10 +1659,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#usersListResponse".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** A user of an enterprise. */
-@property(strong, nullable) NSArray<GTLRAndroidEnterprise_User *> *user;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_User *> *user;
 
 @end
 
@@ -1545,16 +1679,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "androidenterprise#userToken".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The token (activation code) to be entered by the user. This consists of a
  *  sequence of decimal digits. Note that the leading digit may be 0.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /** The unique ID for the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 

@@ -28,22 +28,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLicensing_LicenseAssignment : GTLRObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *etags;
+@property(nonatomic, copy, nullable) NSString *etags;
 
 /** Identifies the resource as a LicenseAssignment. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of the product. */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /** Link to this page. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** Name of the sku of the product. */
-@property(copy, nullable) NSString *skuId;
+@property(nonatomic, copy, nullable) NSString *skuId;
 
 /** Email id of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 
@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLicensing_LicenseAssignmentInsert : GTLRObject
 
 /** Email id of the user */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 
@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLicensing_LicenseAssignmentList : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The LicenseAssignments in this page of results.
@@ -78,16 +78,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRLicensing_LicenseAssignment *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRLicensing_LicenseAssignment *> *items;
 
 /** Identifies the resource as a collection of LicenseAssignments. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The continuation token, used to page through large result sets. Provide this
  *  value in a subsequent request to return the next page of results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

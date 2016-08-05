@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRConsumerSurveysQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryConsumerSurveys queryForMobileapppanelsGetWithpanelId:]
 
 /** External URL ID for the panel. */
-@property(copy, nullable) NSString *panelId;
+@property(nonatomic, copy, nullable) NSString *panelId;
 
 /**
  *  Fetches a @c GTLRConsumerSurveys_MobileAppPanel.
@@ -78,11 +78,11 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryConsumerSurveys queryForMobileapppanelsList]
 
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
-@property(assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex;
 
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRConsumerSurveys_MobileAppPanelsListResponse.
@@ -110,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryConsumerSurveys queryForMobileapppanelsUpdateWithObject:panelId:]
 
 /** External URL ID for the panel. */
-@property(copy, nullable) NSString *panelId;
+@property(nonatomic, copy, nullable) NSString *panelId;
 
 /**
  *  Fetches a @c GTLRConsumerSurveys_MobileAppPanel.
@@ -145,7 +145,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryConsumerSurveys queryForResultsGetWithObject:surveyUrlId:]
 
 /** External URL ID for the survey. */
-@property(copy, nullable) NSString *surveyUrlId;
+@property(nonatomic, copy, nullable) NSString *surveyUrlId;
 
 /**
  *  Fetches a @c GTLRConsumerSurveys_SurveyResults.
@@ -180,6 +180,35 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Removes a survey from view in all user GET requests.
+ *
+ *  Method: consumersurveys.surveys.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConsumerSurveys
+ *    @c kGTLRAuthScopeConsumerSurveysUserinfoEmail
+ */
+@interface GTLRConsumerSurveysQuery_SurveysDelete : GTLRConsumerSurveysQuery
+// Previous library name was
+//   +[GTLQueryConsumerSurveys queryForSurveysDeleteWithsurveyUrlId:]
+
+/** External URL ID for the survey. */
+@property(nonatomic, copy, nullable) NSString *surveyUrlId;
+
+/**
+ *  Fetches a @c GTLRConsumerSurveys_SurveysDeleteResponse.
+ *
+ *  Removes a survey from view in all user GET requests.
+ *
+ *  @param surveyUrlId External URL ID for the survey.
+ *
+ *  @returns GTLRConsumerSurveysQuery_SurveysDelete
+ */
++ (instancetype)queryWithSurveyUrlId:(NSString *)surveyUrlId;
+
+@end
+
+/**
  *  Retrieves information about the specified survey.
  *
  *  Method: consumersurveys.surveys.get
@@ -194,7 +223,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryConsumerSurveys queryForSurveysGetWithsurveyUrlId:]
 
 /** External URL ID for the survey. */
-@property(copy, nullable) NSString *surveyUrlId;
+@property(nonatomic, copy, nullable) NSString *surveyUrlId;
 
 /**
  *  Fetches a @c GTLRConsumerSurveys_Survey.
@@ -249,11 +278,11 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryConsumerSurveys queryForSurveysList]
 
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
-@property(assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex;
 
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRConsumerSurveys_SurveysListResponse.
@@ -279,7 +308,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryConsumerSurveys queryForSurveysStartWithObject:resourceId:]
 
-@property(copy, nullable) NSString *resourceId;
+@property(nonatomic, copy, nullable) NSString *resourceId;
 
 /**
  *  Fetches a @c GTLRConsumerSurveys_SurveysStartResponse.
@@ -310,7 +339,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryConsumerSurveys queryForSurveysStopWithresourceId:]
 
-@property(copy, nullable) NSString *resourceId;
+@property(nonatomic, copy, nullable) NSString *resourceId;
 
 /**
  *  Fetches a @c GTLRConsumerSurveys_SurveysStopResponse.
@@ -340,7 +369,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryConsumerSurveys queryForSurveysUpdateWithObject:surveyUrlId:]
 
 /** External URL ID for the survey. */
-@property(copy, nullable) NSString *surveyUrlId;
+@property(nonatomic, copy, nullable) NSString *surveyUrlId;
 
 /**
  *  Fetches a @c GTLRConsumerSurveys_Survey.

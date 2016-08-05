@@ -75,7 +75,7 @@
 
 @implementation GTLRBigquery_Dataset
 @dynamic access, creationTime, datasetReference, defaultTableExpirationMs,
-         descriptionProperty, ETag, friendlyName, identifier, kind,
+         descriptionProperty, ETag, friendlyName, identifier, kind, labels,
          lastModifiedTime, location, selfLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -104,6 +104,20 @@
 
 @implementation GTLRBigquery_DatasetAccessItem
 @dynamic domain, groupByEmail, role, specialGroup, userByEmail, view;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_DatasetLabels
+//
+
+@implementation GTLRBigquery_DatasetLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -139,10 +153,24 @@
 //
 
 @implementation GTLRBigquery_DatasetListDatasetsItem
-@dynamic datasetReference, friendlyName, identifier, kind;
+@dynamic datasetReference, friendlyName, identifier, kind, labels;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_DatasetListDatasetsItemLabels
+//
+
+@implementation GTLRBigquery_DatasetListDatasetsItemLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -242,8 +270,9 @@
 //
 
 @implementation GTLRBigquery_GetQueryResultsResponse
-@dynamic cacheHit, errors, ETag, jobComplete, jobReference, kind, pageToken,
-         rows, schema, totalBytesProcessed, totalRows;
+@dynamic cacheHit, errors, ETag, jobComplete, jobReference, kind,
+         numDmlAffectedRows, pageToken, rows, schema, totalBytesProcessed,
+         totalRows;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -485,8 +514,8 @@
 //
 
 @implementation GTLRBigquery_JobStatistics2
-@dynamic billingTier, cacheHit, queryPlan, referencedTables, schema,
-         totalBytesBilled, totalBytesProcessed;
+@dynamic billingTier, cacheHit, numDmlAffectedRows, queryPlan, referencedTables,
+         schema, totalBytesBilled, totalBytesProcessed;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -627,8 +656,8 @@
 //
 
 @implementation GTLRBigquery_QueryResponse
-@dynamic cacheHit, errors, jobComplete, jobReference, kind, pageToken, rows,
-         schema, totalBytesProcessed, totalRows;
+@dynamic cacheHit, errors, jobComplete, jobReference, kind, numDmlAffectedRows,
+         pageToken, rows, schema, totalBytesProcessed, totalRows;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

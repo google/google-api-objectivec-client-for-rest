@@ -77,7 +77,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @interface GTLRBigqueryQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -98,16 +98,16 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForDatasetsDeleteWithprojectId:datasetId:]
 
 /** Dataset ID of dataset being deleted */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /**
  *  If True, delete all the tables in the dataset. If False and the dataset
  *  contains tables, the request will fail. Default is False
  */
-@property(assign) BOOL deleteContents;
+@property(nonatomic, assign) BOOL deleteContents;
 
 /** Project ID of the dataset being deleted */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -143,10 +143,10 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForDatasetsGetWithprojectId:datasetId:]
 
 /** Dataset ID of the requested dataset */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** Project ID of the requested dataset */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_Dataset.
@@ -177,7 +177,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForDatasetsInsertWithObject:projectId:]
 
 /** Project ID of the new dataset */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_Dataset.
@@ -210,18 +210,27 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForDatasetsListWithprojectId:]
 
 /** Whether to list all datasets, including hidden ones */
-@property(assign) BOOL all;
+@property(nonatomic, assign) BOOL all;
+
+/**
+ *  An expression for filtering the results of the request by label. The syntax
+ *  is "labels.[:]". Multiple filters can be ANDed together by connecting with a
+ *  space. Example: "labels.department:receiving labels.active". See
+ *  https://cloud.google.com/bigquery/docs/labeling-datasets#filtering_datasets_using_labels
+ *  for details.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** The maximum number of results to return */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Page token, returned by a previous call, to request the next page of results
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Project ID of the datasets to be listed */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_DatasetList.
@@ -258,10 +267,10 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForDatasetsPatchWithObject:projectId:datasetId:]
 
 /** Dataset ID of the dataset being updated */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** Project ID of the dataset being updated */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_Dataset.
@@ -299,10 +308,10 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForDatasetsUpdateWithObject:projectId:datasetId:]
 
 /** Dataset ID of the dataset being updated */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** Project ID of the dataset being updated */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_Dataset.
@@ -339,10 +348,10 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForJobsCancelWithprojectId:jobId:]
 
 /** [Required] Job ID of the job to cancel */
-@property(copy, nullable) NSString *jobId;
+@property(nonatomic, copy, nullable) NSString *jobId;
 
 /** [Required] Project ID of the job to cancel */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_JobCancelResponse.
@@ -378,10 +387,10 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForJobsGetWithprojectId:jobId:]
 
 /** [Required] Job ID of the requested job */
-@property(copy, nullable) NSString *jobId;
+@property(nonatomic, copy, nullable) NSString *jobId;
 
 /** [Required] Project ID of the requested job */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_Job.
@@ -415,28 +424,28 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForJobsGetQueryResultsWithprojectId:jobId:]
 
 /** [Required] Job ID of the query job */
-@property(copy, nullable) NSString *jobId;
+@property(nonatomic, copy, nullable) NSString *jobId;
 
 /** Maximum number of results to read */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Page token, returned by a previous call, to request the next page of results
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** [Required] Project ID of the query job */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Zero-based index of the starting row */
-@property(assign) unsigned long long startIndex;
+@property(nonatomic, assign) unsigned long long startIndex;
 
 /**
  *  How long to wait for the query to complete, in milliseconds, before
  *  returning. Default is 10 seconds. If the timeout passes before the job
  *  completes, the 'jobComplete' field in the response will be false
  */
-@property(assign) NSUInteger timeoutMs;
+@property(nonatomic, assign) NSUInteger timeoutMs;
 
 /**
  *  Fetches a @c GTLRBigquery_GetQueryResultsResponse.
@@ -470,7 +479,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForJobsInsertWithObject:projectId:]
 
 /** Project ID of the project that will be billed for the job */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_Job.
@@ -510,18 +519,18 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 /**
  *  Whether to display jobs owned by all users in the project. Default false
  */
-@property(assign) BOOL allUsers;
+@property(nonatomic, assign) BOOL allUsers;
 
 /** Maximum number of results to return */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Page token, returned by a previous call, to request the next page of results
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Project ID of the jobs to list */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Restrict information returned to a set of selected fields
@@ -531,7 +540,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @arg @c kGTLRBigqueryProjectionMinimal Does not include the job
  *        configuration (Value: "minimal")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Filter for job state
@@ -541,7 +550,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @arg @c kGTLRBigqueryStateFilterPending Pending jobs (Value: "pending")
  *    @arg @c kGTLRBigqueryStateFilterRunning Running jobs (Value: "running")
  */
-@property(strong, nullable) NSArray<NSString *> *stateFilter;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *stateFilter;
 
 /**
  *  Fetches a @c GTLRBigquery_JobList.
@@ -579,7 +588,7 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForJobsQueryWithObject:projectId:]
 
 /** Project ID of the project billed for the query */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_QueryResponse.
@@ -612,12 +621,12 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForProjectsList]
 
 /** Maximum number of results to return */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Page token, returned by a previous call, to request the next page of results
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRBigquery_ProjectList.
@@ -650,13 +659,13 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForTabledataInsertAllWithObject:projectId:datasetId:tableId:]
 
 /** Dataset ID of the destination table. */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** Project ID of the destination table. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Table ID of the destination table. */
-@property(copy, nullable) NSString *tableId;
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
  *  Fetches a @c GTLRBigquery_TableDataInsertAllResponse.
@@ -695,22 +704,22 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForTabledataListWithprojectId:datasetId:tableId:]
 
 /** Dataset ID of the table to read */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** Maximum number of results to return */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** Page token, returned by a previous call, identifying the result set */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Project ID of the table to read */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Zero-based index of the starting row to read */
-@property(assign) unsigned long long startIndex;
+@property(nonatomic, assign) unsigned long long startIndex;
 
 /** Table ID of the table to read */
-@property(copy, nullable) NSString *tableId;
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
  *  Fetches a @c GTLRBigquery_TableDataList.
@@ -745,13 +754,13 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForTablesDeleteWithprojectId:datasetId:tableId:]
 
 /** Dataset ID of the table to delete */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** Project ID of the table to delete */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Table ID of the table to delete */
-@property(copy, nullable) NSString *tableId;
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -789,13 +798,13 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForTablesGetWithprojectId:datasetId:tableId:]
 
 /** Dataset ID of the requested table */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** Project ID of the requested table */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Table ID of the requested table */
-@property(copy, nullable) NSString *tableId;
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
  *  Fetches a @c GTLRBigquery_Table.
@@ -830,10 +839,10 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForTablesInsertWithObject:projectId:datasetId:]
 
 /** Dataset ID of the new table */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** Project ID of the new table */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_Table.
@@ -867,18 +876,18 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForTablesListWithprojectId:datasetId:]
 
 /** Dataset ID of the tables to list */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** Maximum number of results to return */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Page token, returned by a previous call, to request the next page of results
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Project ID of the tables to list */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_TableList.
@@ -916,13 +925,13 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForTablesPatchWithObject:projectId:datasetId:tableId:]
 
 /** Dataset ID of the table to update */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** Project ID of the table to update */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Table ID of the table to update */
-@property(copy, nullable) NSString *tableId;
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
  *  Fetches a @c GTLRBigquery_Table.
@@ -962,13 +971,13 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForTablesUpdateWithObject:projectId:datasetId:tableId:]
 
 /** Dataset ID of the table to update */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** Project ID of the table to update */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Table ID of the table to update */
-@property(copy, nullable) NSString *tableId;
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
  *  Fetches a @c GTLRBigquery_Table.

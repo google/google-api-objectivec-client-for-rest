@@ -33,20 +33,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Completion date of the task (as a RFC 3339 timestamp). This field is omitted
  *  if the task has not been completed.
  */
-@property(strong, nullable) GTLRDateTime *completed;
+@property(nonatomic, strong, nullable) GTLRDateTime *completed;
 
 /**
  *  Flag indicating whether the task has been deleted. The default if False.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *deleted;
+@property(nonatomic, strong, nullable) NSNumber *deleted;
 
 /** Due date of the task (as a RFC 3339 timestamp). Optional. */
-@property(strong, nullable) GTLRDateTime *due;
+@property(nonatomic, strong, nullable) GTLRDateTime *due;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Flag indicating whether the task is hidden. This is the case if the task had
@@ -55,30 +55,30 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hidden;
+@property(nonatomic, strong, nullable) NSNumber *hidden;
 
 /**
  *  Task identifier.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Type of the resource. This is always "tasks#task". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Collection of links. This collection is read-only. */
-@property(strong, nullable) NSArray<GTLRTasks_TaskLinksItem *> *links;
+@property(nonatomic, strong, nullable) NSArray<GTLRTasks_TaskLinksItem *> *links;
 
 /** Notes describing the task. Optional. */
-@property(copy, nullable) NSString *notes;
+@property(nonatomic, copy, nullable) NSString *notes;
 
 /**
  *  Parent task identifier. This field is omitted if it is a top-level task.
  *  This field is read-only. Use the "move" method to move the task under a
  *  different parent or to the top level.
  */
-@property(copy, nullable) NSString *parent;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  String indicating the position of the task among its sibling tasks under the
@@ -88,21 +88,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  at the top level). This field is read-only. Use the "move" method to move
  *  the task to another position.
  */
-@property(copy, nullable) NSString *position;
+@property(nonatomic, copy, nullable) NSString *position;
 
 /**
  *  URL pointing to this task. Used to retrieve, update, or delete this task.
  */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** Status of the task. This is either "needsAction" or "completed". */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /** Title of the task. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** Last modification time of the task (as a RFC 3339 timestamp). */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 @end
 
@@ -117,13 +117,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** The URL. */
-@property(copy, nullable) NSString *link;
+@property(nonatomic, copy, nullable) NSString *link;
 
 /** Type of the link, e.g. "email". */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -134,29 +134,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTasks_TaskList : GTLRObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Task list identifier.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Type of the resource. This is always "tasks#taskList". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  URL pointing to this task list. Used to retrieve, update, or delete this
  *  task list.
  */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** Title of the task list. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** Last modification time of the task list (as a RFC 3339 timestamp). */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 @end
 
@@ -172,7 +172,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTasks_TaskLists : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Collection of task lists.
@@ -180,13 +180,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRTasks_TaskList *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRTasks_TaskList *> *items;
 
 /** Type of the resource. This is always "tasks#taskLists". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token that can be used to request the next page of this result. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -202,7 +202,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTasks_Tasks : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Collection of tasks.
@@ -210,13 +210,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRTasks_Task *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRTasks_Task *> *items;
 
 /** Type of the resource. This is always "tasks#tasks". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token used to access the next page of this result. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeSellerQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeSeller queryForAccountsAdclientsListWithaccountId:]
 
 /** Account to which the ad client belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  The maximum number of ad clients to include in the response, used for
@@ -53,14 +53,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @note The documented range is 0..10000.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  A continuation token, used to page through ad clients. To retrieve the next
  *  page, set this parameter to the value of "nextPageToken" from the previous
  *  response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_AdClients.
@@ -93,14 +93,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeSeller queryForAccountsAlertsListWithaccountId:]
 
 /** Account owning the alerts. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  The locale to use for translating alert messages. The account locale will be
  *  used if this is not supplied. The AdSense default (English) will be used if
  *  the supplied locale is invalid or unsupported.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_Alerts.
@@ -129,13 +129,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeSeller queryForAccountsCustomchannelsGetWithaccountId:adClientId:customChannelId:]
 
 /** Account to which the ad client belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Ad client which contains the custom channel. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /** Custom channel to retrieve. */
-@property(copy, nullable) NSString *customChannelId;
+@property(nonatomic, copy, nullable) NSString *customChannelId;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_CustomChannel.
@@ -169,10 +169,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeSeller queryForAccountsCustomchannelsListWithaccountId:adClientId:]
 
 /** Account to which the ad client belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Ad client for which to list custom channels. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /**
  *  The maximum number of custom channels to include in the response, used for
@@ -180,14 +180,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @note The documented range is 0..10000.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  A continuation token, used to page through custom channels. To retrieve the
  *  next page, set this parameter to the value of "nextPageToken" from the
  *  previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_CustomChannels.
@@ -223,7 +223,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeSeller queryForAccountsGetWithaccountId:]
 
 /** Account to get information about. Tip: 'myaccount' is a valid ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_Account.
@@ -257,14 +257,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @note The documented range is 0..10000.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  A continuation token, used to page through accounts. To retrieve the next
  *  page, set this parameter to the value of "nextPageToken" from the previous
  *  response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_Accounts.
@@ -295,7 +295,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeSeller queryForAccountsMetadataDimensionsListWithaccountId:]
 
 /** Account with visibility to the dimensions. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_Metadata.
@@ -324,7 +324,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeSeller queryForAccountsMetadataMetricsListWithaccountId:]
 
 /** Account with visibility to the metrics. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_Metadata.
@@ -353,10 +353,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeSeller queryForAccountsPreferreddealsGetWithaccountId:dealId:]
 
 /** Account owning the deal. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Preferred deal to get information about. */
-@property(copy, nullable) NSString *dealId;
+@property(nonatomic, copy, nullable) NSString *dealId;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_PreferredDeal.
@@ -387,7 +387,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeSeller queryForAccountsPreferreddealsListWithaccountId:]
 
 /** Account owning the deals. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_PreferredDeals.
@@ -418,49 +418,49 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeSeller queryForAccountsReportsGenerateWithaccountId:startDate:endDate:]
 
 /** Account which owns the generated report. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Dimensions to base the report on. */
-@property(strong, nullable) NSArray<NSString *> *dimension;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimension;
 
 /** End of the date range to report on in "YYYY-MM-DD" format, inclusive. */
-@property(copy, nullable) NSString *endDate;
+@property(nonatomic, copy, nullable) NSString *endDate;
 
 /** Filters to be run on the report. */
-@property(strong, nullable) NSArray<NSString *> *filter;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *filter;
 
 /**
  *  Optional locale to use for translating report output to a local language.
  *  Defaults to "en_US" if not specified.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  The maximum number of rows of report data to return.
  *
  *  @note The documented range is 0..50000.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** Numeric columns to include in the report. */
-@property(strong, nullable) NSArray<NSString *> *metric;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metric;
 
 /**
  *  The name of a dimension or metric to sort the resulting report on,
  *  optionally prefixed with "+" to sort ascending or "-" to sort descending. If
  *  no prefix is specified, the column is sorted ascending.
  */
-@property(strong, nullable) NSArray<NSString *> *sort;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sort;
 
 /** Start of the date range to report on in "YYYY-MM-DD" format, inclusive. */
-@property(copy, nullable) NSString *startDate;
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 /**
  *  Index of the first row of report data to return.
  *
  *  @note The documented range is 0..5000.
  */
-@property(assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_Report.
@@ -517,30 +517,30 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeSeller queryForAccountsReportsSavedGenerateWithaccountId:savedReportId:]
 
 /** Account owning the saved report. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Optional locale to use for translating report output to a local language.
  *  Defaults to "en_US" if not specified.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  The maximum number of rows of report data to return.
  *
  *  @note The documented range is 0..50000.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The saved report to retrieve. */
-@property(copy, nullable) NSString *savedReportId;
+@property(nonatomic, copy, nullable) NSString *savedReportId;
 
 /**
  *  Index of the first row of report data to return.
  *
  *  @note The documented range is 0..5000.
  */
-@property(assign) NSInteger startIndex;
+@property(nonatomic, assign) NSInteger startIndex;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_Report.
@@ -572,7 +572,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeSeller queryForAccountsReportsSavedListWithaccountId:]
 
 /** Account owning the saved reports. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  The maximum number of saved reports to include in the response, used for
@@ -580,14 +580,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @note The documented range is 0..100.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  A continuation token, used to page through saved reports. To retrieve the
  *  next page, set this parameter to the value of "nextPageToken" from the
  *  previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_SavedReports.
@@ -621,10 +621,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExchangeSeller queryForAccountsUrlchannelsListWithaccountId:adClientId:]
 
 /** Account to which the ad client belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Ad client for which to list URL channels. */
-@property(copy, nullable) NSString *adClientId;
+@property(nonatomic, copy, nullable) NSString *adClientId;
 
 /**
  *  The maximum number of URL channels to include in the response, used for
@@ -632,14 +632,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @note The documented range is 0..10000.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  A continuation token, used to page through URL channels. To retrieve the
  *  next page, set this parameter to the value of "nextPageToken" from the
  *  previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdExchangeSeller_UrlChannels.

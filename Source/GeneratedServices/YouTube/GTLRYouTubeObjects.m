@@ -420,8 +420,11 @@ NSString * const kGTLRYouTube_ContentRating_FskRating_FskUnrated = @"fskUnrated"
 // GTLRYouTube_ContentRating.grfilmRating
 NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmE = @"grfilmE";
 NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK = @"grfilmK";
+NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK12 = @"grfilmK12";
 NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK13 = @"grfilmK13";
+NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK15 = @"grfilmK15";
 NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK17 = @"grfilmK17";
+NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK18 = @"grfilmK18";
 NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmUnrated = @"grfilmUnrated";
 
 // GTLRYouTube_ContentRating.icaaRating

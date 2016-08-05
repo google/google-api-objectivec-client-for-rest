@@ -41,8 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCustomsearch_Context : GTLRObject
 
-@property(strong, nullable) NSArray<NSArray<GTLRCustomsearch_ContextFacetsItem *> *> *facets;
-@property(copy, nullable) NSString *title;
+@property(nonatomic, strong, nullable) NSArray<NSArray<GTLRCustomsearch_ContextFacetsItem *> *> *facets;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -52,9 +52,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCustomsearch_ContextFacetsItem : GTLRObject
 
-@property(copy, nullable) NSString *anchor;
-@property(copy, nullable) NSString *label;
-@property(copy, nullable) NSString *labelWithOp;
+@property(nonatomic, copy, nullable) NSString *anchor;
+@property(nonatomic, copy, nullable) NSString *label;
+@property(nonatomic, copy, nullable) NSString *labelWithOp;
 
 @end
 
@@ -64,12 +64,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCustomsearch_Promotion : GTLRObject
 
-@property(strong, nullable) NSArray<GTLRCustomsearch_PromotionBodyLinesItem *> *bodyLines;
-@property(copy, nullable) NSString *displayLink;
-@property(copy, nullable) NSString *htmlTitle;
-@property(strong, nullable) GTLRCustomsearch_PromotionImage *image;
-@property(copy, nullable) NSString *link;
-@property(copy, nullable) NSString *title;
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomsearch_PromotionBodyLinesItem *> *bodyLines;
+@property(nonatomic, copy, nullable) NSString *displayLink;
+@property(nonatomic, copy, nullable) NSString *htmlTitle;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_PromotionImage *image;
+@property(nonatomic, copy, nullable) NSString *link;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -79,10 +79,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCustomsearch_PromotionBodyLinesItem : GTLRObject
 
-@property(copy, nullable) NSString *htmlTitle;
-@property(copy, nullable) NSString *link;
-@property(copy, nullable) NSString *title;
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *htmlTitle;
+@property(nonatomic, copy, nullable) NSString *link;
+@property(nonatomic, copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -97,16 +97,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
-@property(copy, nullable) NSString *source;
+@property(nonatomic, copy, nullable) NSString *source;
 
 /**
  *  width
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -121,63 +121,63 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
-@property(copy, nullable) NSString *cr;
-@property(copy, nullable) NSString *cref;
-@property(copy, nullable) NSString *cx;
-@property(copy, nullable) NSString *dateRestrict;
-@property(copy, nullable) NSString *disableCnTwTranslation;
-@property(copy, nullable) NSString *exactTerms;
-@property(copy, nullable) NSString *excludeTerms;
-@property(copy, nullable) NSString *fileType;
-@property(copy, nullable) NSString *filter;
-@property(copy, nullable) NSString *gl;
-@property(copy, nullable) NSString *googleHost;
-@property(copy, nullable) NSString *highRange;
-@property(copy, nullable) NSString *hl;
-@property(copy, nullable) NSString *hq;
-@property(copy, nullable) NSString *imgColorType;
-@property(copy, nullable) NSString *imgDominantColor;
-@property(copy, nullable) NSString *imgSize;
-@property(copy, nullable) NSString *imgType;
-@property(copy, nullable) NSString *inputEncoding;
-@property(copy, nullable) NSString *language;
-@property(copy, nullable) NSString *linkSite;
-@property(copy, nullable) NSString *lowRange;
-@property(copy, nullable) NSString *orTerms;
-@property(copy, nullable) NSString *outputEncoding;
-@property(copy, nullable) NSString *relatedSite;
-@property(copy, nullable) NSString *rights;
-@property(copy, nullable) NSString *safe;
-@property(copy, nullable) NSString *searchTerms;
-@property(copy, nullable) NSString *searchType;
-@property(copy, nullable) NSString *siteSearch;
-@property(copy, nullable) NSString *siteSearchFilter;
-@property(copy, nullable) NSString *sort;
+@property(nonatomic, copy, nullable) NSString *cr;
+@property(nonatomic, copy, nullable) NSString *cref;
+@property(nonatomic, copy, nullable) NSString *cx;
+@property(nonatomic, copy, nullable) NSString *dateRestrict;
+@property(nonatomic, copy, nullable) NSString *disableCnTwTranslation;
+@property(nonatomic, copy, nullable) NSString *exactTerms;
+@property(nonatomic, copy, nullable) NSString *excludeTerms;
+@property(nonatomic, copy, nullable) NSString *fileType;
+@property(nonatomic, copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *gl;
+@property(nonatomic, copy, nullable) NSString *googleHost;
+@property(nonatomic, copy, nullable) NSString *highRange;
+@property(nonatomic, copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hq;
+@property(nonatomic, copy, nullable) NSString *imgColorType;
+@property(nonatomic, copy, nullable) NSString *imgDominantColor;
+@property(nonatomic, copy, nullable) NSString *imgSize;
+@property(nonatomic, copy, nullable) NSString *imgType;
+@property(nonatomic, copy, nullable) NSString *inputEncoding;
+@property(nonatomic, copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *linkSite;
+@property(nonatomic, copy, nullable) NSString *lowRange;
+@property(nonatomic, copy, nullable) NSString *orTerms;
+@property(nonatomic, copy, nullable) NSString *outputEncoding;
+@property(nonatomic, copy, nullable) NSString *relatedSite;
+@property(nonatomic, copy, nullable) NSString *rights;
+@property(nonatomic, copy, nullable) NSString *safe;
+@property(nonatomic, copy, nullable) NSString *searchTerms;
+@property(nonatomic, copy, nullable) NSString *searchType;
+@property(nonatomic, copy, nullable) NSString *siteSearch;
+@property(nonatomic, copy, nullable) NSString *siteSearchFilter;
+@property(nonatomic, copy, nullable) NSString *sort;
 
 /**
  *  startIndex
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  startPage
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startPage;
+@property(nonatomic, strong, nullable) NSNumber *startPage;
 
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  totalResults
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 @end
 
@@ -187,21 +187,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCustomsearch_Result : GTLRObject
 
-@property(copy, nullable) NSString *cacheId;
-@property(copy, nullable) NSString *displayLink;
-@property(copy, nullable) NSString *fileFormat;
-@property(copy, nullable) NSString *formattedUrl;
-@property(copy, nullable) NSString *htmlFormattedUrl;
-@property(copy, nullable) NSString *htmlSnippet;
-@property(copy, nullable) NSString *htmlTitle;
-@property(strong, nullable) GTLRCustomsearch_ResultImage *image;
-@property(copy, nullable) NSString *kind;
-@property(strong, nullable) NSArray<GTLRCustomsearch_ResultLabelsItem *> *labels;
-@property(copy, nullable) NSString *link;
-@property(copy, nullable) NSString *mime;
-@property(strong, nullable) GTLRCustomsearch_ResultPagemap *pagemap;
-@property(copy, nullable) NSString *snippet;
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *cacheId;
+@property(nonatomic, copy, nullable) NSString *displayLink;
+@property(nonatomic, copy, nullable) NSString *fileFormat;
+@property(nonatomic, copy, nullable) NSString *formattedUrl;
+@property(nonatomic, copy, nullable) NSString *htmlFormattedUrl;
+@property(nonatomic, copy, nullable) NSString *htmlSnippet;
+@property(nonatomic, copy, nullable) NSString *htmlTitle;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_ResultImage *image;
+@property(nonatomic, copy, nullable) NSString *kind;
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomsearch_ResultLabelsItem *> *labels;
+@property(nonatomic, copy, nullable) NSString *link;
+@property(nonatomic, copy, nullable) NSString *mime;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_ResultPagemap *pagemap;
+@property(nonatomic, copy, nullable) NSString *snippet;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -216,39 +216,39 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *byteSize;
+@property(nonatomic, strong, nullable) NSNumber *byteSize;
 
-@property(copy, nullable) NSString *contextLink;
+@property(nonatomic, copy, nullable) NSString *contextLink;
 
 /**
  *  height
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
  *  thumbnailHeight
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *thumbnailHeight;
+@property(nonatomic, strong, nullable) NSNumber *thumbnailHeight;
 
-@property(copy, nullable) NSString *thumbnailLink;
+@property(nonatomic, copy, nullable) NSString *thumbnailLink;
 
 /**
  *  thumbnailWidth
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *thumbnailWidth;
+@property(nonatomic, strong, nullable) NSNumber *thumbnailWidth;
 
 /**
  *  width
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -258,9 +258,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCustomsearch_ResultLabelsItem : GTLRObject
 
-@property(copy, nullable) NSString *displayName;
-@property(copy, nullable) NSString *labelWithOp;
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *labelWithOp;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -298,7 +298,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCustomsearch_Search : GTLRCollectionObject
 
-@property(strong, nullable) GTLRCustomsearch_Context *context;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_Context *context;
 
 /**
  *  items
@@ -306,14 +306,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCustomsearch_Result *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomsearch_Result *> *items;
 
-@property(copy, nullable) NSString *kind;
-@property(strong, nullable) NSArray<GTLRCustomsearch_Promotion *> *promotions;
-@property(strong, nullable) GTLRCustomsearch_SearchQueries *queries;
-@property(strong, nullable) GTLRCustomsearch_SearchSearchInformation *searchInformation;
-@property(strong, nullable) GTLRCustomsearch_SearchSpelling *spelling;
-@property(strong, nullable) GTLRCustomsearch_SearchUrl *url;
+@property(nonatomic, copy, nullable) NSString *kind;
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomsearch_Promotion *> *promotions;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_SearchQueries *queries;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_SearchSearchInformation *searchInformation;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_SearchSpelling *spelling;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_SearchUrl *url;
 
 @end
 
@@ -335,22 +335,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCustomsearch_SearchSearchInformation : GTLRObject
 
-@property(copy, nullable) NSString *formattedSearchTime;
-@property(copy, nullable) NSString *formattedTotalResults;
+@property(nonatomic, copy, nullable) NSString *formattedSearchTime;
+@property(nonatomic, copy, nullable) NSString *formattedTotalResults;
 
 /**
  *  searchTime
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *searchTime;
+@property(nonatomic, strong, nullable) NSNumber *searchTime;
 
 /**
  *  totalResults
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 @end
 
@@ -360,8 +360,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCustomsearch_SearchSpelling : GTLRObject
 
-@property(copy, nullable) NSString *correctedQuery;
-@property(copy, nullable) NSString *htmlCorrectedQuery;
+@property(nonatomic, copy, nullable) NSString *correctedQuery;
+@property(nonatomic, copy, nullable) NSString *htmlCorrectedQuery;
 
 @end
 
@@ -376,9 +376,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'templateProperty' to avoid language reserved word 'template'.
  */
-@property(copy, nullable) NSString *templateProperty;
+@property(nonatomic, copy, nullable) NSString *templateProperty;
 
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

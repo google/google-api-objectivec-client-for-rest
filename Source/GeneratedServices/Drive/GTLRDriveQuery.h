@@ -57,7 +57,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @interface GTLRDriveQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -143,7 +143,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be true.
  */
-@property(assign) BOOL includeRemoved;
+@property(nonatomic, assign) BOOL includeRemoved;
 
 /**
  *  The maximum number of changes to return per page.
@@ -151,14 +151,14 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The token for continuing a previous list request on the next page. This
  *  should be set to the value of 'nextPageToken' from the previous response or
  *  to the response from the getStartPageToken method.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Whether to restrict the results to changes inside the My Drive hierarchy.
@@ -167,7 +167,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL restrictToMyDrive;
+@property(nonatomic, assign) BOOL restrictToMyDrive;
 
 /**
  *  A comma-separated list of spaces to query within the user corpus. Supported
@@ -175,7 +175,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be drive.
  */
-@property(copy, nullable) NSString *spaces;
+@property(nonatomic, copy, nullable) NSString *spaces;
 
 /**
  *  Fetches a @c GTLRDrive_ChangeList.
@@ -220,7 +220,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be true.
  */
-@property(assign) BOOL includeRemoved;
+@property(nonatomic, assign) BOOL includeRemoved;
 
 /**
  *  The maximum number of changes to return per page.
@@ -228,14 +228,14 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The token for continuing a previous list request on the next page. This
  *  should be set to the value of 'nextPageToken' from the previous response or
  *  to the response from the getStartPageToken method.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Whether to restrict the results to changes inside the My Drive hierarchy.
@@ -244,7 +244,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL restrictToMyDrive;
+@property(nonatomic, assign) BOOL restrictToMyDrive;
 
 /**
  *  A comma-separated list of spaces to query within the user corpus. Supported
@@ -252,7 +252,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be drive.
  */
-@property(copy, nullable) NSString *spaces;
+@property(nonatomic, copy, nullable) NSString *spaces;
 
 /**
  *  Fetches a @c GTLRDrive_Channel.
@@ -317,7 +317,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForCommentsCreateWithObject:fileId:]
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Fetches a @c GTLRDrive_Comment.
@@ -348,10 +348,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForCommentsDeleteWithfileId:commentId:]
 
 /** The ID of the comment. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -384,10 +384,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForCommentsGetWithfileId:commentId:]
 
 /** The ID of the comment. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Whether to return deleted comments. Deleted comments will not include their
@@ -395,7 +395,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL includeDeleted;
+@property(nonatomic, assign) BOOL includeDeleted;
 
 /**
  *  Fetches a @c GTLRDrive_Comment.
@@ -427,7 +427,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForCommentsListWithfileId:]
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Whether to include deleted comments. Deleted comments will not include their
@@ -435,7 +435,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL includeDeleted;
+@property(nonatomic, assign) BOOL includeDeleted;
 
 /**
  *  The maximum number of comments to return per page.
@@ -443,19 +443,19 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 1..100).
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The token for continuing a previous list request on the next page. This
  *  should be set to the value of 'nextPageToken' from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The minimum value of 'modifiedTime' for the result comments (RFC 3339
  *  date-time).
  */
-@property(copy, nullable) NSString *startModifiedTime;
+@property(nonatomic, copy, nullable) NSString *startModifiedTime;
 
 /**
  *  Fetches a @c GTLRDrive_CommentList.
@@ -488,10 +488,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForCommentsUpdateWithObject:fileId:commentId:]
 
 /** The ID of the comment. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Fetches a @c GTLRDrive_Comment.
@@ -527,7 +527,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForFilesCopyWithObject:fileId:]
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Whether to ignore the domain's default visibility settings for the created
@@ -537,7 +537,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL ignoreDefaultVisibility;
+@property(nonatomic, assign) BOOL ignoreDefaultVisibility;
 
 /**
  *  Whether to set the 'keepForever' field in the new head revision. This is
@@ -545,12 +545,12 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL keepRevisionForever;
+@property(nonatomic, assign) BOOL keepRevisionForever;
 
 /**
  *  A language hint for OCR processing during image import (ISO 639-1 code).
  */
-@property(copy, nullable) NSString *ocrLanguage;
+@property(nonatomic, copy, nullable) NSString *ocrLanguage;
 
 /**
  *  Fetches a @c GTLRDrive_File.
@@ -590,7 +590,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL ignoreDefaultVisibility;
+@property(nonatomic, assign) BOOL ignoreDefaultVisibility;
 
 /**
  *  Whether to set the 'keepForever' field in the new head revision. This is
@@ -598,19 +598,19 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL keepRevisionForever;
+@property(nonatomic, assign) BOOL keepRevisionForever;
 
 /**
  *  A language hint for OCR processing during image import (ISO 639-1 code).
  */
-@property(copy, nullable) NSString *ocrLanguage;
+@property(nonatomic, copy, nullable) NSString *ocrLanguage;
 
 /**
  *  Whether to use the uploaded content as indexable text.
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL useContentAsIndexableText;
+@property(nonatomic, assign) BOOL useContentAsIndexableText;
 
 /**
  *  Fetches a @c GTLRDrive_File.
@@ -645,7 +645,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForFilesDeleteWithfileId:]
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -703,10 +703,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForFilesExportWithfileId:mimeType:]
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /** The MIME type of the format requested for this export. */
-@property(copy, nullable) NSString *mimeType;
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.
@@ -744,7 +744,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be 10 (from the
  *        range 1..1000).
  */
-@property(assign) NSInteger count;
+@property(nonatomic, assign) NSInteger count;
 
 /**
  *  The space in which the IDs can be used to create new files. Supported values
@@ -752,7 +752,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be drive.
  */
-@property(copy, nullable) NSString *space;
+@property(nonatomic, copy, nullable) NSString *space;
 
 /**
  *  Fetches a @c GTLRDrive_GeneratedIds.
@@ -789,10 +789,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL acknowledgeAbuse;
+@property(nonatomic, assign) BOOL acknowledgeAbuse;
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Fetches a @c GTLRDrive_File.
@@ -848,7 +848,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be
  *        kGTLRDriveCorpusUser.
  */
-@property(copy, nullable) NSString *corpus;
+@property(nonatomic, copy, nullable) NSString *corpus;
 
 /**
  *  A comma-separated list of sort keys. Valid keys are 'createdTime', 'folder',
@@ -859,7 +859,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  current limitation for users with approximately one million files in which
  *  the requested sort order is ignored.
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The maximum number of files to return per page.
@@ -867,19 +867,19 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The token for continuing a previous list request on the next page. This
  *  should be set to the value of 'nextPageToken' from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  A query for filtering the file results. See the "Search for Files" guide for
  *  supported syntax.
  */
-@property(copy, nullable) NSString *q;
+@property(nonatomic, copy, nullable) NSString *q;
 
 /**
  *  A comma-separated list of spaces to query within the corpus. Supported
@@ -887,7 +887,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be drive.
  */
-@property(copy, nullable) NSString *spaces;
+@property(nonatomic, copy, nullable) NSString *spaces;
 
 /**
  *  Fetches a @c GTLRDrive_FileList.
@@ -921,10 +921,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForFilesUpdateWithObject:fileId:]
 
 /** A comma-separated list of parent IDs to add. */
-@property(copy, nullable) NSString *addParents;
+@property(nonatomic, copy, nullable) NSString *addParents;
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Whether to set the 'keepForever' field in the new head revision. This is
@@ -932,22 +932,22 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL keepRevisionForever;
+@property(nonatomic, assign) BOOL keepRevisionForever;
 
 /**
  *  A language hint for OCR processing during image import (ISO 639-1 code).
  */
-@property(copy, nullable) NSString *ocrLanguage;
+@property(nonatomic, copy, nullable) NSString *ocrLanguage;
 
 /** A comma-separated list of parent IDs to remove. */
-@property(copy, nullable) NSString *removeParents;
+@property(nonatomic, copy, nullable) NSString *removeParents;
 
 /**
  *  Whether to use the uploaded content as indexable text.
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL useContentAsIndexableText;
+@property(nonatomic, assign) BOOL useContentAsIndexableText;
 
 /**
  *  Fetches a @c GTLRDrive_File.
@@ -991,10 +991,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL acknowledgeAbuse;
+@property(nonatomic, assign) BOOL acknowledgeAbuse;
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Fetches a @c GTLRDrive_Channel.
@@ -1038,17 +1038,17 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForPermissionsCreateWithObject:fileId:]
 
 /** A custom message to include in the notification email. */
-@property(copy, nullable) NSString *emailMessage;
+@property(nonatomic, copy, nullable) NSString *emailMessage;
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Whether to send a notification email when sharing to users or groups. This
  *  defaults to true for users and groups, and is not allowed for other
  *  requests. It must not be disabled for ownership transfers.
  */
-@property(assign) BOOL sendNotificationEmail;
+@property(nonatomic, assign) BOOL sendNotificationEmail;
 
 /**
  *  Whether to transfer ownership to the specified user and downgrade the
@@ -1057,7 +1057,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL transferOwnership;
+@property(nonatomic, assign) BOOL transferOwnership;
 
 /**
  *  Fetches a @c GTLRDrive_Permission.
@@ -1088,10 +1088,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForPermissionsDeleteWithfileId:permissionId:]
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /** The ID of the permission. */
-@property(copy, nullable) NSString *permissionId;
+@property(nonatomic, copy, nullable) NSString *permissionId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1127,10 +1127,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForPermissionsGetWithfileId:permissionId:]
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /** The ID of the permission. */
-@property(copy, nullable) NSString *permissionId;
+@property(nonatomic, copy, nullable) NSString *permissionId;
 
 /**
  *  Fetches a @c GTLRDrive_Permission.
@@ -1165,7 +1165,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForPermissionsListWithfileId:]
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Fetches a @c GTLRDrive_PermissionList.
@@ -1194,17 +1194,17 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForPermissionsUpdateWithObject:fileId:permissionId:]
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /** The ID of the permission. */
-@property(copy, nullable) NSString *permissionId;
+@property(nonatomic, copy, nullable) NSString *permissionId;
 
 /**
  *  Whether to remove the expiration date.
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL removeExpiration;
+@property(nonatomic, assign) BOOL removeExpiration;
 
 /**
  *  Whether to transfer ownership to the specified user and downgrade the
@@ -1213,7 +1213,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL transferOwnership;
+@property(nonatomic, assign) BOOL transferOwnership;
 
 /**
  *  Fetches a @c GTLRDrive_Permission.
@@ -1246,10 +1246,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForRepliesCreateWithObject:fileId:commentId:]
 
 /** The ID of the comment. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Fetches a @c GTLRDrive_Reply.
@@ -1282,13 +1282,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForRepliesDeleteWithfileId:commentId:replyId:]
 
 /** The ID of the comment. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /** The ID of the reply. */
-@property(copy, nullable) NSString *replyId;
+@property(nonatomic, copy, nullable) NSString *replyId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1323,10 +1323,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForRepliesGetWithfileId:commentId:replyId:]
 
 /** The ID of the comment. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Whether to return deleted replies. Deleted replies will not include their
@@ -1334,10 +1334,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL includeDeleted;
+@property(nonatomic, assign) BOOL includeDeleted;
 
 /** The ID of the reply. */
-@property(copy, nullable) NSString *replyId;
+@property(nonatomic, copy, nullable) NSString *replyId;
 
 /**
  *  Fetches a @c GTLRDrive_Reply.
@@ -1371,10 +1371,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForRepliesListWithfileId:commentId:]
 
 /** The ID of the comment. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Whether to include deleted replies. Deleted replies will not include their
@@ -1382,7 +1382,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL includeDeleted;
+@property(nonatomic, assign) BOOL includeDeleted;
 
 /**
  *  The maximum number of replies to return per page.
@@ -1390,13 +1390,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 1..100).
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The token for continuing a previous list request on the next page. This
  *  should be set to the value of 'nextPageToken' from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRDrive_ReplyList.
@@ -1431,13 +1431,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForRepliesUpdateWithObject:fileId:commentId:replyId:]
 
 /** The ID of the comment. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /** The ID of the reply. */
-@property(copy, nullable) NSString *replyId;
+@property(nonatomic, copy, nullable) NSString *replyId;
 
 /**
  *  Fetches a @c GTLRDrive_Reply.
@@ -1474,10 +1474,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForRevisionsDeleteWithfileId:revisionId:]
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /** The ID of the revision. */
-@property(copy, nullable) NSString *revisionId;
+@property(nonatomic, copy, nullable) NSString *revisionId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1520,13 +1520,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL acknowledgeAbuse;
+@property(nonatomic, assign) BOOL acknowledgeAbuse;
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /** The ID of the revision. */
-@property(copy, nullable) NSString *revisionId;
+@property(nonatomic, copy, nullable) NSString *revisionId;
 
 /**
  *  Fetches a @c GTLRDrive_Revision.
@@ -1575,7 +1575,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForRevisionsListWithfileId:]
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Fetches a @c GTLRDrive_RevisionList.
@@ -1605,10 +1605,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForRevisionsUpdateWithObject:fileId:revisionId:]
 
 /** The ID of the file. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /** The ID of the revision. */
-@property(copy, nullable) NSString *revisionId;
+@property(nonatomic, copy, nullable) NSString *revisionId;
 
 /**
  *  Fetches a @c GTLRDrive_Revision.

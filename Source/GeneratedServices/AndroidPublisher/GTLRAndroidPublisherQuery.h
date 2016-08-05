@@ -88,7 +88,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 @interface GTLRAndroidPublisherQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -108,23 +108,23 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 /**
  *  The APK version code whose APK-specific listings should be read or modified.
  */
-@property(assign) NSInteger apkVersionCode;
+@property(nonatomic, assign) NSInteger apkVersionCode;
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  The language code (a BCP-47 language tag) of the APK-specific localized
  *  listing to read or modify. For example, to select Austrian German, pass
  *  "de-AT".
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -166,16 +166,16 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 /**
  *  The APK version code whose APK-specific listings should be read or modified.
  */
-@property(assign) NSInteger apkVersionCode;
+@property(nonatomic, assign) NSInteger apkVersionCode;
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -213,23 +213,23 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 /**
  *  The APK version code whose APK-specific listings should be read or modified.
  */
-@property(assign) NSInteger apkVersionCode;
+@property(nonatomic, assign) NSInteger apkVersionCode;
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  The language code (a BCP-47 language tag) of the APK-specific localized
  *  listing to read or modify. For example, to select Austrian German, pass
  *  "de-AT".
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ApkListing.
@@ -270,16 +270,16 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 /**
  *  The APK version code whose APK-specific listings should be read or modified.
  */
-@property(assign) NSInteger apkVersionCode;
+@property(nonatomic, assign) NSInteger apkVersionCode;
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ApkListingsListResponse.
@@ -316,23 +316,23 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 /**
  *  The APK version code whose APK-specific listings should be read or modified.
  */
-@property(assign) NSInteger apkVersionCode;
+@property(nonatomic, assign) NSInteger apkVersionCode;
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  The language code (a BCP-47 language tag) of the APK-specific localized
  *  listing to read or modify. For example, to select Austrian German, pass
  *  "de-AT".
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ApkListing.
@@ -377,23 +377,23 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 /**
  *  The APK version code whose APK-specific listings should be read or modified.
  */
-@property(assign) NSInteger apkVersionCode;
+@property(nonatomic, assign) NSInteger apkVersionCode;
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  The language code (a BCP-47 language tag) of the APK-specific localized
  *  listing to read or modify. For example, to select Austrian German, pass
  *  "de-AT".
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ApkListing.
@@ -438,13 +438,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsApksAddexternallyhostedWithObject:packageName:editId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ApksAddExternallyHostedResponse.
@@ -481,13 +481,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsApksListWithpackageName:editId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ApksListResponse.
@@ -516,13 +516,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsApksUploadWithpackageName:editId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Apk.
@@ -555,13 +555,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsCommitWithpackageName:editId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppEdit.
@@ -594,13 +594,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsDeleteWithpackageName:editId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -635,13 +635,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsDetailsGetWithpackageName:editId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppDetails.
@@ -673,13 +673,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsDetailsPatchWithObject:packageName:editId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppDetails.
@@ -713,13 +713,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsDetailsUpdateWithObject:packageName:editId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppDetails.
@@ -756,10 +756,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  The version code of the APK whose Expansion File configuration is being read
  *  or modified.
  */
-@property(assign) NSInteger apkVersionCode;
+@property(nonatomic, assign) NSInteger apkVersionCode;
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  expansionFileType
@@ -768,13 +768,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
  */
-@property(copy, nullable) NSString *expansionFileType;
+@property(nonatomic, copy, nullable) NSString *expansionFileType;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ExpansionFile.
@@ -819,10 +819,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  The version code of the APK whose Expansion File configuration is being read
  *  or modified.
  */
-@property(assign) NSInteger apkVersionCode;
+@property(nonatomic, assign) NSInteger apkVersionCode;
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  expansionFileType
@@ -831,13 +831,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
  */
-@property(copy, nullable) NSString *expansionFileType;
+@property(nonatomic, copy, nullable) NSString *expansionFileType;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ExpansionFile.
@@ -886,10 +886,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  The version code of the APK whose Expansion File configuration is being read
  *  or modified.
  */
-@property(assign) NSInteger apkVersionCode;
+@property(nonatomic, assign) NSInteger apkVersionCode;
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  expansionFileType
@@ -898,13 +898,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
  */
-@property(copy, nullable) NSString *expansionFileType;
+@property(nonatomic, copy, nullable) NSString *expansionFileType;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ExpansionFile.
@@ -951,10 +951,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  The version code of the APK whose Expansion File configuration is being read
  *  or modified.
  */
-@property(assign) NSInteger apkVersionCode;
+@property(nonatomic, assign) NSInteger apkVersionCode;
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  expansionFileType
@@ -963,13 +963,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
  *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
  */
-@property(copy, nullable) NSString *expansionFileType;
+@property(nonatomic, copy, nullable) NSString *expansionFileType;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ExpansionFilesUploadResponse.
@@ -1013,13 +1013,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsGetWithpackageName:editId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppEdit.
@@ -1051,12 +1051,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsImagesDeleteWithpackageName:editId:language:imageType:imageId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier an image within the set of images attached to this edit.
  */
-@property(copy, nullable) NSString *imageId;
+@property(nonatomic, copy, nullable) NSString *imageId;
 
 /**
  *  imageType
@@ -1077,20 +1077,20 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
  *        "wearScreenshots"
  */
-@property(copy, nullable) NSString *imageType;
+@property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
  *  The language code (a BCP-47 language tag) of the localized listing whose
  *  images are to read or modified. For example, to select Austrian German, pass
  *  "de-AT".
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1147,7 +1147,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsImagesDeleteallWithpackageName:editId:language:imageType:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  imageType
@@ -1168,20 +1168,20 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
  *        "wearScreenshots"
  */
-@property(copy, nullable) NSString *imageType;
+@property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
  *  The language code (a BCP-47 language tag) of the localized listing whose
  *  images are to read or modified. For example, to select Austrian German, pass
  *  "de-AT".
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ImagesDeleteAllResponse.
@@ -1234,7 +1234,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsImagesListWithpackageName:editId:language:imageType:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  imageType
@@ -1255,20 +1255,20 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
  *        "wearScreenshots"
  */
-@property(copy, nullable) NSString *imageType;
+@property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
  *  The language code (a BCP-47 language tag) of the localized listing whose
  *  images are to read or modified. For example, to select Austrian German, pass
  *  "de-AT".
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ImagesListResponse.
@@ -1322,7 +1322,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsImagesUploadWithpackageName:editId:language:imageType:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  imageType
@@ -1343,20 +1343,20 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
  *        "wearScreenshots"
  */
-@property(copy, nullable) NSString *imageType;
+@property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
  *  The language code (a BCP-47 language tag) of the localized listing whose
  *  images are to read or modified. For example, to select Austrian German, pass
  *  "de-AT".
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ImagesUploadResponse.
@@ -1416,7 +1416,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppEdit.
@@ -1447,19 +1447,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsListingsDeleteWithpackageName:editId:language:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  The language code (a BCP-47 language tag) of the localized listing to read
  *  or modify. For example, to select Austrian German, pass "de-AT".
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1495,13 +1495,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsListingsDeleteallWithpackageName:editId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1533,19 +1533,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsListingsGetWithpackageName:editId:language:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  The language code (a BCP-47 language tag) of the localized listing to read
  *  or modify. For example, to select Austrian German, pass "de-AT".
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Listing.
@@ -1580,13 +1580,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsListingsListWithpackageName:editId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ListingsListResponse.
@@ -1618,19 +1618,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsListingsPatchWithObject:packageName:editId:language:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  The language code (a BCP-47 language tag) of the localized listing to read
  *  or modify. For example, to select Austrian German, pass "de-AT".
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Listing.
@@ -1668,19 +1668,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsListingsUpdateWithObject:packageName:editId:language:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  The language code (a BCP-47 language tag) of the localized listing to read
  *  or modify. For example, to select Austrian German, pass "de-AT".
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Listing.
@@ -1717,13 +1717,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsTestersGetWithpackageName:editId:track:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  track
@@ -1734,7 +1734,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherTrackProduction Value "production"
  *    @arg @c kGTLRAndroidPublisherTrackRollout Value "rollout"
  */
-@property(copy, nullable) NSString *track;
+@property(nonatomic, copy, nullable) NSString *track;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Testers.
@@ -1771,13 +1771,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsTestersPatchWithObject:packageName:editId:track:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  track
@@ -1788,7 +1788,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherTrackProduction Value "production"
  *    @arg @c kGTLRAndroidPublisherTrackRollout Value "rollout"
  */
-@property(copy, nullable) NSString *track;
+@property(nonatomic, copy, nullable) NSString *track;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Testers.
@@ -1827,13 +1827,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsTestersUpdateWithObject:packageName:editId:track:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  track
@@ -1844,7 +1844,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherTrackProduction Value "production"
  *    @arg @c kGTLRAndroidPublisherTrackRollout Value "rollout"
  */
-@property(copy, nullable) NSString *track;
+@property(nonatomic, copy, nullable) NSString *track;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Testers.
@@ -1884,13 +1884,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsTracksGetWithpackageName:editId:track:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  The track type to read or modify.
@@ -1901,7 +1901,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherTrackProduction Value "production"
  *    @arg @c kGTLRAndroidPublisherTrackRollout Value "rollout"
  */
-@property(copy, nullable) NSString *track;
+@property(nonatomic, copy, nullable) NSString *track;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Track.
@@ -1941,13 +1941,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsTracksListWithpackageName:editId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_TracksListResponse.
@@ -1980,13 +1980,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsTracksPatchWithObject:packageName:editId:track:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  The track type to read or modify.
@@ -1997,7 +1997,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherTrackProduction Value "production"
  *    @arg @c kGTLRAndroidPublisherTrackRollout Value "rollout"
  */
-@property(copy, nullable) NSString *track;
+@property(nonatomic, copy, nullable) NSString *track;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Track.
@@ -2042,13 +2042,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsTracksUpdateWithObject:packageName:editId:track:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  The track type to read or modify.
@@ -2059,7 +2059,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *    @arg @c kGTLRAndroidPublisherTrackProduction Value "production"
  *    @arg @c kGTLRAndroidPublisherTrackRollout Value "rollout"
  */
-@property(copy, nullable) NSString *track;
+@property(nonatomic, copy, nullable) NSString *track;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Track.
@@ -2103,13 +2103,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 //   +[GTLQueryAndroidPublisher queryForEditsValidateWithpackageName:editId:]
 
 /** Unique identifier for this edit. */
-@property(copy, nullable) NSString *editId;
+@property(nonatomic, copy, nullable) NSString *editId;
 
 /**
  *  Unique identifier for the Android app that is being updated; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppEdit.
@@ -2137,23 +2137,23 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEntitlementsListWithpackageName:]
 
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The package name of the application the inapp product was sold in (for
  *  example, 'com.some.thing').
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  The product id of the inapp product (for example, 'sku1'). This can be used
  *  to restrict the result set.
  */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
-@property(assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex;
 
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_EntitlementsListResponse.
@@ -2209,10 +2209,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  Unique identifier for the Android app with the in-app product; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /** Unique identifier for the in-app product. */
-@property(copy, nullable) NSString *sku;
+@property(nonatomic, copy, nullable) NSString *sku;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2243,10 +2243,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForInappproductsGetWithpackageName:sku:]
 
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /** Unique identifier for the in-app product. */
-@property(copy, nullable) NSString *sku;
+@property(nonatomic, copy, nullable) NSString *sku;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
@@ -2280,10 +2280,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  have a price specified for this in-app product will be auto converted to the
  *  target currency based on the default price. Defaults to false.
  */
-@property(assign) BOOL autoConvertMissingPrices;
+@property(nonatomic, assign) BOOL autoConvertMissingPrices;
 
 /** Unique identifier for the Android app; for example, "com.spiffygame". */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
@@ -2315,17 +2315,17 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForInappproductsListWithpackageName:]
 
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Unique identifier for the Android app with in-app products; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
-@property(assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex;
 
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_InappproductsListResponse.
@@ -2360,16 +2360,16 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  have a price specified for this in-app product will be auto converted to the
  *  target currency based on the default price. Defaults to false.
  */
-@property(assign) BOOL autoConvertMissingPrices;
+@property(nonatomic, assign) BOOL autoConvertMissingPrices;
 
 /**
  *  Unique identifier for the Android app with the in-app product; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /** Unique identifier for the in-app product. */
-@property(copy, nullable) NSString *sku;
+@property(nonatomic, copy, nullable) NSString *sku;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
@@ -2408,16 +2408,16 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  have a price specified for this in-app product will be auto converted to the
  *  target currency based on the default price. Defaults to false.
  */
-@property(assign) BOOL autoConvertMissingPrices;
+@property(nonatomic, assign) BOOL autoConvertMissingPrices;
 
 /**
  *  Unique identifier for the Android app with the in-app product; for example,
  *  "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /** Unique identifier for the in-app product. */
-@property(copy, nullable) NSString *sku;
+@property(nonatomic, copy, nullable) NSString *sku;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
@@ -2454,16 +2454,16 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  The package name of the application the inapp product was sold in (for
  *  example, 'com.some.thing').
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /** The inapp product SKU (for example, 'com.some.thing.inapp1'). */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The token provided to the user's device when the inapp product was
  *  purchased.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ProductPurchase.
@@ -2502,15 +2502,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  The package name of the application for which this subscription was
  *  purchased (for example, 'com.some.thing').
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /** The purchased subscription ID (for example, 'monthly001'). */
-@property(copy, nullable) NSString *subscriptionId;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  The token provided to the user's device when the subscription was purchased.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2551,15 +2551,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  The package name of the application for which this subscription was
  *  purchased (for example, 'com.some.thing').
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /** The purchased subscription ID (for example, 'monthly001'). */
-@property(copy, nullable) NSString *subscriptionId;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  The token provided to the user's device when the subscription was purchased.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_SubscriptionPurchasesDeferResponse.
@@ -2602,15 +2602,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  The package name of the application for which this subscription was
  *  purchased (for example, 'com.some.thing').
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /** The purchased subscription ID (for example, 'monthly001'). */
-@property(copy, nullable) NSString *subscriptionId;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  The token provided to the user's device when the subscription was purchased.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_SubscriptionPurchase.
@@ -2650,15 +2650,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  The package name of the application for which this subscription was
  *  purchased (for example, 'com.some.thing').
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /** The purchased subscription ID (for example, 'monthly001'). */
-@property(copy, nullable) NSString *subscriptionId;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  The token provided to the user's device when the subscription was purchased.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2699,15 +2699,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  The package name of the application for which this subscription was
  *  purchased (for example, 'com.some.thing').
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /** The purchased subscription ID (for example, 'monthly001'). */
-@property(copy, nullable) NSString *subscriptionId;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  The token provided to the user's device when the subscription was purchased.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2747,9 +2747,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  Unique identifier for the Android app for which we want reviews; for
  *  example, "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
-@property(copy, nullable) NSString *reviewId;
+@property(nonatomic, copy, nullable) NSString *reviewId;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Review.
@@ -2779,17 +2779,17 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForReviewsListWithpackageName:]
 
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Unique identifier for the Android app for which we want reviews; for
  *  example, "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
-@property(assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex;
 
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ReviewsListResponse.
@@ -2821,9 +2821,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  *  Unique identifier for the Android app for which we want reviews; for
  *  example, "com.spiffygame".
  */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
-@property(copy, nullable) NSString *reviewId;
+@property(nonatomic, copy, nullable) NSString *reviewId;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ReviewsReplyResponse.

@@ -205,7 +205,7 @@ NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStateUnspecified
 //
 
 @implementation GTLRCloudRuntimeConfig_Variable
-@dynamic name, state, updateTime, value;
+@dynamic name, state, text, updateTime, value;
 @end
 
 

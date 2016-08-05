@@ -763,13 +763,13 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_AnnotateImageRequest : GTLRObject
 
 /** Requested features. */
-@property(strong, nullable) NSArray<GTLRVision_Feature *> *features;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Feature *> *features;
 
 /** The image to be processed. */
-@property(strong, nullable) GTLRVision_Image *image;
+@property(nonatomic, strong, nullable) GTLRVision_Image *image;
 
 /** Additional context that may accompany the image. */
-@property(strong, nullable) GTLRVision_ImageContext *imageContext;
+@property(nonatomic, strong, nullable) GTLRVision_ImageContext *imageContext;
 
 @end
 
@@ -784,28 +784,28 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  Note that filled-in mage annotations are guaranteed to be
  *  correct, even when <code>error</code> is non-empty.
  */
-@property(strong, nullable) GTLRVision_Status *error;
+@property(nonatomic, strong, nullable) GTLRVision_Status *error;
 
 /** If present, face detection completed successfully. */
-@property(strong, nullable) NSArray<GTLRVision_FaceAnnotation *> *faceAnnotations;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_FaceAnnotation *> *faceAnnotations;
 
 /** If present, image properties were extracted successfully. */
-@property(strong, nullable) GTLRVision_ImageProperties *imagePropertiesAnnotation;
+@property(nonatomic, strong, nullable) GTLRVision_ImageProperties *imagePropertiesAnnotation;
 
 /** If present, label detection completed successfully. */
-@property(strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *labelAnnotations;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *labelAnnotations;
 
 /** If present, landmark detection completed successfully. */
-@property(strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *landmarkAnnotations;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *landmarkAnnotations;
 
 /** If present, logo detection completed successfully. */
-@property(strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *logoAnnotations;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *logoAnnotations;
 
 /** If present, safe-search annotation completed successfully. */
-@property(strong, nullable) GTLRVision_SafeSearchAnnotation *safeSearchAnnotation;
+@property(nonatomic, strong, nullable) GTLRVision_SafeSearchAnnotation *safeSearchAnnotation;
 
 /** If present, text (OCR) detection completed successfully. */
-@property(strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *textAnnotations;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *textAnnotations;
 
 @end
 
@@ -816,7 +816,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_BatchAnnotateImagesRequest : GTLRObject
 
 /** Individual image annotation requests for this batch. */
-@property(strong, nullable) NSArray<GTLRVision_AnnotateImageRequest *> *requests;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_AnnotateImageRequest *> *requests;
 
 @end
 
@@ -827,7 +827,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_BatchAnnotateImagesResponse : GTLRObject
 
 /** Individual responses to image annotation requests within the batch. */
-@property(strong, nullable) NSArray<GTLRVision_AnnotateImageResponse *> *responses;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_AnnotateImageResponse *> *responses;
 
 @end
 
@@ -838,7 +838,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_BoundingPoly : GTLRObject
 
 /** The bounding polygon vertices. */
-@property(strong, nullable) NSArray<GTLRVision_Vertex *> *vertices;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Vertex *> *vertices;
 
 @end
 
@@ -959,28 +959,28 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *alpha;
+@property(nonatomic, strong, nullable) NSNumber *alpha;
 
 /**
  *  The amount of blue in the color as a value in the interval [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *blue;
+@property(nonatomic, strong, nullable) NSNumber *blue;
 
 /**
  *  The amount of green in the color as a value in the interval [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *green;
+@property(nonatomic, strong, nullable) NSNumber *green;
 
 /**
  *  The amount of red in the color as a value in the interval [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *red;
+@property(nonatomic, strong, nullable) NSNumber *red;
 
 @end
 
@@ -992,7 +992,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_ColorInfo : GTLRObject
 
 /** RGB components of the color. */
-@property(strong, nullable) GTLRVision_Color *color;
+@property(nonatomic, strong, nullable) GTLRVision_Color *color;
 
 /**
  *  Stores the fraction of pixels the color occupies in the image.
@@ -1000,14 +1000,14 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *pixelFraction;
+@property(nonatomic, strong, nullable) NSNumber *pixelFraction;
 
 /**
  *  Image-specific score for this color. Value in range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *score;
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 
@@ -1018,7 +1018,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_DominantColorsAnnotation : GTLRObject
 
 /** RGB color values, with their score and pixel fraction. */
-@property(strong, nullable) NSArray<GTLRVision_ColorInfo *> *colors;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_ColorInfo *> *colors;
 
 @end
 
@@ -1034,7 +1034,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  are produced for the entire text detected in an image region, followed by
  *  `boundingPoly`s for each word within the detected text.
  */
-@property(strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
+@property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
 
 /**
  *  The accuracy of the entity detection in an image.
@@ -1043,20 +1043,20 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *confidence;
+@property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
  *  Entity textual description, expressed in its <code>locale</code> language.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The language code for the locale in which the entity textual
  *  <code>description</code> (next field) is expressed.
  */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  The location information for the detected entity. Multiple
@@ -1065,27 +1065,27 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  location of the place where the query image was taken. Location information
  *  is usually present for landmarks.
  */
-@property(strong, nullable) NSArray<GTLRVision_LocationInfo *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_LocationInfo *> *locations;
 
 /**
  *  Opaque entity ID. Some IDs might be available in Knowledge Graph(KG).
  *  For more details on KG please see:
  *  https://developers.google.com/knowledge-graph/
  */
-@property(copy, nullable) NSString *mid;
+@property(nonatomic, copy, nullable) NSString *mid;
 
 /**
  *  Some entities can have additional optional <code>Property</code> fields.
  *  For example a different kind of score or string that qualifies the entity.
  */
-@property(strong, nullable) NSArray<GTLRVision_Property *> *properties;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Property *> *properties;
 
 /**
  *  Overall score of the result. Range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *score;
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 /**
  *  The relevancy of the ICA (Image Content Annotation) label to the
@@ -1096,7 +1096,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *topicality;
+@property(nonatomic, strong, nullable) NSNumber *topicality;
 
 @end
 
@@ -1124,7 +1124,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        very unlikely belongs to the vertical specified. (Value:
  *        "VERY_UNLIKELY")
  */
-@property(copy, nullable) NSString *angerLikelihood;
+@property(nonatomic, copy, nullable) NSString *angerLikelihood;
 
 /**
  *  Blurred likelihood.
@@ -1144,7 +1144,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        image very unlikely belongs to the vertical specified. (Value:
  *        "VERY_UNLIKELY")
  */
-@property(copy, nullable) NSString *blurredLikelihood;
+@property(nonatomic, copy, nullable) NSString *blurredLikelihood;
 
 /**
  *  The bounding polygon around the face. The coordinates of the bounding box
@@ -1156,14 +1156,14 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  in
  *  the image to be annotated.
  */
-@property(strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
+@property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
 
 /**
  *  Detection confidence. Range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *detectionConfidence;
+@property(nonatomic, strong, nullable) NSNumber *detectionConfidence;
 
 /**
  *  This bounding polygon is tighter than the previous
@@ -1174,7 +1174,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  landmarker results, only on the initial face detection, hence
  *  the <code>fd</code> (face detection) prefix.
  */
-@property(strong, nullable) GTLRVision_BoundingPoly *fdBoundingPoly;
+@property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *fdBoundingPoly;
 
 /**
  *  Headwear likelihood.
@@ -1194,7 +1194,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        image very unlikely belongs to the vertical specified. (Value:
  *        "VERY_UNLIKELY")
  */
-@property(copy, nullable) NSString *headwearLikelihood;
+@property(nonatomic, copy, nullable) NSString *headwearLikelihood;
 
 /**
  *  Joy likelihood.
@@ -1214,17 +1214,17 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        very unlikely belongs to the vertical specified. (Value:
  *        "VERY_UNLIKELY")
  */
-@property(copy, nullable) NSString *joyLikelihood;
+@property(nonatomic, copy, nullable) NSString *joyLikelihood;
 
 /**
  *  Face landmarking confidence. Range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *landmarkingConfidence;
+@property(nonatomic, strong, nullable) NSNumber *landmarkingConfidence;
 
 /** Detected face landmarks. */
-@property(strong, nullable) NSArray<GTLRVision_Landmark *> *landmarks;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Landmark *> *landmarks;
 
 /**
  *  Yaw angle. Indicates the leftward/rightward angle that the face is
@@ -1233,7 +1233,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *panAngle;
+@property(nonatomic, strong, nullable) NSNumber *panAngle;
 
 /**
  *  Roll angle. Indicates the amount of clockwise/anti-clockwise rotation of
@@ -1243,7 +1243,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *rollAngle;
+@property(nonatomic, strong, nullable) NSNumber *rollAngle;
 
 /**
  *  Sorrow likelihood.
@@ -1263,7 +1263,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        very unlikely belongs to the vertical specified. (Value:
  *        "VERY_UNLIKELY")
  */
-@property(copy, nullable) NSString *sorrowLikelihood;
+@property(nonatomic, copy, nullable) NSString *sorrowLikelihood;
 
 /**
  *  Surprise likelihood.
@@ -1283,7 +1283,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        image very unlikely belongs to the vertical specified. (Value:
  *        "VERY_UNLIKELY")
  */
-@property(copy, nullable) NSString *surpriseLikelihood;
+@property(nonatomic, copy, nullable) NSString *surpriseLikelihood;
 
 /**
  *  Pitch angle. Indicates the upwards/downwards angle that the face is
@@ -1292,7 +1292,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *tiltAngle;
+@property(nonatomic, strong, nullable) NSNumber *tiltAngle;
 
 /**
  *  Under-exposed likelihood.
@@ -1313,7 +1313,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        image very unlikely belongs to the vertical specified. (Value:
  *        "VERY_UNLIKELY")
  */
-@property(copy, nullable) NSString *underExposedLikelihood;
+@property(nonatomic, copy, nullable) NSString *underExposedLikelihood;
 
 @end
 
@@ -1331,7 +1331,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxResults;
+@property(nonatomic, strong, nullable) NSNumber *maxResults;
 
 /**
  *  The feature type.
@@ -1356,7 +1356,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *    @arg @c kGTLRVision_Feature_Type_TypeUnspecified Unspecified feature type.
  *        (Value: "TYPE_UNSPECIFIED")
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1374,14 +1374,14 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *content;
+@property(nonatomic, copy, nullable) NSString *content;
 
 /**
  *  Google Cloud Storage image location. If both 'content' and 'source'
  *  are filled for an image, 'content' takes precedence and it will be
  *  used for performing the image annotation request.
  */
-@property(strong, nullable) GTLRVision_ImageSource *source;
+@property(nonatomic, strong, nullable) GTLRVision_ImageSource *source;
 
 @end
 
@@ -1402,10 +1402,10 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  [supported
  *  languages](/translate/v2/translate-reference#supported_languages).
  */
-@property(strong, nullable) NSArray<NSString *> *languageHints;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *languageHints;
 
 /** Lat/long rectangle that specifies the location of the image. */
-@property(strong, nullable) GTLRVision_LatLongRect *latLongRect;
+@property(nonatomic, strong, nullable) GTLRVision_LatLongRect *latLongRect;
 
 @end
 
@@ -1416,7 +1416,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_ImageProperties : GTLRObject
 
 /** If present, dominant colors completed successfully. */
-@property(strong, nullable) GTLRVision_DominantColorsAnnotation *dominantColors;
+@property(nonatomic, strong, nullable) GTLRVision_DominantColorsAnnotation *dominantColors;
 
 @end
 
@@ -1432,7 +1432,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  details, please see: https://cloud.google.com/storage/docs/reference-uris.
  *  NOTE: Cloud Storage object versioning is not supported!
  */
-@property(copy, nullable) NSString *gcsImageUri;
+@property(nonatomic, copy, nullable) NSString *gcsImageUri;
 
 @end
 
@@ -1446,7 +1446,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_Landmark : GTLRObject
 
 /** Face landmark position. */
-@property(strong, nullable) GTLRVision_Position *position;
+@property(nonatomic, strong, nullable) GTLRVision_Position *position;
 
 /**
  *  Face landmark type.
@@ -1518,7 +1518,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        detected. Should not be filled. (Value: "UNKNOWN_LANDMARK")
  *    @arg @c kGTLRVision_Landmark_Type_UpperLip Upper lip. (Value: "UPPER_LIP")
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1568,14 +1568,14 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *latitude;
+@property(nonatomic, strong, nullable) NSNumber *latitude;
 
 /**
  *  The longitude in degrees. It must be in the range [-180.0, +180.0].
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *longitude;
+@property(nonatomic, strong, nullable) NSNumber *longitude;
 
 @end
 
@@ -1586,10 +1586,10 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_LatLongRect : GTLRObject
 
 /** Max lat/long pair. */
-@property(strong, nullable) GTLRVision_LatLng *maxLatLng;
+@property(nonatomic, strong, nullable) GTLRVision_LatLng *maxLatLng;
 
 /** Min lat/long pair. */
-@property(strong, nullable) GTLRVision_LatLng *minLatLng;
+@property(nonatomic, strong, nullable) GTLRVision_LatLng *minLatLng;
 
 @end
 
@@ -1600,7 +1600,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_LocationInfo : GTLRObject
 
 /** Lat - long location coordinates. */
-@property(strong, nullable) GTLRVision_LatLng *latLng;
+@property(nonatomic, strong, nullable) GTLRVision_LatLng *latLng;
 
 @end
 
@@ -1617,21 +1617,21 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *x;
+@property(nonatomic, strong, nullable) NSNumber *x;
 
 /**
  *  Y coordinate.
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *y;
+@property(nonatomic, strong, nullable) NSNumber *y;
 
 /**
  *  Z coordinate (or depth).
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *z;
+@property(nonatomic, strong, nullable) NSNumber *z;
 
 @end
 
@@ -1642,10 +1642,10 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_Property : GTLRObject
 
 /** Name of the property. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Value of the property. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1674,7 +1674,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *    @arg @c kGTLRVision_SafeSearchAnnotation_Adult_VeryUnlikely The image very
  *        unlikely belongs to the vertical specified. (Value: "VERY_UNLIKELY")
  */
-@property(copy, nullable) NSString *adult;
+@property(nonatomic, copy, nullable) NSString *adult;
 
 /**
  *  Likelihood this is a medical image.
@@ -1694,7 +1694,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        very unlikely belongs to the vertical specified. (Value:
  *        "VERY_UNLIKELY")
  */
-@property(copy, nullable) NSString *medical;
+@property(nonatomic, copy, nullable) NSString *medical;
 
 /**
  *  Spoof likelihood. The likelihood that an obvious modification
@@ -1715,7 +1715,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *    @arg @c kGTLRVision_SafeSearchAnnotation_Spoof_VeryUnlikely The image very
  *        unlikely belongs to the vertical specified. (Value: "VERY_UNLIKELY")
  */
-@property(copy, nullable) NSString *spoof;
+@property(nonatomic, copy, nullable) NSString *spoof;
 
 /**
  *  Violence likelihood.
@@ -1735,7 +1735,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        very unlikely belongs to the vertical specified. (Value:
  *        "VERY_UNLIKELY")
  */
-@property(copy, nullable) NSString *violence;
+@property(nonatomic, copy, nullable) NSString *violence;
 
 @end
 
@@ -1792,20 +1792,20 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *code;
+@property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
  *  A list of messages that carry the error details. There will be a
  *  common set of message types for APIs to use.
  */
-@property(strong, nullable) NSArray<GTLRVision_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_StatusDetailsItem *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
  *  user-facing error message should be localized and sent in the
  *  google.rpc.Status.details field, or localized by the client.
  */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -1833,14 +1833,14 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *x;
+@property(nonatomic, strong, nullable) NSNumber *x;
 
 /**
  *  Y coordinate.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *y;
+@property(nonatomic, strong, nullable) NSNumber *y;
 
 @end
 

@@ -36,19 +36,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *confidence;
+@property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /** Language code that candidate and notable names are displayed in. */
-@property(copy, nullable) NSString *lang;
+@property(nonatomic, copy, nullable) NSString *lang;
 
 /** Freebase MID of candidate entity. */
-@property(copy, nullable) NSString *mid;
+@property(nonatomic, copy, nullable) NSString *mid;
 
 /** Freebase name of matching entity in specified language. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Type or profession the candidate is notable for. */
-@property(strong, nullable) GTLRFreebase_ReconcileCandidateNotable *notable;
+@property(nonatomic, strong, nullable) GTLRFreebase_ReconcileCandidateNotable *notable;
 
 @end
 
@@ -63,10 +63,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Name of notable category in specified language. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -81,16 +81,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  be evaluated by a more discerning algorithm or human. The matches are
  *  ordered by confidence.
  */
-@property(strong, nullable) NSArray<GTLRFreebase_ReconcileCandidate *> *candidate;
+@property(nonatomic, strong, nullable) NSArray<GTLRFreebase_ReconcileCandidate *> *candidate;
 
 /** Server costs for reconciling. */
-@property(strong, nullable) GTLRFreebase_ReconcileGetCosts *costs;
+@property(nonatomic, strong, nullable) GTLRFreebase_ReconcileGetCosts *costs;
 
 /**
  *  If filled, this entity is guaranteed to match at requested confidence
  *  probability (default 99%).
  */
-@property(strong, nullable) GTLRFreebase_ReconcileCandidate *match;
+@property(nonatomic, strong, nullable) GTLRFreebase_ReconcileCandidate *match;
 
 /**
  *  If filled, then there were recoverable problems that affected the request.
@@ -99,7 +99,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  candidates returned should be considered valid results, with the caveat that
  *  sections of the request were ignored as specified by the warning text.
  */
-@property(strong, nullable) NSArray<GTLRFreebase_ReconcileGetWarningItem *> *warning;
+@property(nonatomic, strong, nullable) NSArray<GTLRFreebase_ReconcileGetWarningItem *> *warning;
 
 @end
 
@@ -114,14 +114,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *hits;
+@property(nonatomic, strong, nullable) NSNumber *hits;
 
 /**
  *  Total milliseconds spent.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *ms;
+@property(nonatomic, strong, nullable) NSNumber *ms;
 
 @end
 
@@ -132,13 +132,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFreebase_ReconcileGetWarningItem : GTLRObject
 
 /** Location of warning in the request e.g. invalid predicate. */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Warning message to display to the user. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 /** Code for identifying classes of warnings. */
-@property(copy, nullable) NSString *reason;
+@property(nonatomic, copy, nullable) NSString *reason;
 
 @end
 

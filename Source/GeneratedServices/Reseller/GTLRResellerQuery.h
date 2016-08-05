@@ -67,7 +67,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @interface GTLRResellerQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -85,7 +85,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 //   +[GTLQueryReseller queryForCustomersGetWithcustomerId:]
 
 /** Id of the Customer */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRReseller_Customer.
@@ -117,7 +117,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  exists. Can be generated at https://admin.google.com/TransferToken.
  *  Optional.
  */
-@property(copy, nullable) NSString *customerAuthToken;
+@property(nonatomic, copy, nullable) NSString *customerAuthToken;
 
 /**
  *  Fetches a @c GTLRReseller_Customer.
@@ -146,7 +146,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 //   +[GTLQueryReseller queryForCustomersPatchWithObject:customerId:]
 
 /** Id of the Customer */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRReseller_Customer.
@@ -177,7 +177,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 //   +[GTLQueryReseller queryForCustomersUpdateWithObject:customerId:]
 
 /** Id of the Customer */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRReseller_Customer.
@@ -207,10 +207,10 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 //   +[GTLQueryReseller queryForSubscriptionsActivateWithcustomerId:subscriptionId:]
 
 /** Id of the Customer */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Id of the subscription, which is unique for a customer */
-@property(copy, nullable) NSString *subscriptionId;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
@@ -240,10 +240,10 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 //   +[GTLQueryReseller queryForSubscriptionsChangePlanWithObject:customerId:subscriptionId:]
 
 /** Id of the Customer */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Id of the subscription, which is unique for a customer */
-@property(copy, nullable) NSString *subscriptionId;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
@@ -275,10 +275,10 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 //   +[GTLQueryReseller queryForSubscriptionsChangeRenewalSettingsWithObject:customerId:subscriptionId:]
 
 /** Id of the Customer */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Id of the subscription, which is unique for a customer */
-@property(copy, nullable) NSString *subscriptionId;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
@@ -310,10 +310,10 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 //   +[GTLQueryReseller queryForSubscriptionsChangeSeatsWithObject:customerId:subscriptionId:]
 
 /** Id of the Customer */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Id of the subscription, which is unique for a customer */
-@property(copy, nullable) NSString *subscriptionId;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
@@ -345,7 +345,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 //   +[GTLQueryReseller queryForSubscriptionsDeleteWithcustomerId:subscriptionId:deletionType:]
 
 /** Id of the Customer */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Whether the subscription is to be fully cancelled or downgraded
@@ -360,10 +360,10 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @arg @c kGTLRResellerDeletionTypeTransferToDirect Transfers a subscription
  *        directly to Google (Value: "transfer_to_direct")
  */
-@property(copy, nullable) NSString *deletionType;
+@property(nonatomic, copy, nullable) NSString *deletionType;
 
 /** Id of the subscription, which is unique for a customer */
-@property(copy, nullable) NSString *subscriptionId;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -408,10 +408,10 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 //   +[GTLQueryReseller queryForSubscriptionsGetWithcustomerId:subscriptionId:]
 
 /** Id of the Customer */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Id of the subscription, which is unique for a customer */
-@property(copy, nullable) NSString *subscriptionId;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
@@ -444,10 +444,10 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  An auth token needed for transferring a subscription. Can be generated at
  *  https://www.google.com/a/cpanel/customer-domain/TransferToken. Optional.
  */
-@property(copy, nullable) NSString *customerAuthToken;
+@property(nonatomic, copy, nullable) NSString *customerAuthToken;
 
 /** Id of the Customer */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
@@ -483,26 +483,26 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  reseller. Can be generated at
  *  https://www.google.com/a/cpanel/customer-domain/TransferToken.Optional.
  */
-@property(copy, nullable) NSString *customerAuthToken;
+@property(nonatomic, copy, nullable) NSString *customerAuthToken;
 
 /** Id of the Customer */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Prefix of the customer's domain name by which the subscriptions should be
  *  filtered. Optional
  */
-@property(copy, nullable) NSString *customerNamePrefix;
+@property(nonatomic, copy, nullable) NSString *customerNamePrefix;
 
 /**
  *  Maximum number of results to return
  *
  *  @note The documented range is 1..100.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** Token to specify next page in the list */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRReseller_Subscriptions.
@@ -533,10 +533,10 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 //   +[GTLQueryReseller queryForSubscriptionsStartPaidServiceWithcustomerId:subscriptionId:]
 
 /** Id of the Customer */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Id of the subscription, which is unique for a customer */
-@property(copy, nullable) NSString *subscriptionId;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
@@ -566,10 +566,10 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 //   +[GTLQueryReseller queryForSubscriptionsSuspendWithcustomerId:subscriptionId:]
 
 /** Id of the Customer */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Id of the subscription, which is unique for a customer */
-@property(copy, nullable) NSString *subscriptionId;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.

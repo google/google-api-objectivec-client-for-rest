@@ -118,7 +118,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 @interface GTLRAdExchangeBuyerQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -139,7 +139,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(assign) NSInteger identifier;
+@property(nonatomic, assign) NSInteger identifier;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_Account.
@@ -194,7 +194,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(assign) NSInteger identifier;
+@property(nonatomic, assign) NSInteger identifier;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_Account.
@@ -228,7 +228,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(assign) NSInteger identifier;
+@property(nonatomic, assign) NSInteger identifier;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_Account.
@@ -258,7 +258,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForBillingInfoGetWithaccountId:]
 
 /** The account id. */
-@property(assign) NSInteger accountId;
+@property(nonatomic, assign) NSInteger accountId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_BillingInfo.
@@ -312,10 +312,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForBudgetGetWithaccountId:billingId:]
 
 /** The account id to get the budget information for. */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /** The billing id to get the budget information for. */
-@property(assign) long long billingId;
+@property(nonatomic, assign) long long billingId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_Budget.
@@ -348,10 +348,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForBudgetPatchWithObject:accountId:billingId:]
 
 /** The account id associated with the budget being updated. */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /** The billing id associated with the budget being updated. */
-@property(assign) long long billingId;
+@property(nonatomic, assign) long long billingId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_Budget.
@@ -386,10 +386,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForBudgetUpdateWithObject:accountId:billingId:]
 
 /** The account id associated with the budget being updated. */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /** The billing id associated with the budget being updated. */
-@property(assign) long long billingId;
+@property(nonatomic, assign) long long billingId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_Budget.
@@ -422,13 +422,13 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForCreativesAddDealWithaccountId:buyerCreativeId:dealId:]
 
 /** The id for the account that will serve this creative. */
-@property(assign) NSInteger accountId;
+@property(nonatomic, assign) NSInteger accountId;
 
 /** The buyer-specific id for this creative. */
-@property(copy, nullable) NSString *buyerCreativeId;
+@property(nonatomic, copy, nullable) NSString *buyerCreativeId;
 
 /** The id of the deal id to associate with this creative. */
-@property(assign) long long dealId;
+@property(nonatomic, assign) long long dealId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -462,10 +462,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForCreativesGetWithaccountId:buyerCreativeId:]
 
 /** The id for the account that will serve this creative. */
-@property(assign) NSInteger accountId;
+@property(nonatomic, assign) NSInteger accountId;
 
 /** The buyer-specific id for this creative. */
-@property(copy, nullable) NSString *buyerCreativeId;
+@property(nonatomic, copy, nullable) NSString *buyerCreativeId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_Creative.
@@ -526,13 +526,13 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *accountId;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *accountId;
 
 /**
  *  When specified, only creatives for the given buyer creative ids are
  *  returned.
  */
-@property(strong, nullable) NSArray<NSString *> *buyerCreativeId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *buyerCreativeId;
 
 /**
  *  When specified, only creatives having the given deals status are returned.
@@ -548,7 +548,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *    @arg @c kGTLRAdExchangeBuyerDealsStatusFilterNotChecked Creatives whose
  *        deals status is not yet checked. (Value: "not_checked")
  */
-@property(copy, nullable) NSString *dealsStatusFilter;
+@property(nonatomic, copy, nullable) NSString *dealsStatusFilter;
 
 /**
  *  Maximum number of entries returned on one result page. If not set, the
@@ -556,7 +556,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *
  *  @note The documented range is 1..1000.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  When specified, only creatives having the given open auction status are
@@ -575,14 +575,14 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *    @arg @c kGTLRAdExchangeBuyerOpenAuctionStatusFilterNotChecked Creatives
  *        whose open auction status is not yet checked. (Value: "not_checked")
  */
-@property(copy, nullable) NSString *openAuctionStatusFilter;
+@property(nonatomic, copy, nullable) NSString *openAuctionStatusFilter;
 
 /**
  *  A continuation token, used to page through ad clients. To retrieve the next
  *  page, set this parameter to the value of "nextPageToken" from the previous
  *  response. Optional.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_CreativesList.
@@ -613,13 +613,13 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForCreativesRemoveDealWithaccountId:buyerCreativeId:dealId:]
 
 /** The id for the account that will serve this creative. */
-@property(assign) NSInteger accountId;
+@property(nonatomic, assign) NSInteger accountId;
 
 /** The buyer-specific id for this creative. */
-@property(copy, nullable) NSString *buyerCreativeId;
+@property(nonatomic, copy, nullable) NSString *buyerCreativeId;
 
 /** The id of the deal id to disassociate with this creative. */
-@property(assign) long long dealId;
+@property(nonatomic, assign) long long dealId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -652,7 +652,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForMarketplacedealsDeleteWithObject:proposalId:]
 
 /** The proposalId to delete deals from. */
-@property(copy, nullable) NSString *proposalId;
+@property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_DeleteOrderDealsResponse.
@@ -683,7 +683,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForMarketplacedealsInsertWithObject:proposalId:]
 
 /** proposalId for which deals need to be added. */
-@property(copy, nullable) NSString *proposalId;
+@property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_AddOrderDealsResponse.
@@ -714,20 +714,20 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForMarketplacedealsListWithproposalId:]
 
 /** Query string to retrieve specific deals. */
-@property(copy, nullable) NSString *pqlQuery;
+@property(nonatomic, copy, nullable) NSString *pqlQuery;
 
 /**
- *  The proposalId to get deals for. To search across proposals specify order_id
- *  = '-' as part of the URL.
+ *  The proposalId to get deals for. To search across all proposals specify
+ *  order_id = '-' as part of the URL.
  */
-@property(copy, nullable) NSString *proposalId;
+@property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_GetOrderDealsResponse.
  *
  *  List all the deals for a given proposal
  *
- *  @param proposalId The proposalId to get deals for. To search across
+ *  @param proposalId The proposalId to get deals for. To search across all
  *    proposals specify order_id = '-' as part of the URL.
  *
  *  @returns GTLRAdExchangeBuyerQuery_MarketplacedealsList
@@ -749,7 +749,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForMarketplacedealsUpdateWithObject:proposalId:]
 
 /** The proposalId to edit deals on. */
-@property(copy, nullable) NSString *proposalId;
+@property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_EditAllOrderDealsResponse.
@@ -780,7 +780,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForMarketplacenotesInsertWithObject:proposalId:]
 
 /** The proposalId to add notes for. */
-@property(copy, nullable) NSString *proposalId;
+@property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_AddOrderNotesResponse.
@@ -810,15 +810,26 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 // Previous library name was
 //   +[GTLQueryAdExchangeBuyer queryForMarketplacenotesListWithproposalId:]
 
-/** The proposalId to get notes for. */
-@property(copy, nullable) NSString *proposalId;
+/**
+ *  Query string to retrieve specific notes. To search the text contents of
+ *  notes, please use syntax like "WHERE note.note = "foo" or "WHERE note.note
+ *  LIKE "%bar%"
+ */
+@property(nonatomic, copy, nullable) NSString *pqlQuery;
+
+/**
+ *  The proposalId to get notes for. To search across all proposals specify
+ *  order_id = '-' as part of the URL.
+ */
+@property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_GetOrderNotesResponse.
  *
  *  Get all the notes associated with a proposal
  *
- *  @param proposalId The proposalId to get notes for.
+ *  @param proposalId The proposalId to get notes for. To search across all
+ *    proposals specify order_id = '-' as part of the URL.
  *
  *  @returns GTLRAdExchangeBuyerQuery_MarketplacenotesList
  */
@@ -839,7 +850,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForMarketplaceprivateauctionUpdateproposalWithObject:privateAuctionId:]
 
 /** The private auction id to be updated. */
-@property(copy, nullable) NSString *privateAuctionId;
+@property(nonatomic, copy, nullable) NSString *privateAuctionId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -871,10 +882,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForPerformanceReportListWithaccountId:endDateTime:startDateTime:]
 
 /** The account id to get the reports. */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /** The end time of the report in ISO 8601 timestamp format using UTC. */
-@property(copy, nullable) NSString *endDateTime;
+@property(nonatomic, copy, nullable) NSString *endDateTime;
 
 /**
  *  Maximum number of entries returned on one result page. If not set, the
@@ -882,17 +893,17 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *
  *  @note The documented range is 1..1000.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  A continuation token, used to page through performance reports. To retrieve
  *  the next page, set this parameter to the value of "nextPageToken" from the
  *  previous response. Optional.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** The start time of the report in ISO 8601 timestamp format using UTC. */
-@property(copy, nullable) NSString *startDateTime;
+@property(nonatomic, copy, nullable) NSString *startDateTime;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_PerformanceReportList.
@@ -926,10 +937,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForPretargetingConfigDeleteWithaccountId:configId:]
 
 /** The account id to delete the pretargeting config for. */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /** The specific id of the configuration to delete. */
-@property(assign) long long configId;
+@property(nonatomic, assign) long long configId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -960,10 +971,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForPretargetingConfigGetWithaccountId:configId:]
 
 /** The account id to get the pretargeting config for. */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /** The specific id of the configuration to retrieve. */
-@property(assign) long long configId;
+@property(nonatomic, assign) long long configId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_PretargetingConfig.
@@ -993,7 +1004,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForPretargetingConfigInsertWithObject:accountId:]
 
 /** The account id to insert the pretargeting config for. */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_PretargetingConfig.
@@ -1024,7 +1035,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForPretargetingConfigListWithaccountId:]
 
 /** The account id to get the pretargeting configs for. */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_PretargetingConfigList.
@@ -1053,10 +1064,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForPretargetingConfigPatchWithObject:accountId:configId:]
 
 /** The account id to update the pretargeting config for. */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /** The specific id of the configuration to update. */
-@property(assign) long long configId;
+@property(nonatomic, assign) long long configId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_PretargetingConfig.
@@ -1090,10 +1101,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForPretargetingConfigUpdateWithObject:accountId:configId:]
 
 /** The account id to update the pretargeting config for. */
-@property(assign) long long accountId;
+@property(nonatomic, assign) long long accountId;
 
 /** The specific id of the configuration to update. */
-@property(assign) long long configId;
+@property(nonatomic, assign) long long configId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_PretargetingConfig.
@@ -1126,7 +1137,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForProductsGetWithproductId:]
 
 /** The id for the product to get the head revision for. */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_Product.
@@ -1154,7 +1165,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForProductsSearch]
 
 /** The pql query used to query for products. */
-@property(copy, nullable) NSString *pqlQuery;
+@property(nonatomic, copy, nullable) NSString *pqlQuery;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_GetOffersResponse.
@@ -1180,7 +1191,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForProposalsGetWithproposalId:]
 
 /** Id of the proposal to retrieve. */
-@property(copy, nullable) NSString *proposalId;
+@property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_Proposal.
@@ -1234,7 +1245,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForProposalsPatchWithObject:proposalId:revisionNumber:updateAction:]
 
 /** The proposal id to update. */
-@property(copy, nullable) NSString *proposalId;
+@property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
  *  The last known revision number to update. If the head revision in the
@@ -1242,7 +1253,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *  should then fetch the latest proposal at head revision and retry the update
  *  at that revision.
  */
-@property(assign) long long revisionNumber;
+@property(nonatomic, assign) long long revisionNumber;
 
 /**
  *  The proposed action to take on the proposal.
@@ -1256,7 +1267,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateFinalized Value
  *        "updateFinalized"
  */
-@property(copy, nullable) NSString *updateAction;
+@property(nonatomic, copy, nullable) NSString *updateAction;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_Proposal.
@@ -1302,7 +1313,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForProposalsSearch]
 
 /** Query string to retrieve specific proposals. */
-@property(copy, nullable) NSString *pqlQuery;
+@property(nonatomic, copy, nullable) NSString *pqlQuery;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_GetOrdersResponse.
@@ -1328,7 +1339,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForProposalsSetupcompleteWithproposalId:]
 
 /** The proposal id for which the setup is complete */
-@property(copy, nullable) NSString *proposalId;
+@property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1357,7 +1368,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForProposalsUpdateWithObject:proposalId:revisionNumber:updateAction:]
 
 /** The proposal id to update. */
-@property(copy, nullable) NSString *proposalId;
+@property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
  *  The last known revision number to update. If the head revision in the
@@ -1365,7 +1376,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *  should then fetch the latest proposal at head revision and retry the update
  *  at that revision.
  */
-@property(assign) long long revisionNumber;
+@property(nonatomic, assign) long long revisionNumber;
 
 /**
  *  The proposed action to take on the proposal.
@@ -1379,7 +1390,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateFinalized Value
  *        "updateFinalized"
  */
-@property(copy, nullable) NSString *updateAction;
+@property(nonatomic, copy, nullable) NSString *updateAction;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_Proposal.
@@ -1425,7 +1436,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 //   +[GTLQueryAdExchangeBuyer queryForPubprofilesListWithaccountId:]
 
 /** The accountId of the publisher to get profiles for. */
-@property(assign) NSInteger accountId;
+@property(nonatomic, assign) NSInteger accountId;
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_GetPublisherProfilesByAccountIdResponse.

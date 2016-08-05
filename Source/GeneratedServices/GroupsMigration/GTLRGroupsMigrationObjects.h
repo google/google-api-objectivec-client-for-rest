@@ -26,10 +26,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGroupsMigration_Groups : GTLRObject
 
 /** The kind of insert resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The status of the insert request. */
-@property(copy, nullable) NSString *responseCode;
+@property(nonatomic, copy, nullable) NSString *responseCode;
 
 @end
 

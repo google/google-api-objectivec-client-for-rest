@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -41,10 +41,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDiscovery queryForApisGetRestWithapi:version:]
 
 /** The name of the API. */
-@property(copy, nullable) NSString *api;
+@property(nonatomic, copy, nullable) NSString *api;
 
 /** The version of the API. */
-@property(copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version;
 
 /**
  *  Fetches a @c GTLRDiscovery_RestDescription.
@@ -71,14 +71,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDiscovery queryForApisList]
 
 /** Only include APIs with the given name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Return only the preferred version of an API.
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL preferred;
+@property(nonatomic, assign) BOOL preferred;
 
 /**
  *  Fetches a @c GTLRDiscovery_DirectoryList.

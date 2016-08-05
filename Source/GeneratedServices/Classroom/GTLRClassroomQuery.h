@@ -83,7 +83,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @interface GTLRClassroomQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -106,7 +106,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course to alias. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Fetches a @c GTLRClassroom_CourseAlias.
@@ -142,13 +142,13 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesAliasesDeleteWithcourseId:alias:]
 
 /** Alias to delete. This may not be the Classroom-assigned identifier. */
-@property(copy, nullable) NSString *alias;
+@property(nonatomic, copy, nullable) NSString *alias;
 
 /**
  *  Identifier of the course whose alias should be deleted. This identifier can
  *  be either the Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Fetches a @c GTLRClassroom_Empty.
@@ -189,21 +189,21 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  The identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Maximum number of items to return. Zero or unspecified indicates that the
  *  server may assign a maximum. The server may return fewer than the specified
  *  number of results.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  nextPageToken value returned from a previous list call, indicating that the
  *  subsequent page of results should be returned. The list request must be
  *  otherwise identical to the one that resulted in this token.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRClassroom_ListCourseAliasesResponse.
@@ -251,7 +251,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Fetches a @c GTLRClassroom_CourseWork.
@@ -302,14 +302,14 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Identifier of the course work.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRClassroom_CourseWork.
@@ -357,7 +357,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Restriction on the work status to return. Only courseWork that matches is
@@ -371,7 +371,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @arg @c kGTLRClassroomCourseWorkStatesDraft Value "DRAFT"
  *    @arg @c kGTLRClassroomCourseWorkStatesDeleted Value "DELETED"
  */
-@property(strong, nullable) NSArray<NSString *> *courseWorkStates;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *courseWorkStates;
 
 /**
  *  Optional sort ordering for results. A comma-separated list of fields with an
@@ -380,21 +380,21 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  specified, `updateTime desc` is the default behavior. Examples: `dueDate
  *  asc,updateTime desc`, `updateTime,dueDate desc`
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Maximum number of items to return. Zero or unspecified indicates that the
  *  server may assign a maximum. The server may return fewer than the specified
  *  number of results.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  nextPageToken value returned from a previous list call, indicating that the
  *  subsequent page of results should be returned. The list request must be
  *  otherwise identical to the one that resulted in this token.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRClassroom_ListCourseWorkResponse.
@@ -445,17 +445,17 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /** Identifier of the course work. */
-@property(copy, nullable) NSString *courseWorkId;
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
 
 /**
  *  Identifier of the student submission.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRClassroom_StudentSubmission.
@@ -508,14 +508,14 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Identifer of the student work to request. If `user_id` is specified, this
  *  may be set to the string literal `"-"` to request student work for all
  *  course work in the specified course.
  */
-@property(copy, nullable) NSString *courseWorkId;
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
 
 /**
  *  Requested lateness value. If specified, returned student submissions are
@@ -528,21 +528,21 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @arg @c kGTLRClassroomLateLateOnly Value "LATE_ONLY"
  *    @arg @c kGTLRClassroomLateNotLateOnly Value "NOT_LATE_ONLY"
  */
-@property(copy, nullable) NSString *late;
+@property(nonatomic, copy, nullable) NSString *late;
 
 /**
  *  Maximum number of items to return. Zero or unspecified indicates that the
  *  server may assign a maximum. The server may return fewer than the specified
  *  number of results.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  nextPageToken value returned from a previous list call, indicating that the
  *  subsequent page of results should be returned. The list request must be
  *  otherwise identical to the one that resulted in this token.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Requested submission states. If specified, returned student submissions
@@ -558,7 +558,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @arg @c kGTLRClassroomStatesReclaimedByStudent Value
  *        "RECLAIMED_BY_STUDENT"
  */
-@property(strong, nullable) NSArray<NSString *> *states;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *states;
 
 /**
  *  Optional argument to restrict returned student work to those owned by the
@@ -566,7 +566,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  following: * the numeric identifier for the user * the email address of the
  *  user * the string literal `"me"`, indicating the requesting user
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRClassroom_ListStudentSubmissionsResponse.
@@ -624,17 +624,17 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /** Identifier of the course work. */
-@property(copy, nullable) NSString *courseWorkId;
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
 
 /**
  *  Identifier of the student submission.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRClassroom_StudentSubmission.
@@ -693,17 +693,17 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /** Identifier of the course work. */
-@property(copy, nullable) NSString *courseWorkId;
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
 
 /**
  *  Identifier of the student submission.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Mask that identifies which fields on the student submission to update. This
@@ -711,7 +711,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  specified. The following fields may be specified by teachers: *
  *  `draft_grade` * `assigned_grade`
  */
-@property(copy, nullable) NSString *updateMask;
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
  *  Fetches a @c GTLRClassroom_StudentSubmission.
@@ -773,17 +773,17 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /** Identifier of the course work. */
-@property(copy, nullable) NSString *courseWorkId;
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
 
 /**
  *  Identifier of the student submission.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRClassroom_Empty.
@@ -847,17 +847,17 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /** Identifier of the course work. */
-@property(copy, nullable) NSString *courseWorkId;
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
 
 /**
  *  Identifier of the student submission.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRClassroom_Empty.
@@ -919,17 +919,17 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /** Identifier of the course work. */
-@property(copy, nullable) NSString *courseWorkId;
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
 
 /**
  *  Identifier of the student submission.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRClassroom_Empty.
@@ -1023,7 +1023,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRClassroom_Empty.
@@ -1064,7 +1064,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRClassroom_Course.
@@ -1105,14 +1105,14 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  server may assign a maximum. The server may return fewer than the specified
  *  number of results.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  nextPageToken value returned from a previous list call, indicating that the
  *  subsequent page of results should be returned. The list request must be
  *  otherwise identical to the one that resulted in this token.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Restricts returned courses to those having a student with the specified
@@ -1120,7 +1120,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identifier for the user * the email address of the user * the string literal
  *  `"me"`, indicating the requesting user
  */
-@property(copy, nullable) NSString *studentId;
+@property(nonatomic, copy, nullable) NSString *studentId;
 
 /**
  *  Restricts returned courses to those having a teacher with the specified
@@ -1128,7 +1128,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identifier for the user * the email address of the user * the string literal
  *  `"me"`, indicating the requesting user
  */
-@property(copy, nullable) NSString *teacherId;
+@property(nonatomic, copy, nullable) NSString *teacherId;
 
 /**
  *  Fetches a @c GTLRClassroom_ListCoursesResponse.
@@ -1173,7 +1173,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Mask that identifies which fields on the course to update. This field is
@@ -1182,7 +1182,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `descriptionHeading` * `description` * `room` * `courseState` When set in a
  *  query parameter, this field should be specified as `updateMask=,,...`
  */
-@property(copy, nullable) NSString *updateMask;
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
  *  Fetches a @c GTLRClassroom_Course.
@@ -1231,7 +1231,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course to create the student in. This identifier can be
  *  either the Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Enrollment code of the course to create the student in. This code is
@@ -1239,7 +1239,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  the requesting user has administrative permissions to create students for
  *  any user.
  */
-@property(copy, nullable) NSString *enrollmentCode;
+@property(nonatomic, copy, nullable) NSString *enrollmentCode;
 
 /**
  *  Fetches a @c GTLRClassroom_Student.
@@ -1283,14 +1283,14 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Identifier of the student to delete. The identifier can be one of the
  *  following: * the numeric identifier for the user * the email address of the
  *  user * the string literal `"me"`, indicating the requesting user
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRClassroom_Empty.
@@ -1336,14 +1336,14 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Identifier of the student to return. The identifier can be one of the
  *  following: * the numeric identifier for the user * the email address of the
  *  user * the string literal `"me"`, indicating the requesting user
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRClassroom_Student.
@@ -1388,20 +1388,20 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Maximum number of items to return. Zero means no maximum. The server may
  *  return fewer than the specified number of results.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  nextPageToken value returned from a previous list call, indicating that the
  *  subsequent page of results should be returned. The list request must be
  *  otherwise identical to the one that resulted in this token.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRClassroom_ListStudentsResponse.
@@ -1448,7 +1448,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Fetches a @c GTLRClassroom_Teacher.
@@ -1494,14 +1494,14 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Identifier of the teacher to delete. The identifier can be one of the
  *  following: * the numeric identifier for the user * the email address of the
  *  user * the string literal `"me"`, indicating the requesting user
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRClassroom_Empty.
@@ -1549,14 +1549,14 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Identifier of the teacher to return. The identifier can be one of the
  *  following: * the numeric identifier for the user * the email address of the
  *  user * the string literal `"me"`, indicating the requesting user
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRClassroom_Teacher.
@@ -1601,20 +1601,20 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Identifier of the course. This identifier can be either the
  *  Classroom-assigned identifier or an alias.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Maximum number of items to return. Zero means no maximum. The server may
  *  return fewer than the specified number of results.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  nextPageToken value returned from a previous list call, indicating that the
  *  subsequent page of results should be returned. The list request must be
  *  otherwise identical to the one that resulted in this token.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRClassroom_ListTeachersResponse.
@@ -1658,7 +1658,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRClassroom_Course.
@@ -1705,7 +1705,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRClassroom_Empty.
@@ -1789,7 +1789,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRClassroom_Empty.
@@ -1828,7 +1828,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRClassroom_Invitation.
@@ -1867,20 +1867,20 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Restricts returned invitations to those for a course with the specified
  *  identifier.
  */
-@property(copy, nullable) NSString *courseId;
+@property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Maximum number of items to return. Zero means no maximum. The server may
  *  return fewer than the specified number of results.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  nextPageToken value returned from a previous list call, indicating that the
  *  subsequent page of results should be returned. The list request must be
  *  otherwise identical to the one that resulted in this token.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Restricts returned invitations to those for a specific user. The identifier
@@ -1888,7 +1888,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  email address of the user * the string literal `"me"`, indicating the
  *  requesting user
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRClassroom_ListInvitationsResponse.
@@ -1932,7 +1932,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  following: * the numeric identifier for the user * the email address of the
  *  user * the string literal `"me"`, indicating the requesting user
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRClassroom_UserProfile.

@@ -100,7 +100,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
 @interface GTLRPartnersQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -144,16 +144,16 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *  given, the geo-located address of the request is used. Used when order_by is
  *  set.
  */
-@property(copy, nullable) NSString *address;
+@property(nonatomic, copy, nullable) NSString *address;
 
 /** The ID of the company to retrieve. */
-@property(copy, nullable) NSString *companyId;
+@property(nonatomic, copy, nullable) NSString *companyId;
 
 /**
  *  If the company's budget is in a different currency code than this one, then
  *  the converted budget is converted to this currency code.
  */
-@property(copy, nullable) NSString *currencyCode;
+@property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
  *  How to order addresses within the returned company. Currently, only
@@ -161,35 +161,35 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *  farthest in distance from given address and farthest to closest distance
  *  from given address respectively.
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Experiment IDs the current request belongs to. */
-@property(strong, nullable) NSArray<NSString *> *requestMetadataExperimentIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestMetadataExperimentIds;
 
 /** Locale to use for the current request. */
-@property(copy, nullable) NSString *requestMetadataLocale;
+@property(nonatomic, copy, nullable) NSString *requestMetadataLocale;
 
 /** Google Partners session ID. */
-@property(copy, nullable) NSString *requestMetadataPartnersSessionId;
+@property(nonatomic, copy, nullable) NSString *requestMetadataPartnersSessionId;
 
 /**
  *  Identifier to indicate where the traffic comes from. An identifier has
  *  multiple letters created by a team which redirected the traffic to us.
  */
-@property(copy, nullable) NSString *requestMetadataTrafficSourceTrafficSourceId;
+@property(nonatomic, copy, nullable) NSString *requestMetadataTrafficSourceTrafficSourceId;
 
 /**
  *  Second level identifier to indicate where the traffic comes from. An
  *  identifier has multiple letters created by a team which redirected the
  *  traffic to us.
  */
-@property(copy, nullable) NSString *requestMetadataTrafficSourceTrafficSubId;
+@property(nonatomic, copy, nullable) NSString *requestMetadataTrafficSourceTrafficSubId;
 
 /** IP address to use instead of the user's geo-located IP address. */
-@property(copy, nullable) NSString *requestMetadataUserOverridesIpAddress;
+@property(nonatomic, copy, nullable) NSString *requestMetadataUserOverridesIpAddress;
 
 /** Logged-in user ID to impersonate instead of the user's ID. */
-@property(copy, nullable) NSString *requestMetadataUserOverridesUserId;
+@property(nonatomic, copy, nullable) NSString *requestMetadataUserOverridesUserId;
 
 /**
  *  The view of `Company` resource to be returned. This must not be
@@ -201,7 +201,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *    @arg @c kGTLRPartnersViewCvGooglePartnerSearch Value
  *        "CV_GOOGLE_PARTNER_SEARCH"
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRPartners_GetCompanyResponse.
@@ -226,7 +226,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
 //   +[GTLQueryPartners queryForCompaniesLeadsCreateWithObject:companyId:]
 
 /** The ID of the company to contact. */
-@property(copy, nullable) NSString *companyId;
+@property(nonatomic, copy, nullable) NSString *companyId;
 
 /**
  *  Fetches a @c GTLRPartners_CreateLeadResponse.
@@ -256,10 +256,10 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *  The address to use when searching for companies. If not given, the
  *  geo-located address of the request is used.
  */
-@property(copy, nullable) NSString *address;
+@property(nonatomic, copy, nullable) NSString *address;
 
 /** Company name to search for. */
-@property(copy, nullable) NSString *companyName;
+@property(nonatomic, copy, nullable) NSString *companyName;
 
 /**
  *  List of reasons for using Google Partner Search to get companies.
@@ -273,7 +273,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *        "GPSM_HELP_WITH_WEBSITE"
  *    @arg @c kGTLRPartnersGpsMotivationsGpsmNoWebsite Value "GPSM_NO_WEBSITE"
  */
-@property(strong, nullable) NSArray<NSString *> *gpsMotivations;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gpsMotivations;
 
 /**
  *  List of industries the company can help with.
@@ -295,17 +295,17 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *    @arg @c kGTLRPartnersIndustriesITechnology Value "I_TECHNOLOGY"
  *    @arg @c kGTLRPartnersIndustriesITravel Value "I_TRAVEL"
  */
-@property(strong, nullable) NSArray<NSString *> *industries;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *industries;
 
 /**
  *  List of language codes that company can support. Only primary language
  *  subtags are accepted as defined by BCP 47 (IETF BCP 47, "Tags for
  *  Identifying Languages").
  */
-@property(strong, nullable) NSArray<NSString *> *languageCodes;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *languageCodes;
 
 /** The 3-letter currency code defined in ISO 4217. */
-@property(copy, nullable) NSString *maxMonthlyBudgetCurrencyCode;
+@property(nonatomic, copy, nullable) NSString *maxMonthlyBudgetCurrencyCode;
 
 /**
  *  Number of nano (10^-9) units of the amount. The value must be between
@@ -314,16 +314,16 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *  or negative. If `units` is negative, `nanos` must be negative or zero. For
  *  example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
  */
-@property(assign) NSInteger maxMonthlyBudgetNanos;
+@property(nonatomic, assign) NSInteger maxMonthlyBudgetNanos;
 
 /**
  *  The whole units of the amount. For example if `currencyCode` is `"USD"`,
  *  then 1 unit is one US dollar.
  */
-@property(assign) long long maxMonthlyBudgetUnits;
+@property(nonatomic, assign) long long maxMonthlyBudgetUnits;
 
 /** The 3-letter currency code defined in ISO 4217. */
-@property(copy, nullable) NSString *minMonthlyBudgetCurrencyCode;
+@property(nonatomic, copy, nullable) NSString *minMonthlyBudgetCurrencyCode;
 
 /**
  *  Number of nano (10^-9) units of the amount. The value must be between
@@ -332,13 +332,13 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *  or negative. If `units` is negative, `nanos` must be negative or zero. For
  *  example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
  */
-@property(assign) NSInteger minMonthlyBudgetNanos;
+@property(nonatomic, assign) NSInteger minMonthlyBudgetNanos;
 
 /**
  *  The whole units of the amount. For example if `currencyCode` is `"USD"`,
  *  then 1 unit is one US dollar.
  */
-@property(assign) long long minMonthlyBudgetUnits;
+@property(nonatomic, assign) long long minMonthlyBudgetUnits;
 
 /**
  *  How to order addresses within the returned companies. Currently, only
@@ -346,48 +346,48 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *  farthest in distance from given address and farthest to closest distance
  *  from given address respectively.
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Requested page size. Server may return fewer companies than requested. If
  *  unspecified, server picks an appropriate default.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A token identifying a page of results that the server returns. Typically,
  *  this is the value of `ListCompaniesResponse.next_page_token` returned from
  *  the previous call to ListCompanies.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Experiment IDs the current request belongs to. */
-@property(strong, nullable) NSArray<NSString *> *requestMetadataExperimentIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestMetadataExperimentIds;
 
 /** Locale to use for the current request. */
-@property(copy, nullable) NSString *requestMetadataLocale;
+@property(nonatomic, copy, nullable) NSString *requestMetadataLocale;
 
 /** Google Partners session ID. */
-@property(copy, nullable) NSString *requestMetadataPartnersSessionId;
+@property(nonatomic, copy, nullable) NSString *requestMetadataPartnersSessionId;
 
 /**
  *  Identifier to indicate where the traffic comes from. An identifier has
  *  multiple letters created by a team which redirected the traffic to us.
  */
-@property(copy, nullable) NSString *requestMetadataTrafficSourceTrafficSourceId;
+@property(nonatomic, copy, nullable) NSString *requestMetadataTrafficSourceTrafficSourceId;
 
 /**
  *  Second level identifier to indicate where the traffic comes from. An
  *  identifier has multiple letters created by a team which redirected the
  *  traffic to us.
  */
-@property(copy, nullable) NSString *requestMetadataTrafficSourceTrafficSubId;
+@property(nonatomic, copy, nullable) NSString *requestMetadataTrafficSourceTrafficSubId;
 
 /** IP address to use instead of the user's geo-located IP address. */
-@property(copy, nullable) NSString *requestMetadataUserOverridesIpAddress;
+@property(nonatomic, copy, nullable) NSString *requestMetadataUserOverridesIpAddress;
 
 /** Logged-in user ID to impersonate instead of the user's ID. */
-@property(copy, nullable) NSString *requestMetadataUserOverridesUserId;
+@property(nonatomic, copy, nullable) NSString *requestMetadataUserOverridesUserId;
 
 /**
  *  List of services the company can help with.
@@ -406,7 +406,7 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *    @arg @c kGTLRPartnersServicesSMobileAndVideoAds Value
  *        "S_MOBILE_AND_VIDEO_ADS"
  */
-@property(strong, nullable) NSArray<NSString *> *services;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
 /**
  *  The view of the `Company` resource to be returned. This must not be
@@ -418,10 +418,10 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
  *    @arg @c kGTLRPartnersViewCvGooglePartnerSearch Value
  *        "CV_GOOGLE_PARTNER_SEARCH"
  */
-@property(copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view;
 
 /** Website URL that will help to find a better matched company. . */
-@property(copy, nullable) NSString *websiteUrl;
+@property(nonatomic, copy, nullable) NSString *websiteUrl;
 
 /**
  *  Fetches a @c GTLRPartners_ListCompaniesResponse.
@@ -471,32 +471,32 @@ GTLR_EXTERN NSString * const kGTLRPartnersViewCvGooglePartnerSearch;
 //   +[GTLQueryPartners queryForUserStatesList]
 
 /** Experiment IDs the current request belongs to. */
-@property(strong, nullable) NSArray<NSString *> *requestMetadataExperimentIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestMetadataExperimentIds;
 
 /** Locale to use for the current request. */
-@property(copy, nullable) NSString *requestMetadataLocale;
+@property(nonatomic, copy, nullable) NSString *requestMetadataLocale;
 
 /** Google Partners session ID. */
-@property(copy, nullable) NSString *requestMetadataPartnersSessionId;
+@property(nonatomic, copy, nullable) NSString *requestMetadataPartnersSessionId;
 
 /**
  *  Identifier to indicate where the traffic comes from. An identifier has
  *  multiple letters created by a team which redirected the traffic to us.
  */
-@property(copy, nullable) NSString *requestMetadataTrafficSourceTrafficSourceId;
+@property(nonatomic, copy, nullable) NSString *requestMetadataTrafficSourceTrafficSourceId;
 
 /**
  *  Second level identifier to indicate where the traffic comes from. An
  *  identifier has multiple letters created by a team which redirected the
  *  traffic to us.
  */
-@property(copy, nullable) NSString *requestMetadataTrafficSourceTrafficSubId;
+@property(nonatomic, copy, nullable) NSString *requestMetadataTrafficSourceTrafficSubId;
 
 /** IP address to use instead of the user's geo-located IP address. */
-@property(copy, nullable) NSString *requestMetadataUserOverridesIpAddress;
+@property(nonatomic, copy, nullable) NSString *requestMetadataUserOverridesIpAddress;
 
 /** Logged-in user ID to impersonate instead of the user's ID. */
-@property(copy, nullable) NSString *requestMetadataUserOverridesUserId;
+@property(nonatomic, copy, nullable) NSString *requestMetadataUserOverridesUserId;
 
 /**
  *  Fetches a @c GTLRPartners_ListUserStatesResponse.

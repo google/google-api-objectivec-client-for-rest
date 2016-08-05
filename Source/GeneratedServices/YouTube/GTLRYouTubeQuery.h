@@ -563,7 +563,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
 @interface GTLRYouTubeQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -591,7 +591,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  properties that the write operation will set as well as the properties that
  *  the API response will include.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_Activity.
@@ -637,13 +637,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The channelId parameter specifies a unique YouTube channel ID. The API will
  *  then return a list of that channel's activities.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  Set this parameter's value to true to retrieve the activity feed that
  *  displays on the YouTube home page for the currently authenticated user.
  */
-@property(assign) BOOL home;
+@property(nonatomic, assign) BOOL home;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -652,20 +652,20 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 0..50).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Set this parameter's value to true to retrieve a feed of the authenticated
  *  user's activities.
  */
-@property(assign) BOOL mine;
+@property(nonatomic, assign) BOOL mine;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken and prevPageToken
  *  properties identify other pages that could be retrieved.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more activity
@@ -677,7 +677,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  forth. If you set part=snippet, the API response will also contain all of
  *  those nested properties.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  The publishedAfter parameter specifies the earliest date and time that an
@@ -686,7 +686,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  activities that occurred that day will be included in the result set. The
  *  value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *publishedAfter;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAfter;
 
 /**
  *  The publishedBefore parameter specifies the date and time before which an
@@ -695,7 +695,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  activities that occurred that day will be excluded from the result set. The
  *  value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
-@property(strong, nullable) GTLRDateTime *publishedBefore;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedBefore;
 
 /**
  *  The regionCode parameter instructs the API to return results for the
@@ -704,7 +704,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  on YouTube does not provide enough information to generate the activity
  *  feed.
  */
-@property(copy, nullable) NSString *regionCode;
+@property(nonatomic, copy, nullable) NSString *regionCode;
 
 /**
  *  Fetches a @c GTLRYouTube_ActivityListResponse.
@@ -753,12 +753,12 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  ID of the Google+ Page for the channel that the request is be on behalf of
  */
-@property(copy, nullable) NSString *onBehalfOf;
+@property(nonatomic, copy, nullable) NSString *onBehalfOf;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -772,7 +772,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  account that the user authenticates with must be linked to the specified
  *  YouTube content owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -813,12 +813,12 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  ID of the Google+ Page for the channel that the request is be on behalf of
  */
-@property(copy, nullable) NSString *onBehalfOf;
+@property(nonatomic, copy, nullable) NSString *onBehalfOf;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -832,7 +832,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  account that the user authenticates with must be linked to the specified
  *  YouTube content owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The tfmt parameter specifies that the caption track should be returned in a
@@ -848,7 +848,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        "ttml")
  *    @arg @c kGTLRYouTubeTfmtVtt Web Video Text Tracks caption. (Value: "vtt")
  */
-@property(copy, nullable) NSString *tfmt;
+@property(nonatomic, copy, nullable) NSString *tfmt;
 
 /**
  *  The tlang parameter specifies that the API response should return a
@@ -857,7 +857,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The translation is generated by using machine translation, such as Google
  *  Translate.
  */
-@property(copy, nullable) NSString *tlang;
+@property(nonatomic, copy, nullable) NSString *tlang;
 
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.
@@ -893,7 +893,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
 /**
  *  ID of the Google+ Page for the channel that the request is be on behalf of
  */
-@property(copy, nullable) NSString *onBehalfOf;
+@property(nonatomic, copy, nullable) NSString *onBehalfOf;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -907,13 +907,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  account that the user authenticates with must be linked to the specified
  *  YouTube content owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The part parameter specifies the caption resource parts that the API
  *  response will include. Set the parameter value to snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  The sync parameter indicates whether YouTube should automatically
@@ -924,7 +924,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  which has no time codes, or if you suspect the time codes in your file are
  *  incorrect and want YouTube to try to fix them.
  */
-@property(assign) BOOL sync;
+@property(nonatomic, assign) BOOL sync;
 
 /**
  *  Fetches a @c GTLRYouTube_Caption.
@@ -967,12 +967,12 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  ID of the Google+ Page for the channel that the request is on behalf of.
  */
-@property(copy, nullable) NSString *onBehalfOf;
+@property(nonatomic, copy, nullable) NSString *onBehalfOf;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -986,20 +986,20 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  account that the user authenticates with must be linked to the specified
  *  YouTube content owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more caption
  *  resource parts that the API response will include. The part names that you
  *  can include in the parameter value are id and snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  The videoId parameter specifies the YouTube video ID of the video for which
  *  the API should return caption tracks.
  */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 /**
  *  Fetches a @c GTLRYouTube_CaptionListResponse.
@@ -1038,7 +1038,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
 /**
  *  ID of the Google+ Page for the channel that the request is be on behalf of
  */
-@property(copy, nullable) NSString *onBehalfOf;
+@property(nonatomic, copy, nullable) NSString *onBehalfOf;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -1052,7 +1052,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  account that the user authenticates with must be linked to the specified
  *  YouTube content owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
@@ -1060,7 +1060,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the API response will include. Set the property value to snippet if you are
  *  updating the track's draft status. Otherwise, set the property value to id.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Note: The API server only processes the parameter value if the request
@@ -1070,7 +1070,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the value to true, YouTube will automatically synchronize the caption track
  *  with the audio track.
  */
-@property(assign) BOOL sync;
+@property(nonatomic, assign) BOOL sync;
 
 /**
  *  Fetches a @c GTLRYouTube_Caption.
@@ -1130,7 +1130,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Fetches a @c GTLRYouTube_ChannelBannerResource.
@@ -1179,7 +1179,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -1193,7 +1193,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1237,7 +1237,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -1257,7 +1257,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
@@ -1266,7 +1266,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The part names that you can include in the parameter value are snippet and
  *  contentDetails.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_ChannelSection.
@@ -1306,7 +1306,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The channelId parameter specifies a YouTube channel ID. The API will only
  *  return that channel's channelSections.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  The hl parameter indicates that the snippet.localized property values in the
@@ -1317,7 +1317,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  owners can provide localized channel section titles using either the
  *  channelSections.insert or channelSections.update method.
  */
-@property(copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl;
 
 /**
  *  The id parameter specifies a comma-separated list of the YouTube
@@ -1327,13 +1327,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Set this parameter's value to true to retrieve a feed of the authenticated
  *  user's channelSections.
  */
-@property(assign) BOOL mine;
+@property(nonatomic, assign) BOOL mine;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -1347,7 +1347,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more
@@ -1360,7 +1360,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  such as a display title for the channelSection. If you set part=snippet, the
  *  API response will also contain all of those nested properties.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_ChannelSectionListResponse.
@@ -1409,7 +1409,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
@@ -1418,7 +1418,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The part names that you can include in the parameter value are snippet and
  *  contentDetails.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_ChannelSection.
@@ -1460,19 +1460,19 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The categoryId parameter specifies a YouTube guide category, thereby
  *  requesting YouTube channels associated with that category.
  */
-@property(copy, nullable) NSString *categoryId;
+@property(nonatomic, copy, nullable) NSString *categoryId;
 
 /**
  *  The forUsername parameter specifies a YouTube username, thereby requesting
  *  the channel associated with that username.
  */
-@property(copy, nullable) NSString *forUsername;
+@property(nonatomic, copy, nullable) NSString *forUsername;
 
 /**
  *  The hl parameter should be used for filter out the properties that are not
  *  in the given language. Used for the brandingSettings part.
  */
-@property(copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl;
 
 /**
  *  The id parameter specifies a comma-separated list of the YouTube channel
@@ -1481,7 +1481,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -1490,7 +1490,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  parameter specifies. The user must be authenticated as a CMS account linked
  *  to the specified content owner and onBehalfOfContentOwner must be provided.
  */
-@property(assign) BOOL managedByMe;
+@property(nonatomic, assign) BOOL managedByMe;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -1499,19 +1499,19 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 0..50).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Set this parameter's value to true to instruct the API to only return
  *  channels owned by the authenticated user.
  */
-@property(assign) BOOL mine;
+@property(nonatomic, assign) BOOL mine;
 
 /**
  *  Use the subscriptions.list method and its mySubscribers parameter to
  *  retrieve a list of subscribers to the authenticated user's channel.
  */
-@property(assign) BOOL mySubscribers;
+@property(nonatomic, assign) BOOL mySubscribers;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -1525,14 +1525,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken and prevPageToken
  *  properties identify other pages that could be retrieved.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more channel
@@ -1543,7 +1543,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  uploads properties. As such, if you set part=contentDetails, the API
  *  response will also contain all of those nested properties.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_ChannelListResponse.
@@ -1595,7 +1595,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  CMS account that the user authenticates with needs to be linked to the
  *  specified YouTube content owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
@@ -1608,7 +1608,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  properties that are contained in any parts that the parameter value
  *  specifies.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_Channel.
@@ -1653,7 +1653,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1688,7 +1688,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  include. Set the parameter value to snippet. The snippet part has a quota
  *  cost of 2 units.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_Comment.
@@ -1727,7 +1727,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -1738,7 +1738,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 1..100).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
@@ -1747,7 +1747,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  Note: This parameter is not supported for use in conjunction with the id
  *  parameter.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The parentId parameter specifies the ID of the comment for which replies
@@ -1755,13 +1755,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  Note: YouTube currently supports replies only for top-level comments.
  *  However, replies to replies may be supported in the future.
  */
-@property(copy, nullable) NSString *parentId;
+@property(nonatomic, copy, nullable) NSString *parentId;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more comment
  *  resource properties that the API response will include.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  This parameter indicates whether the API should return comments formatted as
@@ -1775,7 +1775,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @note If not set, the documented server-side default will be "FORMAT_HTML".
  */
-@property(copy, nullable) NSString *textFormat;
+@property(nonatomic, copy, nullable) NSString *textFormat;
 
 /**
  *  Fetches a @c GTLRYouTube_CommentListResponse.
@@ -1814,7 +1814,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1855,7 +1855,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(assign) BOOL banAuthor;
+@property(nonatomic, assign) BOOL banAuthor;
 
 /**
  *  The id parameter specifies a comma-separated list of IDs that identify the
@@ -1863,7 +1863,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies the new moderation status of the specified comments.
@@ -1883,7 +1883,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        replies would subsequently be discoverable again as well. (Value:
  *        "rejected")
  */
-@property(copy, nullable) NSString *moderationStatus;
+@property(nonatomic, copy, nullable) NSString *moderationStatus;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1939,7 +1939,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  since that part contains all of the properties that the API request can
  *  update.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_Comment.
@@ -1977,7 +1977,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  include. Set the parameter value to snippet. The snippet part has a quota
  *  cost of 2 units.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_CommentThread.
@@ -2014,14 +2014,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  comment threads associated with the specified channel. The response can
  *  include comments about the channel or about the channel's videos.
  */
-@property(copy, nullable) NSString *allThreadsRelatedToChannelId;
+@property(nonatomic, copy, nullable) NSString *allThreadsRelatedToChannelId;
 
 /**
  *  The channelId parameter instructs the API to return comment threads
  *  containing comments about the specified channel. (The response will not
  *  include comments left on videos that the channel uploaded.)
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  The id parameter specifies a comma-separated list of comment thread IDs for
@@ -2029,7 +2029,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -2040,7 +2040,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 1..100).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Set this parameter to limit the returned comment threads to a particular
@@ -2066,7 +2066,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be
  *        "MODERATION_STATUS_PUBLISHED".
  */
-@property(copy, nullable) NSString *moderationStatus;
+@property(nonatomic, copy, nullable) NSString *moderationStatus;
 
 /**
  *  The order parameter specifies the order in which the API response should
@@ -2082,7 +2082,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @note If not set, the documented server-side default will be "true".
  */
-@property(copy, nullable) NSString *order;
+@property(nonatomic, copy, nullable) NSString *order;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
@@ -2091,13 +2091,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  Note: This parameter is not supported for use in conjunction with the id
  *  parameter.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more
  *  commentThread resource properties that the API response will include.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  The searchTerms parameter instructs the API to limit the API response to
@@ -2105,7 +2105,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  Note: This parameter is not supported for use in conjunction with the id
  *  parameter.
  */
-@property(copy, nullable) NSString *searchTerms;
+@property(nonatomic, copy, nullable) NSString *searchTerms;
 
 /**
  *  Set this parameter's value to html or plainText to instruct the API to
@@ -2119,13 +2119,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @note If not set, the documented server-side default will be "FORMAT_HTML".
  */
-@property(copy, nullable) NSString *textFormat;
+@property(nonatomic, copy, nullable) NSString *textFormat;
 
 /**
  *  The videoId parameter instructs the API to return comment threads associated
  *  with the specified video ID.
  */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 /**
  *  Fetches a @c GTLRYouTube_CommentThreadListResponse.
@@ -2163,7 +2163,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  include the snippet part in the parameter value since that part contains all
  *  of the properties that the API request can update.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_CommentThread.
@@ -2207,7 +2207,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  localized details are not available, the snippet.localized object will
  *  contain resource details in the resource's default language.
  */
-@property(copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -2216,20 +2216,20 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 0..50).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken and prevPageToken
  *  properties identify other pages that could be retrieved.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies the fanFundingEvent resource parts that the API
  *  response will include. Supported values are id and snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_FanFundingEventListResponse.
@@ -2270,7 +2270,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @note If not set, the documented server-side default will be en-US.
  */
-@property(copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl;
 
 /**
  *  The id parameter specifies a comma-separated list of the YouTube channel
@@ -2280,20 +2280,20 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The part parameter specifies the guideCategory resource properties that the
  *  API response will include. Set the parameter value to snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  The regionCode parameter instructs the API to return the list of guide
  *  categories available in the specified country. The parameter value is an ISO
  *  3166-1 alpha-2 country code.
  */
-@property(copy, nullable) NSString *regionCode;
+@property(nonatomic, copy, nullable) NSString *regionCode;
 
 /**
  *  Fetches a @c GTLRYouTube_GuideCategoryListResponse.
@@ -2331,13 +2331,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @note If not set, the documented server-side default will be en_US.
  */
-@property(copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl;
 
 /**
  *  The part parameter specifies the i18nLanguage resource properties that the
  *  API response will include. Set the parameter value to snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_I18nLanguageListResponse.
@@ -2375,13 +2375,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @note If not set, the documented server-side default will be en_US.
  */
-@property(copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl;
 
 /**
  *  The part parameter specifies the i18nRegion resource properties that the API
  *  response will include. Set the parameter value to snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_I18nRegionListResponse.
@@ -2418,7 +2418,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -2432,7 +2432,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -2452,7 +2452,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more
@@ -2460,14 +2460,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  part names that you can include in the parameter value are id, snippet,
  *  contentDetails, and status.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  The streamId parameter specifies the unique ID of the video stream that is
  *  being bound to a broadcast. If this parameter is omitted, the API will
  *  remove any existing binding between the broadcast and a video stream.
  */
-@property(copy, nullable) NSString *streamId;
+@property(nonatomic, copy, nullable) NSString *streamId;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveBroadcast.
@@ -2508,7 +2508,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The displaySlate parameter specifies whether the slate is being enabled or
  *  disabled.
  */
-@property(assign) BOOL displaySlate;
+@property(nonatomic, assign) BOOL displaySlate;
 
 /**
  *  The id parameter specifies the YouTube live broadcast ID that uniquely
@@ -2516,7 +2516,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The offsetTimeMs parameter specifies a positive time offset when the
@@ -2530,7 +2530,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  Important: You should only specify a value for this parameter if your
  *  broadcast stream is delayed.
  */
-@property(assign) unsigned long long offsetTimeMs;
+@property(nonatomic, assign) unsigned long long offsetTimeMs;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -2544,7 +2544,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -2564,7 +2564,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more
@@ -2572,14 +2572,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  part names that you can include in the parameter value are id, snippet,
  *  contentDetails, and status.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  The walltime parameter specifies the wall clock time at which the specified
  *  slate change will occur. The value is specified in ISO 8601
  *  (YYYY-MM-DDThh:mm:ss.sssZ) format.
  */
-@property(strong, nullable) GTLRDateTime *walltime;
+@property(nonatomic, strong, nullable) GTLRDateTime *walltime;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveBroadcast.
@@ -2621,7 +2621,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -2635,7 +2635,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -2655,7 +2655,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2697,7 +2697,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -2717,7 +2717,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
@@ -2726,7 +2726,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The part properties that you can include in the parameter value are id,
  *  snippet, contentDetails, and status.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveBroadcast.
@@ -2775,7 +2775,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeBroadcastStatusUpcoming Return broadcasts that have
  *        not yet started. (Value: "upcoming")
  */
-@property(copy, nullable) NSString *broadcastStatus;
+@property(nonatomic, copy, nullable) NSString *broadcastStatus;
 
 /**
  *  The broadcastType parameter filters the API response to only include
@@ -2792,7 +2792,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be
  *        "BROADCAST_TYPE_FILTER_EVENT".
  */
-@property(copy, nullable) NSString *broadcastType;
+@property(nonatomic, copy, nullable) NSString *broadcastType;
 
 /**
  *  The id parameter specifies a comma-separated list of YouTube broadcast IDs
@@ -2801,7 +2801,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -2810,14 +2810,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 0..50).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The mine parameter can be used to instruct the API to only return broadcasts
  *  owned by the authenticated user. Set the parameter value to true to only
  *  retrieve your own broadcasts.
  */
-@property(assign) BOOL mine;
+@property(nonatomic, assign) BOOL mine;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -2831,7 +2831,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -2851,14 +2851,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken and prevPageToken
  *  properties identify other pages that could be retrieved.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more
@@ -2866,7 +2866,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  part names that you can include in the parameter value are id, snippet,
  *  contentDetails, and status.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveBroadcastListResponse.
@@ -2924,7 +2924,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        contentDetails.monitorStream.enableMonitorStream property is set to
  *        true. (Value: "testing")
  */
-@property(copy, nullable) NSString *broadcastStatus;
+@property(nonatomic, copy, nullable) NSString *broadcastStatus;
 
 /**
  *  The id parameter specifies the unique ID of the broadcast that is
@@ -2932,7 +2932,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -2946,7 +2946,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -2966,7 +2966,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more
@@ -2974,7 +2974,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  part names that you can include in the parameter value are id, snippet,
  *  contentDetails, and status.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveBroadcast.
@@ -3043,7 +3043,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -3063,7 +3063,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
@@ -3081,7 +3081,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  existing privacy setting will be removed and the broadcast will revert to
  *  the default privacy setting.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveBroadcast.
@@ -3131,7 +3131,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3166,7 +3166,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  properties that the write operation will set as well as the properties that
  *  the API response returns. Set the parameter value to snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveChatBan.
@@ -3205,7 +3205,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3240,7 +3240,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the write operation will set as well as the properties that the API response
  *  will include. Set the parameter value to snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveChatMessage.
@@ -3283,13 +3283,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  localized details are not available, the snippet.localized object will
  *  contain resource details in the resource's default language.
  */
-@property(copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl;
 
 /**
  *  The liveChatId parameter specifies the ID of the chat whose messages will be
  *  returned.
  */
-@property(copy, nullable) NSString *liveChatId;
+@property(nonatomic, copy, nullable) NSString *liveChatId;
 
 /**
  *  The maxResults parameter specifies the maximum number of messages that
@@ -3298,20 +3298,20 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 500 (from the
  *        range 200..2000).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken property identify
  *  other pages that could be retrieved.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies the liveChatComment resource parts that the API
  *  response will include. Supported values are id and snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  The profileImageSize parameter specifies the size of the user profile
@@ -3319,7 +3319,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @note The documented range is 16..720.
  */
-@property(assign) NSUInteger profileImageSize;
+@property(nonatomic, assign) NSUInteger profileImageSize;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveChatMessageListResponse.
@@ -3361,7 +3361,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3396,7 +3396,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  properties that the write operation will set as well as the properties that
  *  the API response returns. Set the parameter value to snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveChatModerator.
@@ -3434,7 +3434,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The liveChatId parameter specifies the YouTube live chat for which the API
  *  should return moderators.
  */
-@property(copy, nullable) NSString *liveChatId;
+@property(nonatomic, copy, nullable) NSString *liveChatId;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -3443,20 +3443,20 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 0..50).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken and prevPageToken
  *  properties identify other pages that could be retrieved.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies the liveChatModerator resource parts that the
  *  API response will include. Supported values are id and snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveChatModeratorListResponse.
@@ -3499,7 +3499,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -3513,7 +3513,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -3533,7 +3533,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3576,7 +3576,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -3596,7 +3596,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
@@ -3605,7 +3605,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The part properties that you can include in the parameter value are id,
  *  snippet, cdn, and status.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveStream.
@@ -3648,7 +3648,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -3657,14 +3657,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 0..50).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The mine parameter can be used to instruct the API to only return streams
  *  owned by the authenticated user. Set the parameter value to true to only
  *  retrieve your own streams.
  */
-@property(assign) BOOL mine;
+@property(nonatomic, assign) BOOL mine;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -3678,7 +3678,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -3698,14 +3698,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken and prevPageToken
  *  properties identify other pages that could be retrieved.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more
@@ -3713,7 +3713,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  names that you can include in the parameter value are id, snippet, cdn, and
  *  status.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveStreamListResponse.
@@ -3761,7 +3761,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -3781,7 +3781,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
@@ -3794,7 +3794,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  specifies. If the request body does not specify a value for a mutable
  *  property, the existing value for that property will be removed.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_LiveStream.
@@ -3841,7 +3841,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3885,14 +3885,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
  *  properties that the write operation will set as well as the properties that
  *  the API response will include.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_PlaylistItem.
@@ -3934,7 +3934,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -3943,7 +3943,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 0..50).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -3957,14 +3957,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken and prevPageToken
  *  properties identify other pages that could be retrieved.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more
@@ -3976,7 +3976,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  such, if you set part=snippet, the API response will contain all of those
  *  properties.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  The playlistId parameter specifies the unique ID of the playlist for which
@@ -3984,13 +3984,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  optional parameter, every request to retrieve playlist items must specify a
  *  value for either the id parameter or the playlistId parameter.
  */
-@property(copy, nullable) NSString *playlistId;
+@property(nonatomic, copy, nullable) NSString *playlistId;
 
 /**
  *  The videoId parameter specifies that the request should return only the
  *  playlist items that contain the specified video.
  */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 /**
  *  Fetches a @c GTLRYouTube_PlaylistItemListResponse.
@@ -4048,7 +4048,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  body does not specify values, the existing start and end times will be
  *  removed and replaced with the default settings.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_PlaylistItem.
@@ -4099,7 +4099,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -4113,7 +4113,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -4157,7 +4157,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -4177,14 +4177,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
  *  properties that the write operation will set as well as the properties that
  *  the API response will include.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_Playlist.
@@ -4224,13 +4224,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  This value indicates that the API should only return the specified channel's
  *  playlists.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  The hl parameter should be used for filter out the properties that are not
  *  in the given language. Used for the snippet part.
  */
-@property(copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl;
 
 /**
  *  The id parameter specifies a comma-separated list of the YouTube playlist
@@ -4239,7 +4239,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -4248,13 +4248,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 0..50).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Set this parameter's value to true to instruct the API to only return
  *  playlists owned by the authenticated user.
  */
-@property(assign) BOOL mine;
+@property(nonatomic, assign) BOOL mine;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -4268,7 +4268,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -4288,14 +4288,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken and prevPageToken
  *  properties identify other pages that could be retrieved.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more playlist
@@ -4306,7 +4306,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  title, description, tags, and timeCreated. As such, if you set part=snippet,
  *  the API response will contain all of those properties.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_PlaylistListResponse.
@@ -4360,7 +4360,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
@@ -4373,7 +4373,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  a value for the snippet.description property, the playlist's existing
  *  description will be deleted.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_Playlist.
@@ -4421,7 +4421,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The channelId parameter indicates that the API response should only contain
  *  resources created by the channel
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  The channelType parameter lets you restrict a search to a particular type of
@@ -4431,7 +4431,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeChannelTypeAny Return all channels. (Value: "any")
  *    @arg @c kGTLRYouTubeChannelTypeShow Only retrieve shows. (Value: "show")
  */
-@property(copy, nullable) NSString *channelType;
+@property(nonatomic, copy, nullable) NSString *channelType;
 
 /**
  *  The eventType parameter restricts a search to broadcast events. If you
@@ -4446,7 +4446,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeEventTypeUpcoming Only include upcoming broadcasts.
  *        (Value: "upcoming")
  */
-@property(copy, nullable) NSString *eventType;
+@property(nonatomic, copy, nullable) NSString *eventType;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -4455,7 +4455,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  parameter. The user must be authenticated using a CMS account linked to the
  *  specified content owner and onBehalfOfContentOwner must be provided.
  */
-@property(assign) BOOL forContentOwner;
+@property(nonatomic, assign) BOOL forContentOwner;
 
 /**
  *  The forDeveloper parameter restricts the search to only retrieve videos
@@ -4464,14 +4464,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  developer can restrict results to videos uploaded through the developer's
  *  own app or website but not to videos uploaded through other apps or sites.
  */
-@property(assign) BOOL forDeveloper;
+@property(nonatomic, assign) BOOL forDeveloper;
 
 /**
  *  The forMine parameter restricts the search to only retrieve videos owned by
  *  the authenticated user. If you set this parameter to true, then the type
  *  parameter's value must also be set to video.
  */
-@property(assign) BOOL forMine;
+@property(nonatomic, assign) BOOL forMine;
 
 /**
  *  The location parameter, in conjunction with the locationRadius parameter,
@@ -4487,7 +4487,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  request specifies a value for the location parameter but does not also
  *  specify a value for the locationRadius parameter.
  */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  The locationRadius parameter, in conjunction with the location parameter,
@@ -4499,7 +4499,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  kilometers.
  *  Note: See the definition of the location parameter for more information.
  */
-@property(copy, nullable) NSString *locationRadius;
+@property(nonatomic, copy, nullable) NSString *locationRadius;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -4508,7 +4508,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 0..50).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -4522,7 +4522,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The order parameter specifies the method that will be used to order
@@ -4547,35 +4547,35 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be
  *        "SEARCH_SORT_RELEVANCE".
  */
-@property(copy, nullable) NSString *order;
+@property(nonatomic, copy, nullable) NSString *order;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken and prevPageToken
  *  properties identify other pages that could be retrieved.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more search
  *  resource properties that the API response will include. Set the parameter
  *  value to snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  The publishedAfter parameter indicates that the API response should only
  *  contain resources created after the specified time. The value is an RFC 3339
  *  formatted date-time value (1970-01-01T00:00:00Z).
  */
-@property(strong, nullable) GTLRDateTime *publishedAfter;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAfter;
 
 /**
  *  The publishedBefore parameter indicates that the API response should only
  *  contain resources created before the specified time. The value is an RFC
  *  3339 formatted date-time value (1970-01-01T00:00:00Z).
  */
-@property(strong, nullable) GTLRDateTime *publishedBefore;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedBefore;
 
 /**
  *  The q parameter specifies the query term to search for.
@@ -4588,14 +4588,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  character must be URL-escaped when it is sent in your API request. The
  *  URL-escaped value for the pipe character is %7C.
  */
-@property(copy, nullable) NSString *q;
+@property(nonatomic, copy, nullable) NSString *q;
 
 /**
  *  The regionCode parameter instructs the API to return search results for the
  *  specified country. The parameter value is an ISO 3166-1 alpha-2 country
  *  code.
  */
-@property(copy, nullable) NSString *regionCode;
+@property(nonatomic, copy, nullable) NSString *regionCode;
 
 /**
  *  The relatedToVideoId parameter retrieves a list of videos that are related
@@ -4603,7 +4603,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  be set to a YouTube video ID and, if you are using this parameter, the type
  *  parameter must be set to video.
  */
-@property(copy, nullable) NSString *relatedToVideoId;
+@property(nonatomic, copy, nullable) NSString *relatedToVideoId;
 
 /**
  *  The relevanceLanguage parameter instructs the API to return search results
@@ -4613,7 +4613,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  Please note that results in other languages will still be returned if they
  *  are highly relevant to the search query term.
  */
-@property(copy, nullable) NSString *relevanceLanguage;
+@property(nonatomic, copy, nullable) NSString *relevanceLanguage;
 
 /**
  *  The safeSearch parameter indicates whether the search results should include
@@ -4632,14 +4632,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        search results could be removed from search results or demoted in
  *        search results. (Value: "strict")
  */
-@property(copy, nullable) NSString *safeSearch;
+@property(nonatomic, copy, nullable) NSString *safeSearch;
 
 /**
  *  The topicId parameter indicates that the API response should only contain
  *  resources associated with the specified topic. The value identifies a
  *  Freebase topic ID.
  */
-@property(copy, nullable) NSString *topicId;
+@property(nonatomic, copy, nullable) NSString *topicId;
 
 /**
  *  The type parameter restricts a search query to only retrieve a particular
@@ -4648,7 +4648,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be
  *        video,channel,playlist.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The videoCaption parameter indicates whether the API should filter video
@@ -4663,14 +4663,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeVideoCaptionNone Only include videos that do not have
  *        captions. (Value: "none")
  */
-@property(copy, nullable) NSString *videoCaption;
+@property(nonatomic, copy, nullable) NSString *videoCaption;
 
 /**
  *  The videoCategoryId parameter filters video search results based on their
  *  category. If you specify a value for this parameter, you must also set the
  *  type parameter's value to video.
  */
-@property(copy, nullable) NSString *videoCategoryId;
+@property(nonatomic, copy, nullable) NSString *videoCategoryId;
 
 /**
  *  The videoDefinition parameter lets you restrict a search to only include
@@ -4687,7 +4687,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeVideoDefinitionStandard Only retrieve videos in
  *        standard definition. (Value: "standard")
  */
-@property(copy, nullable) NSString *videoDefinition;
+@property(nonatomic, copy, nullable) NSString *videoDefinition;
 
 /**
  *  The videoDimension parameter lets you restrict a search to only retrieve 2D
@@ -4702,7 +4702,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeVideoDimensionAny Include both 3D and non-3D videos in
  *        returned results. This is the default value. (Value: "any")
  */
-@property(copy, nullable) NSString *videoDimension;
+@property(nonatomic, copy, nullable) NSString *videoDimension;
 
 /**
  *  The videoDuration parameter filters video search results based on their
@@ -4719,7 +4719,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeVideoDurationShort Only include videos that are less
  *        than four minutes long. (Value: "short")
  */
-@property(copy, nullable) NSString *videoDuration;
+@property(nonatomic, copy, nullable) NSString *videoDuration;
 
 /**
  *  The videoEmbeddable parameter lets you to restrict a search to only videos
@@ -4732,7 +4732,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeVideoEmbeddableTrue Only retrieve embeddable videos.
  *        (Value: "true")
  */
-@property(copy, nullable) NSString *videoEmbeddable;
+@property(nonatomic, copy, nullable) NSString *videoEmbeddable;
 
 /**
  *  The videoLicense parameter filters search results to only include videos
@@ -4751,7 +4751,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeVideoLicenseYoutube Only return videos that have the
  *        standard YouTube license. (Value: "youtube")
  */
-@property(copy, nullable) NSString *videoLicense;
+@property(nonatomic, copy, nullable) NSString *videoLicense;
 
 /**
  *  The videoSyndicated parameter lets you to restrict a search to only videos
@@ -4764,7 +4764,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeVideoSyndicatedTrue Only retrieve syndicated videos.
  *        (Value: "true")
  */
-@property(copy, nullable) NSString *videoSyndicated;
+@property(nonatomic, copy, nullable) NSString *videoSyndicated;
 
 /**
  *  The videoType parameter lets you restrict a search to a particular type of
@@ -4777,7 +4777,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        (Value: "episode")
  *    @arg @c kGTLRYouTubeVideoTypeMovie Only retrieve movies. (Value: "movie")
  */
-@property(copy, nullable) NSString *videoType;
+@property(nonatomic, copy, nullable) NSString *videoType;
 
 /**
  *  Fetches a @c GTLRYouTube_SearchListResponse.
@@ -4826,7 +4826,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @note If not set, the documented server-side default will be "POLL_NEWEST".
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -4835,20 +4835,20 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 0..50).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken and prevPageToken
  *  properties identify other pages that could be retrieved.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies the sponsor resource parts that the API
  *  response will include. Supported values are id and snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_SponsorListResponse.
@@ -4889,7 +4889,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -4926,7 +4926,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  properties that the write operation will set as well as the properties that
  *  the API response will include.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_Subscription.
@@ -4964,14 +4964,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The channelId parameter specifies a YouTube channel ID. The API will only
  *  return that channel's subscriptions.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  The forChannelId parameter specifies a comma-separated list of channel IDs.
  *  The API response will then only contain subscriptions matching those
  *  channels.
  */
-@property(copy, nullable) NSString *forChannelId;
+@property(nonatomic, copy, nullable) NSString *forChannelId;
 
 /**
  *  The id parameter specifies a comma-separated list of the YouTube
@@ -4981,7 +4981,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -4990,25 +4990,25 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 0..50).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Set this parameter's value to true to retrieve a feed of the authenticated
  *  user's subscriptions.
  */
-@property(assign) BOOL mine;
+@property(nonatomic, assign) BOOL mine;
 
 /**
  *  Set this parameter's value to true to retrieve a feed of the subscribers of
  *  the authenticated user in reverse chronological order (newest first).
  */
-@property(assign) BOOL myRecentSubscribers;
+@property(nonatomic, assign) BOOL myRecentSubscribers;
 
 /**
  *  Set this parameter's value to true to retrieve a feed of the subscribers of
  *  the authenticated user in no particular order.
  */
-@property(assign) BOOL mySubscribers;
+@property(nonatomic, assign) BOOL mySubscribers;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -5022,7 +5022,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -5042,7 +5042,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The order parameter specifies the method that will be used to sort resources
@@ -5058,14 +5058,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be
  *        "SUBSCRIPTION_ORDER_RELEVANCE".
  */
-@property(copy, nullable) NSString *order;
+@property(nonatomic, copy, nullable) NSString *order;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
  *  should be returned. In an API response, the nextPageToken and prevPageToken
  *  properties identify other pages that could be retrieved.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more
@@ -5076,7 +5076,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  as a display title for the subscription. If you set part=snippet, the API
  *  response will also contain all of those nested properties.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_SubscriptionListResponse.
@@ -5128,13 +5128,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  account that the user authenticates with must be linked to the specified
  *  YouTube content owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The videoId parameter specifies a YouTube video ID for which the custom
  *  video thumbnail is being provided.
  */
-@property(copy, nullable) NSString *videoId;
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 /**
  *  Fetches a @c GTLRYouTube_ThumbnailSetResponse.
@@ -5174,13 +5174,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @note If not set, the documented server-side default will be en_US.
  */
-@property(copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl;
 
 /**
  *  The part parameter specifies the videoCategory resource parts that the API
  *  response will include. Supported values are id and snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_VideoAbuseReportReasonListResponse.
@@ -5218,7 +5218,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @note If not set, the documented server-side default will be en_US.
  */
-@property(copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl;
 
 /**
  *  The id parameter specifies a comma-separated list of video category IDs for
@@ -5226,20 +5226,20 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The part parameter specifies the videoCategory resource properties that the
  *  API response will include. Set the parameter value to snippet.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  The regionCode parameter instructs the API to return the list of video
  *  categories available in the specified country. The parameter value is an ISO
  *  3166-1 alpha-2 country code.
  */
-@property(copy, nullable) NSString *regionCode;
+@property(nonatomic, copy, nullable) NSString *regionCode;
 
 /**
  *  Fetches a @c GTLRYouTube_VideoCategoryListResponse.
@@ -5277,7 +5277,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -5291,7 +5291,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  account that the user authenticates with must be linked to the specified
  *  YouTube content owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -5331,7 +5331,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -5345,7 +5345,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Fetches a @c GTLRYouTube_VideoGetRatingResponse.
@@ -5383,7 +5383,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The autoLevels parameter indicates whether YouTube should automatically
  *  enhance the video's lighting and color.
  */
-@property(assign) BOOL autoLevels;
+@property(nonatomic, assign) BOOL autoLevels;
 
 /**
  *  The notifySubscribers parameter indicates whether YouTube should send a
@@ -5395,7 +5395,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @note If not set, the documented server-side default will be true.
  */
-@property(assign) BOOL notifySubscribers;
+@property(nonatomic, assign) BOOL notifySubscribers;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -5409,7 +5409,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  This parameter can only be used in a properly authorized request. Note: This
@@ -5429,7 +5429,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  value, without having to provide authentication credentials for each
  *  separate channel.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
@@ -5441,13 +5441,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  set or modify. If the parameter value specifies a part that does not contain
  *  mutable values, that part will still be included in the API response.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  The stabilize parameter indicates whether YouTube should adjust the video to
  *  remove shaky camera motions.
  */
-@property(assign) BOOL stabilize;
+@property(nonatomic, assign) BOOL stabilize;
 
 /**
  *  Fetches a @c GTLRYouTube_Video.
@@ -5498,7 +5498,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        the specified content region and video category. (Value:
  *        "mostPopular")
  */
-@property(copy, nullable) NSString *chart;
+@property(nonatomic, copy, nullable) NSString *chart;
 
 /**
  *  The hl parameter instructs the API to retrieve localized resource metadata
@@ -5510,7 +5510,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  localized details are not available, the snippet.localized object will
  *  contain resource details in the resource's default language.
  */
-@property(copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl;
 
 /**
  *  The id parameter specifies a comma-separated list of the YouTube video ID(s)
@@ -5519,10 +5519,10 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** DEPRECATED */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  The maxResults parameter specifies the maximum number of items that should
@@ -5534,7 +5534,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 1..50).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Set this parameter's value to like or dislike to instruct the API to only
@@ -5546,7 +5546,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeMyRatingLike Returns only video liked by the
  *        authenticated user. (Value: "like")
  */
-@property(copy, nullable) NSString *myRating;
+@property(nonatomic, copy, nullable) NSString *myRating;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -5560,7 +5560,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The pageToken parameter identifies a specific page in the result set that
@@ -5570,7 +5570,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  parameter, but it is not supported for use in conjunction with the id
  *  parameter.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The part parameter specifies a comma-separated list of one or more video
@@ -5581,7 +5581,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  tags, and categoryId properties. As such, if you set part=snippet, the API
  *  response will contain all of those properties.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  The regionCode parameter instructs the API to select a video chart available
@@ -5589,7 +5589,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the chart parameter. The parameter value is an ISO 3166-1 alpha-2 country
  *  code.
  */
-@property(copy, nullable) NSString *regionCode;
+@property(nonatomic, copy, nullable) NSString *regionCode;
 
 /**
  *  The videoCategoryId parameter identifies the video category for which the
@@ -5599,7 +5599,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  @note If not set, the documented server-side default will be 0.
  */
-@property(copy, nullable) NSString *videoCategoryId;
+@property(nonatomic, copy, nullable) NSString *videoCategoryId;
 
 /**
  *  Fetches a @c GTLRYouTube_VideoListResponse.
@@ -5644,7 +5644,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Specifies the rating to record.
@@ -5657,7 +5657,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeRatingNone Removes any rating that the authenticated
  *        user had previously set for the video. (Value: "none")
  */
-@property(copy, nullable) NSString *rating;
+@property(nonatomic, copy, nullable) NSString *rating;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -5710,7 +5710,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -5752,7 +5752,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  account that the user authenticates with must be linked to the specified
  *  YouTube content owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
@@ -5773,7 +5773,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  does not contain mutable values, that part will still be included in the API
  *  response.
  */
-@property(copy, nullable) NSString *part;
+@property(nonatomic, copy, nullable) NSString *part;
 
 /**
  *  Fetches a @c GTLRYouTube_Video.
@@ -5826,7 +5826,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The channelId parameter specifies the YouTube channel ID for which the
  *  watermark is being provided.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -5840,7 +5840,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -5880,7 +5880,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The channelId parameter specifies the YouTube channel ID for which the
  *  watermark is being unset.
  */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
  *  Note: This parameter is intended exclusively for YouTube content partners.
@@ -5894,7 +5894,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  the user authenticates with must be linked to the specified YouTube content
  *  owner.
  */
-@property(copy, nullable) NSString *onBehalfOfContentOwner;
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will

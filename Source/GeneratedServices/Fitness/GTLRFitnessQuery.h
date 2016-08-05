@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFitnessQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -50,6 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationRead
  *    @c kGTLRAuthScopeFitnessLocationWrite
+ *    @c kGTLRAuthScopeFitnessNutritionRead
+ *    @c kGTLRAuthScopeFitnessNutritionWrite
  */
 @interface GTLRFitnessQuery_UsersDatasetAggregate : GTLRFitnessQuery
 // Previous library name was
@@ -59,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Aggregate data for the person identified. Use me to indicate the
  *  authenticated user. Only me is supported at this time.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRFitness_AggregateResponse.
@@ -95,6 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessActivityWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationWrite
+ *    @c kGTLRAuthScopeFitnessNutritionWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesCreate : GTLRFitnessQuery
 // Previous library name was
@@ -104,7 +107,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Create the data source for the person identified. Use me to indicate the
  *  authenticated user. Only me is supported at this time.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRFitness_DataSource.
@@ -143,13 +146,14 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessActivityWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationWrite
+ *    @c kGTLRAuthScopeFitnessNutritionWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesDatasetsDelete : GTLRFitnessQuery
 // Previous library name was
 //   +[GTLQueryFitness queryForUsersDataSourcesDatasetsDeleteWithuserId:dataSourceId:datasetId:]
 
 /** The client's current time in milliseconds since epoch. */
-@property(assign) long long currentTimeMillis;
+@property(nonatomic, assign) long long currentTimeMillis;
 
 /**
  *  Dataset identifier that is a composite of the minimum data point start time
@@ -157,19 +161,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  The ID is formatted like: "startTime-endTime" where startTime and endTime
  *  are 64 bit integers.
  */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** The data stream ID of the data source that created the dataset. */
-@property(copy, nullable) NSString *dataSourceId;
+@property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /** When the operation was performed on the client. */
-@property(assign) long long modifiedTimeMillis;
+@property(nonatomic, assign) long long modifiedTimeMillis;
 
 /**
  *  Delete a dataset for the person identified. Use me to indicate the
  *  authenticated user. Only me is supported at this time.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -215,6 +219,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationRead
  *    @c kGTLRAuthScopeFitnessLocationWrite
+ *    @c kGTLRAuthScopeFitnessNutritionRead
+ *    @c kGTLRAuthScopeFitnessNutritionWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesDatasetsGet : GTLRFitnessQuery
 // Previous library name was
@@ -226,17 +232,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  The ID is formatted like: "startTime-endTime" where startTime and endTime
  *  are 64 bit integers.
  */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** The data stream ID of the data source that created the dataset. */
-@property(copy, nullable) NSString *dataSourceId;
+@property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /**
  *  If specified, no more than this many data points will be included in the
- *  dataset. If the there are more data points in the dataset, nextPageToken
- *  will be set in the dataset response.
+ *  dataset. If there are more data points in the dataset, nextPageToken will be
+ *  set in the dataset response.
  */
-@property(assign) NSInteger limit;
+@property(nonatomic, assign) NSInteger limit;
 
 /**
  *  The continuation token, which is used to page through large datasets. To get
@@ -245,13 +251,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  dataset with data point end timestamps that are strictly smaller than those
  *  in the previous partial response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Retrieve a dataset for the person identified. Use me to indicate the
  *  authenticated user. Only me is supported at this time.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRFitness_Dataset.
@@ -295,6 +301,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessActivityWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationWrite
+ *    @c kGTLRAuthScopeFitnessNutritionWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesDatasetsPatch : GTLRFitnessQuery
 // Previous library name was
@@ -305,7 +312,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  minStartTimeNs and maxEndTimeNs properties in the request body are in
  *  nanoseconds instead of milliseconds.
  */
-@property(assign) long long currentTimeMillis;
+@property(nonatomic, assign) long long currentTimeMillis;
 
 /**
  *  Dataset identifier that is a composite of the minimum data point start time
@@ -313,16 +320,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  The ID is formatted like: "startTime-endTime" where startTime and endTime
  *  are 64 bit integers.
  */
-@property(copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** The data stream ID of the data source that created the dataset. */
-@property(copy, nullable) NSString *dataSourceId;
+@property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /**
  *  Patch a dataset for the person identified. Use me to indicate the
  *  authenticated user. Only me is supported at this time.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRFitness_Dataset.
@@ -361,19 +368,20 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessActivityWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationWrite
+ *    @c kGTLRAuthScopeFitnessNutritionWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesDelete : GTLRFitnessQuery
 // Previous library name was
 //   +[GTLQueryFitness queryForUsersDataSourcesDeleteWithuserId:dataSourceId:]
 
 /** The data stream ID of the data source to delete. */
-@property(copy, nullable) NSString *dataSourceId;
+@property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /**
  *  Retrieve a data source for the person identified. Use me to indicate the
  *  authenticated user. Only me is supported at this time.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRFitness_DataSource.
@@ -404,19 +412,21 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationRead
  *    @c kGTLRAuthScopeFitnessLocationWrite
+ *    @c kGTLRAuthScopeFitnessNutritionRead
+ *    @c kGTLRAuthScopeFitnessNutritionWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesGet : GTLRFitnessQuery
 // Previous library name was
 //   +[GTLQueryFitness queryForUsersDataSourcesGetWithuserId:dataSourceId:]
 
 /** The data stream ID of the data source to retrieve. */
-@property(copy, nullable) NSString *dataSourceId;
+@property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /**
  *  Retrieve a data source for the person identified. Use me to indicate the
  *  authenticated user. Only me is supported at this time.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRFitness_DataSource.
@@ -449,6 +459,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationRead
  *    @c kGTLRAuthScopeFitnessLocationWrite
+ *    @c kGTLRAuthScopeFitnessNutritionRead
+ *    @c kGTLRAuthScopeFitnessNutritionWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesList : GTLRFitnessQuery
 // Previous library name was
@@ -458,13 +470,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The names of data types to include in the list. If not specified, all data
  *  sources will be returned.
  */
-@property(strong, nullable) NSArray<NSString *> *dataTypeName;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataTypeName;
 
 /**
  *  List data sources for the person identified. Use me to indicate the
  *  authenticated user. Only me is supported at this time.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRFitness_ListDataSourcesResponse.
@@ -496,19 +508,20 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessActivityWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationWrite
+ *    @c kGTLRAuthScopeFitnessNutritionWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesPatch : GTLRFitnessQuery
 // Previous library name was
 //   +[GTLQueryFitness queryForUsersDataSourcesPatchWithObject:userId:dataSourceId:]
 
 /** The data stream ID of the data source to update. */
-@property(copy, nullable) NSString *dataSourceId;
+@property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /**
  *  Update the data source for the person identified. Use me to indicate the
  *  authenticated user. Only me is supported at this time.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRFitness_DataSource.
@@ -544,19 +557,20 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessActivityWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationWrite
+ *    @c kGTLRAuthScopeFitnessNutritionWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesUpdate : GTLRFitnessQuery
 // Previous library name was
 //   +[GTLQueryFitness queryForUsersDataSourcesUpdateWithObject:userId:dataSourceId:]
 
 /** The data stream ID of the data source to update. */
-@property(copy, nullable) NSString *dataSourceId;
+@property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /**
  *  Update the data source for the person identified. Use me to indicate the
  *  authenticated user. Only me is supported at this time.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRFitness_DataSource.
@@ -592,16 +606,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFitness queryForUsersSessionsDeleteWithuserId:sessionId:]
 
 /** The client's current time in milliseconds since epoch. */
-@property(assign) long long currentTimeMillis;
+@property(nonatomic, assign) long long currentTimeMillis;
 
 /** The ID of the session to be deleted. */
-@property(copy, nullable) NSString *sessionId;
+@property(nonatomic, copy, nullable) NSString *sessionId;
 
 /**
  *  Delete a session for the person identified. Use me to indicate the
  *  authenticated user. Only me is supported at this time.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -632,6 +646,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationRead
  *    @c kGTLRAuthScopeFitnessLocationWrite
+ *    @c kGTLRAuthScopeFitnessNutritionRead
+ *    @c kGTLRAuthScopeFitnessNutritionWrite
  */
 @interface GTLRFitnessQuery_UsersSessionsList : GTLRFitnessQuery
 // Previous library name was
@@ -641,33 +657,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  An RFC3339 timestamp. Only sessions ending between the start and end times
  *  will be included in the response.
  */
-@property(copy, nullable) NSString *endTime;
+@property(nonatomic, copy, nullable) NSString *endTime;
 
 /**
  *  If true, deleted sessions will be returned. When set to true, sessions
  *  returned in this response will only have an ID and will not have any other
  *  fields.
  */
-@property(assign) BOOL includeDeleted;
+@property(nonatomic, assign) BOOL includeDeleted;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  nextPageToken from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  An RFC3339 timestamp. Only sessions ending between the start and end times
  *  will be included in the response.
  */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
  *  List sessions for the person identified. Use me to indicate the
  *  authenticated user. Only me is supported at this time.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRFitness_ListSessionsResponse.
@@ -696,16 +712,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFitness queryForUsersSessionsUpdateWithObject:userId:sessionId:]
 
 /** The client's current time in milliseconds since epoch. */
-@property(assign) long long currentTimeMillis;
+@property(nonatomic, assign) long long currentTimeMillis;
 
 /** The ID of the session to be created. */
-@property(copy, nullable) NSString *sessionId;
+@property(nonatomic, copy, nullable) NSString *sessionId;
 
 /**
  *  Create sessions for the person identified. Use me to indicate the
  *  authenticated user. Only me is supported at this time.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRFitness_Session.

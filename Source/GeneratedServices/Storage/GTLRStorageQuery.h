@@ -164,7 +164,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @interface GTLRStorageQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -183,13 +183,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForBucketAccessControlsDeleteWithbucket:entity:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  The entity holding the permission. Can be user-userId, user-emailAddress,
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
-@property(copy, nullable) NSString *entity;
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -224,13 +224,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForBucketAccessControlsGetWithbucket:entity:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  The entity holding the permission. Can be user-userId, user-emailAddress,
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
-@property(copy, nullable) NSString *entity;
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  Fetches a @c GTLRStorage_BucketAccessControl.
@@ -263,7 +263,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForBucketAccessControlsInsertWithObject:bucket:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  Fetches a @c GTLRStorage_BucketAccessControl.
@@ -295,7 +295,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForBucketAccessControlsListWithbucket:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  Fetches a @c GTLRStorage_BucketAccessControls.
@@ -325,13 +325,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForBucketAccessControlsPatchWithObject:bucket:entity:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  The entity holding the permission. Can be user-userId, user-emailAddress,
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
-@property(copy, nullable) NSString *entity;
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  Fetches a @c GTLRStorage_BucketAccessControl.
@@ -368,13 +368,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForBucketAccessControlsUpdateWithObject:bucket:entity:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  The entity holding the permission. Can be user-userId, user-emailAddress,
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
-@property(copy, nullable) NSString *entity;
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  Fetches a @c GTLRStorage_BucketAccessControl.
@@ -411,18 +411,18 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForBucketsDeleteWithbucket:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  If set, only deletes the bucket if its metageneration matches this value.
  */
-@property(assign) long long ifMetagenerationMatch;
+@property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
  *  If set, only deletes the bucket if its metageneration does not match this
  *  value.
  */
-@property(assign) long long ifMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -455,19 +455,19 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForBucketsGetWithbucket:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  Makes the return of the bucket metadata conditional on whether the bucket's
  *  current metageneration matches the given value.
  */
-@property(assign) long long ifMetagenerationMatch;
+@property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
  *  Makes the return of the bucket metadata conditional on whether the bucket's
  *  current metageneration does not match the given value.
  */
-@property(assign) long long ifMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
  *  Set of properties to return. Defaults to noAcl.
@@ -477,7 +477,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageProjectionNoAcl Omit owner, acl and defaultObjectAcl
  *        properties. (Value: "noAcl")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Fetches a @c GTLRStorage_Bucket.
@@ -523,7 +523,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        OWNER access, and allUsers get WRITER access. (Value:
  *        "publicReadWrite")
  */
-@property(copy, nullable) NSString *predefinedAcl;
+@property(nonatomic, copy, nullable) NSString *predefinedAcl;
 
 /**
  *  Apply a predefined set of default object access controls to this bucket.
@@ -546,10 +546,10 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStoragePredefinedDefaultObjectAclPublicRead Object owner gets
  *        OWNER access, and allUsers get READER access. (Value: "publicRead")
  */
-@property(copy, nullable) NSString *predefinedDefaultObjectAcl;
+@property(nonatomic, copy, nullable) NSString *predefinedDefaultObjectAcl;
 
 /** A valid API project identifier. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Set of properties to return. Defaults to noAcl, unless the bucket resource
@@ -560,7 +560,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageProjectionNoAcl Omit owner, acl and defaultObjectAcl
  *        properties. (Value: "noAcl")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Fetches a @c GTLRStorage_Bucket.
@@ -594,19 +594,19 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForBucketsListWithproject:]
 
 /** Maximum number of buckets to return. */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  A previously-returned page token representing part of the larger set of
  *  results to view.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Filter results to buckets whose names begin with this prefix. */
-@property(copy, nullable) NSString *prefix;
+@property(nonatomic, copy, nullable) NSString *prefix;
 
 /** A valid API project identifier. */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Set of properties to return. Defaults to noAcl.
@@ -616,7 +616,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageProjectionNoAcl Omit owner, acl and defaultObjectAcl
  *        properties. (Value: "noAcl")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Fetches a @c GTLRStorage_Buckets.
@@ -649,19 +649,19 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForBucketsPatchWithObject:bucket:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  Makes the return of the bucket metadata conditional on whether the bucket's
  *  current metageneration matches the given value.
  */
-@property(assign) long long ifMetagenerationMatch;
+@property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
  *  Makes the return of the bucket metadata conditional on whether the bucket's
  *  current metageneration does not match the given value.
  */
-@property(assign) long long ifMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
  *  Apply a predefined set of access controls to this bucket.
@@ -680,7 +680,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        OWNER access, and allUsers get WRITER access. (Value:
  *        "publicReadWrite")
  */
-@property(copy, nullable) NSString *predefinedAcl;
+@property(nonatomic, copy, nullable) NSString *predefinedAcl;
 
 /**
  *  Apply a predefined set of default object access controls to this bucket.
@@ -703,7 +703,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStoragePredefinedDefaultObjectAclPublicRead Object owner gets
  *        OWNER access, and allUsers get READER access. (Value: "publicRead")
  */
-@property(copy, nullable) NSString *predefinedDefaultObjectAcl;
+@property(nonatomic, copy, nullable) NSString *predefinedDefaultObjectAcl;
 
 /**
  *  Set of properties to return. Defaults to full.
@@ -713,7 +713,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageProjectionNoAcl Omit owner, acl and defaultObjectAcl
  *        properties. (Value: "noAcl")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Fetches a @c GTLRStorage_Bucket.
@@ -744,19 +744,19 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForBucketsUpdateWithObject:bucket:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  Makes the return of the bucket metadata conditional on whether the bucket's
  *  current metageneration matches the given value.
  */
-@property(assign) long long ifMetagenerationMatch;
+@property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
  *  Makes the return of the bucket metadata conditional on whether the bucket's
  *  current metageneration does not match the given value.
  */
-@property(assign) long long ifMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
  *  Apply a predefined set of access controls to this bucket.
@@ -775,7 +775,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        OWNER access, and allUsers get WRITER access. (Value:
  *        "publicReadWrite")
  */
-@property(copy, nullable) NSString *predefinedAcl;
+@property(nonatomic, copy, nullable) NSString *predefinedAcl;
 
 /**
  *  Apply a predefined set of default object access controls to this bucket.
@@ -798,7 +798,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStoragePredefinedDefaultObjectAclPublicRead Object owner gets
  *        OWNER access, and allUsers get READER access. (Value: "publicRead")
  */
-@property(copy, nullable) NSString *predefinedDefaultObjectAcl;
+@property(nonatomic, copy, nullable) NSString *predefinedDefaultObjectAcl;
 
 /**
  *  Set of properties to return. Defaults to full.
@@ -808,7 +808,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageProjectionNoAcl Omit owner, acl and defaultObjectAcl
  *        properties. (Value: "noAcl")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Fetches a @c GTLRStorage_Bucket.
@@ -870,13 +870,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForDefaultObjectAccessControlsDeleteWithbucket:entity:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  The entity holding the permission. Can be user-userId, user-emailAddress,
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
-@property(copy, nullable) NSString *entity;
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -912,13 +912,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForDefaultObjectAccessControlsGetWithbucket:entity:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  The entity holding the permission. Can be user-userId, user-emailAddress,
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
-@property(copy, nullable) NSString *entity;
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  Fetches a @c GTLRStorage_ObjectAccessControl.
@@ -952,7 +952,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForDefaultObjectAccessControlsInsertWithObject:bucket:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  Fetches a @c GTLRStorage_ObjectAccessControl.
@@ -984,19 +984,19 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForDefaultObjectAccessControlsListWithbucket:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  If present, only return default ACL listing if the bucket's current
  *  metageneration matches this value.
  */
-@property(assign) long long ifMetagenerationMatch;
+@property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
  *  If present, only return default ACL listing if the bucket's current
  *  metageneration does not match the given value.
  */
-@property(assign) long long ifMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
  *  Fetches a @c GTLRStorage_ObjectAccessControls.
@@ -1026,13 +1026,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForDefaultObjectAccessControlsPatchWithObject:bucket:entity:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  The entity holding the permission. Can be user-userId, user-emailAddress,
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
-@property(copy, nullable) NSString *entity;
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  Fetches a @c GTLRStorage_ObjectAccessControl.
@@ -1069,13 +1069,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForDefaultObjectAccessControlsUpdateWithObject:bucket:entity:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  The entity holding the permission. Can be user-userId, user-emailAddress,
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
-@property(copy, nullable) NSString *entity;
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  Fetches a @c GTLRStorage_ObjectAccessControl.
@@ -1112,25 +1112,25 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForObjectAccessControlsDeleteWithbucket:object:entity:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  The entity holding the permission. Can be user-userId, user-emailAddress,
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
-@property(copy, nullable) NSString *entity;
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  If present, selects a specific revision of this object (as opposed to the
  *  latest version, the default).
  */
-@property(assign) long long generation;
+@property(nonatomic, assign) long long generation;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
  *  be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *object;
+@property(nonatomic, copy, nullable) NSString *object;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1168,25 +1168,25 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForObjectAccessControlsGetWithbucket:object:entity:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  The entity holding the permission. Can be user-userId, user-emailAddress,
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
-@property(copy, nullable) NSString *entity;
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  If present, selects a specific revision of this object (as opposed to the
  *  latest version, the default).
  */
-@property(assign) long long generation;
+@property(nonatomic, assign) long long generation;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
  *  be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *object;
+@property(nonatomic, copy, nullable) NSString *object;
 
 /**
  *  Fetches a @c GTLRStorage_ObjectAccessControl.
@@ -1222,19 +1222,19 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForObjectAccessControlsInsertWithObject:bucket:object:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  If present, selects a specific revision of this object (as opposed to the
  *  latest version, the default).
  */
-@property(assign) long long generation;
+@property(nonatomic, assign) long long generation;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
  *  be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *object;
+@property(nonatomic, copy, nullable) NSString *object;
 
 /**
  *  Fetches a @c GTLRStorage_ObjectAccessControl.
@@ -1269,19 +1269,19 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForObjectAccessControlsListWithbucket:object:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  If present, selects a specific revision of this object (as opposed to the
  *  latest version, the default).
  */
-@property(assign) long long generation;
+@property(nonatomic, assign) long long generation;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
  *  be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *object;
+@property(nonatomic, copy, nullable) NSString *object;
 
 /**
  *  Fetches a @c GTLRStorage_ObjectAccessControls.
@@ -1314,25 +1314,25 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForObjectAccessControlsPatchWithObject:bucket:object:entity:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  The entity holding the permission. Can be user-userId, user-emailAddress,
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
-@property(copy, nullable) NSString *entity;
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  If present, selects a specific revision of this object (as opposed to the
  *  latest version, the default).
  */
-@property(assign) long long generation;
+@property(nonatomic, assign) long long generation;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
  *  be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *object;
+@property(nonatomic, copy, nullable) NSString *object;
 
 /**
  *  Fetches a @c GTLRStorage_ObjectAccessControl.
@@ -1372,25 +1372,25 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForObjectAccessControlsUpdateWithObject:bucket:object:entity:]
 
 /** Name of a bucket. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  The entity holding the permission. Can be user-userId, user-emailAddress,
  *  group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
  */
-@property(copy, nullable) NSString *entity;
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  If present, selects a specific revision of this object (as opposed to the
  *  latest version, the default).
  */
-@property(assign) long long generation;
+@property(nonatomic, assign) long long generation;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
  *  be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *object;
+@property(nonatomic, copy, nullable) NSString *object;
 
 /**
  *  Fetches a @c GTLRStorage_ObjectAccessControl.
@@ -1431,13 +1431,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForObjectsComposeWithObject:destinationBucket:destinationObject:]
 
 /** Name of the bucket in which to store the new object. */
-@property(copy, nullable) NSString *destinationBucket;
+@property(nonatomic, copy, nullable) NSString *destinationBucket;
 
 /**
  *  Name of the new object. For information about how to URL encode object names
  *  to be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *destinationObject;
+@property(nonatomic, copy, nullable) NSString *destinationObject;
 
 /**
  *  Apply a predefined set of access controls to the destination object.
@@ -1460,19 +1460,19 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageDestinationPredefinedAclPublicRead Object owner gets
  *        OWNER access, and allUsers get READER access. (Value: "publicRead")
  */
-@property(copy, nullable) NSString *destinationPredefinedAcl;
+@property(nonatomic, copy, nullable) NSString *destinationPredefinedAcl;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
  *  matches the given value.
  */
-@property(assign) long long ifGenerationMatch;
+@property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current
  *  metageneration matches the given value.
  */
-@property(assign) long long ifMetagenerationMatch;
+@property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
  *  Fetches a @c GTLRStorage_Object.
@@ -1532,13 +1532,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  object metadata's bucket value, if any.For information about how to URL
  *  encode object names to be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *destinationBucket;
+@property(nonatomic, copy, nullable) NSString *destinationBucket;
 
 /**
  *  Name of the new object. Required when the object metadata is not otherwise
  *  provided. Overrides the object metadata's name value, if any.
  */
-@property(copy, nullable) NSString *destinationObject;
+@property(nonatomic, copy, nullable) NSString *destinationObject;
 
 /**
  *  Apply a predefined set of access controls to the destination object.
@@ -1561,55 +1561,55 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageDestinationPredefinedAclPublicRead Object owner gets
  *        OWNER access, and allUsers get READER access. (Value: "publicRead")
  */
-@property(copy, nullable) NSString *destinationPredefinedAcl;
+@property(nonatomic, copy, nullable) NSString *destinationPredefinedAcl;
 
 /**
  *  Makes the operation conditional on whether the destination object's current
  *  generation matches the given value.
  */
-@property(assign) long long ifGenerationMatch;
+@property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the destination object's current
  *  generation does not match the given value.
  */
-@property(assign) long long ifGenerationNotMatch;
+@property(nonatomic, assign) long long ifGenerationNotMatch;
 
 /**
  *  Makes the operation conditional on whether the destination object's current
  *  metageneration matches the given value.
  */
-@property(assign) long long ifMetagenerationMatch;
+@property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the destination object's current
  *  metageneration does not match the given value.
  */
-@property(assign) long long ifMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
  *  Makes the operation conditional on whether the source object's generation
  *  matches the given value.
  */
-@property(assign) long long ifSourceGenerationMatch;
+@property(nonatomic, assign) long long ifSourceGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the source object's generation
  *  does not match the given value.
  */
-@property(assign) long long ifSourceGenerationNotMatch;
+@property(nonatomic, assign) long long ifSourceGenerationNotMatch;
 
 /**
  *  Makes the operation conditional on whether the source object's current
  *  metageneration matches the given value.
  */
-@property(assign) long long ifSourceMetagenerationMatch;
+@property(nonatomic, assign) long long ifSourceMetagenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the source object's current
  *  metageneration does not match the given value.
  */
-@property(assign) long long ifSourceMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifSourceMetagenerationNotMatch;
 
 /**
  *  Set of properties to return. Defaults to noAcl, unless the object resource
@@ -1620,22 +1620,22 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageProjectionNoAcl Omit the owner, acl property. (Value:
  *        "noAcl")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /** Name of the bucket in which to find the source object. */
-@property(copy, nullable) NSString *sourceBucket;
+@property(nonatomic, copy, nullable) NSString *sourceBucket;
 
 /**
  *  If present, selects a specific revision of the source object (as opposed to
  *  the latest version, the default).
  */
-@property(assign) long long sourceGeneration;
+@property(nonatomic, assign) long long sourceGeneration;
 
 /**
  *  Name of the source object. For information about how to URL encode object
  *  names to be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *sourceObject;
+@property(nonatomic, copy, nullable) NSString *sourceObject;
 
 /**
  *  Fetches a @c GTLRStorage_Object.
@@ -1707,43 +1707,43 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForObjectsDeleteWithbucket:object:]
 
 /** Name of the bucket in which the object resides. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  If present, permanently deletes a specific revision of this object (as
  *  opposed to the latest version, the default).
  */
-@property(assign) long long generation;
+@property(nonatomic, assign) long long generation;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
  *  matches the given value.
  */
-@property(assign) long long ifGenerationMatch;
+@property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
  *  does not match the given value.
  */
-@property(assign) long long ifGenerationNotMatch;
+@property(nonatomic, assign) long long ifGenerationNotMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current
  *  metageneration matches the given value.
  */
-@property(assign) long long ifMetagenerationMatch;
+@property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current
  *  metageneration does not match the given value.
  */
-@property(assign) long long ifMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
  *  be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *object;
+@property(nonatomic, copy, nullable) NSString *object;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1780,43 +1780,43 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForObjectsGetWithbucket:object:]
 
 /** Name of the bucket in which the object resides. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  If present, selects a specific revision of this object (as opposed to the
  *  latest version, the default).
  */
-@property(assign) long long generation;
+@property(nonatomic, assign) long long generation;
 
 /**
  *  Makes the operation conditional on whether the object's generation matches
  *  the given value.
  */
-@property(assign) long long ifGenerationMatch;
+@property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's generation does not
  *  match the given value.
  */
-@property(assign) long long ifGenerationNotMatch;
+@property(nonatomic, assign) long long ifGenerationNotMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current
  *  metageneration matches the given value.
  */
-@property(assign) long long ifMetagenerationMatch;
+@property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current
  *  metageneration does not match the given value.
  */
-@property(assign) long long ifMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
  *  be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *object;
+@property(nonatomic, copy, nullable) NSString *object;
 
 /**
  *  Set of properties to return. Defaults to noAcl.
@@ -1826,7 +1826,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageProjectionNoAcl Omit the owner, acl property. (Value:
  *        "noAcl")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Fetches a @c GTLRStorage_Object.
@@ -1876,7 +1876,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  Name of the bucket in which to store the new object. Overrides the provided
  *  object metadata's bucket value, if any.
  */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  If set, sets the contentEncoding property of the final object to this value.
@@ -1884,31 +1884,31 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  property. This can be useful when uploading an object with uploadType=media
  *  to indicate the encoding of the content being uploaded.
  */
-@property(copy, nullable) NSString *contentEncoding;
+@property(nonatomic, copy, nullable) NSString *contentEncoding;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
  *  matches the given value.
  */
-@property(assign) long long ifGenerationMatch;
+@property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
  *  does not match the given value.
  */
-@property(assign) long long ifGenerationNotMatch;
+@property(nonatomic, assign) long long ifGenerationNotMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current
  *  metageneration matches the given value.
  */
-@property(assign) long long ifMetagenerationMatch;
+@property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current
  *  metageneration does not match the given value.
  */
-@property(assign) long long ifMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
  *  Name of the object. Required when the object metadata is not otherwise
@@ -1916,7 +1916,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  information about how to URL encode object names to be path safe, see
  *  Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Apply a predefined set of access controls to this object.
@@ -1939,7 +1939,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStoragePredefinedAclPublicRead Object owner gets OWNER
  *        access, and allUsers get READER access. (Value: "publicRead")
  */
-@property(copy, nullable) NSString *predefinedAcl;
+@property(nonatomic, copy, nullable) NSString *predefinedAcl;
 
 /**
  *  Set of properties to return. Defaults to noAcl, unless the object resource
@@ -1950,7 +1950,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageProjectionNoAcl Omit the owner, acl property. (Value:
  *        "noAcl")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Fetches a @c GTLRStorage_Object.
@@ -2005,7 +2005,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForObjectsListWithbucket:]
 
 /** Name of the bucket in which to look for objects. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  Returns results in a directory-like mode. items will contain only objects
@@ -2014,23 +2014,23 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  truncated after the delimiter, returned in prefixes. Duplicate prefixes are
  *  omitted.
  */
-@property(copy, nullable) NSString *delimiter;
+@property(nonatomic, copy, nullable) NSString *delimiter;
 
 /**
  *  Maximum number of items plus prefixes to return. As duplicate prefixes are
  *  omitted, fewer total results may be returned than requested. The default
  *  value of this parameter is 1,000 items.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  A previously-returned page token representing part of the larger set of
  *  results to view.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Filter results to objects whose names begin with this prefix. */
-@property(copy, nullable) NSString *prefix;
+@property(nonatomic, copy, nullable) NSString *prefix;
 
 /**
  *  Set of properties to return. Defaults to noAcl.
@@ -2040,13 +2040,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageProjectionNoAcl Omit the owner, acl property. (Value:
  *        "noAcl")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  If true, lists all versions of an object as distinct results. The default is
  *  false. For more information, see Object Versioning.
  */
-@property(assign) BOOL versions;
+@property(nonatomic, assign) BOOL versions;
 
 /**
  *  Fetches a @c GTLRStorage_Objects.
@@ -2079,43 +2079,43 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForObjectsPatchWithObject:bucket:object:]
 
 /** Name of the bucket in which the object resides. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  If present, selects a specific revision of this object (as opposed to the
  *  latest version, the default).
  */
-@property(assign) long long generation;
+@property(nonatomic, assign) long long generation;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
  *  matches the given value.
  */
-@property(assign) long long ifGenerationMatch;
+@property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
  *  does not match the given value.
  */
-@property(assign) long long ifGenerationNotMatch;
+@property(nonatomic, assign) long long ifGenerationNotMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current
  *  metageneration matches the given value.
  */
-@property(assign) long long ifMetagenerationMatch;
+@property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current
  *  metageneration does not match the given value.
  */
-@property(assign) long long ifMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
  *  be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *object;
+@property(nonatomic, copy, nullable) NSString *object;
 
 /**
  *  Apply a predefined set of access controls to this object.
@@ -2138,7 +2138,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStoragePredefinedAclPublicRead Object owner gets OWNER
  *        access, and allUsers get READER access. (Value: "publicRead")
  */
-@property(copy, nullable) NSString *predefinedAcl;
+@property(nonatomic, copy, nullable) NSString *predefinedAcl;
 
 /**
  *  Set of properties to return. Defaults to full.
@@ -2148,7 +2148,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageProjectionNoAcl Omit the owner, acl property. (Value:
  *        "noAcl")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Fetches a @c GTLRStorage_Object.
@@ -2187,7 +2187,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  Name of the bucket in which to store the new object. Overrides the provided
  *  object metadata's bucket value, if any.
  */
-@property(copy, nullable) NSString *destinationBucket;
+@property(nonatomic, copy, nullable) NSString *destinationBucket;
 
 /**
  *  Name of the new object. Required when the object metadata is not otherwise
@@ -2195,7 +2195,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  information about how to URL encode object names to be path safe, see
  *  Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *destinationObject;
+@property(nonatomic, copy, nullable) NSString *destinationObject;
 
 /**
  *  Apply a predefined set of access controls to the destination object.
@@ -2218,55 +2218,55 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageDestinationPredefinedAclPublicRead Object owner gets
  *        OWNER access, and allUsers get READER access. (Value: "publicRead")
  */
-@property(copy, nullable) NSString *destinationPredefinedAcl;
+@property(nonatomic, copy, nullable) NSString *destinationPredefinedAcl;
 
 /**
  *  Makes the operation conditional on whether the destination object's current
  *  generation matches the given value.
  */
-@property(assign) long long ifGenerationMatch;
+@property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the destination object's current
  *  generation does not match the given value.
  */
-@property(assign) long long ifGenerationNotMatch;
+@property(nonatomic, assign) long long ifGenerationNotMatch;
 
 /**
  *  Makes the operation conditional on whether the destination object's current
  *  metageneration matches the given value.
  */
-@property(assign) long long ifMetagenerationMatch;
+@property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the destination object's current
  *  metageneration does not match the given value.
  */
-@property(assign) long long ifMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
  *  Makes the operation conditional on whether the source object's generation
  *  matches the given value.
  */
-@property(assign) long long ifSourceGenerationMatch;
+@property(nonatomic, assign) long long ifSourceGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the source object's generation
  *  does not match the given value.
  */
-@property(assign) long long ifSourceGenerationNotMatch;
+@property(nonatomic, assign) long long ifSourceGenerationNotMatch;
 
 /**
  *  Makes the operation conditional on whether the source object's current
  *  metageneration matches the given value.
  */
-@property(assign) long long ifSourceMetagenerationMatch;
+@property(nonatomic, assign) long long ifSourceMetagenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the source object's current
  *  metageneration does not match the given value.
  */
-@property(assign) long long ifSourceMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifSourceMetagenerationNotMatch;
 
 /**
  *  The maximum number of bytes that will be rewritten per rewrite request. Most
@@ -2277,7 +2277,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  not change across rewrite calls else you'll get an error that the
  *  rewriteToken is invalid.
  */
-@property(assign) long long maxBytesRewrittenPerCall;
+@property(nonatomic, assign) long long maxBytesRewrittenPerCall;
 
 /**
  *  Set of properties to return. Defaults to noAcl, unless the object resource
@@ -2288,7 +2288,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageProjectionNoAcl Omit the owner, acl property. (Value:
  *        "noAcl")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Include this field (from the previous rewrite response) on each rewrite
@@ -2297,22 +2297,22 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  included those fields must match the values provided in the first rewrite
  *  request.
  */
-@property(copy, nullable) NSString *rewriteToken;
+@property(nonatomic, copy, nullable) NSString *rewriteToken;
 
 /** Name of the bucket in which to find the source object. */
-@property(copy, nullable) NSString *sourceBucket;
+@property(nonatomic, copy, nullable) NSString *sourceBucket;
 
 /**
  *  If present, selects a specific revision of the source object (as opposed to
  *  the latest version, the default).
  */
-@property(assign) long long sourceGeneration;
+@property(nonatomic, assign) long long sourceGeneration;
 
 /**
  *  Name of the source object. For information about how to URL encode object
  *  names to be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *sourceObject;
+@property(nonatomic, copy, nullable) NSString *sourceObject;
 
 /**
  *  Fetches a @c GTLRStorage_RewriteResponse.
@@ -2355,43 +2355,43 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForObjectsUpdateWithObject:bucket:object:]
 
 /** Name of the bucket in which the object resides. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  If present, selects a specific revision of this object (as opposed to the
  *  latest version, the default).
  */
-@property(assign) long long generation;
+@property(nonatomic, assign) long long generation;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
  *  matches the given value.
  */
-@property(assign) long long ifGenerationMatch;
+@property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
  *  does not match the given value.
  */
-@property(assign) long long ifGenerationNotMatch;
+@property(nonatomic, assign) long long ifGenerationNotMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current
  *  metageneration matches the given value.
  */
-@property(assign) long long ifMetagenerationMatch;
+@property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current
  *  metageneration does not match the given value.
  */
-@property(assign) long long ifMetagenerationNotMatch;
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
  *  be path safe, see Encoding URI Path Parts.
  */
-@property(copy, nullable) NSString *object;
+@property(nonatomic, copy, nullable) NSString *object;
 
 /**
  *  Apply a predefined set of access controls to this object.
@@ -2414,7 +2414,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStoragePredefinedAclPublicRead Object owner gets OWNER
  *        access, and allUsers get READER access. (Value: "publicRead")
  */
-@property(copy, nullable) NSString *predefinedAcl;
+@property(nonatomic, copy, nullable) NSString *predefinedAcl;
 
 /**
  *  Set of properties to return. Defaults to full.
@@ -2424,7 +2424,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageProjectionNoAcl Omit the owner, acl property. (Value:
  *        "noAcl")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Fetches a @c GTLRStorage_Object.
@@ -2477,7 +2477,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 //   +[GTLQueryStorage queryForObjectsWatchAllWithObject:bucket:]
 
 /** Name of the bucket in which to look for objects. */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  Returns results in a directory-like mode. items will contain only objects
@@ -2486,23 +2486,23 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  truncated after the delimiter, returned in prefixes. Duplicate prefixes are
  *  omitted.
  */
-@property(copy, nullable) NSString *delimiter;
+@property(nonatomic, copy, nullable) NSString *delimiter;
 
 /**
  *  Maximum number of items plus prefixes to return. As duplicate prefixes are
  *  omitted, fewer total results may be returned than requested. The default
  *  value of this parameter is 1,000 items.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  A previously-returned page token representing part of the larger set of
  *  results to view.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Filter results to objects whose names begin with this prefix. */
-@property(copy, nullable) NSString *prefix;
+@property(nonatomic, copy, nullable) NSString *prefix;
 
 /**
  *  Set of properties to return. Defaults to noAcl.
@@ -2512,13 +2512,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @arg @c kGTLRStorageProjectionNoAcl Omit the owner, acl property. (Value:
  *        "noAcl")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  If true, lists all versions of an object as distinct results. The default is
  *  false. For more information, see Object Versioning.
  */
-@property(assign) BOOL versions;
+@property(nonatomic, assign) BOOL versions;
 
 /**
  *  Fetches a @c GTLRStorage_Channel.

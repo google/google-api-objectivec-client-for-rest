@@ -52,7 +52,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 @interface GTLRGamesConfigurationQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -69,7 +69,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 //   +[GTLQueryGamesConfiguration queryForAchievementConfigurationsDeleteWithachievementId:]
 
 /** The ID of the achievement used by this method. */
-@property(copy, nullable) NSString *achievementId;
+@property(nonatomic, copy, nullable) NSString *achievementId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -98,7 +98,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 //   +[GTLQueryGamesConfiguration queryForAchievementConfigurationsGetWithachievementId:]
 
 /** The ID of the achievement used by this method. */
-@property(copy, nullable) NSString *achievementId;
+@property(nonatomic, copy, nullable) NSString *achievementId;
 
 /**
  *  Fetches a @c GTLRGamesConfiguration_AchievementConfiguration.
@@ -126,7 +126,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 //   +[GTLQueryGamesConfiguration queryForAchievementConfigurationsInsertWithObject:applicationId:]
 
 /** The application ID from the Google Play developer console. */
-@property(copy, nullable) NSString *applicationId;
+@property(nonatomic, copy, nullable) NSString *applicationId;
 
 /**
  *  Fetches a @c GTLRGamesConfiguration_AchievementConfiguration.
@@ -158,7 +158,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 //   +[GTLQueryGamesConfiguration queryForAchievementConfigurationsListWithapplicationId:]
 
 /** The application ID from the Google Play developer console. */
-@property(copy, nullable) NSString *applicationId;
+@property(nonatomic, copy, nullable) NSString *applicationId;
 
 /**
  *  The maximum number of resource configurations to return in the response,
@@ -167,10 +167,10 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *
  *  @note The documented range is 1..200.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRGamesConfiguration_AchievementConfigurationListResponse.
@@ -204,7 +204,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 //   +[GTLQueryGamesConfiguration queryForAchievementConfigurationsPatchWithObject:achievementId:]
 
 /** The ID of the achievement used by this method. */
-@property(copy, nullable) NSString *achievementId;
+@property(nonatomic, copy, nullable) NSString *achievementId;
 
 /**
  *  Fetches a @c GTLRGamesConfiguration_AchievementConfiguration.
@@ -236,7 +236,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 //   +[GTLQueryGamesConfiguration queryForAchievementConfigurationsUpdateWithObject:achievementId:]
 
 /** The ID of the achievement used by this method. */
-@property(copy, nullable) NSString *achievementId;
+@property(nonatomic, copy, nullable) NSString *achievementId;
 
 /**
  *  Fetches a @c GTLRGamesConfiguration_AchievementConfiguration.
@@ -275,10 +275,10 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *    @arg @c kGTLRGamesConfigurationImageTypeLeaderboardIcon The icon image for
  *        a leaderboard resource. (Value: "LEADERBOARD_ICON")
  */
-@property(copy, nullable) NSString *imageType;
+@property(nonatomic, copy, nullable) NSString *imageType;
 
 /** The ID of the resource used by this method. */
-@property(copy, nullable) NSString *resourceId;
+@property(nonatomic, copy, nullable) NSString *resourceId;
 
 /**
  *  Fetches a @c GTLRGamesConfiguration_ImageConfiguration.
@@ -317,7 +317,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 //   +[GTLQueryGamesConfiguration queryForLeaderboardConfigurationsDeleteWithleaderboardId:]
 
 /** The ID of the leaderboard. */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -346,7 +346,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 //   +[GTLQueryGamesConfiguration queryForLeaderboardConfigurationsGetWithleaderboardId:]
 
 /** The ID of the leaderboard. */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  Fetches a @c GTLRGamesConfiguration_LeaderboardConfiguration.
@@ -374,7 +374,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 //   +[GTLQueryGamesConfiguration queryForLeaderboardConfigurationsInsertWithObject:applicationId:]
 
 /** The application ID from the Google Play developer console. */
-@property(copy, nullable) NSString *applicationId;
+@property(nonatomic, copy, nullable) NSString *applicationId;
 
 /**
  *  Fetches a @c GTLRGamesConfiguration_LeaderboardConfiguration.
@@ -406,7 +406,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 //   +[GTLQueryGamesConfiguration queryForLeaderboardConfigurationsListWithapplicationId:]
 
 /** The application ID from the Google Play developer console. */
-@property(copy, nullable) NSString *applicationId;
+@property(nonatomic, copy, nullable) NSString *applicationId;
 
 /**
  *  The maximum number of resource configurations to return in the response,
@@ -415,10 +415,10 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *
  *  @note The documented range is 1..200.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRGamesConfiguration_LeaderboardConfigurationListResponse.
@@ -452,7 +452,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 //   +[GTLQueryGamesConfiguration queryForLeaderboardConfigurationsPatchWithObject:leaderboardId:]
 
 /** The ID of the leaderboard. */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  Fetches a @c GTLRGamesConfiguration_LeaderboardConfiguration.
@@ -484,7 +484,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 //   +[GTLQueryGamesConfiguration queryForLeaderboardConfigurationsUpdateWithObject:leaderboardId:]
 
 /** The ID of the leaderboard. */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  Fetches a @c GTLRGamesConfiguration_LeaderboardConfiguration.

@@ -57,23 +57,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Alias : GTLRObject
 
 /** A alias email */
-@property(copy, nullable) NSString *alias;
+@property(nonatomic, copy, nullable) NSString *alias;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Unique id of the group (Read-only) Unique id of the user (Read-only)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Group's primary email (Read-only) User's primary email (Read-only) */
-@property(copy, nullable) NSString *primaryEmail;
+@property(nonatomic, copy, nullable) NSString *primaryEmail;
 
 @end
 
@@ -88,13 +88,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) NSArray *aliases;
+@property(nonatomic, strong, nullable) NSArray *aliases;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -109,36 +109,36 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *codeId;
+@property(nonatomic, strong, nullable) NSNumber *codeId;
 
 /**
  *  The time when the ASP was created. Expressed in Unix time format.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *creationTime;
+@property(nonatomic, strong, nullable) NSNumber *creationTime;
 
 /** ETag of the ASP. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** The type of the API resource. This is always admin#directory#asp. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The time when the ASP was last used. Expressed in Unix time format.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *lastTimeUsed;
+@property(nonatomic, strong, nullable) NSNumber *lastTimeUsed;
 
 /**
  *  The name of the application that the user, represented by their userId,
  *  entered when the ASP was created.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The unique ID of the user who issued the ASP. */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 @end
 
@@ -152,7 +152,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Asps : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  A list of ASP resources.
@@ -160,10 +160,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_Asp *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Asp *> *items;
 
 /** The type of the API resource. This is always admin#directory#aspList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -174,34 +174,34 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_CalendarResource : GTLRObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *etags;
+@property(nonatomic, copy, nullable) NSString *etags;
 
 /**
  *  The type of the resource. For calendar resources, the value is
  *  admin#directory#resources#calendars#CalendarResource.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The brief description of the calendar resource. */
-@property(copy, nullable) NSString *resourceDescription;
+@property(nonatomic, copy, nullable) NSString *resourceDescription;
 
 /**
  *  The read-only email ID for the calendar resource. Generated as part of
  *  creating a new calendar resource.
  */
-@property(copy, nullable) NSString *resourceEmail;
+@property(nonatomic, copy, nullable) NSString *resourceEmail;
 
 /** The unique ID for the calendar resource. */
-@property(copy, nullable) NSString *resourceId;
+@property(nonatomic, copy, nullable) NSString *resourceId;
 
 /** The name of the calendar resource. For example, Training Room 1A */
-@property(copy, nullable) NSString *resourceName;
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
  *  The type of the calendar resource. Used for grouping resources in the
  *  calendar user interface.
  */
-@property(copy, nullable) NSString *resourceType;
+@property(nonatomic, copy, nullable) NSString *resourceType;
 
 @end
 
@@ -217,7 +217,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_CalendarResources : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The CalendarResources in this page of results.
@@ -225,19 +225,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_CalendarResource *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_CalendarResource *> *items;
 
 /**
  *  Identifies this as a collection of CalendarResources. This is always
  *  admin#directory#resources#calendars#calendarResourcesList.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The continuation token, used to page through large result sets. Provide this
  *  value in a subsequent request to return the next page of results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -248,7 +248,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Channel : GTLRObject
 
 /** The address where notifications are delivered for this channel. */
-@property(copy, nullable) NSString *address;
+@property(nonatomic, copy, nullable) NSString *address;
 
 /**
  *  Date and time of notification channel expiration, expressed as a Unix
@@ -256,48 +256,48 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *expiration;
+@property(nonatomic, strong, nullable) NSNumber *expiration;
 
 /**
  *  A UUID or similar unique string that identifies this channel.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies this as a notification channel used to watch for changes to a
  *  resource. Value: the fixed string "api#channel".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Additional parameters controlling delivery channel behavior. Optional. */
-@property(strong, nullable) GTLRDirectory_ChannelParams *params;
+@property(nonatomic, strong, nullable) GTLRDirectory_ChannelParams *params;
 
 /**
  *  A Boolean value to indicate whether payload is wanted. Optional.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *payload;
+@property(nonatomic, strong, nullable) NSNumber *payload;
 
 /**
  *  An opaque ID that identifies the resource being watched on this channel.
  *  Stable across different API versions.
  */
-@property(copy, nullable) NSString *resourceId;
+@property(nonatomic, copy, nullable) NSString *resourceId;
 
 /** A version-specific identifier for the watched resource. */
-@property(copy, nullable) NSString *resourceUri;
+@property(nonatomic, copy, nullable) NSString *resourceUri;
 
 /**
  *  An arbitrary string delivered to the target address with each notification
  *  delivered over this channel. Optional.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /** The type of delivery mechanism used for this channel. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -320,92 +320,92 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_ChromeOsDevice : GTLRObject
 
 /** List of active time ranges (Read-only) */
-@property(strong, nullable) NSArray<GTLRDirectory_ChromeOsDeviceActiveTimeRangesItem *> *activeTimeRanges;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDeviceActiveTimeRangesItem *> *activeTimeRanges;
 
 /** AssetId specified during enrollment or through later annotation */
-@property(copy, nullable) NSString *annotatedAssetId;
+@property(nonatomic, copy, nullable) NSString *annotatedAssetId;
 
 /** Address or location of the device as noted by the administrator */
-@property(copy, nullable) NSString *annotatedLocation;
+@property(nonatomic, copy, nullable) NSString *annotatedLocation;
 
 /** User of the device */
-@property(copy, nullable) NSString *annotatedUser;
+@property(nonatomic, copy, nullable) NSString *annotatedUser;
 
 /** Chromebook boot mode (Read-only) */
-@property(copy, nullable) NSString *bootMode;
+@property(nonatomic, copy, nullable) NSString *bootMode;
 
 /** Unique identifier of Chrome OS Device (Read-only) */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Chromebook Mac Address on ethernet network interface (Read-only) */
-@property(copy, nullable) NSString *ethernetMacAddress;
+@property(nonatomic, copy, nullable) NSString *ethernetMacAddress;
 
 /** Chromebook firmware version (Read-only) */
-@property(copy, nullable) NSString *firmwareVersion;
+@property(nonatomic, copy, nullable) NSString *firmwareVersion;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Date and time the device was last enrolled (Read-only) */
-@property(strong, nullable) GTLRDateTime *lastEnrollmentTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *lastEnrollmentTime;
 
 /**
  *  Date and time the device was last synchronized with the policy settings in
  *  the Google Apps administrator control panel (Read-only)
  */
-@property(strong, nullable) GTLRDateTime *lastSync;
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSync;
 
 /** Chromebook Mac Address on wifi network interface (Read-only) */
-@property(copy, nullable) NSString *macAddress;
+@property(nonatomic, copy, nullable) NSString *macAddress;
 
 /**
  *  Mobile Equipment identifier for the 3G mobile card in the Chromebook
  *  (Read-only)
  */
-@property(copy, nullable) NSString *meid;
+@property(nonatomic, copy, nullable) NSString *meid;
 
 /** Chromebook Model (Read-only) */
-@property(copy, nullable) NSString *model;
+@property(nonatomic, copy, nullable) NSString *model;
 
 /** Notes added by the administrator */
-@property(copy, nullable) NSString *notes;
+@property(nonatomic, copy, nullable) NSString *notes;
 
 /** Chromebook order number (Read-only) */
-@property(copy, nullable) NSString *orderNumber;
+@property(nonatomic, copy, nullable) NSString *orderNumber;
 
 /** OrgUnit of the device */
-@property(copy, nullable) NSString *orgUnitPath;
+@property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /** Chromebook Os Version (Read-only) */
-@property(copy, nullable) NSString *osVersion;
+@property(nonatomic, copy, nullable) NSString *osVersion;
 
 /** Chromebook platform version (Read-only) */
-@property(copy, nullable) NSString *platformVersion;
+@property(nonatomic, copy, nullable) NSString *platformVersion;
 
 /**
  *  List of recent device users, in descending order by last login time
  *  (Read-only)
  */
-@property(strong, nullable) NSArray<GTLRDirectory_ChromeOsDeviceRecentUsersItem *> *recentUsers;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDeviceRecentUsersItem *> *recentUsers;
 
 /** Chromebook serial number (Read-only) */
-@property(copy, nullable) NSString *serialNumber;
+@property(nonatomic, copy, nullable) NSString *serialNumber;
 
 /** status of the device (Read-only) */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /** Final date the device will be supported (Read-only) */
-@property(strong, nullable) GTLRDateTime *supportEndDate;
+@property(nonatomic, strong, nullable) GTLRDateTime *supportEndDate;
 
 /**
  *  Will Chromebook auto renew after support end date (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *willAutoRenew;
+@property(nonatomic, strong, nullable) NSNumber *willAutoRenew;
 
 @end
 
@@ -420,14 +420,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *activeTime;
+@property(nonatomic, strong, nullable) NSNumber *activeTime;
 
 /**
  *  Date of usage
  *
  *  Date only (yyyy-mm-dd).
  */
-@property(strong, nullable) GTLRDateTime *date;
+@property(nonatomic, strong, nullable) GTLRDateTime *date;
 
 @end
 
@@ -438,10 +438,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_ChromeOsDeviceRecentUsersItem : GTLRObject
 
 /** Email address of the user. Present only if the user type is managed */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** The type of the user */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -463,16 +463,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice *> *chromeosdevices;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice *> *chromeosdevices;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token used to access next page of this result. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -486,38 +486,38 @@ NS_ASSUME_NONNULL_BEGIN
  *  The customer's secondary contact email address. This email address cannot be
  *  on the same domain as the customerDomain
  */
-@property(copy, nullable) NSString *alternateEmail;
+@property(nonatomic, copy, nullable) NSString *alternateEmail;
 
 /** The customer's creation time (Readonly) */
-@property(strong, nullable) GTLRDateTime *customerCreationTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *customerCreationTime;
 
 /**
  *  The customer's primary domain name string. Do not include the www prefix
  *  when creating a new customer.
  */
-@property(copy, nullable) NSString *customerDomain;
+@property(nonatomic, copy, nullable) NSString *customerDomain;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The unique ID for the customer's Google account. (Readonly)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Identifies the resource as a customer. Value: admin#directory#customer */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The customer's ISO 639-2 language code. The default value is en-US */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The customer's contact phone number in E.164 format. */
-@property(copy, nullable) NSString *phoneNumber;
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
 
 /** The customer's postal address information. */
-@property(strong, nullable) GTLRDirectory_CustomerPostalAddress *postalAddress;
+@property(nonatomic, strong, nullable) GTLRDirectory_CustomerPostalAddress *postalAddress;
 
 @end
 
@@ -531,44 +531,44 @@ NS_ASSUME_NONNULL_BEGIN
  *  A customer's physical address. The address can be composed of one to three
  *  lines.
  */
-@property(copy, nullable) NSString *addressLine1;
+@property(nonatomic, copy, nullable) NSString *addressLine1;
 
 /** Address line 2 of the address. */
-@property(copy, nullable) NSString *addressLine2;
+@property(nonatomic, copy, nullable) NSString *addressLine2;
 
 /** Address line 3 of the address. */
-@property(copy, nullable) NSString *addressLine3;
+@property(nonatomic, copy, nullable) NSString *addressLine3;
 
 /** The customer contact's name. */
-@property(copy, nullable) NSString *contactName;
+@property(nonatomic, copy, nullable) NSString *contactName;
 
 /**
  *  This is a required property. For countryCode information see the ISO 3166
  *  country code elements.
  */
-@property(copy, nullable) NSString *countryCode;
+@property(nonatomic, copy, nullable) NSString *countryCode;
 
 /**
  *  Name of the locality. An example of a locality value is the city of San
  *  Francisco.
  */
-@property(copy, nullable) NSString *locality;
+@property(nonatomic, copy, nullable) NSString *locality;
 
 /** The company or company division name. */
-@property(copy, nullable) NSString *organizationName;
+@property(nonatomic, copy, nullable) NSString *organizationName;
 
 /**
  *  The postal code. A postalCode example is a postal zip code such as 10009.
  *  This is in accordance with -
  *  http://portablecontacts.net/draft-spec.html#address_element.
  */
-@property(copy, nullable) NSString *postalCode;
+@property(nonatomic, copy, nullable) NSString *postalCode;
 
 /**
  *  Name of the region. An example of a region value is NY for the state of New
  *  York.
  */
-@property(copy, nullable) NSString *region;
+@property(nonatomic, copy, nullable) NSString *region;
 
 @end
 
@@ -583,29 +583,29 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *creationTime;
+@property(nonatomic, strong, nullable) NSNumber *creationTime;
 
 /** The domain alias name. */
-@property(copy, nullable) NSString *domainAliasName;
+@property(nonatomic, copy, nullable) NSString *domainAliasName;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The parent domain name that the domain alias is associated with. This can
  *  either be a primary or secondary domain name within a customer.
  */
-@property(copy, nullable) NSString *parentDomainName;
+@property(nonatomic, copy, nullable) NSString *parentDomainName;
 
 /**
  *  Indicates the verification state of a domain alias. (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *verified;
+@property(nonatomic, strong, nullable) NSNumber *verified;
 
 @end
 
@@ -616,13 +616,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_DomainAliases : GTLRObject
 
 /** List of domain alias objects. */
-@property(strong, nullable) NSArray<GTLRDirectory_DomainAlias *> *domainAliases;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_DomainAlias *> *domainAliases;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -637,33 +637,33 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *creationTime;
+@property(nonatomic, strong, nullable) NSNumber *creationTime;
 
 /** List of domain alias objects. (Read-only) */
-@property(strong, nullable) NSArray<GTLRDirectory_DomainAlias *> *domainAliases;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_DomainAlias *> *domainAliases;
 
 /** The domain name of the customer. */
-@property(copy, nullable) NSString *domainName;
+@property(nonatomic, copy, nullable) NSString *domainName;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Indicates if the domain is a primary domain (Read-only).
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isPrimary;
+@property(nonatomic, strong, nullable) NSNumber *isPrimary;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Indicates the verification state of a domain. (Read-only).
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *verified;
+@property(nonatomic, strong, nullable) NSNumber *verified;
 
 @end
 
@@ -674,13 +674,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Domains2 : GTLRObject
 
 /** List of domain objects. */
-@property(strong, nullable) NSArray<GTLRDirectory_Domains *> *domains;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Domains *> *domains;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -695,46 +695,46 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *adminCreated;
+@property(nonatomic, strong, nullable) NSNumber *adminCreated;
 
 /** List of aliases (Read-only) */
-@property(strong, nullable) NSArray<NSString *> *aliases;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
  *  Description of the group
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Group direct members count
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *directMembersCount;
+@property(nonatomic, strong, nullable) NSNumber *directMembersCount;
 
 /** Email of Group */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Unique identifier of Group (Read-only)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Group name */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** List of non editable aliases (Read-only) */
-@property(strong, nullable) NSArray<NSString *> *nonEditableAliases;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nonEditableAliases;
 
 @end
 
@@ -750,7 +750,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Groups : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  List of group objects.
@@ -758,13 +758,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_Group *> *groups;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Group *> *groups;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token used to access next page of this result. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -775,10 +775,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Member : GTLRObject
 
 /** Email of member (Read-only) */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Unique identifier of customer member (Read-only) Unique identifier of group
@@ -786,16 +786,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Role of member */
-@property(copy, nullable) NSString *role;
+@property(nonatomic, copy, nullable) NSString *role;
+
+/** Status of member (Immutable) */
+@property(nonatomic, copy, nullable) NSString *status;
 
 /** Type of member (Immutable) */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -811,10 +814,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Members : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  List of member objects.
@@ -822,10 +825,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_Member *> *members;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Member *> *members;
 
 /** Token used to access next page of this result. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -840,62 +843,62 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *adbStatus;
+@property(nonatomic, strong, nullable) NSNumber *adbStatus;
 
 /** List of applications installed on Mobile Device */
-@property(strong, nullable) NSArray<GTLRDirectory_MobileDeviceApplicationsItem *> *applications;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_MobileDeviceApplicationsItem *> *applications;
 
 /** Mobile Device Baseband version (Read-only) */
-@property(copy, nullable) NSString *basebandVersion;
+@property(nonatomic, copy, nullable) NSString *basebandVersion;
 
 /** Mobile Device Build number (Read-only) */
-@property(copy, nullable) NSString *buildNumber;
+@property(nonatomic, copy, nullable) NSString *buildNumber;
 
 /** The default locale used on the Mobile Device (Read-only) */
-@property(copy, nullable) NSString *defaultLanguage;
+@property(nonatomic, copy, nullable) NSString *defaultLanguage;
 
 /**
  *  Developer options enabled or disabled on device (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *developerOptionsStatus;
+@property(nonatomic, strong, nullable) NSNumber *developerOptionsStatus;
 
 /** Mobile Device compromised status (Read-only) */
-@property(copy, nullable) NSString *deviceCompromisedStatus;
+@property(nonatomic, copy, nullable) NSString *deviceCompromisedStatus;
 
 /** Mobile Device serial number (Read-only) */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** List of owner user's email addresses (Read-only) */
-@property(strong, nullable) NSArray<NSString *> *email;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *email;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Date and time the device was first synchronized with the policy settings in
  *  the Google Apps administrator control panel (Read-only)
  */
-@property(strong, nullable) GTLRDateTime *firstSync;
+@property(nonatomic, strong, nullable) GTLRDateTime *firstSync;
 
 /** Mobile Device Hardware Id (Read-only) */
-@property(copy, nullable) NSString *hardwareId;
+@property(nonatomic, copy, nullable) NSString *hardwareId;
 
 /** Mobile Device IMEI number (Read-only) */
-@property(copy, nullable) NSString *imei;
+@property(nonatomic, copy, nullable) NSString *imei;
 
 /** Mobile Device Kernel version (Read-only) */
-@property(copy, nullable) NSString *kernelVersion;
+@property(nonatomic, copy, nullable) NSString *kernelVersion;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Date and time the device was last synchronized with the policy settings in
  *  the Google Apps administrator control panel (Read-only)
  */
-@property(strong, nullable) GTLRDateTime *lastSync;
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSync;
 
 /**
  *  Boolean indicating if this account is on owner/primary profile or not
@@ -903,57 +906,57 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *managedAccountIsOnOwnerProfile;
+@property(nonatomic, strong, nullable) NSNumber *managedAccountIsOnOwnerProfile;
 
 /** Mobile Device MEID number (Read-only) */
-@property(copy, nullable) NSString *meid;
+@property(nonatomic, copy, nullable) NSString *meid;
 
 /** Name of the model of the device */
-@property(copy, nullable) NSString *model;
+@property(nonatomic, copy, nullable) NSString *model;
 
 /** List of owner user's names (Read-only) */
-@property(strong, nullable) NSArray<NSString *> *name;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *name;
 
 /** Mobile Device mobile or network operator (if available) (Read-only) */
-@property(copy, nullable) NSString *networkOperator;
+@property(nonatomic, copy, nullable) NSString *networkOperator;
 
 /** Name of the mobile operating system */
-@property(copy, nullable) NSString *os;
+@property(nonatomic, copy, nullable) NSString *os;
 
 /** List of accounts added on device (Read-only) */
-@property(strong, nullable) NSArray<NSString *> *otherAccountsInfo;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *otherAccountsInfo;
 
 /** Unique identifier of Mobile Device (Read-only) */
-@property(copy, nullable) NSString *resourceId;
+@property(nonatomic, copy, nullable) NSString *resourceId;
 
 /** Mobile Device SSN or Serial Number (Read-only) */
-@property(copy, nullable) NSString *serialNumber;
+@property(nonatomic, copy, nullable) NSString *serialNumber;
 
 /** Status of the device (Read-only) */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  Work profile supported on device (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *supportsWorkProfile;
+@property(nonatomic, strong, nullable) NSNumber *supportsWorkProfile;
 
 /** The type of device (Read-only) */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Unknown sources enabled or disabled on device (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *unknownSourcesStatus;
+@property(nonatomic, strong, nullable) NSNumber *unknownSourcesStatus;
 
 /** Mobile Device user agent */
-@property(copy, nullable) NSString *userAgent;
+@property(nonatomic, copy, nullable) NSString *userAgent;
 
 /** Mobile Device WiFi MAC address (Read-only) */
-@property(copy, nullable) NSString *wifiMacAddress;
+@property(nonatomic, copy, nullable) NSString *wifiMacAddress;
 
 @end
 
@@ -964,23 +967,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_MobileDeviceApplicationsItem : GTLRObject
 
 /** Display name of application */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Package name of application */
-@property(copy, nullable) NSString *packageName;
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /** List of Permissions for application */
-@property(strong, nullable) NSArray<NSString *> *permission;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permission;
 
 /**
  *  Version code of application
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *versionCode;
+@property(nonatomic, strong, nullable) NSNumber *versionCode;
 
 /** Version name of application */
-@property(copy, nullable) NSString *versionName;
+@property(nonatomic, copy, nullable) NSString *versionName;
 
 @end
 
@@ -992,7 +995,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_MobileDeviceAction : GTLRObject
 
 /** Action to be taken on the Mobile Device */
-@property(copy, nullable) NSString *action;
+@property(nonatomic, copy, nullable) NSString *action;
 
 @end
 
@@ -1008,10 +1011,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_MobileDevices : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  List of Mobile Device objects.
@@ -1019,10 +1022,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_MobileDevice *> *mobiledevices;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_MobileDevice *> *mobiledevices;
 
 /** Token used to access next page of this result. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -1033,31 +1036,31 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Notification : GTLRObject
 
 /** Body of the notification (Read-only) */
-@property(copy, nullable) NSString *body;
+@property(nonatomic, copy, nullable) NSString *body;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Address from which the notification is received (Read-only) */
-@property(copy, nullable) NSString *fromAddress;
+@property(nonatomic, copy, nullable) NSString *fromAddress;
 
 /**
  *  Boolean indicating whether the notification is unread or not.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isUnread;
+@property(nonatomic, strong, nullable) NSNumber *isUnread;
 
 /** The type of the resource. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
-@property(copy, nullable) NSString *notificationId;
+@property(nonatomic, copy, nullable) NSString *notificationId;
 
 /** Time at which notification was sent (Read-only) */
-@property(strong, nullable) GTLRDateTime *sendTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *sendTime;
 
 /** Subject of the notification (Read-only) */
-@property(copy, nullable) NSString *subject;
+@property(nonatomic, copy, nullable) NSString *subject;
 
 @end
 
@@ -1073,7 +1076,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Notifications : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  List of notifications in this page.
@@ -1081,20 +1084,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_Notification *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Notification *> *items;
 
 /** The type of the resource. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token for fetching the next page of notifications. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  Number of unread notification for the domain.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *unreadNotificationsCount;
+@property(nonatomic, strong, nullable) NSNumber *unreadNotificationsCount;
 
 @end
 
@@ -1109,35 +1112,35 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *blockInheritance;
+@property(nonatomic, strong, nullable) NSNumber *blockInheritance;
 
 /**
  *  Description of OrgUnit
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of OrgUnit */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Id of OrgUnit */
-@property(copy, nullable) NSString *orgUnitId;
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
 
 /** Path of OrgUnit */
-@property(copy, nullable) NSString *orgUnitPath;
+@property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /** Id of parent OrgUnit */
-@property(copy, nullable) NSString *parentOrgUnitId;
+@property(nonatomic, copy, nullable) NSString *parentOrgUnitId;
 
 /** Path of parent OrgUnit */
-@property(copy, nullable) NSString *parentOrgUnitPath;
+@property(nonatomic, copy, nullable) NSString *parentOrgUnitPath;
 
 @end
 
@@ -1149,13 +1152,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_OrgUnits : GTLRObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** List of user objects. */
-@property(strong, nullable) NSArray<GTLRDirectory_OrgUnit *> *organizationUnits;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_OrgUnit *> *organizationUnits;
 
 @end
 
@@ -1170,29 +1173,29 @@ NS_ASSUME_NONNULL_BEGIN
  *  privilege can have a list of child privileges; this list is empty for a leaf
  *  privilege.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_Privilege *> *childPrivileges;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Privilege *> *childPrivileges;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  If the privilege can be restricted to an organization unit.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isOuScopable;
+@property(nonatomic, strong, nullable) NSNumber *isOuScopable;
 
 /** The type of the API resource. This is always admin#directory#privilege. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The name of the privilege. */
-@property(copy, nullable) NSString *privilegeName;
+@property(nonatomic, copy, nullable) NSString *privilegeName;
 
 /** The obfuscated ID of the service this privilege is for. */
-@property(copy, nullable) NSString *serviceId;
+@property(nonatomic, copy, nullable) NSString *serviceId;
 
 /** The name of the service this privilege is for. */
-@property(copy, nullable) NSString *serviceName;
+@property(nonatomic, copy, nullable) NSString *serviceName;
 
 @end
 
@@ -1206,7 +1209,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Privileges : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  A list of Privilege resources.
@@ -1214,12 +1217,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_Privilege *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Privilege *> *items;
 
 /**
  *  The type of the API resource. This is always admin#directory#privileges.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -1230,40 +1233,40 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Role : GTLRObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Returns true if the role is a super admin role.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isSuperAdminRole;
+@property(nonatomic, strong, nullable) NSNumber *isSuperAdminRole;
 
 /**
  *  Returns true if this is a pre-defined system role.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isSystemRole;
+@property(nonatomic, strong, nullable) NSNumber *isSystemRole;
 
 /** The type of the API resource. This is always admin#directory#role. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** A short description of the role. */
-@property(copy, nullable) NSString *roleDescription;
+@property(nonatomic, copy, nullable) NSString *roleDescription;
 
 /**
  *  ID of the role.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *roleId;
+@property(nonatomic, strong, nullable) NSNumber *roleId;
 
 /** Name of the role. */
-@property(copy, nullable) NSString *roleName;
+@property(nonatomic, copy, nullable) NSString *roleName;
 
 /** The set of privileges that are granted to this role. */
-@property(strong, nullable) NSArray<GTLRDirectory_RoleRolePrivilegesItem *> *rolePrivileges;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_RoleRolePrivilegesItem *> *rolePrivileges;
 
 @end
 
@@ -1274,10 +1277,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_RoleRolePrivilegesItem : GTLRObject
 
 /** The name of the privilege. */
-@property(copy, nullable) NSString *privilegeName;
+@property(nonatomic, copy, nullable) NSString *privilegeName;
 
 /** The obfuscated ID of the service this privilege is for. */
-@property(copy, nullable) NSString *serviceId;
+@property(nonatomic, copy, nullable) NSString *serviceId;
 
 @end
 
@@ -1288,42 +1291,42 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_RoleAssignment : GTLRObject
 
 /** The unique ID of the user this role is assigned to. */
-@property(copy, nullable) NSString *assignedTo;
+@property(nonatomic, copy, nullable) NSString *assignedTo;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The type of the API resource. This is always admin#directory#roleAssignment.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  If the role is restricted to an organization unit, this contains the ID for
  *  the organization unit the exercise of this role is restricted to.
  */
-@property(copy, nullable) NSString *orgUnitId;
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
 
 /**
  *  ID of this roleAssignment.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *roleAssignmentId;
+@property(nonatomic, strong, nullable) NSNumber *roleAssignmentId;
 
 /**
  *  The ID of the role that is assigned.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *roleId;
+@property(nonatomic, strong, nullable) NSNumber *roleId;
 
 /**
  *  The scope in which this role is assigned. Possible values are:
  *  - CUSTOMER
  *  - ORG_UNIT
  */
-@property(copy, nullable) NSString *scopeType;
+@property(nonatomic, copy, nullable) NSString *scopeType;
 
 @end
 
@@ -1339,7 +1342,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_RoleAssignments : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  A list of RoleAssignment resources.
@@ -1347,15 +1350,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_RoleAssignment *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_RoleAssignment *> *items;
 
 /**
  *  The type of the API resource. This is always
  *  admin#directory#roleAssignments.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -1371,7 +1374,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Roles : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  A list of Role resources.
@@ -1379,12 +1382,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_Role *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Role *> *items;
 
 /** The type of the API resource. This is always admin#directory#roles. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -1395,19 +1398,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Schema : GTLRObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Fields of Schema */
-@property(strong, nullable) NSArray<GTLRDirectory_SchemaFieldSpec *> *fields;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_SchemaFieldSpec *> *fields;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Unique identifier of Schema (Read-only) */
-@property(copy, nullable) NSString *schemaId;
+@property(nonatomic, copy, nullable) NSString *schemaId;
 
 /** Schema name */
-@property(copy, nullable) NSString *schemaName;
+@property(nonatomic, copy, nullable) NSString *schemaName;
 
 @end
 
@@ -1418,46 +1421,46 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_SchemaFieldSpec : GTLRObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Unique identifier of Field (Read-only) */
-@property(copy, nullable) NSString *fieldId;
+@property(nonatomic, copy, nullable) NSString *fieldId;
 
 /** Name of the field. */
-@property(copy, nullable) NSString *fieldName;
+@property(nonatomic, copy, nullable) NSString *fieldName;
 
 /** Type of the field. */
-@property(copy, nullable) NSString *fieldType;
+@property(nonatomic, copy, nullable) NSString *fieldType;
 
 /**
  *  Boolean specifying whether the field is indexed or not.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *indexed;
+@property(nonatomic, strong, nullable) NSNumber *indexed;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Boolean specifying whether this is a multi-valued field or not.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *multiValued;
+@property(nonatomic, strong, nullable) NSNumber *multiValued;
 
 /**
  *  Indexing spec for a numeric field. By default, only exact match queries will
  *  be supported for numeric fields. Setting the numericIndexingSpec allows
  *  range queries to be supported.
  */
-@property(strong, nullable) GTLRDirectory_SchemaFieldSpecNumericIndexingSpec *numericIndexingSpec;
+@property(nonatomic, strong, nullable) GTLRDirectory_SchemaFieldSpecNumericIndexingSpec *numericIndexingSpec;
 
 /**
  *  Read ACLs on the field specifying who can view values of this field. Valid
  *  values are "ALL_DOMAIN_USERS" and "ADMINS_AND_SELF".
  */
-@property(copy, nullable) NSString *readAccessType;
+@property(nonatomic, copy, nullable) NSString *readAccessType;
 
 @end
 
@@ -1476,7 +1479,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *maxValue;
+@property(nonatomic, strong, nullable) NSNumber *maxValue;
 
 /**
  *  Minimum value of this field. This is meant to be indicative rather than
@@ -1485,7 +1488,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *minValue;
+@property(nonatomic, strong, nullable) NSNumber *minValue;
 
 @end
 
@@ -1496,13 +1499,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Schemas : GTLRObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** List of UserSchema objects. */
-@property(strong, nullable) NSArray<GTLRDirectory_Schema *> *schemas;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Schema *> *schemas;
 
 @end
 
@@ -1518,19 +1521,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *anonymous;
+@property(nonatomic, strong, nullable) NSNumber *anonymous;
 
 /** The Client ID of the application the token is issued to. */
-@property(copy, nullable) NSString *clientId;
+@property(nonatomic, copy, nullable) NSString *clientId;
 
 /** The displayable name of the application the token is issued to. */
-@property(copy, nullable) NSString *displayText;
+@property(nonatomic, copy, nullable) NSString *displayText;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** The type of the API resource. This is always admin#directory#token. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Whether the token is issued to an installed application. The value is true
@@ -1538,13 +1541,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *nativeApp;
+@property(nonatomic, strong, nullable) NSNumber *nativeApp;
 
 /** A list of authorization scopes the application is granted. */
-@property(strong, nullable) NSArray<NSString *> *scopes;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
 /** The unique ID of the user that issued the token. */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 @end
 
@@ -1558,7 +1561,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Tokens : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  A list of Token resources.
@@ -1566,10 +1569,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_Token *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Token *> *items;
 
 /** The type of the API resource. This is always admin#directory#tokenList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -1584,176 +1587,176 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) id addresses;
+@property(nonatomic, strong, nullable) id addresses;
 
 /**
  *  Indicates if user has agreed to terms (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *agreedToTerms;
+@property(nonatomic, strong, nullable) NSNumber *agreedToTerms;
 
 /** List of aliases (Read-only) */
-@property(strong, nullable) NSArray<NSString *> *aliases;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
  *  Boolean indicating if the user should change password in next login
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *changePasswordAtNextLogin;
+@property(nonatomic, strong, nullable) NSNumber *changePasswordAtNextLogin;
 
 /** User's Google account creation time. (Read-only) */
-@property(strong, nullable) GTLRDateTime *creationTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /** CustomerId of User (Read-only) */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Custom fields of the user. */
-@property(strong, nullable) GTLRDirectory_UserCustomSchemas *customSchemas;
+@property(nonatomic, strong, nullable) GTLRDirectory_UserCustomSchemas *customSchemas;
 
-@property(strong, nullable) GTLRDateTime *deletionTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *deletionTime;
 
 /**
  *  emails
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) id emails;
+@property(nonatomic, strong, nullable) id emails;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  externalIds
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) id externalIds;
+@property(nonatomic, strong, nullable) id externalIds;
 
 /** Hash function name for password. Supported are MD5, SHA-1 and crypt */
-@property(copy, nullable) NSString *hashFunction;
+@property(nonatomic, copy, nullable) NSString *hashFunction;
 
 /**
  *  Unique identifier of User (Read-only)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  ims
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) id ims;
+@property(nonatomic, strong, nullable) id ims;
 
 /**
  *  Boolean indicating if user is included in Global Address List
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *includeInGlobalAddressList;
+@property(nonatomic, strong, nullable) NSNumber *includeInGlobalAddressList;
 
 /**
  *  Boolean indicating if ip is whitelisted
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *ipWhitelisted;
+@property(nonatomic, strong, nullable) NSNumber *ipWhitelisted;
 
 /**
  *  Boolean indicating if the user is admin (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isAdmin;
+@property(nonatomic, strong, nullable) NSNumber *isAdmin;
 
 /**
  *  Boolean indicating if the user is delegated admin (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isDelegatedAdmin;
+@property(nonatomic, strong, nullable) NSNumber *isDelegatedAdmin;
 
 /**
  *  Is mailbox setup (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isMailboxSetup;
+@property(nonatomic, strong, nullable) NSNumber *isMailboxSetup;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** User's last login time. (Read-only) */
-@property(strong, nullable) GTLRDateTime *lastLoginTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *lastLoginTime;
 
 /** User's name */
-@property(strong, nullable) GTLRDirectory_UserName *name;
+@property(nonatomic, strong, nullable) GTLRDirectory_UserName *name;
 
 /** List of non editable aliases (Read-only) */
-@property(strong, nullable) NSArray<NSString *> *nonEditableAliases;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nonEditableAliases;
 
 /**
  *  notes
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) id notes;
+@property(nonatomic, strong, nullable) id notes;
 
 /**
  *  organizations
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) id organizations;
+@property(nonatomic, strong, nullable) id organizations;
 
 /** OrgUnit of User */
-@property(copy, nullable) NSString *orgUnitPath;
+@property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /** User's password */
-@property(copy, nullable) NSString *password;
+@property(nonatomic, copy, nullable) NSString *password;
 
 /**
  *  phones
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) id phones;
+@property(nonatomic, strong, nullable) id phones;
 
 /** username of User */
-@property(copy, nullable) NSString *primaryEmail;
+@property(nonatomic, copy, nullable) NSString *primaryEmail;
 
 /**
  *  relations
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) id relations;
+@property(nonatomic, strong, nullable) id relations;
 
 /**
  *  Indicates if user is suspended
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *suspended;
+@property(nonatomic, strong, nullable) NSNumber *suspended;
 
 /** Suspension reason if user is suspended (Read-only) */
-@property(copy, nullable) NSString *suspensionReason;
+@property(nonatomic, copy, nullable) NSString *suspensionReason;
 
 /** ETag of the user's photo (Read-only) */
-@property(copy, nullable) NSString *thumbnailPhotoEtag;
+@property(nonatomic, copy, nullable) NSString *thumbnailPhotoEtag;
 
 /** Photo Url of the user (Read-only) */
-@property(copy, nullable) NSString *thumbnailPhotoUrl;
+@property(nonatomic, copy, nullable) NSString *thumbnailPhotoUrl;
 
 /**
  *  websites
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) id websites;
+@property(nonatomic, strong, nullable) id websites;
 
 @end
 
@@ -1780,10 +1783,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  be plain or html. By default, notes contents are assumed to contain plain
  *  text.
  */
-@property(copy, nullable) NSString *contentType;
+@property(nonatomic, copy, nullable) NSString *contentType;
 
 /** Actual value of notes. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1794,28 +1797,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_UserAddress : GTLRObject
 
 /** Country. */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /** Country code. */
-@property(copy, nullable) NSString *countryCode;
+@property(nonatomic, copy, nullable) NSString *countryCode;
 
 /** Custom type. */
-@property(copy, nullable) NSString *customType;
+@property(nonatomic, copy, nullable) NSString *customType;
 
 /** Extended Address. */
-@property(copy, nullable) NSString *extendedAddress;
+@property(nonatomic, copy, nullable) NSString *extendedAddress;
 
 /** Formatted address. */
-@property(copy, nullable) NSString *formatted;
+@property(nonatomic, copy, nullable) NSString *formatted;
 
 /** Locality. */
-@property(copy, nullable) NSString *locality;
+@property(nonatomic, copy, nullable) NSString *locality;
 
 /** Other parts of address. */
-@property(copy, nullable) NSString *poBox;
+@property(nonatomic, copy, nullable) NSString *poBox;
 
 /** Postal code. */
-@property(copy, nullable) NSString *postalCode;
+@property(nonatomic, copy, nullable) NSString *postalCode;
 
 /**
  *  If this is user's primary address. Only one entry could be marked as
@@ -1823,10 +1826,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *primary;
+@property(nonatomic, strong, nullable) NSNumber *primary;
 
 /** Region. */
-@property(copy, nullable) NSString *region;
+@property(nonatomic, copy, nullable) NSString *region;
 
 /**
  *  User supplied address was structured. Structured addresses are NOT supported
@@ -1835,10 +1838,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *sourceIsStructured;
+@property(nonatomic, strong, nullable) NSNumber *sourceIsStructured;
 
 /** Street. */
-@property(copy, nullable) NSString *streetAddress;
+@property(nonatomic, copy, nullable) NSString *streetAddress;
 
 /**
  *  Each entry can have a type which indicates standard values of that entry.
@@ -1846,7 +1849,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  type, an entry can have a custom type and can take any value. Such type
  *  should have the CUSTOM value as type and also have a customType value.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1870,17 +1873,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_UserEmail : GTLRObject
 
 /** Email id of the user. */
-@property(copy, nullable) NSString *address;
+@property(nonatomic, copy, nullable) NSString *address;
 
 /** Custom Type. */
-@property(copy, nullable) NSString *customType;
+@property(nonatomic, copy, nullable) NSString *customType;
 
 /**
  *  If this is user's primary email. Only one entry could be marked as primary.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *primary;
+@property(nonatomic, strong, nullable) NSNumber *primary;
 
 /**
  *  Each entry can have a type which indicates standard types of that entry. For
@@ -1888,7 +1891,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  an entry can have a custom type and can take any value Such types should
  *  have the CUSTOM value as type and also have a customType value.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1899,13 +1902,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_UserExternalId : GTLRObject
 
 /** Custom type. */
-@property(copy, nullable) NSString *customType;
+@property(nonatomic, copy, nullable) NSString *customType;
 
 /** The type of the Id. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** The value of the id. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1916,27 +1919,27 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_UserIm : GTLRObject
 
 /** Custom protocol. */
-@property(copy, nullable) NSString *customProtocol;
+@property(nonatomic, copy, nullable) NSString *customProtocol;
 
 /** Custom type. */
-@property(copy, nullable) NSString *customType;
+@property(nonatomic, copy, nullable) NSString *customType;
 
 /** Instant messenger id. */
-@property(copy, nullable) NSString *im;
+@property(nonatomic, copy, nullable) NSString *im;
 
 /**
  *  If this is user's primary im. Only one entry could be marked as primary.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *primary;
+@property(nonatomic, strong, nullable) NSNumber *primary;
 
 /**
  *  Protocol used in the instant messenger. It should be one of the values from
  *  ImProtocolTypes map. Similar to type, it can take a CUSTOM value and specify
  *  the custom name in customProtocol field.
  */
-@property(copy, nullable) NSString *protocol;
+@property(nonatomic, copy, nullable) NSString *protocol;
 
 /**
  *  Each entry can have a type which indicates standard types of that entry. For
@@ -1944,7 +1947,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  standard type, an entry can have a custom type and can take any value. Such
  *  types should have the CUSTOM value as type and also have a customType value.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1960,7 +1963,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *status;
+@property(nonatomic, strong, nullable) NSNumber *status;
 
 @end
 
@@ -1971,13 +1974,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_UserName : GTLRObject
 
 /** Last Name */
-@property(copy, nullable) NSString *familyName;
+@property(nonatomic, copy, nullable) NSString *familyName;
 
 /** Full Name */
-@property(copy, nullable) NSString *fullName;
+@property(nonatomic, copy, nullable) NSString *fullName;
 
 /** First Name */
-@property(copy, nullable) NSString *givenName;
+@property(nonatomic, copy, nullable) NSString *givenName;
 
 @end
 
@@ -1988,42 +1991,42 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_UserOrganization : GTLRObject
 
 /** The cost center of the users department. */
-@property(copy, nullable) NSString *costCenter;
+@property(nonatomic, copy, nullable) NSString *costCenter;
 
 /** Custom type. */
-@property(copy, nullable) NSString *customType;
+@property(nonatomic, copy, nullable) NSString *customType;
 
 /** Department within the organization. */
-@property(copy, nullable) NSString *department;
+@property(nonatomic, copy, nullable) NSString *department;
 
 /**
  *  Description of the organization.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** The domain to which the organization belongs to. */
-@property(copy, nullable) NSString *domain;
+@property(nonatomic, copy, nullable) NSString *domain;
 
 /** Location of the organization. This need not be fully qualified address. */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Name of the organization */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  If it user's primary organization.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *primary;
+@property(nonatomic, strong, nullable) NSNumber *primary;
 
 /** Symbol of the organization. */
-@property(copy, nullable) NSString *symbol;
+@property(nonatomic, copy, nullable) NSString *symbol;
 
 /** Title (designation) of the user in the organization. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  Each entry can have a type which indicates standard types of that entry. For
@@ -2032,7 +2035,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Such types should have the CUSTOM value as type and also have a CustomType
  *  value.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2043,14 +2046,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_UserPhone : GTLRObject
 
 /** Custom Type. */
-@property(copy, nullable) NSString *customType;
+@property(nonatomic, copy, nullable) NSString *customType;
 
 /**
  *  If this is user's primary phone or not.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *primary;
+@property(nonatomic, strong, nullable) NSNumber *primary;
 
 /**
  *  Each entry can have a type which indicates standard types of that entry. For
@@ -2059,10 +2062,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Such types should have the CUSTOM value as type and also have a customType
  *  value.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Phone number. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -2073,27 +2076,27 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_UserPhoto : GTLRObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Height in pixels of the photo
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
  *  Unique identifier of User (Read-only)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Mime Type of the photo */
-@property(copy, nullable) NSString *mimeType;
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
  *  Base64 encoded photo data
@@ -2101,17 +2104,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *photoData;
+@property(nonatomic, copy, nullable) NSString *photoData;
 
 /** Primary email of User (Read-only) */
-@property(copy, nullable) NSString *primaryEmail;
+@property(nonatomic, copy, nullable) NSString *primaryEmail;
 
 /**
  *  Width in pixels of the photo
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -2122,16 +2125,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_UserRelation : GTLRObject
 
 /** Custom Type. */
-@property(copy, nullable) NSString *customType;
+@property(nonatomic, copy, nullable) NSString *customType;
 
 /**
  *  The relation of the user. Some of the possible values are mother, father,
  *  sister, brother, manager, assistant, partner.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** The name of the relation. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -2147,16 +2150,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Users : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token used to access next page of this result. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Event that triggered this response (only used in case of Push Response) */
-@property(copy, nullable) NSString *triggerEvent;
+@property(nonatomic, copy, nullable) NSString *triggerEvent;
 
 /**
  *  List of user objects.
@@ -2164,7 +2167,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_User *> *users;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_User *> *users;
 
 @end
 
@@ -2175,7 +2178,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_UserUndelete : GTLRObject
 
 /** OrgUnit of User */
-@property(copy, nullable) NSString *orgUnitPath;
+@property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 @end
 
@@ -2186,14 +2189,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_UserWebsite : GTLRObject
 
 /** Custom Type. */
-@property(copy, nullable) NSString *customType;
+@property(nonatomic, copy, nullable) NSString *customType;
 
 /**
  *  If this is user's primary website or not.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *primary;
+@property(nonatomic, strong, nullable) NSNumber *primary;
 
 /**
  *  Each entry can have a type which indicates standard types of that entry. For
@@ -2202,10 +2205,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Such types should have the CUSTOM value as type and also have a customType
  *  value.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Website. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -2216,21 +2219,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_VerificationCode : GTLRObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The type of the resource. This is always admin#directory#verificationCode.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The obfuscated unique ID of the user. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  A current verification code for the user. Invalidated or used verification
  *  codes are not returned as part of the result.
  */
-@property(copy, nullable) NSString *verificationCode;
+@property(nonatomic, copy, nullable) NSString *verificationCode;
 
 @end
 
@@ -2245,7 +2248,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_VerificationCodes : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  A list of verification code resources.
@@ -2253,13 +2256,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDirectory_VerificationCode *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_VerificationCode *> *items;
 
 /**
  *  The type of the resource. This is always
  *  admin#directory#verificationCodesList.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 

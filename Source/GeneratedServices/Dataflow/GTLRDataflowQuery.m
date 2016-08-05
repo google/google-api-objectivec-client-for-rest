@@ -70,6 +70,64 @@ NSString * const kGTLRDataflowViewJobViewUnknown = @"JOB_VIEW_UNKNOWN";
 
 @end
 
+@implementation GTLRDataflowQuery_ProjectsJobsDebugGetConfig
+
+@dynamic jobId, projectId;
+
++ (instancetype)queryWithObject:(GTLRDataflow_GetDebugConfigRequest *)object
+                      projectId:(NSString *)projectId
+                          jobId:(NSString *)jobId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"jobId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/jobs/{jobId}/debug/getConfig";
+  GTLRDataflowQuery_ProjectsJobsDebugGetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.jobId = jobId;
+  query.expectedObjectClass = [GTLRDataflow_GetDebugConfigResponse class];
+  query.loggingName = @"dataflow.projects.jobs.debug.getConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsJobsDebugSendCapture
+
+@dynamic jobId, projectId;
+
++ (instancetype)queryWithObject:(GTLRDataflow_SendDebugCaptureRequest *)object
+                      projectId:(NSString *)projectId
+                          jobId:(NSString *)jobId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"jobId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/jobs/{jobId}/debug/sendCapture";
+  GTLRDataflowQuery_ProjectsJobsDebugSendCapture *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.jobId = jobId;
+  query.expectedObjectClass = [GTLRDataflow_SendDebugCaptureResponse class];
+  query.loggingName = @"dataflow.projects.jobs.debug.sendCapture";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataflowQuery_ProjectsJobsGet
 
 @dynamic jobId, projectId, view;
@@ -241,6 +299,31 @@ NSString * const kGTLRDataflowViewJobViewUnknown = @"JOB_VIEW_UNKNOWN";
   query.jobId = jobId;
   query.expectedObjectClass = [GTLRDataflow_ReportWorkItemStatusResponse class];
   query.loggingName = @"dataflow.projects.jobs.workItems.reportStatus";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsTemplatesCreate
+
+@dynamic projectId;
+
++ (instancetype)queryWithObject:(GTLRDataflow_CreateJobFromTemplateRequest *)object
+                      projectId:(NSString *)projectId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/templates";
+  GTLRDataflowQuery_ProjectsTemplatesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRDataflow_Job class];
+  query.loggingName = @"dataflow.projects.templates.create";
   return query;
 }
 

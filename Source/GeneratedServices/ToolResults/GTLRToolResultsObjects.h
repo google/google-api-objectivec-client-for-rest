@@ -140,7 +140,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  Schemes other than `http`, `https` (or the empty scheme) might be used with
  *  implementation specific semantics.
  */
-@property(copy, nullable) NSString *typeUrl;
+@property(nonatomic, copy, nullable) NSString *typeUrl;
 
 /**
  *  Must be a valid serialized protocol buffer of the above specified type.
@@ -148,7 +148,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -172,6 +172,9 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  end.seconds = start.seconds + duration.seconds; end.nanos = start.nanos +
  *  duration.nanos;
  *  if (end.nanos = 1000000000) { end.seconds += 1; end.nanos -= 1000000000; }
+ *  Example 3: Compute Duration from datetime.timedelta in Python.
+ *  td = datetime.timedelta(days=3, minutes=10) duration = Duration()
+ *  duration.FromTimedelta(td)
  */
 @interface GTLRToolResults_Duration : GTLRObject
 
@@ -184,7 +187,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *nanos;
+@property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
  *  Signed seconds of the span of time. Must be from -315,576,000,000 to
@@ -192,7 +195,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *seconds;
+@property(nonatomic, strong, nullable) NSNumber *seconds;
 
 @end
 
@@ -213,28 +216,28 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  - In response: set if the execution state is COMPLETE. - In create/update
  *  request: never set
  */
-@property(strong, nullable) GTLRToolResults_Timestamp *completionTime;
+@property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *completionTime;
 
 /**
  *  The time when the Execution was created.
  *  This value will be set automatically when CreateExecution is called.
  *  - In response: always set - In create/update request: never set
  */
-@property(strong, nullable) GTLRToolResults_Timestamp *creationTime;
+@property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *creationTime;
 
 /**
  *  A unique identifier within a History for this Execution.
  *  Returns INVALID_ARGUMENT if this field is set or overwritten by the caller.
  *  - In response always set - In create/update request: never set
  */
-@property(copy, nullable) NSString *executionId;
+@property(nonatomic, copy, nullable) NSString *executionId;
 
 /**
  *  Classify the result, for example into SUCCESS or FAILURE
  *  - In response: present if set by create/update request - In create/update
  *  request: optional
  */
-@property(strong, nullable) GTLRToolResults_Outcome *outcome;
+@property(nonatomic, strong, nullable) GTLRToolResults_Outcome *outcome;
 
 /**
  *  The initial state is IN_PROGRESS.
@@ -254,14 +257,14 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *    @arg @c kGTLRToolResults_Execution_State_Pending Value "pending"
  *    @arg @c kGTLRToolResults_Execution_State_UnknownState Value "unknownState"
  */
-@property(copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  TestExecution Matrix ID that the Test Service uses.
  *  - In response: present if set by create - In create: optional - In update:
  *  never set
  */
-@property(copy, nullable) NSString *testExecutionMatrixId;
+@property(nonatomic, copy, nullable) NSString *testExecutionMatrixId;
 
 @end
 
@@ -276,7 +279,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *crashed;
+@property(nonatomic, strong, nullable) NSNumber *crashed;
 
 /**
  *  If an app is not installed and thus no test can be run with the app. This
@@ -284,21 +287,21 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *notInstalled;
+@property(nonatomic, strong, nullable) NSNumber *notInstalled;
 
 /**
  *  If a native process other than the app crashed.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *otherNativeCrash;
+@property(nonatomic, strong, nullable) NSNumber *otherNativeCrash;
 
 /**
  *  If the test overran some time limit, and that is why it failed.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *timedOut;
+@property(nonatomic, strong, nullable) NSNumber *timedOut;
 
 /**
  *  If the robo was unable to crawl the app; perhaps because the app did not
@@ -306,7 +309,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *unableToCrawl;
+@property(nonatomic, strong, nullable) NSNumber *unableToCrawl;
 
 @end
 
@@ -325,7 +328,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  supported.
  *  - In response: always set - In create/update request: always set
  */
-@property(copy, nullable) NSString *fileUri;
+@property(nonatomic, copy, nullable) NSString *fileUri;
 
 @end
 
@@ -345,21 +348,21 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  100 characters.
  *  - In response: present if set during create. - In create request: optional
  */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  A unique identifier within a project for this History.
  *  Returns INVALID_ARGUMENT if this field is set or overwritten by the caller.
  *  - In response always set - In create request: never set
  */
-@property(copy, nullable) NSString *historyId;
+@property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
  *  A name to uniquely identify a history within a project. Maximum of 100
  *  characters.
  *  - In response always set - In create request: always set
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -370,23 +373,23 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
 @interface GTLRToolResults_Image : GTLRObject
 
 /** An error explaining why the thumbnail could not be rendered. */
-@property(strong, nullable) GTLRToolResults_Status *error;
+@property(nonatomic, strong, nullable) GTLRToolResults_Status *error;
 
 /**
  *  A reference to the full-size, original image.
  *  This is the same as the tool_outputs entry for the image under its Step.
  *  Always set.
  */
-@property(strong, nullable) GTLRToolResults_ToolOutputReference *sourceImage;
+@property(nonatomic, strong, nullable) GTLRToolResults_ToolOutputReference *sourceImage;
 
 /**
  *  The step to which the image is attached.
  *  Always set.
  */
-@property(copy, nullable) NSString *stepId;
+@property(nonatomic, copy, nullable) NSString *stepId;
 
 /** The thumbnail. */
-@property(strong, nullable) GTLRToolResults_Thumbnail *thumbnail;
+@property(nonatomic, strong, nullable) GTLRToolResults_Thumbnail *thumbnail;
 
 @end
 
@@ -403,7 +406,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *abortedByUser;
+@property(nonatomic, strong, nullable) NSNumber *abortedByUser;
 
 /**
  *  If the test runner could not determine success or failure because the test
@@ -413,7 +416,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *infrastructureFailure;
+@property(nonatomic, strong, nullable) NSNumber *infrastructureFailure;
 
 @end
 
@@ -435,13 +438,13 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRToolResults_Execution *> *executions;
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_Execution *> *executions;
 
 /**
  *  A continuation token to resume the query at the next item.
  *  Will only be set if there are more Executions to fetch.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -462,7 +465,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRToolResults_History *> *histories;
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_History *> *histories;
 
 /**
  *  A continuation token to resume the query at the next item.
@@ -472,7 +475,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  first request 10 minutes later, the token from this second response will
  *  only be valid for 50 minutes.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -492,7 +495,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  If set, indicates that there are more steps to read, by calling list again
  *  with this value in the page_token field.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  Steps.
@@ -500,7 +503,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRToolResults_Step *> *steps;
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_Step *> *steps;
 
 @end
 
@@ -520,7 +523,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  If set, indicates that there are more thumbnails to read, by calling list
  *  again with this value in the page_token field.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  A list of image data.
@@ -534,7 +537,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRToolResults_Image *> *thumbnails;
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_Image *> *thumbnails;
 
 @end
 
@@ -550,7 +553,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  FAILURE.
  *  Optional
  */
-@property(strong, nullable) GTLRToolResults_FailureDetail *failureDetail;
+@property(nonatomic, strong, nullable) GTLRToolResults_FailureDetail *failureDetail;
 
 /**
  *  More information about an INCONCLUSIVE outcome.
@@ -558,7 +561,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  INCONCLUSIVE.
  *  Optional
  */
-@property(strong, nullable) GTLRToolResults_InconclusiveDetail *inconclusiveDetail;
+@property(nonatomic, strong, nullable) GTLRToolResults_InconclusiveDetail *inconclusiveDetail;
 
 /**
  *  More information about a SKIPPED outcome.
@@ -566,7 +569,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  SKIPPED.
  *  Optional
  */
-@property(strong, nullable) GTLRToolResults_SkippedDetail *skippedDetail;
+@property(nonatomic, strong, nullable) GTLRToolResults_SkippedDetail *skippedDetail;
 
 /**
  *  More information about a SUCCESS outcome.
@@ -574,7 +577,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  SUCCESS.
  *  Optional
  */
-@property(strong, nullable) GTLRToolResults_SuccessDetail *successDetail;
+@property(nonatomic, strong, nullable) GTLRToolResults_SuccessDetail *successDetail;
 
 /**
  *  The simplest way to interpret a result.
@@ -587,7 +590,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *    @arg @c kGTLRToolResults_Outcome_Summary_Success Value "success"
  *    @arg @c kGTLRToolResults_Outcome_Summary_Unset Value "unset"
  */
-@property(copy, nullable) NSString *summary;
+@property(nonatomic, copy, nullable) NSString *summary;
 
 @end
 
@@ -602,14 +605,14 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  By default, this is unset.
  *  In update request: optional In response: optional
  */
-@property(copy, nullable) NSString *defaultBucket;
+@property(nonatomic, copy, nullable) NSString *defaultBucket;
 
 /**
  *  The name of the project's settings.
  *  Always of the form: projects/{project-id}/settings
  *  In update request: never set In response: always set
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -624,7 +627,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  The maximum size of the file this reference is pointing to is 50MB.
  *  Required.
  */
-@property(strong, nullable) NSArray<GTLRToolResults_FileReference *> *xunitXmlFiles;
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_FileReference *> *xunitXmlFiles;
 
 @end
 
@@ -639,21 +642,21 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *incompatibleAppVersion;
+@property(nonatomic, strong, nullable) NSNumber *incompatibleAppVersion;
 
 /**
  *  If the App doesn't run on the specific architecture, for example, x86.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *incompatibleArchitecture;
+@property(nonatomic, strong, nullable) NSNumber *incompatibleArchitecture;
 
 /**
  *  If the requested OS version doesn't run on the specific device model.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *incompatibleDevice;
+@property(nonatomic, strong, nullable) NSNumber *incompatibleDevice;
 
 @end
 
@@ -667,7 +670,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  The stack trace message.
  *  Required
  */
-@property(copy, nullable) NSString *exception;
+@property(nonatomic, copy, nullable) NSString *exception;
 
 @end
 
@@ -720,20 +723,20 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *code;
+@property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
  *  A list of messages that carry the error details. There will be a common set
  *  of message types for APIs to use.
  */
-@property(strong, nullable) NSArray<GTLRToolResults_Any *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_Any *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
  *  user-facing error message should be localized and sent in the
  *  [google.rpc.Status.details][] field, or localized by the client.
  */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -762,13 +765,13 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  - In response: set if the execution state is COMPLETE. - In create/update
  *  request: never set
  */
-@property(strong, nullable) GTLRToolResults_Timestamp *completionTime;
+@property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *completionTime;
 
 /**
  *  The time when the step was created.
  *  - In response: always set - In create/update request: never set
  */
-@property(strong, nullable) GTLRToolResults_Timestamp *creationTime;
+@property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *creationTime;
 
 /**
  *  A description of this tool For example: mvn clean package -D skipTests=true
@@ -777,7 +780,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  How much the device resource is used to perform the test.
@@ -789,7 +792,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  - In response: present if previously set. - In create request: optional - In
  *  update request: optional
  */
-@property(strong, nullable) GTLRToolResults_Duration *deviceUsageDuration;
+@property(nonatomic, strong, nullable) GTLRToolResults_Duration *deviceUsageDuration;
 
 /**
  *  If the execution containing this step has any dimension_definition set, then
@@ -815,7 +818,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  - In response: present if set by create - In create request: optional - In
  *  update request: never set
  */
-@property(strong, nullable) NSArray<GTLRToolResults_StepDimensionValueEntry *> *dimensionValue;
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_StepDimensionValueEntry *> *dimensionValue;
 
 /**
  *  Whether any of the outputs of this step are images whose thumbnails can be
@@ -824,7 +827,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hasImages;
+@property(nonatomic, strong, nullable) NSNumber *hasImages;
 
 /**
  *  Arbitrary user-supplied key/value pairs that are associated with the step.
@@ -836,7 +839,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  optional; any new key/value pair will be added to the map, and any new value
  *  for an existing key will update that key's value
  */
-@property(strong, nullable) NSArray<GTLRToolResults_StepLabelsEntry *> *labels;
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_StepLabelsEntry *> *labels;
 
 /**
  *  A short human-readable name to display in the UI. Maximum of 100 characters.
@@ -849,14 +852,14 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  - In response: always set - In create request: always set - In update
  *  request: never set
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Classification of the result, for example into SUCCESS or FAILURE
  *  - In response: present if set by create/update request - In create/update
  *  request: optional
  */
-@property(strong, nullable) GTLRToolResults_Outcome *outcome;
+@property(nonatomic, strong, nullable) GTLRToolResults_Outcome *outcome;
 
 /**
  *  How long it took for this step to run.
@@ -871,7 +874,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  - In response: present if previously set; always present on COMPLETE step -
  *  In create request: optional - In update request: optional
  */
-@property(strong, nullable) GTLRToolResults_Duration *runDuration;
+@property(nonatomic, strong, nullable) GTLRToolResults_Duration *runDuration;
 
 /**
  *  The initial state is IN_PROGRESS. The only legal state transitions are *
@@ -889,20 +892,20 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *    @arg @c kGTLRToolResults_Step_State_Pending Value "pending"
  *    @arg @c kGTLRToolResults_Step_State_UnknownState Value "unknownState"
  */
-@property(copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  A unique identifier within a Execution for this Step.
  *  Returns INVALID_ARGUMENT if this field is set or overwritten by the caller.
  *  - In response: always set - In create/update request: never set
  */
-@property(copy, nullable) NSString *stepId;
+@property(nonatomic, copy, nullable) NSString *stepId;
 
 /** An execution of a test runner. */
-@property(strong, nullable) GTLRToolResults_TestExecutionStep *testExecutionStep;
+@property(nonatomic, strong, nullable) GTLRToolResults_TestExecutionStep *testExecutionStep;
 
 /** An execution of a tool (used for steps we don't explicitly support). */
-@property(strong, nullable) GTLRToolResults_ToolExecutionStep *toolExecutionStep;
+@property(nonatomic, strong, nullable) GTLRToolResults_ToolExecutionStep *toolExecutionStep;
 
 @end
 
@@ -912,8 +915,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  */
 @interface GTLRToolResults_StepDimensionValueEntry : GTLRObject
 
-@property(copy, nullable) NSString *key;
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -923,8 +926,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  */
 @interface GTLRToolResults_StepLabelsEntry : GTLRObject
 
-@property(copy, nullable) NSString *key;
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -939,7 +942,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *otherNativeCrash;
+@property(nonatomic, strong, nullable) NSNumber *otherNativeCrash;
 
 @end
 
@@ -957,16 +960,16 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Remapped to 'classNameProperty' to avoid NSObject's 'className'.
  */
-@property(copy, nullable) NSString *classNameProperty;
+@property(nonatomic, copy, nullable) NSString *classNameProperty;
 
 /**
  *  The name of the test case.
  *  Required.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The name of the test suite to which this test case belongs. */
-@property(copy, nullable) NSString *testSuiteName;
+@property(nonatomic, copy, nullable) NSString *testSuiteName;
 
 @end
 
@@ -988,7 +991,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  - In response: present if set by create or update - In create/update
  *  request: optional
  */
-@property(strong, nullable) NSArray<GTLRToolResults_TestIssue *> *testIssues;
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_TestIssue *> *testIssues;
 
 /**
  *  List of test suite overview contents. This could be parsed from xUnit XML
@@ -998,21 +1001,21 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  - In response: always set - In create request: optional - In update request:
  *  never (use publishXunitXmlFiles custom method instead)
  */
-@property(strong, nullable) NSArray<GTLRToolResults_TestSuiteOverview *> *testSuiteOverviews;
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_TestSuiteOverview *> *testSuiteOverviews;
 
 /**
  *  The timing break down of the test execution.
  *  - In response: present if set by create or update - In create/update
  *  request: optional
  */
-@property(strong, nullable) GTLRToolResults_TestTiming *testTiming;
+@property(nonatomic, strong, nullable) GTLRToolResults_TestTiming *testTiming;
 
 /**
  *  Represents the execution of the test runner.
  *  The exit code of this tool will be used to determine if the test passed.
  *  - In response: always set - In create/update request: optional
  */
-@property(strong, nullable) GTLRToolResults_ToolExecution *toolExecution;
+@property(nonatomic, strong, nullable) GTLRToolResults_ToolExecution *toolExecution;
 
 @end
 
@@ -1026,10 +1029,10 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  A brief human-readable message describing the abnormal event.
  *  Required.
  */
-@property(copy, nullable) NSString *errorMessage;
+@property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /** Optional. */
-@property(strong, nullable) GTLRToolResults_StackTrace *stackTrace;
+@property(nonatomic, strong, nullable) GTLRToolResults_StackTrace *stackTrace;
 
 @end
 
@@ -1050,7 +1053,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *errorCount;
+@property(nonatomic, strong, nullable) NSNumber *errorCount;
 
 /**
  *  Number of failed test cases, typically set by the service by parsing the
@@ -1059,13 +1062,13 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *failureCount;
+@property(nonatomic, strong, nullable) NSNumber *failureCount;
 
 /**
  *  The name of the test suite.
  *  - In create/response: always set - In update request: never
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Number of test cases not run, typically set by the service by parsing the
@@ -1074,7 +1077,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *skippedCount;
+@property(nonatomic, strong, nullable) NSNumber *skippedCount;
 
 /**
  *  Number of test cases, typically set by the service by parsing the
@@ -1083,7 +1086,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalCount;
+@property(nonatomic, strong, nullable) NSNumber *totalCount;
 
 /**
  *  If this test suite was parsed from XML, this is the URI where the original
@@ -1092,7 +1095,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  Returns INVALID_ARGUMENT if the uri format is not supported.
  *  - In create/response: optional - In update request: never
  */
-@property(strong, nullable) GTLRToolResults_FileReference *xmlSource;
+@property(nonatomic, strong, nullable) GTLRToolResults_FileReference *xmlSource;
 
 @end
 
@@ -1107,7 +1110,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  - In response: present if previously set. - In create/update request:
  *  optional
  */
-@property(strong, nullable) GTLRToolResults_Duration *testProcessDuration;
+@property(nonatomic, strong, nullable) GTLRToolResults_Duration *testProcessDuration;
 
 @end
 
@@ -1121,7 +1124,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  The thumbnail's content type, i.e. "image/png".
  *  Always set.
  */
-@property(copy, nullable) NSString *contentType;
+@property(nonatomic, copy, nullable) NSString *contentType;
 
 /**
  *  The thumbnail file itself.
@@ -1133,7 +1136,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *data;
+@property(nonatomic, copy, nullable) NSString *data;
 
 /**
  *  The height of the thumbnail, in pixels.
@@ -1141,7 +1144,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *heightPx;
+@property(nonatomic, strong, nullable) NSNumber *heightPx;
 
 /**
  *  The width of the thumbnail, in pixels.
@@ -1149,7 +1152,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *widthPx;
+@property(nonatomic, strong, nullable) NSNumber *widthPx;
 
 @end
 
@@ -1184,8 +1187,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
  *  .setNanos((int) ((millis % 1000) * 1000000)).build();
  *  Example 5: Compute Timestamp from current time in Python.
- *  now = time.time() seconds = int(now) nanos = int((now - seconds) * 10**9)
- *  timestamp = Timestamp(seconds=seconds, nanos=nanos)
+ *  timestamp = Timestamp() timestamp.GetCurrentTime()
  */
 @interface GTLRToolResults_Timestamp : GTLRObject
 
@@ -1196,15 +1198,15 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *nanos;
+@property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
  *  Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must
- *  be from from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive.
+ *  be from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *seconds;
+@property(nonatomic, strong, nullable) NSNumber *seconds;
 
 @end
 
@@ -1221,7 +1223,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  - In response: present if set by create request - In create request:
  *  optional - In update request: never set
  */
-@property(strong, nullable) NSArray<NSString *> *commandLineArguments;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *commandLineArguments;
 
 /**
  *  Tool execution exit code. This field will be set once the tool has exited.
@@ -1229,7 +1231,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  optional - In update request: optional, a FAILED_PRECONDITION error will be
  *  returned if an exit_code is already set.
  */
-@property(strong, nullable) GTLRToolResults_ToolExitCode *exitCode;
+@property(nonatomic, strong, nullable) GTLRToolResults_ToolExitCode *exitCode;
 
 /**
  *  References to any plain text logs output the tool execution.
@@ -1240,7 +1242,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  optional - In update request: optional, any value provided will be appended
  *  to the existing list
  */
-@property(strong, nullable) NSArray<GTLRToolResults_FileReference *> *toolLogs;
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_FileReference *> *toolLogs;
 
 /**
  *  References to opaque files of any format output by the tool execution.
@@ -1249,7 +1251,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  optional - In update request: optional, any value provided will be appended
  *  to the existing list
  */
-@property(strong, nullable) NSArray<GTLRToolResults_ToolOutputReference *> *toolOutputs;
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_ToolOutputReference *> *toolOutputs;
 
 @end
 
@@ -1265,7 +1267,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  - In response: present if set by create/update request - In create/update
  *  request: optional
  */
-@property(strong, nullable) GTLRToolResults_ToolExecution *toolExecution;
+@property(nonatomic, strong, nullable) GTLRToolResults_ToolExecution *toolExecution;
 
 @end
 
@@ -1282,7 +1284,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *number;
+@property(nonatomic, strong, nullable) NSNumber *number;
 
 @end
 
@@ -1297,20 +1299,20 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  - In response: present if set by create/update request - In create/update
  *  request: optional
  */
-@property(strong, nullable) GTLRToolResults_Timestamp *creationTime;
+@property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *creationTime;
 
 /**
  *  A FileReference to an output file.
  *  - In response: always set - In create/update request: always set
  */
-@property(strong, nullable) GTLRToolResults_FileReference *output;
+@property(nonatomic, strong, nullable) GTLRToolResults_FileReference *output;
 
 /**
  *  The test case to which this output file belongs.
  *  - In response: present if set by create/update request - In create/update
  *  request: optional
  */
-@property(strong, nullable) GTLRToolResults_TestCaseReference *testCase;
+@property(nonatomic, strong, nullable) GTLRToolResults_TestCaseReference *testCase;
 
 @end
 

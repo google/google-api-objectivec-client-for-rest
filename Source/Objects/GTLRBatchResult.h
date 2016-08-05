@@ -20,10 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
 @class GTLRErrorObject;
 
 /**
- *  A batch result includes a dictionary of successes and a dictionary of failures.
+ *  A batch result includes a dictionary of successes, a dictionary of failures, and a dictionary of
+ *  HTTP response headers.
  *
  *  Dictionary keys are request ID strings; dictionary values are @c GTLRObject for
- *  successes and @c GTLRErrorObject for failures.
+ *  successes, @c GTLRErrorObject for failures, @c NSDictionary for responseHeaders.
  *
  *  For successes with no returned object (such as from delete operations),
  *  the object for the dictionary entry is @c NSNull.
@@ -63,6 +64,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Object results of unsuccessful queries in the batch, keyed by request ID.
  */
 @property(atomic, strong, nullable) NSDictionary<NSString *, GTLRErrorObject *> *failures;
+
+/**
+ * Any HTTP response headers that were returned for a query request. Headers are optional therefore
+ * not all queries will have them. Query request with response headers are stored in a
+ * dictionary and keyed by request ID.
+ */
+@property(atomic, strong, nullable)
+    NSDictionary<NSString *, NSDictionary *> *responseHeaders;
 
 @end
 

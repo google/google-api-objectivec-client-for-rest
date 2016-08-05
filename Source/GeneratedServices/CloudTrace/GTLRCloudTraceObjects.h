@@ -66,7 +66,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified;
  *  that this value should be passed to the next request to continue retrieving
  *  additional traces.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  List of trace records returned.
@@ -74,7 +74,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCloudTrace_Trace *> *traces;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTrace_Trace *> *traces;
 
 @end
 
@@ -87,16 +87,16 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified;
 @interface GTLRCloudTrace_Trace : GTLRObject
 
 /** Project ID of the Cloud project where the trace data is stored. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Collection of spans in the trace. */
-@property(strong, nullable) NSArray<GTLRCloudTrace_TraceSpan *> *spans;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTrace_TraceSpan *> *spans;
 
 /**
  *  Globally unique identifier for the trace. This identifier is a 128-bit
  *  numeric value formatted as a 32-byte hex string.
  */
-@property(copy, nullable) NSString *traceId;
+@property(nonatomic, copy, nullable) NSString *traceId;
 
 @end
 
@@ -107,7 +107,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified;
 @interface GTLRCloudTrace_Traces : GTLRObject
 
 /** List of traces. */
-@property(strong, nullable) NSArray<GTLRCloudTrace_Trace *> *traces;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTrace_Trace *> *traces;
 
 @end
 
@@ -122,7 +122,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified;
 @interface GTLRCloudTrace_TraceSpan : GTLRObject
 
 /** End time of the span in nanoseconds from the UNIX epoch. */
-@property(copy, nullable) NSString *endTime;
+@property(nonatomic, copy, nullable) NSString *endTime;
 
 /**
  *  Distinguishes between spans generated in a particular context. For example,
@@ -135,10 +135,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified;
  *    @arg @c kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified Value
  *        "SPAN_KIND_UNSPECIFIED"
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Collection of labels associated with the span. */
-@property(strong, nullable) GTLRCloudTrace_TraceSpanLabels *labels;
+@property(nonatomic, strong, nullable) GTLRCloudTrace_TraceSpanLabels *labels;
 
 /**
  *  Name of the trace. The trace name is sanitized and displayed in the
@@ -147,24 +147,24 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified;
  *  executable and the same call point, a best practice is to use a consistent
  *  name, which makes it easier to correlate cross-trace spans.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  ID of the parent span, if any. Optional.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *parentSpanId;
+@property(nonatomic, strong, nullable) NSNumber *parentSpanId;
 
 /**
  *  Identifier for the span. This identifier must be unique within a trace.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *spanId;
+@property(nonatomic, strong, nullable) NSNumber *spanId;
 
 /** Start time of the span in nanoseconds from the UNIX epoch. */
-@property(copy, nullable) NSString *startTime;
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 @end
 

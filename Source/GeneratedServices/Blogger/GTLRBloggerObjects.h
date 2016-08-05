@@ -55,51 +55,51 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_Blog : GTLRObject
 
 /** The JSON custom meta-data for the Blog */
-@property(copy, nullable) NSString *customMetaData;
+@property(nonatomic, copy, nullable) NSString *customMetaData;
 
 /**
  *  The description of this blog. This is displayed underneath the title.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The identifier for this resource.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The kind of this entry. Always blogger#blog */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The locale this Blog is set to. */
-@property(strong, nullable) GTLRBlogger_BlogLocale *locale;
+@property(nonatomic, strong, nullable) GTLRBlogger_BlogLocale *locale;
 
 /** The name of this blog. This is displayed as the title. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The container of pages in this blog. */
-@property(strong, nullable) GTLRBlogger_BlogPages *pages;
+@property(nonatomic, strong, nullable) GTLRBlogger_BlogPages *pages;
 
 /** The container of posts in this blog. */
-@property(strong, nullable) GTLRBlogger_BlogPosts *posts;
+@property(nonatomic, strong, nullable) GTLRBlogger_BlogPosts *posts;
 
 /** RFC 3339 date-time when this blog was published. */
-@property(strong, nullable) GTLRDateTime *published;
+@property(nonatomic, strong, nullable) GTLRDateTime *published;
 
 /** The API REST URL to fetch this resource from. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** The status of the blog. */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /** RFC 3339 date-time when this blog was last updated. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /** The URL where this blog is published. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -110,13 +110,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_BlogLocale : GTLRObject
 
 /** The country this blog's locale is set to. */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /** The language this blog is authored in. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The language variant this blog is authored in. */
-@property(copy, nullable) NSString *variant;
+@property(nonatomic, copy, nullable) NSString *variant;
 
 @end
 
@@ -127,14 +127,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_BlogPages : GTLRObject
 
 /** The URL of the container for pages in this blog. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  The count of pages in this blog.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalItems;
+@property(nonatomic, strong, nullable) NSNumber *totalItems;
 
 @end
 
@@ -153,17 +153,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRBlogger_Post *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Post *> *items;
 
 /** The URL of the container for posts in this blog. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  The count of posts in this blog.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalItems;
+@property(nonatomic, strong, nullable) NSNumber *totalItems;
 
 @end
 
@@ -177,7 +177,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_BlogList : GTLRCollectionObject
 
 /** Admin level list of blog per-user information */
-@property(strong, nullable) NSArray<GTLRBlogger_BlogUserInfo *> *blogUserInfos;
+@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_BlogUserInfo *> *blogUserInfos;
 
 /**
  *  The list of Blogs this user has Authorship or Admin rights over.
@@ -185,10 +185,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRBlogger_Blog *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Blog *> *items;
 
 /** The kind of this entity. Always blogger#blogList */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -199,29 +199,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_BlogPerUserInfo : GTLRObject
 
 /** ID of the Blog resource */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /**
  *  True if the user has Admin level access to the blog.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hasAdminAccess;
+@property(nonatomic, strong, nullable) NSNumber *hasAdminAccess;
 
 /** The kind of this entity. Always blogger#blogPerUserInfo */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The Photo Album Key for the user when adding photos to the blog */
-@property(copy, nullable) NSString *photosAlbumKey;
+@property(nonatomic, copy, nullable) NSString *photosAlbumKey;
 
 /**
  *  Access permissions that the user has for the blog (ADMIN, AUTHOR, or
  *  READER).
  */
-@property(copy, nullable) NSString *role;
+@property(nonatomic, copy, nullable) NSString *role;
 
 /** ID of the User */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 
@@ -232,13 +232,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_BlogUserInfo : GTLRObject
 
 /** The Blog resource. */
-@property(strong, nullable) GTLRBlogger_Blog *blog;
+@property(nonatomic, strong, nullable) GTLRBlogger_Blog *blog;
 
 /** Information about a User for the Blog. */
-@property(strong, nullable) GTLRBlogger_BlogPerUserInfo *blogUserInfo;
+@property(nonatomic, strong, nullable) GTLRBlogger_BlogPerUserInfo *blogUserInfo;
 
 /** The kind of this entity. Always blogger#blogUserInfo */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -249,41 +249,41 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_Comment : GTLRObject
 
 /** The author of this Comment. */
-@property(strong, nullable) GTLRBlogger_CommentAuthor *author;
+@property(nonatomic, strong, nullable) GTLRBlogger_CommentAuthor *author;
 
 /** Data about the blog containing this comment. */
-@property(strong, nullable) GTLRBlogger_CommentBlog *blog;
+@property(nonatomic, strong, nullable) GTLRBlogger_CommentBlog *blog;
 
 /** The actual content of the comment. May include HTML markup. */
-@property(copy, nullable) NSString *content;
+@property(nonatomic, copy, nullable) NSString *content;
 
 /**
  *  The identifier for this resource.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Data about the comment this is in reply to. */
-@property(strong, nullable) GTLRBlogger_CommentInReplyTo *inReplyTo;
+@property(nonatomic, strong, nullable) GTLRBlogger_CommentInReplyTo *inReplyTo;
 
 /** The kind of this entry. Always blogger#comment */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Data about the post containing this comment. */
-@property(strong, nullable) GTLRBlogger_CommentPost *post;
+@property(nonatomic, strong, nullable) GTLRBlogger_CommentPost *post;
 
 /** RFC 3339 date-time when this comment was published. */
-@property(strong, nullable) GTLRDateTime *published;
+@property(nonatomic, strong, nullable) GTLRDateTime *published;
 
 /** The API REST URL to fetch this resource from. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** The status of the comment (only populated for admin users) */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /** RFC 3339 date-time when this comment was last updated. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 @end
 
@@ -294,20 +294,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_CommentAuthor : GTLRObject
 
 /** The display name. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The identifier of the Comment creator.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The comment creator's avatar. */
-@property(strong, nullable) GTLRBlogger_CommentAuthorImage *image;
+@property(nonatomic, strong, nullable) GTLRBlogger_CommentAuthorImage *image;
 
 /** The URL of the Comment creator's Profile page. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -322,7 +322,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 
@@ -337,7 +337,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 
@@ -352,7 +352,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 
@@ -363,7 +363,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_CommentAuthorImage : GTLRObject
 
 /** The comment creator's avatar URL. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -379,7 +379,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_CommentList : GTLRCollectionObject
 
 /** Etag of the response. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The List of Comments for a Post.
@@ -387,16 +387,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRBlogger_Comment *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Comment *> *items;
 
 /** The kind of this entry. Always blogger#commentList */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Pagination token to fetch the next page, if one exists. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Pagination token to fetch the previous page, if one exists. */
-@property(copy, nullable) NSString *prevPageToken;
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
 @end
 
@@ -407,47 +407,47 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_Page : GTLRObject
 
 /** The author of this Page. */
-@property(strong, nullable) GTLRBlogger_PageAuthor *author;
+@property(nonatomic, strong, nullable) GTLRBlogger_PageAuthor *author;
 
 /** Data about the blog containing this Page. */
-@property(strong, nullable) GTLRBlogger_PageBlog *blog;
+@property(nonatomic, strong, nullable) GTLRBlogger_PageBlog *blog;
 
 /** The body content of this Page, in HTML. */
-@property(copy, nullable) NSString *content;
+@property(nonatomic, copy, nullable) NSString *content;
 
 /** Etag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The identifier for this resource.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The kind of this entity. Always blogger#page */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** RFC 3339 date-time when this Page was published. */
-@property(strong, nullable) GTLRDateTime *published;
+@property(nonatomic, strong, nullable) GTLRDateTime *published;
 
 /** The API REST URL to fetch this resource from. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** The status of the page for admin resources (either LIVE or DRAFT). */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  The title of this entity. This is the name displayed in the Admin user
  *  interface.
  */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** RFC 3339 date-time when this Page was last updated. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /** The URL that this Page is displayed at. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -458,20 +458,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_PageAuthor : GTLRObject
 
 /** The display name. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The identifier of the Page creator.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The page author's avatar. */
-@property(strong, nullable) GTLRBlogger_PageAuthorImage *image;
+@property(nonatomic, strong, nullable) GTLRBlogger_PageAuthorImage *image;
 
 /** The URL of the Page creator's Profile page. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -486,7 +486,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 
@@ -497,7 +497,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_PageAuthorImage : GTLRObject
 
 /** The page author's avatar URL. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -513,7 +513,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_PageList : GTLRCollectionObject
 
 /** Etag of the response. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The list of Pages for a Blog.
@@ -521,13 +521,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRBlogger_Page *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Page *> *items;
 
 /** The kind of this entity. Always blogger#pageList */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Pagination token to fetch the next page, if one exists. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -538,13 +538,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_Pageviews : GTLRObject
 
 /** Blog Id */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The container of posts in this blog. */
-@property(strong, nullable) NSArray<GTLRBlogger_PageviewsCountsItem *> *counts;
+@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_PageviewsCountsItem *> *counts;
 
 /** The kind of this entry. Always blogger#page_views */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -559,10 +559,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *count;
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 /** Time range the given count applies to */
-@property(copy, nullable) NSString *timeRange;
+@property(nonatomic, copy, nullable) NSString *timeRange;
 
 @end
 
@@ -573,65 +573,65 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_Post : GTLRObject
 
 /** The author of this Post. */
-@property(strong, nullable) GTLRBlogger_PostAuthor *author;
+@property(nonatomic, strong, nullable) GTLRBlogger_PostAuthor *author;
 
 /** Data about the blog containing this Post. */
-@property(strong, nullable) GTLRBlogger_PostBlog *blog;
+@property(nonatomic, strong, nullable) GTLRBlogger_PostBlog *blog;
 
 /** The content of the Post. May contain HTML markup. */
-@property(copy, nullable) NSString *content;
+@property(nonatomic, copy, nullable) NSString *content;
 
 /** The JSON meta-data for the Post. */
-@property(copy, nullable) NSString *customMetaData;
+@property(nonatomic, copy, nullable) NSString *customMetaData;
 
 /** Etag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The identifier of this Post.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Display image for the Post. */
-@property(strong, nullable) NSArray<GTLRBlogger_PostImagesItem *> *images;
+@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_PostImagesItem *> *images;
 
 /** The kind of this entity. Always blogger#post */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The list of labels this Post was tagged with. */
-@property(strong, nullable) NSArray<NSString *> *labels;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
 
 /** The location for geotagged posts. */
-@property(strong, nullable) GTLRBlogger_PostLocation *location;
+@property(nonatomic, strong, nullable) GTLRBlogger_PostLocation *location;
 
 /** RFC 3339 date-time when this Post was published. */
-@property(strong, nullable) GTLRDateTime *published;
+@property(nonatomic, strong, nullable) GTLRDateTime *published;
 
 /** Comment control and display setting for readers of this post. */
-@property(copy, nullable) NSString *readerComments;
+@property(nonatomic, copy, nullable) NSString *readerComments;
 
 /** The container of comments on this Post. */
-@property(strong, nullable) GTLRBlogger_PostReplies *replies;
+@property(nonatomic, strong, nullable) GTLRBlogger_PostReplies *replies;
 
 /** The API REST URL to fetch this resource from. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** Status of the post. Only set for admin-level requests */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /** The title of the Post. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** The title link URL, similar to atom's related link. */
-@property(copy, nullable) NSString *titleLink;
+@property(nonatomic, copy, nullable) NSString *titleLink;
 
 /** RFC 3339 date-time when this Post was last updated. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /** The URL where this Post is displayed. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -642,20 +642,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_PostAuthor : GTLRObject
 
 /** The display name. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The identifier of the Post creator.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The Post author's avatar. */
-@property(strong, nullable) GTLRBlogger_PostAuthorImage *image;
+@property(nonatomic, strong, nullable) GTLRBlogger_PostAuthorImage *image;
 
 /** The URL of the Post creator's Profile page. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -670,7 +670,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 
@@ -680,7 +680,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBlogger_PostImagesItem : GTLRObject
 
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -695,20 +695,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *lat;
+@property(nonatomic, strong, nullable) NSNumber *lat;
 
 /**
  *  Location's longitude.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *lng;
+@property(nonatomic, strong, nullable) NSNumber *lng;
 
 /** Location name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Location's viewport span. Can be used when rendering a map preview. */
-@property(copy, nullable) NSString *span;
+@property(nonatomic, copy, nullable) NSString *span;
 
 @end
 
@@ -727,17 +727,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRBlogger_Comment *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Comment *> *items;
 
 /** The URL of the comments on this post. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  The count of comments on this post.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *totalItems;
+@property(nonatomic, strong, nullable) NSNumber *totalItems;
 
 @end
 
@@ -748,7 +748,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_PostAuthorImage : GTLRObject
 
 /** The Post author's avatar URL. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -764,7 +764,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_PostList : GTLRCollectionObject
 
 /** Etag of the response. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The list of Posts for this Blog.
@@ -772,13 +772,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRBlogger_Post *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Post *> *items;
 
 /** The kind of this entity. Always blogger#postList */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Pagination token to fetch the next page, if one exists. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -789,23 +789,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_PostPerUserInfo : GTLRObject
 
 /** ID of the Blog that the post resource belongs to. */
-@property(copy, nullable) NSString *blogId;
+@property(nonatomic, copy, nullable) NSString *blogId;
 
 /**
  *  True if the user has Author level access to the post.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hasEditAccess;
+@property(nonatomic, strong, nullable) NSNumber *hasEditAccess;
 
 /** The kind of this entity. Always blogger#postPerUserInfo */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** ID of the Post resource. */
-@property(copy, nullable) NSString *postId;
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /** ID of the User. */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 
@@ -816,13 +816,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_PostUserInfo : GTLRObject
 
 /** The kind of this entity. Always blogger#postUserInfo */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The Post resource. */
-@property(strong, nullable) GTLRBlogger_Post *post;
+@property(nonatomic, strong, nullable) GTLRBlogger_Post *post;
 
 /** Information about a User for the Post. */
-@property(strong, nullable) GTLRBlogger_PostPerUserInfo *postUserInfo;
+@property(nonatomic, strong, nullable) GTLRBlogger_PostPerUserInfo *postUserInfo;
 
 @end
 
@@ -843,13 +843,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRBlogger_PostUserInfo *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_PostUserInfo *> *items;
 
 /** The kind of this entity. Always blogger#postList */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Pagination token to fetch the next page, if one exists. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -860,35 +860,35 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_User : GTLRObject
 
 /** Profile summary information. */
-@property(copy, nullable) NSString *about;
+@property(nonatomic, copy, nullable) NSString *about;
 
 /** The container of blogs for this user. */
-@property(strong, nullable) GTLRBlogger_UserBlogs *blogs;
+@property(nonatomic, strong, nullable) GTLRBlogger_UserBlogs *blogs;
 
 /** The timestamp of when this profile was created, in seconds since epoch. */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /** The display name. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The identifier for this User.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The kind of this entity. Always blogger#user */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** This user's locale */
-@property(strong, nullable) GTLRBlogger_UserLocale *locale;
+@property(nonatomic, strong, nullable) GTLRBlogger_UserLocale *locale;
 
 /** The API REST URL to fetch this resource from. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** The user's profile page. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -899,7 +899,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_UserBlogs : GTLRObject
 
 /** The URL of the Blogs for this user. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -910,13 +910,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_UserLocale : GTLRObject
 
 /** The user's country setting. */
-@property(copy, nullable) NSString *country;
+@property(nonatomic, copy, nullable) NSString *country;
 
 /** The user's language setting. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The user's language variant setting. */
-@property(copy, nullable) NSString *variant;
+@property(nonatomic, copy, nullable) NSString *variant;
 
 @end
 

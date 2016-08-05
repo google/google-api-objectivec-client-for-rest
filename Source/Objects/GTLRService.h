@@ -837,4 +837,12 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
 
 @end
 
+/**
+ *  The library doesn't use GTLRObjectCollectionImpl, but it provides a concrete implementation
+ *  so the methods do not cause private method errors in Xcode/AppStore review.
+ */
+@interface GTLRObjectCollectionImpl : GTLRObject
+@property(nonatomic, copy) NSString *nextPageToken;
+@end
+
 NS_ASSUME_NONNULL_END

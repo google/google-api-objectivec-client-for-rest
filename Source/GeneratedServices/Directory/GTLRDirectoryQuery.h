@@ -225,7 +225,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @interface GTLRDirectoryQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -242,13 +242,13 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForAspsDeleteWithuserKey:codeId:]
 
 /** The unique ID of the ASP to be deleted. */
-@property(assign) NSInteger codeId;
+@property(nonatomic, assign) NSInteger codeId;
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
  *  email address, alias email address, or unique user ID.
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -280,13 +280,13 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForAspsGetWithuserKey:codeId:]
 
 /** The unique ID of the ASP. */
-@property(assign) NSInteger codeId;
+@property(nonatomic, assign) NSInteger codeId;
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
  *  email address, alias email address, or unique user ID.
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Asp.
@@ -320,7 +320,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Identifies the user in the API request. The value can be the user's primary
  *  email address, alias email address, or unique user ID.
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Asps.
@@ -379,10 +379,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForChromeosdevicesGetWithcustomerId:deviceId:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Immutable id of Chrome OS Device */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
  *  Restrict information returned to a set of selected fields.
@@ -394,7 +394,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectoryProjectionFull Includes all metadata fields (Value:
  *        "FULL")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Fetches a @c GTLRDirectory_ChromeOsDevice.
@@ -425,10 +425,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForChromeosdevicesListWithcustomerId:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Maximum number of results to return. Default is 100 */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  Column to use for sorting results
@@ -448,10 +448,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectoryOrderBySupportEndDate Chromebook support end date.
  *        (Value: "supportEndDate")
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Token to specify next page in the list */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Restrict information returned to a set of selected fields.
@@ -463,13 +463,13 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectoryProjectionFull Includes all metadata fields (Value:
  *        "FULL")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Search string in the format given at
  *  http://support.google.com/chromeos/a/bin/answer.py?hl=en&answer=1698333
  */
-@property(copy, nullable) NSString *query;
+@property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  Whether to return results in ascending or descending order. Only of use when
@@ -481,7 +481,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
  *        "DESCENDING")
  */
-@property(copy, nullable) NSString *sortOrder;
+@property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
  *  Fetches a @c GTLRDirectory_ChromeOsDevices.
@@ -513,10 +513,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForChromeosdevicesPatchWithObject:customerId:deviceId:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Immutable id of Chrome OS Device */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
  *  Restrict information returned to a set of selected fields.
@@ -528,7 +528,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectoryProjectionFull Includes all metadata fields (Value:
  *        "FULL")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Fetches a @c GTLRDirectory_ChromeOsDevice.
@@ -560,10 +560,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForChromeosdevicesUpdateWithObject:customerId:deviceId:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Immutable id of Chrome OS Device */
-@property(copy, nullable) NSString *deviceId;
+@property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
  *  Restrict information returned to a set of selected fields.
@@ -575,7 +575,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectoryProjectionFull Includes all metadata fields (Value:
  *        "FULL")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Fetches a @c GTLRDirectory_ChromeOsDevice.
@@ -595,7 +595,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Retrives a customer.
+ *  Retrieves a customer.
  *
  *  Method: directory.customers.get
  *
@@ -608,12 +608,12 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForCustomersGetWithcustomerKey:]
 
 /** Id of the customer to be retrieved */
-@property(copy, nullable) NSString *customerKey;
+@property(nonatomic, copy, nullable) NSString *customerKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Customer.
  *
- *  Retrives a customer.
+ *  Retrieves a customer.
  *
  *  @param customerKey Id of the customer to be retrieved
  *
@@ -636,7 +636,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForCustomersPatchWithObject:customerKey:]
 
 /** Id of the customer to be updated */
-@property(copy, nullable) NSString *customerKey;
+@property(nonatomic, copy, nullable) NSString *customerKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Customer.
@@ -666,7 +666,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForCustomersUpdateWithObject:customerKey:]
 
 /** Id of the customer to be updated */
-@property(copy, nullable) NSString *customerKey;
+@property(nonatomic, copy, nullable) NSString *customerKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Customer.
@@ -696,10 +696,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForDomainAliasesDeleteWithcustomer:domainAliasName:]
 
 /** Immutable id of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** Name of domain alias to be retrieved. */
-@property(copy, nullable) NSString *domainAliasName;
+@property(nonatomic, copy, nullable) NSString *domainAliasName;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -731,10 +731,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForDomainAliasesGetWithcustomer:domainAliasName:]
 
 /** Immutable id of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** Name of domain alias to be retrieved. */
-@property(copy, nullable) NSString *domainAliasName;
+@property(nonatomic, copy, nullable) NSString *domainAliasName;
 
 /**
  *  Fetches a @c GTLRDirectory_DomainAlias.
@@ -764,7 +764,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForDomainAliasesInsertWithObject:customer:]
 
 /** Immutable id of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Fetches a @c GTLRDirectory_DomainAlias.
@@ -795,10 +795,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForDomainAliasesListWithcustomer:]
 
 /** Immutable id of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** Name of the parent domain for which domain aliases are to be fetched. */
-@property(copy, nullable) NSString *parentDomainName;
+@property(nonatomic, copy, nullable) NSString *parentDomainName;
 
 /**
  *  Fetches a @c GTLRDirectory_DomainAliases.
@@ -826,10 +826,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForDomainsDeleteWithcustomer:domainName:]
 
 /** Immutable id of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** Name of domain to be deleted */
-@property(copy, nullable) NSString *domainName;
+@property(nonatomic, copy, nullable) NSString *domainName;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -848,7 +848,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Retrives a domain of the customer.
+ *  Retrieves a domain of the customer.
  *
  *  Method: directory.domains.get
  *
@@ -861,15 +861,15 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForDomainsGetWithcustomer:domainName:]
 
 /** Immutable id of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** Name of domain to be retrieved */
-@property(copy, nullable) NSString *domainName;
+@property(nonatomic, copy, nullable) NSString *domainName;
 
 /**
  *  Fetches a @c GTLRDirectory_Domains.
  *
- *  Retrives a domain of the customer.
+ *  Retrieves a domain of the customer.
  *
  *  @param customer Immutable id of the Google Apps account.
  *  @param domainName Name of domain to be retrieved
@@ -894,7 +894,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForDomainsInsertWithObject:customer:]
 
 /** Immutable id of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Fetches a @c GTLRDirectory_Domains.
@@ -925,7 +925,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForDomainsListWithcustomer:]
 
 /** Immutable id of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Fetches a @c GTLRDirectory_Domains2.
@@ -953,10 +953,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForGroupsAliasesDeleteWithgroupKey:alias:]
 
 /** The alias to be removed */
-@property(copy, nullable) NSString *alias;
+@property(nonatomic, copy, nullable) NSString *alias;
 
 /** Email or immutable Id of the group */
-@property(copy, nullable) NSString *groupKey;
+@property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -987,7 +987,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForGroupsAliasesInsertWithObject:groupKey:]
 
 /** Email or immutable Id of the group */
-@property(copy, nullable) NSString *groupKey;
+@property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Alias.
@@ -1018,7 +1018,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForGroupsAliasesListWithgroupKey:]
 
 /** Email or immutable Id of the group */
-@property(copy, nullable) NSString *groupKey;
+@property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Aliases.
@@ -1046,7 +1046,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForGroupsDeleteWithgroupKey:]
 
 /** Email or immutable Id of the group */
-@property(copy, nullable) NSString *groupKey;
+@property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1076,7 +1076,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForGroupsGetWithgroupKey:]
 
 /** Email or immutable Id of the group */
-@property(copy, nullable) NSString *groupKey;
+@property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Group.
@@ -1133,25 +1133,25 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Immutable id of the Google Apps account. In case of multi-domain, to fetch
  *  all groups for a customer, fill this field instead of domain.
  */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Name of the domain. Fill this field to get groups from only this domain. To
  *  return all groups in a multi-domain fill customer field instead.
  */
-@property(copy, nullable) NSString *domain;
+@property(nonatomic, copy, nullable) NSString *domain;
 
 /** Maximum number of results to return. Default is 200 */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token to specify next page in the list */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Email or immutable Id of the user if only those groups are to be listed, the
  *  given user is a member of. If Id, it should match with id of user object
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Groups.
@@ -1184,7 +1184,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Email or immutable Id of the group. If Id, it should match with id of group
  *  object
  */
-@property(copy, nullable) NSString *groupKey;
+@property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Group.
@@ -1218,7 +1218,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Email or immutable Id of the group. If Id, it should match with id of group
  *  object
  */
-@property(copy, nullable) NSString *groupKey;
+@property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Group.
@@ -1250,10 +1250,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForMembersDeleteWithgroupKey:memberKey:]
 
 /** Email or immutable Id of the group */
-@property(copy, nullable) NSString *groupKey;
+@property(nonatomic, copy, nullable) NSString *groupKey;
 
 /** Email or immutable Id of the member */
-@property(copy, nullable) NSString *memberKey;
+@property(nonatomic, copy, nullable) NSString *memberKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1287,10 +1287,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForMembersGetWithgroupKey:memberKey:]
 
 /** Email or immutable Id of the group */
-@property(copy, nullable) NSString *groupKey;
+@property(nonatomic, copy, nullable) NSString *groupKey;
 
 /** Email or immutable Id of the member */
-@property(copy, nullable) NSString *memberKey;
+@property(nonatomic, copy, nullable) NSString *memberKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Member.
@@ -1321,7 +1321,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForMembersInsertWithObject:groupKey:]
 
 /** Email or immutable Id of the group */
-@property(copy, nullable) NSString *groupKey;
+@property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Member.
@@ -1354,16 +1354,16 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForMembersListWithgroupKey:]
 
 /** Email or immutable Id of the group */
-@property(copy, nullable) NSString *groupKey;
+@property(nonatomic, copy, nullable) NSString *groupKey;
 
 /** Maximum number of results to return. Default is 200 */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token to specify next page in the list */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Comma separated role values to filter list results on. */
-@property(copy, nullable) NSString *roles;
+@property(nonatomic, copy, nullable) NSString *roles;
 
 /**
  *  Fetches a @c GTLRDirectory_Members.
@@ -1400,13 +1400,13 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Email or immutable Id of the group. If Id, it should match with id of group
  *  object
  */
-@property(copy, nullable) NSString *groupKey;
+@property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Email or immutable Id of the user. If Id, it should match with id of member
  *  object
  */
-@property(copy, nullable) NSString *memberKey;
+@property(nonatomic, copy, nullable) NSString *memberKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Member.
@@ -1445,13 +1445,13 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Email or immutable Id of the group. If Id, it should match with id of group
  *  object
  */
-@property(copy, nullable) NSString *groupKey;
+@property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Email or immutable Id of the user. If Id, it should match with id of member
  *  object
  */
-@property(copy, nullable) NSString *memberKey;
+@property(nonatomic, copy, nullable) NSString *memberKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Member.
@@ -1486,10 +1486,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForMobiledevicesActionWithObject:customerId:resourceId:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Immutable id of Mobile Device */
-@property(copy, nullable) NSString *resourceId;
+@property(nonatomic, copy, nullable) NSString *resourceId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1523,10 +1523,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForMobiledevicesDeleteWithcustomerId:resourceId:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Immutable id of Mobile Device */
-@property(copy, nullable) NSString *resourceId;
+@property(nonatomic, copy, nullable) NSString *resourceId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1559,7 +1559,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForMobiledevicesGetWithcustomerId:resourceId:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Restrict information returned to a set of selected fields.
@@ -1571,10 +1571,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectoryProjectionFull Includes all metadata fields (Value:
  *        "FULL")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /** Immutable id of Mobile Device */
-@property(copy, nullable) NSString *resourceId;
+@property(nonatomic, copy, nullable) NSString *resourceId;
 
 /**
  *  Fetches a @c GTLRDirectory_MobileDevice.
@@ -1606,10 +1606,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForMobiledevicesListWithcustomerId:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Maximum number of results to return. Default is 100 */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  Column to use for sorting results
@@ -1627,10 +1627,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *        "status")
  *    @arg @c kGTLRDirectoryOrderByType Type of the device. (Value: "type")
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Token to specify next page in the list */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Restrict information returned to a set of selected fields.
@@ -1642,13 +1642,13 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectoryProjectionFull Includes all metadata fields (Value:
  *        "FULL")
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Search string in the format given at
  *  http://support.google.com/a/bin/answer.py?hl=en&answer=1408863#search
  */
-@property(copy, nullable) NSString *query;
+@property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  Whether to return results in ascending or descending order. Only of use when
@@ -1660,7 +1660,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
  *        "DESCENDING")
  */
-@property(copy, nullable) NSString *sortOrder;
+@property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
  *  Fetches a @c GTLRDirectory_MobileDevices.
@@ -1695,10 +1695,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  The unique ID for the customer's Google account. The customerId is also
  *  returned as part of the Users resource.
  */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** The unique ID of the notification. */
-@property(copy, nullable) NSString *notificationId;
+@property(nonatomic, copy, nullable) NSString *notificationId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1733,10 +1733,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  The unique ID for the customer's Google account. The customerId is also
  *  returned as part of the Users resource.
  */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** The unique ID of the notification. */
-@property(copy, nullable) NSString *notificationId;
+@property(nonatomic, copy, nullable) NSString *notificationId;
 
 /**
  *  Fetches a @c GTLRDirectory_Notification.
@@ -1767,19 +1767,19 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForNotificationsListWithcustomer:]
 
 /** The unique ID for the customer's Google account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  The ISO 639-1 code of the language notifications are returned in. The
  *  default is English (en).
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** Maximum number of notifications to return per page. The default is 100. */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /** The token to specify the page of results to retrieve. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRDirectory_Notifications.
@@ -1811,10 +1811,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForNotificationsPatchWithObject:customer:notificationId:]
 
 /** The unique ID for the customer's Google account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** The unique ID of the notification. */
-@property(copy, nullable) NSString *notificationId;
+@property(nonatomic, copy, nullable) NSString *notificationId;
 
 /**
  *  Fetches a @c GTLRDirectory_Notification.
@@ -1846,10 +1846,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForNotificationsUpdateWithObject:customer:notificationId:]
 
 /** The unique ID for the customer's Google account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** The unique ID of the notification. */
-@property(copy, nullable) NSString *notificationId;
+@property(nonatomic, copy, nullable) NSString *notificationId;
 
 /**
  *  Fetches a @c GTLRDirectory_Notification.
@@ -1881,10 +1881,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForOrgunitsDeleteWithcustomerId:orgUnitPath:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Full path of the organization unit or its Id */
-@property(strong, nullable) NSArray<NSString *> *orgUnitPath;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *orgUnitPath;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1916,10 +1916,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForOrgunitsGetWithcustomerId:orgUnitPath:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Full path of the organization unit or its Id */
-@property(strong, nullable) NSArray<NSString *> *orgUnitPath;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *orgUnitPath;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
@@ -1949,7 +1949,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForOrgunitsInsertWithObject:customerId:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
@@ -1980,10 +1980,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForOrgunitsListWithcustomerId:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** the URL-encoded organization unit's path or its Id */
-@property(copy, nullable) NSString *orgUnitPath;
+@property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
  *  Whether to return all sub-organizations or just immediate children
@@ -1993,7 +1993,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectoryTypeChildren Immediate children only (default).
  *        (Value: "children")
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnits.
@@ -2021,10 +2021,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForOrgunitsPatchWithObject:customerId:orgUnitPath:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Full path of the organization unit or its Id */
-@property(strong, nullable) NSArray<NSString *> *orgUnitPath;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *orgUnitPath;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
@@ -2056,10 +2056,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForOrgunitsUpdateWithObject:customerId:orgUnitPath:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Full path of the organization unit or its Id */
-@property(strong, nullable) NSArray<NSString *> *orgUnitPath;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *orgUnitPath;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
@@ -2092,7 +2092,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForPrivilegesListWithcustomer:]
 
 /** Immutable ID of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Fetches a @c GTLRDirectory_Privileges.
@@ -2120,14 +2120,14 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForResourcesCalendarsDeleteWithcustomer:calendarResourceId:]
 
 /** The unique ID of the calendar resource to delete. */
-@property(copy, nullable) NSString *calendarResourceId;
+@property(nonatomic, copy, nullable) NSString *calendarResourceId;
 
 /**
  *  The unique ID for the customer's Google account. As an account
  *  administrator, you can also use the my_customer alias to represent your
  *  account's customer ID.
  */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2161,14 +2161,14 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForResourcesCalendarsGetWithcustomer:calendarResourceId:]
 
 /** The unique ID of the calendar resource to retrieve. */
-@property(copy, nullable) NSString *calendarResourceId;
+@property(nonatomic, copy, nullable) NSString *calendarResourceId;
 
 /**
  *  The unique ID for the customer's Google account. As an account
  *  administrator, you can also use the my_customer alias to represent your
  *  account's customer ID.
  */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Fetches a @c GTLRDirectory_CalendarResource.
@@ -2205,7 +2205,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  administrator, you can also use the my_customer alias to represent your
  *  account's customer ID.
  */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Fetches a @c GTLRDirectory_CalendarResource.
@@ -2242,17 +2242,17 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  administrator, you can also use the my_customer alias to represent your
  *  account's customer ID.
  */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Maximum number of results to return.
  *
  *  @note The documented range is 1..500.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token to specify the next page in the list. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRDirectory_CalendarResources.
@@ -2286,14 +2286,14 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForResourcesCalendarsPatchWithObject:customer:calendarResourceId:]
 
 /** The unique ID of the calendar resource to update. */
-@property(copy, nullable) NSString *calendarResourceId;
+@property(nonatomic, copy, nullable) NSString *calendarResourceId;
 
 /**
  *  The unique ID for the customer's Google account. As an account
  *  administrator, you can also use the my_customer alias to represent your
  *  account's customer ID.
  */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Fetches a @c GTLRDirectory_CalendarResource.
@@ -2327,14 +2327,14 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForResourcesCalendarsUpdateWithObject:customer:calendarResourceId:]
 
 /** The unique ID of the calendar resource to update. */
-@property(copy, nullable) NSString *calendarResourceId;
+@property(nonatomic, copy, nullable) NSString *calendarResourceId;
 
 /**
  *  The unique ID for the customer's Google account. As an account
  *  administrator, you can also use the my_customer alias to represent your
  *  account's customer ID.
  */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Fetches a @c GTLRDirectory_CalendarResource.
@@ -2368,10 +2368,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForRoleAssignmentsDeleteWithcustomer:roleAssignmentId:]
 
 /** Immutable ID of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role assignment. */
-@property(copy, nullable) NSString *roleAssignmentId;
+@property(nonatomic, copy, nullable) NSString *roleAssignmentId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2403,10 +2403,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForRoleAssignmentsGetWithcustomer:roleAssignmentId:]
 
 /** Immutable ID of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role assignment. */
-@property(copy, nullable) NSString *roleAssignmentId;
+@property(nonatomic, copy, nullable) NSString *roleAssignmentId;
 
 /**
  *  Fetches a @c GTLRDirectory_RoleAssignment.
@@ -2436,7 +2436,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForRoleAssignmentsInsertWithObject:customer:]
 
 /** Immutable ID of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Fetches a @c GTLRDirectory_RoleAssignment.
@@ -2467,29 +2467,29 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForRoleAssignmentsListWithcustomer:]
 
 /** Immutable ID of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Maximum number of results to return.
  *
  *  @note The documented range is 1..200.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token to specify the next page in the list. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Immutable ID of a role. If included in the request, returns only role
  *  assignments containing this role ID.
  */
-@property(copy, nullable) NSString *roleId;
+@property(nonatomic, copy, nullable) NSString *roleId;
 
 /**
  *  The user's primary email address, alias email address, or unique user ID. If
  *  included in the request, returns role assignments only for this user.
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_RoleAssignments.
@@ -2521,10 +2521,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForRolesDeleteWithcustomer:roleId:]
 
 /** Immutable ID of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role. */
-@property(copy, nullable) NSString *roleId;
+@property(nonatomic, copy, nullable) NSString *roleId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2556,10 +2556,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForRolesGetWithcustomer:roleId:]
 
 /** Immutable ID of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role. */
-@property(copy, nullable) NSString *roleId;
+@property(nonatomic, copy, nullable) NSString *roleId;
 
 /**
  *  Fetches a @c GTLRDirectory_Role.
@@ -2589,7 +2589,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForRolesInsertWithObject:customer:]
 
 /** Immutable ID of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Fetches a @c GTLRDirectory_Role.
@@ -2620,17 +2620,17 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForRolesListWithcustomer:]
 
 /** Immutable id of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Maximum number of results to return.
  *
  *  @note The documented range is 1..100.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token to specify the next page in the list. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRDirectory_Roles.
@@ -2662,10 +2662,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForRolesPatchWithObject:customer:roleId:]
 
 /** Immutable ID of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role. */
-@property(copy, nullable) NSString *roleId;
+@property(nonatomic, copy, nullable) NSString *roleId;
 
 /**
  *  Fetches a @c GTLRDirectory_Role.
@@ -2697,10 +2697,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForRolesUpdateWithObject:customer:roleId:]
 
 /** Immutable ID of the Google Apps account. */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role. */
-@property(copy, nullable) NSString *roleId;
+@property(nonatomic, copy, nullable) NSString *roleId;
 
 /**
  *  Fetches a @c GTLRDirectory_Role.
@@ -2732,10 +2732,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForSchemasDeleteWithcustomerId:schemaKey:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Name or immutable Id of the schema */
-@property(copy, nullable) NSString *schemaKey;
+@property(nonatomic, copy, nullable) NSString *schemaKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2767,10 +2767,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForSchemasGetWithcustomerId:schemaKey:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Name or immutable Id of the schema */
-@property(copy, nullable) NSString *schemaKey;
+@property(nonatomic, copy, nullable) NSString *schemaKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Schema.
@@ -2800,7 +2800,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForSchemasInsertWithObject:customerId:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRDirectory_Schema.
@@ -2831,7 +2831,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForSchemasListWithcustomerId:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRDirectory_Schemas.
@@ -2859,10 +2859,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForSchemasPatchWithObject:customerId:schemaKey:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Name or immutable Id of the schema. */
-@property(copy, nullable) NSString *schemaKey;
+@property(nonatomic, copy, nullable) NSString *schemaKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Schema.
@@ -2894,10 +2894,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForSchemasUpdateWithObject:customerId:schemaKey:]
 
 /** Immutable id of the Google Apps account */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Name or immutable Id of the schema. */
-@property(copy, nullable) NSString *schemaKey;
+@property(nonatomic, copy, nullable) NSString *schemaKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Schema.
@@ -2929,13 +2929,13 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForTokensDeleteWithuserKey:clientId:]
 
 /** The Client ID of the application the token is issued to. */
-@property(copy, nullable) NSString *clientId;
+@property(nonatomic, copy, nullable) NSString *clientId;
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
  *  email address, alias email address, or unique user ID.
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -2967,13 +2967,13 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForTokensGetWithuserKey:clientId:]
 
 /** The Client ID of the application the token is issued to. */
-@property(copy, nullable) NSString *clientId;
+@property(nonatomic, copy, nullable) NSString *clientId;
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
  *  email address, alias email address, or unique user ID.
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Token.
@@ -3008,7 +3008,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Identifies the user in the API request. The value can be the user's primary
  *  email address, alias email address, or unique user ID.
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Tokens.
@@ -3039,10 +3039,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForUsersAliasesDeleteWithuserKey:alias:]
 
 /** The alias to be removed */
-@property(copy, nullable) NSString *alias;
+@property(nonatomic, copy, nullable) NSString *alias;
 
 /** Email or immutable Id of the user */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3074,7 +3074,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForUsersAliasesInsertWithObject:userKey:]
 
 /** Email or immutable Id of the user */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Alias.
@@ -3113,10 +3113,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectoryEventAdd Alias Created Event (Value: "add")
  *    @arg @c kGTLRDirectoryEventDelete Alias Deleted Event (Value: "delete")
  */
-@property(copy, nullable) NSString *event;
+@property(nonatomic, copy, nullable) NSString *event;
 
 /** Email or immutable Id of the user */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Aliases.
@@ -3153,10 +3153,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectoryEventAdd Alias Created Event (Value: "add")
  *    @arg @c kGTLRDirectoryEventDelete Alias Deleted Event (Value: "delete")
  */
-@property(copy, nullable) NSString *event;
+@property(nonatomic, copy, nullable) NSString *event;
 
 /** Email or immutable Id of the user */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Channel.
@@ -3186,7 +3186,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForUsersDeleteWithuserKey:]
 
 /** Email or immutable Id of the user */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3219,7 +3219,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Comma-separated list of schema names. All fields from these schemas are
  *  fetched. This should only be set when projection=custom.
  */
-@property(copy, nullable) NSString *customFieldMask;
+@property(nonatomic, copy, nullable) NSString *customFieldMask;
 
 /**
  *  What subset of fields to fetch for this user.
@@ -3235,10 +3235,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  @note If not set, the documented server-side default will be
  *        kGTLRDirectoryProjectionBasic.
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /** Email or immutable Id of the user */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC view of the user.
@@ -3252,7 +3252,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  @note If not set, the documented server-side default will be
  *        kGTLRDirectoryViewTypeAdminView.
  */
-@property(copy, nullable) NSString *viewType;
+@property(nonatomic, copy, nullable) NSString *viewType;
 
 /**
  *  Fetches a @c GTLRDirectory_User.
@@ -3309,19 +3309,19 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Immutable id of the Google Apps account. In case of multi-domain, to fetch
  *  all users for a customer, fill this field instead of domain.
  */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Comma-separated list of schema names. All fields from these schemas are
  *  fetched. This should only be set when projection=custom.
  */
-@property(copy, nullable) NSString *customFieldMask;
+@property(nonatomic, copy, nullable) NSString *customFieldMask;
 
 /**
  *  Name of the domain. Fill this field to get users from only this domain. To
  *  return all users in a multi-domain fill customer field instead.
  */
-@property(copy, nullable) NSString *domain;
+@property(nonatomic, copy, nullable) NSString *domain;
 
 /**
  *  Event on which subscription is intended (if subscribing)
@@ -3335,14 +3335,14 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *        "undelete")
  *    @arg @c kGTLRDirectoryEventUpdate User Updated Event (Value: "update")
  */
-@property(copy, nullable) NSString *event;
+@property(nonatomic, copy, nullable) NSString *event;
 
 /**
  *  Maximum number of results to return. Default is 100. Max allowed is 500
  *
  *  @note The documented range is 1..500.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  Column to use for sorting results
@@ -3355,10 +3355,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectoryOrderByGivenName User's given name. (Value:
  *        "givenName")
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Token to specify next page in the list */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  What subset of fields to fetch for this user.
@@ -3374,16 +3374,16 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  @note If not set, the documented server-side default will be
  *        kGTLRDirectoryProjectionBasic.
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Query string search. Should be of the form "". Complete documentation is at
  *  https://developers.google.com/admin-sdk/directory/v1/guides/search-users
  */
-@property(copy, nullable) NSString *query;
+@property(nonatomic, copy, nullable) NSString *query;
 
 /** If set to true retrieves the list of deleted users. Default is false */
-@property(copy, nullable) NSString *showDeleted;
+@property(nonatomic, copy, nullable) NSString *showDeleted;
 
 /**
  *  Whether to return results in ascending or descending order.
@@ -3394,7 +3394,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
  *        "DESCENDING")
  */
-@property(copy, nullable) NSString *sortOrder;
+@property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
  *  Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC view of the user.
@@ -3408,7 +3408,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  @note If not set, the documented server-side default will be
  *        kGTLRDirectoryViewTypeAdminView.
  */
-@property(copy, nullable) NSString *viewType;
+@property(nonatomic, copy, nullable) NSString *viewType;
 
 /**
  *  Fetches a @c GTLRDirectory_Users.
@@ -3438,7 +3438,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForUsersMakeAdminWithObject:userKey:]
 
 /** Email or immutable Id of the user as admin */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3472,7 +3472,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Email or immutable Id of the user. If Id, it should match with id of user
  *  object
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_User.
@@ -3503,7 +3503,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForUsersPhotosDeleteWithuserKey:]
 
 /** Email or immutable Id of the user */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3533,7 +3533,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForUsersPhotosGetWithuserKey:]
 
 /** Email or immutable Id of the user */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_UserPhoto.
@@ -3561,7 +3561,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForUsersPhotosPatchWithObject:userKey:]
 
 /** Email or immutable Id of the user */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_UserPhoto.
@@ -3591,7 +3591,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForUsersPhotosUpdateWithObject:userKey:]
 
 /** Email or immutable Id of the user */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_UserPhoto.
@@ -3621,7 +3621,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForUsersUndeleteWithObject:userKey:]
 
 /** The immutable id of the user */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3655,7 +3655,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Email or immutable Id of the user. If Id, it should match with id of user
  *  object
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_User.
@@ -3690,19 +3690,19 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Immutable id of the Google Apps account. In case of multi-domain, to fetch
  *  all users for a customer, fill this field instead of domain.
  */
-@property(copy, nullable) NSString *customer;
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Comma-separated list of schema names. All fields from these schemas are
  *  fetched. This should only be set when projection=custom.
  */
-@property(copy, nullable) NSString *customFieldMask;
+@property(nonatomic, copy, nullable) NSString *customFieldMask;
 
 /**
  *  Name of the domain. Fill this field to get users from only this domain. To
  *  return all users in a multi-domain fill customer field instead.
  */
-@property(copy, nullable) NSString *domain;
+@property(nonatomic, copy, nullable) NSString *domain;
 
 /**
  *  Event on which subscription is intended (if subscribing)
@@ -3716,14 +3716,14 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *        "undelete")
  *    @arg @c kGTLRDirectoryEventUpdate User Updated Event (Value: "update")
  */
-@property(copy, nullable) NSString *event;
+@property(nonatomic, copy, nullable) NSString *event;
 
 /**
  *  Maximum number of results to return. Default is 100. Max allowed is 500
  *
  *  @note The documented range is 1..500.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  Column to use for sorting results
@@ -3736,10 +3736,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectoryOrderByGivenName User's given name. (Value:
  *        "givenName")
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Token to specify next page in the list */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  What subset of fields to fetch for this user.
@@ -3755,16 +3755,16 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  @note If not set, the documented server-side default will be
  *        kGTLRDirectoryProjectionBasic.
  */
-@property(copy, nullable) NSString *projection;
+@property(nonatomic, copy, nullable) NSString *projection;
 
 /**
  *  Query string search. Should be of the form "". Complete documentation is at
  *  https://developers.google.com/admin-sdk/directory/v1/guides/search-users
  */
-@property(copy, nullable) NSString *query;
+@property(nonatomic, copy, nullable) NSString *query;
 
 /** If set to true retrieves the list of deleted users. Default is false */
-@property(copy, nullable) NSString *showDeleted;
+@property(nonatomic, copy, nullable) NSString *showDeleted;
 
 /**
  *  Whether to return results in ascending or descending order.
@@ -3775,7 +3775,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
  *        "DESCENDING")
  */
-@property(copy, nullable) NSString *sortOrder;
+@property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
  *  Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC view of the user.
@@ -3789,7 +3789,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  @note If not set, the documented server-side default will be
  *        kGTLRDirectoryViewTypeAdminView.
  */
-@property(copy, nullable) NSString *viewType;
+@property(nonatomic, copy, nullable) NSString *viewType;
 
 /**
  *  Fetches a @c GTLRDirectory_Channel.
@@ -3817,7 +3817,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForVerificationCodesGenerateWithuserKey:]
 
 /** Email or immutable Id of the user */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3846,7 +3846,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 //   +[GTLQueryDirectory queryForVerificationCodesInvalidateWithuserKey:]
 
 /** Email or immutable Id of the user */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -3879,7 +3879,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Identifies the user in the API request. The value can be the user's primary
  *  email address, alias email address, or unique user ID.
  */
-@property(copy, nullable) NSString *userKey;
+@property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_VerificationCodes.

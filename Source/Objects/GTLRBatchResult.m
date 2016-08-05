@@ -24,19 +24,21 @@
 @implementation GTLRBatchResult
 
 @synthesize successes = _successes,
-            failures = _failures;
+            failures = _failures,
+            responseHeaders = _responseHeaders;
 
 - (id)copyWithZone:(NSZone *)zone {
   GTLRBatchResult* newObject = [super copyWithZone:zone];
   newObject.successes = [self.successes copyWithZone:zone];
   newObject.failures = [self.failures copyWithZone:zone];
+  newObject.responseHeaders = [self.responseHeaders copyWithZone:zone];
   return newObject;
 }
 
 - (NSString *)description {
-  return [NSString stringWithFormat:@"%@ %p (successes:%tu failures:%tu)",
+  return [NSString stringWithFormat:@"%@ %p (successes:%tu failures:%tu responseHeaders:%tu)",
           [self class], self,
-          self.successes.count, self.failures.count];
+          self.successes.count, self.failures.count, self.responseHeaders.count];
 }
 
 @end

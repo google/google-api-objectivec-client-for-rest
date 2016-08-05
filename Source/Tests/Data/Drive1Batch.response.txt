@@ -8,6 +8,7 @@ Date: Mon, 01 Feb 2016 22:50:57 GMT
 Expires: Mon, 01 Feb 2016 22:50:57 GMT
 Cache-Control: private, max-age=0
 Content-Length: 17082
+X-Rejected-Reason: Failed to remove Excalibur from stone
 
 {
  "error": {
@@ -36,6 +37,7 @@ Date: Mon, 01 Feb 2016 22:50:57 GMT
 Expires: Mon, 01 Feb 2016 22:50:57 GMT
 Cache-Control: private, max-age=0
 Content-Length: 44
+Retry-After: 300
 
 {
  "kind": "drive#fileList",

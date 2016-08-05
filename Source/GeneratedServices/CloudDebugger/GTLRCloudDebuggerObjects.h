@@ -105,10 +105,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *    @arg @c kGTLRCloudDebugger_AliasContext_Kind_Movable Value "MOVABLE"
  *    @arg @c kGTLRCloudDebugger_AliasContext_Kind_Other Value "OTHER"
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The alias name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -126,17 +126,17 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *    @arg @c kGTLRCloudDebugger_Breakpoint_Action_Capture Value "CAPTURE"
  *    @arg @c kGTLRCloudDebugger_Breakpoint_Action_Log Value "LOG"
  */
-@property(copy, nullable) NSString *action;
+@property(nonatomic, copy, nullable) NSString *action;
 
 /**
  *  Condition that triggers the breakpoint. The condition is a compound boolean
  *  expression composed using expressions in a programming language at the
  *  source location.
  */
-@property(copy, nullable) NSString *condition;
+@property(nonatomic, copy, nullable) NSString *condition;
 
 /** Time this breakpoint was created by the server in seconds resolution. */
-@property(copy, nullable) NSString *createTime;
+@property(nonatomic, copy, nullable) NSString *createTime;
 
 /**
  *  Values of evaluated expressions at breakpoint time. The evaluated
@@ -146,7 +146,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  If the expression cannot be evaluated, the `status` inside the `Variable`
  *  will indicate an error and contain the error text.
  */
-@property(strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *evaluatedExpressions;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *evaluatedExpressions;
 
 /**
  *  List of read-only expressions to evaluate at the breakpoint location. The
@@ -154,20 +154,20 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  the source location. If the breakpoint action is `LOG`, the evaluated
  *  expressions are included in log statements.
  */
-@property(strong, nullable) NSArray<NSString *> *expressions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *expressions;
 
 /**
  *  Time this breakpoint was finalized as seen by the server in seconds
  *  resolution.
  */
-@property(copy, nullable) NSString *finalTime;
+@property(nonatomic, copy, nullable) NSString *finalTime;
 
 /**
  *  Breakpoint identifier, unique in the scope of the debuggee.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  When true, indicates that this is a final result and the breakpoint state
@@ -175,16 +175,16 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isFinalState;
+@property(nonatomic, strong, nullable) NSNumber *isFinalState;
 
 /**
  *  A set of custom breakpoint properties, populated by the agent, to be
  *  displayed to the user.
  */
-@property(strong, nullable) GTLRCloudDebugger_BreakpointLabels *labels;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_BreakpointLabels *labels;
 
 /** Breakpoint source location. */
-@property(strong, nullable) GTLRCloudDebugger_SourceLocation *location;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_SourceLocation *location;
 
 /**
  *  Indicates the severity of the log. Only relevant when action is `LOG`.
@@ -194,7 +194,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *    @arg @c kGTLRCloudDebugger_Breakpoint_LogLevel_Info Value "INFO"
  *    @arg @c kGTLRCloudDebugger_Breakpoint_LogLevel_Warning Value "WARNING"
  */
-@property(copy, nullable) NSString *logLevel;
+@property(nonatomic, copy, nullable) NSString *logLevel;
 
 /**
  *  Only relevant when action is `LOG`. Defines the message to log when the
@@ -204,10 +204,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  are not logged. Example: `Message received, id = $0, count = $1` with
  *  `expressions` = `[ message.id, message.count ]`.
  */
-@property(copy, nullable) NSString *logMessageFormat;
+@property(nonatomic, copy, nullable) NSString *logMessageFormat;
 
 /** The stack at breakpoint time. */
-@property(strong, nullable) NSArray<GTLRCloudDebugger_StackFrame *> *stackFrames;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_StackFrame *> *stackFrames;
 
 /**
  *  Breakpoint status. The status includes an error flag and a human readable
@@ -218,10 +218,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  Examples (final state): * `Invalid line number` referring to location *
  *  `Field f not found in class C` referring to condition
  */
-@property(strong, nullable) GTLRCloudDebugger_StatusMessage *status;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_StatusMessage *status;
 
 /** E-mail address of the user that created this breakpoint */
-@property(copy, nullable) NSString *userEmail;
+@property(nonatomic, copy, nullable) NSString *userEmail;
 
 /**
  *  The `variable_table` exists to aid with computation, memory and network
@@ -235,7 +235,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  effective variable is a merge of the referencing variable and the referenced
  *  variable.
  */
-@property(strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *variableTable;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *variableTable;
 
 @end
 
@@ -260,16 +260,16 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @interface GTLRCloudDebugger_CloudRepoSourceContext : GTLRObject
 
 /** An alias, which may be a branch or tag. */
-@property(strong, nullable) GTLRCloudDebugger_AliasContext *aliasContext;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_AliasContext *aliasContext;
 
 /** The name of an alias (branch, tag, etc.). */
-@property(copy, nullable) NSString *aliasName;
+@property(nonatomic, copy, nullable) NSString *aliasName;
 
 /** The ID of the repo. */
-@property(strong, nullable) GTLRCloudDebugger_RepoId *repoId;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_RepoId *repoId;
 
 /** A revision ID. */
-@property(copy, nullable) NSString *revisionId;
+@property(nonatomic, copy, nullable) NSString *revisionId;
 
 @end
 
@@ -285,10 +285,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  The unique name of the workspace within the repo. This is the name chosen by
  *  the client in the Source API's CreateWorkspace method.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** The ID of the repo containing the workspace. */
-@property(strong, nullable) GTLRCloudDebugger_RepoId *repoId;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_RepoId *repoId;
 
 @end
 
@@ -302,10 +302,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  The ID of the snapshot. An empty snapshot_id refers to the most recent
  *  snapshot.
  */
-@property(copy, nullable) NSString *snapshotId;
+@property(nonatomic, copy, nullable) NSString *snapshotId;
 
 /** The ID of the workspace. */
-@property(strong, nullable) GTLRCloudDebugger_CloudWorkspaceId *workspaceId;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_CloudWorkspaceId *workspaceId;
 
 @end
 
@@ -323,7 +323,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  Version ID of the agent release. The version ID is structured as following:
  *  `domain/type/vmajor.minor` (for example `google.com/gcp-java/v1.1`).
  */
-@property(copy, nullable) NSString *agentVersion;
+@property(nonatomic, copy, nullable) NSString *agentVersion;
 
 /**
  *  Human readable description of the debuggee. Including a human-readable
@@ -331,7 +331,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  References to the locations and revisions of the source code used in the
@@ -339,14 +339,14 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  source code have a `category` label of `remote_repo`. Source snapshot source
  *  contexts have a `category` of `snapshot`.
  */
-@property(strong, nullable) NSArray<GTLRCloudDebugger_ExtendedSourceContext *> *extSourceContexts;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_ExtendedSourceContext *> *extSourceContexts;
 
 /**
  *  Unique identifier for the debuggee generated by the controller service.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  If set to `true`, indicates that the agent should disable itself and detach
@@ -354,7 +354,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isDisabled;
+@property(nonatomic, strong, nullable) NSNumber *isDisabled;
 
 /**
  *  If set to `true`, indicates that the debuggee is considered as inactive by
@@ -362,19 +362,19 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isInactive;
+@property(nonatomic, strong, nullable) NSNumber *isInactive;
 
 /**
  *  A set of custom debuggee properties, populated by the agent, to be displayed
  *  to the user.
  */
-@property(strong, nullable) GTLRCloudDebugger_DebuggeeLabels *labels;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_DebuggeeLabels *labels;
 
 /**
  *  Project the debuggee is associated with. Use the project number when
  *  registering a Google Cloud Platform project.
  */
-@property(copy, nullable) NSString *project;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  References to the locations and revisions of the source code used in the
@@ -382,21 +382,21 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  `ext_source_contexts` if it is not empty. Debug agents should populate both
  *  this field and `ext_source_contexts`.
  */
-@property(strong, nullable) NSArray<GTLRCloudDebugger_SourceContext *> *sourceContexts;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_SourceContext *> *sourceContexts;
 
 /**
  *  Human readable message to be displayed to the user about this debuggee.
  *  Absence of this field indicates no status. The message can be either
  *  informational or an error status.
  */
-@property(strong, nullable) GTLRCloudDebugger_StatusMessage *status;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_StatusMessage *status;
 
 /**
  *  Debuggee uniquifier within the project. Any string that identifies the
  *  application within the project can be used. Including environment and
  *  version or build IDs is recommended.
  */
-@property(copy, nullable) NSString *uniquifier;
+@property(nonatomic, copy, nullable) NSString *uniquifier;
 
 @end
 
@@ -432,10 +432,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @interface GTLRCloudDebugger_ExtendedSourceContext : GTLRObject
 
 /** Any source context. */
-@property(strong, nullable) GTLRCloudDebugger_SourceContext *context;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_SourceContext *context;
 
 /** Labels with user defined metadata. */
-@property(strong, nullable) GTLRCloudDebugger_ExtendedSourceContextLabels *labels;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_ExtendedSourceContextLabels *labels;
 
 @end
 
@@ -464,10 +464,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  loaded. Again, $0 is very important.` * `Please pay $$10 to use $0 instead
  *  of $1.`
  */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /** Optional parameters to be embedded into the message. */
-@property(strong, nullable) NSArray<NSString *> *parameters;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *parameters;
 
 @end
 
@@ -478,23 +478,23 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @interface GTLRCloudDebugger_GerritSourceContext : GTLRObject
 
 /** An alias, which may be a branch or tag. */
-@property(strong, nullable) GTLRCloudDebugger_AliasContext *aliasContext;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_AliasContext *aliasContext;
 
 /** The name of an alias (branch, tag, etc.). */
-@property(copy, nullable) NSString *aliasName;
+@property(nonatomic, copy, nullable) NSString *aliasName;
 
 /**
  *  The full project name within the host. Projects may be nested, so
  *  "project/subproject" is a valid project name. The "repo name" is
  *  hostURI/project.
  */
-@property(copy, nullable) NSString *gerritProject;
+@property(nonatomic, copy, nullable) NSString *gerritProject;
 
 /** The URI of a running Gerrit instance. */
-@property(copy, nullable) NSString *hostUri;
+@property(nonatomic, copy, nullable) NSString *hostUri;
 
 /** A revision (commit) ID. */
-@property(copy, nullable) NSString *revisionId;
+@property(nonatomic, copy, nullable) NSString *revisionId;
 
 @end
 
@@ -508,7 +508,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  Complete breakpoint state. The fields `id` and `location` are guaranteed to
  *  be set.
  */
-@property(strong, nullable) GTLRCloudDebugger_Breakpoint *breakpoint;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_Breakpoint *breakpoint;
 
 @end
 
@@ -520,10 +520,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @interface GTLRCloudDebugger_GitSourceContext : GTLRObject
 
 /** Git commit hash. required. */
-@property(copy, nullable) NSString *revisionId;
+@property(nonatomic, copy, nullable) NSString *revisionId;
 
 /** Git repository URL. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -537,13 +537,13 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  List of all active breakpoints. The fields `id` and `location` are
  *  guaranteed to be set on each breakpoint.
  */
-@property(strong, nullable) NSArray<GTLRCloudDebugger_Breakpoint *> *breakpoints;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Breakpoint *> *breakpoints;
 
 /**
  *  A wait token that can be used in the next method call to block until the
  *  list of breakpoints changes.
  */
-@property(copy, nullable) NSString *nextWaitToken;
+@property(nonatomic, copy, nullable) NSString *nextWaitToken;
 
 /**
  *  The `wait_expired` field is set to true by the server when the request times
@@ -551,7 +551,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *waitExpired;
+@property(nonatomic, strong, nullable) NSNumber *waitExpired;
 
 @end
 
@@ -565,13 +565,13 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  List of all breakpoints with complete state. The fields `id` and `location`
  *  are guaranteed to be set on each breakpoint.
  */
-@property(strong, nullable) NSArray<GTLRCloudDebugger_Breakpoint *> *breakpoints;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Breakpoint *> *breakpoints;
 
 /**
  *  A wait token that can be used in the next call to `list` (REST) or
  *  `ListBreakpoints` (RPC) to block until the list of breakpoints has changes.
  */
-@property(copy, nullable) NSString *nextWaitToken;
+@property(nonatomic, copy, nullable) NSString *nextWaitToken;
 
 @end
 
@@ -587,7 +587,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  displayed to the user. The fields `debuggee.id` and `description` fields are
  *  guaranteed to be set on each debuggee.
  */
-@property(strong, nullable) NSArray<GTLRCloudDebugger_Debuggee *> *debuggees;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Debuggee *> *debuggees;
 
 @end
 
@@ -599,10 +599,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @interface GTLRCloudDebugger_ProjectRepoId : GTLRObject
 
 /** The ID of the project. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /** The name of the repo. Leave empty for the default repo. */
-@property(copy, nullable) NSString *repoName;
+@property(nonatomic, copy, nullable) NSString *repoName;
 
 @end
 
@@ -616,7 +616,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  Debuggee information to register. The fields `project`, `uniquifier`,
  *  `description` and `agent_version` of the debuggee must be set.
  */
-@property(strong, nullable) GTLRCloudDebugger_Debuggee *debuggee;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_Debuggee *debuggee;
 
 @end
 
@@ -630,7 +630,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  Debuggee resource. The field `id` is guranteed to be set (in addition to the
  *  echoed fields).
  */
-@property(strong, nullable) GTLRCloudDebugger_Debuggee *debuggee;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_Debuggee *debuggee;
 
 @end
 
@@ -641,10 +641,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @interface GTLRCloudDebugger_RepoId : GTLRObject
 
 /** A combination of a project ID and a repo name. */
-@property(strong, nullable) GTLRCloudDebugger_ProjectRepoId *projectRepoId;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_ProjectRepoId *projectRepoId;
 
 /** A server-assigned, globally unique identifier. */
-@property(copy, nullable) NSString *uid;
+@property(nonatomic, copy, nullable) NSString *uid;
 
 @end
 
@@ -658,7 +658,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  Breakpoint resource. The field `id` is guaranteed to be set (in addition to
  *  the echoed fileds).
  */
-@property(strong, nullable) GTLRCloudDebugger_Breakpoint *breakpoint;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_Breakpoint *breakpoint;
 
 @end
 
@@ -670,16 +670,16 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @interface GTLRCloudDebugger_SourceContext : GTLRObject
 
 /** A SourceContext referring to a revision in a cloud repo. */
-@property(strong, nullable) GTLRCloudDebugger_CloudRepoSourceContext *cloudRepo;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_CloudRepoSourceContext *cloudRepo;
 
 /** A SourceContext referring to a snapshot in a cloud workspace. */
-@property(strong, nullable) GTLRCloudDebugger_CloudWorkspaceSourceContext *cloudWorkspace;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_CloudWorkspaceSourceContext *cloudWorkspace;
 
 /** A SourceContext referring to a Gerrit project. */
-@property(strong, nullable) GTLRCloudDebugger_GerritSourceContext *gerrit;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_GerritSourceContext *gerrit;
 
 /** A SourceContext referring to any third party Git repo (e.g. GitHub). */
-@property(strong, nullable) GTLRCloudDebugger_GitSourceContext *git;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_GitSourceContext *git;
 
 @end
 
@@ -694,10 +694,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *line;
+@property(nonatomic, strong, nullable) NSNumber *line;
 
 /** Path to the source file within the source context of the target binary. */
-@property(copy, nullable) NSString *path;
+@property(nonatomic, copy, nullable) NSString *path;
 
 @end
 
@@ -711,19 +711,19 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  Set of arguments passed to this function. Note that this might not be
  *  populated for all stack frames.
  */
-@property(strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *arguments;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *arguments;
 
 /** Demangled function name at the call site. */
-@property(copy, nullable) NSString *function;
+@property(nonatomic, copy, nullable) NSString *function;
 
 /**
  *  Set of local variables at the stack frame location. Note that this might not
  *  be populated for all stack frames.
  */
-@property(strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *locals;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *locals;
 
 /** Source location of the call site. */
-@property(strong, nullable) GTLRCloudDebugger_SourceLocation *location;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_SourceLocation *location;
 
 @end
 
@@ -741,14 +741,14 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(strong, nullable) GTLRCloudDebugger_FormatMessage *descriptionProperty;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_FormatMessage *descriptionProperty;
 
 /**
  *  Distinguishes errors from informational messages.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isError;
+@property(nonatomic, strong, nullable) NSNumber *isError;
 
 /**
  *  Reference to which the message applies.
@@ -767,7 +767,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *    @arg @c kGTLRCloudDebugger_StatusMessage_RefersTo_VariableValue Value
  *        "VARIABLE_VALUE"
  */
-@property(copy, nullable) NSString *refersTo;
+@property(nonatomic, copy, nullable) NSString *refersTo;
 
 @end
 
@@ -778,7 +778,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @interface GTLRCloudDebugger_UpdateActiveBreakpointRequest : GTLRObject
 
 /** Updated breakpoint information. The field 'id' must be set. */
-@property(strong, nullable) GTLRCloudDebugger_Breakpoint *breakpoint;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_Breakpoint *breakpoint;
 
 @end
 
@@ -831,10 +831,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @interface GTLRCloudDebugger_Variable : GTLRObject
 
 /** Members contained or pointed to by the variable. */
-@property(strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *members;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *members;
 
 /** Name of the variable, if any. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Status associated with the variable. This field will usually stay unset. A
@@ -849,7 +849,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  `Malformed string`, * `Field f not found in class C` * `Null pointer
  *  dereference`
  */
-@property(strong, nullable) GTLRCloudDebugger_StatusMessage *status;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_StatusMessage *status;
 
 /**
  *  Variable type (e.g. `MyClass`). If the variable is split with
@@ -857,10 +857,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  is agent specific. It is recommended to include the dynamic type rather than
  *  a static type of an object.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Simple value of the variable. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 /**
  *  Reference to a variable in the shared variable table. More than one variable
@@ -869,7 +869,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *varTableIndex;
+@property(nonatomic, strong, nullable) NSNumber *varTableIndex;
 
 @end
 

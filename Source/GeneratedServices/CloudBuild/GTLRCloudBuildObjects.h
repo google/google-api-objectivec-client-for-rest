@@ -27,6 +27,7 @@
 @class GTLRCloudBuild_Operation;
 @class GTLRCloudBuild_OperationMetadata;
 @class GTLRCloudBuild_OperationResponse;
+@class GTLRCloudBuild_RepoSource;
 @class GTLRCloudBuild_Results;
 @class GTLRCloudBuild_Source;
 @class GTLRCloudBuild_SourceProvenance;
@@ -45,7 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Build was canceled by a user.
- *  next_id = 9
  *
  *  Value: "CANCELLED"
  */
@@ -151,13 +151,13 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  Time at which the build was created.
  *  \@OutputOnly
  */
-@property(strong, nullable) GTLRDateTime *createTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
  *  Time at which execution of the build was finished.
  *  \@OutputOnly
  */
-@property(strong, nullable) GTLRDateTime *finishTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
 
 /**
  *  Unique identifier of the build.
@@ -165,7 +165,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  List of images expected to be built and pushed to Google Container
@@ -173,7 +173,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  one of the build steps, the build will fail. Any images present when
  *  the build steps are complete will be pushed to Container Registry.
  */
-@property(strong, nullable) NSArray<NSString *> *images;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *images;
 
 /**
  *  Google Cloud Storage bucket where logs should be written (see
@@ -181,37 +181,37 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
  *  Logs file names will be of the format `${logs_bucket}/log-${build_id}.txt`.
  */
-@property(copy, nullable) NSString *logsBucket;
+@property(nonatomic, copy, nullable) NSString *logsBucket;
 
 /** Special options for this build. */
-@property(strong, nullable) GTLRCloudBuild_BuildOptions *options;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_BuildOptions *options;
 
 /**
  *  ID of the project.
  *  \@OutputOnly.
  */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Results of the build.
  *  \@OutputOnly
  */
-@property(strong, nullable) GTLRCloudBuild_Results *results;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Results *results;
 
 /** Describes where to find the source files to build. */
-@property(strong, nullable) GTLRCloudBuild_Source *source;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Source *source;
 
 /**
  *  A permanent fixed identifier for source.
  *  \@OutputOnly
  */
-@property(strong, nullable) GTLRCloudBuild_SourceProvenance *sourceProvenance;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_SourceProvenance *sourceProvenance;
 
 /**
  *  Time at which execution of the build was started.
  *  \@OutputOnly
  */
-@property(strong, nullable) GTLRDateTime *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Status of the build.
@@ -219,8 +219,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_Build_Status_Cancelled Build was canceled by a
- *        user.
- *        next_id = 9 (Value: "CANCELLED")
+ *        user. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudBuild_Build_Status_Failure Build failed to complete
  *        successfully. (Value: "FAILURE")
  *    @arg @c kGTLRCloudBuild_Build_Status_InternalError Build failed due to an
@@ -238,16 +237,16 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *    @arg @c kGTLRCloudBuild_Build_Status_Working Build is being executed.
  *        (Value: "WORKING")
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  Customer-readable message about the current status.
  *  \@OutputOnly
  */
-@property(copy, nullable) NSString *statusDetail;
+@property(nonatomic, copy, nullable) NSString *statusDetail;
 
 /** Describes the operations to be performed on the workspace. */
-@property(strong, nullable) NSArray<GTLRCloudBuild_BuildStep *> *steps;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_BuildStep *> *steps;
 
 /**
  *  Amount of time that this build should be allowed to run, to second
@@ -257,7 +256,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *
  *  String format is #.###s (seconds).
  */
-@property(copy, nullable) NSString *timeout;
+@property(nonatomic, copy, nullable) NSString *timeout;
 
 @end
 
@@ -268,7 +267,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @interface GTLRCloudBuild_BuildOperationMetadata : GTLRObject
 
 /** The build that the operation is tracking. */
-@property(strong, nullable) GTLRCloudBuild_Build *build;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Build *build;
 
 @end
 
@@ -287,10 +286,10 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *    @arg @c kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_Verified
  *        Verified build. (Value: "VERIFIED")
  */
-@property(copy, nullable) NSString *requestedVerifyOption;
+@property(nonatomic, copy, nullable) NSString *requestedVerifyOption;
 
 /** Requested hash for SourceProvenance. */
-@property(strong, nullable) NSArray<NSString *> *sourceProvenanceHash;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceProvenanceHash;
 
 @end
 
@@ -301,22 +300,39 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @interface GTLRCloudBuild_BuildStep : GTLRObject
 
 /** Command-line arguments to use when running this step's container. */
-@property(strong, nullable) NSArray<NSString *> *args;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
 /**
  *  Working directory (relative to project source root) to use when running
  *  this operation's container.
  */
-@property(copy, nullable) NSString *dir;
+@property(nonatomic, copy, nullable) NSString *dir;
 
 /** Additional environment variables to set for this step's container. */
-@property(strong, nullable) NSArray<NSString *> *env;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *env;
+
+/**
+ *  Optional unique identifier for this build step, used in wait_for to
+ *  reference this build step as a dependency.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Name of the container image to use for creating this stage in the
  *  pipeline, as presented to `docker pull`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The ID(s) of the step(s) that this build step depends on.
+ *  This build step will not start until all the build steps in wait_for
+ *  have completed successfully. If wait_for is empty, this build step will
+ *  start when all previous build steps in the Build.Steps list have completed
+ *  successfully.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *waitFor;
 
 @end
 
@@ -327,13 +343,13 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @interface GTLRCloudBuild_BuiltImage : GTLRObject
 
 /** Docker Registry 2.0 digest. */
-@property(copy, nullable) NSString *digest;
+@property(nonatomic, copy, nullable) NSString *digest;
 
 /**
  *  Name used to push the container image to Google Container Registry, as
  *  presented to `docker push`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -352,7 +368,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @interface GTLRCloudBuild_FileHashes : GTLRObject
 
 /** Collection of file hashes. */
-@property(strong, nullable) NSArray<GTLRCloudBuild_Hash *> *fileHash;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Hash *> *fileHash;
 
 @end
 
@@ -370,7 +386,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *    @arg @c kGTLRCloudBuild_Hash_Type_Sha256 Use a sha256 hash. (Value:
  *        "SHA256")
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The hash value.
@@ -378,7 +394,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -399,10 +415,10 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCloudBuild_Build *> *builds;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Build *> *builds;
 
 /** Token to receive the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -418,7 +434,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @interface GTLRCloudBuild_ListOperationsResponse : GTLRCollectionObject
 
 /** The standard List next-page token. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  A list of operations that matches the specified filter in the request.
@@ -426,7 +442,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRCloudBuild_Operation *> *operations;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Operation *> *operations;
 
 @end
 
@@ -444,10 +460,10 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *done;
+@property(nonatomic, strong, nullable) NSNumber *done;
 
 /** The error result of the operation in case of failure. */
-@property(strong, nullable) GTLRCloudBuild_Status *error;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Status *error;
 
 /**
  *  Service-specific metadata associated with the operation. It typically
@@ -455,14 +471,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  Some services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
-@property(strong, nullable) GTLRCloudBuild_OperationMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_OperationMetadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
  *  `name` should have the format of `operations/some/unique/name`.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The normal response of the operation in case of success. If the original
@@ -474,7 +490,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  is `TakeSnapshot()`, the inferred response type is
  *  `TakeSnapshotResponse`.
  */
-@property(strong, nullable) GTLRCloudBuild_OperationResponse *response;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_OperationResponse *response;
 
 @end
 
@@ -514,12 +530,45 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 
 /**
+ *  RepoSource describes the location of the source in a Google Cloud Source
+ *  Repository.
+ */
+@interface GTLRCloudBuild_RepoSource : GTLRObject
+
+/** Name of the branch to build. */
+@property(nonatomic, copy, nullable) NSString *branchName;
+
+/** Explicit commit SHA to build. */
+@property(nonatomic, copy, nullable) NSString *commitSha;
+
+/**
+ *  ID of the project that owns the repo. If omitted, the project ID requesting
+ *  the build is assumed.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Name of the repo. If omitted, the name "default" is assumed. */
+@property(nonatomic, copy, nullable) NSString *repoName;
+
+/** Name of the tag to build. */
+@property(nonatomic, copy, nullable) NSString *tagName;
+
+@end
+
+
+/**
  *  Results describes the artifacts created by the build pipeline.
  */
 @interface GTLRCloudBuild_Results : GTLRObject
 
+/**
+ *  List of build step digests, in order corresponding to build step indices.
+ *  next id = 4
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *buildStepImages;
+
 /** Images that were built as a part of the build. */
-@property(strong, nullable) NSArray<GTLRCloudBuild_BuiltImage *> *images;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_BuiltImage *> *images;
 
 @end
 
@@ -530,11 +579,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @interface GTLRCloudBuild_Source : GTLRObject
 
+/** If provided, get source from this location in a Cloud Repo. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_RepoSource *repoSource;
+
 /**
  *  If provided, get the source from this location in in Google Cloud
  *  Storage.
  */
-@property(strong, nullable) GTLRCloudBuild_StorageSource *storageSource;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_StorageSource *storageSource;
 
 @end
 
@@ -555,7 +607,19 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  (.tar.gz), the FileHash will be for the single path to that file.
  *  \@OutputOnly
  */
-@property(strong, nullable) GTLRCloudBuild_SourceProvenanceFileHashes *fileHashes;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_SourceProvenanceFileHashes *fileHashes;
+
+/**
+ *  A copy of the build's source.repo_source, if exists, with any
+ *  revisions resolved.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_RepoSource *resolvedRepoSource;
+
+/**
+ *  A copy of the build's source.storage_source, if exists, with any
+ *  generations resolved.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_StorageSource *resolvedStorageSource;
 
 @end
 
@@ -631,20 +695,20 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *code;
+@property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
  *  A list of messages that carry the error details. There will be a
  *  common set of message types for APIs to use.
  */
-@property(strong, nullable) NSArray<GTLRCloudBuild_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_StatusDetailsItem *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
  *  user-facing error message should be localized and sent in the
  *  google.rpc.Status.details field, or localized by the client.
  */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -672,7 +736,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  [Bucket Name
  *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
  */
-@property(copy, nullable) NSString *bucket;
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
  *  Google Cloud Storage generation for the object. If the generation is
@@ -680,14 +744,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *generation;
+@property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
  *  Google Cloud Storage object containing source.
  *  This object must be a gzipped archive file (.tar.gz) containing source to
  *  build.
  */
-@property(copy, nullable) NSString *object;
+@property(nonatomic, copy, nullable) NSString *object;
 
 @end
 

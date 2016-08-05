@@ -82,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The list of access entries.
@@ -90,13 +90,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRPlus_AclentryResource *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRPlus_AclentryResource *> *items;
 
 /**
  *  Identifies this resource as a collection of access controls. Value:
  *  "plus#acl".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -107,7 +107,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_AclentryResource : GTLRObject
 
 /** A descriptive name for this entry. Suitable for display. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The ID of the entry. For entries of type "person" or "circle", this is the
@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The type of entry describing to whom access is granted. Possible values are:
@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "domain" - Access to members of the person's Google Apps domain.
  *  - "public" - Access to anyone on the web.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -138,83 +138,83 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_Activity : GTLRObject
 
 /** Identifies who has access to see this activity. */
-@property(strong, nullable) GTLRPlus_Acl *access;
+@property(nonatomic, strong, nullable) GTLRPlus_Acl *access;
 
 /** The person who performed this activity. */
-@property(strong, nullable) GTLRPlus_ActivityActor *actor;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityActor *actor;
 
 /** Street address where this activity occurred. */
-@property(copy, nullable) NSString *address;
+@property(nonatomic, copy, nullable) NSString *address;
 
 /**
  *  Additional content added by the person who shared this activity, applicable
  *  only when resharing an activity.
  */
-@property(copy, nullable) NSString *annotation;
+@property(nonatomic, copy, nullable) NSString *annotation;
 
 /**
  *  If this activity is a crosspost from another system, this property specifies
  *  the ID of the original activity.
  */
-@property(copy, nullable) NSString *crosspostSource;
+@property(nonatomic, copy, nullable) NSString *crosspostSource;
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Latitude and longitude where this activity occurred. Format is latitude
  *  followed by longitude, space separated.
  */
-@property(copy, nullable) NSString *geocode;
+@property(nonatomic, copy, nullable) NSString *geocode;
 
 /**
  *  The ID of this activity.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Identifies this resource as an activity. Value: "plus#activity". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The location where this activity occurred. */
-@property(strong, nullable) GTLRPlus_Place *location;
+@property(nonatomic, strong, nullable) GTLRPlus_Place *location;
 
 /** The object of this activity. */
-@property(strong, nullable) GTLRPlus_ActivityObject *object;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityObject *object;
 
 /** ID of the place where this activity occurred. */
-@property(copy, nullable) NSString *placeId;
+@property(nonatomic, copy, nullable) NSString *placeId;
 
 /** Name of the place where this activity occurred. */
-@property(copy, nullable) NSString *placeName;
+@property(nonatomic, copy, nullable) NSString *placeName;
 
 /** The service provider that initially published this activity. */
-@property(strong, nullable) GTLRPlus_ActivityProvider *provider;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityProvider *provider;
 
 /**
  *  The time at which this activity was initially published. Formatted as an RFC
  *  3339 timestamp.
  */
-@property(strong, nullable) GTLRDateTime *published;
+@property(nonatomic, strong, nullable) GTLRDateTime *published;
 
 /**
  *  Radius, in meters, of the region where this activity occurred, centered at
  *  the latitude and longitude identified in geocode.
  */
-@property(copy, nullable) NSString *radius;
+@property(nonatomic, copy, nullable) NSString *radius;
 
 /** Title of this activity. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  The time at which this activity was last updated. Formatted as an RFC 3339
  *  timestamp.
  */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /** The link to this activity. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  This activity's verb, which indicates the action that was performed.
@@ -222,7 +222,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "post" - Publish content to the stream.
  *  - "share" - Reshare an activity.
  */
-@property(copy, nullable) NSString *verb;
+@property(nonatomic, copy, nullable) NSString *verb;
 
 @end
 
@@ -233,29 +233,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityActor : GTLRObject
 
 /** Actor info specific to particular clients. */
-@property(strong, nullable) GTLRPlus_ActivityActorClientSpecificActorInfo *clientSpecificActorInfo;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityActorClientSpecificActorInfo *clientSpecificActorInfo;
 
 /** The name of the actor, suitable for display. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The ID of the actor's Person resource.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The image representation of the actor. */
-@property(strong, nullable) GTLRPlus_ActivityActorImage *image;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityActorImage *image;
 
 /** An object representation of the individual components of name. */
-@property(strong, nullable) GTLRPlus_ActivityActorName *name;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityActorName *name;
 
 /** The link to the actor's Google profile. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /** Verification status of actor. */
-@property(strong, nullable) GTLRPlus_ActivityActorVerification *verification;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityActorVerification *verification;
 
 @end
 
@@ -269,13 +269,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  If this activity's object is itself another activity, such as when a person
  *  reshares an activity, this property specifies the original activity's actor.
  */
-@property(strong, nullable) GTLRPlus_ActivityObjectActor *actor;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityObjectActor *actor;
 
 /** The media objects attached to this activity. */
-@property(strong, nullable) NSArray<GTLRPlus_ActivityObjectAttachmentsItem *> *attachments;
+@property(nonatomic, strong, nullable) NSArray<GTLRPlus_ActivityObjectAttachmentsItem *> *attachments;
 
 /** The HTML-formatted content, which is suitable for display. */
-@property(copy, nullable) NSString *content;
+@property(nonatomic, copy, nullable) NSString *content;
 
 /**
  *  The ID of the object. When resharing an activity, this is the ID of the
@@ -283,7 +283,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The type of the object. Possible values include, but are not limited to, the
@@ -291,26 +291,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "note" - Textual content.
  *  - "activity" - A Google+ activity.
  */
-@property(copy, nullable) NSString *objectType;
+@property(nonatomic, copy, nullable) NSString *objectType;
 
 /**
  *  The content (text) as provided by the author, which is stored without any
  *  HTML formatting. When creating or updating an activity, this value must be
  *  supplied as plain text in the request.
  */
-@property(copy, nullable) NSString *originalContent;
+@property(nonatomic, copy, nullable) NSString *originalContent;
 
 /** People who +1'd this activity. */
-@property(strong, nullable) GTLRPlus_ActivityObjectPlusoners *plusoners;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityObjectPlusoners *plusoners;
 
 /** Comments in reply to this activity. */
-@property(strong, nullable) GTLRPlus_ActivityObjectReplies *replies;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityObjectReplies *replies;
 
 /** People who reshared this activity. */
-@property(strong, nullable) GTLRPlus_ActivityObjectResharers *resharers;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityObjectResharers *resharers;
 
 /** The URL that points to the linked resource. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -321,7 +321,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityProvider : GTLRObject
 
 /** Name of the service provider. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -332,7 +332,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityActorClientSpecificActorInfo : GTLRObject
 
 /** Actor info specific to YouTube clients. */
-@property(strong, nullable) GTLRPlus_ActivityActorClientSpecificActorInfoYoutubeActorInfo *youtubeActorInfo;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityActorClientSpecificActorInfoYoutubeActorInfo *youtubeActorInfo;
 
 @end
 
@@ -347,7 +347,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  square, append the query string ?sz=x, where x is the dimension in pixels of
  *  each side.
  */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -358,10 +358,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityActorName : GTLRObject
 
 /** The family name ("last name") of the actor. */
-@property(copy, nullable) NSString *familyName;
+@property(nonatomic, copy, nullable) NSString *familyName;
 
 /** The given name ("first name") of the actor. */
-@property(copy, nullable) NSString *givenName;
+@property(nonatomic, copy, nullable) NSString *givenName;
 
 @end
 
@@ -372,7 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityActorVerification : GTLRObject
 
 /** Verification for one-time or manual processes. */
-@property(copy, nullable) NSString *adHocVerified;
+@property(nonatomic, copy, nullable) NSString *adHocVerified;
 
 @end
 
@@ -384,26 +384,26 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityObjectActor : GTLRObject
 
 /** Actor info specific to particular clients. */
-@property(strong, nullable) GTLRPlus_ActivityObjectActorClientSpecificActorInfo *clientSpecificActorInfo;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityObjectActorClientSpecificActorInfo *clientSpecificActorInfo;
 
 /** The original actor's name, which is suitable for display. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  ID of the original actor.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The image representation of the original actor. */
-@property(strong, nullable) GTLRPlus_ActivityObjectActorImage *image;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityObjectActorImage *image;
 
 /** A link to the original actor's Google profile. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /** Verification status of actor. */
-@property(strong, nullable) GTLRPlus_ActivityObjectActorVerification *verification;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityObjectActorVerification *verification;
 
 @end
 
@@ -417,28 +417,28 @@ NS_ASSUME_NONNULL_BEGIN
  *  If the attachment is an article, this property contains a snippet of text
  *  from the article. It can also include descriptions for other types.
  */
-@property(copy, nullable) NSString *content;
+@property(nonatomic, copy, nullable) NSString *content;
 
 /**
  *  The title of the attachment, such as a photo caption or an article title.
  */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** If the attachment is a video, the embeddable link. */
-@property(strong, nullable) GTLRPlus_ActivityObjectAttachmentsItemEmbed *embed;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityObjectAttachmentsItemEmbed *embed;
 
 /** The full image URL for photo attachments. */
-@property(strong, nullable) GTLRPlus_ActivityObjectAttachmentsItemFullImage *fullImage;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityObjectAttachmentsItemFullImage *fullImage;
 
 /**
  *  The ID of the attachment.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The preview image for photos or videos. */
-@property(strong, nullable) GTLRPlus_ActivityObjectAttachmentsItemImage *image;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityObjectAttachmentsItemImage *image;
 
 /**
  *  The type of media object. Possible values include, but are not limited to,
@@ -448,16 +448,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "video" - A video.
  *  - "article" - An article, specified by a link.
  */
-@property(copy, nullable) NSString *objectType;
+@property(nonatomic, copy, nullable) NSString *objectType;
 
 /**
  *  If the attachment is an album, this property is a list of potential
  *  additional thumbnails from the album.
  */
-@property(strong, nullable) NSArray<GTLRPlus_ActivityObjectAttachmentsItemThumbnailsItem *> *thumbnails;
+@property(nonatomic, strong, nullable) NSArray<GTLRPlus_ActivityObjectAttachmentsItemThumbnailsItem *> *thumbnails;
 
 /** The link to the attachment, which should be of type text/html. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -468,14 +468,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityObjectPlusoners : GTLRObject
 
 /** The URL for the collection of people who +1'd this activity. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  Total number of people who +1'd this activity.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *totalItems;
+@property(nonatomic, strong, nullable) NSNumber *totalItems;
 
 @end
 
@@ -486,14 +486,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityObjectReplies : GTLRObject
 
 /** The URL for the collection of comments in reply to this activity. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  Total number of comments on this activity.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *totalItems;
+@property(nonatomic, strong, nullable) NSNumber *totalItems;
 
 @end
 
@@ -504,14 +504,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityObjectResharers : GTLRObject
 
 /** The URL for the collection of resharers. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  Total number of people who reshared this activity.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *totalItems;
+@property(nonatomic, strong, nullable) NSNumber *totalItems;
 
 @end
 
@@ -522,7 +522,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityActorClientSpecificActorInfoYoutubeActorInfo : GTLRObject
 
 /** ID of the YouTube channel owned by the Actor. */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 @end
 
@@ -533,7 +533,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityObjectActorClientSpecificActorInfo : GTLRObject
 
 /** Actor info specific to YouTube clients. */
-@property(strong, nullable) GTLRPlus_ActivityObjectActorClientSpecificActorInfoYoutubeActorInfo *youtubeActorInfo;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityObjectActorClientSpecificActorInfoYoutubeActorInfo *youtubeActorInfo;
 
 @end
 
@@ -544,7 +544,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityObjectActorImage : GTLRObject
 
 /** A URL that points to a thumbnail photo of the original actor. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -555,7 +555,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityObjectActorVerification : GTLRObject
 
 /** Verification for one-time or manual processes. */
-@property(copy, nullable) NSString *adHocVerified;
+@property(nonatomic, copy, nullable) NSString *adHocVerified;
 
 @end
 
@@ -566,10 +566,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityObjectAttachmentsItemEmbed : GTLRObject
 
 /** Media type of the link. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** URL of the link. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -584,20 +584,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /** Media type of the link. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** URL of the image. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  The width, in pixels, of the linked resource.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -612,20 +612,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /** Media type of the link. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Image URL. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  The width, in pixels, of the linked resource.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -640,13 +640,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** Image resource. */
-@property(strong, nullable) GTLRPlus_ActivityObjectAttachmentsItemThumbnailsItemImage *image;
+@property(nonatomic, strong, nullable) GTLRPlus_ActivityObjectAttachmentsItemThumbnailsItemImage *image;
 
 /** URL of the webpage containing the image. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -657,7 +657,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityObjectActorClientSpecificActorInfoYoutubeActorInfo : GTLRObject
 
 /** ID of the YouTube channel owned by the Actor. */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 @end
 
@@ -672,20 +672,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /** Media type of the link. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Image url. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  The width, in pixels, of the linked resource.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -701,14 +701,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_ActivityFeed : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID of this collection of activities. Deprecated.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The activities in this page of results.
@@ -716,38 +716,38 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRPlus_Activity *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRPlus_Activity *> *items;
 
 /**
  *  Identifies this resource as a collection of activities. Value:
  *  "plus#activityFeed".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to the next page of activities. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /**
  *  The continuation token, which is used to page through large result sets.
  *  Provide this value in a subsequent request to return the next page of
  *  results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Link to this activity resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  The title of this collection of activities, which is a truncated portion of
  *  the content.
  */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  The time at which this collection of activities was last updated. Formatted
  *  as an RFC 3339 timestamp.
  */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 @end
 
@@ -758,51 +758,51 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_Comment : GTLRObject
 
 /** The person who posted this comment. */
-@property(strong, nullable) GTLRPlus_CommentActor *actor;
+@property(nonatomic, strong, nullable) GTLRPlus_CommentActor *actor;
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID of this comment.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The activity this comment replied to. */
-@property(strong, nullable) NSArray<GTLRPlus_CommentInReplyToItem *> *inReplyTo;
+@property(nonatomic, strong, nullable) NSArray<GTLRPlus_CommentInReplyToItem *> *inReplyTo;
 
 /** Identifies this resource as a comment. Value: "plus#comment". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The object of this comment. */
-@property(strong, nullable) GTLRPlus_CommentObject *object;
+@property(nonatomic, strong, nullable) GTLRPlus_CommentObject *object;
 
 /** People who +1'd this comment. */
-@property(strong, nullable) GTLRPlus_CommentPlusoners *plusoners;
+@property(nonatomic, strong, nullable) GTLRPlus_CommentPlusoners *plusoners;
 
 /**
  *  The time at which this comment was initially published. Formatted as an RFC
  *  3339 timestamp.
  */
-@property(strong, nullable) GTLRDateTime *published;
+@property(nonatomic, strong, nullable) GTLRDateTime *published;
 
 /** Link to this comment resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  The time at which this comment was last updated. Formatted as an RFC 3339
  *  timestamp.
  */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /**
  *  This comment's verb, indicating what action was performed. Possible values
  *  are:
  *  - "post" - Publish content to the stream.
  */
-@property(copy, nullable) NSString *verb;
+@property(nonatomic, copy, nullable) NSString *verb;
 
 @end
 
@@ -813,26 +813,26 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_CommentActor : GTLRObject
 
 /** Actor info specific to particular clients. */
-@property(strong, nullable) GTLRPlus_CommentActorClientSpecificActorInfo *clientSpecificActorInfo;
+@property(nonatomic, strong, nullable) GTLRPlus_CommentActorClientSpecificActorInfo *clientSpecificActorInfo;
 
 /** The name of this actor, suitable for display. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The ID of the actor.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The image representation of this actor. */
-@property(strong, nullable) GTLRPlus_CommentActorImage *image;
+@property(nonatomic, strong, nullable) GTLRPlus_CommentActorImage *image;
 
 /** A link to the Person resource for this actor. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /** Verification status of actor. */
-@property(strong, nullable) GTLRPlus_CommentActorVerification *verification;
+@property(nonatomic, strong, nullable) GTLRPlus_CommentActorVerification *verification;
 
 @end
 
@@ -847,10 +847,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The URL of the activity. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -861,20 +861,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_CommentObject : GTLRObject
 
 /** The HTML-formatted content, suitable for display. */
-@property(copy, nullable) NSString *content;
+@property(nonatomic, copy, nullable) NSString *content;
 
 /**
  *  The object type of this comment. Possible values are:
  *  - "comment" - A comment in reply to an activity.
  */
-@property(copy, nullable) NSString *objectType;
+@property(nonatomic, copy, nullable) NSString *objectType;
 
 /**
  *  The content (text) as provided by the author, stored without any HTML
  *  formatting. When creating or updating a comment, this value must be supplied
  *  as plain text in the request.
  */
-@property(copy, nullable) NSString *originalContent;
+@property(nonatomic, copy, nullable) NSString *originalContent;
 
 @end
 
@@ -889,7 +889,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *totalItems;
+@property(nonatomic, strong, nullable) NSNumber *totalItems;
 
 @end
 
@@ -900,7 +900,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_CommentActorClientSpecificActorInfo : GTLRObject
 
 /** Actor info specific to YouTube clients. */
-@property(strong, nullable) GTLRPlus_CommentActorClientSpecificActorInfoYoutubeActorInfo *youtubeActorInfo;
+@property(nonatomic, strong, nullable) GTLRPlus_CommentActorClientSpecificActorInfoYoutubeActorInfo *youtubeActorInfo;
 
 @end
 
@@ -915,7 +915,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  square, append the query string ?sz=x, where x is the dimension in pixels of
  *  each side.
  */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -926,7 +926,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_CommentActorVerification : GTLRObject
 
 /** Verification for one-time or manual processes. */
-@property(copy, nullable) NSString *adHocVerified;
+@property(nonatomic, copy, nullable) NSString *adHocVerified;
 
 @end
 
@@ -937,7 +937,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_CommentActorClientSpecificActorInfoYoutubeActorInfo : GTLRObject
 
 /** ID of the YouTube channel owned by the Actor. */
-@property(copy, nullable) NSString *channelId;
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 @end
 
@@ -953,14 +953,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_CommentFeed : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The ID of this collection of comments.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The comments in this page of results.
@@ -968,32 +968,32 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRPlus_Comment *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRPlus_Comment *> *items;
 
 /**
  *  Identifies this resource as a collection of comments. Value:
  *  "plus#commentFeed".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to the next page of activities. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /**
  *  The continuation token, which is used to page through large result sets.
  *  Provide this value in a subsequent request to return the next page of
  *  results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** The title of this collection of comments. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  The time at which this collection of comments was last updated. Formatted as
  *  an RFC 3339 timestamp.
  */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 @end
 
@@ -1009,7 +1009,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_PeopleFeed : GTLRCollectionObject
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The people in this page of results. Each item includes the id, displayName,
@@ -1019,26 +1019,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRPlus_Person *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRPlus_Person *> *items;
 
 /**
  *  Identifies this resource as a collection of people. Value:
  *  "plus#peopleFeed".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The continuation token, which is used to page through large result sets.
  *  Provide this value in a subsequent request to return the next page of
  *  results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Link to this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** The title of this collection of people. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  The total number of people available in this list. The number of people in a
@@ -1047,7 +1047,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalItems;
+@property(nonatomic, strong, nullable) NSNumber *totalItems;
 
 @end
 
@@ -1058,20 +1058,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_Person : GTLRObject
 
 /** A short biography for this person. */
-@property(copy, nullable) NSString *aboutMe;
+@property(nonatomic, copy, nullable) NSString *aboutMe;
 
 /**
  *  The age range of the person. Valid ranges are 17 or younger, 18 to 20, and
  *  21 or older. Age is determined from the user's birthday using Western age
  *  reckoning.
  */
-@property(strong, nullable) GTLRPlus_PersonAgeRange *ageRange;
+@property(nonatomic, strong, nullable) GTLRPlus_PersonAgeRange *ageRange;
 
 /** The person's date of birth, represented as YYYY-MM-DD. */
-@property(copy, nullable) NSString *birthday;
+@property(nonatomic, copy, nullable) NSString *birthday;
 
 /** The "bragging rights" line of this person. */
-@property(copy, nullable) NSString *braggingRights;
+@property(nonatomic, copy, nullable) NSString *braggingRights;
 
 /**
  *  For followers who are visible, the number of people who have added this
@@ -1079,23 +1079,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *circledByCount;
+@property(nonatomic, strong, nullable) NSNumber *circledByCount;
 
 /** The cover photo content. */
-@property(strong, nullable) GTLRPlus_PersonCover *cover;
+@property(nonatomic, strong, nullable) GTLRPlus_PersonCover *cover;
 
 /** (this field is not currently used) */
-@property(copy, nullable) NSString *currentLocation;
+@property(nonatomic, copy, nullable) NSString *currentLocation;
 
 /** The name of this person, which is suitable for display. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The hosted domain name for the user's Google Apps account. For instance,
  *  example.com. The plus.profile.emails.read or email scope is needed to get
  *  this domain name.
  */
-@property(copy, nullable) NSString *domain;
+@property(nonatomic, copy, nullable) NSString *domain;
 
 /**
  *  A list of email addresses that this person has, including their Google
@@ -1104,10 +1104,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  these email addresses, or the email scope can be used to retrieve just the
  *  Google account email address.
  */
-@property(strong, nullable) NSArray<GTLRPlus_PersonEmailsItem *> *emails;
+@property(nonatomic, strong, nullable) NSArray<GTLRPlus_PersonEmailsItem *> *emails;
 
 /** ETag of this response for caching purposes. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The person's gender. Possible values include, but are not limited to, the
@@ -1116,38 +1116,38 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "female" - Female gender.
  *  - "other" - Other.
  */
-@property(copy, nullable) NSString *gender;
+@property(nonatomic, copy, nullable) NSString *gender;
 
 /**
  *  The ID of this person.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The representation of the person's profile photo. */
-@property(strong, nullable) GTLRPlus_PersonImage *image;
+@property(nonatomic, strong, nullable) GTLRPlus_PersonImage *image;
 
 /**
  *  Whether this user has signed up for Google+.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isPlusUser;
+@property(nonatomic, strong, nullable) NSNumber *isPlusUser;
 
 /** Identifies this resource as a person. Value: "plus#person". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The user's preferred language for rendering. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  An object representation of the individual components of a person's name.
  */
-@property(strong, nullable) GTLRPlus_PersonName *name;
+@property(nonatomic, strong, nullable) GTLRPlus_PersonName *name;
 
 /** The nickname of this person. */
-@property(copy, nullable) NSString *nickname;
+@property(nonatomic, copy, nullable) NSString *nickname;
 
 /**
  *  Type of person within Google+. Possible values include, but are not limited
@@ -1155,26 +1155,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "person" - represents an actual person.
  *  - "page" - represents a page.
  */
-@property(copy, nullable) NSString *objectType;
+@property(nonatomic, copy, nullable) NSString *objectType;
 
 /** The occupation of this person. */
-@property(copy, nullable) NSString *occupation;
+@property(nonatomic, copy, nullable) NSString *occupation;
 
 /**
  *  A list of current or past organizations with which this person is
  *  associated.
  */
-@property(strong, nullable) NSArray<GTLRPlus_PersonOrganizationsItem *> *organizations;
+@property(nonatomic, strong, nullable) NSArray<GTLRPlus_PersonOrganizationsItem *> *organizations;
 
 /** A list of places where this person has lived. */
-@property(strong, nullable) NSArray<GTLRPlus_PersonPlacesLivedItem *> *placesLived;
+@property(nonatomic, strong, nullable) NSArray<GTLRPlus_PersonPlacesLivedItem *> *placesLived;
 
 /**
  *  If a Google+ Page, the number of people who have +1'd this page.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *plusOneCount;
+@property(nonatomic, strong, nullable) NSNumber *plusOneCount;
 
 /**
  *  The person's relationship status. Possible values include, but are not
@@ -1189,26 +1189,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "in_domestic_partnership" - Person is in a domestic partnership.
  *  - "in_civil_union" - Person is in a civil union.
  */
-@property(copy, nullable) NSString *relationshipStatus;
+@property(nonatomic, copy, nullable) NSString *relationshipStatus;
 
 /** The person's skills. */
-@property(copy, nullable) NSString *skills;
+@property(nonatomic, copy, nullable) NSString *skills;
 
 /** The brief description (tagline) of this person. */
-@property(copy, nullable) NSString *tagline;
+@property(nonatomic, copy, nullable) NSString *tagline;
 
 /** The URL of this person's profile. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /** A list of URLs for this person. */
-@property(strong, nullable) NSArray<GTLRPlus_PersonUrlsItem *> *urls;
+@property(nonatomic, strong, nullable) NSArray<GTLRPlus_PersonUrlsItem *> *urls;
 
 /**
  *  Whether the person or Google+ Page has been verified.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *verified;
+@property(nonatomic, strong, nullable) NSNumber *verified;
 
 @end
 
@@ -1228,7 +1228,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *max;
+@property(nonatomic, strong, nullable) NSNumber *max;
 
 /**
  *  The age range's lower bound, if any. Possible values include, but are not
@@ -1238,7 +1238,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *min;
+@property(nonatomic, strong, nullable) NSNumber *min;
 
 @end
 
@@ -1249,17 +1249,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_PersonCover : GTLRObject
 
 /** Extra information about the cover photo. */
-@property(strong, nullable) GTLRPlus_PersonCoverCoverInfo *coverInfo;
+@property(nonatomic, strong, nullable) GTLRPlus_PersonCoverCoverInfo *coverInfo;
 
 /** The person's primary cover image. */
-@property(strong, nullable) GTLRPlus_PersonCoverCoverPhoto *coverPhoto;
+@property(nonatomic, strong, nullable) GTLRPlus_PersonCoverCoverPhoto *coverPhoto;
 
 /**
  *  The layout of the cover art. Possible values include, but are not limited
  *  to, the following values:
  *  - "banner" - One large image banner.
  */
-@property(copy, nullable) NSString *layout;
+@property(nonatomic, copy, nullable) NSString *layout;
 
 @end
 
@@ -1277,10 +1277,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "work" - Work email address.
  *  - "other" - Other.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** The email address. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1295,14 +1295,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isDefault;
+@property(nonatomic, strong, nullable) NSNumber *isDefault;
 
 /**
  *  The URL of the person's profile photo. To resize the image and crop it to a
  *  square, append the query string ?sz=x, where x is the dimension in pixels of
  *  each side.
  */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -1313,22 +1313,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_PersonName : GTLRObject
 
 /** The family name (last name) of this person. */
-@property(copy, nullable) NSString *familyName;
+@property(nonatomic, copy, nullable) NSString *familyName;
 
 /** The full name of this person, including middle names, suffixes, etc. */
-@property(copy, nullable) NSString *formatted;
+@property(nonatomic, copy, nullable) NSString *formatted;
 
 /** The given name (first name) of this person. */
-@property(copy, nullable) NSString *givenName;
+@property(nonatomic, copy, nullable) NSString *givenName;
 
 /** The honorific prefixes (such as "Dr." or "Mrs.") for this person. */
-@property(copy, nullable) NSString *honorificPrefix;
+@property(nonatomic, copy, nullable) NSString *honorificPrefix;
 
 /** The honorific suffixes (such as "Jr.") for this person. */
-@property(copy, nullable) NSString *honorificSuffix;
+@property(nonatomic, copy, nullable) NSString *honorificSuffix;
 
 /** The middle name of this person. */
-@property(copy, nullable) NSString *middleName;
+@property(nonatomic, copy, nullable) NSString *middleName;
 
 @end
 
@@ -1339,23 +1339,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_PersonOrganizationsItem : GTLRObject
 
 /** The department within the organization. Deprecated. */
-@property(copy, nullable) NSString *department;
+@property(nonatomic, copy, nullable) NSString *department;
 
 /**
  *  A short description of the person's role in this organization. Deprecated.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** The date that the person left this organization. */
-@property(copy, nullable) NSString *endDate;
+@property(nonatomic, copy, nullable) NSString *endDate;
 
 /** The location of this organization. Deprecated. */
-@property(copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** The name of the organization. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  If "true", indicates this organization is the person's primary one, which is
@@ -1363,13 +1363,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *primary;
+@property(nonatomic, strong, nullable) NSNumber *primary;
 
 /** The date that the person joined this organization. */
-@property(copy, nullable) NSString *startDate;
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 /** The person's job title or role within the organization. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  The type of organization. Possible values include, but are not limited to,
@@ -1377,7 +1377,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "work" - Work.
  *  - "school" - School.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1392,13 +1392,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *primary;
+@property(nonatomic, strong, nullable) NSNumber *primary;
 
 /**
  *  A place where this person has lived. For example: "Seattle, WA", "Near
  *  Toronto".
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1409,7 +1409,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_PersonUrlsItem : GTLRObject
 
 /** The label of the URL. */
-@property(copy, nullable) NSString *label;
+@property(nonatomic, copy, nullable) NSString *label;
 
 /**
  *  The type of URL. Possible values include, but are not limited to, the
@@ -1419,10 +1419,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "website" - URL for this Google+ Page's primary website.
  *  - "other" - Other URL.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** The URL value. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1438,7 +1438,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *leftImageOffset;
+@property(nonatomic, strong, nullable) NSNumber *leftImageOffset;
 
 /**
  *  The difference between the top position of the cover image and the actual
@@ -1446,7 +1446,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *topImageOffset;
+@property(nonatomic, strong, nullable) NSNumber *topImageOffset;
 
 @end
 
@@ -1461,17 +1461,17 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /** The URL of the image. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  The width of the image.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -1482,23 +1482,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_Place : GTLRObject
 
 /** The physical address of the place. */
-@property(strong, nullable) GTLRPlus_PlaceAddress *address;
+@property(nonatomic, strong, nullable) GTLRPlus_PlaceAddress *address;
 
 /** The display name of the place. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The id of the place.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Identifies this resource as a place. Value: "plus#place". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The position of the place. */
-@property(strong, nullable) GTLRPlus_PlacePosition *position;
+@property(nonatomic, strong, nullable) GTLRPlus_PlacePosition *position;
 
 @end
 
@@ -1509,7 +1509,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlus_PlaceAddress : GTLRObject
 
 /** The formatted address for display. */
-@property(copy, nullable) NSString *formatted;
+@property(nonatomic, copy, nullable) NSString *formatted;
 
 @end
 
@@ -1524,14 +1524,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *latitude;
+@property(nonatomic, strong, nullable) NSNumber *latitude;
 
 /**
  *  The longitude of this position.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *longitude;
+@property(nonatomic, strong, nullable) NSNumber *longitude;
 
 @end
 

@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -120,14 +120,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  results are available, which you can retrieve by passing the `nextPageToken`
  *  value as the `pageToken` parameter in the next request.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. If the `pageToken` parameter is supplied, then the next page of
  *  results is retrieved. The `pageToken` parameter must be set to the value of
  *  the `nextPageToken` from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRLogging_ListMonitoredResourceDescriptorsResponse.
@@ -162,7 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The resource name of the log to delete. Example:
  *  `"projects/my-project/logs/syslog"`.
  */
-@property(copy, nullable) NSString *logName;
+@property(nonatomic, copy, nullable) NSString *logName;
 
 /**
  *  Fetches a @c GTLRLogging_Empty.
@@ -197,7 +197,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the project in which to create the metric. Example:
  *  `"projects/my-project-id"`. The new metric must be provided in the request.
  */
-@property(copy, nullable) NSString *projectName;
+@property(nonatomic, copy, nullable) NSString *projectName;
 
 /**
  *  Fetches a @c GTLRLogging_LogMetric.
@@ -234,7 +234,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the metric to delete. Example:
  *  `"projects/my-project-id/metrics/my-metric-id"`.
  */
-@property(copy, nullable) NSString *metricName;
+@property(nonatomic, copy, nullable) NSString *metricName;
 
 /**
  *  Fetches a @c GTLRLogging_Empty.
@@ -269,7 +269,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the desired metric. Example:
  *  `"projects/my-project-id/metrics/my-metric-id"`.
  */
-@property(copy, nullable) NSString *metricName;
+@property(nonatomic, copy, nullable) NSString *metricName;
 
 /**
  *  Fetches a @c GTLRLogging_LogMetric.
@@ -306,7 +306,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  results are available, which you can retrieve by passing the `nextPageToken`
  *  value as the `pageToken` parameter in the next request.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. If the `pageToken` parameter is supplied, then the next page of
@@ -314,13 +314,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  the `nextPageToken` from the previous response. The value of `projectName`
  *  must be the same as in the previous request.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The resource name of the project containing the metrics. Example:
  *  `"projects/my-project-id"`.
  */
-@property(copy, nullable) NSString *projectName;
+@property(nonatomic, copy, nullable) NSString *projectName;
 
 /**
  *  Fetches a @c GTLRLogging_ListLogMetricsResponse.
@@ -360,7 +360,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  provided in the request and have the same identifier that is specified in
  *  `metricName`. If the metric does not exist, it is created.
  */
-@property(copy, nullable) NSString *metricName;
+@property(nonatomic, copy, nullable) NSString *metricName;
 
 /**
  *  Fetches a @c GTLRLogging_LogMetric.
@@ -397,7 +397,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the project in which to create the sink. Example:
  *  `"projects/my-project-id"`. The new sink must be provided in the request.
  */
-@property(copy, nullable) NSString *projectName;
+@property(nonatomic, copy, nullable) NSString *projectName;
 
 /**
  *  Fetches a @c GTLRLogging_LogSink.
@@ -433,7 +433,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the sink to delete. Example:
  *  `"projects/my-project-id/sinks/my-sink-id"`.
  */
-@property(copy, nullable) NSString *sinkName;
+@property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Fetches a @c GTLRLogging_Empty.
@@ -468,7 +468,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the sink to return. Example:
  *  `"projects/my-project-id/sinks/my-sink-id"`.
  */
-@property(copy, nullable) NSString *sinkName;
+@property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Fetches a @c GTLRLogging_LogSink.
@@ -505,7 +505,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  results are available, which you can retrieve by passing the `nextPageToken`
  *  value as the `pageToken` parameter in the next request.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. If the `pageToken` parameter is supplied, then the next page of
@@ -513,13 +513,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  the `nextPageToken` from the previous response. The value of `projectName`
  *  must be the same as in the previous request.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The resource name of the project containing the sinks. Example:
  *  `"projects/my-logging-project"`.
  */
-@property(copy, nullable) NSString *projectName;
+@property(nonatomic, copy, nullable) NSString *projectName;
 
 /**
  *  Fetches a @c GTLRLogging_ListSinksResponse.
@@ -558,7 +558,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  provided in the request and have the same name that is specified in
  *  `sinkName`. If the sink does not exist, it is created.
  */
-@property(copy, nullable) NSString *sinkName;
+@property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Fetches a @c GTLRLogging_LogSink.

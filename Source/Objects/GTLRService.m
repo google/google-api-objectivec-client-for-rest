@@ -181,7 +181,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
 @interface GTLRObject (StandardProperties)
 // Common properties on GTLRObject that are invoked below.
-@property(retain) NSString *nextPageToken;
+@property(nonatomic, copy) NSString *nextPageToken;
 @end
 
 // This class encapsulates the pieces of a single batch response, including
@@ -1559,12 +1559,14 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
   NSMutableDictionary *successes = [NSMutableDictionary dictionary];
   NSMutableDictionary *failures = [NSMutableDictionary dictionary];
+  NSMutableDictionary *responseHeaders = [NSMutableDictionary dictionary];
 
   for (GTLRBatchResponsePart *responsePart in parts) {
     NSString *contentID = responsePart.contentID;
     NSDictionary *json = responsePart.JSON;
     NSError *parseError = responsePart.parseError;
     NSInteger statusCode = responsePart.statusCode;
+    [responseHeaders setValue:responsePart.headers forKey:contentID];
 
     if (parseError) {
       GTLRErrorObject *parseErrorObject = [GTLRErrorObject objectWithFoundationError:parseError];
@@ -1603,6 +1605,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   }  // for
   batchResult.successes = successes;
   batchResult.failures = failures;
+  batchResult.responseHeaders = responseHeaders;
   return batchResult;
 }
 
@@ -2774,3 +2777,6 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
 @end
 
+@implementation GTLRObjectCollectionImpl
+@dynamic nextPageToken;
+@end

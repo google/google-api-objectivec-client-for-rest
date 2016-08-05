@@ -106,7 +106,7 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @implementation GTLRBigqueryQuery_DatasetsList
 
-@dynamic all, maxResults, pageToken, projectId;
+@dynamic all, filter, maxResults, pageToken, projectId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];

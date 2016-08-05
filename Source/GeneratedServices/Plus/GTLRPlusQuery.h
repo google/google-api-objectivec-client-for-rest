@@ -104,7 +104,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 @interface GTLRPlusQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -122,7 +122,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 //   +[GTLQueryPlus queryForActivitiesGetWithactivityId:]
 
 /** The ID of the activity to get. */
-@property(copy, nullable) NSString *activityId;
+@property(nonatomic, copy, nullable) NSString *activityId;
 
 /**
  *  Fetches a @c GTLRPlus_Activity.
@@ -158,7 +158,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *    @arg @c kGTLRPlusCollectionPublic All public activities created by the
  *        specified user. (Value: "public")
  */
-@property(copy, nullable) NSString *collection;
+@property(nonatomic, copy, nullable) NSString *collection;
 
 /**
  *  The maximum number of activities to include in the response, which is used
@@ -168,20 +168,20 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 1..100).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  "nextPageToken" from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The ID of the user to get activities for. The special value "me" can be used
  *  to indicate the authenticated user.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRPlus_ActivityFeed.
@@ -227,7 +227,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *
  *  @note If not set, the documented server-side default will be en-US.
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of activities to include in the response, which is used
@@ -237,7 +237,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *  @note If not set, the documented server-side default will be 10 (from the
  *        range 1..20).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Specifies how to order search results.
@@ -251,17 +251,17 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *  @note If not set, the documented server-side default will be
  *        kGTLRPlusOrderByRecent.
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  "nextPageToken" from the previous response. This token can be of any length.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Full-text search query string. */
-@property(copy, nullable) NSString *query;
+@property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  Fetches a @c GTLRPlus_ActivityFeed.
@@ -294,7 +294,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 //   +[GTLQueryPlus queryForCommentsGetWithcommentId:]
 
 /** The ID of the comment to get. */
-@property(copy, nullable) NSString *commentId;
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 /**
  *  Fetches a @c GTLRPlus_Comment.
@@ -323,7 +323,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 //   +[GTLQueryPlus queryForCommentsListWithactivityId:]
 
 /** The ID of the activity to get comments for. */
-@property(copy, nullable) NSString *activityId;
+@property(nonatomic, copy, nullable) NSString *activityId;
 
 /**
  *  The maximum number of comments to include in the response, which is used for
@@ -333,14 +333,14 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 0..500).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  "nextPageToken" from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The order in which to sort the list of comments.
@@ -354,7 +354,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *  @note If not set, the documented server-side default will be
  *        kGTLRPlusSortOrderAscending.
  */
-@property(copy, nullable) NSString *sortOrder;
+@property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
  *  Fetches a @c GTLRPlus_CommentFeed.
@@ -394,7 +394,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *  The ID of the person to get the profile for. The special value "me" can be
  *  used to indicate the authenticated user.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRPlus_Person.
@@ -437,7 +437,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *        added to one or more circles, limited to the circles visible to the
  *        requesting application. (Value: "visible")
  */
-@property(copy, nullable) NSString *collection;
+@property(nonatomic, copy, nullable) NSString *collection;
 
 /**
  *  The maximum number of people to include in the response, which is used for
@@ -447,7 +447,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..100).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The order to return people in.
@@ -458,20 +458,20 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *    @arg @c kGTLRPlusOrderByBest Order people based on the relevence to the
  *        viewer. (Value: "best")
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  "nextPageToken" from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Get the collection of people for the person identified. Use "me" to indicate
  *  the authenticated user.
  */
-@property(copy, nullable) NSString *userId;
+@property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRPlus_PeopleFeed.
@@ -517,7 +517,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 //   +[GTLQueryPlus queryForPeopleListByActivityWithactivityId:collection:]
 
 /** The ID of the activity to get the list of people for. */
-@property(copy, nullable) NSString *activityId;
+@property(nonatomic, copy, nullable) NSString *activityId;
 
 /**
  *  The collection of people to list.
@@ -528,7 +528,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *    @arg @c kGTLRPlusCollectionResharers List all people who have reshared
  *        this activity. (Value: "resharers")
  */
-@property(copy, nullable) NSString *collection;
+@property(nonatomic, copy, nullable) NSString *collection;
 
 /**
  *  The maximum number of people to include in the response, which is used for
@@ -538,14 +538,14 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 1..100).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  "nextPageToken" from the previous response.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRPlus_PeopleFeed.
@@ -592,7 +592,7 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *
  *  @note If not set, the documented server-side default will be en-US.
  */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  The maximum number of people to include in the response, which is used for
@@ -602,19 +602,19 @@ GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
  *  @note If not set, the documented server-side default will be 25 (from the
  *        range 1..50).
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  The continuation token, which is used to page through large result sets. To
  *  get the next page of results, set this parameter to the value of
  *  "nextPageToken" from the previous response. This token can be of any length.
  */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Specify a query string for full text search of public text in all profiles.
  */
-@property(copy, nullable) NSString *query;
+@property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  Fetches a @c GTLRPlus_PeopleFeed.

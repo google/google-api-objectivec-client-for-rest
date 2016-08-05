@@ -60,6 +60,18 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessLocationRead;
  *  Value "https://www.googleapis.com/auth/fitness.location.write"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessLocationWrite;
+/**
+ *  Authorization scope: View nutrition information in Google Fit
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.nutrition.read"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessNutritionRead;
+/**
+ *  Authorization scope: View and store nutrition information in Google Fit
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.nutrition.write"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessNutritionWrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRFitnessService

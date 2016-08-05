@@ -1056,6 +1056,284 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 @end
 
+@implementation GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceDelete
+
+@dynamic deviceId, enterpriseId, managedConfigurationForDeviceId, userId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+                             deviceId:(NSString *)deviceId
+      managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
+  NSArray *pathParams = @[
+    @"deviceId", @"enterpriseId", @"managedConfigurationForDeviceId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice/{managedConfigurationForDeviceId}";
+  GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.deviceId = deviceId;
+  query.managedConfigurationForDeviceId = managedConfigurationForDeviceId;
+  query.loggingName = @"androidenterprise.managedconfigurationsfordevice.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceGet
+
+@dynamic deviceId, enterpriseId, managedConfigurationForDeviceId, userId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+                             deviceId:(NSString *)deviceId
+      managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
+  NSArray *pathParams = @[
+    @"deviceId", @"enterpriseId", @"managedConfigurationForDeviceId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice/{managedConfigurationForDeviceId}";
+  GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.deviceId = deviceId;
+  query.managedConfigurationForDeviceId = managedConfigurationForDeviceId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_ManagedConfiguration class];
+  query.loggingName = @"androidenterprise.managedconfigurationsfordevice.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceList
+
+@dynamic deviceId, enterpriseId, userId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+                             deviceId:(NSString *)deviceId {
+  NSArray *pathParams = @[
+    @"deviceId", @"enterpriseId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice";
+  GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.deviceId = deviceId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_ManagedConfigurationsForDeviceListResponse class];
+  query.loggingName = @"androidenterprise.managedconfigurationsfordevice.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordevicePatch
+
+@dynamic deviceId, enterpriseId, managedConfigurationForDeviceId, userId;
+
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_ManagedConfiguration *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId
+                       deviceId:(NSString *)deviceId
+managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"deviceId", @"enterpriseId", @"managedConfigurationForDeviceId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice/{managedConfigurationForDeviceId}";
+  GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordevicePatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.deviceId = deviceId;
+  query.managedConfigurationForDeviceId = managedConfigurationForDeviceId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_ManagedConfiguration class];
+  query.loggingName = @"androidenterprise.managedconfigurationsfordevice.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceUpdate
+
+@dynamic deviceId, enterpriseId, managedConfigurationForDeviceId, userId;
+
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_ManagedConfiguration *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId
+                       deviceId:(NSString *)deviceId
+managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"deviceId", @"enterpriseId", @"managedConfigurationForDeviceId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice/{managedConfigurationForDeviceId}";
+  GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.deviceId = deviceId;
+  query.managedConfigurationForDeviceId = managedConfigurationForDeviceId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_ManagedConfiguration class];
+  query.loggingName = @"androidenterprise.managedconfigurationsfordevice.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserDelete
+
+@dynamic enterpriseId, managedConfigurationForUserId, userId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+        managedConfigurationForUserId:(NSString *)managedConfigurationForUserId {
+  NSArray *pathParams = @[
+    @"enterpriseId", @"managedConfigurationForUserId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser/{managedConfigurationForUserId}";
+  GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.managedConfigurationForUserId = managedConfigurationForUserId;
+  query.loggingName = @"androidenterprise.managedconfigurationsforuser.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserGet
+
+@dynamic enterpriseId, managedConfigurationForUserId, userId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+        managedConfigurationForUserId:(NSString *)managedConfigurationForUserId {
+  NSArray *pathParams = @[
+    @"enterpriseId", @"managedConfigurationForUserId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser/{managedConfigurationForUserId}";
+  GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.managedConfigurationForUserId = managedConfigurationForUserId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_ManagedConfiguration class];
+  query.loggingName = @"androidenterprise.managedconfigurationsforuser.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserList
+
+@dynamic enterpriseId, userId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId {
+  NSArray *pathParams = @[
+    @"enterpriseId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser";
+  GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_ManagedConfigurationsForUserListResponse class];
+  query.loggingName = @"androidenterprise.managedconfigurationsforuser.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserPatch
+
+@dynamic enterpriseId, managedConfigurationForUserId, userId;
+
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_ManagedConfiguration *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId
+  managedConfigurationForUserId:(NSString *)managedConfigurationForUserId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"enterpriseId", @"managedConfigurationForUserId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser/{managedConfigurationForUserId}";
+  GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.managedConfigurationForUserId = managedConfigurationForUserId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_ManagedConfiguration class];
+  query.loggingName = @"androidenterprise.managedconfigurationsforuser.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserUpdate
+
+@dynamic enterpriseId, managedConfigurationForUserId, userId;
+
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_ManagedConfiguration *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId
+  managedConfigurationForUserId:(NSString *)managedConfigurationForUserId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"enterpriseId", @"managedConfigurationForUserId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser/{managedConfigurationForUserId}";
+  GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.managedConfigurationForUserId = managedConfigurationForUserId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_ManagedConfiguration class];
+  query.loggingName = @"androidenterprise.managedconfigurationsforuser.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidEnterpriseQuery_PermissionsGet
 
 @dynamic language, permissionId;

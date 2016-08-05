@@ -33,42 +33,42 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_CreateAuthUriResponse : GTLRObject
 
 /** all providers the user has once used to do federated login */
-@property(strong, nullable) NSArray<NSString *> *allProviders;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allProviders;
 
 /** The URI used by the IDP to authenticate the user. */
-@property(copy, nullable) NSString *authUri;
+@property(nonatomic, copy, nullable) NSString *authUri;
 
 /**
  *  True if captcha is required.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *captchaRequired;
+@property(nonatomic, strong, nullable) NSNumber *captchaRequired;
 
 /**
  *  True if the authUri is for user's existing provider.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *forExistingProvider;
+@property(nonatomic, strong, nullable) NSNumber *forExistingProvider;
 
 /** The fixed string identitytoolkit#CreateAuthUriResponse". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The provider ID of the auth URI. */
-@property(copy, nullable) NSString *providerId;
+@property(nonatomic, copy, nullable) NSString *providerId;
 
 /**
  *  Whether the user is registered if the identifier is an email.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *registered;
+@property(nonatomic, strong, nullable) NSNumber *registered;
 
 /**
  *  Session ID which should be passed in the following verifyAssertion request.
  */
-@property(copy, nullable) NSString *sessionId;
+@property(nonatomic, copy, nullable) NSString *sessionId;
 
 @end
 
@@ -79,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_DeleteAccountResponse : GTLRObject
 
 /** The fixed string "identitytoolkit#DeleteAccountResponse". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -95,13 +95,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_DownloadAccountResponse : GTLRCollectionObject
 
 /** The fixed string "identitytoolkit#DownloadAccountResponse". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The next page token. To be used in a subsequent request to return the next
  *  page of results.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The user accounts data.
@@ -109,7 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRIdentityToolkit_UserInfo *> *users;
+@property(nonatomic, strong, nullable) NSArray<GTLRIdentityToolkit_UserInfo *> *users;
 
 @end
 
@@ -120,22 +120,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_EmailTemplate : GTLRObject
 
 /** Email body. */
-@property(copy, nullable) NSString *body;
+@property(nonatomic, copy, nullable) NSString *body;
 
 /** Email body format. */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /** From address of the email. */
-@property(copy, nullable) NSString *from;
+@property(nonatomic, copy, nullable) NSString *from;
 
 /** From display name. */
-@property(copy, nullable) NSString *fromDisplayName;
+@property(nonatomic, copy, nullable) NSString *fromDisplayName;
 
 /** Reply-to address. */
-@property(copy, nullable) NSString *replyTo;
+@property(nonatomic, copy, nullable) NSString *replyTo;
 
 /** Subject of the email. */
-@property(copy, nullable) NSString *subject;
+@property(nonatomic, copy, nullable) NSString *subject;
 
 @end
 
@@ -146,10 +146,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_GetAccountInfoResponse : GTLRObject
 
 /** The fixed string "identitytoolkit#GetAccountInfoResponse". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The info of the users. */
-@property(strong, nullable) NSArray<GTLRIdentityToolkit_UserInfo *> *users;
+@property(nonatomic, strong, nullable) NSArray<GTLRIdentityToolkit_UserInfo *> *users;
 
 @end
 
@@ -161,13 +161,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_GetOobConfirmationCodeResponse : GTLRObject
 
 /** The email address that the email is sent to. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** The fixed string "identitytoolkit#GetOobConfirmationCodeResponse". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The code to be send to the user. */
-@property(copy, nullable) NSString *oobCode;
+@property(nonatomic, copy, nullable) NSString *oobCode;
 
 @end
 
@@ -178,16 +178,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_GetRecaptchaParamResponse : GTLRObject
 
 /** The fixed string "identitytoolkit#GetRecaptchaParamResponse". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Site key registered at recaptcha. */
-@property(copy, nullable) NSString *recaptchaSiteKey;
+@property(nonatomic, copy, nullable) NSString *recaptchaSiteKey;
 
 /**
  *  The stoken field for the recaptcha widget, used to request captcha
  *  challenge.
  */
-@property(copy, nullable) NSString *recaptchaStoken;
+@property(nonatomic, copy, nullable) NSString *recaptchaStoken;
 
 @end
 
@@ -198,14 +198,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_IdpConfig : GTLRObject
 
 /** OAuth2 client ID. */
-@property(copy, nullable) NSString *clientId;
+@property(nonatomic, copy, nullable) NSString *clientId;
 
 /**
  *  Whether this IDP is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enabled;
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
  *  Percent of users who will be prompted/redirected federated login for this
@@ -213,16 +213,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *experimentPercent;
+@property(nonatomic, strong, nullable) NSNumber *experimentPercent;
 
 /** OAuth2 provider. */
-@property(copy, nullable) NSString *provider;
+@property(nonatomic, copy, nullable) NSString *provider;
 
 /** OAuth2 client secret. */
-@property(copy, nullable) NSString *secret;
+@property(nonatomic, copy, nullable) NSString *secret;
 
 /** Whitelisted client IDs for audience check. */
-@property(strong, nullable) NSArray<NSString *> *whitelistedAudiences;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *whitelistedAudiences;
 
 @end
 
@@ -234,28 +234,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_Relyingparty : GTLRObject
 
 /** The recaptcha response from the user. */
-@property(copy, nullable) NSString *captchaResp;
+@property(nonatomic, copy, nullable) NSString *captchaResp;
 
 /** The recaptcha challenge presented to the user. */
-@property(copy, nullable) NSString *challenge;
+@property(nonatomic, copy, nullable) NSString *challenge;
 
 /** The email of the user. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** The user's Gitkit login token for email change. */
-@property(copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *idToken;
 
 /** The fixed string "identitytoolkit#relyingparty". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The new email if the code is for email change. */
-@property(copy, nullable) NSString *newEmail NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, copy, nullable) NSString *newEmail NS_RETURNS_NOT_RETAINED;
 
 /** The request type. */
-@property(copy, nullable) NSString *requestType;
+@property(nonatomic, copy, nullable) NSString *requestType;
 
 /** The IP address of the user. */
-@property(copy, nullable) NSString *userIp;
+@property(nonatomic, copy, nullable) NSString *userIp;
 
 @end
 
@@ -269,21 +269,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  The app ID of the mobile app, base64(CERT_SHA1):PACKAGE_NAME for Android,
  *  BUNDLE_ID for iOS.
  */
-@property(copy, nullable) NSString *appId;
+@property(nonatomic, copy, nullable) NSString *appId;
 
 /** The relying party OAuth client ID. */
-@property(copy, nullable) NSString *clientId;
+@property(nonatomic, copy, nullable) NSString *clientId;
 
 /**
  *  The opaque value used by the client to maintain context info between the
  *  authentication request and the IDP callback.
  */
-@property(copy, nullable) NSString *context;
+@property(nonatomic, copy, nullable) NSString *context;
 
 /**
  *  The URI to which the IDP redirects the user after the federated login flow.
  */
-@property(copy, nullable) NSString *continueUri;
+@property(nonatomic, copy, nullable) NSString *continueUri;
+
+/**
+ *  The hosted domain to restrict sign-in to accounts at that domain for Google
+ *  Apps hosted accounts.
+ */
+@property(nonatomic, copy, nullable) NSString *hostedDomain;
 
 /**
  *  The email or federated ID of the user.
@@ -291,32 +297,32 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifierProperty property maps to 'identifier' in the JSON ('identifier'
  *  is reserved for remapping 'id').
  */
-@property(copy, nullable) NSString *identifierProperty;
+@property(nonatomic, copy, nullable) NSString *identifierProperty;
 
 /** The developer's consumer key for OpenId OAuth Extension */
-@property(copy, nullable) NSString *oauthConsumerKey;
+@property(nonatomic, copy, nullable) NSString *oauthConsumerKey;
 
 /**
  *  Additional oauth scopes, beyond the basid user profile, that the user would
  *  be prompted to grant
  */
-@property(copy, nullable) NSString *oauthScope;
+@property(nonatomic, copy, nullable) NSString *oauthScope;
 
 /**
  *  Optional realm for OpenID protocol. The sub string "scheme://domain:port" of
  *  the param "continueUri" is used if this is not set.
  */
-@property(copy, nullable) NSString *openidRealm;
+@property(nonatomic, copy, nullable) NSString *openidRealm;
 
 /** The native app package for OTA installation. */
-@property(copy, nullable) NSString *otaApp;
+@property(nonatomic, copy, nullable) NSString *otaApp;
 
 /**
  *  The IdP ID. For white listed IdPs it's a short domain name e.g. google.com,
  *  aol.com, live.net and yahoo.com. For other OpenID IdPs it's the OP
  *  identifier.
  */
-@property(copy, nullable) NSString *providerId;
+@property(nonatomic, copy, nullable) NSString *providerId;
 
 @end
 
@@ -332,13 +338,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *delegatedProjectNumber;
+@property(nonatomic, strong, nullable) NSNumber *delegatedProjectNumber;
 
 /** The GITKit token or STS id token of the authenticated user. */
-@property(copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *idToken;
 
 /** The local ID of the user. */
-@property(copy, nullable) NSString *localId;
+@property(nonatomic, copy, nullable) NSString *localId;
 
 @end
 
@@ -354,20 +360,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *delegatedProjectNumber;
+@property(nonatomic, strong, nullable) NSNumber *delegatedProjectNumber;
 
 /**
  *  The max number of results to return in the response.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(strong, nullable) NSNumber *maxResults;
+@property(nonatomic, strong, nullable) NSNumber *maxResults;
 
 /**
  *  The token for the next page. This should be taken from the previous
  *  response.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -383,16 +389,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *delegatedProjectNumber;
+@property(nonatomic, strong, nullable) NSNumber *delegatedProjectNumber;
 
 /** The list of emails of the users to inquiry. */
-@property(strong, nullable) NSArray<NSString *> *email;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *email;
 
 /** The GITKit token of the authenticated user. */
-@property(copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *idToken;
 
 /** The list of local ID's of the users to inquiry. */
-@property(strong, nullable) NSArray<NSString *> *localId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *localId;
 
 @end
 
@@ -407,45 +413,45 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *allowPasswordUser;
+@property(nonatomic, strong, nullable) NSNumber *allowPasswordUser;
 
 /** Browser API key, needed when making http request to Apiary. */
-@property(copy, nullable) NSString *apiKey;
+@property(nonatomic, copy, nullable) NSString *apiKey;
 
 /** Authorized domains. */
-@property(strong, nullable) NSArray<NSString *> *authorizedDomains;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedDomains;
 
 /** Change email template. */
-@property(strong, nullable) GTLRIdentityToolkit_EmailTemplate *changeEmailTemplate;
+@property(nonatomic, strong, nullable) GTLRIdentityToolkit_EmailTemplate *changeEmailTemplate;
 
 /**
  *  Whether anonymous user is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enableAnonymousUser;
+@property(nonatomic, strong, nullable) NSNumber *enableAnonymousUser;
 
 /** OAuth2 provider configuration. */
-@property(strong, nullable) NSArray<GTLRIdentityToolkit_IdpConfig *> *idpConfig;
+@property(nonatomic, strong, nullable) NSArray<GTLRIdentityToolkit_IdpConfig *> *idpConfig;
 
 /** Legacy reset password email template. */
-@property(strong, nullable) GTLRIdentityToolkit_EmailTemplate *legacyResetPasswordTemplate;
+@property(nonatomic, strong, nullable) GTLRIdentityToolkit_EmailTemplate *legacyResetPasswordTemplate;
 
 /** Project ID of the relying party. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Reset password email template. */
-@property(strong, nullable) GTLRIdentityToolkit_EmailTemplate *resetPasswordTemplate;
+@property(nonatomic, strong, nullable) GTLRIdentityToolkit_EmailTemplate *resetPasswordTemplate;
 
 /**
  *  Whether to use email sending provided by Firebear.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *useEmailSending;
+@property(nonatomic, strong, nullable) NSNumber *useEmailSending;
 
 /** Verify email template. */
-@property(strong, nullable) GTLRIdentityToolkit_EmailTemplate *verifyEmailTemplate;
+@property(nonatomic, strong, nullable) GTLRIdentityToolkit_EmailTemplate *verifyEmailTemplate;
 
 @end
 
@@ -468,16 +474,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_RelyingpartyResetPasswordRequest : GTLRObject
 
 /** The email address of the user. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** The new password inputted by the user. */
-@property(copy, nullable) NSString *newPassword NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, copy, nullable) NSString *newPassword NS_RETURNS_NOT_RETAINED;
 
 /** The old password inputted by the user. */
-@property(copy, nullable) NSString *oldPassword;
+@property(nonatomic, copy, nullable) NSString *oldPassword;
 
 /** The confirmation code. */
-@property(copy, nullable) NSString *oobCode;
+@property(nonatomic, copy, nullable) NSString *oobCode;
 
 @end
 
@@ -488,17 +494,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_RelyingpartySetAccountInfoRequest : GTLRObject
 
 /** The captcha challenge. */
-@property(copy, nullable) NSString *captchaChallenge;
+@property(nonatomic, copy, nullable) NSString *captchaChallenge;
 
 /** Response to the captcha. */
-@property(copy, nullable) NSString *captchaResponse;
+@property(nonatomic, copy, nullable) NSString *captchaResponse;
 
 /**
  *  The timestamp when the account is created.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *createdAt;
+@property(nonatomic, strong, nullable) NSNumber *createdAt;
 
 /**
  *  GCP project number of the requesting delegated app. Currently only intended
@@ -506,82 +512,82 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *delegatedProjectNumber;
+@property(nonatomic, strong, nullable) NSNumber *delegatedProjectNumber;
 
 /** The attributes users request to delete. */
-@property(strong, nullable) NSArray<NSString *> *deleteAttribute;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deleteAttribute;
 
 /** The IDPs the user request to delete. */
-@property(strong, nullable) NSArray<NSString *> *deleteProvider;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deleteProvider;
 
 /**
  *  Whether to disable the user.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *disableUser;
+@property(nonatomic, strong, nullable) NSNumber *disableUser;
 
 /** The name of the user. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The email of the user. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /**
  *  Mark the email as verified or not.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *emailVerified;
+@property(nonatomic, strong, nullable) NSNumber *emailVerified;
 
 /** The GITKit token of the authenticated user. */
-@property(copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *idToken;
 
 /** Instance id token of the app. */
-@property(copy, nullable) NSString *instanceId;
+@property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
  *  Last login timestamp.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *lastLoginAt;
+@property(nonatomic, strong, nullable) NSNumber *lastLoginAt;
 
 /** The local ID of the user. */
-@property(copy, nullable) NSString *localId;
+@property(nonatomic, copy, nullable) NSString *localId;
 
 /** The out-of-band code of the change email request. */
-@property(copy, nullable) NSString *oobCode;
+@property(nonatomic, copy, nullable) NSString *oobCode;
 
 /** The new password of the user. */
-@property(copy, nullable) NSString *password;
+@property(nonatomic, copy, nullable) NSString *password;
 
 /** The photo url of the user. */
-@property(copy, nullable) NSString *photoUrl;
+@property(nonatomic, copy, nullable) NSString *photoUrl;
 
 /** The associated IDPs of the user. */
-@property(strong, nullable) NSArray<NSString *> *provider;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *provider;
 
 /**
  *  Whether return sts id token and refresh token instead of gitkit token.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *returnSecureToken;
+@property(nonatomic, strong, nullable) NSNumber *returnSecureToken;
 
 /**
  *  Mark the user to upgrade to federated login.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *upgradeToFederatedLogin;
+@property(nonatomic, strong, nullable) NSNumber *upgradeToFederatedLogin;
 
 /**
  *  Timestamp in seconds for valid login token.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *validSince;
+@property(nonatomic, strong, nullable) NSNumber *validSince;
 
 @end
 
@@ -596,16 +602,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *allowPasswordUser;
+@property(nonatomic, strong, nullable) NSNumber *allowPasswordUser;
 
 /** Browser API key, needed when making http request to Apiary. */
-@property(copy, nullable) NSString *apiKey;
+@property(nonatomic, copy, nullable) NSString *apiKey;
 
 /** Authorized domains for widget redirect. */
-@property(strong, nullable) NSArray<NSString *> *authorizedDomains;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedDomains;
 
 /** Change email template. */
-@property(strong, nullable) GTLRIdentityToolkit_EmailTemplate *changeEmailTemplate;
+@property(nonatomic, strong, nullable) GTLRIdentityToolkit_EmailTemplate *changeEmailTemplate;
 
 /**
  *  GCP project number of the requesting delegated app. Currently only intended
@@ -613,33 +619,33 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *delegatedProjectNumber;
+@property(nonatomic, strong, nullable) NSNumber *delegatedProjectNumber;
 
 /**
  *  Whether to enable anonymous user.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enableAnonymousUser;
+@property(nonatomic, strong, nullable) NSNumber *enableAnonymousUser;
 
 /** Oauth2 provider configuration. */
-@property(strong, nullable) NSArray<GTLRIdentityToolkit_IdpConfig *> *idpConfig;
+@property(nonatomic, strong, nullable) NSArray<GTLRIdentityToolkit_IdpConfig *> *idpConfig;
 
 /** Legacy reset password email template. */
-@property(strong, nullable) GTLRIdentityToolkit_EmailTemplate *legacyResetPasswordTemplate;
+@property(nonatomic, strong, nullable) GTLRIdentityToolkit_EmailTemplate *legacyResetPasswordTemplate;
 
 /** Reset password email template. */
-@property(strong, nullable) GTLRIdentityToolkit_EmailTemplate *resetPasswordTemplate;
+@property(nonatomic, strong, nullable) GTLRIdentityToolkit_EmailTemplate *resetPasswordTemplate;
 
 /**
  *  Whether to use email sending provided by Firebear.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *useEmailSending;
+@property(nonatomic, strong, nullable) NSNumber *useEmailSending;
 
 /** Verify email template. */
-@property(strong, nullable) GTLRIdentityToolkit_EmailTemplate *verifyEmailTemplate;
+@property(nonatomic, strong, nullable) GTLRIdentityToolkit_EmailTemplate *verifyEmailTemplate;
 
 @end
 
@@ -650,7 +656,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_RelyingpartySetProjectConfigResponse : GTLRObject
 
 /** Project ID of the relying party. */
-@property(copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
 
@@ -661,10 +667,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_RelyingpartySignOutUserRequest : GTLRObject
 
 /** Instance id token of the app. */
-@property(copy, nullable) NSString *instanceId;
+@property(nonatomic, copy, nullable) NSString *instanceId;
 
 /** The local ID of the user. */
-@property(copy, nullable) NSString *localId;
+@property(nonatomic, copy, nullable) NSString *localId;
 
 @end
 
@@ -675,7 +681,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_RelyingpartySignOutUserResponse : GTLRObject
 
 /** The local ID of the user. */
-@property(copy, nullable) NSString *localId;
+@property(nonatomic, copy, nullable) NSString *localId;
 
 @end
 
@@ -686,25 +692,25 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_RelyingpartySignupNewUserRequest : GTLRObject
 
 /** The captcha challenge. */
-@property(copy, nullable) NSString *captchaChallenge;
+@property(nonatomic, copy, nullable) NSString *captchaChallenge;
 
 /** Response to the captcha. */
-@property(copy, nullable) NSString *captchaResponse;
+@property(nonatomic, copy, nullable) NSString *captchaResponse;
 
 /** The name of the user. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The email of the user. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** The GITKit token of the authenticated user. */
-@property(copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *idToken;
 
 /** Instance id token of the app. */
-@property(copy, nullable) NSString *instanceId;
+@property(nonatomic, copy, nullable) NSString *instanceId;
 
 /** The new password of the user. */
-@property(copy, nullable) NSString *password;
+@property(nonatomic, copy, nullable) NSString *password;
 
 @end
 
@@ -720,24 +726,24 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *delegatedProjectNumber;
+@property(nonatomic, strong, nullable) NSNumber *delegatedProjectNumber;
 
 /** The password hash algorithm. */
-@property(copy, nullable) NSString *hashAlgorithm;
+@property(nonatomic, copy, nullable) NSString *hashAlgorithm;
 
 /**
  *  Memory cost for hash calculation. Used by scrypt similar algorithms.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *memoryCost;
+@property(nonatomic, strong, nullable) NSNumber *memoryCost;
 
 /**
  *  Rounds for hash calculation. Used by scrypt and similar algorithms.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *rounds;
+@property(nonatomic, strong, nullable) NSNumber *rounds;
 
 /**
  *  The salt separator.
@@ -745,7 +751,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *saltSeparator;
+@property(nonatomic, copy, nullable) NSString *saltSeparator;
 
 /**
  *  The key for to hash the password.
@@ -753,10 +759,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *signerKey;
+@property(nonatomic, copy, nullable) NSString *signerKey;
 
 /** The account info to be stored. */
-@property(strong, nullable) NSArray<GTLRIdentityToolkit_UserInfo *> *users;
+@property(nonatomic, strong, nullable) NSArray<GTLRIdentityToolkit_UserInfo *> *users;
 
 @end
 
@@ -772,47 +778,47 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *delegatedProjectNumber;
+@property(nonatomic, strong, nullable) NSNumber *delegatedProjectNumber;
 
 /** The GITKit token of the authenticated user. */
-@property(copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *idToken;
 
 /** Instance id token of the app. */
-@property(copy, nullable) NSString *instanceId;
+@property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
  *  The GITKit token for the non-trusted IDP pending to be confirmed by the
  *  user.
  */
-@property(copy, nullable) NSString *pendingIdToken;
+@property(nonatomic, copy, nullable) NSString *pendingIdToken;
 
 /** The post body if the request is a HTTP POST. */
-@property(copy, nullable) NSString *postBody;
+@property(nonatomic, copy, nullable) NSString *postBody;
 
 /**
  *  The URI to which the IDP redirects the user back. It may contain federated
  *  login result params added by the IDP.
  */
-@property(copy, nullable) NSString *requestUri;
+@property(nonatomic, copy, nullable) NSString *requestUri;
 
 /**
  *  Whether to return refresh tokens.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *returnRefreshToken;
+@property(nonatomic, strong, nullable) NSNumber *returnRefreshToken;
 
 /**
  *  Whether return sts id token and refresh token instead of gitkit token.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *returnSecureToken;
+@property(nonatomic, strong, nullable) NSNumber *returnSecureToken;
 
 /**
  *  Session ID, which should match the one in previous createAuthUri request.
  */
-@property(copy, nullable) NSString *sessionId;
+@property(nonatomic, copy, nullable) NSString *sessionId;
 
 @end
 
@@ -828,20 +834,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *delegatedProjectNumber;
+@property(nonatomic, strong, nullable) NSNumber *delegatedProjectNumber;
 
 /** Instance id token of the app. */
-@property(copy, nullable) NSString *instanceId;
+@property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
  *  Whether return sts id token and refresh token instead of gitkit token.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *returnSecureToken;
+@property(nonatomic, strong, nullable) NSNumber *returnSecureToken;
 
 /** The custom token to verify */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 @end
 
@@ -852,10 +858,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_RelyingpartyVerifyPasswordRequest : GTLRObject
 
 /** The captcha challenge. */
-@property(copy, nullable) NSString *captchaChallenge;
+@property(nonatomic, copy, nullable) NSString *captchaChallenge;
 
 /** Response to the captcha. */
-@property(copy, nullable) NSString *captchaResponse;
+@property(nonatomic, copy, nullable) NSString *captchaResponse;
 
 /**
  *  GCP project number of the requesting delegated app. Currently only intended
@@ -863,32 +869,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *delegatedProjectNumber;
+@property(nonatomic, strong, nullable) NSNumber *delegatedProjectNumber;
 
 /** The email of the user. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** The GITKit token of the authenticated user. */
-@property(copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *idToken;
 
 /** Instance id token of the app. */
-@property(copy, nullable) NSString *instanceId;
+@property(nonatomic, copy, nullable) NSString *instanceId;
 
 /** The password inputed by the user. */
-@property(copy, nullable) NSString *password;
+@property(nonatomic, copy, nullable) NSString *password;
 
 /**
  *  The GITKit token for the non-trusted IDP, which is to be confirmed by the
  *  user.
  */
-@property(copy, nullable) NSString *pendingIdToken;
+@property(nonatomic, copy, nullable) NSString *pendingIdToken;
 
 /**
  *  Whether return sts id token and refresh token instead of gitkit token.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *returnSecureToken;
+@property(nonatomic, strong, nullable) NSNumber *returnSecureToken;
 
 @end
 
@@ -899,10 +905,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_ResetPasswordResponse : GTLRObject
 
 /** The user's email. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** The fixed string "identitytoolkit#ResetPasswordResponse". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -913,10 +919,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_SetAccountInfoResponse : GTLRObject
 
 /** The name of the user. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The email of the user. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /**
  *  If idToken is STS id token, then this field will be expiration time of STS
@@ -924,19 +930,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *expiresIn;
+@property(nonatomic, strong, nullable) NSNumber *expiresIn;
 
 /** The Gitkit id token to login the newly sign up user. */
-@property(copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *idToken;
 
 /** The fixed string "identitytoolkit#SetAccountInfoResponse". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The local ID of the user. */
-@property(copy, nullable) NSString *localId;
+@property(nonatomic, copy, nullable) NSString *localId;
 
 /** The new email the user attempts to change to. */
-@property(copy, nullable) NSString *newEmail NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, copy, nullable) NSString *newEmail NS_RETURNS_NOT_RETAINED;
 
 /**
  *  The user's hashed password.
@@ -944,16 +950,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *passwordHash;
+@property(nonatomic, copy, nullable) NSString *passwordHash;
 
 /** The photo url of the user. */
-@property(copy, nullable) NSString *photoUrl;
+@property(nonatomic, copy, nullable) NSString *photoUrl;
 
 /** The user's profiles at the associated IdPs. */
-@property(strong, nullable) NSArray<GTLRIdentityToolkit_SetAccountInfoResponseProviderUserInfoItem *> *providerUserInfo;
+@property(nonatomic, strong, nullable) NSArray<GTLRIdentityToolkit_SetAccountInfoResponseProviderUserInfoItem *> *providerUserInfo;
 
 /** If idToken is STS id token, then this field will be refresh token. */
-@property(copy, nullable) NSString *refreshToken;
+@property(nonatomic, copy, nullable) NSString *refreshToken;
 
 @end
 
@@ -964,20 +970,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_SetAccountInfoResponseProviderUserInfoItem : GTLRObject
 
 /** The user's display name at the IDP. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** User's identifier at IDP. */
-@property(copy, nullable) NSString *federatedId;
+@property(nonatomic, copy, nullable) NSString *federatedId;
 
 /** The user's photo url at the IDP. */
-@property(copy, nullable) NSString *photoUrl;
+@property(nonatomic, copy, nullable) NSString *photoUrl;
 
 /**
  *  The IdP ID. For whitelisted IdPs it's a short domain name, e.g., google.com,
  *  aol.com, live.net and yahoo.com. For other OpenID IdPs it's the OP
  *  identifier.
  */
-@property(copy, nullable) NSString *providerId;
+@property(nonatomic, copy, nullable) NSString *providerId;
 
 @end
 
@@ -989,10 +995,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_SignupNewUserResponse : GTLRObject
 
 /** The name of the user. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The email of the user. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /**
  *  If idToken is STS id token, then this field will be expiration time of STS
@@ -1000,19 +1006,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *expiresIn;
+@property(nonatomic, strong, nullable) NSNumber *expiresIn;
 
 /** The Gitkit id token to login the newly sign up user. */
-@property(copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *idToken;
 
 /** The fixed string "identitytoolkit#SignupNewUserResponse". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The RP local ID of the user. */
-@property(copy, nullable) NSString *localId;
+@property(nonatomic, copy, nullable) NSString *localId;
 
 /** If idToken is STS id token, then this field will be refresh token. */
-@property(copy, nullable) NSString *refreshToken;
+@property(nonatomic, copy, nullable) NSString *refreshToken;
 
 @end
 
@@ -1023,10 +1029,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_UploadAccountResponse : GTLRObject
 
 /** The error encountered while processing the account info. */
-@property(strong, nullable) NSArray<GTLRIdentityToolkit_UploadAccountResponseErrorItem *> *error;
+@property(nonatomic, strong, nullable) NSArray<GTLRIdentityToolkit_UploadAccountResponseErrorItem *> *error;
 
 /** The fixed string "identitytoolkit#UploadAccountResponse". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -1041,10 +1047,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *index;
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 /** Detailed error message for the account info. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -1059,37 +1065,37 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *createdAt;
+@property(nonatomic, strong, nullable) NSNumber *createdAt;
 
 /**
  *  Whether the user is disabled.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *disabled;
+@property(nonatomic, strong, nullable) NSNumber *disabled;
 
 /** The name of the user. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The email of the user. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /**
  *  Whether the email has been verified.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *emailVerified;
+@property(nonatomic, strong, nullable) NSNumber *emailVerified;
 
 /**
  *  last login timestamp.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *lastLoginAt;
+@property(nonatomic, strong, nullable) NSNumber *lastLoginAt;
 
 /** The local ID of the user. */
-@property(copy, nullable) NSString *localId;
+@property(nonatomic, copy, nullable) NSString *localId;
 
 /**
  *  The user's hashed password.
@@ -1097,20 +1103,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *passwordHash;
+@property(nonatomic, copy, nullable) NSString *passwordHash;
 
 /**
  *  The timestamp when the password was last updated.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *passwordUpdatedAt;
+@property(nonatomic, strong, nullable) NSNumber *passwordUpdatedAt;
 
 /** The URL of the user profile photo. */
-@property(copy, nullable) NSString *photoUrl;
+@property(nonatomic, copy, nullable) NSString *photoUrl;
 
 /** The IDP of the user. */
-@property(strong, nullable) NSArray<GTLRIdentityToolkit_UserInfoProviderUserInfoItem *> *providerUserInfo;
+@property(nonatomic, strong, nullable) NSArray<GTLRIdentityToolkit_UserInfoProviderUserInfoItem *> *providerUserInfo;
 
 /**
  *  The user's password salt.
@@ -1118,21 +1124,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *salt;
+@property(nonatomic, copy, nullable) NSString *salt;
 
 /**
  *  Timestamp in seconds for valid login token.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *validSince;
+@property(nonatomic, strong, nullable) NSNumber *validSince;
 
 /**
  *  Version of the user's password.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *version;
+@property(nonatomic, strong, nullable) NSNumber *version;
 
 @end
 
@@ -1143,26 +1149,26 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_UserInfoProviderUserInfoItem : GTLRObject
 
 /** The user's display name at the IDP. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** User's email at IDP. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** User's identifier at IDP. */
-@property(copy, nullable) NSString *federatedId;
+@property(nonatomic, copy, nullable) NSString *federatedId;
 
 /** The user's photo url at the IDP. */
-@property(copy, nullable) NSString *photoUrl;
+@property(nonatomic, copy, nullable) NSString *photoUrl;
 
 /**
  *  The IdP ID. For white listed IdPs it's a short domain name, e.g.,
  *  google.com, aol.com, live.net and yahoo.com. For other OpenID IdPs it's the
  *  OP identifier.
  */
-@property(copy, nullable) NSString *providerId;
+@property(nonatomic, copy, nullable) NSString *providerId;
 
 /** User's raw identifier directly returned from IDP. */
-@property(copy, nullable) NSString *rawId;
+@property(nonatomic, copy, nullable) NSString *rawId;
 
 @end
 
@@ -1173,38 +1179,38 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_VerifyAssertionResponse : GTLRObject
 
 /** The action code. */
-@property(copy, nullable) NSString *action;
+@property(nonatomic, copy, nullable) NSString *action;
 
 /** URL for OTA app installation. */
-@property(copy, nullable) NSString *appInstallationUrl;
+@property(nonatomic, copy, nullable) NSString *appInstallationUrl;
 
 /** The custom scheme used by mobile app. */
-@property(copy, nullable) NSString *appScheme;
+@property(nonatomic, copy, nullable) NSString *appScheme;
 
 /**
  *  The opaque value used by the client to maintain context info between the
  *  authentication request and the IDP callback.
  */
-@property(copy, nullable) NSString *context;
+@property(nonatomic, copy, nullable) NSString *context;
 
 /** The birth date of the IdP account. */
-@property(copy, nullable) NSString *dateOfBirth;
+@property(nonatomic, copy, nullable) NSString *dateOfBirth;
 
 /** The display name of the user. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The email returned by the IdP. NOTE: The federated login user may not own
  *  the email.
  */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /**
  *  It's true if the email is recycled.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *emailRecycled;
+@property(nonatomic, strong, nullable) NSNumber *emailRecycled;
 
 /**
  *  The value is true if the IDP is also the email provider. It means the user
@@ -1212,7 +1218,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *emailVerified;
+@property(nonatomic, strong, nullable) NSNumber *emailVerified;
 
 /**
  *  If idToken is STS id token, then this field will be expiration time of STS
@@ -1220,41 +1226,41 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *expiresIn;
+@property(nonatomic, strong, nullable) NSNumber *expiresIn;
 
 /** The unique ID identifies the IdP account. */
-@property(copy, nullable) NSString *federatedId;
+@property(nonatomic, copy, nullable) NSString *federatedId;
 
 /** The first name of the user. */
-@property(copy, nullable) NSString *firstName;
+@property(nonatomic, copy, nullable) NSString *firstName;
 
 /** The full name of the user. */
-@property(copy, nullable) NSString *fullName;
+@property(nonatomic, copy, nullable) NSString *fullName;
 
 /** The ID token. */
-@property(copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *idToken;
 
 /**
  *  It's the identifier param in the createAuthUri request if the identifier is
  *  an email. It can be used to check whether the user input email is different
  *  from the asserted email.
  */
-@property(copy, nullable) NSString *inputEmail;
+@property(nonatomic, copy, nullable) NSString *inputEmail;
 
 /** The fixed string "identitytoolkit#VerifyAssertionResponse". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The language preference of the user. */
-@property(copy, nullable) NSString *language;
+@property(nonatomic, copy, nullable) NSString *language;
 
 /** The last name of the user. */
-@property(copy, nullable) NSString *lastName;
+@property(nonatomic, copy, nullable) NSString *lastName;
 
 /**
  *  The RP local ID if it's already been mapped to the IdP account identified by
  *  the federated ID.
  */
-@property(copy, nullable) NSString *localId;
+@property(nonatomic, copy, nullable) NSString *localId;
 
 /**
  *  Whether the assertion is from a non-trusted IDP and need account linking
@@ -1262,51 +1268,51 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *needConfirmation;
+@property(nonatomic, strong, nullable) NSNumber *needConfirmation;
 
 /**
  *  Whether need client to supply email to complete the federated login flow.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *needEmail;
+@property(nonatomic, strong, nullable) NSNumber *needEmail;
 
 /** The nick name of the user. */
-@property(copy, nullable) NSString *nickName;
+@property(nonatomic, copy, nullable) NSString *nickName;
 
 /** The OAuth2 access token. */
-@property(copy, nullable) NSString *oauthAccessToken;
+@property(nonatomic, copy, nullable) NSString *oauthAccessToken;
 
 /** The OAuth2 authorization code. */
-@property(copy, nullable) NSString *oauthAuthorizationCode;
+@property(nonatomic, copy, nullable) NSString *oauthAuthorizationCode;
 
 /**
  *  The lifetime in seconds of the OAuth2 access token.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *oauthExpireIn;
+@property(nonatomic, strong, nullable) NSNumber *oauthExpireIn;
 
 /** The OIDC id token. */
-@property(copy, nullable) NSString *oauthIdToken;
+@property(nonatomic, copy, nullable) NSString *oauthIdToken;
 
 /** The user approved request token for the OpenID OAuth extension. */
-@property(copy, nullable) NSString *oauthRequestToken;
+@property(nonatomic, copy, nullable) NSString *oauthRequestToken;
 
 /** The scope for the OpenID OAuth extension. */
-@property(copy, nullable) NSString *oauthScope;
+@property(nonatomic, copy, nullable) NSString *oauthScope;
 
 /** The OAuth1 access token secret. */
-@property(copy, nullable) NSString *oauthTokenSecret;
+@property(nonatomic, copy, nullable) NSString *oauthTokenSecret;
 
 /**
  *  The original email stored in the mapping storage. It's returned when the
  *  federated ID is associated to a different email.
  */
-@property(copy, nullable) NSString *originalEmail;
+@property(nonatomic, copy, nullable) NSString *originalEmail;
 
 /** The URI of the public accessible profiel picture. */
-@property(copy, nullable) NSString *photoUrl;
+@property(nonatomic, copy, nullable) NSString *photoUrl;
 
 /**
  *  The IdP ID. For white listed IdPs it's a short domain name e.g. google.com,
@@ -1315,18 +1321,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  returned. If the "identifier" param is federated ID in the createAuthUri
  *  request. The domain part of the federated ID is returned.
  */
-@property(copy, nullable) NSString *providerId;
+@property(nonatomic, copy, nullable) NSString *providerId;
 
 /** If idToken is STS id token, then this field will be refresh token. */
-@property(copy, nullable) NSString *refreshToken;
+@property(nonatomic, copy, nullable) NSString *refreshToken;
+
+/** The screen_name of a Twitter user. */
+@property(nonatomic, copy, nullable) NSString *screenName;
 
 /** The timezone of the user. */
-@property(copy, nullable) NSString *timeZone;
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /**
  *  When action is 'map', contains the idps which can be used for confirmation.
  */
-@property(strong, nullable) NSArray<NSString *> *verifiedProvider;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *verifiedProvider;
 
 @end
 
@@ -1342,16 +1351,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *expiresIn;
+@property(nonatomic, strong, nullable) NSNumber *expiresIn;
 
 /** The GITKit token for authenticated user. */
-@property(copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *idToken;
 
 /** The fixed string "identitytoolkit#VerifyCustomTokenResponse". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** If idToken is STS id token, then this field will be refresh token. */
-@property(copy, nullable) NSString *refreshToken;
+@property(nonatomic, copy, nullable) NSString *refreshToken;
 
 @end
 
@@ -1362,13 +1371,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIdentityToolkit_VerifyPasswordResponse : GTLRObject
 
 /** The name of the user. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The email returned by the IdP. NOTE: The federated login user may not own
  *  the email.
  */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /**
  *  If idToken is STS id token, then this field will be expiration time of STS
@@ -1376,45 +1385,45 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *expiresIn;
+@property(nonatomic, strong, nullable) NSNumber *expiresIn;
 
 /** The GITKit token for authenticated user. */
-@property(copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *idToken;
 
 /** The fixed string "identitytoolkit#VerifyPasswordResponse". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The RP local ID if it's already been mapped to the IdP account identified by
  *  the federated ID.
  */
-@property(copy, nullable) NSString *localId;
+@property(nonatomic, copy, nullable) NSString *localId;
 
 /** The OAuth2 access token. */
-@property(copy, nullable) NSString *oauthAccessToken;
+@property(nonatomic, copy, nullable) NSString *oauthAccessToken;
 
 /** The OAuth2 authorization code. */
-@property(copy, nullable) NSString *oauthAuthorizationCode;
+@property(nonatomic, copy, nullable) NSString *oauthAuthorizationCode;
 
 /**
  *  The lifetime in seconds of the OAuth2 access token.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *oauthExpireIn;
+@property(nonatomic, strong, nullable) NSNumber *oauthExpireIn;
 
 /** The URI of the user's photo at IdP */
-@property(copy, nullable) NSString *photoUrl;
+@property(nonatomic, copy, nullable) NSString *photoUrl;
 
 /** If idToken is STS id token, then this field will be refresh token. */
-@property(copy, nullable) NSString *refreshToken;
+@property(nonatomic, copy, nullable) NSString *refreshToken;
 
 /**
  *  Whether the email is registered.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *registered;
+@property(nonatomic, strong, nullable) NSNumber *registered;
 
 @end
 

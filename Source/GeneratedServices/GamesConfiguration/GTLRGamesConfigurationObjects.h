@@ -40,17 +40,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "STANDARD" - Achievement is either locked or unlocked.
  *  - "INCREMENTAL" - Achievement is incremental.
  */
-@property(copy, nullable) NSString *achievementType;
+@property(nonatomic, copy, nullable) NSString *achievementType;
 
 /** The draft data of the achievement. */
-@property(strong, nullable) GTLRGamesConfiguration_AchievementConfigurationDetail *draft;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_AchievementConfigurationDetail *draft;
 
 /**
  *  The ID of the achievement.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The initial state of the achievement.
@@ -59,26 +59,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "REVEALED" - Achievement is revealed.
  *  - "UNLOCKED" - Achievement is unlocked.
  */
-@property(copy, nullable) NSString *initialState;
+@property(nonatomic, copy, nullable) NSString *initialState;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesConfiguration#achievementConfiguration.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The read-only published data of the achievement. */
-@property(strong, nullable) GTLRGamesConfiguration_AchievementConfigurationDetail *published;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_AchievementConfigurationDetail *published;
 
 /**
  *  Steps to unlock. Only applicable to incremental achievements.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *stepsToUnlock;
+@property(nonatomic, strong, nullable) NSNumber *stepsToUnlock;
 
 /** The token for this resource. */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 @end
 
@@ -93,33 +93,33 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *descriptionProperty;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *descriptionProperty;
 
 /** The icon url of this achievement. Writes to this field are ignored. */
-@property(copy, nullable) NSString *iconUrl;
+@property(nonatomic, copy, nullable) NSString *iconUrl;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesConfiguration#achievementConfigurationDetail.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Localized strings for the achievement name. */
-@property(strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *name;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *name;
 
 /**
  *  Point value for the achievement.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *pointValue;
+@property(nonatomic, strong, nullable) NSNumber *pointValue;
 
 /**
  *  The sort rank of this achievement. Writes to this field are ignored.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sortRank;
+@property(nonatomic, strong, nullable) NSNumber *sortRank;
 
 @end
 
@@ -140,16 +140,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGamesConfiguration_AchievementConfiguration *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGamesConfiguration_AchievementConfiguration *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#achievementConfigurationListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The pagination token for the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -164,37 +164,37 @@ NS_ASSUME_NONNULL_BEGIN
  *  3, and 4 in Czech; or numbers ending 2, 3, or 4 but not 12, 13, or 14 in
  *  Polish).
  */
-@property(strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *few;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *few;
 
 /**
  *  When the language requires special treatment of "large" numbers (as with
  *  numbers ending 11-99 in Maltese).
  */
-@property(strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *many;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *many;
 
 /**
  *  When the language requires special treatment of numbers like one (as with
  *  the number 1 in English and most other languages; in Russian, any number
  *  ending in 1 but not ending in 11 is in this class).
  */
-@property(strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *one;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *one;
 
 /**
  *  When the language does not require special treatment of the given quantity
  *  (as with all numbers in Chinese, or 42 in English).
  */
-@property(strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *other;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *other;
 
 /**
  *  When the language requires special treatment of numbers like two (as with 2
  *  in Welsh, or 102 in Slovenian).
  */
-@property(strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *two;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *two;
 
 /**
  *  When the language requires special treatment of the number 0 (as in Arabic).
  */
-@property(strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *zero;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *zero;
 
 @end
 
@@ -205,7 +205,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGamesConfiguration_GamesNumberFormatConfiguration : GTLRObject
 
 /** The curreny code string. Only used for CURRENCY format type. */
-@property(copy, nullable) NSString *currencyCode;
+@property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
  *  The formatting for the number.
@@ -216,20 +216,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "TIME_DURATION" - Numbers are formatted to hours, minutes and seconds.
  *  - "CURRENCY" - Numbers are formatted to currency according to locale.
  */
-@property(copy, nullable) NSString *numberFormatType;
+@property(nonatomic, copy, nullable) NSString *numberFormatType;
 
 /**
  *  The number of decimal places for number. Only used for NUMERIC format type.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numDecimalPlaces;
+@property(nonatomic, strong, nullable) NSNumber *numDecimalPlaces;
 
 /**
  *  An optional suffix for the NUMERIC format type. These strings follow the
  *  same plural rules as all Android string resources.
  */
-@property(strong, nullable) GTLRGamesConfiguration_GamesNumberAffixConfiguration *suffix;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_GamesNumberAffixConfiguration *suffix;
 
 @end
 
@@ -240,19 +240,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGamesConfiguration_ImageConfiguration : GTLRObject
 
 /** The image type for the image. */
-@property(copy, nullable) NSString *imageType;
+@property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesConfiguration#imageConfiguration.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The resource ID of resource which the image belongs to. */
-@property(copy, nullable) NSString *resourceId;
+@property(nonatomic, copy, nullable) NSString *resourceId;
 
 /** The url for this image. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -263,37 +263,37 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGamesConfiguration_LeaderboardConfiguration : GTLRObject
 
 /** The draft data of the leaderboard. */
-@property(strong, nullable) GTLRGamesConfiguration_LeaderboardConfigurationDetail *draft;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_LeaderboardConfigurationDetail *draft;
 
 /**
  *  The ID of the leaderboard.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesConfiguration#leaderboardConfiguration.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The read-only published data of the leaderboard. */
-@property(strong, nullable) GTLRGamesConfiguration_LeaderboardConfigurationDetail *published;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_LeaderboardConfigurationDetail *published;
 
 /**
  *  Maximum score that can be posted to this leaderboard.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *scoreMax;
+@property(nonatomic, strong, nullable) NSNumber *scoreMax;
 
 /**
  *  Minimum score that can be posted to this leaderboard.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *scoreMin;
+@property(nonatomic, strong, nullable) NSNumber *scoreMin;
 
 /**
  *  The type of the leaderboard.
@@ -301,10 +301,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "LARGER_IS_BETTER" - Larger scores posted are ranked higher.
  *  - "SMALLER_IS_BETTER" - Smaller scores posted are ranked higher.
  */
-@property(copy, nullable) NSString *scoreOrder;
+@property(nonatomic, copy, nullable) NSString *scoreOrder;
 
 /** The token for this resource. */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 @end
 
@@ -315,26 +315,26 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGamesConfiguration_LeaderboardConfigurationDetail : GTLRObject
 
 /** The icon url of this leaderboard. Writes to this field are ignored. */
-@property(copy, nullable) NSString *iconUrl;
+@property(nonatomic, copy, nullable) NSString *iconUrl;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesConfiguration#leaderboardConfigurationDetail.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Localized strings for the leaderboard name. */
-@property(strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *name;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *name;
 
 /** The score formatting for the leaderboard. */
-@property(strong, nullable) GTLRGamesConfiguration_GamesNumberFormatConfiguration *scoreFormat;
+@property(nonatomic, strong, nullable) GTLRGamesConfiguration_GamesNumberFormatConfiguration *scoreFormat;
 
 /**
  *  The sort rank of this leaderboard. Writes to this field are ignored.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *sortRank;
+@property(nonatomic, strong, nullable) NSNumber *sortRank;
 
 @end
 
@@ -355,16 +355,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRGamesConfiguration_LeaderboardConfiguration *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRGamesConfiguration_LeaderboardConfiguration *> *items;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#leaderboardConfigurationListResponse.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The pagination token for the next page of results. */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -378,13 +378,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesConfiguration#localizedString.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The locale string. */
-@property(copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale;
 
 /** The string value. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -398,10 +398,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string gamesConfiguration#localizedStringBundle.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The locale strings. */
-@property(strong, nullable) NSArray<GTLRGamesConfiguration_LocalizedString *> *translations;
+@property(nonatomic, strong, nullable) NSArray<GTLRGamesConfiguration_LocalizedString *> *translations;
 
 @end
 

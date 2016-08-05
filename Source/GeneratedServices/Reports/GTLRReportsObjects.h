@@ -4,8 +4,8 @@
 // API:
 //   Admin Reports API (admin/reports_v1)
 // Description:
-//   Allows the administrators of Google Apps customers to fetch reports about
-//   the usage, collaboration, security and risk for their users.
+//   Fetches reports for the administrators of Google Apps customers about the
+//   usage, collaboration, security, and risk for their users.
 // Documentation:
 //   https://developers.google.com/admin-sdk/reports/
 
@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReports_Activities : GTLRCollectionObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Each record in read response.
@@ -53,13 +53,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRReports_Activity *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_Activity *> *items;
 
 /** Kind of list response this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token for retrieving the next page */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -70,29 +70,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReports_Activity : GTLRObject
 
 /** User doing the action. */
-@property(strong, nullable) GTLRReports_ActivityActor *actor;
+@property(nonatomic, strong, nullable) GTLRReports_ActivityActor *actor;
 
 /** ETag of the entry. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Activity events. */
-@property(strong, nullable) NSArray<GTLRReports_ActivityEventsItem *> *events;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_ActivityEventsItem *> *events;
 
 /**
  *  Unique identifier for each activity record.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(strong, nullable) GTLRReports_ActivityId *identifier;
+@property(nonatomic, strong, nullable) GTLRReports_ActivityId *identifier;
 
 /** IP Address of the user doing the action. */
-@property(copy, nullable) NSString *ipAddress;
+@property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /** Kind of resource this is. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Domain of source customer. */
-@property(copy, nullable) NSString *ownerDomain;
+@property(nonatomic, copy, nullable) NSString *ownerDomain;
 
 @end
 
@@ -103,16 +103,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReports_ActivityActor : GTLRObject
 
 /** User or OAuth 2LO request. */
-@property(copy, nullable) NSString *callerType;
+@property(nonatomic, copy, nullable) NSString *callerType;
 
 /** Email address of the user. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** For OAuth 2LO API requests, consumer_key of the requestor. */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 /** Obfuscated user id of the user. */
-@property(copy, nullable) NSString *profileId;
+@property(nonatomic, copy, nullable) NSString *profileId;
 
 @end
 
@@ -123,13 +123,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReports_ActivityEventsItem : GTLRObject
 
 /** Name of event. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Parameter value pairs for various applications. */
-@property(strong, nullable) NSArray<GTLRReports_ActivityEventsItemParametersItem *> *parameters;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_ActivityEventsItemParametersItem *> *parameters;
 
 /** Type of event. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -140,20 +140,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReports_ActivityId : GTLRObject
 
 /** Application name to which the event belongs. */
-@property(copy, nullable) NSString *applicationName;
+@property(nonatomic, copy, nullable) NSString *applicationName;
 
 /** Obfuscated customer ID of the source customer. */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Time of occurrence of the activity. */
-@property(strong, nullable) GTLRDateTime *time;
+@property(nonatomic, strong, nullable) GTLRDateTime *time;
 
 /**
  *  Unique qualifier if multiple events have the same time.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *uniqueQualifier;
+@property(nonatomic, strong, nullable) NSNumber *uniqueQualifier;
 
 @end
 
@@ -168,30 +168,30 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *boolValue;
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
 
 /**
  *  Integral value of the parameter.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *intValue;
+@property(nonatomic, strong, nullable) NSNumber *intValue;
 
 /**
  *  Multi-int value of the parameter.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *multiIntValue;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *multiIntValue;
 
 /** Multi-string value of the parameter. */
-@property(strong, nullable) NSArray<NSString *> *multiValue;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *multiValue;
 
 /** The name of the parameter. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** String value of the parameter. */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -202,7 +202,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReports_Channel : GTLRObject
 
 /** The address where notifications are delivered for this channel. */
-@property(copy, nullable) NSString *address;
+@property(nonatomic, copy, nullable) NSString *address;
 
 /**
  *  Date and time of notification channel expiration, expressed as a Unix
@@ -210,48 +210,48 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *expiration;
+@property(nonatomic, strong, nullable) NSNumber *expiration;
 
 /**
  *  A UUID or similar unique string that identifies this channel.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies this as a notification channel used to watch for changes to a
  *  resource. Value: the fixed string "api#channel".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Additional parameters controlling delivery channel behavior. Optional. */
-@property(strong, nullable) GTLRReports_ChannelParams *params;
+@property(nonatomic, strong, nullable) GTLRReports_ChannelParams *params;
 
 /**
  *  A Boolean value to indicate whether payload is wanted. Optional.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *payload;
+@property(nonatomic, strong, nullable) NSNumber *payload;
 
 /**
  *  An opaque ID that identifies the resource being watched on this channel.
  *  Stable across different API versions.
  */
-@property(copy, nullable) NSString *resourceId;
+@property(nonatomic, copy, nullable) NSString *resourceId;
 
 /** A version-specific identifier for the watched resource. */
-@property(copy, nullable) NSString *resourceUri;
+@property(nonatomic, copy, nullable) NSString *resourceUri;
 
 /**
  *  An arbitrary string delivered to the target address with each notification
  *  delivered over this channel. Optional.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /** The type of delivery mechanism used for this channel. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -274,19 +274,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReports_UsageReport : GTLRObject
 
 /** The date to which the record belongs. */
-@property(copy, nullable) NSString *date;
+@property(nonatomic, copy, nullable) NSString *date;
 
 /** Information about the type of the item. */
-@property(strong, nullable) GTLRReports_UsageReportEntity *entity;
+@property(nonatomic, strong, nullable) GTLRReports_UsageReportEntity *entity;
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** The kind of object. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Parameter value pairs for various applications. */
-@property(strong, nullable) NSArray<GTLRReports_UsageReportParametersItem *> *parameters;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReportParametersItem *> *parameters;
 
 @end
 
@@ -297,16 +297,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReports_UsageReportEntity : GTLRObject
 
 /** Obfuscated customer id for the record. */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Obfuscated user id for the record. */
-@property(copy, nullable) NSString *profileId;
+@property(nonatomic, copy, nullable) NSString *profileId;
 
 /** The type of item, can be a customer or user. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** user's email. */
-@property(copy, nullable) NSString *userEmail;
+@property(nonatomic, copy, nullable) NSString *userEmail;
 
 @end
 
@@ -321,26 +321,26 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *boolValue;
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
 
 /** RFC 3339 formatted value of the parameter. */
-@property(strong, nullable) GTLRDateTime *datetimeValue;
+@property(nonatomic, strong, nullable) GTLRDateTime *datetimeValue;
 
 /**
  *  Integral value of the parameter.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *intValue;
+@property(nonatomic, strong, nullable) NSNumber *intValue;
 
 /** Nested message value of the parameter. */
-@property(strong, nullable) NSArray<GTLRReports_UsageReportParametersItemMsgValueItem *> *msgValue;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReportParametersItemMsgValueItem *> *msgValue;
 
 /** The name of the parameter. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** String value of the parameter. */
-@property(copy, nullable) NSString *stringValue;
+@property(nonatomic, copy, nullable) NSString *stringValue;
 
 @end
 
@@ -363,19 +363,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReports_UsageReports : GTLRObject
 
 /** ETag of the resource. */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** The kind of object. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Token for retrieving the next page */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Various application parameter records. */
-@property(strong, nullable) NSArray<GTLRReports_UsageReport *> *usageReports;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReport *> *usageReports;
 
 /** Warnings if any. */
-@property(strong, nullable) NSArray<GTLRReports_UsageReportsWarningsItem *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReportsWarningsItem *> *warnings;
 
 @end
 
@@ -386,13 +386,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReports_UsageReportsWarningsItem : GTLRObject
 
 /** Machine readable code / warning type. */
-@property(copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code;
 
 /** Key-Value pairs to give detailed information on the warning. */
-@property(strong, nullable) NSArray<GTLRReports_UsageReportsWarningsItemDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReportsWarningsItemDataItem *> *data;
 
 /** Human readable message for the warning. */
-@property(copy, nullable) NSString *message;
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -406,13 +406,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Key associated with a key-value pair to give detailed information on the
  *  warning.
  */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 /**
  *  Value associated with a key-value pair to give detailed information on the
  *  warning.
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

@@ -56,7 +56,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
 @interface GTLRMirrorQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -70,13 +70,13 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
 //   +[GTLQueryMirror queryForAccountsInsertWithObject:userToken:accountType:accountName:]
 
 /** The name of the account to be passed to the Android Account Manager. */
-@property(copy, nullable) NSString *accountName;
+@property(nonatomic, copy, nullable) NSString *accountName;
 
 /** Account type to be passed to Android Account Manager. */
-@property(copy, nullable) NSString *accountType;
+@property(nonatomic, copy, nullable) NSString *accountType;
 
 /** The ID for the user. */
-@property(copy, nullable) NSString *userToken;
+@property(nonatomic, copy, nullable) NSString *userToken;
 
 /**
  *  Fetches a @c GTLRMirror_Account.
@@ -115,7 +115,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -148,7 +148,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRMirror_Contact.
@@ -228,7 +228,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRMirror_Contact.
@@ -262,7 +262,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRMirror_Contact.
@@ -297,7 +297,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRMirror_Location.
@@ -358,7 +358,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRMirror_Setting.
@@ -394,7 +394,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -475,7 +475,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRMirror_Subscription.
@@ -505,10 +505,10 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
 //   +[GTLQueryMirror queryForTimelineAttachmentsDeleteWithitemId:attachmentId:]
 
 /** The ID of the attachment. */
-@property(copy, nullable) NSString *attachmentId;
+@property(nonatomic, copy, nullable) NSString *attachmentId;
 
 /** The ID of the timeline item the attachment belongs to. */
-@property(copy, nullable) NSString *itemId;
+@property(nonatomic, copy, nullable) NSString *itemId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -539,10 +539,10 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
 //   +[GTLQueryMirror queryForTimelineAttachmentsGetWithitemId:attachmentId:]
 
 /** The ID of the attachment. */
-@property(copy, nullable) NSString *attachmentId;
+@property(nonatomic, copy, nullable) NSString *attachmentId;
 
 /** The ID of the timeline item the attachment belongs to. */
-@property(copy, nullable) NSString *itemId;
+@property(nonatomic, copy, nullable) NSString *itemId;
 
 /**
  *  Fetches a @c GTLRMirror_Attachment.
@@ -585,7 +585,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
 //   +[GTLQueryMirror queryForTimelineAttachmentsInsertWithitemId:]
 
 /** The ID of the timeline item the attachment belongs to. */
-@property(copy, nullable) NSString *itemId;
+@property(nonatomic, copy, nullable) NSString *itemId;
 
 /**
  *  Fetches a @c GTLRMirror_Attachment.
@@ -616,7 +616,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
 //   +[GTLQueryMirror queryForTimelineAttachmentsListWithitemId:]
 
 /** The ID of the timeline item whose attachments should be listed. */
-@property(copy, nullable) NSString *itemId;
+@property(nonatomic, copy, nullable) NSString *itemId;
 
 /**
  *  Fetches a @c GTLRMirror_AttachmentsListResponse.
@@ -650,7 +650,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -684,7 +684,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRMirror_TimelineItem.
@@ -742,15 +742,15 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
 //   +[GTLQueryMirror queryForTimelineList]
 
 /** If provided, only items with the given bundleId will be returned. */
-@property(copy, nullable) NSString *bundleId;
+@property(nonatomic, copy, nullable) NSString *bundleId;
 
 /** If true, tombstone records for deleted items will be returned. */
-@property(assign) BOOL includeDeleted;
+@property(nonatomic, assign) BOOL includeDeleted;
 
 /**
  *  The maximum number of items to include in the response, used for paging.
  */
-@property(assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Controls the order in which timeline items are returned.
@@ -762,16 +762,16 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *    @arg @c kGTLRMirrorOrderByWriteTime Results will be ordered by the time at
  *        which they were last written to the data store. (Value: "writeTime")
  */
-@property(copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Token for the page of results to return. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** If true, only pinned items will be returned. */
-@property(assign) BOOL pinnedOnly;
+@property(nonatomic, assign) BOOL pinnedOnly;
 
 /** If provided, only items with the given sourceItemId will be returned. */
-@property(copy, nullable) NSString *sourceItemId;
+@property(nonatomic, copy, nullable) NSString *sourceItemId;
 
 /**
  *  Fetches a @c GTLRMirror_TimelineListResponse.
@@ -806,7 +806,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRMirror_TimelineItem.
@@ -841,7 +841,7 @@ GTLR_EXTERN NSString * const kGTLRMirrorOrderByWriteTime;
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Fetches a @c GTLRMirror_TimelineItem.

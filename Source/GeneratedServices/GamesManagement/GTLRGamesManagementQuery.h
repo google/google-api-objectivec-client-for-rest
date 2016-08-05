@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGamesManagementQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGamesManagement queryForAchievementsResetWithachievementId:]
 
 /** The ID of the achievement used by this method. */
-@property(copy, nullable) NSString *achievementId;
+@property(nonatomic, copy, nullable) NSString *achievementId;
 
 /**
  *  Fetches a @c GTLRGamesManagement_AchievementResetResponse.
@@ -139,7 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGamesManagement queryForAchievementsResetForAllPlayersWithachievementId:]
 
 /** The ID of the achievement used by this method. */
-@property(copy, nullable) NSString *achievementId;
+@property(nonatomic, copy, nullable) NSString *achievementId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -205,7 +205,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGamesManagement queryForApplicationsListHiddenWithapplicationId:]
 
 /** The application ID from the Google Play developer console. */
-@property(copy, nullable) NSString *applicationId;
+@property(nonatomic, copy, nullable) NSString *applicationId;
 
 /**
  *  The maximum number of player resources to return in the response, used for
@@ -214,10 +214,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @note The documented range is 1..50.
  */
-@property(assign) NSInteger maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** The token returned by the previous request. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRGamesManagement_HiddenPlayerList.
@@ -255,7 +255,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGamesManagement queryForEventsResetWitheventId:]
 
 /** The ID of the event. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -348,7 +348,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGamesManagement queryForEventsResetForAllPlayersWitheventId:]
 
 /** The ID of the event. */
-@property(copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -413,13 +413,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGamesManagement queryForPlayersHideWithapplicationId:playerId:]
 
 /** The application ID from the Google Play developer console. */
-@property(copy, nullable) NSString *applicationId;
+@property(nonatomic, copy, nullable) NSString *applicationId;
 
 /**
  *  A player ID. A value of me may be used in place of the authenticated
  *  player's ID.
  */
-@property(copy, nullable) NSString *playerId;
+@property(nonatomic, copy, nullable) NSString *playerId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -455,13 +455,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGamesManagement queryForPlayersUnhideWithapplicationId:playerId:]
 
 /** The application ID from the Google Play developer console. */
-@property(copy, nullable) NSString *applicationId;
+@property(nonatomic, copy, nullable) NSString *applicationId;
 
 /**
  *  A player ID. A value of me may be used in place of the authenticated
  *  player's ID.
  */
-@property(copy, nullable) NSString *playerId;
+@property(nonatomic, copy, nullable) NSString *playerId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -498,7 +498,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGamesManagement queryForQuestsResetWithquestId:]
 
 /** The ID of the quest. */
-@property(copy, nullable) NSString *questId;
+@property(nonatomic, copy, nullable) NSString *questId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -588,7 +588,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGamesManagement queryForQuestsResetForAllPlayersWithquestId:]
 
 /** The ID of the quest. */
-@property(copy, nullable) NSString *questId;
+@property(nonatomic, copy, nullable) NSString *questId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -712,7 +712,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGamesManagement queryForScoresResetWithleaderboardId:]
 
 /** The ID of the leaderboard. */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  Fetches a @c GTLRGamesManagement_PlayerScoreResetResponse.
@@ -800,7 +800,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGamesManagement queryForScoresResetForAllPlayersWithleaderboardId:]
 
 /** The ID of the leaderboard. */
-@property(copy, nullable) NSString *leaderboardId;
+@property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will

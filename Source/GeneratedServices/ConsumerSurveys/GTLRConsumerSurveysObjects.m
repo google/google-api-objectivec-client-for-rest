@@ -206,6 +206,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConsumerSurveys_SurveysDeleteResponse
+//
+
+@implementation GTLRConsumerSurveys_SurveysDeleteResponse
+@dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConsumerSurveys_SurveysListResponse
 //
 

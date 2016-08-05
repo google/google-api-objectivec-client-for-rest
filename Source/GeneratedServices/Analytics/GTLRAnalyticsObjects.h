@@ -106,39 +106,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  Child link for an account entry. Points to the list of web properties for
  *  this account.
  */
-@property(strong, nullable) GTLRAnalytics_AccountChildLink *childLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_AccountChildLink *childLink;
 
 /** Time the account was created. */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /**
  *  Account ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Resource type for Analytics account. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Account name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Permissions the user has for this account. */
-@property(strong, nullable) GTLRAnalytics_AccountPermissions *permissions;
+@property(nonatomic, strong, nullable) GTLRAnalytics_AccountPermissions *permissions;
 
 /** Link for this account. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  Indicates whether this account is starred or not.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *starred;
+@property(nonatomic, strong, nullable) NSNumber *starred;
 
 /** Time the account was last modified. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 @end
 
@@ -150,10 +150,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_AccountChildLink : GTLRObject
 
 /** Link to the list of web properties for this account. */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /** Type of the child link. Its value is "analytics#webproperties". */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -167,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  All the permissions that the user has for this account. These include any
  *  implied permissions (e.g., EDIT implies VIEW).
  */
-@property(strong, nullable) NSArray<NSString *> *effective;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *effective;
 
 @end
 
@@ -178,20 +178,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_AccountRef : GTLRObject
 
 /** Link for this account. */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /**
  *  Account ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Analytics account reference. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Account name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -213,7 +213,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_Account *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_Account *> *items;
 
 /**
  *  The maximum number of entries the response can contain, regardless of the
@@ -223,16 +223,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Next link for this account collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Previous link for this account collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the entries, which is 1 by default or otherwise
@@ -240,7 +240,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -248,10 +248,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /** Email ID of the authenticated user */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -272,7 +272,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_AccountSummary *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_AccountSummary *> *items;
 
 /**
  *  The maximum number of resources the response can contain, regardless of the
@@ -282,16 +282,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this AccountSummary collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this AccountSummary collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the resources, which is 1 by default or otherwise
@@ -299,7 +299,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -307,10 +307,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /** Email ID of the authenticated user */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -326,23 +326,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Resource type for Analytics AccountSummary. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Account name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Indicates whether this account is starred or not.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *starred;
+@property(nonatomic, strong, nullable) NSNumber *starred;
 
 /** List of web properties under this account. */
-@property(strong, nullable) NSArray<GTLRAnalytics_WebPropertySummary *> *webProperties;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_WebPropertySummary *> *webProperties;
 
 @end
 
@@ -355,29 +355,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_AccountTicket : GTLRObject
 
 /** Account for this ticket. */
-@property(strong, nullable) GTLRAnalytics_Account *account;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Account *account;
 
 /**
  *  Account ticket ID used to access the account ticket.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Resource type for account ticket. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** View (Profile) for the account. */
-@property(strong, nullable) GTLRAnalytics_Profile *profile;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Profile *profile;
 
 /**
  *  Redirect URI where the user will be sent after accepting Terms of Service.
  *  Must be configured in APIs console as a callback URL.
  */
-@property(copy, nullable) NSString *redirectUri;
+@property(nonatomic, copy, nullable) NSString *redirectUri;
 
 /** Web property for the account. */
-@property(strong, nullable) GTLRAnalytics_Webproperty *webproperty;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Webproperty *webproperty;
 
 @end
 
@@ -393,13 +393,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *autoTaggingEnabled;
+@property(nonatomic, strong, nullable) NSNumber *autoTaggingEnabled;
 
 /** Customer ID. This field is required when creating an AdWords link. */
-@property(copy, nullable) NSString *customerId;
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Resource type for AdWords account. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -410,17 +410,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_Column : GTLRObject
 
 /** Map of attribute name and value for this column. */
-@property(strong, nullable) GTLRAnalytics_ColumnAttributes *attributes;
+@property(nonatomic, strong, nullable) GTLRAnalytics_ColumnAttributes *attributes;
 
 /**
  *  Column id.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Resource type for Analytics column. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -446,13 +446,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_Columns : GTLRCollectionObject
 
 /** List of attributes names returned by columns. */
-@property(strong, nullable) NSArray<NSString *> *attributeNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *attributeNames;
 
 /**
  *  Etag of collection. This etag can be compared with the last response etag to
  *  check if response has changed.
  */
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  List of columns for a report type.
@@ -460,17 +460,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_Column *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_Column *> *items;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Total number of columns returned in the response.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 @end
 
@@ -481,60 +481,60 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_CustomDataSource : GTLRObject
 
 /** Account ID to which this custom data source belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
-@property(strong, nullable) GTLRAnalytics_CustomDataSourceChildLink *childLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_CustomDataSourceChildLink *childLink;
 
 /** Time this custom data source was created. */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /**
  *  Description of custom data source.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Custom data source ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
-@property(copy, nullable) NSString *importBehavior;
+@property(nonatomic, copy, nullable) NSString *importBehavior;
 
 /** Resource type for Analytics custom data source. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of this custom data source. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Parent link for this custom data source. Points to the web property to which
  *  this custom data source belongs.
  */
-@property(strong, nullable) GTLRAnalytics_CustomDataSourceParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_CustomDataSourceParentLink *parentLink;
 
 /** IDs of views (profiles) linked to the custom data source. */
-@property(strong, nullable) NSArray<NSString *> *profilesLinked;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *profilesLinked;
 
 /** Link for this Analytics custom data source. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** Type of the custom data source. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Time this custom data source was last modified. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
-@property(copy, nullable) NSString *uploadType;
+@property(nonatomic, copy, nullable) NSString *uploadType;
 
 /**
  *  Web property ID of the form UA-XXXXX-YY to which this custom data source
  *  belongs.
  */
-@property(copy, nullable) NSString *webPropertyId;
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 @end
 
@@ -548,10 +548,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Link to the list of daily uploads for this custom data source. Link to the
  *  list of uploads for this custom data source.
  */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /** Value is "analytics#dailyUploads". Value is "analytics#uploads". */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -563,10 +563,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_CustomDataSourceParentLink : GTLRObject
 
 /** Link to the web property to which this custom data source belongs. */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /** Value is "analytics#webproperty". */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -587,7 +587,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_CustomDataSource *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_CustomDataSource *> *items;
 
 /**
  *  The maximum number of resources the response can contain, regardless of the
@@ -597,16 +597,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this custom data source collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this custom data source collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the resources, which is 1 by default or otherwise
@@ -614,7 +614,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -622,10 +622,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /** Email ID of the authenticated user */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -636,58 +636,58 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_CustomDimension : GTLRObject
 
 /** Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Boolean indicating whether the custom dimension is active.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *active;
+@property(nonatomic, strong, nullable) NSNumber *active;
 
 /** Time the custom dimension was created. */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /**
  *  Custom dimension ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Index of the custom dimension.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *index;
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
  *  Kind value for a custom dimension. Set to "analytics#customDimension". It is
  *  a read-only field.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of the custom dimension. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Parent link for the custom dimension. Points to the property to which the
  *  custom dimension belongs.
  */
-@property(strong, nullable) GTLRAnalytics_CustomDimensionParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_CustomDimensionParentLink *parentLink;
 
 /** Scope of the custom dimension: HIT, SESSION, USER or PRODUCT. */
-@property(copy, nullable) NSString *scope;
+@property(nonatomic, copy, nullable) NSString *scope;
 
 /** Link for the custom dimension */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** Time the custom dimension was last modified. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /** Property ID. */
-@property(copy, nullable) NSString *webPropertyId;
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 @end
 
@@ -699,10 +699,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_CustomDimensionParentLink : GTLRObject
 
 /** Link to the property to which the custom dimension belongs. */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /** Type of the parent link. Set to "analytics#webproperty". */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -723,7 +723,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_CustomDimension *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_CustomDimension *> *items;
 
 /**
  *  The maximum number of resources the response can contain, regardless of the
@@ -733,16 +733,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this custom dimension collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this custom dimension collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the resources, which is 1 by default or otherwise
@@ -750,7 +750,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -758,10 +758,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /** Email ID of the authenticated user */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -772,67 +772,67 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_CustomMetric : GTLRObject
 
 /** Account ID. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Boolean indicating whether the custom metric is active.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *active;
+@property(nonatomic, strong, nullable) NSNumber *active;
 
 /** Time the custom metric was created. */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /**
  *  Custom metric ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Index of the custom metric.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *index;
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
  *  Kind value for a custom metric. Set to "analytics#customMetric". It is a
  *  read-only field.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Max value of custom metric. */
-@property(copy, nullable) NSString *maxValue;
+@property(nonatomic, copy, nullable) NSString *maxValue;
 
 /** Min value of custom metric. */
-@property(copy, nullable) NSString *minValue;
+@property(nonatomic, copy, nullable) NSString *minValue;
 
 /** Name of the custom metric. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Parent link for the custom metric. Points to the property to which the
  *  custom metric belongs.
  */
-@property(strong, nullable) GTLRAnalytics_CustomMetricParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_CustomMetricParentLink *parentLink;
 
 /** Scope of the custom metric: HIT or PRODUCT. */
-@property(copy, nullable) NSString *scope;
+@property(nonatomic, copy, nullable) NSString *scope;
 
 /** Link for the custom metric */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** Data type of custom metric. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Time the custom metric was last modified. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /** Property ID. */
-@property(copy, nullable) NSString *webPropertyId;
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 @end
 
@@ -844,10 +844,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_CustomMetricParentLink : GTLRObject
 
 /** Link to the property to which the custom metric belongs. */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /** Type of the parent link. Set to "analytics#webproperty". */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -868,7 +868,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_CustomMetric *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_CustomMetric *> *items;
 
 /**
  *  The maximum number of resources the response can contain, regardless of the
@@ -878,16 +878,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this custom metric collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this custom metric collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the resources, which is 1 by default or otherwise
@@ -895,7 +895,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -903,10 +903,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /** Email ID of the authenticated user */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -917,7 +917,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_DataimportDeleteUploadDataRequest : GTLRObject
 
 /** A list of upload UIDs. */
-@property(strong, nullable) NSArray<NSString *> *customDataImportUids;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customDataImportUids;
 
 @end
 
@@ -931,29 +931,29 @@ NS_ASSUME_NONNULL_BEGIN
  *  A list of AdWords client accounts. These cannot be MCC accounts. This field
  *  is required when creating an AdWords link. It cannot be empty.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_AdWordsAccount *> *adWordsAccounts;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_AdWordsAccount *> *adWordsAccounts;
 
 /** Web property being linked. */
-@property(strong, nullable) GTLRAnalytics_EntityAdWordsLinkEntity *entity;
+@property(nonatomic, strong, nullable) GTLRAnalytics_EntityAdWordsLinkEntity *entity;
 
 /**
  *  Entity AdWords link ID
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Resource type for entity AdWords link. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of the link. This field is required when creating an AdWords link. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** IDs of linked Views (Profiles) represented as strings. */
-@property(strong, nullable) NSArray<NSString *> *profileIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *profileIds;
 
 /** URL link for this Google Analytics - Google AdWords link. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -963,7 +963,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAnalytics_EntityAdWordsLinkEntity : GTLRObject
 
-@property(strong, nullable) GTLRAnalytics_WebPropertyRef *webPropertyRef;
+@property(nonatomic, strong, nullable) GTLRAnalytics_WebPropertyRef *webPropertyRef;
 
 @end
 
@@ -983,7 +983,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_EntityAdWordsLink *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_EntityAdWordsLink *> *items;
 
 /**
  *  The maximum number of entries the response can contain, regardless of the
@@ -993,16 +993,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Next link for this AdWords link collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Previous link for this AdWords link collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the entries, which is 1 by default or otherwise
@@ -1010,7 +1010,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -1018,7 +1018,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 @end
 
@@ -1033,26 +1033,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  Entity for this link. It can be an account, a web property, or a view
  *  (profile).
  */
-@property(strong, nullable) GTLRAnalytics_EntityUserLinkEntity *entity;
+@property(nonatomic, strong, nullable) GTLRAnalytics_EntityUserLinkEntity *entity;
 
 /**
  *  Entity user link ID
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Resource type for entity user link. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Permissions the user has for this entity. */
-@property(strong, nullable) GTLRAnalytics_EntityUserLinkPermissions *permissions;
+@property(nonatomic, strong, nullable) GTLRAnalytics_EntityUserLinkPermissions *permissions;
 
 /** Self link for this resource. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** User reference. */
-@property(strong, nullable) GTLRAnalytics_UserRef *userRef;
+@property(nonatomic, strong, nullable) GTLRAnalytics_UserRef *userRef;
 
 @end
 
@@ -1064,13 +1064,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_EntityUserLinkEntity : GTLRObject
 
 /** Account for this link. */
-@property(strong, nullable) GTLRAnalytics_AccountRef *accountRef;
+@property(nonatomic, strong, nullable) GTLRAnalytics_AccountRef *accountRef;
 
 /** View (Profile) for this link. */
-@property(strong, nullable) GTLRAnalytics_ProfileRef *profileRef;
+@property(nonatomic, strong, nullable) GTLRAnalytics_ProfileRef *profileRef;
 
 /** Web property for this link. */
-@property(strong, nullable) GTLRAnalytics_WebPropertyRef *webPropertyRef;
+@property(nonatomic, strong, nullable) GTLRAnalytics_WebPropertyRef *webPropertyRef;
 
 @end
 
@@ -1086,14 +1086,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  inherited permissions from the parent entity. Effective permissions are
  *  read-only.
  */
-@property(strong, nullable) NSArray<NSString *> *effective;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *effective;
 
 /**
  *  Permissions that a user has been assigned at this very level. Does not
  *  include any implied or inherited permissions. Local permissions are
  *  modifiable.
  */
-@property(strong, nullable) NSArray<NSString *> *local;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *local;
 
 @end
 
@@ -1113,7 +1113,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_EntityUserLink *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_EntityUserLink *> *items;
 
 /**
  *  The maximum number of entries the response can contain, regardless of the
@@ -1123,16 +1123,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Next link for this account collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Previous link for this account collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the entries, which is 1 by default or otherwise
@@ -1140,7 +1140,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -1148,7 +1148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 @end
 
@@ -1159,17 +1159,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_Experiment : GTLRObject
 
 /** Account ID to which this experiment belongs. This field is read-only. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Time the experiment was created. This field is read-only. */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /**
  *  Notes about this experiment.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  If true, the end user will be able to edit the experiment via the Google
@@ -1177,14 +1177,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *editableInGaUi;
+@property(nonatomic, strong, nullable) NSNumber *editableInGaUi;
 
 /**
  *  The ending time of the experiment (the time the status changed from RUNNING
  *  to ENDED). This field is present only if the experiment has ended. This
  *  field is read-only.
  */
-@property(strong, nullable) GTLRDateTime *endTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
  *  Boolean specifying whether to distribute traffic evenly across all
@@ -1195,23 +1195,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *equalWeighting;
+@property(nonatomic, strong, nullable) NSNumber *equalWeighting;
 
 /**
  *  Experiment ID. Required for patch and update. Disallowed for create.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Internal ID for the web property to which this experiment belongs. This
  *  field is read-only.
  */
-@property(copy, nullable) NSString *internalWebPropertyId;
+@property(nonatomic, copy, nullable) NSString *internalWebPropertyId;
 
 /** Resource type for an Analytics experiment. This field is read-only. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  An integer number in [3, 90]. Specifies the minimum length of the
@@ -1220,13 +1220,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *minimumExperimentLengthInDays;
+@property(nonatomic, strong, nullable) NSNumber *minimumExperimentLengthInDays;
 
 /**
  *  Experiment name. This field may not be changed for an experiment whose
  *  status is ENDED. This field is required when creating an experiment.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The metric that the experiment is optimizing. Valid values:
@@ -1235,7 +1235,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "ga:transactions", "ga:transactionRevenue". This field is required if status
  *  is "RUNNING" and servingFramework is one of "REDIRECT" or "API".
  */
-@property(copy, nullable) NSString *objectiveMetric;
+@property(nonatomic, copy, nullable) NSString *objectiveMetric;
 
 /**
  *  Whether the objectiveMetric should be minimized or maximized. Possible
@@ -1243,18 +1243,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  specified without objectiveMetric. Cannot be modified when status is
  *  "RUNNING" or "ENDED".
  */
-@property(copy, nullable) NSString *optimizationType;
+@property(nonatomic, copy, nullable) NSString *optimizationType;
 
 /**
  *  Parent link for an experiment. Points to the view (profile) to which this
  *  experiment belongs.
  */
-@property(strong, nullable) GTLRAnalytics_ExperimentParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_ExperimentParentLink *parentLink;
 
 /**
  *  View (Profile) ID to which this experiment belongs. This field is read-only.
  */
-@property(copy, nullable) NSString *profileId;
+@property(nonatomic, copy, nullable) NSString *profileId;
 
 /**
  *  Why the experiment ended. Possible values: "STOPPED_BY_USER",
@@ -1264,7 +1264,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  status is changed via the API to ENDED this field is set to STOPPED_BY_USER.
  *  This field is read-only.
  */
-@property(copy, nullable) NSString *reasonExperimentEnded;
+@property(nonatomic, copy, nullable) NSString *reasonExperimentEnded;
 
 /**
  *  Boolean specifying whether variations URLS are rewritten to match those of
@@ -1273,10 +1273,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *rewriteVariationUrlsAsOriginal;
+@property(nonatomic, strong, nullable) NSNumber *rewriteVariationUrlsAsOriginal;
 
 /** Link for this experiment. This field is read-only. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  The framework used to serve the experiment variations and evaluate the
@@ -1290,27 +1290,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  variation reported to Google Analytics. The caller is responsible for
  *  serving the selected variation and evaluating the results.
  */
-@property(copy, nullable) NSString *servingFramework;
+@property(nonatomic, copy, nullable) NSString *servingFramework;
 
 /**
  *  The snippet of code to include on the control page(s). This field is
  *  read-only.
  */
-@property(copy, nullable) NSString *snippet;
+@property(nonatomic, copy, nullable) NSString *snippet;
 
 /**
  *  The starting time of the experiment (the time the status changed from
  *  READY_TO_RUN to RUNNING). This field is present only if the experiment has
  *  started. This field is read-only.
  */
-@property(strong, nullable) GTLRDateTime *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Experiment status. Possible values: "DRAFT", "READY_TO_RUN", "RUNNING",
  *  "ENDED". Experiments can be created in the "DRAFT", "READY_TO_RUN" or
  *  "RUNNING" state. This field is required when creating an experiment.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  A floating-point number in (0, 1]. Specifies the fraction of the traffic
@@ -1320,10 +1320,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *trafficCoverage;
+@property(nonatomic, strong, nullable) NSNumber *trafficCoverage;
 
 /** Time the experiment was last modified. This field is read-only. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /**
  *  Array of variations. The first variation in the array is the original. The
@@ -1331,13 +1331,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  state. At least two variations are required before status can be set to
  *  RUNNING.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_ExperimentVariationsItem *> *variations;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_ExperimentVariationsItem *> *variations;
 
 /**
  *  Web property ID to which this experiment belongs. The web property ID is of
  *  the form UA-XXXXX-YY. This field is read-only.
  */
-@property(copy, nullable) NSString *webPropertyId;
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 /**
  *  A floating-point number in (0, 1). Specifies the necessary confidence level
@@ -1346,7 +1346,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *winnerConfidenceLevel;
+@property(nonatomic, strong, nullable) NSNumber *winnerConfidenceLevel;
 
 /**
  *  Boolean specifying whether a winner has been found for this experiment. This
@@ -1354,7 +1354,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *winnerFound;
+@property(nonatomic, strong, nullable) NSNumber *winnerFound;
 
 @end
 
@@ -1369,10 +1369,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Link to the view (profile) to which this experiment belongs. This field is
  *  read-only.
  */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /** Value is "analytics#profile". This field is read-only. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1387,20 +1387,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  experiment. This field may not be changed for an experiment whose status is
  *  ENDED.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Status of the variation. Possible values: "ACTIVE", "INACTIVE". INACTIVE
  *  variations are not served. This field may not be changed for an experiment
  *  whose status is ENDED.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  The URL of the variation. This field may not be changed for an experiment
  *  whose status is RUNNING or ENDED.
  */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  Weight that this variation should receive. Only present if the experiment is
@@ -1408,7 +1408,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *weight;
+@property(nonatomic, strong, nullable) NSNumber *weight;
 
 /**
  *  True if the experiment has ended and this variation performed
@@ -1417,7 +1417,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *won;
+@property(nonatomic, strong, nullable) NSNumber *won;
 
 @end
 
@@ -1438,7 +1438,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_Experiment *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_Experiment *> *items;
 
 /**
  *  The maximum number of resources the response can contain, regardless of the
@@ -1448,16 +1448,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this experiment collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this experiment collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the resources, which is 1 by default or otherwise
@@ -1465,7 +1465,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -1473,10 +1473,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /** Email ID of the authenticated user */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -1487,59 +1487,59 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_Filter : GTLRObject
 
 /** Account ID to which this filter belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Details for the filter of the type ADVANCED. */
-@property(strong, nullable) GTLRAnalytics_FilterAdvancedDetails *advancedDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_FilterAdvancedDetails *advancedDetails;
 
 /** Time this filter was created. */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /** Details for the filter of the type EXCLUDE. */
-@property(strong, nullable) GTLRAnalytics_FilterExpression *excludeDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_FilterExpression *excludeDetails;
 
 /**
  *  Filter ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Details for the filter of the type INCLUDE. */
-@property(strong, nullable) GTLRAnalytics_FilterExpression *includeDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_FilterExpression *includeDetails;
 
 /** Resource type for Analytics filter. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Details for the filter of the type LOWER. */
-@property(strong, nullable) GTLRAnalytics_FilterLowercaseDetails *lowercaseDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_FilterLowercaseDetails *lowercaseDetails;
 
 /** Name of this filter. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Parent link for this filter. Points to the account to which this filter
  *  belongs.
  */
-@property(strong, nullable) GTLRAnalytics_FilterParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_FilterParentLink *parentLink;
 
 /** Details for the filter of the type SEARCH_AND_REPLACE. */
-@property(strong, nullable) GTLRAnalytics_FilterSearchAndReplaceDetails *searchAndReplaceDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_FilterSearchAndReplaceDetails *searchAndReplaceDetails;
 
 /** Link for this filter. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  Type of this filter. Possible values are INCLUDE, EXCLUDE, LOWERCASE,
  *  UPPERCASE, SEARCH_AND_REPLACE and ADVANCED.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Time this filter was last modified. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /** Details for the filter of the type UPPER. */
-@property(strong, nullable) GTLRAnalytics_FilterUppercaseDetails *uppercaseDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_FilterUppercaseDetails *uppercaseDetails;
 
 @end
 
@@ -1554,60 +1554,60 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *caseSensitive;
+@property(nonatomic, strong, nullable) NSNumber *caseSensitive;
 
 /** Expression to extract from field A. */
-@property(copy, nullable) NSString *extractA;
+@property(nonatomic, copy, nullable) NSString *extractA;
 
 /** Expression to extract from field B. */
-@property(copy, nullable) NSString *extractB;
+@property(nonatomic, copy, nullable) NSString *extractB;
 
 /** Field A. */
-@property(copy, nullable) NSString *fieldA;
+@property(nonatomic, copy, nullable) NSString *fieldA;
 
 /**
  *  The Index of the custom dimension. Required if field is a CUSTOM_DIMENSION.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *fieldAIndex;
+@property(nonatomic, strong, nullable) NSNumber *fieldAIndex;
 
 /**
  *  Indicates if field A is required to match.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *fieldARequired;
+@property(nonatomic, strong, nullable) NSNumber *fieldARequired;
 
 /** Field B. */
-@property(copy, nullable) NSString *fieldB;
+@property(nonatomic, copy, nullable) NSString *fieldB;
 
 /**
  *  The Index of the custom dimension. Required if field is a CUSTOM_DIMENSION.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *fieldBIndex;
+@property(nonatomic, strong, nullable) NSNumber *fieldBIndex;
 
 /**
  *  Indicates if field B is required to match.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *fieldBRequired;
+@property(nonatomic, strong, nullable) NSNumber *fieldBRequired;
 
 /** Expression used to construct the output value. */
-@property(copy, nullable) NSString *outputConstructor;
+@property(nonatomic, copy, nullable) NSString *outputConstructor;
 
 /** Output field. */
-@property(copy, nullable) NSString *outputToField;
+@property(nonatomic, copy, nullable) NSString *outputToField;
 
 /**
  *  The Index of the custom dimension. Required if field is a CUSTOM_DIMENSION.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *outputToFieldIndex;
+@property(nonatomic, strong, nullable) NSNumber *outputToFieldIndex;
 
 /**
  *  Indicates if the existing value of the output field, if any, should be
@@ -1615,7 +1615,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *overrideOutputField;
+@property(nonatomic, strong, nullable) NSNumber *overrideOutputField;
 
 @end
 
@@ -1626,14 +1626,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_FilterLowercaseDetails : GTLRObject
 
 /** Field to use in the filter. */
-@property(copy, nullable) NSString *field;
+@property(nonatomic, copy, nullable) NSString *field;
 
 /**
  *  The Index of the custom dimension. Required if field is a CUSTOM_DIMENSION.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *fieldIndex;
+@property(nonatomic, strong, nullable) NSNumber *fieldIndex;
 
 @end
 
@@ -1645,10 +1645,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_FilterParentLink : GTLRObject
 
 /** Link to the account to which this filter belongs. */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /** Value is "analytics#account". */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1663,23 +1663,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *caseSensitive;
+@property(nonatomic, strong, nullable) NSNumber *caseSensitive;
 
 /** Field to use in the filter. */
-@property(copy, nullable) NSString *field;
+@property(nonatomic, copy, nullable) NSString *field;
 
 /**
  *  The Index of the custom dimension. Required if field is a CUSTOM_DIMENSION.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *fieldIndex;
+@property(nonatomic, strong, nullable) NSNumber *fieldIndex;
 
 /** Term to replace the search term with. */
-@property(copy, nullable) NSString *replaceString;
+@property(nonatomic, copy, nullable) NSString *replaceString;
 
 /** Term to search. */
-@property(copy, nullable) NSString *searchString;
+@property(nonatomic, copy, nullable) NSString *searchString;
 
 @end
 
@@ -1690,14 +1690,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_FilterUppercaseDetails : GTLRObject
 
 /** Field to use in the filter. */
-@property(copy, nullable) NSString *field;
+@property(nonatomic, copy, nullable) NSString *field;
 
 /**
  *  The Index of the custom dimension. Required if field is a CUSTOM_DIMENSION.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *fieldIndex;
+@property(nonatomic, strong, nullable) NSNumber *fieldIndex;
 
 @end
 
@@ -1712,10 +1712,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *caseSensitive;
+@property(nonatomic, strong, nullable) NSNumber *caseSensitive;
 
 /** Filter expression value */
-@property(copy, nullable) NSString *expressionValue;
+@property(nonatomic, copy, nullable) NSString *expressionValue;
 
 /**
  *  Field to filter. Possible values:
@@ -1806,7 +1806,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - Custom dimension
  *  - CUSTOM_DIMENSION (See accompanying field index),
  */
-@property(copy, nullable) NSString *field;
+@property(nonatomic, copy, nullable) NSString *field;
 
 /**
  *  The Index of the custom dimension. Set only if the field is a is
@@ -1814,10 +1814,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *fieldIndex;
+@property(nonatomic, strong, nullable) NSNumber *fieldIndex;
 
 /** Kind value for filter expression */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Match type for this filter. Possible values are BEGINS_WITH, EQUAL,
@@ -1825,7 +1825,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  PAGE_REQUEST_URI, or PAGE_HOSTNAME filters can use any match type; all other
  *  filters must use MATCHES.
  */
-@property(copy, nullable) NSString *matchType;
+@property(nonatomic, copy, nullable) NSString *matchType;
 
 @end
 
@@ -1836,23 +1836,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_FilterRef : GTLRObject
 
 /** Account ID to which this filter belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Link for this filter. */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /**
  *  Filter ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Kind value for filter reference. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of this filter. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -1872,7 +1872,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_Filter *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_Filter *> *items;
 
 /**
  *  The maximum number of resources the response can contain, regardless of the
@@ -1882,16 +1882,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this filter collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this filter collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the resources, which is 1 by default or otherwise
@@ -1899,7 +1899,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -1907,10 +1907,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /** Email ID of the authenticated user */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -1924,23 +1924,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  Column headers that list dimension names followed by the metric names. The
  *  order of dimensions and metrics is same as specified in the request.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_GaDataColumnHeadersItem *> *columnHeaders;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GaDataColumnHeadersItem *> *columnHeaders;
 
 /**
  *  Determines if Analytics data contains samples.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *containsSampledData;
+@property(nonatomic, strong, nullable) NSNumber *containsSampledData;
 
-@property(strong, nullable) GTLRAnalytics_GaDataDataTable *dataTable;
+@property(nonatomic, strong, nullable) GTLRAnalytics_GaDataDataTable *dataTable;
 
 /**
  *  Unique ID for this data response.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The maximum number of rows the response can contain, regardless of the
@@ -1950,49 +1950,49 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Resource type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this Analytics data query. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this Analytics data query. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  Information for the view (profile), for which the Analytics data was
  *  requested.
  */
-@property(strong, nullable) GTLRAnalytics_GaDataProfileInfo *profileInfo;
+@property(nonatomic, strong, nullable) GTLRAnalytics_GaDataProfileInfo *profileInfo;
 
 /** Analytics data request query parameters. */
-@property(strong, nullable) GTLRAnalytics_GaDataQuery *query;
+@property(nonatomic, strong, nullable) GTLRAnalytics_GaDataQuery *query;
 
 /**
  *  Analytics data rows, where each row contains a list of dimension values
  *  followed by the metric values. The order of dimensions and metrics is same
  *  as specified in the request.
  */
-@property(strong, nullable) NSArray<NSArray<NSString *> *> *rows;
+@property(nonatomic, strong, nullable) NSArray<NSArray<NSString *> *> *rows;
 
 /**
  *  The number of samples used to calculate the result.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *sampleSize;
+@property(nonatomic, strong, nullable) NSNumber *sampleSize;
 
 /**
  *  Total size of the sample space from which the samples were selected.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *sampleSpace;
+@property(nonatomic, strong, nullable) NSNumber *sampleSpace;
 
 /** Link to this page. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  The total number of rows for the query, regardless of the number of rows in
@@ -2000,14 +2000,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /**
  *  Total values for the requested metrics over all the results, not just the
  *  results returned in this response. The order of the metric totals is same as
  *  the metric order specified in the request.
  */
-@property(strong, nullable) GTLRAnalytics_GaDataTotalsForAllResults *totalsForAllResults;
+@property(nonatomic, strong, nullable) GTLRAnalytics_GaDataTotalsForAllResults *totalsForAllResults;
 
 @end
 
@@ -2018,17 +2018,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_GaDataColumnHeadersItem : GTLRObject
 
 /** Column Type. Either DIMENSION or METRIC. */
-@property(copy, nullable) NSString *columnType;
+@property(nonatomic, copy, nullable) NSString *columnType;
 
 /**
  *  Data type. Dimension column headers have only STRING as the data type.
  *  Metric column headers have data types for metric values such as INTEGER,
  *  DOUBLE, CURRENCY etc.
  */
-@property(copy, nullable) NSString *dataType;
+@property(nonatomic, copy, nullable) NSString *dataType;
 
 /** Column name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -2038,8 +2038,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAnalytics_GaDataDataTable : GTLRObject
 
-@property(strong, nullable) NSArray<GTLRAnalytics_GaDataDataTableColsItem *> *cols;
-@property(strong, nullable) NSArray<GTLRAnalytics_GaDataDataTableRowsItem *> *rows;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GaDataDataTableColsItem *> *cols;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GaDataDataTableRowsItem *> *rows;
 
 @end
 
@@ -2051,22 +2051,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_GaDataProfileInfo : GTLRObject
 
 /** Account ID to which this view (profile) belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Internal ID for the web property to which this view (profile) belongs. */
-@property(copy, nullable) NSString *internalWebPropertyId;
+@property(nonatomic, copy, nullable) NSString *internalWebPropertyId;
 
 /** View (Profile) ID. */
-@property(copy, nullable) NSString *profileId;
+@property(nonatomic, copy, nullable) NSString *profileId;
 
 /** View (Profile) name. */
-@property(copy, nullable) NSString *profileName;
+@property(nonatomic, copy, nullable) NSString *profileName;
 
 /** Table ID for view (profile). */
-@property(copy, nullable) NSString *tableId;
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 /** Web Property ID to which this view (profile) belongs. */
-@property(copy, nullable) NSString *webPropertyId;
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 @end
 
@@ -2077,45 +2077,45 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_GaDataQuery : GTLRObject
 
 /** List of analytics dimensions. */
-@property(copy, nullable) NSString *dimensions;
+@property(nonatomic, copy, nullable) NSString *dimensions;
 
 /** End date. */
-@property(copy, nullable) NSString *endDate;
+@property(nonatomic, copy, nullable) NSString *endDate;
 
 /** Comma-separated list of dimension or metric filters. */
-@property(copy, nullable) NSString *filters;
+@property(nonatomic, copy, nullable) NSString *filters;
 
 /** Unique table ID. */
-@property(copy, nullable) NSString *ids;
+@property(nonatomic, copy, nullable) NSString *ids;
 
 /**
  *  Maximum results per page.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxResults;
+@property(nonatomic, strong, nullable) NSNumber *maxResults;
 
 /** List of analytics metrics. */
-@property(strong, nullable) NSArray<NSString *> *metrics;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /** Desired sampling level */
-@property(copy, nullable) NSString *samplingLevel;
+@property(nonatomic, copy, nullable) NSString *samplingLevel;
 
 /** Analytics advanced segment. */
-@property(copy, nullable) NSString *segment;
+@property(nonatomic, copy, nullable) NSString *segment;
 
 /** List of dimensions or metrics based on which Analytics data is sorted. */
-@property(strong, nullable) NSArray<NSString *> *sort;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sort;
 
 /** Start date. */
-@property(copy, nullable) NSString *startDate;
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 /**
  *  Start index.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 @end
 
@@ -2144,10 +2144,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
-@property(copy, nullable) NSString *label;
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *label;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2157,7 +2157,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAnalytics_GaDataDataTableRowsItem : GTLRObject
 
-@property(strong, nullable) NSArray<GTLRAnalytics_GaDataDataTableRowsItemCItem *> *c;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GaDataDataTableRowsItemCItem *> *c;
 
 @end
 
@@ -2167,7 +2167,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAnalytics_GaDataDataTableRowsItemCItem : GTLRObject
 
-@property(copy, nullable) NSString *v;
+@property(nonatomic, copy, nullable) NSString *v;
 
 @end
 
@@ -2178,79 +2178,79 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_Goal : GTLRObject
 
 /** Account ID to which this goal belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Determines whether this goal is active.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *active;
+@property(nonatomic, strong, nullable) NSNumber *active;
 
 /** Time this goal was created. */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /** Details for the goal of the type EVENT. */
-@property(strong, nullable) GTLRAnalytics_GoalEventDetails *eventDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_GoalEventDetails *eventDetails;
 
 /**
  *  Goal ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Internal ID for the web property to which this goal belongs. */
-@property(copy, nullable) NSString *internalWebPropertyId;
+@property(nonatomic, copy, nullable) NSString *internalWebPropertyId;
 
 /** Resource type for an Analytics goal. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Goal name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Parent link for a goal. Points to the view (profile) to which this goal
  *  belongs.
  */
-@property(strong, nullable) GTLRAnalytics_GoalParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_GoalParentLink *parentLink;
 
 /** View (Profile) ID to which this goal belongs. */
-@property(copy, nullable) NSString *profileId;
+@property(nonatomic, copy, nullable) NSString *profileId;
 
 /** Link for this goal. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  Goal type. Possible values are URL_DESTINATION, VISIT_TIME_ON_SITE,
  *  VISIT_NUM_PAGES, AND EVENT.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Time this goal was last modified. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /** Details for the goal of the type URL_DESTINATION. */
-@property(strong, nullable) GTLRAnalytics_GoalUrlDestinationDetails *urlDestinationDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_GoalUrlDestinationDetails *urlDestinationDetails;
 
 /**
  *  Goal value.
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *value;
+@property(nonatomic, strong, nullable) NSNumber *value;
 
 /** Details for the goal of the type VISIT_NUM_PAGES. */
-@property(strong, nullable) GTLRAnalytics_GoalVisitNumPagesDetails *visitNumPagesDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_GoalVisitNumPagesDetails *visitNumPagesDetails;
 
 /** Details for the goal of the type VISIT_TIME_ON_SITE. */
-@property(strong, nullable) GTLRAnalytics_GoalVisitTimeOnSiteDetails *visitTimeOnSiteDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_GoalVisitTimeOnSiteDetails *visitTimeOnSiteDetails;
 
 /**
  *  Web property ID to which this goal belongs. The web property ID is of the
  *  form UA-XXXXX-YY.
  */
-@property(copy, nullable) NSString *webPropertyId;
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 @end
 
@@ -2261,14 +2261,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_GoalEventDetails : GTLRObject
 
 /** List of event conditions. */
-@property(strong, nullable) NSArray<GTLRAnalytics_GoalEventDetailsEventConditionsItem *> *eventConditions;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GoalEventDetailsEventConditionsItem *> *eventConditions;
 
 /**
  *  Determines if the event value should be used as the value for this goal.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *useEventValue;
+@property(nonatomic, strong, nullable) NSNumber *useEventValue;
 
 @end
 
@@ -2280,10 +2280,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_GoalParentLink : GTLRObject
 
 /** Link to the view (profile) to which this goal belongs. */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /** Value is "analytics#profile". */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2299,23 +2299,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *caseSensitive;
+@property(nonatomic, strong, nullable) NSNumber *caseSensitive;
 
 /**
  *  Determines if the first step in this goal is required.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *firstStepRequired;
+@property(nonatomic, strong, nullable) NSNumber *firstStepRequired;
 
 /** Match type for the goal URL. Possible values are HEAD, EXACT, or REGEX. */
-@property(copy, nullable) NSString *matchType;
+@property(nonatomic, copy, nullable) NSString *matchType;
 
 /** List of steps configured for this goal funnel. */
-@property(strong, nullable) NSArray<GTLRAnalytics_GoalUrlDestinationDetailsStepsItem *> *steps;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GoalUrlDestinationDetailsStepsItem *> *steps;
 
 /** URL for this goal. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -2328,14 +2328,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Type of comparison. Possible values are LESS_THAN, GREATER_THAN, or EQUAL.
  */
-@property(copy, nullable) NSString *comparisonType;
+@property(nonatomic, copy, nullable) NSString *comparisonType;
 
 /**
  *  Value used for this comparison.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *comparisonValue;
+@property(nonatomic, strong, nullable) NSNumber *comparisonValue;
 
 @end
 
@@ -2346,14 +2346,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_GoalVisitTimeOnSiteDetails : GTLRObject
 
 /** Type of comparison. Possible values are LESS_THAN or GREATER_THAN. */
-@property(copy, nullable) NSString *comparisonType;
+@property(nonatomic, copy, nullable) NSString *comparisonType;
 
 /**
  *  Value used for this comparison.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *comparisonValue;
+@property(nonatomic, strong, nullable) NSNumber *comparisonValue;
 
 @end
 
@@ -2366,29 +2366,29 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Type of comparison. Possible values are LESS_THAN, GREATER_THAN or EQUAL.
  */
-@property(copy, nullable) NSString *comparisonType;
+@property(nonatomic, copy, nullable) NSString *comparisonType;
 
 /**
  *  Value used for this comparison.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *comparisonValue;
+@property(nonatomic, strong, nullable) NSNumber *comparisonValue;
 
 /** Expression used for this match. */
-@property(copy, nullable) NSString *expression;
+@property(nonatomic, copy, nullable) NSString *expression;
 
 /**
  *  Type of the match to be performed. Possible values are REGEXP, BEGINS_WITH,
  *  or EXACT.
  */
-@property(copy, nullable) NSString *matchType;
+@property(nonatomic, copy, nullable) NSString *matchType;
 
 /**
  *  Type of this event condition. Possible values are CATEGORY, ACTION, LABEL,
  *  or VALUE.
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2399,17 +2399,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_GoalUrlDestinationDetailsStepsItem : GTLRObject
 
 /** Step name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Step number.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *number;
+@property(nonatomic, strong, nullable) NSNumber *number;
 
 /** URL for this step. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -2430,7 +2430,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_Goal *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_Goal *> *items;
 
 /**
  *  The maximum number of resources the response can contain, regardless of the
@@ -2440,16 +2440,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this goal collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this goal collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the resources, which is 1 by default or otherwise
@@ -2457,7 +2457,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -2465,10 +2465,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /** Email ID of the authenticated user */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -2482,21 +2482,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  Column headers that list dimension names followed by the metric names. The
  *  order of dimensions and metrics is same as specified in the request.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_McfDataColumnHeadersItem *> *columnHeaders;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_McfDataColumnHeadersItem *> *columnHeaders;
 
 /**
  *  Determines if the Analytics data contains sampled data.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *containsSampledData;
+@property(nonatomic, strong, nullable) NSNumber *containsSampledData;
 
 /**
  *  Unique ID for this data response.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The maximum number of rows the response can contain, regardless of the
@@ -2506,49 +2506,49 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Resource type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this Analytics data query. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this Analytics data query. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  Information for the view (profile), for which the Analytics data was
  *  requested.
  */
-@property(strong, nullable) GTLRAnalytics_McfDataProfileInfo *profileInfo;
+@property(nonatomic, strong, nullable) GTLRAnalytics_McfDataProfileInfo *profileInfo;
 
 /** Analytics data request query parameters. */
-@property(strong, nullable) GTLRAnalytics_McfDataQuery *query;
+@property(nonatomic, strong, nullable) GTLRAnalytics_McfDataQuery *query;
 
 /**
  *  Analytics data rows, where each row contains a list of dimension values
  *  followed by the metric values. The order of dimensions and metrics is same
  *  as specified in the request.
  */
-@property(strong, nullable) NSArray<NSArray<GTLRAnalytics_McfDataRowsItem *> *> *rows;
+@property(nonatomic, strong, nullable) NSArray<NSArray<GTLRAnalytics_McfDataRowsItem *> *> *rows;
 
 /**
  *  The number of samples used to calculate the result.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *sampleSize;
+@property(nonatomic, strong, nullable) NSNumber *sampleSize;
 
 /**
  *  Total size of the sample space from which the samples were selected.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *sampleSpace;
+@property(nonatomic, strong, nullable) NSNumber *sampleSpace;
 
 /** Link to this page. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  The total number of rows for the query, regardless of the number of rows in
@@ -2556,14 +2556,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /**
  *  Total values for the requested metrics over all the results, not just the
  *  results returned in this response. The order of the metric totals is same as
  *  the metric order specified in the request.
  */
-@property(strong, nullable) GTLRAnalytics_McfDataTotalsForAllResults *totalsForAllResults;
+@property(nonatomic, strong, nullable) GTLRAnalytics_McfDataTotalsForAllResults *totalsForAllResults;
 
 @end
 
@@ -2574,16 +2574,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_McfDataColumnHeadersItem : GTLRObject
 
 /** Column Type. Either DIMENSION or METRIC. */
-@property(copy, nullable) NSString *columnType;
+@property(nonatomic, copy, nullable) NSString *columnType;
 
 /**
  *  Data type. Dimension and metric values data types such as INTEGER, DOUBLE,
  *  CURRENCY, MCF_SEQUENCE etc.
  */
-@property(copy, nullable) NSString *dataType;
+@property(nonatomic, copy, nullable) NSString *dataType;
 
 /** Column name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -2595,22 +2595,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_McfDataProfileInfo : GTLRObject
 
 /** Account ID to which this view (profile) belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Internal ID for the web property to which this view (profile) belongs. */
-@property(copy, nullable) NSString *internalWebPropertyId;
+@property(nonatomic, copy, nullable) NSString *internalWebPropertyId;
 
 /** View (Profile) ID. */
-@property(copy, nullable) NSString *profileId;
+@property(nonatomic, copy, nullable) NSString *profileId;
 
 /** View (Profile) name. */
-@property(copy, nullable) NSString *profileName;
+@property(nonatomic, copy, nullable) NSString *profileName;
 
 /** Table ID for view (profile). */
-@property(copy, nullable) NSString *tableId;
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 /** Web Property ID to which this view (profile) belongs. */
-@property(copy, nullable) NSString *webPropertyId;
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 @end
 
@@ -2621,45 +2621,45 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_McfDataQuery : GTLRObject
 
 /** List of analytics dimensions. */
-@property(copy, nullable) NSString *dimensions;
+@property(nonatomic, copy, nullable) NSString *dimensions;
 
 /** End date. */
-@property(copy, nullable) NSString *endDate;
+@property(nonatomic, copy, nullable) NSString *endDate;
 
 /** Comma-separated list of dimension or metric filters. */
-@property(copy, nullable) NSString *filters;
+@property(nonatomic, copy, nullable) NSString *filters;
 
 /** Unique table ID. */
-@property(copy, nullable) NSString *ids;
+@property(nonatomic, copy, nullable) NSString *ids;
 
 /**
  *  Maximum results per page.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxResults;
+@property(nonatomic, strong, nullable) NSNumber *maxResults;
 
 /** List of analytics metrics. */
-@property(strong, nullable) NSArray<NSString *> *metrics;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /** Desired sampling level */
-@property(copy, nullable) NSString *samplingLevel;
+@property(nonatomic, copy, nullable) NSString *samplingLevel;
 
 /** Analytics advanced segment. */
-@property(copy, nullable) NSString *segment;
+@property(nonatomic, copy, nullable) NSString *segment;
 
 /** List of dimensions or metrics based on which Analytics data is sorted. */
-@property(strong, nullable) NSArray<NSString *> *sort;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sort;
 
 /** Start date. */
-@property(copy, nullable) NSString *startDate;
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 /**
  *  Start index.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 @end
 
@@ -2674,10 +2674,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  A conversion path dimension value, containing a list of interactions with
  *  their attributes.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_McfDataRowsItemConversionPathValueItem *> *conversionPathValue;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_McfDataRowsItemConversionPathValueItem *> *conversionPathValue;
 
 /** A primitive dimension value. A primitive metric value. */
-@property(copy, nullable) NSString *primitiveValue;
+@property(nonatomic, copy, nullable) NSString *primitiveValue;
 
 @end
 
@@ -2704,12 +2704,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Type of an interaction on conversion path. Such as CLICK, IMPRESSION etc.
  */
-@property(copy, nullable) NSString *interactionType;
+@property(nonatomic, copy, nullable) NSString *interactionType;
 
 /**
  *  Node value of an interaction on conversion path. Such as source, medium etc.
  */
-@property(copy, nullable) NSString *nodeValue;
+@property(nonatomic, copy, nullable) NSString *nodeValue;
 
 @end
 
@@ -2720,23 +2720,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_Profile : GTLRObject
 
 /** Account ID to which this view (profile) belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Indicates whether bot filtering is enabled for this view (profile).
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *botFilteringEnabled;
+@property(nonatomic, strong, nullable) NSNumber *botFilteringEnabled;
 
 /**
  *  Child link for this view (profile). Points to the list of goals for this
  *  view (profile).
  */
-@property(strong, nullable) GTLRAnalytics_ProfileChildLink *childLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_ProfileChildLink *childLink;
 
 /** Time this view (profile) was created. */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /**
  *  The currency type associated with this view (profile), defaults to USD. The
@@ -2745,17 +2745,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  JPY, KRW, LTL, MXN, NOK, NZD, PHP, PLN, RUB, SEK, THB, TRY, TWD, USD, VND,
  *  ZAR
  */
-@property(copy, nullable) NSString *currency;
+@property(nonatomic, copy, nullable) NSString *currency;
 
 /** Default page for this view (profile). */
-@property(copy, nullable) NSString *defaultPage;
+@property(nonatomic, copy, nullable) NSString *defaultPage;
 
 /**
  *  Indicates whether ecommerce tracking is enabled for this view (profile).
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *eCommerceTracking;
+@property(nonatomic, strong, nullable) NSNumber *eCommerceTracking;
 
 /**
  *  Indicates whether enhanced ecommerce tracking is enabled for this view
@@ -2764,51 +2764,51 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *enhancedECommerceTracking;
+@property(nonatomic, strong, nullable) NSNumber *enhancedECommerceTracking;
 
 /** The query parameters that are excluded from this view (profile). */
-@property(copy, nullable) NSString *excludeQueryParameters;
+@property(nonatomic, copy, nullable) NSString *excludeQueryParameters;
 
 /**
  *  View (Profile) ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Internal ID for the web property to which this view (profile) belongs. */
-@property(copy, nullable) NSString *internalWebPropertyId;
+@property(nonatomic, copy, nullable) NSString *internalWebPropertyId;
 
 /** Resource type for Analytics view (profile). */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of this view (profile). */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Parent link for this view (profile). Points to the web property to which
  *  this view (profile) belongs.
  */
-@property(strong, nullable) GTLRAnalytics_ProfileParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_ProfileParentLink *parentLink;
 
 /** Permissions the user has for this view (profile). */
-@property(strong, nullable) GTLRAnalytics_ProfilePermissions *permissions;
+@property(nonatomic, strong, nullable) GTLRAnalytics_ProfilePermissions *permissions;
 
 /** Link for this view (profile). */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** Site search category parameters for this view (profile). */
-@property(copy, nullable) NSString *siteSearchCategoryParameters;
+@property(nonatomic, copy, nullable) NSString *siteSearchCategoryParameters;
 
 /** The site search query parameters for this view (profile). */
-@property(copy, nullable) NSString *siteSearchQueryParameters;
+@property(nonatomic, copy, nullable) NSString *siteSearchQueryParameters;
 
 /**
  *  Indicates whether this view (profile) is starred or not.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *starred;
+@property(nonatomic, strong, nullable) NSNumber *starred;
 
 /**
  *  Whether or not Analytics will strip search category parameters from the URLs
@@ -2816,7 +2816,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *stripSiteSearchCategoryParameters;
+@property(nonatomic, strong, nullable) NSNumber *stripSiteSearchCategoryParameters;
 
 /**
  *  Whether or not Analytics will strip search query parameters from the URLs in
@@ -2824,28 +2824,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *stripSiteSearchQueryParameters;
+@property(nonatomic, strong, nullable) NSNumber *stripSiteSearchQueryParameters;
 
 /**
  *  Time zone for which this view (profile) has been configured. Time zones are
  *  identified by strings from the TZ database.
  */
-@property(copy, nullable) NSString *timezone;
+@property(nonatomic, copy, nullable) NSString *timezone;
 
 /** View (Profile) type. Supported types: WEB or APP. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Time this view (profile) was last modified. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /**
  *  Web property ID of the form UA-XXXXX-YY to which this view (profile)
  *  belongs.
  */
-@property(copy, nullable) NSString *webPropertyId;
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 /** Website URL for this view (profile). */
-@property(copy, nullable) NSString *websiteUrl;
+@property(nonatomic, copy, nullable) NSString *websiteUrl;
 
 @end
 
@@ -2857,10 +2857,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_ProfileChildLink : GTLRObject
 
 /** Link to the list of goals for this view (profile). */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /** Value is "analytics#goals". */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2872,10 +2872,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_ProfileParentLink : GTLRObject
 
 /** Link to the web property to which this view (profile) belongs. */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /** Value is "analytics#webproperty". */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2890,7 +2890,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  any implied permissions (e.g., EDIT implies VIEW) or inherited permissions
  *  from the parent web property.
  */
-@property(strong, nullable) NSArray<NSString *> *effective;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *effective;
 
 @end
 
@@ -2901,20 +2901,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_ProfileFilterLink : GTLRObject
 
 /** Filter for this link. */
-@property(strong, nullable) GTLRAnalytics_FilterRef *filterRef;
+@property(nonatomic, strong, nullable) GTLRAnalytics_FilterRef *filterRef;
 
 /**
  *  Profile filter link ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Resource type for Analytics filter. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** View (Profile) for this link. */
-@property(strong, nullable) GTLRAnalytics_ProfileRef *profileRef;
+@property(nonatomic, strong, nullable) GTLRAnalytics_ProfileRef *profileRef;
 
 /**
  *  The rank of this profile filter link relative to the other filters linked to
@@ -2931,10 +2931,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *rank;
+@property(nonatomic, strong, nullable) NSNumber *rank;
 
 /** Link for this profile filter link. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -2955,7 +2955,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_ProfileFilterLink *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_ProfileFilterLink *> *items;
 
 /**
  *  The maximum number of resources the response can contain, regardless of the
@@ -2965,16 +2965,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this profile filter link collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this profile filter link collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the resources, which is 1 by default or otherwise
@@ -2982,7 +2982,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -2990,10 +2990,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /** Email ID of the authenticated user */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -3004,32 +3004,32 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_ProfileRef : GTLRObject
 
 /** Account ID to which this view (profile) belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Link for this view (profile). */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /**
  *  View (Profile) ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Internal ID for the web property to which this view (profile) belongs. */
-@property(copy, nullable) NSString *internalWebPropertyId;
+@property(nonatomic, copy, nullable) NSString *internalWebPropertyId;
 
 /** Analytics view (profile) reference. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of this view (profile). */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Web property ID of the form UA-XXXXX-YY to which this view (profile)
  *  belongs.
  */
-@property(copy, nullable) NSString *webPropertyId;
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 @end
 
@@ -3050,7 +3050,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_Profile *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_Profile *> *items;
 
 /**
  *  The maximum number of resources the response can contain, regardless of the
@@ -3060,16 +3060,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this view (profile) collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this view (profile) collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the resources, which is 1 by default or otherwise
@@ -3077,7 +3077,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -3085,10 +3085,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /** Email ID of the authenticated user */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -3104,23 +3104,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Resource type for Analytics ProfileSummary. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** View (profile) name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Indicates whether this view (profile) is starred or not.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *starred;
+@property(nonatomic, strong, nullable) NSNumber *starred;
 
 /** View (Profile) type. Supported types: WEB or APP. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -3134,36 +3134,36 @@ NS_ASSUME_NONNULL_BEGIN
  *  Column headers that list dimension names followed by the metric names. The
  *  order of dimensions and metrics is same as specified in the request.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_RealtimeDataColumnHeadersItem *> *columnHeaders;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_RealtimeDataColumnHeadersItem *> *columnHeaders;
 
 /**
  *  Unique ID for this data response.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Resource type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Information for the view (profile), for which the real time data was
  *  requested.
  */
-@property(strong, nullable) GTLRAnalytics_RealtimeDataProfileInfo *profileInfo;
+@property(nonatomic, strong, nullable) GTLRAnalytics_RealtimeDataProfileInfo *profileInfo;
 
 /** Real time data request query parameters. */
-@property(strong, nullable) GTLRAnalytics_RealtimeDataQuery *query;
+@property(nonatomic, strong, nullable) GTLRAnalytics_RealtimeDataQuery *query;
 
 /**
  *  Real time data rows, where each row contains a list of dimension values
  *  followed by the metric values. The order of dimensions and metrics is same
  *  as specified in the request.
  */
-@property(strong, nullable) NSArray<NSArray<NSString *> *> *rows;
+@property(nonatomic, strong, nullable) NSArray<NSArray<NSString *> *> *rows;
 
 /** Link to this page. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  The total number of rows for the query, regardless of the number of rows in
@@ -3171,14 +3171,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /**
  *  Total values for the requested metrics over all the results, not just the
  *  results returned in this response. The order of the metric totals is same as
  *  the metric order specified in the request.
  */
-@property(strong, nullable) GTLRAnalytics_RealtimeDataTotalsForAllResults *totalsForAllResults;
+@property(nonatomic, strong, nullable) GTLRAnalytics_RealtimeDataTotalsForAllResults *totalsForAllResults;
 
 @end
 
@@ -3189,17 +3189,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_RealtimeDataColumnHeadersItem : GTLRObject
 
 /** Column Type. Either DIMENSION or METRIC. */
-@property(copy, nullable) NSString *columnType;
+@property(nonatomic, copy, nullable) NSString *columnType;
 
 /**
  *  Data type. Dimension column headers have only STRING as the data type.
  *  Metric column headers have data types for metric values such as INTEGER,
  *  DOUBLE, CURRENCY etc.
  */
-@property(copy, nullable) NSString *dataType;
+@property(nonatomic, copy, nullable) NSString *dataType;
 
 /** Column name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -3211,22 +3211,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_RealtimeDataProfileInfo : GTLRObject
 
 /** Account ID to which this view (profile) belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Internal ID for the web property to which this view (profile) belongs. */
-@property(copy, nullable) NSString *internalWebPropertyId;
+@property(nonatomic, copy, nullable) NSString *internalWebPropertyId;
 
 /** View (Profile) ID. */
-@property(copy, nullable) NSString *profileId;
+@property(nonatomic, copy, nullable) NSString *profileId;
 
 /** View (Profile) name. */
-@property(copy, nullable) NSString *profileName;
+@property(nonatomic, copy, nullable) NSString *profileName;
 
 /** Table ID for view (profile). */
-@property(copy, nullable) NSString *tableId;
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 /** Web Property ID to which this view (profile) belongs. */
-@property(copy, nullable) NSString *webPropertyId;
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 @end
 
@@ -3237,26 +3237,26 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_RealtimeDataQuery : GTLRObject
 
 /** List of real time dimensions. */
-@property(copy, nullable) NSString *dimensions;
+@property(nonatomic, copy, nullable) NSString *dimensions;
 
 /** Comma-separated list of dimension or metric filters. */
-@property(copy, nullable) NSString *filters;
+@property(nonatomic, copy, nullable) NSString *filters;
 
 /** Unique table ID. */
-@property(copy, nullable) NSString *ids;
+@property(nonatomic, copy, nullable) NSString *ids;
 
 /**
  *  Maximum results per page.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxResults;
+@property(nonatomic, strong, nullable) NSNumber *maxResults;
 
 /** List of real time metrics. */
-@property(strong, nullable) NSArray<NSString *> *metrics;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /** List of dimensions or metrics based on which real time data is sorted. */
-@property(strong, nullable) NSArray<NSString *> *sort;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sort;
 
 @end
 
@@ -3281,37 +3281,37 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_Segment : GTLRObject
 
 /** Time the segment was created. */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /** Segment definition. */
-@property(copy, nullable) NSString *definition;
+@property(nonatomic, copy, nullable) NSString *definition;
 
 /**
  *  Segment ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Resource type for Analytics segment. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Segment name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Segment ID. Can be used with the 'segment' parameter in Core Reporting API.
  */
-@property(copy, nullable) NSString *segmentId;
+@property(nonatomic, copy, nullable) NSString *segmentId;
 
 /** Link for this segment. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** Type for a segment. Possible values are "BUILT_IN" or "CUSTOM". */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Time the segment was last modified. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 @end
 
@@ -3331,7 +3331,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_Segment *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_Segment *> *items;
 
 /**
  *  The maximum number of resources the response can contain, regardless of the
@@ -3341,16 +3341,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type for segments. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this segment collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this segment collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the resources, which is 1 by default or otherwise
@@ -3358,7 +3358,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -3366,10 +3366,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /** Email ID of the authenticated user */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -3380,71 +3380,76 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_UnsampledReport : GTLRObject
 
 /** Account ID to which this unsampled report belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Download details for a file stored in Google Cloud Storage. */
-@property(strong, nullable) GTLRAnalytics_UnsampledReportCloudStorageDownloadDetails *cloudStorageDownloadDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_UnsampledReportCloudStorageDownloadDetails *cloudStorageDownloadDetails;
 
 /** Time this unsampled report was created. */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /** The dimensions for the unsampled report. */
-@property(copy, nullable) NSString *dimensions;
+@property(nonatomic, copy, nullable) NSString *dimensions;
 
-/** The type of download you need to use for the report data file. */
-@property(copy, nullable) NSString *downloadType;
+/**
+ *  The type of download you need to use for the report data file. Possible
+ *  values include `GOOGLE_DRIVE` and `GOOGLE_CLOUD_STORAGE`. If the value is
+ *  `GOOGLE_DRIVE`, see the `driveDownloadDetails` field. If the value is
+ *  `GOOGLE_CLOUD_STORAGE`, see the `cloudStorageDownloadDetails` field.
+ */
+@property(nonatomic, copy, nullable) NSString *downloadType;
 
 /** Download details for a file stored in Google Drive. */
-@property(strong, nullable) GTLRAnalytics_UnsampledReportDriveDownloadDetails *driveDownloadDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_UnsampledReportDriveDownloadDetails *driveDownloadDetails;
 
 /** The end date for the unsampled report. */
-@property(copy, nullable) NSString *endDate;
+@property(nonatomic, copy, nullable) NSString *endDate;
 
 /** The filters for the unsampled report. */
-@property(copy, nullable) NSString *filters;
+@property(nonatomic, copy, nullable) NSString *filters;
 
 /**
  *  Unsampled report ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Resource type for an Analytics unsampled report. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The metrics for the unsampled report. */
-@property(copy, nullable) NSString *metrics;
+@property(nonatomic, copy, nullable) NSString *metrics;
 
 /** View (Profile) ID to which this unsampled report belongs. */
-@property(copy, nullable) NSString *profileId;
+@property(nonatomic, copy, nullable) NSString *profileId;
 
 /** The segment for the unsampled report. */
-@property(copy, nullable) NSString *segment;
+@property(nonatomic, copy, nullable) NSString *segment;
 
 /** Link for this unsampled report. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** The start date for the unsampled report. */
-@property(copy, nullable) NSString *startDate;
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 /**
  *  Status of this unsampled report. Possible values are PENDING, COMPLETED, or
  *  FAILED.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /** Title of the unsampled report. */
-@property(copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** Time this unsampled report was last modified. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /**
  *  Web property ID to which this unsampled report belongs. The web property ID
  *  is of the form UA-XXXXX-YY.
  */
-@property(copy, nullable) NSString *webPropertyId;
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 @end
 
@@ -3455,10 +3460,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_UnsampledReportCloudStorageDownloadDetails : GTLRObject
 
 /** Id of the bucket the file object is stored in. */
-@property(copy, nullable) NSString *bucketId;
+@property(nonatomic, copy, nullable) NSString *bucketId;
 
 /** Id of the file object containing the report data. */
-@property(copy, nullable) NSString *objectId;
+@property(nonatomic, copy, nullable) NSString *objectId;
 
 @end
 
@@ -3469,7 +3474,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_UnsampledReportDriveDownloadDetails : GTLRObject
 
 /** Id of the document/file containing the report data. */
-@property(copy, nullable) NSString *documentId;
+@property(nonatomic, copy, nullable) NSString *documentId;
 
 @end
 
@@ -3491,7 +3496,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_UnsampledReport *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_UnsampledReport *> *items;
 
 /**
  *  The maximum number of resources the response can contain, regardless of the
@@ -3501,16 +3506,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this unsampled report collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this unsampled report collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the resources, which is 1 by default or otherwise
@@ -3518,7 +3523,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -3526,10 +3531,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /** Email ID of the authenticated user */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -3544,29 +3549,29 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *accountId;
+@property(nonatomic, strong, nullable) NSNumber *accountId;
 
 /** Custom data source Id to which this data import belongs. */
-@property(copy, nullable) NSString *customDataSourceId;
+@property(nonatomic, copy, nullable) NSString *customDataSourceId;
 
 /** Data import errors collection. */
-@property(strong, nullable) NSArray<NSString *> *errors;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
 
 /**
  *  A unique ID for this upload.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Resource type for Analytics upload. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Upload status. Possible values: PENDING, COMPLETED, FAILED, DELETING,
  *  DELETED.
  */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -3587,7 +3592,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_Upload *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_Upload *> *items;
 
 /**
  *  The maximum number of resources the response can contain, regardless of the
@@ -3597,16 +3602,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this upload collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this upload collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the resources, which is 1 by default or otherwise
@@ -3614,7 +3619,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -3622,7 +3627,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 @end
 
@@ -3633,16 +3638,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_UserRef : GTLRObject
 
 /** Email ID of this user. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /**
  *  User ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -3663,7 +3668,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAnalytics_Webproperty *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_Webproperty *> *items;
 
 /**
  *  The maximum number of resources the response can contain, regardless of the
@@ -3673,16 +3678,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *itemsPerPage;
+@property(nonatomic, strong, nullable) NSNumber *itemsPerPage;
 
 /** Collection type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Link to next page for this web property collection. */
-@property(copy, nullable) NSString *nextLink;
+@property(nonatomic, copy, nullable) NSString *nextLink;
 
 /** Link to previous page for this web property collection. */
-@property(copy, nullable) NSString *previousLink;
+@property(nonatomic, copy, nullable) NSString *previousLink;
 
 /**
  *  The starting index of the resources, which is 1 by default or otherwise
@@ -3690,7 +3695,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startIndex;
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
  *  The total number of results for the query, regardless of the number of
@@ -3698,10 +3703,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *totalResults;
+@property(nonatomic, strong, nullable) NSNumber *totalResults;
 
 /** Email ID of the authenticated user */
-@property(copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -3712,77 +3717,77 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_Webproperty : GTLRObject
 
 /** Account ID to which this web property belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  Child link for this web property. Points to the list of views (profiles) for
  *  this web property.
  */
-@property(strong, nullable) GTLRAnalytics_WebpropertyChildLink *childLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_WebpropertyChildLink *childLink;
 
 /** Time this web property was created. */
-@property(strong, nullable) GTLRDateTime *created;
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /**
  *  Default view (profile) ID.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *defaultProfileId;
+@property(nonatomic, strong, nullable) NSNumber *defaultProfileId;
 
 /**
  *  Web property ID of the form UA-XXXXX-YY.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The industry vertical/category selected for this web property. */
-@property(copy, nullable) NSString *industryVertical;
+@property(nonatomic, copy, nullable) NSString *industryVertical;
 
 /** Internal ID for this web property. */
-@property(copy, nullable) NSString *internalWebPropertyId;
+@property(nonatomic, copy, nullable) NSString *internalWebPropertyId;
 
 /** Resource type for Analytics WebProperty. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Level for this web property. Possible values are STANDARD or PREMIUM. */
-@property(copy, nullable) NSString *level;
+@property(nonatomic, copy, nullable) NSString *level;
 
 /** Name of this web property. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Parent link for this web property. Points to the account to which this web
  *  property belongs.
  */
-@property(strong, nullable) GTLRAnalytics_WebpropertyParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_WebpropertyParentLink *parentLink;
 
 /** Permissions the user has for this web property. */
-@property(strong, nullable) GTLRAnalytics_WebpropertyPermissions *permissions;
+@property(nonatomic, strong, nullable) GTLRAnalytics_WebpropertyPermissions *permissions;
 
 /**
  *  View (Profile) count for this web property.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *profileCount;
+@property(nonatomic, strong, nullable) NSNumber *profileCount;
 
 /** Link for this web property. */
-@property(copy, nullable) NSString *selfLink;
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
  *  Indicates whether this web property is starred or not.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *starred;
+@property(nonatomic, strong, nullable) NSNumber *starred;
 
 /** Time this web property was last modified. */
-@property(strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /** Website url for this web property. */
-@property(copy, nullable) NSString *websiteUrl;
+@property(nonatomic, copy, nullable) NSString *websiteUrl;
 
 @end
 
@@ -3794,10 +3799,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_WebpropertyChildLink : GTLRObject
 
 /** Link to the list of views (profiles) for this web property. */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /** Type of the parent link. Its value is "analytics#profiles". */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -3809,10 +3814,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_WebpropertyParentLink : GTLRObject
 
 /** Link to the account for this web property. */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /** Type of the parent link. Its value is "analytics#account". */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -3827,7 +3832,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  any implied permissions (e.g., EDIT implies VIEW) or inherited permissions
  *  from the parent account.
  */
-@property(strong, nullable) NSArray<NSString *> *effective;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *effective;
 
 @end
 
@@ -3838,26 +3843,26 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_WebPropertyRef : GTLRObject
 
 /** Account ID to which this web property belongs. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Link for this web property. */
-@property(copy, nullable) NSString *href;
+@property(nonatomic, copy, nullable) NSString *href;
 
 /**
  *  Web property ID of the form UA-XXXXX-YY.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Internal ID for this web property. */
-@property(copy, nullable) NSString *internalWebPropertyId;
+@property(nonatomic, copy, nullable) NSString *internalWebPropertyId;
 
 /** Analytics web property reference. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of this web property. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -3873,32 +3878,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Internal ID for this web property. */
-@property(copy, nullable) NSString *internalWebPropertyId;
+@property(nonatomic, copy, nullable) NSString *internalWebPropertyId;
 
 /** Resource type for Analytics WebPropertySummary. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Level for this web property. Possible values are STANDARD or PREMIUM. */
-@property(copy, nullable) NSString *level;
+@property(nonatomic, copy, nullable) NSString *level;
 
 /** Web property name. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** List of profiles under this web property. */
-@property(strong, nullable) NSArray<GTLRAnalytics_ProfileSummary *> *profiles;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_ProfileSummary *> *profiles;
 
 /**
  *  Indicates whether this web property is starred or not.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *starred;
+@property(nonatomic, strong, nullable) NSNumber *starred;
 
 /** Website url for this web property. */
-@property(copy, nullable) NSString *websiteUrl;
+@property(nonatomic, copy, nullable) NSString *websiteUrl;
 
 @end
 

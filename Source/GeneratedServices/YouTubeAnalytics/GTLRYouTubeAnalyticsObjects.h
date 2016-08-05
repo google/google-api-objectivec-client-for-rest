@@ -41,28 +41,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  This value specifies the type of data of this item. For batch report the
  *  kind property value is youtubeAnalytics#batchReport.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Report outputs. */
-@property(strong, nullable) NSArray<GTLRYouTubeAnalytics_BatchReportOutputsItem *> *outputs;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTubeAnalytics_BatchReportOutputsItem *> *outputs;
 
 /** The ID of the the report definition. */
-@property(copy, nullable) NSString *reportId;
+@property(nonatomic, copy, nullable) NSString *reportId;
 
 /**
  *  Period included in the report. For reports containing all entities endTime
  *  is not set. Both startTime and endTime are inclusive.
  */
-@property(strong, nullable) GTLRYouTubeAnalytics_BatchReportTimeSpan *timeSpan;
+@property(nonatomic, strong, nullable) GTLRYouTubeAnalytics_BatchReportTimeSpan *timeSpan;
 
 /** The time when the report was updated. */
-@property(strong, nullable) GTLRDateTime *timeUpdated;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeUpdated;
 
 @end
 
@@ -75,13 +75,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Cloud storage URL to download this report. This URL is valid for 30 minutes.
  */
-@property(copy, nullable) NSString *downloadUrl;
+@property(nonatomic, copy, nullable) NSString *downloadUrl;
 
 /** Format of the output. */
-@property(copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format;
 
 /** Type of the output. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -96,10 +96,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  End of the period included in the report. Inclusive. For reports containing
  *  all entities endTime is not set.
  */
-@property(strong, nullable) GTLRDateTime *endTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /** Start of the period included in the report. Inclusive. */
-@property(strong, nullable) GTLRDateTime *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
@@ -115,23 +115,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  This value specifies the type of data of this item. For batch report
  *  definition the kind property value is
  *  youtubeAnalytics#batchReportDefinition.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Name of the report definition. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Status of the report definition. */
-@property(copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status;
 
 /** Type of the report definition. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -151,14 +151,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTubeAnalytics_BatchReportDefinition *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTubeAnalytics_BatchReportDefinition *> *items;
 
 /**
  *  This value specifies the type of data included in the API response. For the
  *  list method, the kind property value is
  *  youtubeAnalytics#batchReportDefinitionList.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -178,13 +178,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTubeAnalytics_BatchReport *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTubeAnalytics_BatchReport *> *items;
 
 /**
  *  This value specifies the type of data included in the API response. For the
  *  list method, the kind property value is youtubeAnalytics#batchReportList.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -194,18 +194,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRYouTubeAnalytics_Group : GTLRObject
 
-@property(strong, nullable) GTLRYouTubeAnalytics_GroupContentDetails *contentDetails;
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, strong, nullable) GTLRYouTubeAnalytics_GroupContentDetails *contentDetails;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
-@property(copy, nullable) NSString *kind;
-@property(strong, nullable) GTLRYouTubeAnalytics_GroupSnippet *snippet;
+@property(nonatomic, copy, nullable) NSString *kind;
+@property(nonatomic, strong, nullable) GTLRYouTubeAnalytics_GroupSnippet *snippet;
 
 @end
 
@@ -220,9 +220,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(strong, nullable) NSNumber *itemCount;
+@property(nonatomic, strong, nullable) NSNumber *itemCount;
 
-@property(copy, nullable) NSString *itemType;
+@property(nonatomic, copy, nullable) NSString *itemType;
 
 @end
 
@@ -232,8 +232,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRYouTubeAnalytics_GroupSnippet : GTLRObject
 
-@property(strong, nullable) GTLRDateTime *publishedAt;
-@property(copy, nullable) NSString *title;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -243,18 +243,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRYouTubeAnalytics_GroupItem : GTLRObject
 
-@property(copy, nullable) NSString *ETag;
-@property(copy, nullable) NSString *groupId;
+@property(nonatomic, copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *groupId;
 
 /**
  *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
-@property(copy, nullable) NSString *kind;
-@property(strong, nullable) GTLRYouTubeAnalytics_GroupItemResource *resource;
+@property(nonatomic, copy, nullable) NSString *kind;
+@property(nonatomic, strong, nullable) GTLRYouTubeAnalytics_GroupItemResource *resource;
 
 @end
 
@@ -269,9 +269,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -285,7 +285,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRYouTubeAnalytics_GroupItemListResponse : GTLRCollectionObject
 
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  items
@@ -293,9 +293,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTubeAnalytics_GroupItem *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTubeAnalytics_GroupItem *> *items;
 
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -311,7 +311,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRYouTubeAnalytics_GroupListResponse : GTLRCollectionObject
 
-@property(copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  items
@@ -319,10 +319,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRYouTubeAnalytics_Group *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTubeAnalytics_Group *> *items;
 
-@property(copy, nullable) NSString *kind;
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -346,13 +346,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  dimensions=ageGroup,gender&metrics=viewerPercentage, the API response will
  *  return columns in this order: ageGroup,gender,viewerPercentage.
  */
-@property(strong, nullable) NSArray<GTLRYouTubeAnalytics_ResultTableColumnHeadersItem *> *columnHeaders;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTubeAnalytics_ResultTableColumnHeadersItem *> *columnHeaders;
 
 /**
  *  This value specifies the type of data included in the API response. For the
  *  query method, the kind property value will be youtubeAnalytics#resultTable.
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The list contains all rows of the result table. Each item in the list is an
@@ -365,7 +365,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) NSArray<NSArray *> *rows;
+@property(nonatomic, strong, nullable) NSArray<NSArray *> *rows;
 
 @end
 
@@ -376,13 +376,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRYouTubeAnalytics_ResultTableColumnHeadersItem : GTLRObject
 
 /** The type of the column (DIMENSION or METRIC). */
-@property(copy, nullable) NSString *columnType;
+@property(nonatomic, copy, nullable) NSString *columnType;
 
 /** The type of the data in the column (STRING, INTEGER, FLOAT, etc.). */
-@property(copy, nullable) NSString *dataType;
+@property(nonatomic, copy, nullable) NSString *dataType;
 
 /** The name of the dimension or metric. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

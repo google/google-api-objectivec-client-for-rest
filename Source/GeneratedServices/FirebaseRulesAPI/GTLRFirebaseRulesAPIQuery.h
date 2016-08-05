@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseRulesAPIQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Resource name for the project which owns this `Release`.
  *  Format: `projects/{project_id}`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseRulesAPI_Release.
@@ -123,7 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Resource name for the `Release` to delete.
  *  Format: `projects/{project_id}/releases/{release_id}`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseRulesAPI_Empty.
@@ -157,7 +157,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Resource name of the `Release`.
  *  Format: `projects/{project_id}/releases/{release_id}`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseRulesAPI_Release.
@@ -210,13 +210,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  collections. Fully qualified prefixed may also be used. e.g.
  *  `name=projects/foo/releases/prod* ruleset_name=projects/foo/rulesets/uuid1`
  */
-@property(copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Resource name for the project.
  *  Format: `projects/{project_id}`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Page size to load. Maximum of 100. Defaults to 10.
@@ -224,10 +224,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  than `page_size` due to the size of the output. To traverse all of the
  *  releases, caller should iterate until the `page_token` is empty.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /** Next page token for the next batch of `Release` instances. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRFirebaseRulesAPI_ListReleasesResponse.
@@ -285,7 +285,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  relationship between `Release` instances.
  *  Format: `projects/{project_id}/releases/{release_id}`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseRulesAPI_Release.
@@ -345,7 +345,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Resource name for Project which owns this `Ruleset`.
  *  Format: `projects/{project_id}`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseRulesAPI_Ruleset.
@@ -385,7 +385,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Resource name for the ruleset to delete.
  *  Format: `projects/{project_id}/rulesets/{ruleset_id}`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseRulesAPI_Empty.
@@ -420,7 +420,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Resource name for the ruleset to get.
  *  Format: `projects/{project_id}/rulesets/{ruleset_id}`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseRulesAPI_Ruleset.
@@ -457,7 +457,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Resource name for the project.
  *  Format: `projects/{project_id}`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Page size to load. Maximum of 100. Defaults to 10.
@@ -465,10 +465,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  than `page_size` due to the size of the output. To traverse all of the
  *  releases, caller should iterate until the `page_token` is empty.
  */
-@property(assign) NSInteger pageSize;
+@property(nonatomic, assign) NSInteger pageSize;
 
 /** Next page token for loading the next batch of `Ruleset` instances. */
-@property(copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRFirebaseRulesAPI_ListRulesetsResponse.
@@ -526,7 +526,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Name of the project.
  *  Format: `projects/{project_id}`
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseRulesAPI_TestRulesetResponse.

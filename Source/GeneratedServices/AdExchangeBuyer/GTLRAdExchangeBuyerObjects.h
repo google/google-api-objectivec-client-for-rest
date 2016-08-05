@@ -44,6 +44,7 @@
 @class GTLRAdExchangeBuyer_DealTermsGuaranteedFixedPriceTermsBillingInfo;
 @class GTLRAdExchangeBuyer_DealTermsNonGuaranteedAuctionTerms;
 @class GTLRAdExchangeBuyer_DealTermsNonGuaranteedFixedPriceTerms;
+@class GTLRAdExchangeBuyer_DealTermsRubiconNonGuaranteedTerms;
 @class GTLRAdExchangeBuyer_DeliveryControl;
 @class GTLRAdExchangeBuyer_DeliveryControlFrequencyCap;
 @class GTLRAdExchangeBuyer_Dimension;
@@ -81,16 +82,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_Account : GTLRObject
 
 /** Your bidder locations that have distinct URLs. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_AccountBidderLocationItem *> *bidderLocation;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_AccountBidderLocationItem *> *bidderLocation;
 
 /**
  *  The nid parameter value used in cookie match requests. Please contact your
  *  technical account manager if you need to change this.
  */
-@property(copy, nullable) NSString *cookieMatchingNid;
+@property(nonatomic, copy, nullable) NSString *cookieMatchingNid;
 
 /** The base URL used in cookie match requests. */
-@property(copy, nullable) NSString *cookieMatchingUrl;
+@property(nonatomic, copy, nullable) NSString *cookieMatchingUrl;
 
 /**
  *  Account id.
@@ -99,10 +100,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /** Resource type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The maximum number of active creatives that an account can have, where a
@@ -111,7 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maximumActiveCreatives;
+@property(nonatomic, strong, nullable) NSNumber *maximumActiveCreatives;
 
 /**
  *  The sum of all bidderLocation.maximumQps values cannot exceed this. Please
@@ -119,7 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maximumTotalQps;
+@property(nonatomic, strong, nullable) NSNumber *maximumTotalQps;
 
 /**
  *  The number of creatives that this account inserted or bid with in the last
@@ -127,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numberActiveCreatives;
+@property(nonatomic, strong, nullable) NSNumber *numberActiveCreatives;
 
 @end
 
@@ -147,14 +148,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  - PROTOCOL_OPENRTB_2_3
  *  - PROTOCOL_OPENRTB_PROTOBUF
  */
-@property(copy, nullable) NSString *bidProtocol;
+@property(nonatomic, copy, nullable) NSString *bidProtocol;
 
 /**
  *  The maximum queries per second the Ad Exchange will send.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maximumQps;
+@property(nonatomic, strong, nullable) NSNumber *maximumQps;
 
 /**
  *  The geographical region the Ad Exchange should send requests from. Only used
@@ -165,10 +166,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  - US_EAST
  *  - US_WEST
  */
-@property(copy, nullable) NSString *region;
+@property(nonatomic, copy, nullable) NSString *region;
 
 /** The URL to which the Ad Exchange will send bid requests. */
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -188,10 +189,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_Account *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Account *> *items;
 
 /** Resource type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -202,17 +203,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_AddOrderDealsRequest : GTLRObject
 
 /** The list of deals to add */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceDeal *> *deals;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceDeal *> *deals;
 
 /**
  *  The last known proposal revision number.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *proposalRevisionNumber;
+@property(nonatomic, strong, nullable) NSNumber *proposalRevisionNumber;
 
 /** Indicates an optional action to take on the proposal */
-@property(copy, nullable) NSString *updateAction;
+@property(nonatomic, copy, nullable) NSString *updateAction;
 
 @end
 
@@ -223,14 +224,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_AddOrderDealsResponse : GTLRObject
 
 /** List of deals added (in the same proposal as passed in the request) */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceDeal *> *deals;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceDeal *> *deals;
 
 /**
  *  The updated revision number for the proposal.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *proposalRevisionNumber;
+@property(nonatomic, strong, nullable) NSNumber *proposalRevisionNumber;
 
 @end
 
@@ -241,7 +242,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_AddOrderNotesRequest : GTLRObject
 
 /** The list of notes to add. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceNote *> *notes;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceNote *> *notes;
 
 @end
 
@@ -251,7 +252,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAdExchangeBuyer_AddOrderNotesResponse : GTLRObject
 
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceNote *> *notes;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceNote *> *notes;
 
 @end
 
@@ -266,20 +267,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *accountId;
+@property(nonatomic, strong, nullable) NSNumber *accountId;
 
 /** Account name. */
-@property(copy, nullable) NSString *accountName;
+@property(nonatomic, copy, nullable) NSString *accountName;
 
 /**
  *  A list of adgroup IDs associated with this particular account. These IDs may
  *  show up as part of a realtime bidding BidRequest, which indicates a bid
  *  request for this account.
  */
-@property(strong, nullable) NSArray<NSString *> *billingId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *billingId;
 
 /** Resource type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -299,10 +300,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_BillingInfo *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_BillingInfo *> *items;
 
 /** Resource type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -317,7 +318,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *accountId;
+@property(nonatomic, strong, nullable) NSNumber *accountId;
 
 /**
  *  The billing id to determine which adgroup to provide budget information for.
@@ -325,7 +326,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *billingId;
+@property(nonatomic, strong, nullable) NSNumber *billingId;
 
 /**
  *  The daily budget amount in unit amount of the account currency to apply for
@@ -333,20 +334,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *budgetAmount;
+@property(nonatomic, strong, nullable) NSNumber *budgetAmount;
 
 /** The currency code for the buyer. This cannot be altered here. */
-@property(copy, nullable) NSString *currencyCode;
+@property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
  *  The unique id that describes this item.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The kind of the resource, i.e. "adexchangebuyer#budget". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -357,7 +358,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_Buyer : GTLRObject
 
 /** Adx account id of the buyer. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 @end
 
@@ -368,10 +369,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_ContactInformation : GTLRObject
 
 /** Email address of the contact. */
-@property(copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email;
 
 /** The name of the contact. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -382,10 +383,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_CreateOrdersRequest : GTLRObject
 
 /** The list of proposals to create. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_Proposal *> *proposals;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Proposal *> *proposals;
 
 /** Web property id of the seller creating these orders */
-@property(copy, nullable) NSString *webPropertyCode;
+@property(nonatomic, copy, nullable) NSString *webPropertyCode;
 
 @end
 
@@ -396,7 +397,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_CreateOrdersResponse : GTLRObject
 
 /** The list of proposals successfully created. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_Proposal *> *proposals;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Proposal *> *proposals;
 
 @end
 
@@ -411,12 +412,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *accountId;
+@property(nonatomic, strong, nullable) NSNumber *accountId;
 
 /**
  *  The link to the Ad Preferences page. This is only supported for native ads.
  */
-@property(copy, nullable) NSString *adChoicesDestinationUrl;
+@property(nonatomic, copy, nullable) NSString *adChoicesDestinationUrl;
 
 /**
  *  Detected advertiser id, if any. Read-only. This field should not be set in
@@ -424,43 +425,43 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *advertiserId;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *advertiserId;
 
 /** The name of the company being advertised in the creative. */
-@property(copy, nullable) NSString *advertiserName;
+@property(nonatomic, copy, nullable) NSString *advertiserName;
 
 /**
  *  The agency id for this creative.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *agencyId;
+@property(nonatomic, strong, nullable) NSNumber *agencyId;
 
 /**
  *  The last upload timestamp of this creative if it was uploaded via API.
  *  Read-only. The value of this field is generated, and will be ignored for
  *  uploads. (formatted RFC 3339 timestamp).
  */
-@property(strong, nullable) GTLRDateTime *apiUploadTimestamp;
+@property(nonatomic, strong, nullable) GTLRDateTime *apiUploadTimestamp;
 
 /**
  *  All attributes for the ads that may be shown from this snippet.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *attribute;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *attribute;
 
 /** A buyer-specific id identifying the creative in this ad. */
-@property(copy, nullable) NSString *buyerCreativeId;
+@property(nonatomic, copy, nullable) NSString *buyerCreativeId;
 
 /** The set of destination urls for the snippet. */
-@property(strong, nullable) NSArray<NSString *> *clickThroughUrl;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *clickThroughUrl;
 
 /**
  *  Shows any corrections that were applied to this creative. Read-only. This
  *  field should not be set in requests.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeCorrectionsItem *> *corrections;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeCorrectionsItem *> *corrections;
 
 /**
  *  Top-level deals status. Read-only. This field should not be set in requests.
@@ -469,41 +470,47 @@ NS_ASSUME_NONNULL_BEGIN
  *  other contextual restrictions, in which case it may be preferable to read
  *  from servingRestrictions directly.
  */
-@property(copy, nullable) NSString *dealsStatus;
+@property(nonatomic, copy, nullable) NSString *dealsStatus;
+
+/**
+ *  Detected domains for this creative. Read-only. This field should not be set
+ *  in requests.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *detectedDomains;
 
 /**
  *  The filtering reasons for the creative. Read-only. This field should not be
  *  set in requests.
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_CreativeFilteringReasons *filteringReasons;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_CreativeFilteringReasons *filteringReasons;
 
 /**
  *  Ad height.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
  *  The HTML snippet that displays the ad when inserted in the web page. If set,
  *  videoURL should not be set.
  */
-@property(copy, nullable) NSString *HTMLSnippet;
+@property(nonatomic, copy, nullable) NSString *HTMLSnippet;
 
 /** The set of urls to be called to record an impression. */
-@property(strong, nullable) NSArray<NSString *> *impressionTrackingUrl;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *impressionTrackingUrl;
 
 /** Resource type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Detected languages for this creative. Read-only. This field should not be
  *  set in requests.
  */
-@property(strong, nullable) NSArray<NSString *> *languages;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *languages;
 
 /** If nativeAd is set, HTMLSnippet and videoURL should not be set. */
-@property(strong, nullable) GTLRAdExchangeBuyer_CreativeNativeAd *nativeAd;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_CreativeNativeAd *nativeAd;
 
 /**
  *  Top-level open auction status. Read-only. This field should not be set in
@@ -512,7 +519,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other contextual restrictions, in which case it may be preferable to read
  *  from ServingRestrictions directly.
  */
-@property(copy, nullable) NSString *openAuctionStatus;
+@property(nonatomic, copy, nullable) NSString *openAuctionStatus;
 
 /**
  *  Detected product categories, if any. Read-only. This field should not be set
@@ -520,14 +527,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *productCategories;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *productCategories;
 
 /**
  *  All restricted categories for the ads that may be shown from this snippet.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *restrictedCategories;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *restrictedCategories;
 
 /**
  *  Detected sensitive categories, if any. Read-only. This field should not be
@@ -535,7 +542,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *sensitiveCategories;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *sensitiveCategories;
 
 /**
  *  The granular status of this ad in specific contexts. A context here relates
@@ -543,14 +550,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  platform, an HTTPS vs HTTP request, or the type of auction). Read-only. This
  *  field should not be set in requests.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeServingRestrictionsItem *> *servingRestrictions;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeServingRestrictionsItem *> *servingRestrictions;
 
 /**
  *  All vendor types for the ads that may be shown from this snippet.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *vendorType;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *vendorType;
 
 /**
  *  The version for this creative. Read-only. This field should not be set in
@@ -558,17 +565,17 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *version;
+@property(nonatomic, strong, nullable) NSNumber *version;
 
 /** The url to fetch a video ad. If set, HTMLSnippet should not be set. */
-@property(copy, nullable) NSString *videoURL;
+@property(nonatomic, copy, nullable) NSString *videoURL;
 
 /**
  *  Ad width.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -579,13 +586,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_CreativeCorrectionsItem : GTLRObject
 
 /** All known serving contexts containing serving status information. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem *> *contexts;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem *> *contexts;
 
 /** Additional details about the correction. */
-@property(strong, nullable) NSArray<NSString *> *details;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *details;
 
 /** The type of correction that was applied to the creative. */
-@property(copy, nullable) NSString *reason;
+@property(nonatomic, copy, nullable) NSString *reason;
 
 @end
 
@@ -600,10 +607,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The date in ISO 8601 format for the data. The data is collected from
  *  00:00:00 to 23:59:59 in PST.
  */
-@property(copy, nullable) NSString *date;
+@property(nonatomic, copy, nullable) NSString *date;
 
 /** The filtering reasons. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeFilteringReasonsReasonsItem *> *reasons;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeFilteringReasonsReasonsItem *> *reasons;
 
 @end
 
@@ -613,44 +620,44 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAdExchangeBuyer_CreativeNativeAd : GTLRObject
 
-@property(copy, nullable) NSString *advertiser;
+@property(nonatomic, copy, nullable) NSString *advertiser;
 
 /** The app icon, for app download ads. */
-@property(strong, nullable) GTLRAdExchangeBuyer_CreativeNativeAdAppIcon *appIcon;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_CreativeNativeAdAppIcon *appIcon;
 
 /** A long description of the ad. */
-@property(copy, nullable) NSString *body;
+@property(nonatomic, copy, nullable) NSString *body;
 
 /** A label for the button that the user is supposed to click. */
-@property(copy, nullable) NSString *callToAction;
+@property(nonatomic, copy, nullable) NSString *callToAction;
 
 /** The URL to use for click tracking. */
-@property(copy, nullable) NSString *clickTrackingUrl;
+@property(nonatomic, copy, nullable) NSString *clickTrackingUrl;
 
 /** A short title for the ad. */
-@property(copy, nullable) NSString *headline;
+@property(nonatomic, copy, nullable) NSString *headline;
 
 /** A large image. */
-@property(strong, nullable) GTLRAdExchangeBuyer_CreativeNativeAdImage *image;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_CreativeNativeAdImage *image;
 
 /** The URLs are called when the impression is rendered. */
-@property(strong, nullable) NSArray<NSString *> *impressionTrackingUrl;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *impressionTrackingUrl;
 
 /** A smaller image, for the advertiser logo. */
-@property(strong, nullable) GTLRAdExchangeBuyer_CreativeNativeAdLogo *logo;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_CreativeNativeAdLogo *logo;
 
 /** The price of the promoted app including the currency info. */
-@property(copy, nullable) NSString *price;
+@property(nonatomic, copy, nullable) NSString *price;
 
 /**
  *  The app rating in the app store. Must be in the range [0-5].
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *starRating;
+@property(nonatomic, strong, nullable) NSNumber *starRating;
 
 /** The URL to the app store to purchase/download the promoted app. */
-@property(copy, nullable) NSString *store;
+@property(nonatomic, copy, nullable) NSString *store;
 
 @end
 
@@ -661,7 +668,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_CreativeServingRestrictionsItem : GTLRObject
 
 /** All known contexts/restrictions. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeServingRestrictionsItemContextsItem *> *contexts;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeServingRestrictionsItemContextsItem *> *contexts;
 
 /**
  *  The reasons for disapproval within this restriction, if any. Note that not
@@ -670,13 +677,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  empty list for disapproval_reasons. In this case, please reach out to your
  *  TAM to help debug the issue.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeServingRestrictionsItemDisapprovalReasonsItem *> *disapprovalReasons;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeServingRestrictionsItemDisapprovalReasonsItem *> *disapprovalReasons;
 
 /**
  *  Why the creative is ineligible to serve in this context (e.g., it has been
  *  explicitly disapproved or is pending review).
  */
-@property(copy, nullable) NSString *reason;
+@property(nonatomic, copy, nullable) NSString *reason;
 
 @end
 
@@ -690,10 +697,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Only set when contextType=AUCTION_TYPE. Represents the auction types this
  *  correction applies to.
  */
-@property(strong, nullable) NSArray<NSString *> *auctionType;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *auctionType;
 
 /** The type of context (e.g., location, platform, auction type, SSL-ness). */
-@property(copy, nullable) NSString *contextType;
+@property(nonatomic, copy, nullable) NSString *contextType;
 
 /**
  *  Only set when contextType=LOCATION. Represents the geo criterias this
@@ -701,13 +708,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *geoCriteriaId;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *geoCriteriaId;
 
 /**
  *  Only set when contextType=PLATFORM. Represents the platforms this correction
  *  applies to.
  */
-@property(strong, nullable) NSArray<NSString *> *platform;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *platform;
 
 @end
 
@@ -723,7 +730,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *filteringCount;
+@property(nonatomic, strong, nullable) NSNumber *filteringCount;
 
 /**
  *  The filtering status code. Please refer to the creative-status-codes.txt
@@ -731,7 +738,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *filteringStatus;
+@property(nonatomic, strong, nullable) NSNumber *filteringStatus;
 
 @end
 
@@ -746,16 +753,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  width
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -770,16 +777,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  width
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -794,16 +801,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
-@property(copy, nullable) NSString *url;
+@property(nonatomic, copy, nullable) NSString *url;
 
 /**
  *  width
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -817,10 +824,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Only set when contextType=AUCTION_TYPE. Represents the auction types this
  *  restriction applies to.
  */
-@property(strong, nullable) NSArray<NSString *> *auctionType;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *auctionType;
 
 /** The type of context (e.g., location, platform, auction type, SSL-ness). */
-@property(copy, nullable) NSString *contextType;
+@property(nonatomic, copy, nullable) NSString *contextType;
 
 /**
  *  Only set when contextType=LOCATION. Represents the geo criterias this
@@ -828,13 +835,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *geoCriteriaId;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *geoCriteriaId;
 
 /**
  *  Only set when contextType=PLATFORM. Represents the platforms this
  *  restriction applies to.
  */
-@property(strong, nullable) NSArray<NSString *> *platform;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *platform;
 
 @end
 
@@ -845,10 +852,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_CreativeServingRestrictionsItemDisapprovalReasonsItem : GTLRObject
 
 /** Additional details about the reason for disapproval. */
-@property(strong, nullable) NSArray<NSString *> *details;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *details;
 
 /** The categorized reason for disapproval. */
-@property(copy, nullable) NSString *reason;
+@property(nonatomic, copy, nullable) NSString *reason;
 
 @end
 
@@ -871,16 +878,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_Creative *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Creative *> *items;
 
 /** Resource type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Continuation token used to page through creatives. To retrieve the next page
  *  of results, set the next request's "pageToken" value to this.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -894,7 +901,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Tracks which parties (if any) have paused a deal. (readonly, except via
  *  PauseResumeOrderDeals action)
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_DealServingMetadataDealPauseStatus *dealPauseStatus;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_DealServingMetadataDealPauseStatus *dealPauseStatus;
 
 @end
 
@@ -906,22 +913,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAdExchangeBuyer_DealServingMetadataDealPauseStatus : GTLRObject
 
+@property(nonatomic, copy, nullable) NSString *buyerPauseReason;
+
 /** If the deal is paused, records which party paused the deal first. */
-@property(copy, nullable) NSString *firstPausedBy;
+@property(nonatomic, copy, nullable) NSString *firstPausedBy;
 
 /**
  *  hasBuyerPaused
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hasBuyerPaused;
+@property(nonatomic, strong, nullable) NSNumber *hasBuyerPaused;
 
 /**
  *  hasSellerPaused
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hasSellerPaused;
+@property(nonatomic, strong, nullable) NSNumber *hasSellerPaused;
+
+@property(nonatomic, copy, nullable) NSString *sellerPauseReason;
 
 @end
 
@@ -932,20 +943,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_DealTerms : GTLRObject
 
 /** Visibilty of the URL in bid requests. */
-@property(copy, nullable) NSString *brandingType;
+@property(nonatomic, copy, nullable) NSString *brandingType;
 
 /**
  *  Description for the proposed terms of the deal.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Non-binding estimate of the estimated gross spend for this deal Can be set
  *  by buyer or seller.
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_Price *estimatedGrossSpend;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Price *estimatedGrossSpend;
 
 /**
  *  Non-binding estimate of the impressions served per day Can be set by buyer
@@ -953,22 +964,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *estimatedImpressionsPerDay;
+@property(nonatomic, strong, nullable) NSNumber *estimatedImpressionsPerDay;
 
 /** The terms for guaranteed fixed price deals. */
-@property(strong, nullable) GTLRAdExchangeBuyer_DealTermsGuaranteedFixedPriceTerms *guaranteedFixedPriceTerms;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_DealTermsGuaranteedFixedPriceTerms *guaranteedFixedPriceTerms;
 
 /** The terms for non-guaranteed auction deals. */
-@property(strong, nullable) GTLRAdExchangeBuyer_DealTermsNonGuaranteedAuctionTerms *nonGuaranteedAuctionTerms;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_DealTermsNonGuaranteedAuctionTerms *nonGuaranteedAuctionTerms;
 
 /** The terms for non-guaranteed fixed price deals. */
-@property(strong, nullable) GTLRAdExchangeBuyer_DealTermsNonGuaranteedFixedPriceTerms *nonGuaranteedFixedPriceTerms;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_DealTermsNonGuaranteedFixedPriceTerms *nonGuaranteedFixedPriceTerms;
+
+/** The terms for rubicon non-guaranteed deals. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_DealTermsRubiconNonGuaranteedTerms *rubiconNonGuaranteedTerms;
 
 /**
  *  For deals with Cost Per Day billing, defines the timezone used to mark the
  *  boundaries of a day (buyer-readonly)
  */
-@property(copy, nullable) NSString *sellerTimeZone;
+@property(nonatomic, copy, nullable) NSString *sellerTimeZone;
 
 @end
 
@@ -982,10 +996,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  External billing info for this Deal. This field is relevant when external
  *  billing info such as price has a different currency code than DFP/AdX.
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_DealTermsGuaranteedFixedPriceTermsBillingInfo *billingInfo;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_DealTermsGuaranteedFixedPriceTermsBillingInfo *billingInfo;
 
 /** Fixed price for the specified buyer. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_PricePerBuyer *> *fixedPrices;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PricePerBuyer *> *fixedPrices;
 
 /**
  *  Guaranteed impressions as a percentage. This is the percentage of guaranteed
@@ -993,14 +1007,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *guaranteedImpressions;
+@property(nonatomic, strong, nullable) NSNumber *guaranteedImpressions;
 
 /**
- *  Count of guaranteed looks. Required for deal, optional for product.
+ *  Count of guaranteed looks. Required for deal, optional for product. For CPD
+ *  deals, buyer changes to guaranteed_looks will be ignored.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *guaranteedLooks;
+@property(nonatomic, strong, nullable) NSNumber *guaranteedLooks;
+
+/**
+ *  Count of minimum daily looks for a CPD deal. For CPD deals, buyer should
+ *  negotiate on this field instead of guaranteed_looks.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumDailyLooks;
 
 @end
 
@@ -1017,7 +1040,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *currencyConversionTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *currencyConversionTimeMs;
 
 /**
  *  The DFP line item id associated with this deal. For features like CPD,
@@ -1025,22 +1048,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *dfpLineItemId;
+@property(nonatomic, strong, nullable) NSNumber *dfpLineItemId;
 
 /**
  *  The original contracted quantity (# impressions) for this deal. To ensure
- *  delivery, sometimes publisher will book the deal with a impression buffer,
- *  however clients are billed using the original contracted quantity.
+ *  delivery, sometimes the publisher will book the deal with a impression
+ *  buffer, such that guaranteed_looks is greater than the contracted quantity.
+ *  However clients are billed using the original contracted quantity.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *originalContractedQuantity;
+@property(nonatomic, strong, nullable) NSNumber *originalContractedQuantity;
 
 /**
  *  The original reservation price for the deal, if the currency code is
  *  different from the one used in negotiation.
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_Price *price;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Price *price;
 
 @end
 
@@ -1056,10 +1080,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *autoOptimizePrivateAuction;
+@property(nonatomic, strong, nullable) NSNumber *autoOptimizePrivateAuction;
 
 /** Reserve price for the specified buyer. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_PricePerBuyer *> *reservePricePerBuyers;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PricePerBuyer *> *reservePricePerBuyers;
 
 @end
 
@@ -1070,7 +1094,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_DealTermsNonGuaranteedFixedPriceTerms : GTLRObject
 
 /** Fixed price for the specified buyer. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_PricePerBuyer *> *fixedPrices;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PricePerBuyer *> *fixedPrices;
+
+@end
+
+
+/**
+ *  GTLRAdExchangeBuyer_DealTermsRubiconNonGuaranteedTerms
+ */
+@interface GTLRAdExchangeBuyer_DealTermsRubiconNonGuaranteedTerms : GTLRObject
+
+/** Optional price for Rubicon priority access in the auction. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Price *priorityPrice;
+
+/** Optional price for Rubicon standard access in the auction. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Price *standardPrice;
 
 @end
 
@@ -1081,17 +1119,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_DeleteOrderDealsRequest : GTLRObject
 
 /** List of deals to delete for a given proposal */
-@property(strong, nullable) NSArray<NSString *> *dealIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dealIds;
 
 /**
  *  The last known proposal revision number.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *proposalRevisionNumber;
+@property(nonatomic, strong, nullable) NSNumber *proposalRevisionNumber;
 
 /** Indicates an optional action to take on the proposal */
-@property(copy, nullable) NSString *updateAction;
+@property(nonatomic, copy, nullable) NSString *updateAction;
 
 @end
 
@@ -1102,14 +1140,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_DeleteOrderDealsResponse : GTLRObject
 
 /** List of deals deleted (in the same proposal as passed in the request) */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceDeal *> *deals;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceDeal *> *deals;
 
 /**
  *  The updated revision number for the proposal.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *proposalRevisionNumber;
+@property(nonatomic, strong, nullable) NSNumber *proposalRevisionNumber;
 
 @end
 
@@ -1119,9 +1157,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAdExchangeBuyer_DeliveryControl : GTLRObject
 
-@property(copy, nullable) NSString *creativeBlockingLevel;
-@property(copy, nullable) NSString *deliveryRateType;
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_DeliveryControlFrequencyCap *> *frequencyCaps;
+@property(nonatomic, copy, nullable) NSString *creativeBlockingLevel;
+@property(nonatomic, copy, nullable) NSString *deliveryRateType;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_DeliveryControlFrequencyCap *> *frequencyCaps;
 
 @end
 
@@ -1136,16 +1174,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *maxImpressions;
+@property(nonatomic, strong, nullable) NSNumber *maxImpressions;
 
 /**
  *  numTimeUnits
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *numTimeUnits;
+@property(nonatomic, strong, nullable) NSNumber *numTimeUnits;
 
-@property(copy, nullable) NSString *timeUnitType;
+@property(nonatomic, copy, nullable) NSString *timeUnitType;
 
 @end
 
@@ -1157,8 +1195,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAdExchangeBuyer_Dimension : GTLRObject
 
-@property(copy, nullable) NSString *dimensionType;
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_DimensionDimensionValue *> *dimensionValues;
+@property(nonatomic, copy, nullable) NSString *dimensionType;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_DimensionDimensionValue *> *dimensionValues;
 
 @end
 
@@ -1175,13 +1213,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
  *  Name of the dimension mainly for debugging purposes, except for the case of
  *  CREATIVE_SIZE. For CREATIVE_SIZE, strings are used instead of ids.
  */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Percent of total impressions for a dimension type. e.g. {dimension_type:
@@ -1190,7 +1228,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *percentage;
+@property(nonatomic, strong, nullable) NSNumber *percentage;
 
 @end
 
@@ -1213,24 +1251,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  the service will delete that deal from the proposal. Validation will follow
  *  DeleteOrderDealsRequest.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceDeal *> *deals;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceDeal *> *deals;
 
 /**
  *  If specified, also updates the proposal in the batch transaction. This is
  *  useful when the proposal and the deals need to be updated in one
  *  transaction.
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_Proposal *proposal;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Proposal *proposal;
 
 /**
  *  The last known revision number for the proposal.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *proposalRevisionNumber;
+@property(nonatomic, strong, nullable) NSNumber *proposalRevisionNumber;
 
 /** Indicates an optional action to take on the proposal */
-@property(copy, nullable) NSString *updateAction;
+@property(nonatomic, copy, nullable) NSString *updateAction;
 
 @end
 
@@ -1241,14 +1279,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_EditAllOrderDealsResponse : GTLRObject
 
 /** List of all deals in the proposal after edit. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceDeal *> *deals;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceDeal *> *deals;
 
 /**
  *  The latest revision number after the update has been applied.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *orderRevisionNumber;
+@property(nonatomic, strong, nullable) NSNumber *orderRevisionNumber;
 
 @end
 
@@ -1259,7 +1297,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_GetOffersResponse : GTLRObject
 
 /** The returned list of products. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_Product *> *products;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Product *> *products;
 
 @end
 
@@ -1270,7 +1308,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_GetOrderDealsResponse : GTLRObject
 
 /** List of deals for the proposal */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceDeal *> *deals;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceDeal *> *deals;
 
 @end
 
@@ -1280,8 +1318,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAdExchangeBuyer_GetOrderNotesResponse : GTLRObject
 
-/** The list of matching notes. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceNote *> *notes;
+/**
+ *  The list of matching notes. The notes for a proposal are ordered from oldest
+ *  to newest. If the notes span multiple proposals, they will be grouped by
+ *  proposal, with the notes for the most recently modified proposal appearing
+ *  first.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceNote *> *notes;
 
 @end
 
@@ -1292,7 +1335,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_GetOrdersResponse : GTLRObject
 
 /** The list of matching proposals. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_Proposal *> *proposals;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Proposal *> *proposals;
 
 @end
 
@@ -1303,7 +1346,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_GetPublisherProfilesByAccountIdResponse : GTLRObject
 
 /** Profiles for the requested publisher */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_PublisherProfileApiProto *> *profiles;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PublisherProfileApiProto *> *profiles;
 
 @end
 
@@ -1315,29 +1358,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_MarketplaceDeal : GTLRObject
 
 /** Buyer private data (hidden from seller). */
-@property(strong, nullable) GTLRAdExchangeBuyer_PrivateData *buyerPrivateData;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_PrivateData *buyerPrivateData;
 
 /**
  *  The time (ms since epoch) of the deal creation. (readonly)
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *creationTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *creationTimeMs;
 
 /** Specifies the creative pre-approval policy (buyer-readonly) */
-@property(copy, nullable) NSString *creativePreApprovalPolicy;
+@property(nonatomic, copy, nullable) NSString *creativePreApprovalPolicy;
 
 /** Specifies whether the creative is safeFrame compatible (buyer-readonly) */
-@property(copy, nullable) NSString *creativeSafeFrameCompatibility;
+@property(nonatomic, copy, nullable) NSString *creativeSafeFrameCompatibility;
 
-/** A unique deal=id for the deal (readonly). */
-@property(copy, nullable) NSString *dealId;
+/** A unique deal-id for the deal (readonly). */
+@property(nonatomic, copy, nullable) NSString *dealId;
 
 /**
  *  Metadata about the serving status of this deal (readonly, writes via custom
  *  actions)
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_DealServingMetadata *dealServingMetadata;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_DealServingMetadata *dealServingMetadata;
 
 /**
  *  The set of fields around delivery control that are interesting for a buyer
@@ -1345,13 +1388,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  is assigned an id of 100 since some day we would want to model this as a
  *  protobuf extension.
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_DeliveryControl *deliveryControl;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_DeliveryControl *deliveryControl;
 
 /**
  *  The external deal id assigned to this deal once the deal is finalized. This
  *  is the deal-id that shows up in serving/reporting etc. (readonly)
  */
-@property(copy, nullable) NSString *externalDealId;
+@property(nonatomic, copy, nullable) NSString *externalDealId;
 
 /**
  *  Proposed flight end time of the deal (ms since epoch) This will generally be
@@ -1359,7 +1402,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *flightEndTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *flightEndTimeMs;
 
 /**
  *  Proposed flight start time of the deal (ms since epoch) This will generally
@@ -1367,32 +1410,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *flightStartTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *flightStartTimeMs;
 
 /** Description for the deal terms. (updatable) */
-@property(copy, nullable) NSString *inventoryDescription;
+@property(nonatomic, copy, nullable) NSString *inventoryDescription;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "adexchangebuyer#marketplaceDeal".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The time (ms since epoch) when the deal was last updated. (readonly)
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *lastUpdateTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *lastUpdateTimeMs;
 
 /** The name of the deal. (updatable) */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The product-id from which this deal was created. (readonly, except on
  *  create)
  */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The revision number of the product that the deal was created from (readonly,
@@ -1400,36 +1443,36 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *productRevisionNumber;
+@property(nonatomic, strong, nullable) NSNumber *productRevisionNumber;
 
 /**
  *  Specifies the creative source for programmatic deals, PUBLISHER means
  *  creative is provided by seller and ADVERTISR means creative is provided by
  *  buyer. (buyer-readonly)
  */
-@property(copy, nullable) NSString *programmaticCreativeSource;
+@property(nonatomic, copy, nullable) NSString *programmaticCreativeSource;
 
-@property(copy, nullable) NSString *proposalId;
+@property(nonatomic, copy, nullable) NSString *proposalId;
 
 /** Optional Seller contact information for the deal (buyer-readonly) */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_ContactInformation *> *sellerContacts;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_ContactInformation *> *sellerContacts;
 
 /**
  *  The shared targeting visible to buyers and sellers. Each shared targeting
  *  entity is AND'd together. (updatable)
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_SharedTargeting *> *sharedTargetings;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_SharedTargeting *> *sharedTargetings;
 
 /**
  *  The syndication product associated with the deal. (readonly, except on
  *  create)
  */
-@property(copy, nullable) NSString *syndicationProduct;
+@property(nonatomic, copy, nullable) NSString *syndicationProduct;
 
 /** The negotiable terms of the deal. (updatable) */
-@property(strong, nullable) GTLRAdExchangeBuyer_DealTerms *terms;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_DealTerms *terms;
 
-@property(copy, nullable) NSString *webPropertyCode;
+@property(nonatomic, copy, nullable) NSString *webPropertyCode;
 
 @end
 
@@ -1443,13 +1486,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The buyer/seller associated with the deal. One of buyer/seller is specified
  *  for a deal-party.
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_Buyer *buyer;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Buyer *buyer;
 
 /**
  *  The buyer/seller associated with the deal. One of buyer/seller is specified
  *  for a deal party.
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_Seller *seller;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Seller *seller;
 
 @end
 
@@ -1460,20 +1503,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_MarketplaceLabel : GTLRObject
 
 /** The accountId of the party that created the label. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  The creation time (in ms since epoch) for the label.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *createTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *createTimeMs;
 
 /** Information about the party that created the label. */
-@property(strong, nullable) GTLRAdExchangeBuyer_MarketplaceDealParty *deprecatedMarketplaceDealParty;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_MarketplaceDealParty *deprecatedMarketplaceDealParty;
 
 /** The label to use. */
-@property(copy, nullable) NSString *label;
+@property(nonatomic, copy, nullable) NSString *label;
 
 @end
 
@@ -1485,27 +1528,27 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_MarketplaceNote : GTLRObject
 
 /** The role of the person (buyer/seller) creating the note. (readonly) */
-@property(copy, nullable) NSString *creatorRole;
+@property(nonatomic, copy, nullable) NSString *creatorRole;
 
 /**
  *  Notes can optionally be associated with a deal. (readonly, except on create)
  */
-@property(copy, nullable) NSString *dealId;
+@property(nonatomic, copy, nullable) NSString *dealId;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "adexchangebuyer#marketplaceNote".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The actual note to attach. (readonly, except on create) */
-@property(copy, nullable) NSString *note;
+@property(nonatomic, copy, nullable) NSString *note;
 
 /** The unique id for the note. (readonly) */
-@property(copy, nullable) NSString *noteId;
+@property(nonatomic, copy, nullable) NSString *noteId;
 
 /** The proposalId that a note is attached to. (readonly) */
-@property(copy, nullable) NSString *proposalId;
+@property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
  *  If the note is associated with a proposal revision number, then store that
@@ -1513,14 +1556,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *proposalRevisionNumber;
+@property(nonatomic, strong, nullable) NSNumber *proposalRevisionNumber;
 
 /**
  *  The timestamp (ms since epoch) that this note was created. (readonly)
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *timestampMs;
+@property(nonatomic, strong, nullable) NSNumber *timestampMs;
 
 @end
 
@@ -1535,14 +1578,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *bidRate;
+@property(nonatomic, strong, nullable) NSNumber *bidRate;
 
 /**
  *  The number of bid requests sent to your bidder.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *bidRequestRate;
+@property(nonatomic, strong, nullable) NSNumber *bidRequestRate;
 
 /**
  *  Rate of various prefiltering statuses per match. Please refer to the
@@ -1550,14 +1593,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) NSArray *calloutStatusRate;
+@property(nonatomic, strong, nullable) NSArray *calloutStatusRate;
 
 /**
  *  Average QPS for cookie matcher operations.
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) NSArray *cookieMatcherStatusRate;
+@property(nonatomic, strong, nullable) NSArray *cookieMatcherStatusRate;
 
 /**
  *  Rate of ads with a given status. Please refer to the
@@ -1565,7 +1608,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) NSArray *creativeStatusRate;
+@property(nonatomic, strong, nullable) NSArray *creativeStatusRate;
 
 /**
  *  The number of bid responses that were filtered due to a policy violation or
@@ -1573,24 +1616,24 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *filteredBidRate;
+@property(nonatomic, strong, nullable) NSNumber *filteredBidRate;
 
 /**
  *  Average QPS for hosted match operations.
  *
  *  Can be any valid JSON type.
  */
-@property(strong, nullable) NSArray *hostedMatchStatusRate;
+@property(nonatomic, strong, nullable) NSArray *hostedMatchStatusRate;
 
 /**
  *  The number of potential queries based on your pretargeting settings.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *inventoryMatchRate;
+@property(nonatomic, strong, nullable) NSNumber *inventoryMatchRate;
 
 /** Resource type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The 50th percentile round trip latency(ms) as perceived from Google servers
@@ -1598,7 +1641,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *latency50thPercentile;
+@property(nonatomic, strong, nullable) NSNumber *latency50thPercentile;
 
 /**
  *  The 85th percentile round trip latency(ms) as perceived from Google servers
@@ -1606,7 +1649,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *latency85thPercentile;
+@property(nonatomic, strong, nullable) NSNumber *latency85thPercentile;
 
 /**
  *  The 95th percentile round trip latency(ms) as perceived from Google servers
@@ -1614,52 +1657,52 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *latency95thPercentile;
+@property(nonatomic, strong, nullable) NSNumber *latency95thPercentile;
 
 /**
  *  Rate of various quota account statuses per quota check.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *noQuotaInRegion;
+@property(nonatomic, strong, nullable) NSNumber *noQuotaInRegion;
 
 /**
  *  Rate of various quota account statuses per quota check.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *outOfQuota;
+@property(nonatomic, strong, nullable) NSNumber *outOfQuota;
 
 /**
  *  Average QPS for pixel match requests from clients.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *pixelMatchRequests;
+@property(nonatomic, strong, nullable) NSNumber *pixelMatchRequests;
 
 /**
  *  Average QPS for pixel match responses from clients.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *pixelMatchResponses;
+@property(nonatomic, strong, nullable) NSNumber *pixelMatchResponses;
 
 /**
  *  The configured quota limits for this account.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *quotaConfiguredLimit;
+@property(nonatomic, strong, nullable) NSNumber *quotaConfiguredLimit;
 
 /**
  *  The throttled quota limits for this account.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *quotaThrottledLimit;
+@property(nonatomic, strong, nullable) NSNumber *quotaThrottledLimit;
 
 /** The trading location of this data. */
-@property(copy, nullable) NSString *region;
+@property(nonatomic, copy, nullable) NSString *region;
 
 /**
  *  The number of properly formed bid responses received by our servers within
@@ -1667,14 +1710,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *successfulRequestRate;
+@property(nonatomic, strong, nullable) NSNumber *successfulRequestRate;
 
 /**
  *  The unix timestamp of the starting time of this performance data.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *timestamp;
+@property(nonatomic, strong, nullable) NSNumber *timestamp;
 
 /**
  *  The number of bid responses that were unsuccessful due to timeouts,
@@ -1682,7 +1725,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *unsuccessfulRequestRate;
+@property(nonatomic, strong, nullable) NSNumber *unsuccessfulRequestRate;
 
 @end
 
@@ -1693,10 +1736,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_PerformanceReportList : GTLRObject
 
 /** Resource type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** A list of performance reports relevant for the account. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_PerformanceReport *> *performanceReport;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PerformanceReport *> *performanceReport;
 
 @end
 
@@ -1712,7 +1755,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *billingId;
+@property(nonatomic, strong, nullable) NSNumber *billingId;
 
 /**
  *  The config id; generated automatically. Leave this field blank for insert
@@ -1720,22 +1763,22 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *configId;
+@property(nonatomic, strong, nullable) NSNumber *configId;
 
 /** The name of the config. Must be unique. Required for all requests. */
-@property(copy, nullable) NSString *configName;
+@property(nonatomic, copy, nullable) NSString *configName;
 
 /**
  *  List must contain exactly one of PRETARGETING_CREATIVE_TYPE_HTML or
  *  PRETARGETING_CREATIVE_TYPE_VIDEO.
  */
-@property(strong, nullable) NSArray<NSString *> *creativeType;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *creativeType;
 
 /**
  *  Requests which allow one of these (width, height) pairs will match. All
  *  pairs must be supported ad dimensions.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfigDimensionsItem *> *dimensions;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfigDimensionsItem *> *dimensions;
 
 /**
  *  Requests with any of these content labels will not match. Values are from
@@ -1743,24 +1786,24 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *excludedContentLabels;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *excludedContentLabels;
 
 /**
  *  Requests containing any of these geo criteria ids will not match.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *excludedGeoCriteriaIds;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *excludedGeoCriteriaIds;
 
 /** Requests containing any of these placements will not match. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfigExcludedPlacementsItem *> *excludedPlacements;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfigExcludedPlacementsItem *> *excludedPlacements;
 
 /**
  *  Requests containing any of these users list ids will not match.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *excludedUserLists;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *excludedUserLists;
 
 /**
  *  Requests containing any of these vertical ids will not match. Values are
@@ -1768,27 +1811,27 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *excludedVerticals;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *excludedVerticals;
 
 /**
  *  Requests containing any of these geo criteria ids will match.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *geoCriteriaIds;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *geoCriteriaIds;
 
 /**
  *  Whether this config is active. Required for all requests.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isActive;
+@property(nonatomic, strong, nullable) NSNumber *isActive;
 
 /** The kind of the resource, i.e. "adexchangebuyer#pretargetingConfig". */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Request containing any of these language codes will match. */
-@property(strong, nullable) NSArray<NSString *> *languages;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *languages;
 
 /**
  *  Requests containing any of these mobile carrier ids will match. Values are
@@ -1796,7 +1839,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *mobileCarriers;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *mobileCarriers;
 
 /**
  *  Requests containing any of these mobile device ids will match. Values are
@@ -1804,7 +1847,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *mobileDevices;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *mobileDevices;
 
 /**
  *  Requests containing any of these mobile operating system version ids will
@@ -1812,17 +1855,17 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *mobileOperatingSystemVersions;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *mobileOperatingSystemVersions;
 
 /** Requests containing any of these placements will match. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfigPlacementsItem *> *placements;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfigPlacementsItem *> *placements;
 
 /**
  *  Requests matching any of these platforms will match. Possible values are
  *  PRETARGETING_PLATFORM_MOBILE, PRETARGETING_PLATFORM_DESKTOP, and
  *  PRETARGETING_PLATFORM_TABLET.
  */
-@property(strong, nullable) NSArray<NSString *> *platforms;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *platforms;
 
 /**
  *  Creative attributes should be declared here if all creatives corresponding
@@ -1832,14 +1875,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *supportedCreativeAttributes;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *supportedCreativeAttributes;
 
 /**
  *  Requests containing any of these user list ids will match.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *userLists;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *userLists;
 
 /**
  *  Requests that allow any of these vendor ids will match. Values are from
@@ -1847,19 +1890,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *vendorTypes;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *vendorTypes;
 
 /**
  *  Requests containing any of these vertical ids will match.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSArray<NSNumber *> *verticals;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *verticals;
 
 /**
  *  Video requests satisfying any of these player size constraints will match.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfigVideoPlayerSizesItem *> *videoPlayerSizes;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfigVideoPlayerSizesItem *> *videoPlayerSizes;
 
 @end
 
@@ -1874,14 +1917,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
  *  Width in pixels.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -1896,10 +1939,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  e.g. URL for a site placement, channel name for a channel placement, app id
  *  for a mobile app placement.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /** The type of the placement. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1914,10 +1957,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  e.g. URL for a site placement, channel name for a channel placement, app id
  *  for a mobile app placement.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /** The type of the placement. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1930,7 +1973,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The type of aspect ratio. Leave this field blank to match all aspect ratios.
  */
-@property(copy, nullable) NSString *aspectRatio;
+@property(nonatomic, copy, nullable) NSString *aspectRatio;
 
 /**
  *  The minimum player height in pixels. Leave this field blank to match any
@@ -1938,7 +1981,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *minHeight;
+@property(nonatomic, strong, nullable) NSNumber *minHeight;
 
 /**
  *  The minimum player width in pixels. Leave this field blank to match any
@@ -1946,7 +1989,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *minWidth;
+@property(nonatomic, strong, nullable) NSNumber *minWidth;
 
 @end
 
@@ -1965,10 +2008,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfig *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfig *> *items;
 
 /** Resource type. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -1983,13 +2026,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *amountMicros;
+@property(nonatomic, strong, nullable) NSNumber *amountMicros;
 
 /** The currency code for the price. */
-@property(copy, nullable) NSString *currencyCode;
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  In case of CPD deals, the expected CPM in micros.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expectedCpmMicros;
 
 /** The pricing type for the deal/product. */
-@property(copy, nullable) NSString *pricingType;
+@property(nonatomic, copy, nullable) NSString *pricingType;
 
 @end
 
@@ -2005,17 +2055,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_PricePerBuyer : GTLRObject
 
 /** Optional access type for this buyer. */
-@property(copy, nullable) NSString *auctionTier;
+@property(nonatomic, copy, nullable) NSString *auctionTier;
 
 /**
  *  The buyer who will pay this price. If unset, all buyers can pay this price
  *  (if the advertisers match, and there's no more specific rule matching the
  *  buyer).
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_Buyer *buyer;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Buyer *buyer;
 
 /** The specified price */
-@property(strong, nullable) GTLRAdExchangeBuyer_Price *price;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Price *price;
 
 @end
 
@@ -2025,7 +2075,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAdExchangeBuyer_PrivateData : GTLRObject
 
-@property(copy, nullable) NSString *referenceId;
+@property(nonatomic, copy, nullable) NSString *referenceId;
 
 /**
  *  referencePayload
@@ -2033,7 +2083,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *referencePayload;
+@property(nonatomic, copy, nullable) NSString *referencePayload;
 
 @end
 
@@ -2055,13 +2105,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *creationTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *creationTimeMs;
 
 /**
  *  Optional contact information for the creator of this product.
  *  (buyer-readonly)
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_ContactInformation *> *creatorContacts;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_ContactInformation *> *creatorContacts;
 
 /**
  *  The set of fields around delivery control that are interesting for a buyer
@@ -2069,14 +2119,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  is assigned an id of 100 since some day we would want to model this as a
  *  protobuf extension.
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_DeliveryControl *deliveryControl;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_DeliveryControl *deliveryControl;
 
 /**
  *  The proposed end time for the deal (ms since epoch) (buyer-readonly)
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *flightEndTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *flightEndTimeMs;
 
 /**
  *  Inventory availability dates. (times are in ms since epoch) The granularity
@@ -2084,7 +2134,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *flightStartTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *flightStartTimeMs;
 
 /**
  *  If the creator has already signed off on the product, then the buyer can
@@ -2094,38 +2144,38 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hasCreatorSignedOff;
+@property(nonatomic, strong, nullable) NSNumber *hasCreatorSignedOff;
 
 /** What exchange will provide this inventory (readonly, except on create). */
-@property(copy, nullable) NSString *inventorySource;
+@property(nonatomic, copy, nullable) NSString *inventorySource;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "adexchangebuyer#product".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Optional List of labels for the product (optional, buyer-readonly). */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceLabel *> *labels;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceLabel *> *labels;
 
 /**
  *  Time of last update in ms. since epoch (readonly)
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *lastUpdateTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *lastUpdateTimeMs;
 
 /** Optional legacy offer id if this offer is a preferred deal offer. */
-@property(copy, nullable) NSString *legacyOfferId;
+@property(nonatomic, copy, nullable) NSString *legacyOfferId;
 
 /** The name for this product as set by the seller. (buyer-readonly) */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Optional private auction id if this offer is a private auction offer. */
-@property(copy, nullable) NSString *privateAuctionId;
+@property(nonatomic, copy, nullable) NSString *privateAuctionId;
 
 /** The unique id for the product (readonly) */
-@property(copy, nullable) NSString *productId;
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Id of the publisher profile for a given seller. A (seller.account_id,
@@ -2133,48 +2183,48 @@ NS_ASSUME_NONNULL_BEGIN
  *  can call the PublisherProfiles::List endpoint to get a list of publisher
  *  profiles for a given seller.
  */
-@property(copy, nullable) NSString *publisherProfileId;
+@property(nonatomic, copy, nullable) NSString *publisherProfileId;
 
 /** Publisher self-provided forecast information. */
-@property(strong, nullable) GTLRAdExchangeBuyer_PublisherProvidedForecast *publisherProvidedForecast;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_PublisherProvidedForecast *publisherProvidedForecast;
 
 /**
  *  The revision number of the product. (readonly)
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *revisionNumber;
+@property(nonatomic, strong, nullable) NSNumber *revisionNumber;
 
 /**
  *  Information about the seller that created this product (readonly, except on
  *  create)
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_Seller *seller;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Seller *seller;
 
 /**
  *  Targeting that is shared between the buyer and the seller. Each targeting
  *  criteria has a specified key and for each key there is a list of inclusion
  *  value or exclusion values. (buyer-readonly)
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_SharedTargeting *> *sharedTargetings;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_SharedTargeting *> *sharedTargetings;
 
 /** The state of the product. (buyer-readonly) */
-@property(copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  The syndication product associated with the deal. (readonly, except on
  *  create)
  */
-@property(copy, nullable) NSString *syndicationProduct;
+@property(nonatomic, copy, nullable) NSString *syndicationProduct;
 
 /** The negotiable terms of the deal (buyer-readonly) */
-@property(strong, nullable) GTLRAdExchangeBuyer_DealTerms *terms;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_DealTerms *terms;
 
 /**
  *  The web property code for the seller. This field is meant to be copied over
  *  as is when creating deals.
  */
-@property(copy, nullable) NSString *webPropertyCode;
+@property(nonatomic, copy, nullable) NSString *webPropertyCode;
 
 @end
 
@@ -2193,25 +2243,25 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Reference to the buyer that will get billed for this proposal. (readonly)
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_Buyer *billedBuyer;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Buyer *billedBuyer;
 
 /** Reference to the buyer on the proposal. (readonly, except on create) */
-@property(strong, nullable) GTLRAdExchangeBuyer_Buyer *buyer;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Buyer *buyer;
 
-/** Optional contact information fort the buyer. (seller-readonly) */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_ContactInformation *> *buyerContacts;
+/** Optional contact information of the buyer. (seller-readonly) */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_ContactInformation *> *buyerContacts;
 
 /** Private data for buyer. (hidden from seller). */
-@property(strong, nullable) GTLRAdExchangeBuyer_PrivateData *buyerPrivateData;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_PrivateData *buyerPrivateData;
 
 /**
  *  When an proposal is in an accepted state, indicates whether the buyer has
- *  signed off Once both sides have signed off on a deal, the proposal can be
+ *  signed off. Once both sides have signed off on a deal, the proposal can be
  *  finalized by the seller. (seller-readonly)
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hasBuyerSignedOff;
+@property(nonatomic, strong, nullable) NSNumber *hasBuyerSignedOff;
 
 /**
  *  When an proposal is in an accepted state, indicates whether the buyer has
@@ -2220,17 +2270,17 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *hasSellerSignedOff;
+@property(nonatomic, strong, nullable) NSNumber *hasSellerSignedOff;
 
 /** What exchange will provide this inventory (readonly, except on create). */
-@property(copy, nullable) NSString *inventorySource;
+@property(nonatomic, copy, nullable) NSString *inventorySource;
 
 /**
  *  True if the proposal is being renegotiated (readonly).
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isRenegotiating;
+@property(nonatomic, strong, nullable) NSNumber *isRenegotiating;
 
 /**
  *  True, if the buyside inventory setup is complete for this proposal.
@@ -2238,62 +2288,62 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isSetupComplete;
+@property(nonatomic, strong, nullable) NSNumber *isSetupComplete;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "adexchangebuyer#proposal".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** List of labels associated with the proposal. (readonly) */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceLabel *> *labels;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_MarketplaceLabel *> *labels;
 
 /**
  *  The role of the last user that either updated the proposal or left a
  *  comment. (readonly)
  */
-@property(copy, nullable) NSString *lastUpdaterOrCommentorRole;
+@property(nonatomic, copy, nullable) NSString *lastUpdaterOrCommentorRole;
 
 /** The name for the proposal (updatable) */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Optional negotiation id if this proposal is a preferred deal proposal. */
-@property(copy, nullable) NSString *negotiationId;
+@property(nonatomic, copy, nullable) NSString *negotiationId;
 
 /** Indicates whether the buyer/seller created the proposal.(readonly) */
-@property(copy, nullable) NSString *originatorRole;
+@property(nonatomic, copy, nullable) NSString *originatorRole;
 
 /**
  *  Optional private auction id if this proposal is a private auction proposal.
  */
-@property(copy, nullable) NSString *privateAuctionId;
+@property(nonatomic, copy, nullable) NSString *privateAuctionId;
 
 /** The unique id of the proposal. (readonly). */
-@property(copy, nullable) NSString *proposalId;
+@property(nonatomic, copy, nullable) NSString *proposalId;
 
 /** The current state of the proposal. (readonly) */
-@property(copy, nullable) NSString *proposalState;
+@property(nonatomic, copy, nullable) NSString *proposalState;
 
 /**
  *  The revision number for the proposal (readonly).
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *revisionNumber;
+@property(nonatomic, strong, nullable) NSNumber *revisionNumber;
 
 /**
  *  The time (ms since epoch) when the proposal was last revised (readonly).
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *revisionTimeMs;
+@property(nonatomic, strong, nullable) NSNumber *revisionTimeMs;
 
 /** Reference to the seller on the proposal. (readonly, except on create) */
-@property(strong, nullable) GTLRAdExchangeBuyer_Seller *seller;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Seller *seller;
 
-/** Optional contact information for the seller (buyer-readonly). */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_ContactInformation *> *sellerContacts;
+/** Optional contact information of the seller (buyer-readonly). */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_ContactInformation *> *sellerContacts;
 
 @end
 
@@ -2304,22 +2354,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_PublisherProfileApiProto : GTLRObject
 
 /** The account id of the seller. */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Publisher provided info on its audience. */
-@property(copy, nullable) NSString *audience;
+@property(nonatomic, copy, nullable) NSString *audience;
 
 /** A pitch statement for the buyer */
-@property(copy, nullable) NSString *buyerPitchStatement;
+@property(nonatomic, copy, nullable) NSString *buyerPitchStatement;
 
 /** Direct contact for the publisher profile. */
-@property(copy, nullable) NSString *directContact;
+@property(nonatomic, copy, nullable) NSString *directContact;
 
 /** Exchange where this publisher profile is from. E.g. AdX, Rubicon etc... */
-@property(copy, nullable) NSString *exchange;
+@property(nonatomic, copy, nullable) NSString *exchange;
 
 /** Link to publisher's Google+ page. */
-@property(copy, nullable) NSString *googlePlusLink;
+@property(nonatomic, copy, nullable) NSString *googlePlusLink;
 
 /**
  *  True, if this is the parent profile, which represents all domains owned by
@@ -2327,31 +2377,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isParent;
+@property(nonatomic, strong, nullable) NSNumber *isParent;
 
 /**
  *  True, if this profile is published. Deprecated for state.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isPublished;
+@property(nonatomic, strong, nullable) NSNumber *isPublished;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "adexchangebuyer#publisherProfileApiProto".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The url to the logo for the publisher. */
-@property(copy, nullable) NSString *logoUrl;
+@property(nonatomic, copy, nullable) NSString *logoUrl;
 
 /** The url for additional marketing and sales materials. */
-@property(copy, nullable) NSString *mediaKitLink;
+@property(nonatomic, copy, nullable) NSString *mediaKitLink;
 
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Publisher provided overview. */
-@property(copy, nullable) NSString *overview;
+@property(nonatomic, copy, nullable) NSString *overview;
 
 /**
  *  The pair of (seller.account_id, profile_id) uniquely identifies a publisher
@@ -2359,37 +2409,37 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *profileId;
+@property(nonatomic, strong, nullable) NSNumber *profileId;
 
 /** Programmatic contact for the publisher profile. */
-@property(copy, nullable) NSString *programmaticContact;
+@property(nonatomic, copy, nullable) NSString *programmaticContact;
 
 /**
  *  The list of domains represented in this publisher profile. Empty if this is
  *  a parent profile.
  */
-@property(strong, nullable) NSArray<NSString *> *publisherDomains;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *publisherDomains;
 
 /** Unique Id for publisher profile. */
-@property(copy, nullable) NSString *publisherProfileId;
+@property(nonatomic, copy, nullable) NSString *publisherProfileId;
 
 /** Publisher provided forecasting information. */
-@property(strong, nullable) GTLRAdExchangeBuyer_PublisherProvidedForecast *publisherProvidedForecast;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_PublisherProvidedForecast *publisherProvidedForecast;
 
 /** Link to publisher rate card */
-@property(copy, nullable) NSString *rateCardInfoLink;
+@property(nonatomic, copy, nullable) NSString *rateCardInfoLink;
 
 /** Link for a sample content page. */
-@property(copy, nullable) NSString *samplePageLink;
+@property(nonatomic, copy, nullable) NSString *samplePageLink;
 
 /** Seller of the publisher profile. */
-@property(strong, nullable) GTLRAdExchangeBuyer_Seller *seller;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Seller *seller;
 
 /** State of the publisher profile. */
-@property(copy, nullable) NSString *state;
+@property(nonatomic, copy, nullable) NSString *state;
 
 /** Publisher provided key metrics and rankings. */
-@property(strong, nullable) NSArray<NSString *> *topHeadlines;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *topHeadlines;
 
 @end
 
@@ -2400,21 +2450,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_PublisherProvidedForecast : GTLRObject
 
 /** Publisher provided dimensions. E.g. geo, sizes etc... */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_Dimension *> *dimensions;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Dimension *> *dimensions;
 
 /**
  *  Publisher provided weekly impressions.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *weeklyImpressions;
+@property(nonatomic, strong, nullable) NSNumber *weeklyImpressions;
 
 /**
  *  Publisher provided weekly uniques.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *weeklyUniques;
+@property(nonatomic, strong, nullable) NSNumber *weeklyUniques;
 
 @end
 
@@ -2428,10 +2478,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The unique id for the seller. The seller fills in this field. The seller
  *  account id is then available to buyer in the product.
  */
-@property(copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Optional sub-account id for the seller. */
-@property(copy, nullable) NSString *subAccountId;
+@property(nonatomic, copy, nullable) NSString *subAccountId;
 
 @end
 
@@ -2444,16 +2494,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The list of values to exclude from targeting. Each value is AND'd together.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_TargetingValue *> *exclusions;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_TargetingValue *> *exclusions;
 
 /**
  *  The list of value to include as part of the targeting. Each value is OR'd
  *  together.
  */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_TargetingValue *> *inclusions;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_TargetingValue *> *inclusions;
 
 /** The key representing the shared targeting criterion. */
-@property(copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *key;
 
 @end
 
@@ -2464,23 +2514,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_TargetingValue : GTLRObject
 
 /** The creative size value to exclude/include. */
-@property(strong, nullable) GTLRAdExchangeBuyer_TargetingValueCreativeSize *creativeSizeValue;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_TargetingValueCreativeSize *creativeSizeValue;
 
 /**
  *  The daypart targeting to include / exclude. Filled in when the key is
  *  GOOG_DAYPART_TARGETING.
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_TargetingValueDayPartTargeting *dayPartTargetingValue;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_TargetingValueDayPartTargeting *dayPartTargetingValue;
 
 /**
  *  The long value to exclude/include.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *longValue;
+@property(nonatomic, strong, nullable) NSNumber *longValue;
 
 /** The string value to exclude/include. */
-@property(copy, nullable) NSString *stringValue;
+@property(nonatomic, copy, nullable) NSString *stringValue;
 
 @end
 
@@ -2491,18 +2541,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_TargetingValueCreativeSize : GTLRObject
 
 /** For video size type, the list of companion sizes. */
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_TargetingValueSize *> *companionSizes;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_TargetingValueSize *> *companionSizes;
 
 /** The Creative size type. */
-@property(copy, nullable) NSString *creativeSizeType;
+@property(nonatomic, copy, nullable) NSString *creativeSizeType;
 
 /**
  *  For regular or video creative size type, specifies the size of the creative.
  */
-@property(strong, nullable) GTLRAdExchangeBuyer_TargetingValueSize *size;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_TargetingValueSize *size;
 
 /** The skippable ad type for video size. */
-@property(copy, nullable) NSString *skippableAdType;
+@property(nonatomic, copy, nullable) NSString *skippableAdType;
 
 @end
 
@@ -2512,8 +2562,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAdExchangeBuyer_TargetingValueDayPartTargeting : GTLRObject
 
-@property(strong, nullable) NSArray<GTLRAdExchangeBuyer_TargetingValueDayPartTargetingDayPart *> *dayParts;
-@property(copy, nullable) NSString *timeZoneType;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_TargetingValueDayPartTargetingDayPart *> *dayParts;
+@property(nonatomic, copy, nullable) NSString *timeZoneType;
 
 @end
 
@@ -2523,35 +2573,35 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAdExchangeBuyer_TargetingValueDayPartTargetingDayPart : GTLRObject
 
-@property(copy, nullable) NSString *dayOfWeek;
+@property(nonatomic, copy, nullable) NSString *dayOfWeek;
 
 /**
  *  endHour
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *endHour;
+@property(nonatomic, strong, nullable) NSNumber *endHour;
 
 /**
  *  endMinute
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *endMinute;
+@property(nonatomic, strong, nullable) NSNumber *endMinute;
 
 /**
  *  startHour
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startHour;
+@property(nonatomic, strong, nullable) NSNumber *startHour;
 
 /**
  *  startMinute
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *startMinute;
+@property(nonatomic, strong, nullable) NSNumber *startMinute;
 
 @end
 
@@ -2566,14 +2616,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
  *  The width of the creative.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -2584,20 +2634,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_UpdatePrivateAuctionProposalRequest : GTLRObject
 
 /** The externalDealId of the deal to be updated. */
-@property(copy, nullable) NSString *externalDealId;
+@property(nonatomic, copy, nullable) NSString *externalDealId;
 
 /** Optional note to be added. */
-@property(strong, nullable) GTLRAdExchangeBuyer_MarketplaceNote *note;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_MarketplaceNote *note;
 
 /**
  *  The current revision number of the proposal to be updated.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *proposalRevisionNumber;
+@property(nonatomic, strong, nullable) NSNumber *proposalRevisionNumber;
 
 /** The proposed action on the private auction proposal. */
-@property(copy, nullable) NSString *updateAction;
+@property(nonatomic, copy, nullable) NSString *updateAction;
 
 @end
 

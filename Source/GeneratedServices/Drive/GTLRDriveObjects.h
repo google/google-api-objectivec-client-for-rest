@@ -53,41 +53,41 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *appInstalled;
+@property(nonatomic, strong, nullable) NSNumber *appInstalled;
 
 /**
  *  A map of source MIME type to possible targets for all supported exports.
  */
-@property(strong, nullable) GTLRDrive_AboutExportFormats *exportFormats;
+@property(nonatomic, strong, nullable) GTLRDrive_AboutExportFormats *exportFormats;
 
 /** The currently supported folder colors as RGB hex strings. */
-@property(strong, nullable) NSArray<NSString *> *folderColorPalette;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *folderColorPalette;
 
 /**
  *  A map of source MIME type to possible targets for all supported imports.
  */
-@property(strong, nullable) GTLRDrive_AboutImportFormats *importFormats;
+@property(nonatomic, strong, nullable) GTLRDrive_AboutImportFormats *importFormats;
 
 /** This is always drive#about. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** A map of maximum import sizes by MIME type, in bytes. */
-@property(strong, nullable) GTLRDrive_AboutMaxImportSizes *maxImportSizes;
+@property(nonatomic, strong, nullable) GTLRDrive_AboutMaxImportSizes *maxImportSizes;
 
 /**
  *  The maximum upload size in bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *maxUploadSize;
+@property(nonatomic, strong, nullable) NSNumber *maxUploadSize;
 
 /**
  *  The user's storage quota limits and usage. All fields are measured in bytes.
  */
-@property(strong, nullable) GTLRDrive_AboutStorageQuota *storageQuota;
+@property(nonatomic, strong, nullable) GTLRDrive_AboutStorageQuota *storageQuota;
 
 /** The authenticated user. */
-@property(strong, nullable) GTLRDrive_User *user;
+@property(nonatomic, strong, nullable) GTLRDrive_User *user;
 
 @end
 
@@ -139,28 +139,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *limit;
+@property(nonatomic, strong, nullable) NSNumber *limit;
 
 /**
  *  The total usage across all services.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *usage;
+@property(nonatomic, strong, nullable) NSNumber *usage;
 
 /**
  *  The usage by all files in Google Drive.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *usageInDrive;
+@property(nonatomic, strong, nullable) NSNumber *usageInDrive;
 
 /**
  *  The usage by trashed files in Google Drive.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *usageInDriveTrash;
+@property(nonatomic, strong, nullable) NSNumber *usageInDriveTrash;
 
 @end
 
@@ -173,13 +173,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The updated state of the file. Present if the file has not been removed.
  */
-@property(strong, nullable) GTLRDrive_File *file;
+@property(nonatomic, strong, nullable) GTLRDrive_File *file;
 
 /** The ID of the file which has changed. */
-@property(copy, nullable) NSString *fileId;
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 /** This is always drive#change. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Whether the file has been removed from the view of the changes list, for
@@ -187,10 +187,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *removed;
+@property(nonatomic, strong, nullable) NSNumber *removed;
 
 /** The time of this change (RFC 3339 date-time). */
-@property(strong, nullable) GTLRDateTime *time;
+@property(nonatomic, strong, nullable) GTLRDateTime *time;
 
 @end
 
@@ -211,22 +211,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDrive_Change *> *changes;
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Change *> *changes;
 
 /** This is always drive#changeList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The starting page token for future changes. This will be present only if the
  *  end of the current changes list has been reached.
  */
-@property(copy, nullable) NSString *newStartPageToken NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, copy, nullable) NSString *newStartPageToken NS_RETURNS_NOT_RETAINED;
 
 /**
  *  The page token for the next page of changes. This will be absent if the end
  *  of the current changes list has been reached.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -237,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_Channel : GTLRObject
 
 /** The address where notifications are delivered for this channel. */
-@property(copy, nullable) NSString *address;
+@property(nonatomic, copy, nullable) NSString *address;
 
 /**
  *  Date and time of notification channel expiration, expressed as a Unix
@@ -245,48 +245,48 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *expiration;
+@property(nonatomic, strong, nullable) NSNumber *expiration;
 
 /**
  *  A UUID or similar unique string that identifies this channel.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Identifies this as a notification channel used to watch for changes to a
  *  resource. Value: the fixed string "api#channel".
  */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Additional parameters controlling delivery channel behavior. Optional. */
-@property(strong, nullable) GTLRDrive_ChannelParams *params;
+@property(nonatomic, strong, nullable) GTLRDrive_ChannelParams *params;
 
 /**
  *  A Boolean value to indicate whether payload is wanted. Optional.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *payload;
+@property(nonatomic, strong, nullable) NSNumber *payload;
 
 /**
  *  An opaque ID that identifies the resource being watched on this channel.
  *  Stable across different API versions.
  */
-@property(copy, nullable) NSString *resourceId;
+@property(nonatomic, copy, nullable) NSString *resourceId;
 
 /** A version-specific identifier for the watched resource. */
-@property(copy, nullable) NSString *resourceUri;
+@property(nonatomic, copy, nullable) NSString *resourceUri;
 
 /**
  *  An arbitrary string delivered to the target address with each notification
  *  delivered over this channel. Optional.
  */
-@property(copy, nullable) NSString *token;
+@property(nonatomic, copy, nullable) NSString *token;
 
 /** The type of delivery mechanism used for this channel. */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -312,62 +312,62 @@ NS_ASSUME_NONNULL_BEGIN
  *  A region of the document represented as a JSON string. See anchor
  *  documentation for details on how to define and interpret anchor properties.
  */
-@property(copy, nullable) NSString *anchor;
+@property(nonatomic, copy, nullable) NSString *anchor;
 
 /** The user who created the comment. */
-@property(strong, nullable) GTLRDrive_User *author;
+@property(nonatomic, strong, nullable) GTLRDrive_User *author;
 
 /**
  *  The plain text content of the comment. This field is used for setting the
  *  content, while htmlContent should be displayed.
  */
-@property(copy, nullable) NSString *content;
+@property(nonatomic, copy, nullable) NSString *content;
 
 /** The time at which the comment was created (RFC 3339 date-time). */
-@property(strong, nullable) GTLRDateTime *createdTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *createdTime;
 
 /**
  *  Whether the comment has been deleted. A deleted comment has no content.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *deleted;
+@property(nonatomic, strong, nullable) NSNumber *deleted;
 
 /** The content of the comment with HTML formatting. */
-@property(copy, nullable) NSString *htmlContent;
+@property(nonatomic, copy, nullable) NSString *htmlContent;
 
 /**
  *  The ID of the comment.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** This is always drive#comment. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The last time the comment or any of its replies was modified (RFC 3339
  *  date-time).
  */
-@property(strong, nullable) GTLRDateTime *modifiedTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *modifiedTime;
 
 /**
  *  The file content to which the comment refers, typically within the anchor
  *  region. For a text file, for example, this would be the text at the location
  *  of the comment.
  */
-@property(strong, nullable) GTLRDrive_CommentQuotedFileContent *quotedFileContent;
+@property(nonatomic, strong, nullable) GTLRDrive_CommentQuotedFileContent *quotedFileContent;
 
 /** The full list of replies to the comment in chronological order. */
-@property(strong, nullable) NSArray<GTLRDrive_Reply *> *replies;
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Reply *> *replies;
 
 /**
  *  Whether the comment has been resolved by one of its replies.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *resolved;
+@property(nonatomic, strong, nullable) NSNumber *resolved;
 
 @end
 
@@ -380,13 +380,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_CommentQuotedFileContent : GTLRObject
 
 /** The MIME type of the quoted content. */
-@property(copy, nullable) NSString *mimeType;
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
  *  The quoted content itself. This is interpreted as plain text if set through
  *  the API.
  */
-@property(copy, nullable) NSString *value;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -407,16 +407,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDrive_Comment *> *comments;
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Comment *> *comments;
 
 /** This is always drive#commentList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The page token for the next page of comments. This will be absent if the end
  *  of the comments list has been reached.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -431,26 +431,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  requesting app.
  *  Entries with null values are cleared in update and copy requests.
  */
-@property(strong, nullable) GTLRDrive_FileAppProperties *appProperties;
+@property(nonatomic, strong, nullable) GTLRDrive_FileAppProperties *appProperties;
 
 /** Capabilities the current user has on the file. */
-@property(strong, nullable) GTLRDrive_FileCapabilities *capabilities;
+@property(nonatomic, strong, nullable) GTLRDrive_FileCapabilities *capabilities;
 
 /**
  *  Additional information about the content of the file. These fields are never
  *  populated in responses.
  */
-@property(strong, nullable) GTLRDrive_FileContentHints *contentHints;
+@property(nonatomic, strong, nullable) GTLRDrive_FileContentHints *contentHints;
 
 /** The time at which the file was created (RFC 3339 date-time). */
-@property(strong, nullable) GTLRDateTime *createdTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *createdTime;
 
 /**
  *  A short description of the file.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Whether the file has been explicitly trashed, as opposed to recursively
@@ -458,13 +458,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *explicitlyTrashed;
+@property(nonatomic, strong, nullable) NSNumber *explicitlyTrashed;
 
 /**
  *  The final component of fullFileExtension. This is only available for files
  *  with binary content in Drive.
  */
-@property(copy, nullable) NSString *fileExtension;
+@property(nonatomic, copy, nullable) NSString *fileExtension;
 
 /**
  *  The color for a folder as an RGB hex string. The supported colors are
@@ -472,7 +472,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  If an unsupported color is specified, the closest color in the palette will
  *  be used instead.
  */
-@property(copy, nullable) NSString *folderColorRgb;
+@property(nonatomic, copy, nullable) NSString *folderColorRgb;
 
 /**
  *  The full file extension extracted from the name field. May contain multiple
@@ -481,45 +481,45 @@ NS_ASSUME_NONNULL_BEGIN
  *  This is automatically updated when the name field changes, however it is not
  *  cleared if the new name does not contain a valid extension.
  */
-@property(copy, nullable) NSString *fullFileExtension;
+@property(nonatomic, copy, nullable) NSString *fullFileExtension;
 
 /**
  *  The ID of the file's head revision. This is currently only available for
  *  files with binary content in Drive.
  */
-@property(copy, nullable) NSString *headRevisionId;
+@property(nonatomic, copy, nullable) NSString *headRevisionId;
 
 /** A static, unauthenticated link to the file's icon. */
-@property(copy, nullable) NSString *iconLink;
+@property(nonatomic, copy, nullable) NSString *iconLink;
 
 /**
  *  The ID of the file.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Additional metadata about image media, if available. */
-@property(strong, nullable) GTLRDrive_FileImageMediaMetadata *imageMediaMetadata;
+@property(nonatomic, strong, nullable) GTLRDrive_FileImageMediaMetadata *imageMediaMetadata;
 
 /**
  *  Whether the file was created or opened by the requesting app.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *isAppAuthorized;
+@property(nonatomic, strong, nullable) NSNumber *isAppAuthorized;
 
 /** This is always drive#file. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The last user to modify the file. */
-@property(strong, nullable) GTLRDrive_User *lastModifyingUser;
+@property(nonatomic, strong, nullable) GTLRDrive_User *lastModifyingUser;
 
 /**
  *  The MD5 checksum for the content of the file. This is only applicable to
  *  files with binary content in Drive.
  */
-@property(copy, nullable) NSString *md5Checksum;
+@property(nonatomic, copy, nullable) NSString *md5Checksum;
 
 /**
  *  The MIME type of the file.
@@ -530,40 +530,40 @@ NS_ASSUME_NONNULL_BEGIN
  *  be imported if possible. The supported import formats are published in the
  *  About resource.
  */
-@property(copy, nullable) NSString *mimeType;
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 /** The last time the file was modified by the user (RFC 3339 date-time). */
-@property(strong, nullable) GTLRDateTime *modifiedByMeTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *modifiedByMeTime;
 
 /**
  *  The last time the file was modified by anyone (RFC 3339 date-time).
  *  Note that setting modifiedTime will also update modifiedByMeTime for the
  *  user.
  */
-@property(strong, nullable) GTLRDateTime *modifiedTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *modifiedTime;
 
 /** The name of the file. This is not necessarily unique within a folder. */
-@property(copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The original filename of the uploaded content if available, or else the
  *  original value of the name field. This is only available for files with
  *  binary content in Drive.
  */
-@property(copy, nullable) NSString *originalFilename;
+@property(nonatomic, copy, nullable) NSString *originalFilename;
 
 /**
  *  Whether the user owns the file.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *ownedByMe;
+@property(nonatomic, strong, nullable) NSNumber *ownedByMe;
 
 /**
  *  The owners of the file. Currently, only certain legacy files may have more
  *  than one owner.
  */
-@property(strong, nullable) NSArray<GTLRDrive_User *> *owners;
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_User *> *owners;
 
 /**
  *  The IDs of the parent folders which contain the file.
@@ -571,19 +571,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  directly in the My Drive folder. Update requests must use the addParents and
  *  removeParents parameters to modify the values.
  */
-@property(strong, nullable) NSArray<NSString *> *parents;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *parents;
 
 /**
  *  The full list of permissions for the file. This is only available if the
  *  requesting user can share the file.
  */
-@property(strong, nullable) NSArray<GTLRDrive_Permission *> *permissions;
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission *> *permissions;
 
 /**
  *  A collection of arbitrary key-value pairs which are visible to all apps.
  *  Entries with null values are cleared in update and copy requests.
  */
-@property(strong, nullable) GTLRDrive_FileProperties *properties;
+@property(nonatomic, strong, nullable) GTLRDrive_FileProperties *properties;
 
 /**
  *  The number of storage quota bytes used by the file. This includes the head
@@ -591,23 +591,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *quotaBytesUsed;
+@property(nonatomic, strong, nullable) NSNumber *quotaBytesUsed;
 
 /**
  *  Whether the file has been shared.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *shared;
+@property(nonatomic, strong, nullable) NSNumber *shared;
 
 /**
  *  The time at which the file was shared with the user, if applicable (RFC 3339
  *  date-time).
  */
-@property(strong, nullable) GTLRDateTime *sharedWithMeTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *sharedWithMeTime;
 
 /** The user who shared the file with the requesting user, if applicable. */
-@property(strong, nullable) GTLRDrive_User *sharingUser;
+@property(nonatomic, strong, nullable) GTLRDrive_User *sharingUser;
 
 /**
  *  The size of the file's content in bytes. This is only applicable to files
@@ -615,26 +615,26 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *size;
+@property(nonatomic, strong, nullable) NSNumber *size;
 
 /**
  *  The list of spaces which contain the file. The currently supported values
  *  are 'drive', 'appDataFolder' and 'photos'.
  */
-@property(strong, nullable) NSArray<NSString *> *spaces;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *spaces;
 
 /**
  *  Whether the user has starred the file.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *starred;
+@property(nonatomic, strong, nullable) NSNumber *starred;
 
 /**
  *  A short-lived link to the file's thumbnail, if available. Typically lasts on
  *  the order of hours.
  */
-@property(copy, nullable) NSString *thumbnailLink;
+@property(nonatomic, copy, nullable) NSString *thumbnailLink;
 
 /**
  *  Whether the file has been trashed, either explicitly or from a trashed
@@ -643,7 +643,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *trashed;
+@property(nonatomic, strong, nullable) NSNumber *trashed;
 
 /**
  *  A monotonically increasing version number for the file. This reflects every
@@ -651,23 +651,23 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *version;
+@property(nonatomic, strong, nullable) NSNumber *version;
 
 /**
  *  Additional metadata about video media. This may not be available immediately
  *  upon upload.
  */
-@property(strong, nullable) GTLRDrive_FileVideoMediaMetadata *videoMediaMetadata;
+@property(nonatomic, strong, nullable) GTLRDrive_FileVideoMediaMetadata *videoMediaMetadata;
 
 /**
  *  Whether the file has been viewed by this user.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *viewedByMe;
+@property(nonatomic, strong, nullable) NSNumber *viewedByMe;
 
 /** The last time the file was viewed by the user (RFC 3339 date-time). */
-@property(strong, nullable) GTLRDateTime *viewedByMeTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *viewedByMeTime;
 
 /**
  *  Whether users with only reader or commenter permission can copy the file's
@@ -675,26 +675,26 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *viewersCanCopyContent;
+@property(nonatomic, strong, nullable) NSNumber *viewersCanCopyContent;
 
 /**
  *  A link for downloading the content of the file in a browser. This is only
  *  available for files with binary content in Drive.
  */
-@property(copy, nullable) NSString *webContentLink;
+@property(nonatomic, copy, nullable) NSString *webContentLink;
 
 /**
  *  A link for opening the file in a relevant Google editor or viewer in a
  *  browser.
  */
-@property(copy, nullable) NSString *webViewLink;
+@property(nonatomic, copy, nullable) NSString *webViewLink;
 
 /**
  *  Whether users with only writer permission can modify the file's permissions.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *writersCanShare;
+@property(nonatomic, strong, nullable) NSNumber *writersCanShare;
 
 @end
 
@@ -723,21 +723,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *canComment;
+@property(nonatomic, strong, nullable) NSNumber *canComment;
 
 /**
  *  Whether the user can copy the file.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *canCopy;
+@property(nonatomic, strong, nullable) NSNumber *canCopy;
 
 /**
  *  Whether the user can edit the file's content.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *canEdit;
+@property(nonatomic, strong, nullable) NSNumber *canEdit;
 
 /**
  *  Whether the current user has read access to the Revisions resource of the
@@ -745,14 +745,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *canReadRevisions;
+@property(nonatomic, strong, nullable) NSNumber *canReadRevisions;
 
 /**
  *  Whether the user can modify the file's permissions and sharing settings.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *canShare;
+@property(nonatomic, strong, nullable) NSNumber *canShare;
 
 @end
 
@@ -767,13 +767,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Text to be indexed for the file to improve fullText queries. This is limited
  *  to 128KB in length and may contain HTML elements.
  */
-@property(copy, nullable) NSString *indexableText;
+@property(nonatomic, copy, nullable) NSString *indexableText;
 
 /**
  *  A thumbnail for the file. This will only be used if Drive cannot generate a
  *  standard thumbnail.
  */
-@property(strong, nullable) GTLRDrive_FileContentHintsThumbnail *thumbnail;
+@property(nonatomic, strong, nullable) GTLRDrive_FileContentHintsThumbnail *thumbnail;
 
 @end
 
@@ -788,67 +788,67 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *aperture;
+@property(nonatomic, strong, nullable) NSNumber *aperture;
 
 /** The make of the camera used to create the photo. */
-@property(copy, nullable) NSString *cameraMake;
+@property(nonatomic, copy, nullable) NSString *cameraMake;
 
 /** The model of the camera used to create the photo. */
-@property(copy, nullable) NSString *cameraModel;
+@property(nonatomic, copy, nullable) NSString *cameraModel;
 
 /** The color space of the photo. */
-@property(copy, nullable) NSString *colorSpace;
+@property(nonatomic, copy, nullable) NSString *colorSpace;
 
 /**
  *  The exposure bias of the photo (APEX value).
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *exposureBias;
+@property(nonatomic, strong, nullable) NSNumber *exposureBias;
 
 /** The exposure mode used to create the photo. */
-@property(copy, nullable) NSString *exposureMode;
+@property(nonatomic, copy, nullable) NSString *exposureMode;
 
 /**
  *  The length of the exposure, in seconds.
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *exposureTime;
+@property(nonatomic, strong, nullable) NSNumber *exposureTime;
 
 /**
  *  Whether a flash was used to create the photo.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *flashUsed;
+@property(nonatomic, strong, nullable) NSNumber *flashUsed;
 
 /**
  *  The focal length used to create the photo, in millimeters.
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *focalLength;
+@property(nonatomic, strong, nullable) NSNumber *focalLength;
 
 /**
  *  The height of the image in pixels.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
  *  The ISO speed used to create the photo.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *isoSpeed;
+@property(nonatomic, strong, nullable) NSNumber *isoSpeed;
 
 /** The lens used to create the photo. */
-@property(copy, nullable) NSString *lens;
+@property(nonatomic, copy, nullable) NSString *lens;
 
 /** Geographic location information stored in the image. */
-@property(strong, nullable) GTLRDrive_FileImageMediaMetadataLocation *location;
+@property(nonatomic, strong, nullable) GTLRDrive_FileImageMediaMetadataLocation *location;
 
 /**
  *  The smallest f-number of the lens at the focal length used to create the
@@ -856,40 +856,40 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of floatValue.
  */
-@property(strong, nullable) NSNumber *maxApertureValue;
+@property(nonatomic, strong, nullable) NSNumber *maxApertureValue;
 
 /** The metering mode used to create the photo. */
-@property(copy, nullable) NSString *meteringMode;
+@property(nonatomic, copy, nullable) NSString *meteringMode;
 
 /**
  *  The rotation in clockwise degrees from the image's original orientation.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *rotation;
+@property(nonatomic, strong, nullable) NSNumber *rotation;
 
 /** The type of sensor used to create the photo. */
-@property(copy, nullable) NSString *sensor;
+@property(nonatomic, copy, nullable) NSString *sensor;
 
 /**
  *  The distance to the subject of the photo, in meters.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *subjectDistance;
+@property(nonatomic, strong, nullable) NSNumber *subjectDistance;
 
 /** The date and time the photo was taken (EXIF DateTime). */
-@property(copy, nullable) NSString *time;
+@property(nonatomic, copy, nullable) NSString *time;
 
 /** The white balance mode used to create the photo. */
-@property(copy, nullable) NSString *whiteBalance;
+@property(nonatomic, copy, nullable) NSString *whiteBalance;
 
 /**
  *  The width of the image in pixels.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -918,21 +918,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *durationMillis;
+@property(nonatomic, strong, nullable) NSNumber *durationMillis;
 
 /**
  *  The height of the video in pixels.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *height;
+@property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
  *  The width of the video in pixels.
  *
  *  Uses NSNumber of intValue.
  */
-@property(strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 
@@ -949,10 +949,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(copy, nullable) NSString *image;
+@property(nonatomic, copy, nullable) NSString *image;
 
 /** The MIME type of the thumbnail. */
-@property(copy, nullable) NSString *mimeType;
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 @end
 
@@ -967,21 +967,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *altitude;
+@property(nonatomic, strong, nullable) NSNumber *altitude;
 
 /**
  *  The latitude stored in the image.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *latitude;
+@property(nonatomic, strong, nullable) NSNumber *latitude;
 
 /**
  *  The longitude stored in the image.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(strong, nullable) NSNumber *longitude;
+@property(nonatomic, strong, nullable) NSNumber *longitude;
 
 @end
 
@@ -1002,16 +1002,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDrive_File *> *files;
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_File *> *files;
 
 /** This is always drive#fileList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The page token for the next page of files. This will be absent if the end of
  *  the files list has been reached.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -1022,13 +1022,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_GeneratedIds : GTLRObject
 
 /** The IDs generated for the requesting user in the specified space. */
-@property(strong, nullable) NSArray<NSString *> *ids;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ids;
 
 /** This is always drive#generatedIds */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The type of file that can be created with these IDs. */
-@property(copy, nullable) NSString *space;
+@property(nonatomic, copy, nullable) NSString *space;
 
 @end
 
@@ -1045,19 +1045,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *allowFileDiscovery;
+@property(nonatomic, strong, nullable) NSNumber *allowFileDiscovery;
 
 /** A displayable name for users, groups or domains. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The domain to which this permission refers. */
-@property(copy, nullable) NSString *domain;
+@property(nonatomic, copy, nullable) NSString *domain;
 
 /** The email address of the user or group to which this permission refers. */
-@property(copy, nullable) NSString *emailAddress;
+@property(nonatomic, copy, nullable) NSString *emailAddress;
 
 /** The time at which this permission will expire (RFC 3339 date-time). */
-@property(strong, nullable) GTLRDateTime *expirationTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
 /**
  *  The ID of this permission. This is a unique identifier for the grantee, and
@@ -1065,13 +1065,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** This is always drive#permission. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** A link to the user's profile photo, if available. */
-@property(copy, nullable) NSString *photoLink;
+@property(nonatomic, copy, nullable) NSString *photoLink;
 
 /**
  *  The role granted by this permission. Valid values are:
@@ -1080,7 +1080,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - commenter
  *  - reader
  */
-@property(copy, nullable) NSString *role;
+@property(nonatomic, copy, nullable) NSString *role;
 
 /**
  *  The type of the grantee. Valid values are:
@@ -1089,7 +1089,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - domain
  *  - anyone
  */
-@property(copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1100,10 +1100,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_PermissionList : GTLRObject
 
 /** This is always drive#permissionList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The full list of permissions. */
-@property(strong, nullable) NSArray<GTLRDrive_Permission *> *permissions;
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission *> *permissions;
 
 @end
 
@@ -1118,43 +1118,43 @@ NS_ASSUME_NONNULL_BEGIN
  *  - resolve
  *  - reopen
  */
-@property(copy, nullable) NSString *action;
+@property(nonatomic, copy, nullable) NSString *action;
 
 /** The user who created the reply. */
-@property(strong, nullable) GTLRDrive_User *author;
+@property(nonatomic, strong, nullable) GTLRDrive_User *author;
 
 /**
  *  The plain text content of the reply. This field is used for setting the
  *  content, while htmlContent should be displayed. This is required on creates
  *  if no action is specified.
  */
-@property(copy, nullable) NSString *content;
+@property(nonatomic, copy, nullable) NSString *content;
 
 /** The time at which the reply was created (RFC 3339 date-time). */
-@property(strong, nullable) GTLRDateTime *createdTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *createdTime;
 
 /**
  *  Whether the reply has been deleted. A deleted reply has no content.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *deleted;
+@property(nonatomic, strong, nullable) NSNumber *deleted;
 
 /** The content of the reply with HTML formatting. */
-@property(copy, nullable) NSString *htmlContent;
+@property(nonatomic, copy, nullable) NSString *htmlContent;
 
 /**
  *  The ID of the reply.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /** This is always drive#reply. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The last time the reply was modified (RFC 3339 date-time). */
-@property(strong, nullable) GTLRDateTime *modifiedTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *modifiedTime;
 
 @end
 
@@ -1170,13 +1170,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_ReplyList : GTLRCollectionObject
 
 /** This is always drive#replyList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The page token for the next page of replies. This will be absent if the end
  *  of the replies list has been reached.
  */
-@property(copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The page of replies.
@@ -1184,7 +1184,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(strong, nullable) NSArray<GTLRDrive_Reply *> *replies;
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Reply *> *replies;
 
 @end
 
@@ -1199,7 +1199,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Whether to keep this revision forever, even if it is no longer the head
@@ -1210,31 +1210,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *keepForever;
+@property(nonatomic, strong, nullable) NSNumber *keepForever;
 
 /** This is always drive#revision. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The last user to modify this revision. */
-@property(strong, nullable) GTLRDrive_User *lastModifyingUser;
+@property(nonatomic, strong, nullable) GTLRDrive_User *lastModifyingUser;
 
 /**
  *  The MD5 checksum of the revision's content. This is only applicable to files
  *  with binary content in Drive.
  */
-@property(copy, nullable) NSString *md5Checksum;
+@property(nonatomic, copy, nullable) NSString *md5Checksum;
 
 /** The MIME type of the revision. */
-@property(copy, nullable) NSString *mimeType;
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 /** The last time the revision was modified (RFC 3339 date-time). */
-@property(strong, nullable) GTLRDateTime *modifiedTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *modifiedTime;
 
 /**
  *  The original filename used to create this revision. This is only applicable
  *  to files with binary content in Drive.
  */
-@property(copy, nullable) NSString *originalFilename;
+@property(nonatomic, copy, nullable) NSString *originalFilename;
 
 /**
  *  Whether subsequent revisions will be automatically republished. This is only
@@ -1242,14 +1242,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *publishAuto;
+@property(nonatomic, strong, nullable) NSNumber *publishAuto;
 
 /**
  *  Whether this revision is published. This is only applicable to Google Docs.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *published;
+@property(nonatomic, strong, nullable) NSNumber *published;
 
 /**
  *  Whether this revision is published outside the domain. This is only
@@ -1257,7 +1257,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *publishedOutsideDomain;
+@property(nonatomic, strong, nullable) NSNumber *publishedOutsideDomain;
 
 /**
  *  The size of the revision's content in bytes. This is only applicable to
@@ -1265,7 +1265,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(strong, nullable) NSNumber *size;
+@property(nonatomic, strong, nullable) NSNumber *size;
 
 @end
 
@@ -1276,10 +1276,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_RevisionList : GTLRObject
 
 /** This is always drive#revisionList. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The full list of revisions. */
-@property(strong, nullable) NSArray<GTLRDrive_Revision *> *revisions;
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Revision *> *revisions;
 
 @end
 
@@ -1290,10 +1290,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_StartPageToken : GTLRObject
 
 /** This is always drive#startPageToken. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The starting page token for listing changes. */
-@property(copy, nullable) NSString *startPageToken;
+@property(nonatomic, copy, nullable) NSString *startPageToken;
 
 @end
 
@@ -1304,29 +1304,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_User : GTLRObject
 
 /** A plain text displayable name for this user. */
-@property(copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The email address of the user. This may not be present in certain contexts
  *  if the user has not made their email address visible to the requester.
  */
-@property(copy, nullable) NSString *emailAddress;
+@property(nonatomic, copy, nullable) NSString *emailAddress;
 
 /** This is always drive#user. */
-@property(copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Whether this user is the requesting user.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(strong, nullable) NSNumber *me;
+@property(nonatomic, strong, nullable) NSNumber *me;
 
 /** The user's ID as visible in Permission resources. */
-@property(copy, nullable) NSString *permissionId;
+@property(nonatomic, copy, nullable) NSString *permissionId;
 
 /** A link to the user's profile photo, if available. */
-@property(copy, nullable) NSString *photoLink;
+@property(nonatomic, copy, nullable) NSString *photoLink;
 
 @end
 

@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRScriptQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
-@property(copy, nullable) NSString *fields;
+@property(nonatomic, copy, nullable) NSString *fields;
 
 @end
 
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The project key of the script to be executed. To find the project key, open
  *  the project in the script editor, then select **File > Project properties**.
  */
-@property(copy, nullable) NSString *scriptId;
+@property(nonatomic, copy, nullable) NSString *scriptId;
 
 /**
  *  Fetches a @c GTLRScript_Operation.
