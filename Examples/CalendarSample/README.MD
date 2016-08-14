@@ -11,7 +11,7 @@ You can download Git Submodules using the following command:
 [Credit: Stackoverflow Question] (http://stackoverflow.com/questions/8090761/pull-using-git-including-submodule)
 
 
-```git clone git://url...
+``` git clone git://url... 
 cd repo
 git submodule init
 git submodule update
@@ -27,4 +27,3 @@ This app needs a Client key and Secret, which you can obtain from [here](https:/
 
 ## Note
 `This sample should automatically build and copy over the GTLR.framework as part of the build-and-run process.
-```
