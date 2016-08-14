@@ -11,7 +11,8 @@ You can download Git Submodules using the following command:
 [Credit: Stackoverflow Question] (http://stackoverflow.com/questions/8090761/pull-using-git-including-submodule)
 
 
-``` git clone git://url... 
+```
+git clone git://url
 cd repo
 git submodule init
 git submodule update
