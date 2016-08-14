@@ -16,14 +16,16 @@ cd repo
 git submodule init
 git submodule update
 ```
+
 Then afterwards, add another step after the git pull.
 
 ```
 git pull ...
 git submodule update --recursive
 ```
+
 ##Requirements to use
 This app needs a Client key and Secret, which you can obtain from [here](https://console.developers.google.com/)
 
 ## Note
-`This sample should automatically build and copy over the GTLR.framework as part of the build-and-run process.
+This sample should automatically build and copy over the GTLR.framework as part of the build-and-run process.
