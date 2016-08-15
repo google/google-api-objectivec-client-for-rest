@@ -26,7 +26,7 @@ git submodule update --recursive
 ```
 
 ##Requirements to use
-These example apps need an oAuth Client key, which you can obtain from the[Google Developer Console](https://console.developers.google.com/).
+These example apps need an oAuth Client key, which you can obtain from the [Google Developer Console](https://console.developers.google.com/).
 
 ###To obtain an oAuth client Key: 
 1. Visit the [Google Developer Console](https://console.developers.google.com/
