@@ -1,4 +1,6 @@
 #Google Sample Apps 
+The apps in this folder are designed to provide examples of the basic workings of the Google Client Library.  They should not be used in production. 
+Eg you should not ask for a Client key as it should be embedded within the codebase of your app. 
 
 ## Installation instructons
 In order to use the example projects in this folder, you will need to ensure that you have downloaded the below two Git Submodules:
@@ -6,7 +8,7 @@ In order to use the example projects in this folder, you will need to ensure tha
 - gem-session-fetcher 
 
 
-##How to download Git Submodules 
+## How to download Git Submodules 
 You can download Git Submodules using the following command: 
 [Credit: Stackoverflow Question] (http://stackoverflow.com/questions/8090761/pull-using-git-including-submodule)
 
