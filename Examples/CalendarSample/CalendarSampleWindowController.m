@@ -930,15 +930,15 @@ NSString *const kKeychainItemName = @"CalendarSample: Google Calendar";
 #pragma mark Sign In
 
 - (void)runSigninThenInvokeSelector:(SEL)signInDoneSel {
-    // Applications should have client ID hardcoded into the source.
-    //  but the sample application asks the developer for the strings.
+    // Applications should have client ID hardcoded into the source
+    // but the sample application asks the developer for the strings.
     // Client secret is now left blank.
 
   NSString *clientID = _clientIDField.stringValue;
   NSString *clientSecret = _clientSecretField.stringValue;
 
   if (clientID.length == 0) {
-    // Remind the developer that client ID is needed.  Client Secret is now left blank // S
+    // Remind the developer that client ID is needed.  Client Secret is now left blank
     [_clientIDButton performSelector:@selector(performClick:)
                           withObject:self
                           afterDelay:0.5];

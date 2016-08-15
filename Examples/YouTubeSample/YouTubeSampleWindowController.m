@@ -508,8 +508,8 @@ NSString *const kKeychainItemName = @"YouTubeSample: YouTube";
 #pragma mark - Sign In
 
 - (void)runSigninThenHandler:(void (^)(void))handler {
-    // Applications should have client ID hardcoded into the source.
-    //  but the sample application asks the developer for the strings.
+    // Applications should have client ID hardcoded into the source
+    // but the sample application asks the developer for the strings.
     // Client secret is now left blank.
   NSString *clientID = _clientIDField.stringValue;
   NSString *clientSecret = _clientSecretField.stringValue;
