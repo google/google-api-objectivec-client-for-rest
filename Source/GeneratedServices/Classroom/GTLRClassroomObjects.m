@@ -41,6 +41,11 @@ NSString * const kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuestion = @"SHOR
 NSString * const kGTLRClassroom_GlobalPermission_Permission_CreateCourse = @"CREATE_COURSE";
 NSString * const kGTLRClassroom_GlobalPermission_Permission_PermissionUnspecified = @"PERMISSION_UNSPECIFIED";
 
+// GTLRClassroom_GuardianInvitation.state
+NSString * const kGTLRClassroom_GuardianInvitation_State_Complete = @"COMPLETE";
+NSString * const kGTLRClassroom_GuardianInvitation_State_GuardianInvitationStateUnspecified = @"GUARDIAN_INVITATION_STATE_UNSPECIFIED";
+NSString * const kGTLRClassroom_GuardianInvitation_State_Pending = @"PENDING";
+
 // GTLRClassroom_Invitation.role
 NSString * const kGTLRClassroom_Invitation_Role_CourseRoleUnspecified = @"COURSE_ROLE_UNSPECIFIED";
 NSString * const kGTLRClassroom_Invitation_Role_Student        = @"STUDENT";
@@ -271,6 +276,26 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_Guardian
+//
+
+@implementation GTLRClassroom_Guardian
+@dynamic guardianId, guardianProfile, invitedEmailAddress, studentId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_GuardianInvitation
+//
+
+@implementation GTLRClassroom_GuardianInvitation
+@dynamic creationTime, invitationId, invitedEmailAddress, state, studentId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Invitation
 //
 
@@ -355,6 +380,50 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 + (NSString *)collectionItemsKey {
   return @"courseWork";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ListGuardianInvitationsResponse
+//
+
+@implementation GTLRClassroom_ListGuardianInvitationsResponse
+@dynamic guardianInvitations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"guardianInvitations" : [GTLRClassroom_GuardianInvitation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"guardianInvitations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ListGuardiansResponse
+//
+
+@implementation GTLRClassroom_ListGuardiansResponse
+@dynamic guardians, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"guardians" : [GTLRClassroom_Guardian class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"guardians";
 }
 
 @end

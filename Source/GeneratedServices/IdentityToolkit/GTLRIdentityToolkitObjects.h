@@ -271,6 +271,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *appId;
 
+/**
+ *  Explicitly specify the auth flow type. Currently only support "CODE_FLOW"
+ *  type. The field is only used for Google provider.
+ */
+@property(nonatomic, copy, nullable) NSString *authFlowType;
+
 /** The relying party OAuth client ID. */
 @property(nonatomic, copy, nullable) NSString *clientId;
 
@@ -323,6 +329,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifier.
  */
 @property(nonatomic, copy, nullable) NSString *providerId;
+
+/** The session_id passed by client. */
+@property(nonatomic, copy, nullable) NSString *sessionId;
 
 @end
 
@@ -1126,6 +1135,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *salt;
 
+/** User's screen name at Twitter. */
+@property(nonatomic, copy, nullable) NSString *screenName;
+
 /**
  *  Timestamp in seconds for valid login token.
  *
@@ -1169,6 +1181,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** User's raw identifier directly returned from IDP. */
 @property(nonatomic, copy, nullable) NSString *rawId;
+
+/** User's screen name at Twitter. */
+@property(nonatomic, copy, nullable) NSString *screenName;
 
 @end
 

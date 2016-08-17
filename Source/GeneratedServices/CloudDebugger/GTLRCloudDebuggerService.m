@@ -2,21 +2,20 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Debugger API (clouddebugger/v2)
+//   Stackdriver Debugger API (clouddebugger/v2)
 // Description:
 //   Examines the call stack and variables of a running application without
 //   stopping or slowing it down.
 // Documentation:
-//   https://cloud.google.com/tools/cloud-debugger
+//   http://cloud.google.com/debugger
 
 #import "GTLRCloudDebugger.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeCloudDebuggerCloudDebugger      = @"https://www.googleapis.com/auth/cloud_debugger";
-NSString * const kGTLRAuthScopeCloudDebuggerCloudDebugletcontroller = @"https://www.googleapis.com/auth/cloud_debugletcontroller";
-NSString * const kGTLRAuthScopeCloudDebuggerCloudPlatform      = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudDebuggerCloudDebugger = @"https://www.googleapis.com/auth/cloud_debugger";
+NSString * const kGTLRAuthScopeCloudDebuggerCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudDebuggerService

@@ -228,7 +228,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSpeechAPI_RecognitionConfig_Encoding_Mula
 /**
  *  Contains audio data in the encoding specified in the `RecognitionConfig`.
  *  Either `content` or `uri` must be supplied. Supplying both or neither
- *  returns google.rpc.Code.INVALID_ARGUMENT.
+ *  returns google.rpc.Code.INVALID_ARGUMENT. See
+ *  [audio limits](https://cloud.google.com/speech/limits#content).
  */
 @interface GTLRCloudSpeechAPI_RecognitionAudio : GTLRObject
 
@@ -248,7 +249,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSpeechAPI_RecognitionConfig_Encoding_Mula
  *  supported, which must be specified in the following format:
  *  `gs://bucket_name/object_name` (other URI formats return
  *  google.rpc.Code.INVALID_ARGUMENT). For more information, see
- *  [Request URIs](/storage/docs/reference-uris).
+ *  [Request URIs](https://cloud.google.com/storage/docs/reference-uris).
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -296,8 +297,9 @@ GTLR_EXTERN NSString * const kGTLRCloudSpeechAPI_RecognitionConfig_Encoding_Mula
  *  [Optional] The language of the supplied audio as a BCP-47 language tag.
  *  Example: "en-GB" https://www.rfc-editor.org/rfc/bcp/bcp47.txt
  *  If omitted, defaults to "en-US". See
- *  [Language Support](/speech/docs/best-practices#language_support) for
- *  a list of the currently supported language codes.
+ *  [Language
+ *  Support](https://cloud.google.com/speech/docs/best-practices#language_support)
+ *  for a list of the currently supported language codes.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -348,9 +350,12 @@ GTLR_EXTERN NSString * const kGTLRCloudSpeechAPI_RecognitionConfig_Encoding_Mula
 @interface GTLRCloudSpeechAPI_SpeechContext : GTLRObject
 
 /**
- *  [Optional] A list of up to 50 phrases of up to 100 characters each to
- *  provide words and phrases "hints" to the speech recognition so that it is
- *  more likely to recognize them.
+ *  [Optional] A list of strings containing words and phrases "hints" so that
+ *  the speech recognition is more likely to recognize them. This can be used
+ *  to improve the accuracy for specific words and phrases, for example, if
+ *  specific commands are typically spoken by the user. This can also be used
+ *  to add additional words to the vocabulary of the recognizer. See
+ *  [usage limits](https://cloud.google.com/speech/limits#content).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *phrases;
 

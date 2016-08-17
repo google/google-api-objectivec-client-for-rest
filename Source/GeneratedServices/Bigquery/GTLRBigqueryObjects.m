@@ -45,7 +45,7 @@
 //
 
 @implementation GTLRBigquery_BigtableOptions
-@dynamic columnFamilies, ignoreUnspecifiedColumnFamilies;
+@dynamic columnFamilies, ignoreUnspecifiedColumnFamilies, readRowkeyAsString;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

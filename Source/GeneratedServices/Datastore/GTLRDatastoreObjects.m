@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Datastore API (datastore/v1beta3)
+//   Google Cloud Datastore API (datastore/v1)
 // Description:
 //   Accesses the schemaless NoSQL database to provide fully managed, robust,
 //   scalable storage for your application.
@@ -215,7 +215,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_EntityResult
-@dynamic cursor, entity;
+@dynamic cursor, entity, version;
 @end
 
 
@@ -353,7 +353,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_Mutation
-@dynamic deleteProperty, insert, update, upsert;
+@dynamic baseVersion, deleteProperty, insert, update, upsert;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
@@ -368,7 +368,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_MutationResult
-@dynamic key;
+@dynamic conflictDetected, key, version;
 @end
 
 
@@ -472,7 +472,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRDatastore_QueryResultBatch
 @dynamic endCursor, entityResults, entityResultType, moreResults, skippedCursor,
-         skippedResults;
+         skippedResults, snapshotVersion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

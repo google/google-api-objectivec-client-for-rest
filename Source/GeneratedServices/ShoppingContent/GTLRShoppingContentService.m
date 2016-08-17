@@ -86,6 +86,10 @@ NSString * const kGTLRAuthScopeShoppingContent = @"https://www.googleapis.com/au
     @"content#productstatusesCustomBatchResponse" : [GTLRShoppingContent_ProductstatusesCustomBatchResponse class],
     @"content#productstatusesCustomBatchResponseEntry" : [GTLRShoppingContent_ProductstatusesCustomBatchResponseEntry class],
     @"content#productstatusesListResponse" : [GTLRShoppingContent_ProductstatusesListResponse class],
+    @"content#shippingsettingsCustomBatchResponse" : [GTLRShoppingContent_ShippingsettingsCustomBatchResponse class],
+    @"content#shippingsettingsCustomBatchResponseEntry" : [GTLRShoppingContent_ShippingsettingsCustomBatchResponseEntry class],
+    @"content#shippingsettingsGetSupportedCarriersResponse" : [GTLRShoppingContent_ShippingsettingsGetSupportedCarriersResponse class],
+    @"content#shippingsettingsListResponse" : [GTLRShoppingContent_ShippingsettingsListResponse class],
     @"content#testOrder" : [GTLRShoppingContent_TestOrder class],
   };
 }

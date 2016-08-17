@@ -1582,6 +1582,153 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
 
 @end
 
+@implementation GTLRAnalyticsQuery_ManagementRemarketingAudienceGet
+
+@dynamic accountId, remarketingAudienceId, webPropertyId;
+
++ (instancetype)queryWithAccountId:(NSString *)accountId
+                     webPropertyId:(NSString *)webPropertyId
+             remarketingAudienceId:(NSString *)remarketingAudienceId {
+  NSArray *pathParams = @[
+    @"accountId", @"remarketingAudienceId", @"webPropertyId"
+  ];
+  NSString *pathURITemplate = @"management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences/{remarketingAudienceId}";
+  GTLRAnalyticsQuery_ManagementRemarketingAudienceGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.webPropertyId = webPropertyId;
+  query.remarketingAudienceId = remarketingAudienceId;
+  query.expectedObjectClass = [GTLRAnalytics_RemarketingAudience class];
+  query.loggingName = @"analytics.management.remarketingAudience.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsQuery_ManagementRemarketingAudienceInsert
+
+@dynamic accountId, webPropertyId;
+
++ (instancetype)queryWithObject:(GTLRAnalytics_RemarketingAudience *)object
+                      accountId:(NSString *)accountId
+                  webPropertyId:(NSString *)webPropertyId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"webPropertyId"
+  ];
+  NSString *pathURITemplate = @"management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences";
+  GTLRAnalyticsQuery_ManagementRemarketingAudienceInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.webPropertyId = webPropertyId;
+  query.expectedObjectClass = [GTLRAnalytics_RemarketingAudience class];
+  query.loggingName = @"analytics.management.remarketingAudience.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsQuery_ManagementRemarketingAudienceList
+
+@dynamic accountId, maxResults, startIndex, type, webPropertyId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"maxResults" : @"max-results",
+    @"startIndex" : @"start-index"
+  };
+  return map;
+}
+
++ (instancetype)queryWithAccountId:(NSString *)accountId
+                     webPropertyId:(NSString *)webPropertyId {
+  NSArray *pathParams = @[
+    @"accountId", @"webPropertyId"
+  ];
+  NSString *pathURITemplate = @"management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences";
+  GTLRAnalyticsQuery_ManagementRemarketingAudienceList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.webPropertyId = webPropertyId;
+  query.expectedObjectClass = [GTLRAnalytics_RemarketingAudiences class];
+  query.loggingName = @"analytics.management.remarketingAudience.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsQuery_ManagementRemarketingAudiencePatch
+
+@dynamic accountId, remarketingAudienceId, webPropertyId;
+
++ (instancetype)queryWithObject:(GTLRAnalytics_RemarketingAudience *)object
+                      accountId:(NSString *)accountId
+                  webPropertyId:(NSString *)webPropertyId
+          remarketingAudienceId:(NSString *)remarketingAudienceId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"remarketingAudienceId", @"webPropertyId"
+  ];
+  NSString *pathURITemplate = @"management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences/{remarketingAudienceId}";
+  GTLRAnalyticsQuery_ManagementRemarketingAudiencePatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.webPropertyId = webPropertyId;
+  query.remarketingAudienceId = remarketingAudienceId;
+  query.expectedObjectClass = [GTLRAnalytics_RemarketingAudience class];
+  query.loggingName = @"analytics.management.remarketingAudience.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsQuery_ManagementRemarketingAudienceUpdate
+
+@dynamic accountId, remarketingAudienceId, webPropertyId;
+
++ (instancetype)queryWithObject:(GTLRAnalytics_RemarketingAudience *)object
+                      accountId:(NSString *)accountId
+                  webPropertyId:(NSString *)webPropertyId
+          remarketingAudienceId:(NSString *)remarketingAudienceId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"remarketingAudienceId", @"webPropertyId"
+  ];
+  NSString *pathURITemplate = @"management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences/{remarketingAudienceId}";
+  GTLRAnalyticsQuery_ManagementRemarketingAudienceUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.webPropertyId = webPropertyId;
+  query.remarketingAudienceId = remarketingAudienceId;
+  query.expectedObjectClass = [GTLRAnalytics_RemarketingAudience class];
+  query.loggingName = @"analytics.management.remarketingAudience.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRAnalyticsQuery_ManagementSegmentsList
 
 @dynamic maxResults, startIndex;

@@ -21,6 +21,7 @@
 @class GTLRCloudBuild_Build;
 @class GTLRCloudBuild_BuildOptions;
 @class GTLRCloudBuild_BuildStep;
+@class GTLRCloudBuild_BuildTrigger;
 @class GTLRCloudBuild_BuiltImage;
 @class GTLRCloudBuild_FileHashes;
 @class GTLRCloudBuild_Hash;
@@ -183,6 +184,12 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, copy, nullable) NSString *logsBucket;
 
+/**
+ *  URL to logs for this build in Google Cloud Logging.
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *logUrl;
+
 /** Special options for this build. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_BuildOptions *options;
 
@@ -338,6 +345,40 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 
 /**
+ *  Configuration for an automated build in response to source repository
+ *  changes.
+ */
+@interface GTLRCloudBuild_BuildTrigger : GTLRObject
+
+/** Contents of the build template. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Build *build;
+
+/**
+ *  Time when the trigger was created.
+ *  \@OutputOnly
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Unique identifier of the trigger.
+ *  \@OutputOnly
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Template describing the types of source changes to trigger a build.
+ *  Branch and tag names in trigger templates are interpreted as regular
+ *  expressions. Any branch or tag change that matches that regular expression
+ *  will trigger a build.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_RepoSource *triggerTemplate;
+
+@end
+
+
+/**
  *  BuiltImage describes an image built by the pipeline.
  */
 @interface GTLRCloudBuild_BuiltImage : GTLRObject
@@ -358,6 +399,19 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  Request to cancel an ongoing build.
  */
 @interface GTLRCloudBuild_CancelBuildRequest : GTLRObject
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRCloudBuild_Empty : GTLRObject
 @end
 
 
@@ -419,6 +473,17 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 /** Token to receive the next page of results. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response containing existing BuildTriggers.
+ */
+@interface GTLRCloudBuild_ListBuildTriggersResponse : GTLRObject
+
+/** BuildTriggers for the project, sorted by create_time descending. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_BuildTrigger *> *triggers;
 
 @end
 
@@ -563,7 +628,6 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 /**
  *  List of build step digests, in order corresponding to build step indices.
- *  next id = 4
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *buildStepImages;
 

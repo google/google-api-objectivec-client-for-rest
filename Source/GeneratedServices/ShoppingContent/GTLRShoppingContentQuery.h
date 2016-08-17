@@ -44,6 +44,8 @@
 @class GTLRShoppingContent_Product;
 @class GTLRShoppingContent_ProductsCustomBatchRequest;
 @class GTLRShoppingContent_ProductstatusesCustomBatchRequest;
+@class GTLRShoppingContent_ShippingSettings;
+@class GTLRShoppingContent_ShippingsettingsCustomBatchRequest;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -2159,6 +2161,226 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *        information.
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Retrieves and updates the shipping settings of multiple accounts in a single
+ *  request.
+ *
+ *  Method: content.shippingsettings.custombatch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ShippingsettingsCustombatch : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForShippingsettingsCustombatchWithObject:]
+
+/** Flag to run the request in dry-run mode. */
+@property(nonatomic, assign) BOOL dryRun;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ShippingsettingsCustomBatchResponse.
+ *
+ *  Retrieves and updates the shipping settings of multiple accounts in a single
+ *  request.
+ *
+ *  @param object The @c GTLRShoppingContent_ShippingsettingsCustomBatchRequest
+ *    to include in the query.
+ *
+ *  @returns GTLRShoppingContentQuery_ShippingsettingsCustombatch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_ShippingsettingsCustomBatchRequest *)object;
+
+@end
+
+/**
+ *  Retrieves the shipping settings of the account.
+ *
+ *  Method: content.shippingsettings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ShippingsettingsGet : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForShippingsettingsGetWithmerchantId:accountId:]
+
+/** The ID of the account for which to get/update shipping settings. */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/** The ID of the managing account. */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ShippingSettings.
+ *
+ *  Retrieves the shipping settings of the account.
+ *
+ *  @param merchantId The ID of the managing account.
+ *  @param accountId The ID of the account for which to get/update shipping
+ *    settings.
+ *
+ *  @returns GTLRShoppingContentQuery_ShippingsettingsGet
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Retrieves supported carriers and carrier services for an account.
+ *
+ *  Method: content.shippingsettings.getsupportedcarriers
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ShippingsettingsGetsupportedcarriers : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForShippingsettingsGetsupportedcarriersWithmerchantId:]
+
+/** The ID of the account for which to retrieve the supported carriers. */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c
+ *  GTLRShoppingContent_ShippingsettingsGetSupportedCarriersResponse.
+ *
+ *  Retrieves supported carriers and carrier services for an account.
+ *
+ *  @param merchantId The ID of the account for which to retrieve the supported
+ *    carriers.
+ *
+ *  @returns GTLRShoppingContentQuery_ShippingsettingsGetsupportedcarriers
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Lists the shipping settings of the sub-accounts in your Merchant Center
+ *  account.
+ *
+ *  Method: content.shippingsettings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ShippingsettingsList : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForShippingsettingsListWithmerchantId:]
+
+/**
+ *  The maximum number of shipping settings to return in the response, used for
+ *  paging.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/** The ID of the managing account. */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The token returned by the previous request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ShippingsettingsListResponse.
+ *
+ *  Lists the shipping settings of the sub-accounts in your Merchant Center
+ *  account.
+ *
+ *  @param merchantId The ID of the managing account.
+ *
+ *  @returns GTLRShoppingContentQuery_ShippingsettingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Updates the shipping settings of the account. This method supports patch
+ *  semantics.
+ *
+ *  Method: content.shippingsettings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ShippingsettingsPatch : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForShippingsettingsPatchWithObject:merchantId:accountId:]
+
+/** The ID of the account for which to get/update shipping settings. */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/** Flag to run the request in dry-run mode. */
+@property(nonatomic, assign) BOOL dryRun;
+
+/** The ID of the managing account. */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ShippingSettings.
+ *
+ *  Updates the shipping settings of the account. This method supports patch
+ *  semantics.
+ *
+ *  @param object The @c GTLRShoppingContent_ShippingSettings to include in the
+ *    query.
+ *  @param merchantId The ID of the managing account.
+ *  @param accountId The ID of the account for which to get/update shipping
+ *    settings.
+ *
+ *  @returns GTLRShoppingContentQuery_ShippingsettingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_ShippingSettings *)object
+                     merchantId:(unsigned long long)merchantId
+                      accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Updates the shipping settings of the account.
+ *
+ *  Method: content.shippingsettings.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ShippingsettingsUpdate : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForShippingsettingsUpdateWithObject:merchantId:accountId:]
+
+/** The ID of the account for which to get/update shipping settings. */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/** Flag to run the request in dry-run mode. */
+@property(nonatomic, assign) BOOL dryRun;
+
+/** The ID of the managing account. */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ShippingSettings.
+ *
+ *  Updates the shipping settings of the account.
+ *
+ *  @param object The @c GTLRShoppingContent_ShippingSettings to include in the
+ *    query.
+ *  @param merchantId The ID of the managing account.
+ *  @param accountId The ID of the account for which to get/update shipping
+ *    settings.
+ *
+ *  @returns GTLRShoppingContentQuery_ShippingsettingsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_ShippingSettings *)object
+                     merchantId:(unsigned long long)merchantId
+                      accountId:(unsigned long long)accountId;
 
 @end
 

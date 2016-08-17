@@ -1391,3 +1391,144 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 }
 
 @end
+
+@implementation GTLRShoppingContentQuery_ShippingsettingsCustombatch
+
+@dynamic dryRun;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ShippingsettingsCustomBatchRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"shippingsettings/batch";
+  GTLRShoppingContentQuery_ShippingsettingsCustombatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRShoppingContent_ShippingsettingsCustomBatchResponse class];
+  query.loggingName = @"content.shippingsettings.custombatch";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ShippingsettingsGet
+
+@dynamic accountId, merchantId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId {
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/shippingsettings/{accountId}";
+  GTLRShoppingContentQuery_ShippingsettingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_ShippingSettings class];
+  query.loggingName = @"content.shippingsettings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ShippingsettingsGetsupportedcarriers
+
+@dynamic merchantId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/supportedCarriers";
+  GTLRShoppingContentQuery_ShippingsettingsGetsupportedcarriers *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ShippingsettingsGetSupportedCarriersResponse class];
+  query.loggingName = @"content.shippingsettings.getsupportedcarriers";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ShippingsettingsList
+
+@dynamic maxResults, merchantId, pageToken;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/shippingsettings";
+  GTLRShoppingContentQuery_ShippingsettingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ShippingsettingsListResponse class];
+  query.loggingName = @"content.shippingsettings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ShippingsettingsPatch
+
+@dynamic accountId, dryRun, merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ShippingSettings *)object
+                     merchantId:(unsigned long long)merchantId
+                      accountId:(unsigned long long)accountId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/shippingsettings/{accountId}";
+  GTLRShoppingContentQuery_ShippingsettingsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_ShippingSettings class];
+  query.loggingName = @"content.shippingsettings.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ShippingsettingsUpdate
+
+@dynamic accountId, dryRun, merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ShippingSettings *)object
+                     merchantId:(unsigned long long)merchantId
+                      accountId:(unsigned long long)accountId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/shippingsettings/{accountId}";
+  GTLRShoppingContentQuery_ShippingsettingsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_ShippingSettings class];
+  query.loggingName = @"content.shippingsettings.update";
+  return query;
+}
+
+@end

@@ -31,6 +31,8 @@
 @class GTLRClassroom_DriveFolder;
 @class GTLRClassroom_Form;
 @class GTLRClassroom_GlobalPermission;
+@class GTLRClassroom_Guardian;
+@class GTLRClassroom_GuardianInvitation;
 @class GTLRClassroom_Invitation;
 @class GTLRClassroom_Link;
 @class GTLRClassroom_Material;
@@ -106,6 +108,16 @@ GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuest
 GTLR_EXTERN NSString * const kGTLRClassroom_GlobalPermission_Permission_CreateCourse;
 /** Value: "PERMISSION_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRClassroom_GlobalPermission_Permission_PermissionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRClassroom_GuardianInvitation.state
+
+/** Value: "COMPLETE" */
+GTLR_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_Complete;
+/** Value: "GUARDIAN_INVITATION_STATE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_GuardianInvitationStateUnspecified;
+/** Value: "PENDING" */
+GTLR_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_Invitation.role
@@ -454,12 +466,14 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Additional materials. */
+/**
+ *  Additional materials. CourseWork must have no more than 20 material items.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Material *> *materials;
 
 /**
  *  Maximum grade for this course work. If zero or unspecified, this assignment
- *  is considered ungraded. This must be an integer value.
+ *  is considered ungraded. This must be a non-negative integer value.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -472,7 +486,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, strong, nullable) GTLRClassroom_MultipleChoiceQuestion *multipleChoiceQuestion;
 
 /**
- *  Status of this course work.. If unspecified, the default state is `DRAFT`.
+ *  Status of this course work. If unspecified, the default state is `DRAFT`.
  *
  *  Likely values:
  *    @arg @c kGTLRClassroom_CourseWork_State_CourseWorkStateUnspecified Value
@@ -661,6 +675,65 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 
 /**
+ *  Association between a student and a guardian of that student. The guardian
+ *  may receive information about the student's course work.
+ */
+@interface GTLRClassroom_Guardian : GTLRObject
+
+/** Identifier for the guardian. */
+@property(nonatomic, copy, nullable) NSString *guardianId;
+
+/** User profile for the guardian. */
+@property(nonatomic, strong, nullable) GTLRClassroom_UserProfile *guardianProfile;
+
+/**
+ *  The email address to which the initial guardian invitation was sent. This
+ *  field is only visible to domain administrators.
+ */
+@property(nonatomic, copy, nullable) NSString *invitedEmailAddress;
+
+/** Identifier for the student to whom the guardian relationship applies. */
+@property(nonatomic, copy, nullable) NSString *studentId;
+
+@end
+
+
+/**
+ *  An invitation to become the guardian of a specified user, sent to a
+ *  specified email address.
+ */
+@interface GTLRClassroom_GuardianInvitation : GTLRObject
+
+/** The time that this invitation was created. Read-only. */
+@property(nonatomic, copy, nullable) NSString *creationTime;
+
+/** Unique identifier for this invitation. Read-only. */
+@property(nonatomic, copy, nullable) NSString *invitationId;
+
+/**
+ *  Email address that the invitation was sent to. This field is only visible to
+ *  domain administrators.
+ */
+@property(nonatomic, copy, nullable) NSString *invitedEmailAddress;
+
+/**
+ *  The state that this invitation is in.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRClassroom_GuardianInvitation_State_Complete Value "COMPLETE"
+ *    @arg @c kGTLRClassroom_GuardianInvitation_State_GuardianInvitationStateUnspecified
+ *        Value "GUARDIAN_INVITATION_STATE_UNSPECIFIED"
+ *    @arg @c kGTLRClassroom_GuardianInvitation_State_Pending Value "PENDING"
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** ID of the student (in standard format) */
+@property(nonatomic, copy, nullable) NSString *studentId;
+
+@end
+
+
+/**
  *  An invitation to join a course.
  */
 @interface GTLRClassroom_Invitation : GTLRObject
@@ -788,6 +861,61 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_CourseWork *> *courseWork;
+
+/**
+ *  Token identifying the next page of results to return. If empty, no further
+ *  results are available.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response when listing guardian invitations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "guardianInvitations" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRClassroom_ListGuardianInvitationsResponse : GTLRCollectionObject
+
+/**
+ *  Guardian invitations that matched the list request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_GuardianInvitation *> *guardianInvitations;
+
+/**
+ *  Token identifying the next page of results to return. If empty, no further
+ *  results are available.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response when listing guardians.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "guardians" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRClassroom_ListGuardiansResponse : GTLRCollectionObject
+
+/**
+ *  Guardians on this page of results that met the criteria specified in the
+ *  request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Guardian *> *guardians;
 
 /**
  *  Token identifying the next page of results to return. If empty, no further
@@ -932,7 +1060,10 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @interface GTLRClassroom_ModifyAttachmentsRequest : GTLRObject
 
-/** Attachments to add. This may only contain link attachments. */
+/**
+ *  Attachments to add. A student submission may not have more than 20
+ *  attachments. This may only contain link attachments.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Attachment *> *addAttachments;
 
 @end
@@ -1069,8 +1200,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, copy, nullable) NSString *alternateLink;
 
 /**
- *  Optional grade. If unset, no grade was set. This must be an integer value.
- *  This may be modified only by course teachers.
+ *  Optional grade. If unset, no grade was set. This must be a non-negative
+ *  integer value. This may be modified only by course teachers.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1110,14 +1241,15 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseWorkType;
 
 /**
- *  Creation time of this submission.. This may be unset if the student has not
+ *  Creation time of this submission. This may be unset if the student has not
  *  accessed this item. Read-only.
  */
 @property(nonatomic, copy, nullable) NSString *creationTime;
 
 /**
- *  Optional pending grade. If unset, no grade was set. This must be an integer
- *  value. This is only visible to and modifiable by course teachers.
+ *  Optional pending grade. If unset, no grade was set. This must be a
+ *  non-negative integer value. This is only visible to and modifiable by course
+ *  teachers.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1138,7 +1270,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @property(nonatomic, strong, nullable) NSNumber *late;
 
-/** Submission content when course_work_type is MUTIPLE_CHOICE_QUESTION. */
+/** Submission content when course_work_type is MULTIPLE_CHOICE_QUESTION. */
 @property(nonatomic, strong, nullable) GTLRClassroom_MultipleChoiceSubmission *multipleChoiceSubmission;
 
 /** Submission content when course_work_type is SHORT_ANSWER_QUESTION. */

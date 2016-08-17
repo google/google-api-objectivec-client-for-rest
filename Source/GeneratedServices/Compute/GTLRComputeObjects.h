@@ -192,6 +192,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_Cleanu
 GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -250,6 +252,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_Clea
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -344,6 +348,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_CleanupFai
 GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -378,6 +384,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_Cleanu
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -426,6 +434,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -510,6 +520,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -552,6 +564,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_C
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -586,6 +600,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_Cleanu
 GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -640,6 +656,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_Cle
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -672,6 +690,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_Unr
 GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Abandoning;
 /** Value: "CREATING" */
 GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Creating;
+/** Value: "CREATING_WITHOUT_RETRIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_CreatingWithoutRetries;
 /** Value: "DELETING" */
 GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Deleting;
 /** Value: "NONE" */
@@ -722,6 +742,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_Clean
 GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -756,6 +778,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_CleanupFail
 GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -836,6 +860,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetHttpsProxies;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetInstances;
 /** Value: "TARGET_POOLS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetPools;
+/** Value: "TARGET_SSL_PROXIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetSslProxies;
 /** Value: "TARGET_VPN_GATEWAYS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetVpnGateways;
 /** Value: "URL_MAPS" */
@@ -860,6 +886,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_CleanupF
 GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -904,6 +932,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_CleanupFailed;
 GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -968,6 +998,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_Clea
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1008,6 +1040,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1054,6 +1088,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_Clea
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1100,6 +1136,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Cod
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1162,6 +1200,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_Clean
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1384,6 +1424,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_NextHopAddressNotAssigned
@@ -1694,7 +1736,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  one or more of the policies for an autoscaler: cpuUtilization,
  *  customMetricUtilizations, and loadBalancingUtilization.
  *  If none of these are specified, the default will be to autoscale based on
- *  cpuUtilization to 0.8 or 80%.
+ *  cpuUtilization to 0.6 or 60%.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_AutoscalingPolicy *autoscalingPolicy;
 
@@ -1743,7 +1785,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *target;
 
 /**
- *  [Output Only] URL of the zone where the instance group resides.
+ *  [Output Only] URL of the zone where the instance group resides (for
+ *  autoscalers living in zonal scope).
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1882,6 +1925,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopAddressNotAssigned
@@ -2002,7 +2047,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /**
  *  The target CPU utilization that the autoscaler should maintain. Must be a
- *  float value in the range (0, 1]. If not specified, the default is 0.8.
+ *  float value in the range (0, 1]. If not specified, the default is 0.6.
  *  If the CPU level is below the target utilization, the autoscaler scales down
  *  the number of instances until it reaches the minimum number of instances you
  *  specified or until the average CPU of your instances reaches the target
@@ -2817,6 +2862,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_FieldValueOverriden Value
+ *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_NextHopAddressNotAssigned
@@ -3066,6 +3113,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopAddressNotAssigned
@@ -3531,6 +3580,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopAddressNotAssigned
@@ -4445,7 +4496,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
 /**
- *  [Output Only] The URL of the zone where the instance group is located.
+ *  [Output Only] The URL of the zone where the instance group is located (for
+ *  zonal resources).
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -4657,7 +4709,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, strong, nullable) NSNumber *targetSize;
 
 /**
- *  The name of the zone where the managed instance group is located.
+ *  [Output Only] The URL of the zone where the managed instance group is
+ *  located (for zonal resources).
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -4691,6 +4744,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *creating;
+
+/**
+ *  [Output Only] The number of instances that the managed instance group will
+ *  attempt to create. The group attempts to create each instance only once. If
+ *  the group fails to create any of these instances, it decreases the group's
+ *  target_size value accordingly.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *creatingWithoutRetries;
 
 /**
  *  [Output Only] The number of instances in the managed instance group that are
@@ -4928,6 +4991,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopAddressNotAssigned
@@ -5163,6 +5228,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopAddressNotAssigned
@@ -5438,6 +5505,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_NextHopAddressNotAssigned
@@ -5946,6 +6015,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopAddressNotAssigned
@@ -6038,6 +6109,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        "ABANDONING"
  *    @arg @c kGTLRCompute_ManagedInstance_CurrentAction_Creating Value
  *        "CREATING"
+ *    @arg @c kGTLRCompute_ManagedInstance_CurrentAction_CreatingWithoutRetries
+ *        Value "CREATING_WITHOUT_RETRIES"
  *    @arg @c kGTLRCompute_ManagedInstance_CurrentAction_Deleting Value
  *        "DELETING"
  *    @arg @c kGTLRCompute_ManagedInstance_CurrentAction_None Value "NONE"
@@ -6596,6 +6669,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_OperationWarningsItem_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_OperationWarningsItem_Code_FieldValueOverriden Value
+ *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_OperationWarningsItem_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_OperationWarningsItem_Code_NextHopAddressNotAssigned
@@ -6807,6 +6882,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_NextHopAddressNotAssigned
@@ -7039,6 +7116,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        "TARGET_HTTPS_PROXIES"
  *    @arg @c kGTLRCompute_Quota_Metric_TargetInstances Value "TARGET_INSTANCES"
  *    @arg @c kGTLRCompute_Quota_Metric_TargetPools Value "TARGET_POOLS"
+ *    @arg @c kGTLRCompute_Quota_Metric_TargetSslProxies Value
+ *        "TARGET_SSL_PROXIES"
  *    @arg @c kGTLRCompute_Quota_Metric_TargetVpnGateways Value
  *        "TARGET_VPN_GATEWAYS"
  *    @arg @c kGTLRCompute_Quota_Metric_UrlMaps Value "URL_MAPS"
@@ -7302,6 +7381,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_RouteWarningsItem_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_RouteWarningsItem_Code_FieldValueOverriden Value
+ *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_RouteWarningsItem_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_RouteWarningsItem_Code_NextHopAddressNotAssigned
@@ -7694,6 +7775,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NextHopAddressNotAssigned
@@ -8388,6 +8471,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopAddressNotAssigned
@@ -8906,6 +8991,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopAddressNotAssigned
@@ -9289,6 +9376,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopAddressNotAssigned
@@ -9573,6 +9662,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopAddressNotAssigned
@@ -10127,6 +10218,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        Value "DEPRECATED_RESOURCE_USED"
  *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
  *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopAddressNotAssigned

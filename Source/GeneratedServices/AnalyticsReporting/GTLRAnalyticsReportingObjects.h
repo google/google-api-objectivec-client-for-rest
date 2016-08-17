@@ -1220,7 +1220,8 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 
 /**
  *  A list of dimensions to show as pivot columns. A Pivot can have a maximum
- *  of 4 dimensions.
+ *  of 4 dimensions. Pivot dimensions are part of the restriction on the
+ *  total number of dimensions allowed in the request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Dimension *> *dimensions;
 
@@ -1234,7 +1235,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 
 /**
  *  The pivot metrics. Pivot metrics are part of the
- *  restriction on total number of metrics in the request.
+ *  restriction on total number of metrics allowed in the request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Metric *> *metrics;
 
