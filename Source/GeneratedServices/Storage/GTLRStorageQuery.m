@@ -664,7 +664,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 @implementation GTLRStorageQuery_ObjectsCompose
 
 @dynamic destinationBucket, destinationObject, destinationPredefinedAcl,
-         ifGenerationMatch, ifMetagenerationMatch;
+         ifGenerationMatch, ifMetagenerationMatch, kmsKeyName;
 
 + (instancetype)queryWithObject:(GTLRStorage_ComposeRequest *)object
               destinationBucket:(NSString *)destinationBucket
@@ -821,8 +821,8 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 @implementation GTLRStorageQuery_ObjectsInsert
 
 @dynamic bucket, contentEncoding, ifGenerationMatch, ifGenerationNotMatch,
-         ifMetagenerationMatch, ifMetagenerationNotMatch, name, predefinedAcl,
-         projection;
+         ifMetagenerationMatch, ifMetagenerationNotMatch, kmsKeyName, name,
+         predefinedAcl, projection;
 
 + (instancetype)queryWithObject:(GTLRStorage_Object *)object
                          bucket:(NSString *)bucket
@@ -912,12 +912,13 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_ObjectsRewrite
 
-@dynamic destinationBucket, destinationObject, destinationPredefinedAcl,
-         ifGenerationMatch, ifGenerationNotMatch, ifMetagenerationMatch,
-         ifMetagenerationNotMatch, ifSourceGenerationMatch,
-         ifSourceGenerationNotMatch, ifSourceMetagenerationMatch,
-         ifSourceMetagenerationNotMatch, maxBytesRewrittenPerCall, projection,
-         rewriteToken, sourceBucket, sourceGeneration, sourceObject;
+@dynamic destinationBucket, destinationKmsKeyName, destinationObject,
+         destinationPredefinedAcl, ifGenerationMatch, ifGenerationNotMatch,
+         ifMetagenerationMatch, ifMetagenerationNotMatch,
+         ifSourceGenerationMatch, ifSourceGenerationNotMatch,
+         ifSourceMetagenerationMatch, ifSourceMetagenerationNotMatch,
+         maxBytesRewrittenPerCall, projection, rewriteToken, sourceBucket,
+         sourceGeneration, sourceObject;
 
 + (instancetype)queryWithObject:(GTLRStorage_Object *)object
                    sourceBucket:(NSString *)sourceBucket

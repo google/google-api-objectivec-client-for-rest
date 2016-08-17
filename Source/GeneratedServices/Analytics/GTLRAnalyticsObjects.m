@@ -963,6 +963,32 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalytics_IncludeConditions
+//
+
+@implementation GTLRAnalytics_IncludeConditions
+@dynamic daysToLookBack, isSmartList, kind, membershipDurationDays, segment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalytics_LinkedForeignAccount
+//
+
+@implementation GTLRAnalytics_LinkedForeignAccount
+@dynamic accountId, eligibleForSearch, identifier, internalWebPropertyId, kind,
+         linkedAccountId, remarketingAudienceId, status, type, webPropertyId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalytics_McfData
 //
 
@@ -1299,6 +1325,85 @@
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalytics_RemarketingAudience
+//
+
+@implementation GTLRAnalytics_RemarketingAudience
+@dynamic accountId, audienceDefinition, audienceType, created,
+         descriptionProperty, identifier, internalWebPropertyId, kind,
+         linkedAdAccounts, linkedViews, name, stateBasedAudienceDefinition,
+         updated, webPropertyId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"linkedAdAccounts" : [GTLRAnalytics_LinkedForeignAccount class],
+    @"linkedViews" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalytics_RemarketingAudienceAudienceDefinition
+//
+
+@implementation GTLRAnalytics_RemarketingAudienceAudienceDefinition
+@dynamic includeConditions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinition
+//
+
+@implementation GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinition
+@dynamic excludeConditions, includeConditions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinitionExcludeConditions
+//
+
+@implementation GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinitionExcludeConditions
+@dynamic exclusionDuration, segment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalytics_RemarketingAudiences
+//
+
+@implementation GTLRAnalytics_RemarketingAudiences
+@dynamic items, itemsPerPage, kind, nextLink, previousLink, startIndex,
+         totalResults, username;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRAnalytics_RemarketingAudience class]
+  };
+  return map;
 }
 
 @end

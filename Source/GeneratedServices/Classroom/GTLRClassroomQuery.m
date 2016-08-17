@@ -27,8 +27,11 @@ NSString * const kGTLRClassroomLateLateValuesUnspecified = @"LATE_VALUES_UNSPECI
 NSString * const kGTLRClassroomLateNotLateOnly           = @"NOT_LATE_ONLY";
 
 // states
+NSString * const kGTLRClassroomStatesComplete                  = @"COMPLETE";
 NSString * const kGTLRClassroomStatesCreated                   = @"CREATED";
+NSString * const kGTLRClassroomStatesGuardianInvitationStateUnspecified = @"GUARDIAN_INVITATION_STATE_UNSPECIFIED";
 NSString * const kGTLRClassroomStatesNew                       = @"NEW";
+NSString * const kGTLRClassroomStatesPending                   = @"PENDING";
 NSString * const kGTLRClassroomStatesReclaimedByStudent        = @"RECLAIMED_BY_STUDENT";
 NSString * const kGTLRClassroomStatesReturned                  = @"RETURNED";
 NSString * const kGTLRClassroomStatesSubmissionStateUnspecified = @"SUBMISSION_STATE_UNSPECIFIED";
@@ -864,6 +867,174 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
   query.userId = userId;
   query.expectedObjectClass = [GTLRClassroom_UserProfile class];
   query.loggingName = @"classroom.userProfiles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_UserProfilesGuardianInvitationsCreate
+
+@dynamic studentId;
+
++ (instancetype)queryWithObject:(GTLRClassroom_GuardianInvitation *)object
+                      studentId:(NSString *)studentId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"studentId" ];
+  NSString *pathURITemplate = @"v1/userProfiles/{studentId}/guardianInvitations";
+  GTLRClassroomQuery_UserProfilesGuardianInvitationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.studentId = studentId;
+  query.expectedObjectClass = [GTLRClassroom_GuardianInvitation class];
+  query.loggingName = @"classroom.userProfiles.guardianInvitations.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_UserProfilesGuardianInvitationsGet
+
+@dynamic invitationId, studentId;
+
++ (instancetype)queryWithStudentId:(NSString *)studentId
+                      invitationId:(NSString *)invitationId {
+  NSArray *pathParams = @[
+    @"invitationId", @"studentId"
+  ];
+  NSString *pathURITemplate = @"v1/userProfiles/{studentId}/guardianInvitations/{invitationId}";
+  GTLRClassroomQuery_UserProfilesGuardianInvitationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.studentId = studentId;
+  query.invitationId = invitationId;
+  query.expectedObjectClass = [GTLRClassroom_GuardianInvitation class];
+  query.loggingName = @"classroom.userProfiles.guardianInvitations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_UserProfilesGuardianInvitationsList
+
+@dynamic invitedEmailAddress, pageSize, pageToken, states, studentId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"states" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithStudentId:(NSString *)studentId {
+  NSArray *pathParams = @[ @"studentId" ];
+  NSString *pathURITemplate = @"v1/userProfiles/{studentId}/guardianInvitations";
+  GTLRClassroomQuery_UserProfilesGuardianInvitationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.studentId = studentId;
+  query.expectedObjectClass = [GTLRClassroom_ListGuardianInvitationsResponse class];
+  query.loggingName = @"classroom.userProfiles.guardianInvitations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_UserProfilesGuardianInvitationsPatch
+
+@dynamic invitationId, studentId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRClassroom_GuardianInvitation *)object
+                      studentId:(NSString *)studentId
+                   invitationId:(NSString *)invitationId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"invitationId", @"studentId"
+  ];
+  NSString *pathURITemplate = @"v1/userProfiles/{studentId}/guardianInvitations/{invitationId}";
+  GTLRClassroomQuery_UserProfilesGuardianInvitationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.studentId = studentId;
+  query.invitationId = invitationId;
+  query.expectedObjectClass = [GTLRClassroom_GuardianInvitation class];
+  query.loggingName = @"classroom.userProfiles.guardianInvitations.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_UserProfilesGuardiansDelete
+
+@dynamic guardianId, studentId;
+
++ (instancetype)queryWithStudentId:(NSString *)studentId
+                        guardianId:(NSString *)guardianId {
+  NSArray *pathParams = @[
+    @"guardianId", @"studentId"
+  ];
+  NSString *pathURITemplate = @"v1/userProfiles/{studentId}/guardians/{guardianId}";
+  GTLRClassroomQuery_UserProfilesGuardiansDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.studentId = studentId;
+  query.guardianId = guardianId;
+  query.expectedObjectClass = [GTLRClassroom_Empty class];
+  query.loggingName = @"classroom.userProfiles.guardians.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_UserProfilesGuardiansGet
+
+@dynamic guardianId, studentId;
+
++ (instancetype)queryWithStudentId:(NSString *)studentId
+                        guardianId:(NSString *)guardianId {
+  NSArray *pathParams = @[
+    @"guardianId", @"studentId"
+  ];
+  NSString *pathURITemplate = @"v1/userProfiles/{studentId}/guardians/{guardianId}";
+  GTLRClassroomQuery_UserProfilesGuardiansGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.studentId = studentId;
+  query.guardianId = guardianId;
+  query.expectedObjectClass = [GTLRClassroom_Guardian class];
+  query.loggingName = @"classroom.userProfiles.guardians.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_UserProfilesGuardiansList
+
+@dynamic invitedEmailAddress, pageSize, pageToken, studentId;
+
++ (instancetype)queryWithStudentId:(NSString *)studentId {
+  NSArray *pathParams = @[ @"studentId" ];
+  NSString *pathURITemplate = @"v1/userProfiles/{studentId}/guardians";
+  GTLRClassroomQuery_UserProfilesGuardiansList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.studentId = studentId;
+  query.expectedObjectClass = [GTLRClassroom_ListGuardiansResponse class];
+  query.loggingName = @"classroom.userProfiles.guardians.list";
   return query;
 }
 

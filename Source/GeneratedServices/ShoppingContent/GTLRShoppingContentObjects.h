@@ -46,6 +46,8 @@
 @class GTLRShoppingContent_AccounttaxCustomBatchResponseEntry;
 @class GTLRShoppingContent_AccountTaxTaxRule;
 @class GTLRShoppingContent_AccountUser;
+@class GTLRShoppingContent_CarrierRate;
+@class GTLRShoppingContent_CarriersCarrier;
 @class GTLRShoppingContent_Datafeed;
 @class GTLRShoppingContent_DatafeedFetchSchedule;
 @class GTLRShoppingContent_DatafeedFormat;
@@ -56,12 +58,15 @@
 @class GTLRShoppingContent_DatafeedstatusesCustomBatchRequestEntry;
 @class GTLRShoppingContent_DatafeedstatusesCustomBatchResponseEntry;
 @class GTLRShoppingContent_DatafeedStatusExample;
+@class GTLRShoppingContent_DeliveryTime;
 @class GTLRShoppingContent_Error;
 @class GTLRShoppingContent_Errors;
+@class GTLRShoppingContent_Headers;
 @class GTLRShoppingContent_Installment;
 @class GTLRShoppingContent_Inventory;
 @class GTLRShoppingContent_InventoryCustomBatchRequestEntry;
 @class GTLRShoppingContent_InventoryCustomBatchResponseEntry;
+@class GTLRShoppingContent_LocationIdSet;
 @class GTLRShoppingContent_LoyaltyPoints;
 @class GTLRShoppingContent_Order;
 @class GTLRShoppingContent_OrderAddress;
@@ -89,6 +94,8 @@
 @class GTLRShoppingContent_OrdersCustomBatchResponseEntry;
 @class GTLRShoppingContent_OrderShipment;
 @class GTLRShoppingContent_OrderShipmentLineItemShipment;
+@class GTLRShoppingContent_PostalCodeGroup;
+@class GTLRShoppingContent_PostalCodeRange;
 @class GTLRShoppingContent_Price;
 @class GTLRShoppingContent_Product;
 @class GTLRShoppingContent_ProductAspect;
@@ -108,11 +115,19 @@
 @class GTLRShoppingContent_ProductTax;
 @class GTLRShoppingContent_ProductUnitPricingBaseMeasure;
 @class GTLRShoppingContent_ProductUnitPricingMeasure;
+@class GTLRShoppingContent_RateGroup;
+@class GTLRShoppingContent_Row;
+@class GTLRShoppingContent_Service;
+@class GTLRShoppingContent_ShippingSettings;
+@class GTLRShoppingContent_ShippingsettingsCustomBatchRequestEntry;
+@class GTLRShoppingContent_ShippingsettingsCustomBatchResponseEntry;
+@class GTLRShoppingContent_Table;
 @class GTLRShoppingContent_TestOrder;
 @class GTLRShoppingContent_TestOrderCustomer;
 @class GTLRShoppingContent_TestOrderLineItem;
 @class GTLRShoppingContent_TestOrderLineItemProduct;
 @class GTLRShoppingContent_TestOrderPaymentMethod;
+@class GTLRShoppingContent_Value;
 @class GTLRShoppingContent_Weight;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -1226,6 +1241,67 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_CarrierRate
+ */
+@interface GTLRShoppingContent_CarrierRate : GTLRObject
+
+/**
+ *  Carrier service, such as "UPS" or "Fedex". The list of supported carriers
+ *  can be retrieved via the getSupportedCarriers method. Required.
+ */
+@property(nonatomic, copy, nullable) NSString *carrierName;
+
+/**
+ *  Carrier service, such as "ground" or "2 days". The list of supported
+ *  services for a carrier can be retrieved via the getSupportedCarriers method.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *carrierService;
+
+/**
+ *  Additive shipping rate modifier. Can be negative. For example { "value":
+ *  "1", "currency" : "USD" } adds $1 to the rate, { "value": "-3", "currency" :
+ *  "USD" } removes $3 from the rate. Optional.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *flatAdjustment;
+
+/** Name of the carrier rate. Must be unique per rate group. Required. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Shipping origin for this carrier rate. Required. */
+@property(nonatomic, copy, nullable) NSString *originPostalCode;
+
+/**
+ *  Multiplicative shipping rate modifier as a number in decimal notation. Can
+ *  be negative. For example "5.4" increases the rate by 5.4%, "-3" decreases
+ *  the rate by 3%. Optional.
+ */
+@property(nonatomic, copy, nullable) NSString *percentageAdjustment;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_CarriersCarrier
+ */
+@interface GTLRShoppingContent_CarriersCarrier : GTLRObject
+
+/** The CLDR country code of the carrier (e.g., "US"). Always present. */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/** The name of the carrier (e.g., "UPS"). Always present. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A list of supported services (e.g., "ground") for that carrier. Contains at
+ *  least one service.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *services;
+
+@end
+
+
+/**
  *  Datafeed data.
  */
 @interface GTLRShoppingContent_Datafeed : GTLRObject
@@ -1690,6 +1766,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_DeliveryTime
+ */
+@interface GTLRShoppingContent_DeliveryTime : GTLRObject
+
+/**
+ *  Maximum number of business days that is spent in transit. 0 means same day
+ *  delivery, 1 means next day delivery. Must be greater than or equal to
+ *  minTransitTimeInDays. Required.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxTransitTimeInDays;
+
+/**
+ *  Minimum number of business days that is spent in transit. 0 means same day
+ *  delivery, 1 means next day delivery. Required.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minTransitTimeInDays;
+
+@end
+
+
+/**
  *  An error returned by the API.
  */
 @interface GTLRShoppingContent_Error : GTLRObject
@@ -1723,6 +1824,54 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The message of the first error in errors. */
 @property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  A non-empty list of row or column headers for a table. Exactly one of
+ *  prices, weights, numItems, postalCodeGroupNames, or locations must be set.
+ */
+@interface GTLRShoppingContent_Headers : GTLRObject
+
+/**
+ *  A list of location ID sets. Must be non-empty. Can only be set if all other
+ *  fields are not set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_LocationIdSet *> *locations;
+
+/**
+ *  A list of inclusive number of items upper bounds. The last value can be
+ *  "infinity". For example ["10", "50", "infinity"] represents the headers "<=
+ *  10 items", " 50 items". Must be non-empty. Can only be set if all other
+ *  fields are not set.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *numberOfItems;
+
+/**
+ *  A list of postal group names. The last value can be "all other locations".
+ *  Example: ["zone 1", "zone 2", "all other locations"]. The referred postal
+ *  code groups must match the delivery country of the service. Must be
+ *  non-empty. Can only be set if all other fields are not set.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *postalCodeGroupNames;
+
+/**
+ *  be "infinity". For example [{"value": "10", "currency": "USD"}, {"value":
+ *  "500", "currency": "USD"}, {"value": "infinity", "currency": "USD"}]
+ *  represents the headers "<= $10", " $500". All prices within a service must
+ *  have the same currency. Must be non-empty. Can only be set if all other
+ *  fields are not set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Price *> *prices;
+
+/**
+ *  be "infinity". For example [{"value": "10", "unit": "kg"}, {"value": "50",
+ *  "unit": "kg"}, {"value": "infinity", "unit": "kg"}] represents the headers
+ *  "<= 10kg", " 50kg". All weights within a service must have the same unit.
+ *  Must be non-empty. Can only be set if all other fields are not set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Weight *> *weights;
 
 @end
 
@@ -1947,6 +2096,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  "content#inventorySetResponse".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LocationIdSet
+ */
+@interface GTLRShoppingContent_LocationIdSet : GTLRObject
+
+/**
+ *  A non-empty list of location IDs. They must all be of the same location type
+ *  (e.g., state).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locationIds;
 
 @end
 
@@ -3321,6 +3484,52 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_PostalCodeGroup
+ */
+@interface GTLRShoppingContent_PostalCodeGroup : GTLRObject
+
+/**
+ *  The CLDR territory code of the country the postal code group applies to.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/** The name of the postal code group, referred to in headers. Required. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** A range of postal codes. Required. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_PostalCodeRange *> *postalCodeRanges;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_PostalCodeRange
+ */
+@interface GTLRShoppingContent_PostalCodeRange : GTLRObject
+
+/**
+ *  A postal code or a pattern of the form prefix* denoting the inclusive lower
+ *  bound of the range defining the area. Examples values: "94108", "9410*",
+ *  "9*". Required.
+ */
+@property(nonatomic, copy, nullable) NSString *postalCodeRangeBegin;
+
+/**
+ *  A postal code or a pattern of the form prefix* denoting the inclusive upper
+ *  bound of the range defining the area. It must have the same length as
+ *  postalCodeRangeBegin: if postalCodeRangeBegin is a postal code then
+ *  postalCodeRangeEnd must be a postal code too; if postalCodeRangeBegin is a
+ *  pattern then postalCodeRangeEnd must be a pattern with the same prefix
+ *  length. Optional: if not set, then the area is defined as being all the
+ *  postal codes matching postalCodeRangeBegin.
+ */
+@property(nonatomic, copy, nullable) NSString *postalCodeRangeEnd;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_Price
  */
 @interface GTLRShoppingContent_Price : GTLRObject
@@ -4210,6 +4419,295 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_RateGroup
+ */
+@interface GTLRShoppingContent_RateGroup : GTLRObject
+
+/**
+ *  A list of shipping labels defining the products to which this rate group
+ *  applies to. This is a disjunction: only one of the labels has to match for
+ *  the rate group to apply. May only be empty for the last rate group of a
+ *  service. Required.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *applicableShippingLabels;
+
+/**
+ *  A list of carrier rates that can be referred to by mainTable or singleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CarrierRate *> *carrierRates;
+
+/**
+ *  A table defining the rate group, when singleValue is not expressive enough.
+ *  Can only be set if singleValue is not set.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Table *mainTable;
+
+/**
+ *  The value of the rate group (e.g. flat rate $10). Can only be set if
+ *  mainTable and subtables are not set.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Value *singleValue;
+
+/**
+ *  A list of subtables referred to by mainTable. Can only be set if mainTable
+ *  is set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Table *> *subtables;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_Row
+ */
+@interface GTLRShoppingContent_Row : GTLRObject
+
+/**
+ *  The list of cells that constitute the row. Must have the same length as
+ *  columnHeaders for two-dimensional tables, a length of 1 for one-dimensional
+ *  tables. Required.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Value *> *cells;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_Service
+ */
+@interface GTLRShoppingContent_Service : GTLRObject
+
+/**
+ *  A boolean exposing the active status of the shipping service. Required.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *active;
+
+/**
+ *  The CLDR code of the currency to which this service applies. Must match that
+ *  of the prices in rate groups.
+ */
+@property(nonatomic, copy, nullable) NSString *currency;
+
+/**
+ *  The CLDR territory code of the country to which the service applies.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *deliveryCountry;
+
+/**
+ *  Time spent in various aspects from order to the delivery of the product.
+ *  Required.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_DeliveryTime *deliveryTime;
+
+/**
+ *  Free-form name of the service. Must be unique within target account.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Shipping rate group definitions. Only the last one is allowed to have an
+ *  empty applicableShippingLabels, which means "everything else". The other
+ *  applicableShippingLabels must not overlap.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_RateGroup *> *rateGroups;
+
+@end
+
+
+/**
+ *  The merchant account's shipping settings.
+ */
+@interface GTLRShoppingContent_ShippingSettings : GTLRObject
+
+/**
+ *  The ID of the account to which these account shipping settings belong.
+ *  Ignored upon update, always present in get request responses.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accountId;
+
+/**
+ *  A list of postal code groups that can be referred to in services. Optional.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_PostalCodeGroup *> *postalCodeGroups;
+
+/** The target account's list of services. Optional. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Service *> *services;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_ShippingsettingsCustomBatchRequest
+ */
+@interface GTLRShoppingContent_ShippingsettingsCustomBatchRequest : GTLRObject
+
+/** The request entries to be processed in the batch. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ShippingsettingsCustomBatchRequestEntry *> *entries;
+
+@end
+
+
+/**
+ *  A batch entry encoding a single non-batch accountshipping request.
+ */
+@interface GTLRShoppingContent_ShippingsettingsCustomBatchRequestEntry : GTLRObject
+
+/**
+ *  The ID of the account for which to get/update account shipping settings.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accountId;
+
+/**
+ *  An entry ID, unique within the batch request.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchId;
+
+/**
+ *  The ID of the managing account.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantId;
+
+@property(nonatomic, copy, nullable) NSString *method;
+
+/**
+ *  The account shipping settings to update. Only defined if the method is
+ *  update.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ShippingSettings *shippingSettings;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_ShippingsettingsCustomBatchResponse
+ */
+@interface GTLRShoppingContent_ShippingsettingsCustomBatchResponse : GTLRObject
+
+/** The result of the execution of the batch requests. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ShippingsettingsCustomBatchResponseEntry *> *entries;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#shippingsettingsCustomBatchResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  A batch entry encoding a single non-batch shipping settings response.
+ */
+@interface GTLRShoppingContent_ShippingsettingsCustomBatchResponseEntry : GTLRObject
+
+/**
+ *  The ID of the request entry to which this entry responds.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchId;
+
+/** A list of errors defined if, and only if, the request failed. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#shippingsettingsCustomBatchResponseEntry".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The retrieved or updated account shipping settings. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ShippingSettings *shippingSettings;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_ShippingsettingsGetSupportedCarriersResponse
+ */
+@interface GTLRShoppingContent_ShippingsettingsGetSupportedCarriersResponse : GTLRObject
+
+/** A list of supported carriers. May be empty. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CarriersCarrier *> *carriers;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#shippingsettingsGetSupportedCarriersResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_ShippingsettingsListResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resources" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRShoppingContent_ShippingsettingsListResponse : GTLRCollectionObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#shippingsettingsListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The token for the retrieval of the next page of shipping settings. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  resources
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ShippingSettings *> *resources;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_Table
+ */
+@interface GTLRShoppingContent_Table : GTLRObject
+
+/**
+ *  Headers of the table's columns. Optional: if not set then the table has only
+ *  one dimension.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Headers *columnHeaders;
+
+/** Name of the table. Required for subtables, ignored for the main table. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Headers of the table's rows. Required. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Headers *rowHeaders;
+
+/**
+ *  The list of rows that constitute the table. Must have the same length as
+ *  rowHeaders. Required.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Row *> *rows;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_TestOrder
  */
 @interface GTLRShoppingContent_TestOrder : GTLRObject
@@ -4381,6 +4879,45 @@ NS_ASSUME_NONNULL_BEGIN
  *  than the four values accepted by createTestOrder.
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The single value of a rate group or the value of a rate group table's cell.
+ *  Exactly one of noShipping, flatRate, pricePercentage, carrierRateName,
+ *  subtableName must be set.
+ */
+@interface GTLRShoppingContent_Value : GTLRObject
+
+/**
+ *  The name of a carrier rate referring to a carrier rate defined in the same
+ *  rate group. Can only be set if all other fields are not set.
+ */
+@property(nonatomic, copy, nullable) NSString *carrierRateName;
+
+/** A flat rate. Can only be set if all other fields are not set. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *flatRate;
+
+/**
+ *  If true, then the product can't ship. Must be true when set, can only be set
+ *  if all other fields are not set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noShipping;
+
+/**
+ *  A percentage of the price represented as a number in decimal notation (e.g.,
+ *  "5.4"). Can only be set if all other fields are not set.
+ */
+@property(nonatomic, copy, nullable) NSString *pricePercentage;
+
+/**
+ *  The name of a subtable. Can only be set in table cells (i.e., not for single
+ *  values), and only if all other fields are not set.
+ */
+@property(nonatomic, copy, nullable) NSString *subtableName;
 
 @end
 

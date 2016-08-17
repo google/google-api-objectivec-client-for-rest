@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Debugger API (clouddebugger/v2)
+//   Stackdriver Debugger API (clouddebugger/v2)
 // Description:
 //   Examines the call stack and variables of a running application without
 //   stopping or slowing it down.
 // Documentation:
-//   https://cloud.google.com/tools/cloud-debugger
+//   http://cloud.google.com/debugger
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -31,12 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeCloudDebuggerCloudDebugger;
 /**
- *  Authorization scope: Manage active breakpoints in cloud debugger
- *
- *  Value "https://www.googleapis.com/auth/cloud_debugletcontroller"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudDebuggerCloudDebugletcontroller;
-/**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
@@ -49,7 +43,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudDebuggerCloudPlatform;
 //
 
 /**
- *  Service for executing Google Cloud Debugger API queries.
+ *  Service for executing Stackdriver Debugger API queries.
  *
  *  Examines the call stack and variables of a running application without
  *  stopping or slowing it down.

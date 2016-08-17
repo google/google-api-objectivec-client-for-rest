@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Datastore API (datastore/v1beta3)
+//   Google Cloud Datastore API (datastore/v1)
 // Description:
 //   Accesses the schemaless NoSQL database to provide fully managed, robust,
 //   scalable storage for your application.
@@ -30,7 +30,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"v1beta3/projects/{projectId}:allocateIds";
+  NSString *pathURITemplate = @"v1/projects/{projectId}:allocateIds";
   GTLRDatastoreQuery_ProjectsAllocateIds *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -55,7 +55,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"v1beta3/projects/{projectId}:beginTransaction";
+  NSString *pathURITemplate = @"v1/projects/{projectId}:beginTransaction";
   GTLRDatastoreQuery_ProjectsBeginTransaction *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -80,7 +80,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"v1beta3/projects/{projectId}:commit";
+  NSString *pathURITemplate = @"v1/projects/{projectId}:commit";
   GTLRDatastoreQuery_ProjectsCommit *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -105,7 +105,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"v1beta3/projects/{projectId}:lookup";
+  NSString *pathURITemplate = @"v1/projects/{projectId}:lookup";
   GTLRDatastoreQuery_ProjectsLookup *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -130,7 +130,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"v1beta3/projects/{projectId}:rollback";
+  NSString *pathURITemplate = @"v1/projects/{projectId}:rollback";
   GTLRDatastoreQuery_ProjectsRollback *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -155,7 +155,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"v1beta3/projects/{projectId}:runQuery";
+  NSString *pathURITemplate = @"v1/projects/{projectId}:runQuery";
   GTLRDatastoreQuery_ProjectsRunQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

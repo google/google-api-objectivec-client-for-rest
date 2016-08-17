@@ -159,3 +159,122 @@
 }
 
 @end
+
+@implementation GTLRCloudBuildQuery_ProjectsTriggersCreate
+
+@dynamic projectId;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
+                      projectId:(NSString *)projectId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/triggers";
+  GTLRCloudBuildQuery_ProjectsTriggersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRCloudBuild_BuildTrigger class];
+  query.loggingName = @"cloudbuild.projects.triggers.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsTriggersDelete
+
+@dynamic projectId, triggerId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         triggerId:(NSString *)triggerId {
+  NSArray *pathParams = @[
+    @"projectId", @"triggerId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/triggers/{triggerId}";
+  GTLRCloudBuildQuery_ProjectsTriggersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.triggerId = triggerId;
+  query.expectedObjectClass = [GTLRCloudBuild_Empty class];
+  query.loggingName = @"cloudbuild.projects.triggers.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsTriggersGet
+
+@dynamic projectId, triggerId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         triggerId:(NSString *)triggerId {
+  NSArray *pathParams = @[
+    @"projectId", @"triggerId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/triggers/{triggerId}";
+  GTLRCloudBuildQuery_ProjectsTriggersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.triggerId = triggerId;
+  query.expectedObjectClass = [GTLRCloudBuild_BuildTrigger class];
+  query.loggingName = @"cloudbuild.projects.triggers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsTriggersList
+
+@dynamic projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId {
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/triggers";
+  GTLRCloudBuildQuery_ProjectsTriggersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRCloudBuild_ListBuildTriggersResponse class];
+  query.loggingName = @"cloudbuild.projects.triggers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsTriggersPatch
+
+@dynamic projectId, triggerId;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
+                      projectId:(NSString *)projectId
+                      triggerId:(NSString *)triggerId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"projectId", @"triggerId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/triggers/{triggerId}";
+  GTLRCloudBuildQuery_ProjectsTriggersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.triggerId = triggerId;
+  query.expectedObjectClass = [GTLRCloudBuild_BuildTrigger class];
+  query.loggingName = @"cloudbuild.projects.triggers.patch";
+  return query;
+}
+
+@end

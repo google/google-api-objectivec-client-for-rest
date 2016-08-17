@@ -4,8 +4,7 @@
 // API:
 //   Ad Exchange Seller API (adexchangeseller/v2.0)
 // Description:
-//   Gives Ad Exchange seller users access to their inventory and the ability to
-//   generate reports
+//   Accesses the inventory of Ad Exchange seller users and generates reports.
 // Documentation:
 //   https://developers.google.com/ad-exchange/seller-rest/
 

@@ -1475,6 +1475,14 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
+ *  Resource name of the Cloud KMS key, of the form
+ *  projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that
+ *  will be used to encrypt the object. Overrides the object metadata's
+ *  kms_key_name value, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
  *  Fetches a @c GTLRStorage_Object.
  *
  *  Concatenates a list of existing objects into a new object in the same
@@ -1911,6 +1919,14 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
+ *  Resource name of the Cloud KMS key, of the form
+ *  projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that
+ *  will be used to encrypt the object. Overrides the object metadata's
+ *  kms_key_name value, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
  *  Name of the object. Required when the object metadata is not otherwise
  *  provided. Overrides the object metadata's name value, if any. For
  *  information about how to URL encode object names to be path safe, see
@@ -2188,6 +2204,14 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  object metadata's bucket value, if any.
  */
 @property(nonatomic, copy, nullable) NSString *destinationBucket;
+
+/**
+ *  Resource name of the Cloud KMS key, of the form
+ *  projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that
+ *  will be used to encrypt the object. Overrides the object metadata's
+ *  kms_key_name value, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationKmsKeyName;
 
 /**
  *  Name of the new object. Required when the object metadata is not otherwise

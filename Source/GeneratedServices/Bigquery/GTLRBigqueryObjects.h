@@ -199,6 +199,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *ignoreUnspecifiedColumnFamilies;
 
+/**
+ *  [Optional] If field is true, then the rowkey column families will be read
+ *  and converted to string. Otherwise they are read with BYTES type values and
+ *  users need to manually cast them with CAST if necessary. The default value
+ *  is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readRowkeyAsString;
+
 @end
 
 

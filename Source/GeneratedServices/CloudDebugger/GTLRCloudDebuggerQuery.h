@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Debugger API (clouddebugger/v2)
+//   Stackdriver Debugger API (clouddebugger/v2)
 // Description:
 //   Examines the call stack and variables of a running application without
 //   stopping or slowing it down.
 // Documentation:
-//   https://cloud.google.com/tools/cloud-debugger
+//   http://cloud.google.com/debugger
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -64,7 +64,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *  Method: clouddebugger.controller.debuggees.breakpoints.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudDebuggerCloudDebugletcontroller
+ *    @c kGTLRAuthScopeCloudDebuggerCloudDebugger
  *    @c kGTLRAuthScopeCloudDebuggerCloudPlatform
  */
 @interface GTLRCloudDebuggerQuery_ControllerDebuggeesBreakpointsList : GTLRCloudDebuggerQuery
@@ -122,7 +122,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *  Method: clouddebugger.controller.debuggees.breakpoints.update
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudDebuggerCloudDebugletcontroller
+ *    @c kGTLRAuthScopeCloudDebuggerCloudDebugger
  *    @c kGTLRAuthScopeCloudDebuggerCloudPlatform
  */
 @interface GTLRCloudDebuggerQuery_ControllerDebuggeesBreakpointsUpdate : GTLRCloudDebuggerQuery
@@ -176,7 +176,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
  *  Method: clouddebugger.controller.debuggees.register
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudDebuggerCloudDebugletcontroller
+ *    @c kGTLRAuthScopeCloudDebuggerCloudDebugger
  *    @c kGTLRAuthScopeCloudDebuggerCloudPlatform
  */
 @interface GTLRCloudDebuggerQuery_ControllerDebuggeesRegister : GTLRCloudDebuggerQuery

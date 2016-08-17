@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Debugger API (clouddebugger/v2)
+//   Stackdriver Debugger API (clouddebugger/v2)
 // Description:
 //   Examines the call stack and variables of a running application without
 //   stopping or slowing it down.
 // Documentation:
-//   https://cloud.google.com/tools/cloud-debugger
+//   http://cloud.google.com/debugger
 
 #import "GTLRCloudDebuggerQuery.h"
 
