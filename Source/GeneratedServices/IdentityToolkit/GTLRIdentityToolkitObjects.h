@@ -811,6 +811,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestUri;
 
 /**
+ *  Whether return 200 and IDP credential rather than throw exception when
+ *  federated id is already linked.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnIdpCredential;
+
+/**
  *  Whether to return refresh tokens.
  *
  *  Uses NSNumber of boolValue.
@@ -1182,6 +1190,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** User's raw identifier directly returned from IDP. */
 @property(nonatomic, copy, nullable) NSString *rawId;
 
+/** Raw IDP-returned user info. */
+@property(nonatomic, copy, nullable) NSString *rawUserInfo;
+
 /** User's screen name at Twitter. */
 @property(nonatomic, copy, nullable) NSString *screenName;
 
@@ -1234,6 +1245,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *emailVerified;
+
+/** Client error code. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
  *  If idToken is STS id token, then this field will be expiration time of STS
@@ -1337,6 +1351,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  request. The domain part of the federated ID is returned.
  */
 @property(nonatomic, copy, nullable) NSString *providerId;
+
+/** Raw IDP-returned user info. */
+@property(nonatomic, copy, nullable) NSString *rawUserInfo;
 
 /** If idToken is STS id token, then this field will be refresh token. */
 @property(nonatomic, copy, nullable) NSString *refreshToken;

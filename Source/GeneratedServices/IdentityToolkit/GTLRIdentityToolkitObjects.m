@@ -353,7 +353,8 @@
 
 @implementation GTLRIdentityToolkit_RelyingpartyVerifyAssertionRequest
 @dynamic delegatedProjectNumber, idToken, instanceId, pendingIdToken, postBody,
-         requestUri, returnRefreshToken, returnSecureToken, sessionId;
+         requestUri, returnIdpCredential, returnRefreshToken, returnSecureToken,
+         sessionId;
 @end
 
 
@@ -482,7 +483,7 @@
 
 @implementation GTLRIdentityToolkit_UserInfoProviderUserInfoItem
 @dynamic displayName, email, federatedId, photoUrl, providerId, rawId,
-         screenName;
+         rawUserInfo, screenName;
 @end
 
 
@@ -493,12 +494,12 @@
 
 @implementation GTLRIdentityToolkit_VerifyAssertionResponse
 @dynamic action, appInstallationUrl, appScheme, context, dateOfBirth,
-         displayName, email, emailRecycled, emailVerified, expiresIn,
-         federatedId, firstName, fullName, idToken, inputEmail, kind, language,
-         lastName, localId, needConfirmation, needEmail, nickName,
+         displayName, email, emailRecycled, emailVerified, errorMessage,
+         expiresIn, federatedId, firstName, fullName, idToken, inputEmail, kind,
+         language, lastName, localId, needConfirmation, needEmail, nickName,
          oauthAccessToken, oauthAuthorizationCode, oauthExpireIn, oauthIdToken,
          oauthRequestToken, oauthScope, oauthTokenSecret, originalEmail,
-         photoUrl, providerId, refreshToken, screenName, timeZone,
+         photoUrl, providerId, rawUserInfo, refreshToken, screenName, timeZone,
          verifiedProvider;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
