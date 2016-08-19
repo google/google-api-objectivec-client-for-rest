@@ -428,6 +428,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
         }
         if ([[[parts lastObject] lowercaseString] isEqual:@"api"]) {
           parts = [parts subarrayWithRange:NSMakeRange(0, parts.count - 1)];
+        } else if ([[[parts lastObject] lowercaseString] isEqual:@"apis"]) {
+          parts = [parts subarrayWithRange:NSMakeRange(0, parts.count - 1)];
         }
         // If there was >1 part left, and glueing them all together as lowercase
         // matches the api name, then use them as the guessed name.
@@ -438,7 +440,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
                               shouldCapitalize:YES
                             allowLeadingDigits:YES];
             NSString *msg =
-              [NSString stringWithFormat:@"Guessed formatted name \"%@\" from API title \"%@\"",
+              [NSString stringWithFormat:@"Guessed formatted name '%@' from API title '%@'",
                                          _formattedName, title];
             [self addInfo:msg];
           }
