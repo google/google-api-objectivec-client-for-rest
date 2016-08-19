@@ -127,7 +127,9 @@ static ArgInfo positionalArgs[] = {
   { "service:version",
       "The description of the given [service]/[version] pair is fetched and"
       " the files for it are generated.  When using --generatePreferred,"
-      " version can be '-' to skip generating the name service." },
+      " version can be '-' to skip generating the named service. If the version"
+      " starts with '-' (i.e. - '-v1'), it will only skip that specific"
+      " version of the named service."},
   { "http[s]://url/to/rest_description_json",
       "A URL to download containing the description of a service to"
       " generate." },
@@ -972,6 +974,11 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
       NSString *version = [splitArg objectAtIndex:1];
       if ([version isEqual:@"-"]) {
         [self.apisToSkip addObject:apiName];
+      } else if ([version hasPrefix:@"-"]) {
+        version = [version substringFromIndex:1];
+        NSString *apiVersion =
+            [NSString stringWithFormat:@"%@:%@", apiName, version];
+        [self.apisToSkip addObject:apiVersion];
       } else {
         NSArray *pair = @[ apiName, version ];
         [self.apisToFetch addObject:pair];
@@ -1069,7 +1076,14 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
 
         for (GTLRDiscovery_DirectoryListItemsItem *listItem in sortedAPIItems) {
           NSString *apiName = listItem.name;
-          if ([self.apisToSkip containsObject:apiName]) {
+          NSString *apiVersion =
+              [NSString stringWithFormat:@"%@:%@", apiName, listItem.version];
+          if ([self.apisToSkip containsObject:apiVersion]) {
+            [self reportPrefixed:@" - "
+                            info:@"Discovery included '%@:%@', but skipping as requested.",
+             apiName, listItem.version];
+            [apisLeftToSkip removeObject:apiVersion];
+          } else if ([self.apisToSkip containsObject:apiName]) {
             [self reportPrefixed:@" - "
                             info:@"Discovery included '%@:%@', but skipping as requested.",
              apiName, listItem.version];
