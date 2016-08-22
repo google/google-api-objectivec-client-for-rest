@@ -441,10 +441,6 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_CFLAGS = (
-					"-DGTLR_BUILT_AS_FRAMEWORK=1",
-					"-DDEBUG=1",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.DriveSample;
 				PRODUCT_NAME = DriveSample;
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -462,7 +458,6 @@
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_CFLAGS = "-DGTLR_BUILT_AS_FRAMEWORK=1";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.DriveSample;
 				PRODUCT_NAME = DriveSample;
 				WRAPPER_EXTENSION = app;
@@ -474,6 +469,10 @@
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"GTLR_BUILT_AS_FRAMEWORK=1",
+					"DEBUG=1",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -487,10 +486,6 @@
 					../../Source/Objects,
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = (
-					"-DGTLR_BUILT_AS_FRAMEWORK=0",
-					"-DDEBUG=1",
-				);
 				SDKROOT = macosx;
 				WARNING_CFLAGS = (
 					"-Wall",
@@ -503,6 +498,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = "GTLR_BUILT_AS_FRAMEWORK=1";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -515,7 +511,6 @@
 					../../Source/OAuth2/Mac,
 					../../Source/Objects,
 				);
-				OTHER_CFLAGS = "-DGTLR_BUILT_AS_FRAMEWORK=0";
 				SDKROOT = macosx;
 				WARNING_CFLAGS = (
 					"-Wall",
