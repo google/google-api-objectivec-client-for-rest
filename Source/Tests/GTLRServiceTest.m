@@ -2924,8 +2924,6 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   service.callbackQueue = dispatch_get_main_queue();
 
-  XCTAssertFalse(queryTicket.hasCalledCallback);
-
   XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
