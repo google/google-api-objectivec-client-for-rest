@@ -116,4 +116,54 @@
   XCTAssertEqualObjects(recoveredErrorObj.JSON, errorObj.JSON);
 }
 
+- (void)testObjectCoding {
+  XCTAssertTrue([GTLRErrorObject supportsSecureCoding]);
+
+  // Make sure the underlying JSON support didn't get busted.
+
+  GTLRErrorObject *obj = [GTLRErrorObject object];
+  obj.code = @123;
+  obj.message = @"A message";
+
+  NSMutableData *data = [NSMutableData data];
+  NSKeyedArchiver *archiver =
+      [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+  [archiver setRequiresSecureCoding:YES];
+  [archiver encodeObject:obj forKey:NSKeyedArchiveRootObjectKey];
+  [archiver finishEncoding];
+  XCTAssertTrue(data.length > 0);
+
+  NSKeyedUnarchiver *unarchiver =
+      [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+  [unarchiver setRequiresSecureCoding:YES];
+  GTLRErrorObject *obj2 =
+      [unarchiver decodeObjectOfClass:[GTLRErrorObject class]
+                               forKey:NSKeyedArchiveRootObjectKey];
+  XCTAssertNotNil(obj2);
+  XCTAssertNotEqual(obj, obj2);  // Pointer compare
+  XCTAssertEqualObjects(obj, obj2);
+
+  // Test with a foundation error.
+
+  NSError *err = [NSError errorWithDomain:@"my.domain"
+                                     code:111
+                                 userInfo:nil];
+  obj = [GTLRErrorObject objectWithFoundationError:err];
+
+  data = [NSMutableData data];
+  archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+  [archiver setRequiresSecureCoding:YES];
+  [archiver encodeObject:obj forKey:NSKeyedArchiveRootObjectKey];
+  [archiver finishEncoding];
+  XCTAssertTrue(data.length > 0);
+
+  unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+  [unarchiver setRequiresSecureCoding:YES];
+  obj2 = [unarchiver decodeObjectOfClass:[GTLRErrorObject class]
+                                  forKey:NSKeyedArchiveRootObjectKey];
+  XCTAssertNotNil(obj2);
+  XCTAssertNotEqual(obj, obj2);  // Pointer compare.
+  XCTAssertEqualObjects(obj, obj2);
+}
+
 @end

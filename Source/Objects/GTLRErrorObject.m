@@ -18,7 +18,11 @@
 #endif
 
 #import "GTLRErrorObject.h"
+
+#import "GTLRUtilities.h"
 #import "GTLRService.h"
+
+static NSString *const kGTLRErrorObjectFoundationErrorKey = @"foundationError";
 
 @implementation GTLRErrorObject {
   NSError *_originalFoundationError;
@@ -84,6 +88,36 @@
   NSDictionary *userInfo = [foundationError userInfo];
   GTLRErrorObject *errorObj = [userInfo objectForKey:kGTLRStructuredErrorKey];
   return errorObj;
+}
+
+- (BOOL)isEqual:(id)object {
+  // Include the underlying foundation error in equality checks.
+  if (self == object) return YES;
+  if (![super isEqual:object]) return NO;
+  if (![object isKindOfClass:[GTLRErrorObject class]]) return NO;
+  GTLRErrorObject *other = (GTLRErrorObject *)object;
+  return GTLR_AreEqualOrBothNil(_originalFoundationError,
+                                other->_originalFoundationError);
+}
+
++ (BOOL)supportsSecureCoding {
+  return YES;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)decoder {
+  self = [super initWithCoder:decoder];
+  if (self) {
+    _originalFoundationError =
+        [decoder decodeObjectOfClass:[NSError class]
+                              forKey:kGTLRErrorObjectFoundationErrorKey];
+  }
+  return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+  [super encodeWithCoder:encoder];
+  [encoder encodeObject:_originalFoundationError
+                 forKey:kGTLRErrorObjectFoundationErrorKey];
 }
 
 @end
