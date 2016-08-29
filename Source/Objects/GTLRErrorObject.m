@@ -42,7 +42,7 @@
   GTLRErrorObject *object = [self object];
   object->_originalFoundationError = error;
   object.code = @(error.code);
-  object.message = error.description;
+  object.message = error.localizedDescription;
   return object;
 }
 
@@ -60,7 +60,7 @@
 
   // This structured GTLRErrorObject will be available in the error's userInfo
   // dictionary.
-  [userInfo setObject:self forKey:kGTLRStructuredErrorKey];
+  userInfo[kGTLRStructuredErrorKey]  = self;
 
   NSError *error;
   if (_originalFoundationError) {
@@ -70,14 +70,7 @@
   } else {
     NSString *reasonStr = self.message;
     if (reasonStr) {
-      // We always store an error in the userInfo key "error"
-      [userInfo setObject:reasonStr forKey:kGTLRServiceErrorStringKey];
-
-      // Store a user-readable "reason" to show up when an error is logged,
-      // in parentheses like NSError does it
-      NSString *parenthesized = [NSString stringWithFormat:@"(%@)", reasonStr];
-      [userInfo setObject:parenthesized
-                   forKey:NSLocalizedFailureReasonErrorKey];
+      userInfo[NSLocalizedDescriptionKey] = reasonStr;
     }
 
     error = [NSError errorWithDomain:kGTLRErrorObjectDomain
