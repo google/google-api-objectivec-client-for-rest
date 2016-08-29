@@ -18,7 +18,9 @@
 #import <objc/runtime.h>
 
 #import "GTLRObject.h"
+#import "GTLRBatchResult.h"
 #import "GTLRDateTime.h"
+#import "GTLRErrorObject.h"
 
 // Custom subclass for testing the property handling.
 @class GTLRTestingObject;
@@ -1487,6 +1489,90 @@ static Class gAdditionalPropsClass = Nil;
   str = items[1];
   XCTAssertTrue([str isKindOfClass:[NSString class]]);
   XCTAssertEqualObjects(str, @"str 2");
+}
+
+#pragma mark NSSecureCoding support
+
+- (void)testObjectCoding {
+  XCTAssertTrue([GTLRObject supportsSecureCoding]);
+  XCTAssertTrue([GTLRTestingObject supportsSecureCoding]);
+
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  obj.aStr = @"a string";
+  obj.aNum = @123;
+  obj.aBool = @YES;
+
+  NSMutableData *data = [NSMutableData data];
+  NSKeyedArchiver *archiver =
+      [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+  [archiver setRequiresSecureCoding:YES];
+  [archiver encodeObject:obj forKey:NSKeyedArchiveRootObjectKey];
+  [archiver finishEncoding];
+  XCTAssertTrue(data.length > 0);
+
+  NSKeyedUnarchiver *unarchiver =
+      [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+  [unarchiver setRequiresSecureCoding:YES];
+  GTLRTestingObject *obj2 =
+      [unarchiver decodeObjectOfClass:[GTLRTestingObject class]
+                               forKey:NSKeyedArchiveRootObjectKey];
+  XCTAssertNotNil(obj2);
+  XCTAssertNotEqual(obj, obj2);  // Pointer compare
+  XCTAssertEqualObjects(obj, obj2);
+}
+
+- (void)testBatchResultCoding {
+  XCTAssertTrue([GTLRBatchResult supportsSecureCoding]);
+
+  GTLRTestingObject *obj = [GTLRTestingObject object];
+  obj.aStr = @"a string";
+  obj.aNum = @123;
+  obj.aBool = @YES;
+
+  GTLRErrorObject *err = [GTLRErrorObject object];
+  err.code = @101;
+  err.message = @"My Error";
+
+  NSDictionary *responseHeaders = @{
+      @"key1" : @{
+          @"X-Header1" : @"Value1",
+          @"X-Header2" : @"Value2",
+      },
+      @"key2" : @{
+          @"X-Header3" : @"Value4",
+          @"X-Header4" : @"Value3",
+      },
+  };
+
+  GTLRBatchResult *result = [GTLRBatchResult object];
+  result.successes = @{ @"key2" : obj };
+  result.failures = @{ @"key1" : err };
+  result.responseHeaders = responseHeaders;
+
+  NSMutableData *data = [NSMutableData data];
+  NSKeyedArchiver *archiver =
+      [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+  [archiver setRequiresSecureCoding:YES];
+  [archiver encodeObject:result forKey:NSKeyedArchiveRootObjectKey];
+  [archiver finishEncoding];
+  XCTAssertTrue(data.length > 0);
+
+  NSKeyedUnarchiver *unarchiver =
+      [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+  [unarchiver setRequiresSecureCoding:YES];
+  GTLRBatchResult *result2 =
+      [unarchiver decodeObjectOfClass:[GTLRBatchResult class]
+                               forKey:NSKeyedArchiveRootObjectKey];
+  XCTAssertNotNil(result2);
+  XCTAssertNotEqual(result, result2);  // Pointer compare.
+  XCTAssertNotEqual(result.successes, result2.successes);  // Pointer compare.
+  XCTAssertNotEqual(result.failures, result2.failures);  // Pointer compare.
+  XCTAssertNotEqual(result.responseHeaders, result2.responseHeaders);  // Pointer compare.
+  XCTAssertNotEqual(result, result2);  // Pointer compare.
+  XCTAssertEqualObjects(result, result2);
+  XCTAssertEqualObjects(result.successes, result2.successes);
+  XCTAssertEqualObjects(result.failures, result2.failures);
+  XCTAssertEqualObjects(result.responseHeaders, result2.responseHeaders);
 }
 
 @end
