@@ -64,8 +64,8 @@
   // Test conversion to and from an NSError.
   NSError *fabricatedNSError = errorObj.foundationError;
   XCTAssertEqualObjects(fabricatedNSError.domain, kGTLRErrorObjectDomain);
-  // We always store a string in the userInfo "error" key.
-  NSString *errorStr = fabricatedNSError.userInfo[kGTLRServiceErrorStringKey];
+  // We always store a string in the localizedDescription.
+  NSString *errorStr = fabricatedNSError.localizedDescription;
   XCTAssertGreaterThan(errorStr.length, 0U);
 
   GTLRErrorObject *recoveredErrorObj = [GTLRErrorObject underlyingObjectForError:fabricatedNSError];
@@ -90,8 +90,8 @@
   // Test conversion to and from an NSError.
   NSError *fabricatedNSError = errorObj.foundationError;
   XCTAssertEqualObjects(fabricatedNSError.domain, kGTLRErrorObjectDomain);
-  // We always store a string in the userInfo "error" key.
-  NSString *errorStr = fabricatedNSError.userInfo[kGTLRServiceErrorStringKey];
+  NSString *errorStr = fabricatedNSError.localizedDescription;
+  // We always store a string in the localizedDescription.
   XCTAssertGreaterThan(errorStr.length, 0U);
 
   GTLRErrorObject *recoveredErrorObj = [GTLRErrorObject underlyingObjectForError:fabricatedNSError];

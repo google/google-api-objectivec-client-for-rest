@@ -68,11 +68,6 @@ extern NSString *const kGTLRServiceErrorContentIDKey;
 extern NSString *const kGTLRErrorObjectDomain;
 
 /**
- *  The userInfo key for the server error string for errors with domain kGTLRErrorObjectDomain.
- */
-extern NSString *const kGTLRServiceErrorStringKey;
-
-/**
  *  The userInfo key for a GTLRErrorObject for errors with domain kGTLRErrorObjectDomain
  *  when the error was created from a structured JSON error response body.
  */
@@ -149,7 +144,7 @@ typedef void (^GTLRServiceUploadProgressBlock)(GTLRServiceTicket *progressTicket
  *                            kGTMSessionFetcherStatusDomain then the error's code is the server
  *                            response status.  Details on the error from the server are available
  *                            in the userInfo via the keys kGTLRStructuredErrorKey and
- *                            kGTLRServiceErrorStringKey.
+ *                            NSLocalizedDescriptionKey.
  *
  *  @return YES if the request should be retried.
  */
