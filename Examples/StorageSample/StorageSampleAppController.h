@@ -19,5 +19,5 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface StorageSampleAppController : NSObject
+@interface StorageSampleAppController : NSObject<NSApplicationDelegate>
 @end

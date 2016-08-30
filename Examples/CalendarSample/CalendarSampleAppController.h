@@ -19,5 +19,5 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface CalendarSampleAppController : NSObject
+@interface CalendarSampleAppController : NSObject<NSApplicationDelegate>
 @end
