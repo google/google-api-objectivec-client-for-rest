@@ -32,6 +32,11 @@
   [windowController showWindow:self];
 }
 
+- (void)applicationWillTerminate:(NSNotification *)notification {
+  // Ensure any defaults are flushed out.
+  [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
   return YES;
 }

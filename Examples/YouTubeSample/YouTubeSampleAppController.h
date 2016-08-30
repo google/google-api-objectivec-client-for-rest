@@ -19,5 +19,5 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface YouTubeSampleAppController : NSObject
+@interface YouTubeSampleAppController : NSObject<NSApplicationDelegate>
 @end

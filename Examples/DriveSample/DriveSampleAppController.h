@@ -19,5 +19,5 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface DriveSampleAppController : NSObject
+@interface DriveSampleAppController : NSObject<NSApplicationDelegate>
 @end
