@@ -37,6 +37,7 @@
 @class GTLRCompute_AutoscalingPolicyLoadBalancingUtilization;
 @class GTLRCompute_Backend;
 @class GTLRCompute_BackendService;
+@class GTLRCompute_ConnectionDraining;
 @class GTLRCompute_CustomerEncryptionKey;
 @class GTLRCompute_CustomerEncryptionKeyProtectedDisk;
 @class GTLRCompute_DeprecationStatus;
@@ -57,11 +58,15 @@
 @class GTLRCompute_ForwardingRulesScopedList;
 @class GTLRCompute_ForwardingRulesScopedListWarning;
 @class GTLRCompute_ForwardingRulesScopedListWarningDataItem;
+@class GTLRCompute_HealthCheck;
 @class GTLRCompute_HealthCheckReference;
 @class GTLRCompute_HealthStatus;
 @class GTLRCompute_HostRule;
+@class GTLRCompute_HTTP2HealthCheck;
+@class GTLRCompute_HTTPHealthCheck;
 @class GTLRCompute_HttpHealthCheck;
 @class GTLRCompute_HttpsHealthCheck;
+@class GTLRCompute_HTTPSHealthCheck;
 @class GTLRCompute_Image;
 @class GTLRCompute_ImageRawDisk;
 @class GTLRCompute_Instance;
@@ -129,6 +134,7 @@
 @class GTLRCompute_ServiceAccount;
 @class GTLRCompute_Snapshot;
 @class GTLRCompute_SslCertificate;
+@class GTLRCompute_SSLHealthCheck;
 @class GTLRCompute_Subnetwork;
 @class GTLRCompute_SubnetworkAggregatedListItems;
 @class GTLRCompute_SubnetworksScopedList;
@@ -147,11 +153,13 @@
 @class GTLRCompute_TargetPoolsScopedList;
 @class GTLRCompute_TargetPoolsScopedListWarning;
 @class GTLRCompute_TargetPoolsScopedListWarningDataItem;
+@class GTLRCompute_TargetSslProxy;
 @class GTLRCompute_TargetVpnGateway;
 @class GTLRCompute_TargetVpnGatewayAggregatedListItems;
 @class GTLRCompute_TargetVpnGatewaysScopedList;
 @class GTLRCompute_TargetVpnGatewaysScopedListWarning;
 @class GTLRCompute_TargetVpnGatewaysScopedListWarningDataItem;
+@class GTLRCompute_TCPHealthCheck;
 @class GTLRCompute_TestFailure;
 @class GTLRCompute_UrlMap;
 @class GTLRCompute_UrlMapTest;
@@ -292,6 +300,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilizati
 // ----------------------------------------------------------------------------
 // GTLRCompute_Backend.balancingMode
 
+/** Value: "CONNECTION" */
+GTLR_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Connection;
 /** Value: "RATE" */
 GTLR_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Rate;
 /** Value: "UTILIZATION" */
@@ -304,6 +314,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Utilization;
 GTLR_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Http;
 /** Value: "HTTPS" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Https;
+/** Value: "SSL" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Ssl;
+/** Value: "TCP" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Tcp;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendService.sessionAffinity
@@ -462,12 +476,52 @@ GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_HealthCheck.type
+
+/** Value: "HTTP" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Http;
+/** Value: "HTTP2" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Http2;
+/** Value: "HTTPS" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Https;
+/** Value: "INVALID" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Invalid;
+/** Value: "SSL" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Ssl;
+/** Value: "TCP" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Tcp;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_HealthStatus.healthState
 
 /** Value: "HEALTHY" */
 GTLR_EXTERN NSString * const kGTLRCompute_HealthStatus_HealthState_Healthy;
 /** Value: "UNHEALTHY" */
 GTLR_EXTERN NSString * const kGTLRCompute_HealthStatus_HealthState_Unhealthy;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_HTTP2HealthCheck.proxyHeader
+
+/** Value: "NONE" */
+GTLR_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_ProxyHeader_None;
+/** Value: "PROXY_V1" */
+GTLR_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_ProxyHeader_ProxyV1;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_HTTPHealthCheck.proxyHeader
+
+/** Value: "NONE" */
+GTLR_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_ProxyHeader_None;
+/** Value: "PROXY_V1" */
+GTLR_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_ProxyHeader_ProxyV1;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_HTTPSHealthCheck.proxyHeader
+
+/** Value: "NONE" */
+GTLR_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_ProxyHeader_None;
+/** Value: "PROXY_V1" */
+GTLR_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Image.sourceType
@@ -838,6 +892,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InUseAddresses;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_LocalSsdTotalGb;
 /** Value: "NETWORKS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Networks;
+/** Value: "PREEMPTIBLE_CPUS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleCpus;
+/** Value: "REGIONAL_AUTOSCALERS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalAutoscalers;
+/** Value: "REGIONAL_INSTANCE_GROUP_MANAGERS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers;
 /** Value: "ROUTERS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Routers;
 /** Value: "ROUTES" */
@@ -990,6 +1050,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Snapshot_StorageBytesStatus_Updating;
 GTLR_EXTERN NSString * const kGTLRCompute_Snapshot_StorageBytesStatus_UpToDate;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_SSLHealthCheck.proxyHeader
+
+/** Value: "NONE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_None;
+/** Value: "PROXY_V1" */
+GTLR_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_ProxyV1;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_SubnetworksScopedListWarning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -1116,6 +1184,22 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_Sing
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_TargetSslProxiesSetProxyHeaderRequest.proxyHeader
+
+/** Value: "NONE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxiesSetProxyHeaderRequest_ProxyHeader_None;
+/** Value: "PROXY_V1" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxiesSetProxyHeaderRequest_ProxyHeader_ProxyV1;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_TargetSslProxy.proxyHeader
+
+/** Value: "NONE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxy_ProxyHeader_None;
+/** Value: "PROXY_V1" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxy_ProxyHeader_ProxyV1;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_TargetVpnGateway.status
 
 /** Value: "CREATING" */
@@ -1162,6 +1246,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Cod
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_TCPHealthCheck.proxyHeader
+
+/** Value: "NONE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_None;
+/** Value: "PROXY_V1" */
+GTLR_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_VpnTunnel.status
@@ -2132,23 +2224,24 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_Backend : GTLRObject
 
 /**
- *  Specifies the balancing mode for this backend. For global HTTP(S) load
- *  balancing, the default is UTILIZATION. Valid values are UTILIZATION and
- *  RATE.
+ *  Specifies the balancing mode for this backend. For global HTTP(S) or TCP/SSL
+ *  load balancing, the default is UTILIZATION. Valid values are UTILIZATION,
+ *  RATE (for HTTP(S)) and CONNECTION (for TCP/SSL).
  *  This cannot be used for internal load balancing.
  *
  *  Likely values:
+ *    @arg @c kGTLRCompute_Backend_BalancingMode_Connection Value "CONNECTION"
  *    @arg @c kGTLRCompute_Backend_BalancingMode_Rate Value "RATE"
  *    @arg @c kGTLRCompute_Backend_BalancingMode_Utilization Value "UTILIZATION"
  */
 @property(nonatomic, copy, nullable) NSString *balancingMode;
 
 /**
- *  A multiplier applied to the group's maximum servicing capacity (either
- *  UTILIZATION or RATE). Default value is 1, which means the group will serve
- *  up to 100% of its configured CPU or RPS (depending on balancingMode). A
- *  setting of 0 means the group is completely drained, offering 0% of its
- *  available CPU or RPS. Valid range is [0.0,1.0].
+ *  A multiplier applied to the group's maximum servicing capacity (based on
+ *  UTILIZATION, RATE or CONNECTION). Default value is 1, which means the group
+ *  will serve up to 100% of its configured capacity (depending on
+ *  balancingMode). A setting of 0 means the group is completely drained,
+ *  offering 0% of its available Capacity. Valid range is [0.0,1.0].
  *  This cannot be used for internal load balancing.
  *
  *  Uses NSNumber of floatValue.
@@ -2175,6 +2268,27 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  group must be in a zone within the same region as the BackendService.
  */
 @property(nonatomic, copy, nullable) NSString *group;
+
+/**
+ *  The max number of simultaneous connections for the group. Can be used with
+ *  either CONNECTION or UTILIZATION balancing modes. For CONNECTION mode,
+ *  either maxConnections or maxConnectionsPerInstance must be set.
+ *  This cannot be used for internal load balancing.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConnections;
+
+/**
+ *  The max number of simultaneous connections that a single backend instance
+ *  can handle. This is used to calculate the capacity of the group. Can be used
+ *  in either CONNECTION or UTILIZATION balancing modes. For CONNECTION mode,
+ *  either maxConnections or maxConnectionsPerInstance must be set.
+ *  This cannot be used for internal load balancing.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConnectionsPerInstance;
 
 /**
  *  The max requests per second (RPS) of the group. Can be used with either RATE
@@ -2229,6 +2343,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /** The list of backends that serve this BackendService. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_Backend *> *backends;
+
+@property(nonatomic, strong, nullable) GTLRCompute_ConnectionDraining *connectionDraining;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
@@ -2322,6 +2438,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Likely values:
  *    @arg @c kGTLRCompute_BackendService_Protocol_Http Value "HTTP"
  *    @arg @c kGTLRCompute_BackendService_Protocol_Https Value "HTTPS"
+ *    @arg @c kGTLRCompute_BackendService_Protocol_Ssl Value "SSL"
+ *    @arg @c kGTLRCompute_BackendService_Protocol_Tcp Value "TCP"
  */
 @property(nonatomic, copy, nullable) NSString *protocol;
 
@@ -2426,6 +2544,22 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_CacheInvalidationRule : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  Message containing connection draining configuration.
+ */
+@interface GTLRCompute_ConnectionDraining : GTLRObject
+
+/**
+ *  Time for which instance will be drained (not accept new connections, but
+ *  still work to finish started).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *drainingTimeoutSec;
 
 @end
 
@@ -3644,6 +3778,154 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
+ *  An HealthCheck resource. This resource defines a template for how individual
+ *  virtual machines should be checked for health, via one of the supported
+ *  protocols.
+ */
+@interface GTLRCompute_HealthCheck : GTLRObject
+
+/**
+ *  How often (in seconds) to send a health check. The default value is 5
+ *  seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *checkIntervalSec;
+
+/** [Output Only] Creation timestamp in 3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  An optional description of this resource. Provide this property when you
+ *  create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  A so-far unhealthy instance will be marked healthy after this many
+ *  consecutive successes. The default value is 2.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *healthyThreshold;
+
+@property(nonatomic, strong, nullable) GTLRCompute_HTTP2HealthCheck *http2HealthCheck;
+@property(nonatomic, strong, nullable) GTLRCompute_HTTPHealthCheck *httpHealthCheck;
+@property(nonatomic, strong, nullable) GTLRCompute_HTTPSHealthCheck *httpsHealthCheck;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** Type of the resource. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Name of the resource. Provided by the client when the resource is created.
+ *  The name must be 1-63 characters long, and comply with RFC1035.
+ *  Specifically, the name must be 1-63 characters long and match the regular
+ *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  be a lowercase letter, and all following characters must be a dash,
+ *  lowercase letter, or digit, except the last character, which cannot be a
+ *  dash.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+@property(nonatomic, strong, nullable) GTLRCompute_SSLHealthCheck *sslHealthCheck;
+@property(nonatomic, strong, nullable) GTLRCompute_TCPHealthCheck *tcpHealthCheck;
+
+/**
+ *  How long (in seconds) to wait before claiming failure. The default value is
+ *  5 seconds. It is invalid for timeoutSec to have greater value than
+ *  checkIntervalSec.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timeoutSec;
+
+/**
+ *  Specifies the type of the healthCheck, either TCP, UDP, SSL, HTTP, HTTPS or
+ *  HTTP2. If not specified, the default is TCP. Exactly one of the
+ *  protocol-specific health check field must be specified, which must match
+ *  type field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_HealthCheck_Type_Http Value "HTTP"
+ *    @arg @c kGTLRCompute_HealthCheck_Type_Http2 Value "HTTP2"
+ *    @arg @c kGTLRCompute_HealthCheck_Type_Https Value "HTTPS"
+ *    @arg @c kGTLRCompute_HealthCheck_Type_Invalid Value "INVALID"
+ *    @arg @c kGTLRCompute_HealthCheck_Type_Ssl Value "SSL"
+ *    @arg @c kGTLRCompute_HealthCheck_Type_Tcp Value "TCP"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  A so-far healthy instance will be marked unhealthy after this many
+ *  consecutive failures. The default value is 2.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unhealthyThreshold;
+
+@end
+
+
+/**
+ *  Contains a list of HealthCheck resources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_HealthCheckList : GTLRCollectionObject
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of HealthCheck resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_HealthCheck *> *items;
+
+/** Type of resource. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
  *  A full or valid partial URL to a health check. For example, the following
  *  are valid URLs:
  *  -
@@ -3714,6 +3996,92 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  the hostRule matches the URL's host portion.
  */
 @property(nonatomic, copy, nullable) NSString *pathMatcher;
+
+@end
+
+
+/**
+ *  GTLRCompute_HTTP2HealthCheck
+ */
+@interface GTLRCompute_HTTP2HealthCheck : GTLRObject
+
+/**
+ *  The value of the host header in the HTTP/2 health check request. If left
+ *  empty (default value), the IP on behalf of which this health check is
+ *  performed will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  The TCP port number for the health check request. The default value is 443.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
+ *  port_name are defined, port takes precedence.
+ */
+@property(nonatomic, copy, nullable) NSString *portName;
+
+/**
+ *  Specifies the type of proxy header to append before sending data to the
+ *  backend, either NONE or PROXY_V1. The default is NONE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_HTTP2HealthCheck_ProxyHeader_None Value "NONE"
+ *    @arg @c kGTLRCompute_HTTP2HealthCheck_ProxyHeader_ProxyV1 Value "PROXY_V1"
+ */
+@property(nonatomic, copy, nullable) NSString *proxyHeader;
+
+/**
+ *  The request path of the HTTP/2 health check request. The default value is /.
+ */
+@property(nonatomic, copy, nullable) NSString *requestPath;
+
+@end
+
+
+/**
+ *  GTLRCompute_HTTPHealthCheck
+ */
+@interface GTLRCompute_HTTPHealthCheck : GTLRObject
+
+/**
+ *  The value of the host header in the HTTP health check request. If left empty
+ *  (default value), the IP on behalf of which this health check is performed
+ *  will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  The TCP port number for the health check request. The default value is 80.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
+ *  port_name are defined, port takes precedence.
+ */
+@property(nonatomic, copy, nullable) NSString *portName;
+
+/**
+ *  Specifies the type of proxy header to append before sending data to the
+ *  backend, either NONE or PROXY_V1. The default is NONE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_HTTPHealthCheck_ProxyHeader_None Value "NONE"
+ *    @arg @c kGTLRCompute_HTTPHealthCheck_ProxyHeader_ProxyV1 Value "PROXY_V1"
+ */
+@property(nonatomic, copy, nullable) NSString *proxyHeader;
+
+/**
+ *  The request path of the HTTP health check request. The default value is /.
+ */
+@property(nonatomic, copy, nullable) NSString *requestPath;
 
 @end
 
@@ -3966,6 +4334,49 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
+ *  GTLRCompute_HTTPSHealthCheck
+ */
+@interface GTLRCompute_HTTPSHealthCheck : GTLRObject
+
+/**
+ *  The value of the host header in the HTTPS health check request. If left
+ *  empty (default value), the IP on behalf of which this health check is
+ *  performed will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  The TCP port number for the health check request. The default value is 443.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
+ *  port_name are defined, port takes precedence.
+ */
+@property(nonatomic, copy, nullable) NSString *portName;
+
+/**
+ *  Specifies the type of proxy header to append before sending data to the
+ *  backend, either NONE or PROXY_V1. The default is NONE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_HTTPSHealthCheck_ProxyHeader_None Value "NONE"
+ *    @arg @c kGTLRCompute_HTTPSHealthCheck_ProxyHeader_ProxyV1 Value "PROXY_V1"
+ */
+@property(nonatomic, copy, nullable) NSString *proxyHeader;
+
+/**
+ *  The request path of the HTTPS health check request. The default value is /.
+ */
+@property(nonatomic, copy, nullable) NSString *requestPath;
+
+@end
+
+
+/**
  *  Contains a list of HttpsHealthCheck resources.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4020,7 +4431,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, strong, nullable) NSNumber *archiveSizeBytes;
 
-/** [Output Only] Creation timestamp in RFC3339 text format. */
+/** Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
 /** The deprecation status associated with this image. */
@@ -4326,7 +4737,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /**
  *  [Output Only] The status of the instance. One of the following values:
- *  PROVISIONING, STAGING, RUNNING, STOPPING, SUSPENDED, SUSPENDING, and
+ *  PROVISIONING, STAGING, RUNNING, STOPPING, SUSPENDING, SUSPENDED, and
  *  TERMINATED.
  *
  *  Likely values:
@@ -4441,7 +4852,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  [Output Only] A unique identifier for this resource type. The server
+ *  [Output Only] A unique identifier for this instance group. The server
  *  generates this identifier.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -7103,6 +7514,11 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *    @arg @c kGTLRCompute_Quota_Metric_LocalSsdTotalGb Value
  *        "LOCAL_SSD_TOTAL_GB"
  *    @arg @c kGTLRCompute_Quota_Metric_Networks Value "NETWORKS"
+ *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleCpus Value "PREEMPTIBLE_CPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_RegionalAutoscalers Value
+ *        "REGIONAL_AUTOSCALERS"
+ *    @arg @c kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers Value
+ *        "REGIONAL_INSTANCE_GROUP_MANAGERS"
  *    @arg @c kGTLRCompute_Quota_Metric_Routers Value "ROUTERS"
  *    @arg @c kGTLRCompute_Quota_Metric_Routes Value "ROUTES"
  *    @arg @c kGTLRCompute_Quota_Metric_Snapshots Value "SNAPSHOTS"
@@ -8267,6 +8683,52 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  GTLRCompute_SSLHealthCheck
+ */
+@interface GTLRCompute_SSLHealthCheck : GTLRObject
+
+/**
+ *  The TCP port number for the health check request. The default value is 443.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
+ *  port_name are defined, port takes precedence.
+ */
+@property(nonatomic, copy, nullable) NSString *portName;
+
+/**
+ *  Specifies the type of proxy header to append before sending data to the
+ *  backend, either NONE or PROXY_V1. The default is NONE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SSLHealthCheck_ProxyHeader_None Value "NONE"
+ *    @arg @c kGTLRCompute_SSLHealthCheck_ProxyHeader_ProxyV1 Value "PROXY_V1"
+ */
+@property(nonatomic, copy, nullable) NSString *proxyHeader;
+
+/**
+ *  The application data to send once the SSL connection has been established
+ *  (default value is empty). If both request and response are empty, the
+ *  connection establishment alone will indicate health. The request data can
+ *  only be ASCII.
+ */
+@property(nonatomic, copy, nullable) NSString *request;
+
+/**
+ *  The bytes to match against the beginning of the response data. If left empty
+ *  (the default value), any response will indicate health. The response data
+ *  can only be ASCII.
+ */
+@property(nonatomic, copy, nullable) NSString *response;
 
 @end
 
@@ -9450,6 +9912,163 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
+ *  GTLRCompute_TargetSslProxiesSetBackendServiceRequest
+ */
+@interface GTLRCompute_TargetSslProxiesSetBackendServiceRequest : GTLRObject
+
+/** The URL of the new BackendService resource for the targetSslProxy. */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  GTLRCompute_TargetSslProxiesSetProxyHeaderRequest
+ */
+@interface GTLRCompute_TargetSslProxiesSetProxyHeaderRequest : GTLRObject
+
+/**
+ *  The new type of proxy header to append before sending data to the backend.
+ *  NONE or PROXY_V1 are allowed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_TargetSslProxiesSetProxyHeaderRequest_ProxyHeader_None
+ *        Value "NONE"
+ *    @arg @c kGTLRCompute_TargetSslProxiesSetProxyHeaderRequest_ProxyHeader_ProxyV1
+ *        Value "PROXY_V1"
+ */
+@property(nonatomic, copy, nullable) NSString *proxyHeader;
+
+@end
+
+
+/**
+ *  GTLRCompute_TargetSslProxiesSetSslCertificatesRequest
+ */
+@interface GTLRCompute_TargetSslProxiesSetSslCertificatesRequest : GTLRObject
+
+/**
+ *  New set of URLs to SslCertificate resources to associate with this
+ *  TargetSslProxy. Currently exactly one ssl certificate must be specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sslCertificates;
+
+@end
+
+
+/**
+ *  A TargetSslProxy resource. This resource defines an SSL proxy.
+ */
+@interface GTLRCompute_TargetSslProxy : GTLRObject
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  An optional description of this resource. Provide this property when you
+ *  create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  [Output Only] Type of the resource. Always compute#targetSslProxy for target
+ *  SSL proxies.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Name of the resource. Provided by the client when the resource is created.
+ *  The name must be 1-63 characters long, and comply with RFC1035.
+ *  Specifically, the name must be 1-63 characters long and match the regular
+ *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  be a lowercase letter, and all following characters must be a dash,
+ *  lowercase letter, or digit, except the last character, which cannot be a
+ *  dash.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Specifies the type of proxy header to append before sending data to the
+ *  backend, either NONE or PROXY_V1. The default is NONE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_TargetSslProxy_ProxyHeader_None Value "NONE"
+ *    @arg @c kGTLRCompute_TargetSslProxy_ProxyHeader_ProxyV1 Value "PROXY_V1"
+ */
+@property(nonatomic, copy, nullable) NSString *proxyHeader;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** URL to the BackendService resource. */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  URLs to SslCertificate resources that are used to authenticate connections
+ *  to Backends. Currently exactly one SSL certificate must be specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sslCertificates;
+
+@end
+
+
+/**
+ *  Contains a list of TargetSslProxy resources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_TargetSslProxyList : GTLRCollectionObject
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of TargetSslProxy resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetSslProxy *> *items;
+
+/** Type of resource. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
  *  Represents a Target VPN gateway resource.
  */
 @interface GTLRCompute_TargetVpnGateway : GTLRObject
@@ -9721,6 +10340,52 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_TCPHealthCheck
+ */
+@interface GTLRCompute_TCPHealthCheck : GTLRObject
+
+/**
+ *  The TCP port number for the health check request. The default value is 80.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
+ *  port_name are defined, port takes precedence.
+ */
+@property(nonatomic, copy, nullable) NSString *portName;
+
+/**
+ *  Specifies the type of proxy header to append before sending data to the
+ *  backend, either NONE or PROXY_V1. The default is NONE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_TCPHealthCheck_ProxyHeader_None Value "NONE"
+ *    @arg @c kGTLRCompute_TCPHealthCheck_ProxyHeader_ProxyV1 Value "PROXY_V1"
+ */
+@property(nonatomic, copy, nullable) NSString *proxyHeader;
+
+/**
+ *  The application data to send once the TCP connection has been established
+ *  (default value is empty). If both request and response are empty, the
+ *  connection establishment alone will indicate health. The request data can
+ *  only be ASCII.
+ */
+@property(nonatomic, copy, nullable) NSString *request;
+
+/**
+ *  The bytes to match against the beginning of the response data. If left empty
+ *  (the default value), any response will indicate health. The response data
+ *  can only be ASCII.
+ */
+@property(nonatomic, copy, nullable) NSString *response;
 
 @end
 

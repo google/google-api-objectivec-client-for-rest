@@ -30,6 +30,7 @@
 		F4469EC11C57ADC600BCFAA1 /* GTLRDiscoveryObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = F4469EC01C57ADC600BCFAA1 /* GTLRDiscoveryObjects.m */; };
 		F4809571178A310E007D65F4 /* GTLRURITemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4809570178A310E007D65F4 /* GTLRURITemplate.m */; };
 		F4CC66DF1237D33800522D45 /* SGGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CC66DE1237D33800522D45 /* SGGenerator.m */; };
+		F4D9D5241D832EE7000EBBED /* GTLRDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D9D5231D832EE7000EBBED /* GTLRDuration.m */; };
 		F4F407641C21B3B9001B1A59 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F407631C21B3B9001B1A59 /* Security.framework */; };
 		F4F9D45F1313E9C0002E77E6 /* SGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F9D45E1313E9C0002E77E6 /* SGUtils.m */; };
 		F4F9D80F13146402002E77E6 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F9D80E13146402002E77E6 /* CoreServices.framework */; };
@@ -95,6 +96,8 @@
 		F4BB4A7F12B7BF4F008B2FB4 /* GTLRDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRDefines.h; path = ../../GTLRDefines.h; sourceTree = SOURCE_ROOT; };
 		F4CC66DD1237D33800522D45 /* SGGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGGenerator.h; sourceTree = "<group>"; };
 		F4CC66DE1237D33800522D45 /* SGGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGGenerator.m; sourceTree = "<group>"; };
+		F4D9D5221D832EE7000EBBED /* GTLRDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRDuration.h; path = ../../Objects/GTLRDuration.h; sourceTree = "<group>"; };
+		F4D9D5231D832EE7000EBBED /* GTLRDuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRDuration.m; path = ../../Objects/GTLRDuration.m; sourceTree = "<group>"; };
 		F4F407631C21B3B9001B1A59 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F4F9D45D1313E9C0002E77E6 /* SGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGUtils.h; sourceTree = "<group>"; };
 		F4F9D45E1313E9C0002E77E6 /* SGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGUtils.m; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				F40E71341384B41200EE3F02 /* GTLRBatchResult.m */,
 				F40E71351384B41200EE3F02 /* GTLRDateTime.h */,
 				F40E71361384B41200EE3F02 /* GTLRDateTime.m */,
+				F4D9D5221D832EE7000EBBED /* GTLRDuration.h */,
+				F4D9D5231D832EE7000EBBED /* GTLRDuration.m */,
 				F40E71371384B41200EE3F02 /* GTLRErrorObject.h */,
 				F40E71381384B41200EE3F02 /* GTLRErrorObject.m */,
 				F40E712B1384B41200EE3F02 /* GTLRObject.h */,
@@ -325,6 +330,7 @@
 				F4469DF11C45709C00BCFAA1 /* GTMSessionFetcherService.m in Sources */,
 				F40E714A1384B41200EE3F02 /* GTLRRuntimeCommon.m in Sources */,
 				F4469EB91C4E734500BCFAA1 /* GTMGatherInputStream.m in Sources */,
+				F4D9D5241D832EE7000EBBED /* GTLRDuration.m in Sources */,
 				F4469E251C45B02400BCFAA1 /* GTLRDiscoveryQuery.m in Sources */,
 				F40E714B1384B41200EE3F02 /* GTLRFramework.m in Sources */,
 				F40E714D1384B41200EE3F02 /* GTLRUtilities.m in Sources */,

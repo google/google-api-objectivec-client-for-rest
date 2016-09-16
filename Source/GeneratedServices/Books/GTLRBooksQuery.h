@@ -2316,6 +2316,18 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 @property(nonatomic, copy, nullable) NSString *libraryRestrict;
 
 /**
+ *  The maximum allowed maturity rating of returned recommendations. Books with
+ *  a higher maturity rating are filtered out.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMature Show books which are
+ *        rated mature or lower. (Value: "mature")
+ *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Show books which are
+ *        rated not mature. (Value: "not-mature")
+ */
+@property(nonatomic, copy, nullable) NSString *maxAllowedMaturityRating;
+
+/**
  *  Maximum number of results to return.
  *
  *  @note The documented range is 0..40.

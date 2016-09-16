@@ -112,7 +112,7 @@
 
 @implementation GTLRConsumerSurveys_Survey
 @dynamic audience, cost, customerData, descriptionProperty, owners, questions,
-         state, surveyUrlId, title, wantedResponseCount;
+         rejectionReason, state, surveyUrlId, title, wantedResponseCount;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -191,6 +191,16 @@
 
 @implementation GTLRConsumerSurveys_SurveyQuestionImage
 @dynamic altText, data, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConsumerSurveys_SurveyRejection
+//
+
+@implementation GTLRConsumerSurveys_SurveyRejection
+@dynamic explanation, type;
 @end
 
 

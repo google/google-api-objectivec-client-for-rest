@@ -20,6 +20,7 @@
 #import "GTLRObject.h"
 #import "GTLRBatchResult.h"
 #import "GTLRDateTime.h"
+#import "GTLRDuration.h"
 #import "GTLRErrorObject.h"
 
 // Custom subclass for testing the property handling.
@@ -33,6 +34,8 @@
 @property(nonatomic, retain) NSNumber *aBool;
 @property(nonatomic, retain) GTLRDateTime *aDate;
 @property(nonatomic, retain) GTLRDateTime *date2;
+@property(nonatomic, retain) GTLRDuration *aDuration;
+@property(nonatomic, retain) GTLRDuration *duration2;
 // Object
 @property(nonatomic, retain) GTLRTestingObject *child;
 // Anything
@@ -42,6 +45,7 @@
 @property(nonatomic, retain) NSArray<NSNumber *> *arrayNumber;
 @property(nonatomic, retain) NSArray<NSNumber *> *arrayBool;
 @property(nonatomic, retain) NSArray<GTLRDateTime *> *arrayDate;
+@property(nonatomic, retain) NSArray<GTLRDuration *> *arrayDuration;
 @property(nonatomic, retain) NSArray<GTLRTestingObject *> *arrayKids;
 @property(nonatomic, retain) NSArray *arrayAnything;
 // Use of getter= for Xcode 5's ARC treatment of init*.
@@ -49,21 +53,23 @@
 @end
 
 @implementation GTLRTestingObject
-@dynamic aStr, str2, identifier, aNum, aBool, aDate, date2, child, anything;
-@dynamic arrayString, arrayNumber, arrayBool, arrayDate, arrayKids, arrayAnything;
+@dynamic aStr, str2, identifier, aNum, aBool, aDate, date2, aDuration, duration2, child, anything;
+@dynamic arrayString, arrayNumber, arrayBool, arrayDate, arrayDuration, arrayKids, arrayAnything;
 @dynamic initFoo;
 + (NSDictionary *)propertyToJSONKeyMap {
   // Use the name mapping on a few...
   return @{ @"aStr" : @"a_str",
             @"aNum" : @"a.num",  // Test property names with '.' to be safe.
             @"aBool" : @"a_bool",
-            @"aDate" : @"a_date" };
+            @"aDate" : @"a_date",
+            @"aDuration" : @"a_duration" };
 }
 + (NSDictionary *)arrayPropertyToClassMap {
   return @{ @"arrayString" : [NSString class],
             @"arrayNumber" : [NSNumber class],
             @"arrayBool" : [NSNumber class],
             @"arrayDate" : [GTLRDateTime class],
+            @"arrayDuration" : [GTLRDuration class],
             @"arrayKids" : [GTLRTestingObject class],
             @"arrayAnything" : [NSObject class] };
 }
@@ -226,6 +232,12 @@ static Class gAdditionalPropsClass = Nil;
   obj.aDate = [GTLRDateTime dateTimeWithRFC3339String:dateStr];
   expected[@"a_date"] = dateStr;
   XCTAssertEqualObjects(obj.JSON, expected);
+
+  // google-duration
+  NSString * const durationStr = @"123.100s";
+  obj.aDuration = [GTLRDuration durationWithJSONString:durationStr];
+  expected[@"a_duration"] = durationStr;
+  XCTAssertEqualObjects(obj.JSON, expected);
 }
 
 - (GTLRTestingObject *)objectFromRoundTripArchiveDearchiveWithObject:(GTLRTestingObject *)obj {
@@ -322,7 +334,7 @@ static Class gAdditionalPropsClass = Nil;
 
 - (void)testGetBasicTypes {
   NSString * const jsonStr =
-    @"{\"a_date\":\"2011-01-14T15:00:00Z\",\"a.num\":1234,\"a_bool\":true,\"a_str\":\"foo bar\"}";
+    @"{\"a_date\":\"2011-01-14T15:00:00Z\",\"a_duration\":\"123.000s\",\"a.num\":1234,\"a_bool\":true,\"a_str\":\"foo bar\"}";
   NSError *err = nil;
   NSMutableDictionary *json = [self objectWithString:jsonStr
                                                error:&err];
@@ -349,6 +361,12 @@ static Class gAdditionalPropsClass = Nil;
   XCTAssertEqualObjects(obj.aDate,
                        [GTLRDateTime dateTimeWithRFC3339String:dateStr]);
   XCTAssertNil(obj.date2, @"unexpected dateTime: %@", obj.date2);
+
+  // google-duration
+  NSString * const durationStr = @"123.000s";
+  XCTAssertEqualObjects(obj.aDuration,
+                        [GTLRDuration durationWithJSONString:durationStr]);
+  XCTAssertNil(obj.duration2, @"unexpected duration: %@", obj.duration2);
 }
 
 - (void)testSetArrayBasicTypes {
@@ -378,11 +396,17 @@ static Class gAdditionalPropsClass = Nil;
   obj.arrayDate = @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ];
   expected[@"arrayDate"] = @[ dateStr ];
   XCTAssertEqualObjects(obj.JSON, expected);
+
+  // google-duration
+  NSString * const durationStr = @"456.789s";
+  obj.arrayDuration = @[ [GTLRDuration durationWithJSONString:durationStr] ];
+  expected[@"arrayDuration"] = @[ durationStr ];
+  XCTAssertEqualObjects(obj.JSON, expected);
 }
 
 - (void)testGetArrayBasicTypes {
   NSString * const jsonStr =
-    @"{\"arrayDate\":[\"2011-01-14T15:00:00Z\"],\"arrayNumber\":[1234],\"arrayBool\":[true],\"arrayString\":[\"foo bar\"]}";
+    @"{\"arrayDate\":[\"2011-01-14T15:00:00Z\"],\"arrayDuration\":[\"234.678s\"],\"arrayNumber\":[1234],\"arrayBool\":[true],\"arrayString\":[\"foo bar\"]}";
   NSError *err = nil;
   NSMutableDictionary *json = [self objectWithString:jsonStr
                                                error:&err];
@@ -406,7 +430,12 @@ static Class gAdditionalPropsClass = Nil;
   // date
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
   XCTAssertEqualObjects(obj.arrayDate,
-                       @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ]);
+                        @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ]);
+
+  // google-duration
+  NSString * const durationStr = @"234.678s";
+  XCTAssertEqualObjects(obj.arrayDuration,
+                        @[ [GTLRDuration durationWithJSONString:durationStr] ]);
 }
 
 - (void)testSetAnyTypeProperty {
@@ -418,6 +447,8 @@ static Class gAdditionalPropsClass = Nil;
   NSNumber *anythingNumber = @9876;
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
   GTLRDateTime *anythingDate = [GTLRDateTime dateTimeWithRFC3339String:dateStr];
+  NSString * const durationStr = @"234.567s";
+  GTLRDuration *anythingDuration = [GTLRDuration durationWithJSONString:durationStr];
   NSArray *anythingArray = @[ @"array of string" ];
 
   // string
@@ -436,6 +467,12 @@ static Class gAdditionalPropsClass = Nil;
 
   obj.anything = anythingDate;
   expected[@"anything"] = dateStr;
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // google-duration
+
+  obj.anything = anythingDuration;
+  expected[@"anything"] = durationStr;
   XCTAssertEqualObjects(obj.JSON, expected);
 
   // GTLRObject support tested in the SubObjectSupport test.
@@ -523,7 +560,10 @@ static Class gAdditionalPropsClass = Nil;
   NSArray *arrayAnythingNumber = @[ @9876 ];
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
   NSArray *arrayAnythingDate =
-    @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ];
+      @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ];
+  NSString * const durationStr = @"369.963s";
+  NSArray *arrayAnythingDuration =
+      @[ [GTLRDuration durationWithJSONString:durationStr] ];
 
   // string
 
@@ -543,6 +583,12 @@ static Class gAdditionalPropsClass = Nil;
   expected[@"arrayAnything"] = @[ dateStr ];
   XCTAssertEqualObjects(obj.JSON, expected);
 
+  // google-duration
+
+  obj.arrayAnything = arrayAnythingDuration;
+  expected[@"arrayAnything"] = @[ durationStr ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
   // GTLRObject support tested in the ArraySubObjectSupport test.
 }
 
@@ -557,6 +603,8 @@ static Class gAdditionalPropsClass = Nil;
     @"{\"anything\":[9876]}";
   NSString * const jsonStrArrayAnyDate =
     @"{\"anything\":[\"2011-01-14T15:00:00Z\"]}";
+  NSString * const jsonStrArrayAnyDuration =
+    @"{\"anything\":[\"111.222s\"]}";
 
   // string
 
@@ -595,6 +643,20 @@ static Class gAdditionalPropsClass = Nil;
 
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
   XCTAssertEqualObjects(obj.anything, @[ dateStr ]);
+
+  // google-duration (there is nothing in the JSON to know it's a
+  // google-duration, so it comes back as a string.
+
+  json = [self objectWithString:jsonStrArrayAnyDuration
+                          error:&err];
+  XCTAssertNil(err);
+  XCTAssertNotNil(json);
+
+  obj = [GTLRTestingObject objectWithJSON:json];
+  XCTAssertNotNil(obj);
+
+  NSString * const durationStr = @"111.222s";
+  XCTAssertEqualObjects(obj.anything, @[ durationStr ]);
 
   // GTLRObject support tested in the ArraySubObjectSupport test.
 }
@@ -758,6 +820,13 @@ static Class gAdditionalPropsClass = Nil;
   expected[@"arrayDate"] = @[ @[ dateStr ] ];
   XCTAssertEqualObjects(obj.JSON, expected);
 
+  NSString * const durationStr = @"123.456s";
+  obj.arrayDuration = @[
+      @[ [GTLRDuration durationWithJSONString:durationStr] ]
+  ];
+  expected[@"arrayDuration"] = @[ @[ durationStr ] ];
+  XCTAssertEqualObjects(obj.JSON, expected);
+
   GTLRTestingObject *child = [GTLRTestingObject object];
   XCTAssertNotNil(child);
   child.aStr = @"I'm a kid";
@@ -787,6 +856,7 @@ static Class gAdditionalPropsClass = Nil;
     @" \"arrayNumber\" : [[[987]]],"
     @" \"arrayBool\" : [[[true]]],"
     @" \"arrayDate\" : [[\"2011-01-14T15:00:00Z\"]],"
+    @" \"arrayDuration\" : [[\"987.654s\"]],"
     @" \"arrayKids\" : [[{\"a_str\" : \"I'm a kid\"}]],"
     @" \"arrayAnything\" : [[\"a string\"]]"
     @"}";
@@ -812,8 +882,13 @@ static Class gAdditionalPropsClass = Nil;
 
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
   XCTAssertEqualObjects(obj.arrayDate,
-                       @[ @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ] ],
-                       @"array of array of datetime");
+                        @[ @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ] ],
+                        @"array of array of datetime");
+
+  NSString *const durationStr = @"987.654s";
+  XCTAssertEqualObjects(obj.arrayDuration,
+                        @[ @[ [GTLRDuration durationWithJSONString:durationStr] ] ],
+                        @"array of array of duration");
 
   // Kid in array of array.
   NSArray *aArray = obj.arrayKids;
@@ -914,11 +989,20 @@ static Class gAdditionalPropsClass = Nil;
                      forName:@"ap3"];
   expected[@"ap3"] = dateStr;
   XCTAssertEqualObjects(obj.JSON, expected);
+
+  // google-duration
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRDuration class]];
+  NSString * const durationStr = @"876.543s";
+  GTLRDuration *duration = [GTLRDuration durationWithJSONString:durationStr];
+  [obj setAdditionalProperty:duration
+                     forName:@"ap4"];
+  expected[@"ap4"] = durationStr;
+  XCTAssertEqualObjects(obj.JSON, expected);
 }
 
 - (void)testGetAdditionalPropertiesBasicTypes {
   NSString * const jsonStr =
-    @"{\"ap3\":\"2011-01-14T15:00:00Z\",\"ap2\":1234,\"ap1\":\"foo bar\"}";
+    @"{\"ap4\":\"765.432s\",\"ap3\":\"2011-01-14T15:00:00Z\",\"ap2\":1234,\"ap1\":\"foo bar\"}";
   NSError *err = nil;
   NSMutableDictionary *json = [self objectWithString:jsonStr
                                                error:&err];
@@ -946,6 +1030,12 @@ static Class gAdditionalPropsClass = Nil;
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
   XCTAssertEqualObjects([obj additionalPropertyForName:@"ap3"],
                         [GTLRDateTime dateTimeWithRFC3339String:dateStr]);
+
+  // google-duration
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRDuration class]];
+  NSString * const durationStr = @"765.432s";
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"ap4"],
+                        [GTLRDuration durationWithJSONString:durationStr]);
 }
 
 - (void)testSetAdditionalPropertiesObject {
@@ -1011,6 +1101,14 @@ static Class gAdditionalPropsClass = Nil;
   [obj setAdditionalProperty:dateTime
                      forName:@"ap3"];
   expected[@"ap3"] = dateStr;
+  XCTAssertEqualObjects(obj.JSON, expected);
+
+  // google-duration
+  NSString * const durationStr = @"876.543s";
+  GTLRDuration *duration = [GTLRDuration durationWithJSONString:durationStr];
+  [obj setAdditionalProperty:duration
+                     forName:@"ap4"];
+  expected[@"ap4"] = durationStr;
   XCTAssertEqualObjects(obj.JSON, expected);
 
   // object
@@ -1089,11 +1187,19 @@ static Class gAdditionalPropsClass = Nil;
                      forName:@"apArray3"];
   expected[@"apArray3"] = @[ dateStr ];
   XCTAssertEqualObjects(obj.JSON, expected);
+
+  // google-duration
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRDuration class]];
+  NSString * const durationStr = @"246.800s";
+  [obj setAdditionalProperty:@[ [GTLRDuration durationWithJSONString:durationStr] ]
+                     forName:@"apArray4"];
+  expected[@"apArray4"] = @[ durationStr ];
+  XCTAssertEqualObjects(obj.JSON, expected);
 }
 
 - (void)testGetAdditionalPropertiesArraysOfBasicTypes {
   NSString * const jsonStr =
-    @"{\"apArray3\":[\"2011-01-14T15:00:00Z\"],\"apArray2\":[1234],\"apArray1\":[\"foo bar\"]}";
+    @"{\"apArray4\":[\"135.975s\"],\"apArray3\":[\"2011-01-14T15:00:00Z\"],\"apArray2\":[1234],\"apArray1\":[\"foo bar\"]}";
   NSError *err = nil;
   NSMutableDictionary *json = [self objectWithString:jsonStr
                                                error:&err];
@@ -1121,6 +1227,12 @@ static Class gAdditionalPropsClass = Nil;
   NSString * const dateStr = @"2011-01-14T15:00:00Z";
   XCTAssertEqualObjects([obj additionalPropertyForName:@"apArray3"],
                        @[ [GTLRDateTime dateTimeWithRFC3339String:dateStr] ]);
+
+  // google-duration
+  [GTLRTestingAdditionalPropertiesObject setAdditionalPropsClass:[GTLRDuration class]];
+  NSString * const durationStr = @"135.975s";
+  XCTAssertEqualObjects([obj additionalPropertyForName:@"apArray4"],
+                        @[ [GTLRDuration durationWithJSONString:durationStr] ]);
 }
 
 - (void)testSetAdditionalPropertiesArraysOfObject {
@@ -1229,6 +1341,7 @@ static Class gAdditionalPropsClass = Nil;
   obj.aStr = @"green";
   obj.aNum = @123;
   obj.aDate = [GTLRDateTime dateTimeWithRFC3339String:@"2011-05-04T23:28:20.888Z"];
+  obj.aDuration = [GTLRDuration durationWithJSONString:@"123.000s"];
   // Nested child object
   obj.child = [GTLRTestingObject object];
   obj.child.child = [GTLRTestingObject object];
@@ -1258,7 +1371,7 @@ static Class gAdditionalPropsClass = Nil;
   obj = [self objectForPartialTests];
 
   fields = [obj fieldsDescription];
-  NSString *expected = @"a.num,a_date,a_str,"
+  NSString *expected = @"a.num,a_date,a_duration,a_str,"
     @"child/child/a_str,"
     @"child/child/arrayKids(a_str,child/str2,str2),"
     @"child/child/arrayNumber,"
@@ -1273,10 +1386,6 @@ static Class gAdditionalPropsClass = Nil;
   GTLRTestingObject *resultObj = [obj1 patchObjectFromOriginal:obj2];
   XCTAssertNil(resultObj);
 
-  // It might be cleaner to test against expected JSON strings rather than
-  // dictionaries, but SBJSON by default doesn't sort keys so the
-  // JSON strings have keys in random order.
-
   // Compare the testing object to an empty object; everything should be
   // marked for deletion (with NSNull)
   obj1 = [self objectForPartialTests];
@@ -1285,6 +1394,7 @@ static Class gAdditionalPropsClass = Nil;
 
   NSDictionary *expected = @{ @"a_str" : [NSNull null],
                               @"a_date" : [NSNull null],
+                              @"a_duration" : [NSNull null],
                               @"a.num" : [NSNull null],
                               @"child" : [NSNull null] };
   XCTAssertEqualObjects(resultObj.JSON, expected);

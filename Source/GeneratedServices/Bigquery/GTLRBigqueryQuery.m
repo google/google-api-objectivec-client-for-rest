@@ -190,7 +190,7 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
   NSArray *pathParams = @[
     @"jobId", @"projectId"
   ];
-  NSString *pathURITemplate = @"project/{projectId}/jobs/{jobId}/cancel";
+  NSString *pathURITemplate = @"projects/{projectId}/jobs/{jobId}/cancel";
   GTLRBigqueryQuery_JobsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

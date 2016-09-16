@@ -143,7 +143,7 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsBuildsList
 
-@dynamic pageSize, pageToken, projectId;
+@dynamic filter, pageSize, pageToken, projectId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];

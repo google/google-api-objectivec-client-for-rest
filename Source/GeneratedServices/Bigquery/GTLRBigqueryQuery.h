@@ -214,10 +214,9 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 
 /**
  *  An expression for filtering the results of the request by label. The syntax
- *  is "labels.[:]". Multiple filters can be ANDed together by connecting with a
- *  space. Example: "labels.department:receiving labels.active". See
- *  https://cloud.google.com/bigquery/docs/labeling-datasets#filtering_datasets_using_labels
- *  for details.
+ *  is "labels.<name>[:<value>]". Multiple filters can be ANDed together by
+ *  connecting with a space. Example: "labels.department:receiving
+ *  labels.active". See Filtering datasets using labels for details.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

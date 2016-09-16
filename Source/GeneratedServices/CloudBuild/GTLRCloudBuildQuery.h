@@ -244,6 +244,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudBuild queryForProjectsBuildsListWithprojectId:]
 
+/** The raw filter text to constrain the results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** Number of results to return in the list. */
 @property(nonatomic, assign) NSInteger pageSize;
 

@@ -20,6 +20,7 @@
 
 @class GTLRIdentityToolkit_EmailTemplate;
 @class GTLRIdentityToolkit_IdpConfig;
+@class GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem;
 @class GTLRIdentityToolkit_SetAccountInfoResponseProviderUserInfoItem;
 @class GTLRIdentityToolkit_UploadAccountResponseErrorItem;
 @class GTLRIdentityToolkit_UserInfo;
@@ -292,6 +293,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *continueUri;
 
 /**
+ *  The query parameter that client can customize by themselves in auth url.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem *> *customParameter;
+
+/**
  *  The hosted domain to restrict sign-in to accounts at that domain for Google
  *  Apps hosted accounts.
  */
@@ -332,6 +338,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The session_id passed by client. */
 @property(nonatomic, copy, nullable) NSString *sessionId;
+
+@end
+
+
+/**
+ *  GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem
+ */
+@interface GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem : GTLRObject
+
+/** The key of the query parameter. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** The value of the query parameter. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -763,6 +783,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *saltSeparator;
 
 /**
+ *  If true, backend will do sanity check(including duplicate email and
+ *  federated id) when uploading account.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sanityCheck;
+
+/**
  *  The key for to hash the password.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -921,11 +949,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRIdentityToolkit_ResetPasswordResponse : GTLRObject
 
-/** The user's email. */
+/**
+ *  The user's email. If the out-of-band code is for email recovery, the user's
+ *  original email.
+ */
 @property(nonatomic, copy, nullable) NSString *email;
 
 /** The fixed string "identitytoolkit#ResetPasswordResponse". */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** If the out-of-band code is for email recovery, the user's new email. */
+@property(nonatomic, copy, nullable) NSString *newEmail NS_RETURNS_NOT_RETAINED;
+
+/** The request type. */
+@property(nonatomic, copy, nullable) NSString *requestType;
 
 @end
 
@@ -1085,6 +1122,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *createdAt;
 
 /**
+ *  Whether the user is authenticated by the developer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customAuth;
+
+/**
  *  Whether the user is disabled.
  *
  *  Uses NSNumber of boolValue.
@@ -1143,7 +1187,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *salt;
 
-/** User's screen name at Twitter. */
+/** User's screen name at Twitter or login name at Github. */
 @property(nonatomic, copy, nullable) NSString *screenName;
 
 /**
@@ -1193,7 +1237,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Raw IDP-returned user info. */
 @property(nonatomic, copy, nullable) NSString *rawUserInfo;
 
-/** User's screen name at Twitter. */
+/** User's screen name at Twitter or login name at Github. */
 @property(nonatomic, copy, nullable) NSString *screenName;
 
 @end
@@ -1358,7 +1402,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** If idToken is STS id token, then this field will be refresh token. */
 @property(nonatomic, copy, nullable) NSString *refreshToken;
 
-/** The screen_name of a Twitter user. */
+/** The screen_name of a Twitter user or the login name at Github. */
 @property(nonatomic, copy, nullable) NSString *screenName;
 
 /** The timezone of the user. */

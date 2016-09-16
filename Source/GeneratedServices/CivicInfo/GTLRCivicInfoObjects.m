@@ -217,7 +217,7 @@
 //
 
 @implementation GTLRCivicInfo_ElectoralDistrict
-@dynamic identifier, name, scope;
+@dynamic identifier, kgForeignKey, name, scope;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

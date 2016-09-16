@@ -129,10 +129,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudRuntimeConfig/*.{h,m}'
   end
-  s.subspec 'CloudSpeechAPI' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/CloudSpeechAPI/*.{h,m}'
-  end
   s.subspec 'CloudTrace' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudTrace/*.{h,m}'
@@ -204,10 +200,6 @@ Pod::Spec.new do |s|
   s.subspec 'Fitness' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Fitness/*.{h,m}'
-  end
-  s.subspec 'Freebase' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Freebase/*.{h,m}'
   end
   s.subspec 'FusionTables' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -336,6 +328,10 @@ Pod::Spec.new do |s|
   s.subspec 'Spectrum' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Spectrum/*.{h,m}'
+  end
+  s.subspec 'Speech' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Speech/*.{h,m}'
   end
   s.subspec 'Storage' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

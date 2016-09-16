@@ -2155,6 +2155,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *acknowledged;
 
+/** The channel type of the order: "purchaseOnGoogle" or "googleExpress". */
+@property(nonatomic, copy, nullable) NSString *channelType;
+
 /** The details of the customer who placed the order. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderCustomer *customer;
 

@@ -145,14 +145,31 @@
 //
 
 @implementation GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequest
-@dynamic appId, authFlowType, clientId, context, continueUri, hostedDomain,
-         identifierProperty, oauthConsumerKey, oauthScope, openidRealm, otaApp,
-         providerId, sessionId;
+@dynamic appId, authFlowType, clientId, context, continueUri, customParameter,
+         hostedDomain, identifierProperty, oauthConsumerKey, oauthScope,
+         openidRealm, otaApp, providerId, sessionId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifierProperty" : @"identifier" };
 }
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customParameter" : [GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem
+//
+
+@implementation GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem
+@dynamic key, value;
 @end
 
 
@@ -334,7 +351,7 @@
 
 @implementation GTLRIdentityToolkit_RelyingpartyUploadAccountRequest
 @dynamic delegatedProjectNumber, hashAlgorithm, memoryCost, rounds,
-         saltSeparator, signerKey, users;
+         saltSeparator, sanityCheck, signerKey, users;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -385,7 +402,7 @@
 //
 
 @implementation GTLRIdentityToolkit_ResetPasswordResponse
-@dynamic email, kind;
+@dynamic email, kind, newEmail, requestType;
 @end
 
 
@@ -462,9 +479,9 @@
 //
 
 @implementation GTLRIdentityToolkit_UserInfo
-@dynamic createdAt, disabled, displayName, email, emailVerified, lastLoginAt,
-         localId, passwordHash, passwordUpdatedAt, photoUrl, providerUserInfo,
-         salt, screenName, validSince, version;
+@dynamic createdAt, customAuth, disabled, displayName, email, emailVerified,
+         lastLoginAt, localId, passwordHash, passwordUpdatedAt, photoUrl,
+         providerUserInfo, salt, screenName, validSince, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -164,6 +164,15 @@ GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 @property(nonatomic, assign) BOOL officialOnly;
 
 /**
+ *  If set to true, the query will return the success codeand include any
+ *  partial information when it is unable to determine a matching address or
+ *  unable to determine the election for electionId=0 queries.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL returnAllAvailableData;
+
+/**
  *  Fetches a @c GTLRCivicInfo_VoterInfoResponse.
  *
  *  Looks up information relevant to a voter based on the voter's registered

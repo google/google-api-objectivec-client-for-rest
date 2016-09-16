@@ -33,6 +33,7 @@ NSString * const kGTLRAdExchangeBuyerOpenAuctionStatusFilterNotChecked = @"not_c
 NSString * const kGTLRAdExchangeBuyerUpdateActionAccept        = @"accept";
 NSString * const kGTLRAdExchangeBuyerUpdateActionCancel        = @"cancel";
 NSString * const kGTLRAdExchangeBuyerUpdateActionPropose       = @"propose";
+NSString * const kGTLRAdExchangeBuyerUpdateActionProposeAndAccept = @"proposeAndAccept";
 NSString * const kGTLRAdExchangeBuyerUpdateActionUnknownAction = @"unknownAction";
 NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized = @"updateFinalized";
 
@@ -86,7 +87,7 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized = @"updateFinal
 
 @implementation GTLRAdExchangeBuyerQuery_AccountsPatch
 
-@dynamic identifier;
+@dynamic confirmUnsafeAccountChange, identifier;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"identifier" : @"id" };
@@ -115,7 +116,7 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized = @"updateFinal
 
 @implementation GTLRAdExchangeBuyerQuery_AccountsUpdate
 
-@dynamic identifier;
+@dynamic confirmUnsafeAccountChange, identifier;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"identifier" : @"id" };

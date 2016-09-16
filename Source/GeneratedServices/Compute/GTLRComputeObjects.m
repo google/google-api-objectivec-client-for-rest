@@ -74,12 +74,15 @@ NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_Utilizati
 NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_UtilizationTargetType_Gauge = @"GAUGE";
 
 // GTLRCompute_Backend.balancingMode
+NSString * const kGTLRCompute_Backend_BalancingMode_Connection = @"CONNECTION";
 NSString * const kGTLRCompute_Backend_BalancingMode_Rate       = @"RATE";
 NSString * const kGTLRCompute_Backend_BalancingMode_Utilization = @"UTILIZATION";
 
 // GTLRCompute_BackendService.protocol
 NSString * const kGTLRCompute_BackendService_Protocol_Http  = @"HTTP";
 NSString * const kGTLRCompute_BackendService_Protocol_Https = @"HTTPS";
+NSString * const kGTLRCompute_BackendService_Protocol_Ssl   = @"SSL";
+NSString * const kGTLRCompute_BackendService_Protocol_Tcp   = @"TCP";
 
 // GTLRCompute_BackendService.sessionAffinity
 NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIp = @"CLIENT_IP";
@@ -159,9 +162,29 @@ NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_ResourceNotD
 NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_HealthCheck.type
+NSString * const kGTLRCompute_HealthCheck_Type_Http    = @"HTTP";
+NSString * const kGTLRCompute_HealthCheck_Type_Http2   = @"HTTP2";
+NSString * const kGTLRCompute_HealthCheck_Type_Https   = @"HTTPS";
+NSString * const kGTLRCompute_HealthCheck_Type_Invalid = @"INVALID";
+NSString * const kGTLRCompute_HealthCheck_Type_Ssl     = @"SSL";
+NSString * const kGTLRCompute_HealthCheck_Type_Tcp     = @"TCP";
+
 // GTLRCompute_HealthStatus.healthState
 NSString * const kGTLRCompute_HealthStatus_HealthState_Healthy = @"HEALTHY";
 NSString * const kGTLRCompute_HealthStatus_HealthState_Unhealthy = @"UNHEALTHY";
+
+// GTLRCompute_HTTP2HealthCheck.proxyHeader
+NSString * const kGTLRCompute_HTTP2HealthCheck_ProxyHeader_None = @"NONE";
+NSString * const kGTLRCompute_HTTP2HealthCheck_ProxyHeader_ProxyV1 = @"PROXY_V1";
+
+// GTLRCompute_HTTPHealthCheck.proxyHeader
+NSString * const kGTLRCompute_HTTPHealthCheck_ProxyHeader_None = @"NONE";
+NSString * const kGTLRCompute_HTTPHealthCheck_ProxyHeader_ProxyV1 = @"PROXY_V1";
+
+// GTLRCompute_HTTPSHealthCheck.proxyHeader
+NSString * const kGTLRCompute_HTTPSHealthCheck_ProxyHeader_None = @"NONE";
+NSString * const kGTLRCompute_HTTPSHealthCheck_ProxyHeader_ProxyV1 = @"PROXY_V1";
 
 // GTLRCompute_Image.sourceType
 NSString * const kGTLRCompute_Image_SourceType_Raw = @"RAW";
@@ -347,6 +370,9 @@ NSString * const kGTLRCompute_Quota_Metric_InstanceTemplates   = @"INSTANCE_TEMP
 NSString * const kGTLRCompute_Quota_Metric_InUseAddresses      = @"IN_USE_ADDRESSES";
 NSString * const kGTLRCompute_Quota_Metric_LocalSsdTotalGb     = @"LOCAL_SSD_TOTAL_GB";
 NSString * const kGTLRCompute_Quota_Metric_Networks            = @"NETWORKS";
+NSString * const kGTLRCompute_Quota_Metric_PreemptibleCpus     = @"PREEMPTIBLE_CPUS";
+NSString * const kGTLRCompute_Quota_Metric_RegionalAutoscalers = @"REGIONAL_AUTOSCALERS";
+NSString * const kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers = @"REGIONAL_INSTANCE_GROUP_MANAGERS";
 NSString * const kGTLRCompute_Quota_Metric_Routers             = @"ROUTERS";
 NSString * const kGTLRCompute_Quota_Metric_Routes              = @"ROUTES";
 NSString * const kGTLRCompute_Quota_Metric_Snapshots           = @"SNAPSHOTS";
@@ -423,6 +449,10 @@ NSString * const kGTLRCompute_Snapshot_Status_Uploading = @"UPLOADING";
 NSString * const kGTLRCompute_Snapshot_StorageBytesStatus_Updating = @"UPDATING";
 NSString * const kGTLRCompute_Snapshot_StorageBytesStatus_UpToDate = @"UP_TO_DATE";
 
+// GTLRCompute_SSLHealthCheck.proxyHeader
+NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_None  = @"NONE";
+NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_ProxyV1 = @"PROXY_V1";
+
 // GTLRCompute_SubnetworksScopedListWarning.code
 NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -486,6 +516,14 @@ NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_ResourceNotDelet
 NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_TargetSslProxiesSetProxyHeaderRequest.proxyHeader
+NSString * const kGTLRCompute_TargetSslProxiesSetProxyHeaderRequest_ProxyHeader_None = @"NONE";
+NSString * const kGTLRCompute_TargetSslProxiesSetProxyHeaderRequest_ProxyHeader_ProxyV1 = @"PROXY_V1";
+
+// GTLRCompute_TargetSslProxy.proxyHeader
+NSString * const kGTLRCompute_TargetSslProxy_ProxyHeader_None  = @"NONE";
+NSString * const kGTLRCompute_TargetSslProxy_ProxyHeader_ProxyV1 = @"PROXY_V1";
+
 // GTLRCompute_TargetVpnGateway.status
 NSString * const kGTLRCompute_TargetVpnGateway_Status_Creating = @"CREATING";
 NSString * const kGTLRCompute_TargetVpnGateway_Status_Deleting = @"DELETING";
@@ -509,6 +547,10 @@ NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_RequiredTo
 NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
 NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_TCPHealthCheck.proxyHeader
+NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_None  = @"NONE";
+NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_ProxyV1 = @"PROXY_V1";
 
 // GTLRCompute_VpnTunnel.status
 NSString * const kGTLRCompute_VpnTunnel_Status_AllocatingResources = @"ALLOCATING_RESOURCES";
@@ -882,8 +924,9 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_Backend
-@dynamic balancingMode, capacityScaler, descriptionProperty, group, maxRate,
-         maxRatePerInstance, maxUtilization;
+@dynamic balancingMode, capacityScaler, descriptionProperty, group,
+         maxConnections, maxConnectionsPerInstance, maxRate, maxRatePerInstance,
+         maxUtilization;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -898,9 +941,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_BackendService
-@dynamic affinityCookieTtlSec, backends, creationTimestamp, descriptionProperty,
-         enableCDN, fingerprint, healthChecks, identifier, kind, name, port,
-         portName, protocol, region, selfLink, sessionAffinity, timeoutSec;
+@dynamic affinityCookieTtlSec, backends, connectionDraining, creationTimestamp,
+         descriptionProperty, enableCDN, fingerprint, healthChecks, identifier,
+         kind, name, port, portName, protocol, region, selfLink,
+         sessionAffinity, timeoutSec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -968,6 +1012,16 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_CacheInvalidationRule
 @dynamic path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ConnectionDraining
+//
+
+@implementation GTLRCompute_ConnectionDraining
+@dynamic drainingTimeoutSec;
 @end
 
 
@@ -1457,6 +1511,50 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_HealthCheck
+//
+
+@implementation GTLRCompute_HealthCheck
+@dynamic checkIntervalSec, creationTimestamp, descriptionProperty,
+         healthyThreshold, http2HealthCheck, httpHealthCheck, httpsHealthCheck,
+         identifier, kind, name, selfLink, sslHealthCheck, tcpHealthCheck,
+         timeoutSec, type, unhealthyThreshold;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_HealthCheckList
+//
+
+@implementation GTLRCompute_HealthCheckList
+@dynamic identifier, items, kind, nextPageToken, selfLink;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_HealthCheck class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_HealthCheckReference
 //
 
@@ -1494,6 +1592,26 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_HTTP2HealthCheck
+//
+
+@implementation GTLRCompute_HTTP2HealthCheck
+@dynamic host, port, portName, proxyHeader, requestPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_HTTPHealthCheck
+//
+
+@implementation GTLRCompute_HTTPHealthCheck
+@dynamic host, port, portName, proxyHeader, requestPath;
 @end
 
 
@@ -1558,6 +1676,16 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_HTTPSHealthCheck
+//
+
+@implementation GTLRCompute_HTTPSHealthCheck
+@dynamic host, port, portName, proxyHeader, requestPath;
 @end
 
 
@@ -3410,6 +3538,16 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_SSLHealthCheck
+//
+
+@implementation GTLRCompute_SSLHealthCheck
+@dynamic port, portName, proxyHeader, request, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_Subnetwork
 //
 
@@ -3998,6 +4136,93 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_TargetSslProxiesSetBackendServiceRequest
+//
+
+@implementation GTLRCompute_TargetSslProxiesSetBackendServiceRequest
+@dynamic service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_TargetSslProxiesSetProxyHeaderRequest
+//
+
+@implementation GTLRCompute_TargetSslProxiesSetProxyHeaderRequest
+@dynamic proxyHeader;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_TargetSslProxiesSetSslCertificatesRequest
+//
+
+@implementation GTLRCompute_TargetSslProxiesSetSslCertificatesRequest
+@dynamic sslCertificates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sslCertificates" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_TargetSslProxy
+//
+
+@implementation GTLRCompute_TargetSslProxy
+@dynamic creationTimestamp, descriptionProperty, identifier, kind, name,
+         proxyHeader, selfLink, service, sslCertificates;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sslCertificates" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_TargetSslProxyList
+//
+
+@implementation GTLRCompute_TargetSslProxyList
+@dynamic identifier, items, kind, nextPageToken, selfLink;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_TargetSslProxy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_TargetVpnGateway
 //
 
@@ -4118,6 +4343,16 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_TargetVpnGatewaysScopedListWarningDataItem
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_TCPHealthCheck
+//
+
+@implementation GTLRCompute_TCPHealthCheck
+@dynamic port, portName, proxyHeader, request, response;
 @end
 
 

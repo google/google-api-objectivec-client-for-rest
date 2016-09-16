@@ -1395,6 +1395,154 @@
 
 @end
 
+@implementation GTLRComputeQuery_HealthChecksDelete
+
+@dynamic healthCheck, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                     healthCheck:(NSString *)healthCheck {
+  NSArray *pathParams = @[
+    @"healthCheck", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/healthChecks/{healthCheck}";
+  GTLRComputeQuery_HealthChecksDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.healthCheck = healthCheck;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.healthChecks.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_HealthChecksGet
+
+@dynamic healthCheck, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                     healthCheck:(NSString *)healthCheck {
+  NSArray *pathParams = @[
+    @"healthCheck", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/healthChecks/{healthCheck}";
+  GTLRComputeQuery_HealthChecksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.healthCheck = healthCheck;
+  query.expectedObjectClass = [GTLRCompute_HealthCheck class];
+  query.loggingName = @"compute.healthChecks.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_HealthChecksInsert
+
+@dynamic project;
+
++ (instancetype)queryWithObject:(GTLRCompute_HealthCheck *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/healthChecks";
+  GTLRComputeQuery_HealthChecksInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.healthChecks.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_HealthChecksList
+
+@dynamic filter, maxResults, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/healthChecks";
+  GTLRComputeQuery_HealthChecksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_HealthCheckList class];
+  query.loggingName = @"compute.healthChecks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_HealthChecksPatch
+
+@dynamic healthCheck, project;
+
++ (instancetype)queryWithObject:(GTLRCompute_HealthCheck *)object
+                        project:(NSString *)project
+                    healthCheck:(NSString *)healthCheck {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"healthCheck", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/healthChecks/{healthCheck}";
+  GTLRComputeQuery_HealthChecksPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.healthCheck = healthCheck;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.healthChecks.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_HealthChecksUpdate
+
+@dynamic healthCheck, project;
+
++ (instancetype)queryWithObject:(GTLRCompute_HealthCheck *)object
+                        project:(NSString *)project
+                    healthCheck:(NSString *)healthCheck {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"healthCheck", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/healthChecks/{healthCheck}";
+  GTLRComputeQuery_HealthChecksUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.healthCheck = healthCheck;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.healthChecks.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_HttpHealthChecksDelete
 
 @dynamic httpHealthCheck, project;
@@ -4901,6 +5049,183 @@
   query.targetPool = targetPool;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.targetPools.setBackup";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetSslProxiesDelete
+
+@dynamic project, targetSslProxy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  targetSslProxy:(NSString *)targetSslProxy {
+  NSArray *pathParams = @[
+    @"project", @"targetSslProxy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/targetSslProxies/{targetSslProxy}";
+  GTLRComputeQuery_TargetSslProxiesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.targetSslProxy = targetSslProxy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetSslProxies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetSslProxiesGet
+
+@dynamic project, targetSslProxy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  targetSslProxy:(NSString *)targetSslProxy {
+  NSArray *pathParams = @[
+    @"project", @"targetSslProxy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/targetSslProxies/{targetSslProxy}";
+  GTLRComputeQuery_TargetSslProxiesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.targetSslProxy = targetSslProxy;
+  query.expectedObjectClass = [GTLRCompute_TargetSslProxy class];
+  query.loggingName = @"compute.targetSslProxies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetSslProxiesInsert
+
+@dynamic project;
+
++ (instancetype)queryWithObject:(GTLRCompute_TargetSslProxy *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/targetSslProxies";
+  GTLRComputeQuery_TargetSslProxiesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetSslProxies.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetSslProxiesList
+
+@dynamic filter, maxResults, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/targetSslProxies";
+  GTLRComputeQuery_TargetSslProxiesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_TargetSslProxyList class];
+  query.loggingName = @"compute.targetSslProxies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetSslProxiesSetBackendService
+
+@dynamic project, targetSslProxy;
+
++ (instancetype)queryWithObject:(GTLRCompute_TargetSslProxiesSetBackendServiceRequest *)object
+                        project:(NSString *)project
+                 targetSslProxy:(NSString *)targetSslProxy {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"targetSslProxy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/targetSslProxies/{targetSslProxy}/setBackendService";
+  GTLRComputeQuery_TargetSslProxiesSetBackendService *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.targetSslProxy = targetSslProxy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetSslProxies.setBackendService";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetSslProxiesSetProxyHeader
+
+@dynamic project, targetSslProxy;
+
++ (instancetype)queryWithObject:(GTLRCompute_TargetSslProxiesSetProxyHeaderRequest *)object
+                        project:(NSString *)project
+                 targetSslProxy:(NSString *)targetSslProxy {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"targetSslProxy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/targetSslProxies/{targetSslProxy}/setProxyHeader";
+  GTLRComputeQuery_TargetSslProxiesSetProxyHeader *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.targetSslProxy = targetSslProxy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetSslProxies.setProxyHeader";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetSslProxiesSetSslCertificates
+
+@dynamic project, targetSslProxy;
+
++ (instancetype)queryWithObject:(GTLRCompute_TargetSslProxiesSetSslCertificatesRequest *)object
+                        project:(NSString *)project
+                 targetSslProxy:(NSString *)targetSslProxy {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"targetSslProxy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/targetSslProxies/{targetSslProxy}/setSslCertificates";
+  GTLRComputeQuery_TargetSslProxiesSetSslCertificates *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.targetSslProxy = targetSslProxy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetSslProxies.setSslCertificates";
   return query;
 }
 

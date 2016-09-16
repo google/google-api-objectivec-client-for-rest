@@ -8,6 +8,6 @@
 // Documentation:
 //   https://cloud.google.com/speech/
 
-#import "GTLRCloudSpeechAPIObjects.h"
-#import "GTLRCloudSpeechAPIQuery.h"
-#import "GTLRCloudSpeechAPIService.h"
+#import "GTLRSpeechObjects.h"
+#import "GTLRSpeechQuery.h"
+#import "GTLRSpeechService.h"

@@ -4,7 +4,8 @@
 // API:
 //   Google Service Control API (servicecontrol/v1)
 // Description:
-//   The Service Control API
+//   Google Service Control provides control plane functionality to managed
+//   services, such as logging, monitoring, and status checks.
 // Documentation:
 //   https://cloud.google.com/service-control/
 
@@ -73,7 +74,7 @@ NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
 //
 
 @implementation GTLRServiceControl_CheckResponse
-@dynamic checkErrors, operationId;
+@dynamic checkErrors, operationId, serviceConfigId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -306,7 +307,7 @@ NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
 //
 
 @implementation GTLRServiceControl_ReportResponse
-@dynamic reportErrors;
+@dynamic reportErrors, serviceConfigId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

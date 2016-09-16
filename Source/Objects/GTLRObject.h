@@ -20,6 +20,7 @@
 
 #import "GTLRDefines.h"
 #import "GTLRDateTime.h"
+#import "GTLRDuration.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -946,6 +946,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *brandingType;
 
 /**
+ *  Indicates that this ExternalDealId exists under at least two different
+ *  AdxInventoryDeals. Currently, the only case that the same ExternalDealId
+ *  will exist is programmatic cross sell case.
+ */
+@property(nonatomic, copy, nullable) NSString *crossListedExternalDealIdType;
+
+/**
  *  Description for the proposed terms of the deal.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.

@@ -22,6 +22,7 @@
 #import "GTLRBatchQuery.h"
 #import "GTLRBatchResult.h"
 #import "GTLRDateTime.h"
+#import "GTLRDuration.h"
 #import "GTLRErrorObject.h"
 #import "GTLRObject.h"
 #import "GTLRQuery.h"

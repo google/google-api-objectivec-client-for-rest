@@ -495,10 +495,11 @@
 //
 
 @implementation GTLRAdExchangeBuyer_DealTerms
-@dynamic brandingType, descriptionProperty, estimatedGrossSpend,
-         estimatedImpressionsPerDay, guaranteedFixedPriceTerms,
-         nonGuaranteedAuctionTerms, nonGuaranteedFixedPriceTerms,
-         rubiconNonGuaranteedTerms, sellerTimeZone;
+@dynamic brandingType, crossListedExternalDealIdType, descriptionProperty,
+         estimatedGrossSpend, estimatedImpressionsPerDay,
+         guaranteedFixedPriceTerms, nonGuaranteedAuctionTerms,
+         nonGuaranteedFixedPriceTerms, rubiconNonGuaranteedTerms,
+         sellerTimeZone;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

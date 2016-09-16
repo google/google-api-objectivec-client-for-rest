@@ -69,8 +69,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The date and time as a RFC3339 string representation.
- *
- *  This returns the same string as @c stringValue.
  */
 @property(nonatomic, readonly) NSString *RFC3339String;
 

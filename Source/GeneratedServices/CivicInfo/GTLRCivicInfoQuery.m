@@ -84,7 +84,7 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
 
 @implementation GTLRCivicInfoQuery_ElectionsVoterInfoQuery
 
-@dynamic address, electionId, officialOnly;
+@dynamic address, electionId, officialOnly, returnAllAvailableData;
 
 + (instancetype)queryWithAddress:(NSString *)address {
   NSString *pathURITemplate = @"voterinfo";
