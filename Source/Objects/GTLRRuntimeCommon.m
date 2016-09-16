@@ -131,7 +131,7 @@
   } else if ([obj isKindOfClass:[GTLRDateTime class]]) {
     // DateTimes live in JSON as strings, so convert.
     GTLRDateTime *dateTime = obj;
-    result = dateTime.stringValue;
+    result = dateTime.RFC3339String;
   } else if ([obj isKindOfClass:[GTLRDuration class]]) {
     // Durations live in JSON as strings, so convert.
     GTLRDuration *duration = obj;
@@ -878,7 +878,7 @@ static IMP GTLRRuntimeSetterIMP(SEL sel,
                                                 GTLRDateTime *val) {
         id cacheValue, jsonValue;
         if (![val isKindOfClass:[NSNull class]]) {
-          jsonValue = val.stringValue;
+          jsonValue = val.RFC3339String;
           cacheValue = val;
         } else {
           jsonValue = [NSNull null];
