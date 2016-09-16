@@ -29,10 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSpeechAPICloudPlatform;
+GTLR_EXTERN NSString * const kGTLRAuthScopeSpeechCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudSpeechAPIService
+//   GTLRSpeechService
 //
 
 /**
@@ -40,13 +40,13 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSpeechAPICloudPlatform;
  *
  *  Google Cloud Speech API.
  */
-@interface GTLRCloudSpeechAPIService : GTLRService
+@interface GTLRSpeechService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudSpeechAPIQuery.h. The query can the be sent with GTLRService's
-// execute methods,
+// GTLRSpeechQuery.h. The query can the be sent with GTLRService's execute
+// methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

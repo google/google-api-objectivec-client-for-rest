@@ -189,7 +189,8 @@ GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_EntityResultType_Re
 // GTLRDatastore_QueryResultBatch.moreResults
 
 /**
- *  The query is finished, but there may be more results after the end cursor.
+ *  The query is finished, but there may be more results after the end
+ *  cursor.
  *
  *  Value: "MORE_RESULTS_AFTER_CURSOR"
  */
@@ -252,7 +253,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_Strong;
 GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
- *  The request for google.datastore.v1.Datastore.AllocateIds.
+ *  The request for Datastore.AllocateIds.
  */
 @interface GTLRDatastore_AllocateIdsRequest : GTLRObject
 
@@ -266,7 +267,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The response for google.datastore.v1.Datastore.AllocateIds.
+ *  The response for Datastore.AllocateIds.
  */
 @interface GTLRDatastore_AllocateIdsResponse : GTLRObject
 
@@ -295,14 +296,14 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The request for google.datastore.v1.Datastore.BeginTransaction.
+ *  The request for Datastore.BeginTransaction.
  */
 @interface GTLRDatastore_BeginTransactionRequest : GTLRObject
 @end
 
 
 /**
- *  The response for google.datastore.v1.Datastore.BeginTransaction.
+ *  The response for Datastore.BeginTransaction.
  */
 @interface GTLRDatastore_BeginTransactionResponse : GTLRObject
 
@@ -318,7 +319,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The request for google.datastore.v1.Datastore.Commit.
+ *  The request for Datastore.Commit.
  */
 @interface GTLRDatastore_CommitRequest : GTLRObject
 
@@ -356,7 +357,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /**
  *  The identifier of the transaction associated with the commit. A
  *  transaction identifier is returned by a call to
- *  BeginTransaction.
+ *  Datastore.BeginTransaction.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -367,7 +368,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The response for google.datastore.v1.Datastore.Commit.
+ *  The response for Datastore.Commit.
  */
 @interface GTLRDatastore_CommitResponse : GTLRObject
 
@@ -480,10 +481,11 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /**
  *  The version of the entity, a strictly positive number that monotonically
  *  increases with changes to the entity.
- *  This field is set for `FULL` entity results.
- *  For missing entities in
- *  `LookupResponse`, this is the version of the snapshot that was used to look
- *  up the entity, and it is always set except for eventually consistent reads.
+ *  This field is set for `FULL` entity
+ *  results.
+ *  For missing entities in `LookupResponse`, this
+ *  is the version of the snapshot that was used to look up the entity, and it
+ *  is always set except for eventually consistent reads.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -513,8 +515,8 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_GqlQuery : GTLRObject
 
 /**
- *  When false, the query string must not contain any literals and instead
- *  must bind all values. For example,
+ *  When false, the query string must not contain any literals and instead must
+ *  bind all values. For example,
  *  `SELECT * FROM Kind WHERE a = 'string literal'` is not allowed, while
  *  `SELECT * FROM Kind WHERE a = \@value` is.
  *
@@ -523,9 +525,8 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *allowLiterals;
 
 /**
- *  For each non-reserved named binding site in the query string,
- *  there must be a named parameter with that name,
- *  but not necessarily the inverse.
+ *  For each non-reserved named binding site in the query string, there must be
+ *  a named parameter with that name, but not necessarily the inverse.
  *  Key must match regex `A-Za-z_$*`, must not match regex
  *  `__.*__`, and must not be `""`.
  */
@@ -534,9 +535,8 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /**
  *  Numbered binding site \@1 references the first numbered parameter,
  *  effectively using 1-based indexing, rather than the usual 0.
- *  For each binding site numbered i in `query_string`,
- *  there must be an i-th numbered parameter.
- *  The inverse must also be true.
+ *  For each binding site numbered i in `query_string`, there must be an i-th
+ *  numbered parameter. The inverse must also be true.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_GqlQueryParameter *> *positionalBindings;
 
@@ -550,9 +550,8 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  For each non-reserved named binding site in the query string,
- *  there must be a named parameter with that name,
- *  but not necessarily the inverse.
+ *  For each non-reserved named binding site in the query string, there must be
+ *  a named parameter with that name, but not necessarily the inverse.
  *  Key must match regex `A-Za-z_$*`, must not match regex
  *  `__.*__`, and must not be `""`.
  *
@@ -690,7 +689,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The request for google.datastore.v1.Datastore.Lookup.
+ *  The request for Datastore.Lookup.
  */
 @interface GTLRDatastore_LookupRequest : GTLRObject
 
@@ -704,7 +703,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The response for google.datastore.v1.Datastore.Lookup.
+ *  The response for Datastore.Lookup.
  */
 @interface GTLRDatastore_LookupResponse : GTLRObject
 
@@ -1138,7 +1137,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /**
  *  The identifier of the transaction in which to read. A
  *  transaction identifier is returned by a call to
- *  BeginTransaction.
+ *  Datastore.BeginTransaction.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1149,13 +1148,13 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The request for google.datastore.v1.Datastore.Rollback.
+ *  The request for Datastore.Rollback.
  */
 @interface GTLRDatastore_RollbackRequest : GTLRObject
 
 /**
  *  The transaction identifier, returned by a call to
- *  google.datastore.v1.Datastore.BeginTransaction.
+ *  Datastore.BeginTransaction.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1166,7 +1165,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The response for google.datastore.v1.Datastore.Rollback
+ *  The response for Datastore.Rollback.
  *  (an empty message).
  */
 @interface GTLRDatastore_RollbackResponse : GTLRObject
@@ -1174,7 +1173,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The request for google.datastore.v1.Datastore.RunQuery.
+ *  The request for Datastore.RunQuery.
  */
 @interface GTLRDatastore_RunQueryRequest : GTLRObject
 
@@ -1199,7 +1198,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The response for google.datastore.v1.Datastore.RunQuery.
+ *  The response for Datastore.RunQuery.
  */
 @interface GTLRDatastore_RunQueryResponse : GTLRObject
 

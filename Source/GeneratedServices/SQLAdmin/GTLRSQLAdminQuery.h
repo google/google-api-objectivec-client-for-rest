@@ -132,9 +132,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new backup run on demand.
+ *  Creates a new backup run on demand. This method is applicable only to Second
+ *  Generation instances.
  *
  *  Method: sql.backupRuns.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_BackupRunsInsert : GTLRSQLAdminQuery
 // Previous library name was
@@ -149,7 +154,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Creates a new backup run on demand.
+ *  Creates a new backup run on demand. This method is applicable only to Second
+ *  Generation instances.
  *
  *  @param object The @c GTLRSQLAdmin_BackupRun to include in the query.
  *  @param project Project ID of the project that contains the instance.

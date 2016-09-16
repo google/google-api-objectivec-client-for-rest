@@ -1084,10 +1084,10 @@
 //
 
 @implementation GTLRShoppingContent_Order
-@dynamic acknowledged, customer, deliveryDetails, identifier, kind, lineItems,
-         merchantId, merchantOrderId, netAmount, paymentMethod, paymentStatus,
-         placedDate, promotions, refunds, shipments, shippingCost,
-         shippingCostTax, shippingOption, status;
+@dynamic acknowledged, channelType, customer, deliveryDetails, identifier, kind,
+         lineItems, merchantId, merchantOrderId, netAmount, paymentMethod,
+         paymentStatus, placedDate, promotions, refunds, shipments,
+         shippingCost, shippingCostTax, shippingOption, status;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

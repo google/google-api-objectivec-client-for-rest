@@ -311,7 +311,7 @@ NSString * const kGTLRFitness_Device_Type_Watch       = @"watch";
 //
 
 @implementation GTLRFitness_ListSessionsResponse
-@dynamic deletedSession, nextPageToken, session;
+@dynamic deletedSession, hasMoreData, nextPageToken, session;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

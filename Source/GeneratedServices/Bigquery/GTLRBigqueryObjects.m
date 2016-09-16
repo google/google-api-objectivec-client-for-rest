@@ -373,12 +373,13 @@
 @dynamic allowJaggedRows, allowQuotedNewlines, autodetect, createDisposition,
          destinationTable, encoding, fieldDelimiter, ignoreUnknownValues,
          maxBadRecords, projectionFields, quote, schema, schemaInline,
-         schemaInlineFormat, skipLeadingRows, sourceFormat, sourceUris,
-         writeDisposition;
+         schemaInlineFormat, schemaUpdateOptions, skipLeadingRows, sourceFormat,
+         sourceUris, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"projectionFields" : [NSString class],
+    @"schemaUpdateOptions" : [NSString class],
     @"sourceUris" : [NSString class]
   };
   return map;
@@ -394,12 +395,15 @@
 
 @implementation GTLRBigquery_JobConfigurationQuery
 @dynamic allowLargeResults, createDisposition, defaultDataset, destinationTable,
-         flattenResults, maximumBillingTier, maximumBytesBilled, preserveNulls,
-         priority, query, tableDefinitions, useLegacySql, useQueryCache,
+         flattenResults, maximumBillingTier, maximumBytesBilled, parameterMode,
+         preserveNulls, priority, query, queryParameters, schemaUpdateOptions,
+         tableDefinitions, useLegacySql, useQueryCache,
          userDefinedFunctionResources, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"queryParameters" : [GTLRBigquery_QueryParameter class],
+    @"schemaUpdateOptions" : [NSString class],
     @"userDefinedFunctionResources" : [GTLRBigquery_UserDefinedFunctionResource class]
   };
   return map;
@@ -515,12 +519,14 @@
 
 @implementation GTLRBigquery_JobStatistics2
 @dynamic billingTier, cacheHit, numDmlAffectedRows, queryPlan, referencedTables,
-         schema, totalBytesBilled, totalBytesProcessed;
+         schema, totalBytesBilled, totalBytesProcessed,
+         undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"queryPlan" : [GTLRBigquery_ExplainQueryStage class],
-    @"referencedTables" : [GTLRBigquery_TableReference class]
+    @"referencedTables" : [GTLRBigquery_TableReference class],
+    @"undeclaredQueryParameters" : [GTLRBigquery_QueryParameter class]
   };
   return map;
 }
@@ -641,12 +647,95 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_QueryParameter
+//
+
+@implementation GTLRBigquery_QueryParameter
+@dynamic name, parameterType, parameterValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_QueryParameterType
+//
+
+@implementation GTLRBigquery_QueryParameterType
+@dynamic arrayType, structTypes, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"structTypes" : [GTLRBigquery_QueryParameterTypeStructTypesItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_QueryParameterTypeStructTypesItem
+//
+
+@implementation GTLRBigquery_QueryParameterTypeStructTypesItem
+@dynamic descriptionProperty, name, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_QueryParameterValue
+//
+
+@implementation GTLRBigquery_QueryParameterValue
+@dynamic arrayValues, structValues, value;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"arrayValues" : [GTLRBigquery_QueryParameterValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_QueryParameterValueStructValues
+//
+
+@implementation GTLRBigquery_QueryParameterValueStructValues
+
++ (Class)classForAdditionalProperties {
+  return [GTLRBigquery_QueryParameterValue class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_QueryRequest
 //
 
 @implementation GTLRBigquery_QueryRequest
-@dynamic defaultDataset, dryRun, kind, maxResults, preserveNulls, query,
-         timeoutMs, useLegacySql, useQueryCache;
+@dynamic defaultDataset, dryRun, kind, maxResults, parameterMode, preserveNulls,
+         query, queryParameters, timeoutMs, useLegacySql, useQueryCache;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queryParameters" : [GTLRBigquery_QueryParameter class]
+  };
+  return map;
+}
+
 @end
 
 

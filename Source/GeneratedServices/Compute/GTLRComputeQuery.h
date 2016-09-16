@@ -30,6 +30,7 @@
 @class GTLRCompute_DisksResizeRequest;
 @class GTLRCompute_Firewall;
 @class GTLRCompute_ForwardingRule;
+@class GTLRCompute_HealthCheck;
 @class GTLRCompute_HttpHealthCheck;
 @class GTLRCompute_HttpsHealthCheck;
 @class GTLRCompute_Image;
@@ -70,6 +71,10 @@
 @class GTLRCompute_TargetPoolsRemoveHealthCheckRequest;
 @class GTLRCompute_TargetPoolsRemoveInstanceRequest;
 @class GTLRCompute_TargetReference;
+@class GTLRCompute_TargetSslProxiesSetBackendServiceRequest;
+@class GTLRCompute_TargetSslProxiesSetProxyHeaderRequest;
+@class GTLRCompute_TargetSslProxiesSetSslCertificatesRequest;
+@class GTLRCompute_TargetSslProxy;
 @class GTLRCompute_TargetVpnGateway;
 @class GTLRCompute_UrlMap;
 @class GTLRCompute_UrlMapReference;
@@ -2815,6 +2820,263 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified HealthCheck resource.
+ *
+ *  Method: compute.healthChecks.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_HealthChecksDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForHealthChecksDeleteWithproject:healthCheck:]
+
+/** Name of the HealthCheck resource to delete. */
+@property(nonatomic, copy, nullable) NSString *healthCheck;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified HealthCheck resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param healthCheck Name of the HealthCheck resource to delete.
+ *
+ *  @returns GTLRComputeQuery_HealthChecksDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                     healthCheck:(NSString *)healthCheck;
+
+@end
+
+/**
+ *  Returns the specified HealthCheck resource. Get a list of available health
+ *  checks by making a list() request.
+ *
+ *  Method: compute.healthChecks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_HealthChecksGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForHealthChecksGetWithproject:healthCheck:]
+
+/** Name of the HealthCheck resource to return. */
+@property(nonatomic, copy, nullable) NSString *healthCheck;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_HealthCheck.
+ *
+ *  Returns the specified HealthCheck resource. Get a list of available health
+ *  checks by making a list() request.
+ *
+ *  @param project Project ID for this request.
+ *  @param healthCheck Name of the HealthCheck resource to return.
+ *
+ *  @returns GTLRComputeQuery_HealthChecksGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                     healthCheck:(NSString *)healthCheck;
+
+@end
+
+/**
+ *  Creates a HealthCheck resource in the specified project using the data
+ *  included in the request.
+ *
+ *  Method: compute.healthChecks.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_HealthChecksInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForHealthChecksInsertWithObject:project:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a HealthCheck resource in the specified project using the data
+ *  included in the request.
+ *
+ *  @param object The @c GTLRCompute_HealthCheck to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_HealthChecksInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_HealthCheck *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Retrieves the list of HealthCheck resources available to the specified
+ *  project.
+ *
+ *  Method: compute.healthChecks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_HealthChecksList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForHealthChecksListWithproject:]
+
+/**
+ *  Sets a filter expression for filtering listed resources, in the form
+ *  filter={expression}. Your {expression} must be in the format: field_name
+ *  comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use filter=name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests.
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 0..500).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_HealthCheckList.
+ *
+ *  Retrieves the list of HealthCheck resources available to the specified
+ *  project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_HealthChecksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Updates a HealthCheck resource in the specified project using the data
+ *  included in the request. This method supports patch semantics.
+ *
+ *  Method: compute.healthChecks.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_HealthChecksPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForHealthChecksPatchWithObject:project:healthCheck:]
+
+/** Name of the HealthCheck resource to update. */
+@property(nonatomic, copy, nullable) NSString *healthCheck;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates a HealthCheck resource in the specified project using the data
+ *  included in the request. This method supports patch semantics.
+ *
+ *  @param object The @c GTLRCompute_HealthCheck to include in the query.
+ *  @param project Project ID for this request.
+ *  @param healthCheck Name of the HealthCheck resource to update.
+ *
+ *  @returns GTLRComputeQuery_HealthChecksPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_HealthCheck *)object
+                        project:(NSString *)project
+                    healthCheck:(NSString *)healthCheck;
+
+@end
+
+/**
+ *  Updates a HealthCheck resource in the specified project using the data
+ *  included in the request.
+ *
+ *  Method: compute.healthChecks.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_HealthChecksUpdate : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForHealthChecksUpdateWithObject:project:healthCheck:]
+
+/** Name of the HealthCheck resource to update. */
+@property(nonatomic, copy, nullable) NSString *healthCheck;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates a HealthCheck resource in the specified project using the data
+ *  included in the request.
+ *
+ *  @param object The @c GTLRCompute_HealthCheck to include in the query.
+ *  @param project Project ID for this request.
+ *  @param healthCheck Name of the HealthCheck resource to update.
+ *
+ *  @returns GTLRComputeQuery_HealthChecksUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_HealthCheck *)object
+                        project:(NSString *)project
+                    healthCheck:(NSString *)healthCheck;
 
 @end
 
@@ -9385,6 +9647,307 @@ NS_ASSUME_NONNULL_BEGIN
                         project:(NSString *)project
                          region:(NSString *)region
                      targetPool:(NSString *)targetPool;
+
+@end
+
+/**
+ *  Deletes the specified TargetSslProxy resource.
+ *
+ *  Method: compute.targetSslProxies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetSslProxiesDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetSslProxiesDeleteWithproject:targetSslProxy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the TargetSslProxy resource to delete. */
+@property(nonatomic, copy, nullable) NSString *targetSslProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified TargetSslProxy resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param targetSslProxy Name of the TargetSslProxy resource to delete.
+ *
+ *  @returns GTLRComputeQuery_TargetSslProxiesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  targetSslProxy:(NSString *)targetSslProxy;
+
+@end
+
+/**
+ *  Returns the specified TargetSslProxy resource. Get a list of available
+ *  target SSL proxies by making a list() request.
+ *
+ *  Method: compute.targetSslProxies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_TargetSslProxiesGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetSslProxiesGetWithproject:targetSslProxy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the TargetSslProxy resource to return. */
+@property(nonatomic, copy, nullable) NSString *targetSslProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_TargetSslProxy.
+ *
+ *  Returns the specified TargetSslProxy resource. Get a list of available
+ *  target SSL proxies by making a list() request.
+ *
+ *  @param project Project ID for this request.
+ *  @param targetSslProxy Name of the TargetSslProxy resource to return.
+ *
+ *  @returns GTLRComputeQuery_TargetSslProxiesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  targetSslProxy:(NSString *)targetSslProxy;
+
+@end
+
+/**
+ *  Creates a TargetSslProxy resource in the specified project using the data
+ *  included in the request.
+ *
+ *  Method: compute.targetSslProxies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetSslProxiesInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetSslProxiesInsertWithObject:project:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a TargetSslProxy resource in the specified project using the data
+ *  included in the request.
+ *
+ *  @param object The @c GTLRCompute_TargetSslProxy to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_TargetSslProxiesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TargetSslProxy *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Retrieves the list of TargetSslProxy resources available to the specified
+ *  project.
+ *
+ *  Method: compute.targetSslProxies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_TargetSslProxiesList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetSslProxiesListWithproject:]
+
+/**
+ *  Sets a filter expression for filtering listed resources, in the form
+ *  filter={expression}. Your {expression} must be in the format: field_name
+ *  comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use filter=name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests.
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 0..500).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_TargetSslProxyList.
+ *
+ *  Retrieves the list of TargetSslProxy resources available to the specified
+ *  project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_TargetSslProxiesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Changes the BackendService for TargetSslProxy.
+ *
+ *  Method: compute.targetSslProxies.setBackendService
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetSslProxiesSetBackendService : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetSslProxiesSetBackendServiceWithObject:project:targetSslProxy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Name of the TargetSslProxy resource whose BackendService resource is to be
+ *  set.
+ */
+@property(nonatomic, copy, nullable) NSString *targetSslProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Changes the BackendService for TargetSslProxy.
+ *
+ *  @param object The @c GTLRCompute_TargetSslProxiesSetBackendServiceRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param targetSslProxy Name of the TargetSslProxy resource whose
+ *    BackendService resource is to be set.
+ *
+ *  @returns GTLRComputeQuery_TargetSslProxiesSetBackendService
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TargetSslProxiesSetBackendServiceRequest *)object
+                        project:(NSString *)project
+                 targetSslProxy:(NSString *)targetSslProxy;
+
+@end
+
+/**
+ *  Changes the ProxyHeaderType for TargetSslProxy.
+ *
+ *  Method: compute.targetSslProxies.setProxyHeader
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetSslProxiesSetProxyHeader : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetSslProxiesSetProxyHeaderWithObject:project:targetSslProxy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the TargetSslProxy resource whose ProxyHeader is to be set. */
+@property(nonatomic, copy, nullable) NSString *targetSslProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Changes the ProxyHeaderType for TargetSslProxy.
+ *
+ *  @param object The @c GTLRCompute_TargetSslProxiesSetProxyHeaderRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param targetSslProxy Name of the TargetSslProxy resource whose ProxyHeader
+ *    is to be set.
+ *
+ *  @returns GTLRComputeQuery_TargetSslProxiesSetProxyHeader
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TargetSslProxiesSetProxyHeaderRequest *)object
+                        project:(NSString *)project
+                 targetSslProxy:(NSString *)targetSslProxy;
+
+@end
+
+/**
+ *  Changes SslCertificates for TargetSslProxy.
+ *
+ *  Method: compute.targetSslProxies.setSslCertificates
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetSslProxiesSetSslCertificates : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetSslProxiesSetSslCertificatesWithObject:project:targetSslProxy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Name of the TargetSslProxy resource whose SslCertificate resource is to be
+ *  set.
+ */
+@property(nonatomic, copy, nullable) NSString *targetSslProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Changes SslCertificates for TargetSslProxy.
+ *
+ *  @param object The @c GTLRCompute_TargetSslProxiesSetSslCertificatesRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param targetSslProxy Name of the TargetSslProxy resource whose
+ *    SslCertificate resource is to be set.
+ *
+ *  @returns GTLRComputeQuery_TargetSslProxiesSetSslCertificates
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TargetSslProxiesSetSslCertificatesRequest *)object
+                        project:(NSString *)project
+                 targetSslProxy:(NSString *)targetSslProxy;
 
 @end
 

@@ -267,8 +267,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The set of ballot responses for the referendum. A ballot response represents
  *  a line on the ballot. Common examples might include "yes" or "no" for
- *  referenda, or a judge's name for a retention contest. This field is only
- *  populated for contests of type 'Referendum'.
+ *  referenda. This field is only populated for contests of type 'Referendum'.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *referendumBallotResponses;
 
@@ -347,7 +346,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The type of contest. Usually this will be 'General', 'Primary', or 'Run-off'
- *  for contests with candidates. For referenda this will be 'Referendum'.
+ *  for contests with candidates. For referenda this will be 'Referendum'. For
+ *  Retention contests this will typically be 'Retention'.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -478,6 +478,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+@property(nonatomic, copy, nullable) NSString *kgForeignKey;
 
 /** The name of the district. */
 @property(nonatomic, copy, nullable) NSString *name;

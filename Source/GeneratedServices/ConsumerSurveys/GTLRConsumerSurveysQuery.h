@@ -131,7 +131,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves any survey results that have been produced so far. Results are
- *  formatted as an Excel file.
+ *  formatted as an Excel file. You must add "?alt=media" to the URL as an
+ *  argument to get results.
  *
  *  Method: consumersurveys.results.get
  *
@@ -151,7 +152,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRConsumerSurveys_SurveyResults.
  *
  *  Retrieves any survey results that have been produced so far. Results are
- *  formatted as an Excel file.
+ *  formatted as an Excel file. You must add "?alt=media" to the URL as an
+ *  argument to get results.
  *
  *  @param object The @c GTLRConsumerSurveys_ResultsGetRequest to include in the
  *    query.
@@ -166,7 +168,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
  *  Retrieves any survey results that have been produced so far. Results are
- *  formatted as an Excel file.
+ *  formatted as an Excel file. You must add "?alt=media" to the URL as an
+ *  argument to get results.
  *
  *  @param object The @c GTLRConsumerSurveys_ResultsGetRequest to include in the
  *    query.

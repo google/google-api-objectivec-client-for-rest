@@ -260,10 +260,8 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  granularity. If this amount of time elapses, work on the build will cease
  *  and the build status will be TIMEOUT.
  *  Default time is ten minutes.
- *
- *  String format is #.###s (seconds).
  */
-@property(nonatomic, copy, nullable) NSString *timeout;
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
 @end
 
@@ -285,7 +283,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @interface GTLRCloudBuild_BuildOptions : GTLRObject
 
 /**
- *  Options for a verifiable build with details uploaded to the Analysis API.
+ *  Requested verifiability options.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_NotVerified Not
@@ -358,6 +356,26 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  \@OutputOnly
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Human-readable description of this trigger.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  If true, the trigger will never result in a build.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
+ *  Path, from the source root, to a file whose contents is used for the
+ *  template.
+ */
+@property(nonatomic, copy, nullable) NSString *filename;
 
 /**
  *  Unique identifier of the trigger.

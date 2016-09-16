@@ -103,6 +103,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionAccept;
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionCancel;
 /** Value: "propose" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionPropose;
+/** Value: "proposeAndAccept" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionProposeAndAccept;
 /** Value: "unknownAction" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUnknownAction;
 /** Value: "updateFinalized" */
@@ -189,6 +191,9 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 // Previous library name was
 //   +[GTLQueryAdExchangeBuyer queryForAccountsPatchWithObject:identifier:]
 
+/** Confirmation for erasing bidder and cookie matching urls. */
+@property(nonatomic, assign) BOOL confirmUnsafeAccountChange;
+
 /**
  *  The account id
  *
@@ -222,6 +227,9 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 @interface GTLRAdExchangeBuyerQuery_AccountsUpdate : GTLRAdExchangeBuyerQuery
 // Previous library name was
 //   +[GTLQueryAdExchangeBuyer queryForAccountsUpdateWithObject:identifier:]
+
+/** Confirmation for erasing bidder and cookie matching urls. */
+@property(nonatomic, assign) BOOL confirmUnsafeAccountChange;
 
 /**
  *  The account id
@@ -1256,12 +1264,15 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 @property(nonatomic, assign) long long revisionNumber;
 
 /**
- *  The proposed action to take on the proposal.
+ *  The proposed action to take on the proposal. This field is required and it
+ *  must be set when updating a proposal.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionAccept Value "accept"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionCancel Value "cancel"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionPropose Value "propose"
+ *    @arg @c kGTLRAdExchangeBuyerUpdateActionProposeAndAccept Value
+ *        "proposeAndAccept"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUnknownAction Value
  *        "unknownAction"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateFinalized Value
@@ -1280,12 +1291,15 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *    revision in the marketplace database has since changed, an error will be
  *    thrown. The caller should then fetch the latest proposal at head revision
  *    and retry the update at that revision.
- *  @param updateAction The proposed action to take on the proposal.
+ *  @param updateAction The proposed action to take on the proposal. This field
+ *    is required and it must be set when updating a proposal.
  *
  *  Likely values for @c updateAction:
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionAccept Value "accept"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionCancel Value "cancel"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionPropose Value "propose"
+ *    @arg @c kGTLRAdExchangeBuyerUpdateActionProposeAndAccept Value
+ *        "proposeAndAccept"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUnknownAction Value
  *        "unknownAction"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateFinalized Value
@@ -1379,12 +1393,15 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 @property(nonatomic, assign) long long revisionNumber;
 
 /**
- *  The proposed action to take on the proposal.
+ *  The proposed action to take on the proposal. This field is required and it
+ *  must be set when updating a proposal.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionAccept Value "accept"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionCancel Value "cancel"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionPropose Value "propose"
+ *    @arg @c kGTLRAdExchangeBuyerUpdateActionProposeAndAccept Value
+ *        "proposeAndAccept"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUnknownAction Value
  *        "unknownAction"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateFinalized Value
@@ -1403,12 +1420,15 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *    revision in the marketplace database has since changed, an error will be
  *    thrown. The caller should then fetch the latest proposal at head revision
  *    and retry the update at that revision.
- *  @param updateAction The proposed action to take on the proposal.
+ *  @param updateAction The proposed action to take on the proposal. This field
+ *    is required and it must be set when updating a proposal.
  *
  *  Likely values for @c updateAction:
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionAccept Value "accept"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionCancel Value "cancel"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionPropose Value "propose"
+ *    @arg @c kGTLRAdExchangeBuyerUpdateActionProposeAndAccept Value
+ *        "proposeAndAccept"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUnknownAction Value
  *        "unknownAction"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateFinalized Value

@@ -234,7 +234,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 
 
 /**
- *  GTLRFitness_AggregateRequest
+ *  Next id: 10
  */
 @interface GTLRFitness_AggregateRequest : GTLRObject
 
@@ -782,6 +782,13 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  endTime frame.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFitness_Session *> *deletedSession;
+
+/**
+ *  Flag to indicate server has more data to transfer
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasMoreData;
 
 /**
  *  The continuation token, which is used to page through large result sets.

@@ -4,7 +4,8 @@
 // API:
 //   Google Service Control API (servicecontrol/v1)
 // Description:
-//   The Service Control API
+//   Google Service Control provides control plane functionality to managed
+//   services, such as logging, monitoring, and status checks.
 // Documentation:
 //   https://cloud.google.com/service-control/
 
@@ -215,20 +216,16 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Warning;
 // GTLRServiceControl_Operation.importance
 
 /**
- *  The operation contains significant monetary value or audit trail.
  *  The API implementation doesn't cache and aggregate the data.
- *  Deduplication based on `operation_id` is performed for monetary
- *  values. If the method returns successfully, it's guaranteed that
- *  the data are persisted in durable storage.
+ *  If the method returns successfully, it's guaranteed that the data has
+ *  been persisted in durable storage.
  *
  *  Value: "HIGH"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_High;
 /**
- *  The operation doesn't contain significant monetary value or audit
- *  trail. The API implementation may cache and aggregate the data.
- *  There is no deduplication based on `operation_id`. The data
- *  may be lost when rare and unexpected system failures occur.
+ *  The API implementation may cache and aggregate the data.
+ *  The data may be lost when rare and unexpected system failures occur.
  *
  *  Value: "LOW"
  */
@@ -330,6 +327,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  Used for logging and diagnostics purposes.
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
+
+/** The actual config id used to process the request. */
+@property(nonatomic, copy, nullable) NSString *serviceConfigId;
 
 @end
 
@@ -737,21 +737,17 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  The importance of the data contained in the operation.
+ *  DO NOT USE. This is an experimental field.
  *
  *  Likely values:
- *    @arg @c kGTLRServiceControl_Operation_Importance_High The operation
- *        contains significant monetary value or audit trail.
- *        The API implementation doesn't cache and aggregate the data.
- *        Deduplication based on `operation_id` is performed for monetary
- *        values. If the method returns successfully, it's guaranteed that
- *        the data are persisted in durable storage. (Value: "HIGH")
- *    @arg @c kGTLRServiceControl_Operation_Importance_Low The operation doesn't
- *        contain significant monetary value or audit
- *        trail. The API implementation may cache and aggregate the data.
- *        There is no deduplication based on `operation_id`. The data
- *        may be lost when rare and unexpected system failures occur. (Value:
- *        "LOW")
+ *    @arg @c kGTLRServiceControl_Operation_Importance_High The API
+ *        implementation doesn't cache and aggregate the data.
+ *        If the method returns successfully, it's guaranteed that the data has
+ *        been persisted in durable storage. (Value: "HIGH")
+ *    @arg @c kGTLRServiceControl_Operation_Importance_Low The API
+ *        implementation may cache and aggregate the data.
+ *        The data may be lost when rare and unexpected system failures occur.
+ *        (Value: "LOW")
  */
 @property(nonatomic, copy, nullable) NSString *importance;
 
@@ -889,6 +885,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  `Operations` in the request succeeded.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_ReportError *> *reportErrors;
+
+/** The actual config id used to process the request. */
+@property(nonatomic, copy, nullable) NSString *serviceConfigId;
 
 @end
 

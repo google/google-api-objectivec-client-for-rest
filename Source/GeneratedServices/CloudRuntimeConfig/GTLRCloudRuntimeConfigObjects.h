@@ -536,10 +536,8 @@ GTLR_EXTERN NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStat
  *  the instant that `waiters().create` method is called. If this time elapses
  *  before the success or failure conditions are met, the waiter fails and sets
  *  the `error` code to `DEADLINE_EXCEEDED`.
- *
- *  String format is #.###s (seconds).
  */
-@property(nonatomic, copy, nullable) NSString *timeout;
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
 @end
 

@@ -8,18 +8,18 @@
 // Documentation:
 //   https://cloud.google.com/speech/
 
-#import "GTLRCloudSpeechAPI.h"
+#import "GTLRSpeech.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeCloudSpeechAPICloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeSpeechCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudSpeechAPIService
+//   GTLRSpeechService
 //
 
-@implementation GTLRCloudSpeechAPIService
+@implementation GTLRSpeechService
 
 - (instancetype)init {
   self = [super init];

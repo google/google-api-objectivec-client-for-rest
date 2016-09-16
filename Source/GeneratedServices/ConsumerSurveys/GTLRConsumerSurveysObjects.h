@@ -26,6 +26,7 @@
 @class GTLRConsumerSurveys_SurveyCost;
 @class GTLRConsumerSurveys_SurveyQuestion;
 @class GTLRConsumerSurveys_SurveyQuestionImage;
+@class GTLRConsumerSurveys_SurveyRejection;
 @class GTLRConsumerSurveys_TokenPagination;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -203,6 +204,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** List of questions defining the survey. */
 @property(nonatomic, strong, nullable) NSArray<GTLRConsumerSurveys_SurveyQuestion *> *questions;
+
+/**
+ *  Reason for the survey being rejected. Only present if the survey state is
+ *  'rejected'.
+ */
+@property(nonatomic, strong, nullable) GTLRConsumerSurveys_SurveyRejection *rejectionReason;
 
 /** State that the survey is in. */
 @property(nonatomic, copy, nullable) NSString *state;
@@ -454,6 +461,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The read-only URL for the hosted images. */
 @property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Message representing why the survey was rejected from review, if it was.
+ */
+@interface GTLRConsumerSurveys_SurveyRejection : GTLRObject
+
+/** A human-readable explanation of what was wrong with the survey. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Which category of rejection this was. See the GCS Help Center for additional
+ *  details on each category.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
