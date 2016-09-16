@@ -8,6 +8,7 @@
 #import "Objects/GTLRBatchQuery.m"
 #import "Objects/GTLRBatchResult.m"
 #import "Objects/GTLRDateTime.m"
+#import "Objects/GTLRDuration.m"
 #import "Objects/GTLRErrorObject.m"
 #import "Objects/GTLRObject.m"
 #import "Objects/GTLRQuery.m"

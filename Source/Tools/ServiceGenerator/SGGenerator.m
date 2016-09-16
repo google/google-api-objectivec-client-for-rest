@@ -4186,9 +4186,11 @@ static SGTypeFormatMapping kObjectParameterMappings[] = {
   { @"string", @"google-datetime", { @"GTLRDateTime", YES, @"strong", nil },
                                    { @"GTLRDateTime", YES, @"strong", nil }},
   // Bridging https://github.com/google/protobuf/blob/master/src/google/protobuf/duration.proto
-  // Make it a plain string with a comment about format.
-  { @"string", @"google-duration", { @"NSString", YES, @"copy", @"String format is #.###s (seconds)." },
-                                   { @"NSString", YES, @"copy", @"String format is #.###s (seconds)." } },
+  // Uses a custom wrapper so folks don't have to worry about the "s" on the end
+  // and because it is easy to end up with floating point issues if one isn't
+  // careful.
+  { @"string", @"google-duration", { @"GTLRDuration", YES, @"strong", nil },
+                                   { @"GTLRDuration", YES, @"strong", nil } },
   // Bridging https://github.com/google/protobuf/blob/master/src/google/protobuf/field_mask.proto
   // Make it a plain string with a comment about format.
   { @"string", @"google-fieldmask", { @"NSString", YES, @"copy", @"String format is a comma-separated list of fields." },

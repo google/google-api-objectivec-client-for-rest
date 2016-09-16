@@ -23,6 +23,7 @@
 #import "GTLRRuntimeCommon.h"
 
 #import "GTLRDateTime.h"
+#import "GTLRDuration.h"
 #import "GTLRObject.h"
 #import "GTLRUtilities.h"
 
@@ -64,9 +65,11 @@
     }
     result = resultArray;
   } else if ([json isKindOfClass:[NSString class]]) {
-    // DateTimes live in JSON as strings, so convert
+    // DateTimes and Durations live in JSON as strings, so convert.
     if ([defaultClass isEqual:[GTLRDateTime class]]) {
       result = [GTLRDateTime dateTimeWithRFC3339String:json];
+    } else if ([defaultClass isEqual:[GTLRDuration class]]) {
+      result = [GTLRDuration durationWithJSONString:json];
     } else if ([defaultClass isEqual:[NSNumber class]]) {
       result = GTLR_EnsureNSNumber(json);
       canBeCached = NO;
@@ -129,6 +132,10 @@
     // DateTimes live in JSON as strings, so convert.
     GTLRDateTime *dateTime = obj;
     result = dateTime.stringValue;
+  } else if ([obj isKindOfClass:[GTLRDuration class]]) {
+    // Durations live in JSON as strings, so convert.
+    GTLRDuration *duration = obj;
+    result = duration.jsonString;
   } else {
     checkExpected = NO;
     if (obj) {
@@ -297,6 +304,7 @@ typedef NS_ENUM(NSUInteger, GTLRPropertyType) {
   GTLRPropertyTypeNSString,
   GTLRPropertyTypeNSNumber,
   GTLRPropertyTypeGTLRDateTime,
+  GTLRPropertyTypeGTLRDuration,
   GTLRPropertyTypeNSArray,
   GTLRPropertyTypeNSObject,
   GTLRPropertyTypeGTLRObject,
@@ -434,6 +442,14 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
       "v@:@",
       "@@:",
       GTLR_CLASSNAME_CSTR(GTLRDateTime), nil,
+      NO
+    },
+    { // GTLRDuration
+      "T@\"" GTLR_CLASSNAME_CSTR(GTLRDuration) "\"",
+      GTLRPropertyTypeGTLRDuration,
+      "v@:@",
+      "@@:",
+      GTLR_CLASSNAME_CSTR(GTLRDuration), nil,
       NO
     },
     { // NSArray with type
@@ -651,6 +667,30 @@ static IMP GTLRRuntimeGetterIMP(SEL sel,
       break;
     }
 
+    case GTLRPropertyTypeGTLRDuration: {
+      resultIMP = imp_implementationWithBlock(^GTLRDuration *(GTLRObject<GTLRRuntimeCommon> *obj) {
+        // Return the cached object before creating on demand.
+        GTLRDuration *cachedDuration = [obj cacheChildForKey:jsonKey];
+        if (cachedDuration != nil) {
+          return cachedDuration;
+        }
+        NSString *str = [obj JSONValueForKey:jsonKey];
+        id cacheValue, resultValue;
+        if (![str isKindOfClass:[NSNull class]]) {
+          GTLRDuration *duration = [GTLRDuration durationWithJSONString:str];
+
+          cacheValue = duration;
+          resultValue = duration;
+        } else {
+          cacheValue = nil;
+          resultValue = [NSNull null];
+        }
+        [obj setCacheChild:cacheValue forKey:jsonKey];
+        return resultValue;
+      });
+      break;
+    }
+
     case GTLRPropertyTypeNSNumber: {
       resultIMP = imp_implementationWithBlock(^(id obj) {
         NSNumber *num = [obj JSONValueForKey:jsonKey];
@@ -839,6 +879,24 @@ static IMP GTLRRuntimeSetterIMP(SEL sel,
         id cacheValue, jsonValue;
         if (![val isKindOfClass:[NSNull class]]) {
           jsonValue = val.stringValue;
+          cacheValue = val;
+        } else {
+          jsonValue = [NSNull null];
+          cacheValue = nil;
+        }
+
+        [obj setJSONValue:jsonValue forKey:jsonKey];
+        [obj setCacheChild:cacheValue forKey:jsonKey];
+      });
+      break;
+    }
+
+    case GTLRPropertyTypeGTLRDuration: {
+      resultIMP = imp_implementationWithBlock(^(GTLRObject<GTLRRuntimeCommon> *obj,
+                                                GTLRDuration *val) {
+        id cacheValue, jsonValue;
+        if (![val isKindOfClass:[NSNull class]]) {
+          jsonValue = val.jsonString;
           cacheValue = val;
         } else {
           jsonValue = [NSNull null];
