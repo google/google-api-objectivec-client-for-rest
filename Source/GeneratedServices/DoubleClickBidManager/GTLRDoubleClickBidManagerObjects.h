@@ -158,6 +158,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNi
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNielsenDeviceId;
 /** Value: "FILTER_NIELSEN_GENDER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNielsenGender;
+/** Value: "FILTER_NOT_SUPPORTED" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNotSupported;
 /** Value: "FILTER_ORDER_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterOrderId;
 /** Value: "FILTER_OS" */
@@ -384,6 +386,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNielsenDeviceId;
 /** Value: "FILTER_NIELSEN_GENDER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNielsenGender;
+/** Value: "FILTER_NOT_SUPPORTED" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNotSupported;
 /** Value: "FILTER_ORDER_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterOrderId;
 /** Value: "FILTER_OS" */
@@ -516,6 +520,28 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_Parameters.metrics
 
+/** Value: "METRIC_ACTIVE_VIEW_AVERAGE_VIEWABLE_TIME" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewAverageViewableTime;
+/** Value: "METRIC_ACTIVE_VIEW_DISTRIBUTION_UNMEASURABLE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewDistributionUnmeasurable;
+/** Value: "METRIC_ACTIVE_VIEW_DISTRIBUTION_UNVIEWABLE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewDistributionUnviewable;
+/** Value: "METRIC_ACTIVE_VIEW_DISTRIBUTION_VIEWABLE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewDistributionViewable;
+/** Value: "METRIC_ACTIVE_VIEW_ELIGIBLE_IMPRESSIONS" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewEligibleImpressions;
+/** Value: "METRIC_ACTIVE_VIEW_MEASURABLE_IMPRESSIONS" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewMeasurableImpressions;
+/** Value: "METRIC_ACTIVE_VIEW_PCT_MEASURABLE_IMPRESSIONS" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPctMeasurableImpressions;
+/** Value: "METRIC_ACTIVE_VIEW_PCT_VIEWABLE_IMPRESSIONS" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPctViewableImpressions;
+/** Value: "METRIC_ACTIVE_VIEW_UNMEASURABLE_IMPRESSIONS" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewUnmeasurableImpressions;
+/** Value: "METRIC_ACTIVE_VIEW_UNVIEWABLE_IMPRESSIONS" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewUnviewableImpressions;
+/** Value: "METRIC_ACTIVE_VIEW_VIEWABLE_IMPRESSIONS" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewViewableImpressions;
 /** Value: "METRIC_BID_REQUESTS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBidRequests;
 /** Value: "METRIC_BILLABLE_COST_ADVERTISER" */
@@ -1480,6 +1506,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "FILTER_NIELSEN_DEVICE_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterNielsenGender
  *        Value "FILTER_NIELSEN_GENDER"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterNotSupported
+ *        Value "FILTER_NOT_SUPPORTED"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterOrderId Value
  *        "FILTER_ORDER_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterOs Value

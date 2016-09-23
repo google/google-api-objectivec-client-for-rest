@@ -13,6 +13,60 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeploymentManager_AuditConfig
+//
+
+@implementation GTLRDeploymentManager_AuditConfig
+@dynamic exemptedMembers, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_Binding
+//
+
+@implementation GTLRDeploymentManager_Binding
+@dynamic members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_Condition
+//
+
+@implementation GTLRDeploymentManager_Condition
+@dynamic iam, op, svc, sys, value, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeploymentManager_ConfigFile
 //
 
@@ -135,6 +189,26 @@
 
 @implementation GTLRDeploymentManager_ImportFile
 @dynamic content, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_LogConfig
+//
+
+@implementation GTLRDeploymentManager_LogConfig
+@dynamic counter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_LogConfigCounterOptions
+//
+
+@implementation GTLRDeploymentManager_LogConfigCounterOptions
+@dynamic field, metric;
 @end
 
 
@@ -294,12 +368,36 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeploymentManager_Policy
+//
+
+@implementation GTLRDeploymentManager_Policy
+@dynamic auditConfigs, bindings, ETag, iamOwned, rules, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditConfigs" : [GTLRDeploymentManager_AuditConfig class],
+    @"bindings" : [GTLRDeploymentManager_Binding class],
+    @"rules" : [GTLRDeploymentManager_Rule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeploymentManager_Resource
 //
 
 @implementation GTLRDeploymentManager_Resource
-@dynamic finalProperties, identifier, insertTime, manifest, name, properties,
-         type, update, updateTime, url, warnings;
+@dynamic accessControl, finalProperties, identifier, insertTime, manifest, name,
+         properties, type, update, updateTime, url, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -345,6 +443,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeploymentManager_ResourceAccessControl
+//
+
+@implementation GTLRDeploymentManager_ResourceAccessControl
+@dynamic gcpIamPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeploymentManager_ResourcesListResponse
 //
 
@@ -371,7 +479,8 @@
 //
 
 @implementation GTLRDeploymentManager_ResourceUpdate
-@dynamic error, finalProperties, intent, manifest, properties, state, warnings;
+@dynamic accessControl, error, finalProperties, intent, manifest, properties,
+         state, warnings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -441,6 +550,33 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeploymentManager_Rule
+//
+
+@implementation GTLRDeploymentManager_Rule
+@dynamic action, conditions, descriptionProperty, ins, logConfigs, notIns,
+         permissions;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conditions" : [GTLRDeploymentManager_Condition class],
+    @"ins" : [NSString class],
+    @"logConfigs" : [GTLRDeploymentManager_LogConfig class],
+    @"notIns" : [NSString class],
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeploymentManager_TargetConfiguration
 //
 
@@ -450,6 +586,42 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"imports" : [GTLRDeploymentManager_ImportFile class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_TestPermissionsRequest
+//
+
+@implementation GTLRDeploymentManager_TestPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_TestPermissionsResponse
+//
+
+@implementation GTLRDeploymentManager_TestPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
   };
   return map;
 }

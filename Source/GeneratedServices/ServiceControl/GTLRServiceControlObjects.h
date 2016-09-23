@@ -157,56 +157,56 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ServiceStatusUn
 // GTLRServiceControl_LogEntry.severity
 
 /**
- *  A person must take an action immediately.
+ *  (700) A person must take an action immediately.
  *
  *  Value: "ALERT"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Alert;
 /**
- *  Critical events cause more severe problems or brief outages.
+ *  (600) Critical events cause more severe problems or outages.
  *
  *  Value: "CRITICAL"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Critical;
 /**
- *  Debug or trace information.
+ *  (100) Debug or trace information.
  *
  *  Value: "DEBUG"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Debug;
 /**
- *  The log entry has no assigned severity level.
+ *  (0) The log entry has no assigned severity level.
  *
  *  Value: "DEFAULT"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Default;
 /**
- *  One or more systems are unusable.
+ *  (800) One or more systems are unusable.
  *
  *  Value: "EMERGENCY"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Emergency;
 /**
- *  Error events are likely to cause problems.
+ *  (500) Error events are likely to cause problems.
  *
  *  Value: "ERROR"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Error;
 /**
- *  Routine information, such as ongoing status or performance.
+ *  (200) Routine information, such as ongoing status or performance.
  *
  *  Value: "INFO"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Info;
 /**
- *  Normal but significant events, such as start up, shut down, or
- *  configuration.
+ *  (300) Normal but significant events, such as start up, shut down, or
+ *  a configuration change.
  *
  *  Value: "NOTICE"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Notice;
 /**
- *  Warning events might cause problems.
+ *  (400) Warning events might cause problems.
  *
  *  Value: "WARNING"
  */
@@ -546,25 +546,25 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  `LogSeverity.DEFAULT`.
  *
  *  Likely values:
- *    @arg @c kGTLRServiceControl_LogEntry_Severity_Alert A person must take an
- *        action immediately. (Value: "ALERT")
- *    @arg @c kGTLRServiceControl_LogEntry_Severity_Critical Critical events
- *        cause more severe problems or brief outages. (Value: "CRITICAL")
- *    @arg @c kGTLRServiceControl_LogEntry_Severity_Debug Debug or trace
+ *    @arg @c kGTLRServiceControl_LogEntry_Severity_Alert (700) A person must
+ *        take an action immediately. (Value: "ALERT")
+ *    @arg @c kGTLRServiceControl_LogEntry_Severity_Critical (600) Critical
+ *        events cause more severe problems or outages. (Value: "CRITICAL")
+ *    @arg @c kGTLRServiceControl_LogEntry_Severity_Debug (100) Debug or trace
  *        information. (Value: "DEBUG")
- *    @arg @c kGTLRServiceControl_LogEntry_Severity_Default The log entry has no
- *        assigned severity level. (Value: "DEFAULT")
- *    @arg @c kGTLRServiceControl_LogEntry_Severity_Emergency One or more
+ *    @arg @c kGTLRServiceControl_LogEntry_Severity_Default (0) The log entry
+ *        has no assigned severity level. (Value: "DEFAULT")
+ *    @arg @c kGTLRServiceControl_LogEntry_Severity_Emergency (800) One or more
  *        systems are unusable. (Value: "EMERGENCY")
- *    @arg @c kGTLRServiceControl_LogEntry_Severity_Error Error events are
+ *    @arg @c kGTLRServiceControl_LogEntry_Severity_Error (500) Error events are
  *        likely to cause problems. (Value: "ERROR")
- *    @arg @c kGTLRServiceControl_LogEntry_Severity_Info Routine information,
- *        such as ongoing status or performance. (Value: "INFO")
- *    @arg @c kGTLRServiceControl_LogEntry_Severity_Notice Normal but
+ *    @arg @c kGTLRServiceControl_LogEntry_Severity_Info (200) Routine
+ *        information, such as ongoing status or performance. (Value: "INFO")
+ *    @arg @c kGTLRServiceControl_LogEntry_Severity_Notice (300) Normal but
  *        significant events, such as start up, shut down, or
- *        configuration. (Value: "NOTICE")
- *    @arg @c kGTLRServiceControl_LogEntry_Severity_Warning Warning events might
- *        cause problems. (Value: "WARNING")
+ *        a configuration change. (Value: "NOTICE")
+ *    @arg @c kGTLRServiceControl_LogEntry_Severity_Warning (400) Warning events
+ *        might cause problems. (Value: "WARNING")
  */
 @property(nonatomic, copy, nullable) NSString *severity;
 

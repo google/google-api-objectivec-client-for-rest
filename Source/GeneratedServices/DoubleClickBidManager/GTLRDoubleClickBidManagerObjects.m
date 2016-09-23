@@ -73,6 +73,7 @@ NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNielsenAge = @
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNielsenCountryCode = @"FILTER_NIELSEN_COUNTRY_CODE";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNielsenDeviceId = @"FILTER_NIELSEN_DEVICE_ID";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNielsenGender = @"FILTER_NIELSEN_GENDER";
+NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNotSupported = @"FILTER_NOT_SUPPORTED";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterOrderId = @"FILTER_ORDER_ID";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterOs = @"FILTER_OS";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterPageCategory = @"FILTER_PAGE_CATEGORY";
@@ -186,6 +187,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNielsenAge
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNielsenCountryCode = @"FILTER_NIELSEN_COUNTRY_CODE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNielsenDeviceId = @"FILTER_NIELSEN_DEVICE_ID";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNielsenGender = @"FILTER_NIELSEN_GENDER";
+NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNotSupported = @"FILTER_NOT_SUPPORTED";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterOrderId = @"FILTER_ORDER_ID";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterOs = @"FILTER_OS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterPageCategory = @"FILTER_PAGE_CATEGORY";
@@ -252,6 +254,17 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterYoutubeVer
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterZipCode = @"FILTER_ZIP_CODE";
 
 // GTLRDoubleClickBidManager_Parameters.metrics
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewAverageViewableTime = @"METRIC_ACTIVE_VIEW_AVERAGE_VIEWABLE_TIME";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewDistributionUnmeasurable = @"METRIC_ACTIVE_VIEW_DISTRIBUTION_UNMEASURABLE";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewDistributionUnviewable = @"METRIC_ACTIVE_VIEW_DISTRIBUTION_UNVIEWABLE";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewDistributionViewable = @"METRIC_ACTIVE_VIEW_DISTRIBUTION_VIEWABLE";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewEligibleImpressions = @"METRIC_ACTIVE_VIEW_ELIGIBLE_IMPRESSIONS";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewMeasurableImpressions = @"METRIC_ACTIVE_VIEW_MEASURABLE_IMPRESSIONS";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPctMeasurableImpressions = @"METRIC_ACTIVE_VIEW_PCT_MEASURABLE_IMPRESSIONS";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPctViewableImpressions = @"METRIC_ACTIVE_VIEW_PCT_VIEWABLE_IMPRESSIONS";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewUnmeasurableImpressions = @"METRIC_ACTIVE_VIEW_UNMEASURABLE_IMPRESSIONS";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewUnviewableImpressions = @"METRIC_ACTIVE_VIEW_UNVIEWABLE_IMPRESSIONS";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewViewableImpressions = @"METRIC_ACTIVE_VIEW_VIEWABLE_IMPRESSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBidRequests = @"METRIC_BID_REQUESTS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBillableCostAdvertiser = @"METRIC_BILLABLE_COST_ADVERTISER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBillableCostPartner = @"METRIC_BILLABLE_COST_PARTNER";

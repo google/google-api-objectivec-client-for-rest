@@ -2,15 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Monitoring API (monitoring/v3)
+//   Stackdriver Monitoring API (monitoring/v3)
 // Description:
-//   Manages your Stackdriver monitoring data and configurations. Projects must
-//   be associated with a Stackdriver account, except for the following methods:
-//   [monitoredResourceDescriptors.list](v3/projects.monitoredResourceDescriptors/list),
-//   [monitoredResourceDescriptors.get](v3/projects.monitoredResourceDescriptors/get),
-//   [metricDescriptors.list](v3/projects.metricDescriptors/list),
-//   [metricDescriptors.get](v3/projects.metricDescriptors/get), and
-//   [timeSeries.list](v3/projects.timeSeries/list).
+//   Manages your Stackdriver Monitoring data and configurations. Most projects
+//   must be associated with a Stackdriver account, with a few exceptions as
+//   noted on the individual method pages.
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
 
@@ -58,167 +54,401 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_CollectdValue.dataSourceType
 
-/** Value: "ABSOLUTE" */
+/**
+ *  An amount of change since the last measurement interval. This corresponds to
+ *  google.api.MetricDescriptor.MetricKind.DELTA.
+ *
+ *  Value: "ABSOLUTE"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Absolute;
-/** Value: "COUNTER" */
+/**
+ *  A cumulative value over time. This corresponds to
+ *  google.api.MetricDescriptor.MetricKind.CUMULATIVE.
+ *
+ *  Value: "COUNTER"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Counter;
-/** Value: "DERIVE" */
+/**
+ *  A rate of change of the measurement.
+ *
+ *  Value: "DERIVE"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Derive;
-/** Value: "GAUGE" */
+/**
+ *  An instantaneous measurement of a varying quantity. This corresponds to
+ *  google.api.MetricDescriptor.MetricKind.GAUGE.
+ *
+ *  Value: "GAUGE"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Gauge;
-/** Value: "UNSPECIFIED_DATA_SOURCE_TYPE" */
+/**
+ *  An unspecified data source type. This corresponds to
+ *  google.api.MetricDescriptor.MetricKind.METRIC_KIND_UNSPECIFIED.
+ *
+ *  Value: "UNSPECIFIED_DATA_SOURCE_TYPE"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_UnspecifiedDataSourceType;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_Field.cardinality
 
-/** Value: "CARDINALITY_OPTIONAL" */
+/**
+ *  For optional fields.
+ *
+ *  Value: "CARDINALITY_OPTIONAL"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityOptional;
-/** Value: "CARDINALITY_REPEATED" */
+/**
+ *  For repeated fields.
+ *
+ *  Value: "CARDINALITY_REPEATED"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityRepeated;
-/** Value: "CARDINALITY_REQUIRED" */
+/**
+ *  For required fields. Proto2 syntax only.
+ *
+ *  Value: "CARDINALITY_REQUIRED"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityRequired;
-/** Value: "CARDINALITY_UNKNOWN" */
+/**
+ *  For fields with unknown cardinality.
+ *
+ *  Value: "CARDINALITY_UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_Field.kind
 
-/** Value: "TYPE_BOOL" */
+/**
+ *  Field type bool.
+ *
+ *  Value: "TYPE_BOOL"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeBool;
-/** Value: "TYPE_BYTES" */
+/**
+ *  Field type bytes.
+ *
+ *  Value: "TYPE_BYTES"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeBytes;
-/** Value: "TYPE_DOUBLE" */
+/**
+ *  Field type double.
+ *
+ *  Value: "TYPE_DOUBLE"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeDouble;
-/** Value: "TYPE_ENUM" */
+/**
+ *  Field type enum.
+ *
+ *  Value: "TYPE_ENUM"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeEnum;
-/** Value: "TYPE_FIXED32" */
+/**
+ *  Field type fixed32.
+ *
+ *  Value: "TYPE_FIXED32"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeFixed32;
-/** Value: "TYPE_FIXED64" */
+/**
+ *  Field type fixed64.
+ *
+ *  Value: "TYPE_FIXED64"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeFixed64;
-/** Value: "TYPE_FLOAT" */
+/**
+ *  Field type float.
+ *
+ *  Value: "TYPE_FLOAT"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeFloat;
-/** Value: "TYPE_GROUP" */
+/**
+ *  Field type group. Proto2 syntax only, and deprecated.
+ *
+ *  Value: "TYPE_GROUP"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeGroup;
-/** Value: "TYPE_INT32" */
+/**
+ *  Field type int32.
+ *
+ *  Value: "TYPE_INT32"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeInt32;
-/** Value: "TYPE_INT64" */
+/**
+ *  Field type int64.
+ *
+ *  Value: "TYPE_INT64"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeInt64;
-/** Value: "TYPE_MESSAGE" */
+/**
+ *  Field type message.
+ *
+ *  Value: "TYPE_MESSAGE"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeMessage;
-/** Value: "TYPE_SFIXED32" */
+/**
+ *  Field type sfixed32.
+ *
+ *  Value: "TYPE_SFIXED32"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeSfixed32;
-/** Value: "TYPE_SFIXED64" */
+/**
+ *  Field type sfixed64.
+ *
+ *  Value: "TYPE_SFIXED64"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeSfixed64;
-/** Value: "TYPE_SINT32" */
+/**
+ *  Field type sint32.
+ *
+ *  Value: "TYPE_SINT32"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeSint32;
-/** Value: "TYPE_SINT64" */
+/**
+ *  Field type sint64.
+ *
+ *  Value: "TYPE_SINT64"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeSint64;
-/** Value: "TYPE_STRING" */
+/**
+ *  Field type string.
+ *
+ *  Value: "TYPE_STRING"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeString;
-/** Value: "TYPE_UINT32" */
+/**
+ *  Field type uint32.
+ *
+ *  Value: "TYPE_UINT32"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUint32;
-/** Value: "TYPE_UINT64" */
+/**
+ *  Field type uint64.
+ *
+ *  Value: "TYPE_UINT64"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUint64;
-/** Value: "TYPE_UNKNOWN" */
+/**
+ *  Field type unknown.
+ *
+ *  Value: "TYPE_UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_LabelDescriptor.valueType
 
-/** Value: "BOOL" */
+/**
+ *  Boolean; true or false.
+ *
+ *  Value: "BOOL"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_Bool;
-/** Value: "INT64" */
+/**
+ *  A 64-bit signed integer.
+ *
+ *  Value: "INT64"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_Int64;
-/** Value: "STRING" */
+/**
+ *  A variable-length string. This is the default.
+ *
+ *  Value: "STRING"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_String;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_MetricDescriptor.metricKind
 
-/** Value: "CUMULATIVE" */
+/**
+ *  A value accumulated over a time interval. Cumulative measurements in a time
+ *  series should have the same start time and increasing end times, until an
+ *  event resets the cumulative value to zero and sets a new start time for the
+ *  following points.
+ *
+ *  Value: "CUMULATIVE"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_Cumulative;
-/** Value: "DELTA" */
+/**
+ *  The change in a value during a time interval.
+ *
+ *  Value: "DELTA"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_Delta;
-/** Value: "GAUGE" */
+/**
+ *  An instantaneous measurement of a value.
+ *
+ *  Value: "GAUGE"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_Gauge;
-/** Value: "METRIC_KIND_UNSPECIFIED" */
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "METRIC_KIND_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_MetricKindUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_MetricDescriptor.valueType
 
-/** Value: "BOOL" */
+/**
+ *  The value is a boolean. This value type can be used only if the metric kind
+ *  is GAUGE.
+ *
+ *  Value: "BOOL"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Bool;
-/** Value: "DISTRIBUTION" */
+/**
+ *  The value is a Distribution.
+ *
+ *  Value: "DISTRIBUTION"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Distribution;
-/** Value: "DOUBLE" */
+/**
+ *  The value is a double precision floating point number.
+ *
+ *  Value: "DOUBLE"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Double;
-/** Value: "INT64" */
+/**
+ *  The value is a signed 64-bit integer.
+ *
+ *  Value: "INT64"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Int64;
-/** Value: "MONEY" */
+/**
+ *  The value is money.
+ *
+ *  Value: "MONEY"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Money;
-/** Value: "STRING" */
+/**
+ *  The value is a text string. This value type can be used only if the metric
+ *  kind is GAUGE.
+ *
+ *  Value: "STRING"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_String;
-/** Value: "VALUE_TYPE_UNSPECIFIED" */
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "VALUE_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_ValueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_TimeSeries.metricKind
 
-/** Value: "CUMULATIVE" */
+/**
+ *  A value accumulated over a time interval. Cumulative measurements in a time
+ *  series should have the same start time and increasing end times, until an
+ *  event resets the cumulative value to zero and sets a new start time for the
+ *  following points.
+ *
+ *  Value: "CUMULATIVE"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_MetricKind_Cumulative;
-/** Value: "DELTA" */
+/**
+ *  The change in a value during a time interval.
+ *
+ *  Value: "DELTA"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_MetricKind_Delta;
-/** Value: "GAUGE" */
+/**
+ *  An instantaneous measurement of a value.
+ *
+ *  Value: "GAUGE"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_MetricKind_Gauge;
-/** Value: "METRIC_KIND_UNSPECIFIED" */
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "METRIC_KIND_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_MetricKind_MetricKindUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_TimeSeries.valueType
 
-/** Value: "BOOL" */
+/**
+ *  The value is a boolean. This value type can be used only if the metric kind
+ *  is GAUGE.
+ *
+ *  Value: "BOOL"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Bool;
-/** Value: "DISTRIBUTION" */
+/**
+ *  The value is a Distribution.
+ *
+ *  Value: "DISTRIBUTION"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Distribution;
-/** Value: "DOUBLE" */
+/**
+ *  The value is a double precision floating point number.
+ *
+ *  Value: "DOUBLE"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Double;
-/** Value: "INT64" */
+/**
+ *  The value is a signed 64-bit integer.
+ *
+ *  Value: "INT64"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Int64;
-/** Value: "MONEY" */
+/**
+ *  The value is money.
+ *
+ *  Value: "MONEY"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Money;
-/** Value: "STRING" */
+/**
+ *  The value is a text string. This value type can be used only if the metric
+ *  kind is GAUGE.
+ *
+ *  Value: "STRING"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_String;
-/** Value: "VALUE_TYPE_UNSPECIFIED" */
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "VALUE_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_ValueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_Type.syntax
 
-/** Value: "SYNTAX_PROTO2" */
+/**
+ *  Syntax proto2.
+ *
+ *  Value: "SYNTAX_PROTO2"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto2;
-/** Value: "SYNTAX_PROTO3" */
+/**
+ *  Syntax proto3.
+ *
+ *  Value: "SYNTAX_PROTO3"
+ */
 GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  A Distribution may optionally contain a histogram of the values in the
- *  population. The histogram is given in `bucket_counts` as counts of values
- *  that fall into one of a sequence of non-overlapping buckets. The sequence of
- *  buckets is described by `bucket_options`. A bucket specifies an inclusive
- *  lower bound and exclusive upper bound for the values that are counted for
- *  that bucket. The upper bound of a bucket is strictly greater than the lower
- *  bound. The sequence of N buckets for a Distribution consists of an underflow
+ *  population. The histogram is given in bucket_counts as counts of values that
+ *  fall into one of a sequence of non-overlapping buckets. The sequence of
+ *  buckets is described by bucket_options.A bucket specifies an inclusive lower
+ *  bound and exclusive upper bound for the values that are counted for that
+ *  bucket. The upper bound of a bucket is strictly greater than the lower
+ *  bound.The sequence of N buckets for a Distribution consists of an underflow
  *  bucket (number 0), zero or more finite buckets (number 1 through N - 2) and
  *  an overflow bucket (number N - 1). The buckets are contiguous: the lower
- *  bound of bucket i (i > 0) is the same as the upper bound of bucket i - 1.
+ *  bound of bucket i (i &gt; 0) is the same as the upper bound of bucket i - 1.
  *  The buckets span the whole range of finite values: lower bound of the
  *  underflow bucket is -infinity and the upper bound of the overflow bucket is
- *  +infinity. The finite buckets are so-called because both bounds are finite.
- *  `BucketOptions` describes bucket boundaries in one of three ways. Two
+ *  +infinity. The finite buckets are so-called because both bounds are
+ *  finite.BucketOptions describes bucket boundaries in one of three ways. Two
  *  describe the boundaries by giving parameters for a formula to generate
- *  boundaries and one gives the bucket boundaries explicitly. If
- *  `bucket_boundaries` is not given, then no `bucket_counts` may be given.
+ *  boundaries and one gives the bucket boundaries explicitly.If bucket_options
+ *  is not given, then no bucket_counts may be given.
  */
 @interface GTLRMonitoring_BucketOptions : GTLRObject
 
@@ -235,35 +465,35 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  A collection of data points sent from a `collectd`-based plugin. See the
- *  `collectd` documentation for more information.
+ *  A collection of data points sent from a collectd-based plugin. See the
+ *  collectd documentation for more information.
  */
 @interface GTLRMonitoring_CollectdPayload : GTLRObject
 
 /** The end time of the interval. */
-@property(nonatomic, copy, nullable) NSString *endTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** The measurement metadata. Example: `"process_id" -> 12345` */
+/** The measurement metadata. Example: &quot;process_id&quot; -&gt; 12345 */
 @property(nonatomic, strong, nullable) GTLRMonitoring_CollectdPayloadMetadata *metadata;
 
-/** The name of the plugin. Example: `"disk"`. */
+/** The name of the plugin. Example: &quot;disk&quot;. */
 @property(nonatomic, copy, nullable) NSString *plugin;
 
-/** The instance name of the plugin Example: `"hdcl"`. */
+/** The instance name of the plugin Example: &quot;hdcl&quot;. */
 @property(nonatomic, copy, nullable) NSString *pluginInstance;
 
 /** The start time of the interval. */
-@property(nonatomic, copy, nullable) NSString *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
-/** The measurement type. Example: `"memory"`. */
+/** The measurement type. Example: &quot;memory&quot;. */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** The measurement type instance. Example: `"used"`. */
+/** The measurement type instance. Example: &quot;used&quot;. */
 @property(nonatomic, copy, nullable) NSString *typeInstance;
 
 /**
  *  The measured values during this time interval. Each value must have a
- *  different `dataSourceName`.
+ *  different dataSourceName.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_CollectdValue *> *values;
 
@@ -271,7 +501,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The measurement metadata. Example: `"process_id" -> 12345`
+ *  The measurement metadata. Example: &quot;process_id&quot; -&gt; 12345
  *
  *  @note This class is documented as having more properties of
  *        GTLRMonitoring_TypedValue. Use @c -additionalJSONKeys and @c
@@ -283,13 +513,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  A single data point from a `collectd`-based plugin.
+ *  A single data point from a collectd-based plugin.
  */
 @interface GTLRMonitoring_CollectdValue : GTLRObject
 
 /**
- *  The data source for the `collectd` value. For example there are two data
- *  sources for network measurements: `"rx"` and `"tx"`.
+ *  The data source for the collectd value. For example there are two data
+ *  sources for network measurements: &quot;rx&quot; and &quot;tx&quot;.
  */
 @property(nonatomic, copy, nullable) NSString *dataSourceName;
 
@@ -297,14 +527,21 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  The type of measurement.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoring_CollectdValue_DataSourceType_Absolute Value
- *        "ABSOLUTE"
- *    @arg @c kGTLRMonitoring_CollectdValue_DataSourceType_Counter Value
- *        "COUNTER"
- *    @arg @c kGTLRMonitoring_CollectdValue_DataSourceType_Derive Value "DERIVE"
- *    @arg @c kGTLRMonitoring_CollectdValue_DataSourceType_Gauge Value "GAUGE"
+ *    @arg @c kGTLRMonitoring_CollectdValue_DataSourceType_Absolute An amount of
+ *        change since the last measurement interval. This corresponds to
+ *        google.api.MetricDescriptor.MetricKind.DELTA. (Value: "ABSOLUTE")
+ *    @arg @c kGTLRMonitoring_CollectdValue_DataSourceType_Counter A cumulative
+ *        value over time. This corresponds to
+ *        google.api.MetricDescriptor.MetricKind.CUMULATIVE. (Value: "COUNTER")
+ *    @arg @c kGTLRMonitoring_CollectdValue_DataSourceType_Derive A rate of
+ *        change of the measurement. (Value: "DERIVE")
+ *    @arg @c kGTLRMonitoring_CollectdValue_DataSourceType_Gauge An
+ *        instantaneous measurement of a varying quantity. This corresponds to
+ *        google.api.MetricDescriptor.MetricKind.GAUGE. (Value: "GAUGE")
  *    @arg @c kGTLRMonitoring_CollectdValue_DataSourceType_UnspecifiedDataSourceType
- *        Value "UNSPECIFIED_DATA_SOURCE_TYPE"
+ *        An unspecified data source type. This corresponds to
+ *        google.api.MetricDescriptor.MetricKind.METRIC_KIND_UNSPECIFIED.
+ *        (Value: "UNSPECIFIED_DATA_SOURCE_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *dataSourceType;
 
@@ -315,21 +552,21 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The `CreateCollectdTimeSeries` request.
+ *  The CreateCollectdTimeSeries request.
  */
 @interface GTLRMonitoring_CreateCollectdTimeSeriesRequest : GTLRObject
 
 /**
- *  The `collectd` payloads representing the time series data. You must not
+ *  The collectd payloads representing the time series data. You must not
  *  include more than a single point for each time series, so no two payloads
- *  can have the same values for all of the fields `plugin`, `plugin_instance`,
- *  `type`, and `type_instance`.
+ *  can have the same values for all of the fields plugin, plugin_instance,
+ *  type, and type_instance.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_CollectdPayload *> *collectdPayloads;
 
 /**
- *  The version of `collectd` that collected the data. Example:
- *  `"5.3.0-192.el6"`.
+ *  The version of collectd that collected the data. Example:
+ *  &quot;5.3.0-192.el6&quot;.
  */
 @property(nonatomic, copy, nullable) NSString *collectdVersion;
 
@@ -340,14 +577,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The `CreateTimeSeries` request.
+ *  The CreateTimeSeries request.
  */
 @interface GTLRMonitoring_CreateTimeSeriesRequest : GTLRObject
 
 /**
  *  The new data to be added to a list of time series. Adds at most one data
  *  point to each of several time series. The new data point must be more recent
- *  than any other point in its time series. Each `TimeSeries` value must fully
+ *  than any other point in its time series. Each TimeSeries value must fully
  *  specify a unique time series by supplying all label values for the metric
  *  and the monitored resource.
  */
@@ -359,28 +596,28 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  Distribution contains summary statistics for a population of values and,
  *  optionally, a histogram representing the distribution of those values across
- *  a specified set of histogram buckets. The summary statistics are the count,
+ *  a specified set of histogram buckets.The summary statistics are the count,
  *  mean, sum of the squared deviation from the mean, the minimum, and the
- *  maximum of the set of population of values. The histogram is based on a
+ *  maximum of the set of population of values.The histogram is based on a
  *  sequence of buckets and gives a count of values that fall into each bucket.
  *  The boundaries of the buckets are given either explicitly or by specifying
  *  parameters for a method of computing them (buckets of fixed width or buckets
- *  of exponentially increasing width). Although it is not forbidden, it is
+ *  of exponentially increasing width).Although it is not forbidden, it is
  *  generally a bad idea to include non-finite values (infinities or NaNs) in
- *  the population of values, as this will render the `mean` and
- *  `sum_of_squared_deviation` fields meaningless.
+ *  the population of values, as this will render the mean and
+ *  sum_of_squared_deviation fields meaningless.
  */
 @interface GTLRMonitoring_Distribution : GTLRObject
 
 /**
- *  If `bucket_options` is given, then the sum of the values in `bucket_counts`
- *  must equal the value in `count`. If `bucket_options` is not given, no
- *  `bucket_counts` fields may be given. Bucket counts are given in order under
- *  the numbering scheme described above (the underflow bucket has number 0; the
- *  finite buckets, if any, have numbers 1 through N-2; the overflow bucket has
- *  number N-1). The size of `bucket_counts` must be no greater than N as
- *  defined in `bucket_options`. Any suffix of trailing zero bucket_count fields
- *  may be omitted.
+ *  If bucket_options is given, then the sum of the values in bucket_counts must
+ *  equal the value in count. If bucket_options is not given, no bucket_counts
+ *  fields may be given.Bucket counts are given in order under the numbering
+ *  scheme described above (the underflow bucket has number 0; the finite
+ *  buckets, if any, have numbers 1 through N-2; the overflow bucket has number
+ *  N-1).The size of bucket_counts must be no greater than N as defined in
+ *  bucket_options.Any suffix of trailing zero bucket_count fields may be
+ *  omitted.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -397,7 +634,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
- *  The arithmetic mean of the values in the population. If `count` is zero then
+ *  The arithmetic mean of the values in the population. If count is zero then
  *  this field must be zero.
  *
  *  Uses NSNumber of doubleValue.
@@ -406,16 +643,18 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  If specified, contains the range of the population values. The field must
- *  not be present if the `count` is zero.
+ *  not be present if the count is zero. This field is presently ignored by the
+ *  Stackdriver Monitoring API v3.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_Range *range;
 
 /**
  *  The sum of squared deviations from the mean of the values in the population.
- *  For values x_i this is: Sum[i=1..n]((x_i - mean)^2) Knuth, "The Art of
- *  Computer Programming", Vol. 2, page 323, 3rd edition describes Welford's
- *  method for accumulating this sum in one pass. If `count` is zero then this
- *  field must be zero.
+ *  For values x_i this is:
+ *  Sum[i=1..n]((x_i - mean)^2)
+ *  Knuth, "The Art of Computer Programming", Vol. 2, page 323, 3rd edition
+ *  describes Welford's method for accumulating this sum in one pass.If count is
+ *  zero then this field must be zero.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -427,19 +666,21 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for Empty is empty JSON object {}.
  */
 @interface GTLRMonitoring_Empty : GTLRObject
 @end
 
 
 /**
- *  A set of buckets with arbitrary widths. Defines `size(bounds) + 1` (= N)
- *  buckets with these boundaries for bucket i: Upper bound (0 <= i < N-1):
- *  bounds[i] Lower bound (1 <= i < N); bounds[i - 1] There must be at least one
- *  element in `bounds`. If `bounds` has only one element, there are no finite
+ *  A set of buckets with arbitrary widths.Defines size(bounds) + 1 (= N)
+ *  buckets with these boundaries for bucket i:Upper bound (0 &lt;= i &lt; N-1):
+ *  boundsi Lower bound (1 &lt;= i &lt; N); boundsi - 1There must be at least
+ *  one element in bounds. If bounds has only one element, there are no finite
  *  buckets, and that single element is the common boundary of the overflow and
  *  underflow buckets.
  */
@@ -458,29 +699,29 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  Specify a sequence of buckets that have a width that is proportional to the
  *  value of the lower bound. Each bucket represents a constant relative
- *  uncertainty on a specific value in the bucket. Defines `num_finite_buckets +
- *  2` (= N) buckets with these boundaries for bucket i: Upper bound (0 <= i <
- *  N-1): scale * (growth_factor ^ i). Lower bound (1 <= i < N): scale *
+ *  uncertainty on a specific value in the bucket.Defines num_finite_buckets + 2
+ *  (= N) buckets with these boundaries for bucket i:Upper bound (0 &lt;= i &lt;
+ *  N-1): scale * (growth_factor ^ i). Lower bound (1 &lt;= i &lt; N): scale *
  *  (growth_factor ^ (i - 1)).
  */
 @interface GTLRMonitoring_Exponential : GTLRObject
 
 /**
- *  Must be greater than 1
+ *  Must be greater than 1.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *growthFactor;
 
 /**
- *  must be greater than 0
+ *  Must be greater than 0.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numFiniteBuckets;
 
 /**
- *  Must be greater than 0
+ *  Must be greater than 0.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -498,14 +739,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  The field cardinality.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoring_Field_Cardinality_CardinalityOptional Value
- *        "CARDINALITY_OPTIONAL"
- *    @arg @c kGTLRMonitoring_Field_Cardinality_CardinalityRepeated Value
- *        "CARDINALITY_REPEATED"
- *    @arg @c kGTLRMonitoring_Field_Cardinality_CardinalityRequired Value
- *        "CARDINALITY_REQUIRED"
- *    @arg @c kGTLRMonitoring_Field_Cardinality_CardinalityUnknown Value
- *        "CARDINALITY_UNKNOWN"
+ *    @arg @c kGTLRMonitoring_Field_Cardinality_CardinalityOptional For optional
+ *        fields. (Value: "CARDINALITY_OPTIONAL")
+ *    @arg @c kGTLRMonitoring_Field_Cardinality_CardinalityRepeated For repeated
+ *        fields. (Value: "CARDINALITY_REPEATED")
+ *    @arg @c kGTLRMonitoring_Field_Cardinality_CardinalityRequired For required
+ *        fields. Proto2 syntax only. (Value: "CARDINALITY_REQUIRED")
+ *    @arg @c kGTLRMonitoring_Field_Cardinality_CardinalityUnknown For fields
+ *        with unknown cardinality. (Value: "CARDINALITY_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *cardinality;
 
@@ -521,25 +762,44 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  The field type.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeBool Value "TYPE_BOOL"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeBytes Value "TYPE_BYTES"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeDouble Value "TYPE_DOUBLE"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeEnum Value "TYPE_ENUM"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeFixed32 Value "TYPE_FIXED32"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeFixed64 Value "TYPE_FIXED64"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeFloat Value "TYPE_FLOAT"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeGroup Value "TYPE_GROUP"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeInt32 Value "TYPE_INT32"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeInt64 Value "TYPE_INT64"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeMessage Value "TYPE_MESSAGE"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeSfixed32 Value "TYPE_SFIXED32"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeSfixed64 Value "TYPE_SFIXED64"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeSint32 Value "TYPE_SINT32"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeSint64 Value "TYPE_SINT64"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeString Value "TYPE_STRING"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeUint32 Value "TYPE_UINT32"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeUint64 Value "TYPE_UINT64"
- *    @arg @c kGTLRMonitoring_Field_Kind_TypeUnknown Value "TYPE_UNKNOWN"
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeBool Field type bool. (Value:
+ *        "TYPE_BOOL")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeBytes Field type bytes. (Value:
+ *        "TYPE_BYTES")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeDouble Field type double. (Value:
+ *        "TYPE_DOUBLE")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeEnum Field type enum. (Value:
+ *        "TYPE_ENUM")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeFixed32 Field type fixed32. (Value:
+ *        "TYPE_FIXED32")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeFixed64 Field type fixed64. (Value:
+ *        "TYPE_FIXED64")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeFloat Field type float. (Value:
+ *        "TYPE_FLOAT")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeGroup Field type group. Proto2
+ *        syntax only, and deprecated. (Value: "TYPE_GROUP")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeInt32 Field type int32. (Value:
+ *        "TYPE_INT32")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeInt64 Field type int64. (Value:
+ *        "TYPE_INT64")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeMessage Field type message. (Value:
+ *        "TYPE_MESSAGE")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeSfixed32 Field type sfixed32.
+ *        (Value: "TYPE_SFIXED32")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeSfixed64 Field type sfixed64.
+ *        (Value: "TYPE_SFIXED64")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeSint32 Field type sint32. (Value:
+ *        "TYPE_SINT32")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeSint64 Field type sint64. (Value:
+ *        "TYPE_SINT64")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeString Field type string. (Value:
+ *        "TYPE_STRING")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeUint32 Field type uint32. (Value:
+ *        "TYPE_UINT32")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeUint64 Field type uint64. (Value:
+ *        "TYPE_UINT64")
+ *    @arg @c kGTLRMonitoring_Field_Kind_TypeUnknown Field type unknown. (Value:
+ *        "TYPE_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -554,7 +814,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSNumber *number;
 
 /**
- *  The index of the field type in `Type.oneofs`, for message or enumeration
+ *  The index of the field type in Type.oneofs, for message or enumeration
  *  types. The first type has index 1; zero means the type is not in the list.
  *
  *  Uses NSNumber of intValue.
@@ -573,7 +833,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  The field type URL, without the scheme, for message or enumeration types.
- *  Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
+ *  Example: &quot;type.googleapis.com/google.protobuf.Timestamp&quot;.
  */
 @property(nonatomic, copy, nullable) NSString *typeUrl;
 
@@ -586,20 +846,20 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  associated metadata. If a group's filter matches an available monitored
  *  resource, then that resource is a member of that group. Groups can contain
  *  any number of monitored resources, and each monitored resource can be a
- *  member of any number of groups. Groups can be nested in parent-child
- *  hierarchies. The `parentName` field identifies an optional parent for each
+ *  member of any number of groups.Groups can be nested in parent-child
+ *  hierarchies. The parentName field identifies an optional parent for each
  *  group. If a group has a parent, then the only monitored resources available
  *  to be matched by the group's filter are the resources contained in the
  *  parent group. In other words, a group contains the monitored resources that
  *  match its filter and the filters of all the group's ancestors. A group
- *  without a parent can contain any monitored resource. For example, consider
- *  an infrastructure running a set of instances with two user-defined tags:
- *  `"environment"` and `"role"`. A parent group has a filter,
- *  `environment="production"`. A child of that parent group has a filter,
- *  `role="transcoder"`. The parent group contains all instances in the
- *  production environment, regardless of their roles. The child group contains
- *  instances that have the transcoder role *and* are in the production
- *  environment. The monitored resources contained in a group can change at any
+ *  without a parent can contain any monitored resource.For example, consider an
+ *  infrastructure running a set of instances with two user-defined tags:
+ *  &quot;environment&quot; and &quot;role&quot;. A parent group has a filter,
+ *  environment=&quot;production&quot;. A child of that parent group has a
+ *  filter, role=&quot;transcoder&quot;. The parent group contains all instances
+ *  in the production environment, regardless of their roles. The child group
+ *  contains instances that have the transcoder role and are in the production
+ *  environment.The monitored resources contained in a group can change at any
  *  moment, depending on what resources exist and what filters are associated
  *  with the group and its ancestors.
  */
@@ -622,18 +882,18 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSNumber *isCluster;
 
 /**
- *  The name of this group. The format is
- *  `"projects/{project_id_or_number}/groups/{group_id}"`. When creating a
- *  group, this field is ignored and a new name is created consisting of the
- *  project specified in the call to `CreateGroup` and a unique `{group_id}`
- *  that is generated automatically. \@OutputOnly
+ *  Output only. The name of this group. The format is
+ *  &quot;projects/{project_id_or_number}/groups/{group_id}&quot;. When creating
+ *  a group, this field is ignored and a new name is created consisting of the
+ *  project specified in the call to CreateGroup and a unique {group_id} that is
+ *  generated automatically.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The name of the group's parent, if it has one. The format is
- *  `"projects/{project_id_or_number}/groups/{group_id}"`. For groups with no
- *  parent, `parentName` is the empty string, `""`.
+ *  &quot;projects/{project_id_or_number}/groups/{group_id}&quot;. For groups
+ *  with no parent, parentName is the empty string, &quot;&quot;.
  */
 @property(nonatomic, copy, nullable) NSString *parentName;
 
@@ -659,9 +919,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  The type of data that can be assigned to the label.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoring_LabelDescriptor_ValueType_Bool Value "BOOL"
- *    @arg @c kGTLRMonitoring_LabelDescriptor_ValueType_Int64 Value "INT64"
- *    @arg @c kGTLRMonitoring_LabelDescriptor_ValueType_String Value "STRING"
+ *    @arg @c kGTLRMonitoring_LabelDescriptor_ValueType_Bool Boolean; true or
+ *        false. (Value: "BOOL")
+ *    @arg @c kGTLRMonitoring_LabelDescriptor_ValueType_Int64 A 64-bit signed
+ *        integer. (Value: "INT64")
+ *    @arg @c kGTLRMonitoring_LabelDescriptor_ValueType_String A variable-length
+ *        string. This is the default. (Value: "STRING")
  */
 @property(nonatomic, copy, nullable) NSString *valueType;
 
@@ -671,9 +934,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  Specify a sequence of buckets that all have the same width (except overflow
  *  and underflow). Each bucket represents a constant absolute uncertainty on
- *  the specific value in the bucket. Defines `num_finite_buckets + 2` (= N)
- *  buckets with these boundaries for bucket `i`: Upper bound (0 <= i < N-1):
- *  offset + (width * i). Lower bound (1 <= i < N): offset + (width * (i - 1)).
+ *  the specific value in the bucket.Defines num_finite_buckets + 2 (= N)
+ *  buckets with these boundaries for bucket i:Upper bound (0 &lt;= i &lt; N-1):
+ *  offset + (width * i). Lower bound (1 &lt;= i &lt; N): offset + (width * (i -
+ *  1)).
  */
 @interface GTLRMonitoring_Linear : GTLRObject
 
@@ -702,7 +966,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The `ListGroupMembers` response.
+ *  The ListGroupMembers response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "members" property. If returned as the result of a query, it
@@ -722,7 +986,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
- *  `pageToken` in the next call to this method.
+ *  pageToken in the next call to this method.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -737,7 +1001,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The `ListGroups` response.
+ *  The ListGroups response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "group" property. If returned as the result of a query, it should
@@ -757,7 +1021,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
- *  `pageToken` in the next call to this method.
+ *  pageToken in the next call to this method.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -765,7 +1029,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The `ListMetricDescriptors` response.
+ *  The ListMetricDescriptors response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "metricDescriptors" property. If returned as the result of a
@@ -776,7 +1040,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  The metric descriptors that are available to the project and that match the
- *  value of `filter`, if present.
+ *  value of filter, if present.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -786,7 +1050,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
- *  `pageToken` in the next call to this method.
+ *  pageToken in the next call to this method.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -794,7 +1058,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The `ListMonitoredResourcDescriptors` response.
+ *  The ListMonitoredResourcDescriptors response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "resourceDescriptors" property. If returned as the result of a
@@ -806,13 +1070,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
- *  `pageToken` in the next call to this method.
+ *  pageToken in the next call to this method.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  The monitored resource descriptors that are available to this project and
- *  that match `filter`, if present.
+ *  that match filter, if present.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -823,7 +1087,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The `ListTimeSeries` response.
+ *  The ListTimeSeries response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "timeSeries" property. If returned as the result of a query, it
@@ -835,7 +1099,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
- *  `pageToken` in the next call to this method.
+ *  pageToken in the next call to this method.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -852,19 +1116,19 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  A specific metric identified by specifying values for all of the labels of a
- *  `MetricDescriptor`.
+ *  MetricDescriptor.
  */
 @interface GTLRMonitoring_Metric : GTLRObject
 
 /**
  *  The set of labels that uniquely identify a metric. To specify a metric, all
- *  labels enumerated in the `MetricDescriptor` must be assigned values.
+ *  labels enumerated in the MetricDescriptor must be assigned values.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MetricLabels *labels;
 
 /**
  *  An existing metric type, see google.api.MetricDescriptor. For example,
- *  `compute.googleapis.com/instance/cpu/usage_time`.
+ *  compute.googleapis.com/instance/cpu/usage_time.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -873,7 +1137,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  The set of labels that uniquely identify a metric. To specify a metric, all
- *  labels enumerated in the `MetricDescriptor` must be assigned values.
+ *  labels enumerated in the MetricDescriptor must be assigned values.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -905,22 +1169,28 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  The set of labels that can be used to describe a specific instance of this
  *  metric type. For example, the
- *  `compute.googleapis.com/instance/network/received_bytes_count` metric type
- *  has a label, `loadbalanced`, that specifies whether the traffic was received
+ *  compute.googleapis.com/instance/network/received_bytes_count metric type has
+ *  a label, loadbalanced, that specifies whether the traffic was received
  *  through a load balanced IP address.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_LabelDescriptor *> *labels;
 
 /**
  *  Whether the metric records instantaneous values, changes to a value, etc.
+ *  Some combinations of metric_kind and value_type might not be supported.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoring_MetricDescriptor_MetricKind_Cumulative Value
- *        "CUMULATIVE"
- *    @arg @c kGTLRMonitoring_MetricDescriptor_MetricKind_Delta Value "DELTA"
- *    @arg @c kGTLRMonitoring_MetricDescriptor_MetricKind_Gauge Value "GAUGE"
+ *    @arg @c kGTLRMonitoring_MetricDescriptor_MetricKind_Cumulative A value
+ *        accumulated over a time interval. Cumulative measurements in a time
+ *        series should have the same start time and increasing end times, until
+ *        an event resets the cumulative value to zero and sets a new start time
+ *        for the following points. (Value: "CUMULATIVE")
+ *    @arg @c kGTLRMonitoring_MetricDescriptor_MetricKind_Delta The change in a
+ *        value during a time interval. (Value: "DELTA")
+ *    @arg @c kGTLRMonitoring_MetricDescriptor_MetricKind_Gauge An instantaneous
+ *        measurement of a value. (Value: "GAUGE")
  *    @arg @c kGTLRMonitoring_MetricDescriptor_MetricKind_MetricKindUnspecified
- *        Value "METRIC_KIND_UNSPECIFIED"
+ *        Do not use this default value. (Value: "METRIC_KIND_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *metricKind;
 
@@ -934,56 +1204,90 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  The metric type including a DNS name prefix, for example
- *  `"compute.googleapis.com/instance/cpu/utilization"`. Metric types should use
- *  a natural hierarchical grouping such as the following:
+ *  &quot;compute.googleapis.com/instance/cpu/utilization&quot;. Metric types
+ *  should use a natural hierarchical grouping such as the following:
  *  compute.googleapis.com/instance/cpu/utilization
  *  compute.googleapis.com/instance/disk/read_ops_count
- *  compute.googleapis.com/instance/network/received_bytes_count Note that if
- *  the metric type changes, the monitoring data will be discontinued, and
- *  anything depends on it will break, such as monitoring dashboards, alerting
- *  rules and quota limits. Therefore, once a metric has been published, its
- *  type should be immutable.
+ *  compute.googleapis.com/instance/network/received_bytes_count
+ *  Note that if the metric type changes, the monitoring data will be
+ *  discontinued, and anything depends on it will break, such as monitoring
+ *  dashboards, alerting rules and quota limits. Therefore, once a metric has
+ *  been published, its type should be immutable.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The unit in which the metric value is reported. It is only applicable if the
- *  `value_type` is `INT64`, `DOUBLE`, or `DISTRIBUTION`. The supported units
- *  are a subset of [The Unified Code for Units of
- *  Measure](http://unitsofmeasure.org/ucum.html) standard: **Basic units
- *  (UNIT)** * `bit` bit * `By` byte * `s` second * `min` minute * `h` hour *
- *  `d` day **Prefixes (PREFIX)** * `k` kilo (10**3) * `M` mega (10**6) * `G`
- *  giga (10**9) * `T` tera (10**12) * `P` peta (10**15) * `E` exa (10**18) *
- *  `Z` zetta (10**21) * `Y` yotta (10**24) * `m` milli (10**-3) * `u` micro
- *  (10**-6) * `n` nano (10**-9) * `p` pico (10**-12) * `f` femto (10**-15) *
- *  `a` atto (10**-18) * `z` zepto (10**-21) * `y` yocto (10**-24) * `Ki` kibi
- *  (2**10) * `Mi` mebi (2**20) * `Gi` gibi (2**30) * `Ti` tebi (2**40)
- *  **Grammar** The grammar includes the dimensionless unit `1`, such as `1/s`.
- *  The grammar also includes these connectors: * `/` division (as an infix
- *  operator, e.g. `1/s`). * `.` multiplication (as an infix operator, e.g.
- *  `GBy.d`) The grammar for a unit is as follows: Expression = Component { "."
- *  Component } { "/" Component } ; Component = [ PREFIX ] UNIT [ Annotation ] |
- *  Annotation | "1" ; Annotation = "{" NAME "}" ; Notes: * `Annotation` is just
- *  a comment if it follows a `UNIT` and is equivalent to `1` if it is used
- *  alone. For examples, `{requests}/s == 1/s`, `By{transmitted}/s == By/s`. *
- *  `NAME` is a sequence of non-blank printable ASCII characters not containing
+ *  value_type is INT64, DOUBLE, or DISTRIBUTION. The supported units are a
+ *  subset of The Unified Code for Units of Measure
+ *  (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT)
+ *  bit bit
+ *  By byte
+ *  s second
+ *  min minute
+ *  h hour
+ *  d dayPrefixes (PREFIX)
+ *  k kilo (10**3)
+ *  M mega (10**6)
+ *  G giga (10**9)
+ *  T tera (10**12)
+ *  P peta (10**15)
+ *  E exa (10**18)
+ *  Z zetta (10**21)
+ *  Y yotta (10**24)
+ *  m milli (10**-3)
+ *  u micro (10**-6)
+ *  n nano (10**-9)
+ *  p pico (10**-12)
+ *  f femto (10**-15)
+ *  a atto (10**-18)
+ *  z zepto (10**-21)
+ *  y yocto (10**-24)
+ *  Ki kibi (2**10)
+ *  Mi mebi (2**20)
+ *  Gi gibi (2**30)
+ *  Ti tebi (2**40)GrammarThe grammar includes the dimensionless unit 1, such as
+ *  1/s.The grammar also includes these connectors:
+ *  / division (as an infix operator, e.g. 1/s).
+ *  . multiplication (as an infix operator, e.g. GBy.d)The grammar for a unit is
+ *  as follows:
+ *  Expression = Component { &quot;.&quot; Component } { &quot;/&quot; Component
+ *  } ;
+ *  Component = [ PREFIX ] UNIT [ Annotation ]
+ *  | Annotation
+ *  | &quot;1&quot;
+ *  ;
+ *  Annotation = &quot;{&quot; NAME &quot;}&quot; ;
+ *  Notes:
+ *  Annotation is just a comment if it follows a UNIT and is equivalent to 1 if
+ *  it is used alone. For examples, {requests}/s == 1/s, By{transmitted}/s ==
+ *  By/s.
+ *  NAME is a sequence of non-blank printable ASCII characters not containing
  *  '{' or '}'.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
 /**
- *  Whether the measurement is an integer, a floating-point number, etc.
+ *  Whether the measurement is an integer, a floating-point number, etc. Some
+ *  combinations of metric_kind and value_type might not be supported.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_Bool Value "BOOL"
- *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_Distribution Value
- *        "DISTRIBUTION"
- *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_Double Value "DOUBLE"
- *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_Int64 Value "INT64"
- *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_Money Value "MONEY"
- *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_String Value "STRING"
- *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_ValueTypeUnspecified
- *        Value "VALUE_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_Bool The value is a
+ *        boolean. This value type can be used only if the metric kind is GAUGE.
+ *        (Value: "BOOL")
+ *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_Distribution The value
+ *        is a Distribution. (Value: "DISTRIBUTION")
+ *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_Double The value is a
+ *        double precision floating point number. (Value: "DOUBLE")
+ *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_Int64 The value is a
+ *        signed 64-bit integer. (Value: "INT64")
+ *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_Money The value is
+ *        money. (Value: "MONEY")
+ *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_String The value is a
+ *        text string. This value type can be used only if the metric kind is
+ *        GAUGE. (Value: "STRING")
+ *    @arg @c kGTLRMonitoring_MetricDescriptor_ValueType_ValueTypeUnspecified Do
+ *        not use this default value. (Value: "VALUE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *valueType;
 
@@ -993,28 +1297,30 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  An object representing a resource that can be used for monitoring, logging,
  *  billing, or other purposes. Examples include virtual machine instances,
- *  databases, and storage devices such as disks. The `type` field identifies a
+ *  databases, and storage devices such as disks. The type field identifies a
  *  MonitoredResourceDescriptor object that describes the resource's schema.
- *  Information in the `labels` field identifies the actual resource and its
+ *  Information in the labels field identifies the actual resource and its
  *  attributes according to the schema. For example, a particular Compute Engine
  *  VM instance could be represented by the following object, because the
- *  MonitoredResourceDescriptor for `"gce_instance"` has labels `"instance_id"`
- *  and `"zone"`: { "type": "gce_instance", "labels": { "instance_id":
- *  "my-instance", "zone": "us-central1-a" }}
+ *  MonitoredResourceDescriptor for &quot;gce_instance&quot; has labels
+ *  &quot;instance_id&quot; and &quot;zone&quot;:
+ *  { &quot;type&quot;: &quot;gce_instance&quot;,
+ *  &quot;labels&quot;: { &quot;instance_id&quot;: &quot;12345678901234&quot;,
+ *  &quot;zone&quot;: &quot;us-central1-a&quot; }}
  */
 @interface GTLRMonitoring_MonitoredResource : GTLRObject
 
 /**
  *  Required. Values for all of the labels listed in the associated monitored
  *  resource descriptor. For example, Cloud SQL databases use the labels
- *  `"database_id"` and `"zone"`.
+ *  &quot;database_id&quot; and &quot;zone&quot;.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResourceLabels *labels;
 
 /**
- *  Required. The monitored resource type. This field must match the `type`
- *  field of a MonitoredResourceDescriptor object. For example, the type of a
- *  Cloud SQL database is `"cloudsql_database"`.
+ *  Required. The monitored resource type. This field must match the type field
+ *  of a MonitoredResourceDescriptor object. For example, the type of a Cloud
+ *  SQL database is &quot;cloudsql_database&quot;.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1024,7 +1330,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  Required. Values for all of the labels listed in the associated monitored
  *  resource descriptor. For example, Cloud SQL databases use the labels
- *  `"database_id"` and `"zone"`.
+ *  &quot;database_id&quot; and &quot;zone&quot;.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1039,10 +1345,11 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  An object that describes the schema of a MonitoredResource object using a
  *  type name and a set of labels. For example, the monitored resource
  *  descriptor for Google Compute Engine VM instances has a type of
- *  `"gce_instance"` and specifies the use of the labels `"instance_id"` and
- *  `"zone"` to identify particular VM instances. Different APIs can support
- *  different monitored resource types. APIs generally provide a `list` method
- *  that returns the monitored resource descriptors used by the API.
+ *  &quot;gce_instance&quot; and specifies the use of the labels
+ *  &quot;instance_id&quot; and &quot;zone&quot; to identify particular VM
+ *  instances.Different APIs can support different monitored resource types.
+ *  APIs generally provide a list method that returns the monitored resource
+ *  descriptors used by the API.
  */
 @interface GTLRMonitoring_MonitoredResourceDescriptor : GTLRObject
 
@@ -1056,30 +1363,34 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  Optional. A concise name for the monitored resource type that might be
- *  displayed in user interfaces. For example, `"Google Cloud SQL Database"`.
+ *  displayed in user interfaces. It should be a Title Cased Noun Phrase,
+ *  without any article or other determiners. For example, &quot;Google Cloud
+ *  SQL Database&quot;.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Required. A set of labels used to describe instances of this monitored
  *  resource type. For example, an individual Google Cloud SQL database is
- *  identified by values for the labels `"database_id"` and `"zone"`.
+ *  identified by values for the labels &quot;database_id&quot; and
+ *  &quot;zone&quot;.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_LabelDescriptor *> *labels;
 
 /**
  *  Optional. The resource name of the monitored resource descriptor:
- *  `"projects/{project_id}/monitoredResourceDescriptors/{type}"` where {type}
- *  is the value of the `type` field in this object and {project_id} is a
+ *  &quot;projects/{project_id}/monitoredResourceDescriptors/{type}&quot; where
+ *  {type} is the value of the type field in this object and {project_id} is a
  *  project ID that provides API-specific context for accessing the type. APIs
  *  that do not use project information can use the resource name format
- *  `"monitoredResourceDescriptors/{type}"`.
+ *  &quot;monitoredResourceDescriptors/{type}&quot;.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. The monitored resource type. For example, the type
- *  `"cloudsql_database"` represents databases in Google Cloud SQL.
+ *  &quot;cloudsql_database&quot; represents databases in Google Cloud SQL. The
+ *  maximum length of this value is 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1092,17 +1403,17 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  */
 @interface GTLRMonitoring_Option : GTLRObject
 
-/** The option's name. For example, `"java_package"`. */
+/** The option's name. For example, &quot;java_package&quot;. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The option's value. For example, `"com.google.protobuf"`. */
+/** The option's value. For example, &quot;com.google.protobuf&quot;. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_OptionValue *value;
 
 @end
 
 
 /**
- *  The option's value. For example, `"com.google.protobuf"`.
+ *  The option's value. For example, &quot;com.google.protobuf&quot;.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1118,7 +1429,16 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  */
 @interface GTLRMonitoring_Point : GTLRObject
 
-/** The time interval to which the value applies. */
+/**
+ *  The time interval to which the data point applies. For GAUGE metrics, only
+ *  the end time of the interval is used. For DELTA metrics, the start and end
+ *  time should specify a non-zero interval, with subsequent points specifying
+ *  contiguous and non-overlapping intervals. For CUMULATIVE metrics, the start
+ *  and end time should specify a non-zero interval, with subsequent points
+ *  specifying the same start time and increasing end times, until an event
+ *  resets the cumulative value to zero and sets a new start time for the
+ *  following points.
+ */
 @property(nonatomic, strong, nullable) GTLRMonitoring_TimeInterval *interval;
 
 /** The value of the data point. */
@@ -1150,14 +1470,15 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  `SourceContext` represents information about the source of a protobuf
- *  element, like the file in which it is defined.
+ *  SourceContext represents information about the source of a protobuf element,
+ *  like the file in which it is defined.
  */
 @interface GTLRMonitoring_SourceContext : GTLRObject
 
 /**
  *  The path-qualified name of the .proto file that contained the associated
- *  protobuf element. For example: `"google/protobuf/source.proto"`.
+ *  protobuf element. For example:
+ *  &quot;google/protobuf/source_context.proto&quot;.
  */
 @property(nonatomic, copy, nullable) NSString *fileName;
 
@@ -1165,78 +1486,104 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  A time interval extending from after `startTime` through `endTime`. If
- *  `startTime` is omitted, the interval is the single point in time, `endTime`.
+ *  A time interval extending just after a start time through an end time. If
+ *  the start time is the same as the end time, then the interval represents a
+ *  single point in time.
  */
 @interface GTLRMonitoring_TimeInterval : GTLRObject
 
-/** Required. The end of the interval. The interval includes this time. */
-@property(nonatomic, copy, nullable) NSString *endTime;
+/** Required. The end of the time interval. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  If this value is omitted, the interval is a point in time, `endTime`. If
- *  `startTime` is present, it must be earlier than (less than) `endTime`. The
- *  interval begins after `startTime`—it does not include `startTime`.
+ *  Optional. The beginning of the time interval. The default value for the
+ *  start time is the end time. The start time must not be later than the end
+ *  time.
  */
-@property(nonatomic, copy, nullable) NSString *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
 
 /**
- *  A collection of data points that describes the time-varying nature of a
+ *  A collection of data points that describes the time-varying values of a
  *  metric. A time series is identified by a combination of a fully-specified
- *  monitored resource and a fully-specified metric.
+ *  monitored resource and a fully-specified metric. This type is used for both
+ *  listing and creating time series.
  */
 @interface GTLRMonitoring_TimeSeries : GTLRObject
 
-/** The fully-specified metric used to identify the time series. */
+/**
+ *  The associated metric. A fully-specified metric used to identify the time
+ *  series.
+ */
 @property(nonatomic, strong, nullable) GTLRMonitoring_Metric *metric;
 
 /**
- *  The metric kind of the time series. This can be different than the metric
- *  kind specified in [google.api.MetricDescriptor] because of alignment and
- *  reduction operations on the data. This field is ignored when writing data;
- *  the value specified in the descriptor is used instead. \@OutputOnly
+ *  The metric kind of the time series. When listing time series, this metric
+ *  kind might be different from the metric kind of the associated metric if
+ *  this time series is an alignment or reduction of other time series.When
+ *  creating a time series, this field is optional. If present, it must be the
+ *  same as the metric kind of the associated metric. If the associated metric's
+ *  descriptor must be auto-created, then this field specifies the metric kind
+ *  of the new descriptor and must be either GAUGE (the default) or CUMULATIVE.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoring_TimeSeries_MetricKind_Cumulative Value
- *        "CUMULATIVE"
- *    @arg @c kGTLRMonitoring_TimeSeries_MetricKind_Delta Value "DELTA"
- *    @arg @c kGTLRMonitoring_TimeSeries_MetricKind_Gauge Value "GAUGE"
- *    @arg @c kGTLRMonitoring_TimeSeries_MetricKind_MetricKindUnspecified Value
- *        "METRIC_KIND_UNSPECIFIED"
+ *    @arg @c kGTLRMonitoring_TimeSeries_MetricKind_Cumulative A value
+ *        accumulated over a time interval. Cumulative measurements in a time
+ *        series should have the same start time and increasing end times, until
+ *        an event resets the cumulative value to zero and sets a new start time
+ *        for the following points. (Value: "CUMULATIVE")
+ *    @arg @c kGTLRMonitoring_TimeSeries_MetricKind_Delta The change in a value
+ *        during a time interval. (Value: "DELTA")
+ *    @arg @c kGTLRMonitoring_TimeSeries_MetricKind_Gauge An instantaneous
+ *        measurement of a value. (Value: "GAUGE")
+ *    @arg @c kGTLRMonitoring_TimeSeries_MetricKind_MetricKindUnspecified Do not
+ *        use this default value. (Value: "METRIC_KIND_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *metricKind;
 
 /**
- *  The data points of this time series. When used as output, points will be
- *  sorted by decreasing time order. When used as input, points could be written
- *  in any orders.
+ *  The data points of this time series. When listing time series, the order of
+ *  the points is specified by the list method.When creating a time series, this
+ *  field must contain exactly one point and the point's type must be the same
+ *  as the value type of the associated metric. If the associated metric's
+ *  descriptor must be auto-created, then the value type of the descriptor is
+ *  determined by the point's type, which must be BOOL, INT64, DOUBLE, or
+ *  DISTRIBUTION.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Point *> *points;
 
 /**
- *  The fully-specified monitored resource used to identify the time series.
+ *  The associated resource. A fully-specified monitored resource used to
+ *  identify the time series.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *resource;
 
 /**
- *  The value type of the time series. This can be different than the value type
- *  specified in [google.api.MetricDescriptor] because of alignment and
- *  reduction operations on the data. This field is ignored when writing data;
- *  the value specified in the descriptor is used instead. \@OutputOnly
+ *  The value type of the time series. When listing time series, this value type
+ *  might be different from the value type of the associated metric if this time
+ *  series is an alignment or reduction of other time series.When creating a
+ *  time series, this field is optional. If present, it must be the same as the
+ *  type of the data in the points field.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_Bool Value "BOOL"
- *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_Distribution Value
- *        "DISTRIBUTION"
- *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_Double Value "DOUBLE"
- *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_Int64 Value "INT64"
- *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_Money Value "MONEY"
- *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_String Value "STRING"
- *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_ValueTypeUnspecified Value
- *        "VALUE_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_Bool The value is a boolean.
+ *        This value type can be used only if the metric kind is GAUGE. (Value:
+ *        "BOOL")
+ *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_Distribution The value is a
+ *        Distribution. (Value: "DISTRIBUTION")
+ *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_Double The value is a double
+ *        precision floating point number. (Value: "DOUBLE")
+ *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_Int64 The value is a signed
+ *        64-bit integer. (Value: "INT64")
+ *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_Money The value is money.
+ *        (Value: "MONEY")
+ *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_String The value is a text
+ *        string. This value type can be used only if the metric kind is GAUGE.
+ *        (Value: "STRING")
+ *    @arg @c kGTLRMonitoring_TimeSeries_ValueType_ValueTypeUnspecified Do not
+ *        use this default value. (Value: "VALUE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *valueType;
 
@@ -1254,7 +1601,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /** The fully qualified message name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The list of types appearing in `oneof` definitions in this type. */
+/** The list of types appearing in oneof definitions in this type. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *oneofs;
 
 /** The protocol buffer options. */
@@ -1267,8 +1614,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  The source syntax.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoring_Type_Syntax_SyntaxProto2 Value "SYNTAX_PROTO2"
- *    @arg @c kGTLRMonitoring_Type_Syntax_SyntaxProto3 Value "SYNTAX_PROTO3"
+ *    @arg @c kGTLRMonitoring_Type_Syntax_SyntaxProto2 Syntax proto2. (Value:
+ *        "SYNTAX_PROTO2")
+ *    @arg @c kGTLRMonitoring_Type_Syntax_SyntaxProto3 Syntax proto3. (Value:
+ *        "SYNTAX_PROTO3")
  */
 @property(nonatomic, copy, nullable) NSString *syntax;
 
@@ -1281,7 +1630,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @interface GTLRMonitoring_TypedValue : GTLRObject
 
 /**
- *  A Boolean value: `true` or `false`.
+ *  A Boolean value: true or false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1292,14 +1641,15 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  A 64-bit double-precision floating-point number. Its magnitude is
- *  approximately ±10±300 and it has 16 significant digits of precision.
+ *  approximately &plusmn;10<sup>&plusmn;300</sup> and it has 16 significant
+ *  digits of precision.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *doubleValue;
 
 /**
- *  A 64-bit integer. Its range is approximately ±9.2x1018.
+ *  A 64-bit integer. Its range is approximately &plusmn;9.2x10<sup>18</sup>.
  *
  *  Uses NSNumber of longLongValue.
  */
