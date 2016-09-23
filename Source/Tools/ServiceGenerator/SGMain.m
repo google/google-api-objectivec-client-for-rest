@@ -17,6 +17,13 @@
 #error "This file needs to be compiled with ARC enabled."
 #endif
 
+#ifndef STRIP_GTM_FETCH_LOGGING
+ #error Logging should always be enabled so the --httpLogDir option will work.
+#endif
+#if STRIP_GTM_FETCH_LOGGING
+ #error Logging should always be enabled so the --httpLogDir option will work.
+#endif
+
 // This tool attempts to generate as much as possible for services from the
 // Google APIs Discovery Service documents.
 
@@ -97,6 +104,11 @@ static ArgInfo optionalFlags[] = {
     "Causes any API root URL for a Google sandbox server to be replaced with"
     " the googleapis.com root instead."
   },
+  {
+    "--useLegacyObjectClassNames yes|no  Default: no",
+    "Causes the generated names for object classes to not use underscores to"
+    " provide scoping of nested classes. This can result in naming collisions."
+  },
   { "--messageFilter PATH",
     "A json file containing the the expected messages that should be suppressed"
     " during generation. The content is a dictionary with keys 'INFO' and "
@@ -163,6 +175,7 @@ static const char *kEmBegin          = "";
 static const char *kEmEnd            = "";
 
 static NSString *kGlobalFormattedNameKey = @"__*__";
+static NSString *kGlobalLegacyNamesKey = @"__*__";
 
 typedef enum {
   SGMain_ParseArgs,
@@ -204,6 +217,7 @@ typedef enum {
 @property(assign) NSUInteger verboseLevel;
 @property(strong) NSMutableDictionary *additionalHTTPHeaders;
 @property(strong) NSMutableDictionary *formattedNames;
+@property(strong) NSMutableSet *apisUsingLegacyObjectNaming;
 
 @property(strong) GTLRDiscoveryService *discoveryService;
 @property(strong) NSMutableArray *apisToFetch;
@@ -277,6 +291,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
             briefOutput = _briefOutput,
             additionalHTTPHeaders = _additionalHTTPHeaders,
             formattedNames = _formattedNames,
+            apisUsingLegacyObjectNaming = _apisUsingLegacyObjectNaming,
             discoveryService = _discoveryService,
             numberOfActiveNetworkActions = _numberOfActiveNetworkActions,
             apisToFetch = _apisToFetch,
@@ -297,6 +312,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     _appName = [[NSString alloc] initWithUTF8String:basename(self.argv[0])];
     _additionalHTTPHeaders = [[NSMutableDictionary alloc] init];
     _formattedNames = [[NSMutableDictionary alloc] init];
+    _apisUsingLegacyObjectNaming = [[NSMutableSet alloc] init];
     _apisToFetch = [[NSMutableArray alloc] init];
     _apisToSkip = [[NSMutableSet alloc] init];
     _collectedApis = [[NSMutableArray alloc] init];
@@ -689,6 +705,25 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
   }
 }
 
+- (void)parseLegacyNamingArg:(NSString *)arg {
+  // The arg is documented as "yes|no", but we support a list of services to
+  // handle --generatePreferred and keeping a set of things in the old mode.
+  if (([arg caseInsensitiveCompare:@"y"] == NSOrderedSame) ||
+      ([arg caseInsensitiveCompare:@"yes"] == NSOrderedSame)) {
+    [self.apisUsingLegacyObjectNaming addObject:kGlobalLegacyNamesKey];
+  } else if (([arg caseInsensitiveCompare:@"n"] == NSOrderedSame) ||
+             ([arg caseInsensitiveCompare:@"no"] == NSOrderedSame)) {
+    // Nothing to store this is the default.
+  } else {
+    // Split on comma, and store them off.
+    for (NSString *apiName in [arg componentsSeparatedByString:@","]) {
+      if (apiName.length) {
+        [self.apisUsingLegacyObjectNaming addObject:apiName];
+      }
+    }
+  }
+}
+
 - (void)stateParseArgs {
   int generatePreferred = 0;
   int auditJSON = 0;
@@ -708,6 +743,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     { "addServiceNameDir",   required_argument, NULL,                 'x' },
     { "removeUnknownFiles",  required_argument, NULL,                 'y' },
     { "rootURLOverrides",    required_argument, NULL,                 'u' },
+    { "useLegacyObjectClassNames", required_argument, NULL,           'z' },
     { "messageFilter",       required_argument, NULL,                 'f' },
     { "auditJSON",           no_argument,       &auditJSON,           1 },
     { "guessFormattedNames", no_argument,       &guessFormattedNames, 1 },
@@ -768,6 +804,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         break;
       case 'u':
         self.rootURLOverrides = [SGUtils boolFromArg:optarg];
+        break;
+      case 'z':
+        [self parseLegacyNamingArg:@(optarg)];
         break;
       case 0:
         // Was a flag, nothing to do.
@@ -1285,6 +1324,11 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         }
         if (self.guessFormattedNames) {
           options |= kSGGeneratorOptionAllowGuessFormattedName;
+        }
+        if ([self.apisUsingLegacyObjectNaming containsObject:kGlobalLegacyNamesKey] ||
+            [self.apisUsingLegacyObjectNaming containsObject:api.name] ||
+            [self.apisUsingLegacyObjectNaming containsObject:apiVersion]) {
+          options |= kSGGeneratorOptionLegacyObjectNaming;
         }
 
         SGGenerator *aGenerator = [SGGenerator generatorForApi:api
