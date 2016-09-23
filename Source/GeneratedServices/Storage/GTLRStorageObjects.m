@@ -386,7 +386,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [NSObject class]
+    @"items" : [GTLRStorage_ObjectAccessControl class]
   };
   return map;
 }

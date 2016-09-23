@@ -921,6 +921,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_EnvironmentSdkPipelineOptions *sdkPipelineOptions;
 
+/** Identity to run virtual machines as. Defaults to the default account. */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
 /**
  *  The prefix of the resources the system should use for temporary storage. The
  *  system will append the suffix "/temp-{JOBNAME} to this resource prefix,

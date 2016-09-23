@@ -2,15 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Monitoring API (monitoring/v3)
+//   Stackdriver Monitoring API (monitoring/v3)
 // Description:
-//   Manages your Stackdriver monitoring data and configurations. Projects must
-//   be associated with a Stackdriver account, except for the following methods:
-//   [monitoredResourceDescriptors.list](v3/projects.monitoredResourceDescriptors/list),
-//   [monitoredResourceDescriptors.get](v3/projects.monitoredResourceDescriptors/get),
-//   [metricDescriptors.list](v3/projects.metricDescriptors/list),
-//   [metricDescriptors.get](v3/projects.metricDescriptors/get), and
-//   [timeSeries.list](v3/projects.timeSeries/list).
+//   Manages your Stackdriver Monitoring data and configurations. Most projects
+//   must be associated with a Stackdriver account, with a few exceptions as
+//   noted on the individual method pages.
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
 

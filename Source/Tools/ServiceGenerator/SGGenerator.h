@@ -30,6 +30,7 @@ typedef NS_OPTIONS(NSUInteger, SGGeneratorOptions) {
   kSGGeneratorOptionAuditJSON               = 1 << 0,
   kSGGeneratorOptionAllowRootOverride       = 1 << 1,
   kSGGeneratorOptionAllowGuessFormattedName = 1 << 2,
+  kSGGeneratorOptionLegacyObjectNaming      = 1 << 3,
 };
 
 @interface SGGenerator : NSObject

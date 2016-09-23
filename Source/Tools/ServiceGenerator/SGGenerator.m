@@ -153,6 +153,7 @@ typedef enum {
 @interface SGGenerator ()
 @property(strong) NSMutableArray *warnings;
 @property(strong) NSMutableArray *infos;
+@property(readonly) BOOL useLegacyObjectNaming;
 @end
 
 // Helper to get the objects of a dictionary out in a sorted order.
@@ -384,6 +385,11 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
 - (BOOL)auditJSON {
   BOOL result = (_options & kSGGeneratorOptionAuditJSON) != 0;
+  return result;
+}
+
+- (BOOL)useLegacyObjectNaming {
+  BOOL result = (_options & kSGGeneratorOptionLegacyObjectNaming) != 0;
   return result;
 }
 
@@ -734,6 +740,10 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
         [NSString stringWithFormat:@"Collision over the class name '%@' (schemas '%@' and '%@')",
          objcClassName,
          previousSchema.sg_fullSchemaName, schema.sg_fullSchemaName];
+      if (self.useLegacyObjectNaming) {
+        errStr =
+            [errStr stringByAppendingString:@", not using --useLegacyObjectClassNames will likely avoid this."];
+      }
       messageHandler(kSGGeneratorHandlerMessageError, errStr);
       allGood = NO;
     } else {
@@ -3875,7 +3885,9 @@ static NSString *OverrideName(NSString *name, EQueryOrObject queryOrObject,
   NSString *result = [resolvedSchema sg_propertyForKey:kSchemaObjCClassNameKey];
   if (result == nil) {
     NSArray *parts = [resolvedSchema sg_fullSchemaPath:YES foldArrayItems:YES];
-    NSString *fullName = [parts componentsJoinedByString:@""];
+    SGGenerator *generator = self.sg_generator;
+    NSString *joiner = (generator.useLegacyObjectNaming ? @"" : @"_");
+    NSString *fullName = [parts componentsJoinedByString:joiner];
 
     result = [NSString stringWithFormat:@"%@%@_%@",
               kProjectPrefix, self.sg_generator.formattedAPIName, fullName];

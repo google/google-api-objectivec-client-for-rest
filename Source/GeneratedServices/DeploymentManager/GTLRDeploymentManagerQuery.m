@@ -109,6 +109,29 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @end
 
+@implementation GTLRDeploymentManagerQuery_DeploymentsGetIamPolicy
+
+@dynamic project, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/deployments/{resource}/getIamPolicy";
+  GTLRDeploymentManagerQuery_DeploymentsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDeploymentManager_Policy class];
+  query.loggingName = @"deploymentmanager.deployments.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRDeploymentManagerQuery_DeploymentsInsert
 
 @dynamic preview, project;
@@ -182,6 +205,35 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @end
 
+@implementation GTLRDeploymentManagerQuery_DeploymentsSetIamPolicy
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRDeploymentManager_Policy *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/deployments/{resource}/setIamPolicy";
+  GTLRDeploymentManagerQuery_DeploymentsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDeploymentManager_Policy class];
+  query.loggingName = @"deploymentmanager.deployments.setIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRDeploymentManagerQuery_DeploymentsStop
 
 @dynamic deployment, project;
@@ -206,6 +258,35 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
   query.deployment = deployment;
   query.expectedObjectClass = [GTLRDeploymentManager_Operation class];
   query.loggingName = @"deploymentmanager.deployments.stop";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeploymentManagerQuery_DeploymentsTestIamPermissions
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRDeploymentManager_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/global/deployments/{resource}/testIamPermissions";
+  GTLRDeploymentManagerQuery_DeploymentsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDeploymentManager_TestPermissionsResponse class];
+  query.loggingName = @"deploymentmanager.deployments.testIamPermissions";
   return query;
 }
 

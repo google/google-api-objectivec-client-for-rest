@@ -2,15 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Monitoring API (monitoring/v3)
+//   Stackdriver Monitoring API (monitoring/v3)
 // Description:
-//   Manages your Stackdriver monitoring data and configurations. Projects must
-//   be associated with a Stackdriver account, except for the following methods:
-//   [monitoredResourceDescriptors.list](v3/projects.monitoredResourceDescriptors/list),
-//   [monitoredResourceDescriptors.get](v3/projects.monitoredResourceDescriptors/get),
-//   [metricDescriptors.list](v3/projects.metricDescriptors/list),
-//   [metricDescriptors.get](v3/projects.metricDescriptors/get), and
-//   [timeSeries.list](v3/projects.timeSeries/list).
+//   Manages your Stackdriver Monitoring data and configurations. Most projects
+//   must be associated with a Stackdriver account, with a few exceptions as
+//   noted on the individual method pages.
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
 
@@ -47,6 +43,10 @@ NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMean = @"ALIGN_M
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMin = @"ALIGN_MIN";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignNextOlder = @"ALIGN_NEXT_OLDER";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignNone = @"ALIGN_NONE";
+NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile05 = @"ALIGN_PERCENTILE_05";
+NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile50 = @"ALIGN_PERCENTILE_50";
+NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile95 = @"ALIGN_PERCENTILE_95";
+NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile99 = @"ALIGN_PERCENTILE_99";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignRate = @"ALIGN_RATE";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignStddev = @"ALIGN_STDDEV";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignSum = @"ALIGN_SUM";

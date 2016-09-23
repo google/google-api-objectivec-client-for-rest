@@ -153,8 +153,8 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
 //
 
 @implementation GTLRSpeech_RecognitionConfig
-@dynamic audioChannels, encoding, languageCode, maxAlternatives,
-         profanityFilter, sampleRate, speechContext;
+@dynamic encoding, languageCode, maxAlternatives, profanityFilter, sampleRate,
+         speechContext;
 @end
 
 

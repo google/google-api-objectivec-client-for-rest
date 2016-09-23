@@ -806,7 +806,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The content generation of the object.
+ *  The content generation of the object, if applied to an object.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -825,7 +825,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** The name of the object. */
+/** The name of the object, if applied to an object. */
 @property(nonatomic, copy, nullable) NSString *object;
 
 /** The project team associated with the entity, if any. */
@@ -856,15 +856,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An access-control list.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
  */
-@interface GTLRStorage_ObjectAccessControls : GTLRObject
+@interface GTLRStorage_ObjectAccessControls : GTLRCollectionObject
 
 /**
  *  The list of items.
  *
- *  Can be any valid JSON type.
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRStorage_ObjectAccessControl *> *items;
 
 /**
  *  The kind of item this is. For lists of object access control entries, this

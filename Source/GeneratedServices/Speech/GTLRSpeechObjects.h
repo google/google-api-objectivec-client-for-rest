@@ -69,10 +69,6 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_EncodingUnsp
 GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Flac;
 /**
  *  Uncompressed 16-bit signed little-endian samples (Linear PCM).
- *  If `audio_channels` is greater than `1`, the samples are interleaved.
- *  For example, if `audio_channels` is `2` (stereo), the data contains a
- *  2-byte sample for the left channel followed by a 2-byte sample for the
- *  right channel, followed by the next time samples for left and right.
  *  This is the only encoding that may be used by `AsyncRecognize`.
  *
  *  Value: "LINEAR16"
@@ -311,16 +307,6 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 @interface GTLRSpeech_RecognitionConfig : GTLRObject
 
 /**
- *  [Optional] The number of interleaved channels in the input audio data.
- *  Valid values for LINEAR16 and FLAC are `1`-`8`.
- *  Valid values for MULAW, AMR and AMR_WB are only `1`.
- *  If `0` or omitted, defaults to one channel (mono).
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *audioChannels;
-
-/**
  *  [Required] Encoding of audio data sent in all `RecognitionAudio` messages.
  *
  *  Likely values:
@@ -341,10 +327,6 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
  *        Not all fields in STREAMINFO are supported. (Value: "FLAC")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Linear16 Uncompressed
  *        16-bit signed little-endian samples (Linear PCM).
- *        If `audio_channels` is greater than `1`, the samples are interleaved.
- *        For example, if `audio_channels` is `2` (stereo), the data contains a
- *        2-byte sample for the left channel followed by a 2-byte sample for the
- *        right channel, followed by the next time samples for left and right.
  *        This is the only encoding that may be used by `AsyncRecognize`.
  *        (Value: "LINEAR16")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Mulaw 8-bit samples that
