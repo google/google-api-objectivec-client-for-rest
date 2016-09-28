@@ -267,7 +267,7 @@ NSString *const kKeychainItemName = @"CalendarSample: Google Calendar";
 }
 
 - (GTLRCalendar_CalendarListEntry *)selectedCalendarListEntry {
-  int rowIndex = _calendarTable.selectedRow;
+  NSInteger rowIndex = _calendarTable.selectedRow;
   if (rowIndex > -1) {
     GTLRCalendar_CalendarListEntry *item = self.calendarList[rowIndex];
     return item;
@@ -277,7 +277,7 @@ NSString *const kKeychainItemName = @"CalendarSample: Google Calendar";
 
 - (GTLRCalendar_Event *)selectedEvent {
   if (_entrySegmentedControl.selectedSegment == kEventsSegment) {
-    int rowIndex = _eventTable.selectedRow;
+    NSInteger rowIndex = _eventTable.selectedRow;
     if (rowIndex > -1) {
       GTLRCalendar_Event *item = self.events[rowIndex];
       return item;
@@ -288,7 +288,7 @@ NSString *const kKeychainItemName = @"CalendarSample: Google Calendar";
 
 - (GTLRCalendar_AclRule *)selectedACLRule {
   if (_entrySegmentedControl.selectedSegment == kAccessControlSegment) {
-    int rowIndex = _eventTable.selectedRow;
+    NSInteger rowIndex = _eventTable.selectedRow;
     if (rowIndex > -1) {
       GTLRCalendar_AclRule *item = self.ACLs[rowIndex];
       return item;
@@ -299,7 +299,7 @@ NSString *const kKeychainItemName = @"CalendarSample: Google Calendar";
 
 - (GTLRCalendar_Setting *)selectedSetting {
   if (_entrySegmentedControl.selectedSegment == kSettingsSegment) {
-    int rowIndex = _eventTable.selectedRow;
+    NSInteger rowIndex = _eventTable.selectedRow;
     if (rowIndex > -1) {
       GTLRCalendar_Setting *item = self.settings[rowIndex];
       return item;
@@ -1197,7 +1197,7 @@ NSString *const kKeychainItemName = @"CalendarSample: Google Calendar";
 }
 
 // Table view data source methods
-- (int)numberOfRowsInTableView:(NSTableView *)tableView {
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
   if (tableView == _calendarTable) {
     return self.calendarList.items.count;
   } else {

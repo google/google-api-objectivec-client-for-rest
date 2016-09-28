@@ -654,6 +654,13 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
       return;
     }
 
+    if (json == nil) {
+      // At this point, the data wasn't typed as json and there were no other errors, give up.
+      [self reportError:@"Response didn't appear to be JSON."];
+      self.state = SGMain_Done;
+      return;
+    }
+
     // Don't use a default class, a valid description will have a 'kind' to
     // create the right thing.
     GTLRDiscovery_RestDescription *api = (GTLRDiscovery_RestDescription *)

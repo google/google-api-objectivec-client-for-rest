@@ -2,10 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Logging API (logging/v2beta1)
+//   Stackdriver Logging API (logging/v2beta1)
 // Description:
-//   Writes log entries and manages your logs, log sinks, and logs-based
-//   metrics.
+//   Writes log entries and manages your Stackdriver Logging configuration.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
@@ -37,9 +36,44 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes a log and all its log entries.
+ *  The log will reappear if it receives new entries.
+ *
+ *  Method: logging.billingAccounts.logs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsLogsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsLogsDeleteWithlogName:]
+
+/**
+ *  Required. The resource name of the log to delete. Example:
+ *  `"projects/my-project/logs/syslog"`.
+ */
+@property(nonatomic, copy, nullable) NSString *logName;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a log and all its log entries.
+ *  The log will reappear if it receives new entries.
+ *
+ *  @param logName Required. The resource name of the log to delete. Example:
+ *    `"projects/my-project/logs/syslog"`.
+ *
+ *  @returns GTLRLoggingQuery_BillingAccountsLogsDelete
+ */
++ (instancetype)queryWithLogName:(NSString *)logName;
+
+@end
+
+/**
  *  Lists log entries. Use this method to retrieve log entries from Cloud
- *  Logging. For ways to export log entries, see [Exporting
- *  Logs](/logging/docs/export).
+ *  Logging. For ways to export log entries, see
+ *  [Exporting Logs](/logging/docs/export).
  *
  *  Method: logging.entries.list
  *
@@ -57,8 +91,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_ListLogEntriesResponse.
  *
  *  Lists log entries. Use this method to retrieve log entries from Cloud
- *  Logging. For ways to export log entries, see [Exporting
- *  Logs](/logging/docs/export).
+ *  Logging. For ways to export log entries, see
+ *  [Exporting Logs](/logging/docs/export).
  *
  *  @param object The @c GTLRLogging_ListLogEntriesRequest to include in the
  *    query.
@@ -70,7 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Writes log entries to Cloud Logging. All log entries in Cloud Logging are
+ *  Writes log entries to Stackdriver Logging. All log entries are
  *  written by this method.
  *
  *  Method: logging.entries.write
@@ -87,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_WriteLogEntriesResponse.
  *
- *  Writes log entries to Cloud Logging. All log entries in Cloud Logging are
+ *  Writes log entries to Stackdriver Logging. All log entries are
  *  written by this method.
  *
  *  @param object The @c GTLRLogging_WriteLogEntriesRequest to include in the
@@ -100,7 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists monitored resource descriptors that are used by Cloud Logging.
+ *  Lists the monitored resource descriptors used by Stackdriver Logging.
  *
  *  Method: logging.monitoredResourceDescriptors.list
  *
@@ -115,24 +149,24 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForMonitoredResourceDescriptorsList]
 
 /**
- *  Optional. The maximum number of results to return from this request. You
- *  must check for presence of `nextPageToken` to determine if additional
- *  results are available, which you can retrieve by passing the `nextPageToken`
- *  value as the `pageToken` parameter in the next request.
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of `nextPageToken` in the
+ *  response indicates that more results might be available.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. If the `pageToken` parameter is supplied, then the next page of
- *  results is retrieved. The `pageToken` parameter must be set to the value of
- *  the `nextPageToken` from the previous response.
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. `pageToken` must be the value of
+ *  `nextPageToken` from the previous response. The values of other method
+ *  parameters should be identical to those in the previous call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRLogging_ListMonitoredResourceDescriptorsResponse.
  *
- *  Lists monitored resource descriptors that are used by Cloud Logging.
+ *  Lists the monitored resource descriptors used by Stackdriver Logging.
  *
  *  @returns GTLRLoggingQuery_MonitoredResourceDescriptorsList
  *
@@ -145,8 +179,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a log and all its log entries. The log will reappear if it receives
- *  new entries.
+ *  Deletes a log and all its log entries.
+ *  The log will reappear if it receives new entries.
+ *
+ *  Method: logging.organizations.logs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLogsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLogsDeleteWithlogName:]
+
+/**
+ *  Required. The resource name of the log to delete. Example:
+ *  `"projects/my-project/logs/syslog"`.
+ */
+@property(nonatomic, copy, nullable) NSString *logName;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a log and all its log entries.
+ *  The log will reappear if it receives new entries.
+ *
+ *  @param logName Required. The resource name of the log to delete. Example:
+ *    `"projects/my-project/logs/syslog"`.
+ *
+ *  @returns GTLRLoggingQuery_OrganizationsLogsDelete
+ */
++ (instancetype)queryWithLogName:(NSString *)logName;
+
+@end
+
+/**
+ *  Deletes a log and all its log entries.
+ *  The log will reappear if it receives new entries.
  *
  *  Method: logging.projects.logs.delete
  *
@@ -167,8 +236,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes a log and all its log entries. The log will reappear if it receives
- *  new entries.
+ *  Deletes a log and all its log entries.
+ *  The log will reappear if it receives new entries.
  *
  *  @param logName Required. The resource name of the log to delete. Example:
  *    `"projects/my-project/logs/syslog"`.
@@ -191,13 +260,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRLoggingQuery_ProjectsMetricsCreate : GTLRLoggingQuery
 // Previous library name was
-//   +[GTLQueryLogging queryForProjectsMetricsCreateWithObject:projectName:]
+//   +[GTLQueryLogging queryForProjectsMetricsCreateWithObject:parent:]
 
 /**
- *  The resource name of the project in which to create the metric. Example:
- *  `"projects/my-project-id"`. The new metric must be provided in the request.
+ *  The resource name of the project in which to create the metric.
+ *  Example: `"projects/my-project-id"`.
+ *  The new metric must be provided in the request.
  */
-@property(nonatomic, copy, nullable) NSString *projectName;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRLogging_LogMetric.
@@ -205,14 +275,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a logs-based metric.
  *
  *  @param object The @c GTLRLogging_LogMetric to include in the query.
- *  @param projectName The resource name of the project in which to create the
- *    metric. Example: `"projects/my-project-id"`. The new metric must be
- *    provided in the request.
+ *  @param parent The resource name of the project in which to create the
+ *    metric.
+ *    Example: `"projects/my-project-id"`.
+ *    The new metric must be provided in the request.
  *
  *  @returns GTLRLoggingQuery_ProjectsMetricsCreate
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogMetric *)object
-                    projectName:(NSString *)projectName;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -231,8 +302,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsMetricsDeleteWithmetricName:]
 
 /**
- *  The resource name of the metric to delete. Example:
- *  `"projects/my-project-id/metrics/my-metric-id"`.
+ *  The resource name of the metric to delete.
+ *  Example: `"projects/my-project-id/metrics/my-metric-id"`.
  */
 @property(nonatomic, copy, nullable) NSString *metricName;
 
@@ -241,8 +312,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a logs-based metric.
  *
- *  @param metricName The resource name of the metric to delete. Example:
- *    `"projects/my-project-id/metrics/my-metric-id"`.
+ *  @param metricName The resource name of the metric to delete.
+ *    Example: `"projects/my-project-id/metrics/my-metric-id"`.
  *
  *  @returns GTLRLoggingQuery_ProjectsMetricsDelete
  */
@@ -266,8 +337,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsMetricsGetWithmetricName:]
 
 /**
- *  The resource name of the desired metric. Example:
- *  `"projects/my-project-id/metrics/my-metric-id"`.
+ *  The resource name of the desired metric.
+ *  Example: `"projects/my-project-id/metrics/my-metric-id"`.
  */
 @property(nonatomic, copy, nullable) NSString *metricName;
 
@@ -276,8 +347,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a logs-based metric.
  *
- *  @param metricName The resource name of the desired metric. Example:
- *    `"projects/my-project-id/metrics/my-metric-id"`.
+ *  @param metricName The resource name of the desired metric.
+ *    Example: `"projects/my-project-id/metrics/my-metric-id"`.
  *
  *  @returns GTLRLoggingQuery_ProjectsMetricsGet
  */
@@ -298,37 +369,36 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRLoggingQuery_ProjectsMetricsList : GTLRLoggingQuery
 // Previous library name was
-//   +[GTLQueryLogging queryForProjectsMetricsListWithprojectName:]
+//   +[GTLQueryLogging queryForProjectsMetricsListWithparent:]
 
 /**
- *  Optional. The maximum number of results to return from this request. You
- *  must check for presence of `nextPageToken` to determine if additional
- *  results are available, which you can retrieve by passing the `nextPageToken`
- *  value as the `pageToken` parameter in the next request.
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of `nextPageToken` in the
+ *  response indicates that more results might be available.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. If the `pageToken` parameter is supplied, then the next page of
- *  results is retrieved. The `pageToken` parameter must be set to the value of
- *  the `nextPageToken` from the previous response. The value of `projectName`
- *  must be the same as in the previous request.
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. `pageToken` must be the value of
+ *  `nextPageToken` from the previous response. The values of other method
+ *  parameters should be identical to those in the previous call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the project containing the metrics. Example:
- *  `"projects/my-project-id"`.
+ *  Required. The resource name containing the metrics.
+ *  Example: `"projects/my-project-id"`.
  */
-@property(nonatomic, copy, nullable) NSString *projectName;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRLogging_ListLogMetricsResponse.
  *
  *  Lists logs-based metrics.
  *
- *  @param projectName Required. The resource name of the project containing the
- *    metrics. Example: `"projects/my-project-id"`.
+ *  @param parent Required. The resource name containing the metrics.
+ *    Example: `"projects/my-project-id"`.
  *
  *  @returns GTLRLoggingQuery_ProjectsMetricsList
  *
@@ -336,7 +406,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithProjectName:(NSString *)projectName;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -355,10 +425,11 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsMetricsUpdateWithObject:metricName:]
 
 /**
- *  The resource name of the metric to update. Example:
- *  `"projects/my-project-id/metrics/my-metric-id"`. The updated metric must be
- *  provided in the request and have the same identifier that is specified in
- *  `metricName`. If the metric does not exist, it is created.
+ *  The resource name of the metric to update.
+ *  Example: `"projects/my-project-id/metrics/my-metric-id"`.
+ *  The updated metric must be provided in the request and have the
+ *  same identifier that is specified in `metricName`.
+ *  If the metric does not exist, it is created.
  */
 @property(nonatomic, copy, nullable) NSString *metricName;
 
@@ -368,10 +439,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates or updates a logs-based metric.
  *
  *  @param object The @c GTLRLogging_LogMetric to include in the query.
- *  @param metricName The resource name of the metric to update. Example:
- *    `"projects/my-project-id/metrics/my-metric-id"`. The updated metric must
- *    be provided in the request and have the same identifier that is specified
- *    in `metricName`. If the metric does not exist, it is created.
+ *  @param metricName The resource name of the metric to update.
+ *    Example: `"projects/my-project-id/metrics/my-metric-id"`.
+ *    The updated metric must be provided in the request and have the
+ *    same identifier that is specified in `metricName`.
+ *    If the metric does not exist, it is created.
  *
  *  @returns GTLRLoggingQuery_ProjectsMetricsUpdate
  */
@@ -391,13 +463,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRLoggingQuery_ProjectsSinksCreate : GTLRLoggingQuery
 // Previous library name was
-//   +[GTLQueryLogging queryForProjectsSinksCreateWithObject:projectName:]
+//   +[GTLQueryLogging queryForProjectsSinksCreateWithObject:parent:]
 
 /**
- *  The resource name of the project in which to create the sink. Example:
- *  `"projects/my-project-id"`. The new sink must be provided in the request.
+ *  Required. The resource in which to create the sink.
+ *  Example: `"projects/my-project-id"`.
+ *  The new sink must be provided in the request.
  */
-@property(nonatomic, copy, nullable) NSString *projectName;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRLogging_LogSink.
@@ -405,14 +478,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
- *  @param projectName The resource name of the project in which to create the
- *    sink. Example: `"projects/my-project-id"`. The new sink must be provided
- *    in the request.
+ *  @param parent Required. The resource in which to create the sink.
+ *    Example: `"projects/my-project-id"`.
+ *    The new sink must be provided in the request.
  *
  *  @returns GTLRLoggingQuery_ProjectsSinksCreate
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
-                    projectName:(NSString *)projectName;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -430,8 +503,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsSinksDeleteWithsinkName:]
 
 /**
- *  The resource name of the sink to delete. Example:
- *  `"projects/my-project-id/sinks/my-sink-id"`.
+ *  Required. The resource name of the sink to delete, including the parent
+ *  resource and the sink identifier. Example:
+ *  `"projects/my-project-id/sinks/my-sink-id"`. It is an error if the sink
+ *  does not exist.
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
@@ -440,8 +515,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a sink.
  *
- *  @param sinkName The resource name of the sink to delete. Example:
- *    `"projects/my-project-id/sinks/my-sink-id"`.
+ *  @param sinkName Required. The resource name of the sink to delete, including
+ *    the parent
+ *    resource and the sink identifier. Example:
+ *    `"projects/my-project-id/sinks/my-sink-id"`. It is an error if the sink
+ *    does not exist.
  *
  *  @returns GTLRLoggingQuery_ProjectsSinksDelete
  */
@@ -465,8 +543,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsSinksGetWithsinkName:]
 
 /**
- *  The resource name of the sink to return. Example:
- *  `"projects/my-project-id/sinks/my-sink-id"`.
+ *  Required. The resource name of the sink to return.
+ *  Example: `"projects/my-project-id/sinks/my-sink-id"`.
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
@@ -475,8 +553,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a sink.
  *
- *  @param sinkName The resource name of the sink to return. Example:
- *    `"projects/my-project-id/sinks/my-sink-id"`.
+ *  @param sinkName Required. The resource name of the sink to return.
+ *    Example: `"projects/my-project-id/sinks/my-sink-id"`.
  *
  *  @returns GTLRLoggingQuery_ProjectsSinksGet
  */
@@ -497,37 +575,36 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRLoggingQuery_ProjectsSinksList : GTLRLoggingQuery
 // Previous library name was
-//   +[GTLQueryLogging queryForProjectsSinksListWithprojectName:]
+//   +[GTLQueryLogging queryForProjectsSinksListWithparent:]
 
 /**
- *  Optional. The maximum number of results to return from this request. You
- *  must check for presence of `nextPageToken` to determine if additional
- *  results are available, which you can retrieve by passing the `nextPageToken`
- *  value as the `pageToken` parameter in the next request.
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of `nextPageToken` in the
+ *  response indicates that more results might be available.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. If the `pageToken` parameter is supplied, then the next page of
- *  results is retrieved. The `pageToken` parameter must be set to the value of
- *  the `nextPageToken` from the previous response. The value of `projectName`
- *  must be the same as in the previous request.
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. `pageToken` must be the value of
+ *  `nextPageToken` from the previous response. The values of other method
+ *  parameters should be identical to those in the previous call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the project containing the sinks. Example:
- *  `"projects/my-logging-project"`.
+ *  Required. The cloud resource containing the sinks.
+ *  Example: `"projects/my-logging-project"`.
  */
-@property(nonatomic, copy, nullable) NSString *projectName;
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRLogging_ListSinksResponse.
  *
  *  Lists sinks.
  *
- *  @param projectName Required. The resource name of the project containing the
- *    sinks. Example: `"projects/my-logging-project"`.
+ *  @param parent Required. The cloud resource containing the sinks.
+ *    Example: `"projects/my-logging-project"`.
  *
  *  @returns GTLRLoggingQuery_ProjectsSinksList
  *
@@ -535,12 +612,12 @@ NS_ASSUME_NONNULL_BEGIN
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithProjectName:(NSString *)projectName;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
 /**
- *  Creates or updates a sink.
+ *  Updates or creates a sink.
  *
  *  Method: logging.projects.sinks.update
  *
@@ -553,23 +630,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsSinksUpdateWithObject:sinkName:]
 
 /**
- *  The resource name of the sink to update. Example:
- *  `"projects/my-project-id/sinks/my-sink-id"`. The updated sink must be
- *  provided in the request and have the same name that is specified in
- *  `sinkName`. If the sink does not exist, it is created.
+ *  Required. The resource name of the sink to update, including the parent
+ *  resource and the sink identifier. If the sink does not exist, this method
+ *  creates the sink. Example: `"projects/my-project-id/sinks/my-sink-id"`.
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Creates or updates a sink.
+ *  Updates or creates a sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
- *  @param sinkName The resource name of the sink to update. Example:
- *    `"projects/my-project-id/sinks/my-sink-id"`. The updated sink must be
- *    provided in the request and have the same name that is specified in
- *    `sinkName`. If the sink does not exist, it is created.
+ *  @param sinkName Required. The resource name of the sink to update, including
+ *    the parent
+ *    resource and the sink identifier. If the sink does not exist, this method
+ *    creates the sink. Example: `"projects/my-project-id/sinks/my-sink-id"`.
  *
  *  @returns GTLRLoggingQuery_ProjectsSinksUpdate
  */

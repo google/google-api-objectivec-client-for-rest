@@ -2,10 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Logging API (logging/v2beta1)
+//   Stackdriver Logging API (logging/v2beta1)
 // Description:
-//   Writes log entries and manages your logs, log sinks, and logs-based
-//   metrics.
+//   Writes log entries and manages your Stackdriver Logging configuration.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 

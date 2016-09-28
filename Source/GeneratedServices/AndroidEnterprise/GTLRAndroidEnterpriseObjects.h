@@ -103,7 +103,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction : GTLRObject
 
-/** The default value of the restriction. */
+/**
+ *  The default value of the restriction. bundle and bundleArray restrictions
+ *  never have a default value.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue *defaultValue;
 
 /**
@@ -122,7 +125,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  For choice or multiselect restrictions, the list of possible entries'
- *  machine-readable values.
+ *  machine-readable values. These values should be used in the configuration,
+ *  either as a single string value for a choice restriction or in a stringArray
+ *  for a multiselect restriction.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entryValue;
 
@@ -133,7 +138,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  For bundle or bundleArray restrictions, the list of nested restrictions.
+ *  For bundle or bundleArray restrictions, the list of nested restrictions. A
+ *  bundle restriction is always nested within a bundleArray restriction, and a
+ *  bundleArray restriction is at most two levels deep.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction *> *nestedRestriction;
 
@@ -813,6 +820,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The text localized in the associated locale. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Maintenance window for Android for Work device accounts. This allows Play
+ *  Store to update the apps on the foreground in the designated window.
+ */
+@interface GTLRAndroidEnterprise_MaintenanceWindow : GTLRObject
+
+/**
+ *  Duration of the maintenance window, in milliseconds. This should be at least
+ *  30 minutes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationMs;
+
+/**
+ *  Start time of the maintenance window, in milliseconds after local midnight.
+ *  Can be at most 24 hours. Windows can span the midnight.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startTimeAfterMidnightMs;
 
 @end
 

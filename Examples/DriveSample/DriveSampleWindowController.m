@@ -396,7 +396,7 @@ NSString *const kKeychainItemName = @"DriveSample: Google Drive";
 }
 
 - (GTLRDrive_File *)selectedFileListEntry {
-  int rowIndex = [_fileListTable selectedRow];
+  NSInteger rowIndex = [_fileListTable selectedRow];
   if (rowIndex > -1) {
     GTLRDrive_File *item = _fileList.files[rowIndex];
     return item;
@@ -421,7 +421,7 @@ NSString *const kKeychainItemName = @"DriveSample: Google Drive";
 }
 
 - (id)selectedDetailItem {
-  int rowIndex = [_detailTable selectedRow];
+  NSInteger rowIndex = [_detailTable selectedRow];
   if (rowIndex > -1) {
     NSArray *array = [self detailCollectionArray];
     GTLRObject *item = array[rowIndex];
@@ -1075,7 +1075,7 @@ NSString *const kKeychainItemName = @"DriveSample: Google Drive";
 }
 
 // Table view data source methods
-- (int)numberOfRowsInTableView:(NSTableView *)tableView {
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
   NSArray *array;
   if (tableView == _fileListTable) {
     array = _fileList.files;

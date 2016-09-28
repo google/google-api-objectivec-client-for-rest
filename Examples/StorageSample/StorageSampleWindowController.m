@@ -322,7 +322,7 @@ NSString *const kKeychainItemName = @"StorageSample: Google Cloud Storage";
 }
 
 - (GTLRStorage_Bucket *)selectedBucketListEntry {
-  int rowIndex = _bucketListTable.selectedRow;
+  NSInteger rowIndex = _bucketListTable.selectedRow;
   if (rowIndex > -1) {
     // GTLCollectionObjects like GTLRStorage_Buckets support indexed
     // access to the collection items
@@ -347,7 +347,7 @@ NSString *const kKeychainItemName = @"StorageSample: Google Cloud Storage";
 }
 
 - (id)selectedDetailItem {
-  int rowIndex = _detailTable.selectedRow;
+  NSInteger rowIndex = _detailTable.selectedRow;
   if (rowIndex > -1) {
     NSArray *items = [self detailCollectionItems];
     return items[rowIndex];
@@ -857,7 +857,7 @@ NSString *const kKeychainItemName = @"StorageSample: Google Cloud Storage";
 }
 
 // Table view data source methods
-- (int)numberOfRowsInTableView:(NSTableView *)tableView {
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
   NSArray *items;
   if (tableView == _bucketListTable) {
     items = _bucketList.items;
