@@ -339,6 +339,31 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 @end
 
+@implementation GTLRAndroidEnterpriseQuery_DevicesGetMaintenanceWindow
+
+@dynamic deviceId, enterpriseId, userId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+                             deviceId:(NSString *)deviceId {
+  NSArray *pathParams = @[
+    @"deviceId", @"enterpriseId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/maintenanceWindow";
+  GTLRAndroidEnterpriseQuery_DevicesGetMaintenanceWindow *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.deviceId = deviceId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_MaintenanceWindow class];
+  query.loggingName = @"androidenterprise.devices.getMaintenanceWindow";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidEnterpriseQuery_DevicesGetState
 
 @dynamic deviceId, enterpriseId, userId;
@@ -413,6 +438,37 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   query.deviceId = deviceId;
   query.expectedObjectClass = [GTLRAndroidEnterprise_DeviceState class];
   query.loggingName = @"androidenterprise.devices.setState";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_DevicesUpdateMaintenanceWindow
+
+@dynamic deviceId, enterpriseId, userId;
+
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_MaintenanceWindow *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId
+                       deviceId:(NSString *)deviceId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"deviceId", @"enterpriseId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/maintenanceWindow";
+  GTLRAndroidEnterpriseQuery_DevicesUpdateMaintenanceWindow *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.deviceId = deviceId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_MaintenanceWindow class];
+  query.loggingName = @"androidenterprise.devices.updateMaintenanceWindow";
   return query;
 }
 

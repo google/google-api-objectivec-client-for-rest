@@ -24,6 +24,7 @@
 @class GTLRAndroidEnterprise_EnterpriseAccount;
 @class GTLRAndroidEnterprise_Entitlement;
 @class GTLRAndroidEnterprise_Install;
+@class GTLRAndroidEnterprise_MaintenanceWindow;
 @class GTLRAndroidEnterprise_ManagedConfiguration;
 @class GTLRAndroidEnterprise_ProductPermissions;
 @class GTLRAndroidEnterprise_ProductsApproveRequest;
@@ -516,6 +517,46 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
+ *  Gets the maintenance window for device accounts. Default value is {0, 0}
+ *  which means the maintenance window is disabled.
+ *
+ *  Method: androidenterprise.devices.getMaintenanceWindow
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_DevicesGetMaintenanceWindow : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForDevicesGetMaintenanceWindowWithenterpriseId:userId:deviceId:]
+
+/** The ID of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_MaintenanceWindow.
+ *
+ *  Gets the maintenance window for device accounts. Default value is {0, 0}
+ *  which means the maintenance window is disabled.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param deviceId The ID of the device.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_DevicesGetMaintenanceWindow
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+                             deviceId:(NSString *)deviceId;
+
+@end
+
+/**
  *  Retrieves whether a device's access to Google services is enabled or
  *  disabled. The device state takes effect only if enforcing EMM policies on
  *  Android devices is enabled in the Google Admin Console. Otherwise, the
@@ -637,6 +678,49 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  @returns GTLRAndroidEnterpriseQuery_DevicesSetState
  */
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_DeviceState *)object
+                   enterpriseId:(NSString *)enterpriseId
+                         userId:(NSString *)userId
+                       deviceId:(NSString *)deviceId;
+
+@end
+
+/**
+ *  Updates the maintenance window for device accounts. To disable the window
+ *  update the value with {0, 0}.
+ *
+ *  Method: androidenterprise.devices.updateMaintenanceWindow
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_DevicesUpdateMaintenanceWindow : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForDevicesUpdateMaintenanceWindowWithObject:enterpriseId:userId:deviceId:]
+
+/** The ID of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_MaintenanceWindow.
+ *
+ *  Updates the maintenance window for device accounts. To disable the window
+ *  update the value with {0, 0}.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_MaintenanceWindow to include in
+ *    the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param deviceId The ID of the device.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_DevicesUpdateMaintenanceWindow
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_MaintenanceWindow *)object
                    enterpriseId:(NSString *)enterpriseId
                          userId:(NSString *)userId
                        deviceId:(NSString *)deviceId;

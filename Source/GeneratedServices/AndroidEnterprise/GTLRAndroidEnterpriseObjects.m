@@ -408,6 +408,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_MaintenanceWindow
+//
+
+@implementation GTLRAndroidEnterprise_MaintenanceWindow
+@dynamic durationMs, startTimeAfterMidnightMs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_ManagedConfiguration
 //
 
