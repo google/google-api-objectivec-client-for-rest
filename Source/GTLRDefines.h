@@ -21,14 +21,6 @@
 #import <TargetConditionals.h>
 #import <AvailabilityMacros.h>
 
-//
-// The developer may choose to define these in the project:
-//
-//   #define STRIP_GTM_FETCH_LOGGING 1 // omit http logging code (default for iPhone release builds)
-//
-// Mac developers may find STRIP_GTM_FETCH_LOGGING useful for reducing code size.
-//
-
 // These can be redefined via a prefix if you are prefixing symbols to prefix
 // the names used in strings. Something like:
 //   #define _HELPER(x) "MyPrefix" #x
@@ -74,14 +66,6 @@
     #define GTLR_DEBUG_LOG(...) NSLog(__VA_ARGS__)
   #else
     #define GTLR_DEBUG_LOG(...) do { } while (0)
-  #endif
-#endif
-
-#ifndef STRIP_GTM_FETCH_LOGGING
-  #if TARGET_OS_IPHONE && !DEBUG
-    #define STRIP_GTM_FETCH_LOGGING 1
-  #else
-    #define STRIP_GTM_FETCH_LOGGING 0
   #endif
 #endif
 

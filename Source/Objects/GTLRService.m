@@ -34,6 +34,10 @@
 
 #import "GTMMIMEDocument.h"
 
+#ifndef STRIP_GTM_FETCH_LOGGING
+  #error GTMSessionFetcher headers should have defaulted this if it wasn't already defined.
+#endif
+
 NSString *const kGTLRServiceErrorDomain = @"com.google.GTLRServiceDomain";
 NSString *const kGTLRErrorObjectDomain = @"com.google.GTLRErrorObjectDomain";
 NSString *const kGTLRServiceErrorBodyDataKey = @"body";
