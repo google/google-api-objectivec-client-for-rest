@@ -64,6 +64,54 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  A token authorizing an administrator to access an iframe.
+ */
+@interface GTLRAndroidEnterprise_AdministratorWebToken : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "androidenterprise#administratorWebToken".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  An opaque token to be passed to the Play front-end to generate an iframe.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+@end
+
+
+/**
+ *  Specification for a token used to generate iframes. The token specifies what
+ *  data the admin is allowed to modify and the URI the iframe is allowed to
+ *  communiate with.
+ */
+@interface GTLRAndroidEnterprise_AdministratorWebTokenSpec : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "androidenterprise#administratorWebTokenSpec".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The URI of the parent frame hosting the iframe. To prevent XSS, the iframe
+ *  may not be hosted at other URIs. This URI must be https.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The list of permissions the admin is granted within the iframe. The admin
+ *  will only be allowed to view an iframe if they have all of the permissions
+ *  associated with it.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permission;
+
+@end
+
+
+/**
  *  Represents the list of app restrictions available to be pre-configured for
  *  the product.
  */
@@ -825,31 +873,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Maintenance window for Android for Work device accounts. This allows Play
- *  Store to update the apps on the foreground in the designated window.
- */
-@interface GTLRAndroidEnterprise_MaintenanceWindow : GTLRObject
-
-/**
- *  Duration of the maintenance window, in milliseconds. This should be at least
- *  30 minutes.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *durationMs;
-
-/**
- *  Start time of the maintenance window, in milliseconds after local midnight.
- *  Can be at most 24 hours. Windows can span the midnight.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *startTimeAfterMidnightMs;
-
-@end
-
-
-/**
  *  A managed configuration resource contains the set of managed properties that
  *  have been configured for an Android app. The app's developer would have
  *  defined configurable properties in the managed configurations schema.
@@ -1323,6 +1346,15 @@ NS_ASSUME_NONNULL_BEGIN
 /** The list of product IDs making up the set of products. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *productId;
 
+/**
+ *  The interpretation of this product set. "unknown" should never be sent and
+ *  ignored if received. "whitelist" means that this product set constitutes a
+ *  whitelist. "includeAll" means that all products are accessible (the value of
+ *  the productId field is therefore ignored). If a value is not supplied, it is
+ *  interpreted to be "whitelist" for backwards compatibility.
+ */
+@property(nonatomic, copy, nullable) NSString *productSetBehavior;
+
 @end
 
 
@@ -1533,6 +1565,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  "androidenterprise#storeLayout".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Sets a store layout type. If set to "custom", "homepageId" must be
+ *  specified. If set to "basic", the layout will consist of all approved apps
+ *  accessible by the user, split in pages of 100 each; in this case,
+ *  "homepageId" must not be specified. The "basic" setting takes precedence
+ *  over any existing collections setup for this enterprise (if any). Should the
+ *  enterprise use collectionViewers for controlling access rights, these will
+ *  still be respected.
+ */
+@property(nonatomic, copy, nullable) NSString *storeLayoutType;
 
 @end
 

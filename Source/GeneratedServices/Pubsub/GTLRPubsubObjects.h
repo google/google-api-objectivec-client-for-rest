@@ -171,7 +171,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The message payload. For JSON requests, the value of this field must be
- *  base64-encoded.
+ *  [base64-encoded](https://tools.ietf.org/html/rfc4648).
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -461,10 +461,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  (on a best-effort basis). For pull subscriptions, this value is used as the
  *  initial value for the ack deadline. To override this value for a given
  *  message, call `ModifyAckDeadline` with the corresponding `ack_id` if using
- *  pull. For push delivery, this value is also used to set the request timeout
- *  for the call to the push endpoint. If the subscriber never acknowledges the
- *  message, the Pub/Sub system will eventually redeliver the message. If this
- *  parameter is not set, the default value of 10 seconds is used.
+ *  pull. The maximum custom deadline you can specify is 600 seconds (10
+ *  minutes). For push delivery, this value is also used to set the request
+ *  timeout for the call to the push endpoint. If the subscriber never
+ *  acknowledges the message, the Pub/Sub system will eventually redeliver the
+ *  message. If this parameter is 0, a default value of 10 seconds is used.
  *
  *  Uses NSNumber of intValue.
  */
@@ -505,7 +506,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The set of permissions to check for the `resource`. Permissions with
  *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
- *  see IAM Overview.
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 

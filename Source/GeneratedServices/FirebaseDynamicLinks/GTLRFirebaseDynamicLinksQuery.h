@@ -42,14 +42,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  The Dynamic Link domain in the request must be owned by requester's
  *  Firebase project.
  *
- *  Method: firebasedynamiclinks.shortDynamicLinks.create
+ *  Method: firebasedynamiclinks.shortLinks.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFirebaseDynamicLinksFirebase
  */
-@interface GTLRFirebaseDynamicLinksQuery_ShortDynamicLinksCreate : GTLRFirebaseDynamicLinksQuery
+@interface GTLRFirebaseDynamicLinksQuery_ShortLinksCreate : GTLRFirebaseDynamicLinksQuery
 // Previous library name was
-//   +[GTLQueryFirebaseDynamicLinks queryForShortDynamicLinksCreateWithObject:]
+//   +[GTLQueryFirebaseDynamicLinks queryForShortLinksCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRFirebaseDynamicLinks_CreateShortDynamicLinkResponse.
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRFirebaseDynamicLinks_CreateShortDynamicLinkRequest
  *    to include in the query.
  *
- *  @returns GTLRFirebaseDynamicLinksQuery_ShortDynamicLinksCreate
+ *  @returns GTLRFirebaseDynamicLinksQuery_ShortLinksCreate
  */
 + (instancetype)queryWithObject:(GTLRFirebaseDynamicLinks_CreateShortDynamicLinkRequest *)object;
 

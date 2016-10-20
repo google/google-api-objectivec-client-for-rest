@@ -22,6 +22,8 @@
 @class GTLRCloudResourceManager_Binding;
 @class GTLRCloudResourceManager_OperationMetadata;
 @class GTLRCloudResourceManager_OperationResponse;
+@class GTLRCloudResourceManager_Organization;
+@class GTLRCloudResourceManager_OrganizationOwner;
 @class GTLRCloudResourceManager_Policy;
 @class GTLRCloudResourceManager_Project;
 @class GTLRCloudResourceManager_ProjectLabels;
@@ -33,6 +35,48 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_FolderOperation.operationType
+
+/** Value: "CREATE" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Create;
+/** Value: "MOVE" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Move;
+/** Value: "OPERATION_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_OperationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_FolderOperationError.errorMessageId
+
+/** Value: "CYCLE_INTRODUCED_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedError;
+/** Value: "ERROR_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ErrorTypeUnspecified;
+/** Value: "FOLDER_ALREADY_BEING_MOVED" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderAlreadyBeingMoved;
+/** Value: "FOLDER_HEIGHT_VIOLATION" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderHeightViolation;
+/** Value: "FOLDER_NAME_UNIQUENESS_VIOLATION" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderNameUniquenessViolation;
+/** Value: "FOLDER_TO_DELETE_NON_EMPTY" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmpty;
+/** Value: "MAX_CHILD_FOLDERS_VIOLATION" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_MaxChildFoldersViolation;
+/** Value: "PARENT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeleted;
+/** Value: "RESOURCE_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeleted;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_Organization.lifecycleState
+
+/** Value: "ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Organization_LifecycleState_Active;
+/** Value: "DELETE_REQUESTED" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Organization_LifecycleState_DeleteRequested;
+/** Value: "LIFECYCLE_STATE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Organization_LifecycleState_LifecycleStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudResourceManager_Project.lifecycleState
@@ -85,6 +129,75 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudResourceManager_Empty : GTLRObject
+@end
+
+
+/**
+ *  Metadata describing a long running folder operation
+ */
+@interface GTLRCloudResourceManager_FolderOperation : GTLRObject
+
+/**
+ *  The resource name of the folder or organization we are either creating the
+ *  folder under or moving the folder to.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationParent;
+
+/** The display name of the folder. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The type of this operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_FolderOperation_OperationType_Create
+ *        Value "CREATE"
+ *    @arg @c kGTLRCloudResourceManager_FolderOperation_OperationType_Move Value
+ *        "MOVE"
+ *    @arg @c kGTLRCloudResourceManager_FolderOperation_OperationType_OperationTypeUnspecified
+ *        Value "OPERATION_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/**
+ *  The resource name of the folder's parent. Only applicable when the
+ *  operation_type is MOVE.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceParent;
+
+@end
+
+
+/**
+ *  A classification of the Folder Operation error.
+ */
+@interface GTLRCloudResourceManager_FolderOperationError : GTLRObject
+
+/**
+ *  The type of operation error experienced.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedError
+ *        Value "CYCLE_INTRODUCED_ERROR"
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ErrorTypeUnspecified
+ *        Value "ERROR_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderAlreadyBeingMoved
+ *        Value "FOLDER_ALREADY_BEING_MOVED"
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderHeightViolation
+ *        Value "FOLDER_HEIGHT_VIOLATION"
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderNameUniquenessViolation
+ *        Value "FOLDER_NAME_UNIQUENESS_VIOLATION"
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmpty
+ *        Value "FOLDER_TO_DELETE_NON_EMPTY"
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_MaxChildFoldersViolation
+ *        Value "MAX_CHILD_FOLDERS_VIOLATION"
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeleted
+ *        Value "PARENT_DELETED"
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeleted
+ *        Value "RESOURCE_DELETED"
+ */
+@property(nonatomic, copy, nullable) NSString *errorMessageId;
+
 @end
 
 
@@ -207,6 +320,69 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudResourceManager_OperationResponse : GTLRObject
+@end
+
+
+/**
+ *  The root node in the resource hierarchy to which a particular entity's
+ *  (e.g., company) resources belong.
+ */
+@interface GTLRCloudResourceManager_Organization : GTLRObject
+
+/**
+ *  Timestamp when the Organization was created. Assigned by the server.
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *creationTime;
+
+/**
+ *  A friendly string to be used to refer to the Organization in the UI.
+ *  Assigned by the server, set to the firm name of the Google For Work customer
+ *  that owns this organization. \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The organization's current lifecycle state. Assigned by the server.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_Organization_LifecycleState_Active Value
+ *        "ACTIVE"
+ *    @arg @c kGTLRCloudResourceManager_Organization_LifecycleState_DeleteRequested
+ *        Value "DELETE_REQUESTED"
+ *    @arg @c kGTLRCloudResourceManager_Organization_LifecycleState_LifecycleStateUnspecified
+ *        Value "LIFECYCLE_STATE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *lifecycleState;
+
+/**
+ *  Output Only. The resource name of the organization. This is the
+ *  organization's relative path in the API. Its format is
+ *  "organizations/[organization_id]". For example, "organizations/1234".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The owner of this Organization. The owner should be specified on creation.
+ *  Once set, it cannot be changed. This field is required.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_OrganizationOwner *owner;
+
+@end
+
+
+/**
+ *  The entity that owns an Organization. The lifetime of the Organization and
+ *  all of its descendants are bound to the `OrganizationOwner`. If the
+ *  `OrganizationOwner` is deleted, the Organization and all its descendants
+ *  will be deleted.
+ */
+@interface GTLRCloudResourceManager_OrganizationOwner : GTLRObject
+
+/** The Google for Work customer id used in the Directory API. */
+@property(nonatomic, copy, nullable) NSString *directoryCustomerId;
+
 @end
 
 
@@ -347,6 +523,35 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 
 /**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by CreateProject. It provides insight for when significant phases
+ *  of Project creation have completed.
+ */
+@interface GTLRCloudResourceManager_ProjectCreationStatus : GTLRObject
+
+/** Creation time of the project creation workflow. */
+@property(nonatomic, copy, nullable) NSString *createTime;
+
+/**
+ *  True if the project can be retrieved using GetProject. No other operations
+ *  on the project are guaranteed to work until the project creation is
+ *  complete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gettable;
+
+/**
+ *  True if the project creation process is complete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ready;
+
+@end
+
+
+/**
  *  A container to reference an id for any resource type. A `resource` in Google
  *  Cloud Platform is a generic term for something you (a developer) may want to
  *  interact with through one of our API's. Some examples are an AppEngine app,
@@ -367,6 +572,70 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  the only valid type is "organization".
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The request sent to the `SearchOrganizations` method.
+ */
+@interface GTLRCloudResourceManager_SearchOrganizationsRequest : GTLRObject
+
+/**
+ *  An optional query string used to filter the Organizations to return in the
+ *  response. Filter rules are case-insensitive. Organizations may be filtered
+ *  by `owner.directoryCustomerId` or by `domain`, where the domain is a Google
+ *  for Work domain, for example: |Filter|Description| |------|-----------|
+ *  |owner.directorycustomerid:123456789|Organizations with
+ *  `owner.directory_customer_id` equal to `123456789`.|
+ *  |domain:google.com|Organizations corresponding to the domain `google.com`.|
+ *  This field is optional.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of Organizations to return in the response. This field is
+ *  optional.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  A pagination token returned from a previous call to `SearchOrganizations`
+ *  that indicates from where listing should continue. This field is optional.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+@end
+
+
+/**
+ *  The response returned from the `SearchOrganizations` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "organizations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudResourceManager_SearchOrganizationsResponse : GTLRCollectionObject
+
+/**
+ *  A pagination token to be used to retrieve the next page of results. If the
+ *  result is too large to fit within the page size specified in the request,
+ *  this field will be set with a token that can be used to fetch the next page
+ *  of results. If this field is empty, it indicates that this response contains
+ *  the last page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of Organizations that matched the search query, possibly paginated.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Organization *> *organizations;
 
 @end
 
@@ -466,7 +735,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 /**
  *  The set of permissions to check for the `resource`. Permissions with
  *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
- *  see IAM Overview.
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 

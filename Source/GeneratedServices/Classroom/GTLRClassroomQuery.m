@@ -15,6 +15,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// courseStates
+NSString * const kGTLRClassroomCourseStatesActive              = @"ACTIVE";
+NSString * const kGTLRClassroomCourseStatesArchived            = @"ARCHIVED";
+NSString * const kGTLRClassroomCourseStatesCourseStateUnspecified = @"COURSE_STATE_UNSPECIFIED";
+NSString * const kGTLRClassroomCourseStatesDeclined            = @"DECLINED";
+NSString * const kGTLRClassroomCourseStatesProvisioned         = @"PROVISIONED";
+
 // courseWorkStates
 NSString * const kGTLRClassroomCourseWorkStatesCourseWorkStateUnspecified = @"COURSE_WORK_STATE_UNSPECIFIED";
 NSString * const kGTLRClassroomCourseWorkStatesDeleted         = @"DELETED";
@@ -494,7 +501,14 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 @implementation GTLRClassroomQuery_CoursesList
 
-@dynamic pageSize, pageToken, studentId, teacherId;
+@dynamic courseStates, pageSize, pageToken, studentId, teacherId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"courseStates" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/courses";

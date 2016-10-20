@@ -91,10 +91,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Advanced API that analyzes the document and provides a full set of text
- *  annotations, including semantic, syntactic, and sentiment information. This
- *  API is intended for users who are familiar with machine learning and need
- *  in-depth text features to build upon.
+ *  A convenience method that provides all the features that analyzeSentiment,
+ *  analyzeEntities, and analyzeSyntax provide in one call.
  *
  *  Method: language.documents.annotateText
  *
@@ -108,10 +106,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudNaturalLanguageAPI_AnnotateTextResponse.
  *
- *  Advanced API that analyzes the document and provides a full set of text
- *  annotations, including semantic, syntactic, and sentiment information. This
- *  API is intended for users who are familiar with machine learning and need
- *  in-depth text features to build upon.
+ *  A convenience method that provides all the features that analyzeSentiment,
+ *  analyzeEntities, and analyzeSyntax provide in one call.
  *
  *  @param object The @c GTLRCloudNaturalLanguageAPI_AnnotateTextRequest to
  *    include in the query.

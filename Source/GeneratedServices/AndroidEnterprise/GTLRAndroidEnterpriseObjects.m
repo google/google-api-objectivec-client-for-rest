@@ -22,6 +22,34 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_AdministratorWebToken
+//
+
+@implementation GTLRAndroidEnterprise_AdministratorWebToken
+@dynamic kind, token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_AdministratorWebTokenSpec
+//
+
+@implementation GTLRAndroidEnterprise_AdministratorWebTokenSpec
+@dynamic kind, parent, permission;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permission" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_AppRestrictionsSchema
 //
 
@@ -408,16 +436,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidEnterprise_MaintenanceWindow
-//
-
-@implementation GTLRAndroidEnterprise_MaintenanceWindow
-@dynamic durationMs, startTimeAfterMidnightMs;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidEnterprise_ManagedConfiguration
 //
 
@@ -666,7 +684,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ProductSet
-@dynamic kind, productId;
+@dynamic kind, productId, productSetBehavior;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -788,7 +806,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_StoreLayout
-@dynamic homepageId, kind;
+@dynamic homepageId, kind, storeLayoutType;
 @end
 
 

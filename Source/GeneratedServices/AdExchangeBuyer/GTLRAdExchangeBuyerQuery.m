@@ -351,6 +351,29 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized = @"updateFinal
 
 @end
 
+@implementation GTLRAdExchangeBuyerQuery_CreativesListDeals
+
+@dynamic accountId, buyerCreativeId;
+
++ (instancetype)queryWithAccountId:(NSInteger)accountId
+                   buyerCreativeId:(NSString *)buyerCreativeId {
+  NSArray *pathParams = @[
+    @"accountId", @"buyerCreativeId"
+  ];
+  NSString *pathURITemplate = @"creatives/{accountId}/{buyerCreativeId}/listDeals";
+  GTLRAdExchangeBuyerQuery_CreativesListDeals *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.buyerCreativeId = buyerCreativeId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyer_CreativeDealIds class];
+  query.loggingName = @"adexchangebuyer.creatives.listDeals";
+  return query;
+}
+
+@end
+
 @implementation GTLRAdExchangeBuyerQuery_CreativesRemoveDeal
 
 @dynamic accountId, buyerCreativeId, dealId;

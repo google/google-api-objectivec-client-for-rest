@@ -4,8 +4,9 @@
 // API:
 //   Ad Exchange Buyer API II (adexchangebuyer2/v2beta1)
 // Description:
-//   Accesses the latest features for managing Ad Exchange accounts and
-//   Real-Time Bidding configurations and auction metrics.
+//   Accesses the latest features for managing Ad Exchange accounts, Real-Time
+//   Bidding configurations and auction metrics, and Marketplace programmatic
+//   deals.
 // Documentation:
 //   https://developers.google.com/ad-exchange/buyer-rest/guides/client-access/
 

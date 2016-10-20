@@ -1559,6 +1559,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Resource type. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  Series info list. The client always expects this element in the JSON output,
+ *  hence declared here as OutputAlways.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRBooks_SeriesSeriesItem *> *series;
 
 @end

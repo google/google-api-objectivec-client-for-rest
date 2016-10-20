@@ -43,6 +43,7 @@ NSString * const kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer = @"https://www.go
     @"adexchangebuyer#billingInfoList" : [GTLRAdExchangeBuyer_BillingInfoList class],
     @"adexchangebuyer#budget" : [GTLRAdExchangeBuyer_Budget class],
     @"adexchangebuyer#creative" : [GTLRAdExchangeBuyer_Creative class],
+    @"adexchangebuyer#creativeDealIds" : [GTLRAdExchangeBuyer_CreativeDealIds class],
     @"adexchangebuyer#creativesList" : [GTLRAdExchangeBuyer_CreativesList class],
     @"adexchangebuyer#marketplaceDeal" : [GTLRAdExchangeBuyer_MarketplaceDeal class],
     @"adexchangebuyer#marketplaceNote" : [GTLRAdExchangeBuyer_MarketplaceNote class],

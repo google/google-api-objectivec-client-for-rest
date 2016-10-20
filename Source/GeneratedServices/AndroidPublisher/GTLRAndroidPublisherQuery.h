@@ -37,6 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// deobfuscationFileType
+
+/** Value: "proguard" */
+GTLR_EXTERN NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeProguard;
+
+// ----------------------------------------------------------------------------
 // expansionFileType
 
 /** Value: "main" */
@@ -618,6 +624,69 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
+
+@end
+
+/**
+ *  Uploads the deobfuscation file of the specified APK. If a deobfuscation file
+ *  already exists, it will be replaced.
+ *
+ *  Method: androidpublisher.edits.deobfuscationfiles.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForEditsDeobfuscationfilesUploadWithpackageName:editId:apkVersionCode:deobfuscationFileType:]
+
+/** The version code of the APK whose deobfuscation file is being uploaded. */
+@property(nonatomic, assign) NSInteger apkVersionCode;
+
+/**
+ *  deobfuscationFileType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeProguard Value
+ *        "proguard"
+ */
+@property(nonatomic, copy, nullable) NSString *deobfuscationFileType;
+
+/** Unique identifier for this edit. */
+@property(nonatomic, copy, nullable) NSString *editId;
+
+/**
+ *  Unique identifier of the Android app for which the deobfuscatiuon files are
+ *  being uploaded; for example, "com.spiffygame".
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_DeobfuscationFilesUploadResponse.
+ *
+ *  Uploads the deobfuscation file of the specified APK. If a deobfuscation file
+ *  already exists, it will be replaced.
+ *
+ *  @param packageName Unique identifier of the Android app for which the
+ *    deobfuscatiuon files are being uploaded; for example, "com.spiffygame".
+ *  @param editId Unique identifier for this edit.
+ *  @param apkVersionCode The version code of the APK whose deobfuscation file
+ *    is being uploaded.
+ *  @param deobfuscationFileType NSString
+ *
+ *  Likely values for @c deobfuscationFileType:
+ *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeProguard Value
+ *        "proguard"
+ *  @param uploadParameters The media to include in this query. Maximum size
+ *    300MB. Accepted MIME type: application/octet-stream
+ *
+ *  @returns GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                              editId:(NSString *)editId
+                      apkVersionCode:(NSInteger)apkVersionCode
+               deobfuscationFileType:(NSString *)deobfuscationFileType
+                    uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
 
 @end
 

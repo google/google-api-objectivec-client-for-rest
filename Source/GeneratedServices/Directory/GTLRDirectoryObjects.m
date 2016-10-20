@@ -202,6 +202,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_ChromeOsDeviceAction
+//
+
+@implementation GTLRDirectory_ChromeOsDeviceAction
+@dynamic action, deprovisionReason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_ChromeOsDevices
 //
 
@@ -445,13 +455,15 @@
 //
 
 @implementation GTLRDirectory_MobileDevice
-@dynamic adbStatus, applications, basebandVersion, buildNumber, defaultLanguage,
-         developerOptionsStatus, deviceCompromisedStatus, deviceId, email, ETag,
-         firstSync, hardwareId, imei, kernelVersion, kind, lastSync,
-         managedAccountIsOnOwnerProfile, meid, model, name, networkOperator, os,
-         otherAccountsInfo, resourceId, serialNumber, status,
-         supportsWorkProfile, type, unknownSourcesStatus, userAgent,
-         wifiMacAddress;
+@dynamic adbStatus, applications, basebandVersion, bootloaderVersion, brand,
+         buildNumber, defaultLanguage, developerOptionsStatus,
+         deviceCompromisedStatus, deviceId, devicePasswordStatus, email,
+         encryptionStatus, ETag, firstSync, hardware, hardwareId, imei,
+         kernelVersion, kind, lastSync, managedAccountIsOnOwnerProfile,
+         manufacturer, meid, model, name, networkOperator, os,
+         otherAccountsInfo, privilege, releaseVersion, resourceId,
+         securityPatchLevel, serialNumber, status, supportsWorkProfile, type,
+         unknownSourcesStatus, userAgent, wifiMacAddress;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

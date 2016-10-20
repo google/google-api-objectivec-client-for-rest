@@ -21,6 +21,7 @@
 
 @class GTLRCloudResourceManager_GetIamPolicyRequest;
 @class GTLRCloudResourceManager_Project;
+@class GTLRCloudResourceManager_SearchOrganizationsRequest;
 @class GTLRCloudResourceManager_SetIamPolicyRequest;
 @class GTLRCloudResourceManager_TestIamPermissionsRequest;
 @class GTLRCloudResourceManager_UndeleteProjectRequest;
@@ -67,6 +68,232 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRCloudResourceManagerQuery_OperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches an Organization resource identified by the specified resource name.
+ *
+ *  Method: cloudresourcemanager.organizations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsGet : GTLRCloudResourceManagerQuery
+// Previous library name was
+//   +[GTLQueryCloudResourceManager queryForOrganizationsGetWithname:]
+
+/**
+ *  The resource name of the Organization to fetch, e.g. "organizations/1234".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Organization.
+ *
+ *  Fetches an Organization resource identified by the specified resource name.
+ *
+ *  @param name The resource name of the Organization to fetch, e.g.
+ *    "organizations/1234".
+ *
+ *  @returns GTLRCloudResourceManagerQuery_OrganizationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for an Organization resource. May be empty if
+ *  no such policy or resource exists. The `resource` field should be the
+ *  organization's resource name, e.g. "organizations/123".
+ *
+ *  Method: cloudresourcemanager.organizations.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsGetIamPolicy : GTLRCloudResourceManagerQuery
+// Previous library name was
+//   +[GTLQueryCloudResourceManager queryForOrganizationsGetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. `resource`
+ *  is usually specified as a path. For example, a Project resource is specified
+ *  as `projects/{project}`.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Policy.
+ *
+ *  Gets the access control policy for an Organization resource. May be empty if
+ *  no such policy or resource exists. The `resource` field should be the
+ *  organization's resource name, e.g. "organizations/123".
+ *
+ *  @param object The @c GTLRCloudResourceManager_GetIamPolicyRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
+ *
+ *  @returns GTLRCloudResourceManagerQuery_OrganizationsGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Searches Organization resources that are visible to the user and satisfy the
+ *  specified filter. This method returns Organizations in an unspecified order.
+ *  New Organizations do not necessarily appear at the end of the results.
+ *
+ *  Method: cloudresourcemanager.organizations.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsSearch : GTLRCloudResourceManagerQuery
+// Previous library name was
+//   +[GTLQueryCloudResourceManager queryForOrganizationsSearchWithObject:]
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_SearchOrganizationsResponse.
+ *
+ *  Searches Organization resources that are visible to the user and satisfy the
+ *  specified filter. This method returns Organizations in an unspecified order.
+ *  New Organizations do not necessarily appear at the end of the results.
+ *
+ *  @param object The @c GTLRCloudResourceManager_SearchOrganizationsRequest to
+ *    include in the query.
+ *
+ *  @returns GTLRCloudResourceManagerQuery_OrganizationsSearch
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_SearchOrganizationsRequest *)object;
+
+@end
+
+/**
+ *  Sets the access control policy on an Organization resource. Replaces any
+ *  existing policy. The `resource` field should be the organization's resource
+ *  name, e.g. "organizations/123".
+ *
+ *  Method: cloudresourcemanager.organizations.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsSetIamPolicy : GTLRCloudResourceManagerQuery
+// Previous library name was
+//   +[GTLQueryCloudResourceManager queryForOrganizationsSetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. `resource`
+ *  is usually specified as a path. For example, a Project resource is specified
+ *  as `projects/{project}`.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Policy.
+ *
+ *  Sets the access control policy on an Organization resource. Replaces any
+ *  existing policy. The `resource` field should be the organization's resource
+ *  name, e.g. "organizations/123".
+ *
+ *  @param object The @c GTLRCloudResourceManager_SetIamPolicyRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
+ *
+ *  @returns GTLRCloudResourceManagerQuery_OrganizationsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified Organization. The
+ *  `resource` field should be the organization's resource name, e.g.
+ *  "organizations/123".
+ *
+ *  Method: cloudresourcemanager.organizations.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsTestIamPermissions : GTLRCloudResourceManagerQuery
+// Previous library name was
+//   +[GTLQueryCloudResourceManager queryForOrganizationsTestIamPermissionsWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested.
+ *  `resource` is usually specified as a path. For example, a Project resource
+ *  is specified as `projects/{project}`.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified Organization. The
+ *  `resource` field should be the organization's resource name, e.g.
+ *  "organizations/123".
+ *
+ *  @param object The @c GTLRCloudResourceManager_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
+ *
+ *  @returns GTLRCloudResourceManagerQuery_OrganizationsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Request that a new Project be created. The result is an Operation which can
+ *  be used to track the creation process. It is automatically deleted after a
+ *  few hours, so there is no need to call DeleteOperation. Our SLO permits
+ *  Project creation to take up to 30 seconds at the 90th percentile. As of
+ *  2016-08-29, we are observing 6 seconds 50th percentile latency. 95th
+ *  percentile latency is around 11 seconds. We recommend polling at the 5th
+ *  second with an exponential backoff.
+ *
+ *  Method: cloudresourcemanager.projects.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_ProjectsCreate : GTLRCloudResourceManagerQuery
+// Previous library name was
+//   +[GTLQueryCloudResourceManager queryForProjectsCreateWithObject:]
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Request that a new Project be created. The result is an Operation which can
+ *  be used to track the creation process. It is automatically deleted after a
+ *  few hours, so there is no need to call DeleteOperation. Our SLO permits
+ *  Project creation to take up to 30 seconds at the 90th percentile. As of
+ *  2016-08-29, we are observing 6 seconds 50th percentile latency. 95th
+ *  percentile latency is around 11 seconds. We recommend polling at the 5th
+ *  second with an exponential backoff.
+ *
+ *  @param object The @c GTLRCloudResourceManager_Project to include in the
+ *    query.
+ *
+ *  @returns GTLRCloudResourceManagerQuery_ProjectsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Project *)object;
 
 @end
 
@@ -167,9 +394,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. `resource`
- *  is usually specified as a path, such as `projects/ *project* /zones/ *zone*
- *  /disks/ *disk*`. The format for the path specified in this value is resource
- *  specific and is specified in the `getIamPolicy` documentation.
+ *  is usually specified as a path. For example, a Project resource is specified
+ *  as `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -182,10 +408,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_GetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. `resource` is usually specified as a path, such as `projects/
- *    *project* /zones/ *zone* /disks/ *disk*`. The format for the path
- *    specified in this value is resource specific and is specified in the
- *    `getIamPolicy` documentation.
+ *    requested. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
  *
  *  @returns GTLRCloudResourceManagerQuery_ProjectsGetIamPolicy
  */
@@ -267,9 +491,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Invitations to grant the owner role cannot be sent using `setIamPolicy()`;
  *  they must be sent only using the Cloud Platform Console. + Membership
  *  changes that leave the project without any owners that have accepted the
- *  Terms of Service (ToS) will be rejected. + Members cannot be added to more
- *  than one role in the same policy. + There must be at least one owner who has
- *  accepted the Terms of Service (ToS) agreement in the policy. Calling
+ *  Terms of Service (ToS) will be rejected. + There must be at least one owner
+ *  who has accepted the Terms of Service (ToS) agreement in the policy. Calling
  *  `setIamPolicy()` to to remove the last ToS-accepted owner from the policy
  *  will fail. This restriction also applies to legacy projects that no longer
  *  have owners who have accepted the ToS. Edits to IAM policies will be
@@ -290,9 +513,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. `resource`
- *  is usually specified as a path, such as `projects/ *project* /zones/ *zone*
- *  /disks/ *disk*`. The format for the path specified in this value is resource
- *  specific and is specified in the `setIamPolicy` documentation.
+ *  is usually specified as a path. For example, a Project resource is specified
+ *  as `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -312,9 +534,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Invitations to grant the owner role cannot be sent using `setIamPolicy()`;
  *  they must be sent only using the Cloud Platform Console. + Membership
  *  changes that leave the project without any owners that have accepted the
- *  Terms of Service (ToS) will be rejected. + Members cannot be added to more
- *  than one role in the same policy. + There must be at least one owner who has
- *  accepted the Terms of Service (ToS) agreement in the policy. Calling
+ *  Terms of Service (ToS) will be rejected. + There must be at least one owner
+ *  who has accepted the Terms of Service (ToS) agreement in the policy. Calling
  *  `setIamPolicy()` to to remove the last ToS-accepted owner from the policy
  *  will fail. This restriction also applies to legacy projects that no longer
  *  have owners who have accepted the ToS. Edits to IAM policies will be
@@ -327,10 +548,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_SetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. `resource` is usually specified as a path, such as `projects/
- *    *project* /zones/ *zone* /disks/ *disk*`. The format for the path
- *    specified in this value is resource specific and is specified in the
- *    `setIamPolicy` documentation.
+ *    specified. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
  *
  *  @returns GTLRCloudResourceManagerQuery_ProjectsSetIamPolicy
  */
@@ -354,10 +573,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested.
- *  `resource` is usually specified as a path, such as `projects/ *project*
- *  /zones/ *zone* /disks/ *disk*`. The format for the path specified in this
- *  value is resource specific and is specified in the `testIamPermissions`
- *  documentation.
+ *  `resource` is usually specified as a path. For example, a Project resource
+ *  is specified as `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -369,10 +586,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. `resource` is usually specified as a path, such as `projects/
- *    *project* /zones/ *zone* /disks/ *disk*`. The format for the path
- *    specified in this value is resource specific and is specified in the
- *    `testIamPermissions` documentation.
+ *    requested. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
  *
  *  @returns GTLRCloudResourceManagerQuery_ProjectsTestIamPermissions
  */

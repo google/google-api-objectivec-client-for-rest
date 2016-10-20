@@ -284,6 +284,14 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, copy, nullable) NSString *enrollmentCode;
 
 /**
+ *  Whether or not guardian notifications are enabled for this course.
+ *  Read-only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *guardiansEnabled;
+
+/**
  *  Identifier for this course assigned by Classroom. When creating a course,
  *  you may optionally set this identifier to an alias string in the request to
  *  create a corresponding alias. The `id` is still assigned by Classroom and

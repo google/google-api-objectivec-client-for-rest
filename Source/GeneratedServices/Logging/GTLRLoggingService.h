@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Logging API (logging/v2beta1)
+//   Stackdriver Logging API (logging/v2)
 // Description:
 //   Writes log entries and manages your Stackdriver Logging configuration.
 // Documentation:

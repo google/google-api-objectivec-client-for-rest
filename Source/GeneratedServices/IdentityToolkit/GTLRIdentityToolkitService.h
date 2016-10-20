@@ -20,6 +20,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: View and administer all your Firebase data and settings
+ *
+ *  Value "https://www.googleapis.com/auth/firebase"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeIdentityToolkitFirebase;
+
+// ----------------------------------------------------------------------------
+//   GTLRIdentityToolkitService
+//
+
 /**
  *  Service for executing Google Identity Toolkit API queries.
  *

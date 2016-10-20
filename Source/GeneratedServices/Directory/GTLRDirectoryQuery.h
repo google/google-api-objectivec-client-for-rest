@@ -24,6 +24,7 @@
 @class GTLRDirectory_CalendarResource;
 @class GTLRDirectory_Channel;
 @class GTLRDirectory_ChromeOsDevice;
+@class GTLRDirectory_ChromeOsDeviceAction;
 @class GTLRDirectory_Customer;
 @class GTLRDirectory_DomainAlias;
 @class GTLRDirectory_Domains;
@@ -362,6 +363,43 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  @returns GTLRDirectoryQuery_ChannelsStop
  */
 + (instancetype)queryWithObject:(GTLRDirectory_Channel *)object;
+
+@end
+
+/**
+ *  Take action on Chrome OS Device
+ *
+ *  Method: directory.chromeosdevices.action
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeos
+ */
+@interface GTLRDirectoryQuery_ChromeosdevicesAction : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForChromeosdevicesActionWithObject:customerId:resourceId:]
+
+/** Immutable id of the Google Apps account */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/** Immutable id of Chrome OS Device */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Take action on Chrome OS Device
+ *
+ *  @param object The @c GTLRDirectory_ChromeOsDeviceAction to include in the
+ *    query.
+ *  @param customerId Immutable id of the Google Apps account
+ *  @param resourceId Immutable id of Chrome OS Device
+ *
+ *  @returns GTLRDirectoryQuery_ChromeosdevicesAction
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_ChromeOsDeviceAction *)object
+                     customerId:(NSString *)customerId
+                     resourceId:(NSString *)resourceId;
 
 @end
 

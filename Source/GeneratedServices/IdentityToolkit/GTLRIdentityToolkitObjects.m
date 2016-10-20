@@ -153,23 +153,20 @@
   return @{ @"identifierProperty" : @"identifier" };
 }
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"customParameter" : [GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem class]
-  };
-  return map;
-}
-
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem
+//   GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameter
 //
 
-@implementation GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem
-@dynamic key, value;
+@implementation GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameter
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -351,7 +348,7 @@
 
 @implementation GTLRIdentityToolkit_RelyingpartyUploadAccountRequest
 @dynamic delegatedProjectNumber, hashAlgorithm, memoryCost, rounds,
-         saltSeparator, sanityCheck, signerKey, users;
+         saltSeparator, sanityCheck, signerKey, targetProjectId, users;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

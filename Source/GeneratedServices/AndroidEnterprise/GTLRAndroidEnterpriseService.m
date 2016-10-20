@@ -35,6 +35,8 @@ NSString * const kGTLRAuthScopeAndroidEnterprise = @"https://www.googleapis.com/
 
 + (NSDictionary<NSString *, Class> *)kindStringToClassMap {
   return @{
+    @"androidenterprise#administratorWebToken" : [GTLRAndroidEnterprise_AdministratorWebToken class],
+    @"androidenterprise#administratorWebTokenSpec" : [GTLRAndroidEnterprise_AdministratorWebTokenSpec class],
     @"androidenterprise#appRestrictionsSchema" : [GTLRAndroidEnterprise_AppRestrictionsSchema class],
     @"androidenterprise#approvalUrlInfo" : [GTLRAndroidEnterprise_ApprovalUrlInfo class],
     @"androidenterprise#authenticationToken" : [GTLRAndroidEnterprise_AuthenticationToken class],

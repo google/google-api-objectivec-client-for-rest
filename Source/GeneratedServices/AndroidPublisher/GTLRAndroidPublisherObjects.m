@@ -133,6 +133,26 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_DeobfuscationFile
+//
+
+@implementation GTLRAndroidPublisher_DeobfuscationFile
+@dynamic symbolType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeobfuscationFilesUploadResponse
+//
+
+@implementation GTLRAndroidPublisher_DeobfuscationFilesUploadResponse
+@dynamic deobfuscationFile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_DeveloperComment
 //
 

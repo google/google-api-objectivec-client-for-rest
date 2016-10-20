@@ -1311,8 +1311,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A list of revisions of a file.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "revisions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRDrive_RevisionList : GTLRObject
+@interface GTLRDrive_RevisionList : GTLRCollectionObject
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
@@ -1320,7 +1325,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** The full list of revisions. */
+/**
+ *  The page token for the next page of revisions. This will be absent if the
+ *  end of the revisions list has been reached.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The full list of revisions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Revision *> *revisions;
 
 @end

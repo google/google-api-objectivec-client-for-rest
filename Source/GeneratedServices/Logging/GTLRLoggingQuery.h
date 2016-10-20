@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Logging API (logging/v2beta1)
+//   Stackdriver Logging API (logging/v2)
 // Description:
 //   Writes log entries and manages your Stackdriver Logging configuration.
 // Documentation:
@@ -210,6 +210,208 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRLoggingQuery_OrganizationsLogsDelete
  */
 + (instancetype)queryWithLogName:(NSString *)logName;
+
+@end
+
+/**
+ *  Creates a sink.
+ *
+ *  Method: logging.organizations.sinks.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsSinksCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsSinksCreateWithObject:parent:]
+
+/**
+ *  Required. The resource in which to create the sink.
+ *  Example: `"projects/my-project-id"`.
+ *  The new sink must be provided in the request.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_LogSink.
+ *
+ *  Creates a sink.
+ *
+ *  @param object The @c GTLRLogging_LogSink to include in the query.
+ *  @param parent Required. The resource in which to create the sink.
+ *    Example: `"projects/my-project-id"`.
+ *    The new sink must be provided in the request.
+ *
+ *  @returns GTLRLoggingQuery_OrganizationsSinksCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a sink.
+ *
+ *  Method: logging.organizations.sinks.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsSinksDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsSinksDeleteWithsinkName:]
+
+/**
+ *  Required. The resource name of the sink to delete, including the parent
+ *  resource and the sink identifier. Example:
+ *  `"projects/my-project-id/sinks/my-sink-id"`. It is an error if the sink
+ *  does not exist.
+ */
+@property(nonatomic, copy, nullable) NSString *sinkName;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a sink.
+ *
+ *  @param sinkName Required. The resource name of the sink to delete, including
+ *    the parent
+ *    resource and the sink identifier. Example:
+ *    `"projects/my-project-id/sinks/my-sink-id"`. It is an error if the sink
+ *    does not exist.
+ *
+ *  @returns GTLRLoggingQuery_OrganizationsSinksDelete
+ */
++ (instancetype)queryWithSinkName:(NSString *)sinkName;
+
+@end
+
+/**
+ *  Gets a sink.
+ *
+ *  Method: logging.organizations.sinks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsSinksGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsSinksGetWithsinkName:]
+
+/**
+ *  Required. The resource name of the sink to return.
+ *  Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ */
+@property(nonatomic, copy, nullable) NSString *sinkName;
+
+/**
+ *  Fetches a @c GTLRLogging_LogSink.
+ *
+ *  Gets a sink.
+ *
+ *  @param sinkName Required. The resource name of the sink to return.
+ *    Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ *
+ *  @returns GTLRLoggingQuery_OrganizationsSinksGet
+ */
++ (instancetype)queryWithSinkName:(NSString *)sinkName;
+
+@end
+
+/**
+ *  Lists sinks.
+ *
+ *  Method: logging.organizations.sinks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsSinksList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsSinksListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of `nextPageToken` in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. `pageToken` must be the value of
+ *  `nextPageToken` from the previous response. The values of other method
+ *  parameters should be identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The cloud resource containing the sinks.
+ *  Example: `"projects/my-logging-project"`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListSinksResponse.
+ *
+ *  Lists sinks.
+ *
+ *  @param parent Required. The cloud resource containing the sinks.
+ *    Example: `"projects/my-logging-project"`.
+ *
+ *  @returns GTLRLoggingQuery_OrganizationsSinksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates or creates a sink.
+ *
+ *  Method: logging.organizations.sinks.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsSinksUpdate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsSinksUpdateWithObject:sinkName:]
+
+/**
+ *  Required. The resource name of the sink to update, including the parent
+ *  resource and the sink identifier. If the sink does not exist, this method
+ *  creates the sink. Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ */
+@property(nonatomic, copy, nullable) NSString *sinkName;
+
+/**
+ *  Fetches a @c GTLRLogging_LogSink.
+ *
+ *  Updates or creates a sink.
+ *
+ *  @param object The @c GTLRLogging_LogSink to include in the query.
+ *  @param sinkName Required. The resource name of the sink to update, including
+ *    the parent
+ *    resource and the sink identifier. If the sink does not exist, this method
+ *    creates the sink. Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ *
+ *  @returns GTLRLoggingQuery_OrganizationsSinksUpdate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                       sinkName:(NSString *)sinkName;
 
 @end
 

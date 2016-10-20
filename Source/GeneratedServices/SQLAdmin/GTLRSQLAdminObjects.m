@@ -120,11 +120,12 @@
 //
 
 @implementation GTLRSQLAdmin_DatabaseInstance
-@dynamic backendType, currentDiskSize, databaseVersion, ETag, failoverReplica,
-         instanceType, ipAddresses, ipv6Address, kind, masterInstanceName,
-         maxDiskSize, name, onPremisesConfiguration, project, region,
-         replicaConfiguration, replicaNames, selfLink, serverCaCert,
-         serviceAccountEmailAddress, settings, state, suspensionReason;
+@dynamic backendType, connectionName, currentDiskSize, databaseVersion, ETag,
+         failoverReplica, instanceType, ipAddresses, ipv6Address, kind,
+         masterInstanceName, maxDiskSize, name, onPremisesConfiguration,
+         project, region, replicaConfiguration, replicaNames, selfLink,
+         serverCaCert, serviceAccountEmailAddress, settings, state,
+         suspensionReason;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

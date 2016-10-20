@@ -173,20 +173,21 @@
 
 @end
 
-@implementation GTLRDoubleClickBidManagerQuery_RubiconNotifyproposalchange
+@implementation GTLRDoubleClickBidManagerQuery_SdfDownload
 
-+ (instancetype)queryWithObject:(GTLRDoubleClickBidManager_NotifyProposalChangeRequest *)object {
++ (instancetype)queryWithObject:(GTLRDoubleClickBidManager_DownloadRequest *)object {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"rubicon/notifyproposalchange";
-  GTLRDoubleClickBidManagerQuery_RubiconNotifyproposalchange *query =
+  NSString *pathURITemplate = @"sdf/download";
+  GTLRDoubleClickBidManagerQuery_SdfDownload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.loggingName = @"doubleclickbidmanager.rubicon.notifyproposalchange";
+  query.expectedObjectClass = [GTLRDoubleClickBidManager_DownloadResponse class];
+  query.loggingName = @"doubleclickbidmanager.sdf.download";
   return query;
 }
 

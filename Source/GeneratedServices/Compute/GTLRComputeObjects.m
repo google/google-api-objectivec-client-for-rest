@@ -758,7 +758,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_Autoscaler
 @dynamic autoscalingPolicy, creationTimestamp, descriptionProperty, identifier,
-         kind, name, selfLink, target, zoneProperty;
+         kind, name, region, selfLink, target, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1840,7 +1840,8 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_InstanceGroup
 @dynamic creationTimestamp, descriptionProperty, fingerprint, identifier, kind,
-         name, namedPorts, network, selfLink, size, subnetwork, zoneProperty;
+         name, namedPorts, network, region, selfLink, size, subnetwork,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1920,8 +1921,8 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 @implementation GTLRCompute_InstanceGroupManager
 @dynamic baseInstanceName, creationTimestamp, currentActions,
          descriptionProperty, fingerprint, identifier, instanceGroup,
-         instanceTemplate, kind, name, namedPorts, selfLink, targetPools,
-         targetSize, zoneProperty;
+         instanceTemplate, kind, name, namedPorts, region, selfLink,
+         targetPools, targetSize, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

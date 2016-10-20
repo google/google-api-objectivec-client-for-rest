@@ -787,6 +787,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguageAPI_PartOfSpeech_Tag_X;
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
+ *  See Document.language field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -825,8 +826,8 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguageAPI_PartOfSpeech_Tag_X;
 
 
 /**
- *  The request message for the advanced text annotation API, which performs all
- *  the above plus syntactic analysis.
+ *  The request message for the text annotation API, which can perform multiple
+ *  analysis types (sentiment, entities, and syntax) in one call.
  */
 @interface GTLRCloudNaturalLanguageAPI_AnnotateTextRequest : GTLRObject
 
@@ -889,6 +890,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguageAPI_PartOfSpeech_Tag_X;
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
+ *  See Document.language field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 

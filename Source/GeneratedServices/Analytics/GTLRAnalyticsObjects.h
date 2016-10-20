@@ -1939,6 +1939,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *containsSampledData;
 
+/**
+ *  The last refreshed time in seconds for Analytics data.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataLastRefreshed;
+
 @property(nonatomic, strong, nullable) GTLRAnalytics_GaDataDataTable *dataTable;
 
 /**
@@ -2508,9 +2515,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Number of days a user remains in the audience. Use any integer from 1-540.
- *  In remarketing audiences for search ads, membership duration is truncated to
- *  180 days.
+ *  Number of days (in the range 1 to 540) a user remains in the audience.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2847,9 +2852,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The currency type associated with this view (profile), defaults to USD. The
  *  supported values are:
- *  ARS, AUD, BGN, BRL, CAD, CHF, CNY, CZK, DKK, EUR, GBP, HKD, HUF, IDR, INR,
- *  JPY, KRW, LTL, MXN, NOK, NZD, PHP, PLN, RUB, SEK, THB, TRY, TWD, USD, VND,
- *  ZAR
+ *  USD, JPY, EUR, GBP, AUD, KRW, BRL, CNY, DKK, RUB, SEK, NOK, PLN, TRY, TWD,
+ *  HKD, THB, IDR, ARS, MXN, VND, PHP, INR, CHF, CAD, CZK, NZD, HUF, BGN, LTL,
+ *  ZAR, UAH, AED, BOB, CLP, COP, EGP, HRK, ILS, MAD, MYR, PEN, PKR, RON, RSD,
+ *  SAR, SGD, VEF, LVL
  */
 @property(nonatomic, copy, nullable) NSString *currency;
 

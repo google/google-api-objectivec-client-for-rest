@@ -117,8 +117,8 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 @implementation GTLRClassroom_Course
 @dynamic alternateLink, courseGroupEmail, courseMaterialSets, courseState,
          creationTime, descriptionProperty, descriptionHeading, enrollmentCode,
-         identifier, name, ownerId, room, section, teacherFolder,
-         teacherGroupEmail, updateTime;
+         guardiansEnabled, identifier, name, ownerId, room, section,
+         teacherFolder, teacherGroupEmail, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
