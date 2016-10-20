@@ -178,7 +178,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
  */
 @property(nonatomic, strong, nullable) NSNumber *done;
 
-/** The error result of the operation in case of failure. */
+/** The error result of the operation in case of failure or cancellation. */
 @property(nonatomic, strong, nullable) GTLRSpeech_Status *error;
 
 /**
@@ -338,8 +338,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
  *  [Optional] The language of the supplied audio as a BCP-47 language tag.
  *  Example: "en-GB" https://www.rfc-editor.org/rfc/bcp/bcp47.txt
  *  If omitted, defaults to "en-US". See
- *  [Language
- *  Support](https://cloud.google.com/speech/docs/best-practices#language_support)
+ *  [Language Support](https://cloud.google.com/speech/docs/languages)
  *  for a list of the currently supported language codes.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;

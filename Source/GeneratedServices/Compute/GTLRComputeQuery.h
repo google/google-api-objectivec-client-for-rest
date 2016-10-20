@@ -144,6 +144,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -332,6 +344,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -410,6 +434,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -612,6 +648,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -939,6 +987,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -966,10 +1026,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the entire content of the BackendService resource. There are several
- *  restrictions and guidelines to keep in mind when updating a backend service.
- *  Read Restrictions and Guidelines for more information. This method supports
- *  patch semantics.
+ *  Updates the specified BackendService resource with the data included in the
+ *  request. There are several restrictions and guidelines to keep in mind when
+ *  updating a backend service. Read Restrictions and Guidelines for more
+ *  information. This method supports patch semantics.
  *
  *  Method: compute.backendServices.patch
  *
@@ -990,10 +1050,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Updates the entire content of the BackendService resource. There are several
- *  restrictions and guidelines to keep in mind when updating a backend service.
- *  Read Restrictions and Guidelines for more information. This method supports
- *  patch semantics.
+ *  Updates the specified BackendService resource with the data included in the
+ *  request. There are several restrictions and guidelines to keep in mind when
+ *  updating a backend service. Read Restrictions and Guidelines for more
+ *  information. This method supports patch semantics.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -1008,9 +1068,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the entire content of the BackendService resource. There are several
- *  restrictions and guidelines to keep in mind when updating a backend service.
- *  Read Restrictions and Guidelines for more information.
+ *  Updates the specified BackendService resource with the data included in the
+ *  request. There are several restrictions and guidelines to keep in mind when
+ *  updating a backend service. Read Restrictions and Guidelines for more
+ *  information.
  *
  *  Method: compute.backendServices.update
  *
@@ -1031,9 +1092,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Updates the entire content of the BackendService resource. There are several
- *  restrictions and guidelines to keep in mind when updating a backend service.
- *  Read Restrictions and Guidelines for more information.
+ *  Updates the specified BackendService resource with the data included in the
+ *  request. There are several restrictions and guidelines to keep in mind when
+ *  updating a backend service. Read Restrictions and Guidelines for more
+ *  information.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -1095,6 +1157,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -1359,6 +1433,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -1488,6 +1574,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -1603,6 +1701,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -1791,6 +1901,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -1938,6 +2060,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -2127,6 +2261,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -2358,6 +2504,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -2538,6 +2696,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -2651,6 +2821,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -2795,6 +2977,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -2976,6 +3170,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -3235,6 +3441,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -3490,6 +3708,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -3831,6 +4061,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -3971,6 +4213,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -4250,6 +4504,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -4675,6 +4941,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -4885,6 +5163,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -4975,6 +5265,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -5218,6 +5520,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -5620,6 +5934,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -6249,6 +6575,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -6360,6 +6698,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -6477,6 +6827,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -6665,6 +7027,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -6990,6 +7364,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -7108,6 +7494,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -7181,6 +7579,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -7413,6 +7823,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -7444,8 +7866,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the entire content of the Router resource. This method supports
- *  patch semantics.
+ *  Updates the specified Router resource with the data included in the request.
+ *  This method supports patch semantics.
  *
  *  Method: compute.routers.patch
  *
@@ -7469,8 +7891,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Updates the entire content of the Router resource. This method supports
- *  patch semantics.
+ *  Updates the specified Router resource with the data included in the request.
+ *  This method supports patch semantics.
  *
  *  @param object The @c GTLRCompute_Router to include in the query.
  *  @param project Project ID for this request.
@@ -7531,7 +7953,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the entire content of the Router resource.
+ *  Updates the specified Router resource with the data included in the request.
  *
  *  Method: compute.routers.update
  *
@@ -7555,7 +7977,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Updates the entire content of the Router resource.
+ *  Updates the specified Router resource with the data included in the request.
  *
  *  @param object The @c GTLRCompute_Router to include in the query.
  *  @param project Project ID for this request.
@@ -7725,6 +8147,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -7878,6 +8312,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -8061,6 +8507,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -8135,6 +8593,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -8327,6 +8797,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -8510,6 +8992,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -8729,6 +9223,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -8881,6 +9387,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -9086,6 +9604,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -9253,6 +9783,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -9489,6 +10031,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -9805,6 +10359,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -10001,6 +10567,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -10190,6 +10768,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -10416,6 +11006,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -10442,8 +11044,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the entire content of the UrlMap resource. This method supports
- *  patch semantics.
+ *  Updates the specified UrlMap resource with the data included in the request.
+ *  This method supports patch semantics.
  *
  *  Method: compute.urlMaps.patch
  *
@@ -10464,8 +11066,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Updates the entire content of the UrlMap resource. This method supports
- *  patch semantics.
+ *  Updates the specified UrlMap resource with the data included in the request.
+ *  This method supports patch semantics.
  *
  *  @param object The @c GTLRCompute_UrlMap to include in the query.
  *  @param project Project ID for this request.
@@ -10480,7 +11082,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the entire content of the UrlMap resource.
+ *  Updates the specified UrlMap resource with the data included in the request.
  *
  *  Method: compute.urlMaps.update
  *
@@ -10501,7 +11103,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Updates the entire content of the UrlMap resource.
+ *  Updates the specified UrlMap resource with the data included in the request.
  *
  *  @param object The @c GTLRCompute_UrlMap to include in the query.
  *  @param project Project ID for this request.
@@ -10602,6 +11204,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
@@ -10795,6 +11409,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -10964,6 +11590,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned
  *  by a previous list request to get the next page of results.
  */
@@ -11087,6 +11725,18 @@ NS_ASSUME_NONNULL_BEGIN
  *        range 0..500).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Specifies a page token to use. Set pageToken to the nextPageToken returned

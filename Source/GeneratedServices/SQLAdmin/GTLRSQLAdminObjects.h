@@ -326,6 +326,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *backendType;
 
+/** Connection name of the Cloud SQL instance used in connection strings. */
+@property(nonatomic, copy, nullable) NSString *connectionName;
+
 /**
  *  The current disk usage of the instance in bytes. This property has been
  *  deprecated. Users should use the

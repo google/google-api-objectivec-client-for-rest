@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud RuntimeConfig API (runtimeconfig/v1beta1)
+//   Google Cloud RuntimeConfig API (runtimeconfig/v1)
 // Description:
 //   Provides capabilities for dynamic configuration and coordination for
 //   applications running on Google Cloud Platform.
@@ -19,341 +19,64 @@
 
 @end
 
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudRuntimeConfig_RuntimeConfig *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/configs";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_RuntimeConfig class];
-  query.loggingName = @"runtimeconfig.projects.configs.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsDelete
+@implementation GTLRCloudRuntimeConfigQuery_OperationsCancel
 
 @dynamic name;
 
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_Empty class];
-  query.loggingName = @"runtimeconfig.projects.configs.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_RuntimeConfig class];
-  query.loggingName = @"runtimeconfig.projects.configs.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsList
-
-@dynamic pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/configs";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_ListConfigsResponse class];
-  query.loggingName = @"runtimeconfig.projects.configs.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsOperationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsOperationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_Operation class];
-  query.loggingName = @"runtimeconfig.projects.configs.operations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsUpdate
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudRuntimeConfig_RuntimeConfig *)object
++ (instancetype)queryWithObject:(GTLRCloudRuntimeConfig_CancelOperationRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsUpdate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_RuntimeConfig class];
-  query.loggingName = @"runtimeconfig.projects.configs.update";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudRuntimeConfig_Variable *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/variables";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesCreate *query =
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudRuntimeConfigQuery_OperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_Variable class];
-  query.loggingName = @"runtimeconfig.projects.configs.variables.create";
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRuntimeConfig_Empty class];
+  query.loggingName = @"runtimeconfig.operations.cancel";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesDelete
+@implementation GTLRCloudRuntimeConfigQuery_OperationsDelete
 
-@dynamic name, recursive;
+@dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesDelete *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRuntimeConfigQuery_OperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRCloudRuntimeConfig_Empty class];
-  query.loggingName = @"runtimeconfig.projects.configs.variables.delete";
+  query.loggingName = @"runtimeconfig.operations.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesGet
+@implementation GTLRCloudRuntimeConfigQuery_OperationsList
 
-@dynamic name;
+@dynamic filter, name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesGet *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRuntimeConfigQuery_OperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_Variable class];
-  query.loggingName = @"runtimeconfig.projects.configs.variables.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/variables";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_ListVariablesResponse class];
-  query.loggingName = @"runtimeconfig.projects.configs.variables.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesUpdate
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudRuntimeConfig_Variable *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesUpdate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_Variable class];
-  query.loggingName = @"runtimeconfig.projects.configs.variables.update";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesWatch
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudRuntimeConfig_WatchVariableRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:watch";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsVariablesWatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_Variable class];
-  query.loggingName = @"runtimeconfig.projects.configs.variables.watch";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsWaitersCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudRuntimeConfig_Waiter *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/waiters";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsWaitersCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_Operation class];
-  query.loggingName = @"runtimeconfig.projects.configs.waiters.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsWaitersDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsWaitersDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_Empty class];
-  query.loggingName = @"runtimeconfig.projects.configs.waiters.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsWaitersGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsWaitersGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_Waiter class];
-  query.loggingName = @"runtimeconfig.projects.configs.waiters.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRuntimeConfigQuery_ProjectsConfigsWaitersList
-
-@dynamic pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/waiters";
-  GTLRCloudRuntimeConfigQuery_ProjectsConfigsWaitersList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRuntimeConfig_ListWaitersResponse class];
-  query.loggingName = @"runtimeconfig.projects.configs.waiters.list";
+  query.expectedObjectClass = [GTLRCloudRuntimeConfig_ListOperationsResponse class];
+  query.loggingName = @"runtimeconfig.operations.list";
   return query;
 }
 

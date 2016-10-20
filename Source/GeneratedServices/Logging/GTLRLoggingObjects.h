@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Logging API (logging/v2beta1)
+//   Stackdriver Logging API (logging/v2)
 // Description:
 //   Writes log entries and manages your Stackdriver Logging configuration.
 // Documentation:
@@ -179,6 +179,22 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Notice;
  *  Value: "WARNING"
  */
 GTLR_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRLogging_LogMetric.version
+
+/**
+ *  Stackdriver Logging API v1.
+ *
+ *  Value: "V1"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_LogMetric_Version_V1;
+/**
+ *  Stackdriver Logging API v2.
+ *
+ *  Value: "V2"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_LogMetric_Version_V2;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_LogSink.outputVersionFormat
@@ -403,7 +419,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projectIds;
 
 /**
- *  Optional. One or more cloud resources from which to retrieve log entries.
+ *  Required. One or more cloud resources from which to retrieve log entries.
  *  Example: `"projects/my-project-1A"`, `"projects/1234567890"`. Projects
  *  listed in `projectIds` are added to this list.
  */
@@ -782,11 +798,24 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. The API version that created or updated this metric.
+ *  The version also dictates the syntax of the filter expression. When a value
+ *  for this field is missing, the default value of V2 should be assumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_LogMetric_Version_V1 Stackdriver Logging API v1.
+ *        (Value: "V1")
+ *    @arg @c kGTLRLogging_LogMetric_Version_V2 Stackdriver Logging API v2.
+ *        (Value: "V2")
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
 /**
- *  Describes a sink used to export log entries outside Stackdriver Logging.
+ *  Describes a sink used to export log entries outside of Stackdriver Logging.
  */
 @interface GTLRLogging_LogSink : GTLRObject
 
@@ -799,6 +828,9 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *  "pubsub.googleapis.com/projects/my-project/topics/my-topic"
  */
 @property(nonatomic, copy, nullable) NSString *destination;
+
+/** Optional. Time at which this sink expires. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
  *  Optional. An [advanced logs filter](/logging/docs/view/advanced_filters).
@@ -838,7 +870,15 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @property(nonatomic, copy, nullable) NSString *outputVersionFormat;
 
 /**
- *  Output only. The iam identity to which the destination needs to grant write
+ *  Optional. Time range for which this sink is active.
+ *  Logs are exported only if start_time <= entry.timestamp < end_time
+ *  Both start_time and end_time may be omitted to specify
+ *  (half) infinite ranges. The start_time must be less than the end_time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The IAM identity to which the destination needs to grant write
  *  access. This may be a service account or a group.
  *  Examples (Do not assume these specific values):
  *  "serviceAccount:cloud-logs\@system.gserviceaccount.com"

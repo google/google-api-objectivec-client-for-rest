@@ -114,10 +114,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  The bucket's storage class. This defines how objects in the bucket are
- *  stored and determines the SLA and the cost of storage. Values include
- *  STANDARD, NEARLINE and DURABLE_REDUCED_AVAILABILITY. Defaults to STANDARD.
- *  For more information, see storage classes.
+ *  The bucket's default storage class, used whenever no storageClass is
+ *  specified for a newly-created object. This defines how objects in the bucket
+ *  are stored and determines the SLA and the cost of storage. Values include
+ *  MULTI_REGIONAL, REGIONAL, STANDARD, NEARLINE, COLDLINE, and
+ *  DURABLE_REDUCED_AVAILABILITY. If this value is not specified when the bucket
+ *  is created, it will default to STANDARD. For more information, see storage
+ *  classes.
  */
 @property(nonatomic, copy, nullable) NSString *storageClass;
 
@@ -280,7 +283,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRStorage_BucketLifecycleRuleItemAction : GTLRObject
 
-/** Type of the action. Currently, only Delete is supported. */
+/**
+ *  Target storage class. Required iff the type of the action is
+ *  SetStorageClass.
+ */
+@property(nonatomic, copy, nullable) NSString *storageClass;
+
+/**
+ *  Type of the action. Currently, only Delete and SetStorageClass are
+ *  supported.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -315,6 +327,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isLive;
+
+/**
+ *  Objects having any of the storage classes specified by this condition will
+ *  be matched. Values include MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE,
+ *  STANDARD, and DURABLE_REDUCED_AVAILABILITY.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *matchesStorageClass;
 
 /**
  *  Relevant only for versioned objects. If the value is N, this condition is

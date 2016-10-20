@@ -14,6 +14,27 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudResourceManager_FolderOperation.operationType
+NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Create = @"CREATE";
+NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Move = @"MOVE";
+NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
+
+// GTLRCloudResourceManager_FolderOperationError.errorMessageId
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedError = @"CYCLE_INTRODUCED_ERROR";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ErrorTypeUnspecified = @"ERROR_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderAlreadyBeingMoved = @"FOLDER_ALREADY_BEING_MOVED";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderHeightViolation = @"FOLDER_HEIGHT_VIOLATION";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderNameUniquenessViolation = @"FOLDER_NAME_UNIQUENESS_VIOLATION";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmpty = @"FOLDER_TO_DELETE_NON_EMPTY";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_MaxChildFoldersViolation = @"MAX_CHILD_FOLDERS_VIOLATION";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeleted = @"PARENT_DELETED";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeleted = @"RESOURCE_DELETED";
+
+// GTLRCloudResourceManager_Organization.lifecycleState
+NSString * const kGTLRCloudResourceManager_Organization_LifecycleState_Active = @"ACTIVE";
+NSString * const kGTLRCloudResourceManager_Organization_LifecycleState_DeleteRequested = @"DELETE_REQUESTED";
+NSString * const kGTLRCloudResourceManager_Organization_LifecycleState_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
+
 // GTLRCloudResourceManager_Project.lifecycleState
 NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Active = @"ACTIVE";
 NSString * const kGTLRCloudResourceManager_Project_LifecycleState_DeleteInProgress = @"DELETE_IN_PROGRESS";
@@ -44,6 +65,26 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 //
 
 @implementation GTLRCloudResourceManager_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_FolderOperation
+//
+
+@implementation GTLRCloudResourceManager_FolderOperation
+@dynamic destinationParent, displayName, operationType, sourceParent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_FolderOperationError
+//
+
+@implementation GTLRCloudResourceManager_FolderOperationError
+@dynamic errorMessageId;
 @end
 
 
@@ -118,6 +159,26 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_Organization
+//
+
+@implementation GTLRCloudResourceManager_Organization
+@dynamic creationTime, displayName, lifecycleState, name, owner;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_OrganizationOwner
+//
+
+@implementation GTLRCloudResourceManager_OrganizationOwner
+@dynamic directoryCustomerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_Policy
 //
 
@@ -165,6 +226,16 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_ProjectCreationStatus
+//
+
+@implementation GTLRCloudResourceManager_ProjectCreationStatus
+@dynamic createTime, gettable, ready;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_ResourceId
 //
 
@@ -173,6 +244,38 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_SearchOrganizationsRequest
+//
+
+@implementation GTLRCloudResourceManager_SearchOrganizationsRequest
+@dynamic filter, pageSize, pageToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_SearchOrganizationsResponse
+//
+
+@implementation GTLRCloudResourceManager_SearchOrganizationsResponse
+@dynamic nextPageToken, organizations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"organizations" : [GTLRCloudResourceManager_Organization class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"organizations";
 }
 
 @end

@@ -447,6 +447,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  JSON request template for firing actions on ChromeOs Device in Directory
+ *  Devices API.
+ */
+@interface GTLRDirectory_ChromeOsDeviceAction : GTLRObject
+
+/** Action to be taken on the ChromeOs Device */
+@property(nonatomic, copy, nullable) NSString *action;
+
+@property(nonatomic, copy, nullable) NSString *deprovisionReason;
+
+@end
+
+
+/**
  *  JSON response template for List Chrome OS Devices operation in Directory
  *  API.
  *
@@ -851,6 +865,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** Mobile Device Baseband version (Read-only) */
 @property(nonatomic, copy, nullable) NSString *basebandVersion;
 
+/** Mobile Device Bootloader version (Read-only) */
+@property(nonatomic, copy, nullable) NSString *bootloaderVersion;
+
+/** Mobile Device Brand (Read-only) */
+@property(nonatomic, copy, nullable) NSString *brand;
+
 /** Mobile Device Build number (Read-only) */
 @property(nonatomic, copy, nullable) NSString *buildNumber;
 
@@ -870,8 +890,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** Mobile Device serial number (Read-only) */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
+/** DevicePasswordStatus (Read-only) */
+@property(nonatomic, copy, nullable) NSString *devicePasswordStatus;
+
 /** List of owner user's email addresses (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *email;
+
+/** Mobile Device Encryption Status (Read-only) */
+@property(nonatomic, copy, nullable) NSString *encryptionStatus;
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -881,6 +907,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the Google Apps administrator control panel (Read-only)
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *firstSync;
+
+/** Mobile Device Hardware (Read-only) */
+@property(nonatomic, copy, nullable) NSString *hardware;
 
 /** Mobile Device Hardware Id (Read-only) */
 @property(nonatomic, copy, nullable) NSString *hardwareId;
@@ -908,6 +937,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *managedAccountIsOnOwnerProfile;
 
+/** Mobile Device manufacturer (Read-only) */
+@property(nonatomic, copy, nullable) NSString *manufacturer;
+
 /** Mobile Device MEID number (Read-only) */
 @property(nonatomic, copy, nullable) NSString *meid;
 
@@ -926,8 +958,21 @@ NS_ASSUME_NONNULL_BEGIN
 /** List of accounts added on device (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *otherAccountsInfo;
 
+/** DMAgentPermission (Read-only) */
+@property(nonatomic, copy, nullable) NSString *privilege;
+
+/** Mobile Device release version version (Read-only) */
+@property(nonatomic, copy, nullable) NSString *releaseVersion;
+
 /** Unique identifier of Mobile Device (Read-only) */
 @property(nonatomic, copy, nullable) NSString *resourceId;
+
+/**
+ *  Mobile Device Security patch level (Read-only)
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *securityPatchLevel;
 
 /** Mobile Device SSN or Serial Number (Read-only) */
 @property(nonatomic, copy, nullable) NSString *serialNumber;

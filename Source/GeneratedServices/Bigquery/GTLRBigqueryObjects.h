@@ -2396,8 +2396,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  [Required] The field data type. Possible values include STRING, BYTES,
- *  INTEGER, FLOAT, BOOLEAN, TIMESTAMP or RECORD (where RECORD indicates that
- *  the field contains a nested schema).
+ *  INTEGER, FLOAT, BOOLEAN, TIMESTAMP, DATE, TIME, DATETIME, or RECORD (where
+ *  RECORD indicates that the field contains a nested schema).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

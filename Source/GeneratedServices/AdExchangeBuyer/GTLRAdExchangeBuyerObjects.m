@@ -321,7 +321,7 @@
 
 @implementation GTLRAdExchangeBuyer_CreativeNativeAd
 @dynamic advertiser, appIcon, body, callToAction, clickTrackingUrl, headline,
-         image, impressionTrackingUrl, logo, price, starRating, store;
+         image, impressionTrackingUrl, logo, price, starRating, store, videoURL;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -447,6 +447,34 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyer_CreativeDealIds
+//
+
+@implementation GTLRAdExchangeBuyer_CreativeDealIds
+@dynamic dealStatuses, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dealStatuses" : [GTLRAdExchangeBuyer_CreativeDealIdsDealStatusesItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyer_CreativeDealIdsDealStatusesItem
+//
+
+@implementation GTLRAdExchangeBuyer_CreativeDealIdsDealStatusesItem
+@dynamic arcStatus, dealId, webPropertyId;
 @end
 
 
@@ -816,10 +844,10 @@
 @dynamic buyerPrivateData, creationTimeMs, creativePreApprovalPolicy,
          creativeSafeFrameCompatibility, dealId, dealServingMetadata,
          deliveryControl, externalDealId, flightEndTimeMs, flightStartTimeMs,
-         inventoryDescription, kind, lastUpdateTimeMs, name, productId,
-         productRevisionNumber, programmaticCreativeSource, proposalId,
-         sellerContacts, sharedTargetings, syndicationProduct, terms,
-         webPropertyCode;
+         inventoryDescription, isRfpTemplate, kind, lastUpdateTimeMs, name,
+         productId, productRevisionNumber, programmaticCreativeSource,
+         proposalId, sellerContacts, sharedTargetings, syndicationProduct,
+         terms, webPropertyCode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1067,15 +1095,17 @@
 //
 
 @implementation GTLRAdExchangeBuyer_Proposal
-@dynamic billedBuyer, buyer, buyerContacts, buyerPrivateData, hasBuyerSignedOff,
-         hasSellerSignedOff, inventorySource, isRenegotiating, isSetupComplete,
-         kind, labels, lastUpdaterOrCommentorRole, name, negotiationId,
-         originatorRole, privateAuctionId, proposalId, proposalState,
-         revisionNumber, revisionTimeMs, seller, sellerContacts;
+@dynamic billedBuyer, buyer, buyerContacts, buyerPrivateData, dbmAdvertiserIds,
+         hasBuyerSignedOff, hasSellerSignedOff, inventorySource,
+         isRenegotiating, isSetupComplete, kind, labels,
+         lastUpdaterOrCommentorRole, name, negotiationId, originatorRole,
+         privateAuctionId, proposalId, proposalState, revisionNumber,
+         revisionTimeMs, seller, sellerContacts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"buyerContacts" : [GTLRAdExchangeBuyer_ContactInformation class],
+    @"dbmAdvertiserIds" : [NSString class],
     @"labels" : [GTLRAdExchangeBuyer_MarketplaceLabel class],
     @"sellerContacts" : [GTLRAdExchangeBuyer_ContactInformation class]
   };

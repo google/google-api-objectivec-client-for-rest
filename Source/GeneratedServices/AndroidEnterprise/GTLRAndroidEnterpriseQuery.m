@@ -339,31 +339,6 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 @end
 
-@implementation GTLRAndroidEnterpriseQuery_DevicesGetMaintenanceWindow
-
-@dynamic deviceId, enterpriseId, userId;
-
-+ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
-                               userId:(NSString *)userId
-                             deviceId:(NSString *)deviceId {
-  NSArray *pathParams = @[
-    @"deviceId", @"enterpriseId", @"userId"
-  ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/maintenanceWindow";
-  GTLRAndroidEnterpriseQuery_DevicesGetMaintenanceWindow *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.enterpriseId = enterpriseId;
-  query.userId = userId;
-  query.deviceId = deviceId;
-  query.expectedObjectClass = [GTLRAndroidEnterprise_MaintenanceWindow class];
-  query.loggingName = @"androidenterprise.devices.getMaintenanceWindow";
-  return query;
-}
-
-@end
-
 @implementation GTLRAndroidEnterpriseQuery_DevicesGetState
 
 @dynamic deviceId, enterpriseId, userId;
@@ -443,37 +418,6 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 @end
 
-@implementation GTLRAndroidEnterpriseQuery_DevicesUpdateMaintenanceWindow
-
-@dynamic deviceId, enterpriseId, userId;
-
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_MaintenanceWindow *)object
-                   enterpriseId:(NSString *)enterpriseId
-                         userId:(NSString *)userId
-                       deviceId:(NSString *)deviceId {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[
-    @"deviceId", @"enterpriseId", @"userId"
-  ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/maintenanceWindow";
-  GTLRAndroidEnterpriseQuery_DevicesUpdateMaintenanceWindow *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.enterpriseId = enterpriseId;
-  query.userId = userId;
-  query.deviceId = deviceId;
-  query.expectedObjectClass = [GTLRAndroidEnterprise_MaintenanceWindow class];
-  query.loggingName = @"androidenterprise.devices.updateMaintenanceWindow";
-  return query;
-}
-
-@end
-
 @implementation GTLRAndroidEnterpriseQuery_EnterprisesAcknowledgeNotificationSet
 
 @dynamic notificationSetId;
@@ -502,6 +446,31 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRAndroidEnterprise_Enterprise class];
   query.loggingName = @"androidenterprise.enterprises.completeSignup";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_EnterprisesCreateWebToken
+
+@dynamic enterpriseId;
+
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_AdministratorWebTokenSpec *)object
+                   enterpriseId:(NSString *)enterpriseId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"enterpriseId" ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/createWebToken";
+  GTLRAndroidEnterpriseQuery_EnterprisesCreateWebToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.enterpriseId = enterpriseId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_AdministratorWebToken class];
+  query.loggingName = @"androidenterprise.enterprises.createWebToken";
   return query;
 }
 

@@ -95,6 +95,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Batch download user accounts.
  *
  *  Method: identitytoolkit.relyingparty.downloadAccount
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitFirebase
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyDownloadAccount : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -345,6 +348,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Batch upload existing user accounts.
  *
  *  Method: identitytoolkit.relyingparty.uploadAccount
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitFirebase
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyUploadAccount : GTLRIdentityToolkitQuery
 // Previous library name was

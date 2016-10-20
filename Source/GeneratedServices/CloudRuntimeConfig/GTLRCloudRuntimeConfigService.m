@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud RuntimeConfig API (runtimeconfig/v1beta1)
+//   Google Cloud RuntimeConfig API (runtimeconfig/v1)
 // Description:
 //   Provides capabilities for dynamic configuration and coordination for
 //   applications running on Google Cloud Platform.

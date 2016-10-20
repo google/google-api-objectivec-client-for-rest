@@ -37,6 +37,20 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// courseStates
+
+/** Value: "ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesActive;
+/** Value: "ARCHIVED" */
+GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesArchived;
+/** Value: "COURSE_STATE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesCourseStateUnspecified;
+/** Value: "DECLINED" */
+GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesDeclined;
+/** Value: "PROVISIONED" */
+GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesProvisioned;
+
+// ----------------------------------------------------------------------------
 // courseWorkStates
 
 /** Value: "COURSE_WORK_STATE_UNSPECIFIED" */
@@ -1108,6 +1122,19 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesList]
 
 /**
+ *  Restricts returned courses to those in one of the specified states
+ *
+ *  Likely values:
+ *    @arg @c kGTLRClassroomCourseStatesCourseStateUnspecified Value
+ *        "COURSE_STATE_UNSPECIFIED"
+ *    @arg @c kGTLRClassroomCourseStatesActive Value "ACTIVE"
+ *    @arg @c kGTLRClassroomCourseStatesArchived Value "ARCHIVED"
+ *    @arg @c kGTLRClassroomCourseStatesProvisioned Value "PROVISIONED"
+ *    @arg @c kGTLRClassroomCourseStatesDeclined Value "DECLINED"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *courseStates;
+
+/**
  *  Maximum number of items to return. Zero or unspecified indicates that the
  *  server may assign a maximum. The server may return fewer than the specified
  *  number of results.
@@ -2085,13 +2112,14 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  to view, filtered by the parameters provided. This method returns the
  *  following error codes: * `PERMISSION_DENIED` if a `student_id` is specified,
  *  and the requesting user is not permitted to view guardian invitations for
- *  that student, if guardians are not enabled for the domain in question, or
- *  for other access errors. * `INVALID_ARGUMENT` if a `student_id` is
- *  specified, but its format cannot be recognized (it is not an email address,
- *  nor a `student_id` from the API, nor the literal string `me`). May also be
- *  returned if an invalid `page_token` or `state` is provided. * `NOT_FOUND` if
- *  a `student_id` is specified, and its format can be recognized, but Classroom
- *  has no record of that student.
+ *  that student, if `"-"` is specified as the `student_id` and the user is not
+ *  a domain administrator, if guardians are not enabled for the domain in
+ *  question, or for other access errors. * `INVALID_ARGUMENT` if a `student_id`
+ *  is specified, but its format cannot be recognized (it is not an email
+ *  address, nor a `student_id` from the API, nor the literal string `me`). May
+ *  also be returned if an invalid `page_token` or `state` is provided. *
+ *  `NOT_FOUND` if a `student_id` is specified, and its format can be
+ *  recognized, but Classroom has no record of that student.
  *
  *  Method: classroom.userProfiles.guardianInvitations.list
  */
@@ -2135,7 +2163,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  The ID of the student whose guardian invitations are to be returned. The
  *  identifier can be one of the following: * the numeric identifier for the
  *  user * the email address of the user * the string literal `"me"`, indicating
- *  the requesting user
+ *  the requesting user * the string literal `"-"`, indicating that results
+ *  should be returned for all students that the requesting user is permitted to
+ *  view guardian invitations.
  */
 @property(nonatomic, copy, nullable) NSString *studentId;
 
@@ -2146,18 +2176,21 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  to view, filtered by the parameters provided. This method returns the
  *  following error codes: * `PERMISSION_DENIED` if a `student_id` is specified,
  *  and the requesting user is not permitted to view guardian invitations for
- *  that student, if guardians are not enabled for the domain in question, or
- *  for other access errors. * `INVALID_ARGUMENT` if a `student_id` is
- *  specified, but its format cannot be recognized (it is not an email address,
- *  nor a `student_id` from the API, nor the literal string `me`). May also be
- *  returned if an invalid `page_token` or `state` is provided. * `NOT_FOUND` if
- *  a `student_id` is specified, and its format can be recognized, but Classroom
- *  has no record of that student.
+ *  that student, if `"-"` is specified as the `student_id` and the user is not
+ *  a domain administrator, if guardians are not enabled for the domain in
+ *  question, or for other access errors. * `INVALID_ARGUMENT` if a `student_id`
+ *  is specified, but its format cannot be recognized (it is not an email
+ *  address, nor a `student_id` from the API, nor the literal string `me`). May
+ *  also be returned if an invalid `page_token` or `state` is provided. *
+ *  `NOT_FOUND` if a `student_id` is specified, and its format can be
+ *  recognized, but Classroom has no record of that student.
  *
  *  @param studentId The ID of the student whose guardian invitations are to be
  *    returned. The identifier can be one of the following: * the numeric
  *    identifier for the user * the email address of the user * the string
- *    literal `"me"`, indicating the requesting user
+ *    literal `"me"`, indicating the requesting user * the string literal `"-"`,
+ *    indicating that results should be returned for all students that the
+ *    requesting user is permitted to view guardian invitations.
  *
  *  @returns GTLRClassroomQuery_UserProfilesGuardianInvitationsList
  *
@@ -2344,14 +2377,17 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Returns a list of guardians that the requesting user is permitted to view,
- *  restricted to those that match the request. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if a `student_id` is specified,
- *  and the requesting user is not permitted to view guardian information for
- *  that student, if guardians are not enabled for the domain in question, if
- *  the `invited_email_address` filter is set by a user who is not a domain
- *  administrator, or for other access errors. * `INVALID_ARGUMENT` if a
- *  `student_id` is specified, but its format cannot be recognized (it is not an
- *  email address, nor a `student_id` from the API, nor the literal string
+ *  restricted to those that match the request. To list guardians for any
+ *  student that the requesting user may view guardians for, use the literal
+ *  character `-` for the student ID. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if a `student_id` is specified, and the
+ *  requesting user is not permitted to view guardian information for that
+ *  student, if `"-"` is specified as the `student_id` and the user is not a
+ *  domain administrator, if guardians are not enabled for the domain in
+ *  question, if the `invited_email_address` filter is set by a user who is not
+ *  a domain administrator, or for other access errors. * `INVALID_ARGUMENT` if
+ *  a `student_id` is specified, but its format cannot be recognized (it is not
+ *  an email address, nor a `student_id` from the API, nor the literal string
  *  `me`). May also be returned if an invalid `page_token` is provided. *
  *  `NOT_FOUND` if a `student_id` is specified, and its format can be
  *  recognized, but Classroom has no record of that student.
@@ -2387,7 +2423,8 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Filter results by the student who the guardian is linked to. The identifier
  *  can be one of the following: * the numeric identifier for the user * the
  *  email address of the user * the string literal `"me"`, indicating the
- *  requesting user
+ *  requesting user * the string literal `"-"`, indicating that results should
+ *  be returned for all students that the requesting user has access to view.
  */
 @property(nonatomic, copy, nullable) NSString *studentId;
 
@@ -2395,14 +2432,17 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Fetches a @c GTLRClassroom_ListGuardiansResponse.
  *
  *  Returns a list of guardians that the requesting user is permitted to view,
- *  restricted to those that match the request. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if a `student_id` is specified,
- *  and the requesting user is not permitted to view guardian information for
- *  that student, if guardians are not enabled for the domain in question, if
- *  the `invited_email_address` filter is set by a user who is not a domain
- *  administrator, or for other access errors. * `INVALID_ARGUMENT` if a
- *  `student_id` is specified, but its format cannot be recognized (it is not an
- *  email address, nor a `student_id` from the API, nor the literal string
+ *  restricted to those that match the request. To list guardians for any
+ *  student that the requesting user may view guardians for, use the literal
+ *  character `-` for the student ID. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if a `student_id` is specified, and the
+ *  requesting user is not permitted to view guardian information for that
+ *  student, if `"-"` is specified as the `student_id` and the user is not a
+ *  domain administrator, if guardians are not enabled for the domain in
+ *  question, if the `invited_email_address` filter is set by a user who is not
+ *  a domain administrator, or for other access errors. * `INVALID_ARGUMENT` if
+ *  a `student_id` is specified, but its format cannot be recognized (it is not
+ *  an email address, nor a `student_id` from the API, nor the literal string
  *  `me`). May also be returned if an invalid `page_token` is provided. *
  *  `NOT_FOUND` if a `student_id` is specified, and its format can be
  *  recognized, but Classroom has no record of that student.
@@ -2410,7 +2450,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param studentId Filter results by the student who the guardian is linked
  *    to. The identifier can be one of the following: * the numeric identifier
  *    for the user * the email address of the user * the string literal `"me"`,
- *    indicating the requesting user
+ *    indicating the requesting user * the string literal `"-"`, indicating that
+ *    results should be returned for all students that the requesting user has
+ *    access to view.
  *
  *  @returns GTLRClassroomQuery_UserProfilesGuardiansList
  *

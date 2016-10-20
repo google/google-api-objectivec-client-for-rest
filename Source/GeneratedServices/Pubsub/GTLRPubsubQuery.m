@@ -19,6 +19,75 @@
 
 @end
 
+@implementation GTLRPubsubQuery_ProjectsSnapshotsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRPubsubQuery_ProjectsSnapshotsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRPubsub_Policy class];
+  query.loggingName = @"pubsub.projects.snapshots.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSnapshotsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRPubsub_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRPubsubQuery_ProjectsSnapshotsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRPubsub_Policy class];
+  query.loggingName = @"pubsub.projects.snapshots.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSnapshotsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRPubsub_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRPubsubQuery_ProjectsSnapshotsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRPubsub_TestIamPermissionsResponse class];
+  query.loggingName = @"pubsub.projects.snapshots.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRPubsubQuery_ProjectsSubscriptionsAcknowledge
 
 @dynamic subscription;

@@ -609,6 +609,39 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
 @end
 
 /**
+ *  Lists the external deal ids associated with the creative.
+ *
+ *  Method: adexchangebuyer.creatives.listDeals
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerQuery_CreativesListDeals : GTLRAdExchangeBuyerQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyer queryForCreativesListDealsWithaccountId:buyerCreativeId:]
+
+/** The id for the account that will serve this creative. */
+@property(nonatomic, assign) NSInteger accountId;
+
+/** The buyer-specific id for this creative. */
+@property(nonatomic, copy, nullable) NSString *buyerCreativeId;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyer_CreativeDealIds.
+ *
+ *  Lists the external deal ids associated with the creative.
+ *
+ *  @param accountId The id for the account that will serve this creative.
+ *  @param buyerCreativeId The buyer-specific id for this creative.
+ *
+ *  @returns GTLRAdExchangeBuyerQuery_CreativesListDeals
+ */
++ (instancetype)queryWithAccountId:(NSInteger)accountId
+                   buyerCreativeId:(NSString *)buyerCreativeId;
+
+@end
+
+/**
  *  Remove a deal id associated with the creative.
  *
  *  Method: adexchangebuyer.creatives.removeDeal

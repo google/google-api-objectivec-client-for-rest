@@ -15,6 +15,9 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// deobfuscationFileType
+NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeProguard = @"proguard";
+
 // expansionFileType
 NSString * const kGTLRAndroidPublisherExpansionFileTypeMain  = @"main";
 NSString * const kGTLRAndroidPublisherExpansionFileTypePatch = @"patch";
@@ -331,6 +334,35 @@ NSString * const kGTLRAndroidPublisherTrackRollout    = @"rollout";
   query.packageName = packageName;
   query.editId = editId;
   query.loggingName = @"androidpublisher.edits.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload
+
+@dynamic apkVersionCode, deobfuscationFileType, editId, packageName;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                              editId:(NSString *)editId
+                      apkVersionCode:(NSInteger)apkVersionCode
+               deobfuscationFileType:(NSString *)deobfuscationFileType
+                    uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  NSArray *pathParams = @[
+    @"apkVersionCode", @"deobfuscationFileType", @"editId", @"packageName"
+  ];
+  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks/{apkVersionCode}/deobfuscationFiles/{deobfuscationFileType}";
+  GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.editId = editId;
+  query.apkVersionCode = apkVersionCode;
+  query.deobfuscationFileType = deobfuscationFileType;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRAndroidPublisher_DeobfuscationFilesUploadResponse class];
+  query.loggingName = @"androidpublisher.edits.deobfuscationfiles.upload";
   return query;
 }
 

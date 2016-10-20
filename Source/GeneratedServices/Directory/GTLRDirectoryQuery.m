@@ -151,6 +151,34 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @end
 
+@implementation GTLRDirectoryQuery_ChromeosdevicesAction
+
+@dynamic customerId, resourceId;
+
++ (instancetype)queryWithObject:(GTLRDirectory_ChromeOsDeviceAction *)object
+                     customerId:(NSString *)customerId
+                     resourceId:(NSString *)resourceId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"customerId", @"resourceId"
+  ];
+  NSString *pathURITemplate = @"customer/{customerId}/devices/chromeos/{resourceId}/action";
+  GTLRDirectoryQuery_ChromeosdevicesAction *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customerId = customerId;
+  query.resourceId = resourceId;
+  query.loggingName = @"directory.chromeosdevices.action";
+  return query;
+}
+
+@end
+
 @implementation GTLRDirectoryQuery_ChromeosdevicesGet
 
 @dynamic customerId, deviceId, projection;

@@ -2507,7 +2507,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 @end
 
 /**
- *  Gets remarketing audiences to which the user has access.
+ *  Gets a remarketing audience to which the user has access.
  *
  *  Method: analytics.management.remarketingAudience.get
  *
@@ -2519,25 +2519,24 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 // Previous library name was
 //   +[GTLQueryAnalytics queryForManagementRemarketingAudienceGetWithaccountId:webPropertyId:remarketingAudienceId:]
 
-/** Account ID for the remarketing audience to retrieve. */
+/** The account ID of the remarketing audience to retrieve. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-/** The ID to retrieve the Remarketing Audience for. */
+/** The ID of the remarketing audience to retrieve. */
 @property(nonatomic, copy, nullable) NSString *remarketingAudienceId;
 
-/** Web property ID for the remarketing audience to retrieve. */
+/** The web property ID of the remarketing audience to retrieve. */
 @property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 /**
  *  Fetches a @c GTLRAnalytics_RemarketingAudience.
  *
- *  Gets remarketing audiences to which the user has access.
+ *  Gets a remarketing audience to which the user has access.
  *
- *  @param accountId Account ID for the remarketing audience to retrieve.
- *  @param webPropertyId Web property ID for the remarketing audience to
+ *  @param accountId The account ID of the remarketing audience to retrieve.
+ *  @param webPropertyId The web property ID of the remarketing audience to
  *    retrieve.
- *  @param remarketingAudienceId The ID to retrieve the Remarketing Audience
- *    for.
+ *  @param remarketingAudienceId The ID of the remarketing audience to retrieve.
  *
  *  @returns GTLRAnalyticsQuery_ManagementRemarketingAudienceGet
  */
@@ -2548,7 +2547,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 @end
 
 /**
- *  Creates a new remarketing audiences.
+ *  Creates a new remarketing audience.
  *
  *  Method: analytics.management.remarketingAudience.insert
  *
@@ -2559,21 +2558,23 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 // Previous library name was
 //   +[GTLQueryAnalytics queryForManagementRemarketingAudienceInsertWithObject:accountId:webPropertyId:]
 
-/** Account ID to create the remarketing audience for. */
+/** The account ID for which to create the remarketing audience. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-/** Web property ID to create the remarketing audience for. */
+/** Web property ID for which to create the remarketing audience. */
 @property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 /**
  *  Fetches a @c GTLRAnalytics_RemarketingAudience.
  *
- *  Creates a new remarketing audiences.
+ *  Creates a new remarketing audience.
  *
  *  @param object The @c GTLRAnalytics_RemarketingAudience to include in the
  *    query.
- *  @param accountId Account ID to create the remarketing audience for.
- *  @param webPropertyId Web property ID to create the remarketing audience for.
+ *  @param accountId The account ID for which to create the remarketing
+ *    audience.
+ *  @param webPropertyId Web property ID for which to create the remarketing
+ *    audience.
  *
  *  @returns GTLRAnalyticsQuery_ManagementRemarketingAudienceInsert
  */
@@ -2596,7 +2597,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 // Previous library name was
 //   +[GTLQueryAnalytics queryForManagementRemarketingAudienceListWithaccountId:webPropertyId:]
 
-/** Account ID for the remarketing audience to retrieve. */
+/** The account ID of the remarketing audiences to retrieve. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
@@ -2617,7 +2618,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** Web property ID for the remarketing audience to retrieve. */
+/** The web property ID of the remarketing audiences to retrieve. */
 @property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 /**
@@ -2625,8 +2626,8 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *
  *  Lists remarketing audiences to which the user has access.
  *
- *  @param accountId Account ID for the remarketing audience to retrieve.
- *  @param webPropertyId Web property ID for the remarketing audience to
+ *  @param accountId The account ID of the remarketing audiences to retrieve.
+ *  @param webPropertyId The web property ID of the remarketing audiences to
  *    retrieve.
  *
  *  @returns GTLRAnalyticsQuery_ManagementRemarketingAudienceList
@@ -2637,7 +2638,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 @end
 
 /**
- *  Updates an existing remarketing audiences. This method supports patch
+ *  Updates an existing remarketing audience. This method supports patch
  *  semantics.
  *
  *  Method: analytics.management.remarketingAudience.patch
@@ -2649,27 +2650,27 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 // Previous library name was
 //   +[GTLQueryAnalytics queryForManagementRemarketingAudiencePatchWithObject:accountId:webPropertyId:remarketingAudienceId:]
 
-/** Account ID for the remarketing audience to update. */
+/** The account ID of the remarketing audience to update. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-/** Remarketing audience ID of the remarketing audience to update. */
+/** The ID of the remarketing audience to update. */
 @property(nonatomic, copy, nullable) NSString *remarketingAudienceId;
 
-/** Web property ID for the remarketing audience to update. */
+/** The web property ID of the remarketing audience to update. */
 @property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 /**
  *  Fetches a @c GTLRAnalytics_RemarketingAudience.
  *
- *  Updates an existing remarketing audiences. This method supports patch
+ *  Updates an existing remarketing audience. This method supports patch
  *  semantics.
  *
  *  @param object The @c GTLRAnalytics_RemarketingAudience to include in the
  *    query.
- *  @param accountId Account ID for the remarketing audience to update.
- *  @param webPropertyId Web property ID for the remarketing audience to update.
- *  @param remarketingAudienceId Remarketing audience ID of the remarketing
- *    audience to update.
+ *  @param accountId The account ID of the remarketing audience to update.
+ *  @param webPropertyId The web property ID of the remarketing audience to
+ *    update.
+ *  @param remarketingAudienceId The ID of the remarketing audience to update.
  *
  *  @returns GTLRAnalyticsQuery_ManagementRemarketingAudiencePatch
  */
@@ -2681,7 +2682,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 @end
 
 /**
- *  Updates an existing remarketing audiences.
+ *  Updates an existing remarketing audience.
  *
  *  Method: analytics.management.remarketingAudience.update
  *
@@ -2692,26 +2693,26 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 // Previous library name was
 //   +[GTLQueryAnalytics queryForManagementRemarketingAudienceUpdateWithObject:accountId:webPropertyId:remarketingAudienceId:]
 
-/** Account ID for the remarketing audience to update. */
+/** The account ID of the remarketing audience to update. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-/** Remarketing audience ID of the remarketing audience to update. */
+/** The ID of the remarketing audience to update. */
 @property(nonatomic, copy, nullable) NSString *remarketingAudienceId;
 
-/** Web property ID for the remarketing audience to update. */
+/** The web property ID of the remarketing audience to update. */
 @property(nonatomic, copy, nullable) NSString *webPropertyId;
 
 /**
  *  Fetches a @c GTLRAnalytics_RemarketingAudience.
  *
- *  Updates an existing remarketing audiences.
+ *  Updates an existing remarketing audience.
  *
  *  @param object The @c GTLRAnalytics_RemarketingAudience to include in the
  *    query.
- *  @param accountId Account ID for the remarketing audience to update.
- *  @param webPropertyId Web property ID for the remarketing audience to update.
- *  @param remarketingAudienceId Remarketing audience ID of the remarketing
- *    audience to update.
+ *  @param accountId The account ID of the remarketing audience to update.
+ *  @param webPropertyId The web property ID of the remarketing audience to
+ *    update.
+ *  @param remarketingAudienceId The ID of the remarketing audience to update.
  *
  *  @returns GTLRAnalyticsQuery_ManagementRemarketingAudienceUpdate
  */

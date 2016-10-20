@@ -463,13 +463,17 @@
 //
 
 @implementation GTLRDrive_RevisionList
-@dynamic kind, revisions;
+@dynamic kind, nextPageToken, revisions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"revisions" : [GTLRDrive_Revision class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"revisions";
 }
 
 @end

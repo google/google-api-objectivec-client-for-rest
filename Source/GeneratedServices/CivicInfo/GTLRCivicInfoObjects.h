@@ -24,6 +24,7 @@
 @class GTLRCivicInfo_Candidate;
 @class GTLRCivicInfo_Channel;
 @class GTLRCivicInfo_Contest;
+@class GTLRCivicInfo_ContextParams;
 @class GTLRCivicInfo_DivisionSearchResult;
 @class GTLRCivicInfo_Election;
 @class GTLRCivicInfo_ElectionOfficial;
@@ -158,7 +159,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** The email address for the candidate's campaign. */
 @property(nonatomic, copy, nullable) NSString *email;
 
-/** The candidate's name. */
+/**
+ *  The candidate's name. If this is a joint ticket it will indicate the name of
+ *  the candidate at the top of a ticket followed by a / and that name of
+ *  candidate at the bottom of the ticket. e.g. "Mitt Romney / Paul Ryan"
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -355,6 +360,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRCivicInfo_ContextParams
+ */
+@interface GTLRCivicInfo_ContextParams : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *clientProfile;
+
+@end
+
+
+/**
+ *  A request to look up representative information for a single division.
+ */
+@interface GTLRCivicInfo_DivisionRepresentativeInfoRequest : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCivicInfo_ContextParams *contextParams;
+
+@end
+
+
+/**
+ *  A search request for political geographies.
+ */
+@interface GTLRCivicInfo_DivisionSearchRequest : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCivicInfo_ContextParams *contextParams;
+
+@end
+
+
+/**
  *  The result of a division search query.
  */
 @interface GTLRCivicInfo_DivisionSearchResponse : GTLRObject
@@ -445,6 +480,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The title of the election official. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  GTLRCivicInfo_ElectionsQueryRequest
+ */
+@interface GTLRCivicInfo_ElectionsQueryRequest : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCivicInfo_ContextParams *contextParams;
 
 @end
 
@@ -699,6 +744,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  A request for political geography and representative information for an
+ *  address.
+ */
+@interface GTLRCivicInfo_RepresentativeInfoRequest : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCivicInfo_ContextParams *contextParams;
+
+@end
+
+
+/**
  *  The result of a representative info lookup query.
  */
 @interface GTLRCivicInfo_RepresentativeInfoResponse : GTLRObject
@@ -785,6 +841,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *official;
+
+@end
+
+
+/**
+ *  A request for information about a voter.
+ */
+@interface GTLRCivicInfo_VoterInfoRequest : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCivicInfo_ContextParams *contextParams;
 
 @end
 

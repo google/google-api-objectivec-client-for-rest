@@ -785,7 +785,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_RevisionsList
 
-@dynamic fileId;
+@dynamic fileId, pageSize, pageToken;
 
 + (instancetype)queryWithFileId:(NSString *)fileId {
   NSArray *pathParams = @[ @"fileId" ];

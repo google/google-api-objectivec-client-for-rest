@@ -692,9 +692,10 @@
 //
 
 @implementation GTLRAnalytics_GaData
-@dynamic columnHeaders, containsSampledData, dataTable, identifier,
-         itemsPerPage, kind, nextLink, previousLink, profileInfo, query, rows,
-         sampleSize, sampleSpace, selfLink, totalResults, totalsForAllResults;
+@dynamic columnHeaders, containsSampledData, dataLastRefreshed, dataTable,
+         identifier, itemsPerPage, kind, nextLink, previousLink, profileInfo,
+         query, rows, sampleSize, sampleSpace, selfLink, totalResults,
+         totalsForAllResults;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

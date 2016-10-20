@@ -1870,6 +1870,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  [Output Only] URL of the region where the instance group resides (for
+ *  autoscalers living in regional scope).
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -2792,8 +2798,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *sourceSnapshotId;
 
 /**
- *  [Output Only] The status of disk creation. Applicable statuses includes:
- *  CREATING, FAILED, READY, RESTORING.
+ *  [Output Only] The status of disk creation.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Disk_Status_Creating Value "CREATING"
@@ -4431,7 +4436,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, strong, nullable) NSNumber *archiveSizeBytes;
 
-/** Creation timestamp in RFC3339 text format. */
+/** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
 /** The deprecation status associated with this image. */
@@ -4512,8 +4517,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  rawDisk.source property but not both to create an image. For example, the
  *  following are valid values:
  *  -
- *  https://www.googleapis.com/compute/v1/projects/project/zones/zone/disk/disk
- *  - projects/project/zones/zone/disk/disk
+ *  https://www.googleapis.com/compute/v1/projects/project/zones/zone/disks/disk
+ *  - projects/project/zones/zone/disks/disk
  *  - zones/zone/disks/disk
  */
 @property(nonatomic, copy, nullable) NSString *sourceDisk;
@@ -4888,6 +4893,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
+ *  The URL of the region where the instance group is located (for regional
+ *  resources).
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
  *  [Output Only] The URL for this instance group. The server generates this
  *  URL.
  */
@@ -5098,6 +5109,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_NamedPort *> *namedPorts;
 
 /**
+ *  [Output Only] The URL of the region where the managed instance group resides
+ *  (for regional resources).
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
  *  [Output Only] The URL for this managed instance group. The server defines
  *  this URL.
  */
@@ -5160,7 +5177,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] The number of instances that the managed instance group will
  *  attempt to create. The group attempts to create each instance only once. If
  *  the group fails to create any of these instances, it decreases the group's
- *  target_size value accordingly.
+ *  targetSize value accordingly.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5307,9 +5324,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/**
- *  [Output Only] The URL for this resource type. The server generates this URL.
- */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
@@ -6889,7 +6904,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** [Output Only] Server-defined URL for this resource . */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
@@ -7945,7 +7960,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /**
  *  Router interfaces. Each interface requires either one linked resource (e.g.
- *  linkedVpnTunnel) or IP address and IP address range (e.g. ipRange).
+ *  linkedVpnTunnel), or IP address and IP address range (e.g. ipRange), or
+ *  both.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouterInterface *> *interfaces;
 
@@ -8144,7 +8160,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** [Output Only] Server-defined URL for the resource. */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
@@ -8392,7 +8408,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** [Output Only] Server-defined URL for the resource. */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
@@ -10185,7 +10201,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** [Output Only] Server-defined URL for the resource. */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
@@ -10245,7 +10261,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** [Output Only] Server-defined URL for the resource. */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
@@ -10847,7 +10863,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** [Output Only] Server-defined URL for the resource. */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end

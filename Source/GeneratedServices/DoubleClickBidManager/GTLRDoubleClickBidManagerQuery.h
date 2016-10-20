@@ -19,7 +19,7 @@
 #endif
 
 @class GTLRDoubleClickBidManager_DownloadLineItemsRequest;
-@class GTLRDoubleClickBidManager_NotifyProposalChangeRequest;
+@class GTLRDoubleClickBidManager_DownloadRequest;
 @class GTLRDoubleClickBidManager_Query;
 @class GTLRDoubleClickBidManager_RunQueryRequest;
 @class GTLRDoubleClickBidManager_UploadLineItemsRequest;
@@ -231,26 +231,25 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Update proposal upon actions of Rubicon publisher.
+ *  Retrieves entities in SDF format.
  *
- *  Method: doubleclickbidmanager.rubicon.notifyproposalchange
+ *  Method: doubleclickbidmanager.sdf.download
  */
-@interface GTLRDoubleClickBidManagerQuery_RubiconNotifyproposalchange : GTLRDoubleClickBidManagerQuery
+@interface GTLRDoubleClickBidManagerQuery_SdfDownload : GTLRDoubleClickBidManagerQuery
 // Previous library name was
-//   +[GTLQueryDoubleClickBidManager queryForRubiconNotifyproposalchangeWithObject:]
+//   +[GTLQueryDoubleClickBidManager queryForSdfDownloadWithObject:]
 
 /**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
+ *  Fetches a @c GTLRDoubleClickBidManager_DownloadResponse.
  *
- *  Update proposal upon actions of Rubicon publisher.
+ *  Retrieves entities in SDF format.
  *
- *  @param object The @c GTLRDoubleClickBidManager_NotifyProposalChangeRequest
- *    to include in the query.
+ *  @param object The @c GTLRDoubleClickBidManager_DownloadRequest to include in
+ *    the query.
  *
- *  @returns GTLRDoubleClickBidManagerQuery_RubiconNotifyproposalchange
+ *  @returns GTLRDoubleClickBidManagerQuery_SdfDownload
  */
-+ (instancetype)queryWithObject:(GTLRDoubleClickBidManager_NotifyProposalChangeRequest *)object;
++ (instancetype)queryWithObject:(GTLRDoubleClickBidManager_DownloadRequest *)object;
 
 @end
 

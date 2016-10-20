@@ -20,7 +20,7 @@
 
 @class GTLRIdentityToolkit_EmailTemplate;
 @class GTLRIdentityToolkit_IdpConfig;
-@class GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem;
+@class GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameter;
 @class GTLRIdentityToolkit_SetAccountInfoResponseProviderUserInfoItem;
 @class GTLRIdentityToolkit_UploadAccountResponseErrorItem;
 @class GTLRIdentityToolkit_UserInfo;
@@ -293,9 +293,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *continueUri;
 
 /**
- *  The query parameter that client can customize by themselves in auth url.
+ *  The query parameter that client can customize by themselves in auth url. The
+ *  following parameters are reserved for server so that they cannot be
+ *  customized by clients: client_id, response_type, scope, redirect_uri, state,
+ *  oauth_token.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem *> *customParameter;
+@property(nonatomic, strong, nullable) GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameter *customParameter;
 
 /**
  *  The hosted domain to restrict sign-in to accounts at that domain for Google
@@ -343,16 +346,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem
+ *  The query parameter that client can customize by themselves in auth url. The
+ *  following parameters are reserved for server so that they cannot be
+ *  customized by clients: client_id, response_type, scope, redirect_uri, state,
+ *  oauth_token.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
  */
-@interface GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameterItem : GTLRObject
-
-/** The key of the query parameter. */
-@property(nonatomic, copy, nullable) NSString *key;
-
-/** The value of the query parameter. */
-@property(nonatomic, copy, nullable) NSString *value;
-
+@interface GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameter : GTLRObject
 @end
 
 
@@ -797,6 +801,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *signerKey;
+
+/**
+ *  Specify which project (field value is actually project id) to operate. Only
+ *  used when provided credential.
+ */
+@property(nonatomic, copy, nullable) NSString *targetProjectId;
 
 /** The account info to be stored. */
 @property(nonatomic, strong, nullable) NSArray<GTLRIdentityToolkit_UserInfo *> *users;

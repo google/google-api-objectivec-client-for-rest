@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud RuntimeConfig API (runtimeconfig/v1beta1)
+//   Google Cloud RuntimeConfig API (runtimeconfig/v1)
 // Description:
 //   Provides capabilities for dynamic configuration and coordination for
 //   applications running on Google Cloud Platform.
@@ -12,20 +12,11 @@
 #import "GTLRCloudRuntimeConfigObjects.h"
 
 // ----------------------------------------------------------------------------
-// Constants
-
-// GTLRCloudRuntimeConfig_Variable.state
-NSString * const kGTLRCloudRuntimeConfig_Variable_State_Deleted = @"DELETED";
-NSString * const kGTLRCloudRuntimeConfig_Variable_State_Updated = @"UPDATED";
-NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStateUnspecified = @"VARIABLE_STATE_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
 //
-//   GTLRCloudRuntimeConfig_Cardinality
+//   GTLRCloudRuntimeConfig_CancelOperationRequest
 //
 
-@implementation GTLRCloudRuntimeConfig_Cardinality
-@dynamic number, path;
+@implementation GTLRCloudRuntimeConfig_CancelOperationRequest
 @end
 
 
@@ -40,75 +31,21 @@ NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStateUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRuntimeConfig_EndCondition
+//   GTLRCloudRuntimeConfig_ListOperationsResponse
 //
 
-@implementation GTLRCloudRuntimeConfig_EndCondition
-@dynamic cardinality;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRuntimeConfig_ListConfigsResponse
-//
-
-@implementation GTLRCloudRuntimeConfig_ListConfigsResponse
-@dynamic configs, nextPageToken;
+@implementation GTLRCloudRuntimeConfig_ListOperationsResponse
+@dynamic nextPageToken, operations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"configs" : [GTLRCloudRuntimeConfig_RuntimeConfig class]
+    @"operations" : [GTLRCloudRuntimeConfig_Operation class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
-  return @"configs";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRuntimeConfig_ListVariablesResponse
-//
-
-@implementation GTLRCloudRuntimeConfig_ListVariablesResponse
-@dynamic nextPageToken, variables;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"variables" : [GTLRCloudRuntimeConfig_Variable class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"variables";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRuntimeConfig_ListWaitersResponse
-//
-
-@implementation GTLRCloudRuntimeConfig_ListWaitersResponse
-@dynamic nextPageToken, waiters;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"waiters" : [GTLRCloudRuntimeConfig_Waiter class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"waiters";
+  return @"operations";
 }
 
 @end
@@ -154,21 +91,6 @@ NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStateUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRuntimeConfig_RuntimeConfig
-//
-
-@implementation GTLRCloudRuntimeConfig_RuntimeConfig
-@dynamic descriptionProperty, name;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRuntimeConfig_Status
 //
 
@@ -196,34 +118,4 @@ NSString * const kGTLRCloudRuntimeConfig_Variable_State_VariableStateUnspecified
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRuntimeConfig_Variable
-//
-
-@implementation GTLRCloudRuntimeConfig_Variable
-@dynamic name, state, text, updateTime, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRuntimeConfig_Waiter
-//
-
-@implementation GTLRCloudRuntimeConfig_Waiter
-@dynamic createTime, done, error, failure, name, success, timeout;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRuntimeConfig_WatchVariableRequest
-//
-
-@implementation GTLRCloudRuntimeConfig_WatchVariableRequest
-@dynamic newerThan;
 @end

@@ -7,7 +7,7 @@
 //   Creates and manages rules that determine when a Firebase Rules-enabled
 //   service should permit a request.
 // Documentation:
-//   https://firebase.google.com/docs/storage/security/start
+//   https://firebase.google.com/docs/storage/security
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

@@ -392,7 +392,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ValueInputOpti
 
 /**
  *  The cell's value must be empty.
- *  Supported by data validation, conditional formatting and filters.
+ *  Supported by conditional formatting and filters.
  *  Requires no ConditionValues.
  *
  *  Value: "BLANK"
@@ -464,7 +464,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateIsValid;
 GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateNotBetween;
 /**
  *  The cell's value must be on or after the date of the condition's value.
- *  Supported by data validation, conditional formatting and filters.
+ *  Supported by data validation.
  *  Requires a single ConditionValue
  *  that may be a relative date.
  *
@@ -473,7 +473,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateNotBetween;
 GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateOnOrAfter;
 /**
  *  The cell's value must be on or before the date of the condition's value.
- *  Supported by data validation, conditional formatting and filters.
+ *  Supported by data validation.
  *  Requires a single ConditionValue
  *  that may be a relative date.
  *
@@ -482,7 +482,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateOnOrAfter;
 GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateOnOrBefore;
 /**
  *  The cell's value must not be empty.
- *  Supported by data validation, conditional formatting and filters.
+ *  Supported by conditional formatting and filters.
  *  Requires no ConditionValues.
  *
  *  Value: "NOT_BLANK"
@@ -581,7 +581,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_OneOfRange;
 GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextContains;
 /**
  *  The cell's value must end with the condition's value.
- *  Supported by data validation, conditional formatting and filters.
+ *  Supported by conditional formatting and filters.
  *  Requires a single ConditionValue.
  *
  *  Value: "TEXT_ENDS_WITH"
@@ -621,7 +621,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextIsUrl;
 GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextNotContains;
 /**
  *  The cell's value must start with the condition's value.
- *  Supported by data validation, conditional formatting and filters.
+ *  Supported by conditional formatting and filters.
  *  Requires a single ConditionValue.
  *
  *  Value: "TEXT_STARTS_WITH"
@@ -657,11 +657,23 @@ GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_Double;
  */
 GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_None;
 /**
- *  The border is a solid line.
+ *  The border is a thin solid line.
  *
  *  Value: "SOLID"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_Solid;
+/**
+ *  The border is a medium solid line.
+ *
+ *  Value: "SOLID_MEDIUM"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_SolidMedium;
+/**
+ *  The border is a thick solid line.
+ *
+ *  Value: "SOLID_THICK"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_SolidThick;
 /**
  *  The style is not specified. Do not use this.
  *
@@ -2154,6 +2166,36 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 
 /**
+ *  The request for clearing more than one range of values in a spreadsheet.
+ */
+@interface GTLRSheets_BatchClearValuesRequest : GTLRObject
+
+/** The ranges to clear, in A1 notation. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ranges;
+
+@end
+
+
+/**
+ *  The response when updating a range of values in a spreadsheet.
+ */
+@interface GTLRSheets_BatchClearValuesResponse : GTLRObject
+
+/**
+ *  The ranges that were cleared, in A1 notation.
+ *  (If the requests were for an unbounded range or a ranger larger
+ *  than the bounds of the sheet, this will be the actual ranges
+ *  that were cleared, bounded to the sheet's limits.)
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *clearedRanges;
+
+/** The spreadsheet the updates were applied to. */
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
+
+@end
+
+
+/**
  *  The response when retrieving more than one range of values in a spreadsheet.
  */
 @interface GTLRSheets_BatchGetValuesResponse : GTLRObject
@@ -2287,7 +2329,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  Likely values:
  *    @arg @c kGTLRSheets_BooleanCondition_Type_Blank The cell's value must be
  *        empty.
- *        Supported by data validation, conditional formatting and filters.
+ *        Supported by conditional formatting and filters.
  *        Requires no ConditionValues. (Value: "BLANK")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_ConditionTypeUnspecified The
  *        default value, do not use. (Value: "CONDITION_TYPE_UNSPECIFIED")
@@ -2323,17 +2365,17 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        Requires exactly two ConditionValues. (Value: "DATE_NOT_BETWEEN")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_DateOnOrAfter The cell's value
  *        must be on or after the date of the condition's value.
- *        Supported by data validation, conditional formatting and filters.
+ *        Supported by data validation.
  *        Requires a single ConditionValue
  *        that may be a relative date. (Value: "DATE_ON_OR_AFTER")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_DateOnOrBefore The cell's value
  *        must be on or before the date of the condition's value.
- *        Supported by data validation, conditional formatting and filters.
+ *        Supported by data validation.
  *        Requires a single ConditionValue
  *        that may be a relative date. (Value: "DATE_ON_OR_BEFORE")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_NotBlank The cell's value must
  *        not be empty.
- *        Supported by data validation, conditional formatting and filters.
+ *        Supported by conditional formatting and filters.
  *        Requires no ConditionValues. (Value: "NOT_BLANK")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_NumberBetween The cell's value
  *        must be between the two condition values.
@@ -2385,7 +2427,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        Requires a single ConditionValue. (Value: "TEXT_CONTAINS")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_TextEndsWith The cell's value
  *        must end with the condition's value.
- *        Supported by data validation, conditional formatting and filters.
+ *        Supported by conditional formatting and filters.
  *        Requires a single ConditionValue. (Value: "TEXT_ENDS_WITH")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_TextEq The cell's value must be
  *        exactly the condition's value.
@@ -2405,7 +2447,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        Requires a single ConditionValue. (Value: "TEXT_NOT_CONTAINS")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_TextStartsWith The cell's value
  *        must start with the condition's value.
- *        Supported by data validation, conditional formatting and filters.
+ *        Supported by conditional formatting and filters.
  *        Requires a single ConditionValue. (Value: "TEXT_STARTS_WITH")
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -2465,8 +2507,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        (Value: "DOUBLE")
  *    @arg @c kGTLRSheets_Border_Style_None No border.
  *        Used only when updating a border in order to erase it. (Value: "NONE")
- *    @arg @c kGTLRSheets_Border_Style_Solid The border is a solid line. (Value:
- *        "SOLID")
+ *    @arg @c kGTLRSheets_Border_Style_Solid The border is a thin solid line.
+ *        (Value: "SOLID")
+ *    @arg @c kGTLRSheets_Border_Style_SolidMedium The border is a medium solid
+ *        line. (Value: "SOLID_MEDIUM")
+ *    @arg @c kGTLRSheets_Border_Style_SolidThick The border is a thick solid
+ *        line. (Value: "SOLID_THICK")
  *    @arg @c kGTLRSheets_Border_Style_StyleUnspecified The style is not
  *        specified. Do not use this. (Value: "STYLE_UNSPECIFIED")
  */
@@ -2474,7 +2520,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /**
  *  The width of the border, in pixels.
- *  Border widths must be between 0 and 3 pixels, inclusive.
+ *  Deprecated; the width is determined by the "style" field.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2801,6 +2847,32 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sheetId;
+
+@end
+
+
+/**
+ *  The request for clearing a range of values in a spreadsheet.
+ */
+@interface GTLRSheets_ClearValuesRequest : GTLRObject
+@end
+
+
+/**
+ *  The response when clearing a range of values in a spreadsheet.
+ */
+@interface GTLRSheets_ClearValuesResponse : GTLRObject
+
+/**
+ *  The range (in A1 notation) that was cleared.
+ *  (If the request was for an unbounded range or a ranger larger
+ *  than the bounds of the sheet, this will be the actual range
+ *  that was cleared, bounded to the sheet's limits.)
+ */
+@property(nonatomic, copy, nullable) NSString *clearedRange;
+
+/** The spreadsheet the updates were applied to. */
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 @end
 
@@ -4108,6 +4180,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 /**
  *  Pattern string used for formatting. If not set, a default pattern based on
  *  the user's locale will be used if necessary for the given type.
+ *  See the [Date and Number Formats guide](/sheets/guides/formats) for more
+ *  information about the supported patterns.
  */
 @property(nonatomic, copy, nullable) NSString *pattern;
 

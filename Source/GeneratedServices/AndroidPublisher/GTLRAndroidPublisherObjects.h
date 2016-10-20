@@ -22,6 +22,7 @@
 @class GTLRAndroidPublisher_ApkBinary;
 @class GTLRAndroidPublisher_ApkListing;
 @class GTLRAndroidPublisher_Comment;
+@class GTLRAndroidPublisher_DeobfuscationFile;
 @class GTLRAndroidPublisher_DeveloperComment;
 @class GTLRAndroidPublisher_Entitlement;
 @class GTLRAndroidPublisher_ExpansionFile;
@@ -206,6 +207,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** A comment from a user. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_UserComment *userComment;
+
+@end
+
+
+/**
+ *  Represents a deobfuscation file.
+ */
+@interface GTLRAndroidPublisher_DeobfuscationFile : GTLRObject
+
+/** The type of the deobfuscation file. */
+@property(nonatomic, copy, nullable) NSString *symbolType;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_DeobfuscationFilesUploadResponse
+ */
+@interface GTLRAndroidPublisher_DeobfuscationFilesUploadResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeobfuscationFile *deobfuscationFile;
 
 @end
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Logging API (logging/v2beta1)
+//   Stackdriver Logging API (logging/v2)
 // Description:
 //   Writes log entries and manages your Stackdriver Logging configuration.
 // Documentation:
@@ -39,6 +39,10 @@ NSString * const kGTLRLogging_LogLine_Severity_Error     = @"ERROR";
 NSString * const kGTLRLogging_LogLine_Severity_Info      = @"INFO";
 NSString * const kGTLRLogging_LogLine_Severity_Notice    = @"NOTICE";
 NSString * const kGTLRLogging_LogLine_Severity_Warning   = @"WARNING";
+
+// GTLRLogging_LogMetric.version
+NSString * const kGTLRLogging_LogMetric_Version_V1 = @"V1";
+NSString * const kGTLRLogging_LogMetric_Version_V2 = @"V2";
 
 // GTLRLogging_LogSink.outputVersionFormat
 NSString * const kGTLRLogging_LogSink_OutputVersionFormat_V1   = @"V1";
@@ -272,7 +276,7 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
 //
 
 @implementation GTLRLogging_LogMetric
-@dynamic descriptionProperty, filter, name;
+@dynamic descriptionProperty, filter, name, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -287,7 +291,8 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
 //
 
 @implementation GTLRLogging_LogSink
-@dynamic destination, filter, name, outputVersionFormat, writerIdentity;
+@dynamic destination, endTime, filter, name, outputVersionFormat, startTime,
+         writerIdentity;
 @end
 
 

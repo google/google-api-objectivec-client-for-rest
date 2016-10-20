@@ -42,6 +42,120 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: pubsub.projects.snapshots.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSnapshotsGetIamPolicy : GTLRPubsubQuery
+// Previous library name was
+//   +[GTLQueryPubsub queryForProjectsSnapshotsGetIamPolicyWithresource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. `resource`
+ *  is usually specified as a path. For example, a Project resource is specified
+ *  as `projects/{project}`.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRPubsub_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
+ *
+ *  @returns GTLRPubsubQuery_ProjectsSnapshotsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: pubsub.projects.snapshots.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSnapshotsSetIamPolicy : GTLRPubsubQuery
+// Previous library name was
+//   +[GTLQueryPubsub queryForProjectsSnapshotsSetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. `resource`
+ *  is usually specified as a path. For example, a Project resource is specified
+ *  as `projects/{project}`.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRPubsub_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
+ *
+ *  @returns GTLRPubsubQuery_ProjectsSnapshotsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRPubsub_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: pubsub.projects.snapshots.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSnapshotsTestIamPermissions : GTLRPubsubQuery
+// Previous library name was
+//   +[GTLQueryPubsub queryForProjectsSnapshotsTestIamPermissionsWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested.
+ *  `resource` is usually specified as a path. For example, a Project resource
+ *  is specified as `projects/{project}`.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRPubsub_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRPubsub_TestIamPermissionsRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
+ *
+ *  @returns GTLRPubsubQuery_ProjectsSnapshotsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRPubsub_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Acknowledges the messages associated with the `ack_ids` in the
  *  `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages
  *  from the subscription. Acknowledging a message whose ack deadline has
@@ -85,6 +199,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  returns `ALREADY_EXISTS`. If the corresponding topic doesn't exist, returns
  *  `NOT_FOUND`. If the name is not provided in the request, the server will
  *  assign a random name for this subscription on the same project as the topic.
+ *  Note that for REST API requests, you must specify a name.
  *
  *  Method: pubsub.projects.subscriptions.create
  *
@@ -113,6 +228,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  returns `ALREADY_EXISTS`. If the corresponding topic doesn't exist, returns
  *  `NOT_FOUND`. If the name is not provided in the request, the server will
  *  assign a random name for this subscription on the same project as the topic.
+ *  Note that for REST API requests, you must specify a name.
  *
  *  @param object The @c GTLRPubsub_Subscription to include in the query.
  *  @param name The name of the subscription. It must have the format
@@ -130,10 +246,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an existing subscription. All pending messages in the subscription
+ *  Deletes an existing subscription. All messages retained in the subscription
  *  are immediately dropped. Calls to `Pull` after deletion will return
  *  `NOT_FOUND`. After a subscription is deleted, a new one may be created with
- *  the same name, but the new one has no association with the old subscription,
+ *  the same name, but the new one has no association with the old subscription
  *  or its topic unless the same topic is specified.
  *
  *  Method: pubsub.projects.subscriptions.delete
@@ -152,10 +268,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Empty.
  *
- *  Deletes an existing subscription. All pending messages in the subscription
+ *  Deletes an existing subscription. All messages retained in the subscription
  *  are immediately dropped. Calls to `Pull` after deletion will return
  *  `NOT_FOUND`. After a subscription is deleted, a new one may be created with
- *  the same name, but the new one has no association with the old subscription,
+ *  the same name, but the new one has no association with the old subscription
  *  or its topic unless the same topic is specified.
  *
  *  @param subscription The subscription to delete.
@@ -196,7 +312,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a `resource`. Returns an empty policy if
+ *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
  *  Method: pubsub.projects.subscriptions.getIamPolicy
@@ -211,23 +327,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. `resource`
- *  is usually specified as a path, such as `projects/ *project* /zones/ *zone*
- *  /disks/ *disk*`. The format for the path specified in this value is resource
- *  specific and is specified in the `getIamPolicy` documentation.
+ *  is usually specified as a path. For example, a Project resource is specified
+ *  as `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_Policy.
  *
- *  Gets the access control policy for a `resource`. Returns an empty policy if
+ *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. `resource` is usually specified as a path, such as `projects/
- *    *project* /zones/ *zone* /disks/ *disk*`. The format for the path
- *    specified in this value is resource specific and is specified in the
- *    `getIamPolicy` documentation.
+ *    requested. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
  *
  *  @returns GTLRPubsubQuery_ProjectsSubscriptionsGetIamPolicy
  */
@@ -282,7 +395,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Modifies the ack deadline for a specific message. This method is useful to
  *  indicate that more time is needed to process a message by the subscriber, or
  *  to make the message available for redelivery if the processing was
- *  interrupted.
+ *  interrupted. Note that this does not modify the subscription-level
+ *  `ackDeadlineSeconds` used for subsequent messages.
  *
  *  Method: pubsub.projects.subscriptions.modifyAckDeadline
  *
@@ -303,7 +417,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Modifies the ack deadline for a specific message. This method is useful to
  *  indicate that more time is needed to process a message by the subscriber, or
  *  to make the message available for redelivery if the processing was
- *  interrupted.
+ *  interrupted. Note that this does not modify the subscription-level
+ *  `ackDeadlineSeconds` used for subsequent messages.
  *
  *  @param object The @c GTLRPubsub_ModifyAckDeadlineRequest to include in the
  *    query.
@@ -409,9 +524,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. `resource`
- *  is usually specified as a path, such as `projects/ *project* /zones/ *zone*
- *  /disks/ *disk*`. The format for the path specified in this value is resource
- *  specific and is specified in the `setIamPolicy` documentation.
+ *  is usually specified as a path. For example, a Project resource is specified
+ *  as `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -423,10 +537,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. `resource` is usually specified as a path, such as `projects/
- *    *project* /zones/ *zone* /disks/ *disk*`. The format for the path
- *    specified in this value is resource specific and is specified in the
- *    `setIamPolicy` documentation.
+ *    specified. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
  *
  *  @returns GTLRPubsubQuery_ProjectsSubscriptionsSetIamPolicy
  */
@@ -450,10 +562,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested.
- *  `resource` is usually specified as a path, such as `projects/ *project*
- *  /zones/ *zone* /disks/ *disk*`. The format for the path specified in this
- *  value is resource specific and is specified in the `testIamPermissions`
- *  documentation.
+ *  `resource` is usually specified as a path. For example, a Project resource
+ *  is specified as `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -465,10 +575,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRPubsub_TestIamPermissionsRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. `resource` is usually specified as a path, such as `projects/
- *    *project* /zones/ *zone* /disks/ *disk*`. The format for the path
- *    specified in this value is resource specific and is specified in the
- *    `testIamPermissions` documentation.
+ *    requested. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
  *
  *  @returns GTLRPubsubQuery_ProjectsSubscriptionsTestIamPermissions
  */
@@ -587,7 +695,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a `resource`. Returns an empty policy if
+ *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
  *  Method: pubsub.projects.topics.getIamPolicy
@@ -602,23 +710,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. `resource`
- *  is usually specified as a path, such as `projects/ *project* /zones/ *zone*
- *  /disks/ *disk*`. The format for the path specified in this value is resource
- *  specific and is specified in the `getIamPolicy` documentation.
+ *  is usually specified as a path. For example, a Project resource is specified
+ *  as `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_Policy.
  *
- *  Gets the access control policy for a `resource`. Returns an empty policy if
+ *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. `resource` is usually specified as a path, such as `projects/
- *    *project* /zones/ *zone* /disks/ *disk*`. The format for the path
- *    specified in this value is resource specific and is specified in the
- *    `getIamPolicy` documentation.
+ *    requested. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
  *
  *  @returns GTLRPubsubQuery_ProjectsTopicsGetIamPolicy
  */
@@ -720,9 +825,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. `resource`
- *  is usually specified as a path, such as `projects/ *project* /zones/ *zone*
- *  /disks/ *disk*`. The format for the path specified in this value is resource
- *  specific and is specified in the `setIamPolicy` documentation.
+ *  is usually specified as a path. For example, a Project resource is specified
+ *  as `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -734,10 +838,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. `resource` is usually specified as a path, such as `projects/
- *    *project* /zones/ *zone* /disks/ *disk*`. The format for the path
- *    specified in this value is resource specific and is specified in the
- *    `setIamPolicy` documentation.
+ *    specified. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
  *
  *  @returns GTLRPubsubQuery_ProjectsTopicsSetIamPolicy
  */
@@ -800,10 +902,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested.
- *  `resource` is usually specified as a path, such as `projects/ *project*
- *  /zones/ *zone* /disks/ *disk*`. The format for the path specified in this
- *  value is resource specific and is specified in the `testIamPermissions`
- *  documentation.
+ *  `resource` is usually specified as a path. For example, a Project resource
+ *  is specified as `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -815,10 +915,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRPubsub_TestIamPermissionsRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. `resource` is usually specified as a path, such as `projects/
- *    *project* /zones/ *zone* /disks/ *disk*`. The format for the path
- *    specified in this value is resource specific and is specified in the
- *    `testIamPermissions` documentation.
+ *    requested. `resource` is usually specified as a path. For example, a
+ *    Project resource is specified as `projects/{project}`.
  *
  *  @returns GTLRPubsubQuery_ProjectsTopicsTestIamPermissions
  */
