@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
   # Require atleast 1.1.3 of the SessionFetcher so it has the backgroundTask
   # Testing support.
-  s.dependency 'GTMSessionFetcher', '~> 1.1', '>= 1.1.3'
+  s.dependency 'GTMSessionFetcher', '>= 1.1.7'
 
   s.subspec 'Core' do |sp|
     sp.source_files = 'Source/GTLRDefines.h',
