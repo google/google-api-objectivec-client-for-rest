@@ -3,7 +3,7 @@
 set -eu
 
 if [[ "$#" -ne 2 ]]; then
-  echo "Usage: $0 {iOS|OSX} {Debug|Release}"
+  echo "Usage: $0 {iOS|OSX|tvOS} {Debug|Release|Both}"
   exit 10
 fi
 
@@ -32,6 +32,14 @@ case "${BUILD_MODE}" in
     CMD_BUILDER+=(
       -project Source/GTLRCore.xcodeproj
       -scheme "OS X Framework and Tests"
+    )
+    XCODEBUILD_ACTION="test"
+    ;;
+  tvOSCore)
+    CMD_BUILDER+=(
+      -project Source/GTLRCore.xcodeproj
+      -scheme "tvOS Framework and Tests"
+      -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest"
     )
     XCODEBUILD_ACTION="test"
     ;;

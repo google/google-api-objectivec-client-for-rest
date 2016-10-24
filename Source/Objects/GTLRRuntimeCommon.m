@@ -399,9 +399,7 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
       nil, nil,
       NO
     },
-// This conditional matches the one in iPhoneOS.platform version of
-// <objc/objc.h> that controls the definition of BOOL.
-#if !defined(OBJC_HIDE_64) && TARGET_OS_IPHONE && (defined(__LP64__) && __LP64__)
+#if defined(OBJC_BOOL_IS_BOOL) && OBJC_BOOL_IS_BOOL
     { // BOOL as bool
       "TB",
       GTLRPropertyTypeBool,
@@ -410,7 +408,7 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
       nil, nil,
       NO
     },
-#else
+#elif defined(OBJC_BOOL_IS_CHAR) && OBJC_BOOL_IS_CHAR
     { // BOOL as char
       "Tc",
       GTLRPropertyTypeBool,
@@ -419,6 +417,8 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
       nil, nil,
       NO
     },
+#else
+ #error unknown definition for ObjC BOOL type
 #endif
     { // NSString
       "T@\"NSString\"",

@@ -58,7 +58,7 @@
 + (instancetype)trackLifetimeOfObject:(id)object expectation:(XCTestExpectation *)expectation;
 @end
 
-#if TARGET_OS_IPHONE
+#if GTM_BACKGROUND_TASK_FETCHING
 
 // An implementation of a substitute UIApplication to track invocations of begin
 // and end. It doesn't attempt to match them up.
@@ -73,7 +73,7 @@
 
 @end
 
-#endif  // TARGET_OS_IPHONE
+#endif  // GTM_BACKGROUND_TASK_FETCHING
 
 @implementation GTLRServiceTest {
   NSURL *_tempFileURLToDelete;
@@ -283,7 +283,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 }
 
 - (void)setCountingUIAppWithExpirations:(BOOL)shouldExpireTasks {
-#if TARGET_OS_IPHONE
+#if GTM_BACKGROUND_TASK_FETCHING
   CountingUIApplication *countingUIApp = [[CountingUIApplication alloc] init];
   countingUIApp.shouldExpireTasks = shouldExpireTasks;
 
@@ -293,7 +293,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
 - (void)verifyCountingUIAppWithExpectedCount:(NSUInteger)expectedCount
                          expectedExpirations:(NSUInteger)expectedExpirations {
-#if TARGET_OS_IPHONE
+#if GTM_BACKGROUND_TASK_FETCHING
   CountingUIApplication *countingUIApp = [GTMSessionFetcher substituteUIApplication];
   XCTAssertNotNil(countingUIApp);
 
@@ -307,7 +307,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 }
 
 - (void)clearCountingUIApp {
-#if TARGET_OS_IPHONE
+#if GTM_BACKGROUND_TASK_FETCHING
   [GTMSessionFetcher setSubstituteUIApplication:nil];
 #endif
 }
@@ -3457,7 +3457,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
 @end
 
-#if TARGET_OS_IPHONE
+#if GTM_BACKGROUND_TASK_FETCHING
 
 @implementation CountingUIApplication
 
@@ -3502,4 +3502,4 @@ UIBackgroundTaskIdentifier gTaskID = 1000;
 
 @end
 
-#endif  // TARGET_OS_IPHONE
+#endif  // GTM_BACKGROUND_TASK_FETCHING
