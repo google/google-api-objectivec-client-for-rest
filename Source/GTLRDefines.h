@@ -83,7 +83,9 @@
 
 // Sanity check the min versions.
 
-#if TARGET_OS_IPHONE
+#if (defined(TARGET_OS_TV) && TARGET_OS_TV) || (defined(TARGET_OS_WATCH) && TARGET_OS_WATCH)
+  // No min checks for these two.
+#elif TARGET_OS_IPHONE
   #if !defined(__IPHONE_9_0) || (__IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0)
     #error "This project expects to be compiled with the iOS 9.0 SDK (or later)."
   #endif

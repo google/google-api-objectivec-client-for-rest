@@ -18,9 +18,6 @@
 #endif
 
 #import <TargetConditionals.h>
-#if TARGET_OS_MAC
-#include <sys/utsname.h>
-#endif
 
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>

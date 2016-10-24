@@ -5,6 +5,8 @@ env:
   - MODE=OSXCore CFG=Release
   - MODE=iOSCore CFG=Debug
   - MODE=iOSCore CFG=Release
+  - MODE=tvOSCore CFG=Debug
+  - MODE=tvOSCore CFG=Release
   - MODE=Example_CalendarSample CFG=Both
   - MODE=Example_DriveSample CFG=Both
   - MODE=Example_YouTubeSample CFG=Both
