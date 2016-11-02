@@ -60,7 +60,8 @@ static ArgInfo optionalFlags[] = {
   { "--gtlrFrameworkName NAME",
     "Will generate sources that include GTLR's headers as if they are in a"
     " framework with the given name.  If you are using GTLR via CocoaPods,"
-    " you'll likely want to pass \"GoogleAPIClient\" as the value for this."
+    " you'll likely want to pass \"GoogleApiClientForRest\" as the value for"
+    " this."
   },
   { "--apiLogDir DIR",
     "Write out a file into DIR for each JSON API description processed.  These"
