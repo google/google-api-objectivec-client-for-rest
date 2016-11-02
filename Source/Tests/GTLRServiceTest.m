@@ -87,6 +87,8 @@
               @"%@", deleteError);
   }
   [self clearCountingUIApp];
+
+  [super tearDown];
 }
 
 #pragma mark -
