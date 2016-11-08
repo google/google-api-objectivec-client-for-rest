@@ -64,7 +64,7 @@ NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
 //
 
 @implementation GTLRServiceControl_CheckRequest
-@dynamic operation;
+@dynamic operation, serviceConfigId;
 @end
 
 
@@ -289,7 +289,7 @@ NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
 //
 
 @implementation GTLRServiceControl_ReportRequest
-@dynamic operations;
+@dynamic operations, serviceConfigId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

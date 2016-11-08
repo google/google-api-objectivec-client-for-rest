@@ -42,9 +42,9 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_Build
-@dynamic createTime, finishTime, identifier, images, logsBucket, logUrl,
-         options, projectId, results, source, sourceProvenance, startTime,
-         status, statusDetail, steps, timeout;
+@dynamic buildTriggerId, createTime, finishTime, identifier, images, logsBucket,
+         logUrl, options, projectId, results, source, sourceProvenance,
+         startTime, status, statusDetail, steps, timeout;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

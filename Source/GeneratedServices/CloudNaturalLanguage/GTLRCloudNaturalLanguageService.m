@@ -10,18 +10,18 @@
 // Documentation:
 //   https://cloud.google.com/natural-language/
 
-#import "GTLRCloudNaturalLanguageAPI.h"
+#import "GTLRCloudNaturalLanguage.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeCloudNaturalLanguageAPICloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudNaturalLanguageCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudNaturalLanguageAPIService
+//   GTLRCloudNaturalLanguageService
 //
 
-@implementation GTLRCloudNaturalLanguageAPIService
+@implementation GTLRCloudNaturalLanguageService
 
 - (instancetype)init {
   self = [super init];

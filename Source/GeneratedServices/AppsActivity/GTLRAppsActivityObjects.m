@@ -215,5 +215,5 @@ NSString * const kGTLRAppsActivity_Permission_Type_User   = @"user";
 //
 
 @implementation GTLRAppsActivity_User
-@dynamic isDeleted, name, permissionId, photo;
+@dynamic isDeleted, isMe, name, permissionId, photo;
 @end

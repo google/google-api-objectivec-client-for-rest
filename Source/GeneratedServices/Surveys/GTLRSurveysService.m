@@ -12,9 +12,9 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeSurveysConsumersurveys         = @"https://www.googleapis.com/auth/consumersurveys";
-NSString * const kGTLRAuthScopeSurveysConsumersurveysReadonly = @"https://www.googleapis.com/auth/consumersurveys.readonly";
-NSString * const kGTLRAuthScopeSurveysUserinfoEmail           = @"https://www.googleapis.com/auth/userinfo.email";
+NSString * const kGTLRAuthScopeSurveys              = @"https://www.googleapis.com/auth/surveys";
+NSString * const kGTLRAuthScopeSurveysReadonly      = @"https://www.googleapis.com/auth/surveys.readonly";
+NSString * const kGTLRAuthScopeSurveysUserinfoEmail = @"https://www.googleapis.com/auth/userinfo.email";
 
 // ----------------------------------------------------------------------------
 //   GTLRSurveysService

@@ -1387,7 +1387,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
- *  Image context.
+ *  Image context and/or feature-specific parameters.
  */
 @interface GTLRVision_ImageContext : GTLRObject
 

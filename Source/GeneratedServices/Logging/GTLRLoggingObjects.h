@@ -816,6 +816,10 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 
 /**
  *  Describes a sink used to export log entries outside of Stackdriver Logging.
+ *  A logs filter controls which log entries are exported. Sinks can have a
+ *  start time and an end time; these can be used to place log entries from an
+ *  exact time range into a particular destination. If both `start_time` and
+ *  `end_time` are present, then `start_time` must be less than `end_time`.
  */
 @interface GTLRLogging_LogSink : GTLRObject
 
@@ -829,7 +833,11 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  */
 @property(nonatomic, copy, nullable) NSString *destination;
 
-/** Optional. Time at which this sink expires. */
+/**
+ *  Optional. Time at which this sink will stop exporting log entries. If this
+ *  value is present, then log entries are exported only if `entry.timestamp` <
+ *  `end_time`.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
@@ -870,23 +878,18 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @property(nonatomic, copy, nullable) NSString *outputVersionFormat;
 
 /**
- *  Optional. Time range for which this sink is active.
- *  Logs are exported only if start_time <= entry.timestamp < end_time
- *  Both start_time and end_time may be omitted to specify
- *  (half) infinite ranges. The start_time must be less than the end_time.
+ *  Optional. The time at which this sink will begin exporting log entries. If
+ *  this value is present, then log entries are exported only if `start_time`
+ *  <=`entry.timestamp`.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  Output only. The IAM identity to which the destination needs to grant write
- *  access. This may be a service account or a group.
- *  Examples (Do not assume these specific values):
- *  "serviceAccount:cloud-logs\@system.gserviceaccount.com"
- *  "group:cloud-logs\@google.com"
- *  For GCS destinations, the role "roles/owner" is required on the bucket
- *  For Cloud Pubsub destinations, the role "roles/pubsub.publisher" is
- *  required on the topic
- *  For BigQuery, the role "roles/editor" is required on the dataset
+ *  Output only. An IAM identity&mdash;a service account or group&mdash;that
+ *  will write exported log entries to the destination on behalf of Stackdriver
+ *  Logging. You must grant this identity write-access to the destination.
+ *  Consult the destination service's documentation to determine the exact role
+ *  that must be granted.
  */
 @property(nonatomic, copy, nullable) NSString *writerIdentity;
 

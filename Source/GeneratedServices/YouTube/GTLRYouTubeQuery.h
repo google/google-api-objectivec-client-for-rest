@@ -3844,6 +3844,20 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
+ *  Note: This parameter is intended exclusively for YouTube content partners.
+ *  The onBehalfOfContentOwner parameter indicates that the request's
+ *  authorization credentials identify a YouTube CMS user who is acting on
+ *  behalf of the content owner specified in the parameter value. This parameter
+ *  is intended for YouTube content partners that own and manage many different
+ *  YouTube channels. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The CMS account that
+ *  the user authenticates with must be linked to the specified YouTube content
+ *  owner.
+ */
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
+
+/**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
@@ -4032,6 +4046,20 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
 @interface GTLRYouTubeQuery_PlaylistItemsUpdate : GTLRYouTubeQuery
 // Previous library name was
 //   +[GTLQueryYouTube queryForPlaylistItemsUpdateWithObject:part:]
+
+/**
+ *  Note: This parameter is intended exclusively for YouTube content partners.
+ *  The onBehalfOfContentOwner parameter indicates that the request's
+ *  authorization credentials identify a YouTube CMS user who is acting on
+ *  behalf of the content owner specified in the parameter value. This parameter
+ *  is intended for YouTube content partners that own and manage many different
+ *  YouTube channels. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The CMS account that
+ *  the user authenticates with must be linked to the specified YouTube content
+ *  owner.
+ */
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
  *  The part parameter serves two purposes in this operation. It identifies the
@@ -5525,6 +5553,15 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
 @property(nonatomic, copy, nullable) NSString *locale;
 
 /**
+ *  The maxHeight parameter specifies a maximum height of the embedded player.
+ *  If maxWidth is provided, maxHeight may not be reached in order to not
+ *  violate the width request.
+ *
+ *  @note The documented range is 72..8192.
+ */
+@property(nonatomic, assign) NSUInteger maxHeight;
+
+/**
  *  The maxResults parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *  Note: This parameter is supported for use in conjunction with the myRating
@@ -5535,6 +5572,15 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        range 1..50).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  The maxWidth parameter specifies a maximum width of the embedded player. If
+ *  maxHeight is provided, maxWidth may not be reached in order to not violate
+ *  the height request.
+ *
+ *  @note The documented range is 72..8192.
+ */
+@property(nonatomic, assign) NSUInteger maxWidth;
 
 /**
  *  Set this parameter's value to like or dislike to instruct the API to only

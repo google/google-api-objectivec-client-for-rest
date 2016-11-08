@@ -289,7 +289,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRAdSense_AdStyleColors *colors;
 
-/** The style of the corners in the ad. */
+/**
+ *  The style of the corners in the ad (deprecated: never populated, ignored).
+ */
 @property(nonatomic, copy, nullable) NSString *corners;
 
 /** The font which is included in the style. */

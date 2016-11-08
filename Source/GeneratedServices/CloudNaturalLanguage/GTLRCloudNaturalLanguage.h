@@ -10,6 +10,6 @@
 // Documentation:
 //   https://cloud.google.com/natural-language/
 
-#import "GTLRCloudNaturalLanguageAPIObjects.h"
-#import "GTLRCloudNaturalLanguageAPIQuery.h"
-#import "GTLRCloudNaturalLanguageAPIService.h"
+#import "GTLRCloudNaturalLanguageObjects.h"
+#import "GTLRCloudNaturalLanguageQuery.h"
+#import "GTLRCloudNaturalLanguageService.h"

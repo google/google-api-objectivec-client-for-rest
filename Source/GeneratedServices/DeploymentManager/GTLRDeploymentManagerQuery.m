@@ -159,7 +159,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_DeploymentsList
 
-@dynamic filter, maxResults, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -348,7 +348,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_ManifestsList
 
-@dynamic deployment, filter, maxResults, pageToken, project;
+@dynamic deployment, filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                       deployment:(NSString *)deployment {
@@ -394,7 +394,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_OperationsList
 
-@dynamic filter, maxResults, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -438,7 +438,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_ResourcesList
 
-@dynamic deployment, filter, maxResults, pageToken, project;
+@dynamic deployment, filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                       deployment:(NSString *)deployment {
@@ -461,7 +461,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_TypesList
 
-@dynamic filter, maxResults, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];

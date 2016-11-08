@@ -58,6 +58,24 @@ GTLR_EXTERN NSString * const kGTLRSheetsMajorDimensionDimensionUnspecified;
 GTLR_EXTERN NSString * const kGTLRSheetsMajorDimensionRows;
 
 // ----------------------------------------------------------------------------
+// responseDateTimeRenderOption
+
+/** Value: "FORMATTED_STRING" */
+GTLR_EXTERN NSString * const kGTLRSheetsResponseDateTimeRenderOptionFormattedString;
+/** Value: "SERIAL_NUMBER" */
+GTLR_EXTERN NSString * const kGTLRSheetsResponseDateTimeRenderOptionSerialNumber;
+
+// ----------------------------------------------------------------------------
+// responseValueRenderOption
+
+/** Value: "FORMATTED_VALUE" */
+GTLR_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionFormattedValue;
+/** Value: "FORMULA" */
+GTLR_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionFormula;
+/** Value: "UNFORMATTED_VALUE" */
+GTLR_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionUnformattedValue;
+
+// ----------------------------------------------------------------------------
 // valueInputOption
 
 /** Value: "INPUT_VALUE_OPTION_UNSPECIFIED" */
@@ -314,6 +332,13 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 //   +[GTLQuerySheets queryForSpreadsheetsValuesAppendWithObject:spreadsheetId:range:]
 
 /**
+ *  Determines if the update response should include the values
+ *  of the cells that were appended. By default, responses
+ *  do not include the updated values.
+ */
+@property(nonatomic, assign) BOOL includeValuesInResponse;
+
+/**
  *  How the input data should be inserted.
  *
  *  Likely values:
@@ -327,6 +352,33 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  Values will be appended after the last row of the table.
  */
 @property(nonatomic, copy, nullable) NSString *range;
+
+/**
+ *  Determines how dates, times, and durations in the response should be
+ *  rendered. This is ignored if response_value_render_option is
+ *  FORMATTED_VALUE.
+ *  The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionSerialNumber Value
+ *        "SERIAL_NUMBER"
+ *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionFormattedString Value
+ *        "FORMATTED_STRING"
+ */
+@property(nonatomic, copy, nullable) NSString *responseDateTimeRenderOption;
+
+/**
+ *  Determines how values in the response should be rendered.
+ *  The default render option is ValueRenderOption.FORMATTED_VALUE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheetsResponseValueRenderOptionFormattedValue Value
+ *        "FORMATTED_VALUE"
+ *    @arg @c kGTLRSheetsResponseValueRenderOptionUnformattedValue Value
+ *        "UNFORMATTED_VALUE"
+ *    @arg @c kGTLRSheetsResponseValueRenderOptionFormula Value "FORMULA"
+ */
+@property(nonatomic, copy, nullable) NSString *responseValueRenderOption;
 
 /** The ID of the spreadsheet to update. */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
@@ -431,6 +483,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  How dates, times, and durations should be represented in the output.
  *  This is ignored if value_render_option is
  *  FORMATTED_VALUE.
+ *  The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsDateTimeRenderOptionSerialNumber Value "SERIAL_NUMBER"
@@ -463,6 +516,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 /**
  *  How values should be represented in the output.
+ *  The default render option is ValueRenderOption.FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsValueRenderOptionFormattedValue Value "FORMATTED_VALUE"
@@ -586,6 +640,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  How dates, times, and durations should be represented in the output.
  *  This is ignored if value_render_option is
  *  FORMATTED_VALUE.
+ *  The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsDateTimeRenderOptionSerialNumber Value "SERIAL_NUMBER"
@@ -618,6 +673,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 /**
  *  How values should be represented in the output.
+ *  The default render option is ValueRenderOption.FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsValueRenderOptionFormattedValue Value "FORMATTED_VALUE"
@@ -658,8 +714,45 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 // Previous library name was
 //   +[GTLQuerySheets queryForSpreadsheetsValuesUpdateWithObject:spreadsheetId:range:]
 
+/**
+ *  Determines if the update response should include the values
+ *  of the cells that were updated. By default, responses
+ *  do not include the updated values.
+ *  If the range to write was larger than than the range actually written,
+ *  the response will include all values in the requested range (excluding
+ *  trailing empty rows and columns).
+ */
+@property(nonatomic, assign) BOOL includeValuesInResponse;
+
 /** The A1 notation of the values to update. */
 @property(nonatomic, copy, nullable) NSString *range;
+
+/**
+ *  Determines how dates, times, and durations in the response should be
+ *  rendered. This is ignored if response_value_render_option is
+ *  FORMATTED_VALUE.
+ *  The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionSerialNumber Value
+ *        "SERIAL_NUMBER"
+ *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionFormattedString Value
+ *        "FORMATTED_STRING"
+ */
+@property(nonatomic, copy, nullable) NSString *responseDateTimeRenderOption;
+
+/**
+ *  Determines how values in the response should be rendered.
+ *  The default render option is ValueRenderOption.FORMATTED_VALUE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheetsResponseValueRenderOptionFormattedValue Value
+ *        "FORMATTED_VALUE"
+ *    @arg @c kGTLRSheetsResponseValueRenderOptionUnformattedValue Value
+ *        "UNFORMATTED_VALUE"
+ *    @arg @c kGTLRSheetsResponseValueRenderOptionFormula Value "FORMULA"
+ */
+@property(nonatomic, copy, nullable) NSString *responseValueRenderOption;
 
 /** The ID of the spreadsheet to update. */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;

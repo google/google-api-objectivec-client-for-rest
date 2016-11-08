@@ -353,6 +353,34 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCivicInfo_PostalAddress
+//
+
+@implementation GTLRCivicInfo_PostalAddress
+@dynamic addressLines, administrativeAreaName, countryName, countryNameCode,
+         dependentLocalityName, dependentThoroughfareLeadingType,
+         dependentThoroughfareName, dependentThoroughfarePostDirection,
+         dependentThoroughfarePreDirection, dependentThoroughfaresConnector,
+         dependentThoroughfaresIndicator, dependentThoroughfaresType,
+         dependentThoroughfareTrailingType, firmName, isDisputed, languageCode,
+         localityName, postalCodeNumber, postalCodeNumberExtension,
+         postBoxNumber, premiseName, recipientName, sortingCode,
+         subAdministrativeAreaName, subPremiseName, thoroughfareLeadingType,
+         thoroughfareName, thoroughfareNumber, thoroughfarePostDirection,
+         thoroughfarePreDirection, thoroughfareTrailingType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addressLines" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCivicInfo_RepresentativeInfoData
 //
 
@@ -453,7 +481,7 @@
 //
 
 @implementation GTLRCivicInfo_VoterInfoRequest
-@dynamic contextParams;
+@dynamic contextParams, voterInfoSegmentResult;
 @end
 
 
@@ -478,4 +506,14 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCivicInfo_VoterInfoSegmentResult
+//
+
+@implementation GTLRCivicInfo_VoterInfoSegmentResult
+@dynamic generatedMillis, postalAddress, request, response;
 @end

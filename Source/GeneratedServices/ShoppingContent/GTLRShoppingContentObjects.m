@@ -968,8 +968,8 @@
 //
 
 @implementation GTLRShoppingContent_Inventory
-@dynamic availability, installment, kind, loyaltyPoints, price, quantity,
-         salePrice, salePriceEffectiveDate, sellOnGoogleQuantity;
+@dynamic availability, installment, kind, loyaltyPoints, pickup, price,
+         quantity, salePrice, salePriceEffectiveDate, sellOnGoogleQuantity;
 @end
 
 
@@ -1031,12 +1031,22 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_InventoryPickup
+//
+
+@implementation GTLRShoppingContent_InventoryPickup
+@dynamic pickupMethod, pickupSla;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_InventorySetRequest
 //
 
 @implementation GTLRShoppingContent_InventorySetRequest
-@dynamic availability, installment, loyaltyPoints, price, quantity, salePrice,
-         salePriceEffectiveDate, sellOnGoogleQuantity;
+@dynamic availability, installment, loyaltyPoints, pickup, price, quantity,
+         salePrice, salePriceEffectiveDate, sellOnGoogleQuantity;
 @end
 
 

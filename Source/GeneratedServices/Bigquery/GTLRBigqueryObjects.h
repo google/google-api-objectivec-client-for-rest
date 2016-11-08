@@ -35,6 +35,7 @@
 @class GTLRBigquery_Job;
 @class GTLRBigquery_JobConfiguration;
 @class GTLRBigquery_JobConfigurationExtract;
+@class GTLRBigquery_JobConfigurationLabels;
 @class GTLRBigquery_JobConfigurationLoad;
 @class GTLRBigquery_JobConfigurationQuery;
 @class GTLRBigquery_JobConfigurationQueryTableDefinitions;
@@ -967,12 +968,41 @@ NS_ASSUME_NONNULL_BEGIN
 /** [Pick one] Configures an extract job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationExtract *extract;
 
+/**
+ *  [Experimental] The labels associated with this job. You can use these to
+ *  organize and group your jobs. Label keys and values can be no longer than 63
+ *  characters, can only contain letters, numeric characters, underscores and
+ *  dashes. International characters are allowed. Label values are optional.
+ *  Label keys must start with a letter and must be unique within a dataset.
+ *  Both keys and values are additionally constrained to be <= 128 bytes in
+ *  size.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationLabels *labels;
+
 /** [Pick one] Configures a load job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationLoad *load;
 
 /** [Pick one] Configures a query job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationQuery *query;
 
+@end
+
+
+/**
+ *  [Experimental] The labels associated with this job. You can use these to
+ *  organize and group your jobs. Label keys and values can be no longer than 63
+ *  characters, can only contain letters, numeric characters, underscores and
+ *  dashes. International characters are allowed. Label values are optional.
+ *  Label keys must start with a letter and must be unique within a dataset.
+ *  Both keys and values are additionally constrained to be <= 128 bytes in
+ *  size.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBigquery_JobConfigurationLabels : GTLRObject
 @end
 
 
@@ -1289,12 +1319,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** [Required] BigQuery SQL query to execute. */
 @property(nonatomic, copy, nullable) NSString *query;
 
-/** [Experimental] Query parameters for Standard SQL queries. */
+/** Query parameters for standard SQL queries. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameter *> *queryParameters;
 
 /**
- *  [Experimental] Allows the schema of the desitination table to be updated as
- *  a side effect of the query job. Schema update options are supported in two
+ *  [Experimental] Allows the schema of the destination table to be updated as a
+ *  side effect of the query job. Schema update options are supported in two
  *  cases: when writeDisposition is WRITE_APPEND; when writeDisposition is
  *  WRITE_TRUNCATE and the destination table is a partition of a table,
  *  specified by partition decorators. For normal tables, WRITE_TRUNCATE will
@@ -1314,10 +1344,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationQueryTableDefinitions *tableDefinitions;
 
 /**
- *  [Experimental] Specifies whether to use BigQuery's legacy SQL dialect for
- *  this query. The default value is true. If set to false, the query will use
- *  BigQuery's standard SQL: https://cloud.google.com/bigquery/sql-reference/
- *  When useLegacySql is set to false, the values of allowLargeResults and
+ *  Specifies whether to use BigQuery's legacy SQL dialect for this query. The
+ *  default value is true. If set to false, the query will use BigQuery's
+ *  standard SQL: https://cloud.google.com/bigquery/sql-reference/ When
+ *  useLegacySql is set to false, the values of allowLargeResults and
  *  flattenResults are ignored; query will be run as if allowLargeResults is
  *  true and flattenResults is false.
  *
@@ -1958,10 +1988,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *timeoutMs;
 
 /**
- *  [Experimental] Specifies whether to use BigQuery's legacy SQL dialect for
- *  this query. The default value is true. If set to false, the query will use
- *  BigQuery's standard SQL: https://cloud.google.com/bigquery/sql-reference/
- *  When useLegacySql is set to false, the values of allowLargeResults and
+ *  Specifies whether to use BigQuery's legacy SQL dialect for this query. The
+ *  default value is true. If set to false, the query will use BigQuery's
+ *  standard SQL: https://cloud.google.com/bigquery/sql-reference/ When
+ *  useLegacySql is set to false, the values of allowLargeResults and
  *  flattenResults are ignored; query will be run as if allowLargeResults is
  *  true and flattenResults is false.
  *
@@ -2564,10 +2594,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  [Experimental] Specifies whether to use BigQuery's legacy SQL for this view.
- *  The default value is true. If set to false, the view will use BigQuery's
- *  standard SQL: https://cloud.google.com/bigquery/sql-reference/ Queries and
- *  views that reference this view must use the same flag value.
+ *  Specifies whether to use BigQuery's legacy SQL for this view. The default
+ *  value is true. If set to false, the view will use BigQuery's standard SQL:
+ *  https://cloud.google.com/bigquery/sql-reference/ Queries and views that
+ *  reference this view must use the same flag value.
  *
  *  Uses NSNumber of boolValue.
  */

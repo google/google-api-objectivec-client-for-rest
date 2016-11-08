@@ -336,10 +336,24 @@
 //
 
 @implementation GTLRBigquery_JobConfiguration
-@dynamic copyProperty, dryRun, extract, load, query;
+@dynamic copyProperty, dryRun, extract, labels, load, query;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"copyProperty" : @"copy" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_JobConfigurationLabels
+//
+
+@implementation GTLRBigquery_JobConfigurationLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

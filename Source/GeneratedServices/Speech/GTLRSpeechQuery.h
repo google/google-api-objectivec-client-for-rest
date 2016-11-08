@@ -195,7 +195,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Perform asynchronous speech-recognition: receive results via the
+ *  Performs asynchronous speech recognition: receive results via the
  *  google.longrunning.Operations interface. Returns either an
  *  `Operation.error` or an `Operation.response` which contains
  *  an `AsyncRecognizeResponse` message.
@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSpeech_Operation.
  *
- *  Perform asynchronous speech-recognition: receive results via the
+ *  Performs asynchronous speech recognition: receive results via the
  *  google.longrunning.Operations interface. Returns either an
  *  `Operation.error` or an `Operation.response` which contains
  *  an `AsyncRecognizeResponse` message.
@@ -227,7 +227,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Perform synchronous speech-recognition: receive results after all audio
+ *  Performs synchronous speech recognition: receive results after all audio
  *  has been sent and processed.
  *
  *  Method: speech.speech.syncrecognize
@@ -242,7 +242,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSpeech_SyncRecognizeResponse.
  *
- *  Perform synchronous speech-recognition: receive results after all audio
+ *  Performs synchronous speech recognition: receive results after all audio
  *  has been sent and processed.
  *
  *  @param object The @c GTLRSpeech_SyncRecognizeRequest to include in the

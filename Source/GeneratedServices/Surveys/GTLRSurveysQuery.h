@@ -40,8 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: surveys.mobileapppanels.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeSurveysConsumersurveys
- *    @c kGTLRAuthScopeSurveysConsumersurveysReadonly
+ *    @c kGTLRAuthScopeSurveys
+ *    @c kGTLRAuthScopeSurveysReadonly
  *    @c kGTLRAuthScopeSurveysUserinfoEmail
  */
 @interface GTLRSurveysQuery_MobileapppanelsGet : GTLRSurveysQuery
@@ -70,8 +70,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: surveys.mobileapppanels.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeSurveysConsumersurveys
- *    @c kGTLRAuthScopeSurveysConsumersurveysReadonly
+ *    @c kGTLRAuthScopeSurveys
+ *    @c kGTLRAuthScopeSurveysReadonly
  *    @c kGTLRAuthScopeSurveysUserinfoEmail
  */
 @interface GTLRSurveysQuery_MobileapppanelsList : GTLRSurveysQuery
@@ -102,7 +102,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: surveys.mobileapppanels.update
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeSurveysConsumersurveys
+ *    @c kGTLRAuthScopeSurveys
  *    @c kGTLRAuthScopeSurveysUserinfoEmail
  */
 @interface GTLRSurveysQuery_MobileapppanelsUpdate : GTLRSurveysQuery
@@ -136,8 +136,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: surveys.results.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeSurveysConsumersurveys
- *    @c kGTLRAuthScopeSurveysConsumersurveysReadonly
+ *    @c kGTLRAuthScopeSurveys
+ *    @c kGTLRAuthScopeSurveysReadonly
  *    @c kGTLRAuthScopeSurveysUserinfoEmail
  */
 @interface GTLRSurveysQuery_ResultsGet : GTLRSurveysQuery
@@ -185,7 +185,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: surveys.surveys.delete
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeSurveysConsumersurveys
+ *    @c kGTLRAuthScopeSurveys
  *    @c kGTLRAuthScopeSurveysUserinfoEmail
  */
 @interface GTLRSurveysQuery_SurveysDelete : GTLRSurveysQuery
@@ -214,8 +214,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: surveys.surveys.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeSurveysConsumersurveys
- *    @c kGTLRAuthScopeSurveysConsumersurveysReadonly
+ *    @c kGTLRAuthScopeSurveys
+ *    @c kGTLRAuthScopeSurveysReadonly
  *    @c kGTLRAuthScopeSurveysUserinfoEmail
  */
 @interface GTLRSurveysQuery_SurveysGet : GTLRSurveysQuery
@@ -244,7 +244,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: surveys.surveys.insert
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeSurveysConsumersurveys
+ *    @c kGTLRAuthScopeSurveys
  *    @c kGTLRAuthScopeSurveysUserinfoEmail
  */
 @interface GTLRSurveysQuery_SurveysInsert : GTLRSurveysQuery
@@ -270,8 +270,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: surveys.surveys.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeSurveysConsumersurveys
- *    @c kGTLRAuthScopeSurveysConsumersurveysReadonly
+ *    @c kGTLRAuthScopeSurveys
+ *    @c kGTLRAuthScopeSurveysReadonly
  *    @c kGTLRAuthScopeSurveysUserinfoEmail
  */
 @interface GTLRSurveysQuery_SurveysList : GTLRSurveysQuery
@@ -301,7 +301,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: surveys.surveys.start
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeSurveysConsumersurveys
+ *    @c kGTLRAuthScopeSurveys
  *    @c kGTLRAuthScopeSurveysUserinfoEmail
  */
 @interface GTLRSurveysQuery_SurveysStart : GTLRSurveysQuery
@@ -331,7 +331,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: surveys.surveys.stop
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeSurveysConsumersurveys
+ *    @c kGTLRAuthScopeSurveys
  *    @c kGTLRAuthScopeSurveysUserinfoEmail
  */
 @interface GTLRSurveysQuery_SurveysStop : GTLRSurveysQuery
@@ -360,7 +360,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: surveys.surveys.update
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeSurveysConsumersurveys
+ *    @c kGTLRAuthScopeSurveys
  *    @c kGTLRAuthScopeSurveysUserinfoEmail
  */
 @interface GTLRSurveysQuery_SurveysUpdate : GTLRSurveysQuery

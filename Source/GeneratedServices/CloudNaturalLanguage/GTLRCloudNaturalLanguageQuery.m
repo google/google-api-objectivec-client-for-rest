@@ -10,70 +10,70 @@
 // Documentation:
 //   https://cloud.google.com/natural-language/
 
-#import "GTLRCloudNaturalLanguageAPIQuery.h"
+#import "GTLRCloudNaturalLanguageQuery.h"
 
-#import "GTLRCloudNaturalLanguageAPIObjects.h"
+#import "GTLRCloudNaturalLanguageObjects.h"
 
-@implementation GTLRCloudNaturalLanguageAPIQuery
+@implementation GTLRCloudNaturalLanguageQuery
 
 @dynamic fields;
 
 @end
 
-@implementation GTLRCloudNaturalLanguageAPIQuery_DocumentsAnalyzeEntities
+@implementation GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntities
 
-+ (instancetype)queryWithObject:(GTLRCloudNaturalLanguageAPI_AnalyzeEntitiesRequest *)object {
++ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeEntitiesRequest *)object {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
   NSString *pathURITemplate = @"v1beta1/documents:analyzeEntities";
-  GTLRCloudNaturalLanguageAPIQuery_DocumentsAnalyzeEntities *query =
+  GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntities *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRCloudNaturalLanguageAPI_AnalyzeEntitiesResponse class];
+  query.expectedObjectClass = [GTLRCloudNaturalLanguage_AnalyzeEntitiesResponse class];
   query.loggingName = @"language.documents.analyzeEntities";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudNaturalLanguageAPIQuery_DocumentsAnalyzeSentiment
+@implementation GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSentiment
 
-+ (instancetype)queryWithObject:(GTLRCloudNaturalLanguageAPI_AnalyzeSentimentRequest *)object {
++ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeSentimentRequest *)object {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
   NSString *pathURITemplate = @"v1beta1/documents:analyzeSentiment";
-  GTLRCloudNaturalLanguageAPIQuery_DocumentsAnalyzeSentiment *query =
+  GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSentiment *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRCloudNaturalLanguageAPI_AnalyzeSentimentResponse class];
+  query.expectedObjectClass = [GTLRCloudNaturalLanguage_AnalyzeSentimentResponse class];
   query.loggingName = @"language.documents.analyzeSentiment";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudNaturalLanguageAPIQuery_DocumentsAnnotateText
+@implementation GTLRCloudNaturalLanguageQuery_DocumentsAnnotateText
 
-+ (instancetype)queryWithObject:(GTLRCloudNaturalLanguageAPI_AnnotateTextRequest *)object {
++ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnnotateTextRequest *)object {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
   NSString *pathURITemplate = @"v1beta1/documents:annotateText";
-  GTLRCloudNaturalLanguageAPIQuery_DocumentsAnnotateText *query =
+  GTLRCloudNaturalLanguageQuery_DocumentsAnnotateText *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRCloudNaturalLanguageAPI_AnnotateTextResponse class];
+  query.expectedObjectClass = [GTLRCloudNaturalLanguage_AnnotateTextResponse class];
   query.loggingName = @"language.documents.annotateText";
   return query;
 }

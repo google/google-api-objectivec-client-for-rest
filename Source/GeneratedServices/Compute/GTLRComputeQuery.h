@@ -60,6 +60,7 @@
 @class GTLRCompute_Snapshot;
 @class GTLRCompute_SslCertificate;
 @class GTLRCompute_Subnetwork;
+@class GTLRCompute_SubnetworksExpandIpCidrRangeRequest;
 @class GTLRCompute_Tags;
 @class GTLRCompute_TargetHttpProxy;
 @class GTLRCompute_TargetHttpsProxiesSetSslCertificatesRequest;
@@ -4572,8 +4573,20 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCompute queryForInstanceGroupManagersListManagedInstancesWithproject:zoneProperty:instanceGroupManager:]
 
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** The name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/**
+ *  maxResults
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 0..500).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -7067,6 +7080,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Switches the network mode from auto subnet mode to custom subnet mode.
+ *
+ *  Method: compute.networks.switchToCustomMode
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworksSwitchToCustomMode : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNetworksSwitchToCustomModeWithproject:network:]
+
+/** Name of the network to be updated. */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Switches the network mode from auto subnet mode to custom subnet mode.
+ *
+ *  @param project Project ID for this request.
+ *  @param network Name of the network to be updated.
+ *
+ *  @returns GTLRComputeQuery_NetworksSwitchToCustomMode
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                         network:(NSString *)network;
+
+@end
+
+/**
  *  Returns the specified Project resource.
  *
  *  Method: compute.projects.get
@@ -8664,6 +8711,48 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
                       subnetwork:(NSString *)subnetwork;
+
+@end
+
+/**
+ *  Expands the IP CIDR range of the subnetwork to a specified value.
+ *
+ *  Method: compute.subnetworks.expandIpCidrRange
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SubnetworksExpandIpCidrRange : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSubnetworksExpandIpCidrRangeWithObject:project:region:subnetwork:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name of the Subnetwork resource to update. */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Expands the IP CIDR range of the subnetwork to a specified value.
+ *
+ *  @param object The @c GTLRCompute_SubnetworksExpandIpCidrRangeRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param subnetwork Name of the Subnetwork resource to update.
+ *
+ *  @returns GTLRComputeQuery_SubnetworksExpandIpCidrRange
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SubnetworksExpandIpCidrRangeRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                     subnetwork:(NSString *)subnetwork;
 
 @end
 

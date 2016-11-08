@@ -1359,7 +1359,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCo
 //
 
 @implementation GTLRYouTube_ChannelContentDetails
-@dynamic googlePlusUserId, relatedPlaylists;
+@dynamic relatedPlaylists;
 @end
 
 
@@ -1703,9 +1703,9 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCo
 
 @implementation GTLRYouTube_CommentSnippet
 @dynamic authorChannelId, authorChannelUrl, authorDisplayName,
-         authorGoogleplusProfileUrl, authorProfileImageUrl, canRate, channelId,
-         likeCount, moderationStatus, parentId, publishedAt, textDisplay,
-         textOriginal, updatedAt, videoId, viewerRating;
+         authorProfileImageUrl, canRate, channelId, likeCount, moderationStatus,
+         parentId, publishedAt, textDisplay, textOriginal, updatedAt, videoId,
+         viewerRating;
 @end
 
 
@@ -3378,7 +3378,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCo
 
 @implementation GTLRYouTube_VideoContentDetails
 @dynamic caption, contentRating, countryRestriction, definition, dimension,
-         duration, licensedContent, projection, regionRestriction;
+         duration, hasCustomThumbnail, licensedContent, projection,
+         regionRestriction;
 @end
 
 
@@ -3408,7 +3409,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCo
 
 @implementation GTLRYouTube_VideoFileDetails
 @dynamic audioStreams, bitrateBps, container, creationTime, durationMs,
-         fileName, fileSize, fileType, recordingLocation, videoStreams;
+         fileName, fileSize, fileType, videoStreams;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3529,7 +3530,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCo
 //
 
 @implementation GTLRYouTube_VideoPlayer
-@dynamic embedHtml;
+@dynamic embedHeight, embedHtml, embedWidth;
 @end
 
 

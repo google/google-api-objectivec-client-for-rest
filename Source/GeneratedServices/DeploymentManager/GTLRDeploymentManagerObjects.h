@@ -590,9 +590,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *targetId;
 
 /**
- *  [Output Only] The URL of the resource that the operation modifies. If
- *  creating a persistent disk snapshot, this points to the persistent disk that
- *  the snapshot was created from.
+ *  [Output Only] The URL of the resource that the operation modifies. For
+ *  operations related to creating a snapshot, this points to the persistent
+ *  disk that the snapshot was created from.
  */
 @property(nonatomic, copy, nullable) NSString *targetLink;
 

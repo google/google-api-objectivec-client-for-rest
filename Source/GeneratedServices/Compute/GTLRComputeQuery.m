@@ -2190,7 +2190,8 @@
 
 @implementation GTLRComputeQuery_InstanceGroupManagersListManagedInstances
 
-@dynamic instanceGroupManager, project, zoneProperty;
+@dynamic filter, instanceGroupManager, maxResults, pageToken, project,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -3506,6 +3507,29 @@
 
 @end
 
+@implementation GTLRComputeQuery_NetworksSwitchToCustomMode
+
+@dynamic network, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                         network:(NSString *)network {
+  NSArray *pathParams = @[
+    @"network", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/networks/{network}/switchToCustomMode";
+  GTLRComputeQuery_NetworksSwitchToCustomMode *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.network = network;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networks.switchToCustomMode";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_ProjectsGet
 
 @dynamic project;
@@ -4262,6 +4286,37 @@
   query.subnetwork = subnetwork;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.subnetworks.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SubnetworksExpandIpCidrRange
+
+@dynamic project, region, subnetwork;
+
++ (instancetype)queryWithObject:(GTLRCompute_SubnetworksExpandIpCidrRangeRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                     subnetwork:(NSString *)subnetwork {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"subnetwork"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{subnetwork}/expandIpCidrRange";
+  GTLRComputeQuery_SubnetworksExpandIpCidrRange *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.subnetwork = subnetwork;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.subnetworks.expandIpCidrRange";
   return query;
 }
 

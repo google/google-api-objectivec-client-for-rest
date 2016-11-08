@@ -292,7 +292,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Reason for the survey being rejected. Only present if the survey state is
- *  'rejected'.
+ *  rejected.
  */
 @property(nonatomic, strong, nullable) GTLRSurveys_SurveyRejection *rejectionReason;
 
@@ -559,8 +559,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *explanation;
 
 /**
- *  Which category of rejection this was. See the GCS Help Center for additional
- *  details on each category.
+ *  Which category of rejection this was. See the Google Surveys Help Center for
+ *  additional details on each category.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

@@ -17,6 +17,7 @@ NSString * const kGTLRAuthScopeGmailCompose         = @"https://www.googleapis.c
 NSString * const kGTLRAuthScopeGmailInsert          = @"https://www.googleapis.com/auth/gmail.insert";
 NSString * const kGTLRAuthScopeGmailLabels          = @"https://www.googleapis.com/auth/gmail.labels";
 NSString * const kGTLRAuthScopeGmailMailGoogleCom   = @"https://mail.google.com/";
+NSString * const kGTLRAuthScopeGmailMetadata        = @"https://www.googleapis.com/auth/gmail.metadata";
 NSString * const kGTLRAuthScopeGmailModify          = @"https://www.googleapis.com/auth/gmail.modify";
 NSString * const kGTLRAuthScopeGmailReadonly        = @"https://www.googleapis.com/auth/gmail.readonly";
 NSString * const kGTLRAuthScopeGmailSend            = @"https://www.googleapis.com/auth/gmail.send";

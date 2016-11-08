@@ -121,9 +121,9 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudMonitoring/*.{h,m}'
   end
-  s.subspec 'CloudNaturalLanguageAPI' do |sp|
+  s.subspec 'CloudNaturalLanguage' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/CloudNaturalLanguageAPI/*.{h,m}'
+    sp.source_files = 'Source/GeneratedServices/CloudNaturalLanguage/*.{h,m}'
   end
   s.subspec 'CloudResourceManager' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -249,6 +249,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Logging/*.{h,m}'
   end
+  s.subspec 'ManufacturerCenter' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ManufacturerCenter/*.{h,m}'
+  end
   s.subspec 'Mirror' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Mirror/*.{h,m}'
@@ -332,6 +336,10 @@ Pod::Spec.new do |s|
   s.subspec 'SiteVerification' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/SiteVerification/*.{h,m}'
+  end
+  s.subspec 'Slides' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Slides/*.{h,m}'
   end
   s.subspec 'Spectrum' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

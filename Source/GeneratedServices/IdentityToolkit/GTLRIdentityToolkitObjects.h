@@ -457,6 +457,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** Change email template. */
 @property(nonatomic, strong, nullable) GTLRIdentityToolkit_EmailTemplate *changeEmailTemplate;
 
+@property(nonatomic, copy, nullable) NSString *dynamicLinksDomain;
+
 /**
  *  Whether anonymous user is enabled.
  *
@@ -730,11 +732,25 @@ NS_ASSUME_NONNULL_BEGIN
 /** Response to the captcha. */
 @property(nonatomic, copy, nullable) NSString *captchaResponse;
 
+/**
+ *  Whether to disable the user. Only can be used by service account.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
 /** The name of the user. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The email of the user. */
 @property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Mark the email as verified or not. Only can be used by service account.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *emailVerified;
 
 /** The GITKit token of the authenticated user. */
 @property(nonatomic, copy, nullable) NSString *idToken;
@@ -745,6 +761,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The new password of the user. */
 @property(nonatomic, copy, nullable) NSString *password;
 
+/** The photo url of the user. */
+@property(nonatomic, copy, nullable) NSString *photoUrl;
+
 @end
 
 
@@ -752,6 +771,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Request to upload user account in batch.
  */
 @interface GTLRIdentityToolkit_RelyingpartyUploadAccountRequest : GTLRObject
+
+/**
+ *  Whether allow overwrite existing account when user local_id exists.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowOverwrite;
 
 /**
  *  GCP project number of the requesting delegated app. Currently only intended
@@ -1189,6 +1215,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The IDP of the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRIdentityToolkit_UserInfoProviderUserInfoItem *> *providerUserInfo;
 
+/** The user's plain text password. */
+@property(nonatomic, copy, nullable) NSString *rawPassword;
+
 /**
  *  The user's password salt.
  *
@@ -1243,9 +1272,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** User's raw identifier directly returned from IDP. */
 @property(nonatomic, copy, nullable) NSString *rawId;
-
-/** Raw IDP-returned user info. */
-@property(nonatomic, copy, nullable) NSString *rawUserInfo;
 
 /** User's screen name at Twitter or login name at Github. */
 @property(nonatomic, copy, nullable) NSString *screenName;

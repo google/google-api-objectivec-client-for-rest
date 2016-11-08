@@ -47,7 +47,7 @@ NSString * const kGTLRDataflowViewJobViewUnknown = @"JOB_VIEW_UNKNOWN";
 
 @implementation GTLRDataflowQuery_ProjectsJobsCreate
 
-@dynamic projectId, replaceJobId, view;
+@dynamic location, projectId, replaceJobId, view;
 
 + (instancetype)queryWithObject:(GTLRDataflow_Job *)object
                       projectId:(NSString *)projectId {
@@ -130,7 +130,7 @@ NSString * const kGTLRDataflowViewJobViewUnknown = @"JOB_VIEW_UNKNOWN";
 
 @implementation GTLRDataflowQuery_ProjectsJobsGet
 
-@dynamic jobId, projectId, view;
+@dynamic jobId, location, projectId, view;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId {
@@ -153,7 +153,7 @@ NSString * const kGTLRDataflowViewJobViewUnknown = @"JOB_VIEW_UNKNOWN";
 
 @implementation GTLRDataflowQuery_ProjectsJobsGetMetrics
 
-@dynamic jobId, projectId, startTime;
+@dynamic jobId, location, projectId, startTime;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId {
@@ -176,7 +176,7 @@ NSString * const kGTLRDataflowViewJobViewUnknown = @"JOB_VIEW_UNKNOWN";
 
 @implementation GTLRDataflowQuery_ProjectsJobsList
 
-@dynamic filter, pageSize, pageToken, projectId, view;
+@dynamic filter, location, pageSize, pageToken, projectId, view;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];
@@ -195,8 +195,8 @@ NSString * const kGTLRDataflowViewJobViewUnknown = @"JOB_VIEW_UNKNOWN";
 
 @implementation GTLRDataflowQuery_ProjectsJobsMessagesList
 
-@dynamic endTime, jobId, minimumImportance, pageSize, pageToken, projectId,
-         startTime;
+@dynamic endTime, jobId, location, minimumImportance, pageSize, pageToken,
+         projectId, startTime;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId {
@@ -219,7 +219,7 @@ NSString * const kGTLRDataflowViewJobViewUnknown = @"JOB_VIEW_UNKNOWN";
 
 @implementation GTLRDataflowQuery_ProjectsJobsUpdate
 
-@dynamic jobId, projectId;
+@dynamic jobId, location, projectId;
 
 + (instancetype)queryWithObject:(GTLRDataflow_Job *)object
                       projectId:(NSString *)projectId
@@ -299,6 +299,227 @@ NSString * const kGTLRDataflowViewJobViewUnknown = @"JOB_VIEW_UNKNOWN";
   query.jobId = jobId;
   query.expectedObjectClass = [GTLRDataflow_ReportWorkItemStatusResponse class];
   query.loggingName = @"dataflow.projects.jobs.workItems.reportStatus";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsJobsCreate
+
+@dynamic location, projectId, replaceJobId, view;
+
++ (instancetype)queryWithObject:(GTLRDataflow_Job *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"location", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/jobs";
+  GTLRDataflowQuery_ProjectsLocationsJobsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.location = location;
+  query.expectedObjectClass = [GTLRDataflow_Job class];
+  query.loggingName = @"dataflow.projects.locations.jobs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsJobsGet
+
+@dynamic jobId, location, projectId, view;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location
+                             jobId:(NSString *)jobId {
+  NSArray *pathParams = @[
+    @"jobId", @"location", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}";
+  GTLRDataflowQuery_ProjectsLocationsJobsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.location = location;
+  query.jobId = jobId;
+  query.expectedObjectClass = [GTLRDataflow_Job class];
+  query.loggingName = @"dataflow.projects.locations.jobs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsJobsGetMetrics
+
+@dynamic jobId, location, projectId, startTime;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location
+                             jobId:(NSString *)jobId {
+  NSArray *pathParams = @[
+    @"jobId", @"location", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}/metrics";
+  GTLRDataflowQuery_ProjectsLocationsJobsGetMetrics *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.location = location;
+  query.jobId = jobId;
+  query.expectedObjectClass = [GTLRDataflow_JobMetrics class];
+  query.loggingName = @"dataflow.projects.locations.jobs.getMetrics";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsJobsList
+
+@dynamic filter, location, pageSize, pageToken, projectId, view;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location {
+  NSArray *pathParams = @[
+    @"location", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/jobs";
+  GTLRDataflowQuery_ProjectsLocationsJobsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.location = location;
+  query.expectedObjectClass = [GTLRDataflow_ListJobsResponse class];
+  query.loggingName = @"dataflow.projects.locations.jobs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsJobsMessagesList
+
+@dynamic endTime, jobId, location, minimumImportance, pageSize, pageToken,
+         projectId, startTime;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location
+                             jobId:(NSString *)jobId {
+  NSArray *pathParams = @[
+    @"jobId", @"location", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}/messages";
+  GTLRDataflowQuery_ProjectsLocationsJobsMessagesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.location = location;
+  query.jobId = jobId;
+  query.expectedObjectClass = [GTLRDataflow_ListJobMessagesResponse class];
+  query.loggingName = @"dataflow.projects.locations.jobs.messages.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsJobsUpdate
+
+@dynamic jobId, location, projectId;
+
++ (instancetype)queryWithObject:(GTLRDataflow_Job *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location
+                          jobId:(NSString *)jobId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"jobId", @"location", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}";
+  GTLRDataflowQuery_ProjectsLocationsJobsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.location = location;
+  query.jobId = jobId;
+  query.expectedObjectClass = [GTLRDataflow_Job class];
+  query.loggingName = @"dataflow.projects.locations.jobs.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsLease
+
+@dynamic jobId, location, projectId;
+
++ (instancetype)queryWithObject:(GTLRDataflow_LeaseWorkItemRequest *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location
+                          jobId:(NSString *)jobId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"jobId", @"location", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}/workItems:lease";
+  GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsLease *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.location = location;
+  query.jobId = jobId;
+  query.expectedObjectClass = [GTLRDataflow_LeaseWorkItemResponse class];
+  query.loggingName = @"dataflow.projects.locations.jobs.workItems.lease";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsReportStatus
+
+@dynamic jobId, location, projectId;
+
++ (instancetype)queryWithObject:(GTLRDataflow_ReportWorkItemStatusRequest *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location
+                          jobId:(NSString *)jobId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"jobId", @"location", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}/workItems:reportStatus";
+  GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsReportStatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.location = location;
+  query.jobId = jobId;
+  query.expectedObjectClass = [GTLRDataflow_ReportWorkItemStatusResponse class];
+  query.loggingName = @"dataflow.projects.locations.jobs.workItems.reportStatus";
   return query;
 }
 

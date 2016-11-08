@@ -23,17 +23,17 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: View and edit your surveys and results
+ *  Authorization scope: View and manage your surveys and results
  *
- *  Value "https://www.googleapis.com/auth/consumersurveys"
+ *  Value "https://www.googleapis.com/auth/surveys"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSurveysConsumersurveys;
+GTLR_EXTERN NSString * const kGTLRAuthScopeSurveys;
 /**
- *  Authorization scope: View the results for your surveys
+ *  Authorization scope: View your surveys and survey results
  *
- *  Value "https://www.googleapis.com/auth/consumersurveys.readonly"
+ *  Value "https://www.googleapis.com/auth/surveys.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSurveysConsumersurveysReadonly;
+GTLR_EXTERN NSString * const kGTLRAuthScopeSurveysReadonly;
 /**
  *  Authorization scope: View your email address
  *

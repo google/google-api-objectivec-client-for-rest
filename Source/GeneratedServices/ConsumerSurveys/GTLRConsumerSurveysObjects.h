@@ -51,47 +51,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Representation of an individual pre-defined panel object defining a targeted
- *  audience of opinion rewards mobile app users.
+ *  GTLRConsumerSurveys_MobileAppPanel
  */
 @interface GTLRConsumerSurveys_MobileAppPanel : GTLRObject
 
-/**
- *  Country code for the country of the users that the panel contains. Uses
- *  standard ISO 3166-1 2-character language codes. For instance, 'US' for the
- *  United States, and 'GB' for the United Kingdom. Any survey created targeting
- *  this panel must also target the corresponding country.
- */
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
- *  Whether or not the panel is accessible to all API users.
+ *  isPublicPanel
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isPublicPanel;
 
-/**
- *  Language code that the panel can target. For instance, 'en-US'. Uses
- *  standard BCP47 language codes. See specification. Any survey created
- *  targeting this panel must also target the corresponding language.
- */
 @property(nonatomic, copy, nullable) NSString *language;
-
-/**
- *  Unique panel ID string. This corresponds to the mobile_app_panel_id used in
- *  Survey Insert requests.
- */
 @property(nonatomic, copy, nullable) NSString *mobileAppPanelId;
-
-/** Human readable name of the audience panel. */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  List of email addresses for users who can target members of this panel. Must
- *  contain at least the address of the user making the API call for panels that
- *  are not public. This field will be empty for public panels.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *owners;
 
 @end
@@ -169,20 +144,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Representation of an individual survey object.
+ *  GTLRConsumerSurveys_Survey
  */
 @interface GTLRConsumerSurveys_Survey : GTLRObject
 
-/** Targeting-criteria message containing demographic information */
 @property(nonatomic, strong, nullable) GTLRConsumerSurveys_SurveyAudience *audience;
-
-/** Cost to run the survey and collect the necessary number of responses. */
 @property(nonatomic, strong, nullable) GTLRConsumerSurveys_SurveyCost *cost;
 
 /**
- *  Additional information to store on behalf of the API consumer and associate
- *  with this question. This binary blob is treated as opaque. This field is
- *  limited to 64K bytes.
+ *  customerData
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -190,38 +160,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *customerData;
 
 /**
- *  Text description of the survey.
+ *  descriptionProperty
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/**
- *  List of email addresses for survey owners. Must contain at least the address
- *  of the user making the API call.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *owners;
-
-/** List of questions defining the survey. */
 @property(nonatomic, strong, nullable) NSArray<GTLRConsumerSurveys_SurveyQuestion *> *questions;
-
-/**
- *  Reason for the survey being rejected. Only present if the survey state is
- *  'rejected'.
- */
 @property(nonatomic, strong, nullable) GTLRConsumerSurveys_SurveyRejection *rejectionReason;
-
-/** State that the survey is in. */
 @property(nonatomic, copy, nullable) NSString *state;
-
-/** Unique survey ID, that is viewable in the URL of the Survey Creator UI */
 @property(nonatomic, copy, nullable) NSString *surveyUrlId;
-
-/** Optional name that will be given to the survey. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
- *  Number of responses desired for the survey.
+ *  wantedResponseCount
  *
  *  Uses NSNumber of intValue.
  */
@@ -231,99 +184,44 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Specifications for the target audience of a survey run through the API.
+ *  GTLRConsumerSurveys_SurveyAudience
  */
 @interface GTLRConsumerSurveys_SurveyAudience : GTLRObject
 
-/**
- *  Optional list of age buckets to target. Supported age buckets are: ['18-24',
- *  '25-34', '35-44', '45-54', '55-64', '65+']
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ages;
-
-/**
- *  Required country code that surveys should be targeted to. Accepts standard
- *  ISO 3166-1 2 character language codes. For instance, 'US' for the United
- *  States, and 'GB' for the United Kingdom.
- */
 @property(nonatomic, copy, nullable) NSString *country;
-
-/**
- *  Country subdivision (states/provinces/etc) that surveys should be targeted
- *  to. For all countries except GB, ISO-3166-2 subdivision code is required
- *  (eg. 'US-OH' for Ohio, United States). For GB, NUTS 1 statistical region
- *  codes for the United Kingdom is required (eg. 'UK-UKC' for North East
- *  England).
- */
 @property(nonatomic, copy, nullable) NSString *countrySubdivision;
-
-/** Optional gender to target. */
 @property(nonatomic, copy, nullable) NSString *gender;
-
-/**
- *  Language code that surveys should be targeted to. For instance, 'en-US'.
- *  Surveys may target bilingual users by specifying a list of language codes
- *  (for example, 'de' and 'en-US'). In that case, all languages will be used
- *  for targeting users but the survey content (which is displayed) must match
- *  the first language listed. Accepts standard BCP47 language codes. See
- *  specification.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languages;
-
-/**
- *  Key for predefined panel that causes survey to be sent to a predefined set
- *  of Opinion Rewards App users. You must set PopulationSource to
- *  ANDROID_APP_PANEL to use this field.
- */
 @property(nonatomic, copy, nullable) NSString *mobileAppPanelId;
-
-/** Online population source where the respondents are sampled from. */
 @property(nonatomic, copy, nullable) NSString *populationSource;
 
 @end
 
 
 /**
- *  Message defining the cost to run a given survey through API.
+ *  GTLRConsumerSurveys_SurveyCost
  */
 @interface GTLRConsumerSurveys_SurveyCost : GTLRObject
 
 /**
- *  Cost per survey response in nano units of the given currency. To get the
- *  total cost for a survey, multiply this value by wanted_response_count.
+ *  costPerResponseNanos
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *costPerResponseNanos;
 
-/** Currency code that the cost is given in. */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
- *  Threshold to start a survey automatically if the quoted price is at most
- *  this value. When a survey has a Screener (threshold) question, it must go
- *  through an incidence pricing test to determine the final cost per response.
- *  Typically you will have to make a followup call to start the survey giving
- *  the final computed cost per response. If the survey has no
- *  threshold_answers, setting this property will return an error. By specifying
- *  this property, you indicate the max price per response you are willing to
- *  pay in advance of the incidence test. If the price turns out to be lower
- *  than the specified value, the survey will begin immediately and you will be
- *  charged at the rate determined by the incidence pricing test. If the price
- *  turns out to be greater than the specified value the survey will not be
- *  started and you will instead be notified what price was determined by the
- *  incidence test. At that point, you must raise the value of this property to
- *  be greater than or equal to that cost before attempting to start the survey
- *  again. This will immediately start the survey as long the incidence test was
- *  run within the last 21 days.
+ *  maxCostPerResponseNanos
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxCostPerResponseNanos;
 
 /**
- *  Cost of survey in nano units of the given currency. DEPRECATED in favor of
- *  cost_per_response_nanos
+ *  nanos
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -333,164 +231,97 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Message defining the question specifications.
+ *  GTLRConsumerSurveys_SurveyQuestion
  */
 @interface GTLRConsumerSurveys_SurveyQuestion : GTLRObject
 
-/**
- *  The randomization option for multiple choice and multi-select questions. If
- *  not specified, this option defaults to randomize.
- */
 @property(nonatomic, copy, nullable) NSString *answerOrder;
-
-/** Required list of answer options for a question. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *answers;
 
 /**
- *  Option to allow open-ended text box for Single Answer and Multiple Answer
- *  question types. This can be used with SINGLE_ANSWER,
- *  SINGLE_ANSWER_WITH_IMAGE, MULTIPLE_ANSWERS, and MULTIPLE_ANSWERS_WITH_IMAGE
- *  question types.
+ *  hasOther
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hasOther;
 
-/**
- *  For rating questions, the text for the higher end of the scale, such as
- *  'Best'. For numeric questions, a string representing a floating-point that
- *  is the maximum allowed number for a response.
- */
 @property(nonatomic, copy, nullable) NSString *highValueLabel;
-
 @property(nonatomic, strong, nullable) NSArray<GTLRConsumerSurveys_SurveyQuestionImage *> *images;
 
 /**
- *  Currently only support pinning an answer option to the last position.
+ *  lastAnswerPositionPinned
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *lastAnswerPositionPinned;
 
-/**
- *  For rating questions, the text for the lower end of the scale, such as
- *  'Worst'. For numeric questions, a string representing a floating-point that
- *  is the minimum allowed number for a response.
- */
 @property(nonatomic, copy, nullable) NSString *lowValueLabel;
 
 /**
- *  Option to force the user to pick one of the open text suggestions. This
- *  requires that suggestions are provided for this question.
+ *  mustPickSuggestion
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *mustPickSuggestion;
 
-/** Number of stars to use for ratings questions. */
 @property(nonatomic, copy, nullable) NSString *numStars;
-
-/** Placeholder text for an open text question. */
 @property(nonatomic, copy, nullable) NSString *openTextPlaceholder;
-
-/**
- *  A list of suggested answers for open text question auto-complete. This is
- *  only valid if single_line_response is true.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *openTextSuggestions;
-
-/** Required question text shown to the respondent. */
 @property(nonatomic, copy, nullable) NSString *question;
-
-/**
- *  Used by the Rating Scale with Text question type. This text goes along with
- *  the question field that is presented to the respondent, and is the actual
- *  text that the respondent is asked to rate.
- */
 @property(nonatomic, copy, nullable) NSString *sentimentText;
 
 /**
- *  Option to allow multiple line open text responses instead of a single line
- *  response. Note that we don't show auto-complete suggestions with multiple
- *  line responses.
+ *  singleLineResponse
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *singleLineResponse;
 
-/**
- *  The threshold/screener answer options, which will screen a user into the
- *  rest of the survey. These will be a subset of the answer option strings.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *thresholdAnswers;
-
-/**
- *  Required field defining the question type. For details about configuring
- *  different type of questions, consult the question configuration guide.
- */
 @property(nonatomic, copy, nullable) NSString *type;
-
-/**
- *  Optional unit of measurement for display (for example: hours, people,
- *  miles).
- */
 @property(nonatomic, copy, nullable) NSString *unitOfMeasurementLabel;
-
-/** The YouTube video ID to be show in video questions. */
 @property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
 
 
 /**
- *  Container object for image data and alt_text.
+ *  GTLRConsumerSurveys_SurveyQuestionImage
  */
 @interface GTLRConsumerSurveys_SurveyQuestionImage : GTLRObject
 
-/** The alt text property used in image tags is required for all images. */
 @property(nonatomic, copy, nullable) NSString *altText;
 
 /**
- *  Inline jpeg, gif, tiff, bmp, or png image raw bytes for an image question
- *  types.
+ *  data
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *data;
 
-/** The read-only URL for the hosted images. */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
 
 /**
- *  Message representing why the survey was rejected from review, if it was.
+ *  GTLRConsumerSurveys_SurveyRejection
  */
 @interface GTLRConsumerSurveys_SurveyRejection : GTLRObject
 
-/** A human-readable explanation of what was wrong with the survey. */
 @property(nonatomic, copy, nullable) NSString *explanation;
-
-/**
- *  Which category of rejection this was. See the GCS Help Center for additional
- *  details on each category.
- */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
 
 /**
- *  Reference to the current results for a given survey.
+ *  GTLRConsumerSurveys_SurveyResults
  */
 @interface GTLRConsumerSurveys_SurveyResults : GTLRObject
 
-/** Human readable string describing the status of the request. */
 @property(nonatomic, copy, nullable) NSString *status;
-
-/** External survey ID as viewable by survey owners in the editor view. */
 @property(nonatomic, copy, nullable) NSString *surveyUrlId;
 
 @end

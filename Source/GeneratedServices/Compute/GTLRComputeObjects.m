@@ -3620,6 +3620,16 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_SubnetworksExpandIpCidrRangeRequest
+//
+
+@implementation GTLRCompute_SubnetworksExpandIpCidrRangeRequest
+@dynamic ipCidrRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_SubnetworksScopedList
 //
 

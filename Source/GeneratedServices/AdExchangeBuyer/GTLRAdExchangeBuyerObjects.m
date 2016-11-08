@@ -320,8 +320,9 @@
 //
 
 @implementation GTLRAdExchangeBuyer_CreativeNativeAd
-@dynamic advertiser, appIcon, body, callToAction, clickTrackingUrl, headline,
-         image, impressionTrackingUrl, logo, price, starRating, store, videoURL;
+@dynamic advertiser, appIcon, body, callToAction, clickLinkUrl,
+         clickTrackingUrl, headline, image, impressionTrackingUrl, logo, price,
+         starRating, store, videoURL;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -946,8 +947,8 @@
          excludedUserLists, excludedVerticals, geoCriteriaIds, isActive, kind,
          languages, mobileCarriers, mobileDevices,
          mobileOperatingSystemVersions, placements, platforms,
-         supportedCreativeAttributes, userLists, vendorTypes, verticals,
-         videoPlayerSizes;
+         supportedCreativeAttributes, userIdentifierDataRequired, userLists,
+         vendorTypes, verticals, videoPlayerSizes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -966,6 +967,7 @@
     @"placements" : [GTLRAdExchangeBuyer_PretargetingConfigPlacementsItem class],
     @"platforms" : [NSString class],
     @"supportedCreativeAttributes" : [NSNumber class],
+    @"userIdentifierDataRequired" : [NSString class],
     @"userLists" : [NSNumber class],
     @"vendorTypes" : [NSNumber class],
     @"verticals" : [NSNumber class],
