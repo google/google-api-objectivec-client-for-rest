@@ -306,6 +306,14 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
 /** The operation to be checked. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Operation *operation;
 
+/**
+ *  Specifies which version of service configuration should be used to process
+ *  the request.
+ *  If unspecified or no matching version can be found, the
+ *  latest one will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceConfigId;
+
 @end
 
 
@@ -862,6 +870,14 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_Operation *> *operations;
 
+/**
+ *  Specifies which version of service config should be used to process the
+ *  request.
+ *  If unspecified or no matching version can be found, the
+ *  latest one will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceConfigId;
+
 @end
 
 
@@ -881,8 +897,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  `Operations` in the request succeeded. Each
  *  `Operation` that failed processing has a corresponding item
  *  in this list.
- *  3. A failed RPC status indicates a complete failure where none of the
- *  `Operations` in the request succeeded.
+ *  3. A failed RPC status indicates a general non-deterministic failure.
+ *  When this happens, it's impossible to know which of the
+ *  'Operations' in the request succeeded or failed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_ReportError *> *reportErrors;
 

@@ -3092,12 +3092,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  */
 @interface GTLRYouTube_ChannelContentDetails : GTLRObject
 
-/**
- *  The googlePlusUserId object identifies the Google+ profile ID associated
- *  with this channel.
- */
-@property(nonatomic, copy, nullable) NSString *googlePlusUserId;
-
 @property(nonatomic, strong, nullable) GTLRYouTube_ChannelContentDetailsRelatedPlaylists *relatedPlaylists;
 
 @end
@@ -3825,9 +3819,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 
 /** The name of the user who posted the comment. */
 @property(nonatomic, copy, nullable) NSString *authorDisplayName;
-
-/** Link to the author's Google+ profile, if any. */
-@property(nonatomic, copy, nullable) NSString *authorGoogleplusProfileUrl;
 
 /** The URL for the avatar of the user who posted the comment. */
 @property(nonatomic, copy, nullable) NSString *authorProfileImageUrl;
@@ -8828,6 +8819,14 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *duration;
 
 /**
+ *  Indicates whether the video uploader has provided a custom thumbnail image
+ *  for the video. This property is only visible to the video uploader.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasCustomThumbnail;
+
+/**
  *  The value of is_license_content indicates whether the video is licensed
  *  content.
  *
@@ -8950,12 +8949,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoFileDetails_FileType_Video Value "video"
  */
 @property(nonatomic, copy, nullable) NSString *fileType;
-
-/**
- *  Geographic coordinates that identify the place where the uploaded video was
- *  recorded. Coordinates are defined using WGS 84.
- */
-@property(nonatomic, strong, nullable) GTLRYouTube_GeoPoint *recordingLocation;
 
 /**
  *  A list of video streams contained in the uploaded video file. Each item in
@@ -9249,8 +9242,22 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  */
 @interface GTLRYouTube_VideoPlayer : GTLRObject
 
+/**
+ *  embedHeight
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *embedHeight;
+
 /** An <iframe> tag that embeds a player that will play the video. */
 @property(nonatomic, copy, nullable) NSString *embedHtml;
+
+/**
+ *  The embed width
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *embedWidth;
 
 @end
 

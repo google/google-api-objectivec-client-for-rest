@@ -1190,7 +1190,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @implementation GTLRYouTubeQuery_PlaylistItemsDelete
 
-@dynamic identifier;
+@dynamic identifier, onBehalfOfContentOwner;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"identifier" : @"id" };
@@ -1258,7 +1258,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @implementation GTLRYouTubeQuery_PlaylistItemsUpdate
 
-@dynamic part;
+@dynamic onBehalfOfContentOwner, part;
 
 + (instancetype)queryWithObject:(GTLRYouTube_PlaylistItem *)object
                            part:(NSString *)part {
@@ -1615,8 +1615,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @implementation GTLRYouTubeQuery_VideosList
 
-@dynamic chart, hl, identifier, locale, maxResults, myRating,
-         onBehalfOfContentOwner, pageToken, part, regionCode, videoCategoryId;
+@dynamic chart, hl, identifier, locale, maxHeight, maxResults, maxWidth,
+         myRating, onBehalfOfContentOwner, pageToken, part, regionCode,
+         videoCategoryId;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"identifier" : @"id" };

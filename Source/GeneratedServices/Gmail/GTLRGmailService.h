@@ -48,6 +48,13 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeGmailLabels;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeGmailMailGoogleCom;
 /**
+ *  Authorization scope: View your email message metadata such as labels and
+ *  headers, but not the email body
+ *
+ *  Value "https://www.googleapis.com/auth/gmail.metadata"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeGmailMetadata;
+/**
  *  Authorization scope: View and modify but not delete your email
  *
  *  Value "https://www.googleapis.com/auth/gmail.modify"

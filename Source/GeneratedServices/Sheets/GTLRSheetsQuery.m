@@ -28,6 +28,15 @@ NSString * const kGTLRSheetsMajorDimensionColumns              = @"COLUMNS";
 NSString * const kGTLRSheetsMajorDimensionDimensionUnspecified = @"DIMENSION_UNSPECIFIED";
 NSString * const kGTLRSheetsMajorDimensionRows                 = @"ROWS";
 
+// responseDateTimeRenderOption
+NSString * const kGTLRSheetsResponseDateTimeRenderOptionFormattedString = @"FORMATTED_STRING";
+NSString * const kGTLRSheetsResponseDateTimeRenderOptionSerialNumber = @"SERIAL_NUMBER";
+
+// responseValueRenderOption
+NSString * const kGTLRSheetsResponseValueRenderOptionFormattedValue = @"FORMATTED_VALUE";
+NSString * const kGTLRSheetsResponseValueRenderOptionFormula   = @"FORMULA";
+NSString * const kGTLRSheetsResponseValueRenderOptionUnformattedValue = @"UNFORMATTED_VALUE";
+
 // valueInputOption
 NSString * const kGTLRSheetsValueInputOptionInputValueOptionUnspecified = @"INPUT_VALUE_OPTION_UNSPECIFIED";
 NSString * const kGTLRSheetsValueInputOptionRaw                = @"RAW";
@@ -150,7 +159,9 @@ NSString * const kGTLRSheetsValueRenderOptionUnformattedValue = @"UNFORMATTED_VA
 
 @implementation GTLRSheetsQuery_SpreadsheetsValuesAppend
 
-@dynamic insertDataOption, range, spreadsheetId, valueInputOption;
+@dynamic includeValuesInResponse, insertDataOption, range,
+         responseDateTimeRenderOption, responseValueRenderOption, spreadsheetId,
+         valueInputOption;
 
 + (instancetype)queryWithObject:(GTLRSheets_ValueRange *)object
                   spreadsheetId:(NSString *)spreadsheetId
@@ -309,7 +320,8 @@ NSString * const kGTLRSheetsValueRenderOptionUnformattedValue = @"UNFORMATTED_VA
 
 @implementation GTLRSheetsQuery_SpreadsheetsValuesUpdate
 
-@dynamic range, spreadsheetId, valueInputOption;
+@dynamic includeValuesInResponse, range, responseDateTimeRenderOption,
+         responseValueRenderOption, spreadsheetId, valueInputOption;
 
 + (instancetype)queryWithObject:(GTLRSheets_ValueRange *)object
                   spreadsheetId:(NSString *)spreadsheetId

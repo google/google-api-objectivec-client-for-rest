@@ -394,6 +394,13 @@ GTLR_EXTERN NSString * const kGTLRAppsActivity_Permission_Type_User;
  */
 @property(nonatomic, strong, nullable) NSNumber *isDeleted;
 
+/**
+ *  Whether the user is the authenticated user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isMe;
+
 /** The displayable name of the user. */
 @property(nonatomic, copy, nullable) NSString *name;
 

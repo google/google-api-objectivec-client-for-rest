@@ -1115,20 +1115,20 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  A specific metric identified by specifying values for all of the labels of a
- *  MetricDescriptor.
+ *  A specific metric, identified by specifying values for all of the labels of
+ *  a MetricDescriptor.
  */
 @interface GTLRMonitoring_Metric : GTLRObject
 
 /**
- *  The set of labels that uniquely identify a metric. To specify a metric, all
- *  labels enumerated in the MetricDescriptor must be assigned values.
+ *  The set of label values that uniquely identify this metric. All labels
+ *  listed in the MetricDescriptor must be assigned values.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MetricLabels *labels;
 
 /**
  *  An existing metric type, see google.api.MetricDescriptor. For example,
- *  compute.googleapis.com/instance/cpu/usage_time.
+ *  custom.googleapis.com/invoice/paid/amount.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1136,8 +1136,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The set of labels that uniquely identify a metric. To specify a metric, all
- *  labels enumerated in the MetricDescriptor must be assigned values.
+ *  The set of label values that uniquely identify this metric. All labels
+ *  listed in the MetricDescriptor must be assigned values.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1149,7 +1149,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Defines a metric type and its schema.
+ *  Defines a metric type and its schema. Once a metric descriptor is created,
+ *  deleting or altering it stops data collection and makes the metric type's
+ *  existing data unusable.
  */
 @interface GTLRMonitoring_MetricDescriptor : GTLRObject
 
@@ -1169,9 +1171,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  The set of labels that can be used to describe a specific instance of this
  *  metric type. For example, the
- *  compute.googleapis.com/instance/network/received_bytes_count metric type has
- *  a label, loadbalanced, that specifies whether the traffic was received
- *  through a load balanced IP address.
+ *  appengine.googleapis.com/http/server/response_latencies metric type has a
+ *  label for the HTTP response code, response_code, so you can look at
+ *  latencies for successful responses or just for responses that failed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_LabelDescriptor *> *labels;
 
@@ -1195,24 +1197,22 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *metricKind;
 
 /**
- *  Resource name. The format of the name may vary between different
- *  implementations. For examples:
- *  projects/{project_id}/metricDescriptors/{type=**}
- *  metricDescriptors/{type=**}
+ *  The resource name of the metric descriptor. Depending on the implementation,
+ *  the name typically includes: (1) the parent resource name that defines the
+ *  scope of the metric type or of its data; and (2) the metric's URL-encoded
+ *  type, which also appears in the type field of this descriptor. For example,
+ *  following is the resource name of a custom metric within the GCP project
+ *  123456789:
+ *  &quot;projects/123456789/metricDescriptors/custom.googleapis.com%2Finvoice%2Fpaid%2Famount&quot;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The metric type including a DNS name prefix, for example
- *  &quot;compute.googleapis.com/instance/cpu/utilization&quot;. Metric types
- *  should use a natural hierarchical grouping such as the following:
- *  compute.googleapis.com/instance/cpu/utilization
- *  compute.googleapis.com/instance/disk/read_ops_count
- *  compute.googleapis.com/instance/network/received_bytes_count
- *  Note that if the metric type changes, the monitoring data will be
- *  discontinued, and anything depends on it will break, such as monitoring
- *  dashboards, alerting rules and quota limits. Therefore, once a metric has
- *  been published, its type should be immutable.
+ *  The metric type, including its DNS name prefix. The type is not URL-encoded.
+ *  All user-defined metric types have the DNS name custom.googleapis.com.
+ *  Metric types should use a natural hierarchical grouping. For example:
+ *  &quot;custom.googleapis.com/invoice/paid/amount&quot;
+ *  &quot;appengine.googleapis.com/http/server/response_latencies&quot;
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

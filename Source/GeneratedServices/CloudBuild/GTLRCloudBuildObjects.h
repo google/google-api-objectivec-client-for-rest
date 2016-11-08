@@ -158,6 +158,13 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @interface GTLRCloudBuild_Build : GTLRObject
 
 /**
+ *  The ID of the BuildTrigger that triggered this build, if it was
+ *  triggered automatically.
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *buildTriggerId;
+
+/**
  *  Time at which the build was created.
  *  \@OutputOnly
  */

@@ -209,12 +209,12 @@
          descriptionProperty, explicitlyTrashed, fileExtension, folderColorRgb,
          fullFileExtension, headRevisionId, iconLink, identifier,
          imageMediaMetadata, isAppAuthorized, kind, lastModifyingUser,
-         md5Checksum, mimeType, modifiedByMeTime, modifiedTime, name,
-         originalFilename, ownedByMe, owners, parents, permissions, properties,
-         quotaBytesUsed, shared, sharedWithMeTime, sharingUser, size, spaces,
-         starred, thumbnailLink, trashed, version, videoMediaMetadata,
-         viewedByMe, viewedByMeTime, viewersCanCopyContent, webContentLink,
-         webViewLink, writersCanShare;
+         md5Checksum, mimeType, modifiedByMe, modifiedByMeTime, modifiedTime,
+         name, originalFilename, ownedByMe, owners, parents, permissions,
+         properties, quotaBytesUsed, shared, sharedWithMeTime, sharingUser,
+         size, spaces, starred, thumbnailLink, trashed, version,
+         videoMediaMetadata, viewedByMe, viewedByMeTime, viewersCanCopyContent,
+         webContentLink, webViewLink, writersCanShare;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

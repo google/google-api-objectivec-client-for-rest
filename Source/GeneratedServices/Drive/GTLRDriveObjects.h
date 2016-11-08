@@ -550,6 +550,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
+/**
+ *  Whether the file has been modified by this user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *modifiedByMe;
+
 /** The last time the file was modified by the user (RFC 3339 date-time). */
 @property(nonatomic, strong, nullable) GTLRDateTime *modifiedByMeTime;
 

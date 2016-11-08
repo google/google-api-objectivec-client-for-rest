@@ -40,6 +40,7 @@
 @class GTLRDataflow_EnvironmentSdkPipelineOptions;
 @class GTLRDataflow_EnvironmentUserAgent;
 @class GTLRDataflow_EnvironmentVersion;
+@class GTLRDataflow_FailedLocation;
 @class GTLRDataflow_FlattenInstruction;
 @class GTLRDataflow_FloatingPointList;
 @class GTLRDataflow_FloatingPointMean;
@@ -1006,6 +1007,18 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  FailedLocation indicates which location failed to respond to a request for
+ *  data.
+ */
+@interface GTLRDataflow_FailedLocation : GTLRObject
+
+/** The name of the failed location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  An instruction that copies its inputs (zero or more) to its (single) output.
  */
 @interface GTLRDataflow_FlattenInstruction : GTLRObject
@@ -1250,6 +1263,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  and values are additionally constrained to be <= 128 bytes in size.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_JobLabels *labels;
+
+/** The location which contains this job. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  The user-specified Dataflow job name. Only one Job with a given name may
@@ -1532,6 +1548,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** The current timestamp at the worker. */
 @property(nonatomic, copy, nullable) NSString *currentWorkerTime;
 
+/** The location which contains the WorkItem's job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** The initial lease period. */
 @property(nonatomic, copy, nullable) NSString *requestedLeaseDuration;
 
@@ -1591,20 +1610,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /**
  *  Response to a request to list Dataflow jobs. This may be a partial response,
  *  depending on the page size in the ListJobsRequest.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "jobs" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
  */
-@interface GTLRDataflow_ListJobsResponse : GTLRCollectionObject
+@interface GTLRDataflow_ListJobsResponse : GTLRObject
 
-/**
- *  A subset of the requested job information.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
+/** Zero or more messages describing locations that failed to respond. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_FailedLocation *> *failedLocation;
+
+/** A subset of the requested job information. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Job *> *jobs;
 
 /** Set if there may be more results than fit in this response. */
@@ -2129,6 +2141,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** The current timestamp at the worker. */
 @property(nonatomic, copy, nullable) NSString *currentWorkerTime;
+
+/** The location which contains the WorkItem's job. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  The ID of the worker reporting the WorkItem status. If this does not match

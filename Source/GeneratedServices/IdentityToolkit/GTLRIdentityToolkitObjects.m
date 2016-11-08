@@ -216,8 +216,9 @@
 
 @implementation GTLRIdentityToolkit_RelyingpartyGetProjectConfigResponse
 @dynamic allowPasswordUser, apiKey, authorizedDomains, changeEmailTemplate,
-         enableAnonymousUser, idpConfig, legacyResetPasswordTemplate, projectId,
-         resetPasswordTemplate, useEmailSending, verifyEmailTemplate;
+         dynamicLinksDomain, enableAnonymousUser, idpConfig,
+         legacyResetPasswordTemplate, projectId, resetPasswordTemplate,
+         useEmailSending, verifyEmailTemplate;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -336,8 +337,8 @@
 //
 
 @implementation GTLRIdentityToolkit_RelyingpartySignupNewUserRequest
-@dynamic captchaChallenge, captchaResponse, displayName, email, idToken,
-         instanceId, password;
+@dynamic captchaChallenge, captchaResponse, disabled, displayName, email,
+         emailVerified, idToken, instanceId, password, photoUrl;
 @end
 
 
@@ -347,8 +348,8 @@
 //
 
 @implementation GTLRIdentityToolkit_RelyingpartyUploadAccountRequest
-@dynamic delegatedProjectNumber, hashAlgorithm, memoryCost, rounds,
-         saltSeparator, sanityCheck, signerKey, targetProjectId, users;
+@dynamic allowOverwrite, delegatedProjectNumber, hashAlgorithm, memoryCost,
+         rounds, saltSeparator, sanityCheck, signerKey, targetProjectId, users;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -478,7 +479,7 @@
 @implementation GTLRIdentityToolkit_UserInfo
 @dynamic createdAt, customAuth, disabled, displayName, email, emailVerified,
          lastLoginAt, localId, passwordHash, passwordUpdatedAt, photoUrl,
-         providerUserInfo, salt, screenName, validSince, version;
+         providerUserInfo, rawPassword, salt, screenName, validSince, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -497,7 +498,7 @@
 
 @implementation GTLRIdentityToolkit_UserInfoProviderUserInfoItem
 @dynamic displayName, email, federatedId, photoUrl, providerId, rawId,
-         rawUserInfo, screenName;
+         screenName;
 @end
 
 

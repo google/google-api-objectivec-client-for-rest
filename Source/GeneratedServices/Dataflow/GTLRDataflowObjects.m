@@ -419,6 +419,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_FailedLocation
+//
+
+@implementation GTLRDataflow_FailedLocation
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_FlattenInstruction
 //
 
@@ -553,9 +563,9 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_Job
 @dynamic clientRequestId, createTime, currentState, currentStateTime,
-         environment, executionInfo, identifier, labels, name, projectId,
-         replacedByJobId, replaceJobId, requestedState, steps, tempFiles,
-         transformNameMapping, type;
+         environment, executionInfo, identifier, labels, location, name,
+         projectId, replacedByJobId, replaceJobId, requestedState, steps,
+         tempFiles, transformNameMapping, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -701,8 +711,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_LeaseWorkItemRequest
-@dynamic currentWorkerTime, requestedLeaseDuration, workerCapabilities,
-         workerId, workItemTypes;
+@dynamic currentWorkerTime, location, requestedLeaseDuration,
+         workerCapabilities, workerId, workItemTypes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -761,17 +771,14 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_ListJobsResponse
-@dynamic jobs, nextPageToken;
+@dynamic failedLocation, jobs, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"failedLocation" : [GTLRDataflow_FailedLocation class],
     @"jobs" : [GTLRDataflow_Job class]
   };
   return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"jobs";
 }
 
 @end
@@ -1040,7 +1047,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_ReportWorkItemStatusRequest
-@dynamic currentWorkerTime, workerId, workItemStatuses;
+@dynamic currentWorkerTime, location, workerId, workItemStatuses;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

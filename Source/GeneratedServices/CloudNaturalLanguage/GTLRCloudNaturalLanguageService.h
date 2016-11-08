@@ -31,10 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudNaturalLanguageAPICloudPlatform;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudNaturalLanguageCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudNaturalLanguageAPIService
+//   GTLRCloudNaturalLanguageService
 //
 
 /**
@@ -44,13 +44,13 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudNaturalLanguageAPICloudPlatform;
  *  technologies to developers. Examples include sentiment analysis, entity
  *  recognition, and text annotations.
  */
-@interface GTLRCloudNaturalLanguageAPIService : GTLRService
+@interface GTLRCloudNaturalLanguageService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudNaturalLanguageAPIQuery.h. The query can the be sent with
-// GTLRService's execute methods,
+// GTLRCloudNaturalLanguageQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

@@ -97,6 +97,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsJobsCreateWithObject:projectId:]
 
+/** The location which contains this job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** The project which owns the job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -218,6 +221,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 /** Identifies a single job. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
+/** The location which contains this job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** The project which owns the job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -261,6 +267,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 
 /** The job to get messages for. */
 @property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The location which contains the job specified by job_id. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** A project id. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -310,6 +319,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
+/** The location which contains this job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /**
  *  If there are many jobs, limit response to at most this many. The actual
  *  number of jobs returned will be the lesser of max_responses and an
@@ -344,10 +356,6 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
  *  @param projectId The project which owns the jobs.
  *
  *  @returns GTLRDataflowQuery_ProjectsJobsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId;
 
@@ -374,6 +382,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 
 /** The job to get messages about. */
 @property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The location which contains the job specified by job_id. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Filter to only get messages with importance >= level
@@ -450,6 +461,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 
 /** Identifies a single job. */
 @property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The location which contains this job. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** The project which owns the job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -541,6 +555,429 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
  */
 + (instancetype)queryWithObject:(GTLRDataflow_ReportWorkItemStatusRequest *)object
                       projectId:(NSString *)projectId
+                          jobId:(NSString *)jobId;
+
+@end
+
+/**
+ *  Creates a dataflow job.
+ *
+ *  Method: dataflow.projects.locations.jobs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsJobsCreate : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsJobsCreateWithObject:projectId:location:]
+
+/** The location which contains this job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The project which owns the job. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** DEPRECATED. This field is now on the Job message. */
+@property(nonatomic, copy, nullable) NSString *replaceJobId;
+
+/**
+ *  Level of information requested in response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
+ *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
+ *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRDataflow_Job.
+ *
+ *  Creates a dataflow job.
+ *
+ *  @param object The @c GTLRDataflow_Job to include in the query.
+ *  @param projectId The project which owns the job.
+ *  @param location The location which contains this job.
+ *
+ *  @returns GTLRDataflowQuery_ProjectsLocationsJobsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_Job *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location;
+
+@end
+
+/**
+ *  Gets the state of the specified dataflow job.
+ *
+ *  Method: dataflow.projects.locations.jobs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsJobsGet : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsJobsGetWithprojectId:location:jobId:]
+
+/** Identifies a single job. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The location which contains this job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The project which owns the job. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Level of information requested in response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
+ *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
+ *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRDataflow_Job.
+ *
+ *  Gets the state of the specified dataflow job.
+ *
+ *  @param projectId The project which owns the job.
+ *  @param location The location which contains this job.
+ *  @param jobId Identifies a single job.
+ *
+ *  @returns GTLRDataflowQuery_ProjectsLocationsJobsGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location
+                             jobId:(NSString *)jobId;
+
+@end
+
+/**
+ *  Request the job status.
+ *
+ *  Method: dataflow.projects.locations.jobs.getMetrics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsJobsGetMetrics : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsJobsGetMetricsWithprojectId:location:jobId:]
+
+/** The job to get messages for. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The location which contains the job specified by job_id. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** A project id. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Return only metric data that has changed since this time. Default is to
+ *  return all information about all metrics for the job.
+ */
+@property(nonatomic, copy, nullable) NSString *startTime;
+
+/**
+ *  Fetches a @c GTLRDataflow_JobMetrics.
+ *
+ *  Request the job status.
+ *
+ *  @param projectId A project id.
+ *  @param location The location which contains the job specified by job_id.
+ *  @param jobId The job to get messages for.
+ *
+ *  @returns GTLRDataflowQuery_ProjectsLocationsJobsGetMetrics
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location
+                             jobId:(NSString *)jobId;
+
+@end
+
+/**
+ *  List the jobs of a project
+ *
+ *  Method: dataflow.projects.locations.jobs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsJobsList : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsJobsListWithprojectId:location:]
+
+/**
+ *  The kind of filter to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflowFilterUnknown Value "UNKNOWN"
+ *    @arg @c kGTLRDataflowFilterAll Value "ALL"
+ *    @arg @c kGTLRDataflowFilterTerminated Value "TERMINATED"
+ *    @arg @c kGTLRDataflowFilterActive Value "ACTIVE"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The location which contains this job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  If there are many jobs, limit response to at most this many. The actual
+ *  number of jobs returned will be the lesser of max_responses and an
+ *  unspecified server-defined limit.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Set this to the 'next_page_token' field of a previous response to request
+ *  additional results in a long list.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** The project which owns the jobs. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Level of information requested in response. Default is SUMMARY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
+ *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
+ *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRDataflow_ListJobsResponse.
+ *
+ *  List the jobs of a project
+ *
+ *  @param projectId The project which owns the jobs.
+ *  @param location The location which contains this job.
+ *
+ *  @returns GTLRDataflowQuery_ProjectsLocationsJobsList
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location;
+
+@end
+
+/**
+ *  Request the job status.
+ *
+ *  Method: dataflow.projects.locations.jobs.messages.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsJobsMessagesList : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsJobsMessagesListWithprojectId:location:jobId:]
+
+/**
+ *  Return only messages with timestamps < end_time. The default is now (i.e.
+ *  return up to the latest messages available).
+ */
+@property(nonatomic, copy, nullable) NSString *endTime;
+
+/** The job to get messages about. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The location which contains the job specified by job_id. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Filter to only get messages with importance >= level
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageImportanceUnknown Value
+ *        "JOB_MESSAGE_IMPORTANCE_UNKNOWN"
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageDebug Value
+ *        "JOB_MESSAGE_DEBUG"
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageDetailed Value
+ *        "JOB_MESSAGE_DETAILED"
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageBasic Value
+ *        "JOB_MESSAGE_BASIC"
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageWarning Value
+ *        "JOB_MESSAGE_WARNING"
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageError Value
+ *        "JOB_MESSAGE_ERROR"
+ */
+@property(nonatomic, copy, nullable) NSString *minimumImportance;
+
+/**
+ *  If specified, determines the maximum number of messages to return. If
+ *  unspecified, the service may choose an appropriate default, or may return an
+ *  arbitrarily large number of results.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  If supplied, this should be the value of next_page_token returned by an
+ *  earlier call. This will cause the next page of results to be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** A project id. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  If specified, return only messages with timestamps >= start_time. The
+ *  default is the job creation time (i.e. beginning of messages).
+ */
+@property(nonatomic, copy, nullable) NSString *startTime;
+
+/**
+ *  Fetches a @c GTLRDataflow_ListJobMessagesResponse.
+ *
+ *  Request the job status.
+ *
+ *  @param projectId A project id.
+ *  @param location The location which contains the job specified by job_id.
+ *  @param jobId The job to get messages about.
+ *
+ *  @returns GTLRDataflowQuery_ProjectsLocationsJobsMessagesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location
+                             jobId:(NSString *)jobId;
+
+@end
+
+/**
+ *  Updates the state of an existing dataflow job.
+ *
+ *  Method: dataflow.projects.locations.jobs.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsJobsUpdate : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsJobsUpdateWithObject:projectId:location:jobId:]
+
+/** Identifies a single job. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The location which contains this job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The project which owns the job. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDataflow_Job.
+ *
+ *  Updates the state of an existing dataflow job.
+ *
+ *  @param object The @c GTLRDataflow_Job to include in the query.
+ *  @param projectId The project which owns the job.
+ *  @param location The location which contains this job.
+ *  @param jobId Identifies a single job.
+ *
+ *  @returns GTLRDataflowQuery_ProjectsLocationsJobsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_Job *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location
+                          jobId:(NSString *)jobId;
+
+@end
+
+/**
+ *  Leases a dataflow WorkItem to run.
+ *
+ *  Method: dataflow.projects.locations.jobs.workItems.lease
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsLease : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsJobsWorkItemsLeaseWithObject:projectId:location:jobId:]
+
+/** Identifies the workflow job this worker belongs to. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The location which contains the WorkItem's job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** Identifies the project this worker belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDataflow_LeaseWorkItemResponse.
+ *
+ *  Leases a dataflow WorkItem to run.
+ *
+ *  @param object The @c GTLRDataflow_LeaseWorkItemRequest to include in the
+ *    query.
+ *  @param projectId Identifies the project this worker belongs to.
+ *  @param location The location which contains the WorkItem's job.
+ *  @param jobId Identifies the workflow job this worker belongs to.
+ *
+ *  @returns GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsLease
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_LeaseWorkItemRequest *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location
+                          jobId:(NSString *)jobId;
+
+@end
+
+/**
+ *  Reports the status of dataflow WorkItems leased by a worker.
+ *
+ *  Method: dataflow.projects.locations.jobs.workItems.reportStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsReportStatus : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsJobsWorkItemsReportStatusWithObject:projectId:location:jobId:]
+
+/** The job which the WorkItem is part of. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The location which contains the WorkItem's job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The project which owns the WorkItem's job. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDataflow_ReportWorkItemStatusResponse.
+ *
+ *  Reports the status of dataflow WorkItems leased by a worker.
+ *
+ *  @param object The @c GTLRDataflow_ReportWorkItemStatusRequest to include in
+ *    the query.
+ *  @param projectId The project which owns the WorkItem's job.
+ *  @param location The location which contains the WorkItem's job.
+ *  @param jobId The job which the WorkItem is part of.
+ *
+ *  @returns GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsReportStatus
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_ReportWorkItemStatusRequest *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location
                           jobId:(NSString *)jobId;
 
 @end

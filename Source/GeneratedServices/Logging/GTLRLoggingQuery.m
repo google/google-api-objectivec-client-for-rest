@@ -37,6 +37,113 @@
 
 @end
 
+@implementation GTLRLoggingQuery_BillingAccountsSinksCreate
+
+@dynamic parent, uniqueWriterIdentity;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/sinks";
+  GTLRLoggingQuery_BillingAccountsSinksCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_LogSink class];
+  query.loggingName = @"logging.billingAccounts.sinks.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_BillingAccountsSinksDelete
+
+@dynamic sinkName;
+
++ (instancetype)queryWithSinkName:(NSString *)sinkName {
+  NSArray *pathParams = @[ @"sinkName" ];
+  NSString *pathURITemplate = @"v2/{+sinkName}";
+  GTLRLoggingQuery_BillingAccountsSinksDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.sinkName = sinkName;
+  query.expectedObjectClass = [GTLRLogging_Empty class];
+  query.loggingName = @"logging.billingAccounts.sinks.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_BillingAccountsSinksGet
+
+@dynamic sinkName;
+
++ (instancetype)queryWithSinkName:(NSString *)sinkName {
+  NSArray *pathParams = @[ @"sinkName" ];
+  NSString *pathURITemplate = @"v2/{+sinkName}";
+  GTLRLoggingQuery_BillingAccountsSinksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.sinkName = sinkName;
+  query.expectedObjectClass = [GTLRLogging_LogSink class];
+  query.loggingName = @"logging.billingAccounts.sinks.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_BillingAccountsSinksList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/sinks";
+  GTLRLoggingQuery_BillingAccountsSinksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListSinksResponse class];
+  query.loggingName = @"logging.billingAccounts.sinks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_BillingAccountsSinksUpdate
+
+@dynamic sinkName, uniqueWriterIdentity;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                       sinkName:(NSString *)sinkName {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"sinkName" ];
+  NSString *pathURITemplate = @"v2/{+sinkName}";
+  GTLRLoggingQuery_BillingAccountsSinksUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.sinkName = sinkName;
+  query.expectedObjectClass = [GTLRLogging_LogSink class];
+  query.loggingName = @"logging.billingAccounts.sinks.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_EntriesList
 
 + (instancetype)queryWithObject:(GTLRLogging_ListLogEntriesRequest *)object {
@@ -115,7 +222,7 @@
 
 @implementation GTLRLoggingQuery_OrganizationsSinksCreate
 
-@dynamic parent;
+@dynamic parent, uniqueWriterIdentity;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                          parent:(NSString *)parent {
@@ -197,7 +304,7 @@
 
 @implementation GTLRLoggingQuery_OrganizationsSinksUpdate
 
-@dynamic sinkName;
+@dynamic sinkName, uniqueWriterIdentity;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                        sinkName:(NSString *)sinkName {
@@ -348,7 +455,7 @@
 
 @implementation GTLRLoggingQuery_ProjectsSinksCreate
 
-@dynamic parent;
+@dynamic parent, uniqueWriterIdentity;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                          parent:(NSString *)parent {
@@ -430,7 +537,7 @@
 
 @implementation GTLRLoggingQuery_ProjectsSinksUpdate
 
-@dynamic sinkName;
+@dynamic sinkName, uniqueWriterIdentity;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                        sinkName:(NSString *)sinkName {

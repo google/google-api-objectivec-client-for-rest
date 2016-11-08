@@ -66,6 +66,7 @@
 @class GTLRShoppingContent_Inventory;
 @class GTLRShoppingContent_InventoryCustomBatchRequestEntry;
 @class GTLRShoppingContent_InventoryCustomBatchResponseEntry;
+@class GTLRShoppingContent_InventoryPickup;
 @class GTLRShoppingContent_LocationIdSet;
 @class GTLRShoppingContent_LoyaltyPoints;
 @class GTLRShoppingContent_Order;
@@ -1916,6 +1917,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_LoyaltyPoints *loyaltyPoints;
 
+/**
+ *  Store pickup information. Only supported for local inventory. Not setting
+ *  pickup means "don't update" while setting it to the empty value ({} in JSON)
+ *  means "delete". Otherwise, pickupMethod and pickupSla must be set together,
+ *  unless pickupMethod is "not supported".
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_InventoryPickup *pickup;
+
 /** The price of the product. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
@@ -2037,6 +2046,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_InventoryPickup
+ */
+@interface GTLRShoppingContent_InventoryPickup : GTLRObject
+
+/**
+ *  Whether store pickup is available for this offer and whether the pickup
+ *  option should be shown as buy, reserve, or not supported. Only supported for
+ *  local inventory. Unless the value is "not supported", must be submitted
+ *  together with pickupSla.
+ */
+@property(nonatomic, copy, nullable) NSString *pickupMethod;
+
+/**
+ *  The expected date that an order will be ready for pickup, relative to when
+ *  the order is placed. Only supported for local inventory. Must be submitted
+ *  together with pickupMethod.
+ */
+@property(nonatomic, copy, nullable) NSString *pickupSla;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_InventorySetRequest
  */
 @interface GTLRShoppingContent_InventorySetRequest : GTLRObject
@@ -2051,6 +2083,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Loyalty points that users receive after purchasing the item. Japan only.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_LoyaltyPoints *loyaltyPoints;
+
+/**
+ *  Store pickup information. Only supported for local inventory. Not setting
+ *  pickup means "don't update" while setting it to the empty value ({} in JSON)
+ *  means "delete". Otherwise, pickupMethod and pickupSla must be set together,
+ *  unless pickupMethod is "not supported".
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_InventoryPickup *pickup;
 
 /** The price of the product. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;

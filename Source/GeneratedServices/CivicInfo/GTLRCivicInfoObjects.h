@@ -33,10 +33,14 @@
 @class GTLRCivicInfo_Office;
 @class GTLRCivicInfo_Official;
 @class GTLRCivicInfo_PollingLocation;
+@class GTLRCivicInfo_PostalAddress;
 @class GTLRCivicInfo_RepresentativeInfoDataDivisions;
 @class GTLRCivicInfo_RepresentativeInfoResponseDivisions;
 @class GTLRCivicInfo_SimpleAddressType;
 @class GTLRCivicInfo_Source;
+@class GTLRCivicInfo_VoterInfoRequest;
+@class GTLRCivicInfo_VoterInfoResponse;
+@class GTLRCivicInfo_VoterInfoSegmentResult;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -709,6 +713,53 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRCivicInfo_PostalAddress
+ */
+@interface GTLRCivicInfo_PostalAddress : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addressLines;
+@property(nonatomic, copy, nullable) NSString *administrativeAreaName;
+@property(nonatomic, copy, nullable) NSString *countryName;
+@property(nonatomic, copy, nullable) NSString *countryNameCode;
+@property(nonatomic, copy, nullable) NSString *dependentLocalityName;
+@property(nonatomic, copy, nullable) NSString *dependentThoroughfareLeadingType;
+@property(nonatomic, copy, nullable) NSString *dependentThoroughfareName;
+@property(nonatomic, copy, nullable) NSString *dependentThoroughfarePostDirection;
+@property(nonatomic, copy, nullable) NSString *dependentThoroughfarePreDirection;
+@property(nonatomic, copy, nullable) NSString *dependentThoroughfaresConnector;
+@property(nonatomic, copy, nullable) NSString *dependentThoroughfaresIndicator;
+@property(nonatomic, copy, nullable) NSString *dependentThoroughfaresType;
+@property(nonatomic, copy, nullable) NSString *dependentThoroughfareTrailingType;
+@property(nonatomic, copy, nullable) NSString *firmName;
+
+/**
+ *  isDisputed
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDisputed;
+
+@property(nonatomic, copy, nullable) NSString *languageCode;
+@property(nonatomic, copy, nullable) NSString *localityName;
+@property(nonatomic, copy, nullable) NSString *postalCodeNumber;
+@property(nonatomic, copy, nullable) NSString *postalCodeNumberExtension;
+@property(nonatomic, copy, nullable) NSString *postBoxNumber;
+@property(nonatomic, copy, nullable) NSString *premiseName;
+@property(nonatomic, copy, nullable) NSString *recipientName;
+@property(nonatomic, copy, nullable) NSString *sortingCode;
+@property(nonatomic, copy, nullable) NSString *subAdministrativeAreaName;
+@property(nonatomic, copy, nullable) NSString *subPremiseName;
+@property(nonatomic, copy, nullable) NSString *thoroughfareLeadingType;
+@property(nonatomic, copy, nullable) NSString *thoroughfareName;
+@property(nonatomic, copy, nullable) NSString *thoroughfareNumber;
+@property(nonatomic, copy, nullable) NSString *thoroughfarePostDirection;
+@property(nonatomic, copy, nullable) NSString *thoroughfarePreDirection;
+@property(nonatomic, copy, nullable) NSString *thoroughfareTrailingType;
+
+@end
+
+
+/**
  *  GTLRCivicInfo_RepresentativeInfoData
  */
 @interface GTLRCivicInfo_RepresentativeInfoData : GTLRObject
@@ -851,6 +902,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_VoterInfoRequest : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRCivicInfo_ContextParams *contextParams;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_VoterInfoSegmentResult *voterInfoSegmentResult;
 
 @end
 
@@ -914,6 +966,25 @@ NS_ASSUME_NONNULL_BEGIN
  *  US, there will only be one element in this array.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_AdministrationRegion *> *state;
+
+@end
+
+
+/**
+ *  GTLRCivicInfo_VoterInfoSegmentResult
+ */
+@interface GTLRCivicInfo_VoterInfoSegmentResult : GTLRObject
+
+/**
+ *  generatedMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generatedMillis;
+
+@property(nonatomic, strong, nullable) GTLRCivicInfo_PostalAddress *postalAddress;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_VoterInfoRequest *request;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_VoterInfoResponse *response;
 
 @end
 

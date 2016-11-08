@@ -37,7 +37,7 @@ NSString * const kGTLRAuthScopeClassroomStudentSubmissionsStudentsReadonly = @"h
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://prod-day0-classroom.sandbox.googleapis.com/";
+    self.rootURLString = @"https://classroom.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
   }

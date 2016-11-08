@@ -387,6 +387,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGmailCompose
  *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailMetadata
  *    @c kGTLRAuthScopeGmailModify
  *    @c kGTLRAuthScopeGmailReadonly
  */
@@ -424,6 +425,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailMetadata
  *    @c kGTLRAuthScopeGmailModify
  *    @c kGTLRAuthScopeGmailReadonly
  */
@@ -579,6 +581,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGmailLabels
  *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailMetadata
  *    @c kGTLRAuthScopeGmailModify
  *    @c kGTLRAuthScopeGmailReadonly
  */
@@ -625,6 +628,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGmailLabels
  *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailMetadata
  *    @c kGTLRAuthScopeGmailModify
  *    @c kGTLRAuthScopeGmailReadonly
  */
@@ -891,6 +895,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailMetadata
  *    @c kGTLRAuthScopeGmailModify
  *    @c kGTLRAuthScopeGmailReadonly
  */
@@ -1099,6 +1104,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailMetadata
  *    @c kGTLRAuthScopeGmailModify
  *    @c kGTLRAuthScopeGmailReadonly
  */
@@ -2271,6 +2277,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailMetadata
  *    @c kGTLRAuthScopeGmailModify
  *    @c kGTLRAuthScopeGmailReadonly
  */
@@ -2354,6 +2361,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailMetadata
  *    @c kGTLRAuthScopeGmailModify
  *    @c kGTLRAuthScopeGmailReadonly
  */
@@ -2415,6 +2423,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailMetadata
  *    @c kGTLRAuthScopeGmailModify
  *    @c kGTLRAuthScopeGmailReadonly
  */
@@ -2620,6 +2629,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailMetadata
  *    @c kGTLRAuthScopeGmailModify
  *    @c kGTLRAuthScopeGmailReadonly
  */

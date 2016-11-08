@@ -143,10 +143,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  The protocol that the bidder endpoint is using. By default, OpenRTB
  *  protocols use JSON, except PROTOCOL_OPENRTB_PROTOBUF.
  *  PROTOCOL_OPENRTB_PROTOBUF uses protobuf encoding over the latest OpenRTB
- *  protocol version, which is 2.3 right now. Allowed values:
+ *  protocol version, which is 2.4 right now. Allowed values:
  *  - PROTOCOL_ADX
  *  - PROTOCOL_OPENRTB_2_2
  *  - PROTOCOL_OPENRTB_2_3
+ *  - PROTOCOL_OPENRTB_2_4
  *  - PROTOCOL_OPENRTB_PROTOBUF
  */
 @property(nonatomic, copy, nullable) NSString *bidProtocol;
@@ -573,7 +574,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The URL to fetch a video ad. If set, HTMLSnippet and the nativeAd should not
- *  be set. Note, this is diffrent from resource.native_ad.video_url above.
+ *  be set. Note, this is different from resource.native_ad.video_url above.
  */
 @property(nonatomic, copy, nullable) NSString *videoURL;
 
@@ -639,6 +640,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** A label for the button that the user is supposed to click. */
 @property(nonatomic, copy, nullable) NSString *callToAction;
 
+/** The URL that the browser/SDK will load when the user clicks the ad. */
+@property(nonatomic, copy, nullable) NSString *clickLinkUrl;
+
 /** The URL to use for click tracking. */
 @property(nonatomic, copy, nullable) NSString *clickTrackingUrl;
 
@@ -667,6 +671,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** The URL to the app store to purchase/download the promoted app. */
 @property(nonatomic, copy, nullable) NSString *store;
 
+/**
+ *  The URL of the XML VAST for a native ad. Note this is a separate field from
+ *  resource.video_url.
+ */
 @property(nonatomic, copy, nullable) NSString *videoURL;
 
 @end
@@ -1940,6 +1948,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *supportedCreativeAttributes;
+
+/**
+ *  Requests containing the specified type of user data will match. Possible
+ *  values are HOSTED_MATCH_DATA, which means the request is cookie-targetable
+ *  and has a match in the buyer's hosted match table, and COOKIE_OR_IDFA, which
+ *  means the request has either a targetable cookie or an iOS IDFA.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userIdentifierDataRequired;
 
 /**
  *  Requests containing any of these user list ids will match.
