@@ -23,10 +23,11 @@
 
 #import "YouTubeSampleWindowController.h"
 
+#import "AppAuth.h"
 #import "GTLR/GTLRUtilities.h"
 #import "GTLR/GTMSessionUploadFetcher.h"
 #import "GTLR/GTMSessionFetcherLogging.h"
-#import "GTLR/GTMOAuth2WindowController.h"
+#import "GTLR/GTMAppAuth.h"
 
 enum {
   // Playlist pop-up menu item tags.
@@ -37,8 +38,12 @@ enum {
   kWatchLaterTag = 4
 };
 
+// This is the URL that users will be redirected to after the OAuth flow is complete. Generally this
+// should be a simple, uncluttered page that instructs the user to return to the app.
+static NSString *const kSuccessURLString = @"http://openid.github.io/AppAuth-iOS/redirect/";
+
 // Keychain item name for saving the user's authentication information.
-NSString *const kKeychainItemName = @"YouTubeSample: YouTube";
+NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAuth";
 
 @interface YouTubeSampleWindowController ()
 // Accessor for the app's single instance of the service object.
@@ -56,6 +61,8 @@ NSString *const kKeychainItemName = @"YouTubeSample: YouTube";
 
   GTLRServiceTicket *_uploadFileTicket;
   NSURL *_uploadLocationURL;  // URL for restarting an upload.
+
+  OIDRedirectHTTPHandler *_redirectHTTPHandler;
 }
 
 + (YouTubeSampleWindowController *)sharedWindowController {
@@ -71,15 +78,10 @@ NSString *const kKeychainItemName = @"YouTubeSample: YouTube";
 }
 
 - (void)awakeFromNib {
-  // Load the OAuth 2 token from the keychain, if it was previously saved.
-  NSString *clientID = _clientIDField.stringValue;
-  NSString *clientSecret = _clientSecretField.stringValue;
-
-  GTMOAuth2Authentication *auth =
-      [GTMOAuth2WindowController authForGoogleFromKeychainForName:kKeychainItemName
-                                                         clientID:clientID
-                                                     clientSecret:clientSecret];
-  self.youTubeService.authorizer = auth;
+  // Attempts to deserialize authorization from keychain in GTMAppAuth format.
+  id<GTMFetcherAuthorizationProtocol> authorization =
+      [GTMAppAuthFetcherAuthorization authorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
+  self.youTubeService.authorizer = authorization;
 
   // Set the result text fields to have a distinctive color and mono-spaced font.
   _playlistResultTextField.textColor = [NSColor darkGrayColor];
@@ -99,7 +101,7 @@ NSString *const kKeychainItemName = @"YouTubeSample: YouTube";
 
 - (NSString *)signedInUsername {
   // Get the email address of the signed-in user.
-  GTMOAuth2Authentication *auth = self.youTubeService.authorizer;
+  id<GTMFetcherAuthorizationProtocol> auth = self.youTubeService.authorizer;
   BOOL isSignedIn = auth.canAuthorize;
   if (isSignedIn) {
     return auth.userEmail;
@@ -125,7 +127,8 @@ NSString *const kKeychainItemName = @"YouTubeSample: YouTube";
     // Sign out.
     GTLRYouTubeService *service = self.youTubeService;
 
-    [GTMOAuth2WindowController removeAuthFromKeychainForName:kKeychainItemName];
+    [GTMAppAuthFetcherAuthorization
+        removeAuthorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
     service.authorizer = nil;
     [self updateUI];
   }
@@ -217,7 +220,7 @@ NSString *const kKeychainItemName = @"YouTubeSample: YouTube";
   [[NSWorkspace sharedWorkspace] openURL:url];
 }
 
-- (IBAction)loggingCheckboxClicked:(id)sender {
+- (IBAction)loggingCheckboxClicked:(NSButton *)sender {
   [GTMSessionFetcher setLoggingEnabled:[sender state]];
 }
 
@@ -522,25 +525,64 @@ NSString *const kKeychainItemName = @"YouTubeSample: YouTube";
     return;
   }
 
-  // Show the OAuth 2 sign-in controller.
-  NSBundle *frameworkBundle = [NSBundle bundleForClass:[GTMOAuth2WindowController class]];
-  GTMOAuth2WindowController *windowController =
-      [GTMOAuth2WindowController controllerWithScope:kGTLRAuthScopeYouTube
-                                            clientID:clientID
-                                        clientSecret:clientSecret
-                                    keychainItemName:kKeychainItemName
-                                      resourceBundle:frameworkBundle];
+  NSURL *successURL = [NSURL URLWithString:kSuccessURLString];
 
-  [windowController signInSheetModalForWindow:self.window
-                            completionHandler:^(GTMOAuth2Authentication *auth,
-                                                NSError *error) {
-    // Callback
-    if (error == nil) {
-      self.youTubeService.authorizer = auth;
+  // Starts a loopback HTTP listener to receive the code, gets the redirect URI to be used.
+  _redirectHTTPHandler = [[OIDRedirectHTTPHandler alloc] initWithSuccessURL:successURL];
+  NSError *error;
+  NSURL *localRedirectURI = [_redirectHTTPHandler startHTTPListener:&error];
+  if (!localRedirectURI) {
+    NSLog(@"Unexpected error starting redirect handler %@", error);
+    return;
+  }
+
+  // Builds authentication request.
+  OIDServiceConfiguration *configuration =
+      [GTMAppAuthFetcherAuthorization configurationForGoogle];
+  NSArray<NSString *> *scopes = @[ kGTLRAuthScopeYouTube, OIDScopeEmail ];
+  OIDAuthorizationRequest *request =
+      [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
+                                                    clientId:clientID
+                                                clientSecret:clientSecret
+                                                      scopes:scopes
+                                                 redirectURL:localRedirectURI
+                                                responseType:OIDResponseTypeCode
+                                        additionalParameters:nil];
+
+  // performs authentication request
+  __weak __typeof(self) weakSelf = self;
+  _redirectHTTPHandler.currentAuthorizationFlow =
+      [OIDAuthState authStateByPresentingAuthorizationRequest:request
+                          callback:^(OIDAuthState *_Nullable authState,
+                                     NSError *_Nullable error) {
+    // Using weakSelf/strongSelf pattern to avoid retaining self as block execution is indeterminate
+    __strong __typeof(weakSelf) strongSelf = weakSelf;
+    if (!strongSelf) {
+      return;
+    }
+
+    // Brings this app to the foreground.
+    [[NSRunningApplication currentApplication]
+        activateWithOptions:(NSApplicationActivateAllWindows |
+                             NSApplicationActivateIgnoringOtherApps)];
+
+    if (authState) {
+      // Creates a GTMAppAuthFetcherAuthorization object for authorizing requests.
+      GTMAppAuthFetcherAuthorization *gtmAuthorization =
+          [[GTMAppAuthFetcherAuthorization alloc] initWithAuthState:authState];
+
+      // Sets the authorizer on the GTLRYouTubeService object so API calls will be authenticated.
+      strongSelf.youTubeService.authorizer = gtmAuthorization;
+
+      // Serializes authorization to keychain in GTMAppAuth format.
+      [GTMAppAuthFetcherAuthorization saveAuthorization:gtmAuthorization
+                                      toKeychainForName:kGTMAppAuthKeychainItemName];
+
+      // Executes post sign-in handler.
       if (handler) handler();
     } else {
-      _channelListFetchError = error;
-      [self updateUI];
+      strongSelf->_channelListFetchError = error;
+      [strongSelf updateUI];
     }
   }];
 }
