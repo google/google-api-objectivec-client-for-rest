@@ -25,6 +25,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		34DC86431DDE8B2A0006B98F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F95C07F1C87B1B700598FE6 /* GTLRCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F4A8723C1DAD1AA400D69E09;
+			remoteInfo = GTLRtvOSCore;
+		};
+		34DC86451DDE8B2A0006B98F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F95C07F1C87B1B700598FE6 /* GTLRCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F4A8727D1DAD1FA000D69E09;
+			remoteInfo = GTLRtvOSUnitTests;
+		};
 		4F95C0871C87B1B700598FE6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4F95C07F1C87B1B700598FE6 /* GTLRCore.xcodeproj */;
@@ -214,8 +228,10 @@
 			children = (
 				4F95C0881C87B1B700598FE6 /* GTLR.framework */,
 				4F95C08A1C87B1B700598FE6 /* GTLR.framework */,
-				4F95C08C1C87B1B700598FE6 /* GTLRiOSUnitTests.xctest */,
+				34DC86441DDE8B2A0006B98F /* GTLR.framework */,
 				4F95C08E1C87B1B700598FE6 /* GTLROSXUnitTests.xctest */,
+				4F95C08C1C87B1B700598FE6 /* GTLRiOSUnitTests.xctest */,
+				34DC86461DDE8B2A0006B98F /* GTLRtvOSUnitTests.xctest */,
 				4F95C0901C87B1B700598FE6 /* OSXDevTool */,
 			);
 			name = Products;
@@ -301,6 +317,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		34DC86441DDE8B2A0006B98F /* GTLR.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GTLR.framework;
+			remoteRef = 34DC86431DDE8B2A0006B98F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		34DC86461DDE8B2A0006B98F /* GTLRtvOSUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GTLRtvOSUnitTests.xctest;
+			remoteRef = 34DC86451DDE8B2A0006B98F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		4F95C0881C87B1B700598FE6 /* GTLR.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -473,6 +503,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"GTLR_BUILT_AS_FRAMEWORK=1",
+					GTMAPPAUTH_USER_IMPORTS,
 					"DEBUG=1",
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -491,6 +522,7 @@
 					../../Source/OAuth2/Mac,
 					../../Source/Objects,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = (
@@ -515,7 +547,10 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = "GTLR_BUILT_AS_FRAMEWORK=1";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"GTLR_BUILT_AS_FRAMEWORK=1",
+					GTMAPPAUTH_USER_IMPORTS,
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -532,6 +567,7 @@
 					../../Source/OAuth2/Mac,
 					../../Source/Objects,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = (
 					"-Wall",

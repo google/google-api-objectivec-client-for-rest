@@ -24,7 +24,6 @@
 #import <Cocoa/Cocoa.h>
 
 #import "GTLRStorage.h"
-#import "GTLR/GTMOAuth2WindowController.h"
 
 @interface StorageSampleWindowController : NSWindowController {
  @private

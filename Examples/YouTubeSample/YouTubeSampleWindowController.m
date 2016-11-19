@@ -23,7 +23,7 @@
 
 #import "YouTubeSampleWindowController.h"
 
-#import "AppAuth.h"
+#import "GTLR/AppAuth.h"
 #import "GTLR/GTLRUtilities.h"
 #import "GTLR/GTMSessionUploadFetcher.h"
 #import "GTLR/GTMSessionFetcherLogging.h"
@@ -38,8 +38,9 @@ enum {
   kWatchLaterTag = 4
 };
 
-// This is the URL that users will be redirected to after the OAuth flow is complete. Generally this
-// should be a simple, uncluttered page that instructs the user to return to the app.
+// This is the URL shown users after completing the OAuth flow. This is an information page only and
+// is not part of the authorization protocol. You can replace it with any URL you like.
+// We recommend at a minimum that the page displayed instructs users to return to the app.
 static NSString *const kSuccessURLString = @"http://openid.github.io/AppAuth-iOS/redirect/";
 
 // Keychain item name for saving the user's authentication information.

@@ -29,7 +29,6 @@
 #import <Cocoa/Cocoa.h>
 
 #import "GTLRDrive.h"
-#import "GTLR/GTMOAuth2WindowController.h"
 
 @interface DriveSampleWindowController : NSWindowController {
  @private
