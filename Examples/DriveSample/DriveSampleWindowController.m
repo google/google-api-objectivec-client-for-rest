@@ -19,8 +19,10 @@
 
 #import "DriveSampleWindowController.h"
 
+#import "GTLR/AppAuth.h"
 #import "GTLR/GTLRUtilities.h"
 #import "GTLR/GTMSessionFetcherLogging.h"
+#import "GTLR/GTMAppAuth.h"
 
 // Segmented control indices.
 enum {
@@ -30,8 +32,13 @@ enum {
   kParentsSegment
 };
 
+// This is the URL shown users after completing the OAuth flow. This is an information page only and
+// is not part of the authorization protocol. You can replace it with any URL you like.
+// We recommend at a minimum that the page displayed instructs users to return to the app.
+static NSString *const kSuccessURLString = @"http://openid.github.io/AppAuth-iOS/redirect/";
+
 // Keychain item name for saving the user's authentication information.
-NSString *const kKeychainItemName = @"DriveSample: Google Drive";
+NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAppAuth.";
 
 @interface DriveSampleWindowController ()
 @property (nonatomic, readonly) GTLRDriveService *driveService;
@@ -59,6 +66,8 @@ NSString *const kKeychainItemName = @"DriveSample: Google Drive";
 
   GTLRServiceTicket *_detailsTicket;
   NSError *_detailsFetchError;
+
+  OIDRedirectHTTPHandler *_redirectHTTPHandler;
 }
 
 + (DriveSampleWindowController *)sharedWindowController {
@@ -74,15 +83,10 @@ NSString *const kKeychainItemName = @"DriveSample: Google Drive";
 }
 
 - (void)awakeFromNib {
-  // Load the OAuth 2 token from the keychain, if it was previously saved.
-  NSString *clientID = [_clientIDField stringValue];
-  NSString *clientSecret = [_clientSecretField stringValue];
-
-  GTMOAuth2Authentication *auth;
-  auth = [GTMOAuth2WindowController authForGoogleFromKeychainForName:kKeychainItemName
-                                                            clientID:clientID
-                                                        clientSecret:clientSecret];
-  self.driveService.authorizer = auth;
+  // Attempts to deserialize authorization from keychain in GTMAppAuth format.
+  id<GTMFetcherAuthorizationProtocol> authorization =
+      [GTMAppAuthFetcherAuthorization authorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
+  self.driveService.authorizer = authorization;
 
   // Set the result text fields to have a distinctive color and mono-spaced font.
   _fileListResultTextField.textColor = [NSColor darkGrayColor];
@@ -99,7 +103,7 @@ NSString *const kKeychainItemName = @"DriveSample: Google Drive";
 
 - (NSString *)signedInUsername {
   // Get the email address of the signed-in user.
-  GTMOAuth2Authentication *auth = self.driveService.authorizer;
+  id<GTMFetcherAuthorizationProtocol> auth = self.driveService.authorizer;
   BOOL isSignedIn = auth.canAuthorize;
   if (isSignedIn) {
     return auth.userEmail;
@@ -125,7 +129,8 @@ NSString *const kKeychainItemName = @"DriveSample: Google Drive";
     // Sign out
     GTLRDriveService *service = self.driveService;
 
-    [GTMOAuth2WindowController removeAuthFromKeychainForName:kKeychainItemName];
+    [GTMAppAuthFetcherAuthorization
+        removeAuthorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
     service.authorizer = nil;
     [self updateUI];
   }
@@ -363,7 +368,7 @@ NSString *const kKeychainItemName = @"DriveSample: Google Drive";
   [[NSWorkspace sharedWorkspace] openURL:url];
 }
 
-- (IBAction)loggingCheckboxClicked:(id)sender {
+- (IBAction)loggingCheckboxClicked:(NSButton *)sender {
   [GTMSessionFetcher setLoggingEnabled:[sender state]];
 }
 
@@ -826,28 +831,67 @@ NSString *const kKeychainItemName = @"DriveSample: Google Drive";
     return;
   }
 
-  // Show the OAuth 2 sign-in controller
-  NSBundle *frameworkBundle = [NSBundle bundleForClass:[GTMOAuth2WindowController class]];
-  GTMOAuth2WindowController *windowController;
 
+  NSURL *successURL = [NSURL URLWithString:kSuccessURLString];
+
+  // Starts a loopback HTTP listener to receive the code, gets the redirect URI to be used.
+  _redirectHTTPHandler = [[OIDRedirectHTTPHandler alloc] initWithSuccessURL:successURL];
+  NSError *error;
+  NSURL *localRedirectURI = [_redirectHTTPHandler startHTTPListener:&error];
+  if (!localRedirectURI) {
+    NSLog(@"Unexpected error starting redirect handler %@", error);
+    return;
+  }
+
+  // Builds authentication request.
+  OIDServiceConfiguration *configuration =
+      [GTMAppAuthFetcherAuthorization configurationForGoogle];
   // Applications that only need to access files created by this app should
-  // use kGTLRAuthScopeDriveFile.
-  windowController = [GTMOAuth2WindowController controllerWithScope:kGTLRAuthScopeDrive
-                                                           clientID:clientID
-                                                       clientSecret:clientSecret
-                                                   keychainItemName:kKeychainItemName
-                                                     resourceBundle:frameworkBundle];
+  // use the kGTLRAuthScopeDriveFile scope.
+  NSArray<NSString *> *scopes = @[ kGTLRAuthScopeDrive, OIDScopeEmail ];
+  OIDAuthorizationRequest *request =
+      [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
+                                                    clientId:clientID
+                                                clientSecret:clientSecret
+                                                      scopes:scopes
+                                                 redirectURL:localRedirectURI
+                                                responseType:OIDResponseTypeCode
+                                        additionalParameters:nil];
 
-  [windowController signInSheetModalForWindow:[self window]
-                            completionHandler:^(GTMOAuth2Authentication *auth,
-                                                NSError *signInError) {
-    // Callback
-    if (signInError == nil) {
-      self.driveService.authorizer = auth;
+  // performs authentication request
+  __weak __typeof(self) weakSelf = self;
+  _redirectHTTPHandler.currentAuthorizationFlow =
+      [OIDAuthState authStateByPresentingAuthorizationRequest:request
+                          callback:^(OIDAuthState *_Nullable authState,
+                                     NSError *_Nullable error) {
+    // Using weakSelf/strongSelf pattern to avoid retaining self as block execution is indeterminate
+    __strong __typeof(weakSelf) strongSelf = weakSelf;
+    if (!strongSelf) {
+      return;
+    }
+
+    // Brings this app to the foreground.
+    [[NSRunningApplication currentApplication]
+        activateWithOptions:(NSApplicationActivateAllWindows |
+                             NSApplicationActivateIgnoringOtherApps)];
+
+    if (authState) {
+      // Creates a GTMAppAuthFetcherAuthorization object for authorizing requests.
+      GTMAppAuthFetcherAuthorization *gtmAuthorization =
+          [[GTMAppAuthFetcherAuthorization alloc] initWithAuthState:authState];
+
+      // Sets the authorizer on the GTLRYouTubeService object so API calls will be authenticated.
+      strongSelf.driveService.authorizer = gtmAuthorization;
+
+      // Serializes authorization to keychain in GTMAppAuth format.
+      [GTMAppAuthFetcherAuthorization saveAuthorization:gtmAuthorization
+                                      toKeychainForName:kGTMAppAuthKeychainItemName];
+
+      // Executes post sign-in handler.
       if (handler) handler();
     } else {
-      _fileListFetchError = signInError;
-      [self updateUI];
+      strongSelf->_fileListFetchError = error;
+      [strongSelf updateUI];
     }
   }];
 }

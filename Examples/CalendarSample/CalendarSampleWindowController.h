@@ -20,7 +20,6 @@
 #import <Cocoa/Cocoa.h>
 
 #import "GTLRCalendar.h"
-#import "GTLR/GTMOAuth2WindowController.h"
 
 @interface CalendarSampleWindowController : NSWindowController {
  @private

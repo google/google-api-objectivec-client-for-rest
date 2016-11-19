@@ -21,8 +21,10 @@
 #import "EditEventWindowController.h"
 #import "EditACLWindowController.h"
 
+#import "GTLR/AppAuth.h"
 #import "GTLR/GTLRUtilities.h"
 #import "GTLR/GTMSessionFetcherLogging.h"
+#import "GTLR/GTMAppAuth.h"
 
 enum {
   kEventsSegment = 0,
@@ -54,10 +56,17 @@ enum {
 
 @end
 
-// Keychain item name for saving the user's authentication information
-NSString *const kKeychainItemName = @"CalendarSample: Google Calendar";
+// This is the URL shown users after completing the OAuth flow. This is an information page only and
+// is not part of the authorization protocol. You can replace it with any URL you like.
+// We recommend at a minimum that the page displayed instructs users to return to the app.
+static NSString *const kSuccessURLString = @"http://openid.github.io/AppAuth-iOS/redirect/";
 
-@implementation CalendarSampleWindowController
+// Keychain item name for saving the user's authentication information
+NSString *const kGTMAppAuthKeychainItemName = @"CalendarSample: Google Calendar. GTMAppAuth";
+
+@implementation CalendarSampleWindowController {
+  OIDRedirectHTTPHandler *_redirectHTTPHandler;
+}
 
 @synthesize calendarList = _calendarList,
             calendarListTicket = _calendarListTicket,
@@ -85,15 +94,10 @@ NSString *const kKeychainItemName = @"CalendarSample: Google Calendar";
 }
 
 - (void)awakeFromNib {
-  // Load the OAuth token from the keychain, if it was previously saved
-  NSString *clientID = _clientIDField.stringValue;
-  NSString *clientSecret = _clientSecretField.stringValue;
-
-  GTMOAuth2Authentication *auth;
-  auth = [GTMOAuth2WindowController authForGoogleFromKeychainForName:kKeychainItemName
-                                                            clientID:clientID
-                                                        clientSecret:clientSecret];
-  self.calendarService.authorizer = auth;
+  // Attempts to deserialize authorization from keychain in GTMAppAuth format.
+  id<GTMFetcherAuthorizationProtocol> authorization =
+      [GTMAppAuthFetcherAuthorization authorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
+  self.calendarService.authorizer = authorization;
 
   // Set the result text fields to have a distinctive color and mono-spaced font
   _calendarResultTextField.textColor = [NSColor darkGrayColor];
@@ -110,7 +114,7 @@ NSString *const kKeychainItemName = @"CalendarSample: Google Calendar";
 
 - (NSString *)signedInUsername {
   // Get the email address of the signed-in user
-  GTMOAuth2Authentication *auth = self.calendarService.authorizer;
+  id<GTMFetcherAuthorizationProtocol> auth = self.calendarService.authorizer;
   BOOL isSignedIn = auth.canAuthorize;
   if (isSignedIn) {
     return auth.userEmail;
@@ -134,7 +138,8 @@ NSString *const kKeychainItemName = @"CalendarSample: Google Calendar";
     // Sign out
     GTLRCalendarService *service = self.calendarService;
 
-    [GTMOAuth2WindowController removeAuthFromKeychainForName:kKeychainItemName];
+   [GTMAppAuthFetcherAuthorization
+        removeAuthorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
     service.authorizer = nil;
     [self updateUI];
   }
@@ -236,7 +241,7 @@ NSString *const kKeychainItemName = @"CalendarSample: Google Calendar";
   [[NSWorkspace sharedWorkspace] openURL:url];
 }
 
-- (IBAction)loggingCheckboxClicked:(id)sender {
+- (IBAction)loggingCheckboxClicked:(NSButton *)sender {
   [GTMSessionFetcher setLoggingEnabled:[sender state]];
 }
 
@@ -945,30 +950,64 @@ NSString *const kKeychainItemName = @"CalendarSample: Google Calendar";
     return;
   }
 
-  // Show the OAuth 2 sign-in controller
-  NSBundle *frameworkBundle = [NSBundle bundleForClass:[GTMOAuth2WindowController class]];
-  GTMOAuth2WindowController *windowController =
-      [GTMOAuth2WindowController controllerWithScope:kGTLRAuthScopeCalendar
-                                            clientID:clientID
-                                        clientSecret:clientSecret
-                                    keychainItemName:kKeychainItemName
-                                      resourceBundle:frameworkBundle];
+  NSURL *successURL = [NSURL URLWithString:kSuccessURLString];
 
-  [windowController signInSheetModalForWindow:self.window
-                            completionHandler:^(GTMOAuth2Authentication *auth,
-                                                NSError *signInError) {
-    // Callback
-    if (signInError == nil) {
-      self.calendarService.authorizer = auth;
+  // Starts a loopback HTTP listener to receive the code, gets the redirect URI to be used.
+  _redirectHTTPHandler = [[OIDRedirectHTTPHandler alloc] initWithSuccessURL:successURL];
+  NSError *error;
+  NSURL *localRedirectURI = [_redirectHTTPHandler startHTTPListener:&error];
+  if (!localRedirectURI) {
+    NSLog(@"Unexpected error starting redirect handler %@", error);
+    return;
+  }
+
+  // Builds authentication request.
+  OIDServiceConfiguration *configuration =
+      [GTMAppAuthFetcherAuthorization configurationForGoogle];
+  NSArray<NSString *> *scopes = @[ kGTLRAuthScopeCalendar, OIDScopeEmail ];
+  OIDAuthorizationRequest *request =
+      [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
+                                                    clientId:clientID
+                                                clientSecret:clientSecret
+                                                      scopes:scopes
+                                                 redirectURL:localRedirectURI
+                                                responseType:OIDResponseTypeCode
+                                        additionalParameters:nil];
+
+  // performs authentication request
+    // Using the weakSelf pattern to avoid retaining self as block execution is indeterminate.
+  __weak __typeof(self) weakSelf = self;
+  _redirectHTTPHandler.currentAuthorizationFlow =
+      [OIDAuthState authStateByPresentingAuthorizationRequest:request
+                          callback:^(OIDAuthState *_Nullable authState,
+                                     NSError *_Nullable error) {
+    // Brings this app to the foreground.
+    [[NSRunningApplication currentApplication]
+        activateWithOptions:(NSApplicationActivateAllWindows |
+                             NSApplicationActivateIgnoringOtherApps)];
+
+    if (authState) {
+      // Creates a GTMAppAuthFetcherAuthorization object for authorizing requests.
+      GTMAppAuthFetcherAuthorization *gtmAuthorization =
+          [[GTMAppAuthFetcherAuthorization alloc] initWithAuthState:authState];
+
+      // Sets the authorizer on the GTLRYouTubeService object so API calls will be authenticated.
+      weakSelf.calendarService.authorizer = gtmAuthorization;
+
+      // Serializes authorization to keychain in GTMAppAuth format.
+      [GTMAppAuthFetcherAuthorization saveAuthorization:gtmAuthorization
+                                      toKeychainForName:kGTMAppAuthKeychainItemName];
+
+      // Callback
       if (signInDoneSel) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [self performSelector:signInDoneSel];
+        [weakSelf performSelector:signInDoneSel];
 #pragma clang diagnostic pop
       }
     } else {
-      self.calendarListFetchError = signInError;
-      [self updateUI];
+      weakSelf.calendarListFetchError = error;
+      [weakSelf updateUI];
     }
   }];
 }
