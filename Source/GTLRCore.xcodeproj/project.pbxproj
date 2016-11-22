@@ -869,8 +869,8 @@
 				345D0DB01DDF80A50044C585 /* OIDURLQueryComponent.h */,
 			);
 			name = AppAuthHeaders;
-			path = ../../AppAuth/Source;
-			sourceTree = "<group>";
+			path = ../Deps/AppAuth/Source;
+			sourceTree = SOURCE_ROOT;
 		};
 		345D0D791DDF80A50044C585 /* iOS */ = {
 			isa = PBXGroup;
