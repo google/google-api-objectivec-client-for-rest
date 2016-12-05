@@ -53,6 +53,13 @@
 @class GTLRCompute_InstanceTemplate;
 @class GTLRCompute_Metadata;
 @class GTLRCompute_Network;
+@class GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest;
+@class GTLRCompute_RegionInstanceGroupManagersDeleteInstancesRequest;
+@class GTLRCompute_RegionInstanceGroupManagersRecreateRequest;
+@class GTLRCompute_RegionInstanceGroupManagersSetTargetPoolsRequest;
+@class GTLRCompute_RegionInstanceGroupManagersSetTemplateRequest;
+@class GTLRCompute_RegionInstanceGroupsListInstancesRequest;
+@class GTLRCompute_RegionInstanceGroupsSetNamedPortsRequest;
 @class GTLRCompute_ResourceGroupReference;
 @class GTLRCompute_Route;
 @class GTLRCompute_Router;
@@ -786,6 +793,91 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Retrieves the list of all BackendService resources, regional and global,
+ *  available to the specified project.
+ *
+ *  Method: compute.backendServices.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_BackendServicesAggregatedList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForBackendServicesAggregatedListWithproject:]
+
+/**
+ *  Sets a filter expression for filtering listed resources, in the form
+ *  filter={expression}. Your {expression} must be in the format: field_name
+ *  comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use filter=name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests.
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 0..500).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Name of the project scoping this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_BackendServiceAggregatedList.
+ *
+ *  Retrieves the list of all BackendService resources, regional and global,
+ *  available to the specified project.
+ *
+ *  @param project Name of the project scoping this request.
+ *
+ *  @returns GTLRComputeQuery_BackendServicesAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
 
 @end
 
@@ -4573,20 +4665,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCompute queryForInstanceGroupManagersListManagedInstancesWithproject:zoneProperty:instanceGroupManager:]
 
-@property(nonatomic, copy, nullable) NSString *filter;
-
 /** The name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
-
-/**
- *  maxResults
- *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
- */
-@property(nonatomic, assign) NSUInteger maxResults;
-
-@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -5832,6 +5912,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  For the initial request, leave this field unspecified. For subsequent calls,
+ *  this field should be set to the next value that was returned in the previous
+ *  call.
+ */
+@property(nonatomic, assign) long long start;
 
 /**
  *  The name of the zone for this request.
@@ -7277,6 +7364,1516 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCompute_UsageExportLocation *)object
                         project:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified autoscaler.
+ *
+ *  Method: compute.regionAutoscalers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionAutoscalersDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionAutoscalersDeleteWithproject:region:autoscaler:]
+
+/** Name of the autoscaler to delete. */
+@property(nonatomic, copy, nullable) NSString *autoscaler;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified autoscaler.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param autoscaler Name of the autoscaler to delete.
+ *
+ *  @returns GTLRComputeQuery_RegionAutoscalersDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                      autoscaler:(NSString *)autoscaler;
+
+@end
+
+/**
+ *  Returns the specified autoscaler.
+ *
+ *  Method: compute.regionAutoscalers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionAutoscalersGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionAutoscalersGetWithproject:region:autoscaler:]
+
+/** Name of the autoscaler to return. */
+@property(nonatomic, copy, nullable) NSString *autoscaler;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Autoscaler.
+ *
+ *  Returns the specified autoscaler.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param autoscaler Name of the autoscaler to return.
+ *
+ *  @returns GTLRComputeQuery_RegionAutoscalersGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                      autoscaler:(NSString *)autoscaler;
+
+@end
+
+/**
+ *  Creates an autoscaler in the specified project using the data included in
+ *  the request.
+ *
+ *  Method: compute.regionAutoscalers.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionAutoscalersInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionAutoscalersInsertWithObject:project:region:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates an autoscaler in the specified project using the data included in
+ *  the request.
+ *
+ *  @param object The @c GTLRCompute_Autoscaler to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @returns GTLRComputeQuery_RegionAutoscalersInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Retrieves a list of autoscalers contained within the specified region.
+ *
+ *  Method: compute.regionAutoscalers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionAutoscalersList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionAutoscalersListWithproject:region:]
+
+/**
+ *  Sets a filter expression for filtering listed resources, in the form
+ *  filter={expression}. Your {expression} must be in the format: field_name
+ *  comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use filter=name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests.
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 0..500).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_RegionAutoscalerList.
+ *
+ *  Retrieves a list of autoscalers contained within the specified region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @returns GTLRComputeQuery_RegionAutoscalersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Updates an autoscaler in the specified project using the data included in
+ *  the request. This method supports patch semantics.
+ *
+ *  Method: compute.regionAutoscalers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionAutoscalersPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionAutoscalersPatchWithObject:project:region:autoscaler:]
+
+/** Name of the autoscaler to update. */
+@property(nonatomic, copy, nullable) NSString *autoscaler;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates an autoscaler in the specified project using the data included in
+ *  the request. This method supports patch semantics.
+ *
+ *  @param object The @c GTLRCompute_Autoscaler to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param autoscaler Name of the autoscaler to update.
+ *
+ *  @returns GTLRComputeQuery_RegionAutoscalersPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                     autoscaler:(NSString *)autoscaler;
+
+@end
+
+/**
+ *  Updates an autoscaler in the specified project using the data included in
+ *  the request.
+ *
+ *  Method: compute.regionAutoscalers.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionAutoscalersUpdate : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionAutoscalersUpdateWithObject:project:region:]
+
+/** Name of the autoscaler to update. */
+@property(nonatomic, copy, nullable) NSString *autoscaler;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates an autoscaler in the specified project using the data included in
+ *  the request.
+ *
+ *  @param object The @c GTLRCompute_Autoscaler to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @returns GTLRComputeQuery_RegionAutoscalersUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Deletes the specified regional BackendService resource.
+ *
+ *  Method: compute.regionBackendServices.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionBackendServicesDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionBackendServicesDeleteWithproject:region:backendService:]
+
+/** Name of the BackendService resource to delete. */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified regional BackendService resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param backendService Name of the BackendService resource to delete.
+ *
+ *  @returns GTLRComputeQuery_RegionBackendServicesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  backendService:(NSString *)backendService;
+
+@end
+
+/**
+ *  Returns the specified regional BackendService resource.
+ *
+ *  Method: compute.regionBackendServices.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionBackendServicesGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionBackendServicesGetWithproject:region:backendService:]
+
+/** Name of the BackendService resource to return. */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_BackendService.
+ *
+ *  Returns the specified regional BackendService resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param backendService Name of the BackendService resource to return.
+ *
+ *  @returns GTLRComputeQuery_RegionBackendServicesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  backendService:(NSString *)backendService;
+
+@end
+
+/**
+ *  Gets the most recent health check results for this regional BackendService.
+ *
+ *  Method: compute.regionBackendServices.getHealth
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionBackendServicesGetHealth : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionBackendServicesGetHealthWithObject:project:region:backendService:]
+
+/**
+ *  Name of the BackendService resource to which the queried instance belongs.
+ */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_BackendServiceGroupHealth.
+ *
+ *  Gets the most recent health check results for this regional BackendService.
+ *
+ *  @param object The @c GTLRCompute_ResourceGroupReference to include in the
+ *    query.
+ *  @param project NSString
+ *  @param region Name of the region scoping this request.
+ *  @param backendService Name of the BackendService resource to which the
+ *    queried instance belongs.
+ *
+ *  @returns GTLRComputeQuery_RegionBackendServicesGetHealth
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ResourceGroupReference *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 backendService:(NSString *)backendService;
+
+@end
+
+/**
+ *  Creates a regional BackendService resource in the specified project using
+ *  the data included in the request. There are several restrictions and
+ *  guidelines to keep in mind when creating a regional backend service. Read
+ *  Restrictions and Guidelines for more information.
+ *
+ *  Method: compute.regionBackendServices.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionBackendServicesInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionBackendServicesInsertWithObject:project:region:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a regional BackendService resource in the specified project using
+ *  the data included in the request. There are several restrictions and
+ *  guidelines to keep in mind when creating a regional backend service. Read
+ *  Restrictions and Guidelines for more information.
+ *
+ *  @param object The @c GTLRCompute_BackendService to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @returns GTLRComputeQuery_RegionBackendServicesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_BackendService *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Retrieves the list of regional BackendService resources available to the
+ *  specified project in the given region.
+ *
+ *  Method: compute.regionBackendServices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionBackendServicesList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionBackendServicesListWithproject:region:]
+
+/**
+ *  Sets a filter expression for filtering listed resources, in the form
+ *  filter={expression}. Your {expression} must be in the format: field_name
+ *  comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use filter=name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests.
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 0..500).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_BackendServiceList.
+ *
+ *  Retrieves the list of regional BackendService resources available to the
+ *  specified project in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @returns GTLRComputeQuery_RegionBackendServicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Updates the specified regional BackendService resource with the data
+ *  included in the request. There are several restrictions and guidelines to
+ *  keep in mind when updating a backend service. Read Restrictions and
+ *  Guidelines for more information. This method supports patch semantics.
+ *
+ *  Method: compute.regionBackendServices.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionBackendServicesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionBackendServicesPatchWithObject:project:region:backendService:]
+
+/** Name of the BackendService resource to update. */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified regional BackendService resource with the data
+ *  included in the request. There are several restrictions and guidelines to
+ *  keep in mind when updating a backend service. Read Restrictions and
+ *  Guidelines for more information. This method supports patch semantics.
+ *
+ *  @param object The @c GTLRCompute_BackendService to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param backendService Name of the BackendService resource to update.
+ *
+ *  @returns GTLRComputeQuery_RegionBackendServicesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_BackendService *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 backendService:(NSString *)backendService;
+
+@end
+
+/**
+ *  Updates the specified regional BackendService resource with the data
+ *  included in the request. There are several restrictions and guidelines to
+ *  keep in mind when updating a backend service. Read Restrictions and
+ *  Guidelines for more information.
+ *
+ *  Method: compute.regionBackendServices.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionBackendServicesUpdate : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionBackendServicesUpdateWithObject:project:region:backendService:]
+
+/** Name of the BackendService resource to update. */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified regional BackendService resource with the data
+ *  included in the request. There are several restrictions and guidelines to
+ *  keep in mind when updating a backend service. Read Restrictions and
+ *  Guidelines for more information.
+ *
+ *  @param object The @c GTLRCompute_BackendService to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param backendService Name of the BackendService resource to update.
+ *
+ *  @returns GTLRComputeQuery_RegionBackendServicesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_BackendService *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 backendService:(NSString *)backendService;
+
+@end
+
+/**
+ *  Schedules a group action to remove the specified instances from the managed
+ *  instance group. Abandoning an instance does not delete the instance, but it
+ *  does remove the instance from any target pools that are applied by the
+ *  managed instance group. This method reduces the targetSize of the managed
+ *  instance group by the number of instances that you abandon. This operation
+ *  is marked as DONE when the action is scheduled even if the instances have
+ *  not yet been removed from the group. You must separately verify the status
+ *  of the abandoning action with the listmanagedinstances method.
+ *
+ *  Method: compute.regionInstanceGroupManagers.abandonInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersAbandonInstances : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersAbandonInstancesWithObject:project:region:instanceGroupManager:]
+
+/** Name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Schedules a group action to remove the specified instances from the managed
+ *  instance group. Abandoning an instance does not delete the instance, but it
+ *  does remove the instance from any target pools that are applied by the
+ *  managed instance group. This method reduces the targetSize of the managed
+ *  instance group by the number of instances that you abandon. This operation
+ *  is marked as DONE when the action is scheduled even if the instances have
+ *  not yet been removed from the group. You must separately verify the status
+ *  of the abandoning action with the listmanagedinstances method.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager Name of the managed instance group.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupManagersAbandonInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Deletes the specified managed instance group and all of the instances in
+ *  that group.
+ *
+ *  Method: compute.regionInstanceGroupManagers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersDeleteWithproject:region:instanceGroupManager:]
+
+/** Name of the managed instance group to delete. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified managed instance group and all of the instances in
+ *  that group.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager Name of the managed instance group to delete.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupManagersDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Schedules a group action to delete the specified instances in the managed
+ *  instance group. The instances are also removed from any target pools of
+ *  which they were a member. This method reduces the targetSize of the managed
+ *  instance group by the number of instances that you delete. This operation is
+ *  marked as DONE when the action is scheduled even if the instances are still
+ *  being deleted. You must separately verify the status of the deleting action
+ *  with the listmanagedinstances method.
+ *
+ *  Method: compute.regionInstanceGroupManagers.deleteInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersDeleteInstances : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersDeleteInstancesWithObject:project:region:instanceGroupManager:]
+
+/** Name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Schedules a group action to delete the specified instances in the managed
+ *  instance group. The instances are also removed from any target pools of
+ *  which they were a member. This method reduces the targetSize of the managed
+ *  instance group by the number of instances that you delete. This operation is
+ *  marked as DONE when the action is scheduled even if the instances are still
+ *  being deleted. You must separately verify the status of the deleting action
+ *  with the listmanagedinstances method.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagersDeleteInstancesRequest to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager Name of the managed instance group.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupManagersDeleteInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersDeleteInstancesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Returns all of the details about the specified managed instance group.
+ *
+ *  Method: compute.regionInstanceGroupManagers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersGetWithproject:region:instanceGroupManager:]
+
+/** Name of the managed instance group to return. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceGroupManager.
+ *
+ *  Returns all of the details about the specified managed instance group.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager Name of the managed instance group to return.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupManagersGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Creates a managed instance group using the information that you specify in
+ *  the request. After the group is created, it schedules an action to create
+ *  instances in the group using the specified instance template. This operation
+ *  is marked as DONE when the group is created even if the instances in the
+ *  group have not yet been created. You must separately verify the status of
+ *  the individual instances with the listmanagedinstances method.
+ *
+ *  Method: compute.regionInstanceGroupManagers.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersInsertWithObject:project:region:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a managed instance group using the information that you specify in
+ *  the request. After the group is created, it schedules an action to create
+ *  instances in the group using the specified instance template. This operation
+ *  is marked as DONE when the group is created even if the instances in the
+ *  group have not yet been created. You must separately verify the status of
+ *  the individual instances with the listmanagedinstances method.
+ *
+ *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupManagersInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManager *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Retrieves the list of managed instance groups that are contained within the
+ *  specified region.
+ *
+ *  Method: compute.regionInstanceGroupManagers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersListWithproject:region:]
+
+/**
+ *  Sets a filter expression for filtering listed resources, in the form
+ *  filter={expression}. Your {expression} must be in the format: field_name
+ *  comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use filter=name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests.
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 0..500).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_RegionInstanceGroupManagerList.
+ *
+ *  Retrieves the list of managed instance groups that are contained within the
+ *  specified region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupManagersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Lists the instances in the managed instance group and instances that are
+ *  scheduled to be created. The list includes any current actions that the
+ *  group has scheduled for its instances.
+ *
+ *  Method: compute.regionInstanceGroupManagers.listManagedInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersListManagedInstances : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersListManagedInstancesWithproject:region:instanceGroupManager:]
+
+/** The name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_RegionInstanceGroupManagersListInstancesResponse.
+ *
+ *  Lists the instances in the managed instance group and instances that are
+ *  scheduled to be created. The list includes any current actions that the
+ *  group has scheduled for its instances.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupManagersListManagedInstances
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Schedules a group action to recreate the specified instances in the managed
+ *  instance group. The instances are deleted and recreated using the current
+ *  instance template for the managed instance group. This operation is marked
+ *  as DONE when the action is scheduled even if the instances have not yet been
+ *  recreated. You must separately verify the status of the recreating action
+ *  with the listmanagedinstances method.
+ *
+ *  Method: compute.regionInstanceGroupManagers.recreateInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersRecreateInstances : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersRecreateInstancesWithObject:project:region:instanceGroupManager:]
+
+/** Name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Schedules a group action to recreate the specified instances in the managed
+ *  instance group. The instances are deleted and recreated using the current
+ *  instance template for the managed instance group. This operation is marked
+ *  as DONE when the action is scheduled even if the instances have not yet been
+ *  recreated. You must separately verify the status of the recreating action
+ *  with the listmanagedinstances method.
+ *
+ *  @param object The @c GTLRCompute_RegionInstanceGroupManagersRecreateRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager Name of the managed instance group.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupManagersRecreateInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersRecreateRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Changes the intended size for the managed instance group. If you increase
+ *  the size, the group schedules actions to create new instances using the
+ *  current instance template. If you decrease the size, the group schedules
+ *  delete actions on one or more instances. The resize operation is marked DONE
+ *  when the resize actions are scheduled even if the group has not yet added or
+ *  deleted any instances. You must separately verify the status of the creating
+ *  or deleting actions with the listmanagedinstances method.
+ *
+ *  Method: compute.regionInstanceGroupManagers.resize
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersResize : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersResizeWithproject:region:instanceGroupManager:size:]
+
+/** Name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Number of instances that should exist in this instance group manager. */
+@property(nonatomic, assign) NSInteger size;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Changes the intended size for the managed instance group. If you increase
+ *  the size, the group schedules actions to create new instances using the
+ *  current instance template. If you decrease the size, the group schedules
+ *  delete actions on one or more instances. The resize operation is marked DONE
+ *  when the resize actions are scheduled even if the group has not yet added or
+ *  deleted any instances. You must separately verify the status of the creating
+ *  or deleting actions with the listmanagedinstances method.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager Name of the managed instance group.
+ *  @param size Number of instances that should exist in this instance group
+ *    manager.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupManagersResize
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            instanceGroupManager:(NSString *)instanceGroupManager
+                            size:(NSInteger)size;
+
+@end
+
+/**
+ *  Sets the instance template to use when creating new instances or recreating
+ *  instances in this group. Existing instances are not affected.
+ *
+ *  Method: compute.regionInstanceGroupManagers.setInstanceTemplate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersSetInstanceTemplate : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersSetInstanceTemplateWithObject:project:region:instanceGroupManager:]
+
+/** The name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the instance template to use when creating new instances or recreating
+ *  instances in this group. Existing instances are not affected.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagersSetTemplateRequest to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupManagersSetInstanceTemplate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersSetTemplateRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Modifies the target pools to which all new instances in this group are
+ *  assigned. Existing instances in the group are not affected.
+ *
+ *  Method: compute.regionInstanceGroupManagers.setTargetPools
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersSetTargetPools : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersSetTargetPoolsWithObject:project:region:instanceGroupManager:]
+
+/** Name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Modifies the target pools to which all new instances in this group are
+ *  assigned. Existing instances in the group are not affected.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagersSetTargetPoolsRequest to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager Name of the managed instance group.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupManagersSetTargetPools
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersSetTargetPoolsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Returns the specified instance group resource.
+ *
+ *  Method: compute.regionInstanceGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupsGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupsGetWithproject:region:instanceGroup:]
+
+/** Name of the instance group resource to return. */
+@property(nonatomic, copy, nullable) NSString *instanceGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceGroup.
+ *
+ *  Returns the specified instance group resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroup Name of the instance group resource to return.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                   instanceGroup:(NSString *)instanceGroup;
+
+@end
+
+/**
+ *  Retrieves the list of instance group resources contained within the
+ *  specified region.
+ *
+ *  Method: compute.regionInstanceGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupsList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupsListWithproject:region:]
+
+/**
+ *  Sets a filter expression for filtering listed resources, in the form
+ *  filter={expression}. Your {expression} must be in the format: field_name
+ *  comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use filter=name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests.
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 0..500).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_RegionInstanceGroupList.
+ *
+ *  Retrieves the list of instance group resources contained within the
+ *  specified region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Lists the instances in the specified instance group and displays information
+ *  about the named ports. Depending on the specified options, this method can
+ *  list all instances or only the instances that are running.
+ *
+ *  Method: compute.regionInstanceGroups.listInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupsListInstances : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupsListInstancesWithObject:project:region:instanceGroup:]
+
+/**
+ *  Sets a filter expression for filtering listed resources, in the form
+ *  filter={expression}. Your {expression} must be in the format: field_name
+ *  comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use filter=name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Name of the regional instance group for which we want to list the instances.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroup;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests.
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 0..500).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_RegionInstanceGroupsListInstances.
+ *
+ *  Lists the instances in the specified instance group and displays information
+ *  about the named ports. Depending on the specified options, this method can
+ *  list all instances or only the instances that are running.
+ *
+ *  @param object The @c GTLRCompute_RegionInstanceGroupsListInstancesRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroup Name of the regional instance group for which we want
+ *    to list the instances.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupsListInstances
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupsListInstancesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                  instanceGroup:(NSString *)instanceGroup;
+
+@end
+
+/**
+ *  Sets the named ports for the specified regional instance group.
+ *
+ *  Method: compute.regionInstanceGroups.setNamedPorts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupsSetNamedPorts : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupsSetNamedPortsWithObject:project:region:instanceGroup:]
+
+/**
+ *  The name of the regional instance group where the named ports are updated.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the named ports for the specified regional instance group.
+ *
+ *  @param object The @c GTLRCompute_RegionInstanceGroupsSetNamedPortsRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroup The name of the regional instance group where the named
+ *    ports are updated.
+ *
+ *  @returns GTLRComputeQuery_RegionInstanceGroupsSetNamedPorts
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupsSetNamedPortsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                  instanceGroup:(NSString *)instanceGroup;
 
 @end
 

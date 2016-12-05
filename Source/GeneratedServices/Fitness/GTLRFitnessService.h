@@ -37,11 +37,47 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessActivityRead;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessActivityWrite;
 /**
+ *  Authorization scope: View blood glucose data in Google Fit
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.blood_glucose.read"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBloodGlucoseRead;
+/**
+ *  Authorization scope: View and store blood glucose data in Google Fit
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.blood_glucose.write"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBloodGlucoseWrite;
+/**
+ *  Authorization scope: View blood pressure data in Google Fit
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.blood_pressure.read"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBloodPressureRead;
+/**
+ *  Authorization scope: View and store blood pressure data in Google Fit
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.blood_pressure.write"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBloodPressureWrite;
+/**
  *  Authorization scope: View body sensor information in Google Fit
  *
  *  Value "https://www.googleapis.com/auth/fitness.body.read"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBodyRead;
+/**
+ *  Authorization scope: View body temperature data in Google Fit
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.body_temperature.read"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBodyTemperatureRead;
+/**
+ *  Authorization scope: View and store body temperature data in Google Fit
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.body_temperature.write"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBodyTemperatureWrite;
 /**
  *  Authorization scope: View and store body sensor data in Google Fit
  *
@@ -72,6 +108,30 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessNutritionRead;
  *  Value "https://www.googleapis.com/auth/fitness.nutrition.write"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessNutritionWrite;
+/**
+ *  Authorization scope: View oxygen saturation data in Google Fit
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessOxygenSaturationRead;
+/**
+ *  Authorization scope: View and store oxygen saturation data in Google Fit
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessOxygenSaturationWrite;
+/**
+ *  Authorization scope: View reproductive health data in Google Fit
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.reproductive_health.read"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessReproductiveHealthRead;
+/**
+ *  Authorization scope: View and store reproductive health data in Google Fit
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.reproductive_health.write"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessReproductiveHealthWrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRFitnessService

@@ -22,6 +22,11 @@ NSString * const kGTLRSlides_AffineTransform_Unit_UnitUnspecified = @"UNIT_UNSPE
 NSString * const kGTLRSlides_AutoText_Type_SlideNumber     = @"SLIDE_NUMBER";
 NSString * const kGTLRSlides_AutoText_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRSlides_CreateLineRequest.lineCategory
+NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Bent = @"BENT";
+NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Curved = @"CURVED";
+NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Straight = @"STRAIGHT";
+
 // GTLRSlides_CreateParagraphBulletsRequest.bulletPreset
 NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletArrow3dCircleSquare = @"BULLET_ARROW3D_CIRCLE_SQUARE";
 NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletArrowDiamondDisc = @"BULLET_ARROW_DIAMOND_DISC";
@@ -198,9 +203,14 @@ NSString * const kGTLRSlides_Dimension_Unit_Pt              = @"PT";
 NSString * const kGTLRSlides_Dimension_Unit_UnitUnspecified = @"UNIT_UNSPECIFIED";
 
 // GTLRSlides_LayoutReference.predefinedLayout
+NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_BigNumber = @"BIG_NUMBER";
 NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_Blank = @"BLANK";
 NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_CaptionOnly = @"CAPTION_ONLY";
+NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_MainPoint = @"MAIN_POINT";
+NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_OneColumnText = @"ONE_COLUMN_TEXT";
 NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_PredefinedLayoutUnspecified = @"PREDEFINED_LAYOUT_UNSPECIFIED";
+NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_SectionHeader = @"SECTION_HEADER";
+NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_SectionTitleAndDescription = @"SECTION_TITLE_AND_DESCRIPTION";
 NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_Title = @"TITLE";
 NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleAndBody = @"TITLE_AND_BODY";
 NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleAndTwoColumns = @"TITLE_AND_TWO_COLUMNS";
@@ -575,7 +585,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_AutoText
-@dynamic style, type;
+@dynamic content, style, type;
 @end
 
 
@@ -670,6 +680,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 @implementation GTLRSlides_CreateImageResponse
 @dynamic objectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_CreateLineRequest
+//
+
+@implementation GTLRSlides_CreateLineRequest
+@dynamic elementProperties, lineCategory, objectId;
 @end
 
 
@@ -1295,12 +1315,12 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_Request
-@dynamic createImage, createParagraphBullets, createShape, createSheetsChart,
-         createSlide, createTable, createVideo, deleteObject, deleteTableColumn,
-         deleteTableRow, deleteText, duplicateObject, insertTableColumns,
-         insertTableRows, insertText, refreshSheetsChart,
+@dynamic createImage, createLine, createParagraphBullets, createShape,
+         createSheetsChart, createSlide, createTable, createVideo, deleteObject,
+         deleteTableColumn, deleteTableRow, deleteText, duplicateObject,
+         insertTableColumns, insertTableRows, insertText, refreshSheetsChart,
          replaceAllShapesWithImage, replaceAllText, updateImageProperties,
-         updatePageElementTransform, updatePageProperties,
+         updateLineProperties, updatePageElementTransform, updatePageProperties,
          updateShapeProperties, updateSlidesPosition, updateTableCellProperties,
          updateTextStyle, updateVideoProperties;
 @end
@@ -1616,6 +1636,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 @implementation GTLRSlides_UpdateImagePropertiesRequest
 @dynamic fields, imageProperties, objectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_UpdateLinePropertiesRequest
+//
+
+@implementation GTLRSlides_UpdateLinePropertiesRequest
+@dynamic fields, lineProperties, objectId;
 @end
 
 

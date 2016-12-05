@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Natural Language API (language/v1beta1)
+//   Google Cloud Natural Language API (language/v1)
 // Description:
 //   Google Cloud Natural Language API provides natural language understanding
 //   technologies to developers. Examples include sentiment analysis, entity
@@ -20,6 +20,18 @@ NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_N
 NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf16 = @"UTF16";
 NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf32 = @"UTF32";
 NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf8 = @"UTF8";
+
+// GTLRCloudNaturalLanguage_AnalyzeSentimentRequest.encodingType
+NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_None = @"NONE";
+NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf16 = @"UTF16";
+NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf32 = @"UTF32";
+NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf8 = @"UTF8";
+
+// GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest.encodingType
+NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_None = @"NONE";
+NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf16 = @"UTF16";
+NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf32 = @"UTF32";
+NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf8 = @"UTF8";
 
 // GTLRCloudNaturalLanguage_AnnotateTextRequest.encodingType
 NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_None = @"NONE";
@@ -121,6 +133,86 @@ NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Person  = @"PERSON";
 NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Unknown = @"UNKNOWN";
 NSString * const kGTLRCloudNaturalLanguage_Entity_Type_WorkOfArt = @"WORK_OF_ART";
 
+// GTLRCloudNaturalLanguage_EntityMention.type
+NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_Common = @"COMMON";
+NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_Proper = @"PROPER";
+NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_TypeUnknown = @"TYPE_UNKNOWN";
+
+// GTLRCloudNaturalLanguage_PartOfSpeech.aspect
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_AspectUnknown = @"ASPECT_UNKNOWN";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Imperfective = @"IMPERFECTIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Perfective = @"PERFECTIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Progressive = @"PROGRESSIVE";
+
+// GTLRCloudNaturalLanguage_PartOfSpeech.caseProperty
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Accusative = @"ACCUSATIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Adverbial = @"ADVERBIAL";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_CaseUnknown = @"CASE_UNKNOWN";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Complementive = @"COMPLEMENTIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Dative = @"DATIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Genitive = @"GENITIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Instrumental = @"INSTRUMENTAL";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Locative = @"LOCATIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Nominative = @"NOMINATIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Oblique = @"OBLIQUE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Partitive = @"PARTITIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Prepositional = @"PREPOSITIONAL";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_ReflexiveCase = @"REFLEXIVE_CASE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_RelativeCase = @"RELATIVE_CASE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Vocative = @"VOCATIVE";
+
+// GTLRCloudNaturalLanguage_PartOfSpeech.form
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Adnomial = @"ADNOMIAL";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Auxiliary = @"AUXILIARY";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Complementizer = @"COMPLEMENTIZER";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_FinalEnding = @"FINAL_ENDING";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_FormUnknown = @"FORM_UNKNOWN";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Gerund = @"GERUND";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Irrealis = @"IRREALIS";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Long = @"LONG";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Order = @"ORDER";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Realis = @"REALIS";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Short = @"SHORT";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Specific = @"SPECIFIC";
+
+// GTLRCloudNaturalLanguage_PartOfSpeech.gender
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Feminine = @"FEMININE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_GenderUnknown = @"GENDER_UNKNOWN";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Masculine = @"MASCULINE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Neuter = @"NEUTER";
+
+// GTLRCloudNaturalLanguage_PartOfSpeech.mood
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_ConditionalMood = @"CONDITIONAL_MOOD";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Imperative = @"IMPERATIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Indicative = @"INDICATIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Interrogative = @"INTERROGATIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Jussive = @"JUSSIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_MoodUnknown = @"MOOD_UNKNOWN";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Subjunctive = @"SUBJUNCTIVE";
+
+// GTLRCloudNaturalLanguage_PartOfSpeech.number
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Dual = @"DUAL";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_NumberUnknown = @"NUMBER_UNKNOWN";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Plural = @"PLURAL";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Singular = @"SINGULAR";
+
+// GTLRCloudNaturalLanguage_PartOfSpeech.person
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_First = @"FIRST";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_PersonUnknown = @"PERSON_UNKNOWN";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_ReflexivePerson = @"REFLEXIVE_PERSON";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_Second = @"SECOND";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_Third = @"THIRD";
+
+// GTLRCloudNaturalLanguage_PartOfSpeech.proper
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_NotProper = @"NOT_PROPER";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_Proper = @"PROPER";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_ProperUnknown = @"PROPER_UNKNOWN";
+
+// GTLRCloudNaturalLanguage_PartOfSpeech.reciprocity
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_NonReciprocal = @"NON_RECIPROCAL";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_Reciprocal = @"RECIPROCAL";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_ReciprocityUnknown = @"RECIPROCITY_UNKNOWN";
+
 // GTLRCloudNaturalLanguage_PartOfSpeech.tag
 NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Adj = @"ADJ";
 NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Adp = @"ADP";
@@ -136,6 +228,21 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Punct = @"PUNCT";
 NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Unknown = @"UNKNOWN";
 NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Verb = @"VERB";
 NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X  = @"X";
+
+// GTLRCloudNaturalLanguage_PartOfSpeech.tense
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_ConditionalTense = @"CONDITIONAL_TENSE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Future = @"FUTURE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Imperfect = @"IMPERFECT";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Past = @"PAST";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Pluperfect = @"PLUPERFECT";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Present = @"PRESENT";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_TenseUnknown = @"TENSE_UNKNOWN";
+
+// GTLRCloudNaturalLanguage_PartOfSpeech.voice
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Active = @"ACTIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Causative = @"CAUSATIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Passive = @"PASSIVE";
+NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown = @"VOICE_UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
@@ -171,7 +278,7 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X  = @"X";
 //
 
 @implementation GTLRCloudNaturalLanguage_AnalyzeSentimentRequest
-@dynamic document;
+@dynamic document, encodingType;
 @end
 
 
@@ -181,7 +288,44 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X  = @"X";
 //
 
 @implementation GTLRCloudNaturalLanguage_AnalyzeSentimentResponse
-@dynamic documentSentiment, language;
+@dynamic documentSentiment, language, sentences;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sentences" : [GTLRCloudNaturalLanguage_Sentence class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest
+//
+
+@implementation GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest
+@dynamic document, encodingType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_AnalyzeSyntaxResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_AnalyzeSyntaxResponse
+@dynamic language, sentences, tokens;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sentences" : [GTLRCloudNaturalLanguage_Sentence class],
+    @"tokens" : [GTLRCloudNaturalLanguage_Token class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -273,7 +417,7 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X  = @"X";
 //
 
 @implementation GTLRCloudNaturalLanguage_EntityMention
-@dynamic text;
+@dynamic text, type;
 @end
 
 
@@ -293,7 +437,13 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X  = @"X";
 //
 
 @implementation GTLRCloudNaturalLanguage_PartOfSpeech
-@dynamic tag;
+@dynamic aspect, caseProperty, form, gender, mood, number, person, proper,
+         reciprocity, tag, tense, voice;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"caseProperty" : @"case" };
+}
+
 @end
 
 
@@ -303,7 +453,7 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X  = @"X";
 //
 
 @implementation GTLRCloudNaturalLanguage_Sentence
-@dynamic text;
+@dynamic sentiment, text;
 @end
 
 
@@ -313,7 +463,7 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X  = @"X";
 //
 
 @implementation GTLRCloudNaturalLanguage_Sentiment
-@dynamic magnitude, polarity;
+@dynamic magnitude, score;
 @end
 
 

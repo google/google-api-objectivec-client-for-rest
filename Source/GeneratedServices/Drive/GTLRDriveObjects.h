@@ -499,6 +499,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *fullFileExtension;
 
 /**
+ *  Whether this file has a thumbnail.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasThumbnail;
+
+/**
  *  The ID of the file's head revision. This is currently only available for
  *  files with binary content in Drive.
  */
@@ -657,9 +664,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A short-lived link to the file's thumbnail, if available. Typically lasts on
- *  the order of hours.
+ *  the order of hours. Only populated when the requesting app can access the
+ *  file's content.
  */
 @property(nonatomic, copy, nullable) NSString *thumbnailLink;
+
+/**
+ *  The thumbnail version for use in client-contructable thumbnail URLs or
+ *  thumbnail cache invalidation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thumbnailVersion;
 
 /**
  *  Whether the file has been trashed, either explicitly or from a trashed

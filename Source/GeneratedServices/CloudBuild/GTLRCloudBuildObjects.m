@@ -154,6 +154,15 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_CancelOperationRequest
+//
+
+@implementation GTLRCloudBuild_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_Empty
 //
 

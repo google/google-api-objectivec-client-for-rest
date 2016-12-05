@@ -150,6 +150,24 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_ListLogsResponse
+//
+
+@implementation GTLRLogging_ListLogsResponse
+@dynamic logIds, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"logIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_ListMonitoredResourceDescriptorsResponse
 //
 
@@ -199,7 +217,8 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
 
 @implementation GTLRLogging_LogEntry
 @dynamic httpRequest, insertId, jsonPayload, labels, logName, operation,
-         protoPayload, resource, severity, textPayload, timestamp;
+         protoPayload, resource, severity, sourceLocation, textPayload,
+         timestamp, trace;
 @end
 
 
@@ -257,6 +276,16 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_LogEntrySourceLocation
+//
+
+@implementation GTLRLogging_LogEntrySourceLocation
+@dynamic file, function, line;
 @end
 
 

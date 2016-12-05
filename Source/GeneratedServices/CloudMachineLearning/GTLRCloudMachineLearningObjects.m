@@ -346,7 +346,7 @@ NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_Sca
 //
 
 @implementation GTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingOutput
-@dynamic completedTrialCount, trials;
+@dynamic completedTrialCount, consumedMlUnits, trials;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

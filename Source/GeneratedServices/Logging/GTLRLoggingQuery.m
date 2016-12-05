@@ -37,6 +37,25 @@
 
 @end
 
+@implementation GTLRLoggingQuery_BillingAccountsLogsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logs";
+  GTLRLoggingQuery_BillingAccountsLogsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListLogsResponse class];
+  query.loggingName = @"logging.billingAccounts.logs.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_BillingAccountsSinksCreate
 
 @dynamic parent, uniqueWriterIdentity;
@@ -184,6 +203,151 @@
 
 @end
 
+@implementation GTLRLoggingQuery_FoldersLogsDelete
+
+@dynamic logName;
+
++ (instancetype)queryWithLogName:(NSString *)logName {
+  NSArray *pathParams = @[ @"logName" ];
+  NSString *pathURITemplate = @"v2/{+logName}";
+  GTLRLoggingQuery_FoldersLogsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.logName = logName;
+  query.expectedObjectClass = [GTLRLogging_Empty class];
+  query.loggingName = @"logging.folders.logs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersLogsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logs";
+  GTLRLoggingQuery_FoldersLogsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListLogsResponse class];
+  query.loggingName = @"logging.folders.logs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersSinksCreate
+
+@dynamic parent, uniqueWriterIdentity;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/sinks";
+  GTLRLoggingQuery_FoldersSinksCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_LogSink class];
+  query.loggingName = @"logging.folders.sinks.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersSinksDelete
+
+@dynamic sinkName;
+
++ (instancetype)queryWithSinkName:(NSString *)sinkName {
+  NSArray *pathParams = @[ @"sinkName" ];
+  NSString *pathURITemplate = @"v2/{+sinkName}";
+  GTLRLoggingQuery_FoldersSinksDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.sinkName = sinkName;
+  query.expectedObjectClass = [GTLRLogging_Empty class];
+  query.loggingName = @"logging.folders.sinks.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersSinksGet
+
+@dynamic sinkName;
+
++ (instancetype)queryWithSinkName:(NSString *)sinkName {
+  NSArray *pathParams = @[ @"sinkName" ];
+  NSString *pathURITemplate = @"v2/{+sinkName}";
+  GTLRLoggingQuery_FoldersSinksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.sinkName = sinkName;
+  query.expectedObjectClass = [GTLRLogging_LogSink class];
+  query.loggingName = @"logging.folders.sinks.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersSinksList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/sinks";
+  GTLRLoggingQuery_FoldersSinksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListSinksResponse class];
+  query.loggingName = @"logging.folders.sinks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersSinksUpdate
+
+@dynamic sinkName, uniqueWriterIdentity;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                       sinkName:(NSString *)sinkName {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"sinkName" ];
+  NSString *pathURITemplate = @"v2/{+sinkName}";
+  GTLRLoggingQuery_FoldersSinksUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.sinkName = sinkName;
+  query.expectedObjectClass = [GTLRLogging_LogSink class];
+  query.loggingName = @"logging.folders.sinks.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_MonitoredResourceDescriptorsList
 
 @dynamic pageSize, pageToken;
@@ -215,6 +379,25 @@
   query.logName = logName;
   query.expectedObjectClass = [GTLRLogging_Empty class];
   query.loggingName = @"logging.organizations.logs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLogsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logs";
+  GTLRLoggingQuery_OrganizationsLogsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListLogsResponse class];
+  query.loggingName = @"logging.organizations.logs.list";
   return query;
 }
 
@@ -341,6 +524,25 @@
   query.logName = logName;
   query.expectedObjectClass = [GTLRLogging_Empty class];
   query.loggingName = @"logging.projects.logs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLogsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logs";
+  GTLRLoggingQuery_ProjectsLogsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListLogsResponse class];
+  query.loggingName = @"logging.projects.logs.list";
   return query;
 }
 

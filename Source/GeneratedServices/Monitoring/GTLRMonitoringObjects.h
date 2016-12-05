@@ -441,7 +441,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  bound.The sequence of N buckets for a Distribution consists of an underflow
  *  bucket (number 0), zero or more finite buckets (number 1 through N - 2) and
  *  an overflow bucket (number N - 1). The buckets are contiguous: the lower
- *  bound of bucket i (i &gt; 0) is the same as the upper bound of bucket i - 1.
+ *  bound of bucket i (i > 0) is the same as the upper bound of bucket i - 1.
  *  The buckets span the whole range of finite values: lower bound of the
  *  underflow bucket is -infinity and the upper bound of the overflow bucket is
  *  +infinity. The finite buckets are so-called because both bounds are
@@ -473,22 +473,22 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /** The end time of the interval. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** The measurement metadata. Example: &quot;process_id&quot; -&gt; 12345 */
+/** The measurement metadata. Example: "process_id" -> 12345 */
 @property(nonatomic, strong, nullable) GTLRMonitoring_CollectdPayloadMetadata *metadata;
 
-/** The name of the plugin. Example: &quot;disk&quot;. */
+/** The name of the plugin. Example: "disk". */
 @property(nonatomic, copy, nullable) NSString *plugin;
 
-/** The instance name of the plugin Example: &quot;hdcl&quot;. */
+/** The instance name of the plugin Example: "hdcl". */
 @property(nonatomic, copy, nullable) NSString *pluginInstance;
 
 /** The start time of the interval. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
-/** The measurement type. Example: &quot;memory&quot;. */
+/** The measurement type. Example: "memory". */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** The measurement type instance. Example: &quot;used&quot;. */
+/** The measurement type instance. Example: "used". */
 @property(nonatomic, copy, nullable) NSString *typeInstance;
 
 /**
@@ -501,7 +501,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The measurement metadata. Example: &quot;process_id&quot; -&gt; 12345
+ *  The measurement metadata. Example: "process_id" -> 12345
  *
  *  @note This class is documented as having more properties of
  *        GTLRMonitoring_TypedValue. Use @c -additionalJSONKeys and @c
@@ -519,7 +519,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  The data source for the collectd value. For example there are two data
- *  sources for network measurements: &quot;rx&quot; and &quot;tx&quot;.
+ *  sources for network measurements: "rx" and "tx".
  */
 @property(nonatomic, copy, nullable) NSString *dataSourceName;
 
@@ -565,8 +565,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_CollectdPayload *> *collectdPayloads;
 
 /**
- *  The version of collectd that collected the data. Example:
- *  &quot;5.3.0-192.el6&quot;.
+ *  The version of collectd that collected the data. Example: "5.3.0-192.el6".
  */
 @property(nonatomic, copy, nullable) NSString *collectdVersion;
 
@@ -678,9 +677,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  A set of buckets with arbitrary widths.Defines size(bounds) + 1 (= N)
- *  buckets with these boundaries for bucket i:Upper bound (0 &lt;= i &lt; N-1):
- *  boundsi Lower bound (1 &lt;= i &lt; N); boundsi - 1There must be at least
- *  one element in bounds. If bounds has only one element, there are no finite
+ *  buckets with these boundaries for bucket i:Upper bound (0 <= i < N-1):
+ *  boundsi Lower bound (1 <= i < N); boundsi - 1There must be at least one
+ *  element in bounds. If bounds has only one element, there are no finite
  *  buckets, and that single element is the common boundary of the overflow and
  *  underflow buckets.
  */
@@ -700,8 +699,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  Specify a sequence of buckets that have a width that is proportional to the
  *  value of the lower bound. Each bucket represents a constant relative
  *  uncertainty on a specific value in the bucket.Defines num_finite_buckets + 2
- *  (= N) buckets with these boundaries for bucket i:Upper bound (0 &lt;= i &lt;
- *  N-1): scale * (growth_factor ^ i). Lower bound (1 &lt;= i &lt; N): scale *
+ *  (= N) buckets with these boundaries for bucket i:Upper bound (0 <= i < N-1):
+ *  scale * (growth_factor ^ i). Lower bound (1 <= i < N): scale *
  *  (growth_factor ^ (i - 1)).
  */
 @interface GTLRMonitoring_Exponential : GTLRObject
@@ -833,7 +832,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  The field type URL, without the scheme, for message or enumeration types.
- *  Example: &quot;type.googleapis.com/google.protobuf.Timestamp&quot;.
+ *  Example: "type.googleapis.com/google.protobuf.Timestamp".
  */
 @property(nonatomic, copy, nullable) NSString *typeUrl;
 
@@ -854,14 +853,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  match its filter and the filters of all the group's ancestors. A group
  *  without a parent can contain any monitored resource.For example, consider an
  *  infrastructure running a set of instances with two user-defined tags:
- *  &quot;environment&quot; and &quot;role&quot;. A parent group has a filter,
- *  environment=&quot;production&quot;. A child of that parent group has a
- *  filter, role=&quot;transcoder&quot;. The parent group contains all instances
- *  in the production environment, regardless of their roles. The child group
- *  contains instances that have the transcoder role and are in the production
- *  environment.The monitored resources contained in a group can change at any
- *  moment, depending on what resources exist and what filters are associated
- *  with the group and its ancestors.
+ *  "environment" and "role". A parent group has a filter,
+ *  environment="production". A child of that parent group has a filter,
+ *  role="transcoder". The parent group contains all instances in the production
+ *  environment, regardless of their roles. The child group contains instances
+ *  that have the transcoder role and are in the production environment.The
+ *  monitored resources contained in a group can change at any moment, depending
+ *  on what resources exist and what filters are associated with the group and
+ *  its ancestors.
  */
 @interface GTLRMonitoring_Group : GTLRObject
 
@@ -883,17 +882,17 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  Output only. The name of this group. The format is
- *  &quot;projects/{project_id_or_number}/groups/{group_id}&quot;. When creating
- *  a group, this field is ignored and a new name is created consisting of the
- *  project specified in the call to CreateGroup and a unique {group_id} that is
+ *  "projects/{project_id_or_number}/groups/{group_id}". When creating a group,
+ *  this field is ignored and a new name is created consisting of the project
+ *  specified in the call to CreateGroup and a unique {group_id} that is
  *  generated automatically.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The name of the group's parent, if it has one. The format is
- *  &quot;projects/{project_id_or_number}/groups/{group_id}&quot;. For groups
- *  with no parent, parentName is the empty string, &quot;&quot;.
+ *  "projects/{project_id_or_number}/groups/{group_id}". For groups with no
+ *  parent, parentName is the empty string, "".
  */
 @property(nonatomic, copy, nullable) NSString *parentName;
 
@@ -935,9 +934,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  Specify a sequence of buckets that all have the same width (except overflow
  *  and underflow). Each bucket represents a constant absolute uncertainty on
  *  the specific value in the bucket.Defines num_finite_buckets + 2 (= N)
- *  buckets with these boundaries for bucket i:Upper bound (0 &lt;= i &lt; N-1):
- *  offset + (width * i). Lower bound (1 &lt;= i &lt; N): offset + (width * (i -
- *  1)).
+ *  buckets with these boundaries for bucket i:Upper bound (0 <= i < N-1):
+ *  offset + (width * i). Lower bound (1 <= i < N): offset + (width * (i - 1)).
  */
 @interface GTLRMonitoring_Linear : GTLRObject
 
@@ -1203,7 +1201,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  type, which also appears in the type field of this descriptor. For example,
  *  following is the resource name of a custom metric within the GCP project
  *  123456789:
- *  &quot;projects/123456789/metricDescriptors/custom.googleapis.com%2Finvoice%2Fpaid%2Famount&quot;
+ *  "projects/123456789/metricDescriptors/custom.googleapis.com%2Finvoice%2Fpaid%2Famount"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1211,8 +1209,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  The metric type, including its DNS name prefix. The type is not URL-encoded.
  *  All user-defined metric types have the DNS name custom.googleapis.com.
  *  Metric types should use a natural hierarchical grouping. For example:
- *  &quot;custom.googleapis.com/invoice/paid/amount&quot;
- *  &quot;appengine.googleapis.com/http/server/response_latencies&quot;
+ *  "custom.googleapis.com/invoice/paid/amount"
+ *  "appengine.googleapis.com/http/server/response_latencies"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1251,13 +1249,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  / division (as an infix operator, e.g. 1/s).
  *  . multiplication (as an infix operator, e.g. GBy.d)The grammar for a unit is
  *  as follows:
- *  Expression = Component { &quot;.&quot; Component } { &quot;/&quot; Component
- *  } ;
+ *  Expression = Component { "." Component } { "/" Component } ;
  *  Component = [ PREFIX ] UNIT [ Annotation ]
  *  | Annotation
- *  | &quot;1&quot;
+ *  | "1"
  *  ;
- *  Annotation = &quot;{&quot; NAME &quot;}&quot; ;
+ *  Annotation = "{" NAME "}" ;
  *  Notes:
  *  Annotation is just a comment if it follows a UNIT and is equivalent to 1 if
  *  it is used alone. For examples, {requests}/s == 1/s, By{transmitted}/s ==
@@ -1302,25 +1299,25 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  Information in the labels field identifies the actual resource and its
  *  attributes according to the schema. For example, a particular Compute Engine
  *  VM instance could be represented by the following object, because the
- *  MonitoredResourceDescriptor for &quot;gce_instance&quot; has labels
- *  &quot;instance_id&quot; and &quot;zone&quot;:
- *  { &quot;type&quot;: &quot;gce_instance&quot;,
- *  &quot;labels&quot;: { &quot;instance_id&quot;: &quot;12345678901234&quot;,
- *  &quot;zone&quot;: &quot;us-central1-a&quot; }}
+ *  MonitoredResourceDescriptor for "gce_instance" has labels "instance_id" and
+ *  "zone":
+ *  { "type": "gce_instance",
+ *  "labels": { "instance_id": "12345678901234",
+ *  "zone": "us-central1-a" }}
  */
 @interface GTLRMonitoring_MonitoredResource : GTLRObject
 
 /**
  *  Required. Values for all of the labels listed in the associated monitored
  *  resource descriptor. For example, Cloud SQL databases use the labels
- *  &quot;database_id&quot; and &quot;zone&quot;.
+ *  "database_id" and "zone".
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResourceLabels *labels;
 
 /**
  *  Required. The monitored resource type. This field must match the type field
  *  of a MonitoredResourceDescriptor object. For example, the type of a Cloud
- *  SQL database is &quot;cloudsql_database&quot;.
+ *  SQL database is "cloudsql_database".
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1330,7 +1327,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  Required. Values for all of the labels listed in the associated monitored
  *  resource descriptor. For example, Cloud SQL databases use the labels
- *  &quot;database_id&quot; and &quot;zone&quot;.
+ *  "database_id" and "zone".
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1345,11 +1342,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  An object that describes the schema of a MonitoredResource object using a
  *  type name and a set of labels. For example, the monitored resource
  *  descriptor for Google Compute Engine VM instances has a type of
- *  &quot;gce_instance&quot; and specifies the use of the labels
- *  &quot;instance_id&quot; and &quot;zone&quot; to identify particular VM
- *  instances.Different APIs can support different monitored resource types.
- *  APIs generally provide a list method that returns the monitored resource
- *  descriptors used by the API.
+ *  "gce_instance" and specifies the use of the labels "instance_id" and "zone"
+ *  to identify particular VM instances.Different APIs can support different
+ *  monitored resource types. APIs generally provide a list method that returns
+ *  the monitored resource descriptors used by the API.
  */
 @interface GTLRMonitoring_MonitoredResourceDescriptor : GTLRObject
 
@@ -1364,33 +1360,32 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 /**
  *  Optional. A concise name for the monitored resource type that might be
  *  displayed in user interfaces. It should be a Title Cased Noun Phrase,
- *  without any article or other determiners. For example, &quot;Google Cloud
- *  SQL Database&quot;.
+ *  without any article or other determiners. For example, "Google Cloud SQL
+ *  Database".
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Required. A set of labels used to describe instances of this monitored
  *  resource type. For example, an individual Google Cloud SQL database is
- *  identified by values for the labels &quot;database_id&quot; and
- *  &quot;zone&quot;.
+ *  identified by values for the labels "database_id" and "zone".
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_LabelDescriptor *> *labels;
 
 /**
  *  Optional. The resource name of the monitored resource descriptor:
- *  &quot;projects/{project_id}/monitoredResourceDescriptors/{type}&quot; where
- *  {type} is the value of the type field in this object and {project_id} is a
- *  project ID that provides API-specific context for accessing the type. APIs
- *  that do not use project information can use the resource name format
- *  &quot;monitoredResourceDescriptors/{type}&quot;.
+ *  "projects/{project_id}/monitoredResourceDescriptors/{type}" where {type} is
+ *  the value of the type field in this object and {project_id} is a project ID
+ *  that provides API-specific context for accessing the type. APIs that do not
+ *  use project information can use the resource name format
+ *  "monitoredResourceDescriptors/{type}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. The monitored resource type. For example, the type
- *  &quot;cloudsql_database&quot; represents databases in Google Cloud SQL. The
- *  maximum length of this value is 256 characters.
+ *  "cloudsql_database" represents databases in Google Cloud SQL. The maximum
+ *  length of this value is 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1403,17 +1398,17 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  */
 @interface GTLRMonitoring_Option : GTLRObject
 
-/** The option's name. For example, &quot;java_package&quot;. */
+/** The option's name. For example, "java_package". */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The option's value. For example, &quot;com.google.protobuf&quot;. */
+/** The option's value. For example, "com.google.protobuf". */
 @property(nonatomic, strong, nullable) GTLRMonitoring_OptionValue *value;
 
 @end
 
 
 /**
- *  The option's value. For example, &quot;com.google.protobuf&quot;.
+ *  The option's value. For example, "com.google.protobuf".
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1477,8 +1472,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  The path-qualified name of the .proto file that contained the associated
- *  protobuf element. For example:
- *  &quot;google/protobuf/source_context.proto&quot;.
+ *  protobuf element. For example: "google/protobuf/source_context.proto".
  */
 @property(nonatomic, copy, nullable) NSString *fileName;
 

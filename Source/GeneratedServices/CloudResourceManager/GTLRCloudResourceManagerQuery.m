@@ -210,6 +210,31 @@
 
 @end
 
+@implementation GTLRCloudResourceManagerQuery_ProjectsGetAncestry
+
+@dynamic projectId;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_GetAncestryRequest *)object
+                      projectId:(NSString *)projectId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}:getAncestry";
+  GTLRCloudResourceManagerQuery_ProjectsGetAncestry *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRCloudResourceManager_GetAncestryResponse class];
+  query.loggingName = @"cloudresourcemanager.projects.getAncestry";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudResourceManagerQuery_ProjectsGetIamPolicy
 
 @dynamic resource;

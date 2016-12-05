@@ -105,7 +105,7 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 //
 
 @implementation GTLRFirebaseDynamicLinks_DynamicLinkInfo
-@dynamic analyticsInfo, androidInfo, dynamicLinkDomain, iosInfo, isAd, link,
+@dynamic analyticsInfo, androidInfo, dynamicLinkDomain, iosInfo, link,
          socialMetaTagInfo;
 @end
 

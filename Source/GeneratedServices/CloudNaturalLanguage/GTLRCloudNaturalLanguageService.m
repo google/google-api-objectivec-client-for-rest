@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Natural Language API (language/v1beta1)
+//   Google Cloud Natural Language API (language/v1)
 // Description:
 //   Google Cloud Natural Language API provides natural language understanding
 //   technologies to developers. Examples include sentiment analysis, entity

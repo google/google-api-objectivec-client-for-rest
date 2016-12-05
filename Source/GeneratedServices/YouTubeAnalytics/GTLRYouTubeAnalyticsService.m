@@ -43,10 +43,6 @@ NSString * const kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly = @"https://w
     @"youtube#groupItem" : [GTLRYouTubeAnalytics_GroupItem class],
     @"youtube#groupItemListResponse" : [GTLRYouTubeAnalytics_GroupItemListResponse class],
     @"youtube#groupListResponse" : [GTLRYouTubeAnalytics_GroupListResponse class],
-    @"youtubeAnalytics#batchReport" : [GTLRYouTubeAnalytics_BatchReport class],
-    @"youtubeAnalytics#batchReportDefinition" : [GTLRYouTubeAnalytics_BatchReportDefinition class],
-    @"youtubeAnalytics#batchReportDefinitionList" : [GTLRYouTubeAnalytics_BatchReportDefinitionList class],
-    @"youtubeAnalytics#batchReportList" : [GTLRYouTubeAnalytics_BatchReportList class],
     @"youtubeAnalytics#resultTable" : [GTLRYouTubeAnalytics_ResultTable class],
   };
 }

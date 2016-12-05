@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Natural Language API (language/v1beta1)
+//   Google Cloud Natural Language API (language/v1)
 // Description:
 //   Google Cloud Natural Language API provides natural language understanding
 //   technologies to developers. Examples include sentiment analysis, entity
@@ -22,6 +22,7 @@
 
 @class GTLRCloudNaturalLanguage_AnalyzeEntitiesRequest;
 @class GTLRCloudNaturalLanguage_AnalyzeSentimentRequest;
+@class GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest;
 @class GTLRCloudNaturalLanguage_AnnotateTextRequest;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -87,6 +88,36 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSentiment
  */
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeSentimentRequest *)object;
+
+@end
+
+/**
+ *  Analyzes the syntax of the text and provides sentence boundaries and
+ *  tokenization along with part of speech tags, dependency trees, and other
+ *  properties.
+ *
+ *  Method: language.documents.analyzeSyntax
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
+ */
+@interface GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSyntax : GTLRCloudNaturalLanguageQuery
+// Previous library name was
+//   +[GTLQueryCloudNaturalLanguage queryForDocumentsAnalyzeSyntaxWithObject:]
+
+/**
+ *  Fetches a @c GTLRCloudNaturalLanguage_AnalyzeSyntaxResponse.
+ *
+ *  Analyzes the syntax of the text and provides sentence boundaries and
+ *  tokenization along with part of speech tags, dependency trees, and other
+ *  properties.
+ *
+ *  @param object The @c GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest to
+ *    include in the query.
+ *
+ *  @returns GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSyntax
+ */
++ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest *)object;
 
 @end
 

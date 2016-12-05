@@ -25,6 +25,7 @@
 @class GTLRSlides_ColorStop;
 @class GTLRSlides_CreateImageRequest;
 @class GTLRSlides_CreateImageResponse;
+@class GTLRSlides_CreateLineRequest;
 @class GTLRSlides_CreateLineResponse;
 @class GTLRSlides_CreateParagraphBulletsRequest;
 @class GTLRSlides_CreateShapeRequest;
@@ -109,6 +110,7 @@
 @class GTLRSlides_TextStyle;
 @class GTLRSlides_ThemeColorPair;
 @class GTLRSlides_UpdateImagePropertiesRequest;
+@class GTLRSlides_UpdateLinePropertiesRequest;
 @class GTLRSlides_UpdatePageElementTransformRequest;
 @class GTLRSlides_UpdatePagePropertiesRequest;
 @class GTLRSlides_UpdateShapePropertiesRequest;
@@ -163,6 +165,29 @@ GTLR_EXTERN NSString * const kGTLRSlides_AutoText_Type_SlideNumber;
  *  Value: "TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRSlides_AutoText_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSlides_CreateLineRequest.lineCategory
+
+/**
+ *  Bent connectors, including bent connector 2 to 5.
+ *
+ *  Value: "BENT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Bent;
+/**
+ *  Curved connectors, including curved connector 2 to 5.
+ *
+ *  Value: "CURVED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Curved;
+/**
+ *  Straight connectors, including straight connector 1. The is the default
+ *  category when one is not specified.
+ *
+ *  Value: "STRAIGHT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Straight;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_CreateParagraphBulletsRequest.bulletPreset
@@ -1255,17 +1280,35 @@ GTLR_EXTERN NSString * const kGTLRSlides_Dimension_Unit_UnitUnspecified;
 // GTLRSlides_LayoutReference.predefinedLayout
 
 /**
- *  Blank layout.
+ *  Layout with a big number heading.
+ *
+ *  Value: "BIG_NUMBER"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_BigNumber;
+/**
+ *  Blank layout, with no placeholders.
  *
  *  Value: "BLANK"
  */
 GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_Blank;
 /**
- *  Layout with a caption.
+ *  Layout with a caption at the bottom.
  *
  *  Value: "CAPTION_ONLY"
  */
 GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_CaptionOnly;
+/**
+ *  Layout with a main point.
+ *
+ *  Value: "MAIN_POINT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_MainPoint;
+/**
+ *  Layout with one title and one body, arranged in a single column.
+ *
+ *  Value: "ONE_COLUMN_TEXT"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_OneColumnText;
 /**
  *  Unspecified layout.
  *
@@ -1273,13 +1316,25 @@ GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_Captio
  */
 GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_PredefinedLayoutUnspecified;
 /**
- *  Layout with a title placeholder.
+ *  Layout with a section title.
+ *
+ *  Value: "SECTION_HEADER"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_SectionHeader;
+/**
+ *  Layout with a title and subtitle on one side and description on the other.
+ *
+ *  Value: "SECTION_TITLE_AND_DESCRIPTION"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_SectionTitleAndDescription;
+/**
+ *  Layout with a title and a subtitle.
  *
  *  Value: "TITLE"
  */
 GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_Title;
 /**
- *  Layout with a title and body placeholder.
+ *  Layout with a title and body.
  *
  *  Value: "TITLE_AND_BODY"
  */
@@ -1357,7 +1412,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_CurvedConnector4;
  */
 GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_CurvedConnector5;
 /**
- *  Straight connector 1 form. Corresponds to ECMA-376 ST_ShapeType 'rect'.
+ *  Straight connector 1 form. Corresponds to ECMA-376 ST_ShapeType
+ *  'straightConnector1'.
  *
  *  Value: "STRAIGHT_CONNECTOR_1"
  */
@@ -2030,20 +2086,22 @@ GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Title;
 
 /**
  *  Sets the range to be the whole length of the collection. Both the
- *  start_index and the end_index must not be specified.
+ *  `start_index` and the `end_index` must not be
+ *  specified.
  *
  *  Value: "ALL"
  */
 GTLR_EXTERN NSString * const kGTLRSlides_Range_Type_All;
 /**
- *  A fixed range. Both the start_index and end_index must be specified.
+ *  A fixed range. Both the `start_index` and
+ *  `end_index` must be specified.
  *
  *  Value: "FIXED_RANGE"
  */
 GTLR_EXTERN NSString * const kGTLRSlides_Range_Type_FixedRange;
 /**
- *  Starts the range at start_index and continues until the end of the
- *  collection. The end_index must not be specified.
+ *  Starts the range at `start_index` and continues until the
+ *  end of the collection. The `end_index` must not be specified.
  *
  *  Value: "FROM_START_INDEX"
  */
@@ -3427,6 +3485,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @interface GTLRSlides_AutoText : GTLRObject
 
+/** The rendered content of this auto text, if available. */
+@property(nonatomic, copy, nullable) NSString *content;
+
 /** The styling applied to this auto text. */
 @property(nonatomic, strong, nullable) GTLRSlides_TextStyle *style;
 
@@ -3584,6 +3645,43 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
+ *  Creates a line.
+ */
+@interface GTLRSlides_CreateLineRequest : GTLRObject
+
+/** The element properties for the line. */
+@property(nonatomic, strong, nullable) GTLRSlides_PageElementProperties *elementProperties;
+
+/**
+ *  The category of line to be created.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_CreateLineRequest_LineCategory_Bent Bent connectors,
+ *        including bent connector 2 to 5. (Value: "BENT")
+ *    @arg @c kGTLRSlides_CreateLineRequest_LineCategory_Curved Curved
+ *        connectors, including curved connector 2 to 5. (Value: "CURVED")
+ *    @arg @c kGTLRSlides_CreateLineRequest_LineCategory_Straight Straight
+ *        connectors, including straight connector 1. The is the default
+ *        category when one is not specified. (Value: "STRAIGHT")
+ */
+@property(nonatomic, copy, nullable) NSString *lineCategory;
+
+/**
+ *  A user-supplied object ID.
+ *  If you specify an ID, it must be unique among all pages and page elements
+ *  in the presentation. The ID must start with an alphanumeric character or an
+ *  underscore (matches regex `[a-zA-Z0-9_]`); remaining characters
+ *  may include those as well as a hyphen or colon (matches regex
+ *  `[a-zA-Z0-9_-:]`).
+ *  The length of the ID must not be less than 5 or greater than 50.
+ *  If you don't specify an ID, a unique one is generated.
+ */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+@end
+
+
+/**
  *  The result of creating a line.
  */
 @interface GTLRSlides_CreateLineResponse : GTLRObject
@@ -3684,7 +3782,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The optional table cell location if the text to be modified is in a table
- *  cell. If present the object_id must refer to a table.
+ *  cell. If present, the object_id must refer to a table.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableCellLocation *cellLocation;
 
@@ -4487,7 +4585,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The optional table cell location if the text is to be deleted from a table
- *  cell. If present the object_id must refer to a table.
+ *  cell. If present, the object_id must refer to a table.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableCellLocation *cellLocation;
 
@@ -4783,7 +4881,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The optional table cell location if the text is to be inserted into a table
- *  cell. If present the object_id must refer to a table.
+ *  cell. If present, the object_id must refer to a table.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableCellLocation *cellLocation;
 
@@ -4841,7 +4939,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  Slide layout reference. This may reference either:
- *  - A predefined layout, or
+ *  - A predefined layout
  *  - One of the layouts in the presentation.
  */
 @interface GTLRSlides_LayoutReference : GTLRObject
@@ -4853,16 +4951,28 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  Predefined layout.
  *
  *  Likely values:
- *    @arg @c kGTLRSlides_LayoutReference_PredefinedLayout_Blank Blank layout.
- *        (Value: "BLANK")
+ *    @arg @c kGTLRSlides_LayoutReference_PredefinedLayout_BigNumber Layout with
+ *        a big number heading. (Value: "BIG_NUMBER")
+ *    @arg @c kGTLRSlides_LayoutReference_PredefinedLayout_Blank Blank layout,
+ *        with no placeholders. (Value: "BLANK")
  *    @arg @c kGTLRSlides_LayoutReference_PredefinedLayout_CaptionOnly Layout
- *        with a caption. (Value: "CAPTION_ONLY")
+ *        with a caption at the bottom. (Value: "CAPTION_ONLY")
+ *    @arg @c kGTLRSlides_LayoutReference_PredefinedLayout_MainPoint Layout with
+ *        a main point. (Value: "MAIN_POINT")
+ *    @arg @c kGTLRSlides_LayoutReference_PredefinedLayout_OneColumnText Layout
+ *        with one title and one body, arranged in a single column. (Value:
+ *        "ONE_COLUMN_TEXT")
  *    @arg @c kGTLRSlides_LayoutReference_PredefinedLayout_PredefinedLayoutUnspecified
  *        Unspecified layout. (Value: "PREDEFINED_LAYOUT_UNSPECIFIED")
+ *    @arg @c kGTLRSlides_LayoutReference_PredefinedLayout_SectionHeader Layout
+ *        with a section title. (Value: "SECTION_HEADER")
+ *    @arg @c kGTLRSlides_LayoutReference_PredefinedLayout_SectionTitleAndDescription
+ *        Layout with a title and subtitle on one side and description on the
+ *        other. (Value: "SECTION_TITLE_AND_DESCRIPTION")
  *    @arg @c kGTLRSlides_LayoutReference_PredefinedLayout_Title Layout with a
- *        title placeholder. (Value: "TITLE")
+ *        title and a subtitle. (Value: "TITLE")
  *    @arg @c kGTLRSlides_LayoutReference_PredefinedLayout_TitleAndBody Layout
- *        with a title and body placeholder. (Value: "TITLE_AND_BODY")
+ *        with a title and body. (Value: "TITLE_AND_BODY")
  *    @arg @c kGTLRSlides_LayoutReference_PredefinedLayout_TitleAndTwoColumns
  *        Layout with a title and two columns. (Value: "TITLE_AND_TWO_COLUMNS")
  *    @arg @c kGTLRSlides_LayoutReference_PredefinedLayout_TitleOnly Layout with
@@ -4911,8 +5021,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        form. Corresponds to ECMA-376 ST_ShapeType
  *        'curvedConnector5'. (Value: "CURVED_CONNECTOR_5")
  *    @arg @c kGTLRSlides_Line_LineType_StraightConnector1 Straight connector 1
- *        form. Corresponds to ECMA-376 ST_ShapeType 'rect'. (Value:
- *        "STRAIGHT_CONNECTOR_1")
+ *        form. Corresponds to ECMA-376 ST_ShapeType
+ *        'straightConnector1'. (Value: "STRAIGHT_CONNECTOR_1")
  *    @arg @c kGTLRSlides_Line_LineType_TypeUnspecified An unspecified line
  *        type. (Value: "TYPE_UNSPECIFIED")
  */
@@ -5742,12 +5852,14 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  Likely values:
  *    @arg @c kGTLRSlides_Range_Type_All Sets the range to be the whole length
  *        of the collection. Both the
- *        start_index and the end_index must not be specified. (Value: "ALL")
+ *        `start_index` and the `end_index` must not be
+ *        specified. (Value: "ALL")
  *    @arg @c kGTLRSlides_Range_Type_FixedRange A fixed range. Both the
- *        start_index and end_index must be specified. (Value: "FIXED_RANGE")
+ *        `start_index` and
+ *        `end_index` must be specified. (Value: "FIXED_RANGE")
  *    @arg @c kGTLRSlides_Range_Type_FromStartIndex Starts the range at
- *        start_index and continues until the end of the
- *        collection. The end_index must not be specified. (Value:
+ *        `start_index` and continues until the
+ *        end of the collection. The `end_index` must not be specified. (Value:
  *        "FROM_START_INDEX")
  *    @arg @c kGTLRSlides_Range_Type_RangeTypeUnspecified Unspecified range
  *        type. This value must not be used. (Value: "RANGE_TYPE_UNSPECIFIED")
@@ -5878,6 +5990,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** Creates an image. */
 @property(nonatomic, strong, nullable) GTLRSlides_CreateImageRequest *createImage;
 
+/** Creates a line. */
+@property(nonatomic, strong, nullable) GTLRSlides_CreateLineRequest *createLine;
+
 /** Creates bullets for paragraphs. */
 @property(nonatomic, strong, nullable) GTLRSlides_CreateParagraphBulletsRequest *createParagraphBullets;
 
@@ -5931,6 +6046,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** Updates the properties of an Image. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateImagePropertiesRequest *updateImageProperties;
+
+/** Updates the properties of a Line. */
+@property(nonatomic, strong, nullable) GTLRSlides_UpdateLinePropertiesRequest *updateLineProperties;
 
 /** Updates the transform of a page element. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdatePageElementTransformRequest *updatePageElementTransform;
@@ -7273,6 +7391,34 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_ImageProperties *imageProperties;
 
 /** The object ID of the image the updates are applied to. */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+@end
+
+
+/**
+ *  Updates the properties of a Line.
+ */
+@interface GTLRSlides_UpdateLinePropertiesRequest : GTLRObject
+
+/**
+ *  The fields that should be updated.
+ *  At least one field must be specified. The root `lineProperties` is
+ *  implied and should not be specified. A single `"*"` can be used as
+ *  short-hand for listing every field.
+ *  For example to update the line solid fill color, set `fields` to
+ *  `"lineFill.solidFill.color"`.
+ *  To reset a property to its default value, include its field name in the
+ *  field mask but leave the field itself unset.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/** The line properties to update. */
+@property(nonatomic, strong, nullable) GTLRSlides_LineProperties *lineProperties;
+
+/** The object ID of the line the update is applied to. */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
 @end

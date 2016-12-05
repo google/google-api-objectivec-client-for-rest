@@ -1330,6 +1330,12 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
 @interface GTLRAnalyticsReporting_ReportData : GTLRObject
 
 /**
+ *  The last time the data in the report was refreshed. All the hits received
+ *  before this timestamp are included in the calculation of the report.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *dataLastRefreshed;
+
+/**
  *  Indicates if response to this request is golden or not. Data is
  *  golden when the exact same request will not produce any new results if
  *  asked at a later point in time.

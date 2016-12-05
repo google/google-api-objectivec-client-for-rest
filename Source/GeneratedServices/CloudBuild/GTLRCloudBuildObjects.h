@@ -165,13 +165,15 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @property(nonatomic, copy, nullable) NSString *buildTriggerId;
 
 /**
- *  Time at which the build was created.
+ *  Time at which the request to create the build was received.
  *  \@OutputOnly
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
  *  Time at which execution of the build was finished.
+ *  The difference between finish_time and start_time is the duration of the
+ *  build's execution.
  *  \@OutputOnly
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
@@ -233,10 +235,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_SourceProvenance *sourceProvenance;
 
-/**
- *  Time at which execution of the build was started.
- *  \@OutputOnly
- */
+/** Time at which execution of the build was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
@@ -458,6 +457,13 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  Request to cancel an ongoing build.
  */
 @interface GTLRCloudBuild_CancelBuildRequest : GTLRObject
+@end
+
+
+/**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLRCloudBuild_CancelOperationRequest : GTLRObject
 @end
 
 
