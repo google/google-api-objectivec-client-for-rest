@@ -196,7 +196,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Performs asynchronous speech recognition: receive results via the
- *  google.longrunning.Operations interface. Returns either an
+ *  [google.longrunning.Operations]
+ *  (/speech/reference/rest/v1beta1/operations#Operation)
+ *  interface. Returns either an
  *  `Operation.error` or an `Operation.response` which contains
  *  an `AsyncRecognizeResponse` message.
  *
@@ -213,7 +215,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSpeech_Operation.
  *
  *  Performs asynchronous speech recognition: receive results via the
- *  google.longrunning.Operations interface. Returns either an
+ *  [google.longrunning.Operations]
+ *  (/speech/reference/rest/v1beta1/operations#Operation)
+ *  interface. Returns either an
  *  `Operation.error` or an `Operation.response` which contains
  *  an `AsyncRecognizeResponse` message.
  *

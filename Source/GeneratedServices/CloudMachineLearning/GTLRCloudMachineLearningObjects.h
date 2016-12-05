@@ -1136,6 +1136,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
  */
 @property(nonatomic, strong, nullable) NSNumber *completedTrialCount;
 
+/**
+ *  The amount of ML units consumed by the job.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *consumedMlUnits;
+
 /** Results for individual Hyperparameter trials. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearning_GoogleCloudMlV1beta1HyperparameterOutput *> *trials;
 

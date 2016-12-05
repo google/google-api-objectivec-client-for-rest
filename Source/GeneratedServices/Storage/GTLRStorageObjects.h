@@ -739,6 +739,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeDeleted;
 
+/**
+ *  The time at which the object's storage class was last changed. When the
+ *  object is initially created, it will be set to timeCreated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *timeStorageClassUpdated;
+
 /** The modification time of the object metadata in RFC 3339 format. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updated;
 

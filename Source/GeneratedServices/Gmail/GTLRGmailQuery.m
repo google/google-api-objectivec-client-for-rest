@@ -450,6 +450,30 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 @end
 
+@implementation GTLRGmailQuery_UsersMessagesBatchModify
+
+@dynamic userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_BatchModifyMessagesRequest *)object
+                         userId:(NSString *)userId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/messages/batchModify";
+  GTLRGmailQuery_UsersMessagesBatchModify *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.loggingName = @"gmail.users.messages.batchModify";
+  return query;
+}
+
+@end
+
 @implementation GTLRGmailQuery_UsersMessagesDelete
 
 @dynamic identifier, userId;

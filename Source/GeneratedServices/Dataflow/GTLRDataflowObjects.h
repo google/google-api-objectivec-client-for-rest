@@ -77,6 +77,7 @@
 @class GTLRDataflow_PubsubLocation;
 @class GTLRDataflow_ReadInstruction;
 @class GTLRDataflow_ReportedParallelism;
+@class GTLRDataflow_RuntimeEnvironment;
 @class GTLRDataflow_SeqMapTask;
 @class GTLRDataflow_SeqMapTaskOutputInfo;
 @class GTLRDataflow_SeqMapTaskUserFn;
@@ -745,8 +746,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @interface GTLRDataflow_CreateJobFromTemplateRequest : GTLRObject
 
+/** Runtime environment for the job. */
+@property(nonatomic, strong, nullable) GTLRDataflow_RuntimeEnvironment *environment;
+
 /** A path to the serialized JSON representation of the job. */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
+
+/** The job name to use for the created job.. */
+@property(nonatomic, copy, nullable) NSString *jobName;
 
 /** Dynamic parameterization of the job's runtime environment. */
 @property(nonatomic, strong, nullable) GTLRDataflow_CreateJobFromTemplateRequestParameters *parameters;
@@ -2093,6 +2100,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, copy, nullable) NSString *trackingSubscription;
 
+/**
+ *  If true, then the client has requested to get pubsub attributes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *withAttributes;
+
 @end
 
 
@@ -2173,6 +2187,31 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  ReportWorkItemStatusRequest which resulting in this response.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_WorkItemServiceState *> *workItemServiceStates;
+
+@end
+
+
+/**
+ *  Environment values to set at runtime.
+ */
+@interface GTLRDataflow_RuntimeEnvironment : GTLRObject
+
+/**
+ *  The maximum number of workers to start for the job.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxWorkers;
+
+/** The service account to run the job as. */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/**
+ *  The zone to start the workers in.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 

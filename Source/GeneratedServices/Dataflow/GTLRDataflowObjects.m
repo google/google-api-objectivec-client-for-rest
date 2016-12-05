@@ -264,7 +264,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_CreateJobFromTemplateRequest
-@dynamic gcsPath, parameters;
+@dynamic environment, gcsPath, jobName, parameters;
 @end
 
 
@@ -1017,7 +1017,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_PubsubLocation
 @dynamic dropLateData, idLabel, subscription, timestampLabel, topic,
-         trackingSubscription;
+         trackingSubscription, withAttributes;
 @end
 
 
@@ -1072,6 +1072,21 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
     @"workItemServiceStates" : [GTLRDataflow_WorkItemServiceState class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_RuntimeEnvironment
+//
+
+@implementation GTLRDataflow_RuntimeEnvironment
+@dynamic maxWorkers, serviceAccountEmail, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
 }
 
 @end

@@ -21,6 +21,7 @@
 @class GTLRCloudBuild_Build;
 @class GTLRCloudBuild_BuildTrigger;
 @class GTLRCloudBuild_CancelBuildRequest;
+@class GTLRCloudBuild_CancelOperationRequest;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,6 +32,55 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  Method: cloudbuild.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_OperationsCancel : GTLRCloudBuildQuery
+// Previous library name was
+//   +[GTLQueryCloudBuild queryForOperationsCancelWithObject:name:]
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRCloudBuild_CancelOperationRequest to include in the
+ *    query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @returns GTLRCloudBuildQuery_OperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_CancelOperationRequest *)object
+                           name:(NSString *)name;
 
 @end
 

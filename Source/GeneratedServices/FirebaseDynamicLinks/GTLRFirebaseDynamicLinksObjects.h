@@ -348,15 +348,6 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_IosInfo *iosInfo;
 
 /**
- *  Declares that the Dynamic Link is used in an advertisement.
- *  See the 'ad' parameter in the
- *  [documentation](https://firebase.google.com/docs/dynamic-links/android#create-a-dynamic-link-programmatically).
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isAd;
-
-/**
  *  The link your app will open, You can specify any URL your app can handle.
  *  This link must be a well-formatted URL, be properly URL-encoded, and use
  *  the HTTP or HTTPS scheme. See 'link' parameters in the

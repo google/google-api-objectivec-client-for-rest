@@ -853,6 +853,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeToRetire;
 
+/**
+ *  The type of this IP address. A PRIMARY address is an address that can accept
+ *  incoming connections. An OUTGOING address is the source address of
+ *  connections originating from the instance, if supported.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -1466,10 +1473,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *RAM;
 
-/**
- *  The applicable regions for this tier. Can be us-east1, europe-west1 or
- *  asia-east1.
- */
+/** The applicable regions for this tier. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *region;
 
 /**

@@ -46,12 +46,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFitnessActivityRead
  *    @c kGTLRAuthScopeFitnessActivityWrite
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseRead
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseWrite
+ *    @c kGTLRAuthScopeFitnessBloodPressureRead
+ *    @c kGTLRAuthScopeFitnessBloodPressureWrite
  *    @c kGTLRAuthScopeFitnessBodyRead
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureRead
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationRead
  *    @c kGTLRAuthScopeFitnessLocationWrite
  *    @c kGTLRAuthScopeFitnessNutritionRead
  *    @c kGTLRAuthScopeFitnessNutritionWrite
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationRead
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationWrite
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthRead
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthWrite
  */
 @interface GTLRFitnessQuery_UsersDatasetAggregate : GTLRFitnessQuery
 // Previous library name was
@@ -95,9 +105,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFitnessActivityWrite
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseWrite
+ *    @c kGTLRAuthScopeFitnessBloodPressureWrite
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationWrite
  *    @c kGTLRAuthScopeFitnessNutritionWrite
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationWrite
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesCreate : GTLRFitnessQuery
 // Previous library name was
@@ -144,9 +159,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFitnessActivityWrite
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseWrite
+ *    @c kGTLRAuthScopeFitnessBloodPressureWrite
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationWrite
  *    @c kGTLRAuthScopeFitnessNutritionWrite
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationWrite
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesDatasetsDelete : GTLRFitnessQuery
 // Previous library name was
@@ -215,12 +235,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFitnessActivityRead
  *    @c kGTLRAuthScopeFitnessActivityWrite
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseRead
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseWrite
+ *    @c kGTLRAuthScopeFitnessBloodPressureRead
+ *    @c kGTLRAuthScopeFitnessBloodPressureWrite
  *    @c kGTLRAuthScopeFitnessBodyRead
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureRead
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationRead
  *    @c kGTLRAuthScopeFitnessLocationWrite
  *    @c kGTLRAuthScopeFitnessNutritionRead
  *    @c kGTLRAuthScopeFitnessNutritionWrite
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationRead
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationWrite
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthRead
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesDatasetsGet : GTLRFitnessQuery
 // Previous library name was
@@ -299,9 +329,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFitnessActivityWrite
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseWrite
+ *    @c kGTLRAuthScopeFitnessBloodPressureWrite
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationWrite
  *    @c kGTLRAuthScopeFitnessNutritionWrite
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationWrite
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesDatasetsPatch : GTLRFitnessQuery
 // Previous library name was
@@ -366,9 +401,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFitnessActivityWrite
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseWrite
+ *    @c kGTLRAuthScopeFitnessBloodPressureWrite
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationWrite
  *    @c kGTLRAuthScopeFitnessNutritionWrite
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationWrite
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesDelete : GTLRFitnessQuery
 // Previous library name was
@@ -408,12 +448,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFitnessActivityRead
  *    @c kGTLRAuthScopeFitnessActivityWrite
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseRead
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseWrite
+ *    @c kGTLRAuthScopeFitnessBloodPressureRead
+ *    @c kGTLRAuthScopeFitnessBloodPressureWrite
  *    @c kGTLRAuthScopeFitnessBodyRead
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureRead
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationRead
  *    @c kGTLRAuthScopeFitnessLocationWrite
  *    @c kGTLRAuthScopeFitnessNutritionRead
  *    @c kGTLRAuthScopeFitnessNutritionWrite
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationRead
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationWrite
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthRead
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesGet : GTLRFitnessQuery
 // Previous library name was
@@ -455,12 +505,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFitnessActivityRead
  *    @c kGTLRAuthScopeFitnessActivityWrite
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseRead
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseWrite
+ *    @c kGTLRAuthScopeFitnessBloodPressureRead
+ *    @c kGTLRAuthScopeFitnessBloodPressureWrite
  *    @c kGTLRAuthScopeFitnessBodyRead
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureRead
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationRead
  *    @c kGTLRAuthScopeFitnessLocationWrite
  *    @c kGTLRAuthScopeFitnessNutritionRead
  *    @c kGTLRAuthScopeFitnessNutritionWrite
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationRead
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationWrite
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthRead
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesList : GTLRFitnessQuery
 // Previous library name was
@@ -506,9 +566,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFitnessActivityWrite
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseWrite
+ *    @c kGTLRAuthScopeFitnessBloodPressureWrite
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationWrite
  *    @c kGTLRAuthScopeFitnessNutritionWrite
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationWrite
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesPatch : GTLRFitnessQuery
 // Previous library name was
@@ -555,9 +620,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFitnessActivityWrite
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseWrite
+ *    @c kGTLRAuthScopeFitnessBloodPressureWrite
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationWrite
  *    @c kGTLRAuthScopeFitnessNutritionWrite
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationWrite
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesUpdate : GTLRFitnessQuery
 // Previous library name was
@@ -642,12 +712,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFitnessActivityRead
  *    @c kGTLRAuthScopeFitnessActivityWrite
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseRead
+ *    @c kGTLRAuthScopeFitnessBloodGlucoseWrite
+ *    @c kGTLRAuthScopeFitnessBloodPressureRead
+ *    @c kGTLRAuthScopeFitnessBloodPressureWrite
  *    @c kGTLRAuthScopeFitnessBodyRead
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureRead
+ *    @c kGTLRAuthScopeFitnessBodyTemperatureWrite
  *    @c kGTLRAuthScopeFitnessBodyWrite
  *    @c kGTLRAuthScopeFitnessLocationRead
  *    @c kGTLRAuthScopeFitnessLocationWrite
  *    @c kGTLRAuthScopeFitnessNutritionRead
  *    @c kGTLRAuthScopeFitnessNutritionWrite
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationRead
+ *    @c kGTLRAuthScopeFitnessOxygenSaturationWrite
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthRead
+ *    @c kGTLRAuthScopeFitnessReproductiveHealthWrite
  */
 @interface GTLRFitnessQuery_UsersSessionsList : GTLRFitnessQuery
 // Previous library name was

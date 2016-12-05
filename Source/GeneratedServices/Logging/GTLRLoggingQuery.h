@@ -36,8 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a log and all its log entries.
- *  The log will reappear if it receives new entries.
+ *  Deletes all the log entries in a log.
+ *  The log reappears if it receives new entries.
  *
  *  Method: logging.billingAccounts.logs.delete
  *
@@ -50,19 +50,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForBillingAccountsLogsDeleteWithlogName:]
 
 /**
- *  Required. The resource name of the log to delete. Example:
- *  `"projects/my-project/logs/syslog"`.
+ *  Required. The resource name of the log to delete:
+ *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
+ *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
+ *  `[LOG_ID]` must be URL-encoded. For example,
+ *  `"projects/my-project-id/logs/syslog"`,
+ *  `"organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"`.
+ *  For more information about log names, see
+ *  LogEntry.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes a log and all its log entries.
- *  The log will reappear if it receives new entries.
+ *  Deletes all the log entries in a log.
+ *  The log reappears if it receives new entries.
  *
- *  @param logName Required. The resource name of the log to delete. Example:
- *    `"projects/my-project/logs/syslog"`.
+ *  @param logName Required. The resource name of the log to delete:
+ *    "projects/[PROJECT_ID]/logs/[LOG_ID]"
+ *    "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
+ *    `[LOG_ID]` must be URL-encoded. For example,
+ *    `"projects/my-project-id/logs/syslog"`,
+ *    `"organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"`.
+ *    For more information about log names, see
+ *    LogEntry.
  *
  *  @returns GTLRLoggingQuery_BillingAccountsLogsDelete
  */
@@ -71,7 +83,65 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a sink.
+ *  Lists the logs in projects or organizations.
+ *  Only logs that have entries are listed.
+ *
+ *  Method: logging.billingAccounts.logs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsLogsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsLogsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of `nextPageToken` in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. `pageToken` must be the value of
+ *  `nextPageToken` from the previous response. The values of other method
+ *  parameters should be identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name that owns the logs:
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLogsResponse.
+ *
+ *  Lists the logs in projects or organizations.
+ *  Only logs that have entries are listed.
+ *
+ *  @param parent Required. The resource name that owns the logs:
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *
+ *  @returns GTLRLoggingQuery_BillingAccountsLogsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a sink that exports specified log entries to a destination. The
+ *  export of newly-ingested log entries begins immediately, unless the current
+ *  time is outside the sink's start and end times or the sink's
+ *  `writer_identity` is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  Method: logging.billingAccounts.sinks.create
  *
@@ -84,30 +154,41 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForBillingAccountsSinksCreateWithObject:parent:]
 
 /**
- *  Required. The resource in which to create the sink.
- *  Example: `"projects/my-project-id"`.
- *  The new sink must be provided in the request.
+ *  Required. The resource in which to create the sink:
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ *  Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Whether the sink will have a dedicated service account returned
- *  in the sink's writer_identity. Set this field to be true to export
- *  logs from one project to a different project. This field is ignored for
- *  non-project sinks (e.g. organization sinks) because those sinks are
- *  required to have dedicated service accounts.
+ *  Optional. Determines the kind of IAM identity returned as `writer_identity`
+ *  in the new sink. If this value is omitted or set to false, and if the
+ *  sink's parent is a project, then the value returned as `writer_identity` is
+ *  `cloud-logs\@google.com`, the same identity used before the addition of
+ *  writer identities to this API. The sink's destination must be in the same
+ *  project as the sink itself.
+ *  If this field is set to true, or if the sink is owned by a non-project
+ *  resource such as an organization, then the value of `writer_identity` will
+ *  be a unique service account used only for exports from the new sink. For
+ *  more information, see `writer_identity` in LogSink.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Creates a sink.
+ *  Creates a sink that exports specified log entries to a destination. The
+ *  export of newly-ingested log entries begins immediately, unless the current
+ *  time is outside the sink's start and end times or the sink's
+ *  `writer_identity` is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
- *  @param parent Required. The resource in which to create the sink.
- *    Example: `"projects/my-project-id"`.
- *    The new sink must be provided in the request.
+ *  @param parent Required. The resource in which to create the sink:
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *    Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
  *
  *  @returns GTLRLoggingQuery_BillingAccountsSinksCreate
  */
@@ -117,7 +198,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a sink.
+ *  Deletes a sink. If the sink has a unique `writer_identity`, then that
+ *  service account is also deleted.
  *
  *  Method: logging.billingAccounts.sinks.delete
  *
@@ -130,23 +212,30 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForBillingAccountsSinksDeleteWithsinkName:]
 
 /**
- *  Required. The resource name of the sink to delete, including the parent
- *  resource and the sink identifier. Example:
- *  `"projects/my-project-id/sinks/my-sink-id"`. It is an error if the sink
- *  does not exist.
+ *  Required. The full resource name of the sink to delete, including the
+ *  parent resource and the sink identifier:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *  It is an error if the sink does not exist. Example:
+ *  `"projects/my-project-id/sinks/my-sink-id"`. It is an error if
+ *  the sink does not exist.
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes a sink.
+ *  Deletes a sink. If the sink has a unique `writer_identity`, then that
+ *  service account is also deleted.
  *
- *  @param sinkName Required. The resource name of the sink to delete, including
- *    the parent
- *    resource and the sink identifier. Example:
- *    `"projects/my-project-id/sinks/my-sink-id"`. It is an error if the sink
- *    does not exist.
+ *  @param sinkName Required. The full resource name of the sink to delete,
+ *    including the
+ *    parent resource and the sink identifier:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *    It is an error if the sink does not exist. Example:
+ *    `"projects/my-project-id/sinks/my-sink-id"`. It is an error if
+ *    the sink does not exist.
  *
  *  @returns GTLRLoggingQuery_BillingAccountsSinksDelete
  */
@@ -170,7 +259,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForBillingAccountsSinksGetWithsinkName:]
 
 /**
- *  Required. The resource name of the sink to return.
+ *  Required. The parent resource name of the sink:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  Example: `"projects/my-project-id/sinks/my-sink-id"`.
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
@@ -180,7 +271,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a sink.
  *
- *  @param sinkName Required. The resource name of the sink to return.
+ *  @param sinkName Required. The parent resource name of the sink:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    Example: `"projects/my-project-id/sinks/my-sink-id"`.
  *
  *  @returns GTLRLoggingQuery_BillingAccountsSinksGet
@@ -220,8 +313,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name where this sink was created.
- *  Example: `"projects/my-logging-project"`.
+ *  Required. The parent resource whose sinks are to be listed.
+ *  Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -230,8 +323,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists sinks.
  *
- *  @param parent Required. The resource name where this sink was created.
- *    Example: `"projects/my-logging-project"`.
+ *  @param parent Required. The parent resource whose sinks are to be listed.
+ *    Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
  *
  *  @returns GTLRLoggingQuery_BillingAccountsSinksList
  *
@@ -244,7 +337,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates or creates a sink.
+ *  Updates a sink. If the named sink doesn't exist, then this method is
+ *  identical to
+ *  [sinks.create](/logging/docs/api/reference/rest/v2/projects.sinks/create).
+ *  If the named sink does exist, then this method replaces the following
+ *  fields in the existing sink with values from the new sink: `destination`,
+ *  `filter`, `output_version_format`, `start_time`, and `end_time`.
+ *  The updated filter might also have a new `writer_identity`; see the
+ *  `unique_writer_identity` field.
  *
  *  Method: logging.billingAccounts.sinks.update
  *
@@ -257,31 +357,47 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForBillingAccountsSinksUpdateWithObject:sinkName:]
 
 /**
- *  Required. The resource name of the sink to update, including the parent
- *  resource and the sink identifier. If the sink does not exist, this method
- *  creates the sink. Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ *  Required. The full resource name of the sink to update, including the
+ *  parent resource and the sink identifier:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *  Example: `"projects/my-project-id/sinks/my-sink-id"`.
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
- *  Optional. Whether the sink will have a dedicated service account returned
- *  in the sink's writer_identity. Set this field to be true to export
- *  logs from one project to a different project. This field is ignored for
- *  non-project sinks (e.g. organization sinks) because those sinks are
- *  required to have dedicated service accounts.
+ *  Optional. See
+ *  [sinks.create](/logging/docs/api/reference/rest/v2/projects.sinks/create)
+ *  for a description of this field. When updating a sink, the effect of this
+ *  field on the value of `writer_identity` in the updated sink depends on both
+ *  the old and new values of this field:
+ *  + If the old and new values of this field are both false or both true,
+ *  then there is no change to the sink's `writer_identity`.
+ *  + If the old value was false and the new value is true, then
+ *  `writer_identity` is changed to a unique service account.
+ *  + It is an error if the old value was true and the new value is false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates or creates a sink.
+ *  Updates a sink. If the named sink doesn't exist, then this method is
+ *  identical to
+ *  [sinks.create](/logging/docs/api/reference/rest/v2/projects.sinks/create).
+ *  If the named sink does exist, then this method replaces the following
+ *  fields in the existing sink with values from the new sink: `destination`,
+ *  `filter`, `output_version_format`, `start_time`, and `end_time`.
+ *  The updated filter might also have a new `writer_identity`; see the
+ *  `unique_writer_identity` field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
- *  @param sinkName Required. The resource name of the sink to update, including
- *    the parent
- *    resource and the sink identifier. If the sink does not exist, this method
- *    creates the sink. Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ *  @param sinkName Required. The full resource name of the sink to update,
+ *    including the
+ *    parent resource and the sink identifier:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *    Example: `"projects/my-project-id/sinks/my-sink-id"`.
  *
  *  @returns GTLRLoggingQuery_BillingAccountsSinksUpdate
  */
@@ -291,8 +407,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists log entries. Use this method to retrieve log entries from Cloud
- *  Logging. For ways to export log entries, see
+ *  Lists log entries. Use this method to retrieve log entries from
+ *  Stackdriver Logging. For ways to export log entries, see
  *  [Exporting Logs](/logging/docs/export).
  *
  *  Method: logging.entries.list
@@ -310,8 +426,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListLogEntriesResponse.
  *
- *  Lists log entries. Use this method to retrieve log entries from Cloud
- *  Logging. For ways to export log entries, see
+ *  Lists log entries. Use this method to retrieve log entries from
+ *  Stackdriver Logging. For ways to export log entries, see
  *  [Exporting Logs](/logging/docs/export).
  *
  *  @param object The @c GTLRLogging_ListLogEntriesRequest to include in the
@@ -350,6 +466,377 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRLoggingQuery_EntriesWrite
  */
 + (instancetype)queryWithObject:(GTLRLogging_WriteLogEntriesRequest *)object;
+
+@end
+
+/**
+ *  Deletes all the log entries in a log.
+ *  The log reappears if it receives new entries.
+ *
+ *  Method: logging.folders.logs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLogsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLogsDeleteWithlogName:]
+
+/**
+ *  Required. The resource name of the log to delete:
+ *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
+ *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
+ *  `[LOG_ID]` must be URL-encoded. For example,
+ *  `"projects/my-project-id/logs/syslog"`,
+ *  `"organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"`.
+ *  For more information about log names, see
+ *  LogEntry.
+ */
+@property(nonatomic, copy, nullable) NSString *logName;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes all the log entries in a log.
+ *  The log reappears if it receives new entries.
+ *
+ *  @param logName Required. The resource name of the log to delete:
+ *    "projects/[PROJECT_ID]/logs/[LOG_ID]"
+ *    "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
+ *    `[LOG_ID]` must be URL-encoded. For example,
+ *    `"projects/my-project-id/logs/syslog"`,
+ *    `"organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"`.
+ *    For more information about log names, see
+ *    LogEntry.
+ *
+ *  @returns GTLRLoggingQuery_FoldersLogsDelete
+ */
++ (instancetype)queryWithLogName:(NSString *)logName;
+
+@end
+
+/**
+ *  Lists the logs in projects or organizations.
+ *  Only logs that have entries are listed.
+ *
+ *  Method: logging.folders.logs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLogsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLogsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of `nextPageToken` in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. `pageToken` must be the value of
+ *  `nextPageToken` from the previous response. The values of other method
+ *  parameters should be identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name that owns the logs:
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLogsResponse.
+ *
+ *  Lists the logs in projects or organizations.
+ *  Only logs that have entries are listed.
+ *
+ *  @param parent Required. The resource name that owns the logs:
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *
+ *  @returns GTLRLoggingQuery_FoldersLogsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a sink that exports specified log entries to a destination. The
+ *  export of newly-ingested log entries begins immediately, unless the current
+ *  time is outside the sink's start and end times or the sink's
+ *  `writer_identity` is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
+ *
+ *  Method: logging.folders.sinks.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersSinksCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersSinksCreateWithObject:parent:]
+
+/**
+ *  Required. The resource in which to create the sink:
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ *  Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Determines the kind of IAM identity returned as `writer_identity`
+ *  in the new sink. If this value is omitted or set to false, and if the
+ *  sink's parent is a project, then the value returned as `writer_identity` is
+ *  `cloud-logs\@google.com`, the same identity used before the addition of
+ *  writer identities to this API. The sink's destination must be in the same
+ *  project as the sink itself.
+ *  If this field is set to true, or if the sink is owned by a non-project
+ *  resource such as an organization, then the value of `writer_identity` will
+ *  be a unique service account used only for exports from the new sink. For
+ *  more information, see `writer_identity` in LogSink.
+ */
+@property(nonatomic, assign) BOOL uniqueWriterIdentity;
+
+/**
+ *  Fetches a @c GTLRLogging_LogSink.
+ *
+ *  Creates a sink that exports specified log entries to a destination. The
+ *  export of newly-ingested log entries begins immediately, unless the current
+ *  time is outside the sink's start and end times or the sink's
+ *  `writer_identity` is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
+ *
+ *  @param object The @c GTLRLogging_LogSink to include in the query.
+ *  @param parent Required. The resource in which to create the sink:
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *    Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
+ *
+ *  @returns GTLRLoggingQuery_FoldersSinksCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a sink. If the sink has a unique `writer_identity`, then that
+ *  service account is also deleted.
+ *
+ *  Method: logging.folders.sinks.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersSinksDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersSinksDeleteWithsinkName:]
+
+/**
+ *  Required. The full resource name of the sink to delete, including the
+ *  parent resource and the sink identifier:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *  It is an error if the sink does not exist. Example:
+ *  `"projects/my-project-id/sinks/my-sink-id"`. It is an error if
+ *  the sink does not exist.
+ */
+@property(nonatomic, copy, nullable) NSString *sinkName;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a sink. If the sink has a unique `writer_identity`, then that
+ *  service account is also deleted.
+ *
+ *  @param sinkName Required. The full resource name of the sink to delete,
+ *    including the
+ *    parent resource and the sink identifier:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *    It is an error if the sink does not exist. Example:
+ *    `"projects/my-project-id/sinks/my-sink-id"`. It is an error if
+ *    the sink does not exist.
+ *
+ *  @returns GTLRLoggingQuery_FoldersSinksDelete
+ */
++ (instancetype)queryWithSinkName:(NSString *)sinkName;
+
+@end
+
+/**
+ *  Gets a sink.
+ *
+ *  Method: logging.folders.sinks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersSinksGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersSinksGetWithsinkName:]
+
+/**
+ *  Required. The parent resource name of the sink:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *  Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ */
+@property(nonatomic, copy, nullable) NSString *sinkName;
+
+/**
+ *  Fetches a @c GTLRLogging_LogSink.
+ *
+ *  Gets a sink.
+ *
+ *  @param sinkName Required. The parent resource name of the sink:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *    Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ *
+ *  @returns GTLRLoggingQuery_FoldersSinksGet
+ */
++ (instancetype)queryWithSinkName:(NSString *)sinkName;
+
+@end
+
+/**
+ *  Lists sinks.
+ *
+ *  Method: logging.folders.sinks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersSinksList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersSinksListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of `nextPageToken` in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. `pageToken` must be the value of
+ *  `nextPageToken` from the previous response. The values of other method
+ *  parameters should be identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose sinks are to be listed.
+ *  Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListSinksResponse.
+ *
+ *  Lists sinks.
+ *
+ *  @param parent Required. The parent resource whose sinks are to be listed.
+ *    Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
+ *
+ *  @returns GTLRLoggingQuery_FoldersSinksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a sink. If the named sink doesn't exist, then this method is
+ *  identical to
+ *  [sinks.create](/logging/docs/api/reference/rest/v2/projects.sinks/create).
+ *  If the named sink does exist, then this method replaces the following
+ *  fields in the existing sink with values from the new sink: `destination`,
+ *  `filter`, `output_version_format`, `start_time`, and `end_time`.
+ *  The updated filter might also have a new `writer_identity`; see the
+ *  `unique_writer_identity` field.
+ *
+ *  Method: logging.folders.sinks.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersSinksUpdate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersSinksUpdateWithObject:sinkName:]
+
+/**
+ *  Required. The full resource name of the sink to update, including the
+ *  parent resource and the sink identifier:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *  Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ */
+@property(nonatomic, copy, nullable) NSString *sinkName;
+
+/**
+ *  Optional. See
+ *  [sinks.create](/logging/docs/api/reference/rest/v2/projects.sinks/create)
+ *  for a description of this field. When updating a sink, the effect of this
+ *  field on the value of `writer_identity` in the updated sink depends on both
+ *  the old and new values of this field:
+ *  + If the old and new values of this field are both false or both true,
+ *  then there is no change to the sink's `writer_identity`.
+ *  + If the old value was false and the new value is true, then
+ *  `writer_identity` is changed to a unique service account.
+ *  + It is an error if the old value was true and the new value is false.
+ */
+@property(nonatomic, assign) BOOL uniqueWriterIdentity;
+
+/**
+ *  Fetches a @c GTLRLogging_LogSink.
+ *
+ *  Updates a sink. If the named sink doesn't exist, then this method is
+ *  identical to
+ *  [sinks.create](/logging/docs/api/reference/rest/v2/projects.sinks/create).
+ *  If the named sink does exist, then this method replaces the following
+ *  fields in the existing sink with values from the new sink: `destination`,
+ *  `filter`, `output_version_format`, `start_time`, and `end_time`.
+ *  The updated filter might also have a new `writer_identity`; see the
+ *  `unique_writer_identity` field.
+ *
+ *  @param object The @c GTLRLogging_LogSink to include in the query.
+ *  @param sinkName Required. The full resource name of the sink to update,
+ *    including the
+ *    parent resource and the sink identifier:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *    Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ *
+ *  @returns GTLRLoggingQuery_FoldersSinksUpdate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                       sinkName:(NSString *)sinkName;
 
 @end
 
@@ -399,8 +886,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a log and all its log entries.
- *  The log will reappear if it receives new entries.
+ *  Deletes all the log entries in a log.
+ *  The log reappears if it receives new entries.
  *
  *  Method: logging.organizations.logs.delete
  *
@@ -413,19 +900,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForOrganizationsLogsDeleteWithlogName:]
 
 /**
- *  Required. The resource name of the log to delete. Example:
- *  `"projects/my-project/logs/syslog"`.
+ *  Required. The resource name of the log to delete:
+ *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
+ *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
+ *  `[LOG_ID]` must be URL-encoded. For example,
+ *  `"projects/my-project-id/logs/syslog"`,
+ *  `"organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"`.
+ *  For more information about log names, see
+ *  LogEntry.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes a log and all its log entries.
- *  The log will reappear if it receives new entries.
+ *  Deletes all the log entries in a log.
+ *  The log reappears if it receives new entries.
  *
- *  @param logName Required. The resource name of the log to delete. Example:
- *    `"projects/my-project/logs/syslog"`.
+ *  @param logName Required. The resource name of the log to delete:
+ *    "projects/[PROJECT_ID]/logs/[LOG_ID]"
+ *    "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
+ *    `[LOG_ID]` must be URL-encoded. For example,
+ *    `"projects/my-project-id/logs/syslog"`,
+ *    `"organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"`.
+ *    For more information about log names, see
+ *    LogEntry.
  *
  *  @returns GTLRLoggingQuery_OrganizationsLogsDelete
  */
@@ -434,7 +933,65 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a sink.
+ *  Lists the logs in projects or organizations.
+ *  Only logs that have entries are listed.
+ *
+ *  Method: logging.organizations.logs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLogsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLogsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of `nextPageToken` in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. `pageToken` must be the value of
+ *  `nextPageToken` from the previous response. The values of other method
+ *  parameters should be identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name that owns the logs:
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLogsResponse.
+ *
+ *  Lists the logs in projects or organizations.
+ *  Only logs that have entries are listed.
+ *
+ *  @param parent Required. The resource name that owns the logs:
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *
+ *  @returns GTLRLoggingQuery_OrganizationsLogsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a sink that exports specified log entries to a destination. The
+ *  export of newly-ingested log entries begins immediately, unless the current
+ *  time is outside the sink's start and end times or the sink's
+ *  `writer_identity` is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  Method: logging.organizations.sinks.create
  *
@@ -447,30 +1004,41 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForOrganizationsSinksCreateWithObject:parent:]
 
 /**
- *  Required. The resource in which to create the sink.
- *  Example: `"projects/my-project-id"`.
- *  The new sink must be provided in the request.
+ *  Required. The resource in which to create the sink:
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ *  Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Whether the sink will have a dedicated service account returned
- *  in the sink's writer_identity. Set this field to be true to export
- *  logs from one project to a different project. This field is ignored for
- *  non-project sinks (e.g. organization sinks) because those sinks are
- *  required to have dedicated service accounts.
+ *  Optional. Determines the kind of IAM identity returned as `writer_identity`
+ *  in the new sink. If this value is omitted or set to false, and if the
+ *  sink's parent is a project, then the value returned as `writer_identity` is
+ *  `cloud-logs\@google.com`, the same identity used before the addition of
+ *  writer identities to this API. The sink's destination must be in the same
+ *  project as the sink itself.
+ *  If this field is set to true, or if the sink is owned by a non-project
+ *  resource such as an organization, then the value of `writer_identity` will
+ *  be a unique service account used only for exports from the new sink. For
+ *  more information, see `writer_identity` in LogSink.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Creates a sink.
+ *  Creates a sink that exports specified log entries to a destination. The
+ *  export of newly-ingested log entries begins immediately, unless the current
+ *  time is outside the sink's start and end times or the sink's
+ *  `writer_identity` is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
- *  @param parent Required. The resource in which to create the sink.
- *    Example: `"projects/my-project-id"`.
- *    The new sink must be provided in the request.
+ *  @param parent Required. The resource in which to create the sink:
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *    Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
  *
  *  @returns GTLRLoggingQuery_OrganizationsSinksCreate
  */
@@ -480,7 +1048,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a sink.
+ *  Deletes a sink. If the sink has a unique `writer_identity`, then that
+ *  service account is also deleted.
  *
  *  Method: logging.organizations.sinks.delete
  *
@@ -493,23 +1062,30 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForOrganizationsSinksDeleteWithsinkName:]
 
 /**
- *  Required. The resource name of the sink to delete, including the parent
- *  resource and the sink identifier. Example:
- *  `"projects/my-project-id/sinks/my-sink-id"`. It is an error if the sink
- *  does not exist.
+ *  Required. The full resource name of the sink to delete, including the
+ *  parent resource and the sink identifier:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *  It is an error if the sink does not exist. Example:
+ *  `"projects/my-project-id/sinks/my-sink-id"`. It is an error if
+ *  the sink does not exist.
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes a sink.
+ *  Deletes a sink. If the sink has a unique `writer_identity`, then that
+ *  service account is also deleted.
  *
- *  @param sinkName Required. The resource name of the sink to delete, including
- *    the parent
- *    resource and the sink identifier. Example:
- *    `"projects/my-project-id/sinks/my-sink-id"`. It is an error if the sink
- *    does not exist.
+ *  @param sinkName Required. The full resource name of the sink to delete,
+ *    including the
+ *    parent resource and the sink identifier:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *    It is an error if the sink does not exist. Example:
+ *    `"projects/my-project-id/sinks/my-sink-id"`. It is an error if
+ *    the sink does not exist.
  *
  *  @returns GTLRLoggingQuery_OrganizationsSinksDelete
  */
@@ -533,7 +1109,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForOrganizationsSinksGetWithsinkName:]
 
 /**
- *  Required. The resource name of the sink to return.
+ *  Required. The parent resource name of the sink:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  Example: `"projects/my-project-id/sinks/my-sink-id"`.
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
@@ -543,7 +1121,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a sink.
  *
- *  @param sinkName Required. The resource name of the sink to return.
+ *  @param sinkName Required. The parent resource name of the sink:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    Example: `"projects/my-project-id/sinks/my-sink-id"`.
  *
  *  @returns GTLRLoggingQuery_OrganizationsSinksGet
@@ -583,8 +1163,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name where this sink was created.
- *  Example: `"projects/my-logging-project"`.
+ *  Required. The parent resource whose sinks are to be listed.
+ *  Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -593,8 +1173,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists sinks.
  *
- *  @param parent Required. The resource name where this sink was created.
- *    Example: `"projects/my-logging-project"`.
+ *  @param parent Required. The parent resource whose sinks are to be listed.
+ *    Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
  *
  *  @returns GTLRLoggingQuery_OrganizationsSinksList
  *
@@ -607,7 +1187,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates or creates a sink.
+ *  Updates a sink. If the named sink doesn't exist, then this method is
+ *  identical to
+ *  [sinks.create](/logging/docs/api/reference/rest/v2/projects.sinks/create).
+ *  If the named sink does exist, then this method replaces the following
+ *  fields in the existing sink with values from the new sink: `destination`,
+ *  `filter`, `output_version_format`, `start_time`, and `end_time`.
+ *  The updated filter might also have a new `writer_identity`; see the
+ *  `unique_writer_identity` field.
  *
  *  Method: logging.organizations.sinks.update
  *
@@ -620,31 +1207,47 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForOrganizationsSinksUpdateWithObject:sinkName:]
 
 /**
- *  Required. The resource name of the sink to update, including the parent
- *  resource and the sink identifier. If the sink does not exist, this method
- *  creates the sink. Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ *  Required. The full resource name of the sink to update, including the
+ *  parent resource and the sink identifier:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *  Example: `"projects/my-project-id/sinks/my-sink-id"`.
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
- *  Optional. Whether the sink will have a dedicated service account returned
- *  in the sink's writer_identity. Set this field to be true to export
- *  logs from one project to a different project. This field is ignored for
- *  non-project sinks (e.g. organization sinks) because those sinks are
- *  required to have dedicated service accounts.
+ *  Optional. See
+ *  [sinks.create](/logging/docs/api/reference/rest/v2/projects.sinks/create)
+ *  for a description of this field. When updating a sink, the effect of this
+ *  field on the value of `writer_identity` in the updated sink depends on both
+ *  the old and new values of this field:
+ *  + If the old and new values of this field are both false or both true,
+ *  then there is no change to the sink's `writer_identity`.
+ *  + If the old value was false and the new value is true, then
+ *  `writer_identity` is changed to a unique service account.
+ *  + It is an error if the old value was true and the new value is false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates or creates a sink.
+ *  Updates a sink. If the named sink doesn't exist, then this method is
+ *  identical to
+ *  [sinks.create](/logging/docs/api/reference/rest/v2/projects.sinks/create).
+ *  If the named sink does exist, then this method replaces the following
+ *  fields in the existing sink with values from the new sink: `destination`,
+ *  `filter`, `output_version_format`, `start_time`, and `end_time`.
+ *  The updated filter might also have a new `writer_identity`; see the
+ *  `unique_writer_identity` field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
- *  @param sinkName Required. The resource name of the sink to update, including
- *    the parent
- *    resource and the sink identifier. If the sink does not exist, this method
- *    creates the sink. Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ *  @param sinkName Required. The full resource name of the sink to update,
+ *    including the
+ *    parent resource and the sink identifier:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *    Example: `"projects/my-project-id/sinks/my-sink-id"`.
  *
  *  @returns GTLRLoggingQuery_OrganizationsSinksUpdate
  */
@@ -654,8 +1257,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a log and all its log entries.
- *  The log will reappear if it receives new entries.
+ *  Deletes all the log entries in a log.
+ *  The log reappears if it receives new entries.
  *
  *  Method: logging.projects.logs.delete
  *
@@ -668,23 +1271,89 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsLogsDeleteWithlogName:]
 
 /**
- *  Required. The resource name of the log to delete. Example:
- *  `"projects/my-project/logs/syslog"`.
+ *  Required. The resource name of the log to delete:
+ *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
+ *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
+ *  `[LOG_ID]` must be URL-encoded. For example,
+ *  `"projects/my-project-id/logs/syslog"`,
+ *  `"organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"`.
+ *  For more information about log names, see
+ *  LogEntry.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes a log and all its log entries.
- *  The log will reappear if it receives new entries.
+ *  Deletes all the log entries in a log.
+ *  The log reappears if it receives new entries.
  *
- *  @param logName Required. The resource name of the log to delete. Example:
- *    `"projects/my-project/logs/syslog"`.
+ *  @param logName Required. The resource name of the log to delete:
+ *    "projects/[PROJECT_ID]/logs/[LOG_ID]"
+ *    "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
+ *    `[LOG_ID]` must be URL-encoded. For example,
+ *    `"projects/my-project-id/logs/syslog"`,
+ *    `"organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"`.
+ *    For more information about log names, see
+ *    LogEntry.
  *
  *  @returns GTLRLoggingQuery_ProjectsLogsDelete
  */
 + (instancetype)queryWithLogName:(NSString *)logName;
+
+@end
+
+/**
+ *  Lists the logs in projects or organizations.
+ *  Only logs that have entries are listed.
+ *
+ *  Method: logging.projects.logs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLogsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLogsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of `nextPageToken` in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. `pageToken` must be the value of
+ *  `nextPageToken` from the previous response. The values of other method
+ *  parameters should be identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name that owns the logs:
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLogsResponse.
+ *
+ *  Lists the logs in projects or organizations.
+ *  Only logs that have entries are listed.
+ *
+ *  @param parent Required. The resource name that owns the logs:
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *
+ *  @returns GTLRLoggingQuery_ProjectsLogsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -703,8 +1372,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsMetricsCreateWithObject:parent:]
 
 /**
- *  The resource name of the project in which to create the metric.
- *  Example: `"projects/my-project-id"`.
+ *  The resource name of the project in which to create the metric:
+ *  "projects/[PROJECT_ID]"
  *  The new metric must be provided in the request.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -716,8 +1385,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_LogMetric to include in the query.
  *  @param parent The resource name of the project in which to create the
- *    metric.
- *    Example: `"projects/my-project-id"`.
+ *    metric:
+ *    "projects/[PROJECT_ID]"
  *    The new metric must be provided in the request.
  *
  *  @returns GTLRLoggingQuery_ProjectsMetricsCreate
@@ -742,8 +1411,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsMetricsDeleteWithmetricName:]
 
 /**
- *  The resource name of the metric to delete.
- *  Example: `"projects/my-project-id/metrics/my-metric-id"`.
+ *  The resource name of the metric to delete:
+ *  "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *metricName;
 
@@ -752,8 +1421,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a logs-based metric.
  *
- *  @param metricName The resource name of the metric to delete.
- *    Example: `"projects/my-project-id/metrics/my-metric-id"`.
+ *  @param metricName The resource name of the metric to delete:
+ *    "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
  *
  *  @returns GTLRLoggingQuery_ProjectsMetricsDelete
  */
@@ -777,8 +1446,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsMetricsGetWithmetricName:]
 
 /**
- *  The resource name of the desired metric.
- *  Example: `"projects/my-project-id/metrics/my-metric-id"`.
+ *  The resource name of the desired metric:
+ *  "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *metricName;
 
@@ -787,8 +1456,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a logs-based metric.
  *
- *  @param metricName The resource name of the desired metric.
- *    Example: `"projects/my-project-id/metrics/my-metric-id"`.
+ *  @param metricName The resource name of the desired metric:
+ *    "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
  *
  *  @returns GTLRLoggingQuery_ProjectsMetricsGet
  */
@@ -827,8 +1496,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name containing the metrics.
- *  Example: `"projects/my-project-id"`.
+ *  Required. The name of the project containing the metrics:
+ *  "projects/[PROJECT_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -837,8 +1506,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists logs-based metrics.
  *
- *  @param parent Required. The resource name containing the metrics.
- *    Example: `"projects/my-project-id"`.
+ *  @param parent Required. The name of the project containing the metrics:
+ *    "projects/[PROJECT_ID]"
  *
  *  @returns GTLRLoggingQuery_ProjectsMetricsList
  *
@@ -865,11 +1534,11 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsMetricsUpdateWithObject:metricName:]
 
 /**
- *  The resource name of the metric to update.
- *  Example: `"projects/my-project-id/metrics/my-metric-id"`.
- *  The updated metric must be provided in the request and have the
- *  same identifier that is specified in `metricName`.
- *  If the metric does not exist, it is created.
+ *  The resource name of the metric to update:
+ *  "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
+ *  The updated metric must be provided in the request and it's
+ *  `name` field must be the same as `[METRIC_ID]` If the metric
+ *  does not exist in `[PROJECT_ID]`, then a new metric is created.
  */
 @property(nonatomic, copy, nullable) NSString *metricName;
 
@@ -879,11 +1548,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates or updates a logs-based metric.
  *
  *  @param object The @c GTLRLogging_LogMetric to include in the query.
- *  @param metricName The resource name of the metric to update.
- *    Example: `"projects/my-project-id/metrics/my-metric-id"`.
- *    The updated metric must be provided in the request and have the
- *    same identifier that is specified in `metricName`.
- *    If the metric does not exist, it is created.
+ *  @param metricName The resource name of the metric to update:
+ *    "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
+ *    The updated metric must be provided in the request and it's
+ *    `name` field must be the same as `[METRIC_ID]` If the metric
+ *    does not exist in `[PROJECT_ID]`, then a new metric is created.
  *
  *  @returns GTLRLoggingQuery_ProjectsMetricsUpdate
  */
@@ -893,7 +1562,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a sink.
+ *  Creates a sink that exports specified log entries to a destination. The
+ *  export of newly-ingested log entries begins immediately, unless the current
+ *  time is outside the sink's start and end times or the sink's
+ *  `writer_identity` is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  Method: logging.projects.sinks.create
  *
@@ -906,30 +1579,41 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsSinksCreateWithObject:parent:]
 
 /**
- *  Required. The resource in which to create the sink.
- *  Example: `"projects/my-project-id"`.
- *  The new sink must be provided in the request.
+ *  Required. The resource in which to create the sink:
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ *  Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Whether the sink will have a dedicated service account returned
- *  in the sink's writer_identity. Set this field to be true to export
- *  logs from one project to a different project. This field is ignored for
- *  non-project sinks (e.g. organization sinks) because those sinks are
- *  required to have dedicated service accounts.
+ *  Optional. Determines the kind of IAM identity returned as `writer_identity`
+ *  in the new sink. If this value is omitted or set to false, and if the
+ *  sink's parent is a project, then the value returned as `writer_identity` is
+ *  `cloud-logs\@google.com`, the same identity used before the addition of
+ *  writer identities to this API. The sink's destination must be in the same
+ *  project as the sink itself.
+ *  If this field is set to true, or if the sink is owned by a non-project
+ *  resource such as an organization, then the value of `writer_identity` will
+ *  be a unique service account used only for exports from the new sink. For
+ *  more information, see `writer_identity` in LogSink.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Creates a sink.
+ *  Creates a sink that exports specified log entries to a destination. The
+ *  export of newly-ingested log entries begins immediately, unless the current
+ *  time is outside the sink's start and end times or the sink's
+ *  `writer_identity` is not permitted to write to the destination. A sink can
+ *  export log entries only from the resource owning the sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
- *  @param parent Required. The resource in which to create the sink.
- *    Example: `"projects/my-project-id"`.
- *    The new sink must be provided in the request.
+ *  @param parent Required. The resource in which to create the sink:
+ *    "projects/[PROJECT_ID]"
+ *    "organizations/[ORGANIZATION_ID]"
+ *    Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
  *
  *  @returns GTLRLoggingQuery_ProjectsSinksCreate
  */
@@ -939,7 +1623,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a sink.
+ *  Deletes a sink. If the sink has a unique `writer_identity`, then that
+ *  service account is also deleted.
  *
  *  Method: logging.projects.sinks.delete
  *
@@ -952,23 +1637,30 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsSinksDeleteWithsinkName:]
 
 /**
- *  Required. The resource name of the sink to delete, including the parent
- *  resource and the sink identifier. Example:
- *  `"projects/my-project-id/sinks/my-sink-id"`. It is an error if the sink
- *  does not exist.
+ *  Required. The full resource name of the sink to delete, including the
+ *  parent resource and the sink identifier:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *  It is an error if the sink does not exist. Example:
+ *  `"projects/my-project-id/sinks/my-sink-id"`. It is an error if
+ *  the sink does not exist.
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes a sink.
+ *  Deletes a sink. If the sink has a unique `writer_identity`, then that
+ *  service account is also deleted.
  *
- *  @param sinkName Required. The resource name of the sink to delete, including
- *    the parent
- *    resource and the sink identifier. Example:
- *    `"projects/my-project-id/sinks/my-sink-id"`. It is an error if the sink
- *    does not exist.
+ *  @param sinkName Required. The full resource name of the sink to delete,
+ *    including the
+ *    parent resource and the sink identifier:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *    It is an error if the sink does not exist. Example:
+ *    `"projects/my-project-id/sinks/my-sink-id"`. It is an error if
+ *    the sink does not exist.
  *
  *  @returns GTLRLoggingQuery_ProjectsSinksDelete
  */
@@ -992,7 +1684,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsSinksGetWithsinkName:]
 
 /**
- *  Required. The resource name of the sink to return.
+ *  Required. The parent resource name of the sink:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  Example: `"projects/my-project-id/sinks/my-sink-id"`.
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
@@ -1002,7 +1696,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a sink.
  *
- *  @param sinkName Required. The resource name of the sink to return.
+ *  @param sinkName Required. The parent resource name of the sink:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    Example: `"projects/my-project-id/sinks/my-sink-id"`.
  *
  *  @returns GTLRLoggingQuery_ProjectsSinksGet
@@ -1042,8 +1738,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name where this sink was created.
- *  Example: `"projects/my-logging-project"`.
+ *  Required. The parent resource whose sinks are to be listed.
+ *  Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1052,8 +1748,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists sinks.
  *
- *  @param parent Required. The resource name where this sink was created.
- *    Example: `"projects/my-logging-project"`.
+ *  @param parent Required. The parent resource whose sinks are to be listed.
+ *    Examples: `"projects/my-logging-project"`, `"organizations/123456789"`.
  *
  *  @returns GTLRLoggingQuery_ProjectsSinksList
  *
@@ -1066,7 +1762,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates or creates a sink.
+ *  Updates a sink. If the named sink doesn't exist, then this method is
+ *  identical to
+ *  [sinks.create](/logging/docs/api/reference/rest/v2/projects.sinks/create).
+ *  If the named sink does exist, then this method replaces the following
+ *  fields in the existing sink with values from the new sink: `destination`,
+ *  `filter`, `output_version_format`, `start_time`, and `end_time`.
+ *  The updated filter might also have a new `writer_identity`; see the
+ *  `unique_writer_identity` field.
  *
  *  Method: logging.projects.sinks.update
  *
@@ -1079,31 +1782,47 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsSinksUpdateWithObject:sinkName:]
 
 /**
- *  Required. The resource name of the sink to update, including the parent
- *  resource and the sink identifier. If the sink does not exist, this method
- *  creates the sink. Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ *  Required. The full resource name of the sink to update, including the
+ *  parent resource and the sink identifier:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *  Example: `"projects/my-project-id/sinks/my-sink-id"`.
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
- *  Optional. Whether the sink will have a dedicated service account returned
- *  in the sink's writer_identity. Set this field to be true to export
- *  logs from one project to a different project. This field is ignored for
- *  non-project sinks (e.g. organization sinks) because those sinks are
- *  required to have dedicated service accounts.
+ *  Optional. See
+ *  [sinks.create](/logging/docs/api/reference/rest/v2/projects.sinks/create)
+ *  for a description of this field. When updating a sink, the effect of this
+ *  field on the value of `writer_identity` in the updated sink depends on both
+ *  the old and new values of this field:
+ *  + If the old and new values of this field are both false or both true,
+ *  then there is no change to the sink's `writer_identity`.
+ *  + If the old value was false and the new value is true, then
+ *  `writer_identity` is changed to a unique service account.
+ *  + It is an error if the old value was true and the new value is false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates or creates a sink.
+ *  Updates a sink. If the named sink doesn't exist, then this method is
+ *  identical to
+ *  [sinks.create](/logging/docs/api/reference/rest/v2/projects.sinks/create).
+ *  If the named sink does exist, then this method replaces the following
+ *  fields in the existing sink with values from the new sink: `destination`,
+ *  `filter`, `output_version_format`, `start_time`, and `end_time`.
+ *  The updated filter might also have a new `writer_identity`; see the
+ *  `unique_writer_identity` field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
- *  @param sinkName Required. The resource name of the sink to update, including
- *    the parent
- *    resource and the sink identifier. If the sink does not exist, this method
- *    creates the sink. Example: `"projects/my-project-id/sinks/my-sink-id"`.
+ *  @param sinkName Required. The full resource name of the sink to update,
+ *    including the
+ *    parent resource and the sink identifier:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *    Example: `"projects/my-project-id/sinks/my-sink-id"`.
  *
  *  @returns GTLRLoggingQuery_ProjectsSinksUpdate
  */

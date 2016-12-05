@@ -300,7 +300,8 @@
          contentEncoding, contentLanguage, contentType, crc32c,
          customerEncryption, ETag, generation, identifier, kind, md5Hash,
          mediaLink, metadata, metageneration, name, owner, selfLink, size,
-         storageClass, timeCreated, timeDeleted, updated;
+         storageClass, timeCreated, timeDeleted, timeStorageClassUpdated,
+         updated;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

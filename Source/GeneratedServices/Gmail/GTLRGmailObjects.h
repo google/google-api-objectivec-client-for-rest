@@ -217,6 +217,25 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 
 
 /**
+ *  GTLRGmail_BatchModifyMessagesRequest
+ */
+@interface GTLRGmail_BatchModifyMessagesRequest : GTLRObject
+
+/** A list of label IDs to add to messages. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addLabelIds;
+
+/**
+ *  The IDs of the messages to modify. There is a limit of 1000 ids per request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ids;
+
+/** A list of label IDs to remove from messages. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *removeLabelIds;
+
+@end
+
+
+/**
  *  A draft email in the user's mailbox.
  */
 @interface GTLRGmail_Draft : GTLRObject
@@ -887,7 +906,7 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @property(nonatomic, copy, nullable) NSString *data;
 
 /**
- *  Total number of bytes in the body of the message part.
+ *  Number of bytes for the message part data (encoding notwithstanding).
  *
  *  Uses NSNumber of intValue.
  */

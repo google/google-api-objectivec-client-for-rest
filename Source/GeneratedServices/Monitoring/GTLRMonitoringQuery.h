@@ -138,7 +138,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  The project in which to create the time series. The format is
- *  &quot;projects/PROJECT_ID_OR_NUMBER&quot;.
+ *  "projects/PROJECT_ID_OR_NUMBER".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -152,7 +152,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param object The @c GTLRMonitoring_CreateCollectdTimeSeriesRequest to
  *    include in the query.
  *  @param name The project in which to create the time series. The format is
- *    &quot;projects/PROJECT_ID_OR_NUMBER&quot;.
+ *    "projects/PROJECT_ID_OR_NUMBER".
  *
  *  @returns GTLRMonitoringQuery_ProjectsCollectdTimeSeriesCreate
  */
@@ -176,7 +176,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  The project in which to create the group. The format is
- *  &quot;projects/{project_id_or_number}&quot;.
+ *  "projects/{project_id_or_number}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -190,7 +190,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *
  *  @param object The @c GTLRMonitoring_Group to include in the query.
  *  @param name The project in which to create the group. The format is
- *    &quot;projects/{project_id_or_number}&quot;.
+ *    "projects/{project_id_or_number}".
  *
  *  @returns GTLRMonitoringQuery_ProjectsGroupsCreate
  */
@@ -214,7 +214,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  The group to delete. The format is
- *  &quot;projects/{project_id_or_number}/groups/{group_id}&quot;.
+ *  "projects/{project_id_or_number}/groups/{group_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -224,7 +224,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  Deletes an existing group.
  *
  *  @param name The group to delete. The format is
- *    &quot;projects/{project_id_or_number}/groups/{group_id}&quot;.
+ *    "projects/{project_id_or_number}/groups/{group_id}".
  *
  *  @returns GTLRMonitoringQuery_ProjectsGroupsDelete
  */
@@ -248,7 +248,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  The group to retrieve. The format is
- *  &quot;projects/{project_id_or_number}/groups/{group_id}&quot;.
+ *  "projects/{project_id_or_number}/groups/{group_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -258,7 +258,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  Gets a single group.
  *
  *  @param name The group to retrieve. The format is
- *    &quot;projects/{project_id_or_number}/groups/{group_id}&quot;.
+ *    "projects/{project_id_or_number}/groups/{group_id}".
  *
  *  @returns GTLRMonitoringQuery_ProjectsGroupsGet
  */
@@ -281,32 +281,32 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 //   +[GTLQueryMonitoring queryForProjectsGroupsListWithname:]
 
 /**
- *  A group name: &quot;projects/{project_id_or_number}/groups/{group_id}&quot;.
- *  Returns groups that are ancestors of the specified group. The groups are
- *  returned in order, starting with the immediate parent and ending with the
- *  most distant ancestor. If the specified group has no immediate parent, the
- *  results are empty.
+ *  A group name: "projects/{project_id_or_number}/groups/{group_id}". Returns
+ *  groups that are ancestors of the specified group. The groups are returned in
+ *  order, starting with the immediate parent and ending with the most distant
+ *  ancestor. If the specified group has no immediate parent, the results are
+ *  empty.
  */
 @property(nonatomic, copy, nullable) NSString *ancestorsOfGroup;
 
 /**
- *  A group name: &quot;projects/{project_id_or_number}/groups/{group_id}&quot;.
- *  Returns groups whose parentName field contains the group name. If no groups
- *  have this parent, the results are empty.
+ *  A group name: "projects/{project_id_or_number}/groups/{group_id}". Returns
+ *  groups whose parentName field contains the group name. If no groups have
+ *  this parent, the results are empty.
  */
 @property(nonatomic, copy, nullable) NSString *childrenOfGroup;
 
 /**
- *  A group name: &quot;projects/{project_id_or_number}/groups/{group_id}&quot;.
- *  Returns the descendants of the specified group. This is a superset of the
- *  results returned by the childrenOfGroup filter, and includes
- *  children-of-children, and so forth.
+ *  A group name: "projects/{project_id_or_number}/groups/{group_id}". Returns
+ *  the descendants of the specified group. This is a superset of the results
+ *  returned by the childrenOfGroup filter, and includes children-of-children,
+ *  and so forth.
  */
 @property(nonatomic, copy, nullable) NSString *descendantsOfGroup;
 
 /**
  *  The project whose groups are to be listed. The format is
- *  &quot;projects/{project_id_or_number}&quot;.
+ *  "projects/{project_id_or_number}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -326,7 +326,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  Lists the existing groups.
  *
  *  @param name The project whose groups are to be listed. The format is
- *    &quot;projects/{project_id_or_number}&quot;.
+ *    "projects/{project_id_or_number}".
  *
  *  @returns GTLRMonitoringQuery_ProjectsGroupsList
  *
@@ -353,12 +353,11 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 //   +[GTLQueryMonitoring queryForProjectsGroupsMembersListWithname:]
 
 /**
- *  An optional list filter (/monitoring/api/learn_more#filtering) describing
- *  the members to be returned. The filter may reference the type, labels, and
- *  metadata of monitored resources that comprise the group. For example, to
- *  return only resources representing Compute Engine VM instances, use this
- *  filter:
- *  resource.type = &quot;gce_instance&quot;
+ *  An optional list filter describing the members to be returned. The filter
+ *  may reference the type, labels, and metadata of monitored resources that
+ *  comprise the group. For example, to return only resources representing
+ *  Compute Engine VM instances, use this filter:
+ *  resource.type = "gce_instance"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -374,7 +373,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  The group whose members are listed. The format is
- *  &quot;projects/{project_id_or_number}/groups/{group_id}&quot;.
+ *  "projects/{project_id_or_number}/groups/{group_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -394,7 +393,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  Lists the monitored resources that are members of a group.
  *
  *  @param name The group whose members are listed. The format is
- *    &quot;projects/{project_id_or_number}/groups/{group_id}&quot;.
+ *    "projects/{project_id_or_number}/groups/{group_id}".
  *
  *  @returns GTLRMonitoringQuery_ProjectsGroupsMembersList
  *
@@ -421,9 +420,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  Output only. The name of this group. The format is
- *  &quot;projects/{project_id_or_number}/groups/{group_id}&quot;. When creating
- *  a group, this field is ignored and a new name is created consisting of the
- *  project specified in the call to CreateGroup and a unique {group_id} that is
+ *  "projects/{project_id_or_number}/groups/{group_id}". When creating a group,
+ *  this field is ignored and a new name is created consisting of the project
+ *  specified in the call to CreateGroup and a unique {group_id} that is
  *  generated automatically.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -438,10 +437,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *
  *  @param object The @c GTLRMonitoring_Group to include in the query.
  *  @param name Output only. The name of this group. The format is
- *    &quot;projects/{project_id_or_number}/groups/{group_id}&quot;. When
- *    creating a group, this field is ignored and a new name is created
- *    consisting of the project specified in the call to CreateGroup and a
- *    unique {group_id} that is generated automatically.
+ *    "projects/{project_id_or_number}/groups/{group_id}". When creating a
+ *    group, this field is ignored and a new name is created consisting of the
+ *    project specified in the call to CreateGroup and a unique {group_id} that
+ *    is generated automatically.
  *
  *  @returns GTLRMonitoringQuery_ProjectsGroupsUpdate
  */
@@ -452,7 +451,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  Creates a new metric descriptor. User-created metric descriptors define
- *  custom metrics (/monitoring/custom-metrics).
+ *  custom metrics.
  *
  *  Method: monitoring.projects.metricDescriptors.create
  *
@@ -467,7 +466,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  The project on which to execute the request. The format is
- *  &quot;projects/{project_id_or_number}&quot;.
+ *  "projects/{project_id_or_number}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -475,12 +474,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  Fetches a @c GTLRMonitoring_MetricDescriptor.
  *
  *  Creates a new metric descriptor. User-created metric descriptors define
- *  custom metrics (/monitoring/custom-metrics).
+ *  custom metrics.
  *
  *  @param object The @c GTLRMonitoring_MetricDescriptor to include in the
  *    query.
  *  @param name The project on which to execute the request. The format is
- *    &quot;projects/{project_id_or_number}&quot;.
+ *    "projects/{project_id_or_number}".
  *
  *  @returns GTLRMonitoringQuery_ProjectsMetricDescriptorsCreate
  */
@@ -490,8 +489,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @end
 
 /**
- *  Deletes a metric descriptor. Only user-created custom metrics
- *  (/monitoring/custom-metrics) can be deleted.
+ *  Deletes a metric descriptor. Only user-created custom metrics can be
+ *  deleted.
  *
  *  Method: monitoring.projects.metricDescriptors.delete
  *
@@ -505,23 +504,20 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  The metric descriptor on which to execute the request. The format is
- *  &quot;projects/{project_id_or_number}/metricDescriptors/{metric_id}&quot;.
- *  An example of {metric_id} is:
- *  &quot;custom.googleapis.com/my_test_metric&quot;.
+ *  "projects/{project_id_or_number}/metricDescriptors/{metric_id}". An example
+ *  of {metric_id} is: "custom.googleapis.com/my_test_metric".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMonitoring_Empty.
  *
- *  Deletes a metric descriptor. Only user-created custom metrics
- *  (/monitoring/custom-metrics) can be deleted.
+ *  Deletes a metric descriptor. Only user-created custom metrics can be
+ *  deleted.
  *
  *  @param name The metric descriptor on which to execute the request. The
- *    format is
- *    &quot;projects/{project_id_or_number}/metricDescriptors/{metric_id}&quot;.
- *    An example of {metric_id} is:
- *    &quot;custom.googleapis.com/my_test_metric&quot;.
+ *    format is "projects/{project_id_or_number}/metricDescriptors/{metric_id}".
+ *    An example of {metric_id} is: "custom.googleapis.com/my_test_metric".
  *
  *  @returns GTLRMonitoringQuery_ProjectsMetricDescriptorsDelete
  */
@@ -547,9 +543,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  The metric descriptor on which to execute the request. The format is
- *  &quot;projects/{project_id_or_number}/metricDescriptors/{metric_id}&quot;.
- *  An example value of {metric_id} is
- *  &quot;compute.googleapis.com/instance/disk/read_bytes_count&quot;.
+ *  "projects/{project_id_or_number}/metricDescriptors/{metric_id}". An example
+ *  value of {metric_id} is
+ *  "compute.googleapis.com/instance/disk/read_bytes_count".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -560,10 +556,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  account.
  *
  *  @param name The metric descriptor on which to execute the request. The
- *    format is
- *    &quot;projects/{project_id_or_number}/metricDescriptors/{metric_id}&quot;.
+ *    format is "projects/{project_id_or_number}/metricDescriptors/{metric_id}".
  *    An example value of {metric_id} is
- *    &quot;compute.googleapis.com/instance/disk/read_bytes_count&quot;.
+ *    "compute.googleapis.com/instance/disk/read_bytes_count".
  *
  *  @returns GTLRMonitoringQuery_ProjectsMetricDescriptorsGet
  */
@@ -589,16 +584,15 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  If this field is empty, all custom and system-defined metric descriptors are
- *  returned. Otherwise, the filter (/monitoring/api/v3/filters) specifies which
- *  metric descriptors are to be returned. For example, the following filter
- *  matches all custom metrics (/monitoring/custom-metrics):
- *  metric.type = starts_with(&quot;custom.googleapis.com/&quot;)
+ *  returned. Otherwise, the filter specifies which metric descriptors are to be
+ *  returned. For example, the following filter matches all custom metrics:
+ *  metric.type = starts_with("custom.googleapis.com/")
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The project on which to execute the request. The format is
- *  &quot;projects/{project_id_or_number}&quot;.
+ *  "projects/{project_id_or_number}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -619,7 +613,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  Stackdriver account.
  *
  *  @param name The project on which to execute the request. The format is
- *    &quot;projects/{project_id_or_number}&quot;.
+ *    "projects/{project_id_or_number}".
  *
  *  @returns GTLRMonitoringQuery_ProjectsMetricDescriptorsList
  *
@@ -649,7 +643,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  The monitored resource descriptor to get. The format is
- *  &quot;projects/{project_id_or_number}/monitoredResourceDescriptors/{resource_type}&quot;.
+ *  "projects/{project_id_or_number}/monitoredResourceDescriptors/{resource_type}".
  *  The {resource_type} is a predefined type, such as cloudsql_database.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -661,7 +655,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  Stackdriver account.
  *
  *  @param name The monitored resource descriptor to get. The format is
- *    &quot;projects/{project_id_or_number}/monitoredResourceDescriptors/{resource_type}&quot;.
+ *    "projects/{project_id_or_number}/monitoredResourceDescriptors/{resource_type}".
  *    The {resource_type} is a predefined type, such as cloudsql_database.
  *
  *  @returns GTLRMonitoringQuery_ProjectsMonitoredResourceDescriptorsGet
@@ -687,17 +681,16 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 //   +[GTLQueryMonitoring queryForProjectsMonitoredResourceDescriptorsListWithname:]
 
 /**
- *  An optional filter (/monitoring/api/v3/filters) describing the descriptors
- *  to be returned. The filter can reference the descriptor's type and labels.
- *  For example, the following filter returns only Google Compute Engine
- *  descriptors that have an id label:
- *  resource.type = starts_with(&quot;gce_&quot;) AND resource.label:id
+ *  An optional filter describing the descriptors to be returned. The filter can
+ *  reference the descriptor's type and labels. For example, the following
+ *  filter returns only Google Compute Engine descriptors that have an id label:
+ *  resource.type = starts_with("gce_") AND resource.label:id
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The project on which to execute the request. The format is
- *  &quot;projects/{project_id_or_number}&quot;.
+ *  "projects/{project_id_or_number}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -718,7 +711,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  not require a Stackdriver account.
  *
  *  @param name The project on which to execute the request. The format is
- *    &quot;projects/{project_id_or_number}&quot;.
+ *    "projects/{project_id_or_number}".
  *
  *  @returns GTLRMonitoringQuery_ProjectsMonitoredResourceDescriptorsList
  *
@@ -748,7 +741,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 
 /**
  *  The project on which to execute the request. The format is
- *  &quot;projects/{project_id_or_number}&quot;.
+ *  "projects/{project_id_or_number}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -762,7 +755,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @param object The @c GTLRMonitoring_CreateTimeSeriesRequest to include in
  *    the query.
  *  @param name The project on which to execute the request. The format is
- *    &quot;projects/{project_id_or_number}&quot;.
+ *    "projects/{project_id_or_number}".
  *
  *  @returns GTLRMonitoringQuery_ProjectsTimeSeriesCreate
  */
@@ -896,11 +889,11 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @property(nonatomic, copy, nullable) NSString *aggregationPerSeriesAligner;
 
 /**
- *  A monitoring filter (/monitoring/api/v3/filters) that specifies which time
- *  series should be returned. The filter must specify a single metric type, and
- *  can additionally specify metric labels and other information. For example:
- *  metric.type = &quot;compute.googleapis.com/instance/cpu/usage_time&quot; AND
- *  metric.label.instance_name = &quot;my-instance-name&quot;
+ *  A monitoring filter that specifies which time series should be returned. The
+ *  filter must specify a single metric type, and can additionally specify
+ *  metric labels and other information. For example:
+ *  metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
+ *  metric.label.instance_name = "my-instance-name"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

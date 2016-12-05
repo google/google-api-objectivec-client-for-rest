@@ -43,6 +43,16 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_Ancestor
+//
+
+@implementation GTLRCloudResourceManager_Ancestor
+@dynamic resourceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_Binding
 //
 
@@ -85,6 +95,33 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 @implementation GTLRCloudResourceManager_FolderOperationError
 @dynamic errorMessageId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_GetAncestryRequest
+//
+
+@implementation GTLRCloudResourceManager_GetAncestryRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_GetAncestryResponse
+//
+
+@implementation GTLRCloudResourceManager_GetAncestryResponse
+@dynamic ancestor;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ancestor" : [GTLRCloudResourceManager_Ancestor class]
+  };
+  return map;
+}
+
 @end
 
 

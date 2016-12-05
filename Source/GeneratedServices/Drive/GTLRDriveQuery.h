@@ -1577,7 +1577,12 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
-/** The maximum number of revisions to return per page. */
+/**
+ *  The maximum number of revisions to return per page.
+ *
+ *  @note If not set, the documented server-side default will be 200 (from the
+ *        range 1..1000).
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**

@@ -18,44 +18,6 @@
 
 @end
 
-@implementation GTLRYouTubeAnalyticsQuery_BatchReportDefinitionsList
-
-@dynamic onBehalfOfContentOwner;
-
-+ (instancetype)queryWithOnBehalfOfContentOwner:(NSString *)onBehalfOfContentOwner {
-  NSString *pathURITemplate = @"batchReportDefinitions";
-  GTLRYouTubeAnalyticsQuery_BatchReportDefinitionsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.onBehalfOfContentOwner = onBehalfOfContentOwner;
-  query.expectedObjectClass = [GTLRYouTubeAnalytics_BatchReportDefinitionList class];
-  query.loggingName = @"youtubeAnalytics.batchReportDefinitions.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRYouTubeAnalyticsQuery_BatchReportsList
-
-@dynamic batchReportDefinitionId, onBehalfOfContentOwner;
-
-+ (instancetype)queryWithBatchReportDefinitionId:(NSString *)batchReportDefinitionId
-                          onBehalfOfContentOwner:(NSString *)onBehalfOfContentOwner {
-  NSString *pathURITemplate = @"batchReports";
-  GTLRYouTubeAnalyticsQuery_BatchReportsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.batchReportDefinitionId = batchReportDefinitionId;
-  query.onBehalfOfContentOwner = onBehalfOfContentOwner;
-  query.expectedObjectClass = [GTLRYouTubeAnalytics_BatchReportList class];
-  query.loggingName = @"youtubeAnalytics.batchReports.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRYouTubeAnalyticsQuery_GroupItemsDelete
 
 @dynamic identifier, onBehalfOfContentOwner;

@@ -25,6 +25,7 @@
 @class GTLRLogging_LogEntryLabels;
 @class GTLRLogging_LogEntryOperation;
 @class GTLRLogging_LogEntryProtoPayload;
+@class GTLRLogging_LogEntrySourceLocation;
 @class GTLRLogging_LogLine;
 @class GTLRLogging_LogMetric;
 @class GTLRLogging_LogSink;
@@ -212,7 +213,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_V1;
  */
 GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_V2;
 /**
- *  An unspecified version format will default to V2.
+ *  An unspecified format version that will default to V2.
  *
  *  Value: "VERSION_FORMAT_UNSPECIFIED"
  */
@@ -378,7 +379,11 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 /**
  *  Optional. A filter that chooses which log entries to return. See [Advanced
  *  Logs Filters](/logging/docs/view/advanced_filters). Only log entries that
- *  match the filter are returned. An empty filter matches all log entries.
+ *  match the filter are returned. An empty filter matches all log entries in
+ *  the resources listed in `resource_names`. Referencing a parent resource
+ *  that is not listed in `resource_names` will cause the filter to return no
+ *  results.
+ *  The maximum length of the filter is 20000 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -410,18 +415,20 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Deprecated. One or more project identifiers or project numbers from which
- *  to retrieve log entries. Examples: `"my-project-1A"`, `"1234567890"`. If
- *  present, these project identifiers are converted to resource format and
- *  added to the list of resources in `resourceNames`. Callers should use
- *  `resourceNames` rather than this parameter.
+ *  Deprecated. Use `resource_names` instead. One or more project identifiers
+ *  or project numbers from which to retrieve log entries. Example:
+ *  `"my-project-1A"`. If present, these project identifiers are converted to
+ *  resource name format and added to the list of resources in
+ *  `resource_names`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projectIds;
 
 /**
- *  Required. One or more cloud resources from which to retrieve log entries.
- *  Example: `"projects/my-project-1A"`, `"projects/1234567890"`. Projects
- *  listed in `projectIds` are added to this list.
+ *  Required. Names of one or more resources from which to retrieve log
+ *  entries:
+ *  "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]"
+ *  Projects listed in the `project_ids` field are added to this list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -473,6 +480,27 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogMetric *> *metrics;
+
+/**
+ *  If there might be more results than appear in this response, then
+ *  `nextPageToken` is included. To get the next set of results, call this
+ *  method again using the value of `nextPageToken` as `pageToken`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Result returned from ListLogs.
+ */
+@interface GTLRLogging_ListLogsResponse : GTLRObject
+
+/**
+ *  A list of log identifiers. For example,
+ *  `"syslog"` or `"cloudresourcemanager.googleapis.com/activity"`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *logIds;
 
 /**
  *  If there might be more results than appear in this response, then
@@ -561,8 +589,8 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @property(nonatomic, copy, nullable) NSString *insertId;
 
 /**
- *  The log entry payload, represented as a structure that
- *  is expressed as a JSON object.
+ *  The log entry payload, represented as a structure that is
+ *  expressed as a JSON object.
  */
 @property(nonatomic, strong, nullable) GTLRLogging_LogEntryJsonPayload *jsonPayload;
 
@@ -573,16 +601,19 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @property(nonatomic, strong, nullable) GTLRLogging_LogEntryLabels *labels;
 
 /**
- *  Required. The resource name of the log to which this log entry
- *  belongs. The format of the name is
- *  `"projects/<project-id>/logs/<log-id>"`. Examples:
- *  `"projects/my-projectid/logs/syslog"`,
- *  `"projects/my-projectid/logs/library.googleapis.com%2Fbook_log"`.
- *  The log ID part of resource name must be less than 512 characters
- *  long and can only include the following characters: upper and
- *  lower case alphanumeric characters: [A-Za-z0-9]; and punctuation
- *  characters: forward-slash, underscore, hyphen, and period.
- *  Forward-slash (`/`) characters in the log ID must be URL-encoded.
+ *  Required. The resource name of the log to which this log entry belongs:
+ *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
+ *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
+ *  `[LOG_ID]` must be URL-encoded within `log_name`. Example:
+ *  `"organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"`.
+ *  `[LOG_ID]` must be less than 512 characters long and can only include the
+ *  following characters: upper and lower case alphanumeric characters,
+ *  forward-slash, underscore, hyphen, and period.
+ *  For backward compatibility, if `log_name` begins with a forward-slash, such
+ *  as `/projects/...`, then the log entry is ingested as usual but the
+ *  forward-slash is removed. Listing the log entry will not show the leading
+ *  slash and filtering for a log name with a leading slash will never return
+ *  any results.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 
@@ -634,6 +665,12 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  */
 @property(nonatomic, copy, nullable) NSString *severity;
 
+/**
+ *  Optional. Source code location information associated with the log entry,
+ *  if any.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_LogEntrySourceLocation *sourceLocation;
+
 /** The log entry payload, represented as a Unicode string (UTF-8). */
 @property(nonatomic, copy, nullable) NSString *textPayload;
 
@@ -643,12 +680,20 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
+/**
+ *  Optional. Resource name of the trace associated with the log entry, if any.
+ *  If it contains a relative resource name, the name is assumed to be relative
+ *  to `//tracing.googleapis.com`. Example:
+ *  `projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824`
+ */
+@property(nonatomic, copy, nullable) NSString *trace;
+
 @end
 
 
 /**
- *  The log entry payload, represented as a structure that
- *  is expressed as a JSON object.
+ *  The log entry payload, represented as a structure that is
+ *  expressed as a JSON object.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -725,6 +770,39 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 
 
 /**
+ *  Additional information about the source code location that produced the log
+ *  entry.
+ */
+@interface GTLRLogging_LogEntrySourceLocation : GTLRObject
+
+/**
+ *  Optional. Source file name. Depending on the runtime environment, this
+ *  might be a simple name or a fully-qualified name.
+ */
+@property(nonatomic, copy, nullable) NSString *file;
+
+/**
+ *  Optional. Human-readable name of the function or method being invoked, with
+ *  optional context such as the class or package name. This information may be
+ *  used in contexts such as the logs viewer, where a file and line number are
+ *  less meaningful. The format can vary by language. For example:
+ *  `qual.if.ied.Class.method` (Java), `dir/package.func` (Go), `function`
+ *  (Python).
+ */
+@property(nonatomic, copy, nullable) NSString *function;
+
+/**
+ *  Optional. Line within the source file. 1-based; 0 indicates no line number
+ *  available.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *line;
+
+@end
+
+
+/**
  *  Application log line emitted while processing a request.
  */
 @interface GTLRLogging_LogLine : GTLRObject
@@ -782,19 +860,26 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 
 /**
  *  Required. An [advanced logs filter](/logging/docs/view/advanced_filters).
- *  Example: `"resource.type=gae_app AND severity>=ERROR"`.
+ *  Example:
+ *  "resource.type=gae_app AND severity>=ERROR"
+ *  The maximum length of the filter is 20000 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Required. The client-assigned metric identifier. Example:
- *  `"severe_errors"`. Metric identifiers are limited to 100
- *  characters and can include only the following characters: `A-Z`,
- *  `a-z`, `0-9`, and the special characters `_-.,+!*',()%/`. The
- *  forward-slash character (`/`) denotes a hierarchy of name pieces,
- *  and it cannot be the first character of the name. The '%' character
- *  is used to URL encode unsafe and reserved characters and must be
- *  followed by two hexadecimal digits according to RFC 1738.
+ *  Required. The client-assigned metric identifier.
+ *  Examples: `"error_count"`, `"nginx/requests"`.
+ *  Metric identifiers are limited to 100 characters and can include
+ *  only the following characters: `A-Z`, `a-z`, `0-9`, and the
+ *  special characters `_-.,+!*',()%/`. The forward-slash character
+ *  (`/`) denotes a hierarchy of name pieces, and it cannot be the
+ *  first character of the name.
+ *  The metric identifier in this field must not be
+ *  [URL-encoded](https://en.wikipedia.org/wiki/Percent-encoding).
+ *  However, when the metric identifier appears as the `[METRIC_ID]`
+ *  part of a `metric_name` API parameter, then the metric identifier
+ *  must be URL-encoded. Example:
+ *  `"projects/my-project/metrics/nginx%2Frequests"`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -815,56 +900,60 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 
 
 /**
- *  Describes a sink used to export log entries outside of Stackdriver Logging.
- *  A logs filter controls which log entries are exported. Sinks can have a
- *  start time and an end time; these can be used to place log entries from an
- *  exact time range into a particular destination. If both `start_time` and
- *  `end_time` are present, then `start_time` must be less than `end_time`.
+ *  Describes a sink used to export log entries to one of the following
+ *  destinations in any project: a Cloud Storage bucket, a BigQuery dataset, or
+ *  a
+ *  Cloud Pub/Sub topic. A logs filter controls which log entries are
+ *  exported. The sink must be created within a project or organization.
  */
 @interface GTLRLogging_LogSink : GTLRObject
 
 /**
- *  Required. The export destination. See
+ *  Required. The export destination:
+ *  "storage.googleapis.com/[GCS_BUCKET]"
+ *  "bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET]"
+ *  "pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]"
+ *  The sink's `writer_identity`, set when the sink is created, must
+ *  have permission to write to the destination or else the log
+ *  entries are not exported. For more information, see
  *  [Exporting Logs With Sinks](/logging/docs/api/tasks/exporting-logs).
- *  Examples:
- *  "storage.googleapis.com/my-gcs-bucket"
- *  "bigquery.googleapis.com/projects/my-project-id/datasets/my-dataset"
- *  "pubsub.googleapis.com/projects/my-project/topics/my-topic"
  */
 @property(nonatomic, copy, nullable) NSString *destination;
 
 /**
- *  Optional. Time at which this sink will stop exporting log entries. If this
- *  value is present, then log entries are exported only if `entry.timestamp` <
- *  `end_time`.
+ *  Optional. The time at which this sink will stop exporting log entries. Log
+ *  entries are exported only if their timestamp is earlier than the end time.
+ *  If this field is not supplied, there is no end time. If both a start time
+ *  and an end time are provided, then the end time must be later than the
+ *  start time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Optional. An [advanced logs filter](/logging/docs/view/advanced_filters).
- *  Only log entries matching the filter are exported. The filter
- *  must be consistent with the log entry format specified by the
- *  `outputVersionFormat` parameter, regardless of the format of the
- *  log entry that was originally written to Stackdriver Logging.
- *  Example filter (V2 format):
- *  logName=projects/my-projectid/logs/syslog AND severity>=ERROR
+ *  Optional.
+ *  An [advanced logs filter](/logging/docs/view/advanced_filters). The only
+ *  exported log entries are those that are in the resource owning the sink and
+ *  that match the filter. The filter must use the log entry format specified
+ *  by the `output_version_format` parameter. For example, in the v2 format:
+ *  logName="projects/[PROJECT_ID]/logs/[LOG_ID]" AND severity>=ERROR
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Required. The client-assigned sink identifier, unique within the
  *  project. Example: `"my-syslog-errors-to-pubsub"`. Sink identifiers are
- *  limited to 1000 characters and can include only the following characters:
- *  `A-Z`, `a-z`, `0-9`, and the special characters `_-.`. The maximum length
- *  of the name is 100 characters.
+ *  limited to 100 characters and can include only the following characters:
+ *  upper and lower-case alphanumeric characters, underscores, hyphens, and
+ *  periods.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The log entry version to use for this sink's exported log
- *  entries. This version does not have to correspond to the version of the
- *  log entry that was written to Stackdriver Logging. If omitted, the
- *  v2 format is used.
+ *  Optional. The log entry format to use for this sink's exported log
+ *  entries. The v2 format is used by default.
+ *  **The v1 format is deprecated** and should be used only as part of a
+ *  migration effort to v2.
+ *  See [Migration to the v2 API](/logging/docs/api/v2/migration-to-v2).
  *
  *  Likely values:
  *    @arg @c kGTLRLogging_LogSink_OutputVersionFormat_V1 `LogEntry` version 1
@@ -872,24 +961,33 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *    @arg @c kGTLRLogging_LogSink_OutputVersionFormat_V2 `LogEntry` version 2
  *        format. (Value: "V2")
  *    @arg @c kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecified
- *        An unspecified version format will default to V2. (Value:
+ *        An unspecified format version that will default to V2. (Value:
  *        "VERSION_FORMAT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *outputVersionFormat;
 
 /**
- *  Optional. The time at which this sink will begin exporting log entries. If
- *  this value is present, then log entries are exported only if `start_time`
- *  <=`entry.timestamp`.
+ *  Optional. The time at which this sink will begin exporting log entries.
+ *  Log entries are exported only if their timestamp is not earlier than the
+ *  start time. The default value of this field is the time the sink is
+ *  created or updated.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  Output only. An IAM identity&mdash;a service account or group&mdash;that
- *  will write exported log entries to the destination on behalf of Stackdriver
- *  Logging. You must grant this identity write-access to the destination.
- *  Consult the destination service's documentation to determine the exact role
- *  that must be granted.
+ *  Output only. An IAM identity&mdash;a service account or group&mdash;under
+ *  which Stackdriver Logging writes the exported log entries to the sink's
+ *  destination. This field is set by
+ *  [sinks.create](/logging/docs/api/reference/rest/v2/projects.sinks/create)
+ *  and
+ *  [sinks.update](/logging/docs/api/reference/rest/v2/projects.sinks/update),
+ *  based on the setting of `unique_writer_identity` in those methods.
+ *  Until you grant this identity write-access to the destination, log entry
+ *  exports from this sink will fail. For more information,
+ *  see [Granting access for a
+ *  resource](/iam/docs/granting-roles-to-service-accounts#granting_access_to_a_service_account_for_a_resource).
+ *  Consult the destination service's documentation to determine the
+ *  appropriate IAM roles to assign to the identity.
  */
 @property(nonatomic, copy, nullable) NSString *writerIdentity;
 
@@ -1029,9 +1127,9 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @property(nonatomic, strong, nullable) NSNumber *finished;
 
 /**
- *  Whether this is the first RequestLog entry for this request. If an active
- *  request has several RequestLog entries written to Cloud Logging, this field
- *  will be set for one of them.
+ *  Whether this is the first `RequestLog` entry for this request. If an
+ *  active request has several `RequestLog` entries written to Stackdriver
+ *  Logging, then this field will be set for one of them.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1142,7 +1240,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 /** Queue name of the request, in the case of an offline request. */
 @property(nonatomic, copy, nullable) NSString *taskQueueName;
 
-/** Cloud Trace identifier for this request. */
+/** Stackdriver Trace identifier for this request. */
 @property(nonatomic, copy, nullable) NSString *traceId;
 
 /** File or class that handled the request. */
@@ -1243,8 +1341,13 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 
 /**
  *  Optional. A default log resource name that is assigned to all log entries
- *  in `entries` that do not specify a value for `log_name`. Example:
- *  `"projects/my-project/logs/syslog"`. See
+ *  in `entries` that do not specify a value for `log_name`:
+ *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
+ *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
+ *  `[LOG_ID]` must be URL-encoded. For example,
+ *  `"projects/my-project-id/logs/syslog"` or
+ *  `"organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"`.
+ *  For more information about log names, see
  *  LogEntry.
  */
 @property(nonatomic, copy, nullable) NSString *logName;

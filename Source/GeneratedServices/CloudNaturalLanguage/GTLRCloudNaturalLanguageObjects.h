@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Natural Language API (language/v1beta1)
+//   Google Cloud Natural Language API (language/v1)
 // Description:
 //   Google Cloud Natural Language API provides natural language understanding
 //   technologies to developers. Examples include sentiment analysis, entity
@@ -72,6 +72,76 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_En
  *  Value: "UTF8"
  */
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf8;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_AnalyzeSentimentRequest.encodingType
+
+/**
+ *  If `EncodingType` is not specified, encoding-dependent information (such as
+ *  `begin_offset`) will be set at `-1`.
+ *
+ *  Value: "NONE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_None;
+/**
+ *  Encoding-dependent information (such as `begin_offset`) is calculated based
+ *  on the UTF-16 encoding of the input. Java and Javascript are examples of
+ *  languages that use this encoding natively.
+ *
+ *  Value: "UTF16"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf16;
+/**
+ *  Encoding-dependent information (such as `begin_offset`) is calculated based
+ *  on the UTF-32 encoding of the input. Python is an example of a language
+ *  that uses this encoding natively.
+ *
+ *  Value: "UTF32"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf32;
+/**
+ *  Encoding-dependent information (such as `begin_offset`) is calculated based
+ *  on the UTF-8 encoding of the input. C++ and Go are examples of languages
+ *  that use this encoding natively.
+ *
+ *  Value: "UTF8"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf8;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest.encodingType
+
+/**
+ *  If `EncodingType` is not specified, encoding-dependent information (such as
+ *  `begin_offset`) will be set at `-1`.
+ *
+ *  Value: "NONE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_None;
+/**
+ *  Encoding-dependent information (such as `begin_offset`) is calculated based
+ *  on the UTF-16 encoding of the input. Java and Javascript are examples of
+ *  languages that use this encoding natively.
+ *
+ *  Value: "UTF16"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf16;
+/**
+ *  Encoding-dependent information (such as `begin_offset`) is calculated based
+ *  on the UTF-32 encoding of the input. Python is an example of a language
+ *  that uses this encoding natively.
+ *
+ *  Value: "UTF32"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf32;
+/**
+ *  Encoding-dependent information (such as `begin_offset`) is calculated based
+ *  on the UTF-8 encoding of the input. C++ and Go are examples of languages
+ *  that use this encoding natively.
+ *
+ *  Value: "UTF8"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf8;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_AnnotateTextRequest.encodingType
@@ -649,6 +719,407 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Unknown;
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_WorkOfArt;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_EntityMention.type
+
+/**
+ *  Common noun (or noun compound)
+ *
+ *  Value: "COMMON"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_Common;
+/**
+ *  Proper name
+ *
+ *  Value: "PROPER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_Proper;
+/**
+ *  Unknown
+ *
+ *  Value: "TYPE_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_TypeUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_PartOfSpeech.aspect
+
+/**
+ *  Aspect is not applicable in the analyzed language or is not predicted.
+ *
+ *  Value: "ASPECT_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_AspectUnknown;
+/**
+ *  Imperfective
+ *
+ *  Value: "IMPERFECTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Imperfective;
+/**
+ *  Perfective
+ *
+ *  Value: "PERFECTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Perfective;
+/**
+ *  Progressive
+ *
+ *  Value: "PROGRESSIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Progressive;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_PartOfSpeech.caseProperty
+
+/**
+ *  Accusative
+ *
+ *  Value: "ACCUSATIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Accusative;
+/**
+ *  Adverbial
+ *
+ *  Value: "ADVERBIAL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Adverbial;
+/**
+ *  Case is not applicable in the analyzed language or is not predicted.
+ *
+ *  Value: "CASE_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_CaseUnknown;
+/**
+ *  Complementive
+ *
+ *  Value: "COMPLEMENTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Complementive;
+/**
+ *  Dative
+ *
+ *  Value: "DATIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Dative;
+/**
+ *  Genitive
+ *
+ *  Value: "GENITIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Genitive;
+/**
+ *  Instrumental
+ *
+ *  Value: "INSTRUMENTAL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Instrumental;
+/**
+ *  Locative
+ *
+ *  Value: "LOCATIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Locative;
+/**
+ *  Nominative
+ *
+ *  Value: "NOMINATIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Nominative;
+/**
+ *  Oblique
+ *
+ *  Value: "OBLIQUE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Oblique;
+/**
+ *  Partitive
+ *
+ *  Value: "PARTITIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Partitive;
+/**
+ *  Prepositional
+ *
+ *  Value: "PREPOSITIONAL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Prepositional;
+/**
+ *  Reflexive
+ *
+ *  Value: "REFLEXIVE_CASE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_ReflexiveCase;
+/**
+ *  Relative
+ *
+ *  Value: "RELATIVE_CASE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_RelativeCase;
+/**
+ *  Vocative
+ *
+ *  Value: "VOCATIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Vocative;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_PartOfSpeech.form
+
+/**
+ *  Adnomial
+ *
+ *  Value: "ADNOMIAL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Adnomial;
+/**
+ *  Auxiliary
+ *
+ *  Value: "AUXILIARY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Auxiliary;
+/**
+ *  Complementizer
+ *
+ *  Value: "COMPLEMENTIZER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Complementizer;
+/**
+ *  Final ending
+ *
+ *  Value: "FINAL_ENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_FinalEnding;
+/**
+ *  Form is not applicable in the analyzed language or is not predicted.
+ *
+ *  Value: "FORM_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_FormUnknown;
+/**
+ *  Gerund
+ *
+ *  Value: "GERUND"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Gerund;
+/**
+ *  Irrealis
+ *
+ *  Value: "IRREALIS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Irrealis;
+/**
+ *  Long form
+ *
+ *  Value: "LONG"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Long;
+/**
+ *  Order form
+ *
+ *  Value: "ORDER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Order;
+/**
+ *  Realis
+ *
+ *  Value: "REALIS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Realis;
+/**
+ *  Short form
+ *
+ *  Value: "SHORT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Short;
+/**
+ *  Specific form
+ *
+ *  Value: "SPECIFIC"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Specific;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_PartOfSpeech.gender
+
+/**
+ *  Feminine
+ *
+ *  Value: "FEMININE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Feminine;
+/**
+ *  Gender is not applicable in the analyzed language or is not predicted.
+ *
+ *  Value: "GENDER_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_GenderUnknown;
+/**
+ *  Masculine
+ *
+ *  Value: "MASCULINE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Masculine;
+/**
+ *  Neuter
+ *
+ *  Value: "NEUTER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Neuter;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_PartOfSpeech.mood
+
+/**
+ *  Conditional
+ *
+ *  Value: "CONDITIONAL_MOOD"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_ConditionalMood;
+/**
+ *  Imperative
+ *
+ *  Value: "IMPERATIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Imperative;
+/**
+ *  Indicative
+ *
+ *  Value: "INDICATIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Indicative;
+/**
+ *  Interrogative
+ *
+ *  Value: "INTERROGATIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Interrogative;
+/**
+ *  Jussive
+ *
+ *  Value: "JUSSIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Jussive;
+/**
+ *  Mood is not applicable in the analyzed language or is not predicted.
+ *
+ *  Value: "MOOD_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_MoodUnknown;
+/**
+ *  Subjunctive
+ *
+ *  Value: "SUBJUNCTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Subjunctive;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_PartOfSpeech.number
+
+/**
+ *  Dual
+ *
+ *  Value: "DUAL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Dual;
+/**
+ *  Number is not applicable in the analyzed language or is not predicted.
+ *
+ *  Value: "NUMBER_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_NumberUnknown;
+/**
+ *  Plural
+ *
+ *  Value: "PLURAL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Plural;
+/**
+ *  Singular
+ *
+ *  Value: "SINGULAR"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Singular;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_PartOfSpeech.person
+
+/**
+ *  First
+ *
+ *  Value: "FIRST"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_First;
+/**
+ *  Person is not applicable in the analyzed language or is not predicted.
+ *
+ *  Value: "PERSON_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_PersonUnknown;
+/**
+ *  Reflexive
+ *
+ *  Value: "REFLEXIVE_PERSON"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_ReflexivePerson;
+/**
+ *  Second
+ *
+ *  Value: "SECOND"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_Second;
+/**
+ *  Third
+ *
+ *  Value: "THIRD"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_Third;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_PartOfSpeech.proper
+
+/**
+ *  Not proper
+ *
+ *  Value: "NOT_PROPER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_NotProper;
+/**
+ *  Proper
+ *
+ *  Value: "PROPER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_Proper;
+/**
+ *  Proper is not applicable in the analyzed language or is not predicted.
+ *
+ *  Value: "PROPER_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_ProperUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_PartOfSpeech.reciprocity
+
+/**
+ *  Non-reciprocal
+ *
+ *  Value: "NON_RECIPROCAL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_NonReciprocal;
+/**
+ *  Reciprocal
+ *
+ *  Value: "RECIPROCAL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_Reciprocal;
+/**
+ *  Reciprocity is not applicable in the analyzed language or is not
+ *  predicted.
+ *
+ *  Value: "RECIPROCITY_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_ReciprocityUnknown;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_PartOfSpeech.tag
 
 /**
@@ -736,6 +1207,80 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Verb;
  */
 GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_PartOfSpeech.tense
+
+/**
+ *  Conditional
+ *
+ *  Value: "CONDITIONAL_TENSE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_ConditionalTense;
+/**
+ *  Future
+ *
+ *  Value: "FUTURE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Future;
+/**
+ *  Imperfect
+ *
+ *  Value: "IMPERFECT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Imperfect;
+/**
+ *  Past
+ *
+ *  Value: "PAST"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Past;
+/**
+ *  Pluperfect
+ *
+ *  Value: "PLUPERFECT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Pluperfect;
+/**
+ *  Present
+ *
+ *  Value: "PRESENT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Present;
+/**
+ *  Tense is not applicable in the analyzed language or is not predicted.
+ *
+ *  Value: "TENSE_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_TenseUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_PartOfSpeech.voice
+
+/**
+ *  Active
+ *
+ *  Value: "ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Active;
+/**
+ *  Causative
+ *
+ *  Value: "CAUSATIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Causative;
+/**
+ *  Passive
+ *
+ *  Value: "PASSIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Passive;
+/**
+ *  Voice is not applicable in the analyzed language or is not predicted.
+ *
+ *  Value: "VOICE_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown;
+
 /**
  *  The entity analysis request message.
  */
@@ -787,7 +1332,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
- *  See Document.language field for more details.
+ *  See `Document.language` field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -805,6 +1350,35 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
  */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Document *document;
 
+/**
+ *  The encoding type used by the API to calculate sentence offsets.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_None
+ *        If `EncodingType` is not specified, encoding-dependent information
+ *        (such as
+ *        `begin_offset`) will be set at `-1`. (Value: "NONE")
+ *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf16
+ *        Encoding-dependent information (such as `begin_offset`) is calculated
+ *        based
+ *        on the UTF-16 encoding of the input. Java and Javascript are examples
+ *        of
+ *        languages that use this encoding natively. (Value: "UTF16")
+ *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf32
+ *        Encoding-dependent information (such as `begin_offset`) is calculated
+ *        based
+ *        on the UTF-32 encoding of the input. Python is an example of a
+ *        language
+ *        that uses this encoding natively. (Value: "UTF32")
+ *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf8
+ *        Encoding-dependent information (such as `begin_offset`) is calculated
+ *        based
+ *        on the UTF-8 encoding of the input. C++ and Go are examples of
+ *        languages
+ *        that use this encoding natively. (Value: "UTF8")
+ */
+@property(nonatomic, copy, nullable) NSString *encodingType;
+
 @end
 
 
@@ -819,8 +1393,73 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
+ *  See `Document.language` field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *language;
+
+/** The sentiment for all the sentences in the document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_Sentence *> *sentences;
+
+@end
+
+
+/**
+ *  The syntax analysis request message.
+ */
+@interface GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest : GTLRObject
+
+/** Input document. */
+@property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Document *document;
+
+/**
+ *  The encoding type used by the API to calculate offsets.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_None
+ *        If `EncodingType` is not specified, encoding-dependent information
+ *        (such as
+ *        `begin_offset`) will be set at `-1`. (Value: "NONE")
+ *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf16
+ *        Encoding-dependent information (such as `begin_offset`) is calculated
+ *        based
+ *        on the UTF-16 encoding of the input. Java and Javascript are examples
+ *        of
+ *        languages that use this encoding natively. (Value: "UTF16")
+ *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf32
+ *        Encoding-dependent information (such as `begin_offset`) is calculated
+ *        based
+ *        on the UTF-32 encoding of the input. Python is an example of a
+ *        language
+ *        that uses this encoding natively. (Value: "UTF32")
+ *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf8
+ *        Encoding-dependent information (such as `begin_offset`) is calculated
+ *        based
+ *        on the UTF-8 encoding of the input. C++ and Go are examples of
+ *        languages
+ *        that use this encoding natively. (Value: "UTF8")
+ */
+@property(nonatomic, copy, nullable) NSString *encodingType;
+
+@end
+
+
+/**
+ *  The syntax analysis response message.
+ */
+@interface GTLRCloudNaturalLanguage_AnalyzeSyntaxResponse : GTLRObject
+
+/**
+ *  The language of the text, which will be the same as the language specified
+ *  in the request or, if not specified, the automatically-detected language.
+ *  See `Document.language` field for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *language;
+
+/** Sentences in the input document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_Sentence *> *sentences;
+
+/** Tokens, along with their syntactic information, in the input document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_Token *> *tokens;
 
 @end
 
@@ -890,7 +1529,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
- *  See Document.language field for more details.
+ *  See `Document.language` field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -911,7 +1550,9 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 
 
 /**
- *  Represents dependency parse tree information for a token.
+ *  Represents dependency parse tree information for a token. (For more
+ *  information on dependency labels, see
+ *  http://www.aclweb.org/anthology/P13-2017
  */
 @interface GTLRCloudNaturalLanguage_DependencyEdge : GTLRObject
 
@@ -1100,7 +1741,12 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 /** The content of the input in string format. */
 @property(nonatomic, copy, nullable) NSString *content;
 
-/** The Google Cloud Storage URI where the file content is located. */
+/**
+ *  The Google Cloud Storage URI where the file content is located.
+ *  This URI must be of the form: gs://bucket_name/object_name. For more
+ *  details, see https://cloud.google.com/storage/docs/reference-uris.
+ *  NOTE: Cloud Storage object versioning is not supported.
+ */
 @property(nonatomic, copy, nullable) NSString *gcsContentUri;
 
 /**
@@ -1148,8 +1794,8 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 
 /**
  *  Metadata associated with the entity.
- *  Currently, only Wikipedia URLs are provided, if available.
- *  The associated key is "wikipedia_url".
+ *  Currently, Wikipedia URLs and Knowledge Graph MIDs are provided, if
+ *  available. The associated keys are "wikipedia_url" and "mid", respectively.
  */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_EntityMetadata *metadata;
 
@@ -1194,8 +1840,8 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 
 /**
  *  Metadata associated with the entity.
- *  Currently, only Wikipedia URLs are provided, if available.
- *  The associated key is "wikipedia_url".
+ *  Currently, Wikipedia URLs and Knowledge Graph MIDs are provided, if
+ *  available. The associated keys are "wikipedia_url" and "mid", respectively.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1214,6 +1860,19 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 
 /** The mention text. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_TextSpan *text;
+
+/**
+ *  The type of the entity mention.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_EntityMention_Type_Common Common noun
+ *        (or noun compound) (Value: "COMMON")
+ *    @arg @c kGTLRCloudNaturalLanguage_EntityMention_Type_Proper Proper name
+ *        (Value: "PROPER")
+ *    @arg @c kGTLRCloudNaturalLanguage_EntityMention_Type_TypeUnknown Unknown
+ *        (Value: "TYPE_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1249,9 +1908,199 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 
 
 /**
- *  Represents part of speech information for a token.
+ *  Represents part of speech information for a token. Parts of speech
+ *  are as defined in
+ *  http://www.lrec-conf.org/proceedings/lrec2012/pdf/274_Paper.pdf
  */
 @interface GTLRCloudNaturalLanguage_PartOfSpeech : GTLRObject
+
+/**
+ *  The grammatical aspect.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_AspectUnknown Aspect
+ *        is not applicable in the analyzed language or is not predicted.
+ *        (Value: "ASPECT_UNKNOWN")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Imperfective
+ *        Imperfective (Value: "IMPERFECTIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Perfective
+ *        Perfective (Value: "PERFECTIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Progressive
+ *        Progressive (Value: "PROGRESSIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *aspect;
+
+/**
+ *  The grammatical case.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Accusative
+ *        Accusative (Value: "ACCUSATIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Adverbial
+ *        Adverbial (Value: "ADVERBIAL")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_CaseUnknown
+ *        Case is not applicable in the analyzed language or is not predicted.
+ *        (Value: "CASE_UNKNOWN")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Complementive
+ *        Complementive (Value: "COMPLEMENTIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Dative Dative
+ *        (Value: "DATIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Genitive
+ *        Genitive (Value: "GENITIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Instrumental
+ *        Instrumental (Value: "INSTRUMENTAL")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Locative
+ *        Locative (Value: "LOCATIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Nominative
+ *        Nominative (Value: "NOMINATIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Oblique
+ *        Oblique (Value: "OBLIQUE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Partitive
+ *        Partitive (Value: "PARTITIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Prepositional
+ *        Prepositional (Value: "PREPOSITIONAL")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_ReflexiveCase
+ *        Reflexive (Value: "REFLEXIVE_CASE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_RelativeCase
+ *        Relative (Value: "RELATIVE_CASE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Vocative
+ *        Vocative (Value: "VOCATIVE")
+ *
+ *  Remapped to 'caseProperty' to avoid language reserved word 'case'.
+ */
+@property(nonatomic, copy, nullable) NSString *caseProperty;
+
+/**
+ *  The grammatical form.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Adnomial Adnomial
+ *        (Value: "ADNOMIAL")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Auxiliary Auxiliary
+ *        (Value: "AUXILIARY")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Complementizer
+ *        Complementizer (Value: "COMPLEMENTIZER")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Form_FinalEnding Final
+ *        ending (Value: "FINAL_ENDING")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Form_FormUnknown Form is
+ *        not applicable in the analyzed language or is not predicted. (Value:
+ *        "FORM_UNKNOWN")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Gerund Gerund (Value:
+ *        "GERUND")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Irrealis Irrealis
+ *        (Value: "IRREALIS")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Long Long form (Value:
+ *        "LONG")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Order Order form
+ *        (Value: "ORDER")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Realis Realis (Value:
+ *        "REALIS")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Short Short form
+ *        (Value: "SHORT")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Specific Specific form
+ *        (Value: "SPECIFIC")
+ */
+@property(nonatomic, copy, nullable) NSString *form;
+
+/**
+ *  The grammatical gender.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Feminine Feminine
+ *        (Value: "FEMININE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_GenderUnknown Gender
+ *        is not applicable in the analyzed language or is not predicted.
+ *        (Value: "GENDER_UNKNOWN")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Masculine Masculine
+ *        (Value: "MASCULINE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Neuter Neuter
+ *        (Value: "NEUTER")
+ */
+@property(nonatomic, copy, nullable) NSString *gender;
+
+/**
+ *  The grammatical mood.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_ConditionalMood
+ *        Conditional (Value: "CONDITIONAL_MOOD")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Imperative Imperative
+ *        (Value: "IMPERATIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Indicative Indicative
+ *        (Value: "INDICATIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Interrogative
+ *        Interrogative (Value: "INTERROGATIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Jussive Jussive
+ *        (Value: "JUSSIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_MoodUnknown Mood is
+ *        not applicable in the analyzed language or is not predicted. (Value:
+ *        "MOOD_UNKNOWN")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Subjunctive
+ *        Subjunctive (Value: "SUBJUNCTIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *mood;
+
+/**
+ *  The grammatical number.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Dual Dual (Value:
+ *        "DUAL")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Number_NumberUnknown Number
+ *        is not applicable in the analyzed language or is not predicted.
+ *        (Value: "NUMBER_UNKNOWN")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Plural Plural
+ *        (Value: "PLURAL")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Singular Singular
+ *        (Value: "SINGULAR")
+ */
+@property(nonatomic, copy, nullable) NSString *number;
+
+/**
+ *  The grammatical person.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Person_First First (Value:
+ *        "FIRST")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Person_PersonUnknown Person
+ *        is not applicable in the analyzed language or is not predicted.
+ *        (Value: "PERSON_UNKNOWN")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Person_ReflexivePerson
+ *        Reflexive (Value: "REFLEXIVE_PERSON")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Person_Second Second
+ *        (Value: "SECOND")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Person_Third Third (Value:
+ *        "THIRD")
+ */
+@property(nonatomic, copy, nullable) NSString *person;
+
+/**
+ *  The grammatical properness.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_NotProper Not proper
+ *        (Value: "NOT_PROPER")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_Proper Proper
+ *        (Value: "PROPER")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_ProperUnknown Proper
+ *        is not applicable in the analyzed language or is not predicted.
+ *        (Value: "PROPER_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *proper;
+
+/**
+ *  The grammatical reciprocity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_NonReciprocal
+ *        Non-reciprocal (Value: "NON_RECIPROCAL")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_Reciprocal
+ *        Reciprocal (Value: "RECIPROCAL")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_ReciprocityUnknown
+ *        Reciprocity is not applicable in the analyzed language or is not
+ *        predicted. (Value: "RECIPROCITY_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *reciprocity;
 
 /**
  *  The part of speech tag.
@@ -1288,6 +2137,44 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
  */
 @property(nonatomic, copy, nullable) NSString *tag;
 
+/**
+ *  The grammatical tense.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_ConditionalTense
+ *        Conditional (Value: "CONDITIONAL_TENSE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Future Future (Value:
+ *        "FUTURE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Imperfect Imperfect
+ *        (Value: "IMPERFECT")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Past Past (Value:
+ *        "PAST")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Pluperfect Pluperfect
+ *        (Value: "PLUPERFECT")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Present Present
+ *        (Value: "PRESENT")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_TenseUnknown Tense is
+ *        not applicable in the analyzed language or is not predicted. (Value:
+ *        "TENSE_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *tense;
+
+/**
+ *  The grammatical voice.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Active Active (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Causative Causative
+ *        (Value: "CAUSATIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Passive Passive
+ *        (Value: "PASSIVE")
+ *    @arg @c kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown Voice is
+ *        not applicable in the analyzed language or is not predicted. (Value:
+ *        "VOICE_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *voice;
+
 @end
 
 
@@ -1295,6 +2182,13 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
  *  Represents a sentence in the input document.
  */
 @interface GTLRCloudNaturalLanguage_Sentence : GTLRObject
+
+/**
+ *  For calls to AnalyzeSentiment or if
+ *  AnnotateTextRequest.Features.extract_document_sentiment is set to
+ *  true, this field will contain the sentiment for the sentence.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Sentiment *sentiment;
 
 /** The sentence text. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_TextSpan *text;
@@ -1310,7 +2204,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 
 /**
  *  A non-negative number in the [0, +inf) range, which represents
- *  the absolute magnitude of sentiment regardless of polarity (positive or
+ *  the absolute magnitude of sentiment regardless of score (positive or
  *  negative).
  *
  *  Uses NSNumber of floatValue.
@@ -1318,13 +2212,12 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 @property(nonatomic, strong, nullable) NSNumber *magnitude;
 
 /**
- *  DEPRECATED FIELD - This field is being deprecated in
- *  favor of score. Please refer to our documentation at
- *  https://cloud.google.com/natural-language/docs for more information.
+ *  Sentiment score between -1.0 (negative sentiment) and 1.0
+ *  (positive sentiment.)
  *
  *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *polarity;
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 
@@ -1439,8 +2332,8 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_DependencyEdge *dependencyEdge;
 
 /**
- *  [Lemma](https://en.wikipedia.org/wiki/Lemma_(morphology))
- *  of the token.
+ *  <a href="https://en.wikipedia.org/wiki/Lemma_(morphology)">
+ *  Lemma</a> of the token.
  */
 @property(nonatomic, copy, nullable) NSString *lemma;
 

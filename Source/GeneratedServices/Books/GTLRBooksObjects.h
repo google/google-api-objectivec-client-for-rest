@@ -1333,6 +1333,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @property(nonatomic, copy, nullable) NSString *notificationType;
+@property(nonatomic, copy, nullable) NSString *notificationGroup;
 @property(nonatomic, copy, nullable) NSString *pcampaignId;
 @property(nonatomic, copy, nullable) NSString *reason;
 

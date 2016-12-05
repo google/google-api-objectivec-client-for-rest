@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Natural Language API (language/v1beta1)
+//   Google Cloud Natural Language API (language/v1)
 // Description:
 //   Google Cloud Natural Language API provides natural language understanding
 //   technologies to developers. Examples include sentiment analysis, entity
@@ -27,7 +27,7 @@
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"v1beta1/documents:analyzeEntities";
+  NSString *pathURITemplate = @"v1/documents:analyzeEntities";
   GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntities *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -47,7 +47,7 @@
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"v1beta1/documents:analyzeSentiment";
+  NSString *pathURITemplate = @"v1/documents:analyzeSentiment";
   GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSentiment *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -60,6 +60,26 @@
 
 @end
 
+@implementation GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSyntax
+
++ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/documents:analyzeSyntax";
+  GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSyntax *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudNaturalLanguage_AnalyzeSyntaxResponse class];
+  query.loggingName = @"language.documents.analyzeSyntax";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudNaturalLanguageQuery_DocumentsAnnotateText
 
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnnotateTextRequest *)object {
@@ -67,7 +87,7 @@
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"v1beta1/documents:annotateText";
+  NSString *pathURITemplate = @"v1/documents:annotateText";
   GTLRCloudNaturalLanguageQuery_DocumentsAnnotateText *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

@@ -385,7 +385,7 @@
 //
 
 @implementation GTLRSQLAdmin_IpMapping
-@dynamic ipAddress, timeToRetire;
+@dynamic ipAddress, timeToRetire, type;
 @end
 
 

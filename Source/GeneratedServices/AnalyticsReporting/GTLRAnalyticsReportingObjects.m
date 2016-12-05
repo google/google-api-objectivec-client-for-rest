@@ -499,8 +499,8 @@ NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Unspecifi
 //
 
 @implementation GTLRAnalyticsReporting_ReportData
-@dynamic isDataGolden, maximums, minimums, rowCount, rows, samplesReadCounts,
-         samplingSpaceSizes, totals;
+@dynamic dataLastRefreshed, isDataGolden, maximums, minimums, rowCount, rows,
+         samplesReadCounts, samplingSpaceSizes, totals;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

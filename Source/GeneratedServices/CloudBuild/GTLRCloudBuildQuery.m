@@ -18,6 +18,31 @@
 
 @end
 
+@implementation GTLRCloudBuildQuery_OperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudBuildQuery_OperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Empty class];
+  query.loggingName = @"cloudbuild.operations.cancel";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudBuildQuery_OperationsGet
 
 @dynamic name;
