@@ -22,8 +22,6 @@ directly adding sources or using CocoaPods. Study the
 
 Generated interfaces for Google APIs are in the
 [GeneratedServices folder](https://github.com/google/google-api-objectivec-client-for-rest/tree/master/Source/GeneratedServices).
-Library changes are documented in the
-[release notes](https://github.com/google/google-api-objectivec-client-for-rest/blob/master/ReleaseNotes.md).
 
 In addition to the pre generated classes included with the library, you can
 generate your own source for other services that have a
@@ -41,12 +39,7 @@ on the [issues list](https://github.com/google/google-api-objectivec-client-for-
 
 **Externally-included projects**: The library includes code from the separate
 projects [GTM Session Fetcher](https://github.com/google/gtm-session-fetcher),
-[GTM OAuth 2](https://github.com/google/gtm-oauth2).
-
-**Google APIs Client Library for Objective-C**: The older library for JSON-RPC
-based apis is
-[still available](https://github.com/google/google-api-objectivec-client),
-however the Google servers will eventually stop accepting JSON-RPC requests.
+[GTMAppAuth](https://github.com/google/GTMAppAuth).
 
 **Google Data APIs**: The much older library for XML-based APIs is
 [still available](https://github.com/google/gdata-objectivec-client).
