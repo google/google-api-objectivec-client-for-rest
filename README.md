@@ -22,8 +22,6 @@ directly adding sources or using CocoaPods. Study the
 
 Generated interfaces for Google APIs are in the
 [GeneratedServices folder](https://github.com/google/google-api-objectivec-client-for-rest/tree/master/Source/GeneratedServices).
-Library changes are documented in the
-[release notes](https://github.com/google/google-api-objectivec-client-for-rest/blob/master/ReleaseNotes.md).
 
 In addition to the pre generated classes included with the library, you can
 generate your own source for other services that have a
