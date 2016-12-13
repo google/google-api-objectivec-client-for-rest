@@ -39,12 +39,7 @@ on the [issues list](https://github.com/google/google-api-objectivec-client-for-
 
 **Externally-included projects**: The library includes code from the separate
 projects [GTM Session Fetcher](https://github.com/google/gtm-session-fetcher),
-[GTM OAuth 2](https://github.com/google/gtm-oauth2).
-
-**Google APIs Client Library for Objective-C**: The older library for JSON-RPC
-based apis is
-[still available](https://github.com/google/google-api-objectivec-client),
-however the Google servers will eventually stop accepting JSON-RPC requests.
+[GTMAppAuth](https://github.com/google/GTMAppAuth).
 
 **Google Data APIs**: The much older library for XML-based APIs is
 [still available](https://github.com/google/gdata-objectivec-client).
