@@ -668,6 +668,8 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)
  *  assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)
  *  assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)
+ *  The code in logs/storage/validator/logs_validator_traits.cc treats this type
+ *  as if it were annotated as ST_LOCATION.
  */
 @interface GTLRDatastore_LatLng : GTLRObject
 

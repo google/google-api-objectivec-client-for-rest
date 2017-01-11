@@ -1725,6 +1725,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *isDelegatedAdmin;
 
 /**
+ *  Is 2-step verification enforced (Read-only)
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isEnforcedIn2Sv;
+
+/**
+ *  Is enrolled in 2-step verification (Read-only)
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isEnrolledIn2Sv;
+
+/**
  *  Is mailbox setup (Read-only)
  *
  *  Uses NSNumber of boolValue.

@@ -146,6 +146,33 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 @end
 
+@implementation GTLRClassroomQuery_CoursesCourseWorkDelete
+
+@dynamic courseId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                       identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"courseId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{id}";
+  GTLRClassroomQuery_CoursesCourseWorkDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_Empty class];
+  query.loggingName = @"classroom.courses.courseWork.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRClassroomQuery_CoursesCourseWorkGet
 
 @dynamic courseId, identifier;
@@ -194,6 +221,39 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
   query.courseId = courseId;
   query.expectedObjectClass = [GTLRClassroom_ListCourseWorkResponse class];
   query.loggingName = @"classroom.courses.courseWork.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkPatch
+
+@dynamic courseId, identifier, updateMask;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithObject:(GTLRClassroom_CourseWork *)object
+                       courseId:(NSString *)courseId
+                     identifier:(NSString *)identifier {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{id}";
+  GTLRClassroomQuery_CoursesCourseWorkPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_CourseWork class];
+  query.loggingName = @"classroom.courses.courseWork.patch";
   return query;
 }
 

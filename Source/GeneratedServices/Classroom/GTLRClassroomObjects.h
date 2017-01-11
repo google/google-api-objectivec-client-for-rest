@@ -190,10 +190,11 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Attachments added by the student. Drive files that correspond to materials
- *  with a share mode of SUBMISSION_COPY may not exist yet if the student has
- *  not accessed the assignment in Classroom. Some attachment metadata is only
+ *  with a share mode of STUDENT_COPY may not exist yet if the student has not
+ *  accessed the assignment in Classroom. Some attachment metadata is only
  *  populated if the requesting user has permission to access it. Identifier and
- *  alternate_link fields are available, but others (e.g. title) may not be.
+ *  alternate_link fields are always available, but others (e.g. title) may not
+ *  be.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Attachment *> *attachments;
 
@@ -201,8 +202,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 
 /**
- *  Attachment added to student assignment work. When creating attachments, only
- *  the Link field may be specified.
+ *  Attachment added to student assignment work. When creating attachments,
+ *  setting the `form` field is not supported.
  */
 @interface GTLRClassroom_Attachment : GTLRObject
 
@@ -428,6 +429,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Assignment details. This is populated only when `work_type` is `ASSIGNMENT`.
+ *  Read-only.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_Assignment *assignment;
 
@@ -488,8 +490,10 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, strong, nullable) NSNumber *maxPoints;
 
 /**
- *  Multiple choice question details. This is populated only when `work_type` is
- *  `MULTIPLE_CHOICE_QUESTION`.
+ *  Multiple choice question details. For read operations, this field is
+ *  populated only when `work_type` is `MULTIPLE_CHOICE_QUESTION`. For write
+ *  operations, this field must be specified when creating course work with a
+ *  `work_type` of `MULTIPLE_CHOICE_QUESTION`, and it must not be set otherwise.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_MultipleChoiceQuestion *multipleChoiceQuestion;
 
@@ -530,7 +534,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Type of this course work. The type is set when the course work is created
- *  and cannot be changed. When creating course work, this must be `ASSIGNMENT`.
+ *  and cannot be changed.
  *
  *  Likely values:
  *    @arg @c kGTLRClassroom_CourseWork_WorkType_Assignment Value "ASSIGNMENT"
@@ -1043,8 +1047,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 
 /**
- *  Material attached to course work. When creating attachments, only the Link
- *  field may be specified.
+ *  Material attached to course work. When creating attachments, setting the
+ *  `form` field is not supported.
  */
 @interface GTLRClassroom_Material : GTLRObject
 
@@ -1054,7 +1058,10 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 /** Google Forms material. */
 @property(nonatomic, strong, nullable) GTLRClassroom_Form *form;
 
-/** Link material. */
+/**
+ *  Link material. On creation, will be upgraded to a more appropriate type if
+ *  possible, and this will be reflected in the response.
+ */
 @property(nonatomic, strong, nullable) GTLRClassroom_Link *link;
 
 /** YouTube video material. */
@@ -1070,7 +1077,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Attachments to add. A student submission may not have more than 20
- *  attachments. This may only contain link attachments.
+ *  attachments. Form attachments are not supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Attachment *> *addAttachments;
 
