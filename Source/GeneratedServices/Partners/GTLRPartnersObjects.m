@@ -533,10 +533,10 @@ NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPartners_LogMessageRequestClientInfo
+//   GTLRPartners_LogMessageRequest_ClientInfo
 //
 
-@implementation GTLRPartners_LogMessageRequestClientInfo
+@implementation GTLRPartners_LogMessageRequest_ClientInfo
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

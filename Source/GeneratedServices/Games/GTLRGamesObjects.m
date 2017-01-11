@@ -637,10 +637,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGames_PlayerName
+//   GTLRGames_Player_Name
 //
 
-@implementation GTLRGames_PlayerName
+@implementation GTLRGames_Player_Name
 @dynamic familyName, givenName;
 @end
 
@@ -883,10 +883,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGames_PushTokenIdIos
+//   GTLRGames_PushTokenId_Ios
 //
 
-@implementation GTLRGames_PushTokenIdIos
+@implementation GTLRGames_PushTokenId_Ios
 @dynamic apnsDeviceToken, apnsEnvironment;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

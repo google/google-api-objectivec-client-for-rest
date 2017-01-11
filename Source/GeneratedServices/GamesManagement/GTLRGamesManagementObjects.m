@@ -155,10 +155,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGamesManagement_PlayerName
+//   GTLRGamesManagement_Player_Name
 //
 
-@implementation GTLRGamesManagement_PlayerName
+@implementation GTLRGamesManagement_Player_Name
 @dynamic familyName, givenName;
 @end
 

@@ -24,7 +24,7 @@
 @class GTLRGamesManagement_GamesPlayerLevelResource;
 @class GTLRGamesManagement_HiddenPlayer;
 @class GTLRGamesManagement_Player;
-@class GTLRGamesManagement_PlayerName;
+@class GTLRGamesManagement_Player_Name;
 @class GTLRGamesManagement_PlayerScoreResetResponse;
 @class GTLRGamesManagement_ProfileSettings;
 
@@ -291,7 +291,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  An object representation of the individual components of the player's name.
  *  For some players, these fields may not be present.
  */
-@property(nonatomic, strong, nullable) GTLRGamesManagement_PlayerName *name;
+@property(nonatomic, strong, nullable) GTLRGamesManagement_Player_Name *name;
 
 /**
  *  The player ID that was used for this player the first time they signed into
@@ -320,7 +320,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  An object representation of the individual components of the player's name.
  *  For some players, these fields may not be present.
  */
-@interface GTLRGamesManagement_PlayerName : GTLRObject
+@interface GTLRGamesManagement_Player_Name : GTLRObject
 
 /**
  *  The family name of this player. In some places, this is known as the last

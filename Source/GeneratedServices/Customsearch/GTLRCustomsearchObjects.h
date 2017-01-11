@@ -19,20 +19,20 @@
 #endif
 
 @class GTLRCustomsearch_Context;
-@class GTLRCustomsearch_ContextFacetsItem;
+@class GTLRCustomsearch_Context_Facets_Item;
 @class GTLRCustomsearch_Promotion;
-@class GTLRCustomsearch_PromotionBodyLinesItem;
-@class GTLRCustomsearch_PromotionImage;
+@class GTLRCustomsearch_Promotion_BodyLines_Item;
+@class GTLRCustomsearch_Promotion_Image;
 @class GTLRCustomsearch_Query;
 @class GTLRCustomsearch_Result;
-@class GTLRCustomsearch_ResultImage;
-@class GTLRCustomsearch_ResultLabelsItem;
-@class GTLRCustomsearch_ResultPagemap;
-@class GTLRCustomsearch_ResultPagemapPagemapItem;
-@class GTLRCustomsearch_SearchQueries;
-@class GTLRCustomsearch_SearchSearchInformation;
-@class GTLRCustomsearch_SearchSpelling;
-@class GTLRCustomsearch_SearchUrl;
+@class GTLRCustomsearch_Result_Image;
+@class GTLRCustomsearch_Result_Labels_Item;
+@class GTLRCustomsearch_Result_Pagemap;
+@class GTLRCustomsearch_Result_Pagemap_Pagemap_Item;
+@class GTLRCustomsearch_Search_Queries;
+@class GTLRCustomsearch_Search_SearchInformation;
+@class GTLRCustomsearch_Search_Spelling;
+@class GTLRCustomsearch_Search_Url;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -41,16 +41,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCustomsearch_Context : GTLRObject
 
-@property(nonatomic, strong, nullable) NSArray<NSArray<GTLRCustomsearch_ContextFacetsItem *> *> *facets;
+@property(nonatomic, strong, nullable) NSArray<NSArray<GTLRCustomsearch_Context_Facets_Item *> *> *facets;
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
 
 /**
- *  GTLRCustomsearch_ContextFacetsItem
+ *  GTLRCustomsearch_Context_Facets_Item
  */
-@interface GTLRCustomsearch_ContextFacetsItem : GTLRObject
+@interface GTLRCustomsearch_Context_Facets_Item : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *anchor;
 @property(nonatomic, copy, nullable) NSString *label;
@@ -64,10 +64,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCustomsearch_Promotion : GTLRObject
 
-@property(nonatomic, strong, nullable) NSArray<GTLRCustomsearch_PromotionBodyLinesItem *> *bodyLines;
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomsearch_Promotion_BodyLines_Item *> *bodyLines;
 @property(nonatomic, copy, nullable) NSString *displayLink;
 @property(nonatomic, copy, nullable) NSString *htmlTitle;
-@property(nonatomic, strong, nullable) GTLRCustomsearch_PromotionImage *image;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_Promotion_Image *image;
 @property(nonatomic, copy, nullable) NSString *link;
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -75,9 +75,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCustomsearch_PromotionBodyLinesItem
+ *  GTLRCustomsearch_Promotion_BodyLines_Item
  */
-@interface GTLRCustomsearch_PromotionBodyLinesItem : GTLRObject
+@interface GTLRCustomsearch_Promotion_BodyLines_Item : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *htmlTitle;
 @property(nonatomic, copy, nullable) NSString *link;
@@ -88,9 +88,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCustomsearch_PromotionImage
+ *  GTLRCustomsearch_Promotion_Image
  */
-@interface GTLRCustomsearch_PromotionImage : GTLRObject
+@interface GTLRCustomsearch_Promotion_Image : GTLRObject
 
 /**
  *  height
@@ -194,12 +194,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *htmlFormattedUrl;
 @property(nonatomic, copy, nullable) NSString *htmlSnippet;
 @property(nonatomic, copy, nullable) NSString *htmlTitle;
-@property(nonatomic, strong, nullable) GTLRCustomsearch_ResultImage *image;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_Result_Image *image;
 @property(nonatomic, copy, nullable) NSString *kind;
-@property(nonatomic, strong, nullable) NSArray<GTLRCustomsearch_ResultLabelsItem *> *labels;
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomsearch_Result_Labels_Item *> *labels;
 @property(nonatomic, copy, nullable) NSString *link;
 @property(nonatomic, copy, nullable) NSString *mime;
-@property(nonatomic, strong, nullable) GTLRCustomsearch_ResultPagemap *pagemap;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_Result_Pagemap *pagemap;
 @property(nonatomic, copy, nullable) NSString *snippet;
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -207,9 +207,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCustomsearch_ResultImage
+ *  GTLRCustomsearch_Result_Image
  */
-@interface GTLRCustomsearch_ResultImage : GTLRObject
+@interface GTLRCustomsearch_Result_Image : GTLRObject
 
 /**
  *  byteSize
@@ -254,9 +254,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCustomsearch_ResultLabelsItem
+ *  GTLRCustomsearch_Result_Labels_Item
  */
-@interface GTLRCustomsearch_ResultLabelsItem : GTLRObject
+@interface GTLRCustomsearch_Result_Labels_Item : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *displayName;
 @property(nonatomic, copy, nullable) NSString *labelWithOp;
@@ -266,27 +266,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCustomsearch_ResultPagemap
+ *  GTLRCustomsearch_Result_Pagemap
  *
  *  @note This class is documented as having more properties of NSArrays of
- *        GTLRCustomsearch_ResultPagemapPagemapItem. Use @c -additionalJSONKeys
- *        and @c -additionalPropertyForName: to get the list of properties and
- *        then fetch them; or @c -additionalProperties to fetch them all at
- *        once.
+ *        GTLRCustomsearch_Result_Pagemap_Pagemap_Item. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
  */
-@interface GTLRCustomsearch_ResultPagemap : GTLRObject
+@interface GTLRCustomsearch_Result_Pagemap : GTLRObject
 @end
 
 
 /**
- *  GTLRCustomsearch_ResultPagemapPagemapItem
+ *  GTLRCustomsearch_Result_Pagemap_Pagemap_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRCustomsearch_ResultPagemapPagemapItem : GTLRObject
+@interface GTLRCustomsearch_Result_Pagemap_Pagemap_Item : GTLRObject
 @end
 
 
@@ -310,30 +310,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy, nullable) NSString *kind;
 @property(nonatomic, strong, nullable) NSArray<GTLRCustomsearch_Promotion *> *promotions;
-@property(nonatomic, strong, nullable) GTLRCustomsearch_SearchQueries *queries;
-@property(nonatomic, strong, nullable) GTLRCustomsearch_SearchSearchInformation *searchInformation;
-@property(nonatomic, strong, nullable) GTLRCustomsearch_SearchSpelling *spelling;
-@property(nonatomic, strong, nullable) GTLRCustomsearch_SearchUrl *url;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_Search_Queries *queries;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_Search_SearchInformation *searchInformation;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_Search_Spelling *spelling;
+@property(nonatomic, strong, nullable) GTLRCustomsearch_Search_Url *url;
 
 @end
 
 
 /**
- *  GTLRCustomsearch_SearchQueries
+ *  GTLRCustomsearch_Search_Queries
  *
  *  @note This class is documented as having more properties of NSArrays of
  *        GTLRCustomsearch_Query. Use @c -additionalJSONKeys and @c
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCustomsearch_SearchQueries : GTLRObject
+@interface GTLRCustomsearch_Search_Queries : GTLRObject
 @end
 
 
 /**
- *  GTLRCustomsearch_SearchSearchInformation
+ *  GTLRCustomsearch_Search_SearchInformation
  */
-@interface GTLRCustomsearch_SearchSearchInformation : GTLRObject
+@interface GTLRCustomsearch_Search_SearchInformation : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *formattedSearchTime;
 @property(nonatomic, copy, nullable) NSString *formattedTotalResults;
@@ -356,9 +356,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCustomsearch_SearchSpelling
+ *  GTLRCustomsearch_Search_Spelling
  */
-@interface GTLRCustomsearch_SearchSpelling : GTLRObject
+@interface GTLRCustomsearch_Search_Spelling : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *correctedQuery;
 @property(nonatomic, copy, nullable) NSString *htmlCorrectedQuery;
@@ -367,9 +367,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCustomsearch_SearchUrl
+ *  GTLRCustomsearch_Search_Url
  */
-@interface GTLRCustomsearch_SearchUrl : GTLRObject
+@interface GTLRCustomsearch_Search_Url : GTLRObject
 
 /**
  *  templateProperty

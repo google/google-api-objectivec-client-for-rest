@@ -20,17 +20,17 @@
 #endif
 
 @class GTLRReports_Activity;
-@class GTLRReports_ActivityActor;
-@class GTLRReports_ActivityEventsItem;
-@class GTLRReports_ActivityEventsItemParametersItem;
-@class GTLRReports_ActivityId;
-@class GTLRReports_ChannelParams;
+@class GTLRReports_Activity_Actor;
+@class GTLRReports_Activity_Events_Item;
+@class GTLRReports_Activity_Events_Item_Parameters_Item;
+@class GTLRReports_Activity_Id;
+@class GTLRReports_Channel_Params;
 @class GTLRReports_UsageReport;
-@class GTLRReports_UsageReportEntity;
-@class GTLRReports_UsageReportParametersItem;
-@class GTLRReports_UsageReportParametersItemMsgValueItem;
-@class GTLRReports_UsageReportsWarningsItem;
-@class GTLRReports_UsageReportsWarningsItemDataItem;
+@class GTLRReports_UsageReport_Entity;
+@class GTLRReports_UsageReport_Parameters_Item;
+@class GTLRReports_UsageReport_Parameters_Item_MsgValue_Item;
+@class GTLRReports_UsageReports_Warnings_Item;
+@class GTLRReports_UsageReports_Warnings_Item_Data_Item;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -70,20 +70,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReports_Activity : GTLRObject
 
 /** User doing the action. */
-@property(nonatomic, strong, nullable) GTLRReports_ActivityActor *actor;
+@property(nonatomic, strong, nullable) GTLRReports_Activity_Actor *actor;
 
 /** ETag of the entry. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Activity events. */
-@property(nonatomic, strong, nullable) NSArray<GTLRReports_ActivityEventsItem *> *events;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_Activity_Events_Item *> *events;
 
 /**
  *  Unique identifier for each activity record.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(nonatomic, strong, nullable) GTLRReports_ActivityId *identifier;
+@property(nonatomic, strong, nullable) GTLRReports_Activity_Id *identifier;
 
 /** IP Address of the user doing the action. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
@@ -100,7 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  User doing the action.
  */
-@interface GTLRReports_ActivityActor : GTLRObject
+@interface GTLRReports_Activity_Actor : GTLRObject
 
 /** User or OAuth 2LO request. */
 @property(nonatomic, copy, nullable) NSString *callerType;
@@ -118,15 +118,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRReports_ActivityEventsItem
+ *  GTLRReports_Activity_Events_Item
  */
-@interface GTLRReports_ActivityEventsItem : GTLRObject
+@interface GTLRReports_Activity_Events_Item : GTLRObject
 
 /** Name of event. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Parameter value pairs for various applications. */
-@property(nonatomic, strong, nullable) NSArray<GTLRReports_ActivityEventsItemParametersItem *> *parameters;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_Activity_Events_Item_Parameters_Item *> *parameters;
 
 /** Type of event. */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -137,7 +137,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Unique identifier for each activity record.
  */
-@interface GTLRReports_ActivityId : GTLRObject
+@interface GTLRReports_Activity_Id : GTLRObject
 
 /** Application name to which the event belongs. */
 @property(nonatomic, copy, nullable) NSString *applicationName;
@@ -159,9 +159,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRReports_ActivityEventsItemParametersItem
+ *  GTLRReports_Activity_Events_Item_Parameters_Item
  */
-@interface GTLRReports_ActivityEventsItemParametersItem : GTLRObject
+@interface GTLRReports_Activity_Events_Item_Parameters_Item : GTLRObject
 
 /**
  *  Boolean value of the parameter.
@@ -226,7 +226,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Additional parameters controlling delivery channel behavior. Optional. */
-@property(nonatomic, strong, nullable) GTLRReports_ChannelParams *params;
+@property(nonatomic, strong, nullable) GTLRReports_Channel_Params *params;
 
 /**
  *  A Boolean value to indicate whether payload is wanted. Optional.
@@ -264,7 +264,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRReports_ChannelParams : GTLRObject
+@interface GTLRReports_Channel_Params : GTLRObject
 @end
 
 
@@ -277,7 +277,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *date;
 
 /** Information about the type of the item. */
-@property(nonatomic, strong, nullable) GTLRReports_UsageReportEntity *entity;
+@property(nonatomic, strong, nullable) GTLRReports_UsageReport_Entity *entity;
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -286,7 +286,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Parameter value pairs for various applications. */
-@property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReportParametersItem *> *parameters;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReport_Parameters_Item *> *parameters;
 
 @end
 
@@ -294,7 +294,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Information about the type of the item.
  */
-@interface GTLRReports_UsageReportEntity : GTLRObject
+@interface GTLRReports_UsageReport_Entity : GTLRObject
 
 /** Obfuscated customer id for the record. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -312,9 +312,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRReports_UsageReportParametersItem
+ *  GTLRReports_UsageReport_Parameters_Item
  */
-@interface GTLRReports_UsageReportParametersItem : GTLRObject
+@interface GTLRReports_UsageReport_Parameters_Item : GTLRObject
 
 /**
  *  Boolean value of the parameter.
@@ -334,7 +334,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *intValue;
 
 /** Nested message value of the parameter. */
-@property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReportParametersItemMsgValueItem *> *msgValue;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReport_Parameters_Item_MsgValue_Item *> *msgValue;
 
 /** The name of the parameter. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -346,14 +346,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRReports_UsageReportParametersItemMsgValueItem
+ *  GTLRReports_UsageReport_Parameters_Item_MsgValue_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRReports_UsageReportParametersItemMsgValueItem : GTLRObject
+@interface GTLRReports_UsageReport_Parameters_Item_MsgValue_Item : GTLRObject
 @end
 
 
@@ -375,21 +375,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReport *> *usageReports;
 
 /** Warnings if any. */
-@property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReportsWarningsItem *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReports_Warnings_Item *> *warnings;
 
 @end
 
 
 /**
- *  GTLRReports_UsageReportsWarningsItem
+ *  GTLRReports_UsageReports_Warnings_Item
  */
-@interface GTLRReports_UsageReportsWarningsItem : GTLRObject
+@interface GTLRReports_UsageReports_Warnings_Item : GTLRObject
 
 /** Machine readable code / warning type. */
 @property(nonatomic, copy, nullable) NSString *code;
 
 /** Key-Value pairs to give detailed information on the warning. */
-@property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReportsWarningsItemDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReports_Warnings_Item_Data_Item *> *data;
 
 /** Human readable message for the warning. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -398,9 +398,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRReports_UsageReportsWarningsItemDataItem
+ *  GTLRReports_UsageReports_Warnings_Item_Data_Item
  */
-@interface GTLRReports_UsageReportsWarningsItemDataItem : GTLRObject
+@interface GTLRReports_UsageReports_Warnings_Item_Data_Item : GTLRObject
 
 /**
  *  Key associated with a key-value pair to give detailed information on the

@@ -19,11 +19,11 @@
 #endif
 
 @class GTLRYouTubeAnalytics_Group;
-@class GTLRYouTubeAnalytics_GroupContentDetails;
+@class GTLRYouTubeAnalytics_Group_ContentDetails;
+@class GTLRYouTubeAnalytics_Group_Snippet;
 @class GTLRYouTubeAnalytics_GroupItem;
-@class GTLRYouTubeAnalytics_GroupItemResource;
-@class GTLRYouTubeAnalytics_GroupSnippet;
-@class GTLRYouTubeAnalytics_ResultTableColumnHeadersItem;
+@class GTLRYouTubeAnalytics_GroupItem_Resource;
+@class GTLRYouTubeAnalytics_ResultTable_ColumnHeaders_Item;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRYouTubeAnalytics_Group : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRYouTubeAnalytics_GroupContentDetails *contentDetails;
+@property(nonatomic, strong, nullable) GTLRYouTubeAnalytics_Group_ContentDetails *contentDetails;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
@@ -43,15 +43,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 @property(nonatomic, copy, nullable) NSString *kind;
-@property(nonatomic, strong, nullable) GTLRYouTubeAnalytics_GroupSnippet *snippet;
+@property(nonatomic, strong, nullable) GTLRYouTubeAnalytics_Group_Snippet *snippet;
 
 @end
 
 
 /**
- *  GTLRYouTubeAnalytics_GroupContentDetails
+ *  GTLRYouTubeAnalytics_Group_ContentDetails
  */
-@interface GTLRYouTubeAnalytics_GroupContentDetails : GTLRObject
+@interface GTLRYouTubeAnalytics_Group_ContentDetails : GTLRObject
 
 /**
  *  itemCount
@@ -66,9 +66,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRYouTubeAnalytics_GroupSnippet
+ *  GTLRYouTubeAnalytics_Group_Snippet
  */
-@interface GTLRYouTubeAnalytics_GroupSnippet : GTLRObject
+@interface GTLRYouTubeAnalytics_Group_Snippet : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 @property(nonatomic, copy, nullable) NSString *title;
@@ -92,15 +92,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 @property(nonatomic, copy, nullable) NSString *kind;
-@property(nonatomic, strong, nullable) GTLRYouTubeAnalytics_GroupItemResource *resource;
+@property(nonatomic, strong, nullable) GTLRYouTubeAnalytics_GroupItem_Resource *resource;
 
 @end
 
 
 /**
- *  GTLRYouTubeAnalytics_GroupItemResource
+ *  GTLRYouTubeAnalytics_GroupItem_Resource
  */
-@interface GTLRYouTubeAnalytics_GroupItemResource : GTLRObject
+@interface GTLRYouTubeAnalytics_GroupItem_Resource : GTLRObject
 
 /**
  *  identifier
@@ -184,7 +184,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  dimensions=ageGroup,gender&metrics=viewerPercentage, the API response will
  *  return columns in this order: ageGroup,gender,viewerPercentage.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRYouTubeAnalytics_ResultTableColumnHeadersItem *> *columnHeaders;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTubeAnalytics_ResultTable_ColumnHeaders_Item *> *columnHeaders;
 
 /**
  *  This value specifies the type of data included in the API response. For the
@@ -209,9 +209,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRYouTubeAnalytics_ResultTableColumnHeadersItem
+ *  GTLRYouTubeAnalytics_ResultTable_ColumnHeaders_Item
  */
-@interface GTLRYouTubeAnalytics_ResultTableColumnHeadersItem : GTLRObject
+@interface GTLRYouTubeAnalytics_ResultTable_ColumnHeaders_Item : GTLRObject
 
 /** The type of the column (DIMENSION or METRIC). */
 @property(nonatomic, copy, nullable) NSString *columnType;

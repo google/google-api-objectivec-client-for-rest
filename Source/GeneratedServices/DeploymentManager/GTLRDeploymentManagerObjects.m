@@ -17,7 +17,26 @@
 //
 
 @implementation GTLRDeploymentManager_AuditConfig
-@dynamic exemptedMembers, service;
+@dynamic auditLogConfigs, exemptedMembers, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditLogConfigs" : [GTLRDeploymentManager_AuditLogConfig class],
+    @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_AuditLogConfig
+//
+
+@implementation GTLRDeploymentManager_AuditLogConfig
+@dynamic exemptedMembers, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -280,7 +299,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"warnings" : [GTLRDeploymentManager_OperationWarningsItem class]
+    @"warnings" : [GTLRDeploymentManager_Operation_Warnings_Item class]
   };
   return map;
 }
@@ -290,15 +309,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDeploymentManager_OperationError
+//   GTLRDeploymentManager_Operation_Error
 //
 
-@implementation GTLRDeploymentManager_OperationError
+@implementation GTLRDeploymentManager_Operation_Error
 @dynamic errors;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRDeploymentManager_OperationErrorErrorsItem class]
+    @"errors" : [GTLRDeploymentManager_Operation_Error_Errors_Item class]
   };
   return map;
 }
@@ -308,15 +327,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDeploymentManager_OperationWarningsItem
+//   GTLRDeploymentManager_Operation_Warnings_Item
 //
 
-@implementation GTLRDeploymentManager_OperationWarningsItem
+@implementation GTLRDeploymentManager_Operation_Warnings_Item
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRDeploymentManager_OperationWarningsItemDataItem class]
+    @"data" : [GTLRDeploymentManager_Operation_Warnings_Item_Data_Item class]
   };
   return map;
 }
@@ -326,20 +345,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDeploymentManager_OperationErrorErrorsItem
+//   GTLRDeploymentManager_Operation_Error_Errors_Item
 //
 
-@implementation GTLRDeploymentManager_OperationErrorErrorsItem
+@implementation GTLRDeploymentManager_Operation_Error_Errors_Item
 @dynamic code, location, message;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDeploymentManager_OperationWarningsItemDataItem
+//   GTLRDeploymentManager_Operation_Warnings_Item_Data_Item
 //
 
-@implementation GTLRDeploymentManager_OperationWarningsItemDataItem
+@implementation GTLRDeploymentManager_Operation_Warnings_Item_Data_Item
 @dynamic key, value;
 @end
 
@@ -405,7 +424,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"warnings" : [GTLRDeploymentManager_ResourceWarningsItem class]
+    @"warnings" : [GTLRDeploymentManager_Resource_Warnings_Item class]
   };
   return map;
 }
@@ -415,15 +434,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDeploymentManager_ResourceWarningsItem
+//   GTLRDeploymentManager_Resource_Warnings_Item
 //
 
-@implementation GTLRDeploymentManager_ResourceWarningsItem
+@implementation GTLRDeploymentManager_Resource_Warnings_Item
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRDeploymentManager_ResourceWarningsItemDataItem class]
+    @"data" : [GTLRDeploymentManager_Resource_Warnings_Item_Data_Item class]
   };
   return map;
 }
@@ -433,10 +452,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDeploymentManager_ResourceWarningsItemDataItem
+//   GTLRDeploymentManager_Resource_Warnings_Item_Data_Item
 //
 
-@implementation GTLRDeploymentManager_ResourceWarningsItemDataItem
+@implementation GTLRDeploymentManager_Resource_Warnings_Item_Data_Item
 @dynamic key, value;
 @end
 
@@ -484,7 +503,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"warnings" : [GTLRDeploymentManager_ResourceUpdateWarningsItem class]
+    @"warnings" : [GTLRDeploymentManager_ResourceUpdate_Warnings_Item class]
   };
   return map;
 }
@@ -494,15 +513,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDeploymentManager_ResourceUpdateError
+//   GTLRDeploymentManager_ResourceUpdate_Error
 //
 
-@implementation GTLRDeploymentManager_ResourceUpdateError
+@implementation GTLRDeploymentManager_ResourceUpdate_Error
 @dynamic errors;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRDeploymentManager_ResourceUpdateErrorErrorsItem class]
+    @"errors" : [GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item class]
   };
   return map;
 }
@@ -512,15 +531,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDeploymentManager_ResourceUpdateWarningsItem
+//   GTLRDeploymentManager_ResourceUpdate_Warnings_Item
 //
 
-@implementation GTLRDeploymentManager_ResourceUpdateWarningsItem
+@implementation GTLRDeploymentManager_ResourceUpdate_Warnings_Item
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRDeploymentManager_ResourceUpdateWarningsItemDataItem class]
+    @"data" : [GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item class]
   };
   return map;
 }
@@ -530,20 +549,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDeploymentManager_ResourceUpdateErrorErrorsItem
+//   GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item
 //
 
-@implementation GTLRDeploymentManager_ResourceUpdateErrorErrorsItem
+@implementation GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item
 @dynamic code, location, message;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDeploymentManager_ResourceUpdateWarningsItemDataItem
+//   GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item
 //
 
-@implementation GTLRDeploymentManager_ResourceUpdateWarningsItemDataItem
+@implementation GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item
 @dynamic key, value;
 @end
 

@@ -119,10 +119,10 @@ NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMonitoring_CollectdPayloadMetadata
+//   GTLRMonitoring_CollectdPayload_Metadata
 //
 
-@implementation GTLRMonitoring_CollectdPayloadMetadata
+@implementation GTLRMonitoring_CollectdPayload_Metadata
 
 + (Class)classForAdditionalProperties {
   return [GTLRMonitoring_TypedValue class];
@@ -414,10 +414,10 @@ NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMonitoring_MetricLabels
+//   GTLRMonitoring_Metric_Labels
 //
 
-@implementation GTLRMonitoring_MetricLabels
+@implementation GTLRMonitoring_Metric_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -461,10 +461,10 @@ NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMonitoring_MonitoredResourceLabels
+//   GTLRMonitoring_MonitoredResource_Labels
 //
 
-@implementation GTLRMonitoring_MonitoredResourceLabels
+@implementation GTLRMonitoring_MonitoredResource_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -507,10 +507,10 @@ NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMonitoring_OptionValue
+//   GTLRMonitoring_Option_Value
 //
 
-@implementation GTLRMonitoring_OptionValue
+@implementation GTLRMonitoring_Option_Value
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

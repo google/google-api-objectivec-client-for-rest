@@ -101,7 +101,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"files" : [GTLRDoubleClickSearch_ReportFilesItem class],
+    @"files" : [GTLRDoubleClickSearch_Report_Files_Item class],
     @"rows" : [GTLRDoubleClickSearch_ReportRow class]
   };
   return map;
@@ -112,10 +112,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDoubleClickSearch_ReportFilesItem
+//   GTLRDoubleClickSearch_Report_Files_Item
 //
 
-@implementation GTLRDoubleClickSearch_ReportFilesItem
+@implementation GTLRDoubleClickSearch_Report_Files_Item
 @dynamic byteCount, url;
 @end
 
@@ -146,8 +146,8 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"columns" : [GTLRDoubleClickSearch_ReportApiColumnSpec class],
-    @"filters" : [GTLRDoubleClickSearch_ReportRequestFiltersItem class],
-    @"orderBy" : [GTLRDoubleClickSearch_ReportRequestOrderByItem class]
+    @"filters" : [GTLRDoubleClickSearch_ReportRequest_Filters_Item class],
+    @"orderBy" : [GTLRDoubleClickSearch_ReportRequest_OrderBy_Item class]
   };
   return map;
 }
@@ -157,10 +157,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDoubleClickSearch_ReportRequestFiltersItem
+//   GTLRDoubleClickSearch_ReportRequest_Filters_Item
 //
 
-@implementation GTLRDoubleClickSearch_ReportRequestFiltersItem
+@implementation GTLRDoubleClickSearch_ReportRequest_Filters_Item
 @dynamic column, operatorProperty, values;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -179,20 +179,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDoubleClickSearch_ReportRequestOrderByItem
+//   GTLRDoubleClickSearch_ReportRequest_OrderBy_Item
 //
 
-@implementation GTLRDoubleClickSearch_ReportRequestOrderByItem
+@implementation GTLRDoubleClickSearch_ReportRequest_OrderBy_Item
 @dynamic column, sortOrder;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDoubleClickSearch_ReportRequestReportScope
+//   GTLRDoubleClickSearch_ReportRequest_ReportScope
 //
 
-@implementation GTLRDoubleClickSearch_ReportRequestReportScope
+@implementation GTLRDoubleClickSearch_ReportRequest_ReportScope
 @dynamic adGroupId, adId, advertiserId, agencyId, campaignId, engineAccountId,
          keywordId;
 @end
@@ -200,10 +200,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDoubleClickSearch_ReportRequestTimeRange
+//   GTLRDoubleClickSearch_ReportRequest_TimeRange
 //
 
-@implementation GTLRDoubleClickSearch_ReportRequestTimeRange
+@implementation GTLRDoubleClickSearch_ReportRequest_TimeRange
 @dynamic changedAttributesSinceTimestamp, changedMetricsSinceTimestamp, endDate,
          startDate;
 @end

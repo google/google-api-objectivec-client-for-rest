@@ -28,9 +28,9 @@
 @class GTLRCloudMonitoring_PointDistributionUnderflowBucket;
 @class GTLRCloudMonitoring_Timeseries;
 @class GTLRCloudMonitoring_TimeseriesDescriptor;
-@class GTLRCloudMonitoring_TimeseriesDescriptorLabels;
+@class GTLRCloudMonitoring_TimeseriesDescriptor_Labels;
 @class GTLRCloudMonitoring_TimeseriesPoint;
-@class GTLRCloudMonitoring_WriteTimeseriesRequestCommonLabels;
+@class GTLRCloudMonitoring_WriteTimeseriesRequest_CommonLabels;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -465,7 +465,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudMonitoring_TimeseriesDescriptor : GTLRObject
 
 /** The label's name. */
-@property(nonatomic, strong, nullable) GTLRCloudMonitoring_TimeseriesDescriptorLabels *labels;
+@property(nonatomic, strong, nullable) GTLRCloudMonitoring_TimeseriesDescriptor_Labels *labels;
 
 /** The name of the metric. */
 @property(nonatomic, copy, nullable) NSString *metric;
@@ -486,7 +486,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRCloudMonitoring_TimeseriesDescriptorLabels : GTLRObject
+@interface GTLRCloudMonitoring_TimeseriesDescriptor_Labels : GTLRObject
 @end
 
 
@@ -526,7 +526,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudMonitoring_WriteTimeseriesRequest : GTLRObject
 
 /** The label's name. */
-@property(nonatomic, strong, nullable) GTLRCloudMonitoring_WriteTimeseriesRequestCommonLabels *commonLabels;
+@property(nonatomic, strong, nullable) GTLRCloudMonitoring_WriteTimeseriesRequest_CommonLabels *commonLabels;
 
 /**
  *  Provide time series specific labels and the data points for each time
@@ -546,7 +546,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRCloudMonitoring_WriteTimeseriesRequestCommonLabels : GTLRObject
+@interface GTLRCloudMonitoring_WriteTimeseriesRequest_CommonLabels : GTLRObject
 @end
 
 

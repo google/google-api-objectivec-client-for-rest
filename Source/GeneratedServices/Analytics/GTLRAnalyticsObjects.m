@@ -28,20 +28,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_AccountChildLink
+//   GTLRAnalytics_Account_ChildLink
 //
 
-@implementation GTLRAnalytics_AccountChildLink
+@implementation GTLRAnalytics_Account_ChildLink
 @dynamic href, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_AccountPermissions
+//   GTLRAnalytics_Account_Permissions
 //
 
-@implementation GTLRAnalytics_AccountPermissions
+@implementation GTLRAnalytics_Account_Permissions
 @dynamic effective;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -171,10 +171,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_ColumnAttributes
+//   GTLRAnalytics_Column_Attributes
 //
 
-@implementation GTLRAnalytics_ColumnAttributes
+@implementation GTLRAnalytics_Column_Attributes
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -236,20 +236,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_CustomDataSourceChildLink
+//   GTLRAnalytics_CustomDataSource_ChildLink
 //
 
-@implementation GTLRAnalytics_CustomDataSourceChildLink
+@implementation GTLRAnalytics_CustomDataSource_ChildLink
 @dynamic href, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_CustomDataSourceParentLink
+//   GTLRAnalytics_CustomDataSource_ParentLink
 //
 
-@implementation GTLRAnalytics_CustomDataSourceParentLink
+@implementation GTLRAnalytics_CustomDataSource_ParentLink
 @dynamic href, type;
 @end
 
@@ -291,10 +291,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_CustomDimensionParentLink
+//   GTLRAnalytics_CustomDimension_ParentLink
 //
 
-@implementation GTLRAnalytics_CustomDimensionParentLink
+@implementation GTLRAnalytics_CustomDimension_ParentLink
 @dynamic href, type;
 @end
 
@@ -342,10 +342,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_CustomMetricParentLink
+//   GTLRAnalytics_CustomMetric_ParentLink
 //
 
-@implementation GTLRAnalytics_CustomMetricParentLink
+@implementation GTLRAnalytics_CustomMetric_ParentLink
 @dynamic href, type;
 @end
 
@@ -412,10 +412,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_EntityAdWordsLinkEntity
+//   GTLRAnalytics_EntityAdWordsLink_Entity
 //
 
-@implementation GTLRAnalytics_EntityAdWordsLinkEntity
+@implementation GTLRAnalytics_EntityAdWordsLink_Entity
 @dynamic webPropertyRef;
 @end
 
@@ -456,20 +456,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_EntityUserLinkEntity
+//   GTLRAnalytics_EntityUserLink_Entity
 //
 
-@implementation GTLRAnalytics_EntityUserLinkEntity
+@implementation GTLRAnalytics_EntityUserLink_Entity
 @dynamic accountRef, profileRef, webPropertyRef;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_EntityUserLinkPermissions
+//   GTLRAnalytics_EntityUserLink_Permissions
 //
 
-@implementation GTLRAnalytics_EntityUserLinkPermissions
+@implementation GTLRAnalytics_EntityUserLink_Permissions
 @dynamic effective, local;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -526,7 +526,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"variations" : [GTLRAnalytics_ExperimentVariationsItem class]
+    @"variations" : [GTLRAnalytics_Experiment_Variations_Item class]
   };
   return map;
 }
@@ -536,20 +536,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_ExperimentParentLink
+//   GTLRAnalytics_Experiment_ParentLink
 //
 
-@implementation GTLRAnalytics_ExperimentParentLink
+@implementation GTLRAnalytics_Experiment_ParentLink
 @dynamic href, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_ExperimentVariationsItem
+//   GTLRAnalytics_Experiment_Variations_Item
 //
 
-@implementation GTLRAnalytics_ExperimentVariationsItem
+@implementation GTLRAnalytics_Experiment_Variations_Item
 @dynamic name, status, url, weight, won;
 @end
 
@@ -592,10 +592,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_FilterAdvancedDetails
+//   GTLRAnalytics_Filter_AdvancedDetails
 //
 
-@implementation GTLRAnalytics_FilterAdvancedDetails
+@implementation GTLRAnalytics_Filter_AdvancedDetails
 @dynamic caseSensitive, extractA, extractB, fieldA, fieldAIndex, fieldARequired,
          fieldB, fieldBIndex, fieldBRequired, outputConstructor, outputToField,
          outputToFieldIndex, overrideOutputField;
@@ -604,40 +604,40 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_FilterLowercaseDetails
+//   GTLRAnalytics_Filter_LowercaseDetails
 //
 
-@implementation GTLRAnalytics_FilterLowercaseDetails
+@implementation GTLRAnalytics_Filter_LowercaseDetails
 @dynamic field, fieldIndex;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_FilterParentLink
+//   GTLRAnalytics_Filter_ParentLink
 //
 
-@implementation GTLRAnalytics_FilterParentLink
+@implementation GTLRAnalytics_Filter_ParentLink
 @dynamic href, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_FilterSearchAndReplaceDetails
+//   GTLRAnalytics_Filter_SearchAndReplaceDetails
 //
 
-@implementation GTLRAnalytics_FilterSearchAndReplaceDetails
+@implementation GTLRAnalytics_Filter_SearchAndReplaceDetails
 @dynamic caseSensitive, field, fieldIndex, replaceString, searchString;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_FilterUppercaseDetails
+//   GTLRAnalytics_Filter_UppercaseDetails
 //
 
-@implementation GTLRAnalytics_FilterUppercaseDetails
+@implementation GTLRAnalytics_Filter_UppercaseDetails
 @dynamic field, fieldIndex;
 @end
 
@@ -703,7 +703,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"columnHeaders" : [GTLRAnalytics_GaDataColumnHeadersItem class],
+    @"columnHeaders" : [GTLRAnalytics_GaData_ColumnHeaders_Item class],
     @"rows" : [NSString class]
   };
   return map;
@@ -714,26 +714,26 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GaDataColumnHeadersItem
+//   GTLRAnalytics_GaData_ColumnHeaders_Item
 //
 
-@implementation GTLRAnalytics_GaDataColumnHeadersItem
+@implementation GTLRAnalytics_GaData_ColumnHeaders_Item
 @dynamic columnType, dataType, name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GaDataDataTable
+//   GTLRAnalytics_GaData_DataTable
 //
 
-@implementation GTLRAnalytics_GaDataDataTable
+@implementation GTLRAnalytics_GaData_DataTable
 @dynamic cols, rows;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"cols" : [GTLRAnalytics_GaDataDataTableColsItem class],
-    @"rows" : [GTLRAnalytics_GaDataDataTableRowsItem class]
+    @"cols" : [GTLRAnalytics_GaData_DataTable_Cols_Item class],
+    @"rows" : [GTLRAnalytics_GaData_DataTable_Rows_Item class]
   };
   return map;
 }
@@ -743,10 +743,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GaDataProfileInfo
+//   GTLRAnalytics_GaData_ProfileInfo
 //
 
-@implementation GTLRAnalytics_GaDataProfileInfo
+@implementation GTLRAnalytics_GaData_ProfileInfo
 @dynamic accountId, internalWebPropertyId, profileId, profileName, tableId,
          webPropertyId;
 @end
@@ -754,10 +754,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GaDataQuery
+//   GTLRAnalytics_GaData_Query
 //
 
-@implementation GTLRAnalytics_GaDataQuery
+@implementation GTLRAnalytics_GaData_Query
 @dynamic dimensions, endDate, filters, ids, maxResults, metrics, samplingLevel,
          segment, sort, startDate, startIndex;
 
@@ -784,10 +784,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GaDataTotalsForAllResults
+//   GTLRAnalytics_GaData_TotalsForAllResults
 //
 
-@implementation GTLRAnalytics_GaDataTotalsForAllResults
+@implementation GTLRAnalytics_GaData_TotalsForAllResults
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -798,10 +798,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GaDataDataTableColsItem
+//   GTLRAnalytics_GaData_DataTable_Cols_Item
 //
 
-@implementation GTLRAnalytics_GaDataDataTableColsItem
+@implementation GTLRAnalytics_GaData_DataTable_Cols_Item
 @dynamic identifier, label, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -813,15 +813,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GaDataDataTableRowsItem
+//   GTLRAnalytics_GaData_DataTable_Rows_Item
 //
 
-@implementation GTLRAnalytics_GaDataDataTableRowsItem
+@implementation GTLRAnalytics_GaData_DataTable_Rows_Item
 @dynamic c;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"c" : [GTLRAnalytics_GaDataDataTableRowsItemCItem class]
+    @"c" : [GTLRAnalytics_GaData_DataTable_Rows_Item_C_Item class]
   };
   return map;
 }
@@ -831,10 +831,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GaDataDataTableRowsItemCItem
+//   GTLRAnalytics_GaData_DataTable_Rows_Item_C_Item
 //
 
-@implementation GTLRAnalytics_GaDataDataTableRowsItemCItem
+@implementation GTLRAnalytics_GaData_DataTable_Rows_Item_C_Item
 @dynamic v;
 @end
 
@@ -859,15 +859,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GoalEventDetails
+//   GTLRAnalytics_Goal_EventDetails
 //
 
-@implementation GTLRAnalytics_GoalEventDetails
+@implementation GTLRAnalytics_Goal_EventDetails
 @dynamic eventConditions, useEventValue;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"eventConditions" : [GTLRAnalytics_GoalEventDetailsEventConditionsItem class]
+    @"eventConditions" : [GTLRAnalytics_Goal_EventDetails_EventConditions_Item class]
   };
   return map;
 }
@@ -877,25 +877,25 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GoalParentLink
+//   GTLRAnalytics_Goal_ParentLink
 //
 
-@implementation GTLRAnalytics_GoalParentLink
+@implementation GTLRAnalytics_Goal_ParentLink
 @dynamic href, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GoalUrlDestinationDetails
+//   GTLRAnalytics_Goal_UrlDestinationDetails
 //
 
-@implementation GTLRAnalytics_GoalUrlDestinationDetails
+@implementation GTLRAnalytics_Goal_UrlDestinationDetails
 @dynamic caseSensitive, firstStepRequired, matchType, steps, url;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"steps" : [GTLRAnalytics_GoalUrlDestinationDetailsStepsItem class]
+    @"steps" : [GTLRAnalytics_Goal_UrlDestinationDetails_Steps_Item class]
   };
   return map;
 }
@@ -905,40 +905,40 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GoalVisitNumPagesDetails
+//   GTLRAnalytics_Goal_VisitNumPagesDetails
 //
 
-@implementation GTLRAnalytics_GoalVisitNumPagesDetails
+@implementation GTLRAnalytics_Goal_VisitNumPagesDetails
 @dynamic comparisonType, comparisonValue;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GoalVisitTimeOnSiteDetails
+//   GTLRAnalytics_Goal_VisitTimeOnSiteDetails
 //
 
-@implementation GTLRAnalytics_GoalVisitTimeOnSiteDetails
+@implementation GTLRAnalytics_Goal_VisitTimeOnSiteDetails
 @dynamic comparisonType, comparisonValue;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GoalEventDetailsEventConditionsItem
+//   GTLRAnalytics_Goal_EventDetails_EventConditions_Item
 //
 
-@implementation GTLRAnalytics_GoalEventDetailsEventConditionsItem
+@implementation GTLRAnalytics_Goal_EventDetails_EventConditions_Item
 @dynamic comparisonType, comparisonValue, expression, matchType, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_GoalUrlDestinationDetailsStepsItem
+//   GTLRAnalytics_Goal_UrlDestinationDetails_Steps_Item
 //
 
-@implementation GTLRAnalytics_GoalUrlDestinationDetailsStepsItem
+@implementation GTLRAnalytics_Goal_UrlDestinationDetails_Steps_Item
 @dynamic name, number, url;
 @end
 
@@ -1004,8 +1004,8 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"columnHeaders" : [GTLRAnalytics_McfDataColumnHeadersItem class],
-    @"rows" : [GTLRAnalytics_McfDataRowsItem class]
+    @"columnHeaders" : [GTLRAnalytics_McfData_ColumnHeaders_Item class],
+    @"rows" : [GTLRAnalytics_McfData_Rows_Item class]
   };
   return map;
 }
@@ -1015,20 +1015,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_McfDataColumnHeadersItem
+//   GTLRAnalytics_McfData_ColumnHeaders_Item
 //
 
-@implementation GTLRAnalytics_McfDataColumnHeadersItem
+@implementation GTLRAnalytics_McfData_ColumnHeaders_Item
 @dynamic columnType, dataType, name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_McfDataProfileInfo
+//   GTLRAnalytics_McfData_ProfileInfo
 //
 
-@implementation GTLRAnalytics_McfDataProfileInfo
+@implementation GTLRAnalytics_McfData_ProfileInfo
 @dynamic accountId, internalWebPropertyId, profileId, profileName, tableId,
          webPropertyId;
 @end
@@ -1036,10 +1036,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_McfDataQuery
+//   GTLRAnalytics_McfData_Query
 //
 
-@implementation GTLRAnalytics_McfDataQuery
+@implementation GTLRAnalytics_McfData_Query
 @dynamic dimensions, endDate, filters, ids, maxResults, metrics, samplingLevel,
          segment, sort, startDate, startIndex;
 
@@ -1066,15 +1066,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_McfDataRowsItem
+//   GTLRAnalytics_McfData_Rows_Item
 //
 
-@implementation GTLRAnalytics_McfDataRowsItem
+@implementation GTLRAnalytics_McfData_Rows_Item
 @dynamic conversionPathValue, primitiveValue;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"conversionPathValue" : [GTLRAnalytics_McfDataRowsItemConversionPathValueItem class]
+    @"conversionPathValue" : [GTLRAnalytics_McfData_Rows_Item_ConversionPathValue_Item class]
   };
   return map;
 }
@@ -1084,10 +1084,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_McfDataTotalsForAllResults
+//   GTLRAnalytics_McfData_TotalsForAllResults
 //
 
-@implementation GTLRAnalytics_McfDataTotalsForAllResults
+@implementation GTLRAnalytics_McfData_TotalsForAllResults
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1098,10 +1098,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_McfDataRowsItemConversionPathValueItem
+//   GTLRAnalytics_McfData_Rows_Item_ConversionPathValue_Item
 //
 
-@implementation GTLRAnalytics_McfDataRowsItemConversionPathValueItem
+@implementation GTLRAnalytics_McfData_Rows_Item_ConversionPathValue_Item
 @dynamic interactionType, nodeValue;
 @end
 
@@ -1129,30 +1129,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_ProfileChildLink
+//   GTLRAnalytics_Profile_ChildLink
 //
 
-@implementation GTLRAnalytics_ProfileChildLink
+@implementation GTLRAnalytics_Profile_ChildLink
 @dynamic href, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_ProfileParentLink
+//   GTLRAnalytics_Profile_ParentLink
 //
 
-@implementation GTLRAnalytics_ProfileParentLink
+@implementation GTLRAnalytics_Profile_ParentLink
 @dynamic href, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_ProfilePermissions
+//   GTLRAnalytics_Profile_Permissions
 //
 
-@implementation GTLRAnalytics_ProfilePermissions
+@implementation GTLRAnalytics_Profile_Permissions
 @dynamic effective;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1264,7 +1264,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"columnHeaders" : [GTLRAnalytics_RealtimeDataColumnHeadersItem class],
+    @"columnHeaders" : [GTLRAnalytics_RealtimeData_ColumnHeaders_Item class],
     @"rows" : [NSString class]
   };
   return map;
@@ -1275,20 +1275,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_RealtimeDataColumnHeadersItem
+//   GTLRAnalytics_RealtimeData_ColumnHeaders_Item
 //
 
-@implementation GTLRAnalytics_RealtimeDataColumnHeadersItem
+@implementation GTLRAnalytics_RealtimeData_ColumnHeaders_Item
 @dynamic columnType, dataType, name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_RealtimeDataProfileInfo
+//   GTLRAnalytics_RealtimeData_ProfileInfo
 //
 
-@implementation GTLRAnalytics_RealtimeDataProfileInfo
+@implementation GTLRAnalytics_RealtimeData_ProfileInfo
 @dynamic accountId, internalWebPropertyId, profileId, profileName, tableId,
          webPropertyId;
 @end
@@ -1296,10 +1296,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_RealtimeDataQuery
+//   GTLRAnalytics_RealtimeData_Query
 //
 
-@implementation GTLRAnalytics_RealtimeDataQuery
+@implementation GTLRAnalytics_RealtimeData_Query
 @dynamic dimensions, filters, ids, maxResults, metrics, sort;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1319,10 +1319,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_RealtimeDataTotalsForAllResults
+//   GTLRAnalytics_RealtimeData_TotalsForAllResults
 //
 
-@implementation GTLRAnalytics_RealtimeDataTotalsForAllResults
+@implementation GTLRAnalytics_RealtimeData_TotalsForAllResults
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1363,30 +1363,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_RemarketingAudienceAudienceDefinition
+//   GTLRAnalytics_RemarketingAudience_AudienceDefinition
 //
 
-@implementation GTLRAnalytics_RemarketingAudienceAudienceDefinition
+@implementation GTLRAnalytics_RemarketingAudience_AudienceDefinition
 @dynamic includeConditions;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinition
+//   GTLRAnalytics_RemarketingAudience_StateBasedAudienceDefinition
 //
 
-@implementation GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinition
+@implementation GTLRAnalytics_RemarketingAudience_StateBasedAudienceDefinition
 @dynamic excludeConditions, includeConditions;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinitionExcludeConditions
+//   GTLRAnalytics_RemarketingAudience_StateBasedAudienceDefinition_ExcludeConditions
 //
 
-@implementation GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinitionExcludeConditions
+@implementation GTLRAnalytics_RemarketingAudience_StateBasedAudienceDefinition_ExcludeConditions
 @dynamic exclusionDuration, segment;
 @end
 
@@ -1470,20 +1470,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_UnsampledReportCloudStorageDownloadDetails
+//   GTLRAnalytics_UnsampledReport_CloudStorageDownloadDetails
 //
 
-@implementation GTLRAnalytics_UnsampledReportCloudStorageDownloadDetails
+@implementation GTLRAnalytics_UnsampledReport_CloudStorageDownloadDetails
 @dynamic bucketId, objectId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_UnsampledReportDriveDownloadDetails
+//   GTLRAnalytics_UnsampledReport_DriveDownloadDetails
 //
 
-@implementation GTLRAnalytics_UnsampledReportDriveDownloadDetails
+@implementation GTLRAnalytics_UnsampledReport_DriveDownloadDetails
 @dynamic documentId;
 @end
 
@@ -1601,30 +1601,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_WebpropertyChildLink
+//   GTLRAnalytics_Webproperty_ChildLink
 //
 
-@implementation GTLRAnalytics_WebpropertyChildLink
+@implementation GTLRAnalytics_Webproperty_ChildLink
 @dynamic href, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_WebpropertyParentLink
+//   GTLRAnalytics_Webproperty_ParentLink
 //
 
-@implementation GTLRAnalytics_WebpropertyParentLink
+@implementation GTLRAnalytics_Webproperty_ParentLink
 @dynamic href, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalytics_WebpropertyPermissions
+//   GTLRAnalytics_Webproperty_Permissions
 //
 
-@implementation GTLRAnalytics_WebpropertyPermissions
+@implementation GTLRAnalytics_Webproperty_Permissions
 @dynamic effective;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

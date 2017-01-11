@@ -48,17 +48,17 @@
 @class GTLRGames_PeerSessionDiagnostics;
 @class GTLRGames_Played;
 @class GTLRGames_Player;
+@class GTLRGames_Player_Name;
 @class GTLRGames_PlayerAchievement;
 @class GTLRGames_PlayerEvent;
 @class GTLRGames_PlayerExperienceInfo;
 @class GTLRGames_PlayerLeaderboardScore;
 @class GTLRGames_PlayerLevel;
-@class GTLRGames_PlayerName;
 @class GTLRGames_PlayerScore;
 @class GTLRGames_PlayerScoreResponse;
 @class GTLRGames_ProfileSettings;
 @class GTLRGames_PushTokenId;
-@class GTLRGames_PushTokenIdIos;
+@class GTLRGames_PushTokenId_Ios;
 @class GTLRGames_Quest;
 @class GTLRGames_QuestContribution;
 @class GTLRGames_QuestCriterion;
@@ -1686,7 +1686,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  An object representation of the individual components of the player's name.
  *  For some players, these fields may not be present.
  */
-@property(nonatomic, strong, nullable) GTLRGames_PlayerName *name;
+@property(nonatomic, strong, nullable) GTLRGames_Player_Name *name;
 
 /**
  *  The player ID that was used for this player the first time they signed into
@@ -1715,7 +1715,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  An object representation of the individual components of the player's name.
  *  For some players, these fields may not be present.
  */
-@interface GTLRGames_PlayerName : GTLRObject
+@interface GTLRGames_Player_Name : GTLRObject
 
 /**
  *  The family name of this player. In some places, this is known as the last
@@ -2256,7 +2256,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGames_PushTokenId : GTLRObject
 
 /** A push token ID for iOS devices. */
-@property(nonatomic, strong, nullable) GTLRGames_PushTokenIdIos *ios;
+@property(nonatomic, strong, nullable) GTLRGames_PushTokenId_Ios *ios;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
@@ -2270,7 +2270,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A push token ID for iOS devices.
  */
-@interface GTLRGames_PushTokenIdIos : GTLRObject
+@interface GTLRGames_PushTokenId_Ios : GTLRObject
 
 /**
  *  Device token supplied by an iOS system call to register for remote

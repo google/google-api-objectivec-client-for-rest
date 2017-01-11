@@ -101,10 +101,10 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSpeech_OperationMetadata
+//   GTLRSpeech_Operation_Metadata
 //
 
-@implementation GTLRSpeech_OperationMetadata
+@implementation GTLRSpeech_Operation_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -115,10 +115,10 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSpeech_OperationResponse
+//   GTLRSpeech_Operation_Response
 //
 
-@implementation GTLRSpeech_OperationResponse
+@implementation GTLRSpeech_Operation_Response
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -186,7 +186,7 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRSpeech_StatusDetailsItem class]
+    @"details" : [GTLRSpeech_Status_Details_Item class]
   };
   return map;
 }
@@ -196,10 +196,10 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSpeech_StatusDetailsItem
+//   GTLRSpeech_Status_Details_Item
 //
 
-@implementation GTLRSpeech_StatusDetailsItem
+@implementation GTLRSpeech_Status_Details_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

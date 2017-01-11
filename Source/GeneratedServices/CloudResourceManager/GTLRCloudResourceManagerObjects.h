@@ -21,16 +21,16 @@
 
 @class GTLRCloudResourceManager_Ancestor;
 @class GTLRCloudResourceManager_Binding;
-@class GTLRCloudResourceManager_OperationMetadata;
-@class GTLRCloudResourceManager_OperationResponse;
+@class GTLRCloudResourceManager_Operation_Metadata;
+@class GTLRCloudResourceManager_Operation_Response;
 @class GTLRCloudResourceManager_Organization;
 @class GTLRCloudResourceManager_OrganizationOwner;
 @class GTLRCloudResourceManager_Policy;
 @class GTLRCloudResourceManager_Project;
-@class GTLRCloudResourceManager_ProjectLabels;
+@class GTLRCloudResourceManager_Project_Labels;
 @class GTLRCloudResourceManager_ResourceId;
 @class GTLRCloudResourceManager_Status;
-@class GTLRCloudResourceManager_StatusDetailsItem;
+@class GTLRCloudResourceManager_Status_Details_Item;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -401,7 +401,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  Some services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
-@property(nonatomic, strong, nullable) GTLRCloudResourceManager_OperationMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
@@ -420,7 +420,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  is `TakeSnapshot()`, the inferred response type is
  *  `TakeSnapshotResponse`.
  */
-@property(nonatomic, strong, nullable) GTLRCloudResourceManager_OperationResponse *response;
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_Operation_Response *response;
 
 @end
 
@@ -436,7 +436,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRCloudResourceManager_OperationMetadata : GTLRObject
+@interface GTLRCloudResourceManager_Operation_Metadata : GTLRObject
 @end
 
 
@@ -455,7 +455,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRCloudResourceManager_OperationResponse : GTLRObject
+@interface GTLRCloudResourceManager_Operation_Response : GTLRObject
 @end
 
 
@@ -617,7 +617,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  Example: <code>"environment" : "dev"</code>
  *  Read-write.
  */
-@property(nonatomic, strong, nullable) GTLRCloudResourceManager_ProjectLabels *labels;
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_Project_Labels *labels;
 
 /**
  *  The Project lifecycle state.
@@ -655,7 +655,9 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 /**
  *  An optional reference to a parent Resource.
  *  The only supported parent type is "organization". Once set, the parent
- *  cannot be modified.
+ *  cannot be modified. The `parent` can be set on creation or using the
+ *  `UpdateProject` method; the end user must have the
+ *  `resourcemanager.projects.create` permission on the parent.
  *  Read-write.
  */
 @property(nonatomic, strong, nullable) GTLRCloudResourceManager_ResourceId *parent;
@@ -699,7 +701,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRCloudResourceManager_ProjectLabels : GTLRObject
+@interface GTLRCloudResourceManager_Project_Labels : GTLRObject
 @end
 
 
@@ -900,7 +902,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  A list of messages that carry the error details. There will be a
  *  common set of message types for APIs to use.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Status_Details_Item *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
@@ -913,14 +915,14 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 
 /**
- *  GTLRCloudResourceManager_StatusDetailsItem
+ *  GTLRCloudResourceManager_Status_Details_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRCloudResourceManager_StatusDetailsItem : GTLRObject
+@interface GTLRCloudResourceManager_Status_Details_Item : GTLRObject
 @end
 
 

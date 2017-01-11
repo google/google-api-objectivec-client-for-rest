@@ -740,7 +740,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ServiceAccountKey
-@dynamic data, identifier, kind, type;
+@dynamic data, identifier, kind, publicData, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

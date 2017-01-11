@@ -1116,12 +1116,12 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         // Collect the server version pairs to describe.
         NSMutableSet *apisLeftToSkip = [self.apisToSkip mutableCopy];
         NSArray *sortedAPIItems = [apiList.items sortedArrayUsingComparator:
-          ^NSComparisonResult(GTLRDiscovery_DirectoryListItemsItem *api1,
-                              GTLRDiscovery_DirectoryListItemsItem *api2) {
+          ^NSComparisonResult(GTLRDiscovery_DirectoryList_Items_Item *api1,
+                              GTLRDiscovery_DirectoryList_Items_Item *api2) {
             return [api1.name caseInsensitiveCompare:api2.name];
           }];
 
-        for (GTLRDiscovery_DirectoryListItemsItem *listItem in sortedAPIItems) {
+        for (GTLRDiscovery_DirectoryList_Items_Item *listItem in sortedAPIItems) {
           NSString *apiName = listItem.name;
           NSString *apiVersion =
               [NSString stringWithFormat:@"%@:%@", apiName, listItem.version];

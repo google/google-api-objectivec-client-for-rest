@@ -168,10 +168,10 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudResourceManager_OperationMetadata
+//   GTLRCloudResourceManager_Operation_Metadata
 //
 
-@implementation GTLRCloudResourceManager_OperationMetadata
+@implementation GTLRCloudResourceManager_Operation_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -182,10 +182,10 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudResourceManager_OperationResponse
+//   GTLRCloudResourceManager_Operation_Response
 //
 
-@implementation GTLRCloudResourceManager_OperationResponse
+@implementation GTLRCloudResourceManager_Operation_Response
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -249,10 +249,10 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudResourceManager_ProjectLabels
+//   GTLRCloudResourceManager_Project_Labels
 //
 
-@implementation GTLRCloudResourceManager_ProjectLabels
+@implementation GTLRCloudResourceManager_Project_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -338,7 +338,7 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRCloudResourceManager_StatusDetailsItem class]
+    @"details" : [GTLRCloudResourceManager_Status_Details_Item class]
   };
   return map;
 }
@@ -348,10 +348,10 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudResourceManager_StatusDetailsItem
+//   GTLRCloudResourceManager_Status_Details_Item
 //
 
-@implementation GTLRCloudResourceManager_StatusDetailsItem
+@implementation GTLRCloudResourceManager_Status_Details_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

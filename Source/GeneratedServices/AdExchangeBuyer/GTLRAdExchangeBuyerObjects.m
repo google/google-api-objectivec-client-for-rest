@@ -27,7 +27,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"bidderLocation" : [GTLRAdExchangeBuyer_AccountBidderLocationItem class]
+    @"bidderLocation" : [GTLRAdExchangeBuyer_Account_BidderLocation_Item class]
   };
   return map;
 }
@@ -37,10 +37,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_AccountBidderLocationItem
+//   GTLRAdExchangeBuyer_Account_BidderLocation_Item
 //
 
-@implementation GTLRAdExchangeBuyer_AccountBidderLocationItem
+@implementation GTLRAdExchangeBuyer_Account_BidderLocation_Item
 @dynamic bidProtocol, maximumQps, region, url;
 @end
 
@@ -261,14 +261,14 @@
     @"advertiserId" : [NSNumber class],
     @"attribute" : [NSNumber class],
     @"clickThroughUrl" : [NSString class],
-    @"corrections" : [GTLRAdExchangeBuyer_CreativeCorrectionsItem class],
+    @"corrections" : [GTLRAdExchangeBuyer_Creative_Corrections_Item class],
     @"detectedDomains" : [NSString class],
     @"impressionTrackingUrl" : [NSString class],
     @"languages" : [NSString class],
     @"productCategories" : [NSNumber class],
     @"restrictedCategories" : [NSNumber class],
     @"sensitiveCategories" : [NSNumber class],
-    @"servingRestrictions" : [GTLRAdExchangeBuyer_CreativeServingRestrictionsItem class],
+    @"servingRestrictions" : [GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item class],
     @"vendorType" : [NSNumber class]
   };
   return map;
@@ -279,15 +279,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_CreativeCorrectionsItem
+//   GTLRAdExchangeBuyer_Creative_Corrections_Item
 //
 
-@implementation GTLRAdExchangeBuyer_CreativeCorrectionsItem
+@implementation GTLRAdExchangeBuyer_Creative_Corrections_Item
 @dynamic contexts, details, reason;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"contexts" : [GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem class],
+    @"contexts" : [GTLRAdExchangeBuyer_Creative_Corrections_Item_Contexts_Item class],
     @"details" : [NSString class]
   };
   return map;
@@ -298,15 +298,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_CreativeFilteringReasons
+//   GTLRAdExchangeBuyer_Creative_FilteringReasons
 //
 
-@implementation GTLRAdExchangeBuyer_CreativeFilteringReasons
+@implementation GTLRAdExchangeBuyer_Creative_FilteringReasons
 @dynamic date, reasons;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"reasons" : [GTLRAdExchangeBuyer_CreativeFilteringReasonsReasonsItem class]
+    @"reasons" : [GTLRAdExchangeBuyer_Creative_FilteringReasons_Reasons_Item class]
   };
   return map;
 }
@@ -316,10 +316,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_CreativeNativeAd
+//   GTLRAdExchangeBuyer_Creative_NativeAd
 //
 
-@implementation GTLRAdExchangeBuyer_CreativeNativeAd
+@implementation GTLRAdExchangeBuyer_Creative_NativeAd
 @dynamic advertiser, appIcon, body, callToAction, clickLinkUrl,
          clickTrackingUrl, headline, image, impressionTrackingUrl, logo, price,
          starRating, store, videoURL;
@@ -336,16 +336,16 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_CreativeServingRestrictionsItem
+//   GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item
 //
 
-@implementation GTLRAdExchangeBuyer_CreativeServingRestrictionsItem
+@implementation GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item
 @dynamic contexts, disapprovalReasons, reason;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"contexts" : [GTLRAdExchangeBuyer_CreativeServingRestrictionsItemContextsItem class],
-    @"disapprovalReasons" : [GTLRAdExchangeBuyer_CreativeServingRestrictionsItemDisapprovalReasonsItem class]
+    @"contexts" : [GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_Contexts_Item class],
+    @"disapprovalReasons" : [GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_DisapprovalReasons_Item class]
   };
   return map;
 }
@@ -355,10 +355,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem
+//   GTLRAdExchangeBuyer_Creative_Corrections_Item_Contexts_Item
 //
 
-@implementation GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem
+@implementation GTLRAdExchangeBuyer_Creative_Corrections_Item_Contexts_Item
 @dynamic auctionType, contextType, geoCriteriaId, platform;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -375,50 +375,50 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_CreativeFilteringReasonsReasonsItem
+//   GTLRAdExchangeBuyer_Creative_FilteringReasons_Reasons_Item
 //
 
-@implementation GTLRAdExchangeBuyer_CreativeFilteringReasonsReasonsItem
+@implementation GTLRAdExchangeBuyer_Creative_FilteringReasons_Reasons_Item
 @dynamic filteringCount, filteringStatus;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_CreativeNativeAdAppIcon
+//   GTLRAdExchangeBuyer_Creative_NativeAd_AppIcon
 //
 
-@implementation GTLRAdExchangeBuyer_CreativeNativeAdAppIcon
+@implementation GTLRAdExchangeBuyer_Creative_NativeAd_AppIcon
 @dynamic height, url, width;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_CreativeNativeAdImage
+//   GTLRAdExchangeBuyer_Creative_NativeAd_Image
 //
 
-@implementation GTLRAdExchangeBuyer_CreativeNativeAdImage
+@implementation GTLRAdExchangeBuyer_Creative_NativeAd_Image
 @dynamic height, url, width;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_CreativeNativeAdLogo
+//   GTLRAdExchangeBuyer_Creative_NativeAd_Logo
 //
 
-@implementation GTLRAdExchangeBuyer_CreativeNativeAdLogo
+@implementation GTLRAdExchangeBuyer_Creative_NativeAd_Logo
 @dynamic height, url, width;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_CreativeServingRestrictionsItemContextsItem
+//   GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_Contexts_Item
 //
 
-@implementation GTLRAdExchangeBuyer_CreativeServingRestrictionsItemContextsItem
+@implementation GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_Contexts_Item
 @dynamic auctionType, contextType, geoCriteriaId, platform;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -435,10 +435,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_CreativeServingRestrictionsItemDisapprovalReasonsItem
+//   GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_DisapprovalReasons_Item
 //
 
-@implementation GTLRAdExchangeBuyer_CreativeServingRestrictionsItemDisapprovalReasonsItem
+@implementation GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_DisapprovalReasons_Item
 @dynamic details, reason;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -461,7 +461,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"dealStatuses" : [GTLRAdExchangeBuyer_CreativeDealIdsDealStatusesItem class]
+    @"dealStatuses" : [GTLRAdExchangeBuyer_CreativeDealIds_DealStatuses_Item class]
   };
   return map;
 }
@@ -471,10 +471,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_CreativeDealIdsDealStatusesItem
+//   GTLRAdExchangeBuyer_CreativeDealIds_DealStatuses_Item
 //
 
-@implementation GTLRAdExchangeBuyer_CreativeDealIdsDealStatusesItem
+@implementation GTLRAdExchangeBuyer_CreativeDealIds_DealStatuses_Item
 @dynamic arcStatus, dealId, webPropertyId;
 @end
 
@@ -945,7 +945,7 @@
 @dynamic billingId, configId, configName, creativeType, dimensions,
          excludedContentLabels, excludedGeoCriteriaIds, excludedPlacements,
          excludedUserLists, excludedVerticals, geoCriteriaIds, isActive, kind,
-         languages, mobileCarriers, mobileDevices,
+         languages, minimumViewabilityDecile, mobileCarriers, mobileDevices,
          mobileOperatingSystemVersions, placements, platforms,
          supportedCreativeAttributes, userIdentifierDataRequired, userLists,
          vendorTypes, verticals, videoPlayerSizes;
@@ -953,10 +953,10 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"creativeType" : [NSString class],
-    @"dimensions" : [GTLRAdExchangeBuyer_PretargetingConfigDimensionsItem class],
+    @"dimensions" : [GTLRAdExchangeBuyer_PretargetingConfig_Dimensions_Item class],
     @"excludedContentLabels" : [NSNumber class],
     @"excludedGeoCriteriaIds" : [NSNumber class],
-    @"excludedPlacements" : [GTLRAdExchangeBuyer_PretargetingConfigExcludedPlacementsItem class],
+    @"excludedPlacements" : [GTLRAdExchangeBuyer_PretargetingConfig_ExcludedPlacements_Item class],
     @"excludedUserLists" : [NSNumber class],
     @"excludedVerticals" : [NSNumber class],
     @"geoCriteriaIds" : [NSNumber class],
@@ -964,14 +964,14 @@
     @"mobileCarriers" : [NSNumber class],
     @"mobileDevices" : [NSNumber class],
     @"mobileOperatingSystemVersions" : [NSNumber class],
-    @"placements" : [GTLRAdExchangeBuyer_PretargetingConfigPlacementsItem class],
+    @"placements" : [GTLRAdExchangeBuyer_PretargetingConfig_Placements_Item class],
     @"platforms" : [NSString class],
     @"supportedCreativeAttributes" : [NSNumber class],
     @"userIdentifierDataRequired" : [NSString class],
     @"userLists" : [NSNumber class],
     @"vendorTypes" : [NSNumber class],
     @"verticals" : [NSNumber class],
-    @"videoPlayerSizes" : [GTLRAdExchangeBuyer_PretargetingConfigVideoPlayerSizesItem class]
+    @"videoPlayerSizes" : [GTLRAdExchangeBuyer_PretargetingConfig_VideoPlayerSizes_Item class]
   };
   return map;
 }
@@ -981,40 +981,40 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_PretargetingConfigDimensionsItem
+//   GTLRAdExchangeBuyer_PretargetingConfig_Dimensions_Item
 //
 
-@implementation GTLRAdExchangeBuyer_PretargetingConfigDimensionsItem
+@implementation GTLRAdExchangeBuyer_PretargetingConfig_Dimensions_Item
 @dynamic height, width;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_PretargetingConfigExcludedPlacementsItem
+//   GTLRAdExchangeBuyer_PretargetingConfig_ExcludedPlacements_Item
 //
 
-@implementation GTLRAdExchangeBuyer_PretargetingConfigExcludedPlacementsItem
+@implementation GTLRAdExchangeBuyer_PretargetingConfig_ExcludedPlacements_Item
 @dynamic token, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_PretargetingConfigPlacementsItem
+//   GTLRAdExchangeBuyer_PretargetingConfig_Placements_Item
 //
 
-@implementation GTLRAdExchangeBuyer_PretargetingConfigPlacementsItem
+@implementation GTLRAdExchangeBuyer_PretargetingConfig_Placements_Item
 @dynamic token, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyer_PretargetingConfigVideoPlayerSizesItem
+//   GTLRAdExchangeBuyer_PretargetingConfig_VideoPlayerSizes_Item
 //
 
-@implementation GTLRAdExchangeBuyer_PretargetingConfigVideoPlayerSizesItem
+@implementation GTLRAdExchangeBuyer_PretargetingConfig_VideoPlayerSizes_Item
 @dynamic aspectRatio, minHeight, minWidth;
 @end
 
@@ -1075,9 +1075,10 @@
 @implementation GTLRAdExchangeBuyer_Product
 @dynamic creationTimeMs, creatorContacts, deliveryControl, flightEndTimeMs,
          flightStartTimeMs, hasCreatorSignedOff, inventorySource, kind, labels,
-         lastUpdateTimeMs, legacyOfferId, name, privateAuctionId, productId,
-         publisherProfileId, publisherProvidedForecast, revisionNumber, seller,
-         sharedTargetings, state, syndicationProduct, terms, webPropertyCode;
+         lastUpdateTimeMs, legacyOfferId, marketplacePublisherProfileId, name,
+         privateAuctionId, productId, publisherProfileId,
+         publisherProvidedForecast, revisionNumber, seller, sharedTargetings,
+         state, syndicationProduct, terms, webPropertyCode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

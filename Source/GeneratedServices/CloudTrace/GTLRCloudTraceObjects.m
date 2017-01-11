@@ -107,10 +107,10 @@ NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified = @"SPAN_KIN
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTrace_TraceSpanLabels
+//   GTLRCloudTrace_TraceSpan_Labels
 //
 
-@implementation GTLRCloudTrace_TraceSpanLabels
+@implementation GTLRCloudTrace_TraceSpan_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

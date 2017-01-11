@@ -26,7 +26,7 @@
 @class GTLRContainer_HttpLoadBalancing;
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_NodeConfig;
-@class GTLRContainer_NodeConfigMetadata;
+@class GTLRContainer_NodeConfig_Metadata;
 @class GTLRContainer_NodePool;
 @class GTLRContainer_Operation;
 
@@ -541,7 +541,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  *  than or equal to 32 KB. The total size of all keys and values must be less
  *  than 512 KB.
  */
-@property(nonatomic, strong, nullable) GTLRContainer_NodeConfigMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_Metadata *metadata;
 
 /**
  *  The set of Google API scopes to be made available on all of the node VMs
@@ -577,7 +577,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRContainer_NodeConfigMetadata : GTLRObject
+@interface GTLRContainer_NodeConfig_Metadata : GTLRObject
 @end
 
 

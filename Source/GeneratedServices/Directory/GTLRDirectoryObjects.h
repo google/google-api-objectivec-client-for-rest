@@ -22,30 +22,30 @@
 
 @class GTLRDirectory_Asp;
 @class GTLRDirectory_CalendarResource;
-@class GTLRDirectory_ChannelParams;
+@class GTLRDirectory_Channel_Params;
 @class GTLRDirectory_ChromeOsDevice;
-@class GTLRDirectory_ChromeOsDeviceActiveTimeRangesItem;
-@class GTLRDirectory_ChromeOsDeviceRecentUsersItem;
+@class GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item;
+@class GTLRDirectory_ChromeOsDevice_RecentUsers_Item;
 @class GTLRDirectory_CustomerPostalAddress;
 @class GTLRDirectory_DomainAlias;
 @class GTLRDirectory_Domains;
 @class GTLRDirectory_Group;
 @class GTLRDirectory_Member;
 @class GTLRDirectory_MobileDevice;
-@class GTLRDirectory_MobileDeviceApplicationsItem;
+@class GTLRDirectory_MobileDevice_Applications_Item;
 @class GTLRDirectory_Notification;
 @class GTLRDirectory_OrgUnit;
 @class GTLRDirectory_Privilege;
 @class GTLRDirectory_Role;
+@class GTLRDirectory_Role_RolePrivileges_Item;
 @class GTLRDirectory_RoleAssignment;
-@class GTLRDirectory_RoleRolePrivilegesItem;
 @class GTLRDirectory_Schema;
 @class GTLRDirectory_SchemaFieldSpec;
-@class GTLRDirectory_SchemaFieldSpecNumericIndexingSpec;
+@class GTLRDirectory_SchemaFieldSpec_NumericIndexingSpec;
 @class GTLRDirectory_Token;
 @class GTLRDirectory_User;
+@class GTLRDirectory_User_CustomSchemas;
 @class GTLRDirectory_UserCustomProperties;
-@class GTLRDirectory_UserCustomSchemas;
 @class GTLRDirectory_UserName;
 @class GTLRDirectory_VerificationCode;
 
@@ -272,7 +272,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Additional parameters controlling delivery channel behavior. Optional. */
-@property(nonatomic, strong, nullable) GTLRDirectory_ChannelParams *params;
+@property(nonatomic, strong, nullable) GTLRDirectory_Channel_Params *params;
 
 /**
  *  A Boolean value to indicate whether payload is wanted. Optional.
@@ -310,7 +310,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRDirectory_ChannelParams : GTLRObject
+@interface GTLRDirectory_Channel_Params : GTLRObject
 @end
 
 
@@ -320,7 +320,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_ChromeOsDevice : GTLRObject
 
 /** List of active time ranges (Read-only) */
-@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDeviceActiveTimeRangesItem *> *activeTimeRanges;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item *> *activeTimeRanges;
 
 /** AssetId specified during enrollment or through later annotation */
 @property(nonatomic, copy, nullable) NSString *annotatedAssetId;
@@ -389,7 +389,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  List of recent device users, in descending order by last login time
  *  (Read-only)
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDeviceRecentUsersItem *> *recentUsers;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_RecentUsers_Item *> *recentUsers;
 
 /** Chromebook serial number (Read-only) */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
@@ -411,9 +411,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDirectory_ChromeOsDeviceActiveTimeRangesItem
+ *  GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item
  */
-@interface GTLRDirectory_ChromeOsDeviceActiveTimeRangesItem : GTLRObject
+@interface GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item : GTLRObject
 
 /**
  *  Duration in milliseconds
@@ -433,9 +433,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDirectory_ChromeOsDeviceRecentUsersItem
+ *  GTLRDirectory_ChromeOsDevice_RecentUsers_Item
  */
-@interface GTLRDirectory_ChromeOsDeviceRecentUsersItem : GTLRObject
+@interface GTLRDirectory_ChromeOsDevice_RecentUsers_Item : GTLRObject
 
 /** Email address of the user. Present only if the user type is managed */
 @property(nonatomic, copy, nullable) NSString *email;
@@ -860,7 +860,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *adbStatus;
 
 /** List of applications installed on Mobile Device */
-@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_MobileDeviceApplicationsItem *> *applications;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_MobileDevice_Applications_Item *> *applications;
 
 /** Mobile Device Baseband version (Read-only) */
 @property(nonatomic, copy, nullable) NSString *basebandVersion;
@@ -1007,9 +1007,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDirectory_MobileDeviceApplicationsItem
+ *  GTLRDirectory_MobileDevice_Applications_Item
  */
-@interface GTLRDirectory_MobileDeviceApplicationsItem : GTLRObject
+@interface GTLRDirectory_MobileDevice_Applications_Item : GTLRObject
 
 /** Display name of application */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -1311,15 +1311,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *roleName;
 
 /** The set of privileges that are granted to this role. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_RoleRolePrivilegesItem *> *rolePrivileges;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Role_RolePrivileges_Item *> *rolePrivileges;
 
 @end
 
 
 /**
- *  GTLRDirectory_RoleRolePrivilegesItem
+ *  GTLRDirectory_Role_RolePrivileges_Item
  */
-@interface GTLRDirectory_RoleRolePrivilegesItem : GTLRObject
+@interface GTLRDirectory_Role_RolePrivileges_Item : GTLRObject
 
 /** The name of the privilege. */
 @property(nonatomic, copy, nullable) NSString *privilegeName;
@@ -1499,7 +1499,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  be supported for numeric fields. Setting the numericIndexingSpec allows
  *  range queries to be supported.
  */
-@property(nonatomic, strong, nullable) GTLRDirectory_SchemaFieldSpecNumericIndexingSpec *numericIndexingSpec;
+@property(nonatomic, strong, nullable) GTLRDirectory_SchemaFieldSpec_NumericIndexingSpec *numericIndexingSpec;
 
 /**
  *  Read ACLs on the field specifying who can view values of this field. Valid
@@ -1515,7 +1515,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  be supported for numeric fields. Setting the numericIndexingSpec allows
  *  range queries to be supported.
  */
-@interface GTLRDirectory_SchemaFieldSpecNumericIndexingSpec : GTLRObject
+@interface GTLRDirectory_SchemaFieldSpec_NumericIndexingSpec : GTLRObject
 
 /**
  *  Maximum value of this field. This is meant to be indicative rather than
@@ -1658,7 +1658,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Custom fields of the user. */
-@property(nonatomic, strong, nullable) GTLRDirectory_UserCustomSchemas *customSchemas;
+@property(nonatomic, strong, nullable) GTLRDirectory_User_CustomSchemas *customSchemas;
 
 @property(nonatomic, strong, nullable) GTLRDateTime *deletionTime;
 
@@ -1814,7 +1814,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRDirectory_UserCustomSchemas : GTLRObject
+@interface GTLRDirectory_User_CustomSchemas : GTLRObject
 @end
 
 

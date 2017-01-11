@@ -228,10 +228,10 @@ NSString * const kGTLRContainer_Operation_Status_StatusUnspecified = @"STATUS_UN
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContainer_NodeConfigMetadata
+//   GTLRContainer_NodeConfig_Metadata
 //
 
-@implementation GTLRContainer_NodeConfigMetadata
+@implementation GTLRContainer_NodeConfig_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

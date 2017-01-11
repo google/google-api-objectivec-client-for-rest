@@ -4665,8 +4665,22 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCompute queryForInstanceGroupManagersListManagedInstancesWithproject:zoneProperty:instanceGroupManager:]
 
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** The name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/**
+ *  maxResults
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 0..500).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -8364,8 +8378,22 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCompute queryForRegionInstanceGroupManagersListManagedInstancesWithproject:region:instanceGroupManager:]
 
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** The name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/**
+ *  maxResults
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 0..500).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;

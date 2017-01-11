@@ -53,10 +53,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_AclRuleScope
+//   GTLRCalendar_AclRule_Scope
 //
 
-@implementation GTLRCalendar_AclRuleScope
+@implementation GTLRCalendar_AclRule_Scope
 @dynamic type, value;
 @end
 
@@ -136,10 +136,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_CalendarListEntryNotificationSettings
+//   GTLRCalendar_CalendarListEntry_NotificationSettings
 //
 
-@implementation GTLRCalendar_CalendarListEntryNotificationSettings
+@implementation GTLRCalendar_CalendarListEntry_NotificationSettings
 @dynamic notifications;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -170,10 +170,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_ChannelParams
+//   GTLRCalendar_Channel_Params
 //
 
-@implementation GTLRCalendar_ChannelParams
+@implementation GTLRCalendar_Channel_Params
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -204,10 +204,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_ColorsCalendar
+//   GTLRCalendar_Colors_Calendar
 //
 
-@implementation GTLRCalendar_ColorsCalendar
+@implementation GTLRCalendar_Colors_Calendar
 
 + (Class)classForAdditionalProperties {
   return [GTLRCalendar_ColorDefinition class];
@@ -218,10 +218,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_ColorsEvent
+//   GTLRCalendar_Colors_Event
 //
 
-@implementation GTLRCalendar_ColorsEvent
+@implementation GTLRCalendar_Colors_Event
 
 + (Class)classForAdditionalProperties {
   return [GTLRCalendar_ColorDefinition class];
@@ -277,10 +277,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_EventCreator
+//   GTLRCalendar_Event_Creator
 //
 
-@implementation GTLRCalendar_EventCreator
+@implementation GTLRCalendar_Event_Creator
 @dynamic displayName, email, identifier, selfProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -296,10 +296,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_EventExtendedProperties
+//   GTLRCalendar_Event_ExtendedProperties
 //
 
-@implementation GTLRCalendar_EventExtendedProperties
+@implementation GTLRCalendar_Event_ExtendedProperties
 @dynamic privateProperty, shared;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -311,20 +311,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_EventGadget
+//   GTLRCalendar_Event_Gadget
 //
 
-@implementation GTLRCalendar_EventGadget
+@implementation GTLRCalendar_Event_Gadget
 @dynamic display, height, iconLink, link, preferences, title, type, width;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_EventOrganizer
+//   GTLRCalendar_Event_Organizer
 //
 
-@implementation GTLRCalendar_EventOrganizer
+@implementation GTLRCalendar_Event_Organizer
 @dynamic displayName, email, identifier, selfProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -340,10 +340,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_EventReminders
+//   GTLRCalendar_Event_Reminders
 //
 
-@implementation GTLRCalendar_EventReminders
+@implementation GTLRCalendar_Event_Reminders
 @dynamic overrides, useDefault;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -358,20 +358,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_EventSource
+//   GTLRCalendar_Event_Source
 //
 
-@implementation GTLRCalendar_EventSource
+@implementation GTLRCalendar_Event_Source
 @dynamic title, url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_EventExtendedPropertiesPrivate
+//   GTLRCalendar_Event_ExtendedProperties_Private
 //
 
-@implementation GTLRCalendar_EventExtendedPropertiesPrivate
+@implementation GTLRCalendar_Event_ExtendedProperties_Private
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -382,10 +382,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_EventExtendedPropertiesShared
+//   GTLRCalendar_Event_ExtendedProperties_Shared
 //
 
-@implementation GTLRCalendar_EventExtendedPropertiesShared
+@implementation GTLRCalendar_Event_ExtendedProperties_Shared
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -396,10 +396,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_EventGadgetPreferences
+//   GTLRCalendar_Event_Gadget_Preferences
 //
 
-@implementation GTLRCalendar_EventGadgetPreferences
+@implementation GTLRCalendar_Event_Gadget_Preferences
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -570,10 +570,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_FreeBusyResponseCalendars
+//   GTLRCalendar_FreeBusyResponse_Calendars
 //
 
-@implementation GTLRCalendar_FreeBusyResponseCalendars
+@implementation GTLRCalendar_FreeBusyResponse_Calendars
 
 + (Class)classForAdditionalProperties {
   return [GTLRCalendar_FreeBusyCalendar class];
@@ -584,10 +584,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCalendar_FreeBusyResponseGroups
+//   GTLRCalendar_FreeBusyResponse_Groups
 //
 
-@implementation GTLRCalendar_FreeBusyResponseGroups
+@implementation GTLRCalendar_FreeBusyResponse_Groups
 
 + (Class)classForAdditionalProperties {
   return [GTLRCalendar_FreeBusyGroup class];

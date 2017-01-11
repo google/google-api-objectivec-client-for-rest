@@ -19,84 +19,84 @@
 #endif
 
 @class GTLRBooks_Annotation;
-@class GTLRBooks_AnnotationClientVersionRanges;
-@class GTLRBooks_AnnotationCurrentVersionRanges;
+@class GTLRBooks_Annotation_ClientVersionRanges;
+@class GTLRBooks_Annotation_CurrentVersionRanges;
+@class GTLRBooks_Annotation_LayerSummary;
 @class GTLRBooks_Annotationdata;
-@class GTLRBooks_AnnotationLayerSummary;
 @class GTLRBooks_AnnotationsRange;
-@class GTLRBooks_AnnotationsSummaryLayersItem;
+@class GTLRBooks_AnnotationsSummary_Layers_Item;
 @class GTLRBooks_Bookshelf;
-@class GTLRBooks_CategoryItemsItem;
+@class GTLRBooks_Category_Items_Item;
 @class GTLRBooks_ConcurrentAccessRestriction;
-@class GTLRBooks_DictlayerdataCommon;
-@class GTLRBooks_DictlayerdataDict;
-@class GTLRBooks_DictlayerdataDictSource;
-@class GTLRBooks_DictlayerdataDictWordsItem;
-@class GTLRBooks_DictlayerdataDictWordsItemDerivativesItem;
-@class GTLRBooks_DictlayerdataDictWordsItemDerivativesItemSource;
-@class GTLRBooks_DictlayerdataDictWordsItemExamplesItem;
-@class GTLRBooks_DictlayerdataDictWordsItemExamplesItemSource;
-@class GTLRBooks_DictlayerdataDictWordsItemSensesItem;
-@class GTLRBooks_DictlayerdataDictWordsItemSensesItemConjugationsItem;
-@class GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItem;
-@class GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItemExamplesItem;
-@class GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItemExamplesItemSource;
-@class GTLRBooks_DictlayerdataDictWordsItemSensesItemSource;
-@class GTLRBooks_DictlayerdataDictWordsItemSensesItemSynonymsItem;
-@class GTLRBooks_DictlayerdataDictWordsItemSensesItemSynonymsItemSource;
-@class GTLRBooks_DictlayerdataDictWordsItemSource;
-@class GTLRBooks_DiscoveryclustersClustersItem;
-@class GTLRBooks_DiscoveryclustersClustersItemBannerWithContentContainer;
+@class GTLRBooks_Dictlayerdata_Common;
+@class GTLRBooks_Dictlayerdata_Dict;
+@class GTLRBooks_Dictlayerdata_Dict_Source;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item_Derivatives_Item;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item_Derivatives_Item_Source;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item_Examples_Item;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item_Examples_Item_Source;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Conjugations_Item;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item_Examples_Item;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item_Examples_Item_Source;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Source;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Synonyms_Item;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Synonyms_Item_Source;
+@class GTLRBooks_Dictlayerdata_Dict_Words_Item_Source;
+@class GTLRBooks_Discoveryclusters_Clusters_Item;
+@class GTLRBooks_Discoveryclusters_Clusters_Item_BannerWithContentContainer;
 @class GTLRBooks_DownloadAccessRestriction;
-@class GTLRBooks_GeolayerdataCommon;
-@class GTLRBooks_GeolayerdataGeo;
-@class GTLRBooks_GeolayerdataGeoBoundaryItem;
-@class GTLRBooks_GeolayerdataGeoViewport;
-@class GTLRBooks_GeolayerdataGeoViewportHi;
-@class GTLRBooks_GeolayerdataGeoViewportLo;
+@class GTLRBooks_Geolayerdata_Common;
+@class GTLRBooks_Geolayerdata_Geo;
+@class GTLRBooks_Geolayerdata_Geo_Boundary_Item;
+@class GTLRBooks_Geolayerdata_Geo_Viewport;
+@class GTLRBooks_Geolayerdata_Geo_Viewport_Hi;
+@class GTLRBooks_Geolayerdata_Geo_Viewport_Lo;
 @class GTLRBooks_Layersummary;
-@class GTLRBooks_MetadataItemsItem;
-@class GTLRBooks_OffersItemsItem;
-@class GTLRBooks_OffersItemsItemItemsItem;
+@class GTLRBooks_Metadata_Items_Item;
+@class GTLRBooks_Offers_Items_Item;
+@class GTLRBooks_Offers_Items_Item_Items_Item;
 @class GTLRBooks_ReadingPosition;
 @class GTLRBooks_Review;
-@class GTLRBooks_ReviewAuthor;
-@class GTLRBooks_ReviewSource;
-@class GTLRBooks_SeriesSeriesItem;
-@class GTLRBooks_UsersettingsNotesExport;
-@class GTLRBooks_UsersettingsNotification;
-@class GTLRBooks_UsersettingsNotificationMoreFromAuthors;
-@class GTLRBooks_UsersettingsNotificationMoreFromSeries;
+@class GTLRBooks_Review_Author;
+@class GTLRBooks_Review_Source;
+@class GTLRBooks_Series_Series_Item;
+@class GTLRBooks_Usersettings_NotesExport;
+@class GTLRBooks_Usersettings_Notification;
+@class GTLRBooks_Usersettings_Notification_MoreFromAuthors;
+@class GTLRBooks_Usersettings_Notification_MoreFromSeries;
 @class GTLRBooks_Volume;
-@class GTLRBooks_VolumeAccessInfo;
-@class GTLRBooks_VolumeAccessInfoEpub;
-@class GTLRBooks_VolumeAccessInfoPdf;
+@class GTLRBooks_Volume_AccessInfo;
+@class GTLRBooks_Volume_AccessInfo_Epub;
+@class GTLRBooks_Volume_AccessInfo_Pdf;
+@class GTLRBooks_Volume_LayerInfo;
+@class GTLRBooks_Volume_LayerInfo_Layers_Item;
+@class GTLRBooks_Volume_RecommendedInfo;
+@class GTLRBooks_Volume_SaleInfo;
+@class GTLRBooks_Volume_SaleInfo_ListPrice;
+@class GTLRBooks_Volume_SaleInfo_Offers_Item;
+@class GTLRBooks_Volume_SaleInfo_Offers_Item_ListPrice;
+@class GTLRBooks_Volume_SaleInfo_Offers_Item_RentalDuration;
+@class GTLRBooks_Volume_SaleInfo_Offers_Item_RetailPrice;
+@class GTLRBooks_Volume_SaleInfo_RetailPrice;
+@class GTLRBooks_Volume_SearchInfo;
+@class GTLRBooks_Volume_UserInfo;
+@class GTLRBooks_Volume_UserInfo_Copy;
+@class GTLRBooks_Volume_UserInfo_FamilySharing;
+@class GTLRBooks_Volume_UserInfo_RentalPeriod;
+@class GTLRBooks_Volume_UserInfo_UserUploadedVolumeInfo;
+@class GTLRBooks_Volume_VolumeInfo;
+@class GTLRBooks_Volume_VolumeInfo_Dimensions;
+@class GTLRBooks_Volume_VolumeInfo_ImageLinks;
+@class GTLRBooks_Volume_VolumeInfo_IndustryIdentifiers_Item;
+@class GTLRBooks_Volume_VolumeInfo_PanelizationSummary;
 @class GTLRBooks_Volumeannotation;
-@class GTLRBooks_VolumeannotationContentRanges;
-@class GTLRBooks_VolumeLayerInfo;
-@class GTLRBooks_VolumeLayerInfoLayersItem;
-@class GTLRBooks_VolumeRecommendedInfo;
-@class GTLRBooks_VolumeSaleInfo;
-@class GTLRBooks_VolumeSaleInfoListPrice;
-@class GTLRBooks_VolumeSaleInfoOffersItem;
-@class GTLRBooks_VolumeSaleInfoOffersItemListPrice;
-@class GTLRBooks_VolumeSaleInfoOffersItemRentalDuration;
-@class GTLRBooks_VolumeSaleInfoOffersItemRetailPrice;
-@class GTLRBooks_VolumeSaleInfoRetailPrice;
-@class GTLRBooks_VolumeSearchInfo;
+@class GTLRBooks_Volumeannotation_ContentRanges;
 @class GTLRBooks_Volumeseriesinfo;
-@class GTLRBooks_VolumeseriesinfoVolumeSeriesItem;
-@class GTLRBooks_VolumeseriesinfoVolumeSeriesItemIssueItem;
-@class GTLRBooks_VolumeUserInfo;
-@class GTLRBooks_VolumeUserInfoCopy;
-@class GTLRBooks_VolumeUserInfoFamilySharing;
-@class GTLRBooks_VolumeUserInfoRentalPeriod;
-@class GTLRBooks_VolumeUserInfoUserUploadedVolumeInfo;
-@class GTLRBooks_VolumeVolumeInfo;
-@class GTLRBooks_VolumeVolumeInfoDimensions;
-@class GTLRBooks_VolumeVolumeInfoImageLinks;
-@class GTLRBooks_VolumeVolumeInfoIndustryIdentifiersItem;
-@class GTLRBooks_VolumeVolumeInfoPanelizationSummary;
+@class GTLRBooks_Volumeseriesinfo_VolumeSeries_Item;
+@class GTLRBooks_Volumeseriesinfo_VolumeSeries_Item_Issue_Item;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -118,13 +118,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *beforeSelectedText;
 
 /** Selection ranges sent from the client. */
-@property(nonatomic, strong, nullable) GTLRBooks_AnnotationClientVersionRanges *clientVersionRanges;
+@property(nonatomic, strong, nullable) GTLRBooks_Annotation_ClientVersionRanges *clientVersionRanges;
 
 /** Timestamp for the created time of this annotation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /** Selection ranges for the most recent content version. */
-@property(nonatomic, strong, nullable) GTLRBooks_AnnotationCurrentVersionRanges *currentVersionRanges;
+@property(nonatomic, strong, nullable) GTLRBooks_Annotation_CurrentVersionRanges *currentVersionRanges;
 
 /** User-created data for this annotation. */
 @property(nonatomic, copy, nullable) NSString *data;
@@ -152,7 +152,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The layer this annotation is for. */
 @property(nonatomic, copy, nullable) NSString *layerId;
 
-@property(nonatomic, strong, nullable) GTLRBooks_AnnotationLayerSummary *layerSummary;
+@property(nonatomic, strong, nullable) GTLRBooks_Annotation_LayerSummary *layerSummary;
 
 /** Pages that this annotation spans. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pageIds;
@@ -175,7 +175,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Selection ranges sent from the client.
  */
-@interface GTLRBooks_AnnotationClientVersionRanges : GTLRObject
+@interface GTLRBooks_Annotation_ClientVersionRanges : GTLRObject
 
 /** Range in CFI format for this annotation sent by client. */
 @property(nonatomic, strong, nullable) GTLRBooks_AnnotationsRange *cfiRange;
@@ -198,7 +198,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Selection ranges for the most recent content version.
  */
-@interface GTLRBooks_AnnotationCurrentVersionRanges : GTLRObject
+@interface GTLRBooks_Annotation_CurrentVersionRanges : GTLRObject
 
 /** Range in CFI format for this annotation for version above. */
 @property(nonatomic, strong, nullable) GTLRBooks_AnnotationsRange *cfiRange;
@@ -219,9 +219,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_AnnotationLayerSummary
+ *  GTLRBooks_Annotation_LayerSummary
  */
-@interface GTLRBooks_AnnotationLayerSummary : GTLRObject
+@interface GTLRBooks_Annotation_LayerSummary : GTLRObject
 
 /**
  *  Maximum allowed characters on this layer, especially for the "copy" layer.
@@ -398,15 +398,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBooks_AnnotationsSummary : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *kind;
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_AnnotationsSummaryLayersItem *> *layers;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_AnnotationsSummary_Layers_Item *> *layers;
 
 @end
 
 
 /**
- *  GTLRBooks_AnnotationsSummaryLayersItem
+ *  GTLRBooks_AnnotationsSummary_Layers_Item
  */
-@interface GTLRBooks_AnnotationsSummaryLayersItem : GTLRObject
+@interface GTLRBooks_AnnotationsSummary_Layers_Item : GTLRObject
 
 /**
  *  allowedCharacterCount
@@ -527,7 +527,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_CategoryItemsItem *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Category_Items_Item *> *items;
 
 /** Resource type. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -536,9 +536,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_CategoryItemsItem
+ *  GTLRBooks_Category_Items_Item
  */
-@interface GTLRBooks_CategoryItemsItem : GTLRObject
+@interface GTLRBooks_Category_Items_Item : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *badgeUrl;
 @property(nonatomic, copy, nullable) NSString *categoryId;
@@ -627,17 +627,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBooks_Dictlayerdata : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRBooks_DictlayerdataCommon *common;
-@property(nonatomic, strong, nullable) GTLRBooks_DictlayerdataDict *dict;
+@property(nonatomic, strong, nullable) GTLRBooks_Dictlayerdata_Common *common;
+@property(nonatomic, strong, nullable) GTLRBooks_Dictlayerdata_Dict *dict;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
 
 /**
- *  GTLRBooks_DictlayerdataCommon
+ *  GTLRBooks_Dictlayerdata_Common
  */
-@interface GTLRBooks_DictlayerdataCommon : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Common : GTLRObject
 
 /**
  *  The display title and localized canonical name to use when searching for
@@ -649,14 +649,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_DictlayerdataDict
+ *  GTLRBooks_Dictlayerdata_Dict
  */
-@interface GTLRBooks_DictlayerdataDict : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict : GTLRObject
 
 /** The source, url and attribution for this dictionary data. */
-@property(nonatomic, strong, nullable) GTLRBooks_DictlayerdataDictSource *source;
+@property(nonatomic, strong, nullable) GTLRBooks_Dictlayerdata_Dict_Source *source;
 
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_DictlayerdataDictWordsItem *> *words;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Dictlayerdata_Dict_Words_Item *> *words;
 
 @end
 
@@ -664,7 +664,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The source, url and attribution for this dictionary data.
  */
-@interface GTLRBooks_DictlayerdataDictSource : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Source : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *attribution;
 @property(nonatomic, copy, nullable) NSString *url;
@@ -673,58 +673,58 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_DictlayerdataDictWordsItem
+ *  GTLRBooks_Dictlayerdata_Dict_Words_Item
  */
-@interface GTLRBooks_DictlayerdataDictWordsItem : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item : GTLRObject
 
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_DictlayerdataDictWordsItemDerivativesItem *> *derivatives;
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_DictlayerdataDictWordsItemExamplesItem *> *examples;
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_DictlayerdataDictWordsItemSensesItem *> *senses;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Dictlayerdata_Dict_Words_Item_Derivatives_Item *> *derivatives;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Dictlayerdata_Dict_Words_Item_Examples_Item *> *examples;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item *> *senses;
 
 /**
  *  The words with different meanings but not related words, e.g. "go" (game)
  *  and "go" (verb).
  */
-@property(nonatomic, strong, nullable) GTLRBooks_DictlayerdataDictWordsItemSource *source;
+@property(nonatomic, strong, nullable) GTLRBooks_Dictlayerdata_Dict_Words_Item_Source *source;
 
 @end
 
 
 /**
- *  GTLRBooks_DictlayerdataDictWordsItemDerivativesItem
+ *  GTLRBooks_Dictlayerdata_Dict_Words_Item_Derivatives_Item
  */
-@interface GTLRBooks_DictlayerdataDictWordsItemDerivativesItem : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Derivatives_Item : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRBooks_DictlayerdataDictWordsItemDerivativesItemSource *source;
+@property(nonatomic, strong, nullable) GTLRBooks_Dictlayerdata_Dict_Words_Item_Derivatives_Item_Source *source;
 @property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
 
 /**
- *  GTLRBooks_DictlayerdataDictWordsItemExamplesItem
+ *  GTLRBooks_Dictlayerdata_Dict_Words_Item_Examples_Item
  */
-@interface GTLRBooks_DictlayerdataDictWordsItemExamplesItem : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Examples_Item : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRBooks_DictlayerdataDictWordsItemExamplesItemSource *source;
+@property(nonatomic, strong, nullable) GTLRBooks_Dictlayerdata_Dict_Words_Item_Examples_Item_Source *source;
 @property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
 
 /**
- *  GTLRBooks_DictlayerdataDictWordsItemSensesItem
+ *  GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item
  */
-@interface GTLRBooks_DictlayerdataDictWordsItemSensesItem : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item : GTLRObject
 
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_DictlayerdataDictWordsItemSensesItemConjugationsItem *> *conjugations;
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItem *> *definitions;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Conjugations_Item *> *conjugations;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item *> *definitions;
 @property(nonatomic, copy, nullable) NSString *partOfSpeech;
 @property(nonatomic, copy, nullable) NSString *pronunciation;
 @property(nonatomic, copy, nullable) NSString *pronunciationUrl;
-@property(nonatomic, strong, nullable) GTLRBooks_DictlayerdataDictWordsItemSensesItemSource *source;
+@property(nonatomic, strong, nullable) GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Source *source;
 @property(nonatomic, copy, nullable) NSString *syllabification;
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_DictlayerdataDictWordsItemSensesItemSynonymsItem *> *synonyms;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Synonyms_Item *> *synonyms;
 
 @end
 
@@ -733,7 +733,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The words with different meanings but not related words, e.g. "go" (game)
  *  and "go" (verb).
  */
-@interface GTLRBooks_DictlayerdataDictWordsItemSource : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Source : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *attribution;
 @property(nonatomic, copy, nullable) NSString *url;
@@ -742,9 +742,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_DictlayerdataDictWordsItemDerivativesItemSource
+ *  GTLRBooks_Dictlayerdata_Dict_Words_Item_Derivatives_Item_Source
  */
-@interface GTLRBooks_DictlayerdataDictWordsItemDerivativesItemSource : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Derivatives_Item_Source : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *attribution;
 @property(nonatomic, copy, nullable) NSString *url;
@@ -753,9 +753,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_DictlayerdataDictWordsItemExamplesItemSource
+ *  GTLRBooks_Dictlayerdata_Dict_Words_Item_Examples_Item_Source
  */
-@interface GTLRBooks_DictlayerdataDictWordsItemExamplesItemSource : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Examples_Item_Source : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *attribution;
 @property(nonatomic, copy, nullable) NSString *url;
@@ -764,9 +764,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_DictlayerdataDictWordsItemSensesItemConjugationsItem
+ *  GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Conjugations_Item
  */
-@interface GTLRBooks_DictlayerdataDictWordsItemSensesItemConjugationsItem : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Conjugations_Item : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *type;
 @property(nonatomic, copy, nullable) NSString *value;
@@ -775,20 +775,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItem
+ *  GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item
  */
-@interface GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItem : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *definition;
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItemExamplesItem *> *examples;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item_Examples_Item *> *examples;
 
 @end
 
 
 /**
- *  GTLRBooks_DictlayerdataDictWordsItemSensesItemSource
+ *  GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Source
  */
-@interface GTLRBooks_DictlayerdataDictWordsItemSensesItemSource : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Source : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *attribution;
 @property(nonatomic, copy, nullable) NSString *url;
@@ -797,31 +797,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_DictlayerdataDictWordsItemSensesItemSynonymsItem
+ *  GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Synonyms_Item
  */
-@interface GTLRBooks_DictlayerdataDictWordsItemSensesItemSynonymsItem : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Synonyms_Item : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRBooks_DictlayerdataDictWordsItemSensesItemSynonymsItemSource *source;
+@property(nonatomic, strong, nullable) GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Synonyms_Item_Source *source;
 @property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
 
 /**
- *  GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItemExamplesItem
+ *  GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item_Examples_Item
  */
-@interface GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItemExamplesItem : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item_Examples_Item : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItemExamplesItemSource *source;
+@property(nonatomic, strong, nullable) GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item_Examples_Item_Source *source;
 @property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
 
 /**
- *  GTLRBooks_DictlayerdataDictWordsItemSensesItemSynonymsItemSource
+ *  GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Synonyms_Item_Source
  */
-@interface GTLRBooks_DictlayerdataDictWordsItemSensesItemSynonymsItemSource : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Synonyms_Item_Source : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *attribution;
 @property(nonatomic, copy, nullable) NSString *url;
@@ -830,9 +830,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItemExamplesItemSource
+ *  GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item_Examples_Item_Source
  */
-@interface GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItemExamplesItemSource : GTLRObject
+@interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item_Examples_Item_Source : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *attribution;
 @property(nonatomic, copy, nullable) NSString *url;
@@ -845,7 +845,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBooks_Discoveryclusters : GTLRObject
 
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_DiscoveryclustersClustersItem *> *clusters;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Discoveryclusters_Clusters_Item *> *clusters;
 
 /** Resorce type. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -861,11 +861,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_DiscoveryclustersClustersItem
+ *  GTLRBooks_Discoveryclusters_Clusters_Item
  */
-@interface GTLRBooks_DiscoveryclustersClustersItem : GTLRObject
+@interface GTLRBooks_Discoveryclusters_Clusters_Item : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRBooks_DiscoveryclustersClustersItemBannerWithContentContainer *bannerWithContentContainer;
+@property(nonatomic, strong, nullable) GTLRBooks_Discoveryclusters_Clusters_Item_BannerWithContentContainer *bannerWithContentContainer;
 @property(nonatomic, copy, nullable) NSString *subTitle;
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -883,9 +883,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_DiscoveryclustersClustersItemBannerWithContentContainer
+ *  GTLRBooks_Discoveryclusters_Clusters_Item_BannerWithContentContainer
  */
-@interface GTLRBooks_DiscoveryclustersClustersItemBannerWithContentContainer : GTLRObject
+@interface GTLRBooks_Discoveryclusters_Clusters_Item_BannerWithContentContainer : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *fillColorArgb;
 @property(nonatomic, copy, nullable) NSString *imageUrl;
@@ -991,17 +991,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBooks_Geolayerdata : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRBooks_GeolayerdataCommon *common;
-@property(nonatomic, strong, nullable) GTLRBooks_GeolayerdataGeo *geo;
+@property(nonatomic, strong, nullable) GTLRBooks_Geolayerdata_Common *common;
+@property(nonatomic, strong, nullable) GTLRBooks_Geolayerdata_Geo *geo;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
 
 /**
- *  GTLRBooks_GeolayerdataCommon
+ *  GTLRBooks_Geolayerdata_Common
  */
-@interface GTLRBooks_GeolayerdataCommon : GTLRObject
+@interface GTLRBooks_Geolayerdata_Common : GTLRObject
 
 /** The language of the information url and description. */
 @property(nonatomic, copy, nullable) NSString *lang;
@@ -1025,15 +1025,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_GeolayerdataGeo
+ *  GTLRBooks_Geolayerdata_Geo
  */
-@interface GTLRBooks_GeolayerdataGeo : GTLRObject
+@interface GTLRBooks_Geolayerdata_Geo : GTLRObject
 
 /**
  *  The boundary of the location as a set of loops containing pairs of latitude,
  *  longitude coordinates.
  */
-@property(nonatomic, strong, nullable) NSArray<NSArray<GTLRBooks_GeolayerdataGeoBoundaryItem *> *> *boundary;
+@property(nonatomic, strong, nullable) NSArray<NSArray<GTLRBooks_Geolayerdata_Geo_Boundary_Item *> *> *boundary;
 
 /**
  *  The cache policy active for this data. EX: UNRESTRICTED, RESTRICTED, NEVER
@@ -1067,7 +1067,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The viewport for showing this location. This is a latitude, longitude
  *  rectangle.
  */
-@property(nonatomic, strong, nullable) GTLRBooks_GeolayerdataGeoViewport *viewport;
+@property(nonatomic, strong, nullable) GTLRBooks_Geolayerdata_Geo_Viewport *viewport;
 
 /**
  *  The Zoom level to use for the map. Zoom levels between 0 (the lowest zoom
@@ -1083,9 +1083,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_GeolayerdataGeoBoundaryItem
+ *  GTLRBooks_Geolayerdata_Geo_Boundary_Item
  */
-@interface GTLRBooks_GeolayerdataGeoBoundaryItem : GTLRObject
+@interface GTLRBooks_Geolayerdata_Geo_Boundary_Item : GTLRObject
 
 /**
  *  latitude
@@ -1108,18 +1108,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  The viewport for showing this location. This is a latitude, longitude
  *  rectangle.
  */
-@interface GTLRBooks_GeolayerdataGeoViewport : GTLRObject
+@interface GTLRBooks_Geolayerdata_Geo_Viewport : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRBooks_GeolayerdataGeoViewportHi *hi;
-@property(nonatomic, strong, nullable) GTLRBooks_GeolayerdataGeoViewportLo *lo;
+@property(nonatomic, strong, nullable) GTLRBooks_Geolayerdata_Geo_Viewport_Hi *hi;
+@property(nonatomic, strong, nullable) GTLRBooks_Geolayerdata_Geo_Viewport_Lo *lo;
 
 @end
 
 
 /**
- *  GTLRBooks_GeolayerdataGeoViewportHi
+ *  GTLRBooks_Geolayerdata_Geo_Viewport_Hi
  */
-@interface GTLRBooks_GeolayerdataGeoViewportHi : GTLRObject
+@interface GTLRBooks_Geolayerdata_Geo_Viewport_Hi : GTLRObject
 
 /**
  *  latitude
@@ -1139,9 +1139,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_GeolayerdataGeoViewportLo
+ *  GTLRBooks_Geolayerdata_Geo_Viewport_Lo
  */
-@interface GTLRBooks_GeolayerdataGeoViewportLo : GTLRObject
+@interface GTLRBooks_Geolayerdata_Geo_Viewport_Lo : GTLRObject
 
 /**
  *  latitude
@@ -1269,7 +1269,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_MetadataItemsItem *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Metadata_Items_Item *> *items;
 
 /** Resource type. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -1278,9 +1278,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_MetadataItemsItem
+ *  GTLRBooks_Metadata_Items_Item
  */
-@interface GTLRBooks_MetadataItemsItem : GTLRObject
+@interface GTLRBooks_Metadata_Items_Item : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *downloadUrl;
 @property(nonatomic, copy, nullable) NSString *encryptedKey;
@@ -1364,7 +1364,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_OffersItemsItem *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Offers_Items_Item *> *items;
 
 /** Resource type. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -1373,12 +1373,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_OffersItemsItem
+ *  GTLRBooks_Offers_Items_Item
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
  */
-@interface GTLRBooks_OffersItemsItem : GTLRCollectionObject
+@interface GTLRBooks_Offers_Items_Item : GTLRCollectionObject
 
 @property(nonatomic, copy, nullable) NSString *artUrl;
 @property(nonatomic, copy, nullable) NSString *gservicesKey;
@@ -1396,15 +1396,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_OffersItemsItemItemsItem *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Offers_Items_Item_Items_Item *> *items;
 
 @end
 
 
 /**
- *  GTLRBooks_OffersItemsItemItemsItem
+ *  GTLRBooks_Offers_Items_Item_Items_Item
  */
-@interface GTLRBooks_OffersItemsItemItemsItem : GTLRObject
+@interface GTLRBooks_Offers_Items_Item_Items_Item : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *author;
 @property(nonatomic, copy, nullable) NSString *canonicalVolumeLink;
@@ -1478,7 +1478,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBooks_Review : GTLRObject
 
 /** Author of this review. */
-@property(nonatomic, strong, nullable) GTLRBooks_ReviewAuthor *author;
+@property(nonatomic, strong, nullable) GTLRBooks_Review_Author *author;
 
 /** Review text. */
 @property(nonatomic, copy, nullable) NSString *content;
@@ -1502,7 +1502,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Information regarding the source of this review, when the review is not from
  *  a Google Books user.
  */
-@property(nonatomic, strong, nullable) GTLRBooks_ReviewSource *source;
+@property(nonatomic, strong, nullable) GTLRBooks_Review_Source *source;
 
 /** Title for this review. */
 @property(nonatomic, copy, nullable) NSString *title;
@@ -1522,7 +1522,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Author of this review.
  */
-@interface GTLRBooks_ReviewAuthor : GTLRObject
+@interface GTLRBooks_Review_Author : GTLRObject
 
 /** Name of this person. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -1534,7 +1534,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Information regarding the source of this review, when the review is not from
  *  a Google Books user.
  */
-@interface GTLRBooks_ReviewSource : GTLRObject
+@interface GTLRBooks_Review_Source : GTLRObject
 
 /**
  *  Name of the source.
@@ -1560,19 +1560,15 @@ NS_ASSUME_NONNULL_BEGIN
 /** Resource type. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/**
- *  Series info list. The client always expects this element in the JSON output,
- *  hence declared here as OutputAlways.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_SeriesSeriesItem *> *series;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Series_Series_Item *> *series;
 
 @end
 
 
 /**
- *  GTLRBooks_SeriesSeriesItem
+ *  GTLRBooks_Series_Series_Item
  */
-@interface GTLRBooks_SeriesSeriesItem : GTLRObject
+@interface GTLRBooks_Series_Series_Item : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *bannerImageUrl;
 @property(nonatomic, copy, nullable) NSString *imageUrl;
@@ -1618,9 +1614,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** User settings in sub-objects, each for different purposes. */
-@property(nonatomic, strong, nullable) GTLRBooks_UsersettingsNotesExport *notesExport;
+@property(nonatomic, strong, nullable) GTLRBooks_Usersettings_NotesExport *notesExport;
 
-@property(nonatomic, strong, nullable) GTLRBooks_UsersettingsNotification *notification;
+@property(nonatomic, strong, nullable) GTLRBooks_Usersettings_Notification *notification;
 
 @end
 
@@ -1628,7 +1624,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  User settings in sub-objects, each for different purposes.
  */
-@interface GTLRBooks_UsersettingsNotesExport : GTLRObject
+@interface GTLRBooks_Usersettings_NotesExport : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *folderName;
 
@@ -1643,20 +1639,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_UsersettingsNotification
+ *  GTLRBooks_Usersettings_Notification
  */
-@interface GTLRBooks_UsersettingsNotification : GTLRObject
+@interface GTLRBooks_Usersettings_Notification : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRBooks_UsersettingsNotificationMoreFromAuthors *moreFromAuthors;
-@property(nonatomic, strong, nullable) GTLRBooks_UsersettingsNotificationMoreFromSeries *moreFromSeries;
+@property(nonatomic, strong, nullable) GTLRBooks_Usersettings_Notification_MoreFromAuthors *moreFromAuthors;
+@property(nonatomic, strong, nullable) GTLRBooks_Usersettings_Notification_MoreFromSeries *moreFromSeries;
 
 @end
 
 
 /**
- *  GTLRBooks_UsersettingsNotificationMoreFromAuthors
+ *  GTLRBooks_Usersettings_Notification_MoreFromAuthors
  */
-@interface GTLRBooks_UsersettingsNotificationMoreFromAuthors : GTLRObject
+@interface GTLRBooks_Usersettings_Notification_MoreFromAuthors : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *optedState;
 
@@ -1664,9 +1660,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_UsersettingsNotificationMoreFromSeries
+ *  GTLRBooks_Usersettings_Notification_MoreFromSeries
  */
-@interface GTLRBooks_UsersettingsNotificationMoreFromSeries : GTLRObject
+@interface GTLRBooks_Usersettings_Notification_MoreFromSeries : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *optedState;
 
@@ -1683,7 +1679,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  text. This information can depend on country (books may be public domain in
  *  one country but not in another, e.g.).
  */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeAccessInfo *accessInfo;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_AccessInfo *accessInfo;
 
 /**
  *  Opaque identifier for a specific version of a volume resource. (In LITE
@@ -1702,10 +1698,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** What layers exist in this volume and high level information about them. */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeLayerInfo *layerInfo;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_LayerInfo *layerInfo;
 
 /** Recommendation related information for this volume. */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeRecommendedInfo *recommendedInfo;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_RecommendedInfo *recommendedInfo;
 
 /**
  *  Any information about a volume related to the eBookstore and/or
@@ -1713,10 +1709,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  request originates from (i.e. books may not be for sale in certain
  *  countries).
  */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeSaleInfo *saleInfo;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_SaleInfo *saleInfo;
 
 /** Search result information related to this volume. */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeSearchInfo *searchInfo;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_SearchInfo *searchInfo;
 
 /** URL to this resource. (In LITE projection.) */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -1725,10 +1721,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  User specific information related to this volume. (e.g. page this user last
  *  read or whether they purchased this book)
  */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeUserInfo *userInfo;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_UserInfo *userInfo;
 
 /** General volume information. */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeVolumeInfo *volumeInfo;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_VolumeInfo *volumeInfo;
 
 @end
 
@@ -1738,7 +1734,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  text. This information can depend on country (books may be public domain in
  *  one country but not in another, e.g.).
  */
-@interface GTLRBooks_VolumeAccessInfo : GTLRObject
+@interface GTLRBooks_Volume_AccessInfo : GTLRObject
 
 /**
  *  Combines the access and viewability of this volume into a single status
@@ -1771,7 +1767,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *embeddable;
 
 /** Information about epub content. (In LITE projection.) */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeAccessInfoEpub *epub;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_AccessInfo_Epub *epub;
 
 /**
  *  Whether this volume requires that the client explicitly request offline
@@ -1783,7 +1779,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *explicitOfflineLicenseManagement;
 
 /** Information about pdf content. (In LITE projection.) */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeAccessInfoPdf *pdf;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_AccessInfo_Pdf *pdf;
 
 /**
  *  Whether or not this book is public domain in the country listed above.
@@ -1832,12 +1828,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  What layers exist in this volume and high level information about them.
  */
-@interface GTLRBooks_VolumeLayerInfo : GTLRObject
+@interface GTLRBooks_Volume_LayerInfo : GTLRObject
 
 /**
  *  A layer should appear here if and only if the layer exists for this book.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_VolumeLayerInfoLayersItem *> *layers;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Volume_LayerInfo_Layers_Item *> *layers;
 
 @end
 
@@ -1845,7 +1841,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Recommendation related information for this volume.
  */
-@interface GTLRBooks_VolumeRecommendedInfo : GTLRObject
+@interface GTLRBooks_Volume_RecommendedInfo : GTLRObject
 
 /** A text explaining why this volume is recommended. */
 @property(nonatomic, copy, nullable) NSString *explanation;
@@ -1859,7 +1855,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  request originates from (i.e. books may not be for sale in certain
  *  countries).
  */
-@interface GTLRBooks_VolumeSaleInfo : GTLRObject
+@interface GTLRBooks_Volume_SaleInfo : GTLRObject
 
 /**
  *  URL to purchase this volume on the Google Books site. (In LITE projection)
@@ -1881,10 +1877,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *isEbook;
 
 /** Suggested retail price. (In LITE projection.) */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeSaleInfoListPrice *listPrice;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_SaleInfo_ListPrice *listPrice;
 
 /** Offers available for this volume (sales and rentals). */
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_VolumeSaleInfoOffersItem *> *offers;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Volume_SaleInfo_Offers_Item *> *offers;
 
 /** The date on which this book is available for sale. */
 @property(nonatomic, strong, nullable) GTLRDateTime *onSaleDate;
@@ -1894,7 +1890,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  retail or list price unless there are offers or discounts on this volume.
  *  (In LITE projection.)
  */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeSaleInfoRetailPrice *retailPrice;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_SaleInfo_RetailPrice *retailPrice;
 
 /**
  *  Whether or not this book is available for sale or offered for free in the
@@ -1910,7 +1906,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Search result information related to this volume.
  */
-@interface GTLRBooks_VolumeSearchInfo : GTLRObject
+@interface GTLRBooks_Volume_SearchInfo : GTLRObject
 
 /** A text snippet containing the search query. */
 @property(nonatomic, copy, nullable) NSString *textSnippet;
@@ -1922,7 +1918,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  User specific information related to this volume. (e.g. page this user last
  *  read or whether they purchased this book)
  */
-@interface GTLRBooks_VolumeUserInfo : GTLRObject
+@interface GTLRBooks_Volume_UserInfo : GTLRObject
 
 /**
  *  Timestamp when this volume was acquired by the user. (RFC 3339 UTC date-time
@@ -1943,7 +1939,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'copyProperty' to avoid NSObject's 'copy'.
  */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeUserInfoCopy *copyProperty NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_UserInfo_Copy *copyProperty NS_RETURNS_NOT_RETAINED;
 
 /**
  *  Whether this volume is purchased, sample, pd download etc.
@@ -1953,7 +1949,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *entitlementType;
 
 /** Information on the ability to share with the family. */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeUserInfoFamilySharing *familySharing;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_UserInfo_FamilySharing *familySharing;
 
 /**
  *  Whether or not the user shared this volume with the family.
@@ -2020,7 +2016,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBooks_ReadingPosition *readingPosition;
 
 /** Period during this book is/was a valid rental. */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeUserInfoRentalPeriod *rentalPeriod;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_UserInfo_RentalPeriod *rentalPeriod;
 
 /** Whether this book is an active or an expired rental. */
 @property(nonatomic, copy, nullable) NSString *rentalState;
@@ -2035,7 +2031,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeUserInfoUserUploadedVolumeInfo *userUploadedVolumeInfo;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_UserInfo_UserUploadedVolumeInfo *userUploadedVolumeInfo;
 
 @end
 
@@ -2043,7 +2039,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  General volume information.
  */
-@interface GTLRBooks_VolumeVolumeInfo : GTLRObject
+@interface GTLRBooks_Volume_VolumeInfo : GTLRObject
 
 /**
  *  Whether anonymous logging should be allowed.
@@ -2087,16 +2083,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** Physical dimensions of this volume. */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeVolumeInfoDimensions *dimensions;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_VolumeInfo_Dimensions *dimensions;
 
 /**
  *  A list of image links for all the sizes that are available. (In LITE
  *  projection.)
  */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeVolumeInfoImageLinks *imageLinks;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_VolumeInfo_ImageLinks *imageLinks;
 
 /** Industry standard identifiers for this volume. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_VolumeVolumeInfoIndustryIdentifiersItem *> *industryIdentifiers;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Volume_VolumeInfo_IndustryIdentifiers_Item *> *industryIdentifiers;
 
 /**
  *  URL to view information about this volume on the Google Books site. (In LITE
@@ -2126,7 +2122,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *pageCount;
 
 /** A top-level summary of the panelization info in this volume. */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeVolumeInfoPanelizationSummary *panelizationSummary;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_VolumeInfo_PanelizationSummary *panelizationSummary;
 
 /** URL to preview this volume on the Google Books site. */
 @property(nonatomic, copy, nullable) NSString *previewLink;
@@ -2184,7 +2180,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Information about epub content. (In LITE projection.)
  */
-@interface GTLRBooks_VolumeAccessInfoEpub : GTLRObject
+@interface GTLRBooks_Volume_AccessInfo_Epub : GTLRObject
 
 /** URL to retrieve ACS token for epub download. (In LITE projection.) */
 @property(nonatomic, copy, nullable) NSString *acsTokenLink;
@@ -2206,7 +2202,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Information about pdf content. (In LITE projection.)
  */
-@interface GTLRBooks_VolumeAccessInfoPdf : GTLRObject
+@interface GTLRBooks_Volume_AccessInfo_Pdf : GTLRObject
 
 /** URL to retrieve ACS token for pdf download. (In LITE projection.) */
 @property(nonatomic, copy, nullable) NSString *acsTokenLink;
@@ -2226,9 +2222,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_VolumeLayerInfoLayersItem
+ *  GTLRBooks_Volume_LayerInfo_Layers_Item
  */
-@interface GTLRBooks_VolumeLayerInfoLayersItem : GTLRObject
+@interface GTLRBooks_Volume_LayerInfo_Layers_Item : GTLRObject
 
 /** The layer id of this layer (e.g. "geo"). */
 @property(nonatomic, copy, nullable) NSString *layerId;
@@ -2246,7 +2242,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Suggested retail price. (In LITE projection.)
  */
-@interface GTLRBooks_VolumeSaleInfoListPrice : GTLRObject
+@interface GTLRBooks_Volume_SaleInfo_ListPrice : GTLRObject
 
 /**
  *  Amount in the currency listed below. (In LITE projection.)
@@ -2262,9 +2258,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_VolumeSaleInfoOffersItem
+ *  GTLRBooks_Volume_SaleInfo_Offers_Item
  */
-@interface GTLRBooks_VolumeSaleInfoOffersItem : GTLRObject
+@interface GTLRBooks_Volume_SaleInfo_Offers_Item : GTLRObject
 
 /**
  *  The finsky offer type (e.g., PURCHASE=0 RENTAL=3)
@@ -2281,13 +2277,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *giftable;
 
 /** Offer list (=undiscounted) price in Micros. */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeSaleInfoOffersItemListPrice *listPrice;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_SaleInfo_Offers_Item_ListPrice *listPrice;
 
 /** The rental duration (for rental offers only). */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeSaleInfoOffersItemRentalDuration *rentalDuration;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_SaleInfo_Offers_Item_RentalDuration *rentalDuration;
 
 /** Offer retail (=discounted) price in Micros */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeSaleInfoOffersItemRetailPrice *retailPrice;
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_SaleInfo_Offers_Item_RetailPrice *retailPrice;
 
 @end
 
@@ -2297,7 +2293,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  retail or list price unless there are offers or discounts on this volume.
  *  (In LITE projection.)
  */
-@interface GTLRBooks_VolumeSaleInfoRetailPrice : GTLRObject
+@interface GTLRBooks_Volume_SaleInfo_RetailPrice : GTLRObject
 
 /**
  *  Amount in the currency listed below. (In LITE projection.)
@@ -2315,7 +2311,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Copy/Paste accounting information.
  */
-@interface GTLRBooks_VolumeUserInfoCopy : GTLRObject
+@interface GTLRBooks_Volume_UserInfo_Copy : GTLRObject
 
 /**
  *  allowedCharacterCount
@@ -2341,7 +2337,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Information on the ability to share with the family.
  */
-@interface GTLRBooks_VolumeUserInfoFamilySharing : GTLRObject
+@interface GTLRBooks_Volume_UserInfo_FamilySharing : GTLRObject
 
 /** The role of the user in the family. */
 @property(nonatomic, copy, nullable) NSString *familyRole;
@@ -2369,7 +2365,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Period during this book is/was a valid rental.
  */
-@interface GTLRBooks_VolumeUserInfoRentalPeriod : GTLRObject
+@interface GTLRBooks_Volume_UserInfo_RentalPeriod : GTLRObject
 
 /**
  *  endUtcSec
@@ -2389,9 +2385,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_VolumeUserInfoUserUploadedVolumeInfo
+ *  GTLRBooks_Volume_UserInfo_UserUploadedVolumeInfo
  */
-@interface GTLRBooks_VolumeUserInfoUserUploadedVolumeInfo : GTLRObject
+@interface GTLRBooks_Volume_UserInfo_UserUploadedVolumeInfo : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *processingState;
 
@@ -2401,7 +2397,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Physical dimensions of this volume.
  */
-@interface GTLRBooks_VolumeVolumeInfoDimensions : GTLRObject
+@interface GTLRBooks_Volume_VolumeInfo_Dimensions : GTLRObject
 
 /** Height or length of this volume (in cm). */
 @property(nonatomic, copy, nullable) NSString *height;
@@ -2419,7 +2415,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  A list of image links for all the sizes that are available. (In LITE
  *  projection.)
  */
-@interface GTLRBooks_VolumeVolumeInfoImageLinks : GTLRObject
+@interface GTLRBooks_Volume_VolumeInfo_ImageLinks : GTLRObject
 
 /**
  *  Image link for extra large size (width of ~1280 pixels). (In LITE
@@ -2451,9 +2447,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_VolumeVolumeInfoIndustryIdentifiersItem
+ *  GTLRBooks_Volume_VolumeInfo_IndustryIdentifiers_Item
  */
-@interface GTLRBooks_VolumeVolumeInfoIndustryIdentifiersItem : GTLRObject
+@interface GTLRBooks_Volume_VolumeInfo_IndustryIdentifiers_Item : GTLRObject
 
 /**
  *  Industry specific volume identifier.
@@ -2472,7 +2468,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A top-level summary of the panelization info in this volume.
  */
-@interface GTLRBooks_VolumeVolumeInfoPanelizationSummary : GTLRObject
+@interface GTLRBooks_Volume_VolumeInfo_PanelizationSummary : GTLRObject
 
 /**
  *  containsEpubBubbles
@@ -2497,7 +2493,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Offer list (=undiscounted) price in Micros.
  */
-@interface GTLRBooks_VolumeSaleInfoOffersItemListPrice : GTLRObject
+@interface GTLRBooks_Volume_SaleInfo_Offers_Item_ListPrice : GTLRObject
 
 /**
  *  amountInMicros
@@ -2514,7 +2510,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The rental duration (for rental offers only).
  */
-@interface GTLRBooks_VolumeSaleInfoOffersItemRentalDuration : GTLRObject
+@interface GTLRBooks_Volume_SaleInfo_Offers_Item_RentalDuration : GTLRObject
 
 /**
  *  count
@@ -2531,7 +2527,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Offer retail (=discounted) price in Micros
  */
-@interface GTLRBooks_VolumeSaleInfoOffersItemRetailPrice : GTLRObject
+@interface GTLRBooks_Volume_SaleInfo_Offers_Item_RetailPrice : GTLRObject
 
 /**
  *  amountInMicros
@@ -2586,7 +2582,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *annotationType;
 
 /** The content ranges to identify the selected text. */
-@property(nonatomic, strong, nullable) GTLRBooks_VolumeannotationContentRanges *contentRanges;
+@property(nonatomic, strong, nullable) GTLRBooks_Volumeannotation_ContentRanges *contentRanges;
 
 /** Data for this annotation. */
 @property(nonatomic, copy, nullable) NSString *data;
@@ -2635,7 +2631,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The content ranges to identify the selected text.
  */
-@interface GTLRBooks_VolumeannotationContentRanges : GTLRObject
+@interface GTLRBooks_Volumeannotation_ContentRanges : GTLRObject
 
 /** Range in CFI format for this annotation for version above. */
 @property(nonatomic, strong, nullable) GTLRBooks_AnnotationsRange *cfiRange;
@@ -2744,18 +2740,18 @@ NS_ASSUME_NONNULL_BEGIN
 /** Short book title in the context of the series. */
 @property(nonatomic, copy, nullable) NSString *shortSeriesBookTitle;
 
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_VolumeseriesinfoVolumeSeriesItem *> *volumeSeries;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Volumeseriesinfo_VolumeSeries_Item *> *volumeSeries;
 
 @end
 
 
 /**
- *  GTLRBooks_VolumeseriesinfoVolumeSeriesItem
+ *  GTLRBooks_Volumeseriesinfo_VolumeSeries_Item
  */
-@interface GTLRBooks_VolumeseriesinfoVolumeSeriesItem : GTLRObject
+@interface GTLRBooks_Volumeseriesinfo_VolumeSeries_Item : GTLRObject
 
 /** List of issues. Applicable only for Collection Edition and Omnibus. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_VolumeseriesinfoVolumeSeriesItemIssueItem *> *issue;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Volumeseriesinfo_VolumeSeries_Item_Issue_Item *> *issue;
 
 /**
  *  The book order number in the series.
@@ -2777,9 +2773,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_VolumeseriesinfoVolumeSeriesItemIssueItem
+ *  GTLRBooks_Volumeseriesinfo_VolumeSeries_Item_Issue_Item
  */
-@interface GTLRBooks_VolumeseriesinfoVolumeSeriesItemIssueItem : GTLRObject
+@interface GTLRBooks_Volumeseriesinfo_VolumeSeries_Item_Issue_Item : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *issueDisplayNumber;
 

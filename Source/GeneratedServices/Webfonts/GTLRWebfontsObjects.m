@@ -34,10 +34,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWebfonts_WebfontFiles
+//   GTLRWebfonts_Webfont_Files
 //
 
-@implementation GTLRWebfonts_WebfontFiles
+@implementation GTLRWebfonts_Webfont_Files
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

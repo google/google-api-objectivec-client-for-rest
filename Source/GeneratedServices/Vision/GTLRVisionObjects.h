@@ -41,7 +41,7 @@
 @class GTLRVision_Property;
 @class GTLRVision_SafeSearchAnnotation;
 @class GTLRVision_Status;
-@class GTLRVision_StatusDetailsItem;
+@class GTLRVision_Status_Details_Item;
 @class GTLRVision_Vertex;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -1816,7 +1816,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  A list of messages that carry the error details. There will be a
  *  common set of message types for APIs to use.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRVision_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Status_Details_Item *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
@@ -1829,14 +1829,14 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
- *  GTLRVision_StatusDetailsItem
+ *  GTLRVision_Status_Details_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRVision_StatusDetailsItem : GTLRObject
+@interface GTLRVision_Status_Details_Item : GTLRObject
 @end
 
 

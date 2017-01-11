@@ -863,6 +863,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
 @property(nonatomic, strong, nullable) NSNumber *errorCount;
 
 /**
+ *  Node hours used by the batch prediction job.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodeHours;
+
+/**
  *  The output Google Cloud Storage location provided at the job creation time.
  */
 @property(nonatomic, copy, nullable) NSString *outputPath;
@@ -1125,12 +1132,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
 
 
 /**
- *  Represents results of a training job.
+ *  Represents results of a training job. Output only.
  */
 @interface GTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingOutput : GTLRObject
 
 /**
  *  The number of hyperparameter tuning trials that completed successfully.
+ *  Only set for hyperparameter tuning jobs.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1141,9 +1149,19 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *consumedMlUnits;
+@property(nonatomic, strong, nullable) NSNumber *consumedMLUnits;
 
-/** Results for individual Hyperparameter trials. */
+/**
+ *  Whether this job is a hyperparameter tuning job.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isHyperparameterTuningJob;
+
+/**
+ *  Results for individual Hyperparameter trials.
+ *  Only set for hyperparameter tuning jobs.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearning_GoogleCloudMlV1beta1HyperparameterOutput *> *trials;
 
 @end
@@ -1199,6 +1217,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
  *  The version name must be unique within the model it is created in.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. If true, enables StackDriver Logging for online prediction.
+ *  Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *onlinePredictionLogging;
 
 @end
 

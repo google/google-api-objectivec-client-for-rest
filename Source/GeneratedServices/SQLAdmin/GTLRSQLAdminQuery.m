@@ -687,6 +687,35 @@
 
 @end
 
+@implementation GTLRSQLAdminQuery_InstancesTruncateLog
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesTruncateLogRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/instances/{instance}/truncateLog";
+  GTLRSQLAdminQuery_InstancesTruncateLog *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.instances.truncateLog";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_InstancesUpdate
 
 @dynamic instance, project;

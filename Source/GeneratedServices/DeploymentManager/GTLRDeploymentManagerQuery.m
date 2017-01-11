@@ -65,7 +65,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_DeploymentsDelete
 
-@dynamic deployment, project;
+@dynamic deletePolicy, deployment, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                       deployment:(NSString *)deployment {

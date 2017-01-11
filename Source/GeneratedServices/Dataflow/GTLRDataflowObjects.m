@@ -270,10 +270,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_CreateJobFromTemplateRequestParameters
+//   GTLRDataflow_CreateJobFromTemplateRequest_Parameters
 //
 
-@implementation GTLRDataflow_CreateJobFromTemplateRequestParameters
+@implementation GTLRDataflow_CreateJobFromTemplateRequest_Parameters
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -363,10 +363,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_EnvironmentInternalExperiments
+//   GTLRDataflow_Environment_InternalExperiments
 //
 
-@implementation GTLRDataflow_EnvironmentInternalExperiments
+@implementation GTLRDataflow_Environment_InternalExperiments
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -377,10 +377,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_EnvironmentSdkPipelineOptions
+//   GTLRDataflow_Environment_SdkPipelineOptions
 //
 
-@implementation GTLRDataflow_EnvironmentSdkPipelineOptions
+@implementation GTLRDataflow_Environment_SdkPipelineOptions
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -391,10 +391,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_EnvironmentUserAgent
+//   GTLRDataflow_Environment_UserAgent
 //
 
-@implementation GTLRDataflow_EnvironmentUserAgent
+@implementation GTLRDataflow_Environment_UserAgent
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -405,10 +405,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_EnvironmentVersion
+//   GTLRDataflow_Environment_Version
 //
 
-@implementation GTLRDataflow_EnvironmentVersion
+@implementation GTLRDataflow_Environment_Version
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -516,10 +516,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_InstructionOutputCodec
+//   GTLRDataflow_InstructionOutput_Codec
 //
 
-@implementation GTLRDataflow_InstructionOutputCodec
+@implementation GTLRDataflow_InstructionOutput_Codec
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -584,10 +584,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_JobLabels
+//   GTLRDataflow_Job_Labels
 //
 
-@implementation GTLRDataflow_JobLabels
+@implementation GTLRDataflow_Job_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -598,10 +598,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_JobTransformNameMapping
+//   GTLRDataflow_Job_TransformNameMapping
 //
 
-@implementation GTLRDataflow_JobTransformNameMapping
+@implementation GTLRDataflow_Job_TransformNameMapping
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -622,10 +622,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_JobExecutionInfoStages
+//   GTLRDataflow_JobExecutionInfo_Stages
 //
 
-@implementation GTLRDataflow_JobExecutionInfoStages
+@implementation GTLRDataflow_JobExecutionInfo_Stages
 
 + (Class)classForAdditionalProperties {
   return [GTLRDataflow_JobExecutionStageInfo class];
@@ -824,10 +824,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_MetricStructuredNameContext
+//   GTLRDataflow_MetricStructuredName_Context
 //
 
-@implementation GTLRDataflow_MetricStructuredNameContext
+@implementation GTLRDataflow_MetricStructuredName_Context
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -941,10 +941,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_ParDoInstructionUserFn
+//   GTLRDataflow_ParDoInstruction_UserFn
 //
 
-@implementation GTLRDataflow_ParDoInstructionUserFn
+@implementation GTLRDataflow_ParDoInstruction_UserFn
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -974,10 +974,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_PartialGroupByKeyInstructionInputElementCodec
+//   GTLRDataflow_PartialGroupByKeyInstruction_InputElementCodec
 //
 
-@implementation GTLRDataflow_PartialGroupByKeyInstructionInputElementCodec
+@implementation GTLRDataflow_PartialGroupByKeyInstruction_InputElementCodec
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -988,10 +988,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_PartialGroupByKeyInstructionValueCombiningFn
+//   GTLRDataflow_PartialGroupByKeyInstruction_ValueCombiningFn
 //
 
-@implementation GTLRDataflow_PartialGroupByKeyInstructionValueCombiningFn
+@implementation GTLRDataflow_PartialGroupByKeyInstruction_ValueCombiningFn
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1083,7 +1083,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_RuntimeEnvironment
-@dynamic maxWorkers, serviceAccountEmail, zoneProperty;
+@dynamic bypassTempDirValidation, maxWorkers, serviceAccountEmail, tempLocation,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -1168,10 +1169,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_SeqMapTaskUserFn
+//   GTLRDataflow_SeqMapTask_UserFn
 //
 
-@implementation GTLRDataflow_SeqMapTaskUserFn
+@implementation GTLRDataflow_SeqMapTask_UserFn
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1220,10 +1221,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_SideInputInfoKind
+//   GTLRDataflow_SideInputInfo_Kind
 //
 
-@implementation GTLRDataflow_SideInputInfoKind
+@implementation GTLRDataflow_SideInputInfo_Kind
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1244,10 +1245,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_SinkCodec
+//   GTLRDataflow_Sink_Codec
 //
 
-@implementation GTLRDataflow_SinkCodec
+@implementation GTLRDataflow_Sink_Codec
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1258,10 +1259,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_SinkSpec
+//   GTLRDataflow_Sink_Spec
 //
 
-@implementation GTLRDataflow_SinkSpec
+@implementation GTLRDataflow_Sink_Spec
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1280,7 +1281,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"baseSpecs" : [GTLRDataflow_SourceBaseSpecsItem class]
+    @"baseSpecs" : [GTLRDataflow_Source_BaseSpecs_Item class]
   };
   return map;
 }
@@ -1290,10 +1291,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_SourceBaseSpecsItem
+//   GTLRDataflow_Source_BaseSpecs_Item
 //
 
-@implementation GTLRDataflow_SourceBaseSpecsItem
+@implementation GTLRDataflow_Source_BaseSpecs_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1304,10 +1305,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_SourceCodec
+//   GTLRDataflow_Source_Codec
 //
 
-@implementation GTLRDataflow_SourceCodec
+@implementation GTLRDataflow_Source_Codec
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1318,10 +1319,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_SourceSpec
+//   GTLRDataflow_Source_Spec
 //
 
-@implementation GTLRDataflow_SourceSpec
+@implementation GTLRDataflow_Source_Spec
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1469,7 +1470,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRDataflow_StatusDetailsItem class]
+    @"details" : [GTLRDataflow_Status_Details_Item class]
   };
   return map;
 }
@@ -1479,10 +1480,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_StatusDetailsItem
+//   GTLRDataflow_Status_Details_Item
 //
 
-@implementation GTLRDataflow_StatusDetailsItem
+@implementation GTLRDataflow_Status_Details_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1510,10 +1511,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_StepProperties
+//   GTLRDataflow_Step_Properties
 //
 
-@implementation GTLRDataflow_StepProperties
+@implementation GTLRDataflow_Step_Properties
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1597,10 +1598,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_StreamingConfigTaskUserStepToStateFamilyNameMap
+//   GTLRDataflow_StreamingConfigTask_UserStepToStateFamilyNameMap
 //
 
-@implementation GTLRDataflow_StreamingConfigTaskUserStepToStateFamilyNameMap
+@implementation GTLRDataflow_StreamingConfigTask_UserStepToStateFamilyNameMap
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1713,10 +1714,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_TopologyConfigUserStageToComputationNameMap
+//   GTLRDataflow_TopologyConfig_UserStageToComputationNameMap
 //
 
-@implementation GTLRDataflow_TopologyConfigUserStageToComputationNameMap
+@implementation GTLRDataflow_TopologyConfig_UserStageToComputationNameMap
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1735,7 +1736,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"pods" : [GTLRDataflow_WorkerHealthReportPodsItem class]
+    @"pods" : [GTLRDataflow_WorkerHealthReport_Pods_Item class]
   };
   return map;
 }
@@ -1745,10 +1746,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_WorkerHealthReportPodsItem
+//   GTLRDataflow_WorkerHealthReport_Pods_Item
 //
 
-@implementation GTLRDataflow_WorkerHealthReportPodsItem
+@implementation GTLRDataflow_WorkerHealthReport_Pods_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1779,10 +1780,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_WorkerMessageLabels
+//   GTLRDataflow_WorkerMessage_Labels
 //
 
-@implementation GTLRDataflow_WorkerMessageLabels
+@implementation GTLRDataflow_WorkerMessage_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1803,10 +1804,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_WorkerMessageCodeParameters
+//   GTLRDataflow_WorkerMessageCode_Parameters
 //
 
-@implementation GTLRDataflow_WorkerMessageCodeParameters
+@implementation GTLRDataflow_WorkerMessageCode_Parameters
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1860,10 +1861,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_WorkerPoolMetadata
+//   GTLRDataflow_WorkerPool_Metadata
 //
 
-@implementation GTLRDataflow_WorkerPoolMetadata
+@implementation GTLRDataflow_WorkerPool_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1874,10 +1875,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_WorkerPoolPoolArgs
+//   GTLRDataflow_WorkerPool_PoolArgs
 //
 
-@implementation GTLRDataflow_WorkerPoolPoolArgs
+@implementation GTLRDataflow_WorkerPool_PoolArgs
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1944,10 +1945,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_WorkItemServiceStateHarnessData
+//   GTLRDataflow_WorkItemServiceState_HarnessData
 //
 
-@implementation GTLRDataflow_WorkItemServiceStateHarnessData
+@implementation GTLRDataflow_WorkItemServiceState_HarnessData
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

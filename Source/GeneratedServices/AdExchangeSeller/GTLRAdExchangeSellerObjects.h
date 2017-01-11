@@ -22,9 +22,9 @@
 @class GTLRAdExchangeSeller_AdClient;
 @class GTLRAdExchangeSeller_Alert;
 @class GTLRAdExchangeSeller_CustomChannel;
-@class GTLRAdExchangeSeller_CustomChannelTargetingInfo;
+@class GTLRAdExchangeSeller_CustomChannel_TargetingInfo;
 @class GTLRAdExchangeSeller_PreferredDeal;
-@class GTLRAdExchangeSeller_ReportHeadersItem;
+@class GTLRAdExchangeSeller_Report_Headers_Item;
 @class GTLRAdExchangeSeller_ReportingMetadataEntry;
 @class GTLRAdExchangeSeller_SavedReport;
 @class GTLRAdExchangeSeller_UrlChannel;
@@ -234,7 +234,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The targeting information of this custom channel, if activated. */
-@property(nonatomic, strong, nullable) GTLRAdExchangeSeller_CustomChannelTargetingInfo *targetingInfo;
+@property(nonatomic, strong, nullable) GTLRAdExchangeSeller_CustomChannel_TargetingInfo *targetingInfo;
 
 @end
 
@@ -242,7 +242,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The targeting information of this custom channel, if activated.
  */
-@interface GTLRAdExchangeSeller_CustomChannelTargetingInfo : GTLRObject
+@interface GTLRAdExchangeSeller_CustomChannel_TargetingInfo : GTLRObject
 
 /** The name used to describe this channel externally. */
 @property(nonatomic, copy, nullable) NSString *adsAppearOn;
@@ -420,7 +420,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  list of headers; one for each dimension in the request, followed by one for
  *  each metric in the request.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeSeller_ReportHeadersItem *> *headers;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeSeller_Report_Headers_Item *> *headers;
 
 /** Kind this is, in this case adexchangeseller#report. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -454,9 +454,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdExchangeSeller_ReportHeadersItem
+ *  GTLRAdExchangeSeller_Report_Headers_Item
  */
-@interface GTLRAdExchangeSeller_ReportHeadersItem : GTLRObject
+@interface GTLRAdExchangeSeller_Report_Headers_Item : GTLRObject
 
 /**
  *  The currency of this column. Only present if the header type is

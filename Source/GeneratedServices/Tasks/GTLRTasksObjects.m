@@ -29,7 +29,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"links" : [GTLRTasks_TaskLinksItem class]
+    @"links" : [GTLRTasks_Task_Links_Item class]
   };
   return map;
 }
@@ -39,10 +39,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTasks_TaskLinksItem
+//   GTLRTasks_Task_Links_Item
 //
 
-@implementation GTLRTasks_TaskLinksItem
+@implementation GTLRTasks_Task_Links_Item
 @dynamic descriptionProperty, link, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

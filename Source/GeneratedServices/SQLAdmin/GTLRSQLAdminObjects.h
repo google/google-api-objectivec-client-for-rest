@@ -27,14 +27,14 @@
 @class GTLRSQLAdmin_Database;
 @class GTLRSQLAdmin_DatabaseFlags;
 @class GTLRSQLAdmin_DatabaseInstance;
-@class GTLRSQLAdmin_DatabaseInstanceFailoverReplica;
+@class GTLRSQLAdmin_DatabaseInstance_FailoverReplica;
 @class GTLRSQLAdmin_ExportContext;
-@class GTLRSQLAdmin_ExportContextCsvExportOptions;
-@class GTLRSQLAdmin_ExportContextSqlExportOptions;
+@class GTLRSQLAdmin_ExportContext_CsvExportOptions;
+@class GTLRSQLAdmin_ExportContext_SqlExportOptions;
 @class GTLRSQLAdmin_FailoverContext;
 @class GTLRSQLAdmin_Flag;
 @class GTLRSQLAdmin_ImportContext;
-@class GTLRSQLAdmin_ImportContextCsvImportOptions;
+@class GTLRSQLAdmin_ImportContext_CsvImportOptions;
 @class GTLRSQLAdmin_IpConfiguration;
 @class GTLRSQLAdmin_IpMapping;
 @class GTLRSQLAdmin_LocationPreference;
@@ -50,6 +50,7 @@
 @class GTLRSQLAdmin_SslCert;
 @class GTLRSQLAdmin_SslCertDetail;
 @class GTLRSQLAdmin_Tier;
+@class GTLRSQLAdmin_TruncateLogContext;
 @class GTLRSQLAdmin_User;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -355,7 +356,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The name and status of the failover replica. This property is applicable
  *  only to Second Generation instances.
  */
-@property(nonatomic, strong, nullable) GTLRSQLAdmin_DatabaseInstanceFailoverReplica *failoverReplica;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DatabaseInstance_FailoverReplica *failoverReplica;
 
 /**
  *  The instance type. This can be one of the following.
@@ -458,7 +459,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The name and status of the failover replica. This property is applicable
  *  only to Second Generation instances.
  */
-@interface GTLRSQLAdmin_DatabaseInstanceFailoverReplica : GTLRObject
+@interface GTLRSQLAdmin_DatabaseInstance_FailoverReplica : GTLRObject
 
 /**
  *  The availability status of the failover replica. A false status indicates
@@ -507,7 +508,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_ExportContext : GTLRObject
 
 /** Options for exporting data as CSV. */
-@property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContextCsvExportOptions *csvExportOptions;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_CsvExportOptions *csvExportOptions;
 
 /**
  *  Databases (for example, guestbook) from which the export is made. If
@@ -529,7 +530,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Options for exporting data as SQL statements. */
-@property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContextSqlExportOptions *sqlExportOptions;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_SqlExportOptions *sqlExportOptions;
 
 /**
  *  The path to the file in Google Cloud Storage where the export will be
@@ -545,7 +546,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Options for exporting data as CSV.
  */
-@interface GTLRSQLAdmin_ExportContextCsvExportOptions : GTLRObject
+@interface GTLRSQLAdmin_ExportContext_CsvExportOptions : GTLRObject
 
 /** The select query used to extract the data. */
 @property(nonatomic, copy, nullable) NSString *selectQuery;
@@ -556,7 +557,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Options for exporting data as SQL statements.
  */
-@interface GTLRSQLAdmin_ExportContextSqlExportOptions : GTLRObject
+@interface GTLRSQLAdmin_ExportContext_SqlExportOptions : GTLRObject
 
 /**
  *  Export only schemas.
@@ -676,7 +677,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdmin_ImportContext : GTLRObject
 
 /** Options for importing data as CSV. */
-@property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContextCsvImportOptions *csvImportOptions;
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_CsvImportOptions *csvImportOptions;
 
 /**
  *  The database (for example, guestbook) to which the import is made. If
@@ -709,7 +710,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Options for importing data as CSV.
  */
-@interface GTLRSQLAdmin_ImportContextCsvImportOptions : GTLRObject
+@interface GTLRSQLAdmin_ImportContext_CsvImportOptions : GTLRObject
 
 /**
  *  The columns to which CSV data is imported. If not specified, all columns of
@@ -804,6 +805,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Parameters required to perform the restore backup operation. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_RestoreBackupContext *restoreBackupContext;
+
+@end
+
+
+/**
+ *  Instance truncate log request.
+ */
+@interface GTLRSQLAdmin_InstancesTruncateLogRequest : GTLRObject
+
+/** Contains details about the truncate log operation. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_TruncateLogContext *truncateLogContext;
 
 @end
 
@@ -1503,6 +1515,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** This is always sql#tiersList. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Database Instance truncate log context.
+ */
+@interface GTLRSQLAdmin_TruncateLogContext : GTLRObject
+
+/** This is always sql#truncateLogContext. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The type of log to truncate. Valid values are MYSQL_GENERAL_TABLE and
+ *  MYSQL_SLOW_TABLE.
+ */
+@property(nonatomic, copy, nullable) NSString *logType;
 
 @end
 

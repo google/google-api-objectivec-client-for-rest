@@ -20,7 +20,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"detections" : [GTLRTranslate_DetectionsResourceItem class]
+    @"detections" : [GTLRTranslate_DetectionsResource_Item class]
   };
   return map;
 }
@@ -30,10 +30,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranslate_DetectionsResourceItem
+//   GTLRTranslate_DetectionsResource_Item
 //
 
-@implementation GTLRTranslate_DetectionsResourceItem
+@implementation GTLRTranslate_DetectionsResource_Item
 @dynamic confidence, isReliable, language;
 @end
 

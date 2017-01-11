@@ -29,39 +29,39 @@
 @class GTLRDataflow_CounterStructuredName;
 @class GTLRDataflow_CounterStructuredNameAndMetadata;
 @class GTLRDataflow_CounterUpdate;
-@class GTLRDataflow_CreateJobFromTemplateRequestParameters;
+@class GTLRDataflow_CreateJobFromTemplateRequest_Parameters;
 @class GTLRDataflow_CustomSourceLocation;
 @class GTLRDataflow_DataDiskAssignment;
 @class GTLRDataflow_DerivedSource;
 @class GTLRDataflow_Disk;
 @class GTLRDataflow_DynamicSourceSplit;
 @class GTLRDataflow_Environment;
-@class GTLRDataflow_EnvironmentInternalExperiments;
-@class GTLRDataflow_EnvironmentSdkPipelineOptions;
-@class GTLRDataflow_EnvironmentUserAgent;
-@class GTLRDataflow_EnvironmentVersion;
+@class GTLRDataflow_Environment_InternalExperiments;
+@class GTLRDataflow_Environment_SdkPipelineOptions;
+@class GTLRDataflow_Environment_UserAgent;
+@class GTLRDataflow_Environment_Version;
 @class GTLRDataflow_FailedLocation;
 @class GTLRDataflow_FlattenInstruction;
 @class GTLRDataflow_FloatingPointList;
 @class GTLRDataflow_FloatingPointMean;
 @class GTLRDataflow_InstructionInput;
 @class GTLRDataflow_InstructionOutput;
-@class GTLRDataflow_InstructionOutputCodec;
+@class GTLRDataflow_InstructionOutput_Codec;
 @class GTLRDataflow_IntegerList;
 @class GTLRDataflow_IntegerMean;
 @class GTLRDataflow_Job;
+@class GTLRDataflow_Job_Labels;
+@class GTLRDataflow_Job_TransformNameMapping;
 @class GTLRDataflow_JobExecutionInfo;
-@class GTLRDataflow_JobExecutionInfoStages;
+@class GTLRDataflow_JobExecutionInfo_Stages;
 @class GTLRDataflow_JobExecutionStageInfo;
-@class GTLRDataflow_JobLabels;
 @class GTLRDataflow_JobMessage;
-@class GTLRDataflow_JobTransformNameMapping;
 @class GTLRDataflow_KeyRangeDataDiskAssignment;
 @class GTLRDataflow_KeyRangeLocation;
 @class GTLRDataflow_MapTask;
 @class GTLRDataflow_MetricShortId;
 @class GTLRDataflow_MetricStructuredName;
-@class GTLRDataflow_MetricStructuredNameContext;
+@class GTLRDataflow_MetricStructuredName_Context;
 @class GTLRDataflow_MetricUpdate;
 @class GTLRDataflow_MountedDataDisk;
 @class GTLRDataflow_MultiOutputInfo;
@@ -69,34 +69,34 @@
 @class GTLRDataflow_Package;
 @class GTLRDataflow_ParallelInstruction;
 @class GTLRDataflow_ParDoInstruction;
-@class GTLRDataflow_ParDoInstructionUserFn;
+@class GTLRDataflow_ParDoInstruction_UserFn;
 @class GTLRDataflow_PartialGroupByKeyInstruction;
-@class GTLRDataflow_PartialGroupByKeyInstructionInputElementCodec;
-@class GTLRDataflow_PartialGroupByKeyInstructionValueCombiningFn;
+@class GTLRDataflow_PartialGroupByKeyInstruction_InputElementCodec;
+@class GTLRDataflow_PartialGroupByKeyInstruction_ValueCombiningFn;
 @class GTLRDataflow_Position;
 @class GTLRDataflow_PubsubLocation;
 @class GTLRDataflow_ReadInstruction;
 @class GTLRDataflow_ReportedParallelism;
 @class GTLRDataflow_RuntimeEnvironment;
 @class GTLRDataflow_SeqMapTask;
+@class GTLRDataflow_SeqMapTask_UserFn;
 @class GTLRDataflow_SeqMapTaskOutputInfo;
-@class GTLRDataflow_SeqMapTaskUserFn;
 @class GTLRDataflow_ShellTask;
 @class GTLRDataflow_SideInputInfo;
-@class GTLRDataflow_SideInputInfoKind;
+@class GTLRDataflow_SideInputInfo_Kind;
 @class GTLRDataflow_Sink;
-@class GTLRDataflow_SinkCodec;
-@class GTLRDataflow_SinkSpec;
+@class GTLRDataflow_Sink_Codec;
+@class GTLRDataflow_Sink_Spec;
 @class GTLRDataflow_Source;
-@class GTLRDataflow_SourceBaseSpecsItem;
-@class GTLRDataflow_SourceCodec;
+@class GTLRDataflow_Source_BaseSpecs_Item;
+@class GTLRDataflow_Source_Codec;
+@class GTLRDataflow_Source_Spec;
 @class GTLRDataflow_SourceFork;
 @class GTLRDataflow_SourceGetMetadataRequest;
 @class GTLRDataflow_SourceGetMetadataResponse;
 @class GTLRDataflow_SourceMetadata;
 @class GTLRDataflow_SourceOperationRequest;
 @class GTLRDataflow_SourceOperationResponse;
-@class GTLRDataflow_SourceSpec;
 @class GTLRDataflow_SourceSplitOptions;
 @class GTLRDataflow_SourceSplitRequest;
 @class GTLRDataflow_SourceSplitResponse;
@@ -104,14 +104,14 @@
 @class GTLRDataflow_SplitInt64;
 @class GTLRDataflow_StateFamilyConfig;
 @class GTLRDataflow_Status;
-@class GTLRDataflow_StatusDetailsItem;
+@class GTLRDataflow_Status_Details_Item;
 @class GTLRDataflow_Step;
-@class GTLRDataflow_StepProperties;
+@class GTLRDataflow_Step_Properties;
 @class GTLRDataflow_StreamingComputationConfig;
 @class GTLRDataflow_StreamingComputationRanges;
 @class GTLRDataflow_StreamingComputationTask;
 @class GTLRDataflow_StreamingConfigTask;
-@class GTLRDataflow_StreamingConfigTaskUserStepToStateFamilyNameMap;
+@class GTLRDataflow_StreamingConfigTask_UserStepToStateFamilyNameMap;
 @class GTLRDataflow_StreamingSetupTask;
 @class GTLRDataflow_StreamingSideInputLocation;
 @class GTLRDataflow_StreamingStageLocation;
@@ -119,22 +119,22 @@
 @class GTLRDataflow_StringList;
 @class GTLRDataflow_TaskRunnerSettings;
 @class GTLRDataflow_TopologyConfig;
-@class GTLRDataflow_TopologyConfigUserStageToComputationNameMap;
+@class GTLRDataflow_TopologyConfig_UserStageToComputationNameMap;
 @class GTLRDataflow_WorkerHealthReport;
-@class GTLRDataflow_WorkerHealthReportPodsItem;
+@class GTLRDataflow_WorkerHealthReport_Pods_Item;
 @class GTLRDataflow_WorkerHealthReportResponse;
 @class GTLRDataflow_WorkerMessage;
+@class GTLRDataflow_WorkerMessage_Labels;
 @class GTLRDataflow_WorkerMessageCode;
-@class GTLRDataflow_WorkerMessageCodeParameters;
-@class GTLRDataflow_WorkerMessageLabels;
+@class GTLRDataflow_WorkerMessageCode_Parameters;
 @class GTLRDataflow_WorkerMessageResponse;
 @class GTLRDataflow_WorkerPool;
-@class GTLRDataflow_WorkerPoolMetadata;
-@class GTLRDataflow_WorkerPoolPoolArgs;
+@class GTLRDataflow_WorkerPool_Metadata;
+@class GTLRDataflow_WorkerPool_PoolArgs;
 @class GTLRDataflow_WorkerSettings;
 @class GTLRDataflow_WorkItem;
 @class GTLRDataflow_WorkItemServiceState;
-@class GTLRDataflow_WorkItemServiceStateHarnessData;
+@class GTLRDataflow_WorkItemServiceState_HarnessData;
 @class GTLRDataflow_WorkItemStatus;
 @class GTLRDataflow_WriteInstruction;
 
@@ -756,7 +756,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *jobName;
 
 /** Dynamic parameterization of the job's runtime environment. */
-@property(nonatomic, strong, nullable) GTLRDataflow_CreateJobFromTemplateRequestParameters *parameters;
+@property(nonatomic, strong, nullable) GTLRDataflow_CreateJobFromTemplateRequest_Parameters *parameters;
 
 @end
 
@@ -769,7 +769,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRDataflow_CreateJobFromTemplateRequestParameters : GTLRObject
+@interface GTLRDataflow_CreateJobFromTemplateRequest_Parameters : GTLRObject
 @end
 
 
@@ -920,14 +920,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSArray<NSString *> *experiments;
 
 /** Experimental settings. */
-@property(nonatomic, strong, nullable) GTLRDataflow_EnvironmentInternalExperiments *internalExperiments;
+@property(nonatomic, strong, nullable) GTLRDataflow_Environment_InternalExperiments *internalExperiments;
 
 /**
  *  The Dataflow SDK pipeline options specified by the user. These options are
  *  passed through the service and are used to recreate the SDK pipeline options
  *  on the worker in a language agnostic and platform independent way.
  */
-@property(nonatomic, strong, nullable) GTLRDataflow_EnvironmentSdkPipelineOptions *sdkPipelineOptions;
+@property(nonatomic, strong, nullable) GTLRDataflow_Environment_SdkPipelineOptions *sdkPipelineOptions;
 
 /** Identity to run virtual machines as. Defaults to the default account. */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
@@ -945,13 +945,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *tempStoragePrefix;
 
 /** A description of the process that generated the request. */
-@property(nonatomic, strong, nullable) GTLRDataflow_EnvironmentUserAgent *userAgent;
+@property(nonatomic, strong, nullable) GTLRDataflow_Environment_UserAgent *userAgent;
 
 /**
  *  A structure describing which components and their versions of the service
  *  are required in order to run the job.
  */
-@property(nonatomic, strong, nullable) GTLRDataflow_EnvironmentVersion *version;
+@property(nonatomic, strong, nullable) GTLRDataflow_Environment_Version *version;
 
 /**
  *  Worker pools. At least one "harness" worker pool must be specified in order
@@ -970,7 +970,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_EnvironmentInternalExperiments : GTLRObject
+@interface GTLRDataflow_Environment_InternalExperiments : GTLRObject
 @end
 
 
@@ -984,7 +984,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_EnvironmentSdkPipelineOptions : GTLRObject
+@interface GTLRDataflow_Environment_SdkPipelineOptions : GTLRObject
 @end
 
 
@@ -996,7 +996,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_EnvironmentUserAgent : GTLRObject
+@interface GTLRDataflow_Environment_UserAgent : GTLRObject
 @end
 
 
@@ -1009,7 +1009,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_EnvironmentVersion : GTLRObject
+@interface GTLRDataflow_Environment_Version : GTLRObject
 @end
 
 
@@ -1125,7 +1125,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_InstructionOutput : GTLRObject
 
 /** The codec to use to encode data being written via this output. */
-@property(nonatomic, strong, nullable) GTLRDataflow_InstructionOutputCodec *codec;
+@property(nonatomic, strong, nullable) GTLRDataflow_InstructionOutput_Codec *codec;
 
 /** The user-provided name of this output. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1166,7 +1166,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_InstructionOutputCodec : GTLRObject
+@interface GTLRDataflow_InstructionOutput_Codec : GTLRObject
 @end
 
 
@@ -1269,7 +1269,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  * Values must conform to regexp: [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63} * Both keys
  *  and values are additionally constrained to be <= 128 bytes in size.
  */
-@property(nonatomic, strong, nullable) GTLRDataflow_JobLabels *labels;
+@property(nonatomic, strong, nullable) GTLRDataflow_Job_Labels *labels;
 
 /** The location which contains this job. */
 @property(nonatomic, copy, nullable) NSString *location;
@@ -1345,7 +1345,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Map of transform name prefixes of the job to be replaced to the
  *  corresponding name prefixes of the new job.
  */
-@property(nonatomic, strong, nullable) GTLRDataflow_JobTransformNameMapping *transformNameMapping;
+@property(nonatomic, strong, nullable) GTLRDataflow_Job_TransformNameMapping *transformNameMapping;
 
 /**
  *  The type of dataflow job.
@@ -1372,7 +1372,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRDataflow_JobLabels : GTLRObject
+@interface GTLRDataflow_Job_Labels : GTLRObject
 @end
 
 
@@ -1385,7 +1385,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRDataflow_JobTransformNameMapping : GTLRObject
+@interface GTLRDataflow_Job_TransformNameMapping : GTLRObject
 @end
 
 
@@ -1396,7 +1396,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_JobExecutionInfo : GTLRObject
 
 /** A mapping from each stage to the information about that stage. */
-@property(nonatomic, strong, nullable) GTLRDataflow_JobExecutionInfoStages *stages;
+@property(nonatomic, strong, nullable) GTLRDataflow_JobExecutionInfo_Stages *stages;
 
 @end
 
@@ -1409,7 +1409,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_JobExecutionInfoStages : GTLRObject
+@interface GTLRDataflow_JobExecutionInfo_Stages : GTLRObject
 @end
 
 
@@ -1692,7 +1692,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  context['pcollection'] =
  *  .
  */
-@property(nonatomic, strong, nullable) GTLRDataflow_MetricStructuredNameContext *context;
+@property(nonatomic, strong, nullable) GTLRDataflow_MetricStructuredName_Context *context;
 
 /** Worker-defined metric name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1719,7 +1719,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRDataflow_MetricStructuredNameContext : GTLRObject
+@interface GTLRDataflow_MetricStructuredName_Context : GTLRObject
 @end
 
 
@@ -1940,7 +1940,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_SideInputInfo *> *sideInputs;
 
 /** The user function to invoke. */
-@property(nonatomic, strong, nullable) GTLRDataflow_ParDoInstructionUserFn *userFn;
+@property(nonatomic, strong, nullable) GTLRDataflow_ParDoInstruction_UserFn *userFn;
 
 @end
 
@@ -1953,7 +1953,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_ParDoInstructionUserFn : GTLRObject
+@interface GTLRDataflow_ParDoInstruction_UserFn : GTLRObject
 @end
 
 
@@ -1966,7 +1966,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_InstructionInput *input;
 
 /** The codec to use for interpreting an element in the input PTable. */
-@property(nonatomic, strong, nullable) GTLRDataflow_PartialGroupByKeyInstructionInputElementCodec *inputElementCodec;
+@property(nonatomic, strong, nullable) GTLRDataflow_PartialGroupByKeyInstruction_InputElementCodec *inputElementCodec;
 
 /**
  *  If this instruction includes a combining function this is the name of the
@@ -1984,7 +1984,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_SideInputInfo *> *sideInputs;
 
 /** The value combining function to invoke. */
-@property(nonatomic, strong, nullable) GTLRDataflow_PartialGroupByKeyInstructionValueCombiningFn *valueCombiningFn;
+@property(nonatomic, strong, nullable) GTLRDataflow_PartialGroupByKeyInstruction_ValueCombiningFn *valueCombiningFn;
 
 @end
 
@@ -1997,7 +1997,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_PartialGroupByKeyInstructionInputElementCodec : GTLRObject
+@interface GTLRDataflow_PartialGroupByKeyInstruction_InputElementCodec : GTLRObject
 @end
 
 
@@ -2009,7 +2009,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_PartialGroupByKeyInstructionValueCombiningFn : GTLRObject
+@interface GTLRDataflow_PartialGroupByKeyInstruction_ValueCombiningFn : GTLRObject
 @end
 
 
@@ -2197,6 +2197,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_RuntimeEnvironment : GTLRObject
 
 /**
+ *  Bypass the safety checks for the job's temp directory. Use with caution.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bypassTempDirValidation;
+
+/**
  *  The maximum number of workers to start for the job.
  *
  *  Uses NSNumber of intValue.
@@ -2205,6 +2212,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** The service account to run the job as. */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/** The temp location to use for the job. */
+@property(nonatomic, copy, nullable) NSString *tempLocation;
 
 /**
  *  The zone to start the workers in.
@@ -2286,7 +2296,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *systemName;
 
 /** The user function to invoke. */
-@property(nonatomic, strong, nullable) GTLRDataflow_SeqMapTaskUserFn *userFn;
+@property(nonatomic, strong, nullable) GTLRDataflow_SeqMapTask_UserFn *userFn;
 
 @end
 
@@ -2299,7 +2309,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_SeqMapTaskUserFn : GTLRObject
+@interface GTLRDataflow_SeqMapTask_UserFn : GTLRObject
 @end
 
 
@@ -2341,7 +2351,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_SideInputInfo : GTLRObject
 
 /** How to interpret the source element(s) as a side input value. */
-@property(nonatomic, strong, nullable) GTLRDataflow_SideInputInfoKind *kind;
+@property(nonatomic, strong, nullable) GTLRDataflow_SideInputInfo_Kind *kind;
 
 /**
  *  The source(s) to read element(s) from to get the value of this side input.
@@ -2367,7 +2377,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_SideInputInfoKind : GTLRObject
+@interface GTLRDataflow_SideInputInfo_Kind : GTLRObject
 @end
 
 
@@ -2377,10 +2387,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_Sink : GTLRObject
 
 /** The codec to use to encode data written to the sink. */
-@property(nonatomic, strong, nullable) GTLRDataflow_SinkCodec *codec;
+@property(nonatomic, strong, nullable) GTLRDataflow_Sink_Codec *codec;
 
 /** The sink to write to, plus its parameters. */
-@property(nonatomic, strong, nullable) GTLRDataflow_SinkSpec *spec;
+@property(nonatomic, strong, nullable) GTLRDataflow_Sink_Spec *spec;
 
 @end
 
@@ -2393,7 +2403,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_SinkCodec : GTLRObject
+@interface GTLRDataflow_Sink_Codec : GTLRObject
 @end
 
 
@@ -2405,7 +2415,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_SinkSpec : GTLRObject
+@interface GTLRDataflow_Sink_Spec : GTLRObject
 @end
 
 
@@ -2422,10 +2432,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  latest explicitly specified value of each parameter in the order: base_specs
  *  (later items win), spec (overrides anything in base_specs).
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_SourceBaseSpecsItem *> *baseSpecs;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Source_BaseSpecs_Item *> *baseSpecs;
 
 /** The codec to use to decode data read from the source. */
-@property(nonatomic, strong, nullable) GTLRDataflow_SourceCodec *codec;
+@property(nonatomic, strong, nullable) GTLRDataflow_Source_Codec *codec;
 
 /**
  *  Setting this value to true hints to the framework that the source doesn't
@@ -2454,20 +2464,20 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_SourceMetadata *metadata;
 
 /** The source to read from, plus its parameters. */
-@property(nonatomic, strong, nullable) GTLRDataflow_SourceSpec *spec;
+@property(nonatomic, strong, nullable) GTLRDataflow_Source_Spec *spec;
 
 @end
 
 
 /**
- *  GTLRDataflow_SourceBaseSpecsItem
+ *  GTLRDataflow_Source_BaseSpecs_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_SourceBaseSpecsItem : GTLRObject
+@interface GTLRDataflow_Source_BaseSpecs_Item : GTLRObject
 @end
 
 
@@ -2479,7 +2489,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_SourceCodec : GTLRObject
+@interface GTLRDataflow_Source_Codec : GTLRObject
 @end
 
 
@@ -2491,7 +2501,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_SourceSpec : GTLRObject
+@interface GTLRDataflow_Source_Spec : GTLRObject
 @end
 
 
@@ -2799,7 +2809,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  A list of messages that carry the error details. There will be a common set
  *  of message types for APIs to use.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Status_Details_Item *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
@@ -2812,14 +2822,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  GTLRDataflow_StatusDetailsItem
+ *  GTLRDataflow_Status_Details_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_StatusDetailsItem : GTLRObject
+@interface GTLRDataflow_Status_Details_Item : GTLRObject
 @end
 
 
@@ -2852,7 +2862,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Named properties associated with the step. Each kind of predefined step has
  *  its own required set of properties.
  */
-@property(nonatomic, strong, nullable) GTLRDataflow_StepProperties *properties;
+@property(nonatomic, strong, nullable) GTLRDataflow_Step_Properties *properties;
 
 @end
 
@@ -2866,7 +2876,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_StepProperties : GTLRObject
+@interface GTLRDataflow_Step_Properties : GTLRObject
 @end
 
 
@@ -2942,7 +2952,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_StreamingComputationConfig *> *streamingComputationConfigs;
 
 /** Map from user step names to state families. */
-@property(nonatomic, strong, nullable) GTLRDataflow_StreamingConfigTaskUserStepToStateFamilyNameMap *userStepToStateFamilyNameMap;
+@property(nonatomic, strong, nullable) GTLRDataflow_StreamingConfigTask_UserStepToStateFamilyNameMap *userStepToStateFamilyNameMap;
 
 @end
 
@@ -2955,7 +2965,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRDataflow_StreamingConfigTaskUserStepToStateFamilyNameMap : GTLRObject
+@interface GTLRDataflow_StreamingConfigTask_UserStepToStateFamilyNameMap : GTLRObject
 @end
 
 
@@ -3184,7 +3194,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSNumber *persistentStateVersion;
 
 /** Maps user stage names to stable computation names. */
-@property(nonatomic, strong, nullable) GTLRDataflow_TopologyConfigUserStageToComputationNameMap *userStageToComputationNameMap;
+@property(nonatomic, strong, nullable) GTLRDataflow_TopologyConfig_UserStageToComputationNameMap *userStageToComputationNameMap;
 
 @end
 
@@ -3197,7 +3207,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRDataflow_TopologyConfigUserStageToComputationNameMap : GTLRObject
+@interface GTLRDataflow_TopologyConfig_UserStageToComputationNameMap : GTLRObject
 @end
 
 
@@ -3214,7 +3224,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  This field is used by the worker to send the status of the indvidual
  *  containers running on each worker.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_WorkerHealthReportPodsItem *> *pods;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_WorkerHealthReport_Pods_Item *> *pods;
 
 /**
  *  The interval at which the worker is sending health reports. The default
@@ -3237,14 +3247,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  GTLRDataflow_WorkerHealthReportPodsItem
+ *  GTLRDataflow_WorkerHealthReport_Pods_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_WorkerHealthReportPodsItem : GTLRObject
+@interface GTLRDataflow_WorkerHealthReport_Pods_Item : GTLRObject
 @end
 
 
@@ -3277,7 +3287,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  values. However, for ease of development other strings can be used as tags.
  *  LABEL_UNSPECIFIED should not be used here.
  */
-@property(nonatomic, strong, nullable) GTLRDataflow_WorkerMessageLabels *labels;
+@property(nonatomic, strong, nullable) GTLRDataflow_WorkerMessage_Labels *labels;
 
 /** The timestamp of the worker_message. */
 @property(nonatomic, copy, nullable) NSString *time;
@@ -3304,7 +3314,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRDataflow_WorkerMessageLabels : GTLRObject
+@interface GTLRDataflow_WorkerMessage_Labels : GTLRObject
 @end
 
 
@@ -3341,7 +3351,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  worker identifiers should almost always be passed as labels since they will
  *  be included on most messages.
  */
-@property(nonatomic, strong, nullable) GTLRDataflow_WorkerMessageCodeParameters *parameters;
+@property(nonatomic, strong, nullable) GTLRDataflow_WorkerMessageCode_Parameters *parameters;
 
 @end
 
@@ -3365,7 +3375,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_WorkerMessageCodeParameters : GTLRObject
+@interface GTLRDataflow_WorkerMessageCode_Parameters : GTLRObject
 @end
 
 
@@ -3455,7 +3465,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *machineType;
 
 /** Metadata to set on the Google Compute Engine VMs. */
-@property(nonatomic, strong, nullable) GTLRDataflow_WorkerPoolMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRDataflow_WorkerPool_Metadata *metadata;
 
 /**
  *  Network to which VMs will be assigned. If empty or unspecified, the service
@@ -3491,7 +3501,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Package *> *packages;
 
 /** Extra arguments for this worker pool. */
-@property(nonatomic, strong, nullable) GTLRDataflow_WorkerPoolPoolArgs *poolArgs;
+@property(nonatomic, strong, nullable) GTLRDataflow_WorkerPool_PoolArgs *poolArgs;
 
 /**
  *  Subnetwork to which VMs will be assigned, if desired. Expected to be of the
@@ -3555,7 +3565,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRDataflow_WorkerPoolMetadata : GTLRObject
+@interface GTLRDataflow_WorkerPool_Metadata : GTLRObject
 @end
 
 
@@ -3567,7 +3577,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_WorkerPoolPoolArgs : GTLRObject
+@interface GTLRDataflow_WorkerPool_PoolArgs : GTLRObject
 @end
 
 
@@ -3696,7 +3706,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Other data returned by the service, specific to the particular worker
  *  harness.
  */
-@property(nonatomic, strong, nullable) GTLRDataflow_WorkItemServiceStateHarnessData *harnessData;
+@property(nonatomic, strong, nullable) GTLRDataflow_WorkItemServiceState_HarnessData *harnessData;
 
 /** Time at which the current lease will expire. */
 @property(nonatomic, copy, nullable) NSString *leaseExpireTime;
@@ -3746,7 +3756,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_WorkItemServiceStateHarnessData : GTLRObject
+@interface GTLRDataflow_WorkItemServiceState_HarnessData : GTLRObject
 @end
 
 

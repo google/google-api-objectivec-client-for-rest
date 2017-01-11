@@ -46,10 +46,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFusionTables_ColumnBaseColumn
+//   GTLRFusionTables_Column_BaseColumn
 //
 
-@implementation GTLRFusionTables_ColumnBaseColumn
+@implementation GTLRFusionTables_Column_BaseColumn
 @dynamic columnId, tableIndex;
 @end
 
@@ -231,15 +231,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFusionTables_StyleFunctionGradient
+//   GTLRFusionTables_StyleFunction_Gradient
 //
 
-@implementation GTLRFusionTables_StyleFunctionGradient
+@implementation GTLRFusionTables_StyleFunction_Gradient
 @dynamic colors, max, min;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"colors" : [GTLRFusionTables_StyleFunctionGradientColorsItem class]
+    @"colors" : [GTLRFusionTables_StyleFunction_Gradient_Colors_Item class]
   };
   return map;
 }
@@ -249,10 +249,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFusionTables_StyleFunctionGradientColorsItem
+//   GTLRFusionTables_StyleFunction_Gradient_Colors_Item
 //
 
-@implementation GTLRFusionTables_StyleFunctionGradientColorsItem
+@implementation GTLRFusionTables_StyleFunction_Gradient_Colors_Item
 @dynamic color, opacity;
 @end
 

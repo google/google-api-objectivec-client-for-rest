@@ -22,7 +22,7 @@
 
 @class GTLRMonitoring_BucketOptions;
 @class GTLRMonitoring_CollectdPayload;
-@class GTLRMonitoring_CollectdPayloadMetadata;
+@class GTLRMonitoring_CollectdPayload_Metadata;
 @class GTLRMonitoring_CollectdValue;
 @class GTLRMonitoring_Distribution;
 @class GTLRMonitoring_Explicit;
@@ -32,13 +32,13 @@
 @class GTLRMonitoring_LabelDescriptor;
 @class GTLRMonitoring_Linear;
 @class GTLRMonitoring_Metric;
+@class GTLRMonitoring_Metric_Labels;
 @class GTLRMonitoring_MetricDescriptor;
-@class GTLRMonitoring_MetricLabels;
 @class GTLRMonitoring_MonitoredResource;
+@class GTLRMonitoring_MonitoredResource_Labels;
 @class GTLRMonitoring_MonitoredResourceDescriptor;
-@class GTLRMonitoring_MonitoredResourceLabels;
 @class GTLRMonitoring_Option;
-@class GTLRMonitoring_OptionValue;
+@class GTLRMonitoring_Option_Value;
 @class GTLRMonitoring_Point;
 @class GTLRMonitoring_Range;
 @class GTLRMonitoring_SourceContext;
@@ -474,7 +474,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /** The measurement metadata. Example: "process_id" -> 12345 */
-@property(nonatomic, strong, nullable) GTLRMonitoring_CollectdPayloadMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRMonitoring_CollectdPayload_Metadata *metadata;
 
 /** The name of the plugin. Example: "disk". */
 @property(nonatomic, copy, nullable) NSString *plugin;
@@ -508,7 +508,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRMonitoring_CollectdPayloadMetadata : GTLRObject
+@interface GTLRMonitoring_CollectdPayload_Metadata : GTLRObject
 @end
 
 
@@ -1122,7 +1122,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  The set of label values that uniquely identify this metric. All labels
  *  listed in the MetricDescriptor must be assigned values.
  */
-@property(nonatomic, strong, nullable) GTLRMonitoring_MetricLabels *labels;
+@property(nonatomic, strong, nullable) GTLRMonitoring_Metric_Labels *labels;
 
 /**
  *  An existing metric type, see google.api.MetricDescriptor. For example,
@@ -1142,7 +1142,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRMonitoring_MetricLabels : GTLRObject
+@interface GTLRMonitoring_Metric_Labels : GTLRObject
 @end
 
 
@@ -1200,15 +1200,16 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  scope of the metric type or of its data; and (2) the metric's URL-encoded
  *  type, which also appears in the type field of this descriptor. For example,
  *  following is the resource name of a custom metric within the GCP project
- *  123456789:
- *  "projects/123456789/metricDescriptors/custom.googleapis.com%2Finvoice%2Fpaid%2Famount"
+ *  my-project-id:
+ *  "projects/my-project-id/metricDescriptors/custom.googleapis.com%2Finvoice%2Fpaid%2Famount"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The metric type, including its DNS name prefix. The type is not URL-encoded.
- *  All user-defined metric types have the DNS name custom.googleapis.com.
- *  Metric types should use a natural hierarchical grouping. For example:
+ *  All user-defined custom metric types have the DNS name
+ *  custom.googleapis.com. Metric types should use a natural hierarchical
+ *  grouping. For example:
  *  "custom.googleapis.com/invoice/paid/amount"
  *  "appengine.googleapis.com/http/server/response_latencies"
  */
@@ -1312,7 +1313,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *  resource descriptor. For example, Cloud SQL databases use the labels
  *  "database_id" and "zone".
  */
-@property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResourceLabels *labels;
+@property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource_Labels *labels;
 
 /**
  *  Required. The monitored resource type. This field must match the type field
@@ -1334,7 +1335,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRMonitoring_MonitoredResourceLabels : GTLRObject
+@interface GTLRMonitoring_MonitoredResource_Labels : GTLRObject
 @end
 
 
@@ -1398,24 +1399,37 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
  */
 @interface GTLRMonitoring_Option : GTLRObject
 
-/** The option's name. For example, "java_package". */
+/**
+ *  The option's name. For protobuf built-in options (options defined in
+ *  descriptor.proto), this is the short name. For example, "map_entry". For
+ *  custom options, it should be the fully-qualified name. For example,
+ *  "google.api.http".
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The option's value. For example, "com.google.protobuf". */
-@property(nonatomic, strong, nullable) GTLRMonitoring_OptionValue *value;
+/**
+ *  The option's value packed in an Any message. If the value is a primitive,
+ *  the corresponding wrapper type defined in google/protobuf/wrappers.proto
+ *  should be used. If the value is an enum, it should be stored as an int32
+ *  value using the google.protobuf.Int32Value type.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_Option_Value *value;
 
 @end
 
 
 /**
- *  The option's value. For example, "com.google.protobuf".
+ *  The option's value packed in an Any message. If the value is a primitive,
+ *  the corresponding wrapper type defined in google/protobuf/wrappers.proto
+ *  should be used. If the value is an enum, it should be stored as an int32
+ *  value using the google.protobuf.Int32Value type.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRMonitoring_OptionValue : GTLRObject
+@interface GTLRMonitoring_Option_Value : GTLRObject
 @end
 
 

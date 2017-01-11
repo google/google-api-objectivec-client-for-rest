@@ -20,13 +20,13 @@
 
 @class GTLRFusionTables_Bucket;
 @class GTLRFusionTables_Column;
-@class GTLRFusionTables_ColumnBaseColumn;
+@class GTLRFusionTables_Column_BaseColumn;
 @class GTLRFusionTables_LineStyle;
 @class GTLRFusionTables_PointStyle;
 @class GTLRFusionTables_PolygonStyle;
 @class GTLRFusionTables_StyleFunction;
-@class GTLRFusionTables_StyleFunctionGradient;
-@class GTLRFusionTables_StyleFunctionGradientColorsItem;
+@class GTLRFusionTables_StyleFunction_Gradient;
+@class GTLRFusionTables_StyleFunction_Gradient_Colors_Item;
 @class GTLRFusionTables_StyleSetting;
 @class GTLRFusionTables_Table;
 @class GTLRFusionTables_Task;
@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifier of the base column. If present, this column is derived from the
  *  specified base column.
  */
-@property(nonatomic, strong, nullable) GTLRFusionTables_ColumnBaseColumn *baseColumn;
+@property(nonatomic, strong, nullable) GTLRFusionTables_Column_BaseColumn *baseColumn;
 
 /**
  *  Identifier for the column.
@@ -176,7 +176,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifier of the base column. If present, this column is derived from the
  *  specified base column.
  */
-@interface GTLRFusionTables_ColumnBaseColumn : GTLRObject
+@interface GTLRFusionTables_Column_BaseColumn : GTLRObject
 
 /**
  *  The id of the column in the base table from which this column is derived.
@@ -484,7 +484,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Gradient function that interpolates a range of colors based on column value.
  */
-@property(nonatomic, strong, nullable) GTLRFusionTables_StyleFunctionGradient *gradient;
+@property(nonatomic, strong, nullable) GTLRFusionTables_StyleFunction_Gradient *gradient;
 
 /**
  *  Stylers can be one of three kinds: "fusiontables#fromColumn if the column
@@ -502,10 +502,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Gradient function that interpolates a range of colors based on column value.
  */
-@interface GTLRFusionTables_StyleFunctionGradient : GTLRObject
+@interface GTLRFusionTables_StyleFunction_Gradient : GTLRObject
 
 /** Array with two or more colors. */
-@property(nonatomic, strong, nullable) NSArray<GTLRFusionTables_StyleFunctionGradientColorsItem *> *colors;
+@property(nonatomic, strong, nullable) NSArray<GTLRFusionTables_StyleFunction_Gradient_Colors_Item *> *colors;
 
 /**
  *  Higher-end of the interpolation range: rows with this value will be assigned
@@ -527,9 +527,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRFusionTables_StyleFunctionGradientColorsItem
+ *  GTLRFusionTables_StyleFunction_Gradient_Colors_Item
  */
-@interface GTLRFusionTables_StyleFunctionGradientColorsItem : GTLRObject
+@interface GTLRFusionTables_StyleFunction_Gradient_Colors_Item : GTLRObject
 
 /** Color in #RRGGBB format. */
 @property(nonatomic, copy, nullable) NSString *color;

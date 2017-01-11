@@ -158,10 +158,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameter
+//   GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequest_CustomParameter
 //
 
-@implementation GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequestCustomParameter
+@implementation GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequest_CustomParameter
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -186,7 +186,7 @@
 //
 
 @implementation GTLRIdentityToolkit_RelyingpartyDownloadAccountRequest
-@dynamic delegatedProjectNumber, maxResults, nextPageToken;
+@dynamic delegatedProjectNumber, maxResults, nextPageToken, targetProjectId;
 @end
 
 
@@ -415,7 +415,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"providerUserInfo" : [GTLRIdentityToolkit_SetAccountInfoResponseProviderUserInfoItem class]
+    @"providerUserInfo" : [GTLRIdentityToolkit_SetAccountInfoResponse_ProviderUserInfo_Item class]
   };
   return map;
 }
@@ -425,10 +425,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIdentityToolkit_SetAccountInfoResponseProviderUserInfoItem
+//   GTLRIdentityToolkit_SetAccountInfoResponse_ProviderUserInfo_Item
 //
 
-@implementation GTLRIdentityToolkit_SetAccountInfoResponseProviderUserInfoItem
+@implementation GTLRIdentityToolkit_SetAccountInfoResponse_ProviderUserInfo_Item
 @dynamic displayName, federatedId, photoUrl, providerId;
 @end
 
@@ -453,7 +453,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"error" : [GTLRIdentityToolkit_UploadAccountResponseErrorItem class]
+    @"error" : [GTLRIdentityToolkit_UploadAccountResponse_Error_Item class]
   };
   return map;
 }
@@ -463,10 +463,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIdentityToolkit_UploadAccountResponseErrorItem
+//   GTLRIdentityToolkit_UploadAccountResponse_Error_Item
 //
 
-@implementation GTLRIdentityToolkit_UploadAccountResponseErrorItem
+@implementation GTLRIdentityToolkit_UploadAccountResponse_Error_Item
 @dynamic index, message;
 @end
 
@@ -483,7 +483,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"providerUserInfo" : [GTLRIdentityToolkit_UserInfoProviderUserInfoItem class]
+    @"providerUserInfo" : [GTLRIdentityToolkit_UserInfo_ProviderUserInfo_Item class]
   };
   return map;
 }
@@ -493,10 +493,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIdentityToolkit_UserInfoProviderUserInfoItem
+//   GTLRIdentityToolkit_UserInfo_ProviderUserInfo_Item
 //
 
-@implementation GTLRIdentityToolkit_UserInfoProviderUserInfoItem
+@implementation GTLRIdentityToolkit_UserInfo_ProviderUserInfo_Item
 @dynamic displayName, email, federatedId, photoUrl, providerId, rawId,
          screenName;
 @end

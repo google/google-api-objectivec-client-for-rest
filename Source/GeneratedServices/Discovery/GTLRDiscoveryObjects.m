@@ -21,7 +21,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRDiscovery_DirectoryListItemsItem class]
+    @"items" : [GTLRDiscovery_DirectoryList_Items_Item class]
   };
   return map;
 }
@@ -31,10 +31,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_DirectoryListItemsItem
+//   GTLRDiscovery_DirectoryList_Items_Item
 //
 
-@implementation GTLRDiscovery_DirectoryListItemsItem
+@implementation GTLRDiscovery_DirectoryList_Items_Item
 @dynamic descriptionProperty, discoveryLink, discoveryRestUrl,
          documentationLink, icons, identifier, kind, labels, name, preferred,
          title, version;
@@ -59,10 +59,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_DirectoryListItemsItemIcons
+//   GTLRDiscovery_DirectoryList_Items_Item_Icons
 //
 
-@implementation GTLRDiscovery_DirectoryListItemsItemIcons
+@implementation GTLRDiscovery_DirectoryList_Items_Item_Icons
 @dynamic x16, x32;
 @end
 
@@ -103,10 +103,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_JsonSchemaAnnotations
+//   GTLRDiscovery_JsonSchema_Annotations
 //
 
-@implementation GTLRDiscovery_JsonSchemaAnnotations
+@implementation GTLRDiscovery_JsonSchema_Annotations
 @dynamic required;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -121,10 +121,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_JsonSchemaProperties
+//   GTLRDiscovery_JsonSchema_Properties
 //
 
-@implementation GTLRDiscovery_JsonSchemaProperties
+@implementation GTLRDiscovery_JsonSchema_Properties
 
 + (Class)classForAdditionalProperties {
   return [GTLRDiscovery_JsonSchema class];
@@ -135,15 +135,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_JsonSchemaVariant
+//   GTLRDiscovery_JsonSchema_Variant
 //
 
-@implementation GTLRDiscovery_JsonSchemaVariant
+@implementation GTLRDiscovery_JsonSchema_Variant
 @dynamic discriminant, map;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"map" : [GTLRDiscovery_JsonSchemaVariantMapItem class]
+    @"map" : [GTLRDiscovery_JsonSchema_Variant_Map_Item class]
   };
   return map;
 }
@@ -153,10 +153,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_JsonSchemaVariantMapItem
+//   GTLRDiscovery_JsonSchema_Variant_Map_Item
 //
 
-@implementation GTLRDiscovery_JsonSchemaVariantMapItem
+@implementation GTLRDiscovery_JsonSchema_Variant_Map_Item
 @dynamic xRef, typeValue;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -205,30 +205,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestDescriptionAuth
+//   GTLRDiscovery_RestDescription_Auth
 //
 
-@implementation GTLRDiscovery_RestDescriptionAuth
+@implementation GTLRDiscovery_RestDescription_Auth
 @dynamic oauth2;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestDescriptionIcons
+//   GTLRDiscovery_RestDescription_Icons
 //
 
-@implementation GTLRDiscovery_RestDescriptionIcons
+@implementation GTLRDiscovery_RestDescription_Icons
 @dynamic x16, x32;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestDescriptionMethods
+//   GTLRDiscovery_RestDescription_Methods
 //
 
-@implementation GTLRDiscovery_RestDescriptionMethods
+@implementation GTLRDiscovery_RestDescription_Methods
 
 + (Class)classForAdditionalProperties {
   return [GTLRDiscovery_RestMethod class];
@@ -239,10 +239,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestDescriptionParameters
+//   GTLRDiscovery_RestDescription_Parameters
 //
 
-@implementation GTLRDiscovery_RestDescriptionParameters
+@implementation GTLRDiscovery_RestDescription_Parameters
 
 + (Class)classForAdditionalProperties {
   return [GTLRDiscovery_JsonSchema class];
@@ -253,10 +253,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestDescriptionResources
+//   GTLRDiscovery_RestDescription_Resources
 //
 
-@implementation GTLRDiscovery_RestDescriptionResources
+@implementation GTLRDiscovery_RestDescription_Resources
 
 + (Class)classForAdditionalProperties {
   return [GTLRDiscovery_RestResource class];
@@ -267,10 +267,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestDescriptionSchemas
+//   GTLRDiscovery_RestDescription_Schemas
 //
 
-@implementation GTLRDiscovery_RestDescriptionSchemas
+@implementation GTLRDiscovery_RestDescription_Schemas
 
 + (Class)classForAdditionalProperties {
   return [GTLRDiscovery_JsonSchema class];
@@ -281,23 +281,23 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestDescriptionAuthOauth2
+//   GTLRDiscovery_RestDescription_Auth_Oauth2
 //
 
-@implementation GTLRDiscovery_RestDescriptionAuthOauth2
+@implementation GTLRDiscovery_RestDescription_Auth_Oauth2
 @dynamic scopes;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestDescriptionAuthOauth2Scopes
+//   GTLRDiscovery_RestDescription_Auth_Oauth2_Scopes
 //
 
-@implementation GTLRDiscovery_RestDescriptionAuthOauth2Scopes
+@implementation GTLRDiscovery_RestDescription_Auth_Oauth2_Scopes
 
 + (Class)classForAdditionalProperties {
-  return [GTLRDiscovery_RestDescriptionAuthOauth2ScopesScope class];
+  return [GTLRDiscovery_RestDescription_Auth_Oauth2_Scopes_Scope class];
 }
 
 @end
@@ -305,10 +305,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestDescriptionAuthOauth2ScopesScope
+//   GTLRDiscovery_RestDescription_Auth_Oauth2_Scopes_Scope
 //
 
-@implementation GTLRDiscovery_RestDescriptionAuthOauth2ScopesScope
+@implementation GTLRDiscovery_RestDescription_Auth_Oauth2_Scopes_Scope
 @dynamic descriptionProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -350,10 +350,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestMethodMediaUpload
+//   GTLRDiscovery_RestMethod_MediaUpload
 //
 
-@implementation GTLRDiscovery_RestMethodMediaUpload
+@implementation GTLRDiscovery_RestMethod_MediaUpload
 @dynamic accept, maxSize, protocols;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -368,10 +368,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestMethodParameters
+//   GTLRDiscovery_RestMethod_Parameters
 //
 
-@implementation GTLRDiscovery_RestMethodParameters
+@implementation GTLRDiscovery_RestMethod_Parameters
 
 + (Class)classForAdditionalProperties {
   return [GTLRDiscovery_JsonSchema class];
@@ -382,10 +382,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestMethodRequest
+//   GTLRDiscovery_RestMethod_Request
 //
 
-@implementation GTLRDiscovery_RestMethodRequest
+@implementation GTLRDiscovery_RestMethod_Request
 @dynamic xRef, parameterName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -397,10 +397,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestMethodResponse
+//   GTLRDiscovery_RestMethod_Response
 //
 
-@implementation GTLRDiscovery_RestMethodResponse
+@implementation GTLRDiscovery_RestMethod_Response
 @dynamic xRef;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -412,30 +412,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestMethodMediaUploadProtocols
+//   GTLRDiscovery_RestMethod_MediaUpload_Protocols
 //
 
-@implementation GTLRDiscovery_RestMethodMediaUploadProtocols
+@implementation GTLRDiscovery_RestMethod_MediaUpload_Protocols
 @dynamic resumable, simple;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestMethodMediaUploadProtocolsResumable
+//   GTLRDiscovery_RestMethod_MediaUpload_Protocols_Resumable
 //
 
-@implementation GTLRDiscovery_RestMethodMediaUploadProtocolsResumable
+@implementation GTLRDiscovery_RestMethod_MediaUpload_Protocols_Resumable
 @dynamic multipart, path;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestMethodMediaUploadProtocolsSimple
+//   GTLRDiscovery_RestMethod_MediaUpload_Protocols_Simple
 //
 
-@implementation GTLRDiscovery_RestMethodMediaUploadProtocolsSimple
+@implementation GTLRDiscovery_RestMethod_MediaUpload_Protocols_Simple
 @dynamic multipart, path;
 @end
 
@@ -452,10 +452,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestResourceMethods
+//   GTLRDiscovery_RestResource_Methods
 //
 
-@implementation GTLRDiscovery_RestResourceMethods
+@implementation GTLRDiscovery_RestResource_Methods
 
 + (Class)classForAdditionalProperties {
   return [GTLRDiscovery_RestMethod class];
@@ -466,10 +466,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscovery_RestResourceResources
+//   GTLRDiscovery_RestResource_Resources
 //
 
-@implementation GTLRDiscovery_RestResourceResources
+@implementation GTLRDiscovery_RestResource_Resources
 
 + (Class)classForAdditionalProperties {
   return [GTLRDiscovery_RestResource class];

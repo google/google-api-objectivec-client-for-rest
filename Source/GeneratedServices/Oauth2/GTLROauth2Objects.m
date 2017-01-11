@@ -20,7 +20,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"keys" : [GTLROauth2_JwkKeysItem class]
+    @"keys" : [GTLROauth2_Jwk_Keys_Item class]
   };
   return map;
 }
@@ -30,10 +30,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROauth2_JwkKeysItem
+//   GTLROauth2_Jwk_Keys_Item
 //
 
-@implementation GTLROauth2_JwkKeysItem
+@implementation GTLROauth2_Jwk_Keys_Item
 @dynamic alg, e, kid, kty, n, use;
 @end
 

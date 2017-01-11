@@ -130,10 +130,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPubsub_MessageAttributes
+//   GTLRPubsub_Message_Attributes
 //
 
-@implementation GTLRPubsub_MessageAttributes
+@implementation GTLRPubsub_Message_Attributes
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -268,10 +268,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPubsub_PushConfigAttributes
+//   GTLRPubsub_PushConfig_Attributes
 //
 
-@implementation GTLRPubsub_PushConfigAttributes
+@implementation GTLRPubsub_PushConfig_Attributes
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

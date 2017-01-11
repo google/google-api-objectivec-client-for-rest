@@ -38,20 +38,20 @@
 @class GTLRYouTube_CaptionSnippet;
 @class GTLRYouTube_CdnSettings;
 @class GTLRYouTube_Channel;
+@class GTLRYouTube_Channel_Localizations;
 @class GTLRYouTube_ChannelAuditDetails;
 @class GTLRYouTube_ChannelBrandingSettings;
 @class GTLRYouTube_ChannelContentDetails;
-@class GTLRYouTube_ChannelContentDetailsRelatedPlaylists;
+@class GTLRYouTube_ChannelContentDetails_RelatedPlaylists;
 @class GTLRYouTube_ChannelContentOwnerDetails;
 @class GTLRYouTube_ChannelConversionPing;
 @class GTLRYouTube_ChannelConversionPings;
 @class GTLRYouTube_ChannelLocalization;
-@class GTLRYouTube_ChannelLocalizations;
 @class GTLRYouTube_ChannelProfileDetails;
 @class GTLRYouTube_ChannelSection;
+@class GTLRYouTube_ChannelSection_Localizations;
 @class GTLRYouTube_ChannelSectionContentDetails;
 @class GTLRYouTube_ChannelSectionLocalization;
-@class GTLRYouTube_ChannelSectionLocalizations;
 @class GTLRYouTube_ChannelSectionSnippet;
 @class GTLRYouTube_ChannelSectionTargeting;
 @class GTLRYouTube_ChannelSettings;
@@ -115,13 +115,13 @@
 @class GTLRYouTube_MonitorStreamInfo;
 @class GTLRYouTube_PageInfo;
 @class GTLRYouTube_Playlist;
+@class GTLRYouTube_Playlist_Localizations;
 @class GTLRYouTube_PlaylistContentDetails;
 @class GTLRYouTube_PlaylistItem;
 @class GTLRYouTube_PlaylistItemContentDetails;
 @class GTLRYouTube_PlaylistItemSnippet;
 @class GTLRYouTube_PlaylistItemStatus;
 @class GTLRYouTube_PlaylistLocalization;
-@class GTLRYouTube_PlaylistLocalizations;
 @class GTLRYouTube_PlaylistPlayer;
 @class GTLRYouTube_PlaylistSnippet;
 @class GTLRYouTube_PlaylistStatus;
@@ -141,6 +141,7 @@
 @class GTLRYouTube_ThumbnailDetails;
 @class GTLRYouTube_TokenPagination;
 @class GTLRYouTube_Video;
+@class GTLRYouTube_Video_Localizations;
 @class GTLRYouTube_VideoAbuseReportReason;
 @class GTLRYouTube_VideoAbuseReportReasonSnippet;
 @class GTLRYouTube_VideoAbuseReportSecondaryReason;
@@ -154,7 +155,6 @@
 @class GTLRYouTube_VideoFileDetailsVideoStream;
 @class GTLRYouTube_VideoLiveStreamingDetails;
 @class GTLRYouTube_VideoLocalization;
-@class GTLRYouTube_VideoLocalizations;
 @class GTLRYouTube_VideoMonetizationDetails;
 @class GTLRYouTube_VideoPlayer;
 @class GTLRYouTube_VideoProcessingDetails;
@@ -298,6 +298,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp;
 GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X1080p;
 /** Value: "1440p" */
 GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X1440p;
+/** Value: "2160p" */
+GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X2160p;
 /** Value: "240p" */
 GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X240p;
 /** Value: "360p" */
@@ -1178,6 +1180,26 @@ GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccypRating_Mccyp7;
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccypRating_MccypA;
 /** Value: "mccypUnrated" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccypRating_MccypUnrated;
+
+// ----------------------------------------------------------------------------
+// GTLRYouTube_ContentRating.mcstRating
+
+/** Value: "mcst0" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_Mcst0;
+/** Value: "mcst16plus" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_Mcst16plus;
+/** Value: "mcstC13" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstC13;
+/** Value: "mcstC16" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstC16;
+/** Value: "mcstC18" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstC18;
+/** Value: "mcstGPg" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstGPg;
+/** Value: "mcstP" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstP;
+/** Value: "mcstUnrated" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mdaRating
@@ -2132,6 +2154,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_Proj
 
 /** Value: "nonStreamableMov" */
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_NonStreamableMov;
+/** Value: "procsesingHintSpatialAudio" */
+GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_ProcsesingHintSpatialAudio;
+/** Value: "procsesingHintSphericalVideo" */
+GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_ProcsesingHintSphericalVideo;
 /** Value: "sendBestQualityVideo" */
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SendBestQualityVideo;
 
@@ -2900,6 +2926,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  Likely values:
  *    @arg @c kGTLRYouTube_CdnSettings_Resolution_X1080p Value "1080p"
  *    @arg @c kGTLRYouTube_CdnSettings_Resolution_X1440p Value "1440p"
+ *    @arg @c kGTLRYouTube_CdnSettings_Resolution_X2160p Value "2160p"
  *    @arg @c kGTLRYouTube_CdnSettings_Resolution_X240p Value "240p"
  *    @arg @c kGTLRYouTube_CdnSettings_Resolution_X360p Value "360p"
  *    @arg @c kGTLRYouTube_CdnSettings_Resolution_X480p Value "480p"
@@ -2968,7 +2995,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Localizations for different languages */
-@property(nonatomic, strong, nullable) GTLRYouTube_ChannelLocalizations *localizations;
+@property(nonatomic, strong, nullable) GTLRYouTube_Channel_Localizations *localizations;
 
 /**
  *  The snippet object contains basic details about the channel, such as its
@@ -3002,7 +3029,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRYouTube_ChannelLocalizations : GTLRObject
+@interface GTLRYouTube_Channel_Localizations : GTLRObject
 @end
 
 
@@ -3092,15 +3119,15 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  */
 @interface GTLRYouTube_ChannelContentDetails : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRYouTube_ChannelContentDetailsRelatedPlaylists *relatedPlaylists;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelContentDetails_RelatedPlaylists *relatedPlaylists;
 
 @end
 
 
 /**
- *  GTLRYouTube_ChannelContentDetailsRelatedPlaylists
+ *  GTLRYouTube_ChannelContentDetails_RelatedPlaylists
  */
-@interface GTLRYouTube_ChannelContentDetailsRelatedPlaylists : GTLRObject
+@interface GTLRYouTube_ChannelContentDetails_RelatedPlaylists : GTLRObject
 
 /**
  *  The ID of the playlist that contains the channel"s favorite videos. Use the
@@ -3325,7 +3352,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Localizations for different languages */
-@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSectionLocalizations *localizations;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSection_Localizations *localizations;
 
 /**
  *  The snippet object contains basic details about the channel section, such as
@@ -3350,7 +3377,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        @c -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRYouTube_ChannelSectionLocalizations : GTLRObject
+@interface GTLRYouTube_ChannelSection_Localizations : GTLRObject
 @end
 
 
@@ -4057,7 +4084,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 
 /**
  *  Ratings schemes. The country-specific ratings are mostly for movies and
- *  shows. NEXT_ID: 68
+ *  shows. NEXT_ID: 69
  */
 @interface GTLRYouTube_ContentRating : GTLRObject
 
@@ -4721,6 +4748,23 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "mccypUnrated"
  */
 @property(nonatomic, copy, nullable) NSString *mccypRating;
+
+/**
+ *  The video's rating system for Vietnam - MCST
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_ContentRating_McstRating_Mcst0 Value "mcst0"
+ *    @arg @c kGTLRYouTube_ContentRating_McstRating_Mcst16plus Value
+ *        "mcst16plus"
+ *    @arg @c kGTLRYouTube_ContentRating_McstRating_McstC13 Value "mcstC13"
+ *    @arg @c kGTLRYouTube_ContentRating_McstRating_McstC16 Value "mcstC16"
+ *    @arg @c kGTLRYouTube_ContentRating_McstRating_McstC18 Value "mcstC18"
+ *    @arg @c kGTLRYouTube_ContentRating_McstRating_McstGPg Value "mcstGPg"
+ *    @arg @c kGTLRYouTube_ContentRating_McstRating_McstP Value "mcstP"
+ *    @arg @c kGTLRYouTube_ContentRating_McstRating_McstUnrated Value
+ *        "mcstUnrated"
+ */
+@property(nonatomic, copy, nullable) NSString *mcstRating;
 
 /**
  *  The video's rating from Singapore's Media Development Authority (MDA) and,
@@ -7278,7 +7322,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Localizations for different languages */
-@property(nonatomic, strong, nullable) GTLRYouTube_PlaylistLocalizations *localizations;
+@property(nonatomic, strong, nullable) GTLRYouTube_Playlist_Localizations *localizations;
 
 /**
  *  The player object contains information that you would use to play the
@@ -7306,7 +7350,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRYouTube_PlaylistLocalizations : GTLRObject
+@interface GTLRYouTube_Playlist_Localizations : GTLRObject
 @end
 
 
@@ -7416,6 +7460,12 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  resource, set the id query parameter to this value in your API request.
  */
 @property(nonatomic, copy, nullable) NSString *videoId;
+
+/**
+ *  The date and time that the video was published to YouTube. The value is
+ *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *videoPublishedAt;
 
 @end
 
@@ -8408,7 +8458,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, strong, nullable) GTLRYouTube_VideoLiveStreamingDetails *liveStreamingDetails;
 
 /** List with all localizations. */
-@property(nonatomic, strong, nullable) GTLRYouTube_VideoLocalizations *localizations;
+@property(nonatomic, strong, nullable) GTLRYouTube_Video_Localizations *localizations;
 
 /**
  *  The monetizationDetails object encapsulates information about the
@@ -8486,7 +8536,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRYouTube_VideoLocalizations : GTLRObject
+@interface GTLRYouTube_Video_Localizations : GTLRObject
 @end
 
 

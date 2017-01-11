@@ -23,13 +23,13 @@
 @class GTLRCloudNaturalLanguage_DependencyEdge;
 @class GTLRCloudNaturalLanguage_Document;
 @class GTLRCloudNaturalLanguage_Entity;
+@class GTLRCloudNaturalLanguage_Entity_Metadata;
 @class GTLRCloudNaturalLanguage_EntityMention;
-@class GTLRCloudNaturalLanguage_EntityMetadata;
 @class GTLRCloudNaturalLanguage_Features;
 @class GTLRCloudNaturalLanguage_PartOfSpeech;
 @class GTLRCloudNaturalLanguage_Sentence;
 @class GTLRCloudNaturalLanguage_Sentiment;
-@class GTLRCloudNaturalLanguage_StatusDetailsItem;
+@class GTLRCloudNaturalLanguage_Status_Details_Item;
 @class GTLRCloudNaturalLanguage_TextSpan;
 @class GTLRCloudNaturalLanguage_Token;
 
@@ -1754,9 +1754,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *  automatically detected). Both ISO and BCP-47 language codes are
  *  accepted.<br>
  *  **Current Language Restrictions:**
- *  * Only English, Spanish, and Japanese textual content
- *  are supported, with the following additional restriction:
- *  * `analyzeSentiment` only supports English text.
+ *  * Only English, Spanish, and Japanese textual content are supported.
  *  If the language (either specified by the caller or automatically detected)
  *  is not supported by the called API method, an `INVALID_ARGUMENT` error
  *  is returned.
@@ -1797,7 +1795,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *  Currently, Wikipedia URLs and Knowledge Graph MIDs are provided, if
  *  available. The associated keys are "wikipedia_url" and "mid", respectively.
  */
-@property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_EntityMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Entity_Metadata *metadata;
 
 /** The representative name for the entity. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1848,7 +1846,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRCloudNaturalLanguage_EntityMetadata : GTLRObject
+@interface GTLRCloudNaturalLanguage_Entity_Metadata : GTLRObject
 @end
 
 
@@ -2213,7 +2211,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
 
 /**
  *  Sentiment score between -1.0 (negative sentiment) and 1.0
- *  (positive sentiment.)
+ *  (positive sentiment).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2280,7 +2278,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *  A list of messages that carry the error details. There will be a
  *  common set of message types for APIs to use.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_Status_Details_Item *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
@@ -2293,14 +2291,14 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
 
 
 /**
- *  GTLRCloudNaturalLanguage_StatusDetailsItem
+ *  GTLRCloudNaturalLanguage_Status_Details_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRCloudNaturalLanguage_StatusDetailsItem : GTLRObject
+@interface GTLRCloudNaturalLanguage_Status_Details_Item : GTLRObject
 @end
 
 
@@ -2332,8 +2330,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_DependencyEdge *dependencyEdge;
 
 /**
- *  <a href="https://en.wikipedia.org/wiki/Lemma_(morphology)">
- *  Lemma</a> of the token.
+ *  [Lemma](https://en.wikipedia.org/wiki/Lemma_%28morphology%29) of the token.
  */
 @property(nonatomic, copy, nullable) NSString *lemma;
 

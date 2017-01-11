@@ -32,30 +32,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_BlogLocale
+//   GTLRBlogger_Blog_Locale
 //
 
-@implementation GTLRBlogger_BlogLocale
+@implementation GTLRBlogger_Blog_Locale
 @dynamic country, language, variant;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_BlogPages
+//   GTLRBlogger_Blog_Pages
 //
 
-@implementation GTLRBlogger_BlogPages
+@implementation GTLRBlogger_Blog_Pages
 @dynamic selfLink, totalItems;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_BlogPosts
+//   GTLRBlogger_Blog_Posts
 //
 
-@implementation GTLRBlogger_BlogPosts
+@implementation GTLRBlogger_Blog_Posts
 @dynamic items, selfLink, totalItems;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -130,10 +130,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_CommentAuthor
+//   GTLRBlogger_Comment_Author
 //
 
-@implementation GTLRBlogger_CommentAuthor
+@implementation GTLRBlogger_Comment_Author
 @dynamic displayName, identifier, image, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -145,10 +145,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_CommentBlog
+//   GTLRBlogger_Comment_Blog
 //
 
-@implementation GTLRBlogger_CommentBlog
+@implementation GTLRBlogger_Comment_Blog
 @dynamic identifier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -160,10 +160,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_CommentInReplyTo
+//   GTLRBlogger_Comment_InReplyTo
 //
 
-@implementation GTLRBlogger_CommentInReplyTo
+@implementation GTLRBlogger_Comment_InReplyTo
 @dynamic identifier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -175,10 +175,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_CommentPost
+//   GTLRBlogger_Comment_Post
 //
 
-@implementation GTLRBlogger_CommentPost
+@implementation GTLRBlogger_Comment_Post
 @dynamic identifier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -190,10 +190,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_CommentAuthorImage
+//   GTLRBlogger_Comment_Author_Image
 //
 
-@implementation GTLRBlogger_CommentAuthorImage
+@implementation GTLRBlogger_Comment_Author_Image
 @dynamic url;
 @end
 
@@ -242,10 +242,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_PageAuthor
+//   GTLRBlogger_Page_Author
 //
 
-@implementation GTLRBlogger_PageAuthor
+@implementation GTLRBlogger_Page_Author
 @dynamic displayName, identifier, image, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -257,10 +257,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_PageBlog
+//   GTLRBlogger_Page_Blog
 //
 
-@implementation GTLRBlogger_PageBlog
+@implementation GTLRBlogger_Page_Blog
 @dynamic identifier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -272,10 +272,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_PageAuthorImage
+//   GTLRBlogger_Page_Author_Image
 //
 
-@implementation GTLRBlogger_PageAuthorImage
+@implementation GTLRBlogger_Page_Author_Image
 @dynamic url;
 @end
 
@@ -312,7 +312,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"counts" : [GTLRBlogger_PageviewsCountsItem class]
+    @"counts" : [GTLRBlogger_Pageviews_Counts_Item class]
   };
   return map;
 }
@@ -322,10 +322,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_PageviewsCountsItem
+//   GTLRBlogger_Pageviews_Counts_Item
 //
 
-@implementation GTLRBlogger_PageviewsCountsItem
+@implementation GTLRBlogger_Pageviews_Counts_Item
 @dynamic count, timeRange;
 @end
 
@@ -350,7 +350,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"images" : [GTLRBlogger_PostImagesItem class],
+    @"images" : [GTLRBlogger_Post_Images_Item class],
     @"labels" : [NSString class]
   };
   return map;
@@ -361,10 +361,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_PostAuthor
+//   GTLRBlogger_Post_Author
 //
 
-@implementation GTLRBlogger_PostAuthor
+@implementation GTLRBlogger_Post_Author
 @dynamic displayName, identifier, image, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -376,10 +376,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_PostBlog
+//   GTLRBlogger_Post_Blog
 //
 
-@implementation GTLRBlogger_PostBlog
+@implementation GTLRBlogger_Post_Blog
 @dynamic identifier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -391,30 +391,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_PostImagesItem
+//   GTLRBlogger_Post_Images_Item
 //
 
-@implementation GTLRBlogger_PostImagesItem
+@implementation GTLRBlogger_Post_Images_Item
 @dynamic url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_PostLocation
+//   GTLRBlogger_Post_Location
 //
 
-@implementation GTLRBlogger_PostLocation
+@implementation GTLRBlogger_Post_Location
 @dynamic lat, lng, name, span;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_PostReplies
+//   GTLRBlogger_Post_Replies
 //
 
-@implementation GTLRBlogger_PostReplies
+@implementation GTLRBlogger_Post_Replies
 @dynamic items, selfLink, totalItems;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -429,10 +429,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_PostAuthorImage
+//   GTLRBlogger_Post_Author_Image
 //
 
-@implementation GTLRBlogger_PostAuthorImage
+@implementation GTLRBlogger_Post_Author_Image
 @dynamic url;
 @end
 
@@ -520,19 +520,19 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_UserBlogs
+//   GTLRBlogger_User_Blogs
 //
 
-@implementation GTLRBlogger_UserBlogs
+@implementation GTLRBlogger_User_Blogs
 @dynamic selfLink;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBlogger_UserLocale
+//   GTLRBlogger_User_Locale
 //
 
-@implementation GTLRBlogger_UserLocale
+@implementation GTLRBlogger_User_Locale
 @dynamic country, language, variant;
 @end

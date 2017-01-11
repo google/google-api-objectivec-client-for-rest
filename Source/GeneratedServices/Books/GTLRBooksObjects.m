@@ -37,30 +37,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_AnnotationClientVersionRanges
+//   GTLRBooks_Annotation_ClientVersionRanges
 //
 
-@implementation GTLRBooks_AnnotationClientVersionRanges
+@implementation GTLRBooks_Annotation_ClientVersionRanges
 @dynamic cfiRange, contentVersion, gbImageRange, gbTextRange, imageCfiRange;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_AnnotationCurrentVersionRanges
+//   GTLRBooks_Annotation_CurrentVersionRanges
 //
 
-@implementation GTLRBooks_AnnotationCurrentVersionRanges
+@implementation GTLRBooks_Annotation_CurrentVersionRanges
 @dynamic cfiRange, contentVersion, gbImageRange, gbTextRange, imageCfiRange;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_AnnotationLayerSummary
+//   GTLRBooks_Annotation_LayerSummary
 //
 
-@implementation GTLRBooks_AnnotationLayerSummary
+@implementation GTLRBooks_Annotation_LayerSummary
 @dynamic allowedCharacterCount, limitType, remainingCharacterCount;
 @end
 
@@ -141,7 +141,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"layers" : [GTLRBooks_AnnotationsSummaryLayersItem class]
+    @"layers" : [GTLRBooks_AnnotationsSummary_Layers_Item class]
   };
   return map;
 }
@@ -151,10 +151,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_AnnotationsSummaryLayersItem
+//   GTLRBooks_AnnotationsSummary_Layers_Item
 //
 
-@implementation GTLRBooks_AnnotationsSummaryLayersItem
+@implementation GTLRBooks_AnnotationsSummary_Layers_Item
 @dynamic allowedCharacterCount, layerId, limitType, remainingCharacterCount,
          updated;
 @end
@@ -208,7 +208,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRBooks_CategoryItemsItem class]
+    @"items" : [GTLRBooks_Category_Items_Item class]
   };
   return map;
 }
@@ -218,10 +218,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_CategoryItemsItem
+//   GTLRBooks_Category_Items_Item
 //
 
-@implementation GTLRBooks_CategoryItemsItem
+@implementation GTLRBooks_Category_Items_Item
 @dynamic badgeUrl, categoryId, name;
 @end
 
@@ -259,25 +259,25 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataCommon
+//   GTLRBooks_Dictlayerdata_Common
 //
 
-@implementation GTLRBooks_DictlayerdataCommon
+@implementation GTLRBooks_Dictlayerdata_Common
 @dynamic title;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDict
+//   GTLRBooks_Dictlayerdata_Dict
 //
 
-@implementation GTLRBooks_DictlayerdataDict
+@implementation GTLRBooks_Dictlayerdata_Dict
 @dynamic source, words;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"words" : [GTLRBooks_DictlayerdataDictWordsItem class]
+    @"words" : [GTLRBooks_Dictlayerdata_Dict_Words_Item class]
   };
   return map;
 }
@@ -287,27 +287,27 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictSource
+//   GTLRBooks_Dictlayerdata_Dict_Source
 //
 
-@implementation GTLRBooks_DictlayerdataDictSource
+@implementation GTLRBooks_Dictlayerdata_Dict_Source
 @dynamic attribution, url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItem
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItem
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item
 @dynamic derivatives, examples, senses, source;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"derivatives" : [GTLRBooks_DictlayerdataDictWordsItemDerivativesItem class],
-    @"examples" : [GTLRBooks_DictlayerdataDictWordsItemExamplesItem class],
-    @"senses" : [GTLRBooks_DictlayerdataDictWordsItemSensesItem class]
+    @"derivatives" : [GTLRBooks_Dictlayerdata_Dict_Words_Item_Derivatives_Item class],
+    @"examples" : [GTLRBooks_Dictlayerdata_Dict_Words_Item_Examples_Item class],
+    @"senses" : [GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item class]
   };
   return map;
 }
@@ -317,38 +317,38 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItemDerivativesItem
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item_Derivatives_Item
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItemDerivativesItem
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item_Derivatives_Item
 @dynamic source, text;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItemExamplesItem
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item_Examples_Item
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItemExamplesItem
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item_Examples_Item
 @dynamic source, text;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItemSensesItem
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItemSensesItem
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item
 @dynamic conjugations, definitions, partOfSpeech, pronunciation,
          pronunciationUrl, source, syllabification, synonyms;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"conjugations" : [GTLRBooks_DictlayerdataDictWordsItemSensesItemConjugationsItem class],
-    @"definitions" : [GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItem class],
-    @"synonyms" : [GTLRBooks_DictlayerdataDictWordsItemSensesItemSynonymsItem class]
+    @"conjugations" : [GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Conjugations_Item class],
+    @"definitions" : [GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item class],
+    @"synonyms" : [GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Synonyms_Item class]
   };
   return map;
 }
@@ -358,55 +358,55 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItemSource
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item_Source
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItemSource
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item_Source
 @dynamic attribution, url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItemDerivativesItemSource
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item_Derivatives_Item_Source
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItemDerivativesItemSource
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item_Derivatives_Item_Source
 @dynamic attribution, url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItemExamplesItemSource
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item_Examples_Item_Source
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItemExamplesItemSource
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item_Examples_Item_Source
 @dynamic attribution, url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItemSensesItemConjugationsItem
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Conjugations_Item
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItemSensesItemConjugationsItem
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Conjugations_Item
 @dynamic type, value;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItem
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItem
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item
 @dynamic definition, examples;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"examples" : [GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItemExamplesItem class]
+    @"examples" : [GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item_Examples_Item class]
   };
   return map;
 }
@@ -416,50 +416,50 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItemSensesItemSource
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Source
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItemSensesItemSource
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Source
 @dynamic attribution, url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItemSensesItemSynonymsItem
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Synonyms_Item
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItemSensesItemSynonymsItem
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Synonyms_Item
 @dynamic source, text;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItemExamplesItem
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item_Examples_Item
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItemExamplesItem
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item_Examples_Item
 @dynamic source, text;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItemSensesItemSynonymsItemSource
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Synonyms_Item_Source
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItemSensesItemSynonymsItemSource
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Synonyms_Item_Source
 @dynamic attribution, url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItemExamplesItemSource
+//   GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item_Examples_Item_Source
 //
 
-@implementation GTLRBooks_DictlayerdataDictWordsItemSensesItemDefinitionsItemExamplesItemSource
+@implementation GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item_Definitions_Item_Examples_Item_Source
 @dynamic attribution, url;
 @end
 
@@ -474,7 +474,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"clusters" : [GTLRBooks_DiscoveryclustersClustersItem class]
+    @"clusters" : [GTLRBooks_Discoveryclusters_Clusters_Item class]
   };
   return map;
 }
@@ -484,10 +484,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DiscoveryclustersClustersItem
+//   GTLRBooks_Discoveryclusters_Clusters_Item
 //
 
-@implementation GTLRBooks_DiscoveryclustersClustersItem
+@implementation GTLRBooks_Discoveryclusters_Clusters_Item
 @dynamic bannerWithContentContainer, subTitle, title, totalVolumes, uid,
          volumes;
 
@@ -507,10 +507,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_DiscoveryclustersClustersItemBannerWithContentContainer
+//   GTLRBooks_Discoveryclusters_Clusters_Item_BannerWithContentContainer
 //
 
-@implementation GTLRBooks_DiscoveryclustersClustersItemBannerWithContentContainer
+@implementation GTLRBooks_Discoveryclusters_Clusters_Item_BannerWithContentContainer
 @dynamic fillColorArgb, imageUrl, maskColorArgb, moreButtonText, moreButtonUrl,
          textColorArgb;
 @end
@@ -558,26 +558,26 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_GeolayerdataCommon
+//   GTLRBooks_Geolayerdata_Common
 //
 
-@implementation GTLRBooks_GeolayerdataCommon
+@implementation GTLRBooks_Geolayerdata_Common
 @dynamic lang, previewImageUrl, snippet, snippetUrl, title;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_GeolayerdataGeo
+//   GTLRBooks_Geolayerdata_Geo
 //
 
-@implementation GTLRBooks_GeolayerdataGeo
+@implementation GTLRBooks_Geolayerdata_Geo
 @dynamic boundary, cachePolicy, countryCode, latitude, longitude, mapType,
          viewport, zoom;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"boundary" : [GTLRBooks_GeolayerdataGeoBoundaryItem class]
+    @"boundary" : [GTLRBooks_Geolayerdata_Geo_Boundary_Item class]
   };
   return map;
 }
@@ -587,40 +587,40 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_GeolayerdataGeoBoundaryItem
+//   GTLRBooks_Geolayerdata_Geo_Boundary_Item
 //
 
-@implementation GTLRBooks_GeolayerdataGeoBoundaryItem
+@implementation GTLRBooks_Geolayerdata_Geo_Boundary_Item
 @dynamic latitude, longitude;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_GeolayerdataGeoViewport
+//   GTLRBooks_Geolayerdata_Geo_Viewport
 //
 
-@implementation GTLRBooks_GeolayerdataGeoViewport
+@implementation GTLRBooks_Geolayerdata_Geo_Viewport
 @dynamic hi, lo;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_GeolayerdataGeoViewportHi
+//   GTLRBooks_Geolayerdata_Geo_Viewport_Hi
 //
 
-@implementation GTLRBooks_GeolayerdataGeoViewportHi
+@implementation GTLRBooks_Geolayerdata_Geo_Viewport_Hi
 @dynamic latitude, longitude;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_GeolayerdataGeoViewportLo
+//   GTLRBooks_Geolayerdata_Geo_Viewport_Lo
 //
 
-@implementation GTLRBooks_GeolayerdataGeoViewportLo
+@implementation GTLRBooks_Geolayerdata_Geo_Viewport_Lo
 @dynamic latitude, longitude;
 @end
 
@@ -677,7 +677,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRBooks_MetadataItemsItem class]
+    @"items" : [GTLRBooks_Metadata_Items_Item class]
   };
   return map;
 }
@@ -687,10 +687,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_MetadataItemsItem
+//   GTLRBooks_Metadata_Items_Item
 //
 
-@implementation GTLRBooks_MetadataItemsItem
+@implementation GTLRBooks_Metadata_Items_Item
 @dynamic downloadUrl, encryptedKey, language, size, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -746,7 +746,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRBooks_OffersItemsItem class]
+    @"items" : [GTLRBooks_Offers_Items_Item class]
   };
   return map;
 }
@@ -756,10 +756,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_OffersItemsItem
+//   GTLRBooks_Offers_Items_Item
 //
 
-@implementation GTLRBooks_OffersItemsItem
+@implementation GTLRBooks_Offers_Items_Item
 @dynamic artUrl, gservicesKey, identifier, items;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -768,7 +768,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRBooks_OffersItemsItemItemsItem class]
+    @"items" : [GTLRBooks_Offers_Items_Item_Items_Item class]
   };
   return map;
 }
@@ -778,10 +778,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_OffersItemsItemItemsItem
+//   GTLRBooks_Offers_Items_Item_Items_Item
 //
 
-@implementation GTLRBooks_OffersItemsItemItemsItem
+@implementation GTLRBooks_Offers_Items_Item_Items_Item
 @dynamic author, canonicalVolumeLink, coverUrl, descriptionProperty, title,
          volumeId;
 
@@ -826,20 +826,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_ReviewAuthor
+//   GTLRBooks_Review_Author
 //
 
-@implementation GTLRBooks_ReviewAuthor
+@implementation GTLRBooks_Review_Author
 @dynamic displayName;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_ReviewSource
+//   GTLRBooks_Review_Source
 //
 
-@implementation GTLRBooks_ReviewSource
+@implementation GTLRBooks_Review_Source
 @dynamic descriptionProperty, extraDescription, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -859,7 +859,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"series" : [GTLRBooks_SeriesSeriesItem class]
+    @"series" : [GTLRBooks_Series_Series_Item class]
   };
   return map;
 }
@@ -869,10 +869,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_SeriesSeriesItem
+//   GTLRBooks_Series_Series_Item
 //
 
-@implementation GTLRBooks_SeriesSeriesItem
+@implementation GTLRBooks_Series_Series_Item
 @dynamic bannerImageUrl, imageUrl, seriesId, seriesType, title;
 @end
 
@@ -911,30 +911,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_UsersettingsNotesExport
+//   GTLRBooks_Usersettings_NotesExport
 //
 
-@implementation GTLRBooks_UsersettingsNotesExport
+@implementation GTLRBooks_Usersettings_NotesExport
 @dynamic folderName, isEnabled;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_UsersettingsNotification
+//   GTLRBooks_Usersettings_Notification
 //
 
-@implementation GTLRBooks_UsersettingsNotification
+@implementation GTLRBooks_Usersettings_Notification
 @dynamic moreFromAuthors, moreFromSeries;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_UsersettingsNotificationMoreFromAuthors
+//   GTLRBooks_Usersettings_Notification_MoreFromAuthors
 //
 
-@implementation GTLRBooks_UsersettingsNotificationMoreFromAuthors
+@implementation GTLRBooks_Usersettings_Notification_MoreFromAuthors
 @dynamic optedState;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -946,10 +946,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_UsersettingsNotificationMoreFromSeries
+//   GTLRBooks_Usersettings_Notification_MoreFromSeries
 //
 
-@implementation GTLRBooks_UsersettingsNotificationMoreFromSeries
+@implementation GTLRBooks_Usersettings_Notification_MoreFromSeries
 @dynamic optedState;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -981,10 +981,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeAccessInfo
+//   GTLRBooks_Volume_AccessInfo
 //
 
-@implementation GTLRBooks_VolumeAccessInfo
+@implementation GTLRBooks_Volume_AccessInfo
 @dynamic accessViewStatus, country, downloadAccess, driveImportedContentLink,
          embeddable, epub, explicitOfflineLicenseManagement, pdf, publicDomain,
          quoteSharingAllowed, textToSpeechPermission, viewability, viewOrderUrl,
@@ -994,15 +994,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeLayerInfo
+//   GTLRBooks_Volume_LayerInfo
 //
 
-@implementation GTLRBooks_VolumeLayerInfo
+@implementation GTLRBooks_Volume_LayerInfo
 @dynamic layers;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"layers" : [GTLRBooks_VolumeLayerInfoLayersItem class]
+    @"layers" : [GTLRBooks_Volume_LayerInfo_Layers_Item class]
   };
   return map;
 }
@@ -1012,26 +1012,26 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeRecommendedInfo
+//   GTLRBooks_Volume_RecommendedInfo
 //
 
-@implementation GTLRBooks_VolumeRecommendedInfo
+@implementation GTLRBooks_Volume_RecommendedInfo
 @dynamic explanation;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeSaleInfo
+//   GTLRBooks_Volume_SaleInfo
 //
 
-@implementation GTLRBooks_VolumeSaleInfo
+@implementation GTLRBooks_Volume_SaleInfo
 @dynamic buyLink, country, isEbook, listPrice, offers, onSaleDate, retailPrice,
          saleability;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"offers" : [GTLRBooks_VolumeSaleInfoOffersItem class]
+    @"offers" : [GTLRBooks_Volume_SaleInfo_Offers_Item class]
   };
   return map;
 }
@@ -1041,20 +1041,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeSearchInfo
+//   GTLRBooks_Volume_SearchInfo
 //
 
-@implementation GTLRBooks_VolumeSearchInfo
+@implementation GTLRBooks_Volume_SearchInfo
 @dynamic textSnippet;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeUserInfo
+//   GTLRBooks_Volume_UserInfo
 //
 
-@implementation GTLRBooks_VolumeUserInfo
+@implementation GTLRBooks_Volume_UserInfo
 @dynamic acquiredTime, acquisitionType, copyProperty, entitlementType,
          familySharing, isFamilySharedFromUser, isFamilySharedToUser,
          isFamilySharingAllowed, isFamilySharingDisabledByFop, isInMyBooks,
@@ -1070,10 +1070,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeVolumeInfo
+//   GTLRBooks_Volume_VolumeInfo
 //
 
-@implementation GTLRBooks_VolumeVolumeInfo
+@implementation GTLRBooks_Volume_VolumeInfo
 @dynamic allowAnonLogging, authors, averageRating, canonicalVolumeLink,
          categories, contentVersion, descriptionProperty, dimensions,
          imageLinks, industryIdentifiers, infoLink, language, mainCategory,
@@ -1089,7 +1089,7 @@
   NSDictionary<NSString *, Class> *map = @{
     @"authors" : [NSString class],
     @"categories" : [NSString class],
-    @"industryIdentifiers" : [GTLRBooks_VolumeVolumeInfoIndustryIdentifiersItem class]
+    @"industryIdentifiers" : [GTLRBooks_Volume_VolumeInfo_IndustryIdentifiers_Item class]
   };
   return map;
 }
@@ -1099,130 +1099,130 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeAccessInfoEpub
+//   GTLRBooks_Volume_AccessInfo_Epub
 //
 
-@implementation GTLRBooks_VolumeAccessInfoEpub
+@implementation GTLRBooks_Volume_AccessInfo_Epub
 @dynamic acsTokenLink, downloadLink, isAvailable;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeAccessInfoPdf
+//   GTLRBooks_Volume_AccessInfo_Pdf
 //
 
-@implementation GTLRBooks_VolumeAccessInfoPdf
+@implementation GTLRBooks_Volume_AccessInfo_Pdf
 @dynamic acsTokenLink, downloadLink, isAvailable;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeLayerInfoLayersItem
+//   GTLRBooks_Volume_LayerInfo_Layers_Item
 //
 
-@implementation GTLRBooks_VolumeLayerInfoLayersItem
+@implementation GTLRBooks_Volume_LayerInfo_Layers_Item
 @dynamic layerId, volumeAnnotationsVersion;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeSaleInfoListPrice
+//   GTLRBooks_Volume_SaleInfo_ListPrice
 //
 
-@implementation GTLRBooks_VolumeSaleInfoListPrice
+@implementation GTLRBooks_Volume_SaleInfo_ListPrice
 @dynamic amount, currencyCode;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeSaleInfoOffersItem
+//   GTLRBooks_Volume_SaleInfo_Offers_Item
 //
 
-@implementation GTLRBooks_VolumeSaleInfoOffersItem
+@implementation GTLRBooks_Volume_SaleInfo_Offers_Item
 @dynamic finskyOfferType, giftable, listPrice, rentalDuration, retailPrice;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeSaleInfoRetailPrice
+//   GTLRBooks_Volume_SaleInfo_RetailPrice
 //
 
-@implementation GTLRBooks_VolumeSaleInfoRetailPrice
+@implementation GTLRBooks_Volume_SaleInfo_RetailPrice
 @dynamic amount, currencyCode;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeUserInfoCopy
+//   GTLRBooks_Volume_UserInfo_Copy
 //
 
-@implementation GTLRBooks_VolumeUserInfoCopy
+@implementation GTLRBooks_Volume_UserInfo_Copy
 @dynamic allowedCharacterCount, limitType, remainingCharacterCount, updated;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeUserInfoFamilySharing
+//   GTLRBooks_Volume_UserInfo_FamilySharing
 //
 
-@implementation GTLRBooks_VolumeUserInfoFamilySharing
+@implementation GTLRBooks_Volume_UserInfo_FamilySharing
 @dynamic familyRole, isSharingAllowed, isSharingDisabledByFop;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeUserInfoRentalPeriod
+//   GTLRBooks_Volume_UserInfo_RentalPeriod
 //
 
-@implementation GTLRBooks_VolumeUserInfoRentalPeriod
+@implementation GTLRBooks_Volume_UserInfo_RentalPeriod
 @dynamic endUtcSec, startUtcSec;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeUserInfoUserUploadedVolumeInfo
+//   GTLRBooks_Volume_UserInfo_UserUploadedVolumeInfo
 //
 
-@implementation GTLRBooks_VolumeUserInfoUserUploadedVolumeInfo
+@implementation GTLRBooks_Volume_UserInfo_UserUploadedVolumeInfo
 @dynamic processingState;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeVolumeInfoDimensions
+//   GTLRBooks_Volume_VolumeInfo_Dimensions
 //
 
-@implementation GTLRBooks_VolumeVolumeInfoDimensions
+@implementation GTLRBooks_Volume_VolumeInfo_Dimensions
 @dynamic height, thickness, width;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeVolumeInfoImageLinks
+//   GTLRBooks_Volume_VolumeInfo_ImageLinks
 //
 
-@implementation GTLRBooks_VolumeVolumeInfoImageLinks
+@implementation GTLRBooks_Volume_VolumeInfo_ImageLinks
 @dynamic extraLarge, large, medium, small, smallThumbnail, thumbnail;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeVolumeInfoIndustryIdentifiersItem
+//   GTLRBooks_Volume_VolumeInfo_IndustryIdentifiers_Item
 //
 
-@implementation GTLRBooks_VolumeVolumeInfoIndustryIdentifiersItem
+@implementation GTLRBooks_Volume_VolumeInfo_IndustryIdentifiers_Item
 @dynamic identifierProperty, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1234,10 +1234,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeVolumeInfoPanelizationSummary
+//   GTLRBooks_Volume_VolumeInfo_PanelizationSummary
 //
 
-@implementation GTLRBooks_VolumeVolumeInfoPanelizationSummary
+@implementation GTLRBooks_Volume_VolumeInfo_PanelizationSummary
 @dynamic containsEpubBubbles, containsImageBubbles, epubBubbleVersion,
          imageBubbleVersion;
 @end
@@ -1245,30 +1245,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeSaleInfoOffersItemListPrice
+//   GTLRBooks_Volume_SaleInfo_Offers_Item_ListPrice
 //
 
-@implementation GTLRBooks_VolumeSaleInfoOffersItemListPrice
+@implementation GTLRBooks_Volume_SaleInfo_Offers_Item_ListPrice
 @dynamic amountInMicros, currencyCode;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeSaleInfoOffersItemRentalDuration
+//   GTLRBooks_Volume_SaleInfo_Offers_Item_RentalDuration
 //
 
-@implementation GTLRBooks_VolumeSaleInfoOffersItemRentalDuration
+@implementation GTLRBooks_Volume_SaleInfo_Offers_Item_RentalDuration
 @dynamic count, unit;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeSaleInfoOffersItemRetailPrice
+//   GTLRBooks_Volume_SaleInfo_Offers_Item_RetailPrice
 //
 
-@implementation GTLRBooks_VolumeSaleInfoOffersItemRetailPrice
+@implementation GTLRBooks_Volume_SaleInfo_Offers_Item_RetailPrice
 @dynamic amountInMicros, currencyCode;
 @end
 
@@ -1317,10 +1317,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeannotationContentRanges
+//   GTLRBooks_Volumeannotation_ContentRanges
 //
 
-@implementation GTLRBooks_VolumeannotationContentRanges
+@implementation GTLRBooks_Volumeannotation_ContentRanges
 @dynamic cfiRange, contentVersion, gbImageRange, gbTextRange;
 @end
 
@@ -1371,7 +1371,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"volumeSeries" : [GTLRBooks_VolumeseriesinfoVolumeSeriesItem class]
+    @"volumeSeries" : [GTLRBooks_Volumeseriesinfo_VolumeSeries_Item class]
   };
   return map;
 }
@@ -1381,15 +1381,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeseriesinfoVolumeSeriesItem
+//   GTLRBooks_Volumeseriesinfo_VolumeSeries_Item
 //
 
-@implementation GTLRBooks_VolumeseriesinfoVolumeSeriesItem
+@implementation GTLRBooks_Volumeseriesinfo_VolumeSeries_Item
 @dynamic issue, orderNumber, seriesBookType, seriesId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"issue" : [GTLRBooks_VolumeseriesinfoVolumeSeriesItemIssueItem class]
+    @"issue" : [GTLRBooks_Volumeseriesinfo_VolumeSeries_Item_Issue_Item class]
   };
   return map;
 }
@@ -1399,10 +1399,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_VolumeseriesinfoVolumeSeriesItemIssueItem
+//   GTLRBooks_Volumeseriesinfo_VolumeSeries_Item_Issue_Item
 //
 
-@implementation GTLRBooks_VolumeseriesinfoVolumeSeriesItemIssueItem
+@implementation GTLRBooks_Volumeseriesinfo_VolumeSeries_Item_Issue_Item
 @dynamic issueDisplayNumber, issueOrderNumber;
 @end
 

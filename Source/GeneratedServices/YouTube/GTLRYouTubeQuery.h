@@ -5565,8 +5565,8 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  The maxResults parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *  Note: This parameter is supported for use in conjunction with the myRating
- *  parameter, but it is not supported for use in conjunction with the id
- *  parameter.
+ *  and chart parameters, but it is not supported for use in conjunction with
+ *  the id parameter.
  *
  *  @note If not set, the documented server-side default will be 5 (from the
  *        range 1..50).
@@ -5613,8 +5613,8 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  should be returned. In an API response, the nextPageToken and prevPageToken
  *  properties identify other pages that could be retrieved.
  *  Note: This parameter is supported for use in conjunction with the myRating
- *  parameter, but it is not supported for use in conjunction with the id
- *  parameter.
+ *  and chart parameters, but it is not supported for use in conjunction with
+ *  the id parameter.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

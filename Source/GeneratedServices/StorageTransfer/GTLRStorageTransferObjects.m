@@ -228,10 +228,10 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorageTransfer_OperationMetadata
+//   GTLRStorageTransfer_Operation_Metadata
 //
 
-@implementation GTLRStorageTransfer_OperationMetadata
+@implementation GTLRStorageTransfer_Operation_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -242,10 +242,10 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorageTransfer_OperationResponse
+//   GTLRStorageTransfer_Operation_Response
 //
 
-@implementation GTLRStorageTransfer_OperationResponse
+@implementation GTLRStorageTransfer_Operation_Response
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -292,7 +292,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRStorageTransfer_StatusDetailsItem class]
+    @"details" : [GTLRStorageTransfer_Status_Details_Item class]
   };
   return map;
 }
@@ -302,10 +302,10 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorageTransfer_StatusDetailsItem
+//   GTLRStorageTransfer_Status_Details_Item
 //
 
-@implementation GTLRStorageTransfer_StatusDetailsItem
+@implementation GTLRStorageTransfer_Status_Details_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

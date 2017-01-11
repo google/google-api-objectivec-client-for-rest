@@ -20,23 +20,23 @@ NSString * const kGTLRCompute_AccessConfig_Type_OneToOneNat = @"ONE_TO_ONE_NAT";
 NSString * const kGTLRCompute_Address_Status_InUse    = @"IN_USE";
 NSString * const kGTLRCompute_Address_Status_Reserved = @"RESERVED";
 
-// GTLRCompute_AddressesScopedListWarning.code
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_AddressesScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_AddressesScopedList_Warning.code
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_AttachedDisk.interface
 NSString * const kGTLRCompute_AttachedDisk_Interface_Nvme = @"NVME";
@@ -50,23 +50,23 @@ NSString * const kGTLRCompute_AttachedDisk_Mode_ReadWrite = @"READ_WRITE";
 NSString * const kGTLRCompute_AttachedDisk_Type_Persistent = @"PERSISTENT";
 NSString * const kGTLRCompute_AttachedDisk_Type_Scratch    = @"SCRATCH";
 
-// GTLRCompute_AutoscalersScopedListWarning.code
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_AutoscalersScopedList_Warning.code
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_AutoscalingPolicyCustomMetricUtilization.utilizationTargetType
 NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_UtilizationTargetType_DeltaPerMinute = @"DELTA_PER_MINUTE";
@@ -97,23 +97,23 @@ NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIpProto = @"C
 NSString * const kGTLRCompute_BackendService_SessionAffinity_GeneratedCookie = @"GENERATED_COOKIE";
 NSString * const kGTLRCompute_BackendService_SessionAffinity_None = @"NONE";
 
-// GTLRCompute_BackendServicesScopedListWarning.code
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_BackendServicesScopedList_Warning.code
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_DeprecationStatus.state
 NSString * const kGTLRCompute_DeprecationStatus_State_Deleted  = @"DELETED";
@@ -126,41 +126,41 @@ NSString * const kGTLRCompute_Disk_Status_Failed    = @"FAILED";
 NSString * const kGTLRCompute_Disk_Status_Ready     = @"READY";
 NSString * const kGTLRCompute_Disk_Status_Restoring = @"RESTORING";
 
-// GTLRCompute_DisksScopedListWarning.code
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_DisksScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_DisksScopedList_Warning.code
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
-// GTLRCompute_DiskTypesScopedListWarning.code
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_DiskTypesScopedList_Warning.code
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_ForwardingRule.IPProtocol
 NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Ah   = @"AH";
@@ -174,23 +174,23 @@ NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_External = @"EX
 NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Internal = @"INTERNAL";
 NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Invalid = @"INVALID";
 
-// GTLRCompute_ForwardingRulesScopedListWarning.code
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_ForwardingRulesScopedList_Warning.code
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_GuestOsFeature.type
 NSString * const kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified = @"FEATURE_TYPE_UNSPECIFIED";
@@ -224,8 +224,8 @@ NSString * const kGTLRCompute_Image_Status_Failed  = @"FAILED";
 NSString * const kGTLRCompute_Image_Status_Pending = @"PENDING";
 NSString * const kGTLRCompute_Image_Status_Ready   = @"READY";
 
-// GTLRCompute_ImageRawDisk.containerType
-NSString * const kGTLRCompute_ImageRawDisk_ContainerType_Tar = @"TAR";
+// GTLRCompute_Image_RawDisk.containerType
+NSString * const kGTLRCompute_Image_RawDisk_ContainerType_Tar = @"TAR";
 
 // GTLRCompute_Instance.status
 NSString * const kGTLRCompute_Instance_Status_Provisioning = @"PROVISIONING";
@@ -237,63 +237,63 @@ NSString * const kGTLRCompute_Instance_Status_Suspended    = @"SUSPENDED";
 NSString * const kGTLRCompute_Instance_Status_Suspending   = @"SUSPENDING";
 NSString * const kGTLRCompute_Instance_Status_Terminated   = @"TERMINATED";
 
-// GTLRCompute_InstanceGroupManagersScopedListWarning.code
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_InstanceGroupManagersScopedList_Warning.code
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_InstanceGroupsListInstancesRequest.instanceState
 NSString * const kGTLRCompute_InstanceGroupsListInstancesRequest_InstanceState_All = @"ALL";
 NSString * const kGTLRCompute_InstanceGroupsListInstancesRequest_InstanceState_Running = @"RUNNING";
 
-// GTLRCompute_InstanceGroupsScopedListWarning.code
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_InstanceGroupsScopedList_Warning.code
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
-// GTLRCompute_InstancesScopedListWarning.code
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_InstancesScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_InstancesScopedList_Warning.code
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_InstanceWithNamedPorts.status
 NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Provisioning = @"PROVISIONING";
@@ -305,23 +305,23 @@ NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Suspended = @"SUSPEN
 NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Suspending = @"SUSPENDING";
 NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Terminated = @"TERMINATED";
 
-// GTLRCompute_MachineTypesScopedListWarning.code
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_MachineTypesScopedList_Warning.code
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_ManagedInstance.currentAction
 NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Abandoning = @"ABANDONING";
@@ -348,41 +348,41 @@ NSString * const kGTLRCompute_Operation_Status_Done    = @"DONE";
 NSString * const kGTLRCompute_Operation_Status_Pending = @"PENDING";
 NSString * const kGTLRCompute_Operation_Status_Running = @"RUNNING";
 
-// GTLRCompute_OperationsScopedListWarning.code
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_OperationsScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_Operation_Warnings_Item.code
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
 
-// GTLRCompute_OperationWarningsItem.code
-NSString * const kGTLRCompute_OperationWarningsItem_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_OperationWarningsItem_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_OperationsScopedList_Warning.code
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_Quota.metric
 NSString * const kGTLRCompute_Quota_Metric_Autoscalers         = @"AUTOSCALERS";
@@ -428,46 +428,46 @@ NSString * const kGTLRCompute_Region_Status_Up   = @"UP";
 NSString * const kGTLRCompute_RegionInstanceGroupsListInstancesRequest_InstanceState_All = @"ALL";
 NSString * const kGTLRCompute_RegionInstanceGroupsListInstancesRequest_InstanceState_Running = @"RUNNING";
 
-// GTLRCompute_RoutersScopedListWarning.code
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_RoutersScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_Route_Warnings_Item.code
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_RoutersScopedList_Warning.code
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_RouterStatusBgpPeerStatus.status
 NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Down = @"DOWN";
 NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Unknown = @"UNKNOWN";
 NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Up = @"UP";
-
-// GTLRCompute_RouteWarningsItem.code
-NSString * const kGTLRCompute_RouteWarningsItem_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_RouteWarningsItem_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_Scheduling.onHostMaintenance
 NSString * const kGTLRCompute_Scheduling_OnHostMaintenance_Migrate = @"MIGRATE";
@@ -488,44 +488,44 @@ NSString * const kGTLRCompute_Snapshot_StorageBytesStatus_UpToDate = @"UP_TO_DAT
 NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_None  = @"NONE";
 NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_ProxyV1 = @"PROXY_V1";
 
-// GTLRCompute_SubnetworksScopedListWarning.code
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_SubnetworksScopedList_Warning.code
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_TargetInstance.natPolicy
 NSString * const kGTLRCompute_TargetInstance_NatPolicy_NoNat = @"NO_NAT";
 
-// GTLRCompute_TargetInstancesScopedListWarning.code
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_TargetInstancesScopedList_Warning.code
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_TargetPool.sessionAffinity
 NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIp = @"CLIENT_IP";
@@ -534,23 +534,23 @@ NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIpProto = @"CLIEN
 NSString * const kGTLRCompute_TargetPool_SessionAffinity_GeneratedCookie = @"GENERATED_COOKIE";
 NSString * const kGTLRCompute_TargetPool_SessionAffinity_None  = @"NONE";
 
-// GTLRCompute_TargetPoolsScopedListWarning.code
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_TargetPoolsScopedList_Warning.code
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_TargetSslProxiesSetProxyHeaderRequest.proxyHeader
 NSString * const kGTLRCompute_TargetSslProxiesSetProxyHeaderRequest_ProxyHeader_None = @"NONE";
@@ -566,23 +566,23 @@ NSString * const kGTLRCompute_TargetVpnGateway_Status_Deleting = @"DELETING";
 NSString * const kGTLRCompute_TargetVpnGateway_Status_Failed   = @"FAILED";
 NSString * const kGTLRCompute_TargetVpnGateway_Status_Ready    = @"READY";
 
-// GTLRCompute_TargetVpnGatewaysScopedListWarning.code
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_TargetVpnGatewaysScopedList_Warning.code
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_TCPHealthCheck.proxyHeader
 NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_None  = @"NONE";
@@ -602,23 +602,23 @@ NSString * const kGTLRCompute_VpnTunnel_Status_Provisioning    = @"PROVISIONING"
 NSString * const kGTLRCompute_VpnTunnel_Status_Rejected        = @"REJECTED";
 NSString * const kGTLRCompute_VpnTunnel_Status_WaitingForFullConfig = @"WAITING_FOR_FULL_CONFIG";
 
-// GTLRCompute_VpnTunnelsScopedListWarning.code
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_Unreachable = @"UNREACHABLE";
+// GTLRCompute_VpnTunnelsScopedList_Warning.code
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_Zone.status
 NSString * const kGTLRCompute_Zone_Status_Down = @"DOWN";
@@ -678,10 +678,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_AddressAggregatedListItems
+//   GTLRCompute_AddressAggregatedList_Items
 //
 
-@implementation GTLRCompute_AddressAggregatedListItems
+@implementation GTLRCompute_AddressAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_AddressesScopedList class];
@@ -710,15 +710,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_AddressesScopedListWarning
+//   GTLRCompute_AddressesScopedList_Warning
 //
 
-@implementation GTLRCompute_AddressesScopedListWarning
+@implementation GTLRCompute_AddressesScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_AddressesScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_AddressesScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -728,10 +728,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_AddressesScopedListWarningDataItem
+//   GTLRCompute_AddressesScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_AddressesScopedListWarningDataItem
+@implementation GTLRCompute_AddressesScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -825,10 +825,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_AutoscalerAggregatedListItems
+//   GTLRCompute_AutoscalerAggregatedList_Items
 //
 
-@implementation GTLRCompute_AutoscalerAggregatedListItems
+@implementation GTLRCompute_AutoscalerAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_AutoscalersScopedList class];
@@ -879,15 +879,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_AutoscalersScopedListWarning
+//   GTLRCompute_AutoscalersScopedList_Warning
 //
 
-@implementation GTLRCompute_AutoscalersScopedListWarning
+@implementation GTLRCompute_AutoscalersScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_AutoscalersScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_AutoscalersScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -897,10 +897,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_AutoscalersScopedListWarningDataItem
+//   GTLRCompute_AutoscalersScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_AutoscalersScopedListWarningDataItem
+@implementation GTLRCompute_AutoscalersScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -1018,10 +1018,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_BackendServiceAggregatedListItems
+//   GTLRCompute_BackendServiceAggregatedList_Items
 //
 
-@implementation GTLRCompute_BackendServiceAggregatedListItems
+@implementation GTLRCompute_BackendServiceAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_BackendServicesScopedList class];
@@ -1090,15 +1090,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_BackendServicesScopedListWarning
+//   GTLRCompute_BackendServicesScopedList_Warning
 //
 
-@implementation GTLRCompute_BackendServicesScopedListWarning
+@implementation GTLRCompute_BackendServicesScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_BackendServicesScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_BackendServicesScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -1108,10 +1108,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_BackendServicesScopedListWarningDataItem
+//   GTLRCompute_BackendServicesScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_BackendServicesScopedListWarningDataItem
+@implementation GTLRCompute_BackendServicesScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -1122,7 +1122,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_CacheInvalidationRule
-@dynamic path;
+@dynamic host, path;
 @end
 
 
@@ -1215,10 +1215,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_DiskAggregatedListItems
+//   GTLRCompute_DiskAggregatedList_Items
 //
 
-@implementation GTLRCompute_DiskAggregatedListItems
+@implementation GTLRCompute_DiskAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_DisksScopedList class];
@@ -1289,15 +1289,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_DisksScopedListWarning
+//   GTLRCompute_DisksScopedList_Warning
 //
 
-@implementation GTLRCompute_DisksScopedListWarning
+@implementation GTLRCompute_DisksScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_DisksScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_DisksScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -1307,10 +1307,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_DisksScopedListWarningDataItem
+//   GTLRCompute_DisksScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_DisksScopedListWarningDataItem
+@implementation GTLRCompute_DisksScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -1353,10 +1353,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_DiskTypeAggregatedListItems
+//   GTLRCompute_DiskTypeAggregatedList_Items
 //
 
-@implementation GTLRCompute_DiskTypeAggregatedListItems
+@implementation GTLRCompute_DiskTypeAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_DiskTypesScopedList class];
@@ -1407,15 +1407,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_DiskTypesScopedListWarning
+//   GTLRCompute_DiskTypesScopedList_Warning
 //
 
-@implementation GTLRCompute_DiskTypesScopedListWarning
+@implementation GTLRCompute_DiskTypesScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_DiskTypesScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_DiskTypesScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -1425,10 +1425,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_DiskTypesScopedListWarningDataItem
+//   GTLRCompute_DiskTypesScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_DiskTypesScopedListWarningDataItem
+@implementation GTLRCompute_DiskTypesScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -1452,7 +1452,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"allowed" : [GTLRCompute_FirewallAllowedItem class],
+    @"allowed" : [GTLRCompute_Firewall_Allowed_Item class],
     @"sourceRanges" : [NSString class],
     @"sourceTags" : [NSString class],
     @"targetTags" : [NSString class]
@@ -1465,10 +1465,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_FirewallAllowedItem
+//   GTLRCompute_Firewall_Allowed_Item
 //
 
-@implementation GTLRCompute_FirewallAllowedItem
+@implementation GTLRCompute_Firewall_Allowed_Item
 @dynamic IPProtocol, ports;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1548,10 +1548,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_ForwardingRuleAggregatedListItems
+//   GTLRCompute_ForwardingRuleAggregatedList_Items
 //
 
-@implementation GTLRCompute_ForwardingRuleAggregatedListItems
+@implementation GTLRCompute_ForwardingRuleAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_ForwardingRulesScopedList class];
@@ -1602,15 +1602,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_ForwardingRulesScopedListWarning
+//   GTLRCompute_ForwardingRulesScopedList_Warning
 //
 
-@implementation GTLRCompute_ForwardingRulesScopedListWarning
+@implementation GTLRCompute_ForwardingRulesScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_ForwardingRulesScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_ForwardingRulesScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -1620,10 +1620,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_ForwardingRulesScopedListWarningDataItem
+//   GTLRCompute_ForwardingRulesScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_ForwardingRulesScopedListWarningDataItem
+@implementation GTLRCompute_ForwardingRulesScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -1862,10 +1862,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_ImageRawDisk
+//   GTLRCompute_Image_RawDisk
 //
 
-@implementation GTLRCompute_ImageRawDisk
+@implementation GTLRCompute_Image_RawDisk
 @dynamic containerType, sha1Checksum, source;
 @end
 
@@ -1941,10 +1941,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_InstanceAggregatedListItems
+//   GTLRCompute_InstanceAggregatedList_Items
 //
 
-@implementation GTLRCompute_InstanceAggregatedListItems
+@implementation GTLRCompute_InstanceAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_InstancesScopedList class];
@@ -1999,10 +1999,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_InstanceGroupAggregatedListItems
+//   GTLRCompute_InstanceGroupAggregatedList_Items
 //
 
-@implementation GTLRCompute_InstanceGroupAggregatedListItems
+@implementation GTLRCompute_InstanceGroupAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_InstanceGroupsScopedList class];
@@ -2092,10 +2092,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_InstanceGroupManagerAggregatedListItems
+//   GTLRCompute_InstanceGroupManagerAggregatedList_Items
 //
 
-@implementation GTLRCompute_InstanceGroupManagerAggregatedListItems
+@implementation GTLRCompute_InstanceGroupManagerAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_InstanceGroupManagersScopedList class];
@@ -2218,15 +2218,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_InstanceGroupManagersScopedListWarning
+//   GTLRCompute_InstanceGroupManagersScopedList_Warning
 //
 
-@implementation GTLRCompute_InstanceGroupManagersScopedListWarning
+@implementation GTLRCompute_InstanceGroupManagersScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_InstanceGroupManagersScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_InstanceGroupManagersScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -2236,10 +2236,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_InstanceGroupManagersScopedListWarningDataItem
+//   GTLRCompute_InstanceGroupManagersScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_InstanceGroupManagersScopedListWarningDataItem
+@implementation GTLRCompute_InstanceGroupManagersScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -2360,15 +2360,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_InstanceGroupsScopedListWarning
+//   GTLRCompute_InstanceGroupsScopedList_Warning
 //
 
-@implementation GTLRCompute_InstanceGroupsScopedListWarning
+@implementation GTLRCompute_InstanceGroupsScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_InstanceGroupsScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_InstanceGroupsScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -2378,10 +2378,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_InstanceGroupsScopedListWarningDataItem
+//   GTLRCompute_InstanceGroupsScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_InstanceGroupsScopedListWarningDataItem
+@implementation GTLRCompute_InstanceGroupsScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -2491,15 +2491,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_InstancesScopedListWarning
+//   GTLRCompute_InstancesScopedList_Warning
 //
 
-@implementation GTLRCompute_InstancesScopedListWarning
+@implementation GTLRCompute_InstancesScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_InstancesScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_InstancesScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -2509,10 +2509,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_InstancesScopedListWarningDataItem
+//   GTLRCompute_InstancesScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_InstancesScopedListWarningDataItem
+@implementation GTLRCompute_InstancesScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -2637,7 +2637,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"scratchDisks" : [GTLRCompute_MachineTypeScratchDisksItem class]
+    @"scratchDisks" : [GTLRCompute_MachineType_ScratchDisks_Item class]
   };
   return map;
 }
@@ -2647,10 +2647,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_MachineTypeScratchDisksItem
+//   GTLRCompute_MachineType_ScratchDisks_Item
 //
 
-@implementation GTLRCompute_MachineTypeScratchDisksItem
+@implementation GTLRCompute_MachineType_ScratchDisks_Item
 @dynamic diskGb;
 @end
 
@@ -2672,10 +2672,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_MachineTypeAggregatedListItems
+//   GTLRCompute_MachineTypeAggregatedList_Items
 //
 
-@implementation GTLRCompute_MachineTypeAggregatedListItems
+@implementation GTLRCompute_MachineTypeAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_MachineTypesScopedList class];
@@ -2726,15 +2726,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_MachineTypesScopedListWarning
+//   GTLRCompute_MachineTypesScopedList_Warning
 //
 
-@implementation GTLRCompute_MachineTypesScopedListWarning
+@implementation GTLRCompute_MachineTypesScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_MachineTypesScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_MachineTypesScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -2744,10 +2744,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_MachineTypesScopedListWarningDataItem
+//   GTLRCompute_MachineTypesScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_MachineTypesScopedListWarningDataItem
+@implementation GTLRCompute_MachineTypesScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -2779,15 +2779,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_ManagedInstanceLastAttemptErrors
+//   GTLRCompute_ManagedInstanceLastAttempt_Errors
 //
 
-@implementation GTLRCompute_ManagedInstanceLastAttemptErrors
+@implementation GTLRCompute_ManagedInstanceLastAttempt_Errors
 @dynamic errors;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRCompute_ManagedInstanceLastAttemptErrorsErrorsItem class]
+    @"errors" : [GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item class]
   };
   return map;
 }
@@ -2797,10 +2797,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_ManagedInstanceLastAttemptErrorsErrorsItem
+//   GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item
 //
 
-@implementation GTLRCompute_ManagedInstanceLastAttemptErrorsErrorsItem
+@implementation GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item
 @dynamic code, location, message;
 @end
 
@@ -2815,7 +2815,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCompute_MetadataItemsItem class]
+    @"items" : [GTLRCompute_Metadata_Items_Item class]
   };
   return map;
 }
@@ -2825,10 +2825,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_MetadataItemsItem
+//   GTLRCompute_Metadata_Items_Item
 //
 
-@implementation GTLRCompute_MetadataItemsItem
+@implementation GTLRCompute_Metadata_Items_Item
 @dynamic key, value;
 @end
 
@@ -2933,7 +2933,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"warnings" : [GTLRCompute_OperationWarningsItem class]
+    @"warnings" : [GTLRCompute_Operation_Warnings_Item class]
   };
   return map;
 }
@@ -2943,15 +2943,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_OperationError
+//   GTLRCompute_Operation_Error
 //
 
-@implementation GTLRCompute_OperationError
+@implementation GTLRCompute_Operation_Error
 @dynamic errors;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRCompute_OperationErrorErrorsItem class]
+    @"errors" : [GTLRCompute_Operation_Error_Errors_Item class]
   };
   return map;
 }
@@ -2961,15 +2961,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_OperationWarningsItem
+//   GTLRCompute_Operation_Warnings_Item
 //
 
-@implementation GTLRCompute_OperationWarningsItem
+@implementation GTLRCompute_Operation_Warnings_Item
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_OperationWarningsItemDataItem class]
+    @"data" : [GTLRCompute_Operation_Warnings_Item_Data_Item class]
   };
   return map;
 }
@@ -2979,20 +2979,20 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_OperationErrorErrorsItem
+//   GTLRCompute_Operation_Error_Errors_Item
 //
 
-@implementation GTLRCompute_OperationErrorErrorsItem
+@implementation GTLRCompute_Operation_Error_Errors_Item
 @dynamic code, location, message;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_OperationWarningsItemDataItem
+//   GTLRCompute_Operation_Warnings_Item_Data_Item
 //
 
-@implementation GTLRCompute_OperationWarningsItemDataItem
+@implementation GTLRCompute_Operation_Warnings_Item_Data_Item
 @dynamic key, value;
 @end
 
@@ -3014,10 +3014,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_OperationAggregatedListItems
+//   GTLRCompute_OperationAggregatedList_Items
 //
 
-@implementation GTLRCompute_OperationAggregatedListItems
+@implementation GTLRCompute_OperationAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_OperationsScopedList class];
@@ -3068,15 +3068,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_OperationsScopedListWarning
+//   GTLRCompute_OperationsScopedList_Warning
 //
 
-@implementation GTLRCompute_OperationsScopedListWarning
+@implementation GTLRCompute_OperationsScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_OperationsScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_OperationsScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -3086,10 +3086,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_OperationsScopedListWarningDataItem
+//   GTLRCompute_OperationsScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_OperationsScopedListWarningDataItem
+@implementation GTLRCompute_OperationsScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -3470,7 +3470,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"tags" : [NSString class],
-    @"warnings" : [GTLRCompute_RouteWarningsItem class]
+    @"warnings" : [GTLRCompute_Route_Warnings_Item class]
   };
   return map;
 }
@@ -3480,15 +3480,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_RouteWarningsItem
+//   GTLRCompute_Route_Warnings_Item
 //
 
-@implementation GTLRCompute_RouteWarningsItem
+@implementation GTLRCompute_Route_Warnings_Item
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_RouteWarningsItemDataItem class]
+    @"data" : [GTLRCompute_Route_Warnings_Item_Data_Item class]
   };
   return map;
 }
@@ -3498,10 +3498,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_RouteWarningsItemDataItem
+//   GTLRCompute_Route_Warnings_Item_Data_Item
 //
 
-@implementation GTLRCompute_RouteWarningsItemDataItem
+@implementation GTLRCompute_Route_Warnings_Item_Data_Item
 @dynamic key, value;
 @end
 
@@ -3573,10 +3573,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_RouterAggregatedListItems
+//   GTLRCompute_RouterAggregatedList_Items
 //
 
-@implementation GTLRCompute_RouterAggregatedListItems
+@implementation GTLRCompute_RouterAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_RoutersScopedList class];
@@ -3668,15 +3668,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_RoutersScopedListWarning
+//   GTLRCompute_RoutersScopedList_Warning
 //
 
-@implementation GTLRCompute_RoutersScopedListWarning
+@implementation GTLRCompute_RoutersScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_RoutersScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_RoutersScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -3686,10 +3686,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_RoutersScopedListWarningDataItem
+//   GTLRCompute_RoutersScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_RoutersScopedListWarningDataItem
+@implementation GTLRCompute_RoutersScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -3920,10 +3920,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_SubnetworkAggregatedListItems
+//   GTLRCompute_SubnetworkAggregatedList_Items
 //
 
-@implementation GTLRCompute_SubnetworkAggregatedListItems
+@implementation GTLRCompute_SubnetworkAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_SubnetworksScopedList class];
@@ -3984,15 +3984,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_SubnetworksScopedListWarning
+//   GTLRCompute_SubnetworksScopedList_Warning
 //
 
-@implementation GTLRCompute_SubnetworksScopedListWarning
+@implementation GTLRCompute_SubnetworksScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_SubnetworksScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_SubnetworksScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -4002,10 +4002,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_SubnetworksScopedListWarningDataItem
+//   GTLRCompute_SubnetworksScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_SubnetworksScopedListWarningDataItem
+@implementation GTLRCompute_SubnetworksScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -4175,10 +4175,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_TargetInstanceAggregatedListItems
+//   GTLRCompute_TargetInstanceAggregatedList_Items
 //
 
-@implementation GTLRCompute_TargetInstanceAggregatedListItems
+@implementation GTLRCompute_TargetInstanceAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_TargetInstancesScopedList class];
@@ -4229,15 +4229,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_TargetInstancesScopedListWarning
+//   GTLRCompute_TargetInstancesScopedList_Warning
 //
 
-@implementation GTLRCompute_TargetInstancesScopedListWarning
+@implementation GTLRCompute_TargetInstancesScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_TargetInstancesScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_TargetInstancesScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -4247,10 +4247,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_TargetInstancesScopedListWarningDataItem
+//   GTLRCompute_TargetInstancesScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_TargetInstancesScopedListWarningDataItem
+@implementation GTLRCompute_TargetInstancesScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -4301,10 +4301,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_TargetPoolAggregatedListItems
+//   GTLRCompute_TargetPoolAggregatedList_Items
 //
 
-@implementation GTLRCompute_TargetPoolAggregatedListItems
+@implementation GTLRCompute_TargetPoolAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_TargetPoolsScopedList class];
@@ -4445,15 +4445,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_TargetPoolsScopedListWarning
+//   GTLRCompute_TargetPoolsScopedList_Warning
 //
 
-@implementation GTLRCompute_TargetPoolsScopedListWarning
+@implementation GTLRCompute_TargetPoolsScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_TargetPoolsScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_TargetPoolsScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -4463,10 +4463,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_TargetPoolsScopedListWarningDataItem
+//   GTLRCompute_TargetPoolsScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_TargetPoolsScopedListWarningDataItem
+@implementation GTLRCompute_TargetPoolsScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -4613,10 +4613,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_TargetVpnGatewayAggregatedListItems
+//   GTLRCompute_TargetVpnGatewayAggregatedList_Items
 //
 
-@implementation GTLRCompute_TargetVpnGatewayAggregatedListItems
+@implementation GTLRCompute_TargetVpnGatewayAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_TargetVpnGatewaysScopedList class];
@@ -4667,15 +4667,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_TargetVpnGatewaysScopedListWarning
+//   GTLRCompute_TargetVpnGatewaysScopedList_Warning
 //
 
-@implementation GTLRCompute_TargetVpnGatewaysScopedListWarning
+@implementation GTLRCompute_TargetVpnGatewaysScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_TargetVpnGatewaysScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_TargetVpnGatewaysScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -4685,10 +4685,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_TargetVpnGatewaysScopedListWarningDataItem
+//   GTLRCompute_TargetVpnGatewaysScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_TargetVpnGatewaysScopedListWarningDataItem
+@implementation GTLRCompute_TargetVpnGatewaysScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -4885,10 +4885,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_VpnTunnelAggregatedListItems
+//   GTLRCompute_VpnTunnelAggregatedList_Items
 //
 
-@implementation GTLRCompute_VpnTunnelAggregatedListItems
+@implementation GTLRCompute_VpnTunnelAggregatedList_Items
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_VpnTunnelsScopedList class];
@@ -4939,15 +4939,15 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_VpnTunnelsScopedListWarning
+//   GTLRCompute_VpnTunnelsScopedList_Warning
 //
 
-@implementation GTLRCompute_VpnTunnelsScopedListWarning
+@implementation GTLRCompute_VpnTunnelsScopedList_Warning
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCompute_VpnTunnelsScopedListWarningDataItem class]
+    @"data" : [GTLRCompute_VpnTunnelsScopedList_Warning_Data_Item class]
   };
   return map;
 }
@@ -4957,10 +4957,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_VpnTunnelsScopedListWarningDataItem
+//   GTLRCompute_VpnTunnelsScopedList_Warning_Data_Item
 //
 
-@implementation GTLRCompute_VpnTunnelsScopedListWarningDataItem
+@implementation GTLRCompute_VpnTunnelsScopedList_Warning_Data_Item
 @dynamic key, value;
 @end
 

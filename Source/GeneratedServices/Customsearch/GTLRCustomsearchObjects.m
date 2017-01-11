@@ -20,7 +20,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"facets" : [GTLRCustomsearch_ContextFacetsItem class]
+    @"facets" : [GTLRCustomsearch_Context_Facets_Item class]
   };
   return map;
 }
@@ -30,10 +30,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCustomsearch_ContextFacetsItem
+//   GTLRCustomsearch_Context_Facets_Item
 //
 
-@implementation GTLRCustomsearch_ContextFacetsItem
+@implementation GTLRCustomsearch_Context_Facets_Item
 @dynamic anchor, label, labelWithOp;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -53,7 +53,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"bodyLines" : [GTLRCustomsearch_PromotionBodyLinesItem class]
+    @"bodyLines" : [GTLRCustomsearch_Promotion_BodyLines_Item class]
   };
   return map;
 }
@@ -63,20 +63,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCustomsearch_PromotionBodyLinesItem
+//   GTLRCustomsearch_Promotion_BodyLines_Item
 //
 
-@implementation GTLRCustomsearch_PromotionBodyLinesItem
+@implementation GTLRCustomsearch_Promotion_BodyLines_Item
 @dynamic htmlTitle, link, title, url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCustomsearch_PromotionImage
+//   GTLRCustomsearch_Promotion_Image
 //
 
-@implementation GTLRCustomsearch_PromotionImage
+@implementation GTLRCustomsearch_Promotion_Image
 @dynamic height, source, width;
 @end
 
@@ -108,7 +108,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"labels" : [GTLRCustomsearch_ResultLabelsItem class]
+    @"labels" : [GTLRCustomsearch_Result_Labels_Item class]
   };
   return map;
 }
@@ -118,10 +118,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCustomsearch_ResultImage
+//   GTLRCustomsearch_Result_Image
 //
 
-@implementation GTLRCustomsearch_ResultImage
+@implementation GTLRCustomsearch_Result_Image
 @dynamic byteSize, contextLink, height, thumbnailHeight, thumbnailLink,
          thumbnailWidth, width;
 @end
@@ -129,10 +129,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCustomsearch_ResultLabelsItem
+//   GTLRCustomsearch_Result_Labels_Item
 //
 
-@implementation GTLRCustomsearch_ResultLabelsItem
+@implementation GTLRCustomsearch_Result_Labels_Item
 @dynamic displayName, labelWithOp, name;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -144,13 +144,13 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCustomsearch_ResultPagemap
+//   GTLRCustomsearch_Result_Pagemap
 //
 
-@implementation GTLRCustomsearch_ResultPagemap
+@implementation GTLRCustomsearch_Result_Pagemap
 
 + (Class)classForAdditionalProperties {
-  return [GTLRCustomsearch_ResultPagemapPagemapItem class];
+  return [GTLRCustomsearch_Result_Pagemap_Pagemap_Item class];
 }
 
 @end
@@ -158,10 +158,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCustomsearch_ResultPagemapPagemapItem
+//   GTLRCustomsearch_Result_Pagemap_Pagemap_Item
 //
 
-@implementation GTLRCustomsearch_ResultPagemapPagemapItem
+@implementation GTLRCustomsearch_Result_Pagemap_Pagemap_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -192,10 +192,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCustomsearch_SearchQueries
+//   GTLRCustomsearch_Search_Queries
 //
 
-@implementation GTLRCustomsearch_SearchQueries
+@implementation GTLRCustomsearch_Search_Queries
 
 + (Class)classForAdditionalProperties {
   return [GTLRCustomsearch_Query class];
@@ -206,30 +206,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCustomsearch_SearchSearchInformation
+//   GTLRCustomsearch_Search_SearchInformation
 //
 
-@implementation GTLRCustomsearch_SearchSearchInformation
+@implementation GTLRCustomsearch_Search_SearchInformation
 @dynamic formattedSearchTime, formattedTotalResults, searchTime, totalResults;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCustomsearch_SearchSpelling
+//   GTLRCustomsearch_Search_Spelling
 //
 
-@implementation GTLRCustomsearch_SearchSpelling
+@implementation GTLRCustomsearch_Search_Spelling
 @dynamic correctedQuery, htmlCorrectedQuery;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCustomsearch_SearchUrl
+//   GTLRCustomsearch_Search_Url
 //
 
-@implementation GTLRCustomsearch_SearchUrl
+@implementation GTLRCustomsearch_Search_Url
 @dynamic templateProperty, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

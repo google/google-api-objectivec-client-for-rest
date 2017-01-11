@@ -20,14 +20,14 @@
 
 @class GTLRSpeech_Context;
 @class GTLRSpeech_Operation;
-@class GTLRSpeech_OperationMetadata;
-@class GTLRSpeech_OperationResponse;
+@class GTLRSpeech_Operation_Metadata;
+@class GTLRSpeech_Operation_Response;
 @class GTLRSpeech_RecognitionAlternative;
 @class GTLRSpeech_RecognitionAudio;
 @class GTLRSpeech_RecognitionConfig;
 @class GTLRSpeech_RecognitionResult;
 @class GTLRSpeech_Status;
-@class GTLRSpeech_StatusDetailsItem;
+@class GTLRSpeech_Status_Details_Item;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -187,7 +187,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
  *  Some services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
-@property(nonatomic, strong, nullable) GTLRSpeech_OperationMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRSpeech_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
@@ -206,7 +206,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
  *  is `TakeSnapshot()`, the inferred response type is
  *  `TakeSnapshotResponse`.
  */
-@property(nonatomic, strong, nullable) GTLRSpeech_OperationResponse *response;
+@property(nonatomic, strong, nullable) GTLRSpeech_Operation_Response *response;
 
 @end
 
@@ -222,7 +222,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRSpeech_OperationMetadata : GTLRObject
+@interface GTLRSpeech_Operation_Metadata : GTLRObject
 @end
 
 
@@ -241,7 +241,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRSpeech_OperationResponse : GTLRObject
+@interface GTLRSpeech_Operation_Response : GTLRObject
 @end
 
 
@@ -454,7 +454,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
  *  A list of messages that carry the error details. There will be a
  *  common set of message types for APIs to use.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRSpeech_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRSpeech_Status_Details_Item *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
@@ -467,14 +467,14 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 
 
 /**
- *  GTLRSpeech_StatusDetailsItem
+ *  GTLRSpeech_Status_Details_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRSpeech_StatusDetailsItem : GTLRObject
+@interface GTLRSpeech_Status_Details_Item : GTLRObject
 @end
 
 

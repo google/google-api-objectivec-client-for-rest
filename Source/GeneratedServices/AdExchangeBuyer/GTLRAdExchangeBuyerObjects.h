@@ -21,23 +21,23 @@
 #endif
 
 @class GTLRAdExchangeBuyer_Account;
-@class GTLRAdExchangeBuyer_AccountBidderLocationItem;
+@class GTLRAdExchangeBuyer_Account_BidderLocation_Item;
 @class GTLRAdExchangeBuyer_BillingInfo;
 @class GTLRAdExchangeBuyer_Buyer;
 @class GTLRAdExchangeBuyer_ContactInformation;
 @class GTLRAdExchangeBuyer_Creative;
-@class GTLRAdExchangeBuyer_CreativeCorrectionsItem;
-@class GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem;
-@class GTLRAdExchangeBuyer_CreativeDealIdsDealStatusesItem;
-@class GTLRAdExchangeBuyer_CreativeFilteringReasons;
-@class GTLRAdExchangeBuyer_CreativeFilteringReasonsReasonsItem;
-@class GTLRAdExchangeBuyer_CreativeNativeAd;
-@class GTLRAdExchangeBuyer_CreativeNativeAdAppIcon;
-@class GTLRAdExchangeBuyer_CreativeNativeAdImage;
-@class GTLRAdExchangeBuyer_CreativeNativeAdLogo;
-@class GTLRAdExchangeBuyer_CreativeServingRestrictionsItem;
-@class GTLRAdExchangeBuyer_CreativeServingRestrictionsItemContextsItem;
-@class GTLRAdExchangeBuyer_CreativeServingRestrictionsItemDisapprovalReasonsItem;
+@class GTLRAdExchangeBuyer_Creative_Corrections_Item;
+@class GTLRAdExchangeBuyer_Creative_Corrections_Item_Contexts_Item;
+@class GTLRAdExchangeBuyer_Creative_FilteringReasons;
+@class GTLRAdExchangeBuyer_Creative_FilteringReasons_Reasons_Item;
+@class GTLRAdExchangeBuyer_Creative_NativeAd;
+@class GTLRAdExchangeBuyer_Creative_NativeAd_AppIcon;
+@class GTLRAdExchangeBuyer_Creative_NativeAd_Image;
+@class GTLRAdExchangeBuyer_Creative_NativeAd_Logo;
+@class GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item;
+@class GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_Contexts_Item;
+@class GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_DisapprovalReasons_Item;
+@class GTLRAdExchangeBuyer_CreativeDealIds_DealStatuses_Item;
 @class GTLRAdExchangeBuyer_DealServingMetadata;
 @class GTLRAdExchangeBuyer_DealServingMetadataDealPauseStatus;
 @class GTLRAdExchangeBuyer_DealTerms;
@@ -56,10 +56,10 @@
 @class GTLRAdExchangeBuyer_MarketplaceNote;
 @class GTLRAdExchangeBuyer_PerformanceReport;
 @class GTLRAdExchangeBuyer_PretargetingConfig;
-@class GTLRAdExchangeBuyer_PretargetingConfigDimensionsItem;
-@class GTLRAdExchangeBuyer_PretargetingConfigExcludedPlacementsItem;
-@class GTLRAdExchangeBuyer_PretargetingConfigPlacementsItem;
-@class GTLRAdExchangeBuyer_PretargetingConfigVideoPlayerSizesItem;
+@class GTLRAdExchangeBuyer_PretargetingConfig_Dimensions_Item;
+@class GTLRAdExchangeBuyer_PretargetingConfig_ExcludedPlacements_Item;
+@class GTLRAdExchangeBuyer_PretargetingConfig_Placements_Item;
+@class GTLRAdExchangeBuyer_PretargetingConfig_VideoPlayerSizes_Item;
 @class GTLRAdExchangeBuyer_Price;
 @class GTLRAdExchangeBuyer_PricePerBuyer;
 @class GTLRAdExchangeBuyer_PrivateData;
@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_Account : GTLRObject
 
 /** Your bidder locations that have distinct URLs. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_AccountBidderLocationItem *> *bidderLocation;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Account_BidderLocation_Item *> *bidderLocation;
 
 /**
  *  The nid parameter value used in cookie match requests. Please contact your
@@ -135,9 +135,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdExchangeBuyer_AccountBidderLocationItem
+ *  GTLRAdExchangeBuyer_Account_BidderLocation_Item
  */
-@interface GTLRAdExchangeBuyer_AccountBidderLocationItem : GTLRObject
+@interface GTLRAdExchangeBuyer_Account_BidderLocation_Item : GTLRObject
 
 /**
  *  The protocol that the bidder endpoint is using. By default, OpenRTB
@@ -463,7 +463,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Shows any corrections that were applied to this creative. Read-only. This
  *  field should not be set in requests.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeCorrectionsItem *> *corrections;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Creative_Corrections_Item *> *corrections;
 
 /**
  *  Top-level deals status. Read-only. This field should not be set in requests.
@@ -484,7 +484,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The filtering reasons for the creative. Read-only. This field should not be
  *  set in requests.
  */
-@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_CreativeFilteringReasons *filteringReasons;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Creative_FilteringReasons *filteringReasons;
 
 /**
  *  Ad height.
@@ -515,7 +515,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  If nativeAd is set, HTMLSnippet and the videoURL outside of nativeAd should
  *  not be set. (The videoURL inside nativeAd can be set.)
  */
-@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_CreativeNativeAd *nativeAd;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Creative_NativeAd *nativeAd;
 
 /**
  *  Top-level open auction status. Read-only. This field should not be set in
@@ -555,7 +555,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  platform, an HTTPS vs HTTP request, or the type of auction). Read-only. This
  *  field should not be set in requests.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeServingRestrictionsItem *> *servingRestrictions;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item *> *servingRestrictions;
 
 /**
  *  All vendor types for the ads that may be shown from this snippet.
@@ -589,12 +589,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdExchangeBuyer_CreativeCorrectionsItem
+ *  GTLRAdExchangeBuyer_Creative_Corrections_Item
  */
-@interface GTLRAdExchangeBuyer_CreativeCorrectionsItem : GTLRObject
+@interface GTLRAdExchangeBuyer_Creative_Corrections_Item : GTLRObject
 
 /** All known serving contexts containing serving status information. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem *> *contexts;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Creative_Corrections_Item_Contexts_Item *> *contexts;
 
 /** Additional details about the correction. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *details;
@@ -609,7 +609,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The filtering reasons for the creative. Read-only. This field should not be
  *  set in requests.
  */
-@interface GTLRAdExchangeBuyer_CreativeFilteringReasons : GTLRObject
+@interface GTLRAdExchangeBuyer_Creative_FilteringReasons : GTLRObject
 
 /**
  *  The date in ISO 8601 format for the data. The data is collected from
@@ -618,7 +618,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *date;
 
 /** The filtering reasons. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeFilteringReasonsReasonsItem *> *reasons;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Creative_FilteringReasons_Reasons_Item *> *reasons;
 
 @end
 
@@ -627,12 +627,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  If nativeAd is set, HTMLSnippet and the videoURL outside of nativeAd should
  *  not be set. (The videoURL inside nativeAd can be set.)
  */
-@interface GTLRAdExchangeBuyer_CreativeNativeAd : GTLRObject
+@interface GTLRAdExchangeBuyer_Creative_NativeAd : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *advertiser;
 
 /** The app icon, for app download ads. */
-@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_CreativeNativeAdAppIcon *appIcon;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Creative_NativeAd_AppIcon *appIcon;
 
 /** A long description of the ad. */
 @property(nonatomic, copy, nullable) NSString *body;
@@ -650,13 +650,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *headline;
 
 /** A large image. */
-@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_CreativeNativeAdImage *image;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Creative_NativeAd_Image *image;
 
 /** The URLs are called when the impression is rendered. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *impressionTrackingUrl;
 
 /** A smaller image, for the advertiser logo. */
-@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_CreativeNativeAdLogo *logo;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Creative_NativeAd_Logo *logo;
 
 /** The price of the promoted app including the currency info. */
 @property(nonatomic, copy, nullable) NSString *price;
@@ -681,12 +681,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdExchangeBuyer_CreativeServingRestrictionsItem
+ *  GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item
  */
-@interface GTLRAdExchangeBuyer_CreativeServingRestrictionsItem : GTLRObject
+@interface GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item : GTLRObject
 
 /** All known contexts/restrictions. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeServingRestrictionsItemContextsItem *> *contexts;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_Contexts_Item *> *contexts;
 
 /**
  *  The reasons for disapproval within this restriction, if any. Note that not
@@ -695,7 +695,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  empty list for disapproval_reasons. In this case, please reach out to your
  *  TAM to help debug the issue.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeServingRestrictionsItemDisapprovalReasonsItem *> *disapprovalReasons;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_DisapprovalReasons_Item *> *disapprovalReasons;
 
 /**
  *  Why the creative is ineligible to serve in this context (e.g., it has been
@@ -707,9 +707,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem
+ *  GTLRAdExchangeBuyer_Creative_Corrections_Item_Contexts_Item
  */
-@interface GTLRAdExchangeBuyer_CreativeCorrectionsItemContextsItem : GTLRObject
+@interface GTLRAdExchangeBuyer_Creative_Corrections_Item_Contexts_Item : GTLRObject
 
 /**
  *  Only set when contextType=AUCTION_TYPE. Represents the auction types this
@@ -738,9 +738,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdExchangeBuyer_CreativeFilteringReasonsReasonsItem
+ *  GTLRAdExchangeBuyer_Creative_FilteringReasons_Reasons_Item
  */
-@interface GTLRAdExchangeBuyer_CreativeFilteringReasonsReasonsItem : GTLRObject
+@interface GTLRAdExchangeBuyer_Creative_FilteringReasons_Reasons_Item : GTLRObject
 
 /**
  *  The number of times the creative was filtered for the status. The count is
@@ -764,7 +764,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The app icon, for app download ads.
  */
-@interface GTLRAdExchangeBuyer_CreativeNativeAdAppIcon : GTLRObject
+@interface GTLRAdExchangeBuyer_Creative_NativeAd_AppIcon : GTLRObject
 
 /**
  *  height
@@ -788,7 +788,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A large image.
  */
-@interface GTLRAdExchangeBuyer_CreativeNativeAdImage : GTLRObject
+@interface GTLRAdExchangeBuyer_Creative_NativeAd_Image : GTLRObject
 
 /**
  *  height
@@ -812,7 +812,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A smaller image, for the advertiser logo.
  */
-@interface GTLRAdExchangeBuyer_CreativeNativeAdLogo : GTLRObject
+@interface GTLRAdExchangeBuyer_Creative_NativeAd_Logo : GTLRObject
 
 /**
  *  height
@@ -834,9 +834,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdExchangeBuyer_CreativeServingRestrictionsItemContextsItem
+ *  GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_Contexts_Item
  */
-@interface GTLRAdExchangeBuyer_CreativeServingRestrictionsItemContextsItem : GTLRObject
+@interface GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_Contexts_Item : GTLRObject
 
 /**
  *  Only set when contextType=AUCTION_TYPE. Represents the auction types this
@@ -865,9 +865,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdExchangeBuyer_CreativeServingRestrictionsItemDisapprovalReasonsItem
+ *  GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_DisapprovalReasons_Item
  */
-@interface GTLRAdExchangeBuyer_CreativeServingRestrictionsItemDisapprovalReasonsItem : GTLRObject
+@interface GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item_DisapprovalReasons_Item : GTLRObject
 
 /** Additional details about the reason for disapproval. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *details;
@@ -884,7 +884,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_CreativeDealIds : GTLRObject
 
 /** A list of external deal ids and ARC approval status. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeDealIdsDealStatusesItem *> *dealStatuses;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_CreativeDealIds_DealStatuses_Item *> *dealStatuses;
 
 /** Resource type. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -893,9 +893,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdExchangeBuyer_CreativeDealIdsDealStatusesItem
+ *  GTLRAdExchangeBuyer_CreativeDealIds_DealStatuses_Item
  */
-@interface GTLRAdExchangeBuyer_CreativeDealIdsDealStatusesItem : GTLRObject
+@interface GTLRAdExchangeBuyer_CreativeDealIds_DealStatuses_Item : GTLRObject
 
 /** ARC approval status. */
 @property(nonatomic, copy, nullable) NSString *arcStatus;
@@ -1476,7 +1476,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *flightStartTimeMs;
 
-/** Description for the deal terms. (updatable) */
+/** Description for the deal terms. (buyer-readonly) */
 @property(nonatomic, copy, nullable) NSString *inventoryDescription;
 
 /**
@@ -1850,7 +1850,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Requests which allow one of these (width, height) pairs will match. All
  *  pairs must be supported ad dimensions.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfigDimensionsItem *> *dimensions;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfig_Dimensions_Item *> *dimensions;
 
 /**
  *  Requests with any of these content labels will not match. Values are from
@@ -1868,7 +1868,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *excludedGeoCriteriaIds;
 
 /** Requests containing any of these placements will not match. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfigExcludedPlacementsItem *> *excludedPlacements;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfig_ExcludedPlacements_Item *> *excludedPlacements;
 
 /**
  *  Requests containing any of these users list ids will not match.
@@ -1906,6 +1906,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languages;
 
 /**
+ *  Requests where the predicted viewability is below the specified decile will
+ *  not match. E.g. if the buyer sets this value to 5, requests from slots where
+ *  the predicted viewability is below 50% will not match. If the predicted
+ *  viewability is unknown this field will be ignored.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumViewabilityDecile;
+
+/**
  *  Requests containing any of these mobile carrier ids will match. Values are
  *  from mobile-carriers.csv in the downloadable files section.
  *
@@ -1930,7 +1940,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *mobileOperatingSystemVersions;
 
 /** Requests containing any of these placements will match. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfigPlacementsItem *> *placements;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfig_Placements_Item *> *placements;
 
 /**
  *  Requests matching any of these platforms will match. Possible values are
@@ -1982,15 +1992,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Video requests satisfying any of these player size constraints will match.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfigVideoPlayerSizesItem *> *videoPlayerSizes;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_PretargetingConfig_VideoPlayerSizes_Item *> *videoPlayerSizes;
 
 @end
 
 
 /**
- *  GTLRAdExchangeBuyer_PretargetingConfigDimensionsItem
+ *  GTLRAdExchangeBuyer_PretargetingConfig_Dimensions_Item
  */
-@interface GTLRAdExchangeBuyer_PretargetingConfigDimensionsItem : GTLRObject
+@interface GTLRAdExchangeBuyer_PretargetingConfig_Dimensions_Item : GTLRObject
 
 /**
  *  Height in pixels.
@@ -2010,9 +2020,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdExchangeBuyer_PretargetingConfigExcludedPlacementsItem
+ *  GTLRAdExchangeBuyer_PretargetingConfig_ExcludedPlacements_Item
  */
-@interface GTLRAdExchangeBuyer_PretargetingConfigExcludedPlacementsItem : GTLRObject
+@interface GTLRAdExchangeBuyer_PretargetingConfig_ExcludedPlacements_Item : GTLRObject
 
 /**
  *  The value of the placement. Interpretation depends on the placement type,
@@ -2028,9 +2038,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdExchangeBuyer_PretargetingConfigPlacementsItem
+ *  GTLRAdExchangeBuyer_PretargetingConfig_Placements_Item
  */
-@interface GTLRAdExchangeBuyer_PretargetingConfigPlacementsItem : GTLRObject
+@interface GTLRAdExchangeBuyer_PretargetingConfig_Placements_Item : GTLRObject
 
 /**
  *  The value of the placement. Interpretation depends on the placement type,
@@ -2046,9 +2056,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdExchangeBuyer_PretargetingConfigVideoPlayerSizesItem
+ *  GTLRAdExchangeBuyer_PretargetingConfig_VideoPlayerSizes_Item
  */
-@interface GTLRAdExchangeBuyer_PretargetingConfigVideoPlayerSizesItem : GTLRObject
+@interface GTLRAdExchangeBuyer_PretargetingConfig_VideoPlayerSizes_Item : GTLRObject
 
 /**
  *  The type of aspect ratio. Leave this field blank to match all aspect ratios.
@@ -2247,6 +2257,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Optional legacy offer id if this offer is a preferred deal offer. */
 @property(nonatomic, copy, nullable) NSString *legacyOfferId;
+
+/**
+ *  Marketplace publisher profile Id. This Id differs from the regular
+ *  publisher_profile_id in that 1. This is a new id, the old Id will be
+ *  deprecated in 2017. 2. This id uniquely identifies a publisher profile by
+ *  itself.
+ */
+@property(nonatomic, copy, nullable) NSString *marketplacePublisherProfileId;
 
 /** The name for this product as set by the seller. (buyer-readonly) */
 @property(nonatomic, copy, nullable) NSString *name;

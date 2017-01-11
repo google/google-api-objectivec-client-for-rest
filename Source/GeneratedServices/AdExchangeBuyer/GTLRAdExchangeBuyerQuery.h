@@ -107,8 +107,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionPropose;
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionProposeAndAccept;
 /** Value: "unknownAction" */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUnknownAction;
-/** Value: "updateFinalized" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
+/** Value: "updateNonTerms" */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -1308,8 +1308,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *        "proposeAndAccept"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUnknownAction Value
  *        "unknownAction"
- *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateFinalized Value
- *        "updateFinalized"
+ *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms Value
+ *        "updateNonTerms"
  */
 @property(nonatomic, copy, nullable) NSString *updateAction;
 
@@ -1335,8 +1335,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *        "proposeAndAccept"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUnknownAction Value
  *        "unknownAction"
- *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateFinalized Value
- *        "updateFinalized"
+ *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms Value
+ *        "updateNonTerms"
  *
  *  @returns GTLRAdExchangeBuyerQuery_ProposalsPatch
  */
@@ -1437,8 +1437,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *        "proposeAndAccept"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUnknownAction Value
  *        "unknownAction"
- *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateFinalized Value
- *        "updateFinalized"
+ *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms Value
+ *        "updateNonTerms"
  */
 @property(nonatomic, copy, nullable) NSString *updateAction;
 
@@ -1464,8 +1464,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized;
  *        "proposeAndAccept"
  *    @arg @c kGTLRAdExchangeBuyerUpdateActionUnknownAction Value
  *        "unknownAction"
- *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateFinalized Value
- *        "updateFinalized"
+ *    @arg @c kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms Value
+ *        "updateNonTerms"
  *
  *  @returns GTLRAdExchangeBuyerQuery_ProposalsUpdate
  */

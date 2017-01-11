@@ -1445,9 +1445,28 @@ NSString * const kGTLRAndroidPublisherTrackRollout    = @"rollout";
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_PurchasesVoidedpurchasesList
+
+@dynamic endTime, maxResults, packageName, startIndex, startTime, token;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"{packageName}/purchases/voidedpurchases";
+  GTLRAndroidPublisherQuery_PurchasesVoidedpurchasesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_VoidedPurchasesListResponse class];
+  query.loggingName = @"androidpublisher.purchases.voidedpurchases.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_ReviewsGet
 
-@dynamic packageName, reviewId;
+@dynamic packageName, reviewId, translationLanguage;
 
 + (instancetype)queryWithPackageName:(NSString *)packageName
                             reviewId:(NSString *)reviewId {
@@ -1470,7 +1489,7 @@ NSString * const kGTLRAndroidPublisherTrackRollout    = @"rollout";
 
 @implementation GTLRAndroidPublisherQuery_ReviewsList
 
-@dynamic maxResults, packageName, startIndex, token;
+@dynamic maxResults, packageName, startIndex, token, translationLanguage;
 
 + (instancetype)queryWithPackageName:(NSString *)packageName {
   NSArray *pathParams = @[ @"packageName" ];

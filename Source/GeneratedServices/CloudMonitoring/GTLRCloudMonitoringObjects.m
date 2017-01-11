@@ -252,10 +252,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMonitoring_TimeseriesDescriptorLabels
+//   GTLRCloudMonitoring_TimeseriesDescriptor_Labels
 //
 
-@implementation GTLRCloudMonitoring_TimeseriesDescriptorLabels
+@implementation GTLRCloudMonitoring_TimeseriesDescriptor_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -304,10 +304,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMonitoring_WriteTimeseriesRequestCommonLabels
+//   GTLRCloudMonitoring_WriteTimeseriesRequest_CommonLabels
 //
 
-@implementation GTLRCloudMonitoring_WriteTimeseriesRequestCommonLabels
+@implementation GTLRCloudMonitoring_WriteTimeseriesRequest_CommonLabels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

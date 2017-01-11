@@ -713,8 +713,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 
 /**
  *  Returns a unique token to access an embeddable UI. To generate a web UI,
- *  pass the generated token into the Play for Work javascript API. Each token
- *  may only be used to start one UI session. See the javascript API
+ *  pass the generated token into the managed Google Play javascript API. Each
+ *  token may only be used to start one UI session. See the javascript API
  *  documentation for further information.
  *
  *  Method: androidenterprise.enterprises.createWebToken
@@ -733,8 +733,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  Fetches a @c GTLRAndroidEnterprise_AdministratorWebToken.
  *
  *  Returns a unique token to access an embeddable UI. To generate a web UI,
- *  pass the generated token into the Play for Work javascript API. Each token
- *  may only be used to start one UI session. See the javascript API
+ *  pass the generated token into the managed Google Play javascript API. Each
+ *  token may only be used to start one UI session. See the javascript API
  *  documentation for further information.
  *
  *  @param object The @c GTLRAndroidEnterprise_AdministratorWebTokenSpec to
@@ -1170,7 +1170,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 /**
  *  Sets the store layout for the enterprise. By default, storeLayoutType is set
  *  to "basic" and the basic store layout is enabled. The basic layout only
- *  contains apps approved by the administrator, and that have been added to the
+ *  contains apps approved by the admin, and that have been added to the
  *  available product set for a user (using the setAvailableProductSet call).
  *  Apps on the page are sorted in order of their product ID value. If you
  *  create a custom store layout (by setting storeLayoutType = "custom"), the
@@ -1193,7 +1193,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *
  *  Sets the store layout for the enterprise. By default, storeLayoutType is set
  *  to "basic" and the basic store layout is enabled. The basic layout only
- *  contains apps approved by the administrator, and that have been added to the
+ *  contains apps approved by the admin, and that have been added to the
  *  available product set for a user (using the setAvailableProductSet call).
  *  Apps on the page are sorted in order of their product ID value. If you
  *  create a custom store layout (by setting storeLayoutType = "custom"), the
@@ -2299,7 +2299,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Approves the specified product and the relevant app permissions, if any. The
  *  maximum number of products that you can approve per enterprise customer is
  *  1,000.
- *  To learn how to use Google Play for Work to design and create a store layout
+ *  To learn how to use managed Google Play to design and create a store layout
  *  to display approved products to your users, see Store Layout Design.
  *
  *  Method: androidenterprise.products.approve
@@ -2324,7 +2324,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Approves the specified product and the relevant app permissions, if any. The
  *  maximum number of products that you can approve per enterprise customer is
  *  1,000.
- *  To learn how to use Google Play for Work to design and create a store layout
+ *  To learn how to use managed Google Play to design and create a store layout
  *  to display approved products to your users, see Store Layout Design.
  *
  *  @param object The @c GTLRAndroidEnterprise_ProductsApproveRequest to include
@@ -2435,9 +2435,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Retrieves the schema that defines the configurable properties for this
  *  product. All products have a schema, but this schema may be empty if no
  *  managed configurations have been defined. This schema can be used to
- *  populate a UI that allows an administrator to configure the product. To
- *  apply a managed configuration based on the schema obtained using this API,
- *  see Managed Configurations through Play.
+ *  populate a UI that allows an admin to configure the product. To apply a
+ *  managed configuration based on the schema obtained using this API, see
+ *  Managed Configurations through Play.
  *
  *  Method: androidenterprise.products.getAppRestrictionsSchema
  *
@@ -2463,9 +2463,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Retrieves the schema that defines the configurable properties for this
  *  product. All products have a schema, but this schema may be empty if no
  *  managed configurations have been defined. This schema can be used to
- *  populate a UI that allows an administrator to configure the product. To
- *  apply a managed configuration based on the schema obtained using this API,
- *  see Managed Configurations through Play.
+ *  populate a UI that allows an admin to configure the product. To apply a
+ *  managed configuration based on the schema obtained using this API, see
+ *  Managed Configurations through Play.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param productId The ID of the product.
@@ -2547,7 +2547,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  The search query as typed in the Google Play Store search box. If omitted,
+ *  The search query as typed in the Google Play store search box. If omitted,
  *  all approved apps will be returned (using the pagination parameters),
  *  including apps that are not available in the store (e.g. unpublished apps).
  */
@@ -3271,8 +3271,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 
 /**
  *  Generates a token (activation code) to allow this user to configure their
- *  work account in the Android Setup Wizard. Revokes any previously generated
- *  token.
+ *  managed account in the Android Setup Wizard. Revokes any previously
+ *  generated token.
  *  This call only works with Google managed accounts.
  *
  *  Method: androidenterprise.users.generateToken
@@ -3294,8 +3294,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Fetches a @c GTLRAndroidEnterprise_UserToken.
  *
  *  Generates a token (activation code) to allow this user to configure their
- *  work account in the Android Setup Wizard. Revokes any previously generated
- *  token.
+ *  managed account in the Android Setup Wizard. Revokes any previously
+ *  generated token.
  *  This call only works with Google managed accounts.
  *
  *  @param enterpriseId The ID of the enterprise.

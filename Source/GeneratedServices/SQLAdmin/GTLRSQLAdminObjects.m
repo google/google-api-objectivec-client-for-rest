@@ -145,10 +145,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSQLAdmin_DatabaseInstanceFailoverReplica
+//   GTLRSQLAdmin_DatabaseInstance_FailoverReplica
 //
 
-@implementation GTLRSQLAdmin_DatabaseInstanceFailoverReplica
+@implementation GTLRSQLAdmin_DatabaseInstance_FailoverReplica
 @dynamic available, name;
 @end
 
@@ -191,20 +191,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSQLAdmin_ExportContextCsvExportOptions
+//   GTLRSQLAdmin_ExportContext_CsvExportOptions
 //
 
-@implementation GTLRSQLAdmin_ExportContextCsvExportOptions
+@implementation GTLRSQLAdmin_ExportContext_CsvExportOptions
 @dynamic selectQuery;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSQLAdmin_ExportContextSqlExportOptions
+//   GTLRSQLAdmin_ExportContext_SqlExportOptions
 //
 
-@implementation GTLRSQLAdmin_ExportContextSqlExportOptions
+@implementation GTLRSQLAdmin_ExportContext_SqlExportOptions
 @dynamic schemaOnly, tables;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -277,10 +277,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSQLAdmin_ImportContextCsvImportOptions
+//   GTLRSQLAdmin_ImportContext_CsvImportOptions
 //
 
-@implementation GTLRSQLAdmin_ImportContextCsvImportOptions
+@implementation GTLRSQLAdmin_ImportContext_CsvImportOptions
 @dynamic columns, table;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -358,6 +358,16 @@
 
 @implementation GTLRSQLAdmin_InstancesRestoreBackupRequest
 @dynamic restoreBackupContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_InstancesTruncateLogRequest
+//
+
+@implementation GTLRSQLAdmin_InstancesTruncateLogRequest
+@dynamic truncateLogContext;
 @end
 
 
@@ -644,6 +654,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_TruncateLogContext
+//
+
+@implementation GTLRSQLAdmin_TruncateLogContext
+@dynamic kind, logType;
 @end
 
 

@@ -19,85 +19,85 @@
 #endif
 
 @class GTLRAnalytics_Account;
-@class GTLRAnalytics_AccountChildLink;
-@class GTLRAnalytics_AccountPermissions;
+@class GTLRAnalytics_Account_ChildLink;
+@class GTLRAnalytics_Account_Permissions;
 @class GTLRAnalytics_AccountRef;
 @class GTLRAnalytics_AccountSummary;
 @class GTLRAnalytics_AdWordsAccount;
 @class GTLRAnalytics_Column;
-@class GTLRAnalytics_ColumnAttributes;
+@class GTLRAnalytics_Column_Attributes;
 @class GTLRAnalytics_CustomDataSource;
-@class GTLRAnalytics_CustomDataSourceChildLink;
-@class GTLRAnalytics_CustomDataSourceParentLink;
+@class GTLRAnalytics_CustomDataSource_ChildLink;
+@class GTLRAnalytics_CustomDataSource_ParentLink;
 @class GTLRAnalytics_CustomDimension;
-@class GTLRAnalytics_CustomDimensionParentLink;
+@class GTLRAnalytics_CustomDimension_ParentLink;
 @class GTLRAnalytics_CustomMetric;
-@class GTLRAnalytics_CustomMetricParentLink;
+@class GTLRAnalytics_CustomMetric_ParentLink;
 @class GTLRAnalytics_EntityAdWordsLink;
-@class GTLRAnalytics_EntityAdWordsLinkEntity;
+@class GTLRAnalytics_EntityAdWordsLink_Entity;
 @class GTLRAnalytics_EntityUserLink;
-@class GTLRAnalytics_EntityUserLinkEntity;
-@class GTLRAnalytics_EntityUserLinkPermissions;
+@class GTLRAnalytics_EntityUserLink_Entity;
+@class GTLRAnalytics_EntityUserLink_Permissions;
 @class GTLRAnalytics_Experiment;
-@class GTLRAnalytics_ExperimentParentLink;
-@class GTLRAnalytics_ExperimentVariationsItem;
+@class GTLRAnalytics_Experiment_ParentLink;
+@class GTLRAnalytics_Experiment_Variations_Item;
 @class GTLRAnalytics_Filter;
-@class GTLRAnalytics_FilterAdvancedDetails;
+@class GTLRAnalytics_Filter_AdvancedDetails;
+@class GTLRAnalytics_Filter_LowercaseDetails;
+@class GTLRAnalytics_Filter_ParentLink;
+@class GTLRAnalytics_Filter_SearchAndReplaceDetails;
+@class GTLRAnalytics_Filter_UppercaseDetails;
 @class GTLRAnalytics_FilterExpression;
-@class GTLRAnalytics_FilterLowercaseDetails;
-@class GTLRAnalytics_FilterParentLink;
 @class GTLRAnalytics_FilterRef;
-@class GTLRAnalytics_FilterSearchAndReplaceDetails;
-@class GTLRAnalytics_FilterUppercaseDetails;
-@class GTLRAnalytics_GaDataColumnHeadersItem;
-@class GTLRAnalytics_GaDataDataTable;
-@class GTLRAnalytics_GaDataDataTableColsItem;
-@class GTLRAnalytics_GaDataDataTableRowsItem;
-@class GTLRAnalytics_GaDataDataTableRowsItemCItem;
-@class GTLRAnalytics_GaDataProfileInfo;
-@class GTLRAnalytics_GaDataQuery;
-@class GTLRAnalytics_GaDataTotalsForAllResults;
+@class GTLRAnalytics_GaData_ColumnHeaders_Item;
+@class GTLRAnalytics_GaData_DataTable;
+@class GTLRAnalytics_GaData_DataTable_Cols_Item;
+@class GTLRAnalytics_GaData_DataTable_Rows_Item;
+@class GTLRAnalytics_GaData_DataTable_Rows_Item_C_Item;
+@class GTLRAnalytics_GaData_ProfileInfo;
+@class GTLRAnalytics_GaData_Query;
+@class GTLRAnalytics_GaData_TotalsForAllResults;
 @class GTLRAnalytics_Goal;
-@class GTLRAnalytics_GoalEventDetails;
-@class GTLRAnalytics_GoalEventDetailsEventConditionsItem;
-@class GTLRAnalytics_GoalParentLink;
-@class GTLRAnalytics_GoalUrlDestinationDetails;
-@class GTLRAnalytics_GoalUrlDestinationDetailsStepsItem;
-@class GTLRAnalytics_GoalVisitNumPagesDetails;
-@class GTLRAnalytics_GoalVisitTimeOnSiteDetails;
+@class GTLRAnalytics_Goal_EventDetails;
+@class GTLRAnalytics_Goal_EventDetails_EventConditions_Item;
+@class GTLRAnalytics_Goal_ParentLink;
+@class GTLRAnalytics_Goal_UrlDestinationDetails;
+@class GTLRAnalytics_Goal_UrlDestinationDetails_Steps_Item;
+@class GTLRAnalytics_Goal_VisitNumPagesDetails;
+@class GTLRAnalytics_Goal_VisitTimeOnSiteDetails;
 @class GTLRAnalytics_IncludeConditions;
 @class GTLRAnalytics_LinkedForeignAccount;
-@class GTLRAnalytics_McfDataColumnHeadersItem;
-@class GTLRAnalytics_McfDataProfileInfo;
-@class GTLRAnalytics_McfDataQuery;
-@class GTLRAnalytics_McfDataRowsItem;
-@class GTLRAnalytics_McfDataRowsItemConversionPathValueItem;
-@class GTLRAnalytics_McfDataTotalsForAllResults;
+@class GTLRAnalytics_McfData_ColumnHeaders_Item;
+@class GTLRAnalytics_McfData_ProfileInfo;
+@class GTLRAnalytics_McfData_Query;
+@class GTLRAnalytics_McfData_Rows_Item;
+@class GTLRAnalytics_McfData_Rows_Item_ConversionPathValue_Item;
+@class GTLRAnalytics_McfData_TotalsForAllResults;
 @class GTLRAnalytics_Profile;
-@class GTLRAnalytics_ProfileChildLink;
+@class GTLRAnalytics_Profile_ChildLink;
+@class GTLRAnalytics_Profile_ParentLink;
+@class GTLRAnalytics_Profile_Permissions;
 @class GTLRAnalytics_ProfileFilterLink;
-@class GTLRAnalytics_ProfileParentLink;
-@class GTLRAnalytics_ProfilePermissions;
 @class GTLRAnalytics_ProfileRef;
 @class GTLRAnalytics_ProfileSummary;
-@class GTLRAnalytics_RealtimeDataColumnHeadersItem;
-@class GTLRAnalytics_RealtimeDataProfileInfo;
-@class GTLRAnalytics_RealtimeDataQuery;
-@class GTLRAnalytics_RealtimeDataTotalsForAllResults;
+@class GTLRAnalytics_RealtimeData_ColumnHeaders_Item;
+@class GTLRAnalytics_RealtimeData_ProfileInfo;
+@class GTLRAnalytics_RealtimeData_Query;
+@class GTLRAnalytics_RealtimeData_TotalsForAllResults;
 @class GTLRAnalytics_RemarketingAudience;
-@class GTLRAnalytics_RemarketingAudienceAudienceDefinition;
-@class GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinition;
-@class GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinitionExcludeConditions;
+@class GTLRAnalytics_RemarketingAudience_AudienceDefinition;
+@class GTLRAnalytics_RemarketingAudience_StateBasedAudienceDefinition;
+@class GTLRAnalytics_RemarketingAudience_StateBasedAudienceDefinition_ExcludeConditions;
 @class GTLRAnalytics_Segment;
 @class GTLRAnalytics_UnsampledReport;
-@class GTLRAnalytics_UnsampledReportCloudStorageDownloadDetails;
-@class GTLRAnalytics_UnsampledReportDriveDownloadDetails;
+@class GTLRAnalytics_UnsampledReport_CloudStorageDownloadDetails;
+@class GTLRAnalytics_UnsampledReport_DriveDownloadDetails;
 @class GTLRAnalytics_Upload;
 @class GTLRAnalytics_UserRef;
 @class GTLRAnalytics_Webproperty;
-@class GTLRAnalytics_WebpropertyChildLink;
-@class GTLRAnalytics_WebpropertyParentLink;
-@class GTLRAnalytics_WebpropertyPermissions;
+@class GTLRAnalytics_Webproperty_ChildLink;
+@class GTLRAnalytics_Webproperty_ParentLink;
+@class GTLRAnalytics_Webproperty_Permissions;
 @class GTLRAnalytics_WebPropertyRef;
 @class GTLRAnalytics_WebPropertySummary;
 
@@ -112,7 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Child link for an account entry. Points to the list of web properties for
  *  this account.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_AccountChildLink *childLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Account_ChildLink *childLink;
 
 /** Time the account was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *created;
@@ -131,7 +131,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Permissions the user has for this account. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_AccountPermissions *permissions;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Account_Permissions *permissions;
 
 /** Link for this account. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -153,7 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Child link for an account entry. Points to the list of web properties for
  *  this account.
  */
-@interface GTLRAnalytics_AccountChildLink : GTLRObject
+@interface GTLRAnalytics_Account_ChildLink : GTLRObject
 
 /** Link to the list of web properties for this account. */
 @property(nonatomic, copy, nullable) NSString *href;
@@ -167,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Permissions the user has for this account.
  */
-@interface GTLRAnalytics_AccountPermissions : GTLRObject
+@interface GTLRAnalytics_Account_Permissions : GTLRObject
 
 /**
  *  All the permissions that the user has for this account. These include any
@@ -416,7 +416,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAnalytics_Column : GTLRObject
 
 /** Map of attribute name and value for this column. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_ColumnAttributes *attributes;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Column_Attributes *attributes;
 
 /**
  *  Column id.
@@ -439,7 +439,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRAnalytics_ColumnAttributes : GTLRObject
+@interface GTLRAnalytics_Column_Attributes : GTLRObject
 @end
 
 
@@ -489,7 +489,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Account ID to which this custom data source belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-@property(nonatomic, strong, nullable) GTLRAnalytics_CustomDataSourceChildLink *childLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_CustomDataSource_ChildLink *childLink;
 
 /** Time this custom data source was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *created;
@@ -520,7 +520,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for this custom data source. Points to the web property to which
  *  this custom data source belongs.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_CustomDataSourceParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_CustomDataSource_ParentLink *parentLink;
 
 /** IDs of views (profiles) linked to the custom data source. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *profilesLinked;
@@ -546,9 +546,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAnalytics_CustomDataSourceChildLink
+ *  GTLRAnalytics_CustomDataSource_ChildLink
  */
-@interface GTLRAnalytics_CustomDataSourceChildLink : GTLRObject
+@interface GTLRAnalytics_CustomDataSource_ChildLink : GTLRObject
 
 /**
  *  Link to the list of daily uploads for this custom data source. Link to the
@@ -566,7 +566,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for this custom data source. Points to the web property to which
  *  this custom data source belongs.
  */
-@interface GTLRAnalytics_CustomDataSourceParentLink : GTLRObject
+@interface GTLRAnalytics_CustomDataSource_ParentLink : GTLRObject
 
 /** Link to the web property to which this custom data source belongs. */
 @property(nonatomic, copy, nullable) NSString *href;
@@ -681,7 +681,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for the custom dimension. Points to the property to which the
  *  custom dimension belongs.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_CustomDimensionParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_CustomDimension_ParentLink *parentLink;
 
 /** Scope of the custom dimension: HIT, SESSION, USER or PRODUCT. */
 @property(nonatomic, copy, nullable) NSString *scope;
@@ -702,7 +702,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for the custom dimension. Points to the property to which the
  *  custom dimension belongs.
  */
-@interface GTLRAnalytics_CustomDimensionParentLink : GTLRObject
+@interface GTLRAnalytics_CustomDimension_ParentLink : GTLRObject
 
 /** Link to the property to which the custom dimension belongs. */
 @property(nonatomic, copy, nullable) NSString *href;
@@ -823,7 +823,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for the custom metric. Points to the property to which the
  *  custom metric belongs.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_CustomMetricParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_CustomMetric_ParentLink *parentLink;
 
 /** Scope of the custom metric: HIT or PRODUCT. */
 @property(nonatomic, copy, nullable) NSString *scope;
@@ -847,7 +847,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for the custom metric. Points to the property to which the
  *  custom metric belongs.
  */
-@interface GTLRAnalytics_CustomMetricParentLink : GTLRObject
+@interface GTLRAnalytics_CustomMetric_ParentLink : GTLRObject
 
 /** Link to the property to which the custom metric belongs. */
 @property(nonatomic, copy, nullable) NSString *href;
@@ -940,7 +940,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_AdWordsAccount *> *adWordsAccounts;
 
 /** Web property being linked. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_EntityAdWordsLinkEntity *entity;
+@property(nonatomic, strong, nullable) GTLRAnalytics_EntityAdWordsLink_Entity *entity;
 
 /**
  *  Entity AdWords link ID
@@ -967,7 +967,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Web property being linked.
  */
-@interface GTLRAnalytics_EntityAdWordsLinkEntity : GTLRObject
+@interface GTLRAnalytics_EntityAdWordsLink_Entity : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRAnalytics_WebPropertyRef *webPropertyRef;
 
@@ -1039,7 +1039,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Entity for this link. It can be an account, a web property, or a view
  *  (profile).
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_EntityUserLinkEntity *entity;
+@property(nonatomic, strong, nullable) GTLRAnalytics_EntityUserLink_Entity *entity;
 
 /**
  *  Entity user link ID
@@ -1052,7 +1052,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Permissions the user has for this entity. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_EntityUserLinkPermissions *permissions;
+@property(nonatomic, strong, nullable) GTLRAnalytics_EntityUserLink_Permissions *permissions;
 
 /** Self link for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -1067,7 +1067,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Entity for this link. It can be an account, a web property, or a view
  *  (profile).
  */
-@interface GTLRAnalytics_EntityUserLinkEntity : GTLRObject
+@interface GTLRAnalytics_EntityUserLink_Entity : GTLRObject
 
 /** Account for this link. */
 @property(nonatomic, strong, nullable) GTLRAnalytics_AccountRef *accountRef;
@@ -1084,7 +1084,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Permissions the user has for this entity.
  */
-@interface GTLRAnalytics_EntityUserLinkPermissions : GTLRObject
+@interface GTLRAnalytics_EntityUserLink_Permissions : GTLRObject
 
 /**
  *  Effective permissions represent all the permissions that a user has for this
@@ -1255,7 +1255,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for an experiment. Points to the view (profile) to which this
  *  experiment belongs.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_ExperimentParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Experiment_ParentLink *parentLink;
 
 /**
  *  View (Profile) ID to which this experiment belongs. This field is read-only.
@@ -1337,7 +1337,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  state. At least two variations are required before status can be set to
  *  RUNNING.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_ExperimentVariationsItem *> *variations;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_Experiment_Variations_Item *> *variations;
 
 /**
  *  Web property ID to which this experiment belongs. The web property ID is of
@@ -1369,7 +1369,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for an experiment. Points to the view (profile) to which this
  *  experiment belongs.
  */
-@interface GTLRAnalytics_ExperimentParentLink : GTLRObject
+@interface GTLRAnalytics_Experiment_ParentLink : GTLRObject
 
 /**
  *  Link to the view (profile) to which this experiment belongs. This field is
@@ -1384,9 +1384,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAnalytics_ExperimentVariationsItem
+ *  GTLRAnalytics_Experiment_Variations_Item
  */
-@interface GTLRAnalytics_ExperimentVariationsItem : GTLRObject
+@interface GTLRAnalytics_Experiment_Variations_Item : GTLRObject
 
 /**
  *  The name of the variation. This field is required when creating an
@@ -1496,7 +1496,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Details for the filter of the type ADVANCED. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_FilterAdvancedDetails *advancedDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Filter_AdvancedDetails *advancedDetails;
 
 /** Time this filter was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *created;
@@ -1518,7 +1518,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Details for the filter of the type LOWER. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_FilterLowercaseDetails *lowercaseDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Filter_LowercaseDetails *lowercaseDetails;
 
 /** Name of this filter. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1527,10 +1527,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for this filter. Points to the account to which this filter
  *  belongs.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_FilterParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Filter_ParentLink *parentLink;
 
 /** Details for the filter of the type SEARCH_AND_REPLACE. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_FilterSearchAndReplaceDetails *searchAndReplaceDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Filter_SearchAndReplaceDetails *searchAndReplaceDetails;
 
 /** Link for this filter. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -1545,7 +1545,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /** Details for the filter of the type UPPER. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_FilterUppercaseDetails *uppercaseDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Filter_UppercaseDetails *uppercaseDetails;
 
 @end
 
@@ -1553,7 +1553,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Details for the filter of the type ADVANCED.
  */
-@interface GTLRAnalytics_FilterAdvancedDetails : GTLRObject
+@interface GTLRAnalytics_Filter_AdvancedDetails : GTLRObject
 
 /**
  *  Indicates if the filter expressions are case sensitive.
@@ -1629,7 +1629,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Details for the filter of the type LOWER.
  */
-@interface GTLRAnalytics_FilterLowercaseDetails : GTLRObject
+@interface GTLRAnalytics_Filter_LowercaseDetails : GTLRObject
 
 /** Field to use in the filter. */
 @property(nonatomic, copy, nullable) NSString *field;
@@ -1648,7 +1648,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for this filter. Points to the account to which this filter
  *  belongs.
  */
-@interface GTLRAnalytics_FilterParentLink : GTLRObject
+@interface GTLRAnalytics_Filter_ParentLink : GTLRObject
 
 /** Link to the account to which this filter belongs. */
 @property(nonatomic, copy, nullable) NSString *href;
@@ -1662,7 +1662,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Details for the filter of the type SEARCH_AND_REPLACE.
  */
-@interface GTLRAnalytics_FilterSearchAndReplaceDetails : GTLRObject
+@interface GTLRAnalytics_Filter_SearchAndReplaceDetails : GTLRObject
 
 /**
  *  Determines if the filter is case sensitive.
@@ -1693,7 +1693,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Details for the filter of the type UPPER.
  */
-@interface GTLRAnalytics_FilterUppercaseDetails : GTLRObject
+@interface GTLRAnalytics_Filter_UppercaseDetails : GTLRObject
 
 /** Field to use in the filter. */
 @property(nonatomic, copy, nullable) NSString *field;
@@ -1930,7 +1930,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Column headers that list dimension names followed by the metric names. The
  *  order of dimensions and metrics is same as specified in the request.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GaDataColumnHeadersItem *> *columnHeaders;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GaData_ColumnHeaders_Item *> *columnHeaders;
 
 /**
  *  Determines if Analytics data contains samples.
@@ -1946,7 +1946,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *dataLastRefreshed;
 
-@property(nonatomic, strong, nullable) GTLRAnalytics_GaDataDataTable *dataTable;
+@property(nonatomic, strong, nullable) GTLRAnalytics_GaData_DataTable *dataTable;
 
 /**
  *  Unique ID for this data response.
@@ -1978,10 +1978,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Information for the view (profile), for which the Analytics data was
  *  requested.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_GaDataProfileInfo *profileInfo;
+@property(nonatomic, strong, nullable) GTLRAnalytics_GaData_ProfileInfo *profileInfo;
 
 /** Analytics data request query parameters. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_GaDataQuery *query;
+@property(nonatomic, strong, nullable) GTLRAnalytics_GaData_Query *query;
 
 /**
  *  Analytics data rows, where each row contains a list of dimension values
@@ -2020,15 +2020,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  results returned in this response. The order of the metric totals is same as
  *  the metric order specified in the request.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_GaDataTotalsForAllResults *totalsForAllResults;
+@property(nonatomic, strong, nullable) GTLRAnalytics_GaData_TotalsForAllResults *totalsForAllResults;
 
 @end
 
 
 /**
- *  GTLRAnalytics_GaDataColumnHeadersItem
+ *  GTLRAnalytics_GaData_ColumnHeaders_Item
  */
-@interface GTLRAnalytics_GaDataColumnHeadersItem : GTLRObject
+@interface GTLRAnalytics_GaData_ColumnHeaders_Item : GTLRObject
 
 /** Column Type. Either DIMENSION or METRIC. */
 @property(nonatomic, copy, nullable) NSString *columnType;
@@ -2047,12 +2047,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAnalytics_GaDataDataTable
+ *  GTLRAnalytics_GaData_DataTable
  */
-@interface GTLRAnalytics_GaDataDataTable : GTLRObject
+@interface GTLRAnalytics_GaData_DataTable : GTLRObject
 
-@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GaDataDataTableColsItem *> *cols;
-@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GaDataDataTableRowsItem *> *rows;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GaData_DataTable_Cols_Item *> *cols;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GaData_DataTable_Rows_Item *> *rows;
 
 @end
 
@@ -2061,7 +2061,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Information for the view (profile), for which the Analytics data was
  *  requested.
  */
-@interface GTLRAnalytics_GaDataProfileInfo : GTLRObject
+@interface GTLRAnalytics_GaData_ProfileInfo : GTLRObject
 
 /** Account ID to which this view (profile) belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2087,7 +2087,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Analytics data request query parameters.
  */
-@interface GTLRAnalytics_GaDataQuery : GTLRObject
+@interface GTLRAnalytics_GaData_Query : GTLRObject
 
 /** List of analytics dimensions. */
 @property(nonatomic, copy, nullable) NSString *dimensions;
@@ -2143,14 +2143,14 @@ NS_ASSUME_NONNULL_BEGIN
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRAnalytics_GaDataTotalsForAllResults : GTLRObject
+@interface GTLRAnalytics_GaData_TotalsForAllResults : GTLRObject
 @end
 
 
 /**
- *  GTLRAnalytics_GaDataDataTableColsItem
+ *  GTLRAnalytics_GaData_DataTable_Cols_Item
  */
-@interface GTLRAnalytics_GaDataDataTableColsItem : GTLRObject
+@interface GTLRAnalytics_GaData_DataTable_Cols_Item : GTLRObject
 
 /**
  *  identifier
@@ -2166,19 +2166,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAnalytics_GaDataDataTableRowsItem
+ *  GTLRAnalytics_GaData_DataTable_Rows_Item
  */
-@interface GTLRAnalytics_GaDataDataTableRowsItem : GTLRObject
+@interface GTLRAnalytics_GaData_DataTable_Rows_Item : GTLRObject
 
-@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GaDataDataTableRowsItemCItem *> *c;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GaData_DataTable_Rows_Item_C_Item *> *c;
 
 @end
 
 
 /**
- *  GTLRAnalytics_GaDataDataTableRowsItemCItem
+ *  GTLRAnalytics_GaData_DataTable_Rows_Item_C_Item
  */
-@interface GTLRAnalytics_GaDataDataTableRowsItemCItem : GTLRObject
+@interface GTLRAnalytics_GaData_DataTable_Rows_Item_C_Item : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *v;
 
@@ -2204,7 +2204,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /** Details for the goal of the type EVENT. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_GoalEventDetails *eventDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Goal_EventDetails *eventDetails;
 
 /**
  *  Goal ID.
@@ -2226,7 +2226,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for a goal. Points to the view (profile) to which this goal
  *  belongs.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_GoalParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Goal_ParentLink *parentLink;
 
 /** View (Profile) ID to which this goal belongs. */
 @property(nonatomic, copy, nullable) NSString *profileId;
@@ -2244,7 +2244,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 /** Details for the goal of the type URL_DESTINATION. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_GoalUrlDestinationDetails *urlDestinationDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Goal_UrlDestinationDetails *urlDestinationDetails;
 
 /**
  *  Goal value.
@@ -2254,10 +2254,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *value;
 
 /** Details for the goal of the type VISIT_NUM_PAGES. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_GoalVisitNumPagesDetails *visitNumPagesDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Goal_VisitNumPagesDetails *visitNumPagesDetails;
 
 /** Details for the goal of the type VISIT_TIME_ON_SITE. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_GoalVisitTimeOnSiteDetails *visitTimeOnSiteDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Goal_VisitTimeOnSiteDetails *visitTimeOnSiteDetails;
 
 /**
  *  Web property ID to which this goal belongs. The web property ID is of the
@@ -2271,10 +2271,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Details for the goal of the type EVENT.
  */
-@interface GTLRAnalytics_GoalEventDetails : GTLRObject
+@interface GTLRAnalytics_Goal_EventDetails : GTLRObject
 
 /** List of event conditions. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GoalEventDetailsEventConditionsItem *> *eventConditions;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_Goal_EventDetails_EventConditions_Item *> *eventConditions;
 
 /**
  *  Determines if the event value should be used as the value for this goal.
@@ -2290,7 +2290,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for a goal. Points to the view (profile) to which this goal
  *  belongs.
  */
-@interface GTLRAnalytics_GoalParentLink : GTLRObject
+@interface GTLRAnalytics_Goal_ParentLink : GTLRObject
 
 /** Link to the view (profile) to which this goal belongs. */
 @property(nonatomic, copy, nullable) NSString *href;
@@ -2304,7 +2304,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Details for the goal of the type URL_DESTINATION.
  */
-@interface GTLRAnalytics_GoalUrlDestinationDetails : GTLRObject
+@interface GTLRAnalytics_Goal_UrlDestinationDetails : GTLRObject
 
 /**
  *  Determines if the goal URL must exactly match the capitalization of visited
@@ -2325,7 +2325,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *matchType;
 
 /** List of steps configured for this goal funnel. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_GoalUrlDestinationDetailsStepsItem *> *steps;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_Goal_UrlDestinationDetails_Steps_Item *> *steps;
 
 /** URL for this goal. */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -2336,7 +2336,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Details for the goal of the type VISIT_NUM_PAGES.
  */
-@interface GTLRAnalytics_GoalVisitNumPagesDetails : GTLRObject
+@interface GTLRAnalytics_Goal_VisitNumPagesDetails : GTLRObject
 
 /**
  *  Type of comparison. Possible values are LESS_THAN, GREATER_THAN, or EQUAL.
@@ -2356,7 +2356,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Details for the goal of the type VISIT_TIME_ON_SITE.
  */
-@interface GTLRAnalytics_GoalVisitTimeOnSiteDetails : GTLRObject
+@interface GTLRAnalytics_Goal_VisitTimeOnSiteDetails : GTLRObject
 
 /** Type of comparison. Possible values are LESS_THAN or GREATER_THAN. */
 @property(nonatomic, copy, nullable) NSString *comparisonType;
@@ -2372,9 +2372,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAnalytics_GoalEventDetailsEventConditionsItem
+ *  GTLRAnalytics_Goal_EventDetails_EventConditions_Item
  */
-@interface GTLRAnalytics_GoalEventDetailsEventConditionsItem : GTLRObject
+@interface GTLRAnalytics_Goal_EventDetails_EventConditions_Item : GTLRObject
 
 /**
  *  Type of comparison. Possible values are LESS_THAN, GREATER_THAN or EQUAL.
@@ -2407,9 +2407,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAnalytics_GoalUrlDestinationDetailsStepsItem
+ *  GTLRAnalytics_Goal_UrlDestinationDetails_Steps_Item
  */
-@interface GTLRAnalytics_GoalUrlDestinationDetailsStepsItem : GTLRObject
+@interface GTLRAnalytics_Goal_UrlDestinationDetails_Steps_Item : GTLRObject
 
 /** Step name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2593,7 +2593,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Column headers that list dimension names followed by the metric names. The
  *  order of dimensions and metrics is same as specified in the request.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_McfDataColumnHeadersItem *> *columnHeaders;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_McfData_ColumnHeaders_Item *> *columnHeaders;
 
 /**
  *  Determines if the Analytics data contains sampled data.
@@ -2632,17 +2632,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Information for the view (profile), for which the Analytics data was
  *  requested.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_McfDataProfileInfo *profileInfo;
+@property(nonatomic, strong, nullable) GTLRAnalytics_McfData_ProfileInfo *profileInfo;
 
 /** Analytics data request query parameters. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_McfDataQuery *query;
+@property(nonatomic, strong, nullable) GTLRAnalytics_McfData_Query *query;
 
 /**
  *  Analytics data rows, where each row contains a list of dimension values
  *  followed by the metric values. The order of dimensions and metrics is same
  *  as specified in the request.
  */
-@property(nonatomic, strong, nullable) NSArray<NSArray<GTLRAnalytics_McfDataRowsItem *> *> *rows;
+@property(nonatomic, strong, nullable) NSArray<NSArray<GTLRAnalytics_McfData_Rows_Item *> *> *rows;
 
 /**
  *  The number of samples used to calculate the result.
@@ -2674,15 +2674,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  results returned in this response. The order of the metric totals is same as
  *  the metric order specified in the request.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_McfDataTotalsForAllResults *totalsForAllResults;
+@property(nonatomic, strong, nullable) GTLRAnalytics_McfData_TotalsForAllResults *totalsForAllResults;
 
 @end
 
 
 /**
- *  GTLRAnalytics_McfDataColumnHeadersItem
+ *  GTLRAnalytics_McfData_ColumnHeaders_Item
  */
-@interface GTLRAnalytics_McfDataColumnHeadersItem : GTLRObject
+@interface GTLRAnalytics_McfData_ColumnHeaders_Item : GTLRObject
 
 /** Column Type. Either DIMENSION or METRIC. */
 @property(nonatomic, copy, nullable) NSString *columnType;
@@ -2703,7 +2703,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Information for the view (profile), for which the Analytics data was
  *  requested.
  */
-@interface GTLRAnalytics_McfDataProfileInfo : GTLRObject
+@interface GTLRAnalytics_McfData_ProfileInfo : GTLRObject
 
 /** Account ID to which this view (profile) belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2729,7 +2729,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Analytics data request query parameters.
  */
-@interface GTLRAnalytics_McfDataQuery : GTLRObject
+@interface GTLRAnalytics_McfData_Query : GTLRObject
 
 /** List of analytics dimensions. */
 @property(nonatomic, copy, nullable) NSString *dimensions;
@@ -2779,13 +2779,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  A union object representing a dimension or metric value. Only one of
  *  "primitiveValue" or "conversionPathValue" attribute will be populated.
  */
-@interface GTLRAnalytics_McfDataRowsItem : GTLRObject
+@interface GTLRAnalytics_McfData_Rows_Item : GTLRObject
 
 /**
  *  A conversion path dimension value, containing a list of interactions with
  *  their attributes.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_McfDataRowsItemConversionPathValueItem *> *conversionPathValue;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_McfData_Rows_Item_ConversionPathValue_Item *> *conversionPathValue;
 
 /** A primitive dimension value. A primitive metric value. */
 @property(nonatomic, copy, nullable) NSString *primitiveValue;
@@ -2803,14 +2803,14 @@ NS_ASSUME_NONNULL_BEGIN
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRAnalytics_McfDataTotalsForAllResults : GTLRObject
+@interface GTLRAnalytics_McfData_TotalsForAllResults : GTLRObject
 @end
 
 
 /**
- *  GTLRAnalytics_McfDataRowsItemConversionPathValueItem
+ *  GTLRAnalytics_McfData_Rows_Item_ConversionPathValue_Item
  */
-@interface GTLRAnalytics_McfDataRowsItemConversionPathValueItem : GTLRObject
+@interface GTLRAnalytics_McfData_Rows_Item_ConversionPathValue_Item : GTLRObject
 
 /**
  *  Type of an interaction on conversion path. Such as CLICK, IMPRESSION etc.
@@ -2844,7 +2844,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Child link for this view (profile). Points to the list of goals for this
  *  view (profile).
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_ProfileChildLink *childLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Profile_ChildLink *childLink;
 
 /** Time this view (profile) was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *created;
@@ -2901,10 +2901,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for this view (profile). Points to the web property to which
  *  this view (profile) belongs.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_ProfileParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Profile_ParentLink *parentLink;
 
 /** Permissions the user has for this view (profile). */
-@property(nonatomic, strong, nullable) GTLRAnalytics_ProfilePermissions *permissions;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Profile_Permissions *permissions;
 
 /** Link for this view (profile). */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -2966,7 +2966,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Child link for this view (profile). Points to the list of goals for this
  *  view (profile).
  */
-@interface GTLRAnalytics_ProfileChildLink : GTLRObject
+@interface GTLRAnalytics_Profile_ChildLink : GTLRObject
 
 /** Link to the list of goals for this view (profile). */
 @property(nonatomic, copy, nullable) NSString *href;
@@ -2981,7 +2981,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for this view (profile). Points to the web property to which
  *  this view (profile) belongs.
  */
-@interface GTLRAnalytics_ProfileParentLink : GTLRObject
+@interface GTLRAnalytics_Profile_ParentLink : GTLRObject
 
 /** Link to the web property to which this view (profile) belongs. */
 @property(nonatomic, copy, nullable) NSString *href;
@@ -2995,7 +2995,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Permissions the user has for this view (profile).
  */
-@interface GTLRAnalytics_ProfilePermissions : GTLRObject
+@interface GTLRAnalytics_Profile_Permissions : GTLRObject
 
 /**
  *  All the permissions that the user has for this view (profile). These include
@@ -3246,7 +3246,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Column headers that list dimension names followed by the metric names. The
  *  order of dimensions and metrics is same as specified in the request.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_RealtimeDataColumnHeadersItem *> *columnHeaders;
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalytics_RealtimeData_ColumnHeaders_Item *> *columnHeaders;
 
 /**
  *  Unique ID for this data response.
@@ -3262,10 +3262,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Information for the view (profile), for which the real time data was
  *  requested.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_RealtimeDataProfileInfo *profileInfo;
+@property(nonatomic, strong, nullable) GTLRAnalytics_RealtimeData_ProfileInfo *profileInfo;
 
 /** Real time data request query parameters. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_RealtimeDataQuery *query;
+@property(nonatomic, strong, nullable) GTLRAnalytics_RealtimeData_Query *query;
 
 /**
  *  Real time data rows, where each row contains a list of dimension values
@@ -3290,15 +3290,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  results returned in this response. The order of the metric totals is same as
  *  the metric order specified in the request.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_RealtimeDataTotalsForAllResults *totalsForAllResults;
+@property(nonatomic, strong, nullable) GTLRAnalytics_RealtimeData_TotalsForAllResults *totalsForAllResults;
 
 @end
 
 
 /**
- *  GTLRAnalytics_RealtimeDataColumnHeadersItem
+ *  GTLRAnalytics_RealtimeData_ColumnHeaders_Item
  */
-@interface GTLRAnalytics_RealtimeDataColumnHeadersItem : GTLRObject
+@interface GTLRAnalytics_RealtimeData_ColumnHeaders_Item : GTLRObject
 
 /** Column Type. Either DIMENSION or METRIC. */
 @property(nonatomic, copy, nullable) NSString *columnType;
@@ -3320,7 +3320,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Information for the view (profile), for which the real time data was
  *  requested.
  */
-@interface GTLRAnalytics_RealtimeDataProfileInfo : GTLRObject
+@interface GTLRAnalytics_RealtimeData_ProfileInfo : GTLRObject
 
 /** Account ID to which this view (profile) belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3346,7 +3346,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Real time data request query parameters.
  */
-@interface GTLRAnalytics_RealtimeDataQuery : GTLRObject
+@interface GTLRAnalytics_RealtimeData_Query : GTLRObject
 
 /** List of real time dimensions. */
 @property(nonatomic, copy, nullable) NSString *dimensions;
@@ -3383,7 +3383,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRAnalytics_RealtimeDataTotalsForAllResults : GTLRObject
+@interface GTLRAnalytics_RealtimeData_TotalsForAllResults : GTLRObject
 @end
 
 
@@ -3399,7 +3399,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The simple audience definition that will cause a user to be added to an
  *  audience.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_RemarketingAudienceAudienceDefinition *audienceDefinition;
+@property(nonatomic, strong, nullable) GTLRAnalytics_RemarketingAudience_AudienceDefinition *audienceDefinition;
 
 /** The type of audience, either SIMPLE or STATE_BASED. */
 @property(nonatomic, copy, nullable) NSString *audienceType;
@@ -3445,7 +3445,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  A state based audience definition that will cause a user to be added or
  *  removed from an audience.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinition *stateBasedAudienceDefinition;
+@property(nonatomic, strong, nullable) GTLRAnalytics_RemarketingAudience_StateBasedAudienceDefinition *stateBasedAudienceDefinition;
 
 /** Time this remarketing audience was last modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updated;
@@ -3463,7 +3463,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The simple audience definition that will cause a user to be added to an
  *  audience.
  */
-@interface GTLRAnalytics_RemarketingAudienceAudienceDefinition : GTLRObject
+@interface GTLRAnalytics_RemarketingAudience_AudienceDefinition : GTLRObject
 
 /** Defines the conditions to include users to the audience. */
 @property(nonatomic, strong, nullable) GTLRAnalytics_IncludeConditions *includeConditions;
@@ -3475,10 +3475,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  A state based audience definition that will cause a user to be added or
  *  removed from an audience.
  */
-@interface GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinition : GTLRObject
+@interface GTLRAnalytics_RemarketingAudience_StateBasedAudienceDefinition : GTLRObject
 
 /** Defines the conditions to exclude users from the audience. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinitionExcludeConditions *excludeConditions;
+@property(nonatomic, strong, nullable) GTLRAnalytics_RemarketingAudience_StateBasedAudienceDefinition_ExcludeConditions *excludeConditions;
 
 /** Defines the conditions to include users to the audience. */
 @property(nonatomic, strong, nullable) GTLRAnalytics_IncludeConditions *includeConditions;
@@ -3489,7 +3489,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Defines the conditions to exclude users from the audience.
  */
-@interface GTLRAnalytics_RemarketingAudienceStateBasedAudienceDefinitionExcludeConditions : GTLRObject
+@interface GTLRAnalytics_RemarketingAudience_StateBasedAudienceDefinition_ExcludeConditions : GTLRObject
 
 /** Whether to make the exclusion TEMPORARY or PERMANENT. */
 @property(nonatomic, copy, nullable) NSString *exclusionDuration;
@@ -3669,7 +3669,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Download details for a file stored in Google Cloud Storage. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_UnsampledReportCloudStorageDownloadDetails *cloudStorageDownloadDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_UnsampledReport_CloudStorageDownloadDetails *cloudStorageDownloadDetails;
 
 /** Time this unsampled report was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *created;
@@ -3686,7 +3686,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *downloadType;
 
 /** Download details for a file stored in Google Drive. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_UnsampledReportDriveDownloadDetails *driveDownloadDetails;
+@property(nonatomic, strong, nullable) GTLRAnalytics_UnsampledReport_DriveDownloadDetails *driveDownloadDetails;
 
 /** The end date for the unsampled report. */
 @property(nonatomic, copy, nullable) NSString *endDate;
@@ -3743,7 +3743,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Download details for a file stored in Google Cloud Storage.
  */
-@interface GTLRAnalytics_UnsampledReportCloudStorageDownloadDetails : GTLRObject
+@interface GTLRAnalytics_UnsampledReport_CloudStorageDownloadDetails : GTLRObject
 
 /** Id of the bucket the file object is stored in. */
 @property(nonatomic, copy, nullable) NSString *bucketId;
@@ -3757,7 +3757,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Download details for a file stored in Google Drive.
  */
-@interface GTLRAnalytics_UnsampledReportDriveDownloadDetails : GTLRObject
+@interface GTLRAnalytics_UnsampledReport_DriveDownloadDetails : GTLRObject
 
 /** Id of the document/file containing the report data. */
 @property(nonatomic, copy, nullable) NSString *documentId;
@@ -4009,7 +4009,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Child link for this web property. Points to the list of views (profiles) for
  *  this web property.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_WebpropertyChildLink *childLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Webproperty_ChildLink *childLink;
 
 /** Time this web property was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *created;
@@ -4047,10 +4047,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for this web property. Points to the account to which this web
  *  property belongs.
  */
-@property(nonatomic, strong, nullable) GTLRAnalytics_WebpropertyParentLink *parentLink;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Webproperty_ParentLink *parentLink;
 
 /** Permissions the user has for this web property. */
-@property(nonatomic, strong, nullable) GTLRAnalytics_WebpropertyPermissions *permissions;
+@property(nonatomic, strong, nullable) GTLRAnalytics_Webproperty_Permissions *permissions;
 
 /**
  *  View (Profile) count for this web property.
@@ -4082,7 +4082,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Child link for this web property. Points to the list of views (profiles) for
  *  this web property.
  */
-@interface GTLRAnalytics_WebpropertyChildLink : GTLRObject
+@interface GTLRAnalytics_Webproperty_ChildLink : GTLRObject
 
 /** Link to the list of views (profiles) for this web property. */
 @property(nonatomic, copy, nullable) NSString *href;
@@ -4097,7 +4097,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Parent link for this web property. Points to the account to which this web
  *  property belongs.
  */
-@interface GTLRAnalytics_WebpropertyParentLink : GTLRObject
+@interface GTLRAnalytics_Webproperty_ParentLink : GTLRObject
 
 /** Link to the account for this web property. */
 @property(nonatomic, copy, nullable) NSString *href;
@@ -4111,7 +4111,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Permissions the user has for this web property.
  */
-@interface GTLRAnalytics_WebpropertyPermissions : GTLRObject
+@interface GTLRAnalytics_Webproperty_Permissions : GTLRObject
 
 /**
  *  All the permissions that the user has for this web property. These include

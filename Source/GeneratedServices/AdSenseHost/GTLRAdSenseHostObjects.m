@@ -107,20 +107,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSenseHost_AdStyleColors
+//   GTLRAdSenseHost_AdStyle_Colors
 //
 
-@implementation GTLRAdSenseHost_AdStyleColors
+@implementation GTLRAdSenseHost_AdStyle_Colors
 @dynamic background, border, text, title, url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSenseHost_AdStyleFont
+//   GTLRAdSenseHost_AdStyle_Font
 //
 
-@implementation GTLRAdSenseHost_AdStyleFont
+@implementation GTLRAdSenseHost_AdStyle_Font
 @dynamic family, size;
 @end
 
@@ -143,30 +143,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSenseHost_AdUnitContentAdsSettings
+//   GTLRAdSenseHost_AdUnit_ContentAdsSettings
 //
 
-@implementation GTLRAdSenseHost_AdUnitContentAdsSettings
+@implementation GTLRAdSenseHost_AdUnit_ContentAdsSettings
 @dynamic backupOption, size, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSenseHost_AdUnitMobileContentAdsSettings
+//   GTLRAdSenseHost_AdUnit_MobileContentAdsSettings
 //
 
-@implementation GTLRAdSenseHost_AdUnitMobileContentAdsSettings
+@implementation GTLRAdSenseHost_AdUnit_MobileContentAdsSettings
 @dynamic markupLanguage, scriptingLanguage, size, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSenseHost_AdUnitContentAdsSettingsBackupOption
+//   GTLRAdSenseHost_AdUnit_ContentAdsSettings_BackupOption
 //
 
-@implementation GTLRAdSenseHost_AdUnitContentAdsSettingsBackupOption
+@implementation GTLRAdSenseHost_AdUnit_ContentAdsSettings_BackupOption
 @dynamic color, type, url;
 @end
 
@@ -264,7 +264,7 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"averages" : [NSString class],
-    @"headers" : [GTLRAdSenseHost_ReportHeadersItem class],
+    @"headers" : [GTLRAdSenseHost_Report_Headers_Item class],
     @"rows" : [NSString class],
     @"totals" : [NSString class],
     @"warnings" : [NSString class]
@@ -277,10 +277,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSenseHost_ReportHeadersItem
+//   GTLRAdSenseHost_Report_Headers_Item
 //
 
-@implementation GTLRAdSenseHost_ReportHeadersItem
+@implementation GTLRAdSenseHost_Report_Headers_Item
 @dynamic currency, name, type;
 @end
 

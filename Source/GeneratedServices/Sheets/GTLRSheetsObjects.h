@@ -42,7 +42,7 @@
 @class GTLRSheets_BasicChartSeries;
 @class GTLRSheets_BasicChartSpec;
 @class GTLRSheets_BasicFilter;
-@class GTLRSheets_BasicFilterCriteria;
+@class GTLRSheets_BasicFilter_Criteria;
 @class GTLRSheets_BooleanCondition;
 @class GTLRSheets_BooleanRule;
 @class GTLRSheets_Border;
@@ -81,7 +81,7 @@
 @class GTLRSheets_ExtendedValue;
 @class GTLRSheets_FilterCriteria;
 @class GTLRSheets_FilterView;
-@class GTLRSheets_FilterViewCriteria;
+@class GTLRSheets_FilterView_Criteria;
 @class GTLRSheets_FindReplaceRequest;
 @class GTLRSheets_FindReplaceResponse;
 @class GTLRSheets_GradientRule;
@@ -104,7 +104,7 @@
 @class GTLRSheets_PivotGroupSortValueBucket;
 @class GTLRSheets_PivotGroupValueMetadata;
 @class GTLRSheets_PivotTable;
-@class GTLRSheets_PivotTableCriteria;
+@class GTLRSheets_PivotTable_Criteria;
 @class GTLRSheets_PivotValue;
 @class GTLRSheets_ProtectedRange;
 @class GTLRSheets_RepeatCellRequest;
@@ -2055,8 +2055,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /**
  *  The color of the last row or column. If this field is not set, the last
- *  row or column will be filled with either first_row_color or
- *  second_row_color, depending on the color of the previous row or
+ *  row or column will be filled with either first_band_color or
+ *  second_band_color, depending on the color of the previous row or
  *  column.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *footerColor;
@@ -2064,7 +2064,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 /**
  *  The color of the first row or column. If this field is set, the first
  *  row or column will be filled with this color and the colors will
- *  alternate between first_band_color and [second_band_color[] starting
+ *  alternate between first_band_color and second_band_color starting
  *  from the second row or column. Otherwise, the first row or column will be
  *  filled with first_band_color and the colors will proceed to alternate
  *  as they normally would.
@@ -2298,7 +2298,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  The map's key is the column index, and the value is the criteria for
  *  that column.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_BasicFilterCriteria *criteria;
+@property(nonatomic, strong, nullable) GTLRSheets_BasicFilter_Criteria *criteria;
 
 /** The range the filter covers. */
 @property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
@@ -2322,7 +2322,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRSheets_BasicFilterCriteria : GTLRObject
+@interface GTLRSheets_BasicFilter_Criteria : GTLRObject
 @end
 
 
@@ -3926,7 +3926,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  The map's key is the column index, and the value is the criteria for
  *  that column.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_FilterViewCriteria *criteria;
+@property(nonatomic, strong, nullable) GTLRSheets_FilterView_Criteria *criteria;
 
 /**
  *  The ID of the filter view.
@@ -3971,7 +3971,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRSheets_FilterViewCriteria : GTLRObject
+@interface GTLRSheets_FilterView_Criteria : GTLRObject
 @end
 
 
@@ -4781,7 +4781,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  For example, if the source was `C10:E15`, a key of `0` will have the filter
  *  for column `C`, whereas the key `1` is for column `D`.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_PivotTableCriteria *criteria;
+@property(nonatomic, strong, nullable) GTLRSheets_PivotTable_Criteria *criteria;
 
 /** Each row grouping in the pivot table. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_PivotGroup *> *rows;
@@ -4820,7 +4820,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRSheets_PivotTableCriteria : GTLRObject
+@interface GTLRSheets_PivotTable_Criteria : GTLRObject
 @end
 
 
@@ -5311,7 +5311,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  The index of the sheet within the spreadsheet.
  *  When adding or updating sheet properties, if this field
  *  is excluded then the sheet will be added or moved to the end
- *  of the sheet list.
+ *  of the sheet list. When updating sheet indices or inserting
+ *  sheets, movement is considered in "before the move" indexes.
+ *  For example, if there were 3 sheets (S1, S2, S3) in order to
+ *  move S1 ahead of S2 the index would have to be set to 2. A sheet
+ *  index update request will be ignored if the requested index is
+ *  identical to the sheets current index or if the requested new
+ *  index is equal to the current sheet index + 1.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5453,6 +5459,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  This field is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
+
+/**
+ *  The url of the spreadsheet.
+ *  This field is read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *spreadsheetUrl;
 
 @end
 

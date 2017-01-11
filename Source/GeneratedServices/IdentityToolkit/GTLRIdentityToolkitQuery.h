@@ -49,6 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates the URI used by the IdP to authenticate the user.
  *
  *  Method: identitytoolkit.relyingparty.createAuthUri
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyCreateAuthUri : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -72,6 +75,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Delete user account.
  *
  *  Method: identitytoolkit.relyingparty.deleteAccount
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyDeleteAccount : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -97,6 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: identitytoolkit.relyingparty.downloadAccount
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  *    @c kGTLRAuthScopeIdentityToolkitFirebase
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyDownloadAccount : GTLRIdentityToolkitQuery
@@ -121,6 +128,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns the account info.
  *
  *  Method: identitytoolkit.relyingparty.getAccountInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyGetAccountInfo : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -144,6 +154,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get a code for user action confirmation.
  *
  *  Method: identitytoolkit.relyingparty.getOobConfirmationCode
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyGetOobConfirmationCode : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -167,6 +180,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get project configuration.
  *
  *  Method: identitytoolkit.relyingparty.getProjectConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyGetProjectConfig : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -193,6 +209,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get token signing public key.
  *
  *  Method: identitytoolkit.relyingparty.getPublicKeys
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyGetPublicKeys : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -213,6 +232,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get recaptcha secure param.
  *
  *  Method: identitytoolkit.relyingparty.getRecaptchaParam
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyGetRecaptchaParam : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -233,6 +255,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Reset password for a user.
  *
  *  Method: identitytoolkit.relyingparty.resetPassword
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyResetPassword : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -256,6 +281,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Set account info for a user.
  *
  *  Method: identitytoolkit.relyingparty.setAccountInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartySetAccountInfo : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -279,6 +307,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Set project configuration.
  *
  *  Method: identitytoolkit.relyingparty.setProjectConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartySetProjectConfig : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -302,6 +333,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Sign out user.
  *
  *  Method: identitytoolkit.relyingparty.signOutUser
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartySignOutUser : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -325,6 +359,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Signup new user.
  *
  *  Method: identitytoolkit.relyingparty.signupNewUser
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartySignupNewUser : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -350,6 +387,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: identitytoolkit.relyingparty.uploadAccount
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  *    @c kGTLRAuthScopeIdentityToolkitFirebase
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyUploadAccount : GTLRIdentityToolkitQuery
@@ -374,6 +412,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Verifies the assertion returned by the IdP.
  *
  *  Method: identitytoolkit.relyingparty.verifyAssertion
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyVerifyAssertion : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -397,6 +438,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Verifies the developer asserted ID token.
  *
  *  Method: identitytoolkit.relyingparty.verifyCustomToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyVerifyCustomToken : GTLRIdentityToolkitQuery
 // Previous library name was
@@ -421,6 +465,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Verifies the user entered password.
  *
  *  Method: identitytoolkit.relyingparty.verifyPassword
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyVerifyPassword : GTLRIdentityToolkitQuery
 // Previous library name was

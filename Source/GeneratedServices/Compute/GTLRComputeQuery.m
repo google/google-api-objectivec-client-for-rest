@@ -2209,10 +2209,15 @@
 
 @implementation GTLRComputeQuery_InstanceGroupManagersListManagedInstances
 
-@dynamic instanceGroupManager, project, zoneProperty;
+@dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"zoneProperty" : @"zone" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"orderBy" : @"order_by",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
 }
 
 + (instancetype)queryWithProject:(NSString *)project
@@ -4190,7 +4195,12 @@
 
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersListManagedInstances
 
-@dynamic instanceGroupManager, project, region;
+@dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
+         region;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"orderBy" : @"order_by" };
+}
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region

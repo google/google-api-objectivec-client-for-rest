@@ -70,10 +70,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityActor
+//   GTLRPlus_Activity_Actor
 //
 
-@implementation GTLRPlus_ActivityActor
+@implementation GTLRPlus_Activity_Actor
 @dynamic clientSpecificActorInfo, displayName, identifier, image, name, url,
          verification;
 
@@ -86,10 +86,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObject
+//   GTLRPlus_Activity_Object
 //
 
-@implementation GTLRPlus_ActivityObject
+@implementation GTLRPlus_Activity_Object
 @dynamic actor, attachments, content, identifier, objectType, originalContent,
          plusoners, replies, resharers, url;
 
@@ -99,7 +99,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"attachments" : [GTLRPlus_ActivityObjectAttachmentsItem class]
+    @"attachments" : [GTLRPlus_Activity_Object_Attachments_Item class]
   };
   return map;
 }
@@ -109,60 +109,60 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityProvider
+//   GTLRPlus_Activity_Provider
 //
 
-@implementation GTLRPlus_ActivityProvider
+@implementation GTLRPlus_Activity_Provider
 @dynamic title;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityActorClientSpecificActorInfo
+//   GTLRPlus_Activity_Actor_ClientSpecificActorInfo
 //
 
-@implementation GTLRPlus_ActivityActorClientSpecificActorInfo
+@implementation GTLRPlus_Activity_Actor_ClientSpecificActorInfo
 @dynamic youtubeActorInfo;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityActorImage
+//   GTLRPlus_Activity_Actor_Image
 //
 
-@implementation GTLRPlus_ActivityActorImage
+@implementation GTLRPlus_Activity_Actor_Image
 @dynamic url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityActorName
+//   GTLRPlus_Activity_Actor_Name
 //
 
-@implementation GTLRPlus_ActivityActorName
+@implementation GTLRPlus_Activity_Actor_Name
 @dynamic familyName, givenName;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityActorVerification
+//   GTLRPlus_Activity_Actor_Verification
 //
 
-@implementation GTLRPlus_ActivityActorVerification
+@implementation GTLRPlus_Activity_Actor_Verification
 @dynamic adHocVerified;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectActor
+//   GTLRPlus_Activity_Object_Actor
 //
 
-@implementation GTLRPlus_ActivityObjectActor
+@implementation GTLRPlus_Activity_Object_Actor
 @dynamic clientSpecificActorInfo, displayName, identifier, image, url,
          verification;
 
@@ -175,10 +175,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectAttachmentsItem
+//   GTLRPlus_Activity_Object_Attachments_Item
 //
 
-@implementation GTLRPlus_ActivityObjectAttachmentsItem
+@implementation GTLRPlus_Activity_Object_Attachments_Item
 @dynamic content, displayName, embed, fullImage, identifier, image, objectType,
          thumbnails, url;
 
@@ -188,7 +188,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"thumbnails" : [GTLRPlus_ActivityObjectAttachmentsItemThumbnailsItem class]
+    @"thumbnails" : [GTLRPlus_Activity_Object_Attachments_Item_Thumbnails_Item class]
   };
   return map;
 }
@@ -198,110 +198,110 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectPlusoners
+//   GTLRPlus_Activity_Object_Plusoners
 //
 
-@implementation GTLRPlus_ActivityObjectPlusoners
+@implementation GTLRPlus_Activity_Object_Plusoners
 @dynamic selfLink, totalItems;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectReplies
+//   GTLRPlus_Activity_Object_Replies
 //
 
-@implementation GTLRPlus_ActivityObjectReplies
+@implementation GTLRPlus_Activity_Object_Replies
 @dynamic selfLink, totalItems;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectResharers
+//   GTLRPlus_Activity_Object_Resharers
 //
 
-@implementation GTLRPlus_ActivityObjectResharers
+@implementation GTLRPlus_Activity_Object_Resharers
 @dynamic selfLink, totalItems;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityActorClientSpecificActorInfoYoutubeActorInfo
+//   GTLRPlus_Activity_Actor_ClientSpecificActorInfo_YoutubeActorInfo
 //
 
-@implementation GTLRPlus_ActivityActorClientSpecificActorInfoYoutubeActorInfo
+@implementation GTLRPlus_Activity_Actor_ClientSpecificActorInfo_YoutubeActorInfo
 @dynamic channelId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectActorClientSpecificActorInfo
+//   GTLRPlus_Activity_Object_Actor_ClientSpecificActorInfo
 //
 
-@implementation GTLRPlus_ActivityObjectActorClientSpecificActorInfo
+@implementation GTLRPlus_Activity_Object_Actor_ClientSpecificActorInfo
 @dynamic youtubeActorInfo;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectActorImage
+//   GTLRPlus_Activity_Object_Actor_Image
 //
 
-@implementation GTLRPlus_ActivityObjectActorImage
+@implementation GTLRPlus_Activity_Object_Actor_Image
 @dynamic url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectActorVerification
+//   GTLRPlus_Activity_Object_Actor_Verification
 //
 
-@implementation GTLRPlus_ActivityObjectActorVerification
+@implementation GTLRPlus_Activity_Object_Actor_Verification
 @dynamic adHocVerified;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectAttachmentsItemEmbed
+//   GTLRPlus_Activity_Object_Attachments_Item_Embed
 //
 
-@implementation GTLRPlus_ActivityObjectAttachmentsItemEmbed
+@implementation GTLRPlus_Activity_Object_Attachments_Item_Embed
 @dynamic type, url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectAttachmentsItemFullImage
+//   GTLRPlus_Activity_Object_Attachments_Item_FullImage
 //
 
-@implementation GTLRPlus_ActivityObjectAttachmentsItemFullImage
+@implementation GTLRPlus_Activity_Object_Attachments_Item_FullImage
 @dynamic height, type, url, width;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectAttachmentsItemImage
+//   GTLRPlus_Activity_Object_Attachments_Item_Image
 //
 
-@implementation GTLRPlus_ActivityObjectAttachmentsItemImage
+@implementation GTLRPlus_Activity_Object_Attachments_Item_Image
 @dynamic height, type, url, width;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectAttachmentsItemThumbnailsItem
+//   GTLRPlus_Activity_Object_Attachments_Item_Thumbnails_Item
 //
 
-@implementation GTLRPlus_ActivityObjectAttachmentsItemThumbnailsItem
+@implementation GTLRPlus_Activity_Object_Attachments_Item_Thumbnails_Item
 @dynamic descriptionProperty, image, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -313,20 +313,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectActorClientSpecificActorInfoYoutubeActorInfo
+//   GTLRPlus_Activity_Object_Actor_ClientSpecificActorInfo_YoutubeActorInfo
 //
 
-@implementation GTLRPlus_ActivityObjectActorClientSpecificActorInfoYoutubeActorInfo
+@implementation GTLRPlus_Activity_Object_Actor_ClientSpecificActorInfo_YoutubeActorInfo
 @dynamic channelId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_ActivityObjectAttachmentsItemThumbnailsItemImage
+//   GTLRPlus_Activity_Object_Attachments_Item_Thumbnails_Item_Image
 //
 
-@implementation GTLRPlus_ActivityObjectAttachmentsItemThumbnailsItemImage
+@implementation GTLRPlus_Activity_Object_Attachments_Item_Thumbnails_Item_Image
 @dynamic height, type, url, width;
 @end
 
@@ -377,7 +377,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"inReplyTo" : [GTLRPlus_CommentInReplyToItem class]
+    @"inReplyTo" : [GTLRPlus_Comment_InReplyTo_Item class]
   };
   return map;
 }
@@ -387,10 +387,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_CommentActor
+//   GTLRPlus_Comment_Actor
 //
 
-@implementation GTLRPlus_CommentActor
+@implementation GTLRPlus_Comment_Actor
 @dynamic clientSpecificActorInfo, displayName, identifier, image, url,
          verification;
 
@@ -403,10 +403,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_CommentInReplyToItem
+//   GTLRPlus_Comment_InReplyTo_Item
 //
 
-@implementation GTLRPlus_CommentInReplyToItem
+@implementation GTLRPlus_Comment_InReplyTo_Item
 @dynamic identifier, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -418,60 +418,60 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_CommentObject
+//   GTLRPlus_Comment_Object
 //
 
-@implementation GTLRPlus_CommentObject
+@implementation GTLRPlus_Comment_Object
 @dynamic content, objectType, originalContent;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_CommentPlusoners
+//   GTLRPlus_Comment_Plusoners
 //
 
-@implementation GTLRPlus_CommentPlusoners
+@implementation GTLRPlus_Comment_Plusoners
 @dynamic totalItems;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_CommentActorClientSpecificActorInfo
+//   GTLRPlus_Comment_Actor_ClientSpecificActorInfo
 //
 
-@implementation GTLRPlus_CommentActorClientSpecificActorInfo
+@implementation GTLRPlus_Comment_Actor_ClientSpecificActorInfo
 @dynamic youtubeActorInfo;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_CommentActorImage
+//   GTLRPlus_Comment_Actor_Image
 //
 
-@implementation GTLRPlus_CommentActorImage
+@implementation GTLRPlus_Comment_Actor_Image
 @dynamic url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_CommentActorVerification
+//   GTLRPlus_Comment_Actor_Verification
 //
 
-@implementation GTLRPlus_CommentActorVerification
+@implementation GTLRPlus_Comment_Actor_Verification
 @dynamic adHocVerified;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_CommentActorClientSpecificActorInfoYoutubeActorInfo
+//   GTLRPlus_Comment_Actor_ClientSpecificActorInfo_YoutubeActorInfo
 //
 
-@implementation GTLRPlus_CommentActorClientSpecificActorInfoYoutubeActorInfo
+@implementation GTLRPlus_Comment_Actor_ClientSpecificActorInfo_YoutubeActorInfo
 @dynamic channelId;
 @end
 
@@ -546,10 +546,10 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"emails" : [GTLRPlus_PersonEmailsItem class],
-    @"organizations" : [GTLRPlus_PersonOrganizationsItem class],
-    @"placesLived" : [GTLRPlus_PersonPlacesLivedItem class],
-    @"urls" : [GTLRPlus_PersonUrlsItem class]
+    @"emails" : [GTLRPlus_Person_Emails_Item class],
+    @"organizations" : [GTLRPlus_Person_Organizations_Item class],
+    @"placesLived" : [GTLRPlus_Person_PlacesLived_Item class],
+    @"urls" : [GTLRPlus_Person_Urls_Item class]
   };
   return map;
 }
@@ -559,50 +559,50 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_PersonAgeRange
+//   GTLRPlus_Person_AgeRange
 //
 
-@implementation GTLRPlus_PersonAgeRange
+@implementation GTLRPlus_Person_AgeRange
 @dynamic max, min;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_PersonCover
+//   GTLRPlus_Person_Cover
 //
 
-@implementation GTLRPlus_PersonCover
+@implementation GTLRPlus_Person_Cover
 @dynamic coverInfo, coverPhoto, layout;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_PersonEmailsItem
+//   GTLRPlus_Person_Emails_Item
 //
 
-@implementation GTLRPlus_PersonEmailsItem
+@implementation GTLRPlus_Person_Emails_Item
 @dynamic type, value;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_PersonImage
+//   GTLRPlus_Person_Image
 //
 
-@implementation GTLRPlus_PersonImage
+@implementation GTLRPlus_Person_Image
 @dynamic isDefault, url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_PersonName
+//   GTLRPlus_Person_Name
 //
 
-@implementation GTLRPlus_PersonName
+@implementation GTLRPlus_Person_Name
 @dynamic familyName, formatted, givenName, honorificPrefix, honorificSuffix,
          middleName;
 @end
@@ -610,10 +610,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_PersonOrganizationsItem
+//   GTLRPlus_Person_Organizations_Item
 //
 
-@implementation GTLRPlus_PersonOrganizationsItem
+@implementation GTLRPlus_Person_Organizations_Item
 @dynamic department, descriptionProperty, endDate, location, name, primary,
          startDate, title, type;
 
@@ -626,40 +626,40 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_PersonPlacesLivedItem
+//   GTLRPlus_Person_PlacesLived_Item
 //
 
-@implementation GTLRPlus_PersonPlacesLivedItem
+@implementation GTLRPlus_Person_PlacesLived_Item
 @dynamic primary, value;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_PersonUrlsItem
+//   GTLRPlus_Person_Urls_Item
 //
 
-@implementation GTLRPlus_PersonUrlsItem
+@implementation GTLRPlus_Person_Urls_Item
 @dynamic label, type, value;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_PersonCoverCoverInfo
+//   GTLRPlus_Person_Cover_CoverInfo
 //
 
-@implementation GTLRPlus_PersonCoverCoverInfo
+@implementation GTLRPlus_Person_Cover_CoverInfo
 @dynamic leftImageOffset, topImageOffset;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_PersonCoverCoverPhoto
+//   GTLRPlus_Person_Cover_CoverPhoto
 //
 
-@implementation GTLRPlus_PersonCoverCoverPhoto
+@implementation GTLRPlus_Person_Cover_CoverPhoto
 @dynamic height, url, width;
 @end
 
@@ -681,19 +681,19 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_PlaceAddress
+//   GTLRPlus_Place_Address
 //
 
-@implementation GTLRPlus_PlaceAddress
+@implementation GTLRPlus_Place_Address
 @dynamic formatted;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlus_PlacePosition
+//   GTLRPlus_Place_Position
 //
 
-@implementation GTLRPlus_PlacePosition
+@implementation GTLRPlus_Place_Position
 @dynamic latitude, longitude;
 @end

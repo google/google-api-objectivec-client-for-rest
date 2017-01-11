@@ -23,7 +23,7 @@
 
 @class GTLRCloudTrace_Trace;
 @class GTLRCloudTrace_TraceSpan;
-@class GTLRCloudTrace_TraceSpanLabels;
+@class GTLRCloudTrace_TraceSpan_Labels;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -138,7 +138,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Collection of labels associated with the span. */
-@property(nonatomic, strong, nullable) GTLRCloudTrace_TraceSpanLabels *labels;
+@property(nonatomic, strong, nullable) GTLRCloudTrace_TraceSpan_Labels *labels;
 
 /**
  *  Name of the trace. The trace name is sanitized and displayed in the
@@ -177,7 +177,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified;
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRCloudTrace_TraceSpanLabels : GTLRObject
+@interface GTLRCloudTrace_TraceSpan_Labels : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

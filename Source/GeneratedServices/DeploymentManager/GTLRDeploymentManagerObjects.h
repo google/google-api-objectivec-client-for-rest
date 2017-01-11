@@ -20,6 +20,7 @@
 #endif
 
 @class GTLRDeploymentManager_AuditConfig;
+@class GTLRDeploymentManager_AuditLogConfig;
 @class GTLRDeploymentManager_Binding;
 @class GTLRDeploymentManager_Condition;
 @class GTLRDeploymentManager_ConfigFile;
@@ -32,19 +33,19 @@
 @class GTLRDeploymentManager_LogConfigCounterOptions;
 @class GTLRDeploymentManager_Manifest;
 @class GTLRDeploymentManager_Operation;
-@class GTLRDeploymentManager_OperationError;
-@class GTLRDeploymentManager_OperationErrorErrorsItem;
-@class GTLRDeploymentManager_OperationWarningsItem;
-@class GTLRDeploymentManager_OperationWarningsItemDataItem;
+@class GTLRDeploymentManager_Operation_Error;
+@class GTLRDeploymentManager_Operation_Error_Errors_Item;
+@class GTLRDeploymentManager_Operation_Warnings_Item;
+@class GTLRDeploymentManager_Operation_Warnings_Item_Data_Item;
 @class GTLRDeploymentManager_Resource;
+@class GTLRDeploymentManager_Resource_Warnings_Item;
+@class GTLRDeploymentManager_Resource_Warnings_Item_Data_Item;
 @class GTLRDeploymentManager_ResourceAccessControl;
 @class GTLRDeploymentManager_ResourceUpdate;
-@class GTLRDeploymentManager_ResourceUpdateError;
-@class GTLRDeploymentManager_ResourceUpdateErrorErrorsItem;
-@class GTLRDeploymentManager_ResourceUpdateWarningsItem;
-@class GTLRDeploymentManager_ResourceUpdateWarningsItemDataItem;
-@class GTLRDeploymentManager_ResourceWarningsItem;
-@class GTLRDeploymentManager_ResourceWarningsItemDataItem;
+@class GTLRDeploymentManager_ResourceUpdate_Error;
+@class GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item;
+@class GTLRDeploymentManager_ResourceUpdate_Warnings_Item;
+@class GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item;
 @class GTLRDeploymentManager_Rule;
 @class GTLRDeploymentManager_TargetConfiguration;
 @class GTLRDeploymentManager_Type;
@@ -52,10 +53,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Enables "data access" audit logging for a service and specifies a list of
- *  members that are log-exempted.
+ *  Provides the configuration for non-admin_activity logging for a service.
+ *  Controls exemptions and specific log sub-types.
  */
 @interface GTLRDeploymentManager_AuditConfig : GTLRObject
+
+/** The configuration for each type of logging */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_AuditLogConfig *> *auditLogConfigs;
 
 /**
  *  Specifies the identities that are exempted from "data access" audit logging
@@ -65,11 +69,28 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
- *  Specifies a service that will be enabled for "data access" audit logging.
- *  For example, `resourcemanager`, `storage`, `compute`. `allServices` is a
- *  special value that covers all services.
+ *  Specifies a service that will be enabled for audit logging. For example,
+ *  `resourcemanager`, `storage`, `compute`. `allServices` is a special value
+ *  that covers all services.
  */
 @property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Provides the configuration for a sub-type of logging.
+ */
+@interface GTLRDeploymentManager_AuditLogConfig : GTLRObject
+
+/**
+ *  Specifies the identities that are exempted from this type of logging Follows
+ *  the same format of Binding.members.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/** The log type that this config enables. */
+@property(nonatomic, copy, nullable) NSString *logType;
 
 @end
 
@@ -495,7 +516,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] If errors are generated during processing of the operation,
  *  this field will be populated.
  */
-@property(nonatomic, strong, nullable) GTLRDeploymentManager_OperationError *error;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_Operation_Error *error;
 
 /**
  *  [Output Only] If the operation fails, this field contains the HTTP error
@@ -606,7 +627,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] If warning messages are generated during processing of the
  *  operation, this field will be populated.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_OperationWarningsItem *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Operation_Warnings_Item *> *warnings;
 
 /**
  *  [Output Only] The URL of the zone where the operation resides. Only
@@ -623,21 +644,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] If errors are generated during processing of the operation,
  *  this field will be populated.
  */
-@interface GTLRDeploymentManager_OperationError : GTLRObject
+@interface GTLRDeploymentManager_Operation_Error : GTLRObject
 
 /**
  *  [Output Only] The array of errors encountered while processing this
  *  operation.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_OperationErrorErrorsItem *> *errors;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Operation_Error_Errors_Item *> *errors;
 
 @end
 
 
 /**
- *  GTLRDeploymentManager_OperationWarningsItem
+ *  GTLRDeploymentManager_Operation_Warnings_Item
  */
-@interface GTLRDeploymentManager_OperationWarningsItem : GTLRObject
+@interface GTLRDeploymentManager_Operation_Warnings_Item : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
@@ -649,7 +670,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_OperationWarningsItemDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Operation_Warnings_Item_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -658,9 +679,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDeploymentManager_OperationErrorErrorsItem
+ *  GTLRDeploymentManager_Operation_Error_Errors_Item
  */
-@interface GTLRDeploymentManager_OperationErrorErrorsItem : GTLRObject
+@interface GTLRDeploymentManager_Operation_Error_Errors_Item : GTLRObject
 
 /** [Output Only] The error type identifier for this error. */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -678,9 +699,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDeploymentManager_OperationWarningsItemDataItem
+ *  GTLRDeploymentManager_Operation_Warnings_Item_Data_Item
  */
-@interface GTLRDeploymentManager_OperationWarningsItemDataItem : GTLRObject
+@interface GTLRDeploymentManager_Operation_Warnings_Item_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -872,15 +893,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] If warning messages are generated during processing of this
  *  resource, this field will be populated.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceWarningsItem *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Resource_Warnings_Item *> *warnings;
 
 @end
 
 
 /**
- *  GTLRDeploymentManager_ResourceWarningsItem
+ *  GTLRDeploymentManager_Resource_Warnings_Item
  */
-@interface GTLRDeploymentManager_ResourceWarningsItem : GTLRObject
+@interface GTLRDeploymentManager_Resource_Warnings_Item : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
@@ -892,7 +913,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceWarningsItemDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Resource_Warnings_Item_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -901,9 +922,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDeploymentManager_ResourceWarningsItemDataItem
+ *  GTLRDeploymentManager_Resource_Warnings_Item_Data_Item
  */
-@interface GTLRDeploymentManager_ResourceWarningsItemDataItem : GTLRObject
+@interface GTLRDeploymentManager_Resource_Warnings_Item_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -973,7 +994,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] If errors are generated during update of the resource, this
  *  field will be populated.
  */
-@property(nonatomic, strong, nullable) GTLRDeploymentManager_ResourceUpdateError *error;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_ResourceUpdate_Error *error;
 
 /**
  *  [Output Only] The expanded properties of the resource with reference values
@@ -1003,7 +1024,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] If warning messages are generated during processing of this
  *  resource, this field will be populated.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdateWarningsItem *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdate_Warnings_Item *> *warnings;
 
 @end
 
@@ -1012,21 +1033,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] If errors are generated during update of the resource, this
  *  field will be populated.
  */
-@interface GTLRDeploymentManager_ResourceUpdateError : GTLRObject
+@interface GTLRDeploymentManager_ResourceUpdate_Error : GTLRObject
 
 /**
  *  [Output Only] The array of errors encountered while processing this
  *  operation.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdateErrorErrorsItem *> *errors;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item *> *errors;
 
 @end
 
 
 /**
- *  GTLRDeploymentManager_ResourceUpdateWarningsItem
+ *  GTLRDeploymentManager_ResourceUpdate_Warnings_Item
  */
-@interface GTLRDeploymentManager_ResourceUpdateWarningsItem : GTLRObject
+@interface GTLRDeploymentManager_ResourceUpdate_Warnings_Item : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
@@ -1038,7 +1059,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdateWarningsItemDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -1047,9 +1068,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDeploymentManager_ResourceUpdateErrorErrorsItem
+ *  GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item
  */
-@interface GTLRDeploymentManager_ResourceUpdateErrorErrorsItem : GTLRObject
+@interface GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item : GTLRObject
 
 /** [Output Only] The error type identifier for this error. */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -1067,9 +1088,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDeploymentManager_ResourceUpdateWarningsItemDataItem
+ *  GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item
  */
-@interface GTLRDeploymentManager_ResourceUpdateWarningsItemDataItem : GTLRObject
+@interface GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.

@@ -20,20 +20,20 @@
 #endif
 
 @class GTLRPagespeedonline_PagespeedApiFormatStringV2;
-@class GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItem;
-@class GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItemRectsItem;
-@class GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItemSecondaryRectsItem;
+@class GTLRPagespeedonline_PagespeedApiFormatStringV2_Args_Item;
+@class GTLRPagespeedonline_PagespeedApiFormatStringV2_Args_Item_Rects_Item;
+@class GTLRPagespeedonline_PagespeedApiFormatStringV2_Args_Item_SecondaryRects_Item;
 @class GTLRPagespeedonline_PagespeedApiImageV2;
-@class GTLRPagespeedonline_PagespeedApiImageV2PageRect;
-@class GTLRPagespeedonline_ResultFormattedResults;
-@class GTLRPagespeedonline_ResultFormattedResultsRuleResults;
-@class GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResult;
-@class GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResultUrlBlocksItem;
-@class GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResultUrlBlocksItemUrlsItem;
-@class GTLRPagespeedonline_ResultPageStats;
-@class GTLRPagespeedonline_ResultRuleGroups;
-@class GTLRPagespeedonline_ResultRuleGroupsRuleGroup;
-@class GTLRPagespeedonline_ResultVersion;
+@class GTLRPagespeedonline_PagespeedApiImageV2_PageRect;
+@class GTLRPagespeedonline_Result_FormattedResults;
+@class GTLRPagespeedonline_Result_FormattedResults_RuleResults;
+@class GTLRPagespeedonline_Result_FormattedResults_RuleResults_RuleResult;
+@class GTLRPagespeedonline_Result_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item;
+@class GTLRPagespeedonline_Result_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item_Urls_Item;
+@class GTLRPagespeedonline_Result_PageStats;
+@class GTLRPagespeedonline_Result_RuleGroups;
+@class GTLRPagespeedonline_Result_RuleGroups_RuleGroup;
+@class GTLRPagespeedonline_Result_Version;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPagespeedonline_PagespeedApiFormatStringV2 : GTLRObject
 
 /** List of arguments for the format string. */
-@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItem *> *args;
+@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2_Args_Item *> *args;
 
 /**
  *  A localized format string with {{FOO}} placeholders, where 'FOO' is the key
@@ -57,9 +57,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItem
+ *  GTLRPagespeedonline_PagespeedApiFormatStringV2_Args_Item
  */
-@interface GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItem : GTLRObject
+@interface GTLRPagespeedonline_PagespeedApiFormatStringV2_Args_Item : GTLRObject
 
 /** The placeholder key for this arg, as a string. */
 @property(nonatomic, copy, nullable) NSString *key;
@@ -70,13 +70,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  absent for a SNAPSHOT_RECT argument, it means that that argument refers to
  *  the entire snapshot.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItemRectsItem *> *rects;
+@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2_Args_Item_Rects_Item *> *rects;
 
 /**
  *  Secondary screen rectangles being referred to, with dimensions measured in
  *  CSS pixels. This is only ever used for SNAPSHOT_RECT arguments.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItemSecondaryRectsItem *> *secondaryRects;
+@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_PagespeedApiFormatStringV2_Args_Item_SecondaryRects_Item *> *secondaryRects;
 
 /**
  *  Type of argument. One of URL, STRING_LITERAL, INT_LITERAL, BYTES, DURATION,
@@ -91,9 +91,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItemRectsItem
+ *  GTLRPagespeedonline_PagespeedApiFormatStringV2_Args_Item_Rects_Item
  */
-@interface GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItemRectsItem : GTLRObject
+@interface GTLRPagespeedonline_PagespeedApiFormatStringV2_Args_Item_Rects_Item : GTLRObject
 
 /**
  *  The height of the rect.
@@ -127,9 +127,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItemSecondaryRectsItem
+ *  GTLRPagespeedonline_PagespeedApiFormatStringV2_Args_Item_SecondaryRects_Item
  */
-@interface GTLRPagespeedonline_PagespeedApiFormatStringV2ArgsItemSecondaryRectsItem : GTLRObject
+@interface GTLRPagespeedonline_PagespeedApiFormatStringV2_Args_Item_SecondaryRects_Item : GTLRObject
 
 /**
  *  The height of the rect.
@@ -192,7 +192,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The region of the page that is captured by this image, with dimensions
  *  measured in CSS pixels.
  */
-@property(nonatomic, strong, nullable) GTLRPagespeedonline_PagespeedApiImageV2PageRect *pageRect;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_PagespeedApiImageV2_PageRect *pageRect;
 
 /**
  *  Width of screenshot in pixels.
@@ -208,7 +208,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The region of the page that is captured by this image, with dimensions
  *  measured in CSS pixels.
  */
-@interface GTLRPagespeedonline_PagespeedApiImageV2PageRect : GTLRObject
+@interface GTLRPagespeedonline_PagespeedApiImageV2_PageRect : GTLRObject
 
 /**
  *  The height of the rect.
@@ -250,7 +250,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Localized PageSpeed results. Contains a ruleResults entry for each PageSpeed
  *  rule instantiated and run by the server.
  */
-@property(nonatomic, strong, nullable) GTLRPagespeedonline_ResultFormattedResults *formattedResults;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_Result_FormattedResults *formattedResults;
 
 /**
  *  Canonicalized and final URL for the document, after following page redirects
@@ -273,7 +273,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Summary statistics for the page, such as number of JavaScript bytes, number
  *  of HTML bytes, etc.
  */
-@property(nonatomic, strong, nullable) GTLRPagespeedonline_ResultPageStats *pageStats;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_Result_PageStats *pageStats;
 
 /**
  *  Response code for the document. 200 indicates a normal page load. 4xx/5xx
@@ -284,7 +284,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *responseCode;
 
 /** A map with one entry for each rule group in these results. */
-@property(nonatomic, strong, nullable) GTLRPagespeedonline_ResultRuleGroups *ruleGroups;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_Result_RuleGroups *ruleGroups;
 
 /** Base64-encoded screenshot of the page that was analyzed. */
 @property(nonatomic, strong, nullable) GTLRPagespeedonline_PagespeedApiImageV2 *screenshot;
@@ -293,7 +293,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *title;
 
 /** The version of PageSpeed used to generate these results. */
-@property(nonatomic, strong, nullable) GTLRPagespeedonline_ResultVersion *version;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_Result_Version *version;
 
 @end
 
@@ -302,7 +302,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Localized PageSpeed results. Contains a ruleResults entry for each PageSpeed
  *  rule instantiated and run by the server.
  */
-@interface GTLRPagespeedonline_ResultFormattedResults : GTLRObject
+@interface GTLRPagespeedonline_Result_FormattedResults : GTLRObject
 
 /** The locale of the formattedResults, e.g. "en_US". */
 @property(nonatomic, copy, nullable) NSString *locale;
@@ -311,7 +311,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Dictionary of formatted rule results, with one entry for each PageSpeed rule
  *  instantiated and run by the server.
  */
-@property(nonatomic, strong, nullable) GTLRPagespeedonline_ResultFormattedResultsRuleResults *ruleResults;
+@property(nonatomic, strong, nullable) GTLRPagespeedonline_Result_FormattedResults_RuleResults *ruleResults;
 
 @end
 
@@ -320,7 +320,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Summary statistics for the page, such as number of JavaScript bytes, number
  *  of HTML bytes, etc.
  */
-@interface GTLRPagespeedonline_ResultPageStats : GTLRObject
+@interface GTLRPagespeedonline_Result_PageStats : GTLRObject
 
 /**
  *  Number of uncompressed response bytes for CSS resources on the page.
@@ -422,19 +422,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  A map with one entry for each rule group in these results.
  *
  *  @note This class is documented as having more properties of
- *        GTLRPagespeedonline_ResultRuleGroupsRuleGroup. Use @c
+ *        GTLRPagespeedonline_Result_RuleGroups_RuleGroup. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRPagespeedonline_ResultRuleGroups : GTLRObject
+@interface GTLRPagespeedonline_Result_RuleGroups : GTLRObject
 @end
 
 
 /**
  *  The version of PageSpeed used to generate these results.
  */
-@interface GTLRPagespeedonline_ResultVersion : GTLRObject
+@interface GTLRPagespeedonline_Result_Version : GTLRObject
 
 /**
  *  The major version number of PageSpeed used to generate these results.
@@ -458,19 +458,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  instantiated and run by the server.
  *
  *  @note This class is documented as having more properties of
- *        GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResult. Use
- *        @c -additionalJSONKeys and @c -additionalPropertyForName: to get the
- *        list of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
+ *        GTLRPagespeedonline_Result_FormattedResults_RuleResults_RuleResult.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRPagespeedonline_ResultFormattedResultsRuleResults : GTLRObject
+@interface GTLRPagespeedonline_Result_FormattedResults_RuleResults : GTLRObject
 @end
 
 
 /**
  *  The name of this rule group: one of "SPEED" or "USABILITY".
  */
-@interface GTLRPagespeedonline_ResultRuleGroupsRuleGroup : GTLRObject
+@interface GTLRPagespeedonline_Result_RuleGroups_RuleGroup : GTLRObject
 
 /**
  *  The score (0-100) for this rule group, which indicates how much better a
@@ -489,7 +489,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The enum-like identifier for this rule. For instance "EnableKeepAlive" or
  *  "AvoidCssImport". Not localized.
  */
-@interface GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResult : GTLRObject
+@interface GTLRPagespeedonline_Result_FormattedResults_RuleResults_RuleResult : GTLRObject
 
 /**
  *  List of rule groups that this rule belongs to. Each entry in the list is one
@@ -524,15 +524,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  List of blocks of URLs. Each block may contain a heading and a list of URLs.
  *  Each URL may optionally include additional details.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResultUrlBlocksItem *> *urlBlocks;
+@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_Result_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item *> *urlBlocks;
 
 @end
 
 
 /**
- *  GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResultUrlBlocksItem
+ *  GTLRPagespeedonline_Result_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item
  */
-@interface GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResultUrlBlocksItem : GTLRObject
+@interface GTLRPagespeedonline_Result_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item : GTLRObject
 
 /** Heading to be displayed with the list of URLs. */
 @property(nonatomic, strong, nullable) GTLRPagespeedonline_PagespeedApiFormatStringV2 *header;
@@ -541,15 +541,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  List of entries that provide information about URLs in the url block.
  *  Optional.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResultUrlBlocksItemUrlsItem *> *urls;
+@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedonline_Result_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item_Urls_Item *> *urls;
 
 @end
 
 
 /**
- *  GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResultUrlBlocksItemUrlsItem
+ *  GTLRPagespeedonline_Result_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item_Urls_Item
  */
-@interface GTLRPagespeedonline_ResultFormattedResultsRuleResultsRuleResultUrlBlocksItemUrlsItem : GTLRObject
+@interface GTLRPagespeedonline_Result_FormattedResults_RuleResults_RuleResult_UrlBlocks_Item_Urls_Item : GTLRObject
 
 /**
  *  List of entries that provide additional details about a single URL.

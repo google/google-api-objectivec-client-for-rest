@@ -22,14 +22,14 @@
 @class GTLRAdSenseHost_Account;
 @class GTLRAdSenseHost_AdClient;
 @class GTLRAdSenseHost_AdStyle;
-@class GTLRAdSenseHost_AdStyleColors;
-@class GTLRAdSenseHost_AdStyleFont;
+@class GTLRAdSenseHost_AdStyle_Colors;
+@class GTLRAdSenseHost_AdStyle_Font;
 @class GTLRAdSenseHost_AdUnit;
-@class GTLRAdSenseHost_AdUnitContentAdsSettings;
-@class GTLRAdSenseHost_AdUnitContentAdsSettingsBackupOption;
-@class GTLRAdSenseHost_AdUnitMobileContentAdsSettings;
+@class GTLRAdSenseHost_AdUnit_ContentAdsSettings;
+@class GTLRAdSenseHost_AdUnit_ContentAdsSettings_BackupOption;
+@class GTLRAdSenseHost_AdUnit_MobileContentAdsSettings;
 @class GTLRAdSenseHost_CustomChannel;
-@class GTLRAdSenseHost_ReportHeadersItem;
+@class GTLRAdSenseHost_Report_Headers_Item;
 @class GTLRAdSenseHost_UrlChannel;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -177,7 +177,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The colors included in the style. These are represented as six hexadecimal
  *  characters, similar to HTML color codes, but without the leading hash.
  */
-@property(nonatomic, strong, nullable) GTLRAdSenseHost_AdStyleColors *colors;
+@property(nonatomic, strong, nullable) GTLRAdSenseHost_AdStyle_Colors *colors;
 
 /**
  *  The style of the corners in the ad (deprecated: never populated, ignored).
@@ -185,7 +185,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *corners;
 
 /** The font which is included in the style. */
-@property(nonatomic, strong, nullable) GTLRAdSenseHost_AdStyleFont *font;
+@property(nonatomic, strong, nullable) GTLRAdSenseHost_AdStyle_Font *font;
 
 /** Kind this is, in this case adsensehost#adStyle. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -197,7 +197,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The colors included in the style. These are represented as six hexadecimal
  *  characters, similar to HTML color codes, but without the leading hash.
  */
-@interface GTLRAdSenseHost_AdStyleColors : GTLRObject
+@interface GTLRAdSenseHost_AdStyle_Colors : GTLRObject
 
 /** The color of the ad background. */
 @property(nonatomic, copy, nullable) NSString *background;
@@ -220,7 +220,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The font which is included in the style.
  */
-@interface GTLRAdSenseHost_AdStyleFont : GTLRObject
+@interface GTLRAdSenseHost_AdStyle_Font : GTLRObject
 
 /**
  *  The family of the font. Possible values are: ACCOUNT_DEFAULT_FAMILY,
@@ -251,7 +251,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Settings specific to content ads (AFC) and highend mobile content ads (AFMC
  *  - deprecated).
  */
-@property(nonatomic, strong, nullable) GTLRAdSenseHost_AdUnitContentAdsSettings *contentAdsSettings;
+@property(nonatomic, strong, nullable) GTLRAdSenseHost_AdUnit_ContentAdsSettings *contentAdsSettings;
 
 /** Custom style information specific to this ad unit. */
 @property(nonatomic, strong, nullable) GTLRAdSenseHost_AdStyle *customStyle;
@@ -268,7 +268,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Settings specific to WAP mobile content ads (AFMC - deprecated). */
-@property(nonatomic, strong, nullable) GTLRAdSenseHost_AdUnitMobileContentAdsSettings *mobileContentAdsSettings;
+@property(nonatomic, strong, nullable) GTLRAdSenseHost_AdUnit_MobileContentAdsSettings *mobileContentAdsSettings;
 
 /** Name of this ad unit. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -291,10 +291,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Settings specific to content ads (AFC) and highend mobile content ads (AFMC
  *  - deprecated).
  */
-@interface GTLRAdSenseHost_AdUnitContentAdsSettings : GTLRObject
+@interface GTLRAdSenseHost_AdUnit_ContentAdsSettings : GTLRObject
 
 /** The backup option to be used in instances where no ad is available. */
-@property(nonatomic, strong, nullable) GTLRAdSenseHost_AdUnitContentAdsSettingsBackupOption *backupOption;
+@property(nonatomic, strong, nullable) GTLRAdSenseHost_AdUnit_ContentAdsSettings_BackupOption *backupOption;
 
 /**
  *  Size of this ad unit. Size values are in the form SIZE_{width}_{height}.
@@ -312,7 +312,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Settings specific to WAP mobile content ads (AFMC - deprecated).
  */
-@interface GTLRAdSenseHost_AdUnitMobileContentAdsSettings : GTLRObject
+@interface GTLRAdSenseHost_AdUnit_MobileContentAdsSettings : GTLRObject
 
 /** The markup language to use for this ad unit. */
 @property(nonatomic, copy, nullable) NSString *markupLanguage;
@@ -332,7 +332,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The backup option to be used in instances where no ad is available.
  */
-@interface GTLRAdSenseHost_AdUnitContentAdsSettingsBackupOption : GTLRObject
+@interface GTLRAdSenseHost_AdUnit_ContentAdsSettings_BackupOption : GTLRObject
 
 /**
  *  Color to use when type is set to COLOR. These are represented as six
@@ -512,7 +512,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  list of headers; one for each dimension in the request, followed by one for
  *  each metric in the request.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdSenseHost_ReportHeadersItem *> *headers;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdSenseHost_Report_Headers_Item *> *headers;
 
 /** Kind this is, in this case adsensehost#report. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -546,9 +546,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAdSenseHost_ReportHeadersItem
+ *  GTLRAdSenseHost_Report_Headers_Item
  */
-@interface GTLRAdSenseHost_ReportHeadersItem : GTLRObject
+@interface GTLRAdSenseHost_Report_Headers_Item : GTLRObject
 
 /**
  *  The currency of this column. Only present if the header type is
