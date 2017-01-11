@@ -89,7 +89,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"access" : [GTLRBigquery_DatasetAccessItem class]
+    @"access" : [GTLRBigquery_Dataset_Access_Item class]
   };
   return map;
 }
@@ -99,20 +99,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_DatasetAccessItem
+//   GTLRBigquery_Dataset_Access_Item
 //
 
-@implementation GTLRBigquery_DatasetAccessItem
+@implementation GTLRBigquery_Dataset_Access_Item
 @dynamic domain, groupByEmail, role, specialGroup, userByEmail, view;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_DatasetLabels
+//   GTLRBigquery_Dataset_Labels
 //
 
-@implementation GTLRBigquery_DatasetLabels
+@implementation GTLRBigquery_Dataset_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -135,7 +135,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"datasets" : [GTLRBigquery_DatasetListDatasetsItem class]
+    @"datasets" : [GTLRBigquery_DatasetList_Datasets_Item class]
   };
   return map;
 }
@@ -149,10 +149,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_DatasetListDatasetsItem
+//   GTLRBigquery_DatasetList_Datasets_Item
 //
 
-@implementation GTLRBigquery_DatasetListDatasetsItem
+@implementation GTLRBigquery_DatasetList_Datasets_Item
 @dynamic datasetReference, friendlyName, identifier, kind, labels;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -164,10 +164,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_DatasetListDatasetsItemLabels
+//   GTLRBigquery_DatasetList_Datasets_Item_Labels
 //
 
-@implementation GTLRBigquery_DatasetListDatasetsItemLabels
+@implementation GTLRBigquery_DatasetList_Datasets_Item_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -347,10 +347,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_JobConfigurationLabels
+//   GTLRBigquery_JobConfiguration_Labels
 //
 
-@implementation GTLRBigquery_JobConfigurationLabels
+@implementation GTLRBigquery_JobConfiguration_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -386,9 +386,9 @@
 @implementation GTLRBigquery_JobConfigurationLoad
 @dynamic allowJaggedRows, allowQuotedNewlines, autodetect, createDisposition,
          destinationTable, encoding, fieldDelimiter, ignoreUnknownValues,
-         maxBadRecords, projectionFields, quote, schema, schemaInline,
-         schemaInlineFormat, schemaUpdateOptions, skipLeadingRows, sourceFormat,
-         sourceUris, writeDisposition;
+         maxBadRecords, nullMarker, projectionFields, quote, schema,
+         schemaInline, schemaInlineFormat, schemaUpdateOptions, skipLeadingRows,
+         sourceFormat, sourceUris, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -428,10 +428,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_JobConfigurationQueryTableDefinitions
+//   GTLRBigquery_JobConfigurationQuery_TableDefinitions
 //
 
-@implementation GTLRBigquery_JobConfigurationQueryTableDefinitions
+@implementation GTLRBigquery_JobConfigurationQuery_TableDefinitions
 
 + (Class)classForAdditionalProperties {
   return [GTLRBigquery_ExternalDataConfiguration class];
@@ -473,7 +473,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"jobs" : [GTLRBigquery_JobListJobsItem class]
+    @"jobs" : [GTLRBigquery_JobList_Jobs_Item class]
   };
   return map;
 }
@@ -487,10 +487,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_JobListJobsItem
+//   GTLRBigquery_JobList_Jobs_Item
 //
 
-@implementation GTLRBigquery_JobListJobsItem
+@implementation GTLRBigquery_JobList_Jobs_Item
 @dynamic configuration, errorResult, identifier, jobReference, kind, state,
          statistics, status, userEmail;
 
@@ -533,7 +533,7 @@
 
 @implementation GTLRBigquery_JobStatistics2
 @dynamic billingTier, cacheHit, numDmlAffectedRows, queryPlan, referencedTables,
-         schema, totalBytesBilled, totalBytesProcessed,
+         schema, statementType, totalBytesBilled, totalBytesProcessed,
          undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -622,7 +622,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"projects" : [GTLRBigquery_ProjectListProjectsItem class]
+    @"projects" : [GTLRBigquery_ProjectList_Projects_Item class]
   };
   return map;
 }
@@ -636,10 +636,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_ProjectListProjectsItem
+//   GTLRBigquery_ProjectList_Projects_Item
 //
 
-@implementation GTLRBigquery_ProjectListProjectsItem
+@implementation GTLRBigquery_ProjectList_Projects_Item
 @dynamic friendlyName, identifier, kind, numericId, projectReference;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -679,7 +679,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"structTypes" : [GTLRBigquery_QueryParameterTypeStructTypesItem class]
+    @"structTypes" : [GTLRBigquery_QueryParameterType_StructTypes_Item class]
   };
   return map;
 }
@@ -689,10 +689,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_QueryParameterTypeStructTypesItem
+//   GTLRBigquery_QueryParameterType_StructTypes_Item
 //
 
-@implementation GTLRBigquery_QueryParameterTypeStructTypesItem
+@implementation GTLRBigquery_QueryParameterType_StructTypes_Item
 @dynamic descriptionProperty, name, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -722,10 +722,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_QueryParameterValueStructValues
+//   GTLRBigquery_QueryParameterValue_StructValues
 //
 
-@implementation GTLRBigquery_QueryParameterValueStructValues
+@implementation GTLRBigquery_QueryParameterValue_StructValues
 
 + (Class)classForAdditionalProperties {
   return [GTLRBigquery_QueryParameterValue class];
@@ -790,7 +790,7 @@
 
 @implementation GTLRBigquery_Table
 @dynamic creationTime, descriptionProperty, ETag, expirationTime,
-         externalDataConfiguration, friendlyName, identifier, kind,
+         externalDataConfiguration, friendlyName, identifier, kind, labels,
          lastModifiedTime, location, numBytes, numLongTermBytes, numRows,
          schema, selfLink, streamingBuffer, tableReference, timePartitioning,
          type, view;
@@ -802,6 +802,20 @@
     @"identifier" : @"id"
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_Table_Labels
+//
+
+@implementation GTLRBigquery_Table_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -827,7 +841,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"rows" : [GTLRBigquery_TableDataInsertAllRequestRowsItem class]
+    @"rows" : [GTLRBigquery_TableDataInsertAllRequest_Rows_Item class]
   };
   return map;
 }
@@ -837,10 +851,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_TableDataInsertAllRequestRowsItem
+//   GTLRBigquery_TableDataInsertAllRequest_Rows_Item
 //
 
-@implementation GTLRBigquery_TableDataInsertAllRequestRowsItem
+@implementation GTLRBigquery_TableDataInsertAllRequest_Rows_Item
 @dynamic insertId, json;
 @end
 
@@ -855,7 +869,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"insertErrors" : [GTLRBigquery_TableDataInsertAllResponseInsertErrorsItem class]
+    @"insertErrors" : [GTLRBigquery_TableDataInsertAllResponse_InsertErrors_Item class]
   };
   return map;
 }
@@ -865,10 +879,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_TableDataInsertAllResponseInsertErrorsItem
+//   GTLRBigquery_TableDataInsertAllResponse_InsertErrors_Item
 //
 
-@implementation GTLRBigquery_TableDataInsertAllResponseInsertErrorsItem
+@implementation GTLRBigquery_TableDataInsertAllResponse_InsertErrors_Item
 @dynamic errors, index;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -939,7 +953,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"tables" : [GTLRBigquery_TableListTablesItem class]
+    @"tables" : [GTLRBigquery_TableList_Tables_Item class]
   };
   return map;
 }
@@ -953,14 +967,28 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_TableListTablesItem
+//   GTLRBigquery_TableList_Tables_Item
 //
 
-@implementation GTLRBigquery_TableListTablesItem
-@dynamic friendlyName, identifier, kind, tableReference, type;
+@implementation GTLRBigquery_TableList_Tables_Item
+@dynamic friendlyName, identifier, kind, labels, tableReference, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TableList_Tables_Item_Labels
+//
+
+@implementation GTLRBigquery_TableList_Tables_Item_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

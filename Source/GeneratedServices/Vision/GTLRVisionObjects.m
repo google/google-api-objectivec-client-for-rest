@@ -468,7 +468,7 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRVision_StatusDetailsItem class]
+    @"details" : [GTLRVision_Status_Details_Item class]
   };
   return map;
 }
@@ -478,10 +478,10 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRVision_StatusDetailsItem
+//   GTLRVision_Status_Details_Item
 //
 
-@implementation GTLRVision_StatusDetailsItem
+@implementation GTLRVision_Status_Details_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

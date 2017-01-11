@@ -30,10 +30,10 @@
 @class GTLRCloudUserAccounts_LogConfig;
 @class GTLRCloudUserAccounts_LogConfigCounterOptions;
 @class GTLRCloudUserAccounts_Operation;
-@class GTLRCloudUserAccounts_OperationError;
-@class GTLRCloudUserAccounts_OperationErrorErrorsItem;
-@class GTLRCloudUserAccounts_OperationWarningsItem;
-@class GTLRCloudUserAccounts_OperationWarningsItemDataItem;
+@class GTLRCloudUserAccounts_Operation_Error;
+@class GTLRCloudUserAccounts_Operation_Error_Errors_Item;
+@class GTLRCloudUserAccounts_Operation_Warnings_Item;
+@class GTLRCloudUserAccounts_Operation_Warnings_Item_Data_Item;
 @class GTLRCloudUserAccounts_PublicKey;
 @class GTLRCloudUserAccounts_Rule;
 @class GTLRCloudUserAccounts_User;
@@ -94,38 +94,38 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Status_Pending;
 GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Status_Running;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudUserAccounts_OperationWarningsItem.code
+// GTLRCloudUserAccounts_Operation_Warnings_Item.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_DiskSizeLargerThanImageSize;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudUserAccounts_Rule.action
@@ -535,7 +535,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  [Output Only] If errors are generated during processing of the operation,
  *  this field will be populated.
  */
-@property(nonatomic, strong, nullable) GTLRCloudUserAccounts_OperationError *error;
+@property(nonatomic, strong, nullable) GTLRCloudUserAccounts_Operation_Error *error;
 
 /**
  *  [Output Only] If the operation fails, this field contains the HTTP error
@@ -647,7 +647,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  [Output Only] If warning messages are generated during processing of the
  *  operation, this field will be populated.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_OperationWarningsItem *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_Operation_Warnings_Item *> *warnings;
 
 /**
  *  [Output Only] The URL of the zone where the operation resides. Only
@@ -664,56 +664,56 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  [Output Only] If errors are generated during processing of the operation,
  *  this field will be populated.
  */
-@interface GTLRCloudUserAccounts_OperationError : GTLRObject
+@interface GTLRCloudUserAccounts_Operation_Error : GTLRObject
 
 /**
  *  [Output Only] The array of errors encountered while processing this
  *  operation.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_OperationErrorErrorsItem *> *errors;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_Operation_Error_Errors_Item *> *errors;
 
 @end
 
 
 /**
- *  GTLRCloudUserAccounts_OperationWarningsItem
+ *  GTLRCloudUserAccounts_Operation_Warnings_Item
  */
-@interface GTLRCloudUserAccounts_OperationWarningsItem : GTLRObject
+@interface GTLRCloudUserAccounts_Operation_Warnings_Item : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_CleanupFailed
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_CleanupFailed
  *        Value "CLEANUP_FAILED"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopNotRunning
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_NoResultsOnPage
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NoResultsOnPage
  *        Value "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_NotCriticalError
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCloudUserAccounts_OperationWarningsItem_Code_Unreachable
+ *    @arg @c kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_Unreachable
  *        Value "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -722,7 +722,7 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_OperationWarningsItemDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudUserAccounts_Operation_Warnings_Item_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -731,9 +731,9 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 
 
 /**
- *  GTLRCloudUserAccounts_OperationErrorErrorsItem
+ *  GTLRCloudUserAccounts_Operation_Error_Errors_Item
  */
-@interface GTLRCloudUserAccounts_OperationErrorErrorsItem : GTLRObject
+@interface GTLRCloudUserAccounts_Operation_Error_Errors_Item : GTLRObject
 
 /** [Output Only] The error type identifier for this error. */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -751,9 +751,9 @@ GTLR_EXTERN NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction;
 
 
 /**
- *  GTLRCloudUserAccounts_OperationWarningsItemDataItem
+ *  GTLRCloudUserAccounts_Operation_Warnings_Item_Data_Item
  */
-@interface GTLRCloudUserAccounts_OperationWarningsItemDataItem : GTLRObject
+@interface GTLRCloudUserAccounts_Operation_Warnings_Item_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.

@@ -21,7 +21,7 @@
 #endif
 
 @class GTLRWebfonts_Webfont;
-@class GTLRWebfonts_WebfontFiles;
+@class GTLRWebfonts_Webfont_Files;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The font files (with all supported scripts) for each one of the available
  *  variants, as a key : value map.
  */
-@property(nonatomic, strong, nullable) GTLRWebfonts_WebfontFiles *files;
+@property(nonatomic, strong, nullable) GTLRWebfonts_Webfont_Files *files;
 
 /** This kind represents a webfont object in the webfonts service. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRWebfonts_WebfontFiles : GTLRObject
+@interface GTLRWebfonts_Webfont_Files : GTLRObject
 @end
 
 

@@ -19,7 +19,7 @@
 #endif
 
 @class GTLRTasks_Task;
-@class GTLRTasks_TaskLinksItem;
+@class GTLRTasks_Task_Links_Item;
 @class GTLRTasks_TaskList;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Collection of links. This collection is read-only. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTasks_TaskLinksItem *> *links;
+@property(nonatomic, strong, nullable) NSArray<GTLRTasks_Task_Links_Item *> *links;
 
 /** Notes describing the task. Optional. */
 @property(nonatomic, copy, nullable) NSString *notes;
@@ -108,9 +108,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRTasks_TaskLinksItem
+ *  GTLRTasks_Task_Links_Item
  */
-@interface GTLRTasks_TaskLinksItem : GTLRObject
+@interface GTLRTasks_Task_Links_Item : GTLRObject
 
 /**
  *  The description. In HTML speak: Everything between <a> and </a>.

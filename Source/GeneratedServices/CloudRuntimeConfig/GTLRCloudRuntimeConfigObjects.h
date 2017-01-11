@@ -20,10 +20,10 @@
 #endif
 
 @class GTLRCloudRuntimeConfig_Operation;
-@class GTLRCloudRuntimeConfig_OperationMetadata;
-@class GTLRCloudRuntimeConfig_OperationResponse;
+@class GTLRCloudRuntimeConfig_Operation_Metadata;
+@class GTLRCloudRuntimeConfig_Operation_Response;
 @class GTLRCloudRuntimeConfig_Status;
-@class GTLRCloudRuntimeConfig_StatusDetailsItem;
+@class GTLRCloudRuntimeConfig_Status_Details_Item;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Some services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
-@property(nonatomic, strong, nullable) GTLRCloudRuntimeConfig_OperationMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRCloudRuntimeConfig_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
@@ -114,7 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  is `TakeSnapshot()`, the inferred response type is
  *  `TakeSnapshotResponse`.
  */
-@property(nonatomic, strong, nullable) GTLRCloudRuntimeConfig_OperationResponse *response;
+@property(nonatomic, strong, nullable) GTLRCloudRuntimeConfig_Operation_Response *response;
 
 @end
 
@@ -130,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRCloudRuntimeConfig_OperationMetadata : GTLRObject
+@interface GTLRCloudRuntimeConfig_Operation_Metadata : GTLRObject
 @end
 
 
@@ -149,7 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRCloudRuntimeConfig_OperationResponse : GTLRObject
+@interface GTLRCloudRuntimeConfig_Operation_Response : GTLRObject
 @end
 
 
@@ -211,7 +211,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  A list of messages that carry the error details. There will be a
  *  common set of message types for APIs to use.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudRuntimeConfig_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRuntimeConfig_Status_Details_Item *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
@@ -224,14 +224,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCloudRuntimeConfig_StatusDetailsItem
+ *  GTLRCloudRuntimeConfig_Status_Details_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRCloudRuntimeConfig_StatusDetailsItem : GTLRObject
+@interface GTLRCloudRuntimeConfig_Status_Details_Item : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

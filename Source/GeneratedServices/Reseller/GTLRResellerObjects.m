@@ -85,40 +85,40 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReseller_SubscriptionPlan
+//   GTLRReseller_Subscription_Plan
 //
 
-@implementation GTLRReseller_SubscriptionPlan
+@implementation GTLRReseller_Subscription_Plan
 @dynamic commitmentInterval, isCommitmentPlan, planName;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReseller_SubscriptionTransferInfo
+//   GTLRReseller_Subscription_TransferInfo
 //
 
-@implementation GTLRReseller_SubscriptionTransferInfo
+@implementation GTLRReseller_Subscription_TransferInfo
 @dynamic minimumTransferableSeats, transferabilityExpirationTime;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReseller_SubscriptionTrialSettings
+//   GTLRReseller_Subscription_TrialSettings
 //
 
-@implementation GTLRReseller_SubscriptionTrialSettings
+@implementation GTLRReseller_Subscription_TrialSettings
 @dynamic isInTrial, trialEndTime;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReseller_SubscriptionPlanCommitmentInterval
+//   GTLRReseller_Subscription_Plan_CommitmentInterval
 //
 
-@implementation GTLRReseller_SubscriptionPlanCommitmentInterval
+@implementation GTLRReseller_Subscription_Plan_CommitmentInterval
 @dynamic endTime, startTime;
 @end
 

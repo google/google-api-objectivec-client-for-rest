@@ -163,6 +163,18 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_DeviceMetadata
+//
+
+@implementation GTLRAndroidPublisher_DeviceMetadata
+@dynamic cpuMake, cpuModel, deviceClass, glEsVersion, manufacturer,
+         nativePlatform, productName, ramMb, screenDensityDpi, screenHeightPx,
+         screenWidthPx;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Entitlement
 //
 
@@ -317,10 +329,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidPublisher_InAppProductListings
+//   GTLRAndroidPublisher_InAppProduct_Listings
 //
 
-@implementation GTLRAndroidPublisher_InAppProductListings
+@implementation GTLRAndroidPublisher_InAppProduct_Listings
 
 + (Class)classForAdditionalProperties {
   return [GTLRAndroidPublisher_InAppProductListing class];
@@ -331,10 +343,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidPublisher_InAppProductPrices
+//   GTLRAndroidPublisher_InAppProduct_Prices
 //
 
-@implementation GTLRAndroidPublisher_InAppProductPrices
+@implementation GTLRAndroidPublisher_InAppProduct_Prices
 
 + (Class)classForAdditionalProperties {
   return [GTLRAndroidPublisher_Price class];
@@ -759,6 +771,35 @@
 //
 
 @implementation GTLRAndroidPublisher_UserComment
-@dynamic androidOsVersion, appVersionCode, appVersionName, device, lastModified,
-         reviewerLanguage, starRating, text;
+@dynamic androidOsVersion, appVersionCode, appVersionName, device,
+         deviceMetadata, lastModified, originalText, reviewerLanguage,
+         starRating, text, thumbsDownCount, thumbsUpCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_VoidedPurchase
+//
+
+@implementation GTLRAndroidPublisher_VoidedPurchase
+@dynamic kind, purchaseTimeMillis, purchaseToken, voidedTimeMillis;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_VoidedPurchasesListResponse
+//
+
+@implementation GTLRAndroidPublisher_VoidedPurchasesListResponse
+@dynamic pageInfo, tokenPagination, voidedPurchases;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"voidedPurchases" : [GTLRAndroidPublisher_VoidedPurchase class]
+  };
+  return map;
+}
+
 @end

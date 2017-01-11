@@ -197,10 +197,10 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDatastore_EntityProperties
+//   GTLRDatastore_Entity_Properties
 //
 
-@implementation GTLRDatastore_EntityProperties
+@implementation GTLRDatastore_Entity_Properties
 
 + (Class)classForAdditionalProperties {
   return [GTLRDatastore_Value class];
@@ -249,10 +249,10 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDatastore_GqlQueryNamedBindings
+//   GTLRDatastore_GqlQuery_NamedBindings
 //
 
-@implementation GTLRDatastore_GqlQueryNamedBindings
+@implementation GTLRDatastore_GqlQuery_NamedBindings
 
 + (Class)classForAdditionalProperties {
   return [GTLRDatastore_GqlQueryParameter class];

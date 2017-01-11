@@ -24,15 +24,16 @@
 @class GTLRAndroidPublisher_Comment;
 @class GTLRAndroidPublisher_DeobfuscationFile;
 @class GTLRAndroidPublisher_DeveloperComment;
+@class GTLRAndroidPublisher_DeviceMetadata;
 @class GTLRAndroidPublisher_Entitlement;
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_ExternallyHostedApk;
 @class GTLRAndroidPublisher_ExternallyHostedApkUsesPermission;
 @class GTLRAndroidPublisher_Image;
 @class GTLRAndroidPublisher_InAppProduct;
+@class GTLRAndroidPublisher_InAppProduct_Listings;
+@class GTLRAndroidPublisher_InAppProduct_Prices;
 @class GTLRAndroidPublisher_InAppProductListing;
-@class GTLRAndroidPublisher_InAppProductListings;
-@class GTLRAndroidPublisher_InAppProductPrices;
 @class GTLRAndroidPublisher_InappproductsBatchRequestEntry;
 @class GTLRAndroidPublisher_InappproductsBatchResponseEntry;
 @class GTLRAndroidPublisher_InappproductsInsertRequest;
@@ -52,6 +53,7 @@
 @class GTLRAndroidPublisher_TokenPagination;
 @class GTLRAndroidPublisher_Track;
 @class GTLRAndroidPublisher_UserComment;
+@class GTLRAndroidPublisher_VoidedPurchase;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -242,6 +244,67 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The content of the comment, i.e. reply body. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_DeviceMetadata
+ */
+@interface GTLRAndroidPublisher_DeviceMetadata : GTLRObject
+
+/** Device CPU make e.g. "Qualcomm" */
+@property(nonatomic, copy, nullable) NSString *cpuMake;
+
+/** Device CPU model e.g. "MSM8974" */
+@property(nonatomic, copy, nullable) NSString *cpuModel;
+
+/** Device class (e.g. tablet) */
+@property(nonatomic, copy, nullable) NSString *deviceClass;
+
+/**
+ *  OpenGL version
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *glEsVersion;
+
+/** Device manufacturer (e.g. Motorola) */
+@property(nonatomic, copy, nullable) NSString *manufacturer;
+
+/** Comma separated list of native platforms (e.g. "arm", "arm7") */
+@property(nonatomic, copy, nullable) NSString *nativePlatform;
+
+/** Device model name (e.g. Droid) */
+@property(nonatomic, copy, nullable) NSString *productName;
+
+/**
+ *  Device RAM in Megabytes e.g. "2048"
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ramMb;
+
+/**
+ *  Screen density in DPI
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenDensityDpi;
+
+/**
+ *  Screen height in pixels
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenHeightPx;
+
+/**
+ *  Screen width in pixels
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenWidthPx;
 
 @end
 
@@ -488,7 +551,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *defaultPrice;
 
 /** List of localized title and description data. */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InAppProductListings *listings;
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InAppProduct_Listings *listings;
 
 /** The package name of the parent app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -497,7 +560,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Prices per buyer region. None of these prices should be zero. In-app
  *  products can never be free.
  */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InAppProductPrices *prices;
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InAppProduct_Prices *prices;
 
 /** Purchase type enum value. Unmodifiable after creation. */
 @property(nonatomic, copy, nullable) NSString *purchaseType;
@@ -539,7 +602,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        then fetch them; or @c -additionalProperties to fetch them all at
  *        once.
  */
-@interface GTLRAndroidPublisher_InAppProductListings : GTLRObject
+@interface GTLRAndroidPublisher_InAppProduct_Listings : GTLRObject
 @end
 
 
@@ -552,7 +615,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRAndroidPublisher_InAppProductPrices : GTLRObject
+@interface GTLRAndroidPublisher_InAppProduct_Prices : GTLRObject
 @end
 
 
@@ -1214,8 +1277,17 @@ NS_ASSUME_NONNULL_BEGIN
 /** Codename for the reviewer's device, e.g. klte, flounder. May be absent. */
 @property(nonatomic, copy, nullable) NSString *device;
 
+/** Some information about the characteristics of the user's device */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeviceMetadata *deviceMetadata;
+
 /** The last time at which this comment was updated. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Timestamp *lastModified;
+
+/**
+ *  Untranslated text of the review, in the case where the review has been
+ *  translated. If the review has not been translated this is left blank.
+ */
+@property(nonatomic, copy, nullable) NSString *originalText;
 
 /**
  *  Language code for the reviewer. This is taken from the device settings so is
@@ -1237,6 +1309,69 @@ NS_ASSUME_NONNULL_BEGIN
  *  title and body are concatenated and separated by a tab character.
  */
 @property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  Number of users who have given this review a thumbs down
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thumbsDownCount;
+
+/**
+ *  Number of users who have given this review a thumbs up
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thumbsUpCount;
+
+@end
+
+
+/**
+ *  A VoidedPurchase resource indicates the purchase was either
+ *  cancelled/refunded/charged-back.
+ */
+@interface GTLRAndroidPublisher_VoidedPurchase : GTLRObject
+
+/**
+ *  This kind represents a voided purchase object in the androidpublisher
+ *  service.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The time the purchase was made, in milliseconds since the epoch (Jan 1,
+ *  1970).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *purchaseTimeMillis;
+
+/**
+ *  The token that was generated when a purchase was made and uniquely
+ *  identifies a purchase.
+ */
+@property(nonatomic, copy, nullable) NSString *purchaseToken;
+
+/**
+ *  The time when the purchase was cancelled/refunded/chargeback, in
+ *  milliseconds since the epoch (Jan 1, 1970).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *voidedTimeMillis;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_VoidedPurchasesListResponse
+ */
+@interface GTLRAndroidPublisher_VoidedPurchasesListResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_VoidedPurchase *> *voidedPurchases;
 
 @end
 

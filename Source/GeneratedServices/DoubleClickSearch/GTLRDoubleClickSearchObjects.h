@@ -23,13 +23,13 @@
 @class GTLRDoubleClickSearch_Conversion;
 @class GTLRDoubleClickSearch_CustomDimension;
 @class GTLRDoubleClickSearch_CustomMetric;
+@class GTLRDoubleClickSearch_Report_Files_Item;
 @class GTLRDoubleClickSearch_ReportApiColumnSpec;
-@class GTLRDoubleClickSearch_ReportFilesItem;
 @class GTLRDoubleClickSearch_ReportRequest;
-@class GTLRDoubleClickSearch_ReportRequestFiltersItem;
-@class GTLRDoubleClickSearch_ReportRequestOrderByItem;
-@class GTLRDoubleClickSearch_ReportRequestReportScope;
-@class GTLRDoubleClickSearch_ReportRequestTimeRange;
+@class GTLRDoubleClickSearch_ReportRequest_Filters_Item;
+@class GTLRDoubleClickSearch_ReportRequest_OrderBy_Item;
+@class GTLRDoubleClickSearch_ReportRequest_ReportScope;
+@class GTLRDoubleClickSearch_ReportRequest_TimeRange;
 @class GTLRDoubleClickSearch_ReportRow;
 @class GTLRDoubleClickSearch_SavedColumn;
 
@@ -359,7 +359,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Asynchronous report only. Contains a list of generated report files once the
  *  report has succesfully completed.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickSearch_ReportFilesItem *> *files;
+@property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickSearch_Report_Files_Item *> *files;
 
 /**
  *  Asynchronous report only. Id of the report.
@@ -416,9 +416,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDoubleClickSearch_ReportFilesItem
+ *  GTLRDoubleClickSearch_Report_Files_Item
  */
-@interface GTLRDoubleClickSearch_ReportFilesItem : GTLRObject
+@interface GTLRDoubleClickSearch_Report_Files_Item : GTLRObject
 
 /**
  *  The size of this report file in bytes.
@@ -536,7 +536,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *downloadFormat;
 
 /** A list of filters to be applied to the report. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickSearch_ReportRequestFiltersItem *> *filters;
+@property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickSearch_ReportRequest_Filters_Item *> *filters;
 
 /**
  *  Determines if removed entities should be included in the report. Defaults to
@@ -567,14 +567,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Synchronous report only. A list of columns and directions defining sorting
  *  to be performed on the report rows.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickSearch_ReportRequestOrderByItem *> *orderBy;
+@property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickSearch_ReportRequest_OrderBy_Item *> *orderBy;
 
 /**
  *  The reportScope is a set of IDs that are used to determine which subset of
  *  entities will be returned in the report. The full lineage of IDs from the
  *  lowest scoped level desired up through agency is required.
  */
-@property(nonatomic, strong, nullable) GTLRDoubleClickSearch_ReportRequestReportScope *reportScope;
+@property(nonatomic, strong, nullable) GTLRDoubleClickSearch_ReportRequest_ReportScope *reportScope;
 
 /**
  *  Determines the type of rows that are returned in the report. For example, if
@@ -613,7 +613,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  If metrics are requested in a report, this argument will be used to restrict
  *  the metrics to a specific time range.
  */
-@property(nonatomic, strong, nullable) GTLRDoubleClickSearch_ReportRequestTimeRange *timeRange;
+@property(nonatomic, strong, nullable) GTLRDoubleClickSearch_ReportRequest_TimeRange *timeRange;
 
 /**
  *  If true, the report would only be created if all the requested stat data are
@@ -627,9 +627,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDoubleClickSearch_ReportRequestFiltersItem
+ *  GTLRDoubleClickSearch_ReportRequest_Filters_Item
  */
-@interface GTLRDoubleClickSearch_ReportRequestFiltersItem : GTLRObject
+@interface GTLRDoubleClickSearch_ReportRequest_Filters_Item : GTLRObject
 
 /**
  *  Column to perform the filter on. This can be a DoubleClick Search column or
@@ -656,9 +656,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDoubleClickSearch_ReportRequestOrderByItem
+ *  GTLRDoubleClickSearch_ReportRequest_OrderBy_Item
  */
-@interface GTLRDoubleClickSearch_ReportRequestOrderByItem : GTLRObject
+@interface GTLRDoubleClickSearch_ReportRequest_OrderBy_Item : GTLRObject
 
 /**
  *  Column to perform the sort on. This can be a DoubleClick Search-defined
@@ -677,7 +677,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  entities will be returned in the report. The full lineage of IDs from the
  *  lowest scoped level desired up through agency is required.
  */
-@interface GTLRDoubleClickSearch_ReportRequestReportScope : GTLRObject
+@interface GTLRDoubleClickSearch_ReportRequest_ReportScope : GTLRObject
 
 /**
  *  DS ad group ID.
@@ -735,7 +735,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  If metrics are requested in a report, this argument will be used to restrict
  *  the metrics to a specific time range.
  */
-@interface GTLRDoubleClickSearch_ReportRequestTimeRange : GTLRObject
+@interface GTLRDoubleClickSearch_ReportRequest_TimeRange : GTLRObject
 
 /**
  *  Inclusive UTC timestamp in RFC format, e.g., 2013-07-16T10:16:23.555Z. See

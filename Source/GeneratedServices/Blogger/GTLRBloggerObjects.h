@@ -19,33 +19,33 @@
 #endif
 
 @class GTLRBlogger_Blog;
-@class GTLRBlogger_BlogLocale;
-@class GTLRBlogger_BlogPages;
+@class GTLRBlogger_Blog_Locale;
+@class GTLRBlogger_Blog_Pages;
+@class GTLRBlogger_Blog_Posts;
 @class GTLRBlogger_BlogPerUserInfo;
-@class GTLRBlogger_BlogPosts;
 @class GTLRBlogger_BlogUserInfo;
 @class GTLRBlogger_Comment;
-@class GTLRBlogger_CommentAuthor;
-@class GTLRBlogger_CommentAuthorImage;
-@class GTLRBlogger_CommentBlog;
-@class GTLRBlogger_CommentInReplyTo;
-@class GTLRBlogger_CommentPost;
+@class GTLRBlogger_Comment_Author;
+@class GTLRBlogger_Comment_Author_Image;
+@class GTLRBlogger_Comment_Blog;
+@class GTLRBlogger_Comment_InReplyTo;
+@class GTLRBlogger_Comment_Post;
 @class GTLRBlogger_Page;
-@class GTLRBlogger_PageAuthor;
-@class GTLRBlogger_PageAuthorImage;
-@class GTLRBlogger_PageBlog;
-@class GTLRBlogger_PageviewsCountsItem;
+@class GTLRBlogger_Page_Author;
+@class GTLRBlogger_Page_Author_Image;
+@class GTLRBlogger_Page_Blog;
+@class GTLRBlogger_Pageviews_Counts_Item;
 @class GTLRBlogger_Post;
-@class GTLRBlogger_PostAuthor;
-@class GTLRBlogger_PostAuthorImage;
-@class GTLRBlogger_PostBlog;
-@class GTLRBlogger_PostImagesItem;
-@class GTLRBlogger_PostLocation;
+@class GTLRBlogger_Post_Author;
+@class GTLRBlogger_Post_Author_Image;
+@class GTLRBlogger_Post_Blog;
+@class GTLRBlogger_Post_Images_Item;
+@class GTLRBlogger_Post_Location;
+@class GTLRBlogger_Post_Replies;
 @class GTLRBlogger_PostPerUserInfo;
-@class GTLRBlogger_PostReplies;
 @class GTLRBlogger_PostUserInfo;
-@class GTLRBlogger_UserBlogs;
-@class GTLRBlogger_UserLocale;
+@class GTLRBlogger_User_Blogs;
+@class GTLRBlogger_User_Locale;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -75,16 +75,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The locale this Blog is set to. */
-@property(nonatomic, strong, nullable) GTLRBlogger_BlogLocale *locale;
+@property(nonatomic, strong, nullable) GTLRBlogger_Blog_Locale *locale;
 
 /** The name of this blog. This is displayed as the title. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The container of pages in this blog. */
-@property(nonatomic, strong, nullable) GTLRBlogger_BlogPages *pages;
+@property(nonatomic, strong, nullable) GTLRBlogger_Blog_Pages *pages;
 
 /** The container of posts in this blog. */
-@property(nonatomic, strong, nullable) GTLRBlogger_BlogPosts *posts;
+@property(nonatomic, strong, nullable) GTLRBlogger_Blog_Posts *posts;
 
 /** RFC 3339 date-time when this blog was published. */
 @property(nonatomic, strong, nullable) GTLRDateTime *published;
@@ -107,7 +107,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The locale this Blog is set to.
  */
-@interface GTLRBlogger_BlogLocale : GTLRObject
+@interface GTLRBlogger_Blog_Locale : GTLRObject
 
 /** The country this blog's locale is set to. */
 @property(nonatomic, copy, nullable) NSString *country;
@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The container of pages in this blog.
  */
-@interface GTLRBlogger_BlogPages : GTLRObject
+@interface GTLRBlogger_Blog_Pages : GTLRObject
 
 /** The URL of the container for pages in this blog. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -145,7 +145,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
  */
-@interface GTLRBlogger_BlogPosts : GTLRCollectionObject
+@interface GTLRBlogger_Blog_Posts : GTLRCollectionObject
 
 /**
  *  The List of Posts for this Blog.
@@ -249,10 +249,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_Comment : GTLRObject
 
 /** The author of this Comment. */
-@property(nonatomic, strong, nullable) GTLRBlogger_CommentAuthor *author;
+@property(nonatomic, strong, nullable) GTLRBlogger_Comment_Author *author;
 
 /** Data about the blog containing this comment. */
-@property(nonatomic, strong, nullable) GTLRBlogger_CommentBlog *blog;
+@property(nonatomic, strong, nullable) GTLRBlogger_Comment_Blog *blog;
 
 /** The actual content of the comment. May include HTML markup. */
 @property(nonatomic, copy, nullable) NSString *content;
@@ -265,13 +265,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Data about the comment this is in reply to. */
-@property(nonatomic, strong, nullable) GTLRBlogger_CommentInReplyTo *inReplyTo;
+@property(nonatomic, strong, nullable) GTLRBlogger_Comment_InReplyTo *inReplyTo;
 
 /** The kind of this entry. Always blogger#comment */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Data about the post containing this comment. */
-@property(nonatomic, strong, nullable) GTLRBlogger_CommentPost *post;
+@property(nonatomic, strong, nullable) GTLRBlogger_Comment_Post *post;
 
 /** RFC 3339 date-time when this comment was published. */
 @property(nonatomic, strong, nullable) GTLRDateTime *published;
@@ -291,7 +291,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The author of this Comment.
  */
-@interface GTLRBlogger_CommentAuthor : GTLRObject
+@interface GTLRBlogger_Comment_Author : GTLRObject
 
 /** The display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -304,7 +304,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The comment creator's avatar. */
-@property(nonatomic, strong, nullable) GTLRBlogger_CommentAuthorImage *image;
+@property(nonatomic, strong, nullable) GTLRBlogger_Comment_Author_Image *image;
 
 /** The URL of the Comment creator's Profile page. */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -315,7 +315,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Data about the blog containing this comment.
  */
-@interface GTLRBlogger_CommentBlog : GTLRObject
+@interface GTLRBlogger_Comment_Blog : GTLRObject
 
 /**
  *  The identifier of the blog containing this comment.
@@ -330,7 +330,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Data about the comment this is in reply to.
  */
-@interface GTLRBlogger_CommentInReplyTo : GTLRObject
+@interface GTLRBlogger_Comment_InReplyTo : GTLRObject
 
 /**
  *  The identified of the parent of this comment.
@@ -345,7 +345,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Data about the post containing this comment.
  */
-@interface GTLRBlogger_CommentPost : GTLRObject
+@interface GTLRBlogger_Comment_Post : GTLRObject
 
 /**
  *  The identifier of the post containing this comment.
@@ -360,7 +360,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The comment creator's avatar.
  */
-@interface GTLRBlogger_CommentAuthorImage : GTLRObject
+@interface GTLRBlogger_Comment_Author_Image : GTLRObject
 
 /** The comment creator's avatar URL. */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -407,10 +407,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_Page : GTLRObject
 
 /** The author of this Page. */
-@property(nonatomic, strong, nullable) GTLRBlogger_PageAuthor *author;
+@property(nonatomic, strong, nullable) GTLRBlogger_Page_Author *author;
 
 /** Data about the blog containing this Page. */
-@property(nonatomic, strong, nullable) GTLRBlogger_PageBlog *blog;
+@property(nonatomic, strong, nullable) GTLRBlogger_Page_Blog *blog;
 
 /** The body content of this Page, in HTML. */
 @property(nonatomic, copy, nullable) NSString *content;
@@ -455,7 +455,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The author of this Page.
  */
-@interface GTLRBlogger_PageAuthor : GTLRObject
+@interface GTLRBlogger_Page_Author : GTLRObject
 
 /** The display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -468,7 +468,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The page author's avatar. */
-@property(nonatomic, strong, nullable) GTLRBlogger_PageAuthorImage *image;
+@property(nonatomic, strong, nullable) GTLRBlogger_Page_Author_Image *image;
 
 /** The URL of the Page creator's Profile page. */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -479,7 +479,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Data about the blog containing this Page.
  */
-@interface GTLRBlogger_PageBlog : GTLRObject
+@interface GTLRBlogger_Page_Blog : GTLRObject
 
 /**
  *  The identifier of the blog containing this page.
@@ -494,7 +494,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The page author's avatar.
  */
-@interface GTLRBlogger_PageAuthorImage : GTLRObject
+@interface GTLRBlogger_Page_Author_Image : GTLRObject
 
 /** The page author's avatar URL. */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -541,7 +541,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The container of posts in this blog. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_PageviewsCountsItem *> *counts;
+@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Pageviews_Counts_Item *> *counts;
 
 /** The kind of this entry. Always blogger#page_views */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -550,9 +550,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBlogger_PageviewsCountsItem
+ *  GTLRBlogger_Pageviews_Counts_Item
  */
-@interface GTLRBlogger_PageviewsCountsItem : GTLRObject
+@interface GTLRBlogger_Pageviews_Counts_Item : GTLRObject
 
 /**
  *  Count of page views for the given time range
@@ -573,10 +573,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_Post : GTLRObject
 
 /** The author of this Post. */
-@property(nonatomic, strong, nullable) GTLRBlogger_PostAuthor *author;
+@property(nonatomic, strong, nullable) GTLRBlogger_Post_Author *author;
 
 /** Data about the blog containing this Post. */
-@property(nonatomic, strong, nullable) GTLRBlogger_PostBlog *blog;
+@property(nonatomic, strong, nullable) GTLRBlogger_Post_Blog *blog;
 
 /** The content of the Post. May contain HTML markup. */
 @property(nonatomic, copy, nullable) NSString *content;
@@ -595,7 +595,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** Display image for the Post. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_PostImagesItem *> *images;
+@property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Post_Images_Item *> *images;
 
 /** The kind of this entity. Always blogger#post */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -604,7 +604,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
 
 /** The location for geotagged posts. */
-@property(nonatomic, strong, nullable) GTLRBlogger_PostLocation *location;
+@property(nonatomic, strong, nullable) GTLRBlogger_Post_Location *location;
 
 /** RFC 3339 date-time when this Post was published. */
 @property(nonatomic, strong, nullable) GTLRDateTime *published;
@@ -613,7 +613,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *readerComments;
 
 /** The container of comments on this Post. */
-@property(nonatomic, strong, nullable) GTLRBlogger_PostReplies *replies;
+@property(nonatomic, strong, nullable) GTLRBlogger_Post_Replies *replies;
 
 /** The API REST URL to fetch this resource from. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -639,7 +639,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The author of this Post.
  */
-@interface GTLRBlogger_PostAuthor : GTLRObject
+@interface GTLRBlogger_Post_Author : GTLRObject
 
 /** The display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -652,7 +652,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The Post author's avatar. */
-@property(nonatomic, strong, nullable) GTLRBlogger_PostAuthorImage *image;
+@property(nonatomic, strong, nullable) GTLRBlogger_Post_Author_Image *image;
 
 /** The URL of the Post creator's Profile page. */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -663,7 +663,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Data about the blog containing this Post.
  */
-@interface GTLRBlogger_PostBlog : GTLRObject
+@interface GTLRBlogger_Post_Blog : GTLRObject
 
 /**
  *  The identifier of the Blog that contains this Post.
@@ -676,9 +676,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBlogger_PostImagesItem
+ *  GTLRBlogger_Post_Images_Item
  */
-@interface GTLRBlogger_PostImagesItem : GTLRObject
+@interface GTLRBlogger_Post_Images_Item : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -688,7 +688,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The location for geotagged posts.
  */
-@interface GTLRBlogger_PostLocation : GTLRObject
+@interface GTLRBlogger_Post_Location : GTLRObject
 
 /**
  *  Location's latitude.
@@ -719,7 +719,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
  */
-@interface GTLRBlogger_PostReplies : GTLRCollectionObject
+@interface GTLRBlogger_Post_Replies : GTLRCollectionObject
 
 /**
  *  The List of Comments for this Post.
@@ -745,7 +745,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The Post author's avatar.
  */
-@interface GTLRBlogger_PostAuthorImage : GTLRObject
+@interface GTLRBlogger_Post_Author_Image : GTLRObject
 
 /** The Post author's avatar URL. */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -863,7 +863,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *about;
 
 /** The container of blogs for this user. */
-@property(nonatomic, strong, nullable) GTLRBlogger_UserBlogs *blogs;
+@property(nonatomic, strong, nullable) GTLRBlogger_User_Blogs *blogs;
 
 /** The timestamp of when this profile was created, in seconds since epoch. */
 @property(nonatomic, strong, nullable) GTLRDateTime *created;
@@ -882,7 +882,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** This user's locale */
-@property(nonatomic, strong, nullable) GTLRBlogger_UserLocale *locale;
+@property(nonatomic, strong, nullable) GTLRBlogger_User_Locale *locale;
 
 /** The API REST URL to fetch this resource from. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -896,7 +896,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The container of blogs for this user.
  */
-@interface GTLRBlogger_UserBlogs : GTLRObject
+@interface GTLRBlogger_User_Blogs : GTLRObject
 
 /** The URL of the Blogs for this user. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -907,7 +907,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  This user's locale
  */
-@interface GTLRBlogger_UserLocale : GTLRObject
+@interface GTLRBlogger_User_Locale : GTLRObject
 
 /** The user's country setting. */
 @property(nonatomic, copy, nullable) NSString *country;

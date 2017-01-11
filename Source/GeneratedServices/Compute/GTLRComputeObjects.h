@@ -20,48 +20,48 @@
 
 @class GTLRCompute_AccessConfig;
 @class GTLRCompute_Address;
-@class GTLRCompute_AddressAggregatedListItems;
+@class GTLRCompute_AddressAggregatedList_Items;
 @class GTLRCompute_AddressesScopedList;
-@class GTLRCompute_AddressesScopedListWarning;
-@class GTLRCompute_AddressesScopedListWarningDataItem;
+@class GTLRCompute_AddressesScopedList_Warning;
+@class GTLRCompute_AddressesScopedList_Warning_Data_Item;
 @class GTLRCompute_AttachedDisk;
 @class GTLRCompute_AttachedDiskInitializeParams;
 @class GTLRCompute_Autoscaler;
-@class GTLRCompute_AutoscalerAggregatedListItems;
+@class GTLRCompute_AutoscalerAggregatedList_Items;
 @class GTLRCompute_AutoscalersScopedList;
-@class GTLRCompute_AutoscalersScopedListWarning;
-@class GTLRCompute_AutoscalersScopedListWarningDataItem;
+@class GTLRCompute_AutoscalersScopedList_Warning;
+@class GTLRCompute_AutoscalersScopedList_Warning_Data_Item;
 @class GTLRCompute_AutoscalingPolicy;
 @class GTLRCompute_AutoscalingPolicyCpuUtilization;
 @class GTLRCompute_AutoscalingPolicyCustomMetricUtilization;
 @class GTLRCompute_AutoscalingPolicyLoadBalancingUtilization;
 @class GTLRCompute_Backend;
 @class GTLRCompute_BackendService;
-@class GTLRCompute_BackendServiceAggregatedListItems;
+@class GTLRCompute_BackendServiceAggregatedList_Items;
 @class GTLRCompute_BackendServicesScopedList;
-@class GTLRCompute_BackendServicesScopedListWarning;
-@class GTLRCompute_BackendServicesScopedListWarningDataItem;
+@class GTLRCompute_BackendServicesScopedList_Warning;
+@class GTLRCompute_BackendServicesScopedList_Warning_Data_Item;
 @class GTLRCompute_ConnectionDraining;
 @class GTLRCompute_CustomerEncryptionKey;
 @class GTLRCompute_CustomerEncryptionKeyProtectedDisk;
 @class GTLRCompute_DeprecationStatus;
 @class GTLRCompute_Disk;
-@class GTLRCompute_DiskAggregatedListItems;
+@class GTLRCompute_DiskAggregatedList_Items;
 @class GTLRCompute_DisksScopedList;
-@class GTLRCompute_DisksScopedListWarning;
-@class GTLRCompute_DisksScopedListWarningDataItem;
+@class GTLRCompute_DisksScopedList_Warning;
+@class GTLRCompute_DisksScopedList_Warning_Data_Item;
 @class GTLRCompute_DiskType;
-@class GTLRCompute_DiskTypeAggregatedListItems;
+@class GTLRCompute_DiskTypeAggregatedList_Items;
 @class GTLRCompute_DiskTypesScopedList;
-@class GTLRCompute_DiskTypesScopedListWarning;
-@class GTLRCompute_DiskTypesScopedListWarningDataItem;
+@class GTLRCompute_DiskTypesScopedList_Warning;
+@class GTLRCompute_DiskTypesScopedList_Warning_Data_Item;
 @class GTLRCompute_Firewall;
-@class GTLRCompute_FirewallAllowedItem;
+@class GTLRCompute_Firewall_Allowed_Item;
 @class GTLRCompute_ForwardingRule;
-@class GTLRCompute_ForwardingRuleAggregatedListItems;
+@class GTLRCompute_ForwardingRuleAggregatedList_Items;
 @class GTLRCompute_ForwardingRulesScopedList;
-@class GTLRCompute_ForwardingRulesScopedListWarning;
-@class GTLRCompute_ForwardingRulesScopedListWarningDataItem;
+@class GTLRCompute_ForwardingRulesScopedList_Warning;
+@class GTLRCompute_ForwardingRulesScopedList_Warning_Data_Item;
 @class GTLRCompute_GuestOsFeature;
 @class GTLRCompute_HealthCheck;
 @class GTLRCompute_HealthCheckReference;
@@ -72,97 +72,97 @@
 @class GTLRCompute_HttpsHealthCheck;
 @class GTLRCompute_HTTPSHealthCheck;
 @class GTLRCompute_Image;
-@class GTLRCompute_ImageRawDisk;
+@class GTLRCompute_Image_RawDisk;
 @class GTLRCompute_Instance;
-@class GTLRCompute_InstanceAggregatedListItems;
+@class GTLRCompute_InstanceAggregatedList_Items;
 @class GTLRCompute_InstanceGroup;
-@class GTLRCompute_InstanceGroupAggregatedListItems;
+@class GTLRCompute_InstanceGroupAggregatedList_Items;
 @class GTLRCompute_InstanceGroupManager;
 @class GTLRCompute_InstanceGroupManagerActionsSummary;
-@class GTLRCompute_InstanceGroupManagerAggregatedListItems;
+@class GTLRCompute_InstanceGroupManagerAggregatedList_Items;
 @class GTLRCompute_InstanceGroupManagersScopedList;
-@class GTLRCompute_InstanceGroupManagersScopedListWarning;
-@class GTLRCompute_InstanceGroupManagersScopedListWarningDataItem;
+@class GTLRCompute_InstanceGroupManagersScopedList_Warning;
+@class GTLRCompute_InstanceGroupManagersScopedList_Warning_Data_Item;
 @class GTLRCompute_InstanceGroupsScopedList;
-@class GTLRCompute_InstanceGroupsScopedListWarning;
-@class GTLRCompute_InstanceGroupsScopedListWarningDataItem;
+@class GTLRCompute_InstanceGroupsScopedList_Warning;
+@class GTLRCompute_InstanceGroupsScopedList_Warning_Data_Item;
 @class GTLRCompute_InstanceProperties;
 @class GTLRCompute_InstanceReference;
 @class GTLRCompute_InstancesScopedList;
-@class GTLRCompute_InstancesScopedListWarning;
-@class GTLRCompute_InstancesScopedListWarningDataItem;
+@class GTLRCompute_InstancesScopedList_Warning;
+@class GTLRCompute_InstancesScopedList_Warning_Data_Item;
 @class GTLRCompute_InstanceTemplate;
 @class GTLRCompute_InstanceWithNamedPorts;
 @class GTLRCompute_MachineType;
-@class GTLRCompute_MachineTypeAggregatedListItems;
-@class GTLRCompute_MachineTypeScratchDisksItem;
+@class GTLRCompute_MachineType_ScratchDisks_Item;
+@class GTLRCompute_MachineTypeAggregatedList_Items;
 @class GTLRCompute_MachineTypesScopedList;
-@class GTLRCompute_MachineTypesScopedListWarning;
-@class GTLRCompute_MachineTypesScopedListWarningDataItem;
+@class GTLRCompute_MachineTypesScopedList_Warning;
+@class GTLRCompute_MachineTypesScopedList_Warning_Data_Item;
 @class GTLRCompute_ManagedInstance;
 @class GTLRCompute_ManagedInstanceLastAttempt;
-@class GTLRCompute_ManagedInstanceLastAttemptErrors;
-@class GTLRCompute_ManagedInstanceLastAttemptErrorsErrorsItem;
+@class GTLRCompute_ManagedInstanceLastAttempt_Errors;
+@class GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item;
 @class GTLRCompute_Metadata;
-@class GTLRCompute_MetadataItemsItem;
+@class GTLRCompute_Metadata_Items_Item;
 @class GTLRCompute_NamedPort;
 @class GTLRCompute_Network;
 @class GTLRCompute_NetworkInterface;
 @class GTLRCompute_Operation;
-@class GTLRCompute_OperationAggregatedListItems;
-@class GTLRCompute_OperationError;
-@class GTLRCompute_OperationErrorErrorsItem;
+@class GTLRCompute_Operation_Error;
+@class GTLRCompute_Operation_Error_Errors_Item;
+@class GTLRCompute_Operation_Warnings_Item;
+@class GTLRCompute_Operation_Warnings_Item_Data_Item;
+@class GTLRCompute_OperationAggregatedList_Items;
 @class GTLRCompute_OperationsScopedList;
-@class GTLRCompute_OperationsScopedListWarning;
-@class GTLRCompute_OperationsScopedListWarningDataItem;
-@class GTLRCompute_OperationWarningsItem;
-@class GTLRCompute_OperationWarningsItemDataItem;
+@class GTLRCompute_OperationsScopedList_Warning;
+@class GTLRCompute_OperationsScopedList_Warning_Data_Item;
 @class GTLRCompute_PathMatcher;
 @class GTLRCompute_PathRule;
 @class GTLRCompute_Quota;
 @class GTLRCompute_Region;
 @class GTLRCompute_Route;
+@class GTLRCompute_Route_Warnings_Item;
+@class GTLRCompute_Route_Warnings_Item_Data_Item;
 @class GTLRCompute_Router;
-@class GTLRCompute_RouterAggregatedListItems;
+@class GTLRCompute_RouterAggregatedList_Items;
 @class GTLRCompute_RouterBgp;
 @class GTLRCompute_RouterBgpPeer;
 @class GTLRCompute_RouterInterface;
 @class GTLRCompute_RoutersScopedList;
-@class GTLRCompute_RoutersScopedListWarning;
-@class GTLRCompute_RoutersScopedListWarningDataItem;
+@class GTLRCompute_RoutersScopedList_Warning;
+@class GTLRCompute_RoutersScopedList_Warning_Data_Item;
 @class GTLRCompute_RouterStatus;
 @class GTLRCompute_RouterStatusBgpPeerStatus;
-@class GTLRCompute_RouteWarningsItem;
-@class GTLRCompute_RouteWarningsItemDataItem;
 @class GTLRCompute_Scheduling;
 @class GTLRCompute_ServiceAccount;
 @class GTLRCompute_Snapshot;
 @class GTLRCompute_SslCertificate;
 @class GTLRCompute_SSLHealthCheck;
 @class GTLRCompute_Subnetwork;
-@class GTLRCompute_SubnetworkAggregatedListItems;
+@class GTLRCompute_SubnetworkAggregatedList_Items;
 @class GTLRCompute_SubnetworksScopedList;
-@class GTLRCompute_SubnetworksScopedListWarning;
-@class GTLRCompute_SubnetworksScopedListWarningDataItem;
+@class GTLRCompute_SubnetworksScopedList_Warning;
+@class GTLRCompute_SubnetworksScopedList_Warning_Data_Item;
 @class GTLRCompute_Tags;
 @class GTLRCompute_TargetHttpProxy;
 @class GTLRCompute_TargetHttpsProxy;
 @class GTLRCompute_TargetInstance;
-@class GTLRCompute_TargetInstanceAggregatedListItems;
+@class GTLRCompute_TargetInstanceAggregatedList_Items;
 @class GTLRCompute_TargetInstancesScopedList;
-@class GTLRCompute_TargetInstancesScopedListWarning;
-@class GTLRCompute_TargetInstancesScopedListWarningDataItem;
+@class GTLRCompute_TargetInstancesScopedList_Warning;
+@class GTLRCompute_TargetInstancesScopedList_Warning_Data_Item;
 @class GTLRCompute_TargetPool;
-@class GTLRCompute_TargetPoolAggregatedListItems;
+@class GTLRCompute_TargetPoolAggregatedList_Items;
 @class GTLRCompute_TargetPoolsScopedList;
-@class GTLRCompute_TargetPoolsScopedListWarning;
-@class GTLRCompute_TargetPoolsScopedListWarningDataItem;
+@class GTLRCompute_TargetPoolsScopedList_Warning;
+@class GTLRCompute_TargetPoolsScopedList_Warning_Data_Item;
 @class GTLRCompute_TargetSslProxy;
 @class GTLRCompute_TargetVpnGateway;
-@class GTLRCompute_TargetVpnGatewayAggregatedListItems;
+@class GTLRCompute_TargetVpnGatewayAggregatedList_Items;
 @class GTLRCompute_TargetVpnGatewaysScopedList;
-@class GTLRCompute_TargetVpnGatewaysScopedListWarning;
-@class GTLRCompute_TargetVpnGatewaysScopedListWarningDataItem;
+@class GTLRCompute_TargetVpnGatewaysScopedList_Warning;
+@class GTLRCompute_TargetVpnGatewaysScopedList_Warning_Data_Item;
 @class GTLRCompute_TCPHealthCheck;
 @class GTLRCompute_TestFailure;
 @class GTLRCompute_UrlMap;
@@ -170,10 +170,10 @@
 @class GTLRCompute_UrlMapValidationResult;
 @class GTLRCompute_UsageExportLocation;
 @class GTLRCompute_VpnTunnel;
-@class GTLRCompute_VpnTunnelAggregatedListItems;
+@class GTLRCompute_VpnTunnelAggregatedList_Items;
 @class GTLRCompute_VpnTunnelsScopedList;
-@class GTLRCompute_VpnTunnelsScopedListWarning;
-@class GTLRCompute_VpnTunnelsScopedListWarningDataItem;
+@class GTLRCompute_VpnTunnelsScopedList_Warning;
+@class GTLRCompute_VpnTunnelsScopedList_Warning_Data_Item;
 @class GTLRCompute_Zone;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -196,40 +196,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_Address_Status_InUse;
 GTLR_EXTERN NSString * const kGTLRCompute_Address_Status_Reserved;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_AddressesScopedListWarning.code
+// GTLRCompute_AddressesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AttachedDisk.interface
@@ -256,40 +256,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_AttachedDisk_Type_Persistent;
 GTLR_EXTERN NSString * const kGTLRCompute_AttachedDisk_Type_Scratch;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_AutoscalersScopedListWarning.code
+// GTLRCompute_AutoscalersScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AutoscalingPolicyCustomMetricUtilization.utilizationTargetType
@@ -350,40 +350,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_Generat
 GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_None;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_BackendServicesScopedListWarning.code
+// GTLRCompute_BackendServicesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_DeprecationStatus.state
@@ -408,76 +408,76 @@ GTLR_EXTERN NSString * const kGTLRCompute_Disk_Status_Ready;
 GTLR_EXTERN NSString * const kGTLRCompute_Disk_Status_Restoring;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_DisksScopedListWarning.code
+// GTLRCompute_DisksScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_DiskTypesScopedListWarning.code
+// GTLRCompute_DiskTypesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ForwardingRule.IPProtocol
@@ -504,40 +504,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Int
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Invalid;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_ForwardingRulesScopedListWarning.code
+// GTLRCompute_ForwardingRulesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_GuestOsFeature.type
@@ -604,10 +604,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Image_Status_Pending;
 GTLR_EXTERN NSString * const kGTLRCompute_Image_Status_Ready;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_ImageRawDisk.containerType
+// GTLRCompute_Image_RawDisk.containerType
 
 /** Value: "TAR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageRawDisk_ContainerType_Tar;
+GTLR_EXTERN NSString * const kGTLRCompute_Image_RawDisk_ContainerType_Tar;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Instance.status
@@ -630,40 +630,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Suspending;
 GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Terminated;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_InstanceGroupManagersScopedListWarning.code
+// GTLRCompute_InstanceGroupManagersScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupsListInstancesRequest.instanceState
@@ -674,76 +674,76 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstancesRequest_Ins
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstancesRequest_InstanceState_Running;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_InstanceGroupsScopedListWarning.code
+// GTLRCompute_InstanceGroupsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_InstancesScopedListWarning.code
+// GTLRCompute_InstancesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceWithNamedPorts.status
@@ -766,40 +766,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Suspendi
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Terminated;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_MachineTypesScopedListWarning.code
+// GTLRCompute_MachineTypesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ManagedInstance.currentAction
@@ -852,76 +852,76 @@ GTLR_EXTERN NSString * const kGTLRCompute_Operation_Status_Pending;
 GTLR_EXTERN NSString * const kGTLRCompute_Operation_Status_Running;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_OperationsScopedListWarning.code
+// GTLRCompute_Operation_Warnings_Item.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_OperationWarningsItem.code
+// GTLRCompute_OperationsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationWarningsItem_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Quota.metric
@@ -1012,40 +1012,76 @@ GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstancesReque
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstancesRequest_InstanceState_Running;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_RoutersScopedListWarning.code
+// GTLRCompute_Route_Warnings_Item.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_RoutersScopedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterStatusBgpPeerStatus.status
@@ -1056,42 +1092,6 @@ GTLR_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Down;
 GTLR_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Unknown;
 /** Value: "UP" */
 GTLR_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Up;
-
-// ----------------------------------------------------------------------------
-// GTLRCompute_RouteWarningsItem.code
-
-/** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_CleanupFailed;
-/** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_DeprecatedResourceUsed;
-/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_DiskSizeLargerThanImageSize;
-/** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_FieldValueOverriden;
-/** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_InjectedKernelsDeprecated;
-/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_NextHopAddressNotAssigned;
-/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_NextHopCannotIpForward;
-/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_NextHopInstanceNotFound;
-/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_NextHopInstanceNotOnNetwork;
-/** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_NextHopNotRunning;
-/** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_NoResultsOnPage;
-/** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_NotCriticalError;
-/** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_RequiredTosAgreement;
-/** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_ResourceNotDeleted;
-/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_SingleInstancePropertyTemplate;
-/** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteWarningsItem_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Scheduling.onHostMaintenance
@@ -1132,40 +1132,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_None;
 GTLR_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_SubnetworksScopedListWarning.code
+// GTLRCompute_SubnetworksScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetInstance.natPolicy
@@ -1174,40 +1174,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedListWarning_Code_Unre
 GTLR_EXTERN NSString * const kGTLRCompute_TargetInstance_NatPolicy_NoNat;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_TargetInstancesScopedListWarning.code
+// GTLRCompute_TargetInstancesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetPool.sessionAffinity
@@ -1224,40 +1224,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_GeneratedCo
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_None;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_TargetPoolsScopedListWarning.code
+// GTLRCompute_TargetPoolsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetSslProxiesSetProxyHeaderRequest.proxyHeader
@@ -1288,40 +1288,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGateway_Status_Failed;
 GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGateway_Status_Ready;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_TargetVpnGatewaysScopedListWarning.code
+// GTLRCompute_TargetVpnGatewaysScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TCPHealthCheck.proxyHeader
@@ -1360,40 +1360,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_Rejected;
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_WaitingForFullConfig;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_VpnTunnelsScopedListWarning.code
+// GTLRCompute_VpnTunnelsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_CleanupFailed;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_DeprecatedResourceUsed;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_DiskSizeLargerThanImageSize;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_FieldValueOverriden;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_InjectedKernelsDeprecated;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopAddressNotAssigned;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopCannotIpForward;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopInstanceNotFound;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopInstanceNotOnNetwork;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopNotRunning;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NoResultsOnPage;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_NotCriticalError;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_RequiredTosAgreement;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_ResourceNotDeleted;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_SingleInstancePropertyTemplate;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedListWarning_Code_Unreachable;
+GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Zone.status
@@ -1523,7 +1523,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** [Output Only] A map of scoped address lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_AddressAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_AddressAggregatedList_Items *items;
 
 /**
  *  [Output Only] Type of resource. Always compute#addressAggregatedList for
@@ -1554,7 +1554,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_AddressAggregatedListItems : GTLRObject
+@interface GTLRCompute_AddressAggregatedList_Items : GTLRObject
 @end
 
 
@@ -1570,7 +1570,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of addresses
  *  when the list is empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_AddressesScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_AddressesScopedList_Warning *warning;
 
 @end
 
@@ -1579,44 +1579,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of addresses
  *  when the list is empty.
  */
-@interface GTLRCompute_AddressesScopedListWarning : GTLRObject
+@interface GTLRCompute_AddressesScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_CleanupFailed Value
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_CleanupFailed Value
  *        "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_NoResultsOnPage Value
- *        "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_AddressesScopedListWarning_Code_Unreachable Value
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_Unreachable Value
  *        "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -1625,7 +1625,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_AddressesScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_AddressesScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -1634,9 +1634,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_AddressesScopedListWarningDataItem
+ *  GTLRCompute_AddressesScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_AddressesScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_AddressesScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -1988,7 +1988,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** A map of scoped autoscaler lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_AutoscalerAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_AutoscalerAggregatedList_Items *items;
 
 /**
  *  [Output Only] Type of resource. Always compute#autoscalerAggregatedList for
@@ -2019,7 +2019,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_AutoscalerAggregatedListItems : GTLRObject
+@interface GTLRCompute_AutoscalerAggregatedList_Items : GTLRObject
 @end
 
 
@@ -2082,7 +2082,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of autoscalers
  *  when the list is empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_AutoscalersScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_AutoscalersScopedList_Warning *warning;
 
 @end
 
@@ -2091,44 +2091,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of autoscalers
  *  when the list is empty.
  */
-@interface GTLRCompute_AutoscalersScopedListWarning : GTLRObject
+@interface GTLRCompute_AutoscalersScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_CleanupFailed Value
- *        "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_NoResultsOnPage
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_NoResultsOnPage
  *        Value "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_AutoscalersScopedListWarning_Code_Unreachable Value
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_Unreachable Value
  *        "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -2137,7 +2137,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_AutoscalersScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_AutoscalersScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -2146,9 +2146,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_AutoscalersScopedListWarningDataItem
+ *  GTLRCompute_AutoscalersScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_AutoscalersScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_AutoscalersScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -2598,7 +2598,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** A map of scoped BackendService lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_BackendServiceAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_BackendServiceAggregatedList_Items *items;
 
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -2620,7 +2620,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        @c -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_BackendServiceAggregatedListItems : GTLRObject
+@interface GTLRCompute_BackendServiceAggregatedList_Items : GTLRObject
 @end
 
 
@@ -2692,7 +2692,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Informational warning which replaces the list of backend services when the
  *  list is empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_BackendServicesScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_BackendServicesScopedList_Warning *warning;
 
 @end
 
@@ -2701,44 +2701,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Informational warning which replaces the list of backend services when the
  *  list is empty.
  */
-@interface GTLRCompute_BackendServicesScopedListWarning : GTLRObject
+@interface GTLRCompute_BackendServicesScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_CleanupFailed
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_CleanupFailed
  *        Value "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_NoResultsOnPage
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_NoResultsOnPage
  *        Value "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_BackendServicesScopedListWarning_Code_Unreachable
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_Unreachable
  *        Value "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -2747,7 +2747,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_BackendServicesScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_BackendServicesScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -2756,9 +2756,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_BackendServicesScopedListWarningDataItem
+ *  GTLRCompute_BackendServicesScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_BackendServicesScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_BackendServicesScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -2781,6 +2781,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  GTLRCompute_CacheInvalidationRule
  */
 @interface GTLRCompute_CacheInvalidationRule : GTLRObject
+
+/**
+ *  If set, this invalidation rule will only apply to requests with a Host
+ *  header matching host.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
 
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -3080,7 +3086,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** [Output Only] A map of scoped disk lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_DiskAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_DiskAggregatedList_Items *items;
 
 /**
  *  [Output Only] Type of resource. Always compute#diskAggregatedList for
@@ -3111,7 +3117,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_DiskAggregatedListItems : GTLRObject
+@interface GTLRCompute_DiskAggregatedList_Items : GTLRObject
 @end
 
 
@@ -3215,7 +3221,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of disks when
  *  the list is empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_DisksScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_DisksScopedList_Warning *warning;
 
 @end
 
@@ -3224,44 +3230,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of disks when
  *  the list is empty.
  */
-@interface GTLRCompute_DisksScopedListWarning : GTLRObject
+@interface GTLRCompute_DisksScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_CleanupFailed Value
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_CleanupFailed Value
  *        "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_FieldValueOverriden Value
- *        "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_NextHopNotRunning Value
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_NextHopNotRunning Value
  *        "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_NoResultsOnPage Value
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_NoResultsOnPage Value
  *        "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_NotCriticalError Value
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_ResourceNotDeleted Value
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_ResourceNotDeleted Value
  *        "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_DisksScopedListWarning_Code_Unreachable Value
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_Unreachable Value
  *        "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -3270,7 +3276,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_DisksScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_DisksScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -3279,9 +3285,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_DisksScopedListWarningDataItem
+ *  GTLRCompute_DisksScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_DisksScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_DisksScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -3376,7 +3382,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** [Output Only] A map of scoped disk type lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_DiskTypeAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_DiskTypeAggregatedList_Items *items;
 
 /** [Output Only] Type of resource. Always compute#diskTypeAggregatedList. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -3404,7 +3410,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_DiskTypeAggregatedListItems : GTLRObject
+@interface GTLRCompute_DiskTypeAggregatedList_Items : GTLRObject
 @end
 
 
@@ -3466,7 +3472,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of disk types
  *  when the list is empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_DiskTypesScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_DiskTypesScopedList_Warning *warning;
 
 @end
 
@@ -3475,44 +3481,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of disk types
  *  when the list is empty.
  */
-@interface GTLRCompute_DiskTypesScopedListWarning : GTLRObject
+@interface GTLRCompute_DiskTypesScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_CleanupFailed Value
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_CleanupFailed Value
  *        "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_NoResultsOnPage Value
- *        "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_DiskTypesScopedListWarning_Code_Unreachable Value
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_Unreachable Value
  *        "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -3521,7 +3527,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_DiskTypesScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_DiskTypesScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -3530,9 +3536,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_DiskTypesScopedListWarningDataItem
+ *  GTLRCompute_DiskTypesScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_DiskTypesScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_DiskTypesScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -3560,7 +3566,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  The list of ALLOW rules specified by this firewall. Each rule specifies a
  *  protocol and port-range tuple that describes a permitted connection.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_FirewallAllowedItem *> *allowed;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Firewall_Allowed_Item *> *allowed;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
@@ -3652,9 +3658,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_FirewallAllowedItem
+ *  GTLRCompute_Firewall_Allowed_Item
  */
-@interface GTLRCompute_FirewallAllowedItem : GTLRObject
+@interface GTLRCompute_Firewall_Allowed_Item : GTLRObject
 
 /**
  *  The IP protocol to which this rule applies. The protocol type is required
@@ -3896,7 +3902,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** A map of scoped forwarding rule lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_ForwardingRuleAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_ForwardingRuleAggregatedList_Items *items;
 
 /**
  *  [Output Only] Type of resource. Always compute#forwardingRuleAggregatedList
@@ -3927,7 +3933,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        @c -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_ForwardingRuleAggregatedListItems : GTLRObject
+@interface GTLRCompute_ForwardingRuleAggregatedList_Items : GTLRObject
 @end
 
 
@@ -3986,7 +3992,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Informational warning which replaces the list of forwarding rules when the
  *  list is empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_ForwardingRulesScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_ForwardingRulesScopedList_Warning *warning;
 
 @end
 
@@ -3995,44 +4001,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Informational warning which replaces the list of forwarding rules when the
  *  list is empty.
  */
-@interface GTLRCompute_ForwardingRulesScopedListWarning : GTLRObject
+@interface GTLRCompute_ForwardingRulesScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_CleanupFailed
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_CleanupFailed
  *        Value "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_NoResultsOnPage
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NoResultsOnPage
  *        Value "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_ForwardingRulesScopedListWarning_Code_Unreachable
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_Unreachable
  *        Value "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -4041,7 +4047,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_ForwardingRulesScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_ForwardingRulesScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -4050,9 +4056,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_ForwardingRulesScopedListWarningDataItem
+ *  GTLRCompute_ForwardingRulesScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_ForwardingRulesScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_ForwardingRulesScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -4172,10 +4178,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, strong, nullable) NSNumber *timeoutSec;
 
 /**
- *  Specifies the type of the healthCheck, either TCP, UDP, SSL, HTTP, HTTPS or
- *  HTTP2. If not specified, the default is TCP. Exactly one of the
- *  protocol-specific health check field must be specified, which must match
- *  type field.
+ *  Specifies the type of the healthCheck, either TCP, SSL, HTTP or HTTPS. If
+ *  not specified, the default is TCP. Exactly one of the protocol-specific
+ *  health check field must be specified, which must match type field.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_HealthCheck_Type_Http Value "HTTP"
@@ -4787,7 +4792,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The parameters of the raw disk image. */
-@property(nonatomic, strong, nullable) GTLRCompute_ImageRawDisk *rawDisk;
+@property(nonatomic, strong, nullable) GTLRCompute_Image_RawDisk *rawDisk;
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -4845,7 +4850,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /**
  *  The parameters of the raw disk image.
  */
-@interface GTLRCompute_ImageRawDisk : GTLRObject
+@interface GTLRCompute_Image_RawDisk : GTLRObject
 
 /**
  *  The format used to encode and transmit the block device, which should be
@@ -4853,7 +4858,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  format. Provided by the client when the disk image is created.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_ImageRawDisk_ContainerType_Tar Value "TAR"
+ *    @arg @c kGTLRCompute_Image_RawDisk_ContainerType_Tar Value "TAR"
  */
 @property(nonatomic, copy, nullable) NSString *containerType;
 
@@ -5073,7 +5078,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** [Output Only] A map of scoped instance lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_InstanceAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceAggregatedList_Items *items;
 
 /**
  *  [Output Only] Type of resource. Always compute#instanceAggregatedList for
@@ -5104,7 +5109,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_InstanceAggregatedListItems : GTLRObject
+@interface GTLRCompute_InstanceAggregatedList_Items : GTLRObject
 @end
 
 
@@ -5223,7 +5228,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** A map of scoped instance group lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupAggregatedList_Items *items;
 
 /**
  *  [Output Only] The resource type, which is always
@@ -5256,7 +5261,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        @c -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_InstanceGroupAggregatedListItems : GTLRObject
+@interface GTLRCompute_InstanceGroupAggregatedList_Items : GTLRObject
 @end
 
 
@@ -5525,7 +5530,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** [Output Only] A map of filtered managed instance group lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerAggregatedList_Items *items;
 
 /**
  *  [Output Only] The resource type, which is always
@@ -5560,7 +5565,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRCompute_InstanceGroupManagerAggregatedListItems : GTLRObject
+@interface GTLRCompute_InstanceGroupManagerAggregatedList_Items : GTLRObject
 @end
 
 
@@ -5676,7 +5681,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] The warning that replaces the list of managed instance groups
  *  when the list is empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagersScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagersScopedList_Warning *warning;
 
 @end
 
@@ -5685,44 +5690,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] The warning that replaces the list of managed instance groups
  *  when the list is empty.
  */
-@interface GTLRCompute_InstanceGroupManagersScopedListWarning : GTLRObject
+@interface GTLRCompute_InstanceGroupManagersScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_CleanupFailed
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_CleanupFailed
  *        Value "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NoResultsOnPage
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NoResultsOnPage
  *        Value "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_InstanceGroupManagersScopedListWarning_Code_Unreachable
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_Unreachable
  *        Value "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -5731,7 +5736,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InstanceGroupManagersScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InstanceGroupManagersScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -5740,9 +5745,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_InstanceGroupManagersScopedListWarningDataItem
+ *  GTLRCompute_InstanceGroupManagersScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_InstanceGroupManagersScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_InstanceGroupManagersScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -5913,7 +5918,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] An informational warning that replaces the list of instance
  *  groups when the list is empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupsScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupsScopedList_Warning *warning;
 
 @end
 
@@ -5922,44 +5927,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] An informational warning that replaces the list of instance
  *  groups when the list is empty.
  */
-@interface GTLRCompute_InstanceGroupsScopedListWarning : GTLRObject
+@interface GTLRCompute_InstanceGroupsScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_CleanupFailed
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_CleanupFailed
  *        Value "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_NoResultsOnPage
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NoResultsOnPage
  *        Value "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_InstanceGroupsScopedListWarning_Code_Unreachable
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_Unreachable
  *        Value "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -5968,7 +5973,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InstanceGroupsScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InstanceGroupsScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -5977,9 +5982,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_InstanceGroupsScopedListWarningDataItem
+ *  GTLRCompute_InstanceGroupsScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_InstanceGroupsScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_InstanceGroupsScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -6190,7 +6195,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of instances
  *  when the list is empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_InstancesScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_InstancesScopedList_Warning *warning;
 
 @end
 
@@ -6199,44 +6204,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of instances
  *  when the list is empty.
  */
-@interface GTLRCompute_InstancesScopedListWarning : GTLRObject
+@interface GTLRCompute_InstancesScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_CleanupFailed Value
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_CleanupFailed Value
  *        "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_NoResultsOnPage Value
- *        "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_InstancesScopedListWarning_Code_Unreachable Value
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_Unreachable Value
  *        "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -6245,7 +6250,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InstancesScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InstancesScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -6254,9 +6259,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_InstancesScopedListWarningDataItem
+ *  GTLRCompute_InstancesScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_InstancesScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_InstancesScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -6561,7 +6566,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** [Output Only] List of extended scratch disks assigned to the instance. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_MachineTypeScratchDisksItem *> *scratchDisks;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_MachineType_ScratchDisks_Item *> *scratchDisks;
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -6578,9 +6583,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_MachineTypeScratchDisksItem
+ *  GTLRCompute_MachineType_ScratchDisks_Item
  */
-@interface GTLRCompute_MachineTypeScratchDisksItem : GTLRObject
+@interface GTLRCompute_MachineType_ScratchDisks_Item : GTLRObject
 
 /**
  *  Size of the scratch disk, defined in GB.
@@ -6606,7 +6611,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** [Output Only] A map of scoped machine type lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_MachineTypeAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_MachineTypeAggregatedList_Items *items;
 
 /**
  *  [Output Only] Type of resource. Always compute#machineTypeAggregatedList for
@@ -6637,7 +6642,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_MachineTypeAggregatedListItems : GTLRObject
+@interface GTLRCompute_MachineTypeAggregatedList_Items : GTLRObject
 @end
 
 
@@ -6700,7 +6705,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] An informational warning that appears when the machine types
  *  list is empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_MachineTypesScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_MachineTypesScopedList_Warning *warning;
 
 @end
 
@@ -6709,44 +6714,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] An informational warning that appears when the machine types
  *  list is empty.
  */
-@interface GTLRCompute_MachineTypesScopedListWarning : GTLRObject
+@interface GTLRCompute_MachineTypesScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_CleanupFailed
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_CleanupFailed
  *        Value "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_NoResultsOnPage
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_NoResultsOnPage
  *        Value "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_MachineTypesScopedListWarning_Code_Unreachable Value
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_Unreachable Value
  *        "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -6755,7 +6760,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_MachineTypesScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_MachineTypesScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -6764,9 +6769,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_MachineTypesScopedListWarningDataItem
+ *  GTLRCompute_MachineTypesScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_MachineTypesScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_MachineTypesScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -6888,7 +6893,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Encountered errors during the last attempt to create or delete
  *  the instance.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_ManagedInstanceLastAttemptErrors *errors;
+@property(nonatomic, strong, nullable) GTLRCompute_ManagedInstanceLastAttempt_Errors *errors;
 
 @end
 
@@ -6897,21 +6902,21 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Encountered errors during the last attempt to create or delete
  *  the instance.
  */
-@interface GTLRCompute_ManagedInstanceLastAttemptErrors : GTLRObject
+@interface GTLRCompute_ManagedInstanceLastAttempt_Errors : GTLRObject
 
 /**
  *  [Output Only] The array of errors encountered while processing this
  *  operation.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_ManagedInstanceLastAttemptErrorsErrorsItem *> *errors;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item *> *errors;
 
 @end
 
 
 /**
- *  GTLRCompute_ManagedInstanceLastAttemptErrorsErrorsItem
+ *  GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item
  */
-@interface GTLRCompute_ManagedInstanceLastAttemptErrorsErrorsItem : GTLRObject
+@interface GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item : GTLRObject
 
 /** [Output Only] The error type identifier for this error. */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -6955,7 +6960,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_MetadataItemsItem *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Metadata_Items_Item *> *items;
 
 /**
  *  [Output Only] Type of the resource. Always compute#metadata for metadata.
@@ -6966,9 +6971,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_MetadataItemsItem
+ *  GTLRCompute_Metadata_Items_Item
  */
-@interface GTLRCompute_MetadataItemsItem : GTLRObject
+@interface GTLRCompute_Metadata_Items_Item : GTLRObject
 
 /**
  *  Key for the metadata entry. Keys must conform to the following regexp:
@@ -7220,7 +7225,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] If errors are generated during processing of the operation,
  *  this field will be populated.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_OperationError *error;
+@property(nonatomic, strong, nullable) GTLRCompute_Operation_Error *error;
 
 /**
  *  [Output Only] If the operation fails, this field contains the HTTP error
@@ -7336,7 +7341,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] If warning messages are generated during processing of the
  *  operation, this field will be populated.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_OperationWarningsItem *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Operation_Warnings_Item *> *warnings;
 
 /**
  *  [Output Only] The URL of the zone where the operation resides. Only
@@ -7353,58 +7358,58 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] If errors are generated during processing of the operation,
  *  this field will be populated.
  */
-@interface GTLRCompute_OperationError : GTLRObject
+@interface GTLRCompute_Operation_Error : GTLRObject
 
 /**
  *  [Output Only] The array of errors encountered while processing this
  *  operation.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_OperationErrorErrorsItem *> *errors;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Operation_Error_Errors_Item *> *errors;
 
 @end
 
 
 /**
- *  GTLRCompute_OperationWarningsItem
+ *  GTLRCompute_Operation_Warnings_Item
  */
-@interface GTLRCompute_OperationWarningsItem : GTLRObject
+@interface GTLRCompute_Operation_Warnings_Item : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_CleanupFailed Value
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_CleanupFailed Value
  *        "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_FieldValueOverriden Value
- *        "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_NextHopNotRunning Value
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_NextHopNotRunning Value
  *        "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_NoResultsOnPage Value
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_NoResultsOnPage Value
  *        "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_NotCriticalError Value
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_RequiredTosAgreement Value
- *        "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_ResourceNotDeleted Value
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_ResourceNotDeleted Value
  *        "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_OperationWarningsItem_Code_Unreachable Value
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_Unreachable Value
  *        "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -7413,7 +7418,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_OperationWarningsItemDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Operation_Warnings_Item_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -7422,9 +7427,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_OperationErrorErrorsItem
+ *  GTLRCompute_Operation_Error_Errors_Item
  */
-@interface GTLRCompute_OperationErrorErrorsItem : GTLRObject
+@interface GTLRCompute_Operation_Error_Errors_Item : GTLRObject
 
 /** [Output Only] The error type identifier for this error. */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -7442,9 +7447,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_OperationWarningsItemDataItem
+ *  GTLRCompute_Operation_Warnings_Item_Data_Item
  */
-@interface GTLRCompute_OperationWarningsItemDataItem : GTLRObject
+@interface GTLRCompute_Operation_Warnings_Item_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -7477,7 +7482,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** [Output Only] A map of scoped operation lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_OperationAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_OperationAggregatedList_Items *items;
 
 /**
  *  [Output Only] Type of resource. Always compute#operationAggregatedList for
@@ -7508,7 +7513,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_OperationAggregatedListItems : GTLRObject
+@interface GTLRCompute_OperationAggregatedList_Items : GTLRObject
 @end
 
 
@@ -7571,7 +7576,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of operations
  *  when the list is empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_OperationsScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_OperationsScopedList_Warning *warning;
 
 @end
 
@@ -7580,44 +7585,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of operations
  *  when the list is empty.
  */
-@interface GTLRCompute_OperationsScopedListWarning : GTLRObject
+@interface GTLRCompute_OperationsScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_CleanupFailed Value
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_CleanupFailed Value
  *        "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_NoResultsOnPage
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_NoResultsOnPage
  *        Value "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_OperationsScopedListWarning_Code_Unreachable Value
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_Unreachable Value
  *        "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -7626,7 +7631,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_OperationsScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_OperationsScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -7635,9 +7640,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_OperationsScopedListWarningDataItem
+ *  GTLRCompute_OperationsScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_OperationsScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_OperationsScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -8383,52 +8388,52 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] If potential misconfigurations are detected for this route,
  *  this field will be populated with warning messages.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouteWarningsItem *> *warnings;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Route_Warnings_Item *> *warnings;
 
 @end
 
 
 /**
- *  GTLRCompute_RouteWarningsItem
+ *  GTLRCompute_Route_Warnings_Item
  */
-@interface GTLRCompute_RouteWarningsItem : GTLRObject
+@interface GTLRCompute_Route_Warnings_Item : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_CleanupFailed Value
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_CleanupFailed Value
  *        "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_DeprecatedResourceUsed Value
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_DeprecatedResourceUsed Value
  *        "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_FieldValueOverriden Value
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_FieldValueOverriden Value
  *        "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_NextHopCannotIpForward Value
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_NextHopCannotIpForward Value
  *        "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_NextHopInstanceNotFound Value
- *        "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_NextHopNotRunning Value
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_NextHopNotRunning Value
  *        "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_NoResultsOnPage Value
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_NoResultsOnPage Value
  *        "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_NotCriticalError Value
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_RequiredTosAgreement Value
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_ResourceNotDeleted Value
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_ResourceNotDeleted Value
  *        "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_RouteWarningsItem_Code_Unreachable Value
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_Unreachable Value
  *        "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -8437,7 +8442,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouteWarningsItemDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Route_Warnings_Item_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -8446,9 +8451,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_RouteWarningsItemDataItem
+ *  GTLRCompute_Route_Warnings_Item_Data_Item
  */
-@interface GTLRCompute_RouteWarningsItemDataItem : GTLRObject
+@interface GTLRCompute_Route_Warnings_Item_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -8593,7 +8598,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** A map of scoped router lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_RouterAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_RouterAggregatedList_Items *items;
 
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -8621,7 +8626,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_RouterAggregatedListItems : GTLRObject
+@interface GTLRCompute_RouterAggregatedList_Items : GTLRObject
 @end
 
 
@@ -8777,7 +8782,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Informational warning which replaces the list of routers when the list is
  *  empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_RoutersScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_RoutersScopedList_Warning *warning;
 
 @end
 
@@ -8786,44 +8791,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Informational warning which replaces the list of routers when the list is
  *  empty.
  */
-@interface GTLRCompute_RoutersScopedListWarning : GTLRObject
+@interface GTLRCompute_RoutersScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_CleanupFailed Value
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_CleanupFailed Value
  *        "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NextHopNotRunning Value
- *        "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NoResultsOnPage Value
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_NoResultsOnPage Value
  *        "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_NotCriticalError Value
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_RoutersScopedListWarning_Code_Unreachable Value
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_Unreachable Value
  *        "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -8832,7 +8837,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RoutersScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RoutersScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -8841,9 +8846,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_RoutersScopedListWarningDataItem
+ *  GTLRCompute_RoutersScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_RoutersScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_RoutersScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -9259,8 +9264,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A write-only private key in PEM format. Only insert RPCs will include this
- *  field.
+ *  A write-only private key in PEM format. Only insert requests will include
+ *  this field.
  */
 @property(nonatomic, copy, nullable) NSString *privateKey;
 
@@ -9445,7 +9450,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** [Output] A map of scoped Subnetwork lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_SubnetworkAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_SubnetworkAggregatedList_Items *items;
 
 /**
  *  [Output Only] Type of resource. Always compute#subnetworkAggregatedList for
@@ -9476,7 +9481,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_SubnetworkAggregatedListItems : GTLRObject
+@interface GTLRCompute_SubnetworkAggregatedList_Items : GTLRObject
 @end
 
 
@@ -9554,7 +9559,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /**
  *  An informational warning that appears when the list of addresses is empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_SubnetworksScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_SubnetworksScopedList_Warning *warning;
 
 @end
 
@@ -9562,44 +9567,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /**
  *  An informational warning that appears when the list of addresses is empty.
  */
-@interface GTLRCompute_SubnetworksScopedListWarning : GTLRObject
+@interface GTLRCompute_SubnetworksScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_CleanupFailed Value
- *        "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_NoResultsOnPage
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_NoResultsOnPage
  *        Value "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_SubnetworksScopedListWarning_Code_Unreachable Value
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_Unreachable Value
  *        "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -9608,7 +9613,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SubnetworksScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SubnetworksScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -9617,9 +9622,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_SubnetworksScopedListWarningDataItem
+ *  GTLRCompute_SubnetworksScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_SubnetworksScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_SubnetworksScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -9985,7 +9990,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** A map of scoped target instance lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_TargetInstanceAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_TargetInstanceAggregatedList_Items *items;
 
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -10013,7 +10018,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        @c -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_TargetInstanceAggregatedListItems : GTLRObject
+@interface GTLRCompute_TargetInstanceAggregatedList_Items : GTLRObject
 @end
 
 
@@ -10073,7 +10078,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Informational warning which replaces the list of addresses when the list is
  *  empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_TargetInstancesScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_TargetInstancesScopedList_Warning *warning;
 
 @end
 
@@ -10082,44 +10087,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Informational warning which replaces the list of addresses when the list is
  *  empty.
  */
-@interface GTLRCompute_TargetInstancesScopedListWarning : GTLRObject
+@interface GTLRCompute_TargetInstancesScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_CleanupFailed
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_CleanupFailed
  *        Value "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_NoResultsOnPage
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_NoResultsOnPage
  *        Value "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_TargetInstancesScopedListWarning_Code_Unreachable
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_Unreachable
  *        Value "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -10128,7 +10133,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetInstancesScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetInstancesScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -10137,9 +10142,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_TargetInstancesScopedListWarningDataItem
+ *  GTLRCompute_TargetInstancesScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_TargetInstancesScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_TargetInstancesScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -10293,7 +10298,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** [Output Only] A map of scoped target pool lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_TargetPoolAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_TargetPoolAggregatedList_Items *items;
 
 /**
  *  [Output Only] Type of resource. Always compute#targetPoolAggregatedList for
@@ -10324,7 +10329,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_TargetPoolAggregatedListItems : GTLRObject
+@interface GTLRCompute_TargetPoolAggregatedList_Items : GTLRObject
 @end
 
 
@@ -10460,7 +10465,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Informational warning which replaces the list of addresses when the list is
  *  empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_TargetPoolsScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_TargetPoolsScopedList_Warning *warning;
 
 @end
 
@@ -10469,44 +10474,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Informational warning which replaces the list of addresses when the list is
  *  empty.
  */
-@interface GTLRCompute_TargetPoolsScopedListWarning : GTLRObject
+@interface GTLRCompute_TargetPoolsScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_CleanupFailed Value
- *        "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_NoResultsOnPage
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_NoResultsOnPage
  *        Value "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_TargetPoolsScopedListWarning_Code_Unreachable Value
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_Unreachable Value
  *        "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -10515,7 +10520,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetPoolsScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetPoolsScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -10524,9 +10529,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_TargetPoolsScopedListWarningDataItem
+ *  GTLRCompute_TargetPoolsScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_TargetPoolsScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_TargetPoolsScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -10808,7 +10813,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** A map of scoped target vpn gateway lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_TargetVpnGatewayAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_TargetVpnGatewayAggregatedList_Items *items;
 
 /**
  *  [Output Only] Type of resource. Always compute#targetVpnGateway for target
@@ -10840,7 +10845,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        then fetch them; or @c -additionalProperties to fetch them all at
  *        once.
  */
-@interface GTLRCompute_TargetVpnGatewayAggregatedListItems : GTLRObject
+@interface GTLRCompute_TargetVpnGatewayAggregatedList_Items : GTLRObject
 @end
 
 
@@ -10903,7 +10908,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of addresses
  *  when the list is empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_TargetVpnGatewaysScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_TargetVpnGatewaysScopedList_Warning *warning;
 
 @end
 
@@ -10912,44 +10917,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Informational warning which replaces the list of addresses
  *  when the list is empty.
  */
-@interface GTLRCompute_TargetVpnGatewaysScopedListWarning : GTLRObject
+@interface GTLRCompute_TargetVpnGatewaysScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_CleanupFailed
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_CleanupFailed
  *        Value "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NoResultsOnPage
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NoResultsOnPage
  *        Value "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedListWarning_Code_Unreachable
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_Unreachable
  *        Value "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -10958,7 +10963,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetVpnGatewaysScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetVpnGatewaysScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -10967,9 +10972,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_TargetVpnGatewaysScopedListWarningDataItem
+ *  GTLRCompute_TargetVpnGatewaysScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_TargetVpnGatewaysScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_TargetVpnGatewaysScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -11413,7 +11418,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** [Output Only] A map of scoped vpn tunnel lists. */
-@property(nonatomic, strong, nullable) GTLRCompute_VpnTunnelAggregatedListItems *items;
+@property(nonatomic, strong, nullable) GTLRCompute_VpnTunnelAggregatedList_Items *items;
 
 /**
  *  [Output Only] Type of resource. Always compute#vpnTunnel for VPN tunnels.
@@ -11443,7 +11448,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCompute_VpnTunnelAggregatedListItems : GTLRObject
+@interface GTLRCompute_VpnTunnelAggregatedList_Items : GTLRObject
 @end
 
 
@@ -11505,7 +11510,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Informational warning which replaces the list of addresses when the list is
  *  empty.
  */
-@property(nonatomic, strong, nullable) GTLRCompute_VpnTunnelsScopedListWarning *warning;
+@property(nonatomic, strong, nullable) GTLRCompute_VpnTunnelsScopedList_Warning *warning;
 
 @end
 
@@ -11514,44 +11519,44 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Informational warning which replaces the list of addresses when the list is
  *  empty.
  */
-@interface GTLRCompute_VpnTunnelsScopedListWarning : GTLRObject
+@interface GTLRCompute_VpnTunnelsScopedList_Warning : GTLRObject
 
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_CleanupFailed Value
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_CleanupFailed Value
  *        "CLEANUP_FAILED"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_DeprecatedResourceUsed
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DeprecatedResourceUsed
  *        Value "DEPRECATED_RESOURCE_USED"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_DiskSizeLargerThanImageSize
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DiskSizeLargerThanImageSize
  *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_FieldValueOverriden
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_FieldValueOverriden
  *        Value "FIELD_VALUE_OVERRIDEN"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_InjectedKernelsDeprecated
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopAddressNotAssigned
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopAddressNotAssigned
  *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopCannotIpForward
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopCannotIpForward
  *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopInstanceNotFound
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopInstanceNotFound
  *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopInstanceNotOnNetwork
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopInstanceNotOnNetwork
  *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_NextHopNotRunning
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopNotRunning
  *        Value "NEXT_HOP_NOT_RUNNING"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_NoResultsOnPage
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NoResultsOnPage
  *        Value "NO_RESULTS_ON_PAGE"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_NotCriticalError
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_RequiredTosAgreement
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_ResourceNotDeleted
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ResourceNotDeleted
  *        Value "RESOURCE_NOT_DELETED"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_SingleInstancePropertyTemplate
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_SingleInstancePropertyTemplate
  *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
- *    @arg @c kGTLRCompute_VpnTunnelsScopedListWarning_Code_Unreachable Value
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_Unreachable Value
  *        "UNREACHABLE"
  */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -11560,7 +11565,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  [Output Only] Metadata about this warning in key: value format. For example:
  *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VpnTunnelsScopedListWarningDataItem *> *data;
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VpnTunnelsScopedList_Warning_Data_Item *> *data;
 
 /** [Output Only] A human-readable description of the warning code. */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -11569,9 +11574,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  GTLRCompute_VpnTunnelsScopedListWarningDataItem
+ *  GTLRCompute_VpnTunnelsScopedList_Warning_Data_Item
  */
-@interface GTLRCompute_VpnTunnelsScopedListWarningDataItem : GTLRObject
+@interface GTLRCompute_VpnTunnelsScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.

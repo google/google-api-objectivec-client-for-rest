@@ -399,10 +399,10 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown = @"V
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudNaturalLanguage_EntityMetadata
+//   GTLRCloudNaturalLanguage_Entity_Metadata
 //
 
-@implementation GTLRCloudNaturalLanguage_EntityMetadata
+@implementation GTLRCloudNaturalLanguage_Entity_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -477,7 +477,7 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown = @"V
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRCloudNaturalLanguage_StatusDetailsItem class]
+    @"details" : [GTLRCloudNaturalLanguage_Status_Details_Item class]
   };
   return map;
 }
@@ -487,10 +487,10 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown = @"V
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudNaturalLanguage_StatusDetailsItem
+//   GTLRCloudNaturalLanguage_Status_Details_Item
 //
 
-@implementation GTLRCloudNaturalLanguage_StatusDetailsItem
+@implementation GTLRCloudNaturalLanguage_Status_Details_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

@@ -25,7 +25,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRPrediction_AnalyzeErrorsItem class]
+    @"errors" : [GTLRPrediction_Analyze_Errors_Item class]
   };
   return map;
 }
@@ -35,15 +35,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeDataDescription
+//   GTLRPrediction_Analyze_DataDescription
 //
 
-@implementation GTLRPrediction_AnalyzeDataDescription
+@implementation GTLRPrediction_Analyze_DataDescription
 @dynamic features, outputFeature;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"features" : [GTLRPrediction_AnalyzeDataDescriptionFeaturesItem class]
+    @"features" : [GTLRPrediction_Analyze_DataDescription_Features_Item class]
   };
   return map;
 }
@@ -53,10 +53,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeErrorsItem
+//   GTLRPrediction_Analyze_Errors_Item
 //
 
-@implementation GTLRPrediction_AnalyzeErrorsItem
+@implementation GTLRPrediction_Analyze_Errors_Item
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -67,35 +67,35 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeModelDescription
+//   GTLRPrediction_Analyze_ModelDescription
 //
 
-@implementation GTLRPrediction_AnalyzeModelDescription
+@implementation GTLRPrediction_Analyze_ModelDescription
 @dynamic confusionMatrix, confusionMatrixRowTotals, modelinfo;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeDataDescriptionFeaturesItem
+//   GTLRPrediction_Analyze_DataDescription_Features_Item
 //
 
-@implementation GTLRPrediction_AnalyzeDataDescriptionFeaturesItem
+@implementation GTLRPrediction_Analyze_DataDescription_Features_Item
 @dynamic categorical, index, numeric, text;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeDataDescriptionOutputFeature
+//   GTLRPrediction_Analyze_DataDescription_OutputFeature
 //
 
-@implementation GTLRPrediction_AnalyzeDataDescriptionOutputFeature
+@implementation GTLRPrediction_Analyze_DataDescription_OutputFeature
 @dynamic numeric, text;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"text" : [GTLRPrediction_AnalyzeDataDescriptionOutputFeatureTextItem class]
+    @"text" : [GTLRPrediction_Analyze_DataDescription_OutputFeature_Text_Item class]
   };
   return map;
 }
@@ -105,13 +105,13 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeModelDescriptionConfusionMatrix
+//   GTLRPrediction_Analyze_ModelDescription_ConfusionMatrix
 //
 
-@implementation GTLRPrediction_AnalyzeModelDescriptionConfusionMatrix
+@implementation GTLRPrediction_Analyze_ModelDescription_ConfusionMatrix
 
 + (Class)classForAdditionalProperties {
-  return [GTLRPrediction_AnalyzeModelDescriptionConfusionMatrixConfusionMatrix class];
+  return [GTLRPrediction_Analyze_ModelDescription_ConfusionMatrix_ConfusionMatrix class];
 }
 
 @end
@@ -119,10 +119,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeModelDescriptionConfusionMatrixRowTotals
+//   GTLRPrediction_Analyze_ModelDescription_ConfusionMatrixRowTotals
 //
 
-@implementation GTLRPrediction_AnalyzeModelDescriptionConfusionMatrixRowTotals
+@implementation GTLRPrediction_Analyze_ModelDescription_ConfusionMatrixRowTotals
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -133,15 +133,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeDataDescriptionFeaturesItemCategorical
+//   GTLRPrediction_Analyze_DataDescription_Features_Item_Categorical
 //
 
-@implementation GTLRPrediction_AnalyzeDataDescriptionFeaturesItemCategorical
+@implementation GTLRPrediction_Analyze_DataDescription_Features_Item_Categorical
 @dynamic count, values;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"values" : [GTLRPrediction_AnalyzeDataDescriptionFeaturesItemCategoricalValuesItem class]
+    @"values" : [GTLRPrediction_Analyze_DataDescription_Features_Item_Categorical_Values_Item class]
   };
   return map;
 }
@@ -151,50 +151,50 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeDataDescriptionFeaturesItemNumeric
+//   GTLRPrediction_Analyze_DataDescription_Features_Item_Numeric
 //
 
-@implementation GTLRPrediction_AnalyzeDataDescriptionFeaturesItemNumeric
+@implementation GTLRPrediction_Analyze_DataDescription_Features_Item_Numeric
 @dynamic count, mean, variance;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeDataDescriptionFeaturesItemText
+//   GTLRPrediction_Analyze_DataDescription_Features_Item_Text
 //
 
-@implementation GTLRPrediction_AnalyzeDataDescriptionFeaturesItemText
+@implementation GTLRPrediction_Analyze_DataDescription_Features_Item_Text
 @dynamic count;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeDataDescriptionOutputFeatureNumeric
+//   GTLRPrediction_Analyze_DataDescription_OutputFeature_Numeric
 //
 
-@implementation GTLRPrediction_AnalyzeDataDescriptionOutputFeatureNumeric
+@implementation GTLRPrediction_Analyze_DataDescription_OutputFeature_Numeric
 @dynamic count, mean, variance;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeDataDescriptionOutputFeatureTextItem
+//   GTLRPrediction_Analyze_DataDescription_OutputFeature_Text_Item
 //
 
-@implementation GTLRPrediction_AnalyzeDataDescriptionOutputFeatureTextItem
+@implementation GTLRPrediction_Analyze_DataDescription_OutputFeature_Text_Item
 @dynamic count, value;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeModelDescriptionConfusionMatrixConfusionMatrix
+//   GTLRPrediction_Analyze_ModelDescription_ConfusionMatrix_ConfusionMatrix
 //
 
-@implementation GTLRPrediction_AnalyzeModelDescriptionConfusionMatrixConfusionMatrix
+@implementation GTLRPrediction_Analyze_ModelDescription_ConfusionMatrix_ConfusionMatrix
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -205,10 +205,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_AnalyzeDataDescriptionFeaturesItemCategoricalValuesItem
+//   GTLRPrediction_Analyze_DataDescription_Features_Item_Categorical_Values_Item
 //
 
-@implementation GTLRPrediction_AnalyzeDataDescriptionFeaturesItemCategoricalValuesItem
+@implementation GTLRPrediction_Analyze_DataDescription_Features_Item_Categorical_Values_Item
 @dynamic count, value;
 @end
 
@@ -225,10 +225,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_InputInput
+//   GTLRPrediction_Input_Input
 //
 
-@implementation GTLRPrediction_InputInput
+@implementation GTLRPrediction_Input_Input
 @dynamic csvInstance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -257,8 +257,8 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"trainingInstances" : [GTLRPrediction_InsertTrainingInstancesItem class],
-    @"utility" : [GTLRPrediction_InsertUtilityItem class]
+    @"trainingInstances" : [GTLRPrediction_Insert_TrainingInstances_Item class],
+    @"utility" : [GTLRPrediction_Insert_Utility_Item class]
   };
   return map;
 }
@@ -268,10 +268,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_InsertTrainingInstancesItem
+//   GTLRPrediction_Insert_TrainingInstances_Item
 //
 
-@implementation GTLRPrediction_InsertTrainingInstancesItem
+@implementation GTLRPrediction_Insert_TrainingInstances_Item
 @dynamic csvInstance, output;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -286,10 +286,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_InsertUtilityItem
+//   GTLRPrediction_Insert_Utility_Item
 //
 
-@implementation GTLRPrediction_InsertUtilityItem
+@implementation GTLRPrediction_Insert_Utility_Item
 
 + (Class)classForAdditionalProperties {
   return [NSNumber class];
@@ -317,10 +317,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_Insert2ModelInfo
+//   GTLRPrediction_Insert2_ModelInfo
 //
 
-@implementation GTLRPrediction_Insert2ModelInfo
+@implementation GTLRPrediction_Insert2_ModelInfo
 @dynamic classificationAccuracy, classWeightedAccuracy, meanSquaredError,
          modelType, numberInstances, numberLabels;
 @end
@@ -358,7 +358,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"outputMulti" : [GTLRPrediction_OutputOutputMultiItem class]
+    @"outputMulti" : [GTLRPrediction_Output_OutputMulti_Item class]
   };
   return map;
 }
@@ -368,10 +368,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPrediction_OutputOutputMultiItem
+//   GTLRPrediction_Output_OutputMulti_Item
 //
 
-@implementation GTLRPrediction_OutputOutputMultiItem
+@implementation GTLRPrediction_Output_OutputMulti_Item
 @dynamic label, score;
 @end
 

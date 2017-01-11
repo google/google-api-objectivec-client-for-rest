@@ -11,9 +11,10 @@
 #import "GTLRIdentityToolkit.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeIdentityToolkitFirebase = @"https://www.googleapis.com/auth/firebase";
+NSString * const kGTLRAuthScopeIdentityToolkitCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeIdentityToolkitFirebase      = @"https://www.googleapis.com/auth/firebase";
 
 // ----------------------------------------------------------------------------
 //   GTLRIdentityToolkitService

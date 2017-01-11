@@ -26,15 +26,15 @@
 @class GTLRCloudBuild_FileHashes;
 @class GTLRCloudBuild_Hash;
 @class GTLRCloudBuild_Operation;
-@class GTLRCloudBuild_OperationMetadata;
-@class GTLRCloudBuild_OperationResponse;
+@class GTLRCloudBuild_Operation_Metadata;
+@class GTLRCloudBuild_Operation_Response;
 @class GTLRCloudBuild_RepoSource;
 @class GTLRCloudBuild_Results;
 @class GTLRCloudBuild_Source;
 @class GTLRCloudBuild_SourceProvenance;
-@class GTLRCloudBuild_SourceProvenanceFileHashes;
+@class GTLRCloudBuild_SourceProvenance_FileHashes;
 @class GTLRCloudBuild_Status;
-@class GTLRCloudBuild_StatusDetailsItem;
+@class GTLRCloudBuild_Status_Details_Item;
 @class GTLRCloudBuild_StorageSource;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -69,12 +69,6 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_InternalError;
  *  Value: "QUEUED"
  */
 GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Queued;
-/**
- *  Build has been received and is being queued.
- *
- *  Value: "QUEUING"
- */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Queuing;
 /**
  *  Status of the build is unknown.
  *
@@ -189,8 +183,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 /**
  *  A list of images to be pushed upon the successful completion of all build
  *  steps.
- *  The images will be pushed using the builder
- *  service account's credentials.
+ *  The images will be pushed using the builder service account's credentials.
  *  The digests of the pushed images will be stored in the Build resource's
  *  results field.
  *  If any of the images fail to be pushed, the build is marked FAILURE.
@@ -235,7 +228,10 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_SourceProvenance *sourceProvenance;
 
-/** Time at which execution of the build was started. */
+/**
+ *  Time at which execution of the build was started.
+ *  \@OutputOnly
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
@@ -251,8 +247,6 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *        internal cause. (Value: "INTERNAL_ERROR")
  *    @arg @c kGTLRCloudBuild_Build_Status_Queued Build is queued; work has not
  *        yet begun. (Value: "QUEUED")
- *    @arg @c kGTLRCloudBuild_Build_Status_Queuing Build has been received and
- *        is being queued. (Value: "QUEUING")
  *    @arg @c kGTLRCloudBuild_Build_Status_StatusUnknown Status of the build is
  *        unknown. (Value: "STATUS_UNKNOWN")
  *    @arg @c kGTLRCloudBuild_Build_Status_Success Build finished successfully.
@@ -338,6 +332,12 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @property(nonatomic, copy, nullable) NSString *dir;
 
 /**
+ *  Optional entrypoint to be used instead of the build step image's default
+ *  If unset, the image's default will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *entrypoint;
+
+/**
  *  A list of environment variable definitions to be used when running a step.
  *  The elements are of the form "KEY=VALUE" for the environment variable "KEY"
  *  being given the value "VALUE".
@@ -354,10 +354,9 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 /**
  *  The name of the container image that will run this particular build step.
- *  If the image is already available in the host's
- *  Docker daemon's cache, it will be run directly. If not, the host will
- *  attempt to pull the image first, using the builder service account's
- *  credentials if necessary.
+ *  If the image is already available in the host's Docker daemon's cache, it
+ *  will be run directly. If not, the host will attempt to pull the image
+ *  first, using the builder service account's credentials if necessary.
  *  The Docker daemon's cache will already have the latest versions of all of
  *  the officially supported build steps
  *  (https://github.com/GoogleCloudPlatform/cloud-builders). The Docker daemon
@@ -601,7 +600,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  Some services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_OperationMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
@@ -620,7 +619,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  is `TakeSnapshot()`, the inferred response type is
  *  `TakeSnapshotResponse`.
  */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_OperationResponse *response;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Operation_Response *response;
 
 @end
 
@@ -636,7 +635,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRCloudBuild_OperationMetadata : GTLRObject
+@interface GTLRCloudBuild_Operation_Metadata : GTLRObject
 @end
 
 
@@ -655,7 +654,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRCloudBuild_OperationResponse : GTLRObject
+@interface GTLRCloudBuild_Operation_Response : GTLRObject
 @end
 
 
@@ -736,7 +735,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  (.tar.gz), the FileHash will be for the single path to that file.
  *  \@OutputOnly
  */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_SourceProvenanceFileHashes *fileHashes;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_SourceProvenance_FileHashes *fileHashes;
 
 /**
  *  A copy of the build's source.repo_source, if exists, with any
@@ -768,7 +767,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCloudBuild_SourceProvenanceFileHashes : GTLRObject
+@interface GTLRCloudBuild_SourceProvenance_FileHashes : GTLRObject
 @end
 
 
@@ -830,7 +829,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  A list of messages that carry the error details. There will be a
  *  common set of message types for APIs to use.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Status_Details_Item *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
@@ -843,14 +842,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 
 /**
- *  GTLRCloudBuild_StatusDetailsItem
+ *  GTLRCloudBuild_Status_Details_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRCloudBuild_StatusDetailsItem : GTLRObject
+@interface GTLRCloudBuild_Status_Details_Item : GTLRObject
 @end
 
 

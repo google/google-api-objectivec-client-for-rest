@@ -39,22 +39,22 @@ NSString * const kGTLRCloudUserAccounts_Operation_Status_Done  = @"DONE";
 NSString * const kGTLRCloudUserAccounts_Operation_Status_Pending = @"PENDING";
 NSString * const kGTLRCloudUserAccounts_Operation_Status_Running = @"RUNNING";
 
-// GTLRCloudUserAccounts_OperationWarningsItem.code
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_CleanupFailed = @"CLEANUP_FAILED";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
-NSString * const kGTLRCloudUserAccounts_OperationWarningsItem_Code_Unreachable = @"UNREACHABLE";
+// GTLRCloudUserAccounts_Operation_Warnings_Item.code
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCloudUserAccounts_Operation_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCloudUserAccounts_Rule.action
 NSString * const kGTLRCloudUserAccounts_Rule_Action_Allow      = @"ALLOW";
@@ -331,7 +331,7 @@ NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction   = @"NO_ACTION";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"warnings" : [GTLRCloudUserAccounts_OperationWarningsItem class]
+    @"warnings" : [GTLRCloudUserAccounts_Operation_Warnings_Item class]
   };
   return map;
 }
@@ -341,15 +341,15 @@ NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction   = @"NO_ACTION";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudUserAccounts_OperationError
+//   GTLRCloudUserAccounts_Operation_Error
 //
 
-@implementation GTLRCloudUserAccounts_OperationError
+@implementation GTLRCloudUserAccounts_Operation_Error
 @dynamic errors;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRCloudUserAccounts_OperationErrorErrorsItem class]
+    @"errors" : [GTLRCloudUserAccounts_Operation_Error_Errors_Item class]
   };
   return map;
 }
@@ -359,15 +359,15 @@ NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction   = @"NO_ACTION";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudUserAccounts_OperationWarningsItem
+//   GTLRCloudUserAccounts_Operation_Warnings_Item
 //
 
-@implementation GTLRCloudUserAccounts_OperationWarningsItem
+@implementation GTLRCloudUserAccounts_Operation_Warnings_Item
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRCloudUserAccounts_OperationWarningsItemDataItem class]
+    @"data" : [GTLRCloudUserAccounts_Operation_Warnings_Item_Data_Item class]
   };
   return map;
 }
@@ -377,20 +377,20 @@ NSString * const kGTLRCloudUserAccounts_Rule_Action_NoAction   = @"NO_ACTION";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudUserAccounts_OperationErrorErrorsItem
+//   GTLRCloudUserAccounts_Operation_Error_Errors_Item
 //
 
-@implementation GTLRCloudUserAccounts_OperationErrorErrorsItem
+@implementation GTLRCloudUserAccounts_Operation_Error_Errors_Item
 @dynamic code, location, message;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudUserAccounts_OperationWarningsItemDataItem
+//   GTLRCloudUserAccounts_Operation_Warnings_Item_Data_Item
 //
 
-@implementation GTLRCloudUserAccounts_OperationWarningsItemDataItem
+@implementation GTLRCloudUserAccounts_Operation_Warnings_Item_Data_Item
 @dynamic key, value;
 @end
 

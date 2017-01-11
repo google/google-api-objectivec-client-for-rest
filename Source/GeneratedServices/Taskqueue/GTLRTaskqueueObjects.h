@@ -19,8 +19,8 @@
 #endif
 
 @class GTLRTaskqueue_Task;
-@class GTLRTaskqueue_TaskQueueAcl;
-@class GTLRTaskqueue_TaskQueueStats;
+@class GTLRTaskqueue_TaskQueue_Acl;
+@class GTLRTaskqueue_TaskQueue_Stats;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTaskqueue_TaskQueue : GTLRObject
 
 /** ACLs that are applicable to this TaskQueue object. */
-@property(nonatomic, strong, nullable) GTLRTaskqueue_TaskQueueAcl *acl;
+@property(nonatomic, strong, nullable) GTLRTaskqueue_TaskQueue_Acl *acl;
 
 /**
  *  Name of the taskqueue.
@@ -106,7 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *maxLeases;
 
 /** Statistics for the TaskQueue object in question. */
-@property(nonatomic, strong, nullable) GTLRTaskqueue_TaskQueueStats *stats;
+@property(nonatomic, strong, nullable) GTLRTaskqueue_TaskQueue_Stats *stats;
 
 @end
 
@@ -114,7 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  ACLs that are applicable to this TaskQueue object.
  */
-@interface GTLRTaskqueue_TaskQueueAcl : GTLRObject
+@interface GTLRTaskqueue_TaskQueue_Acl : GTLRObject
 
 /**
  *  Email addresses of users who are "admins" of the TaskQueue. This means they
@@ -140,7 +140,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Statistics for the TaskQueue object in question.
  */
-@interface GTLRTaskqueue_TaskQueueStats : GTLRObject
+@interface GTLRTaskqueue_TaskQueue_Stats : GTLRObject
 
 /**
  *  Number of tasks leased in the last hour.

@@ -134,10 +134,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeSeller_CustomChannelTargetingInfo
+//   GTLRAdExchangeSeller_CustomChannel_TargetingInfo
 //
 
-@implementation GTLRAdExchangeSeller_CustomChannelTargetingInfo
+@implementation GTLRAdExchangeSeller_CustomChannel_TargetingInfo
 @dynamic adsAppearOn, descriptionProperty, location, siteLanguage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -232,7 +232,7 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"averages" : [NSString class],
-    @"headers" : [GTLRAdExchangeSeller_ReportHeadersItem class],
+    @"headers" : [GTLRAdExchangeSeller_Report_Headers_Item class],
     @"rows" : [NSString class],
     @"totals" : [NSString class],
     @"warnings" : [NSString class]
@@ -245,10 +245,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeSeller_ReportHeadersItem
+//   GTLRAdExchangeSeller_Report_Headers_Item
 //
 
-@implementation GTLRAdExchangeSeller_ReportHeadersItem
+@implementation GTLRAdExchangeSeller_Report_Headers_Item
 @dynamic currency, name, type;
 @end
 

@@ -25,17 +25,17 @@
 @class GTLRServiceControl_ExponentialBuckets;
 @class GTLRServiceControl_LinearBuckets;
 @class GTLRServiceControl_LogEntry;
-@class GTLRServiceControl_LogEntryLabels;
-@class GTLRServiceControl_LogEntryProtoPayload;
-@class GTLRServiceControl_LogEntryStructPayload;
+@class GTLRServiceControl_LogEntry_Labels;
+@class GTLRServiceControl_LogEntry_ProtoPayload;
+@class GTLRServiceControl_LogEntry_StructPayload;
 @class GTLRServiceControl_MetricValue;
-@class GTLRServiceControl_MetricValueLabels;
+@class GTLRServiceControl_MetricValue_Labels;
 @class GTLRServiceControl_MetricValueSet;
 @class GTLRServiceControl_Operation;
-@class GTLRServiceControl_OperationLabels;
+@class GTLRServiceControl_Operation_Labels;
 @class GTLRServiceControl_ReportError;
 @class GTLRServiceControl_Status;
-@class GTLRServiceControl_StatusDetailsItem;
+@class GTLRServiceControl_Status_Details_Item;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -534,7 +534,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  A set of user-defined (key, value) data that provides additional
  *  information about the log entry.
  */
-@property(nonatomic, strong, nullable) GTLRServiceControl_LogEntryLabels *labels;
+@property(nonatomic, strong, nullable) GTLRServiceControl_LogEntry_Labels *labels;
 
 /**
  *  Required. The log to which this log entry belongs. Examples: `"syslog"`,
@@ -547,7 +547,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  expressed as a JSON object. You can only pass `protoPayload`
  *  values that belong to a set of approved types.
  */
-@property(nonatomic, strong, nullable) GTLRServiceControl_LogEntryProtoPayload *protoPayload;
+@property(nonatomic, strong, nullable) GTLRServiceControl_LogEntry_ProtoPayload *protoPayload;
 
 /**
  *  The severity of the log entry. The default value is
@@ -580,7 +580,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  The log entry payload, represented as a structure that
  *  is expressed as a JSON object.
  */
-@property(nonatomic, strong, nullable) GTLRServiceControl_LogEntryStructPayload *structPayload;
+@property(nonatomic, strong, nullable) GTLRServiceControl_LogEntry_StructPayload *structPayload;
 
 /** The log entry payload, represented as a Unicode string (UTF-8). */
 @property(nonatomic, copy, nullable) NSString *textPayload;
@@ -603,7 +603,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRServiceControl_LogEntryLabels : GTLRObject
+@interface GTLRServiceControl_LogEntry_Labels : GTLRObject
 @end
 
 
@@ -617,7 +617,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRServiceControl_LogEntryProtoPayload : GTLRObject
+@interface GTLRServiceControl_LogEntry_ProtoPayload : GTLRObject
 @end
 
 
@@ -630,7 +630,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRServiceControl_LogEntryStructPayload : GTLRObject
+@interface GTLRServiceControl_LogEntry_StructPayload : GTLRObject
 @end
 
 
@@ -674,7 +674,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  See comments on google.api.servicecontrol.v1.Operation.labels for
  *  the overriding relationship.
  */
-@property(nonatomic, strong, nullable) GTLRServiceControl_MetricValueLabels *labels;
+@property(nonatomic, strong, nullable) GTLRServiceControl_MetricValue_Labels *labels;
 
 /**
  *  The start of the time period over which this metric value's measurement
@@ -700,7 +700,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRServiceControl_MetricValueLabels : GTLRObject
+@interface GTLRServiceControl_MetricValue_Labels : GTLRObject
 @end
 
 
@@ -775,7 +775,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  - `servicecontrol.googleapis.com/platform` describing the platform
  *  where the API is served (e.g. GAE, GCE, GKE).
  */
-@property(nonatomic, strong, nullable) GTLRServiceControl_OperationLabels *labels;
+@property(nonatomic, strong, nullable) GTLRServiceControl_Operation_Labels *labels;
 
 /** Represents information to be logged. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_LogEntry *> *logEntries;
@@ -835,7 +835,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRServiceControl_OperationLabels : GTLRObject
+@interface GTLRServiceControl_Operation_Labels : GTLRObject
 @end
 
 
@@ -967,7 +967,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  A list of messages that carry the error details. There will be a
  *  common set of message types for APIs to use.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_Status_Details_Item *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
@@ -980,14 +980,14 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
 
 
 /**
- *  GTLRServiceControl_StatusDetailsItem
+ *  GTLRServiceControl_Status_Details_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRServiceControl_StatusDetailsItem : GTLRObject
+@interface GTLRServiceControl_Status_Details_Item : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

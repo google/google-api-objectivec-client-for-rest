@@ -117,7 +117,7 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"averages" : [NSString class],
-    @"headers" : [GTLRAdSense_AdsenseReportsGenerateResponseHeadersItem class],
+    @"headers" : [GTLRAdSense_AdsenseReportsGenerateResponse_Headers_Item class],
     @"rows" : [NSString class],
     @"totals" : [NSString class],
     @"warnings" : [NSString class]
@@ -130,10 +130,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSense_AdsenseReportsGenerateResponseHeadersItem
+//   GTLRAdSense_AdsenseReportsGenerateResponse_Headers_Item
 //
 
-@implementation GTLRAdSense_AdsenseReportsGenerateResponseHeadersItem
+@implementation GTLRAdSense_AdsenseReportsGenerateResponse_Headers_Item
 @dynamic currency, name, type;
 @end
 
@@ -150,20 +150,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSense_AdStyleColors
+//   GTLRAdSense_AdStyle_Colors
 //
 
-@implementation GTLRAdSense_AdStyleColors
+@implementation GTLRAdSense_AdStyle_Colors
 @dynamic background, border, text, title, url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSense_AdStyleFont
+//   GTLRAdSense_AdStyle_Font
 //
 
-@implementation GTLRAdSense_AdStyleFont
+@implementation GTLRAdSense_AdStyle_Font
 @dynamic family, size;
 @end
 
@@ -186,40 +186,40 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSense_AdUnitContentAdsSettings
+//   GTLRAdSense_AdUnit_ContentAdsSettings
 //
 
-@implementation GTLRAdSense_AdUnitContentAdsSettings
+@implementation GTLRAdSense_AdUnit_ContentAdsSettings
 @dynamic backupOption, size, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSense_AdUnitFeedAdsSettings
+//   GTLRAdSense_AdUnit_FeedAdsSettings
 //
 
-@implementation GTLRAdSense_AdUnitFeedAdsSettings
+@implementation GTLRAdSense_AdUnit_FeedAdsSettings
 @dynamic adPosition, frequency, minimumWordCount, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSense_AdUnitMobileContentAdsSettings
+//   GTLRAdSense_AdUnit_MobileContentAdsSettings
 //
 
-@implementation GTLRAdSense_AdUnitMobileContentAdsSettings
+@implementation GTLRAdSense_AdUnit_MobileContentAdsSettings
 @dynamic markupLanguage, scriptingLanguage, size, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSense_AdUnitContentAdsSettingsBackupOption
+//   GTLRAdSense_AdUnit_ContentAdsSettings_BackupOption
 //
 
-@implementation GTLRAdSense_AdUnitContentAdsSettingsBackupOption
+@implementation GTLRAdSense_AdUnit_ContentAdsSettings_BackupOption
 @dynamic color, type, url;
 @end
 
@@ -296,10 +296,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdSense_CustomChannelTargetingInfo
+//   GTLRAdSense_CustomChannel_TargetingInfo
 //
 
-@implementation GTLRAdSense_CustomChannelTargetingInfo
+@implementation GTLRAdSense_CustomChannel_TargetingInfo
 @dynamic adsAppearOn, descriptionProperty, location, siteLanguage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

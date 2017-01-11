@@ -51,7 +51,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"events" : [GTLRReports_ActivityEventsItem class]
+    @"events" : [GTLRReports_Activity_Events_Item class]
   };
   return map;
 }
@@ -61,25 +61,25 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReports_ActivityActor
+//   GTLRReports_Activity_Actor
 //
 
-@implementation GTLRReports_ActivityActor
+@implementation GTLRReports_Activity_Actor
 @dynamic callerType, email, key, profileId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReports_ActivityEventsItem
+//   GTLRReports_Activity_Events_Item
 //
 
-@implementation GTLRReports_ActivityEventsItem
+@implementation GTLRReports_Activity_Events_Item
 @dynamic name, parameters, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"parameters" : [GTLRReports_ActivityEventsItemParametersItem class]
+    @"parameters" : [GTLRReports_Activity_Events_Item_Parameters_Item class]
   };
   return map;
 }
@@ -89,20 +89,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReports_ActivityId
+//   GTLRReports_Activity_Id
 //
 
-@implementation GTLRReports_ActivityId
+@implementation GTLRReports_Activity_Id
 @dynamic applicationName, customerId, time, uniqueQualifier;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReports_ActivityEventsItemParametersItem
+//   GTLRReports_Activity_Events_Item_Parameters_Item
 //
 
-@implementation GTLRReports_ActivityEventsItemParametersItem
+@implementation GTLRReports_Activity_Events_Item_Parameters_Item
 @dynamic boolValue, intValue, multiIntValue, multiValue, name, value;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -134,10 +134,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReports_ChannelParams
+//   GTLRReports_Channel_Params
 //
 
-@implementation GTLRReports_ChannelParams
+@implementation GTLRReports_Channel_Params
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -160,7 +160,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"parameters" : [GTLRReports_UsageReportParametersItem class]
+    @"parameters" : [GTLRReports_UsageReport_Parameters_Item class]
   };
   return map;
 }
@@ -170,25 +170,25 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReports_UsageReportEntity
+//   GTLRReports_UsageReport_Entity
 //
 
-@implementation GTLRReports_UsageReportEntity
+@implementation GTLRReports_UsageReport_Entity
 @dynamic customerId, profileId, type, userEmail;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReports_UsageReportParametersItem
+//   GTLRReports_UsageReport_Parameters_Item
 //
 
-@implementation GTLRReports_UsageReportParametersItem
+@implementation GTLRReports_UsageReport_Parameters_Item
 @dynamic boolValue, datetimeValue, intValue, msgValue, name, stringValue;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"msgValue" : [GTLRReports_UsageReportParametersItemMsgValueItem class]
+    @"msgValue" : [GTLRReports_UsageReport_Parameters_Item_MsgValue_Item class]
   };
   return map;
 }
@@ -198,10 +198,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReports_UsageReportParametersItemMsgValueItem
+//   GTLRReports_UsageReport_Parameters_Item_MsgValue_Item
 //
 
-@implementation GTLRReports_UsageReportParametersItemMsgValueItem
+@implementation GTLRReports_UsageReport_Parameters_Item_MsgValue_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -225,7 +225,7 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"usageReports" : [GTLRReports_UsageReport class],
-    @"warnings" : [GTLRReports_UsageReportsWarningsItem class]
+    @"warnings" : [GTLRReports_UsageReports_Warnings_Item class]
   };
   return map;
 }
@@ -235,15 +235,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReports_UsageReportsWarningsItem
+//   GTLRReports_UsageReports_Warnings_Item
 //
 
-@implementation GTLRReports_UsageReportsWarningsItem
+@implementation GTLRReports_UsageReports_Warnings_Item
 @dynamic code, data, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRReports_UsageReportsWarningsItemDataItem class]
+    @"data" : [GTLRReports_UsageReports_Warnings_Item_Data_Item class]
   };
   return map;
 }
@@ -253,9 +253,9 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRReports_UsageReportsWarningsItemDataItem
+//   GTLRReports_UsageReports_Warnings_Item_Data_Item
 //
 
-@implementation GTLRReports_UsageReportsWarningsItemDataItem
+@implementation GTLRReports_UsageReports_Warnings_Item_Data_Item
 @dynamic key, value;
 @end

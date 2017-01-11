@@ -110,6 +110,18 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 // Previous library name was
 //   +[GTLQueryDeploymentManager queryForDeploymentsDeleteWithproject:deployment:]
 
+/**
+ *  Sets the policy to use for deleting resources.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManagerDeletePolicyAbandon Value "ABANDON"
+ *    @arg @c kGTLRDeploymentManagerDeletePolicyDelete Value "DELETE"
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRDeploymentManagerDeletePolicyDelete.
+ */
+@property(nonatomic, copy, nullable) NSString *deletePolicy;
+
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
 

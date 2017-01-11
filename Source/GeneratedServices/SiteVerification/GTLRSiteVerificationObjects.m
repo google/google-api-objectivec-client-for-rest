@@ -22,10 +22,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSiteVerification_WebResourceGettokenRequestSite
+//   GTLRSiteVerification_WebResourceGettokenRequest_Site
 //
 
-@implementation GTLRSiteVerification_WebResourceGettokenRequestSite
+@implementation GTLRSiteVerification_WebResourceGettokenRequest_Site
 @dynamic identifierProperty, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -87,10 +87,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSiteVerification_WebResourceResourceSite
+//   GTLRSiteVerification_WebResourceResource_Site
 //
 
-@implementation GTLRSiteVerification_WebResourceResourceSite
+@implementation GTLRSiteVerification_WebResourceResource_Site
 @dynamic identifierProperty, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

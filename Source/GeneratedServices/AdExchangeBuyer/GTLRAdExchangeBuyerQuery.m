@@ -35,7 +35,7 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionCancel        = @"cancel";
 NSString * const kGTLRAdExchangeBuyerUpdateActionPropose       = @"propose";
 NSString * const kGTLRAdExchangeBuyerUpdateActionProposeAndAccept = @"proposeAndAccept";
 NSString * const kGTLRAdExchangeBuyerUpdateActionUnknownAction = @"unknownAction";
-NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateFinalized = @"updateFinalized";
+NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTerms";
 
 // ----------------------------------------------------------------------------
 // Query Classes

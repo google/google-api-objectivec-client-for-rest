@@ -32,10 +32,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_AboutExportFormats
+//   GTLRDrive_About_ExportFormats
 //
 
-@implementation GTLRDrive_AboutExportFormats
+@implementation GTLRDrive_About_ExportFormats
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -46,10 +46,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_AboutImportFormats
+//   GTLRDrive_About_ImportFormats
 //
 
-@implementation GTLRDrive_AboutImportFormats
+@implementation GTLRDrive_About_ImportFormats
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -60,10 +60,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_AboutMaxImportSizes
+//   GTLRDrive_About_MaxImportSizes
 //
 
-@implementation GTLRDrive_AboutMaxImportSizes
+@implementation GTLRDrive_About_MaxImportSizes
 
 + (Class)classForAdditionalProperties {
   return [NSNumber class];
@@ -74,10 +74,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_AboutStorageQuota
+//   GTLRDrive_About_StorageQuota
 //
 
-@implementation GTLRDrive_AboutStorageQuota
+@implementation GTLRDrive_About_StorageQuota
 @dynamic limit, usage, usageInDrive, usageInDriveTrash;
 @end
 
@@ -132,10 +132,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_ChannelParams
+//   GTLRDrive_Channel_Params
 //
 
-@implementation GTLRDrive_ChannelParams
+@implementation GTLRDrive_Channel_Params
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -169,10 +169,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_CommentQuotedFileContent
+//   GTLRDrive_Comment_QuotedFileContent
 //
 
-@implementation GTLRDrive_CommentQuotedFileContent
+@implementation GTLRDrive_Comment_QuotedFileContent
 @dynamic mimeType, value;
 @end
 
@@ -239,10 +239,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_FileAppProperties
+//   GTLRDrive_File_AppProperties
 //
 
-@implementation GTLRDrive_FileAppProperties
+@implementation GTLRDrive_File_AppProperties
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -253,30 +253,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_FileCapabilities
+//   GTLRDrive_File_Capabilities
 //
 
-@implementation GTLRDrive_FileCapabilities
+@implementation GTLRDrive_File_Capabilities
 @dynamic canComment, canCopy, canEdit, canReadRevisions, canShare;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_FileContentHints
+//   GTLRDrive_File_ContentHints
 //
 
-@implementation GTLRDrive_FileContentHints
+@implementation GTLRDrive_File_ContentHints
 @dynamic indexableText, thumbnail;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_FileImageMediaMetadata
+//   GTLRDrive_File_ImageMediaMetadata
 //
 
-@implementation GTLRDrive_FileImageMediaMetadata
+@implementation GTLRDrive_File_ImageMediaMetadata
 @dynamic aperture, cameraMake, cameraModel, colorSpace, exposureBias,
          exposureMode, exposureTime, flashUsed, focalLength, height, isoSpeed,
          lens, location, maxApertureValue, meteringMode, rotation, sensor,
@@ -286,10 +286,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_FileProperties
+//   GTLRDrive_File_Properties
 //
 
-@implementation GTLRDrive_FileProperties
+@implementation GTLRDrive_File_Properties
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -300,30 +300,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_FileVideoMediaMetadata
+//   GTLRDrive_File_VideoMediaMetadata
 //
 
-@implementation GTLRDrive_FileVideoMediaMetadata
+@implementation GTLRDrive_File_VideoMediaMetadata
 @dynamic durationMillis, height, width;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_FileContentHintsThumbnail
+//   GTLRDrive_File_ContentHints_Thumbnail
 //
 
-@implementation GTLRDrive_FileContentHintsThumbnail
+@implementation GTLRDrive_File_ContentHints_Thumbnail
 @dynamic image, mimeType;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDrive_FileImageMediaMetadataLocation
+//   GTLRDrive_File_ImageMediaMetadata_Location
 //
 
-@implementation GTLRDrive_FileImageMediaMetadataLocation
+@implementation GTLRDrive_File_ImageMediaMetadata_Location
 @dynamic altitude, latitude, longitude;
 @end
 

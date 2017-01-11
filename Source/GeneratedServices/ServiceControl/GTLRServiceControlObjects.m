@@ -156,10 +156,10 @@ NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceControl_LogEntryLabels
+//   GTLRServiceControl_LogEntry_Labels
 //
 
-@implementation GTLRServiceControl_LogEntryLabels
+@implementation GTLRServiceControl_LogEntry_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -170,10 +170,10 @@ NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceControl_LogEntryProtoPayload
+//   GTLRServiceControl_LogEntry_ProtoPayload
 //
 
-@implementation GTLRServiceControl_LogEntryProtoPayload
+@implementation GTLRServiceControl_LogEntry_ProtoPayload
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -184,10 +184,10 @@ NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceControl_LogEntryStructPayload
+//   GTLRServiceControl_LogEntry_StructPayload
 //
 
-@implementation GTLRServiceControl_LogEntryStructPayload
+@implementation GTLRServiceControl_LogEntry_StructPayload
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -209,10 +209,10 @@ NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceControl_MetricValueLabels
+//   GTLRServiceControl_MetricValue_Labels
 //
 
-@implementation GTLRServiceControl_MetricValueLabels
+@implementation GTLRServiceControl_MetricValue_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -261,10 +261,10 @@ NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceControl_OperationLabels
+//   GTLRServiceControl_Operation_Labels
 //
 
-@implementation GTLRServiceControl_OperationLabels
+@implementation GTLRServiceControl_Operation_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -329,7 +329,7 @@ NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRServiceControl_StatusDetailsItem class]
+    @"details" : [GTLRServiceControl_Status_Details_Item class]
   };
   return map;
 }
@@ -339,10 +339,10 @@ NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceControl_StatusDetailsItem
+//   GTLRServiceControl_Status_Details_Item
 //
 
-@implementation GTLRServiceControl_StatusDetailsItem
+@implementation GTLRServiceControl_Status_Details_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

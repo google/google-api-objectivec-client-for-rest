@@ -63,10 +63,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRuntimeConfig_OperationMetadata
+//   GTLRCloudRuntimeConfig_Operation_Metadata
 //
 
-@implementation GTLRCloudRuntimeConfig_OperationMetadata
+@implementation GTLRCloudRuntimeConfig_Operation_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -77,10 +77,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRuntimeConfig_OperationResponse
+//   GTLRCloudRuntimeConfig_Operation_Response
 //
 
-@implementation GTLRCloudRuntimeConfig_OperationResponse
+@implementation GTLRCloudRuntimeConfig_Operation_Response
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -99,7 +99,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRCloudRuntimeConfig_StatusDetailsItem class]
+    @"details" : [GTLRCloudRuntimeConfig_Status_Details_Item class]
   };
   return map;
 }
@@ -109,10 +109,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRuntimeConfig_StatusDetailsItem
+//   GTLRCloudRuntimeConfig_Status_Details_Item
 //
 
-@implementation GTLRCloudRuntimeConfig_StatusDetailsItem
+@implementation GTLRCloudRuntimeConfig_Status_Details_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

@@ -4776,6 +4776,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @property(nonatomic, strong, nullable) GTLRSlides_CropProperties *cropProperties;
 
+/** The hyperlink destination of the image. If unset, there is no link. */
+@property(nonatomic, strong, nullable) GTLRSlides_Link *link;
+
 /** The outline of the image. If not set, the the image has no outline. */
 @property(nonatomic, strong, nullable) GTLRSlides_Outline *outline;
 
@@ -5111,6 +5114,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  lines created in the Slides editor.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_LineFill *lineFill;
+
+/** The hyperlink destination of the line. If unset, there is no link. */
+@property(nonatomic, strong, nullable) GTLRSlides_Link *link;
 
 /**
  *  The style of the arrow at the beginning of the line.
@@ -6264,7 +6270,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_Shape : GTLRObject
 
 /**
- *  Placeholders are shapes that are inherit from correponding placeholders on
+ *  Placeholders are shapes that are inherit from corresponding placeholders on
  *  layouts and masters.
  *  If set, the shape is a placeholder shape and any inherited properties
  *  can be resolved by looking at the parent placeholder identified by the
@@ -6709,6 +6715,12 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  property_state field value.
  */
 @interface GTLRSlides_ShapeProperties : GTLRObject
+
+/**
+ *  The hyperlink destination of the shape. If unset, there is no link. Links
+ *  are not inherited from parent placeholders.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_Link *link;
 
 /**
  *  The outline of the shape. If unset, the outline is inherited from a

@@ -28,7 +28,7 @@
 @class GTLRPartners_Lead;
 @class GTLRPartners_LocalizedCompanyInfo;
 @class GTLRPartners_Location;
-@class GTLRPartners_LogMessageRequestClientInfo;
+@class GTLRPartners_LogMessageRequest_ClientInfo;
 @class GTLRPartners_Money;
 @class GTLRPartners_PublicProfile;
 @class GTLRPartners_Rank;
@@ -1089,7 +1089,7 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
 /**
  *  Map of client info, such as URL, browser navigator, browser platform, etc.
  */
-@property(nonatomic, strong, nullable) GTLRPartners_LogMessageRequestClientInfo *clientInfo;
+@property(nonatomic, strong, nullable) GTLRPartners_LogMessageRequest_ClientInfo *clientInfo;
 
 /** Details about the client message. */
 @property(nonatomic, copy, nullable) NSString *details;
@@ -1121,7 +1121,7 @@ GTLR_EXTERN NSString * const kGTLRPartners_Rank_Type_RtFinalScore;
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRPartners_LogMessageRequestClientInfo : GTLRObject
+@interface GTLRPartners_LogMessageRequest_ClientInfo : GTLRObject
 @end
 
 

@@ -400,10 +400,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCivicInfo_RepresentativeInfoDataDivisions
+//   GTLRCivicInfo_RepresentativeInfoData_Divisions
 //
 
-@implementation GTLRCivicInfo_RepresentativeInfoDataDivisions
+@implementation GTLRCivicInfo_RepresentativeInfoData_Divisions
 
 + (Class)classForAdditionalProperties {
   return [GTLRCivicInfo_GeographicDivision class];
@@ -443,10 +443,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCivicInfo_RepresentativeInfoResponseDivisions
+//   GTLRCivicInfo_RepresentativeInfoResponse_Divisions
 //
 
-@implementation GTLRCivicInfo_RepresentativeInfoResponseDivisions
+@implementation GTLRCivicInfo_RepresentativeInfoResponse_Divisions
 
 + (Class)classForAdditionalProperties {
   return [GTLRCivicInfo_GeographicDivision class];

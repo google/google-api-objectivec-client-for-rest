@@ -30,7 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerDeleteContainers;
 /**
- *  Authorization scope: Manage your Google Tag Manager containers
+ *  Authorization scope: Manage your Google Tag Manager container and its
+ *  subcomponents, excluding versioning and publishing
  *
  *  Value "https://www.googleapis.com/auth/tagmanager.edit.containers"
  */
@@ -42,25 +43,27 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerEditContainers;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerEditContainerversions;
 /**
- *  Authorization scope: Manage your Google Tag Manager accounts
+ *  Authorization scope: View and manage your Google Tag Manager accounts
  *
  *  Value "https://www.googleapis.com/auth/tagmanager.manage.accounts"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerManageAccounts;
 /**
- *  Authorization scope: Manage user permissions of your Google Tag Manager data
+ *  Authorization scope: Manage user permissions of your Google Tag Manager
+ *  account and container
  *
  *  Value "https://www.googleapis.com/auth/tagmanager.manage.users"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerManageUsers;
 /**
- *  Authorization scope: Publish your Google Tag Manager containers
+ *  Authorization scope: Publish your Google Tag Manager container versions
  *
  *  Value "https://www.googleapis.com/auth/tagmanager.publish"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerPublish;
 /**
- *  Authorization scope: View your Google Tag Manager containers
+ *  Authorization scope: View your Google Tag Manager container and its
+ *  subcomponents
  *
  *  Value "https://www.googleapis.com/auth/tagmanager.readonly"
  */

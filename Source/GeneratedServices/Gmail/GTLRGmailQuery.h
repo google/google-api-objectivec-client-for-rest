@@ -844,7 +844,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Modifies labels on the given labels.
+ *  Modifies the labels on the specified messages.
  *
  *  Method: gmail.users.messages.batchModify
  *
@@ -868,7 +868,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Modifies labels on the given labels.
+ *  Modifies the labels on the specified messages.
  *
  *  @param object The @c GTLRGmail_BatchModifyMessagesRequest to include in the
  *    query.

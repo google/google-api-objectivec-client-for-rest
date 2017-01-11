@@ -68,6 +68,7 @@ NSString * const kGTLRAuthScopeSQLAdminSqlserviceAdmin = @"https://www.googleapi
     @"sql#sslCertsList" : [GTLRSQLAdmin_SslCertsListResponse class],
     @"sql#tier" : [GTLRSQLAdmin_Tier class],
     @"sql#tiersList" : [GTLRSQLAdmin_TiersListResponse class],
+    @"sql#truncateLogContext" : [GTLRSQLAdmin_TruncateLogContext class],
     @"sql#user" : [GTLRSQLAdmin_User class],
     @"sql#usersList" : [GTLRSQLAdmin_UsersListResponse class],
   };

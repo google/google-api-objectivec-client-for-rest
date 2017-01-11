@@ -31,20 +31,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRYouTubeAnalytics_GroupContentDetails
+//   GTLRYouTubeAnalytics_Group_ContentDetails
 //
 
-@implementation GTLRYouTubeAnalytics_GroupContentDetails
+@implementation GTLRYouTubeAnalytics_Group_ContentDetails
 @dynamic itemCount, itemType;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRYouTubeAnalytics_GroupSnippet
+//   GTLRYouTubeAnalytics_Group_Snippet
 //
 
-@implementation GTLRYouTubeAnalytics_GroupSnippet
+@implementation GTLRYouTubeAnalytics_Group_Snippet
 @dynamic publishedAt, title;
 @end
 
@@ -70,10 +70,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRYouTubeAnalytics_GroupItemResource
+//   GTLRYouTubeAnalytics_GroupItem_Resource
 //
 
-@implementation GTLRYouTubeAnalytics_GroupItemResource
+@implementation GTLRYouTubeAnalytics_GroupItem_Resource
 @dynamic identifier, kind;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -143,7 +143,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"columnHeaders" : [GTLRYouTubeAnalytics_ResultTableColumnHeadersItem class],
+    @"columnHeaders" : [GTLRYouTubeAnalytics_ResultTable_ColumnHeaders_Item class],
     @"rows" : [NSObject class]
   };
   return map;
@@ -154,9 +154,9 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRYouTubeAnalytics_ResultTableColumnHeadersItem
+//   GTLRYouTubeAnalytics_ResultTable_ColumnHeaders_Item
 //
 
-@implementation GTLRYouTubeAnalytics_ResultTableColumnHeadersItem
+@implementation GTLRYouTubeAnalytics_ResultTable_ColumnHeaders_Item
 @dynamic columnType, dataType, name;
 @end

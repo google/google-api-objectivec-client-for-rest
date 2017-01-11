@@ -31,7 +31,7 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"acl" : [GTLRStorage_BucketAccessControl class],
-    @"cors" : [GTLRStorage_BucketCorsItem class],
+    @"cors" : [GTLRStorage_Bucket_Cors_Item class],
     @"defaultObjectAcl" : [GTLRStorage_ObjectAccessControl class]
   };
   return map;
@@ -42,10 +42,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_BucketCorsItem
+//   GTLRStorage_Bucket_Cors_Item
 //
 
-@implementation GTLRStorage_BucketCorsItem
+@implementation GTLRStorage_Bucket_Cors_Item
 @dynamic maxAgeSeconds, method, origin, responseHeader;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -62,15 +62,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_BucketLifecycle
+//   GTLRStorage_Bucket_Lifecycle
 //
 
-@implementation GTLRStorage_BucketLifecycle
+@implementation GTLRStorage_Bucket_Lifecycle
 @dynamic rule;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"rule" : [GTLRStorage_BucketLifecycleRuleItem class]
+    @"rule" : [GTLRStorage_Bucket_Lifecycle_Rule_Item class]
   };
   return map;
 }
@@ -80,70 +80,70 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_BucketLogging
+//   GTLRStorage_Bucket_Logging
 //
 
-@implementation GTLRStorage_BucketLogging
+@implementation GTLRStorage_Bucket_Logging
 @dynamic logBucket, logObjectPrefix;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_BucketOwner
+//   GTLRStorage_Bucket_Owner
 //
 
-@implementation GTLRStorage_BucketOwner
+@implementation GTLRStorage_Bucket_Owner
 @dynamic entity, entityId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_BucketVersioning
+//   GTLRStorage_Bucket_Versioning
 //
 
-@implementation GTLRStorage_BucketVersioning
+@implementation GTLRStorage_Bucket_Versioning
 @dynamic enabled;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_BucketWebsite
+//   GTLRStorage_Bucket_Website
 //
 
-@implementation GTLRStorage_BucketWebsite
+@implementation GTLRStorage_Bucket_Website
 @dynamic mainPageSuffix, notFoundPage;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_BucketLifecycleRuleItem
+//   GTLRStorage_Bucket_Lifecycle_Rule_Item
 //
 
-@implementation GTLRStorage_BucketLifecycleRuleItem
+@implementation GTLRStorage_Bucket_Lifecycle_Rule_Item
 @dynamic action, condition;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_BucketLifecycleRuleItemAction
+//   GTLRStorage_Bucket_Lifecycle_Rule_Item_Action
 //
 
-@implementation GTLRStorage_BucketLifecycleRuleItemAction
+@implementation GTLRStorage_Bucket_Lifecycle_Rule_Item_Action
 @dynamic storageClass, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_BucketLifecycleRuleItemCondition
+//   GTLRStorage_Bucket_Lifecycle_Rule_Item_Condition
 //
 
-@implementation GTLRStorage_BucketLifecycleRuleItemCondition
+@implementation GTLRStorage_Bucket_Lifecycle_Rule_Item_Condition
 @dynamic age, createdBefore, isLive, matchesStorageClass, numNewerVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -178,10 +178,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_BucketAccessControlProjectTeam
+//   GTLRStorage_BucketAccessControl_ProjectTeam
 //
 
-@implementation GTLRStorage_BucketAccessControlProjectTeam
+@implementation GTLRStorage_BucketAccessControl_ProjectTeam
 @dynamic projectNumber, team;
 @end
 
@@ -240,10 +240,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_ChannelParams
+//   GTLRStorage_Channel_Params
 //
 
-@implementation GTLRStorage_ChannelParams
+@implementation GTLRStorage_Channel_Params
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -262,7 +262,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"sourceObjects" : [GTLRStorage_ComposeRequestSourceObjectsItem class]
+    @"sourceObjects" : [GTLRStorage_ComposeRequest_SourceObjects_Item class]
   };
   return map;
 }
@@ -272,20 +272,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_ComposeRequestSourceObjectsItem
+//   GTLRStorage_ComposeRequest_SourceObjects_Item
 //
 
-@implementation GTLRStorage_ComposeRequestSourceObjectsItem
+@implementation GTLRStorage_ComposeRequest_SourceObjects_Item
 @dynamic generation, name, objectPreconditions;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_ComposeRequestSourceObjectsItemObjectPreconditions
+//   GTLRStorage_ComposeRequest_SourceObjects_Item_ObjectPreconditions
 //
 
-@implementation GTLRStorage_ComposeRequestSourceObjectsItemObjectPreconditions
+@implementation GTLRStorage_ComposeRequest_SourceObjects_Item_ObjectPreconditions
 @dynamic ifGenerationMatch;
 @end
 
@@ -323,20 +323,20 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_ObjectCustomerEncryption
+//   GTLRStorage_Object_CustomerEncryption
 //
 
-@implementation GTLRStorage_ObjectCustomerEncryption
+@implementation GTLRStorage_Object_CustomerEncryption
 @dynamic encryptionAlgorithm, keySha256;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_ObjectMetadata
+//   GTLRStorage_Object_Metadata
 //
 
-@implementation GTLRStorage_ObjectMetadata
+@implementation GTLRStorage_Object_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -347,10 +347,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_ObjectOwner
+//   GTLRStorage_Object_Owner
 //
 
-@implementation GTLRStorage_ObjectOwner
+@implementation GTLRStorage_Object_Owner
 @dynamic entity, entityId;
 @end
 
@@ -377,10 +377,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRStorage_ObjectAccessControlProjectTeam
+//   GTLRStorage_ObjectAccessControl_ProjectTeam
 //
 
-@implementation GTLRStorage_ObjectAccessControlProjectTeam
+@implementation GTLRStorage_ObjectAccessControl_ProjectTeam
 @dynamic projectNumber, team;
 @end
 

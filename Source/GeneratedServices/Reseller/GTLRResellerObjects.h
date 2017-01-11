@@ -22,10 +22,10 @@
 @class GTLRReseller_RenewalSettings;
 @class GTLRReseller_Seats;
 @class GTLRReseller_Subscription;
-@class GTLRReseller_SubscriptionPlan;
-@class GTLRReseller_SubscriptionPlanCommitmentInterval;
-@class GTLRReseller_SubscriptionTransferInfo;
-@class GTLRReseller_SubscriptionTrialSettings;
+@class GTLRReseller_Subscription_Plan;
+@class GTLRReseller_Subscription_Plan_CommitmentInterval;
+@class GTLRReseller_Subscription_TransferInfo;
+@class GTLRReseller_Subscription_TrialSettings;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -219,7 +219,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Plan details of the subscription */
-@property(nonatomic, strong, nullable) GTLRReseller_SubscriptionPlan *plan;
+@property(nonatomic, strong, nullable) GTLRReseller_Subscription_Plan *plan;
 
 /** Purchase order id for your order tracking purposes. */
 @property(nonatomic, copy, nullable) NSString *purchaseOrderId;
@@ -260,10 +260,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReasons;
 
 /** Transfer related information for the subscription. */
-@property(nonatomic, strong, nullable) GTLRReseller_SubscriptionTransferInfo *transferInfo;
+@property(nonatomic, strong, nullable) GTLRReseller_Subscription_TransferInfo *transferInfo;
 
 /** Trial Settings of the subscription. */
-@property(nonatomic, strong, nullable) GTLRReseller_SubscriptionTrialSettings *trialSettings;
+@property(nonatomic, strong, nullable) GTLRReseller_Subscription_TrialSettings *trialSettings;
 
 @end
 
@@ -271,10 +271,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Plan details of the subscription
  */
-@interface GTLRReseller_SubscriptionPlan : GTLRObject
+@interface GTLRReseller_Subscription_Plan : GTLRObject
 
 /** Interval of the commitment if it is a commitment plan. */
-@property(nonatomic, strong, nullable) GTLRReseller_SubscriptionPlanCommitmentInterval *commitmentInterval;
+@property(nonatomic, strong, nullable) GTLRReseller_Subscription_Plan_CommitmentInterval *commitmentInterval;
 
 /**
  *  Whether the plan is a commitment plan or not.
@@ -292,7 +292,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Transfer related information for the subscription.
  */
-@interface GTLRReseller_SubscriptionTransferInfo : GTLRObject
+@interface GTLRReseller_Subscription_TransferInfo : GTLRObject
 
 /**
  *  minimumTransferableSeats
@@ -314,7 +314,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Trial Settings of the subscription.
  */
-@interface GTLRReseller_SubscriptionTrialSettings : GTLRObject
+@interface GTLRReseller_Subscription_TrialSettings : GTLRObject
 
 /**
  *  Whether the subscription is in trial.
@@ -336,7 +336,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Interval of the commitment if it is a commitment plan.
  */
-@interface GTLRReseller_SubscriptionPlanCommitmentInterval : GTLRObject
+@interface GTLRReseller_Subscription_Plan_CommitmentInterval : GTLRObject
 
 /**
  *  End time of the commitment interval in milliseconds since Unix epoch.

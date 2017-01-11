@@ -83,10 +83,10 @@ NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableValue = @"VAR
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudDebugger_BreakpointLabels
+//   GTLRCloudDebugger_Breakpoint_Labels
 //
 
-@implementation GTLRCloudDebugger_BreakpointLabels
+@implementation GTLRCloudDebugger_Breakpoint_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -156,10 +156,10 @@ NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableValue = @"VAR
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudDebugger_DebuggeeLabels
+//   GTLRCloudDebugger_Debuggee_Labels
 //
 
-@implementation GTLRCloudDebugger_DebuggeeLabels
+@implementation GTLRCloudDebugger_Debuggee_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -189,10 +189,10 @@ NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableValue = @"VAR
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudDebugger_ExtendedSourceContextLabels
+//   GTLRCloudDebugger_ExtendedSourceContext_Labels
 //
 
-@implementation GTLRCloudDebugger_ExtendedSourceContextLabels
+@implementation GTLRCloudDebugger_ExtendedSourceContext_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

@@ -296,7 +296,7 @@ NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_Sca
 //
 
 @implementation GTLRCloudMachineLearning_GoogleCloudMlV1beta1PredictionOutput
-@dynamic errorCount, outputPath, predictionCount;
+@dynamic errorCount, nodeHours, outputPath, predictionCount;
 @end
 
 
@@ -346,7 +346,8 @@ NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_Sca
 //
 
 @implementation GTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingOutput
-@dynamic completedTrialCount, consumedMlUnits, trials;
+@dynamic completedTrialCount, consumedMLUnits, isHyperparameterTuningJob,
+         trials;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -365,7 +366,7 @@ NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_Sca
 
 @implementation GTLRCloudMachineLearning_GoogleCloudMlV1beta1Version
 @dynamic createTime, deploymentUri, descriptionProperty, isDefault, lastUseTime,
-         name;
+         name, onlinePredictionLogging;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

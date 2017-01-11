@@ -2801,6 +2801,59 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 @end
 
 /**
+ *  Lists the purchases that were cancelled, refunded or charged-back.
+ *
+ *  Method: androidpublisher.purchases.voidedpurchases.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_PurchasesVoidedpurchasesList : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForPurchasesVoidedpurchasesListWithpackageName:]
+
+/**
+ *  The end time of list window, in milliseconds since the epoch (Jan 1, 1970).
+ *  If not specified, default to current time, which is also the latest accepted
+ *  end time. This parameter will be ignored if pagination token is set.
+ */
+@property(nonatomic, assign) long long endTime;
+
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  The package name of the application for which voided purchases need to be
+ *  returned (for example, 'com.some.thing').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+@property(nonatomic, assign) NSUInteger startIndex;
+
+/**
+ *  The start time of list window, in milliseconds since the epoch (Jan 1,
+ *  1970). If not specified, default to current time - 30 days, which is also
+ *  the earlies accepted start time. This parameter will be ignored if
+ *  pagination token is set.
+ */
+@property(nonatomic, assign) long long startTime;
+
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_VoidedPurchasesListResponse.
+ *
+ *  Lists the purchases that were cancelled, refunded or charged-back.
+ *
+ *  @param packageName The package name of the application for which voided
+ *    purchases need to be returned (for example, 'com.some.thing').
+ *
+ *  @returns GTLRAndroidPublisherQuery_PurchasesVoidedpurchasesList
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName;
+
+@end
+
+/**
  *  Returns a single review.
  *
  *  Method: androidpublisher.reviews.get
@@ -2819,6 +2872,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 @property(nonatomic, copy, nullable) NSString *reviewId;
+
+@property(nonatomic, copy, nullable) NSString *translationLanguage;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Review.
@@ -2859,6 +2914,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 @property(nonatomic, assign) NSUInteger startIndex;
 
 @property(nonatomic, copy, nullable) NSString *token;
+
+@property(nonatomic, copy, nullable) NSString *translationLanguage;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ReviewsListResponse.

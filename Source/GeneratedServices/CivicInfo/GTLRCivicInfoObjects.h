@@ -34,8 +34,8 @@
 @class GTLRCivicInfo_Official;
 @class GTLRCivicInfo_PollingLocation;
 @class GTLRCivicInfo_PostalAddress;
-@class GTLRCivicInfo_RepresentativeInfoDataDivisions;
-@class GTLRCivicInfo_RepresentativeInfoResponseDivisions;
+@class GTLRCivicInfo_RepresentativeInfoData_Divisions;
+@class GTLRCivicInfo_RepresentativeInfoResponse_Divisions;
 @class GTLRCivicInfo_SimpleAddressType;
 @class GTLRCivicInfo_Source;
 @class GTLRCivicInfo_VoterInfoRequest;
@@ -765,7 +765,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_RepresentativeInfoData : GTLRObject
 
 /** Political geographic divisions that contain the requested address. */
-@property(nonatomic, strong, nullable) GTLRCivicInfo_RepresentativeInfoDataDivisions *divisions;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_RepresentativeInfoData_Divisions *divisions;
 
 /**
  *  Elected offices referenced by the divisions listed above. Will only be
@@ -790,7 +790,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCivicInfo_RepresentativeInfoDataDivisions : GTLRObject
+@interface GTLRCivicInfo_RepresentativeInfoData_Divisions : GTLRObject
 @end
 
 
@@ -811,7 +811,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_RepresentativeInfoResponse : GTLRObject
 
 /** Political geographic divisions that contain the requested address. */
-@property(nonatomic, strong, nullable) GTLRCivicInfo_RepresentativeInfoResponseDivisions *divisions;
+@property(nonatomic, strong, nullable) GTLRCivicInfo_RepresentativeInfoResponse_Divisions *divisions;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
@@ -845,7 +845,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCivicInfo_RepresentativeInfoResponseDivisions : GTLRObject
+@interface GTLRCivicInfo_RepresentativeInfoResponse_Divisions : GTLRObject
 @end
 
 

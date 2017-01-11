@@ -21,14 +21,14 @@
 
 @class GTLRCloudDebugger_AliasContext;
 @class GTLRCloudDebugger_Breakpoint;
-@class GTLRCloudDebugger_BreakpointLabels;
+@class GTLRCloudDebugger_Breakpoint_Labels;
 @class GTLRCloudDebugger_CloudRepoSourceContext;
 @class GTLRCloudDebugger_CloudWorkspaceId;
 @class GTLRCloudDebugger_CloudWorkspaceSourceContext;
 @class GTLRCloudDebugger_Debuggee;
-@class GTLRCloudDebugger_DebuggeeLabels;
+@class GTLRCloudDebugger_Debuggee_Labels;
 @class GTLRCloudDebugger_ExtendedSourceContext;
-@class GTLRCloudDebugger_ExtendedSourceContextLabels;
+@class GTLRCloudDebugger_ExtendedSourceContext_Labels;
 @class GTLRCloudDebugger_FormatMessage;
 @class GTLRCloudDebugger_GerritSourceContext;
 @class GTLRCloudDebugger_GitSourceContext;
@@ -181,7 +181,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  A set of custom breakpoint properties, populated by the agent, to be
  *  displayed to the user.
  */
-@property(nonatomic, strong, nullable) GTLRCloudDebugger_BreakpointLabels *labels;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_Breakpoint_Labels *labels;
 
 /** Breakpoint source location. */
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_SourceLocation *location;
@@ -249,7 +249,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRCloudDebugger_BreakpointLabels : GTLRObject
+@interface GTLRCloudDebugger_Breakpoint_Labels : GTLRObject
 @end
 
 
@@ -368,7 +368,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  A set of custom debuggee properties, populated by the agent, to be displayed
  *  to the user.
  */
-@property(nonatomic, strong, nullable) GTLRCloudDebugger_DebuggeeLabels *labels;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_Debuggee_Labels *labels;
 
 /**
  *  Project the debuggee is associated with. Use the project number when
@@ -410,7 +410,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRCloudDebugger_DebuggeeLabels : GTLRObject
+@interface GTLRCloudDebugger_Debuggee_Labels : GTLRObject
 @end
 
 
@@ -435,7 +435,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_SourceContext *context;
 
 /** Labels with user defined metadata. */
-@property(nonatomic, strong, nullable) GTLRCloudDebugger_ExtendedSourceContextLabels *labels;
+@property(nonatomic, strong, nullable) GTLRCloudDebugger_ExtendedSourceContext_Labels *labels;
 
 @end
 
@@ -448,7 +448,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRCloudDebugger_ExtendedSourceContextLabels : GTLRObject
+@interface GTLRCloudDebugger_ExtendedSourceContext_Labels : GTLRObject
 @end
 
 

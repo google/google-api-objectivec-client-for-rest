@@ -154,11 +154,11 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
 //
 
 @implementation GTLRLogging_ListLogsResponse
-@dynamic logIds, nextPageToken;
+@dynamic logNames, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"logIds" : [NSString class]
+    @"logNames" : [NSString class]
   };
   return map;
 }
@@ -224,10 +224,10 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRLogging_LogEntryJsonPayload
+//   GTLRLogging_LogEntry_JsonPayload
 //
 
-@implementation GTLRLogging_LogEntryJsonPayload
+@implementation GTLRLogging_LogEntry_JsonPayload
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -238,10 +238,10 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRLogging_LogEntryLabels
+//   GTLRLogging_LogEntry_Labels
 //
 
-@implementation GTLRLogging_LogEntryLabels
+@implementation GTLRLogging_LogEntry_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -252,10 +252,10 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRLogging_LogEntryProtoPayload
+//   GTLRLogging_LogEntry_ProtoPayload
 //
 
-@implementation GTLRLogging_LogEntryProtoPayload
+@implementation GTLRLogging_LogEntry_ProtoPayload
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -337,10 +337,10 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRLogging_MonitoredResourceLabels
+//   GTLRLogging_MonitoredResource_Labels
 //
 
-@implementation GTLRLogging_MonitoredResourceLabels
+@implementation GTLRLogging_MonitoredResource_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -435,10 +435,10 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRLogging_WriteLogEntriesRequestLabels
+//   GTLRLogging_WriteLogEntriesRequest_Labels
 //
 
-@implementation GTLRLogging_WriteLogEntriesRequestLabels
+@implementation GTLRLogging_WriteLogEntriesRequest_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

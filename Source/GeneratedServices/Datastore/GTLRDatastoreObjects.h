@@ -22,11 +22,11 @@
 @class GTLRDatastore_ArrayValue;
 @class GTLRDatastore_CompositeFilter;
 @class GTLRDatastore_Entity;
-@class GTLRDatastore_EntityProperties;
+@class GTLRDatastore_Entity_Properties;
 @class GTLRDatastore_EntityResult;
 @class GTLRDatastore_Filter;
 @class GTLRDatastore_GqlQuery;
-@class GTLRDatastore_GqlQueryNamedBindings;
+@class GTLRDatastore_GqlQuery_NamedBindings;
 @class GTLRDatastore_GqlQueryParameter;
 @class GTLRDatastore_Key;
 @class GTLRDatastore_KindExpression;
@@ -439,7 +439,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The name must not contain more than 500 characters.
  *  The name cannot be `""`.
  */
-@property(nonatomic, strong, nullable) GTLRDatastore_EntityProperties *properties;
+@property(nonatomic, strong, nullable) GTLRDatastore_Entity_Properties *properties;
 
 @end
 
@@ -457,7 +457,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRDatastore_EntityProperties : GTLRObject
+@interface GTLRDatastore_Entity_Properties : GTLRObject
 @end
 
 
@@ -530,7 +530,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Key must match regex `A-Za-z_$*`, must not match regex
  *  `__.*__`, and must not be `""`.
  */
-@property(nonatomic, strong, nullable) GTLRDatastore_GqlQueryNamedBindings *namedBindings;
+@property(nonatomic, strong, nullable) GTLRDatastore_GqlQuery_NamedBindings *namedBindings;
 
 /**
  *  Numbered binding site \@1 references the first numbered parameter,
@@ -560,7 +560,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRDatastore_GqlQueryNamedBindings : GTLRObject
+@interface GTLRDatastore_GqlQuery_NamedBindings : GTLRObject
 @end
 
 

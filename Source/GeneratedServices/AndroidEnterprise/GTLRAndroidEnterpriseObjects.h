@@ -52,19 +52,19 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  This represents an enterprise administrator who can manage the enterprise in
- *  the Google Play for Work Store.
+ *  This represents an enterprise admin who can manage the enterprise in the
+ *  managed Google Play store.
  */
 @interface GTLRAndroidEnterprise_Administrator : GTLRObject
 
-/** The administrator's email address. */
+/** The admin's email address. */
 @property(nonatomic, copy, nullable) NSString *email;
 
 @end
 
 
 /**
- *  A token authorizing an administrator to access an iframe.
+ *  A token authorizing an admin to access an iframe.
  */
 @interface GTLRAndroidEnterprise_AdministratorWebToken : GTLRObject
 
@@ -288,7 +288,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *versionCode;
 
 /**
- *  The string used in the Play Store by the app developer to identify the
+ *  The string used in the Play store by the app developer to identify the
  *  version. The string is not necessarily unique or localized (for example, the
  *  string could be "1.4").
  */
@@ -321,7 +321,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A collection resource defines a named set of apps that is visible to a set
- *  of users in the Google Play Store app running on those users' managed
+ *  of users in the Google Play store app running on those users' managed
  *  devices. Those users can then install any of those apps if they wish (which
  *  will trigger creation of install and entitlement resources). A user cannot
  *  install an app on a managed device unless the app is listed in at least one
@@ -375,7 +375,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An ordered collection of products which can be made visible on the Google
- *  Play Store to a selected group of users.
+ *  Play store to a selected group of users.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Collection *> *collection;
 
@@ -426,19 +426,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Identifies the extent to which the device is controlled by an Android for
- *  Work EMM in various deployment configurations.
+ *  Identifies the extent to which the device is controlled by a managed Google
+ *  Play EMM in various deployment configurations.
  *  Possible values include:
  *  - "managedDevice", a device that has the EMM's device policy controller
  *  (DPC) as the device owner,
- *  - "managedProfile", a device that has a work profile managed by the DPC (DPC
- *  is profile owner) in addition to a separate, personal profile that is
+ *  - "managedProfile", a device that has a profile managed by the DPC (DPC is
+ *  profile owner) in addition to a separate, personal profile that is
  *  unavailable to the DPC,
- *  - "containerApp", a device running the Android for Work App. The Android for
- *  Work App is managed by the DPC,
+ *  - "containerApp", a device running the container App. The container App is
+ *  managed by the DPC,
  *  - "unmanagedProfile", a device that has been allowed (by the domain's admin,
- *  using the Admin Console to enable the privilege) to use Android for Work
- *  apps or Google Apps for Work, but the profile is itself not owned by a DPC.
+ *  using the Admin Console to enable the privilege) to use managed Google Play,
+ *  but the profile is itself not owned by a DPC.
  */
 @property(nonatomic, copy, nullable) NSString *managementType;
 
@@ -493,17 +493,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Enterprises.enroll and Enterprises.setAccount (in conjunction with artifacts
  *  obtained from the Admin console and the Google API Console) and submitted to
  *  the EMM through a more-or-less manual process.
- *  - For Android for Work Accounts customers, the process involves using
+ *  - For managed Google Play Accounts customers, the process involves using
  *  Enterprises.generateSignupUrl and Enterprises.completeSignup in conjunction
- *  with the Android for Work Sign-up UI (Google-provided mechanism) to create
- *  the binding without manual steps. As an EMM, you can support either or both
- *  approaches in your EMM console. See Create an Enterprise for details.
+ *  with the managed Google Play sign-up UI (Google-provided mechanism) to
+ *  create the binding without manual steps. As an EMM, you can support either
+ *  or both approaches in your EMM console. See Create an Enterprise for
+ *  details.
  */
 @interface GTLRAndroidEnterprise_Enterprise : GTLRObject
 
 /**
- *  Administrators of the enterprise. This is only supported for enterprises
- *  created via the EMM-initiated flow.
+ *  Admins of the enterprise. This is only supported for enterprises created via
+ *  the EMM-initiated flow.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Administrator *> *administrator;
 
@@ -1154,7 +1155,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A Products resource represents an app in the Google Play Store that is
+ *  A Products resource represents an app in the Google Play store that is
  *  available to at least some users in the enterprise. (Some apps are
  *  restricted to a single enterprise, and no information about them is made
  *  available outside that enterprise.)
@@ -1178,7 +1179,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  How and to whom the package is made available. The value publicGoogleHosted
- *  means that the package is available through the Play Store and not
+ *  means that the package is available through the Play store and not
  *  restricted to a specific enterprise. The value privateGoogleHosted means
  *  that the package is a private app (restricted to an enterprise) but hosted
  *  by Google. The value privateSelfHosted means that the package is a private
@@ -1212,7 +1213,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *productPricing;
 
 /**
- *  Whether this app can only be installed on devices using the Android for Work
+ *  Whether this app can only be installed on devices using the Android
  *  container app.
  *
  *  Uses NSNumber of boolValue.
@@ -1229,8 +1230,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
- *  A link to the Google Play for Work details page for the product, for use by
- *  an Enterprise administrator.
+ *  A link to the managed Google Play details page for the product, for use by
+ *  an Enterprise admin.
  */
 @property(nonatomic, copy, nullable) NSString *workDetailsUrl;
 
@@ -1396,7 +1397,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_PageInfo *pageInfo;
 
 /**
- *  Information about a product (e.g. an app) in the Google Play Store, for
+ *  Information about a product (e.g. an app) in the Google Play store, for
  *  display to an enterprise admin.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Product *> *product;
@@ -1457,6 +1458,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  Public key data for the credentials file. This is an X.509 cert. If you are
+ *  using the googleCredentials key type, this is identical to the cert that can
+ *  be retrieved by using the X.509 cert url inside of the credentials file.
+ */
+@property(nonatomic, copy, nullable) NSString *publicData;
+
 /** The file format of the generated key data. */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1502,7 +1510,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Definition of a Google Play for Work store cluster, a list of products
+ *  Definition of a managed Google Play store cluster, a list of products
  *  displayed as part of a store page.
  */
 @interface GTLRAndroidEnterprise_StoreCluster : GTLRObject
@@ -1547,14 +1555,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  General setting for the Google Play for Work store layout, currently only
+ *  General setting for the managed Google Play store layout, currently only
  *  specifying the page to display the first time the store is opened.
  */
 @interface GTLRAndroidEnterprise_StoreLayout : GTLRObject
 
 /**
  *  The ID of the store page to be used as the homepage. The homepage will be
- *  used as the first page shown in the Google Play for Work store.
+ *  used as the first page shown in the managed Google Play store.
  *  If a homepage has not been set, the Play store shown on devices will be
  *  empty. Not specifying a homepage on a store layout effectively empties the
  *  store.
@@ -1618,8 +1626,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Definition of a Google Play for Work store page, made of a localized name
- *  and links to other pages. A page also contains clusters defined as a
+ *  Definition of a managed Google Play store page, made of a localized name and
+ *  links to other pages. A page also contains clusters defined as a
  *  subcollection.
  */
 @interface GTLRAndroidEnterprise_StorePage : GTLRObject
@@ -1672,13 +1680,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  A Users resource represents an account associated with an enterprise. The
  *  account may be specific to a device or to an individual user (who can then
  *  use the account across multiple devices). The account may provide access to
- *  Google Play for Work only, or to other Google services, depending on the
+ *  managed Google Play only, or to other Google services, depending on the
  *  identity model:
- *  - Google managed domain identity model requires synchronization to Google
- *  account sources (via primaryEmail).
- *  - Android for Work Accounts identity model provides a dynamic means for
- *  enterprises to create user or device accounts as needed. These accounts
- *  provide access to Google Play for Work only.
+ *  - The Google managed domain identity model requires synchronization to
+ *  Google account sources (via primaryEmail).
+ *  - The managed Google Play Accounts identity model provides a dynamic means
+ *  for enterprises to create user or device accounts as needed. These accounts
+ *  provide access to managed Google Play.
  */
 @interface GTLRAndroidEnterprise_User : GTLRObject
 
@@ -1755,9 +1763,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A UserToken is used by a user when setting up a managed device or profile
- *  with their work account on a device. When the user enters their email
- *  address and token (activation code) the appropriate EMM app can be
- *  automatically downloaded.
+ *  with their managed Google Play account on a device. When the user enters
+ *  their email address and token (activation code) the appropriate EMM app can
+ *  be automatically downloaded.
  */
 @interface GTLRAndroidEnterprise_UserToken : GTLRObject
 

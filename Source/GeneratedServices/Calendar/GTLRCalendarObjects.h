@@ -19,33 +19,33 @@
 #endif
 
 @class GTLRCalendar_AclRule;
-@class GTLRCalendar_AclRuleScope;
+@class GTLRCalendar_AclRule_Scope;
 @class GTLRCalendar_CalendarListEntry;
-@class GTLRCalendar_CalendarListEntryNotificationSettings;
-@class GTLRCalendar_ChannelParams;
+@class GTLRCalendar_CalendarListEntry_NotificationSettings;
+@class GTLRCalendar_Channel_Params;
 @class GTLRCalendar_ColorDefinition;
-@class GTLRCalendar_ColorsCalendar;
-@class GTLRCalendar_ColorsEvent;
+@class GTLRCalendar_Colors_Calendar;
+@class GTLRCalendar_Colors_Event;
 @class GTLRCalendar_Error;
 @class GTLRCalendar_Event;
+@class GTLRCalendar_Event_Creator;
+@class GTLRCalendar_Event_ExtendedProperties;
+@class GTLRCalendar_Event_ExtendedProperties_Private;
+@class GTLRCalendar_Event_ExtendedProperties_Shared;
+@class GTLRCalendar_Event_Gadget;
+@class GTLRCalendar_Event_Gadget_Preferences;
+@class GTLRCalendar_Event_Organizer;
+@class GTLRCalendar_Event_Reminders;
+@class GTLRCalendar_Event_Source;
 @class GTLRCalendar_EventAttachment;
 @class GTLRCalendar_EventAttendee;
-@class GTLRCalendar_EventCreator;
 @class GTLRCalendar_EventDateTime;
-@class GTLRCalendar_EventExtendedProperties;
-@class GTLRCalendar_EventExtendedPropertiesPrivate;
-@class GTLRCalendar_EventExtendedPropertiesShared;
-@class GTLRCalendar_EventGadget;
-@class GTLRCalendar_EventGadgetPreferences;
-@class GTLRCalendar_EventOrganizer;
 @class GTLRCalendar_EventReminder;
-@class GTLRCalendar_EventReminders;
-@class GTLRCalendar_EventSource;
 @class GTLRCalendar_FreeBusyCalendar;
 @class GTLRCalendar_FreeBusyGroup;
 @class GTLRCalendar_FreeBusyRequestItem;
-@class GTLRCalendar_FreeBusyResponseCalendars;
-@class GTLRCalendar_FreeBusyResponseGroups;
+@class GTLRCalendar_FreeBusyResponse_Calendars;
+@class GTLRCalendar_FreeBusyResponse_Groups;
 @class GTLRCalendar_Notification;
 @class GTLRCalendar_Setting;
 @class GTLRCalendar_TimePeriod;
@@ -125,7 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *role;
 
 /** The scope of the rule. */
-@property(nonatomic, strong, nullable) GTLRCalendar_AclRuleScope *scope;
+@property(nonatomic, strong, nullable) GTLRCalendar_AclRule_Scope *scope;
 
 @end
 
@@ -133,7 +133,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The scope of the rule.
  */
-@interface GTLRCalendar_AclRuleScope : GTLRObject
+@interface GTLRCalendar_AclRule_Scope : GTLRObject
 
 /**
  *  The type of the scope. Possible values are:
@@ -328,7 +328,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The notifications that the authenticated user is receiving for this
  *  calendar.
  */
-@property(nonatomic, strong, nullable) GTLRCalendar_CalendarListEntryNotificationSettings *notificationSettings;
+@property(nonatomic, strong, nullable) GTLRCalendar_CalendarListEntry_NotificationSettings *notificationSettings;
 
 /**
  *  Whether the calendar is the primary calendar of the authenticated user.
@@ -364,7 +364,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The notifications that the authenticated user is receiving for this
  *  calendar.
  */
-@interface GTLRCalendar_CalendarListEntryNotificationSettings : GTLRObject
+@interface GTLRCalendar_CalendarListEntry_NotificationSettings : GTLRObject
 
 /** The list of notifications set for this calendar. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCalendar_Notification *> *notifications;
@@ -402,7 +402,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Additional parameters controlling delivery channel behavior. Optional. */
-@property(nonatomic, strong, nullable) GTLRCalendar_ChannelParams *params;
+@property(nonatomic, strong, nullable) GTLRCalendar_Channel_Params *params;
 
 /**
  *  A Boolean value to indicate whether payload is wanted. Optional.
@@ -440,7 +440,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRCalendar_ChannelParams : GTLRObject
+@interface GTLRCalendar_Channel_Params : GTLRObject
 @end
 
 
@@ -471,14 +471,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  definition. A calendarListEntry resource refers to one of these color IDs in
  *  its color field. Read-only.
  */
-@property(nonatomic, strong, nullable) GTLRCalendar_ColorsCalendar *calendar;
+@property(nonatomic, strong, nullable) GTLRCalendar_Colors_Calendar *calendar;
 
 /**
  *  A global palette of event colors, mapping from the color ID to its
  *  definition. An event resource may refer to one of these color IDs in its
  *  color field. Read-only.
  */
-@property(nonatomic, strong, nullable) GTLRCalendar_ColorsEvent *event;
+@property(nonatomic, strong, nullable) GTLRCalendar_Colors_Event *event;
 
 /** Type of the resource ("calendar#colors"). */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -502,7 +502,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCalendar_ColorsCalendar : GTLRObject
+@interface GTLRCalendar_Colors_Calendar : GTLRObject
 @end
 
 
@@ -516,7 +516,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCalendar_ColorsEvent : GTLRObject
+@interface GTLRCalendar_Colors_Event : GTLRObject
 @end
 
 
@@ -592,7 +592,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *created;
 
 /** The creator of the event. Read-only. */
-@property(nonatomic, strong, nullable) GTLRCalendar_EventCreator *creator;
+@property(nonatomic, strong, nullable) GTLRCalendar_Event_Creator *creator;
 
 /**
  *  Description of the event. Optional.
@@ -620,10 +620,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Extended properties of the event. */
-@property(nonatomic, strong, nullable) GTLRCalendar_EventExtendedProperties *extendedProperties;
+@property(nonatomic, strong, nullable) GTLRCalendar_Event_ExtendedProperties *extendedProperties;
 
 /** A gadget that extends this event. */
-@property(nonatomic, strong, nullable) GTLRCalendar_EventGadget *gadget;
+@property(nonatomic, strong, nullable) GTLRCalendar_Event_Gadget *gadget;
 
 /**
  *  Whether attendees other than the organizer can invite others to the event.
@@ -713,7 +713,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  True. To change the organizer, use the move operation. Read-only, except
  *  when importing an event.
  */
-@property(nonatomic, strong, nullable) GTLRCalendar_EventOrganizer *organizer;
+@property(nonatomic, strong, nullable) GTLRCalendar_Event_Organizer *organizer;
 
 /**
  *  For an instance of a recurring event, this is the time at which this event
@@ -746,7 +746,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *recurringEventId;
 
 /** Information about the event's reminders for the authenticated user. */
-@property(nonatomic, strong, nullable) GTLRCalendar_EventReminders *reminders;
+@property(nonatomic, strong, nullable) GTLRCalendar_Event_Reminders *reminders;
 
 /**
  *  Sequence number as per iCalendar.
@@ -760,7 +760,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  message or any document identifiable by an URL with HTTP or HTTPS scheme.
  *  Can only be seen or modified by the creator of the event.
  */
-@property(nonatomic, strong, nullable) GTLRCalendar_EventSource *source;
+@property(nonatomic, strong, nullable) GTLRCalendar_Event_Source *source;
 
 /**
  *  The (inclusive) start time of the event. For a recurring event, this is the
@@ -812,7 +812,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The creator of the event. Read-only.
  */
-@interface GTLRCalendar_EventCreator : GTLRObject
+@interface GTLRCalendar_Event_Creator : GTLRObject
 
 /** The creator's name, if available. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -844,7 +844,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Extended properties of the event.
  */
-@interface GTLRCalendar_EventExtendedProperties : GTLRObject
+@interface GTLRCalendar_Event_ExtendedProperties : GTLRObject
 
 /**
  *  Properties that are private to the copy of the event that appears on this
@@ -852,13 +852,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'privateProperty' to avoid language reserved word 'private'.
  */
-@property(nonatomic, strong, nullable) GTLRCalendar_EventExtendedPropertiesPrivate *privateProperty;
+@property(nonatomic, strong, nullable) GTLRCalendar_Event_ExtendedProperties_Private *privateProperty;
 
 /**
  *  Properties that are shared between copies of the event on other attendees'
  *  calendars.
  */
-@property(nonatomic, strong, nullable) GTLRCalendar_EventExtendedPropertiesShared *shared;
+@property(nonatomic, strong, nullable) GTLRCalendar_Event_ExtendedProperties_Shared *shared;
 
 @end
 
@@ -866,7 +866,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A gadget that extends this event.
  */
-@interface GTLRCalendar_EventGadget : GTLRObject
+@interface GTLRCalendar_Event_Gadget : GTLRObject
 
 /**
  *  The gadget's display mode. Optional. Possible values are:
@@ -891,7 +891,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *link;
 
 /** Preferences. */
-@property(nonatomic, strong, nullable) GTLRCalendar_EventGadgetPreferences *preferences;
+@property(nonatomic, strong, nullable) GTLRCalendar_Event_Gadget_Preferences *preferences;
 
 /** The gadget's title. */
 @property(nonatomic, copy, nullable) NSString *title;
@@ -916,7 +916,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  True. To change the organizer, use the move operation. Read-only, except
  *  when importing an event.
  */
-@interface GTLRCalendar_EventOrganizer : GTLRObject
+@interface GTLRCalendar_Event_Organizer : GTLRObject
 
 /** The organizer's name, if available. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -951,7 +951,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Information about the event's reminders for the authenticated user.
  */
-@interface GTLRCalendar_EventReminders : GTLRObject
+@interface GTLRCalendar_Event_Reminders : GTLRObject
 
 /**
  *  If the event doesn't use the default reminders, this lists the reminders
@@ -975,7 +975,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  message or any document identifiable by an URL with HTTP or HTTPS scheme.
  *  Can only be seen or modified by the creator of the event.
  */
-@interface GTLRCalendar_EventSource : GTLRObject
+@interface GTLRCalendar_Event_Source : GTLRObject
 
 /**
  *  Title of the source; for example a title of a web page or an email subject.
@@ -1000,7 +1000,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRCalendar_EventExtendedPropertiesPrivate : GTLRObject
+@interface GTLRCalendar_Event_ExtendedProperties_Private : GTLRObject
 @end
 
 
@@ -1013,7 +1013,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRCalendar_EventExtendedPropertiesShared : GTLRObject
+@interface GTLRCalendar_Event_ExtendedProperties_Shared : GTLRObject
 @end
 
 
@@ -1025,7 +1025,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRCalendar_EventGadgetPreferences : GTLRObject
+@interface GTLRCalendar_Event_Gadget_Preferences : GTLRObject
 @end
 
 
@@ -1369,10 +1369,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_FreeBusyResponse : GTLRObject
 
 /** List of free/busy information for calendars. */
-@property(nonatomic, strong, nullable) GTLRCalendar_FreeBusyResponseCalendars *calendars;
+@property(nonatomic, strong, nullable) GTLRCalendar_FreeBusyResponse_Calendars *calendars;
 
 /** Expansion of groups. */
-@property(nonatomic, strong, nullable) GTLRCalendar_FreeBusyResponseGroups *groups;
+@property(nonatomic, strong, nullable) GTLRCalendar_FreeBusyResponse_Groups *groups;
 
 /** Type of the resource ("calendar#freeBusy"). */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -1394,7 +1394,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCalendar_FreeBusyResponseCalendars : GTLRObject
+@interface GTLRCalendar_FreeBusyResponse_Calendars : GTLRObject
 @end
 
 
@@ -1406,7 +1406,7 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRCalendar_FreeBusyResponseGroups : GTLRObject
+@interface GTLRCalendar_FreeBusyResponse_Groups : GTLRObject
 @end
 
 

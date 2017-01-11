@@ -2362,8 +2362,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  If set, this indicates the user explicitly chose to opt in or out of
  *  providing marketing rights to the merchant. If unset, this indicates the
  *  user has already made this choice in a previous purchase, and was thus not
- *  shown the marketing right opt in/out checkbox during the Purchases on Google
- *  checkout flow.
+ *  shown the marketing right opt in/out checkbox during the checkout flow.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4805,8 +4804,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  If set, this indicates the user explicitly chose to opt in or out of
  *  providing marketing rights to the merchant. If unset, this indicates the
  *  user has already made this choice in a previous purchase, and was thus not
- *  shown the marketing right opt in/out checkbox during the Purchases on Google
- *  checkout flow. Optional.
+ *  shown the marketing right opt in/out checkbox during the checkout flow.
+ *  Optional.
  *
  *  Uses NSNumber of boolValue.
  */

@@ -575,10 +575,10 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSheets_BasicFilterCriteria
+//   GTLRSheets_BasicFilter_Criteria
 //
 
-@implementation GTLRSheets_BasicFilterCriteria
+@implementation GTLRSheets_BasicFilter_Criteria
 
 + (Class)classForAdditionalProperties {
   return [GTLRSheets_FilterCriteria class];
@@ -1189,10 +1189,10 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSheets_FilterViewCriteria
+//   GTLRSheets_FilterView_Criteria
 //
 
-@implementation GTLRSheets_FilterViewCriteria
+@implementation GTLRSheets_FilterView_Criteria
 
 + (Class)classForAdditionalProperties {
   return [GTLRSheets_FilterCriteria class];
@@ -1470,10 +1470,10 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSheets_PivotTableCriteria
+//   GTLRSheets_PivotTable_Criteria
 //
 
-@implementation GTLRSheets_PivotTableCriteria
+@implementation GTLRSheets_PivotTable_Criteria
 
 + (Class)classForAdditionalProperties {
   return [GTLRSheets_PivotFilterCriteria class];
@@ -1679,7 +1679,7 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 //
 
 @implementation GTLRSheets_Spreadsheet
-@dynamic namedRanges, properties, sheets, spreadsheetId;
+@dynamic namedRanges, properties, sheets, spreadsheetId, spreadsheetUrl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

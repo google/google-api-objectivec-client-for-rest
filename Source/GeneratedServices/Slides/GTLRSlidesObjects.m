@@ -946,7 +946,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_ImageProperties
-@dynamic brightness, contrast, cropProperties, outline, recolor, shadow,
+@dynamic brightness, contrast, cropProperties, link, outline, recolor, shadow,
          transparency;
 @end
 
@@ -1027,7 +1027,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_LineProperties
-@dynamic dashStyle, endArrow, lineFill, startArrow, weight;
+@dynamic dashStyle, endArrow, lineFill, link, startArrow, weight;
 @end
 
 
@@ -1385,7 +1385,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_ShapeProperties
-@dynamic outline, shadow, shapeBackgroundFill;
+@dynamic link, outline, shadow, shapeBackgroundFill;
 @end
 
 

@@ -28,11 +28,11 @@
 @class GTLRStorageTransfer_HttpData;
 @class GTLRStorageTransfer_ObjectConditions;
 @class GTLRStorageTransfer_Operation;
-@class GTLRStorageTransfer_OperationMetadata;
-@class GTLRStorageTransfer_OperationResponse;
+@class GTLRStorageTransfer_Operation_Metadata;
+@class GTLRStorageTransfer_Operation_Response;
 @class GTLRStorageTransfer_Schedule;
 @class GTLRStorageTransfer_Status;
-@class GTLRStorageTransfer_StatusDetailsItem;
+@class GTLRStorageTransfer_Status_Details_Item;
 @class GTLRStorageTransfer_TimeOfDay;
 @class GTLRStorageTransfer_TransferCounters;
 @class GTLRStorageTransfer_TransferJob;
@@ -454,7 +454,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Status *error;
 
 /** Represents the transfer operation object. */
-@property(nonatomic, strong, nullable) GTLRStorageTransfer_OperationMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
@@ -472,7 +472,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  original method name. For example, if the original method name is
  *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
-@property(nonatomic, strong, nullable) GTLRStorageTransfer_OperationResponse *response;
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_Operation_Response *response;
 
 @end
 
@@ -485,7 +485,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRStorageTransfer_OperationMetadata : GTLRObject
+@interface GTLRStorageTransfer_Operation_Metadata : GTLRObject
 @end
 
 
@@ -503,7 +503,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRStorageTransfer_OperationResponse : GTLRObject
+@interface GTLRStorageTransfer_Operation_Response : GTLRObject
 @end
 
 
@@ -594,7 +594,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  A list of messages that carry the error details. There will be a common set
  *  of message types for APIs to use.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRStorageTransfer_StatusDetailsItem *> *details;
+@property(nonatomic, strong, nullable) NSArray<GTLRStorageTransfer_Status_Details_Item *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
@@ -608,14 +608,14 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 
 /**
- *  GTLRStorageTransfer_StatusDetailsItem
+ *  GTLRStorageTransfer_Status_Details_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRStorageTransfer_StatusDetailsItem : GTLRObject
+@interface GTLRStorageTransfer_Status_Details_Item : GTLRObject
 @end
 
 

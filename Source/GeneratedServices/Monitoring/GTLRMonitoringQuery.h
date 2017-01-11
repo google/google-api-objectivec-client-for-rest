@@ -834,10 +834,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  prior to applying the aggregation function. Each subset contains time series
  *  that have the same value for each of the grouping fields. Each individual
  *  time series is a member of exactly one subset. The crossSeriesReducer is
- *  applied to each subset of time series. Fields not specified in groupByFields
- *  are aggregated away. If groupByFields is not specified, the time series are
- *  aggregated into a single output time series. If crossSeriesReducer is not
- *  defined, this field is ignored.
+ *  applied to each subset of time series. It is not possible to reduce across
+ *  different resource types, so this field implicitly contains resource.type.
+ *  Fields not specified in groupByFields are aggregated away. If groupByFields
+ *  is not specified and all the time series have the same resource type, then
+ *  the time series are aggregated into a single output time series. If
+ *  crossSeriesReducer is not defined, this field is ignored.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aggregationGroupByFields;
 

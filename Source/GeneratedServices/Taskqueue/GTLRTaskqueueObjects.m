@@ -47,10 +47,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTaskqueue_TaskQueueAcl
+//   GTLRTaskqueue_TaskQueue_Acl
 //
 
-@implementation GTLRTaskqueue_TaskQueueAcl
+@implementation GTLRTaskqueue_TaskQueue_Acl
 @dynamic adminEmails, consumerEmails, producerEmails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -67,10 +67,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTaskqueue_TaskQueueStats
+//   GTLRTaskqueue_TaskQueue_Stats
 //
 
-@implementation GTLRTaskqueue_TaskQueueStats
+@implementation GTLRTaskqueue_TaskQueue_Stats
 @dynamic leasedLastHour, leasedLastMinute, oldestTask, totalTasks;
 @end
 

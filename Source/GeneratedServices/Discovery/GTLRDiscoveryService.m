@@ -27,7 +27,7 @@
 
 + (NSDictionary<NSString *, Class> *)kindStringToClassMap {
   return @{
-    @"discovery#directoryItem" : [GTLRDiscovery_DirectoryListItemsItem class],
+    @"discovery#directoryItem" : [GTLRDiscovery_DirectoryList_Items_Item class],
     @"discovery#directoryList" : [GTLRDiscovery_DirectoryList class],
     @"discovery#restDescription" : [GTLRDiscovery_RestDescription class],
   };
