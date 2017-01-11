@@ -4,8 +4,7 @@
 // API:
 //   Google Dataflow API (dataflow/v1b3)
 // Description:
-//   Develops and executes data processing patterns like ETL, batch computation,
-//   and continuous computation.
+//   Manages Google Cloud Dataflow projects on Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/dataflow
 
@@ -85,7 +84,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @end
 
 /**
- *  Creates a dataflow job.
+ *  Creates a Cloud Dataflow job.
  *
  *  Method: dataflow.projects.jobs.create
  *
@@ -97,17 +96,17 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsJobsCreateWithObject:projectId:]
 
-/** The location which contains this job. */
+/** The location that contains this job. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** The project which owns the job. */
+/** The ID of the Cloud Platform project that the job belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** DEPRECATED. This field is now on the Job message. */
+/** Deprecated. This field is now in the Job message. */
 @property(nonatomic, copy, nullable) NSString *replaceJobId;
 
 /**
- *  Level of information requested in response.
+ *  The level of information requested in response.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
@@ -119,10 +118,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Creates a dataflow job.
+ *  Creates a Cloud Dataflow job.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
- *  @param projectId The project which owns the job.
+ *  @param projectId The ID of the Cloud Platform project that the job belongs
+ *    to.
  *
  *  @returns GTLRDataflowQuery_ProjectsJobsCreate
  */
@@ -206,7 +206,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @end
 
 /**
- *  Gets the state of the specified dataflow job.
+ *  Gets the state of the specified Cloud Dataflow job.
  *
  *  Method: dataflow.projects.jobs.get
  *
@@ -218,17 +218,17 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsJobsGetWithprojectId:jobId:]
 
-/** Identifies a single job. */
+/** The job ID. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location which contains this job. */
+/** The location that contains this job. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** The project which owns the job. */
+/** The ID of the Cloud Platform project that the job belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Level of information requested in response.
+ *  The level of information requested in response.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
@@ -240,10 +240,11 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Gets the state of the specified dataflow job.
+ *  Gets the state of the specified Cloud Dataflow job.
  *
- *  @param projectId The project which owns the job.
- *  @param jobId Identifies a single job.
+ *  @param projectId The ID of the Cloud Platform project that the job belongs
+ *    to.
+ *  @param jobId The job ID.
  *
  *  @returns GTLRDataflowQuery_ProjectsJobsGet
  */
@@ -296,7 +297,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @end
 
 /**
- *  List the jobs of a project
+ *  List the jobs of a project.
  *
  *  Method: dataflow.projects.jobs.list
  *
@@ -319,7 +320,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The location which contains this job. */
+/** The location that contains this job. */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
@@ -339,7 +340,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Level of information requested in response. Default is SUMMARY.
+ *  Level of information requested in response. Default is `JOB_VIEW_SUMMARY`.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
@@ -351,7 +352,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 /**
  *  Fetches a @c GTLRDataflow_ListJobsResponse.
  *
- *  List the jobs of a project
+ *  List the jobs of a project.
  *
  *  @param projectId The project which owns the jobs.
  *
@@ -447,7 +448,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @end
 
 /**
- *  Updates the state of an existing dataflow job.
+ *  Updates the state of an existing Cloud Dataflow job.
  *
  *  Method: dataflow.projects.jobs.update
  *
@@ -459,23 +460,24 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsJobsUpdateWithObject:projectId:jobId:]
 
-/** Identifies a single job. */
+/** The job ID. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location which contains this job. */
+/** The location that contains this job. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** The project which owns the job. */
+/** The ID of the Cloud Platform project that the job belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Updates the state of an existing dataflow job.
+ *  Updates the state of an existing Cloud Dataflow job.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
- *  @param projectId The project which owns the job.
- *  @param jobId Identifies a single job.
+ *  @param projectId The ID of the Cloud Platform project that the job belongs
+ *    to.
+ *  @param jobId The job ID.
  *
  *  @returns GTLRDataflowQuery_ProjectsJobsUpdate
  */
@@ -560,7 +562,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @end
 
 /**
- *  Creates a dataflow job.
+ *  Creates a Cloud Dataflow job.
  *
  *  Method: dataflow.projects.locations.jobs.create
  *
@@ -572,17 +574,17 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsLocationsJobsCreateWithObject:projectId:location:]
 
-/** The location which contains this job. */
+/** The location that contains this job. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** The project which owns the job. */
+/** The ID of the Cloud Platform project that the job belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** DEPRECATED. This field is now on the Job message. */
+/** Deprecated. This field is now in the Job message. */
 @property(nonatomic, copy, nullable) NSString *replaceJobId;
 
 /**
- *  Level of information requested in response.
+ *  The level of information requested in response.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
@@ -594,11 +596,12 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Creates a dataflow job.
+ *  Creates a Cloud Dataflow job.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
- *  @param projectId The project which owns the job.
- *  @param location The location which contains this job.
+ *  @param projectId The ID of the Cloud Platform project that the job belongs
+ *    to.
+ *  @param location The location that contains this job.
  *
  *  @returns GTLRDataflowQuery_ProjectsLocationsJobsCreate
  */
@@ -609,7 +612,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @end
 
 /**
- *  Gets the state of the specified dataflow job.
+ *  Gets the state of the specified Cloud Dataflow job.
  *
  *  Method: dataflow.projects.locations.jobs.get
  *
@@ -621,17 +624,17 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsLocationsJobsGetWithprojectId:location:jobId:]
 
-/** Identifies a single job. */
+/** The job ID. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location which contains this job. */
+/** The location that contains this job. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** The project which owns the job. */
+/** The ID of the Cloud Platform project that the job belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Level of information requested in response.
+ *  The level of information requested in response.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
@@ -643,11 +646,12 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Gets the state of the specified dataflow job.
+ *  Gets the state of the specified Cloud Dataflow job.
  *
- *  @param projectId The project which owns the job.
- *  @param location The location which contains this job.
- *  @param jobId Identifies a single job.
+ *  @param projectId The ID of the Cloud Platform project that the job belongs
+ *    to.
+ *  @param location The location that contains this job.
+ *  @param jobId The job ID.
  *
  *  @returns GTLRDataflowQuery_ProjectsLocationsJobsGet
  */
@@ -703,7 +707,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @end
 
 /**
- *  List the jobs of a project
+ *  List the jobs of a project.
  *
  *  Method: dataflow.projects.locations.jobs.list
  *
@@ -726,7 +730,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The location which contains this job. */
+/** The location that contains this job. */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
@@ -746,7 +750,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Level of information requested in response. Default is SUMMARY.
+ *  Level of information requested in response. Default is `JOB_VIEW_SUMMARY`.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
@@ -758,10 +762,10 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 /**
  *  Fetches a @c GTLRDataflow_ListJobsResponse.
  *
- *  List the jobs of a project
+ *  List the jobs of a project.
  *
  *  @param projectId The project which owns the jobs.
- *  @param location The location which contains this job.
+ *  @param location The location that contains this job.
  *
  *  @returns GTLRDataflowQuery_ProjectsLocationsJobsList
  */
@@ -858,7 +862,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @end
 
 /**
- *  Updates the state of an existing dataflow job.
+ *  Updates the state of an existing Cloud Dataflow job.
  *
  *  Method: dataflow.projects.locations.jobs.update
  *
@@ -870,24 +874,25 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsLocationsJobsUpdateWithObject:projectId:location:jobId:]
 
-/** Identifies a single job. */
+/** The job ID. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** The location which contains this job. */
+/** The location that contains this job. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** The project which owns the job. */
+/** The ID of the Cloud Platform project that the job belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Updates the state of an existing dataflow job.
+ *  Updates the state of an existing Cloud Dataflow job.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
- *  @param projectId The project which owns the job.
- *  @param location The location which contains this job.
- *  @param jobId Identifies a single job.
+ *  @param projectId The ID of the Cloud Platform project that the job belongs
+ *    to.
+ *  @param location The location that contains this job.
+ *  @param jobId The job ID.
  *
  *  @returns GTLRDataflowQuery_ProjectsLocationsJobsUpdate
  */
@@ -983,7 +988,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @end
 
 /**
- *  Creates a dataflow job from a template.
+ *  Creates a Cloud Dataflow job from a template.
  *
  *  Method: dataflow.projects.templates.create
  *
@@ -995,17 +1000,18 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsTemplatesCreateWithObject:projectId:]
 
-/** The project which owns the job. */
+/** Required. The ID of the Cloud Platform project that the job belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Creates a dataflow job from a template.
+ *  Creates a Cloud Dataflow job from a template.
  *
  *  @param object The @c GTLRDataflow_CreateJobFromTemplateRequest to include in
  *    the query.
- *  @param projectId The project which owns the job.
+ *  @param projectId Required. The ID of the Cloud Platform project that the job
+ *    belongs to.
  *
  *  @returns GTLRDataflowQuery_ProjectsTemplatesCreate
  */

@@ -4,8 +4,7 @@
 // API:
 //   Google Dataflow API (dataflow/v1b3)
 // Description:
-//   Develops and executes data processing patterns like ETL, batch computation,
-//   and continuous computation.
+//   Manages Google Cloud Dataflow projects on Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/dataflow
 
@@ -1079,6 +1078,47 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_ResourceUtilizationReport
+//
+
+@implementation GTLRDataflow_ResourceUtilizationReport
+@dynamic metrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [GTLRDataflow_ResourceUtilizationReport_Metrics_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ResourceUtilizationReport_Metrics_Item
+//
+
+@implementation GTLRDataflow_ResourceUtilizationReport_Metrics_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ResourceUtilizationReportResponse
+//
+
+@implementation GTLRDataflow_ResourceUtilizationReportResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_RuntimeEnvironment
 //
 
@@ -1774,7 +1814,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_WorkerMessage
-@dynamic labels, time, workerHealthReport, workerMessageCode;
+@dynamic labels, time, workerHealthReport, workerMessageCode, workerMetrics;
 @end
 
 
@@ -1822,7 +1862,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_WorkerMessageResponse
-@dynamic workerHealthReportResponse;
+@dynamic workerHealthReportResponse, workerMetricsResponse;
 @end
 
 

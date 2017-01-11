@@ -6110,8 +6110,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_DuplicateObjectResponse *duplicateObject;
 
 /**
- *  The result of replacing all shapes containing the specified text with
- *  an image.
+ *  The result of replacing all shapes matching some criteria with an
+ *  image.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_ReplaceAllShapesWithImageResponse *replaceAllShapesWithImage;
 

@@ -877,10 +877,11 @@
 @dynamic addresses, agreedToTerms, aliases, changePasswordAtNextLogin,
          creationTime, customerId, customSchemas, deletionTime, emails, ETag,
          externalIds, hashFunction, identifier, ims, includeInGlobalAddressList,
-         ipWhitelisted, isAdmin, isDelegatedAdmin, isMailboxSetup, kind,
-         lastLoginTime, name, nonEditableAliases, notes, organizations,
-         orgUnitPath, password, phones, primaryEmail, relations, suspended,
-         suspensionReason, thumbnailPhotoEtag, thumbnailPhotoUrl, websites;
+         ipWhitelisted, isAdmin, isDelegatedAdmin, isEnforcedIn2Sv,
+         isEnrolledIn2Sv, isMailboxSetup, kind, lastLoginTime, name,
+         nonEditableAliases, notes, organizations, orgUnitPath, password,
+         phones, primaryEmail, relations, suspended, suspensionReason,
+         thumbnailPhotoEtag, thumbnailPhotoUrl, websites;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
