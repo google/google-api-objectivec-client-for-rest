@@ -108,7 +108,7 @@
   newEvent.end.dateTime = endDateTime;
 
   // Reminders
-  newEvent.reminders = [GTLRCalendar_EventReminders object];
+  newEvent.reminders = [GTLRCalendar_Event_Reminders object];
   newEvent.reminders.useDefault = @(shouldUseDefaultReminders);
   if (!shouldUseDefaultReminders) {
     GTLRCalendar_EventReminder *reminder = [GTLRCalendar_EventReminder object];
