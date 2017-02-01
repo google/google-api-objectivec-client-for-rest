@@ -538,7 +538,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"CalendarSample: Google Calendar.
   reminder.minutes = @10;
   reminder.method = @"email";
 
-  newEvent.reminders = [GTLRCalendar_EventReminders object];
+  newEvent.reminders = [GTLRCalendar_Event_Reminders object];
   newEvent.reminders.overrides = @[ reminder ];
   newEvent.reminders.useDefault = @NO;
 
@@ -759,7 +759,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"CalendarSample: Google Calendar.
         // Display a list of busy periods for the calendar account
         NSMutableString *displayStr = [NSMutableString string];
 
-        GTLRCalendar_FreeBusyResponseCalendars *responseCals = response.calendars;
+        GTLRCalendar_FreeBusyResponse_Calendars *responseCals = response.calendars;
         NSDictionary *props = responseCals.additionalProperties;
 
         // Step through the free-busy calendar IDs, and display each calendar
@@ -801,7 +801,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"CalendarSample: Google Calendar.
 
 - (void)addAnACLRule {
   // Make a new ACL rule
-  GTLRCalendar_AclRuleScope *scope = [GTLRCalendar_AclRuleScope object];
+  GTLRCalendar_AclRule_Scope *scope = [GTLRCalendar_AclRule_Scope object];
   scope.type = @"user";
   scope.value = @"mark.twain@example.com";
 
@@ -1022,7 +1022,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"CalendarSample: Google Calendar.
 
   NSMutableString *resultStr = [NSMutableString string];
 
-  GTLRCalendar_AclRuleScope *scope = rule.scope;
+  GTLRCalendar_AclRule_Scope *scope = rule.scope;
   if (scope) {
     NSString *type = (scope.type ? scope.type : @"");
     NSString *value = @"";

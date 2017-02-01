@@ -52,7 +52,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
 @end
 
 @implementation YouTubeSampleWindowController {
-  GTLRYouTube_ChannelContentDetailsRelatedPlaylists *_myPlaylists;
+  GTLRYouTube_ChannelContentDetails_RelatedPlaylists *_myPlaylists;
   GTLRServiceTicket *_channelListTicket;
   NSError *_channelListFetchError;
 
