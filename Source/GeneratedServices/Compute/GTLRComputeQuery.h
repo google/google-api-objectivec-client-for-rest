@@ -49,6 +49,7 @@
 @class GTLRCompute_InstanceMoveRequest;
 @class GTLRCompute_InstanceReference;
 @class GTLRCompute_InstancesSetMachineTypeRequest;
+@class GTLRCompute_InstancesSetServiceAccountRequest;
 @class GTLRCompute_InstancesStartWithEncryptionKeyRequest;
 @class GTLRCompute_InstanceTemplate;
 @class GTLRCompute_Metadata;
@@ -6327,6 +6328,52 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRComputeQuery_InstancesSetScheduling
  */
 + (instancetype)queryWithObject:(GTLRCompute_Scheduling *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Sets the service account on the instance.
+ *
+ *  Method: compute.instances.setServiceAccount
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesSetServiceAccount : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesSetServiceAccountWithObject:project:zoneProperty:instance:]
+
+/** Name of the instance resource to start. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the service account on the instance.
+ *
+ *  @param object The @c GTLRCompute_InstancesSetServiceAccountRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance resource to start.
+ *
+ *  @returns GTLRComputeQuery_InstancesSetServiceAccount
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstancesSetServiceAccountRequest *)object
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance;

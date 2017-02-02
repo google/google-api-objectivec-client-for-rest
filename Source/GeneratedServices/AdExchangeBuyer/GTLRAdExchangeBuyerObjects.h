@@ -140,15 +140,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_Account_BidderLocation_Item : GTLRObject
 
 /**
- *  The protocol that the bidder endpoint is using. By default, OpenRTB
- *  protocols use JSON, except PROTOCOL_OPENRTB_PROTOBUF.
- *  PROTOCOL_OPENRTB_PROTOBUF uses protobuf encoding over the latest OpenRTB
- *  protocol version, which is 2.4 right now. Allowed values:
+ *  The protocol that the bidder endpoint is using. OpenRTB protocols with
+ *  prefix PROTOCOL_OPENRTB_PROTOBUF use proto buffer, otherwise use JSON.
+ *  Allowed values:
  *  - PROTOCOL_ADX
  *  - PROTOCOL_OPENRTB_2_2
  *  - PROTOCOL_OPENRTB_2_3
  *  - PROTOCOL_OPENRTB_2_4
- *  - PROTOCOL_OPENRTB_PROTOBUF
+ *  - PROTOCOL_OPENRTB_PROTOBUF_2_3
+ *  - PROTOCOL_OPENRTB_PROTOBUF_2_4
  */
 @property(nonatomic, copy, nullable) NSString *bidProtocol;
 

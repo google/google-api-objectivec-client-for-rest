@@ -636,6 +636,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *recordsWritten;
 
+/** Current status for the stage. */
+@property(nonatomic, copy, nullable) NSString *status;
+
 /**
  *  List of operations within the stage in dependency order (approximately
  *  chronological).
@@ -1147,9 +1150,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *maxBadRecords;
 
 /**
- *  [Optional] This string will be interpreted as a null value when it appears
- *  in a CSV file. The default value is the empty string. Please refer to the
- *  documentation for further information.
+ *  [Optional] Specifies a string that represents a null value in a CSV file.
+ *  For example, if you specify "\\N", BigQuery interprets "\\N" as a null value
+ *  when loading a CSV file. The default value is the empty string. If you set
+ *  this property to a custom value, BigQuery still interprets the empty string
+ *  as a null value for all data types except for STRING and BYTE. For STRING
+ *  and BYTE columns, BigQuery interprets the empty string as an empty value.
  */
 @property(nonatomic, copy, nullable) NSString *nullMarker;
 
@@ -1307,8 +1313,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *maximumBytesBilled;
 
 /**
- *  [Experimental] Standard SQL only. Whether to use positional (?) or named
- *  (\@myparam) query parameters in this query.
+ *  [Experimental] Standard SQL only. Set to POSITIONAL to use positional (?)
+ *  query parameters or to NAMED to use named (\@myparam) query parameters in
+ *  this query.
  */
 @property(nonatomic, copy, nullable) NSString *parameterMode;
 
@@ -1964,8 +1971,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *maxResults;
 
 /**
- *  [Experimental] Standard SQL only. Whether to use positional (?) or named
- *  (\@myparam) query parameters in this query.
+ *  [Experimental] Standard SQL only. Set to POSITIONAL to use positional (?)
+ *  query parameters or to NAMED to use named (\@myparam) query parameters in
+ *  this query.
  */
 @property(nonatomic, copy, nullable) NSString *parameterMode;
 

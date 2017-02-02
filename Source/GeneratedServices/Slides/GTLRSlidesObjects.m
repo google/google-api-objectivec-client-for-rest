@@ -304,9 +304,11 @@ NSString * const kGTLRSlides_Outline_PropertyState_NotRendered = @"NOT_RENDERED"
 NSString * const kGTLRSlides_Outline_PropertyState_Rendered    = @"RENDERED";
 
 // GTLRSlides_Page.pageType
-NSString * const kGTLRSlides_Page_PageType_Layout = @"LAYOUT";
-NSString * const kGTLRSlides_Page_PageType_Master = @"MASTER";
-NSString * const kGTLRSlides_Page_PageType_Slide  = @"SLIDE";
+NSString * const kGTLRSlides_Page_PageType_Layout      = @"LAYOUT";
+NSString * const kGTLRSlides_Page_PageType_Master      = @"MASTER";
+NSString * const kGTLRSlides_Page_PageType_Notes       = @"NOTES";
+NSString * const kGTLRSlides_Page_PageType_NotesMaster = @"NOTES_MASTER";
+NSString * const kGTLRSlides_Page_PageType_Slide       = @"SLIDE";
 
 // GTLRSlides_PageBackgroundFill.propertyState
 NSString * const kGTLRSlides_PageBackgroundFill_PropertyState_Inherit = @"INHERIT";
@@ -358,6 +360,10 @@ NSString * const kGTLRSlides_Range_Type_RangeTypeUnspecified = @"RANGE_TYPE_UNSP
 // GTLRSlides_ReplaceAllShapesWithImageRequest.replaceMethod
 NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_CenterCrop = @"CENTER_CROP";
 NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_CenterInside = @"CENTER_INSIDE";
+
+// GTLRSlides_ReplaceAllShapesWithSheetsChartRequest.linkingMode
+NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_Linked = @"LINKED";
+NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_NotLinkedImage = @"NOT_LINKED_IMAGE";
 
 // GTLRSlides_Shadow.alignment
 NSString * const kGTLRSlides_Shadow_Alignment_BottomCenter     = @"BOTTOM_CENTER";
@@ -759,7 +765,15 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_CreateSlideRequest
-@dynamic insertionIndex, objectId, slideLayoutReference;
+@dynamic insertionIndex, objectId, placeholderIdMappings, slideLayoutReference;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"placeholderIdMappings" : [GTLRSlides_LayoutPlaceholderIdMapping class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -983,6 +997,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_LayoutPlaceholderIdMapping
+//
+
+@implementation GTLRSlides_LayoutPlaceholderIdMapping
+@dynamic layoutPlaceholder, layoutPlaceholderObjectId, objectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_LayoutProperties
 //
 
@@ -1077,6 +1101,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_NotesProperties
+//
+
+@implementation GTLRSlides_NotesProperties
+@dynamic speakerNotesObjectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_OpaqueColor
 //
 
@@ -1121,8 +1155,8 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_Page
-@dynamic layoutProperties, objectId, pageElements, pageProperties, pageType,
-         slideProperties;
+@dynamic layoutProperties, notesProperties, objectId, pageElements,
+         pageProperties, pageType, slideProperties;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1217,7 +1251,8 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_Presentation
-@dynamic layouts, locale, masters, pageSize, presentationId, slides, title;
+@dynamic layouts, locale, masters, notesMaster, pageSize, presentationId,
+         slides, title;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1291,6 +1326,26 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_ReplaceAllShapesWithSheetsChartRequest
+//
+
+@implementation GTLRSlides_ReplaceAllShapesWithSheetsChartRequest
+@dynamic chartId, containsText, linkingMode, spreadsheetId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_ReplaceAllShapesWithSheetsChartResponse
+//
+
+@implementation GTLRSlides_ReplaceAllShapesWithSheetsChartResponse
+@dynamic occurrencesChanged;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_ReplaceAllTextRequest
 //
 
@@ -1319,8 +1374,9 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
          createSheetsChart, createSlide, createTable, createVideo, deleteObject,
          deleteTableColumn, deleteTableRow, deleteText, duplicateObject,
          insertTableColumns, insertTableRows, insertText, refreshSheetsChart,
-         replaceAllShapesWithImage, replaceAllText, updateImageProperties,
-         updateLineProperties, updatePageElementTransform, updatePageProperties,
+         replaceAllShapesWithImage, replaceAllShapesWithSheetsChart,
+         replaceAllText, updateImageProperties, updateLineProperties,
+         updatePageElementTransform, updatePageProperties,
          updateShapeProperties, updateSlidesPosition, updateTableCellProperties,
          updateTextStyle, updateVideoProperties;
 @end
@@ -1334,7 +1390,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 @implementation GTLRSlides_Response
 @dynamic createImage, createLine, createShape, createSheetsChart, createSlide,
          createTable, createVideo, duplicateObject, replaceAllShapesWithImage,
-         replaceAllText;
+         replaceAllShapesWithSheetsChart, replaceAllText;
 @end
 
 
@@ -1425,7 +1481,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_SlideProperties
-@dynamic layoutObjectId, masterObjectId;
+@dynamic layoutObjectId, masterObjectId, notesPage;
 @end
 
 

@@ -161,60 +161,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidEnterprise_Collection
-//
-
-@implementation GTLRAndroidEnterprise_Collection
-@dynamic collectionId, kind, name, productId, visibility;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"productId" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidEnterprise_CollectionsListResponse
-//
-
-@implementation GTLRAndroidEnterprise_CollectionsListResponse
-@dynamic collection, kind;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"collection" : [GTLRAndroidEnterprise_Collection class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidEnterprise_CollectionViewersListResponse
-//
-
-@implementation GTLRAndroidEnterprise_CollectionViewersListResponse
-@dynamic kind, user;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"user" : [GTLRAndroidEnterprise_User class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidEnterprise_Device
 //
 
@@ -528,6 +474,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_NewDeviceEvent
+//
+
+@implementation GTLRAndroidEnterprise_NewDeviceEvent
+@dynamic deviceId, managementType, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_NewPermissionsEvent
 //
 
@@ -552,8 +508,8 @@
 
 @implementation GTLRAndroidEnterprise_Notification
 @dynamic appRestrictionsSchemaChangeEvent, appUpdateEvent, enterpriseId,
-         installFailureEvent, newPermissionsEvent, productApprovalEvent,
-         productAvailabilityChangeEvent, timestampMillis;
+         installFailureEvent, newDeviceEvent, newPermissionsEvent,
+         productApprovalEvent, productAvailabilityChangeEvent, timestampMillis;
 @end
 
 

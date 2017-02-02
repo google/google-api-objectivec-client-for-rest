@@ -33,6 +33,7 @@
 @class GTLRDataflow_DataDiskAssignment;
 @class GTLRDataflow_DerivedSource;
 @class GTLRDataflow_Disk;
+@class GTLRDataflow_DistributionUpdate;
 @class GTLRDataflow_DynamicSourceSplit;
 @class GTLRDataflow_Environment;
 @class GTLRDataflow_Environment_InternalExperiments;
@@ -77,7 +78,7 @@
 @class GTLRDataflow_ReadInstruction;
 @class GTLRDataflow_ReportedParallelism;
 @class GTLRDataflow_ResourceUtilizationReport;
-@class GTLRDataflow_ResourceUtilizationReport_Metrics_Item;
+@class GTLRDataflow_ResourceUtilizationReport_Metric_Item;
 @class GTLRDataflow_ResourceUtilizationReportResponse;
 @class GTLRDataflow_RuntimeEnvironment;
 @class GTLRDataflow_SeqMapTask;
@@ -160,6 +161,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_Autosca
 
 /** Value: "AND" */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_And;
+/** Value: "DISTRIBUTION" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Distribution;
 /** Value: "INVALID" */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Invalid;
 /** Value: "MAX" */
@@ -196,6 +199,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Timesta
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampUsec;
 
 // ----------------------------------------------------------------------------
+// GTLRDataflow_CounterStructuredName.origin
+
+/** Value: "SYSTEM" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Origin_System;
+/** Value: "USER" */
+GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Origin_User;
+
+// ----------------------------------------------------------------------------
 // GTLRDataflow_CounterStructuredName.portion
 
 /** Value: "ALL" */
@@ -204,14 +215,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_All;
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_Key;
 /** Value: "VALUE" */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_Value;
-
-// ----------------------------------------------------------------------------
-// GTLRDataflow_CounterStructuredName.standardOrigin
-
-/** Value: "DATAFLOW" */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_StandardOrigin_Dataflow;
-/** Value: "USER" */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_StandardOrigin_User;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_DerivedSource.derivationMode
@@ -300,6 +303,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessa
 
 /** Value: "AND" */
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_And;
+/** Value: "DISTRIBUTION" */
+GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Distribution;
 /** Value: "INVALID" */
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Invalid;
 /** Value: "MAX" */
@@ -566,6 +571,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_CounterMetadata_Kind_And Value "AND"
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Distribution Value
+ *        "DISTRIBUTION"
  *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Invalid Value "INVALID"
  *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Max Value "MAX"
  *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Mean Value "MEAN"
@@ -623,13 +630,22 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  One of the standard Origins defined above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_CounterStructuredName_Origin_System Value "SYSTEM"
+ *    @arg @c kGTLRDataflow_CounterStructuredName_Origin_User Value "USER"
+ */
+@property(nonatomic, copy, nullable) NSString *origin;
+
+/**
  *  System generated name of the original step in the user's graph, before
  *  optimization.
  */
 @property(nonatomic, copy, nullable) NSString *originalStepName;
 
-/** A string containing the origin of the counter. */
-@property(nonatomic, copy, nullable) NSString *otherOrigin;
+/** A string containing a more specific namespace of the counter's origin. */
+@property(nonatomic, copy, nullable) NSString *originNamespace;
 
 /**
  *  Portion of this counter, either key or value.
@@ -640,17 +656,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *    @arg @c kGTLRDataflow_CounterStructuredName_Portion_Value Value "VALUE"
  */
 @property(nonatomic, copy, nullable) NSString *portion;
-
-/**
- *  One of the standard Origins defined above.
- *
- *  Likely values:
- *    @arg @c kGTLRDataflow_CounterStructuredName_StandardOrigin_Dataflow Value
- *        "DATAFLOW"
- *    @arg @c kGTLRDataflow_CounterStructuredName_StandardOrigin_User Value
- *        "USER"
- */
-@property(nonatomic, copy, nullable) NSString *standardOrigin;
 
 /** ID of a particular worker. */
 @property(nonatomic, copy, nullable) NSString *workerId;
@@ -693,6 +698,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cumulative;
+
+/** Distribution data */
+@property(nonatomic, strong, nullable) GTLRDataflow_DistributionUpdate *distribution;
 
 /**
  *  Floating point value for Sum, Max, Min.
@@ -876,6 +884,36 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+@end
+
+
+/**
+ *  A metric value representing a distribution.
+ */
+@interface GTLRDataflow_DistributionUpdate : GTLRObject
+
+/** The count of the number of elements present in the distribution. */
+@property(nonatomic, strong, nullable) GTLRDataflow_SplitInt64 *count;
+
+/** The maximum value present in the distribution. */
+@property(nonatomic, strong, nullable) GTLRDataflow_SplitInt64 *max;
+
+/** The minimum value present in the distribution. */
+@property(nonatomic, strong, nullable) GTLRDataflow_SplitInt64 *min;
+
+/**
+ *  Use an int64 since we'd prefer the added precision. If overflow is a common
+ *  problem we can detect it and use an additional int64 or a double.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_SplitInt64 *sum;
+
+/**
+ *  Use a double since the sum of squares is likely to overflow int64.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sumOfSquares;
 
 @end
 
@@ -1847,6 +1885,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_NameAndKind_Kind_And Value "AND"
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Distribution Value "DISTRIBUTION"
  *    @arg @c kGTLRDataflow_NameAndKind_Kind_Invalid Value "INVALID"
  *    @arg @c kGTLRDataflow_NameAndKind_Kind_Max Value "MAX"
  *    @arg @c kGTLRDataflow_NameAndKind_Kind_Mean Value "MEAN"
@@ -2198,29 +2237,28 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /**
  *  Worker metrics exported from workers. This contains resource utilization
  *  metrics accumulated from a variety of sources. For more information, see
- *  go/df-resource-signals. Note that this proto closely follows the structure
- *  of its DFE siblings in its contents.
+ *  go/df-resource-signals.
  */
 @interface GTLRDataflow_ResourceUtilizationReport : GTLRObject
 
 /**
- *  Each Struct must parallel DFE worker metrics protos (eg., cpu_time metric
- *  will have nested values “timestamp_ms, total_ms, rate”).
+ *  'Any' is used to provide extensibility of reported metrics without requiring
+ *  changes to the public API.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ResourceUtilizationReport_Metrics_Item *> *metrics;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ResourceUtilizationReport_Metric_Item *> *metric;
 
 @end
 
 
 /**
- *  GTLRDataflow_ResourceUtilizationReport_Metrics_Item
+ *  GTLRDataflow_ResourceUtilizationReport_Metric_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataflow_ResourceUtilizationReport_Metrics_Item : GTLRObject
+@interface GTLRDataflow_ResourceUtilizationReport_Metric_Item : GTLRObject
 @end
 
 

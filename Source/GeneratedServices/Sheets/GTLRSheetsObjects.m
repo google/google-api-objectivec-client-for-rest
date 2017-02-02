@@ -178,6 +178,11 @@ NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteNoBorders = @"PASTE_
 NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteNormal = @"PASTE_NORMAL";
 NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteValues = @"PASTE_VALUES";
 
+// GTLRSheets_DeleteRangeRequest.shiftDimension
+NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_Columns = @"COLUMNS";
+NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
+NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_Rows = @"ROWS";
+
 // GTLRSheets_DimensionRange.dimension
 NSString * const kGTLRSheets_DimensionRange_Dimension_Columns  = @"COLUMNS";
 NSString * const kGTLRSheets_DimensionRange_Dimension_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
@@ -194,6 +199,11 @@ NSString * const kGTLRSheets_ErrorValue_Type_NullValue         = @"NULL_VALUE";
 NSString * const kGTLRSheets_ErrorValue_Type_Num               = @"NUM";
 NSString * const kGTLRSheets_ErrorValue_Type_Ref               = @"REF";
 NSString * const kGTLRSheets_ErrorValue_Type_Value             = @"VALUE";
+
+// GTLRSheets_InsertRangeRequest.shiftDimension
+NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_Columns = @"COLUMNS";
+NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
+NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_Rows = @"ROWS";
 
 // GTLRSheets_InterpolationPoint.type
 NSString * const kGTLRSheets_InterpolationPoint_Type_InterpolationPointTypeUnspecified = @"INTERPOLATION_POINT_TYPE_UNSPECIFIED";
@@ -1024,6 +1034,16 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_DeleteRangeRequest
+//
+
+@implementation GTLRSheets_DeleteRangeRequest
+@dynamic range, shiftDimension;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_DeleteSheetRequest
 //
 
@@ -1296,6 +1316,16 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_InsertRangeRequest
+//
+
+@implementation GTLRSheets_InsertRangeRequest
+@dynamic range, shiftDimension;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_InterpolationPoint
 //
 
@@ -1536,15 +1566,15 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
          appendDimension, autoFill, autoResizeDimensions, clearBasicFilter,
          copyPaste, cutPaste, deleteBanding, deleteConditionalFormatRule,
          deleteDimension, deleteEmbeddedObject, deleteFilterView,
-         deleteNamedRange, deleteProtectedRange, deleteSheet,
+         deleteNamedRange, deleteProtectedRange, deleteRange, deleteSheet,
          duplicateFilterView, duplicateSheet, findReplace, insertDimension,
-         mergeCells, moveDimension, pasteData, repeatCell, setBasicFilter,
-         setDataValidation, sortRange, textToColumns, unmergeCells,
-         updateBanding, updateBorders, updateCells, updateChartSpec,
-         updateConditionalFormatRule, updateDimensionProperties,
-         updateEmbeddedObjectPosition, updateFilterView, updateNamedRange,
-         updateProtectedRange, updateSheetProperties,
-         updateSpreadsheetProperties;
+         insertRange, mergeCells, moveDimension, pasteData, repeatCell,
+         setBasicFilter, setDataValidation, sortRange, textToColumns,
+         unmergeCells, updateBanding, updateBorders, updateCells,
+         updateChartSpec, updateConditionalFormatRule,
+         updateDimensionProperties, updateEmbeddedObjectPosition,
+         updateFilterView, updateNamedRange, updateProtectedRange,
+         updateSheetProperties, updateSpreadsheetProperties;
 @end
 
 

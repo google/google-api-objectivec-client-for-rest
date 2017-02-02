@@ -2529,6 +2529,24 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_InstancesSetServiceAccountRequest
+//
+
+@implementation GTLRCompute_InstancesSetServiceAccountRequest
+@dynamic email, scopes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_InstancesStartWithEncryptionKeyRequest
 //
 
@@ -2876,7 +2894,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_NetworkInterface
-@dynamic accessConfigs, name, network, networkIP, subnetwork;
+@dynamic accessConfigs, kind, name, network, networkIP, subnetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

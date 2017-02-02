@@ -67,6 +67,7 @@
 @class GTLRSheets_DeleteFilterViewRequest;
 @class GTLRSheets_DeleteNamedRangeRequest;
 @class GTLRSheets_DeleteProtectedRangeRequest;
+@class GTLRSheets_DeleteRangeRequest;
 @class GTLRSheets_DeleteSheetRequest;
 @class GTLRSheets_DimensionProperties;
 @class GTLRSheets_DimensionRange;
@@ -90,6 +91,7 @@
 @class GTLRSheets_GridProperties;
 @class GTLRSheets_GridRange;
 @class GTLRSheets_InsertDimensionRequest;
+@class GTLRSheets_InsertRangeRequest;
 @class GTLRSheets_InterpolationPoint;
 @class GTLRSheets_MergeCellsRequest;
 @class GTLRSheets_MoveDimensionRequest;
@@ -1089,6 +1091,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteNormal;
 GTLR_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteValues;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_DeleteRangeRequest.shiftDimension
+
+/**
+ *  Operates on the columns of a sheet.
+ *
+ *  Value: "COLUMNS"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_Columns;
+/**
+ *  The default value, do not use.
+ *
+ *  Value: "DIMENSION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_DimensionUnspecified;
+/**
+ *  Operates on the rows of a sheet.
+ *
+ *  Value: "ROWS"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_Rows;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_DimensionRange.dimension
 
 /**
@@ -1173,6 +1197,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Ref;
  *  Value: "VALUE"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Value;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_InsertRangeRequest.shiftDimension
+
+/**
+ *  Operates on the columns of a sheet.
+ *
+ *  Value: "COLUMNS"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_Columns;
+/**
+ *  The default value, do not use.
+ *
+ *  Value: "DIMENSION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_DimensionUnspecified;
+/**
+ *  Operates on the rows of a sheet.
+ *
+ *  Value: "ROWS"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_Rows;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_InterpolationPoint.type
@@ -3584,6 +3630,33 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 
 /**
+ *  Deletes a range of cells, shifting other cells into the deleted area.
+ */
+@interface GTLRSheets_DeleteRangeRequest : GTLRObject
+
+/** The range of cells to delete. */
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
+
+/**
+ *  The dimension from which deleted cells will be replaced with.
+ *  If ROWS, existing cells will be shifted upward to
+ *  replace the deleted cells. If COLUMNS, existing cells
+ *  will be shifted left to replace the deleted cells.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_DeleteRangeRequest_ShiftDimension_Columns Operates on
+ *        the columns of a sheet. (Value: "COLUMNS")
+ *    @arg @c kGTLRSheets_DeleteRangeRequest_ShiftDimension_DimensionUnspecified
+ *        The default value, do not use. (Value: "DIMENSION_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_DeleteRangeRequest_ShiftDimension_Rows Operates on the
+ *        rows of a sheet. (Value: "ROWS")
+ */
+@property(nonatomic, copy, nullable) NSString *shiftDimension;
+
+@end
+
+
+/**
  *  Deletes the requested sheet.
  */
 @interface GTLRSheets_DeleteSheetRequest : GTLRObject
@@ -4312,6 +4385,32 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  The dimensions to insert. Both the start and end indexes must be bounded.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_DimensionRange *range;
+
+@end
+
+
+/**
+ *  Inserts cells into a range, shifting the existing cells over or down.
+ */
+@interface GTLRSheets_InsertRangeRequest : GTLRObject
+
+/** The range to insert new cells into. */
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
+
+/**
+ *  The dimension which will be shifted when inserting cells.
+ *  If ROWS, existing cells will be shifted down.
+ *  If COLUMNS, existing cells will be shifted right.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_InsertRangeRequest_ShiftDimension_Columns Operates on
+ *        the columns of a sheet. (Value: "COLUMNS")
+ *    @arg @c kGTLRSheets_InsertRangeRequest_ShiftDimension_DimensionUnspecified
+ *        The default value, do not use. (Value: "DIMENSION_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_InsertRangeRequest_ShiftDimension_Rows Operates on the
+ *        rows of a sheet. (Value: "ROWS")
+ */
+@property(nonatomic, copy, nullable) NSString *shiftDimension;
 
 @end
 
@@ -5078,6 +5177,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 /** Deletes a protected range. */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteProtectedRangeRequest *deleteProtectedRange;
 
+/** Deletes a range of cells from a sheet, shifting the remaining cells. */
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteRangeRequest *deleteRange;
+
 /** Deletes a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteSheetRequest *deleteSheet;
 
@@ -5092,6 +5194,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /** Inserts new rows or columns in a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_InsertDimensionRequest *insertDimension;
+
+/** Inserts new cells in a sheet, shifting the existing cells. */
+@property(nonatomic, strong, nullable) GTLRSheets_InsertRangeRequest *insertRange;
 
 /** Merges cells together. */
 @property(nonatomic, strong, nullable) GTLRSheets_MergeCellsRequest *mergeCells;

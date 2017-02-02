@@ -28,9 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRYouTubeReporting_Empty : GTLRObject
 @end
@@ -42,13 +44,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRYouTubeReporting_Job : GTLRObject
 
 /** The creation date/time of the job. */
-@property(nonatomic, copy, nullable) NSString *createTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The date/time when this job will expire/expired. After a job expired, no new
- *  reports are generated.
+ *  The date/time when this job will expire/expired. After a job expired, no
+ *  new reports are generated.
  */
-@property(nonatomic, copy, nullable) NSString *expireTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
  *  The server-generated ID of the job (max. 40 characters).
@@ -61,7 +63,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The type of reports this job creates. Corresponds to the ID of a ReportType.
+ *  The type of reports this job creates. Corresponds to the ID of a
+ *  ReportType.
  */
 @property(nonatomic, copy, nullable) NSString *reportTypeId;
 
@@ -95,9 +98,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRYouTubeReporting_Job *> *jobs;
 
 /**
- *  A token to retrieve next page of results. Pass this value in the
- *  ListJobsRequest.page_token field in the subsequent call to `ListJobs` method
- *  to retrieve the next page of results.
+ *  A token to retrieve next page of results.
+ *  Pass this value in the
+ *  ListJobsRequest.page_token
+ *  field in the subsequent call to `ListJobs` method to retrieve the next
+ *  page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -115,9 +120,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRYouTubeReporting_ListReportsResponse : GTLRCollectionObject
 
 /**
- *  A token to retrieve next page of results. Pass this value in the
- *  ListReportsRequest.page_token field in the subsequent call to `ListReports`
- *  method to retrieve the next page of results.
+ *  A token to retrieve next page of results.
+ *  Pass this value in the
+ *  ListReportsRequest.page_token
+ *  field in the subsequent call to `ListReports` method to retrieve the next
+ *  page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -143,9 +150,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRYouTubeReporting_ListReportTypesResponse : GTLRCollectionObject
 
 /**
- *  A token to retrieve next page of results. Pass this value in the
- *  ListReportTypesRequest.page_token field in the subsequent call to
- *  `ListReportTypes` method to retrieve the next page of results.
+ *  A token to retrieve next page of results.
+ *  Pass this value in the
+ *  ListReportTypesRequest.page_token
+ *  field in the subsequent call to `ListReportTypes` method to retrieve the
+ *  next
+ *  page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -178,7 +188,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRYouTubeReporting_Report : GTLRObject
 
 /** The date/time when this report was created. */
-@property(nonatomic, copy, nullable) NSString *createTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** The URL from which the report can be downloaded (max. 1000 characters). */
 @property(nonatomic, copy, nullable) NSString *downloadUrl;
@@ -187,7 +197,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The end of the time period that the report instance covers. The value is
  *  exclusive.
  */
-@property(nonatomic, copy, nullable) NSString *endTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
  *  The server-generated ID of the report.
@@ -197,7 +207,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /** The date/time when the job this report belongs to will expire/expired. */
-@property(nonatomic, copy, nullable) NSString *jobExpireTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *jobExpireTime;
 
 /** The ID of the job that created this report. */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -206,7 +216,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The start of the time period that the report instance covers. The value is
  *  inclusive.
  */
-@property(nonatomic, copy, nullable) NSString *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
@@ -217,7 +227,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRYouTubeReporting_ReportType : GTLRObject
 
 /** The date/time when this report type was/will be deprecated. */
-@property(nonatomic, copy, nullable) NSString *deprecateTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *deprecateTime;
 
 /**
  *  The ID of the report type (max. 100 characters).

@@ -146,10 +146,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *adultContent;
 
 /**
- *  List of linked AdWords accounts, active or pending approval. To create a new
- *  link request, add a new link with status active to the list. It will remain
- *  is state pending until approved or rejected in the AdWords interface. To
- *  delete an active link or to cancel a link request, remove it from the list.
+ *  List of linked AdWords accounts that are active or pending approval. To
+ *  create a new link request, add a new link with status active to the list. It
+ *  will remain in a pending state until approved or rejected either in the
+ *  AdWords interface or through the AdWords API. To delete an active link, or
+ *  to cancel a link request, remove it from the list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountAdwordsLink *> *adwordsLinks;
 
@@ -865,6 +866,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Country for which this issue is reported. */
 @property(nonatomic, copy, nullable) NSString *country;
 
+/** A more detailed description of the issue. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
 /** Actual value displayed on the landing page. */
 @property(nonatomic, copy, nullable) NSString *displayedValue;
 
@@ -880,6 +884,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Last time the account was checked for this issue. */
 @property(nonatomic, copy, nullable) NSString *lastChecked;
+
+/** The attribute name that is relevant for the issue. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Number of items in the account found to have the said issue.

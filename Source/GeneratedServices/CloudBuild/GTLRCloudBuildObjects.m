@@ -43,7 +43,7 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 @implementation GTLRCloudBuild_Build
 @dynamic buildTriggerId, createTime, finishTime, identifier, images, logsBucket,
          logUrl, options, projectId, results, source, sourceProvenance,
-         startTime, status, statusDetail, steps, timeout;
+         startTime, status, statusDetail, steps, substitutions, timeout;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -55,6 +55,20 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
     @"steps" : [GTLRCloudBuild_BuildStep class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Build_Substitutions
+//
+
+@implementation GTLRCloudBuild_Build_Substitutions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -119,7 +133,7 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
 @implementation GTLRCloudBuild_BuildTrigger
 @dynamic build, createTime, descriptionProperty, disabled, filename, identifier,
-         triggerTemplate;
+         substitutions, triggerTemplate;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -127,6 +141,20 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
     @"identifier" : @"id"
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_BuildTrigger_Substitutions
+//
+
+@implementation GTLRCloudBuild_BuildTrigger_Substitutions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

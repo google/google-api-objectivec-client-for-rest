@@ -19,6 +19,8 @@
 #endif
 
 @class GTLRToolResults_Any;
+@class GTLRToolResults_BasicPerfSampleSeries;
+@class GTLRToolResults_CPUInfo;
 @class GTLRToolResults_Duration;
 @class GTLRToolResults_Execution;
 @class GTLRToolResults_FailureDetail;
@@ -26,7 +28,11 @@
 @class GTLRToolResults_History;
 @class GTLRToolResults_Image;
 @class GTLRToolResults_InconclusiveDetail;
+@class GTLRToolResults_MemoryInfo;
 @class GTLRToolResults_Outcome;
+@class GTLRToolResults_PerfEnvironment;
+@class GTLRToolResults_PerfSample;
+@class GTLRToolResults_PerfSampleSeries;
 @class GTLRToolResults_SkippedDetail;
 @class GTLRToolResults_StackTrace;
 @class GTLRToolResults_Status;
@@ -50,6 +56,50 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRToolResults_BasicPerfSampleSeries.perfMetricType
+
+/** Value: "cpu" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Cpu;
+/** Value: "memory" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Memory;
+/** Value: "network" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Network;
+/** Value: "perfMetricTypeUnspecified" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_PerfMetricTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRToolResults_BasicPerfSampleSeries.perfUnit
+
+/** Value: "kibibyte" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte;
+/** Value: "percent" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Percent;
+/** Value: "perfUnitUnspecified" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_PerfUnitUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRToolResults_BasicPerfSampleSeries.sampleSeriesLabel
+
+/** Value: "cpuKernel" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuKernel;
+/** Value: "cpuTotal" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuTotal;
+/** Value: "cpuUser" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuUser;
+/** Value: "memoryRssPrivate" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssPrivate;
+/** Value: "memoryRssShared" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssShared;
+/** Value: "memoryRssTotal" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssTotal;
+/** Value: "ntBytesReceived" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesReceived;
+/** Value: "ntBytesTransferred" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesTransferred;
+/** Value: "sampleSeriesTypeUnspecified" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_SampleSeriesTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_Execution.state
@@ -76,6 +126,18 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Skipped;
 GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Success;
 /** Value: "unset" */
 GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Unset;
+
+// ----------------------------------------------------------------------------
+// GTLRToolResults_PerfMetricsSummary.perfMetrics
+
+/** Value: "cpu" */
+GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Cpu;
+/** Value: "memory" */
+GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Memory;
+/** Value: "network" */
+GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Network;
+/** Value: "perfMetricTypeUnspecified" */
+GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_PerfMetricTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_Step.state
@@ -149,6 +211,117 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Encapsulates the metadata for basic sample series represented by a line
+ *  chart
+ */
+@interface GTLRToolResults_BasicPerfSampleSeries : GTLRObject
+
+/**
+ *  perfMetricType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Cpu Value
+ *        "cpu"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Memory Value
+ *        "memory"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Network
+ *        Value "network"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_PerfMetricTypeUnspecified
+ *        Value "perfMetricTypeUnspecified"
+ */
+@property(nonatomic, copy, nullable) NSString *perfMetricType;
+
+/**
+ *  perfUnit
+ *
+ *  Likely values:
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte Value
+ *        "kibibyte"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Percent Value
+ *        "percent"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_PerfUnitUnspecified
+ *        Value "perfUnitUnspecified"
+ */
+@property(nonatomic, copy, nullable) NSString *perfUnit;
+
+/**
+ *  sampleSeriesLabel
+ *
+ *  Likely values:
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuKernel
+ *        Value "cpuKernel"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuTotal
+ *        Value "cpuTotal"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuUser
+ *        Value "cpuUser"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssPrivate
+ *        Value "memoryRssPrivate"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssShared
+ *        Value "memoryRssShared"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssTotal
+ *        Value "memoryRssTotal"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesReceived
+ *        Value "ntBytesReceived"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesTransferred
+ *        Value "ntBytesTransferred"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_SampleSeriesTypeUnspecified
+ *        Value "sampleSeriesTypeUnspecified"
+ */
+@property(nonatomic, copy, nullable) NSString *sampleSeriesLabel;
+
+@end
+
+
+/**
+ *  The request must provide up to a maximum of 5000 samples to be created; a
+ *  larger sample size will cause an INVALID_ARGUMENT error
+ */
+@interface GTLRToolResults_BatchCreatePerfSamplesRequest : GTLRObject
+
+/** The set of PerfSamples to create should not include existing timestamps */
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_PerfSample *> *perfSamples;
+
+@end
+
+
+/**
+ *  GTLRToolResults_BatchCreatePerfSamplesResponse
+ */
+@interface GTLRToolResults_BatchCreatePerfSamplesResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_PerfSample *> *perfSamples;
+
+@end
+
+
+/**
+ *  GTLRToolResults_CPUInfo
+ */
+@interface GTLRToolResults_CPUInfo : GTLRObject
+
+/**
+ *  description of the device processor ie '1.8 GHz hexa core 64-bit ARMv8-A'
+ */
+@property(nonatomic, copy, nullable) NSString *cpuProcessor;
+
+/**
+ *  the CPU clock speed in GHz
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuSpeedInGhz;
+
+/**
+ *  the number of CPU cores
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numberOfCores;
 
 @end
 
@@ -490,6 +663,45 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
 
 
 /**
+ *  GTLRToolResults_ListPerfSampleSeriesResponse
+ */
+@interface GTLRToolResults_ListPerfSampleSeriesResponse : GTLRObject
+
+/** The resulting PerfSampleSeries sorted by id */
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_PerfSampleSeries *> *perfSampleSeries;
+
+@end
+
+
+/**
+ *  GTLRToolResults_ListPerfSamplesResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "perfSamples" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRToolResults_ListPerfSamplesResponse : GTLRCollectionObject
+
+/**
+ *  Optional, returned if result size exceeds the page size specified in the
+ *  request (or the default page size, 500, if unspecified). It indicates the
+ *  last sample timestamp to be used as page_token in subsequent request
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  perfSamples
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_PerfSample *> *perfSamples;
+
+@end
+
+
+/**
  *  Response message for StepService.List.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -552,6 +764,28 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
 
 
 /**
+ *  GTLRToolResults_MemoryInfo
+ */
+@interface GTLRToolResults_MemoryInfo : GTLRObject
+
+/**
+ *  Maximum memory that can be allocated to the process in KiB
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryCapInKibibyte;
+
+/**
+ *  Total memory available on the device in KiB
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryTotalInKibibyte;
+
+@end
+
+
+/**
  *  Interprets a result so that humans and machines can act on it.
  */
 @interface GTLRToolResults_Outcome : GTLRObject
@@ -600,6 +834,92 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *    @arg @c kGTLRToolResults_Outcome_Summary_Unset Value "unset"
  */
 @property(nonatomic, copy, nullable) NSString *summary;
+
+@end
+
+
+/**
+ *  Encapsulates performance environment info
+ */
+@interface GTLRToolResults_PerfEnvironment : GTLRObject
+
+/** CPU related environment info */
+@property(nonatomic, strong, nullable) GTLRToolResults_CPUInfo *cpuInfo;
+
+/** Memory related environment info */
+@property(nonatomic, strong, nullable) GTLRToolResults_MemoryInfo *memoryInfo;
+
+@end
+
+
+/**
+ *  A summary of perf metrics collected and performance environment info
+ */
+@interface GTLRToolResults_PerfMetricsSummary : GTLRObject
+
+/** A tool results execution ID. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** A tool results history ID. */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/**
+ *  Describes the environment in which the performance metrics were collected
+ */
+@property(nonatomic, strong, nullable) GTLRToolResults_PerfEnvironment *perfEnvironment;
+
+/** Set of resource collected */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *perfMetrics;
+
+/** The cloud project */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** A tool results step ID. */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+@end
+
+
+/**
+ *  Resource representing a single performance measure or data point
+ */
+@interface GTLRToolResults_PerfSample : GTLRObject
+
+/** Timestamp of collection */
+@property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *sampleTime;
+
+/**
+ *  Value observed
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  Resource representing a collection of performance samples (or data points)
+ */
+@interface GTLRToolResults_PerfSampleSeries : GTLRObject
+
+/** Basic series represented by a line chart */
+@property(nonatomic, strong, nullable) GTLRToolResults_BasicPerfSampleSeries *basicPerfSampleSeries;
+
+/** A tool results execution ID. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** A tool results history ID. */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/** The cloud project */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** A sample series id */
+@property(nonatomic, copy, nullable) NSString *sampleSeriesId;
+
+/** A tool results step ID. */
+@property(nonatomic, copy, nullable) NSString *stepId;
 
 @end
 
@@ -1177,6 +1497,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  restricting to that range, we ensure that we can convert to and from RFC
  *  3339 date strings. See
  *  [https://www.ietf.org/rfc/rfc3339.txt](https://www.ietf.org/rfc/rfc3339.txt).
+ *  # Examples
  *  Example 1: Compute Timestamp from POSIX `time()`.
  *  Timestamp timestamp; timestamp.set_seconds(time(NULL));
  *  timestamp.set_nanos(0);
@@ -1197,6 +1518,27 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  .setNanos((int) ((millis % 1000) * 1000000)).build();
  *  Example 5: Compute Timestamp from current time in Python.
  *  timestamp = Timestamp() timestamp.GetCurrentTime()
+ *  # JSON Mapping
+ *  In JSON format, the Timestamp type is encoded as a string in the [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the format is
+ *  "{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z" where {year} is
+ *  always expressed using four digits while {month}, {day}, {hour}, {min}, and
+ *  {sec} are zero-padded to two digits each. The fractional seconds, which can
+ *  go up to 9 digits (i.e. up to 1 nanosecond resolution), are optional. The
+ *  "Z" suffix indicates the timezone ("UTC"); the timezone is required, though
+ *  only UTC (as indicated by "Z") is presently supported.
+ *  For example, "2017-01-15T01:30:15.01Z" encodes 15.01 seconds past 01:30 UTC
+ *  on January 15, 2017.
+ *  In JavaScript, one can convert a Date object to this format using the
+ *  standard
+ *  [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString]
+ *  method. In Python, a standard `datetime.datetime` object can be converted to
+ *  this format using
+ *  [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+ *  the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+ *  the Joda Time's [`ISODateTimeFormat.dateTime()`](
+ *  http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime())
+ *  to obtain a formatter capable of generating timestamps in this format.
  */
 @interface GTLRToolResults_Timestamp : GTLRObject
 

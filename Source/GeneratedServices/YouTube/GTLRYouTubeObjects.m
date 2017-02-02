@@ -808,6 +808,7 @@ NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollOpenedEvent = @"po
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollVotedEvent = @"pollVotedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent = @"sponsorOnlyModeEndedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeStartedEvent = @"sponsorOnlyModeStartedEvent";
+NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SuperChatEvent = @"superChatEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_TextMessageEvent = @"textMessageEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_Tombstone = @"tombstone";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_UserBannedEvent = @"userBannedEvent";
@@ -1000,12 +1001,14 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_DocFile = @"docF
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_ImageFile = @"imageFile";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_NotAVideoFile = @"notAVideoFile";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_ProjectFile = @"projectFile";
+NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_UnsupportedSpatialAudioLayout = @"unsupportedSpatialAudioLayout";
 
 // GTLRYouTube_VideoSuggestions.processingHints
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_NonStreamableMov = @"nonStreamableMov";
-NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_ProcsesingHintSpatialAudio = @"procsesingHintSpatialAudio";
-NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_ProcsesingHintSphericalVideo = @"procsesingHintSphericalVideo";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SendBestQualityVideo = @"sendBestQualityVideo";
+NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SpatialAudio = @"spatialAudio";
+NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SphericalVideo = @"sphericalVideo";
+NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_VrVideo = @"vrVideo";
 
 // GTLRYouTube_VideoSuggestions.processingWarnings
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_HasEditlist = @"hasEditlist";
@@ -1015,6 +1018,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_ProblematicVid
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownAudioCodec = @"unknownAudioCodec";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownContainer = @"unknownContainer";
 NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCodec = @"unknownVideoCodec";
+NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedSphericalProjectionType = @"unsupportedSphericalProjectionType";
+NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrStereoMode = @"unsupportedVrStereoMode";
 
 // ----------------------------------------------------------------------------
 //
@@ -1655,10 +1660,11 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCo
 //
 
 @implementation GTLRYouTube_ChannelTopicDetails
-@dynamic topicIds;
+@dynamic topicCategories, topicIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"topicCategories" : [NSString class],
     @"topicIds" : [NSString class]
   };
   return map;
@@ -2380,8 +2386,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCo
 @dynamic authorChannelId, displayMessage, fanFundingEventDetails,
          hasDisplayContent, liveChatId, messageDeletedDetails,
          messageRetractedDetails, pollClosedDetails, pollEditedDetails,
-         pollOpenedDetails, pollVotedDetails, publishedAt, textMessageDetails,
-         type, userBannedDetails;
+         pollOpenedDetails, pollVotedDetails, publishedAt, superChatDetails,
+         textMessageDetails, type, userBannedDetails;
 @end
 
 
@@ -2513,6 +2519,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCo
 
 @implementation GTLRYouTube_LiveChatPollVotedDetails
 @dynamic itemId, pollId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveChatSuperChatDetails
+//
+
+@implementation GTLRYouTube_LiveChatSuperChatDetails
+@dynamic amountDisplayString, amountMicros, currency, tier, userComment;
 @end
 
 
@@ -3148,6 +3164,59 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_SuperChatEvent
+//
+
+@implementation GTLRYouTube_SuperChatEvent
+@dynamic ETag, identifier, kind, snippet;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_SuperChatEventListResponse
+//
+
+@implementation GTLRYouTube_SuperChatEventListResponse
+@dynamic ETag, eventId, items, kind, nextPageToken, pageInfo, tokenPagination,
+         visitorId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRYouTube_SuperChatEvent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_SuperChatEventSnippet
+//
+
+@implementation GTLRYouTube_SuperChatEventSnippet
+@dynamic amountMicros, channelId, commentText, createdAt, currency,
+         displayString, messageType, supporterDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_Thumbnail
 //
 
@@ -3700,11 +3769,12 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCo
 //
 
 @implementation GTLRYouTube_VideoTopicDetails
-@dynamic relevantTopicIds, topicIds;
+@dynamic relevantTopicIds, topicCategories, topicIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"relevantTopicIds" : [NSString class],
+    @"topicCategories" : [NSString class],
     @"topicIds" : [NSString class]
   };
   return map;

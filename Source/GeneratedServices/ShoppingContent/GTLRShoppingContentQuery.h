@@ -535,7 +535,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 
 /**
  *  Updates a Merchant Center account. This method can only be called for
- *  multi-client accounts. This method supports patch semantics.
+ *  accounts to which the managing account has access: either the managing
+ *  account itself or sub-accounts if the managing account is a multi-client
+ *  account. This method supports patch semantics.
  *
  *  Method: content.accounts.patch
  *
@@ -559,7 +561,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  Fetches a @c GTLRShoppingContent_Account.
  *
  *  Updates a Merchant Center account. This method can only be called for
- *  multi-client accounts. This method supports patch semantics.
+ *  accounts to which the managing account has access: either the managing
+ *  account itself or sub-accounts if the managing account is a multi-client
+ *  account. This method supports patch semantics.
  *
  *  @param object The @c GTLRShoppingContent_Account to include in the query.
  *  @param merchantId The ID of the managing account.
@@ -681,7 +685,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 
 /**
  *  Updates a Merchant Center account. This method can only be called for
- *  multi-client accounts.
+ *  accounts to which the managing account has access: either the managing
+ *  account itself or sub-accounts if the managing account is a multi-client
+ *  account.
  *
  *  Method: content.accounts.update
  *
@@ -705,7 +711,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  Fetches a @c GTLRShoppingContent_Account.
  *
  *  Updates a Merchant Center account. This method can only be called for
- *  multi-client accounts.
+ *  accounts to which the managing account has access: either the managing
+ *  account itself or sub-accounts if the managing account is a multi-client
+ *  account.
  *
  *  @param object The @c GTLRShoppingContent_Account to include in the query.
  *  @param merchantId The ID of the managing account.

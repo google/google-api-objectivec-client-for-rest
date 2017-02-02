@@ -807,46 +807,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Performs prediction on the data in the request.
- *  Responses are very similar to requests. There are two top-level fields,
- *  each of which are JSON lists:
- *  <dl>
- *  <dt>predictions</dt>
- *  <dd>The list of predictions, one per instance in the request.</dd>
- *  <dt>error</dt>
- *  <dd>An error message returned instead of a prediction list if any
- *  instance produced an error.</dd>
- *  </dl>
- *  If the call is successful, the response body will contain one prediction
- *  entry per instance in the request body. If prediction fails for any
- *  instance, the response body will contain no predictions and will contian
- *  a single error entry instead.
- *  Even though there is one prediction per instance, the format of a
- *  prediction is not directly related to the format of an instance.
- *  Predictions take whatever format is specified in the outputs collection
- *  defined in the model. The collection of predictions is returned in a JSON
- *  list. Each member of the list can be a simple value, a list, or a JSON
- *  object of any complexity. If your model has more than one output tensor,
- *  each prediction will be a JSON object containing a name/value pair for each
- *  output. The names identify the output aliases in the graph.
- *  The following examples show some possible responses:
- *  A simple set of predictions for three input instances, where each
- *  prediction is an integer value:
- *  <pre>
- *  {"predictions": [5, 4, 3]}
- *  </pre>
- *  A more complex set of predictions, each containing two named values that
- *  correspond to output tensors, named **label** and **scores** respectively.
- *  The value of **label** is the predicted category ("car" or "beach") and
- *  **scores** contains a list of probabilities for that instance across the
- *  possible categories.
- *  <pre>
- *  {"predictions": [{"label": "beach", "scores": [0.1, 0.9]},
- *  {"label": "car", "scores": [0.75, 0.25]}]}
- *  </pre>
- *  A response when there is an error processing an input instance:
- *  <pre>
- *  {"error": "Divide by zero"}
- *  </pre>
+ *  **** REMOVE FROM GENERATED DOCUMENTATION
  *
  *  Method: ml.projects.predict
  *
@@ -867,46 +828,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudMachineLearning_GoogleApiHttpBody.
  *
  *  Performs prediction on the data in the request.
- *  Responses are very similar to requests. There are two top-level fields,
- *  each of which are JSON lists:
- *  <dl>
- *  <dt>predictions</dt>
- *  <dd>The list of predictions, one per instance in the request.</dd>
- *  <dt>error</dt>
- *  <dd>An error message returned instead of a prediction list if any
- *  instance produced an error.</dd>
- *  </dl>
- *  If the call is successful, the response body will contain one prediction
- *  entry per instance in the request body. If prediction fails for any
- *  instance, the response body will contain no predictions and will contian
- *  a single error entry instead.
- *  Even though there is one prediction per instance, the format of a
- *  prediction is not directly related to the format of an instance.
- *  Predictions take whatever format is specified in the outputs collection
- *  defined in the model. The collection of predictions is returned in a JSON
- *  list. Each member of the list can be a simple value, a list, or a JSON
- *  object of any complexity. If your model has more than one output tensor,
- *  each prediction will be a JSON object containing a name/value pair for each
- *  output. The names identify the output aliases in the graph.
- *  The following examples show some possible responses:
- *  A simple set of predictions for three input instances, where each
- *  prediction is an integer value:
- *  <pre>
- *  {"predictions": [5, 4, 3]}
- *  </pre>
- *  A more complex set of predictions, each containing two named values that
- *  correspond to output tensors, named **label** and **scores** respectively.
- *  The value of **label** is the predicted category ("car" or "beach") and
- *  **scores** contains a list of probabilities for that instance across the
- *  possible categories.
- *  <pre>
- *  {"predictions": [{"label": "beach", "scores": [0.1, 0.9]},
- *  {"label": "car", "scores": [0.75, 0.25]}]}
- *  </pre>
- *  A response when there is an error processing an input instance:
- *  <pre>
- *  {"error": "Divide by zero"}
- *  </pre>
+ *  **** REMOVE FROM GENERATED DOCUMENTATION
  *
  *  @param object The @c
  *    GTLRCloudMachineLearning_GoogleCloudMlV1beta1PredictRequest to include in

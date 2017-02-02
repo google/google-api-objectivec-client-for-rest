@@ -102,6 +102,7 @@
 @class GTLRYouTube_LiveChatPollItem;
 @class GTLRYouTube_LiveChatPollOpenedDetails;
 @class GTLRYouTube_LiveChatPollVotedDetails;
+@class GTLRYouTube_LiveChatSuperChatDetails;
 @class GTLRYouTube_LiveChatTextMessageDetails;
 @class GTLRYouTube_LiveChatUserBannedMessageDetails;
 @class GTLRYouTube_LiveStream;
@@ -137,6 +138,8 @@
 @class GTLRYouTube_SubscriptionContentDetails;
 @class GTLRYouTube_SubscriptionSnippet;
 @class GTLRYouTube_SubscriptionSubscriberSnippet;
+@class GTLRYouTube_SuperChatEvent;
+@class GTLRYouTube_SuperChatEventSnippet;
 @class GTLRYouTube_Thumbnail;
 @class GTLRYouTube_ThumbnailDetails;
 @class GTLRYouTube_TokenPagination;
@@ -1764,6 +1767,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollVotedE
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent;
 /** Value: "sponsorOnlyModeStartedEvent" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeStartedEvent;
+/** Value: "superChatEvent" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SuperChatEvent;
 /** Value: "textMessageEvent" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_TextMessageEvent;
 /** Value: "tombstone" */
@@ -2148,18 +2153,22 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_Imag
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_NotAVideoFile;
 /** Value: "projectFile" */
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_ProjectFile;
+/** Value: "unsupportedSpatialAudioLayout" */
+GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_UnsupportedSpatialAudioLayout;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoSuggestions.processingHints
 
 /** Value: "nonStreamableMov" */
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_NonStreamableMov;
-/** Value: "procsesingHintSpatialAudio" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_ProcsesingHintSpatialAudio;
-/** Value: "procsesingHintSphericalVideo" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_ProcsesingHintSphericalVideo;
 /** Value: "sendBestQualityVideo" */
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SendBestQualityVideo;
+/** Value: "spatialAudio" */
+GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SpatialAudio;
+/** Value: "sphericalVideo" */
+GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SphericalVideo;
+/** Value: "vrVideo" */
+GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_VrVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoSuggestions.processingWarnings
@@ -2178,6 +2187,10 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownContainer;
 /** Value: "unknownVideoCodec" */
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCodec;
+/** Value: "unsupportedSphericalProjectionType" */
+GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedSphericalProjectionType;
+/** Value: "unsupportedVrStereoMode" */
+GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrStereoMode;
 
 /**
  *  Rights management policy for YouTube resources.
@@ -3747,6 +3760,9 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  Freebase topic information related to the channel.
  */
 @interface GTLRYouTube_ChannelTopicDetails : GTLRObject
+
+/** A list of Wikipedia URLs that describe the channel's content. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *topicCategories;
 
 /**
  *  A list of Freebase topic IDs associated with the channel. You can retrieve
@@ -6547,7 +6563,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  the user that funded the broadcast newSponsorEvent - the user that just
  *  became a sponsor messageDeletedEvent - the moderator that took the action
  *  messageRetractedEvent - the author that retracted their message
- *  userBannedEvent - the moderator that took the action
+ *  userBannedEvent - the moderator that took the action superChatEvent - the
+ *  user that made the purchase
  */
 @property(nonatomic, copy, nullable) NSString *authorChannelId;
 
@@ -6586,6 +6603,12 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
+ *  Details about the Super Chat event, this is only set if the type is
+ *  'superChatEvent'.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatSuperChatDetails *superChatDetails;
+
+/**
  *  Details about the text message, this is only set if the type is
  *  'textMessageEvent'.
  */
@@ -6618,6 +6641,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        Value "sponsorOnlyModeEndedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeStartedEvent
  *        Value "sponsorOnlyModeStartedEvent"
+ *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_SuperChatEvent Value
+ *        "superChatEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_TextMessageEvent Value
  *        "textMessageEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_Tombstone Value
@@ -6821,6 +6846,40 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 
 /** The poll the user voted on. */
 @property(nonatomic, copy, nullable) NSString *pollId;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LiveChatSuperChatDetails
+ */
+@interface GTLRYouTube_LiveChatSuperChatDetails : GTLRObject
+
+/**
+ *  A rendered string that displays the fund amount and currency to the user.
+ */
+@property(nonatomic, copy, nullable) NSString *amountDisplayString;
+
+/**
+ *  The amount purchased by the user, in micros (1,750,000 micros = 1.75).
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *amountMicros;
+
+/** The currency in which the purchase was made. */
+@property(nonatomic, copy, nullable) NSString *currency;
+
+/**
+ *  The tier in which the amount belongs to. Lower amounts belong to lower
+ *  tiers. Starts at 1.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tier;
+
+/** The comment added by the user to this Super Chat event. */
+@property(nonatomic, copy, nullable) NSString *userComment;
 
 @end
 
@@ -8317,6 +8376,127 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 
 
 /**
+ *  A superChatEvent resource represents a Super Chat purchase on a YouTube
+ *  channel.
+ */
+@interface GTLRYouTube_SuperChatEvent : GTLRObject
+
+/** Etag of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The ID that YouTube assigns to uniquely identify the Super Chat event.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#superChatEvent".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The snippet object contains basic details about the Super Chat event. */
+@property(nonatomic, strong, nullable) GTLRYouTube_SuperChatEventSnippet *snippet;
+
+@end
+
+
+/**
+ *  GTLRYouTube_SuperChatEventListResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRYouTube_SuperChatEventListResponse : GTLRCollectionObject
+
+/** Etag of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Serialized EventId of the request which produced this response. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/**
+ *  A list of Super Chat purchases that match the request criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_SuperChatEvent *> *items;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#superChatEventListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The token that can be used as the value of the pageToken parameter to
+ *  retrieve the next page in the result set.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+
+/** The visitorId identifies the visitor. */
+@property(nonatomic, copy, nullable) NSString *visitorId;
+
+@end
+
+
+/**
+ *  GTLRYouTube_SuperChatEventSnippet
+ */
+@interface GTLRYouTube_SuperChatEventSnippet : GTLRObject
+
+/**
+ *  The purchase amount, in micros of the purchase currency. e.g., 1 is
+ *  represented as 1000000.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *amountMicros;
+
+/** Channel id where the event occurred. */
+@property(nonatomic, copy, nullable) NSString *channelId;
+
+/** The text contents of the comment left by the user. */
+@property(nonatomic, copy, nullable) NSString *commentText;
+
+/**
+ *  The date and time when the event occurred. The value is specified in ISO
+ *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createdAt;
+
+/** The currency in which the purchase was made. ISO 4217. */
+@property(nonatomic, copy, nullable) NSString *currency;
+
+/**
+ *  A rendered string that displays the purchase amount and currency (e.g.,
+ *  "$1.00"). The string is rendered for the given language.
+ */
+@property(nonatomic, copy, nullable) NSString *displayString;
+
+/**
+ *  The tier for the paid message, which is based on the amount of money spent
+ *  to purchase the message.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *messageType;
+
+/** Details about the supporter. */
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *supporterDetails;
+
+@end
+
+
+/**
  *  A thumbnail is an image representing a YouTube resource.
  */
 @interface GTLRYouTube_Thumbnail : GTLRObject
@@ -9794,6 +9974,12 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  You can retrieve information about each topic using Freebase Topic API.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *relevantTopicIds;
+
+/**
+ *  A list of Wikipedia URLs that provide a high-level description of the
+ *  video's content.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *topicCategories;
 
 /**
  *  A list of Freebase topic IDs that are centrally associated with the video.

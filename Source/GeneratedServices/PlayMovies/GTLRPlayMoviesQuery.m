@@ -23,15 +23,6 @@ NSString * const kGTLRPlayMoviesStatusStatusProcessing   = @"STATUS_PROCESSING";
 NSString * const kGTLRPlayMoviesStatusStatusUnfulfilled  = @"STATUS_UNFULFILLED";
 NSString * const kGTLRPlayMoviesStatusStatusUnspecified  = @"STATUS_UNSPECIFIED";
 
-// type
-NSString * const kGTLRPlayMoviesTypeArtwork                  = @"ARTWORK";
-NSString * const kGTLRPlayMoviesTypeAudio20                  = @"AUDIO_20";
-NSString * const kGTLRPlayMoviesTypeAudio51                  = @"AUDIO_51";
-NSString * const kGTLRPlayMoviesTypeComponentTypeUnspecified = @"COMPONENT_TYPE_UNSPECIFIED";
-NSString * const kGTLRPlayMoviesTypeMetadata                 = @"METADATA";
-NSString * const kGTLRPlayMoviesTypeSubtitle                 = @"SUBTITLE";
-NSString * const kGTLRPlayMoviesTypeVideo                    = @"VIDEO";
-
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -91,113 +82,6 @@ NSString * const kGTLRPlayMoviesTypeVideo                    = @"VIDEO";
   query.accountId = accountId;
   query.expectedObjectClass = [GTLRPlayMovies_ListAvailsResponse class];
   query.loggingName = @"playmoviespartner.accounts.avails.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRPlayMoviesQuery_AccountsComponentsList
-
-@dynamic accountId, altCutId, customId, editLevelEidr, elId, filename,
-         inventoryId, pageSize, pageToken, playableSequenceId, pphNames,
-         presentationId, status, studioNames, titleLevelEidr;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"pphNames" : [NSString class],
-    @"status" : [NSString class],
-    @"studioNames" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithAccountId:(NSString *)accountId {
-  NSArray *pathParams = @[ @"accountId" ];
-  NSString *pathURITemplate = @"v1/accounts/{accountId}/components";
-  GTLRPlayMoviesQuery_AccountsComponentsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.expectedObjectClass = [GTLRPlayMovies_ListComponentsResponse class];
-  query.loggingName = @"playmoviespartner.accounts.components.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRPlayMoviesQuery_AccountsComponentsTypeGet
-
-@dynamic accountId, componentId, type;
-
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       componentId:(NSString *)componentId
-                              type:(NSString *)type {
-  NSArray *pathParams = @[
-    @"accountId", @"componentId", @"type"
-  ];
-  NSString *pathURITemplate = @"v1/accounts/{accountId}/components/{componentId}/type/{type}";
-  GTLRPlayMoviesQuery_AccountsComponentsTypeGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.componentId = componentId;
-  query.type = type;
-  query.expectedObjectClass = [GTLRPlayMovies_Component class];
-  query.loggingName = @"playmoviespartner.accounts.components.type.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRPlayMoviesQuery_AccountsExperienceLocalesGet
-
-@dynamic accountId, elId;
-
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                              elId:(NSString *)elId {
-  NSArray *pathParams = @[
-    @"accountId", @"elId"
-  ];
-  NSString *pathURITemplate = @"v1/accounts/{accountId}/experienceLocales/{elId}";
-  GTLRPlayMoviesQuery_AccountsExperienceLocalesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.elId = elId;
-  query.expectedObjectClass = [GTLRPlayMovies_ExperienceLocale class];
-  query.loggingName = @"playmoviespartner.accounts.experienceLocales.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRPlayMoviesQuery_AccountsExperienceLocalesList
-
-@dynamic accountId, altCutId, customId, editLevelEidr, pageSize, pageToken,
-         pphNames, status, studioNames, titleLevelEidr;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"pphNames" : [NSString class],
-    @"status" : [NSString class],
-    @"studioNames" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithAccountId:(NSString *)accountId {
-  NSArray *pathParams = @[ @"accountId" ];
-  NSString *pathURITemplate = @"v1/accounts/{accountId}/experienceLocales";
-  GTLRPlayMoviesQuery_AccountsExperienceLocalesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.expectedObjectClass = [GTLRPlayMovies_ListExperienceLocalesResponse class];
-  query.loggingName = @"playmoviespartner.accounts.experienceLocales.list";
   return query;
 }
 

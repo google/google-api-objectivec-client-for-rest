@@ -252,10 +252,12 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 
 /**
  *  [Output-only] The confidence estimate between 0.0 and 1.0. A higher number
- *  means the system is more confident that the recognition is correct.
- *  This field is typically provided only for the top hypothesis, and only for
- *  `is_final=true` results.
- *  The default of 0.0 is a sentinel value indicating confidence was not set.
+ *  indicates an estimated greater likelihood that the recognized words are
+ *  correct. This field is typically provided only for the top hypothesis, and
+ *  only for `is_final=true` results. Clients should not rely on the
+ *  `confidence` field as it is not guaranteed to be accurate, or even set, in
+ *  any of the results.
+ *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -349,7 +351,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
  *  within each `SpeechRecognitionResult`.
  *  The server may return fewer than `max_alternatives`.
  *  Valid values are `0`-`30`. A value of `0` or `1` will return a maximum of
- *  `1`. If omitted, defaults to `1`.
+ *  one. If omitted, will return a maximum of one.
  *
  *  Uses NSNumber of intValue.
  */

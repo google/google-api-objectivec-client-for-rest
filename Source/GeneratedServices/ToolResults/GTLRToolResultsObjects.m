@@ -13,6 +13,28 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRToolResults_BasicPerfSampleSeries.perfMetricType
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Cpu = @"cpu";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Memory = @"memory";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Network = @"network";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_PerfMetricTypeUnspecified = @"perfMetricTypeUnspecified";
+
+// GTLRToolResults_BasicPerfSampleSeries.perfUnit
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte = @"kibibyte";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Percent = @"percent";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_PerfUnitUnspecified = @"perfUnitUnspecified";
+
+// GTLRToolResults_BasicPerfSampleSeries.sampleSeriesLabel
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuKernel = @"cpuKernel";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuTotal = @"cpuTotal";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuUser = @"cpuUser";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssPrivate = @"memoryRssPrivate";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssShared = @"memoryRssShared";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssTotal = @"memoryRssTotal";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesReceived = @"ntBytesReceived";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesTransferred = @"ntBytesTransferred";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_SampleSeriesTypeUnspecified = @"sampleSeriesTypeUnspecified";
+
 // GTLRToolResults_Execution.state
 NSString * const kGTLRToolResults_Execution_State_Complete     = @"complete";
 NSString * const kGTLRToolResults_Execution_State_InProgress   = @"inProgress";
@@ -25,6 +47,12 @@ NSString * const kGTLRToolResults_Outcome_Summary_Inconclusive = @"inconclusive"
 NSString * const kGTLRToolResults_Outcome_Summary_Skipped      = @"skipped";
 NSString * const kGTLRToolResults_Outcome_Summary_Success      = @"success";
 NSString * const kGTLRToolResults_Outcome_Summary_Unset        = @"unset";
+
+// GTLRToolResults_PerfMetricsSummary.perfMetrics
+NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Cpu = @"cpu";
+NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Memory = @"memory";
+NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Network = @"network";
+NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_PerfMetricTypeUnspecified = @"perfMetricTypeUnspecified";
 
 // GTLRToolResults_Step.state
 NSString * const kGTLRToolResults_Step_State_Complete     = @"complete";
@@ -39,6 +67,62 @@ NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 
 @implementation GTLRToolResults_Any
 @dynamic typeUrl, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_BasicPerfSampleSeries
+//
+
+@implementation GTLRToolResults_BasicPerfSampleSeries
+@dynamic perfMetricType, perfUnit, sampleSeriesLabel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_BatchCreatePerfSamplesRequest
+//
+
+@implementation GTLRToolResults_BatchCreatePerfSamplesRequest
+@dynamic perfSamples;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"perfSamples" : [GTLRToolResults_PerfSample class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_BatchCreatePerfSamplesResponse
+//
+
+@implementation GTLRToolResults_BatchCreatePerfSamplesResponse
+@dynamic perfSamples;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"perfSamples" : [GTLRToolResults_PerfSample class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_CPUInfo
+//
+
+@implementation GTLRToolResults_CPUInfo
+@dynamic cpuProcessor, cpuSpeedInGhz, numberOfCores;
 @end
 
 
@@ -159,6 +243,46 @@ NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRToolResults_ListPerfSampleSeriesResponse
+//
+
+@implementation GTLRToolResults_ListPerfSampleSeriesResponse
+@dynamic perfSampleSeries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"perfSampleSeries" : [GTLRToolResults_PerfSampleSeries class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_ListPerfSamplesResponse
+//
+
+@implementation GTLRToolResults_ListPerfSamplesResponse
+@dynamic nextPageToken, perfSamples;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"perfSamples" : [GTLRToolResults_PerfSample class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"perfSamples";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRToolResults_ListStepsResponse
 //
 
@@ -203,12 +327,72 @@ NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRToolResults_MemoryInfo
+//
+
+@implementation GTLRToolResults_MemoryInfo
+@dynamic memoryCapInKibibyte, memoryTotalInKibibyte;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRToolResults_Outcome
 //
 
 @implementation GTLRToolResults_Outcome
 @dynamic failureDetail, inconclusiveDetail, skippedDetail, successDetail,
          summary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_PerfEnvironment
+//
+
+@implementation GTLRToolResults_PerfEnvironment
+@dynamic cpuInfo, memoryInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_PerfMetricsSummary
+//
+
+@implementation GTLRToolResults_PerfMetricsSummary
+@dynamic executionId, historyId, perfEnvironment, perfMetrics, projectId,
+         stepId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"perfMetrics" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_PerfSample
+//
+
+@implementation GTLRToolResults_PerfSample
+@dynamic sampleTime, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_PerfSampleSeries
+//
+
+@implementation GTLRToolResults_PerfSampleSeries
+@dynamic basicPerfSampleSeries, executionId, historyId, projectId,
+         sampleSeriesId, stepId;
 @end
 
 
