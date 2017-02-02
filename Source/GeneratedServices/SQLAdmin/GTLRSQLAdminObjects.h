@@ -1228,6 +1228,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedGaeApplications;
 
+/**
+ *  The availability type. This can be one of the following.
+ *  ZONAL: A Cloud SQL instance that is zonally available. The instance is bound
+ *  to a single GCE zone and may be inaccessible during an outage for that GCE
+ *  zone.
+ *  REGIONAL: A Cloud SQL instance that is regionally available. The instance is
+ *  provisioned in multiple zones within a region and is able to provide higher
+ *  availability than an instance with a zonal availability type.
+ */
+@property(nonatomic, copy, nullable) NSString *availabilityType;
+
 /** The daily backup configuration for the instance. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_BackupConfiguration *backupConfiguration;
 
@@ -1320,6 +1331,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *storageAutoResize;
+
+/**
+ *  The maximum size to which storage capacity can be automatically increased.
+ *  The default value is 0, which specifies that there is no limit. Applies only
+ *  to Second Generation instances.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageAutoResizeLimit;
 
 /**
  *  The tier of service for this instance, for example D1, D2. For more

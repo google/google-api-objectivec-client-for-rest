@@ -1328,7 +1328,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A VoidedPurchase resource indicates the purchase was either
+ *  A VoidedPurchase resource indicates a purchase that was either
  *  cancelled/refunded/charged-back.
  */
 @interface GTLRAndroidPublisher_VoidedPurchase : GTLRObject
@@ -1340,21 +1340,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The time the purchase was made, in milliseconds since the epoch (Jan 1,
- *  1970).
+ *  The time at which the purchase was made, in milliseconds since the epoch
+ *  (Jan 1, 1970).
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *purchaseTimeMillis;
 
 /**
- *  The token that was generated when a purchase was made and uniquely
+ *  The token that was generated when a purchase was made. This uniquely
  *  identifies a purchase.
  */
 @property(nonatomic, copy, nullable) NSString *purchaseToken;
 
 /**
- *  The time when the purchase was cancelled/refunded/chargeback, in
+ *  The time at which the purchase was cancelled/refunded/charged-back, in
  *  milliseconds since the epoch (Jan 1, 1970).
  *
  *  Uses NSNumber of longLongValue.

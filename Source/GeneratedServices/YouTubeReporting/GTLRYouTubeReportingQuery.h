@@ -162,15 +162,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  Requested page size. Server may return fewer jobs than requested. If
- *  unspecified, server will pick an appropriate default.
+ *  Requested page size. Server may return fewer jobs than requested.
+ *  If unspecified, server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A token identifying a page of results the server should return. Typically,
- *  this is the value of ListReportTypesResponse.next_page_token returned in
- *  response to the previous call to the `ListJobs` method.
+ *  this is the value of
+ *  ListReportTypesResponse.next_page_token
+ *  returned in response to the previous call to the `ListJobs` method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -230,8 +231,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists reports created by a specific job. Returns NOT_FOUND if the job does
- *  not exist.
+ *  Lists reports created by a specific job.
+ *  Returns NOT_FOUND if the job does not exist.
  *
  *  Method: youtubereporting.jobs.reports.list
  *
@@ -246,7 +247,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  If set, only reports created after the specified date/time are returned.
  */
-@property(nonatomic, copy, nullable) NSString *createdAfter;
+@property(nonatomic, strong, nullable) GTLRDateTime *createdAfter;
 
 /** The ID of the job. */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -258,35 +259,36 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  Requested page size. Server may return fewer report types than requested. If
- *  unspecified, server will pick an appropriate default.
+ *  Requested page size. Server may return fewer report types than requested.
+ *  If unspecified, server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A token identifying a page of results the server should return. Typically,
- *  this is the value of ListReportsResponse.next_page_token returned in
- *  response to the previous call to the `ListReports` method.
+ *  this is the value of
+ *  ListReportsResponse.next_page_token
+ *  returned in response to the previous call to the `ListReports` method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  If set, only reports whose start time is greater than or equal the specified
- *  date/time are returned.
+ *  If set, only reports whose start time is greater than or equal the
+ *  specified date/time are returned.
  */
-@property(nonatomic, copy, nullable) NSString *startTimeAtOrAfter;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTimeAtOrAfter;
 
 /**
  *  If set, only reports whose start time is smaller than the specified
  *  date/time are returned.
  */
-@property(nonatomic, copy, nullable) NSString *startTimeBefore;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTimeBefore;
 
 /**
  *  Fetches a @c GTLRYouTubeReporting_ListReportsResponse.
  *
- *  Lists reports created by a specific job. Returns NOT_FOUND if the job does
- *  not exist.
+ *  Lists reports created by a specific job.
+ *  Returns NOT_FOUND if the job does not exist.
  *
  *  @param jobId The ID of the job.
  *
@@ -301,8 +303,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Method for media download. Download is supported on the URI
- *  `/v1/media/{+name}?alt=media`.
+ *  Method for media download. Download is supported
+ *  on the URI `/v1/media/{+name}?alt=media`.
  *
  *  Method: youtubereporting.media.download
  *
@@ -315,15 +317,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryYouTubeReporting queryForMediaDownloadWithresourceName:]
 
 /**
- *  Name of the media that is being downloaded. See ReadRequest.resource_name.
+ *  Name of the media that is being downloaded. See
+ *  ReadRequest.resource_name.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
  *  Fetches a @c GTLRYouTubeReporting_Media.
  *
- *  Method for media download. Download is supported on the URI
- *  `/v1/media/{+name}?alt=media`.
+ *  Method for media download. Download is supported
+ *  on the URI `/v1/media/{+name}?alt=media`.
  *
  *  @param resourceName Name of the media that is being downloaded. See
  *    ReadRequest.resource_name.
@@ -335,8 +338,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
- *  Method for media download. Download is supported on the URI
- *  `/v1/media/{+name}?alt=media`.
+ *  Method for media download. Download is supported
+ *  on the URI `/v1/media/{+name}?alt=media`.
  *
  *  @param resourceName Name of the media that is being downloaded. See
  *    ReadRequest.resource_name.
@@ -361,9 +364,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryYouTubeReporting queryForReportTypesList]
 
 /**
- *  If set to true, also system-managed report types will be returned; otherwise
- *  only the report types that can be used to create new reporting jobs will be
- *  returned.
+ *  If set to true, also system-managed report types will be returned;
+ *  otherwise only the report types that can be used to create new reporting
+ *  jobs will be returned.
  */
 @property(nonatomic, assign) BOOL includeSystemManaged;
 
@@ -374,15 +377,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  Requested page size. Server may return fewer report types than requested. If
- *  unspecified, server will pick an appropriate default.
+ *  Requested page size. Server may return fewer report types than requested.
+ *  If unspecified, server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A token identifying a page of results the server should return. Typically,
- *  this is the value of ListReportTypesResponse.next_page_token returned in
- *  response to the previous call to the `ListReportTypes` method.
+ *  this is the value of
+ *  ListReportTypesResponse.next_page_token
+ *  returned in response to the previous call to the `ListReportTypes` method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

@@ -55,6 +55,7 @@ NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1PredictionInput_D
 
 // GTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput.scaleTier
 NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Basic = @"BASIC";
+NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_ScaleTier_BasicGpu = @"BASIC_GPU";
 NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Custom = @"CUSTOM";
 NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Premium1 = @"PREMIUM_1";
 NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Standard1 = @"STANDARD_1";
@@ -136,7 +137,7 @@ NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_Sca
 //
 
 @implementation GTLRCloudMachineLearning_GoogleCloudMlV1beta1HyperparameterSpec
-@dynamic goal, maxParallelTrials, maxTrials, params;
+@dynamic goal, hyperparameterMetricTag, maxParallelTrials, maxTrials, params;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -231,10 +232,18 @@ NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_Sca
 //
 
 @implementation GTLRCloudMachineLearning_GoogleCloudMlV1beta1Model
-@dynamic defaultVersion, descriptionProperty, name;
+@dynamic defaultVersion, descriptionProperty, name, onlinePredictionLogging,
+         regions;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regions" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -278,7 +287,7 @@ NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_Sca
 
 @implementation GTLRCloudMachineLearning_GoogleCloudMlV1beta1PredictionInput
 @dynamic dataFormat, inputPaths, maxWorkerCount, modelName, outputPath, region,
-         versionName;
+         runtimeVersion, uri, versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -325,9 +334,9 @@ NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_Sca
 //
 
 @implementation GTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput
-@dynamic args, hyperparameters, masterType, packageUris, parameterServerCount,
-         parameterServerType, pythonModule, region, scaleTier, workerCount,
-         workerType;
+@dynamic args, hyperparameters, jobDir, masterType, packageUris,
+         parameterServerCount, parameterServerType, pythonModule, region,
+         runtimeVersion, scaleTier, workerCount, workerType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -366,7 +375,7 @@ NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_Sca
 
 @implementation GTLRCloudMachineLearning_GoogleCloudMlV1beta1Version
 @dynamic createTime, deploymentUri, descriptionProperty, isDefault, lastUseTime,
-         name, onlinePredictionLogging;
+         name, runtimeVersion;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

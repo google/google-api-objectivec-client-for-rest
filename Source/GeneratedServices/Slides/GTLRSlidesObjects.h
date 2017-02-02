@@ -53,6 +53,7 @@
 @class GTLRSlides_InsertTableColumnsRequest;
 @class GTLRSlides_InsertTableRowsRequest;
 @class GTLRSlides_InsertTextRequest;
+@class GTLRSlides_LayoutPlaceholderIdMapping;
 @class GTLRSlides_LayoutProperties;
 @class GTLRSlides_LayoutReference;
 @class GTLRSlides_Line;
@@ -62,6 +63,7 @@
 @class GTLRSlides_List;
 @class GTLRSlides_List_NestingLevel;
 @class GTLRSlides_NestingLevel;
+@class GTLRSlides_NotesProperties;
 @class GTLRSlides_OpaqueColor;
 @class GTLRSlides_OptionalColor;
 @class GTLRSlides_Outline;
@@ -79,6 +81,8 @@
 @class GTLRSlides_RefreshSheetsChartRequest;
 @class GTLRSlides_ReplaceAllShapesWithImageRequest;
 @class GTLRSlides_ReplaceAllShapesWithImageResponse;
+@class GTLRSlides_ReplaceAllShapesWithSheetsChartRequest;
+@class GTLRSlides_ReplaceAllShapesWithSheetsChartResponse;
 @class GTLRSlides_ReplaceAllTextRequest;
 @class GTLRSlides_ReplaceAllTextResponse;
 @class GTLRSlides_Request;
@@ -1856,6 +1860,18 @@ GTLR_EXTERN NSString * const kGTLRSlides_Page_PageType_Layout;
  */
 GTLR_EXTERN NSString * const kGTLRSlides_Page_PageType_Master;
 /**
+ *  A notes page.
+ *
+ *  Value: "NOTES"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_Page_PageType_Notes;
+/**
+ *  A notes master page.
+ *
+ *  Value: "NOTES_MASTER"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_Page_PageType_NotesMaster;
+/**
  *  A slide page.
  *
  *  Value: "SLIDE"
@@ -2133,6 +2149,24 @@ GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_Replac
  *  Value: "CENTER_INSIDE"
  */
 GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_CenterInside;
+
+// ----------------------------------------------------------------------------
+// GTLRSlides_ReplaceAllShapesWithSheetsChartRequest.linkingMode
+
+/**
+ *  Linking the chart allows it to be updated, and other collaborators will
+ *  see a link to the spreadsheet.
+ *
+ *  Value: "LINKED"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_Linked;
+/**
+ *  The chart is not associated with the source spreadsheet and cannot be
+ *  updated. A chart that is not linked will be inserted as an image.
+ *
+ *  Value: "NOT_LINKED_IMAGE"
+ */
+GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_NotLinkedImage;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Shadow.alignment
@@ -4318,6 +4352,14 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *objectId;
 
 /**
+ *  An optional list of object ID mappings from the placeholder(s) on the layout
+ *  to the placeholder(s)
+ *  that will be created on the new slide from that specified layout. Can only
+ *  be used when `slide_layout_reference` is specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSlides_LayoutPlaceholderIdMapping *> *placeholderIdMappings;
+
+/**
  *  Layout reference of the slide to be inserted, based on the *current
  *  master*, which is one of the following:
  *  - The master of the previous slide index.
@@ -4923,6 +4965,42 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
+ *  The user-specified ID mapping for a placeholder that will be created on a
+ *  slide from a specified layout.
+ */
+@interface GTLRSlides_LayoutPlaceholderIdMapping : GTLRObject
+
+/**
+ *  The placeholder on a layout that will be applied to a slide. Only type and
+ *  index are needed. For example, a
+ *  predefined `TITLE_AND_BODY` layout may usually have a TITLE placeholder
+ *  with index 0 and a BODY placeholder with index 0.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_Placeholder *layoutPlaceholder;
+
+/**
+ *  The object ID of the placeholder on a layout that will be applied
+ *  to a slide.
+ */
+@property(nonatomic, copy, nullable) NSString *layoutPlaceholderObjectId;
+
+/**
+ *  A user-supplied object ID for the placeholder identified above that to be
+ *  created onto a slide.
+ *  If you specify an ID, it must be unique among all pages and page elements
+ *  in the presentation. The ID must start with an alphanumeric character or an
+ *  underscore (matches regex `[a-zA-Z0-9_]`); remaining characters
+ *  may include those as well as a hyphen or colon (matches regex
+ *  `[a-zA-Z0-9_-:]`).
+ *  The length of the ID must not be less than 5 or greater than 50.
+ *  If you don't specify an ID, a unique one is generated.
+ */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+@end
+
+
+/**
  *  The properties of Page are only
  *  relevant for pages with page_type LAYOUT.
  */
@@ -5248,6 +5326,25 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
+ *  The properties of Page that are only
+ *  relevant for pages with page_type NOTES.
+ */
+@interface GTLRSlides_NotesProperties : GTLRObject
+
+/**
+ *  The object ID of the shape on this notes page that contains the speaker
+ *  notes for the corresponding slide.
+ *  The actual shape may not always exist on the notes page. Inserting text
+ *  using this object ID will automatically create the shape. In this case, the
+ *  actual shape may have different object ID. The `GetPresentation` or
+ *  `GetPage` action will always return the latest object ID.
+ */
+@property(nonatomic, copy, nullable) NSString *speakerNotesObjectId;
+
+@end
+
+
+/**
  *  A themeable solid color value.
  */
 @interface GTLRSlides_OpaqueColor : GTLRObject
@@ -5413,6 +5510,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** Layout specific properties. Only set if page_type = LAYOUT. */
 @property(nonatomic, strong, nullable) GTLRSlides_LayoutProperties *layoutProperties;
 
+/** Notes specific properties. Only set if page_type = NOTES. */
+@property(nonatomic, strong, nullable) GTLRSlides_NotesProperties *notesProperties;
+
 /**
  *  The object ID for this page. Object IDs used by
  *  Page and
@@ -5433,6 +5533,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_Page_PageType_Layout A layout page. (Value: "LAYOUT")
  *    @arg @c kGTLRSlides_Page_PageType_Master A master slide page. (Value:
  *        "MASTER")
+ *    @arg @c kGTLRSlides_Page_PageType_Notes A notes page. (Value: "NOTES")
+ *    @arg @c kGTLRSlides_Page_PageType_NotesMaster A notes master page. (Value:
+ *        "NOTES_MASTER")
  *    @arg @c kGTLRSlides_Page_PageType_Slide A slide page. (Value: "SLIDE")
  */
 @property(nonatomic, copy, nullable) NSString *pageType;
@@ -5812,6 +5915,20 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_Page *> *masters;
 
+/**
+ *  The notes master in the presentation. It serves three purposes:
+ *  - Placeholder shapes on a notes master contain the default text styles and
+ *  shape properties of all placeholder shapes on notes pages. Specifically,
+ *  a SLIDE_IMAGE placeholder shape is defined to contain the slide
+ *  thumbnail, and a BODY placeholder shape is defined to contain the speaker
+ *  notes.
+ *  - The notes master page properties define the common page properties
+ *  inherited by all notes pages.
+ *  - Any other shapes on the notes master will appear on all notes pages.
+ *  The notes master is read-only.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_Page *notesMaster;
+
 /** The size of pages in the presentation. */
 @property(nonatomic, strong, nullable) GTLRSlides_Size *pageSize;
 
@@ -5960,6 +6077,65 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
+ *  Replaces all shapes that match the given criteria with the provided Google
+ *  Sheets chart. The chart will be scaled and centered to fit within the bounds
+ *  of the original shape.
+ *  NOTE: Replacing shapes with a chart requires at least one of the
+ *  spreadsheets.readonly, spreadsheets, drive.readonly, or drive OAuth scopes.
+ */
+@interface GTLRSlides_ReplaceAllShapesWithSheetsChartRequest : GTLRObject
+
+/**
+ *  The ID of the specific chart in the Google Sheets spreadsheet.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *chartId;
+
+/**
+ *  The criteria that the shapes must match in order to be replaced. The
+ *  request will replace all of the shapes that contain the given text.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_SubstringMatchCriteria *containsText;
+
+/**
+ *  The mode with which the chart is linked to the source spreadsheet. When
+ *  not specified, the chart will be an image that is not linked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_Linked
+ *        Linking the chart allows it to be updated, and other collaborators
+ *        will
+ *        see a link to the spreadsheet. (Value: "LINKED")
+ *    @arg @c kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_NotLinkedImage
+ *        The chart is not associated with the source spreadsheet and cannot be
+ *        updated. A chart that is not linked will be inserted as an image.
+ *        (Value: "NOT_LINKED_IMAGE")
+ */
+@property(nonatomic, copy, nullable) NSString *linkingMode;
+
+/** The ID of the Google Sheets spreadsheet that contains the chart. */
+@property(nonatomic, copy, nullable) NSString *spreadsheetId;
+
+@end
+
+
+/**
+ *  The result of replacing shapes with a Google Sheets chart.
+ */
+@interface GTLRSlides_ReplaceAllShapesWithSheetsChartResponse : GTLRObject
+
+/**
+ *  The number of shapes replaced with charts.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *occurrencesChanged;
+
+@end
+
+
+/**
  *  Replaces all instances of text matching a criteria with replace text.
  */
 @interface GTLRSlides_ReplaceAllTextRequest : GTLRObject
@@ -6047,6 +6223,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** Replaces all shapes matching some criteria with an image. */
 @property(nonatomic, strong, nullable) GTLRSlides_ReplaceAllShapesWithImageRequest *replaceAllShapesWithImage;
 
+/** Replaces all shapes matching some criteria with a Google Sheets chart. */
+@property(nonatomic, strong, nullable) GTLRSlides_ReplaceAllShapesWithSheetsChartRequest *replaceAllShapesWithSheetsChart;
+
 /** Replaces all instances of specified text. */
 @property(nonatomic, strong, nullable) GTLRSlides_ReplaceAllTextRequest *replaceAllText;
 
@@ -6114,6 +6293,12 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  image.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_ReplaceAllShapesWithImageResponse *replaceAllShapesWithImage;
+
+/**
+ *  The result of replacing all shapes matching some criteria with a Google
+ *  Sheets chart.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_ReplaceAllShapesWithSheetsChartResponse *replaceAllShapesWithSheetsChart;
 
 /** The result of replacing text. */
 @property(nonatomic, strong, nullable) GTLRSlides_ReplaceAllTextResponse *replaceAllText;
@@ -6816,6 +7001,19 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** The object ID of the master that this slide is based on. */
 @property(nonatomic, copy, nullable) NSString *masterObjectId;
+
+/**
+ *  The notes page that this slide is associated with. It defines the visual
+ *  appearance of a notes page when printing or exporting slides with speaker
+ *  notes. A notes page inherits properties from the
+ *  notes mater.
+ *  The placeholder shape with type BODY on the notes page contains the speaker
+ *  notes for this slide. The ID of this shape is identified by the
+ *  speaker notes object id field.
+ *  The notes page is read-only except for the text content and styles of the
+ *  speaker notes shape.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_Page *notesPage;
 
 @end
 

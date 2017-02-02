@@ -30,6 +30,7 @@ NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Info   = @"INFO";
 NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Warning = @"WARNING";
 
 // GTLRCloudDebugger_StatusMessage.refersTo
+NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointAge = @"BREAKPOINT_AGE";
 NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointCondition = @"BREAKPOINT_CONDITION";
 NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointExpression = @"BREAKPOINT_EXPRESSION";
 NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointSourceLocation = @"BREAKPOINT_SOURCE_LOCATION";

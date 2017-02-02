@@ -19,9 +19,11 @@
 #endif
 
 @class GTLRCloudBuild_Build;
+@class GTLRCloudBuild_Build_Substitutions;
 @class GTLRCloudBuild_BuildOptions;
 @class GTLRCloudBuild_BuildStep;
 @class GTLRCloudBuild_BuildTrigger;
+@class GTLRCloudBuild_BuildTrigger_Substitutions;
 @class GTLRCloudBuild_BuiltImage;
 @class GTLRCloudBuild_FileHashes;
 @class GTLRCloudBuild_Hash;
@@ -267,6 +269,9 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 /** Describes the operations to be performed on the workspace. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_BuildStep *> *steps;
 
+/** Substitutions data for Build resource. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Build_Substitutions *substitutions;
+
 /**
  *  Amount of time that this build should be allowed to run, to second
  *  granularity. If this amount of time elapses, work on the build will cease
@@ -275,6 +280,18 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
+@end
+
+
+/**
+ *  Substitutions data for Build resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBuild_Build_Substitutions : GTLRObject
 @end
 
 
@@ -424,6 +441,9 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/** Substitutions data for Build resource. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_BuildTrigger_Substitutions *substitutions;
+
 /**
  *  Template describing the types of source changes to trigger a build.
  *  Branch and tag names in trigger templates are interpreted as regular
@@ -432,6 +452,18 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_RepoSource *triggerTemplate;
 
+@end
+
+
+/**
+ *  Substitutions data for Build resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBuild_BuildTrigger_Substitutions : GTLRObject
 @end
 
 

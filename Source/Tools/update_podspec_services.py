@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# Copyright (c) 2016 Google Inc.
+# Copyright 2016 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,17 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-#
-# Looks at the Source/GeneratedServices directory and updates the podspec file
-# to cover all the services.
-#
+
+"""Looks at Source/GeneratedServices and updates the podspec file."""
 
 import os
 import re
 import string
 import sys
 
+
 _PODSPEC_NAME = 'GoogleAPIClientForREST.podspec'
+
 
 def _DirNamesInDirectory(path_to_dir):
   """Returns the list of directories in a given directory."""
@@ -32,7 +32,6 @@ def _DirNamesInDirectory(path_to_dir):
   for x in os.listdir(path_to_dir):
     if x in ('.', '..'):
       continue
-    full = os.path.join(path_to_dir, x)
     if os.path.isdir(os.path.join(path_to_dir, x)):
       result.append(x)
   return tuple(result)
@@ -75,15 +74,14 @@ def _ValidateContent(path, expected_content):
       open(path, 'w').write(expected_content)
       print 'Updated %s.' % name
     except IOError as e:
-      if e.errno != errno.EACCES:
-        raise
-      print '%r needs to be updated but is not writable.' % path
+      print 'Failed to update %r, error %s.' % (path, e)
       return False
   return True
 
 
 def Main(args):
   """Main method."""
+  assert not args, 'No args supported on this script!'
   script_dir = os.path.dirname(os.path.realpath(__file__))
   root_dir = os.path.dirname(os.path.dirname(script_dir))
   podspec_path = os.path.join(root_dir, _PODSPEC_NAME)

@@ -257,6 +257,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Predi
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Basic;
 /**
+ *  A single worker instance with a GPU.
+ *
+ *  Value: "BASIC_GPU"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_ScaleTier_BasicGpu;
+/**
  *  The CUSTOM tier is not a set tier, but rather enables you to use your
  *  own cluster specification. When you use this tier, set values to
  *  configure your processing cluster according to these guidelines:
@@ -440,6 +446,15 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
  *        Minimize the goal metric. (Value: "MINIMIZE")
  */
 @property(nonatomic, copy, nullable) NSString *goal;
+
+/**
+ *  Optional. The Tensorflow summary tag name to use for optimizing trials. For
+ *  current versions of Tensorflow, this tag name should exactly match what is
+ *  shown in Tensorboard, including all scopes. For versions of Tensorflow
+ *  prior to 0.12, this should be only the tag passed to tf.Summary.
+ *  By default, "training/hptuning/metric" will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *hyperparameterMetricTag;
 
 /**
  *  Optional. The number of training trials to run concurrently.
@@ -645,6 +660,21 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. If true, enables StackDriver Logging for online prediction.
+ *  Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *onlinePredictionLogging;
+
+/**
+ *  Optional. The list of regions where the model is going to be deployed.
+ *  Currently only one region per model is supported.
+ *  Defaults to 'us-central1' if nothing is set.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
+
 @end
 
 
@@ -840,6 +870,18 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Optional. The Google Cloud ML runtime version to use for this batch
+ *  prediction. If not set, Google Cloud ML will pick the runtime version used
+ *  during the CreateVersion request for this model version, or choose the
+ *  latest stable version when model version information is not available
+ *  such as when the model is specified by uri.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeVersion;
+
+/** Use this field if you want to specify a GCS path to the model to use. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/**
  *  Use this field if you want to specify a version of the model to use. The
  *  string is formatted the same way as `model_version`, with the addition
  *  of the version information:
@@ -896,7 +938,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
  *  The structure of each element of the instances list is determined by your
  *  model's input definition. Instances can include named inputs or can contain
  *  only unlabeled values.
- *  Most data does not include named inputs. Some instances will be simple
+ *  Not all data includes named inputs. Some instances will be simple
  *  JSON values (boolean, number, or string). However, instances are often lists
  *  of simple values, or complex nested lists. Here are some examples of request
  *  bodies:
@@ -910,7 +952,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
  *  </pre>
  *  Sentences encoded as lists of words (vectors of strings):
  *  <pre>
- *  {"instances": [["the","quick","brown"], ["la","bruja","le"]]}
+ *  {
+ *  "instances": [
+ *  ["the","quick","brown"],
+ *  ["la","bruja","le"],
+ *  ...
+ *  ]
+ *  }
  *  </pre>
  *  Floating point scalar values:
  *  <pre>
@@ -918,22 +966,54 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
  *  </pre>
  *  Vectors of integers:
  *  <pre>
- *  {"instances": [[0, 1, 2], [3, 4, 5],...]}
+ *  {
+ *  "instances": [
+ *  [0, 1, 2],
+ *  [3, 4, 5],
+ *  ...
+ *  ]
+ *  }
  *  </pre>
  *  Tensors (in this case, two-dimensional tensors):
  *  <pre>
- *  {"instances": [[[0, 1, 2], [3, 4, 5]], ...]}
+ *  {
+ *  "instances": [
+ *  [
+ *  [0, 1, 2],
+ *  [3, 4, 5]
+ *  ],
+ *  ...
+ *  ]
+ *  }
  *  </pre>
- *  Images represented as a three-dimensional list. In this encoding scheme the
- *  first two dimensions represent the rows and columns of the image, and the
- *  third contains the R, G, and B values for each pixel.
+ *  Images can be represented different ways. In this encoding scheme the first
+ *  two dimensions represent the rows and columns of the image, and the third
+ *  contains lists (vectors) of the R, G, and B values for each pixel.
  *  <pre>
- *  {"instances": [[[[138, 30, 66], [130, 20, 56], ...]]]]}
+ *  {
+ *  "instances": [
+ *  [
+ *  [
+ *  [138, 30, 66],
+ *  [130, 20, 56],
+ *  ...
+ *  ],
+ *  [
+ *  [126, 38, 61],
+ *  [122, 24, 57],
+ *  ...
+ *  ],
+ *  ...
+ *  ],
+ *  ...
+ *  ]
+ *  }
  *  </pre>
- *  Data must be encoded as UTF-8. If your data uses another character encoding,
- *  you must base64 encode the data and mark it as binary. To mark a JSON string
- *  as binary, replace it with an object with a single attribute named `b`:
- *  <pre>{"b": "..."} </pre>
+ *  JSON strings must be encoded as UTF-8. To send binary data, you must
+ *  base64-encode the data and mark it as binary. To mark a JSON string
+ *  as binary, replace it with a JSON object with a single attribute named
+ *  `b64`:
+ *  <pre>{"b64": "..."} </pre>
  *  For example:
  *  Two Serialized tf.Examples (fake data, for illustrative purposes only):
  *  <pre>
@@ -948,8 +1028,20 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
  *  with the named references as the keys:
  *  JSON input data to be preprocessed:
  *  <pre>
- *  {"instances": [{"a": 1.0, "b": true, "c": "x"},
- *  {"a": -2.0, "b": false, "c": "y"}]}
+ *  {
+ *  "instances": [
+ *  {
+ *  "a": 1.0,
+ *  "b": true,
+ *  "c": "x"
+ *  },
+ *  {
+ *  "a": -2.0,
+ *  "b": false,
+ *  "c": "y"
+ *  }
+ *  ]
+ *  }
  *  </pre>
  *  Some models have an underlying TensorFlow graph that accepts multiple input
  *  tensors. In this case, you should use the names of JSON name/value pairs to
@@ -957,15 +1049,59 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
  *  For a graph with input tensor aliases "tag" (string) and "image"
  *  (base64-encoded string):
  *  <pre>
- *  {"instances": [{"tag": "beach", "image": {"b64": "ASa8asdf"}},
- *  {"tag": "car", "image": {"b64": "JLK7ljk3"}}]}
+ *  {
+ *  "instances": [
+ *  {
+ *  "tag": "beach",
+ *  "image": {"b64": "ASa8asdf"}
+ *  },
+ *  {
+ *  "tag": "car",
+ *  "image": {"b64": "JLK7ljk3"}
+ *  }
+ *  ]
+ *  }
  *  </pre>
  *  For a graph with input tensor aliases "tag" (string) and "image"
  *  (3-dimensional array of 8-bit ints):
  *  <pre>
- *  {"instances": [{"tag": "beach", "image": [[[263, 1, 10], [262, 2, 11],
- *  ...]]},
- *  {"tag": "car", "image": [[[10, 11, 24], [23, 10, 15], ...]]}]}
+ *  {
+ *  "instances": [
+ *  {
+ *  "tag": "beach",
+ *  "image": [
+ *  [
+ *  [138, 30, 66],
+ *  [130, 20, 56],
+ *  ...
+ *  ],
+ *  [
+ *  [126, 38, 61],
+ *  [122, 24, 57],
+ *  ...
+ *  ],
+ *  ...
+ *  ]
+ *  },
+ *  {
+ *  "tag": "car",
+ *  "image": [
+ *  [
+ *  [255, 0, 102],
+ *  [255, 0, 97],
+ *  ...
+ *  ],
+ *  [
+ *  [254, 1, 101],
+ *  [254, 2, 93],
+ *  ...
+ *  ],
+ *  ...
+ *  ]
+ *  },
+ *  ...
+ *  ]
+ *  }
  *  </pre>
  *  If the call is successful, the response body will contain one prediction
  *  entry per instance in the request body. If prediction fails for any
@@ -997,6 +1133,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
 
 /** Optional. The set of Hyperparameters to tune. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearning_GoogleCloudMlV1beta1HyperparameterSpec *hyperparameters;
+
+/**
+ *  Optional. A GCS path in which to store training outputs and other data
+ *  needed for training. This path will be passed to your TensorFlow program as
+ *  the 'job_dir' command-line arg. The benefit of specifying this field is that
+ *  Cloud ML will validate the path for use in training.
+ */
+@property(nonatomic, copy, nullable) NSString *jobDir;
 
 /**
  *  Optional. Specifies the type of virtual machine to use for your training
@@ -1069,6 +1213,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Optional. The Google Cloud ML runtime version to use for training. If not
+ *  set, Google Cloud ML will choose the latest stable version.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeVersion;
+
+/**
  *  Required. Specifies the machine types, the number of replicas for workers
  *  and parameter servers.
  *
@@ -1078,6 +1228,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
  *        use
  *        Cloud ML, and for experimenting with new models using small datasets.
  *        (Value: "BASIC")
+ *    @arg @c kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_ScaleTier_BasicGpu
+ *        A single worker instance with a GPU. (Value: "BASIC_GPU")
  *    @arg @c kGTLRCloudMachineLearning_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Custom
  *        The CUSTOM tier is not a set tier, but rather enables you to use your
  *        own cluster specification. When you use this tier, set values to
@@ -1219,12 +1371,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearning_GoogleCloudMlV1beta1Train
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. If true, enables StackDriver Logging for online prediction.
- *  Default is false.
- *
- *  Uses NSNumber of boolValue.
+ *  Optional. The Google Cloud ML runtime version to use for this deployment.
+ *  If not set, Google Cloud ML will choose a version.
  */
-@property(nonatomic, strong, nullable) NSNumber *onlinePredictionLogging;
+@property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
 @end
 

@@ -203,7 +203,7 @@
 
 @implementation GTLRBigquery_ExplainQueryStage
 @dynamic computeRatioAvg, computeRatioMax, identifier, name, readRatioAvg,
-         readRatioMax, recordsRead, recordsWritten, steps, waitRatioAvg,
+         readRatioMax, recordsRead, recordsWritten, status, steps, waitRatioAvg,
          waitRatioMax, writeRatioAvg, writeRatioMax;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

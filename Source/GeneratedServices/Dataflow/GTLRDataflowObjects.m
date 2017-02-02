@@ -19,14 +19,15 @@ NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorith
 NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmUnknown = @"AUTOSCALING_ALGORITHM_UNKNOWN";
 
 // GTLRDataflow_CounterMetadata.kind
-NSString * const kGTLRDataflow_CounterMetadata_Kind_And     = @"AND";
-NSString * const kGTLRDataflow_CounterMetadata_Kind_Invalid = @"INVALID";
-NSString * const kGTLRDataflow_CounterMetadata_Kind_Max     = @"MAX";
-NSString * const kGTLRDataflow_CounterMetadata_Kind_Mean    = @"MEAN";
-NSString * const kGTLRDataflow_CounterMetadata_Kind_Min     = @"MIN";
-NSString * const kGTLRDataflow_CounterMetadata_Kind_Or      = @"OR";
-NSString * const kGTLRDataflow_CounterMetadata_Kind_Set     = @"SET";
-NSString * const kGTLRDataflow_CounterMetadata_Kind_Sum     = @"SUM";
+NSString * const kGTLRDataflow_CounterMetadata_Kind_And        = @"AND";
+NSString * const kGTLRDataflow_CounterMetadata_Kind_Distribution = @"DISTRIBUTION";
+NSString * const kGTLRDataflow_CounterMetadata_Kind_Invalid    = @"INVALID";
+NSString * const kGTLRDataflow_CounterMetadata_Kind_Max        = @"MAX";
+NSString * const kGTLRDataflow_CounterMetadata_Kind_Mean       = @"MEAN";
+NSString * const kGTLRDataflow_CounterMetadata_Kind_Min        = @"MIN";
+NSString * const kGTLRDataflow_CounterMetadata_Kind_Or         = @"OR";
+NSString * const kGTLRDataflow_CounterMetadata_Kind_Set        = @"SET";
+NSString * const kGTLRDataflow_CounterMetadata_Kind_Sum        = @"SUM";
 
 // GTLRDataflow_CounterMetadata.standardUnits
 NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Bytes = @"BYTES";
@@ -38,14 +39,14 @@ NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampMsec = @"T
 NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampNsec = @"TIMESTAMP_NSEC";
 NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampUsec = @"TIMESTAMP_USEC";
 
+// GTLRDataflow_CounterStructuredName.origin
+NSString * const kGTLRDataflow_CounterStructuredName_Origin_System = @"SYSTEM";
+NSString * const kGTLRDataflow_CounterStructuredName_Origin_User = @"USER";
+
 // GTLRDataflow_CounterStructuredName.portion
 NSString * const kGTLRDataflow_CounterStructuredName_Portion_All = @"ALL";
 NSString * const kGTLRDataflow_CounterStructuredName_Portion_Key = @"KEY";
 NSString * const kGTLRDataflow_CounterStructuredName_Portion_Value = @"VALUE";
-
-// GTLRDataflow_CounterStructuredName.standardOrigin
-NSString * const kGTLRDataflow_CounterStructuredName_StandardOrigin_Dataflow = @"DATAFLOW";
-NSString * const kGTLRDataflow_CounterStructuredName_StandardOrigin_User = @"USER";
 
 // GTLRDataflow_DerivedSource.derivationMode
 NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeChildOfCurrent = @"SOURCE_DERIVATION_MODE_CHILD_OF_CURRENT";
@@ -89,14 +90,15 @@ NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageImportance
 NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageWarning = @"JOB_MESSAGE_WARNING";
 
 // GTLRDataflow_NameAndKind.kind
-NSString * const kGTLRDataflow_NameAndKind_Kind_And     = @"AND";
-NSString * const kGTLRDataflow_NameAndKind_Kind_Invalid = @"INVALID";
-NSString * const kGTLRDataflow_NameAndKind_Kind_Max     = @"MAX";
-NSString * const kGTLRDataflow_NameAndKind_Kind_Mean    = @"MEAN";
-NSString * const kGTLRDataflow_NameAndKind_Kind_Min     = @"MIN";
-NSString * const kGTLRDataflow_NameAndKind_Kind_Or      = @"OR";
-NSString * const kGTLRDataflow_NameAndKind_Kind_Set     = @"SET";
-NSString * const kGTLRDataflow_NameAndKind_Kind_Sum     = @"SUM";
+NSString * const kGTLRDataflow_NameAndKind_Kind_And          = @"AND";
+NSString * const kGTLRDataflow_NameAndKind_Kind_Distribution = @"DISTRIBUTION";
+NSString * const kGTLRDataflow_NameAndKind_Kind_Invalid      = @"INVALID";
+NSString * const kGTLRDataflow_NameAndKind_Kind_Max          = @"MAX";
+NSString * const kGTLRDataflow_NameAndKind_Kind_Mean         = @"MEAN";
+NSString * const kGTLRDataflow_NameAndKind_Kind_Min          = @"MIN";
+NSString * const kGTLRDataflow_NameAndKind_Kind_Or           = @"OR";
+NSString * const kGTLRDataflow_NameAndKind_Kind_Set          = @"SET";
+NSString * const kGTLRDataflow_NameAndKind_Kind_Sum          = @"SUM";
 
 // GTLRDataflow_SourceSplitResponse.outcome
 NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeSplittingHappened = @"SOURCE_SPLIT_OUTCOME_SPLITTING_HAPPENED";
@@ -230,8 +232,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_CounterStructuredName
-@dynamic componentStepName, executionStepName, name, originalStepName,
-         otherOrigin, portion, standardOrigin, workerId;
+@dynamic componentStepName, executionStepName, name, origin, originalStepName,
+         originNamespace, portion, workerId;
 @end
 
 
@@ -251,7 +253,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_CounterUpdate
-@dynamic boolean, cumulative, floatingPoint, floatingPointList,
+@dynamic boolean, cumulative, distribution, floatingPoint, floatingPointList,
          floatingPointMean, integer, integerList, integerMean, internal,
          nameAndKind, shortId, stringList, structuredNameAndMetadata;
 @end
@@ -326,6 +328,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_Disk
 @dynamic diskType, mountPoint, sizeGb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_DistributionUpdate
+//
+
+@implementation GTLRDataflow_DistributionUpdate
+@dynamic count, max, min, sum, sumOfSquares;
 @end
 
 
@@ -1082,11 +1094,11 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_ResourceUtilizationReport
-@dynamic metrics;
+@dynamic metric;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"metrics" : [GTLRDataflow_ResourceUtilizationReport_Metrics_Item class]
+    @"metric" : [GTLRDataflow_ResourceUtilizationReport_Metric_Item class]
   };
   return map;
 }
@@ -1096,10 +1108,10 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_ResourceUtilizationReport_Metrics_Item
+//   GTLRDataflow_ResourceUtilizationReport_Metric_Item
 //
 
-@implementation GTLRDataflow_ResourceUtilizationReport_Metrics_Item
+@implementation GTLRDataflow_ResourceUtilizationReport_Metric_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

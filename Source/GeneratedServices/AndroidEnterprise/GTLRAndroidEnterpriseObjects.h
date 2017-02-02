@@ -25,7 +25,6 @@
 @class GTLRAndroidEnterprise_ApprovalUrlInfo;
 @class GTLRAndroidEnterprise_AppUpdateEvent;
 @class GTLRAndroidEnterprise_AppVersion;
-@class GTLRAndroidEnterprise_Collection;
 @class GTLRAndroidEnterprise_Device;
 @class GTLRAndroidEnterprise_Enterprise;
 @class GTLRAndroidEnterprise_Entitlement;
@@ -36,6 +35,7 @@
 @class GTLRAndroidEnterprise_ManagedConfiguration;
 @class GTLRAndroidEnterprise_ManagedProperty;
 @class GTLRAndroidEnterprise_ManagedPropertyBundle;
+@class GTLRAndroidEnterprise_NewDeviceEvent;
 @class GTLRAndroidEnterprise_NewPermissionsEvent;
 @class GTLRAndroidEnterprise_Notification;
 @class GTLRAndroidEnterprise_PageInfo;
@@ -315,92 +315,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  was generated.
  */
 @property(nonatomic, copy, nullable) NSString *token;
-
-@end
-
-
-/**
- *  A collection resource defines a named set of apps that is visible to a set
- *  of users in the Google Play store app running on those users' managed
- *  devices. Those users can then install any of those apps if they wish (which
- *  will trigger creation of install and entitlement resources). A user cannot
- *  install an app on a managed device unless the app is listed in at least one
- *  collection that is visible to that user.
- *  Note that the API can be used to directly install an app regardless of
- *  whether it is in any collection - so an enterprise has a choice of either
- *  directly pushing apps to users, or allowing users to install apps if they
- *  want. Which is appropriate will depend on the enterprise's policies and the
- *  purpose of the apps concerned.
- */
-@interface GTLRAndroidEnterprise_Collection : GTLRObject
-
-/** Arbitrary unique ID, allocated by the API on creation. */
-@property(nonatomic, copy, nullable) NSString *collectionId;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#collection".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  A user-friendly name for the collection (should be unique), e.g. "Accounting
- *  apps".
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The IDs of the products in the collection, in the order in which they should
- *  be displayed.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *productId;
-
-/**
- *  Whether this collection is visible to all users, or only to the users that
- *  have been granted access through the "Collectionviewers" API. With the
- *  launch of the "setAvailableProductSet" API, this property should always be
- *  set to "viewersOnly", as the "allUsers" option will bypass the
- *  "availableProductSet" for all users within a domain.
- *  The "allUsers" setting is deprecated, and will be removed.
- */
-@property(nonatomic, copy, nullable) NSString *visibility;
-
-@end
-
-
-/**
- *  The collection resources for the enterprise.
- */
-@interface GTLRAndroidEnterprise_CollectionsListResponse : GTLRObject
-
-/**
- *  An ordered collection of products which can be made visible on the Google
- *  Play store to a selected group of users.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Collection *> *collection;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#collectionsListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  The user resources for the collection.
- */
-@interface GTLRAndroidEnterprise_CollectionViewersListResponse : GTLRObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#collectionViewersListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** A user of an enterprise. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_User *> *user;
 
 @end
 
@@ -999,6 +913,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  An event generated when a new device is ready to be managed.
+ */
+@interface GTLRAndroidEnterprise_NewDeviceEvent : GTLRObject
+
+/** The Android ID of the device. This field will always be present. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/**
+ *  Identifies the extent to which the device is controlled by an Android for
+ *  Work EMM in various deployment configurations.
+ *  Possible values include:
+ *  - "managedDevice", a device that has the EMM's device policy controller
+ *  (DPC) as the device owner,
+ *  - "managedProfile", a device that has a work profile managed by the DPC (DPC
+ *  is profile owner) in addition to a separate, personal profile that is
+ *  unavailable to the DPC,
+ */
+@property(nonatomic, copy, nullable) NSString *managementType;
+
+/** The ID of the user. This field will always be present. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
  *  An event generated when new permissions are added to an app.
  */
 @interface GTLRAndroidEnterprise_NewPermissionsEvent : GTLRObject
@@ -1044,6 +984,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Notifications about an app installation failure. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_InstallFailureEvent *installFailureEvent;
+
+/** Notifications about new devices. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_NewDeviceEvent *newDeviceEvent NS_RETURNS_NOT_RETAINED;
 
 /** Notifications about new app permissions. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_NewPermissionsEvent *newPermissionsEvent NS_RETURNS_NOT_RETAINED;

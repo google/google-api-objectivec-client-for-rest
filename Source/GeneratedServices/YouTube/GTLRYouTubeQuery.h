@@ -5130,6 +5130,72 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
 @end
 
 /**
+ *  Lists Super Chat events for a channel.
+ *
+ *  Method: youtube.superChatEvents.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeForceSsl
+ *    @c kGTLRAuthScopeYouTubeReadonly
+ */
+@interface GTLRYouTubeQuery_SuperChatEventsList : GTLRYouTubeQuery
+// Previous library name was
+//   +[GTLQueryYouTube queryForSuperChatEventsListWithpart:]
+
+/**
+ *  The hl parameter instructs the API to retrieve localized resource metadata
+ *  for a specific application language that the YouTube website supports. The
+ *  parameter value must be a language code included in the list returned by the
+ *  i18nLanguages.list method.
+ *  If localized resource details are available in that language, the resource's
+ *  snippet.localized object will contain the localized values. However, if
+ *  localized details are not available, the snippet.localized object will
+ *  contain resource details in the resource's default language.
+ */
+@property(nonatomic, copy, nullable) NSString *hl;
+
+/**
+ *  The maxResults parameter specifies the maximum number of items that should
+ *  be returned in the result set.
+ *
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 0..50).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  The pageToken parameter identifies a specific page in the result set that
+ *  should be returned. In an API response, the nextPageToken and prevPageToken
+ *  properties identify other pages that could be retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The part parameter specifies the superChatEvent resource parts that the API
+ *  response will include. Supported values are id and snippet.
+ */
+@property(nonatomic, copy, nullable) NSString *part;
+
+/**
+ *  Fetches a @c GTLRYouTube_SuperChatEventListResponse.
+ *
+ *  Lists Super Chat events for a channel.
+ *
+ *  @param part The part parameter specifies the superChatEvent resource parts
+ *    that the API response will include. Supported values are id and snippet.
+ *
+ *  @returns GTLRYouTubeQuery_SuperChatEventsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithPart:(NSString *)part;
+
+@end
+
+/**
  *  Uploads a custom video thumbnail to YouTube and sets it for a video.
  *
  *  Method: youtube.thumbnails.set

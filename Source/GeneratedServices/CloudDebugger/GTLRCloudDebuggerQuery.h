@@ -51,15 +51,17 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 @end
 
 /**
- *  Returns the list of all active breakpoints for the debuggee. The breakpoint
- *  specification (location, condition, and expression fields) is semantically
- *  immutable, although the field values may change. For example, an agent may
- *  update the location line number to reflect the actual line where the
- *  breakpoint was set, but this doesn't change the breakpoint semantics. This
- *  means that an agent does not need to check if a breakpoint has changed when
- *  it encounters the same breakpoint on a successive call. Moreover, an agent
- *  should remember the breakpoints that are completed until the controller
- *  removes them from the active list to avoid setting those breakpoints again.
+ *  Returns the list of all active breakpoints for the debuggee.
+ *  The breakpoint specification (location, condition, and expression
+ *  fields) is semantically immutable, although the field values may
+ *  change. For example, an agent may update the location line number
+ *  to reflect the actual line where the breakpoint was set, but this
+ *  doesn't change the breakpoint semantics.
+ *  This means that an agent does not need to check if a breakpoint has changed
+ *  when it encounters the same breakpoint on a successive call.
+ *  Moreover, an agent should remember the breakpoints that are completed
+ *  until the controller removes them from the active list to avoid
+ *  setting those breakpoints again.
  *
  *  Method: clouddebugger.controller.debuggees.breakpoints.list
  *
@@ -76,31 +78,34 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 
 /**
  *  If set to `true`, returns `google.rpc.Code.OK` status and sets the
- *  `wait_expired` response field to `true` when the server-selected timeout has
- *  expired (recommended). If set to `false`, returns `google.rpc.Code.ABORTED`
- *  status when the server-selected timeout has expired (deprecated).
+ *  `wait_expired` response field to `true` when the server-selected timeout
+ *  has expired (recommended).
+ *  If set to `false`, returns `google.rpc.Code.ABORTED` status when the
+ *  server-selected timeout has expired (deprecated).
  */
 @property(nonatomic, assign) BOOL successOnTimeout;
 
 /**
- *  A wait token that, if specified, blocks the method call until the list of
- *  active breakpoints has changed, or a server selected timeout has expired.
- *  The value should be set from the last returned response.
+ *  A wait token that, if specified, blocks the method call until the list
+ *  of active breakpoints has changed, or a server selected timeout has
+ *  expired. The value should be set from the last returned response.
  */
 @property(nonatomic, copy, nullable) NSString *waitToken;
 
 /**
  *  Fetches a @c GTLRCloudDebugger_ListActiveBreakpointsResponse.
  *
- *  Returns the list of all active breakpoints for the debuggee. The breakpoint
- *  specification (location, condition, and expression fields) is semantically
- *  immutable, although the field values may change. For example, an agent may
- *  update the location line number to reflect the actual line where the
- *  breakpoint was set, but this doesn't change the breakpoint semantics. This
- *  means that an agent does not need to check if a breakpoint has changed when
- *  it encounters the same breakpoint on a successive call. Moreover, an agent
- *  should remember the breakpoints that are completed until the controller
- *  removes them from the active list to avoid setting those breakpoints again.
+ *  Returns the list of all active breakpoints for the debuggee.
+ *  The breakpoint specification (location, condition, and expression
+ *  fields) is semantically immutable, although the field values may
+ *  change. For example, an agent may update the location line number
+ *  to reflect the actual line where the breakpoint was set, but this
+ *  doesn't change the breakpoint semantics.
+ *  This means that an agent does not need to check if a breakpoint has changed
+ *  when it encounters the same breakpoint on a successive call.
+ *  Moreover, an agent should remember the breakpoints that are completed
+ *  until the controller removes them from the active list to avoid
+ *  setting those breakpoints again.
  *
  *  @param debuggeeId Identifies the debuggee.
  *
@@ -111,13 +116,14 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 @end
 
 /**
- *  Updates the breakpoint state or mutable fields. The entire Breakpoint
- *  message must be sent back to the controller service. Updates to active
- *  breakpoint fields are only allowed if the new value does not change the
- *  breakpoint specification. Updates to the `location`, `condition` and
- *  `expression` fields should not alter the breakpoint semantics. These may
- *  only make changes such as canonicalizing a value or snapping the location to
- *  the correct line of code.
+ *  Updates the breakpoint state or mutable fields.
+ *  The entire Breakpoint message must be sent back to the controller
+ *  service.
+ *  Updates to active breakpoint fields are only allowed if the new value
+ *  does not change the breakpoint specification. Updates to the `location`,
+ *  `condition` and `expression` fields should not alter the breakpoint
+ *  semantics. These may only make changes such as canonicalizing a value
+ *  or snapping the location to the correct line of code.
  *
  *  Method: clouddebugger.controller.debuggees.breakpoints.update
  *
@@ -142,13 +148,14 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 /**
  *  Fetches a @c GTLRCloudDebugger_UpdateActiveBreakpointResponse.
  *
- *  Updates the breakpoint state or mutable fields. The entire Breakpoint
- *  message must be sent back to the controller service. Updates to active
- *  breakpoint fields are only allowed if the new value does not change the
- *  breakpoint specification. Updates to the `location`, `condition` and
- *  `expression` fields should not alter the breakpoint semantics. These may
- *  only make changes such as canonicalizing a value or snapping the location to
- *  the correct line of code.
+ *  Updates the breakpoint state or mutable fields.
+ *  The entire Breakpoint message must be sent back to the controller
+ *  service.
+ *  Updates to active breakpoint fields are only allowed if the new value
+ *  does not change the breakpoint specification. Updates to the `location`,
+ *  `condition` and `expression` fields should not alter the breakpoint
+ *  semantics. These may only make changes such as canonicalizing a value
+ *  or snapping the location to the correct line of code.
  *
  *  @param object The @c GTLRCloudDebugger_UpdateActiveBreakpointRequest to
  *    include in the query.
@@ -165,13 +172,14 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 @end
 
 /**
- *  Registers the debuggee with the controller service. All agents attached to
- *  the same application should call this method with the same request content
- *  to get back the same stable `debuggee_id`. Agents should call this method
- *  again whenever `google.rpc.Code.NOT_FOUND` is returned from any controller
- *  method. This allows the controller service to disable the agent or recover
- *  from any data loss. If the debuggee is disabled by the server, the response
- *  will have `is_disabled` set to `true`.
+ *  Registers the debuggee with the controller service.
+ *  All agents attached to the same application should call this method with
+ *  the same request content to get back the same stable `debuggee_id`. Agents
+ *  should call this method again whenever `google.rpc.Code.NOT_FOUND` is
+ *  returned from any controller method.
+ *  This allows the controller service to disable the agent or recover from any
+ *  data loss. If the debuggee is disabled by the server, the response will
+ *  have `is_disabled` set to `true`.
  *
  *  Method: clouddebugger.controller.debuggees.register
  *
@@ -186,13 +194,14 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 /**
  *  Fetches a @c GTLRCloudDebugger_RegisterDebuggeeResponse.
  *
- *  Registers the debuggee with the controller service. All agents attached to
- *  the same application should call this method with the same request content
- *  to get back the same stable `debuggee_id`. Agents should call this method
- *  again whenever `google.rpc.Code.NOT_FOUND` is returned from any controller
- *  method. This allows the controller service to disable the agent or recover
- *  from any data loss. If the debuggee is disabled by the server, the response
- *  will have `is_disabled` set to `true`.
+ *  Registers the debuggee with the controller service.
+ *  All agents attached to the same application should call this method with
+ *  the same request content to get back the same stable `debuggee_id`. Agents
+ *  should call this method again whenever `google.rpc.Code.NOT_FOUND` is
+ *  returned from any controller method.
+ *  This allows the controller service to disable the agent or recover from any
+ *  data loss. If the debuggee is disabled by the server, the response will
+ *  have `is_disabled` set to `true`.
  *
  *  @param object The @c GTLRCloudDebugger_RegisterDebuggeeRequest to include in
  *    the query.
@@ -220,8 +229,8 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 @property(nonatomic, copy, nullable) NSString *breakpointId;
 
 /**
- *  The client version making the call. Following: `domain/type/version` (e.g.,
- *  `google.com/intellij/v1`).
+ *  The client version making the call.
+ *  Following: `domain/type/version` (e.g., `google.com/intellij/v1`).
  */
 @property(nonatomic, copy, nullable) NSString *clientVersion;
 
@@ -260,8 +269,8 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 @property(nonatomic, copy, nullable) NSString *breakpointId;
 
 /**
- *  The client version making the call. Following: `domain/type/version` (e.g.,
- *  `google.com/intellij/v1`).
+ *  The client version making the call.
+ *  Following: `domain/type/version` (e.g., `google.com/intellij/v1`).
  */
 @property(nonatomic, copy, nullable) NSString *clientVersion;
 
@@ -306,8 +315,8 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 @property(nonatomic, copy, nullable) NSString *actionValue;
 
 /**
- *  The client version making the call. Following: `domain/type/version` (e.g.,
- *  `google.com/intellij/v1`).
+ *  The client version making the call.
+ *  Following: `domain/type/version` (e.g., `google.com/intellij/v1`).
  */
 @property(nonatomic, copy, nullable) NSString *clientVersion;
 
@@ -315,29 +324,29 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 @property(nonatomic, copy, nullable) NSString *debuggeeId;
 
 /**
- *  When set to `true`, the response includes the list of breakpoints set by any
- *  user. Otherwise, it includes only breakpoints set by the caller.
+ *  When set to `true`, the response includes the list of breakpoints set by
+ *  any user. Otherwise, it includes only breakpoints set by the caller.
  */
 @property(nonatomic, assign) BOOL includeAllUsers;
 
 /**
- *  When set to `true`, the response includes active and inactive breakpoints.
- *  Otherwise, it includes only active breakpoints.
+ *  When set to `true`, the response includes active and inactive
+ *  breakpoints. Otherwise, it includes only active breakpoints.
  */
 @property(nonatomic, assign) BOOL includeInactive;
 
 /**
- *  When set to `true`, the response breakpoints are stripped of the results
- *  fields: `stack_frames`, `evaluated_expressions` and `variable_table`.
+ *  This field is deprecated. The following fields are always stripped out of
+ *  the result: `stack_frames`, `evaluated_expressions` and `variable_table`.
  */
 @property(nonatomic, assign) BOOL stripResults;
 
 /**
- *  A wait token that, if specified, blocks the call until the breakpoints list
- *  has changed, or a server selected timeout has expired. The value should be
- *  set from the last response. The error code `google.rpc.Code.ABORTED` (RPC)
- *  is returned on wait timeout, which should be called again with the same
- *  `wait_token`.
+ *  A wait token that, if specified, blocks the call until the breakpoints
+ *  list has changed, or a server selected timeout has expired. The value
+ *  should be set from the last response. The error code
+ *  `google.rpc.Code.ABORTED` (RPC) is returned on wait timeout, which
+ *  should be called again with the same `wait_token`.
  */
 @property(nonatomic, copy, nullable) NSString *waitToken;
 
@@ -368,8 +377,8 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 //   +[GTLQueryCloudDebugger queryForDebuggerDebuggeesBreakpointsSetWithObject:debuggeeId:]
 
 /**
- *  The client version making the call. Following: `domain/type/version` (e.g.,
- *  `google.com/intellij/v1`).
+ *  The client version making the call.
+ *  Following: `domain/type/version` (e.g., `google.com/intellij/v1`).
  */
 @property(nonatomic, copy, nullable) NSString *clientVersion;
 
@@ -405,14 +414,14 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 //   +[GTLQueryCloudDebugger queryForDebuggerDebuggeesList]
 
 /**
- *  The client version making the call. Following: `domain/type/version` (e.g.,
- *  `google.com/intellij/v1`).
+ *  The client version making the call.
+ *  Following: `domain/type/version` (e.g., `google.com/intellij/v1`).
  */
 @property(nonatomic, copy, nullable) NSString *clientVersion;
 
 /**
- *  When set to `true`, the result includes all debuggees. Otherwise, the result
- *  includes only debuggees that are active.
+ *  When set to `true`, the result includes all debuggees. Otherwise, the
+ *  result includes only debuggees that are active.
  */
 @property(nonatomic, assign) BOOL includeInactive;
 

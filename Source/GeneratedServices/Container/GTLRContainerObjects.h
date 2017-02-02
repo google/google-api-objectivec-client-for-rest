@@ -20,14 +20,18 @@
 #endif
 
 @class GTLRContainer_AddonsConfig;
+@class GTLRContainer_AutoUpgradeOptions;
 @class GTLRContainer_Cluster;
 @class GTLRContainer_ClusterUpdate;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpLoadBalancing;
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_NodeConfig;
+@class GTLRContainer_NodeConfig_Labels;
 @class GTLRContainer_NodeConfig_Metadata;
+@class GTLRContainer_NodeManagement;
 @class GTLRContainer_NodePool;
+@class GTLRContainer_NodePoolAutoscaling;
 @class GTLRContainer_Operation;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -82,6 +86,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_DeleteCluste
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_DeleteNodePool;
 /** Value: "REPAIR_CLUSTER" */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_RepairCluster;
+/** Value: "SET_NODE_POOL_MANAGEMENT" */
+GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolManagement;
 /** Value: "TYPE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_TypeUnspecified;
 /** Value: "UPDATE_CLUSTER" */
@@ -94,6 +100,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_UpgradeNodes
 // ----------------------------------------------------------------------------
 // GTLRContainer_Operation.status
 
+/** Value: "ABORTING" */
+GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_Aborting;
 /** Value: "DONE" */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_Done;
 /** Value: "PENDING" */
@@ -122,6 +130,37 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  */
 @property(nonatomic, strong, nullable) GTLRContainer_HttpLoadBalancing *httpLoadBalancing;
 
+@end
+
+
+/**
+ *  AutoUpgradeOptions defines the set of options for the user to control how
+ *  the Auto Upgrades will proceed.
+ */
+@interface GTLRContainer_AutoUpgradeOptions : GTLRObject
+
+/**
+ *  [Output only] This field is set when upgrades are about to commence with the
+ *  approximate start time for the upgrades, in
+ *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+ */
+@property(nonatomic, copy, nullable) NSString *autoUpgradeStartTime;
+
+/**
+ *  [Output only] This field is set when upgrades are about to commence with the
+ *  description of the upgrade.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@end
+
+
+/**
+ *  CancelOperationRequest cancels a single operation.
+ */
+@interface GTLRContainer_CancelOperationRequest : GTLRObject
 @end
 
 
@@ -172,12 +211,29 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Kubernetes alpha features are enabled on this cluster. This includes alpha
+ *  API groups (e.g. v1alpha1) and features that may not be production ready in
+ *  the kubernetes version of the master and nodes. The cluster has no SLA for
+ *  uptime and master/node upgrades are disabled. Alpha enabled clusters are
+ *  automatically deleted thirty days after creation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableKubernetesAlpha;
+
+/**
  *  [Output only] The IP address of this cluster's master endpoint. The endpoint
  *  can be accessed from the internet at `https://username:password\@endpoint/`.
  *  See the `masterAuth` property of this resource for username and password
  *  information.
  */
 @property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  [Output only] The time the cluster will be automatically deleted in
+ *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+ */
+@property(nonatomic, copy, nullable) NSString *expireTime;
 
 /**
  *  [Output only] The software version of the master endpoint and kubelets used
@@ -266,8 +322,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *nodeIpv4CidrSize;
 
 /**
- *  The node pools associated with this cluster. When creating a new cluster,
- *  only a single node pool should be specified. This field should not be set if
+ *  The node pools associated with this cluster. This field should not be set if
  *  "node_config" or "initial_node_count" are specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_NodePool *> *nodePools;
@@ -332,6 +387,22 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *desiredAddonsConfig;
 
 /**
+ *  The desired image type for the node pool. NOTE: Set the "desired_node_pool"
+ *  field as well.
+ */
+@property(nonatomic, copy, nullable) NSString *desiredImageType;
+
+/**
+ *  The desired list of Google Compute Engine
+ *  [locations](/compute/docs/zones#available) in which the cluster's nodes
+ *  should be located. Changing the locations a cluster is in will result in
+ *  nodes being either created or removed from the cluster, depending on whether
+ *  locations are being added or removed. This list must always include the
+ *  cluster's primary zone.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *desiredLocations;
+
+/**
  *  The Kubernetes version to change the master to. The only valid value is the
  *  latest supported version. Use "-" to have the server automatically select
  *  the latest version.
@@ -346,9 +417,18 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, copy, nullable) NSString *desiredMonitoringService;
 
 /**
- *  The node pool to be upgraded. This field is mandatory if the
- *  "desired_node_version" or "desired_image_family" is specified and there is
- *  more than one node pool on the cluster.
+ *  Autoscaler configuration for the node pool specified in
+ *  desired_node_pool_id. If there is only one pool in the cluster and
+ *  desired_node_pool_id is not provided then the change applies to that single
+ *  node pool.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodePoolAutoscaling *desiredNodePoolAutoscaling;
+
+/**
+ *  The node pool to be upgraded. This field is mandatory if
+ *  "desired_node_version", "desired_image_family" or
+ *  "desired_node_pool_autoscaling" is specified and there is more than one node
+ *  pool on the cluster.
  */
 @property(nonatomic, copy, nullable) NSString *desiredNodePoolId;
 
@@ -383,6 +463,17 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 /** The node pool to create. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodePool *nodePool;
 
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRContainer_Empty : GTLRObject
 @end
 
 
@@ -523,6 +614,34 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
 
 /**
+ *  The image type to use for this node. Note that for a given image type, the
+ *  latest version of it will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *imageType;
+
+/**
+ *  The map of Kubernetes labels (key/value pairs) to be applied to each node.
+ *  These will added in addition to any default label(s) that Kubernetes may
+ *  apply to the node. In case of conflict in label keys, the applied set may
+ *  differ depending on the Kubernetes version -- it's best to assume the
+ *  behavior is undefined and conflicts should be avoided. For more information,
+ *  including usage and the valid values, see:
+ *  http://kubernetes.io/v1.1/docs/user-guide/labels.html
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_Labels *labels;
+
+/**
+ *  The number of local SSD disks to be attached to the node. The limit for this
+ *  value is dependant upon the maximum number of disks available on a machine
+ *  per zone. See:
+ *  https://cloud.google.com/compute/docs/disks/local-ssd#local_ssd_limits for
+ *  more information.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localSsdCount;
+
+/**
  *  The name of a Google Compute Engine [machine
  *  type](/compute/docs/machine-types) (e.g. `n1-standard-1`). If unspecified,
  *  the default machine type is `n1-standard-1`.
@@ -557,6 +676,47 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *oauthScopes;
 
+/**
+ *  Whether the nodes are created as preemptible VM instances. See:
+ *  https://cloud.google.com/compute/docs/instances/preemptible for more
+ *  inforamtion about preemptible VM instances.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preemptible;
+
+/**
+ *  The Google Cloud Platform Service Account to be used by the node VMs. If no
+ *  Service Account is specified, the "default" service account is used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
+ *  The list of instance tags applied to all nodes. Tags are used to identify
+ *  valid sources or targets for network firewalls and are specified by the
+ *  client during cluster or node pool creation. Each tag within the list must
+ *  comply with RFC1035.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
+ *  The map of Kubernetes labels (key/value pairs) to be applied to each node.
+ *  These will added in addition to any default label(s) that Kubernetes may
+ *  apply to the node. In case of conflict in label keys, the applied set may
+ *  differ depending on the Kubernetes version -- it's best to assume the
+ *  behavior is undefined and conflicts should be avoided. For more information,
+ *  including usage and the valid values, see:
+ *  http://kubernetes.io/v1.1/docs/user-guide/labels.html
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainer_NodeConfig_Labels : GTLRObject
 @end
 
 
@@ -582,6 +742,25 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 
 /**
+ *  NodeManagement defines the set of node management services turned on for the
+ *  node pool.
+ */
+@interface GTLRContainer_NodeManagement : GTLRObject
+
+/**
+ *  Whether the nodes will be automatically upgraded.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoUpgrade;
+
+/** Specifies the Auto Upgrade knobs for the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_AutoUpgradeOptions *upgradeOptions;
+
+@end
+
+
+/**
  *  NodePool contains the name and configuration for a cluster's node pool. Node
  *  pools are a set of nodes (i.e. VM's), with a common configuration and
  *  specification, under the control of the cluster master. They may have a set
@@ -590,6 +769,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  *  the workload.
  */
 @interface GTLRContainer_NodePool : GTLRObject
+
+/**
+ *  Autoscaler configuration for this NodePool. Autoscaler is enabled only if a
+ *  valid configuration is present.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodePoolAutoscaling *autoscaling;
 
 /** The node configuration of the pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig *config;
@@ -609,14 +794,17 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceGroupUrls;
 
+/** NodeManagement configuration for this NodePool. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
+
 /** The name of the node pool. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Server-defined URL for the resource. */
+/** [Output only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  The status of the nodes in this pool instance.
+ *  [Output only] The status of the nodes in this pool instance.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_NodePool_Status_Error Value "ERROR"
@@ -637,8 +825,39 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
 
-/** The version of the Kubernetes of this node. */
+/** [Output only] The version of the Kubernetes of this node. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  NodePoolAutoscaling contains information required by cluster autoscaler to
+ *  adjust the size of the node pool to the current cluster usage.
+ */
+@interface GTLRContainer_NodePoolAutoscaling : GTLRObject
+
+/**
+ *  Is autoscaling enabled for this node pool.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Maximum number of nodes in the NodePool. Must be >= min_node_count. There
+ *  has to enough quota to scale up the cluster.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
+
+/**
+ *  Minimum number of nodes in the NodePool. Must be >= 1 and <= max_node_count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNodeCount;
 
 @end
 
@@ -669,6 +888,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  *        "DELETE_NODE_POOL"
  *    @arg @c kGTLRContainer_Operation_OperationType_RepairCluster Value
  *        "REPAIR_CLUSTER"
+ *    @arg @c kGTLRContainer_Operation_OperationType_SetNodePoolManagement Value
+ *        "SET_NODE_POOL_MANAGEMENT"
  *    @arg @c kGTLRContainer_Operation_OperationType_TypeUnspecified Value
  *        "TYPE_UNSPECIFIED"
  *    @arg @c kGTLRContainer_Operation_OperationType_UpdateCluster Value
@@ -687,6 +908,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  *  The current status of the operation.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainer_Operation_Status_Aborting Value "ABORTING"
  *    @arg @c kGTLRContainer_Operation_Status_Done Value "DONE"
  *    @arg @c kGTLRContainer_Operation_Status_Pending Value "PENDING"
  *    @arg @c kGTLRContainer_Operation_Status_Running Value "RUNNING"
@@ -713,6 +935,15 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 
 /**
+ *  RollbackNodePoolUpgradeRequest rollbacks the previously Aborted or Failed
+ *  NodePool upgrade. This will be an no-op if the last upgrade successfully
+ *  completed.
+ */
+@interface GTLRContainer_RollbackNodePoolUpgradeRequest : GTLRObject
+@end
+
+
+/**
  *  Container Engine service configuration.
  */
 @interface GTLRContainer_ServerConfig : GTLRObject
@@ -720,14 +951,29 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 /** Version of Kubernetes the service deploys by default. */
 @property(nonatomic, copy, nullable) NSString *defaultClusterVersion;
 
-/** Default image family. */
-@property(nonatomic, copy, nullable) NSString *defaultImageFamily;
+/** Default image type. */
+@property(nonatomic, copy, nullable) NSString *defaultImageType;
 
-/** List of valid image families. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *validImageFamilies;
+/** List of valid image types. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *validImageTypes;
+
+/** List of valid master versions. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *validMasterVersions;
 
 /** List of valid node upgrade target versions. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *validNodeVersions;
+
+@end
+
+
+/**
+ *  SetNodePoolManagementRequest sets the node management properties of a node
+ *  pool.
+ */
+@interface GTLRContainer_SetNodePoolManagementRequest : GTLRObject
+
+/** NodeManagement configuration for the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
 
 @end
 

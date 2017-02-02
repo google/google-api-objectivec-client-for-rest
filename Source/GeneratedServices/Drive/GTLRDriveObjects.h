@@ -212,7 +212,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_ChangeList : GTLRCollectionObject
 
 /**
- *  The page of changes.
+ *  The list of changes. If nextPageToken is populated, then this list may be
+ *  incomplete and an additional page of results should be fetched.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -233,7 +234,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The page token for the next page of changes. This will be absent if the end
- *  of the current changes list has been reached.
+ *  of the changes list has been reached. If the token is rejected for any
+ *  reason, it should be discarded, and pagination should be restarted from the
+ *  first page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -414,7 +417,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_CommentList : GTLRCollectionObject
 
 /**
- *  The page of comments.
+ *  The list of comments. If nextPageToken is populated, then this list may be
+ *  incomplete and an additional page of results should be fetched.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -429,7 +433,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The page token for the next page of comments. This will be absent if the end
- *  of the comments list has been reached.
+ *  of the comments list has been reached. If the token is rejected for any
+ *  reason, it should be discarded, and pagination should be restarted from the
+ *  first page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -670,8 +676,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *thumbnailLink;
 
 /**
- *  The thumbnail version for use in client-contructable thumbnail URLs or
- *  thumbnail cache invalidation.
+ *  The thumbnail version for use in thumbnail cache invalidation.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1038,7 +1043,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_FileList : GTLRCollectionObject
 
 /**
- *  The page of files.
+ *  The list of files. If nextPageToken is populated, then this list may be
+ *  incomplete and an additional page of results should be fetched.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1053,7 +1059,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The page token for the next page of files. This will be absent if the end of
- *  the files list has been reached.
+ *  the files list has been reached. If the token is rejected for any reason, it
+ *  should be discarded, and pagination should be restarted from the first page
+ *  of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1155,7 +1163,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** The full list of permissions. */
+/** The list of permissions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission *> *permissions;
 
 @end
@@ -1233,12 +1241,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The page token for the next page of replies. This will be absent if the end
- *  of the replies list has been reached.
+ *  of the replies list has been reached. If the token is rejected for any
+ *  reason, it should be discarded, and pagination should be restarted from the
+ *  first page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The page of replies.
+ *  The list of replies. If nextPageToken is populated, then this list may be
+ *  incomplete and an additional page of results should be fetched.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1350,12 +1361,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The page token for the next page of revisions. This will be absent if the
- *  end of the revisions list has been reached.
+ *  end of the revisions list has been reached. If the token is rejected for any
+ *  reason, it should be discarded, and pagination should be restarted from the
+ *  first page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The full list of revisions.
+ *  The list of revisions. If nextPageToken is populated, then this list may be
+ *  incomplete and an additional page of results should be fetched.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.

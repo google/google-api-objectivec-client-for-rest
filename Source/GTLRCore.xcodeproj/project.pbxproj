@@ -371,6 +371,9 @@
 		F4469E041C45758700BCFAA1 /* URITemplateExtraTests.json in Resources */ = {isa = PBXBuildFile; fileRef = F4469DFE1C45757E00BCFAA1 /* URITemplateExtraTests.json */; };
 		F4469E051C45758700BCFAA1 /* URITemplateRFCTests.json in Resources */ = {isa = PBXBuildFile; fileRef = F4469DFF1C45757E00BCFAA1 /* URITemplateRFCTests.json */; };
 		F45D6A4112F0B2140091E9D9 /* GTLRObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F45D6A4012F0B2140091E9D9 /* GTLRObjectTest.m */; };
+		F4A07B1F1E4293A10035678A /* Drive1ParamErrorAsList.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4A07B1B1E4293990035678A /* Drive1ParamErrorAsList.response.txt */; };
+		F4A07B201E4293A20035678A /* Drive1ParamErrorAsList.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4A07B1B1E4293990035678A /* Drive1ParamErrorAsList.response.txt */; };
+		F4A07B211E4293A30035678A /* Drive1ParamErrorAsList.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4A07B1B1E4293990035678A /* Drive1ParamErrorAsList.response.txt */; };
 		F4A872461DAD1D6000D69E09 /* GTLRDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F3DE994119CCE49006926D1 /* GTLRDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4A872471DAD1D6000D69E09 /* GTLRBatchQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FDE22491384818E005AEFAA /* GTLRBatchQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4A872481DAD1D6000D69E09 /* GTLRBatchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FDE224B1384818E005AEFAA /* GTLRBatchResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -536,12 +539,12 @@
 		340DAEF01D591EB900EC285B /* GTMAppAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMAppAuth.h; sourceTree = "<group>"; };
 		340DAEF11D591EB900EC285B /* GTMAppAuthFetcherAuthorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMAppAuthFetcherAuthorization.h; sourceTree = "<group>"; };
 		340DAEF21D591EB900EC285B /* GTMAppAuthFetcherAuthorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMAppAuthFetcherAuthorization.m; sourceTree = "<group>"; };
-		341E70AD1DE1883F004353C1 /* GTMTVAuthorizationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMTVAuthorizationRequest.h; path = GTMTVAuthorizationRequest.h; sourceTree = "<group>"; };
-		341E70AE1DE1883F004353C1 /* GTMTVAuthorizationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMTVAuthorizationRequest.m; path = GTMTVAuthorizationRequest.m; sourceTree = "<group>"; };
-		341E70AF1DE1883F004353C1 /* GTMTVAuthorizationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMTVAuthorizationResponse.h; path = GTMTVAuthorizationResponse.h; sourceTree = "<group>"; };
-		341E70B01DE1883F004353C1 /* GTMTVAuthorizationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMTVAuthorizationResponse.m; path = GTMTVAuthorizationResponse.m; sourceTree = "<group>"; };
-		341E70B11DE1883F004353C1 /* GTMTVAuthorizationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMTVAuthorizationService.h; path = GTMTVAuthorizationService.h; sourceTree = "<group>"; };
-		341E70B21DE1883F004353C1 /* GTMTVAuthorizationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMTVAuthorizationService.m; path = GTMTVAuthorizationService.m; sourceTree = "<group>"; };
+		341E70AD1DE1883F004353C1 /* GTMTVAuthorizationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMTVAuthorizationRequest.h; sourceTree = "<group>"; };
+		341E70AE1DE1883F004353C1 /* GTMTVAuthorizationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMTVAuthorizationRequest.m; sourceTree = "<group>"; };
+		341E70AF1DE1883F004353C1 /* GTMTVAuthorizationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMTVAuthorizationResponse.h; sourceTree = "<group>"; };
+		341E70B01DE1883F004353C1 /* GTMTVAuthorizationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMTVAuthorizationResponse.m; sourceTree = "<group>"; };
+		341E70B11DE1883F004353C1 /* GTMTVAuthorizationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMTVAuthorizationService.h; sourceTree = "<group>"; };
+		341E70B21DE1883F004353C1 /* GTMTVAuthorizationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMTVAuthorizationService.m; sourceTree = "<group>"; };
 		345D0C361DDF80560044C585 /* AppAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppAuth.h; sourceTree = "<group>"; };
 		345D0D7A1DDF80A50044C585 /* OIDAuthorizationService+IOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OIDAuthorizationService+IOS.h"; sourceTree = "<group>"; };
 		345D0D7C1DDF80A50044C585 /* OIDAuthorizationUICoordinatorIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIDAuthorizationUICoordinatorIOS.h; sourceTree = "<group>"; };
@@ -571,8 +574,8 @@
 		345D0DAC1DDF80A50044C585 /* OIDTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIDTokenResponse.h; sourceTree = "<group>"; };
 		345D0DAE1DDF80A50044C585 /* OIDTokenUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIDTokenUtilities.h; sourceTree = "<group>"; };
 		345D0DB01DDF80A50044C585 /* OIDURLQueryComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIDURLQueryComponent.h; sourceTree = "<group>"; };
-		3489345F1DE3C72600B0E406 /* GTMTVServiceConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMTVServiceConfiguration.h; path = GTMTVServiceConfiguration.h; sourceTree = "<group>"; };
-		348934601DE3C72600B0E406 /* GTMTVServiceConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMTVServiceConfiguration.m; path = GTMTVServiceConfiguration.m; sourceTree = "<group>"; };
+		3489345F1DE3C72600B0E406 /* GTMTVServiceConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMTVServiceConfiguration.h; sourceTree = "<group>"; };
+		348934601DE3C72600B0E406 /* GTMTVServiceConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMTVServiceConfiguration.m; sourceTree = "<group>"; };
 		34F271861D6AB67B004A4FC7 /* GTMAppAuthFetcherAuthorization+Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMAppAuthFetcherAuthorization+Keychain.h"; sourceTree = "<group>"; };
 		34F271871D6AB67B004A4FC7 /* GTMAppAuthFetcherAuthorization+Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMAppAuthFetcherAuthorization+Keychain.m"; sourceTree = "<group>"; };
 		34F271881D6AB67B004A4FC7 /* GTMKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMKeychain.h; sourceTree = "<group>"; };
@@ -697,6 +700,7 @@
 		F47C3800134B08EF00CCF631 /* GTLRTasksTaskLists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRTasksTaskLists.m; path = Generated/GTLRTasksTaskLists.m; sourceTree = "<group>"; };
 		F47C3801134B08EF00CCF631 /* GTLRTasksTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRTasksTasks.h; path = Generated/GTLRTasksTasks.h; sourceTree = "<group>"; };
 		F47C3802134B08EF00CCF631 /* GTLRTasksTasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRTasksTasks.m; path = Generated/GTLRTasksTasks.m; sourceTree = "<group>"; };
+		F4A07B1B1E4293990035678A /* Drive1ParamErrorAsList.response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Drive1ParamErrorAsList.response.txt; path = Tests/Data/Drive1ParamErrorAsList.response.txt; sourceTree = "<group>"; };
 		F4A8723C1DAD1AA400D69E09 /* GTLR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTLR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A872441DAD1BEF00D69E09 /* GTLRtvOSFramework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GTLRtvOSFramework-Info.plist"; path = "Resources/GTLRtvOSFramework-Info.plist"; sourceTree = "<group>"; };
 		F4A872751DAD1ED800D69E09 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
@@ -1135,6 +1139,7 @@
 				4FA824871C6BDAC700E11CCC /* Drive1Paging2.response.txt */,
 				4FA824881C6BDAC700E11CCC /* Drive1Paging3.response.txt */,
 				4F3AA9161C600013008497BC /* Drive1ParamError.response.txt */,
+				F4A07B1B1E4293990035678A /* Drive1ParamErrorAsList.response.txt */,
 				F4469DFE1C45757E00BCFAA1 /* URITemplateExtraTests.json */,
 				F4469DFF1C45757E00BCFAA1 /* URITemplateRFCTests.json */,
 			);
@@ -1540,7 +1545,7 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				TargetAttributes = {
 					F4368F711B8233BF00E17643 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -1632,6 +1637,7 @@
 				4F3AA9211C602140008497BC /* Drive1Batch.response.txt in Resources */,
 				4F3AA91E1C6013B1008497BC /* Drive1Empty.response.txt in Resources */,
 				4FA8248E1C6BDAC700E11CCC /* Drive1Paging3.response.txt in Resources */,
+				F4A07B1F1E4293A10035678A /* Drive1ParamErrorAsList.response.txt in Resources */,
 				4F3AA9181C600013008497BC /* Drive1AuthError.response.txt in Resources */,
 				4F6F2E731C615492001065A5 /* Drive1BatchCorrupt.response.txt in Resources */,
 				4FA8248A1C6BDAC700E11CCC /* Drive1Paging1.response.txt in Resources */,
@@ -1663,6 +1669,7 @@
 				4F3AA9201C602140008497BC /* Drive1Batch.response.txt in Resources */,
 				4F3AA91D1C6013B1008497BC /* Drive1Empty.response.txt in Resources */,
 				4FA8248D1C6BDAC700E11CCC /* Drive1Paging3.response.txt in Resources */,
+				F4A07B201E4293A20035678A /* Drive1ParamErrorAsList.response.txt in Resources */,
 				4F3AA9171C600013008497BC /* Drive1AuthError.response.txt in Resources */,
 				4F6F2E721C615492001065A5 /* Drive1BatchCorrupt.response.txt in Resources */,
 				4FA824891C6BDAC700E11CCC /* Drive1Paging1.response.txt in Resources */,
@@ -1701,6 +1708,7 @@
 				F4ACE7DB1DAD20E100053F91 /* Drive1.response.txt in Resources */,
 				F4ACE7E01DAD20E100053F91 /* Drive1Empty.response.txt in Resources */,
 				F4ACE7DD1DAD20E100053F91 /* Drive1BatchPaging1.response.txt in Resources */,
+				F4A07B211E4293A30035678A /* Drive1ParamErrorAsList.response.txt in Resources */,
 				F4ACE7DE1DAD20E100053F91 /* Drive1BatchPaging2.response.txt in Resources */,
 				F4ACE7E11DAD20E100053F91 /* Drive1ParamError.response.txt in Resources */,
 				F4ACE7E21DAD20E100053F91 /* Drive1AuthError.response.txt in Resources */,

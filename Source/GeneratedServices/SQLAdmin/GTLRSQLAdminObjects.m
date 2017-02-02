@@ -530,11 +530,12 @@
 //
 
 @implementation GTLRSQLAdmin_Settings
-@dynamic activationPolicy, authorizedGaeApplications, backupConfiguration,
-         crashSafeReplicationEnabled, databaseFlags, databaseReplicationEnabled,
-         dataDiskSizeGb, dataDiskType, ipConfiguration, kind,
-         locationPreference, maintenanceWindow, pricingPlan, replicationType,
-         settingsVersion, storageAutoResize, tier;
+@dynamic activationPolicy, authorizedGaeApplications, availabilityType,
+         backupConfiguration, crashSafeReplicationEnabled, databaseFlags,
+         databaseReplicationEnabled, dataDiskSizeGb, dataDiskType,
+         ipConfiguration, kind, locationPreference, maintenanceWindow,
+         pricingPlan, replicationType, settingsVersion, storageAutoResize,
+         storageAutoResizeLimit, tier;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

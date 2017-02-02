@@ -12,6 +12,19 @@
 
 #import "GTLRToolResultsObjects.h"
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// filter
+NSString * const kGTLRToolResultsFilterCpu                     = @"cpu";
+NSString * const kGTLRToolResultsFilterMemory                  = @"memory";
+NSString * const kGTLRToolResultsFilterNetwork                 = @"network";
+NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified = @"perfMetricTypeUnspecified";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRToolResultsQuery
 
 @dynamic fields;
@@ -228,6 +241,33 @@
 
 @end
 
+@implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsGetPerfMetricsSummary
+
+@dynamic executionId, historyId, projectId, stepId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId {
+  NSArray *pathParams = @[
+    @"executionId", @"historyId", @"projectId", @"stepId"
+  ];
+  NSString *pathURITemplate = @"{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfMetricsSummary";
+  GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsGetPerfMetricsSummary *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.historyId = historyId;
+  query.executionId = executionId;
+  query.stepId = stepId;
+  query.expectedObjectClass = [GTLRToolResults_PerfMetricsSummary class];
+  query.loggingName = @"toolresults.projects.histories.executions.steps.getPerfMetricsSummary";
+  return query;
+}
+
+@end
+
 @implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsList
 
 @dynamic executionId, historyId, pageSize, pageToken, projectId;
@@ -281,6 +321,200 @@
   query.stepId = stepId;
   query.expectedObjectClass = [GTLRToolResults_Step class];
   query.loggingName = @"toolresults.projects.histories.executions.steps.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfMetricsSummaryCreate
+
+@dynamic executionId, historyId, projectId, stepId;
+
++ (instancetype)queryWithObject:(GTLRToolResults_PerfMetricsSummary *)object
+                      projectId:(NSString *)projectId
+                      historyId:(NSString *)historyId
+                    executionId:(NSString *)executionId
+                         stepId:(NSString *)stepId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"executionId", @"historyId", @"projectId", @"stepId"
+  ];
+  NSString *pathURITemplate = @"{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfMetricsSummary";
+  GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfMetricsSummaryCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.historyId = historyId;
+  query.executionId = executionId;
+  query.stepId = stepId;
+  query.expectedObjectClass = [GTLRToolResults_PerfMetricsSummary class];
+  query.loggingName = @"toolresults.projects.histories.executions.steps.perfMetricsSummary.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesCreate
+
+@dynamic executionId, historyId, projectId, stepId;
+
++ (instancetype)queryWithObject:(GTLRToolResults_PerfSampleSeries *)object
+                      projectId:(NSString *)projectId
+                      historyId:(NSString *)historyId
+                    executionId:(NSString *)executionId
+                         stepId:(NSString *)stepId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"executionId", @"historyId", @"projectId", @"stepId"
+  ];
+  NSString *pathURITemplate = @"{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries";
+  GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.historyId = historyId;
+  query.executionId = executionId;
+  query.stepId = stepId;
+  query.expectedObjectClass = [GTLRToolResults_PerfSampleSeries class];
+  query.loggingName = @"toolresults.projects.histories.executions.steps.perfSampleSeries.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesGet
+
+@dynamic executionId, historyId, projectId, sampleSeriesId, stepId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId
+                    sampleSeriesId:(NSString *)sampleSeriesId {
+  NSArray *pathParams = @[
+    @"executionId", @"historyId", @"projectId", @"sampleSeriesId", @"stepId"
+  ];
+  NSString *pathURITemplate = @"{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries/{sampleSeriesId}";
+  GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.historyId = historyId;
+  query.executionId = executionId;
+  query.stepId = stepId;
+  query.sampleSeriesId = sampleSeriesId;
+  query.expectedObjectClass = [GTLRToolResults_PerfSampleSeries class];
+  query.loggingName = @"toolresults.projects.histories.executions.steps.perfSampleSeries.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesList
+
+@dynamic executionId, filter, historyId, projectId, stepId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"filter" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId {
+  NSArray *pathParams = @[
+    @"executionId", @"historyId", @"projectId", @"stepId"
+  ];
+  NSString *pathURITemplate = @"{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries";
+  GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.historyId = historyId;
+  query.executionId = executionId;
+  query.stepId = stepId;
+  query.expectedObjectClass = [GTLRToolResults_ListPerfSampleSeriesResponse class];
+  query.loggingName = @"toolresults.projects.histories.executions.steps.perfSampleSeries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesBatchCreate
+
+@dynamic executionId, historyId, projectId, sampleSeriesId, stepId;
+
++ (instancetype)queryWithObject:(GTLRToolResults_BatchCreatePerfSamplesRequest *)object
+                      projectId:(NSString *)projectId
+                      historyId:(NSString *)historyId
+                    executionId:(NSString *)executionId
+                         stepId:(NSString *)stepId
+                 sampleSeriesId:(NSString *)sampleSeriesId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"executionId", @"historyId", @"projectId", @"sampleSeriesId", @"stepId"
+  ];
+  NSString *pathURITemplate = @"{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries/{sampleSeriesId}/samples:batchCreate";
+  GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesBatchCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.historyId = historyId;
+  query.executionId = executionId;
+  query.stepId = stepId;
+  query.sampleSeriesId = sampleSeriesId;
+  query.expectedObjectClass = [GTLRToolResults_BatchCreatePerfSamplesResponse class];
+  query.loggingName = @"toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate";
+  return query;
+}
+
+@end
+
+@implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesList
+
+@dynamic executionId, historyId, pageSize, pageToken, projectId, sampleSeriesId,
+         stepId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId
+                    sampleSeriesId:(NSString *)sampleSeriesId {
+  NSArray *pathParams = @[
+    @"executionId", @"historyId", @"projectId", @"sampleSeriesId", @"stepId"
+  ];
+  NSString *pathURITemplate = @"{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries/{sampleSeriesId}/samples";
+  GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.historyId = historyId;
+  query.executionId = executionId;
+  query.stepId = stepId;
+  query.sampleSeriesId = sampleSeriesId;
+  query.expectedObjectClass = [GTLRToolResults_ListPerfSamplesResponse class];
+  query.loggingName = @"toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list";
   return query;
 }
 

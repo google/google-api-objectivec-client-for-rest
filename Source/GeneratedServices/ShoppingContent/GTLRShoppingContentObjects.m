@@ -393,8 +393,8 @@
 //
 
 @implementation GTLRShoppingContent_AccountStatusDataQualityIssue
-@dynamic country, displayedValue, exampleItems, identifier, lastChecked,
-         numItems, severity, submittedValue;
+@dynamic country, detail, displayedValue, exampleItems, identifier, lastChecked,
+         location, numItems, severity, submittedValue;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

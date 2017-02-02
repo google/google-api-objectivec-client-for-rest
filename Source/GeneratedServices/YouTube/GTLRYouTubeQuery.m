@@ -1483,6 +1483,24 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @end
 
+@implementation GTLRYouTubeQuery_SuperChatEventsList
+
+@dynamic hl, maxResults, pageToken, part;
+
++ (instancetype)queryWithPart:(NSString *)part {
+  NSString *pathURITemplate = @"superChatEvents";
+  GTLRYouTubeQuery_SuperChatEventsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.part = part;
+  query.expectedObjectClass = [GTLRYouTube_SuperChatEventListResponse class];
+  query.loggingName = @"youtube.superChatEvents.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRYouTubeQuery_ThumbnailsSet
 
 @dynamic onBehalfOfContentOwner, videoId;

@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The ID of the bucket.
+ *  The ID of the bucket. For buckets, the id and name properities are the same.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -678,7 +678,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
- *  The ID of the object.
+ *  The ID of the object, including the bucket name, object name, and generation
+ *  number.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -709,7 +710,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *metageneration;
 
-/** The name of this object. Required if not specified by URL parameter. */
+/** The name of the object. Required if not specified by URL parameter. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**

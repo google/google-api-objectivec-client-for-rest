@@ -363,6 +363,8 @@ GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_LandmarkDetection;
  */
 GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_LogoDetection;
 /**
+ *  precedence when both DOCUMENT_TEXT_DETECTION
+ *  and TEXT_DETECTION are present.
  *  Run computer vision models to compute image safe-search properties.
  *
  *  Value: "SAFE_SEARCH_DETECTION"
@@ -803,7 +805,10 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 /** If present, safe-search annotation has completed successfully. */
 @property(nonatomic, strong, nullable) GTLRVision_SafeSearchAnnotation *safeSearchAnnotation;
 
-/** If present, text (OCR) detection has completed successfully. */
+/**
+ *  If present, text (OCR) detection or document (OCR) text detection has
+ *  completed successfully.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *textAnnotations;
 
 @end
@@ -1361,9 +1366,11 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        (Value: "LANDMARK_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_LogoDetection Run logo detection. (Value:
  *        "LOGO_DETECTION")
- *    @arg @c kGTLRVision_Feature_Type_SafeSearchDetection Run computer vision
- *        models to compute image safe-search properties. (Value:
- *        "SAFE_SEARCH_DETECTION")
+ *    @arg @c kGTLRVision_Feature_Type_SafeSearchDetection precedence when both
+ *        DOCUMENT_TEXT_DETECTION
+ *        and TEXT_DETECTION are present.
+ *        Run computer vision models to compute image safe-search properties.
+ *        (Value: "SAFE_SEARCH_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_TextDetection Run OCR. (Value:
  *        "TEXT_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_TypeUnspecified Unspecified feature type.
@@ -1439,6 +1446,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_ImageSource : GTLRObject
 
 /**
+ *  NOTE: For new code `image_uri` below is preferred.
  *  Google Cloud Storage image URI, which must be in the following form:
  *  `gs://bucket_name/object_name` (for details, see
  *  [Google Cloud Storage Request
@@ -1574,6 +1582,8 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)
  *  assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)
  *  assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)
+ *  The code in logs/storage/validator/logs_validator_traits.cc treats this type
+ *  as if it were annotated as ST_LOCATION.
  */
 @interface GTLRVision_LatLng : GTLRObject
 

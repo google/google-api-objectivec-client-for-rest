@@ -865,13 +865,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   [self waitForExpectationsWithTimeout:10 handler:nil];
 }
 
-- (void)testService_SingleQuery_InvalidParam {
-  // Unsuccessful request (invalid page token).
-  //
-  // Response is file Drive1ParamError.response.txt
+- (void)performTestService_SingleQuery_InvalidParam:(NSString *)responseFileName {
   GTLRService *service = [self driveServiceForTest];
   service.fetcherService.testBlock =
-      [self fetcherTestBlockWithResponseForFileName:@"Drive1ParamError.response.txt" status:400];
+      [self fetcherTestBlockWithResponseForFileName:responseFileName status:400];
 
   // Request an invalid page.
   Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
@@ -920,6 +917,24 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   // Ensure all expectations were satisfied.
   [self waitForExpectationsWithTimeout:10 handler:nil];
+}
+
+- (void)testService_SingleQuery_InvalidParam {
+  // Unsuccessful request (invalid page token).
+  //
+  // Response is file Drive1ParamError.response.txt
+  [self performTestService_SingleQuery_InvalidParam:@"Drive1ParamError.response.txt"];
+}
+
+- (void)testService_SingleQuery_InvalidParam_ListResult {
+  // Unsuccessful request (invalid page token).
+  //
+  // This is the same as testService_SingleQuery_InvalidParam, expect the response
+  // is what happens if the server sees this as a HTTP Streaming call, meaning the
+  // error will come back in an array.
+  //
+  // Response is file Drive1ParamErrorAsList.response.txt
+  [self performTestService_SingleQuery_InvalidParam:@"Drive1ParamErrorAsList.response.txt"];
 }
 
 - (void)testService_SingleQuery_InvalidAuth {

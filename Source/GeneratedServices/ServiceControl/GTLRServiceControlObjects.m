@@ -18,6 +18,7 @@
 NSString * const kGTLRServiceControl_CheckError_Code_ApiKeyExpired = @"API_KEY_EXPIRED";
 NSString * const kGTLRServiceControl_CheckError_Code_ApiKeyInvalid = @"API_KEY_INVALID";
 NSString * const kGTLRServiceControl_CheckError_Code_ApiKeyNotFound = @"API_KEY_NOT_FOUND";
+NSString * const kGTLRServiceControl_CheckError_Code_ApiTargetBlocked = @"API_TARGET_BLOCKED";
 NSString * const kGTLRServiceControl_CheckError_Code_BillingDisabled = @"BILLING_DISABLED";
 NSString * const kGTLRServiceControl_CheckError_Code_BillingStatusUnavailable = @"BILLING_STATUS_UNAVAILABLE";
 NSString * const kGTLRServiceControl_CheckError_Code_ClientAppBlocked = @"CLIENT_APP_BLOCKED";
@@ -47,6 +48,88 @@ NSString * const kGTLRServiceControl_LogEntry_Severity_Warning = @"WARNING";
 // GTLRServiceControl_Operation.importance
 NSString * const kGTLRServiceControl_Operation_Importance_High = @"HIGH";
 NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_AuditLog
+//
+
+@implementation GTLRServiceControl_AuditLog
+@dynamic authenticationInfo, authorizationInfo, methodName, numResponseItems,
+         request, requestMetadata, resourceName, response, serviceData,
+         serviceName, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authorizationInfo" : [GTLRServiceControl_AuthorizationInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_AuditLog_Request
+//
+
+@implementation GTLRServiceControl_AuditLog_Request
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_AuditLog_Response
+//
+
+@implementation GTLRServiceControl_AuditLog_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_AuditLog_ServiceData
+//
+
+@implementation GTLRServiceControl_AuditLog_ServiceData
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_AuthenticationInfo
+//
+
+@implementation GTLRServiceControl_AuthenticationInfo
+@dynamic authoritySelector, principalEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_AuthorizationInfo
+//
+
+@implementation GTLRServiceControl_AuthorizationInfo
+@dynamic granted, permission, resource;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -316,6 +399,16 @@ NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_RequestMetadata
+//
+
+@implementation GTLRServiceControl_RequestMetadata
+@dynamic callerIp, callerSuppliedUserAgent;
 @end
 
 
