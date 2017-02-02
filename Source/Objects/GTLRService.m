@@ -757,6 +757,23 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
               // We could not parse the JSON payload
               error = parseError;
             } else {
+              // HTTP Streaming defined by Google services is is an array
+              // of requests and replies. This code never makes one of
+              // these requests; but, some GET apis can actually be to
+              // a Streaming result (for media?), so the errors can still
+              // come back in an array.
+              if ([jsonWrapper isKindOfClass:[NSArray class]]) {
+                NSArray *jsonWrapperAsArray = (NSArray *)jsonWrapper;
+#if DEBUG
+                if (jsonWrapperAsArray.count > 1) {
+                  GTLR_DEBUG_LOG(@"Got error array with >1 item, only using first. Full list: %@",
+                                 jsonWrapperAsArray);
+                }
+#endif
+                // Use the first.
+                jsonWrapper = [jsonWrapperAsArray firstObject];
+              }
+
               // Convert the JSON error payload into a structured error
               NSMutableDictionary *errorJSON = [jsonWrapper valueForKey:@"error"];
               if (errorJSON) {
