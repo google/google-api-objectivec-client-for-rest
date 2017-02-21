@@ -1,4 +1,4 @@
-# Google APIs Client Library for Objective-C For REST #
+# Google APIs Client Library for Objective-C for REST #
 
 **Project site** <https://github.com/google/google-api-objectivec-client-for-rest><br>
 **Discussion group** <http://groups.google.com/group/google-api-objectivec-client>
