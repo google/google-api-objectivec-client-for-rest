@@ -4,9 +4,9 @@
 // API:
 //   Cloud Tool Results API (toolresults/v1beta3)
 // Description:
-//   Reads and publishes results from Cloud Test Lab.
+//   Reads and publishes results from Firebase Test Lab.
 // Documentation:
-//   https://developers.google.com/cloud-test-lab/
+//   https://firebase.google.com/docs/test-lab/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -536,6 +536,9 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  PerfMetricsSummary does not exist
  *
  *  Method: toolresults.projects.histories.executions.steps.getPerfMetricsSummary
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsGetPerfMetricsSummary : GTLRToolResultsQuery
 // Previous library name was

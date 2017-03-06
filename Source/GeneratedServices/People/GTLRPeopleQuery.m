@@ -4,8 +4,7 @@
 // API:
 //   Google People API (people/v1)
 // Description:
-//   The Google People API service gives access to information about profiles
-//   and contacts.
+//   Provides access to information about profiles and contacts.
 // Documentation:
 //   https://developers.google.com/people/
 
@@ -33,8 +32,8 @@ NSString * const kGTLRPeopleSortOrderLastNameAscending     = @"LAST_NAME_ASCENDI
 
 @implementation GTLRPeopleQuery_PeopleConnectionsList
 
-@dynamic pageSize, pageToken, requestMaskIncludeField, resourceName, sortOrder,
-         syncToken;
+@dynamic pageSize, pageToken, requestMaskIncludeField, requestSyncToken,
+         resourceName, sortOrder, syncToken;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"requestMaskIncludeField" : @"requestMask.includeField" };

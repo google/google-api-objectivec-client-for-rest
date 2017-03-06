@@ -2,46 +2,46 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Machine Learning (ml/v1beta1)
+//   Google Cloud Machine Learning Engine (ml/v1beta1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:
 //   https://cloud.google.com/ml/
 
-#import "GTLRCloudMachineLearningQuery.h"
+#import "GTLRCloudMachineLearningEngineQuery.h"
 
-#import "GTLRCloudMachineLearningObjects.h"
+#import "GTLRCloudMachineLearningEngineObjects.h"
 
-@implementation GTLRCloudMachineLearningQuery
+@implementation GTLRCloudMachineLearningEngineQuery
 
 @dynamic fields;
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsGetConfig
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsGetConfig
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/{+name}:getConfig";
-  GTLRCloudMachineLearningQuery_ProjectsGetConfig *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsGetConfig *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleCloudMlV1beta1GetConfigResponse class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1GetConfigResponse class];
   query.loggingName = @"ml.projects.getConfig";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsJobsCancel
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsJobsCancel
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRCloudMachineLearning_GoogleCloudMlV1beta1CancelJobRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1CancelJobRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -49,24 +49,24 @@
   }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/{+name}:cancel";
-  GTLRCloudMachineLearningQuery_ProjectsJobsCancel *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsJobsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleProtobufEmpty class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleProtobufEmpty class];
   query.loggingName = @"ml.projects.jobs.cancel";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsJobsCreate
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsJobsCreate
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRCloudMachineLearning_GoogleCloudMlV1beta1Job *)object
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -74,62 +74,62 @@
   }
   NSArray *pathParams = @[ @"parent" ];
   NSString *pathURITemplate = @"v1beta1/{+parent}/jobs";
-  GTLRCloudMachineLearningQuery_ProjectsJobsCreate *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsJobsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleCloudMlV1beta1Job class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job class];
   query.loggingName = @"ml.projects.jobs.create";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsJobsGet
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsJobsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudMachineLearningQuery_ProjectsJobsGet *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsJobsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleCloudMlV1beta1Job class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job class];
   query.loggingName = @"ml.projects.jobs.get";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsJobsList
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsJobsList
 
 @dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
   NSString *pathURITemplate = @"v1beta1/{+parent}/jobs";
-  GTLRCloudMachineLearningQuery_ProjectsJobsList *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsJobsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleCloudMlV1beta1ListJobsResponse class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ListJobsResponse class];
   query.loggingName = @"ml.projects.jobs.list";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsModelsCreate
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsCreate
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRCloudMachineLearning_GoogleCloudMlV1beta1Model *)object
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Model *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -137,81 +137,81 @@
   }
   NSArray *pathParams = @[ @"parent" ];
   NSString *pathURITemplate = @"v1beta1/{+parent}/models";
-  GTLRCloudMachineLearningQuery_ProjectsModelsCreate *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsModelsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleCloudMlV1beta1Model class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Model class];
   query.loggingName = @"ml.projects.models.create";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsModelsDelete
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudMachineLearningQuery_ProjectsModelsDelete *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsModelsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleLongrunningOperation class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleLongrunningOperation class];
   query.loggingName = @"ml.projects.models.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsModelsGet
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudMachineLearningQuery_ProjectsModelsGet *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsModelsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleCloudMlV1beta1Model class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Model class];
   query.loggingName = @"ml.projects.models.get";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsModelsList
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsList
 
 @dynamic pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
   NSString *pathURITemplate = @"v1beta1/{+parent}/models";
-  GTLRCloudMachineLearningQuery_ProjectsModelsList *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsModelsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleCloudMlV1beta1ListModelsResponse class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ListModelsResponse class];
   query.loggingName = @"ml.projects.models.list";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsModelsVersionsCreate
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsCreate
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRCloudMachineLearning_GoogleCloudMlV1beta1Version *)object
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version *)object
                          parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -219,81 +219,81 @@
   }
   NSArray *pathParams = @[ @"parent" ];
   NSString *pathURITemplate = @"v1beta1/{+parent}/versions";
-  GTLRCloudMachineLearningQuery_ProjectsModelsVersionsCreate *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleLongrunningOperation class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleLongrunningOperation class];
   query.loggingName = @"ml.projects.models.versions.create";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsModelsVersionsDelete
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudMachineLearningQuery_ProjectsModelsVersionsDelete *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleLongrunningOperation class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleLongrunningOperation class];
   query.loggingName = @"ml.projects.models.versions.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsModelsVersionsGet
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudMachineLearningQuery_ProjectsModelsVersionsGet *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleCloudMlV1beta1Version class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version class];
   query.loggingName = @"ml.projects.models.versions.get";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsModelsVersionsList
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsList
 
 @dynamic pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
   NSString *pathURITemplate = @"v1beta1/{+parent}/versions";
-  GTLRCloudMachineLearningQuery_ProjectsModelsVersionsList *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleCloudMlV1beta1ListVersionsResponse class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ListVersionsResponse class];
   query.loggingName = @"ml.projects.models.versions.list";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsModelsVersionsSetDefault
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsSetDefault
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRCloudMachineLearning_GoogleCloudMlV1beta1SetDefaultVersionRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1SetDefaultVersionRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -301,100 +301,100 @@
   }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/{+name}:setDefault";
-  GTLRCloudMachineLearningQuery_ProjectsModelsVersionsSetDefault *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsSetDefault *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleCloudMlV1beta1Version class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version class];
   query.loggingName = @"ml.projects.models.versions.setDefault";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsOperationsCancel
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsOperationsCancel
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/{+name}:cancel";
-  GTLRCloudMachineLearningQuery_ProjectsOperationsCancel *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleProtobufEmpty class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleProtobufEmpty class];
   query.loggingName = @"ml.projects.operations.cancel";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsOperationsDelete
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsOperationsDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudMachineLearningQuery_ProjectsOperationsDelete *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleProtobufEmpty class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleProtobufEmpty class];
   query.loggingName = @"ml.projects.operations.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsOperationsGet
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsOperationsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudMachineLearningQuery_ProjectsOperationsGet *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleLongrunningOperation class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleLongrunningOperation class];
   query.loggingName = @"ml.projects.operations.get";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsOperationsList
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsOperationsList
 
 @dynamic filter, name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/{+name}/operations";
-  GTLRCloudMachineLearningQuery_ProjectsOperationsList *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleLongrunningListOperationsResponse class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleLongrunningListOperationsResponse class];
   query.loggingName = @"ml.projects.operations.list";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudMachineLearningQuery_ProjectsPredict
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsPredict
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRCloudMachineLearning_GoogleCloudMlV1beta1PredictRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -402,13 +402,13 @@
   }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/{+name}:predict";
-  GTLRCloudMachineLearningQuery_ProjectsPredict *query =
+  GTLRCloudMachineLearningEngineQuery_ProjectsPredict *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearning_GoogleApiHttpBody class];
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleApiHttpBody class];
   query.loggingName = @"ml.projects.predict";
   return query;
 }

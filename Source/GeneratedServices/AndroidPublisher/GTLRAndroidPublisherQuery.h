@@ -2893,7 +2893,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 @end
 
 /**
- *  Returns a list of reviews.
+ *  Returns a list of reviews. Only reviews from last week will be returned.
  *
  *  Method: androidpublisher.reviews.list
  *
@@ -2921,7 +2921,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherTrackRollout;
 /**
  *  Fetches a @c GTLRAndroidPublisher_ReviewsListResponse.
  *
- *  Returns a list of reviews.
+ *  Returns a list of reviews. Only reviews from last week will be returned.
  *
  *  @param packageName Unique identifier for the Android app for which we want
  *    reviews; for example, "com.spiffygame".

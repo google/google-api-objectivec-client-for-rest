@@ -179,7 +179,11 @@
 //
 
 @implementation GTLRDeploymentManager_DeploymentUpdate
-@dynamic labels, manifest;
+@dynamic descriptionProperty, labels, manifest;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

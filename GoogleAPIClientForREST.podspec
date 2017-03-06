@@ -73,6 +73,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AppState/*.{h,m}'
   end
+  s.subspec 'Appsactivity' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Appsactivity/*.{h,m}'
+  end
   s.subspec 'Bigquery' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Bigquery/*.{h,m}'
@@ -113,9 +117,9 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudKMS/*.{h,m}'
   end
-  s.subspec 'CloudMachineLearning' do |sp|
+  s.subspec 'CloudMachineLearningEngine' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/CloudMachineLearning/*.{h,m}'
+    sp.source_files = 'Source/GeneratedServices/CloudMachineLearningEngine/*.{h,m}'
   end
   s.subspec 'CloudMonitoring' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -132,6 +136,10 @@ Pod::Spec.new do |s|
   s.subspec 'CloudRuntimeConfig' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudRuntimeConfig/*.{h,m}'
+  end
+  s.subspec 'CloudSourceRepositories' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudSourceRepositories/*.{h,m}'
   end
   s.subspec 'CloudTrace' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -329,6 +337,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ServiceControl/*.{h,m}'
   end
+  s.subspec 'ServiceUser' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ServiceUser/*.{h,m}'
+  end
   s.subspec 'Sheets' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Sheets/*.{h,m}'
@@ -344,6 +356,10 @@ Pod::Spec.new do |s|
   s.subspec 'Slides' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Slides/*.{h,m}'
+  end
+  s.subspec 'Spanner' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Spanner/*.{h,m}'
   end
   s.subspec 'Spectrum' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -380,6 +396,10 @@ Pod::Spec.new do |s|
   s.subspec 'ToolResults' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ToolResults/*.{h,m}'
+  end
+  s.subspec 'Tracing' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Tracing/*.{h,m}'
   end
   s.subspec 'Translate' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

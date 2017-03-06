@@ -593,7 +593,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 // Previous library name was
 //   +[GTLQueryStorage queryForBucketsListWithproject:]
 
-/** Maximum number of buckets to return. */
+/**
+ *  Maximum number of buckets to return in a single response. The service will
+ *  use this parameter or 1,000 items, whichever is smaller.
+ *
+ *  @note If not set, the documented server-side default will be 1000.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
@@ -2023,9 +2028,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *delimiter;
 
 /**
- *  Maximum number of items plus prefixes to return. As duplicate prefixes are
- *  omitted, fewer total results may be returned than requested. The default
- *  value of this parameter is 1,000 items.
+ *  Maximum number of items plus prefixes to return in a single page of
+ *  responses. As duplicate prefixes are omitted, fewer total results may be
+ *  returned than requested. The service will use this parameter or 1,000 items,
+ *  whichever is smaller.
+ *
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -2495,9 +2503,12 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *delimiter;
 
 /**
- *  Maximum number of items plus prefixes to return. As duplicate prefixes are
- *  omitted, fewer total results may be returned than requested. The default
- *  value of this parameter is 1,000 items.
+ *  Maximum number of items plus prefixes to return in a single page of
+ *  responses. As duplicate prefixes are omitted, fewer total results may be
+ *  returned than requested. The service will use this parameter or 1,000 items,
+ *  whichever is smaller.
+ *
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 

@@ -503,7 +503,7 @@
 //
 
 @implementation GTLRAdExchangeBuyer_DealServingMetadata
-@dynamic dealPauseStatus;
+@dynamic alcoholAdsAllowed, dealPauseStatus;
 @end
 
 

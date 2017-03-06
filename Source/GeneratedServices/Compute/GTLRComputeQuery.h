@@ -22,6 +22,7 @@
 @class GTLRCompute_Address;
 @class GTLRCompute_AttachedDisk;
 @class GTLRCompute_Autoscaler;
+@class GTLRCompute_BackendBucket;
 @class GTLRCompute_BackendService;
 @class GTLRCompute_CacheInvalidationRule;
 @class GTLRCompute_DeprecationStatus;
@@ -145,10 +146,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -345,10 +346,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -437,10 +438,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -651,10 +652,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -798,6 +799,275 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes the specified BackendBucket resource.
+ *
+ *  Method: compute.backendBuckets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_BackendBucketsDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForBackendBucketsDeleteWithproject:backendBucket:]
+
+/** Name of the BackendBucket resource to delete. */
+@property(nonatomic, copy, nullable) NSString *backendBucket;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified BackendBucket resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param backendBucket Name of the BackendBucket resource to delete.
+ *
+ *  @returns GTLRComputeQuery_BackendBucketsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                   backendBucket:(NSString *)backendBucket;
+
+@end
+
+/**
+ *  Returns the specified BackendBucket resource. Get a list of available
+ *  backend buckets by making a list() request.
+ *
+ *  Method: compute.backendBuckets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_BackendBucketsGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForBackendBucketsGetWithproject:backendBucket:]
+
+/** Name of the BackendBucket resource to return. */
+@property(nonatomic, copy, nullable) NSString *backendBucket;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_BackendBucket.
+ *
+ *  Returns the specified BackendBucket resource. Get a list of available
+ *  backend buckets by making a list() request.
+ *
+ *  @param project Project ID for this request.
+ *  @param backendBucket Name of the BackendBucket resource to return.
+ *
+ *  @returns GTLRComputeQuery_BackendBucketsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                   backendBucket:(NSString *)backendBucket;
+
+@end
+
+/**
+ *  Creates a BackendBucket resource in the specified project using the data
+ *  included in the request.
+ *
+ *  Method: compute.backendBuckets.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_BackendBucketsInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForBackendBucketsInsertWithObject:project:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a BackendBucket resource in the specified project using the data
+ *  included in the request.
+ *
+ *  @param object The @c GTLRCompute_BackendBucket to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_BackendBucketsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_BackendBucket *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Retrieves the list of BackendBucket resources available to the specified
+ *  project.
+ *
+ *  Method: compute.backendBuckets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_BackendBucketsList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForBackendBucketsListWithproject:]
+
+/**
+ *  Sets a filter expression for filtering listed resources, in the form
+ *  filter={expression}. Your {expression} must be in the format: field_name
+ *  comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use filter=name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_BackendBucketList.
+ *
+ *  Retrieves the list of BackendBucket resources available to the specified
+ *  project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_BackendBucketsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Updates the specified BackendBucket resource with the data included in the
+ *  request. This method supports patch semantics.
+ *
+ *  Method: compute.backendBuckets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_BackendBucketsPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForBackendBucketsPatchWithObject:project:backendBucket:]
+
+/** Name of the BackendBucket resource to update. */
+@property(nonatomic, copy, nullable) NSString *backendBucket;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified BackendBucket resource with the data included in the
+ *  request. This method supports patch semantics.
+ *
+ *  @param object The @c GTLRCompute_BackendBucket to include in the query.
+ *  @param project Project ID for this request.
+ *  @param backendBucket Name of the BackendBucket resource to update.
+ *
+ *  @returns GTLRComputeQuery_BackendBucketsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_BackendBucket *)object
+                        project:(NSString *)project
+                  backendBucket:(NSString *)backendBucket;
+
+@end
+
+/**
+ *  Updates the specified BackendBucket resource with the data included in the
+ *  request.
+ *
+ *  Method: compute.backendBuckets.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_BackendBucketsUpdate : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForBackendBucketsUpdateWithObject:project:backendBucket:]
+
+/** Name of the BackendBucket resource to update. */
+@property(nonatomic, copy, nullable) NSString *backendBucket;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified BackendBucket resource with the data included in the
+ *  request.
+ *
+ *  @param object The @c GTLRCompute_BackendBucket to include in the query.
+ *  @param project Project ID for this request.
+ *  @param backendBucket Name of the BackendBucket resource to update.
+ *
+ *  @returns GTLRComputeQuery_BackendBucketsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_BackendBucket *)object
+                        project:(NSString *)project
+                  backendBucket:(NSString *)backendBucket;
+
+@end
+
+/**
  *  Retrieves the list of all BackendService resources, regional and global,
  *  available to the specified project.
  *
@@ -840,10 +1110,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -1073,10 +1343,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -1245,10 +1515,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -1301,6 +1571,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Name of the persistent disk to snapshot. */
 @property(nonatomic, copy, nullable) NSString *disk;
+
+@property(nonatomic, assign) BOOL guestFlush;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -1519,10 +1791,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -1660,10 +1932,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -1789,10 +2061,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -1987,10 +2259,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -2148,10 +2420,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -2349,10 +2621,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -2590,10 +2862,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -2782,10 +3054,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -2909,10 +3181,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -3065,10 +3337,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -3258,10 +3530,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -3527,10 +3799,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -3796,10 +4068,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -4147,10 +4419,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -4301,10 +4573,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -4592,10 +4864,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -4674,8 +4946,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  maxResults
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -5041,10 +5312,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -5263,10 +5534,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -5367,10 +5638,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -5622,10 +5893,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -5929,9 +6200,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Returns output starting from a specific byte position. Use this to page
+ *  through output when the output is too large to return in a single request.
  *  For the initial request, leave this field unspecified. For subsequent calls,
- *  this field should be set to the next value that was returned in the previous
- *  call.
+ *  this field should be set to the next value returned in the previous call.
  */
 @property(nonatomic, assign) long long start;
 
@@ -6043,10 +6315,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -6335,7 +6607,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the service account on the instance.
+ *  Sets the service account on the instance. For more information, read
+ *  Changing the service account and access scopes for an instance.
  *
  *  Method: compute.instances.setServiceAccount
  *
@@ -6363,7 +6636,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Sets the service account on the instance.
+ *  Sets the service account on the instance. For more information, read
+ *  Changing the service account and access scopes for an instance.
  *
  *  @param object The @c GTLRCompute_InstancesSetServiceAccountRequest to
  *    include in the query.
@@ -6728,10 +7002,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -6853,10 +7127,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -6982,10 +7256,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -7182,10 +7456,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -7587,10 +7861,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -7930,10 +8204,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -8358,10 +8632,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -8433,8 +8707,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  maxResults
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -8749,10 +9022,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -8849,10 +9122,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -9075,10 +9348,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -9205,10 +9478,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -9292,10 +9565,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -9534,10 +9807,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -9858,10 +10131,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -10025,10 +10298,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -10218,10 +10491,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -10306,10 +10579,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -10550,10 +10823,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -10747,10 +11020,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -10976,10 +11249,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -11142,10 +11415,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -11357,10 +11630,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -11538,10 +11811,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -11786,10 +12059,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -12112,10 +12385,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -12320,10 +12593,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -12523,10 +12796,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -12759,10 +13032,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -12959,10 +13232,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -13162,10 +13435,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -13343,10 +13616,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -13480,10 +13753,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests.
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
  *
- *  @note If not set, the documented server-side default will be 500 (from the
- *        range 0..500).
+ *  @note If not set, the documented server-side default will be 500.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 

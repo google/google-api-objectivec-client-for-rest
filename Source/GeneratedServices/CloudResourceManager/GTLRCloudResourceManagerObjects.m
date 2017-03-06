@@ -136,6 +136,46 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_Lien
+//
+
+@implementation GTLRCloudResourceManager_Lien
+@dynamic createTime, name, origin, parent, reason, restrictions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restrictions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ListLiensResponse
+//
+
+@implementation GTLRCloudResourceManager_ListLiensResponse
+@dynamic liens, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"liens" : [GTLRCloudResourceManager_Lien class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"liens";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_ListProjectsResponse
 //
 

@@ -111,6 +111,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCa
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterChannelId;
 /** Value: "FILTER_CITY" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCity;
+/** Value: "FILTER_COMPANION_CREATIVE_ID" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCompanionCreativeId;
 /** Value: "FILTER_CONVERSION_DELAY" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterConversionDelay;
 /** Value: "FILTER_COUNTRY" */
@@ -207,6 +209,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterRe
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterSiteId;
 /** Value: "FILTER_SITE_LANGUAGE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterSiteLanguage;
+/** Value: "FILTER_SKIPPABLE_SUPPORT" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterSkippableSupport;
 /** Value: "FILTER_TARGETED_USER_LIST" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTargetedUserList;
 /** Value: "FILTER_TIME_OF_DAY" */
@@ -345,6 +349,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterChannelId;
 /** Value: "FILTER_CITY" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCity;
+/** Value: "FILTER_COMPANION_CREATIVE_ID" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCompanionCreativeId;
 /** Value: "FILTER_CONVERSION_DELAY" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterConversionDelay;
 /** Value: "FILTER_COUNTRY" */
@@ -441,6 +447,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterSiteId;
 /** Value: "FILTER_SITE_LANGUAGE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterSiteLanguage;
+/** Value: "FILTER_SKIPPABLE_SUPPORT" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterSkippableSupport;
 /** Value: "FILTER_TARGETED_USER_LIST" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTargetedUserList;
 /** Value: "FILTER_TIME_OF_DAY" */
@@ -553,6 +561,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_Parameters.metrics
 
+/** Value: "METRIC_ACTIVE_VIEW_AUDIBLE_VISIBLE_ON_COMPLETE_IMPRESSIONS" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewAudibleVisibleOnCompleteImpressions;
 /** Value: "METRIC_ACTIVE_VIEW_AVERAGE_VIEWABLE_TIME" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewAverageViewableTime;
 /** Value: "METRIC_ACTIVE_VIEW_DISTRIBUTION_UNMEASURABLE" */
@@ -569,10 +579,34 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_Metri
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPctMeasurableImpressions;
 /** Value: "METRIC_ACTIVE_VIEW_PCT_VIEWABLE_IMPRESSIONS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPctViewableImpressions;
+/** Value: "METRIC_ACTIVE_VIEW_PERCENT_AUDIBLE_VISIBLE_AT_START" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentAudibleVisibleAtStart;
+/** Value: "METRIC_ACTIVE_VIEW_PERCENT_AUDIBLE_VISIBLE_FIRST_QUAR" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentAudibleVisibleFirstQuar;
+/** Value: "METRIC_ACTIVE_VIEW_PERCENT_AUDIBLE_VISIBLE_ON_COMPLETE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentAudibleVisibleOnComplete;
+/** Value: "METRIC_ACTIVE_VIEW_PERCENT_AUDIBLE_VISIBLE_SECOND_QUAR" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentAudibleVisibleSecondQuar;
+/** Value: "METRIC_ACTIVE_VIEW_PERCENT_AUDIBLE_VISIBLE_THIRD_QUAR" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentAudibleVisibleThirdQuar;
+/** Value: "METRIC_ACTIVE_VIEW_PERCENT_VIEWABLE_FOR_TIME_THRESHOLD" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentViewableForTimeThreshold;
+/** Value: "METRIC_ACTIVE_VIEW_PERCENT_VISIBLE_AT_START" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentVisibleAtStart;
+/** Value: "METRIC_ACTIVE_VIEW_PERCENT_VISIBLE_FIRST_QUAR" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentVisibleFirstQuar;
+/** Value: "METRIC_ACTIVE_VIEW_PERCENT_VISIBLE_ON_COMPLETE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentVisibleOnComplete;
+/** Value: "METRIC_ACTIVE_VIEW_PERCENT_VISIBLE_SECOND_QUAR" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentVisibleSecondQuar;
+/** Value: "METRIC_ACTIVE_VIEW_PERCENT_VISIBLE_THIRD_QUAR" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentVisibleThirdQuar;
 /** Value: "METRIC_ACTIVE_VIEW_UNMEASURABLE_IMPRESSIONS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewUnmeasurableImpressions;
 /** Value: "METRIC_ACTIVE_VIEW_UNVIEWABLE_IMPRESSIONS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewUnviewableImpressions;
+/** Value: "METRIC_ACTIVE_VIEW_VIEWABLE_FOR_TIME_THRESHOLD" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewViewableForTimeThreshold;
 /** Value: "METRIC_ACTIVE_VIEW_VIEWABLE_IMPRESSIONS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewViewableImpressions;
 /** Value: "METRIC_BID_REQUESTS" */
@@ -945,6 +979,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_Metri
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpcvPartner;
 /** Value: "METRIC_REVENUE_ECPCV_USD" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpcvUsd;
+/** Value: "METRIC_REVENUE_ECPIAVC_ADVERTISER" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpiavcAdvertiser;
 /** Value: "METRIC_REVENUE_ECPM_ADVERTISER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpmAdvertiser;
 /** Value: "METRIC_REVENUE_ECPM_PARTNER" */
@@ -1185,6 +1221,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypePetr
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypePixelLoad;
 /** Value: "TYPE_REACH_AND_FREQUENCY" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypeReachAndFrequency;
+/** Value: "TYPE_REACH_AUDIENCE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypeReachAudience;
 /** Value: "TYPE_THIRD_PARTY_DATA_PROVIDER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypeThirdPartyDataProvider;
 /** Value: "TYPE_TRUEVIEW" */
@@ -1449,7 +1487,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *  The IDs of the specified filter type. This is used to filter entities to
  *  fetch. At least one ID must be specified. Only one ID is allowed for the
  *  ADVERTISER_ID filter type. For INSERTION_ORDER_ID or LINE_ITEM_ID filter
- *  types all IDs must be from the same Advertiser.
+ *  types, all IDs must be from the same Advertiser.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1532,6 +1570,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        "FILTER_CHANNEL_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCity Value
  *        "FILTER_CITY"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCompanionCreativeId
+ *        Value "FILTER_COMPANION_CREATIVE_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterConversionDelay
  *        Value "FILTER_CONVERSION_DELAY"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCountry Value
@@ -1628,6 +1668,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        "FILTER_SITE_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterSiteLanguage
  *        Value "FILTER_SITE_LANGUAGE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterSkippableSupport
+ *        Value "FILTER_SKIPPABLE_SUPPORT"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTargetedUserList
  *        Value "FILTER_TARGETED_USER_LIST"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTimeOfDay Value
@@ -1854,6 +1896,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        "TYPE_PIXEL_LOAD"
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_TypeReachAndFrequency
  *        Value "TYPE_REACH_AND_FREQUENCY"
+ *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_TypeReachAudience Value
+ *        "TYPE_REACH_AUDIENCE"
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_TypeThirdPartyDataProvider
  *        Value "TYPE_THIRD_PARTY_DATA_PROVIDER"
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_TypeTrueview Value

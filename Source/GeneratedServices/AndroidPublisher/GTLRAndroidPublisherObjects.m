@@ -666,7 +666,7 @@
 @implementation GTLRAndroidPublisher_SubscriptionPurchase
 @dynamic autoRenewing, cancelReason, countryCode, developerPayload,
          expiryTimeMillis, kind, paymentState, priceAmountMicros,
-         priceCurrencyCode, startTimeMillis;
+         priceCurrencyCode, startTimeMillis, userCancellationTimeMillis;
 @end
 
 

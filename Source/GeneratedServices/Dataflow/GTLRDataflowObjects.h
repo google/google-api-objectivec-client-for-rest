@@ -22,17 +22,21 @@
 @class GTLRDataflow_ApproximateReportedProgress;
 @class GTLRDataflow_ApproximateSplitRequest;
 @class GTLRDataflow_AutoscalingSettings;
+@class GTLRDataflow_ComponentSource;
+@class GTLRDataflow_ComponentTransform;
 @class GTLRDataflow_ComputationTopology;
 @class GTLRDataflow_ConcatPosition;
 @class GTLRDataflow_CounterMetadata;
 @class GTLRDataflow_CounterStructuredName;
 @class GTLRDataflow_CounterStructuredNameAndMetadata;
 @class GTLRDataflow_CounterUpdate;
+@class GTLRDataflow_CPUTime;
 @class GTLRDataflow_CreateJobFromTemplateRequest_Parameters;
 @class GTLRDataflow_CustomSourceLocation;
 @class GTLRDataflow_DataDiskAssignment;
 @class GTLRDataflow_DerivedSource;
 @class GTLRDataflow_Disk;
+@class GTLRDataflow_DisplayData;
 @class GTLRDataflow_DistributionUpdate;
 @class GTLRDataflow_DynamicSourceSplit;
 @class GTLRDataflow_Environment;
@@ -40,6 +44,7 @@
 @class GTLRDataflow_Environment_SdkPipelineOptions;
 @class GTLRDataflow_Environment_UserAgent;
 @class GTLRDataflow_Environment_Version;
+@class GTLRDataflow_ExecutionStageSummary;
 @class GTLRDataflow_FailedLocation;
 @class GTLRDataflow_FlattenInstruction;
 @class GTLRDataflow_FloatingPointList;
@@ -58,6 +63,7 @@
 @class GTLRDataflow_JobMessage;
 @class GTLRDataflow_KeyRangeDataDiskAssignment;
 @class GTLRDataflow_KeyRangeLocation;
+@class GTLRDataflow_LaunchTemplateParameters_Parameters;
 @class GTLRDataflow_MapTask;
 @class GTLRDataflow_MetricShortId;
 @class GTLRDataflow_MetricStructuredName;
@@ -68,17 +74,18 @@
 @class GTLRDataflow_NameAndKind;
 @class GTLRDataflow_Package;
 @class GTLRDataflow_ParallelInstruction;
+@class GTLRDataflow_ParameterMetadata;
 @class GTLRDataflow_ParDoInstruction;
 @class GTLRDataflow_ParDoInstruction_UserFn;
 @class GTLRDataflow_PartialGroupByKeyInstruction;
 @class GTLRDataflow_PartialGroupByKeyInstruction_InputElementCodec;
 @class GTLRDataflow_PartialGroupByKeyInstruction_ValueCombiningFn;
+@class GTLRDataflow_PipelineDescription;
 @class GTLRDataflow_Position;
 @class GTLRDataflow_PubsubLocation;
 @class GTLRDataflow_ReadInstruction;
 @class GTLRDataflow_ReportedParallelism;
 @class GTLRDataflow_ResourceUtilizationReport;
-@class GTLRDataflow_ResourceUtilizationReport_Metric_Item;
 @class GTLRDataflow_ResourceUtilizationReportResponse;
 @class GTLRDataflow_RuntimeEnvironment;
 @class GTLRDataflow_SeqMapTask;
@@ -105,6 +112,7 @@
 @class GTLRDataflow_SourceSplitResponse;
 @class GTLRDataflow_SourceSplitShard;
 @class GTLRDataflow_SplitInt64;
+@class GTLRDataflow_StageSource;
 @class GTLRDataflow_StateFamilyConfig;
 @class GTLRDataflow_Status;
 @class GTLRDataflow_Status_Details_Item;
@@ -121,8 +129,10 @@
 @class GTLRDataflow_StreamLocation;
 @class GTLRDataflow_StringList;
 @class GTLRDataflow_TaskRunnerSettings;
+@class GTLRDataflow_TemplateMetadata;
 @class GTLRDataflow_TopologyConfig;
 @class GTLRDataflow_TopologyConfig_UserStageToComputationNameMap;
+@class GTLRDataflow_TransformSummary;
 @class GTLRDataflow_WorkerHealthReport;
 @class GTLRDataflow_WorkerHealthReport_Pods_Item;
 @class GTLRDataflow_WorkerHealthReportResponse;
@@ -149,241 +159,770 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRDataflow_AutoscalingSettings.algorithm
 
-/** Value: "AUTOSCALING_ALGORITHM_BASIC" */
+/**
+ *  Increase worker count over time to reduce job execution time.
+ *
+ *  Value: "AUTOSCALING_ALGORITHM_BASIC"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmBasic;
-/** Value: "AUTOSCALING_ALGORITHM_NONE" */
+/**
+ *  Disable autoscaling.
+ *
+ *  Value: "AUTOSCALING_ALGORITHM_NONE"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmNone;
-/** Value: "AUTOSCALING_ALGORITHM_UNKNOWN" */
+/**
+ *  The algorithm is unknown, or unspecified.
+ *
+ *  Value: "AUTOSCALING_ALGORITHM_UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_CounterMetadata.kind
 
-/** Value: "AND" */
+/**
+ *  Aggregated value represents the logical 'and' of all contributed values.
+ *
+ *  Value: "AND"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_And;
-/** Value: "DISTRIBUTION" */
+/**
+ *  Aggregated value captures statistics about a distribution.
+ *
+ *  Value: "DISTRIBUTION"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Distribution;
-/** Value: "INVALID" */
+/**
+ *  Counter aggregation kind was not set.
+ *
+ *  Value: "INVALID"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Invalid;
-/** Value: "MAX" */
+/**
+ *  Aggregated value is the max of all contributed values.
+ *
+ *  Value: "MAX"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Max;
-/** Value: "MEAN" */
+/**
+ *  Aggregated value is the mean of all contributed values.
+ *
+ *  Value: "MEAN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Mean;
-/** Value: "MIN" */
+/**
+ *  Aggregated value is the min of all contributed values.
+ *
+ *  Value: "MIN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Min;
-/** Value: "OR" */
+/**
+ *  Aggregated value represents the logical 'or' of all contributed values.
+ *
+ *  Value: "OR"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Or;
-/** Value: "SET" */
+/**
+ *  Aggregated value is a set of unique contributed values.
+ *
+ *  Value: "SET"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Set;
-/** Value: "SUM" */
+/**
+ *  Aggregated value is the sum of all contributed values.
+ *
+ *  Value: "SUM"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Sum;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_CounterMetadata.standardUnits
 
-/** Value: "BYTES" */
+/**
+ *  Counter returns a value in bytes.
+ *
+ *  Value: "BYTES"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Bytes;
-/** Value: "BYTES_PER_SEC" */
+/**
+ *  Counter returns a value in bytes per second.
+ *
+ *  Value: "BYTES_PER_SEC"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_BytesPerSec;
-/** Value: "MICROSECONDS" */
+/**
+ *  Counter returns a value in microseconds.
+ *
+ *  Value: "MICROSECONDS"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Microseconds;
-/** Value: "MILLISECONDS" */
+/**
+ *  Counter returns a value in milliseconds.
+ *
+ *  Value: "MILLISECONDS"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Milliseconds;
-/** Value: "NANOSECONDS" */
+/**
+ *  Counter returns a value in nanoseconds.
+ *
+ *  Value: "NANOSECONDS"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Nanoseconds;
-/** Value: "TIMESTAMP_MSEC" */
+/**
+ *  Counter returns a timestamp in milliseconds.
+ *
+ *  Value: "TIMESTAMP_MSEC"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampMsec;
-/** Value: "TIMESTAMP_NSEC" */
+/**
+ *  Counter returns a timestamp in nanoseconds.
+ *
+ *  Value: "TIMESTAMP_NSEC"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampNsec;
-/** Value: "TIMESTAMP_USEC" */
+/**
+ *  Counter returns a timestamp in microseconds.
+ *
+ *  Value: "TIMESTAMP_USEC"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampUsec;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_CounterStructuredName.origin
 
-/** Value: "SYSTEM" */
+/**
+ *  Counter was created by the Dataflow system.
+ *
+ *  Value: "SYSTEM"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Origin_System;
-/** Value: "USER" */
+/**
+ *  Counter was created by the user.
+ *
+ *  Value: "USER"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Origin_User;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_CounterStructuredName.portion
 
-/** Value: "ALL" */
+/**
+ *  Counter portion has not been set.
+ *
+ *  Value: "ALL"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_All;
-/** Value: "KEY" */
+/**
+ *  Counter reports a key.
+ *
+ *  Value: "KEY"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_Key;
-/** Value: "VALUE" */
+/**
+ *  Counter reports a value.
+ *
+ *  Value: "VALUE"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_Value;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_DerivedSource.derivationMode
 
-/** Value: "SOURCE_DERIVATION_MODE_CHILD_OF_CURRENT" */
+/**
+ *  Produce a Source based on the Source being split.
+ *
+ *  Value: "SOURCE_DERIVATION_MODE_CHILD_OF_CURRENT"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeChildOfCurrent;
-/** Value: "SOURCE_DERIVATION_MODE_INDEPENDENT" */
+/**
+ *  Produce a completely independent Source with no base.
+ *
+ *  Value: "SOURCE_DERIVATION_MODE_INDEPENDENT"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeIndependent;
-/** Value: "SOURCE_DERIVATION_MODE_SIBLING_OF_CURRENT" */
+/**
+ *  Produce a Source based on the base of the Source being split.
+ *
+ *  Value: "SOURCE_DERIVATION_MODE_SIBLING_OF_CURRENT"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeSiblingOfCurrent;
-/** Value: "SOURCE_DERIVATION_MODE_UNKNOWN" */
+/**
+ *  The source derivation is unknown, or unspecified.
+ *
+ *  Value: "SOURCE_DERIVATION_MODE_UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_ExecutionStageSummary.kind
+
+/**
+ *  Constructs from a constant value, such as with Create.of.
+ *
+ *  Value: "CONSTANT_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_ConstantKind;
+/**
+ *  Flatten transform.
+ *
+ *  Value: "FLATTEN_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_FlattenKind;
+/**
+ *  Group By Key transform.
+ *
+ *  Value: "GROUP_BY_KEY_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_GroupByKeyKind;
+/**
+ *  ParDo transform.
+ *
+ *  Value: "PAR_DO_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_ParDoKind;
+/**
+ *  Read transform.
+ *
+ *  Value: "READ_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_ReadKind;
+/**
+ *  Opening or closing a shuffle session, often as part of a GroupByKey.
+ *
+ *  Value: "SHUFFLE_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_ShuffleKind;
+/**
+ *  Creates a Singleton view of a collection.
+ *
+ *  Value: "SINGLETON_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_SingletonKind;
+/**
+ *  Unrecognized transform type.
+ *
+ *  Value: "UNKNOWN_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_UnknownKind;
+/**
+ *  Write transform.
+ *
+ *  Value: "WRITE_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_Job.currentState
 
-/** Value: "JOB_STATE_CANCELLED" */
+/**
+ *  `JOB_STATE_CANCELLED` indicates that the job has been explicitly
+ *  cancelled. This is a terminal job state. This state may only be
+ *  set via a Cloud Dataflow `UpdateJob` call, and only if the job has not
+ *  yet reached another terminal state.
+ *
+ *  Value: "JOB_STATE_CANCELLED"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateCancelled;
-/** Value: "JOB_STATE_DONE" */
+/**
+ *  `JOB_STATE_DONE` indicates that the job has successfully completed.
+ *  This is a terminal job state. This state may be set by the Cloud Dataflow
+ *  service, as a transition from `JOB_STATE_RUNNING`. It may also be set via a
+ *  Cloud Dataflow `UpdateJob` call, if the job has not yet reached a terminal
+ *  state.
+ *
+ *  Value: "JOB_STATE_DONE"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDone;
-/** Value: "JOB_STATE_DRAINED" */
+/**
+ *  `JOB_STATE_DRAINED` indicates that the job has been drained.
+ *  A drained job terminated by stopping pulling from its input sources and
+ *  processing any data that remained in-flight when draining was requested.
+ *  This state is a terminal state, may only be set by the Cloud Dataflow
+ *  service, and only as a transition from `JOB_STATE_DRAINING`.
+ *
+ *  Value: "JOB_STATE_DRAINED"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDrained;
-/** Value: "JOB_STATE_DRAINING" */
+/**
+ *  `JOB_STATE_DRAINING` indicates that the job is in the process of draining.
+ *  A draining job has stopped pulling from its input sources and is processing
+ *  any data that remains in-flight. This state may be set via a Cloud Dataflow
+ *  `UpdateJob` call, but only as a transition from `JOB_STATE_RUNNING`. Jobs
+ *  that are draining may only transition to `JOB_STATE_DRAINED`,
+ *  `JOB_STATE_CANCELLED`, or `JOB_STATE_FAILED`.
+ *
+ *  Value: "JOB_STATE_DRAINING"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDraining;
-/** Value: "JOB_STATE_FAILED" */
+/**
+ *  `JOB_STATE_FAILED` indicates that the job has failed. This is a
+ *  terminal job state. This state may only be set by the Cloud Dataflow
+ *  service, and only as a transition from `JOB_STATE_RUNNING`.
+ *
+ *  Value: "JOB_STATE_FAILED"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateFailed;
-/** Value: "JOB_STATE_RUNNING" */
+/**
+ *  `JOB_STATE_RUNNING` indicates that the job is currently running.
+ *
+ *  Value: "JOB_STATE_RUNNING"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateRunning;
-/** Value: "JOB_STATE_STOPPED" */
+/**
+ *  `JOB_STATE_STOPPED` indicates that the job has not
+ *  yet started to run.
+ *
+ *  Value: "JOB_STATE_STOPPED"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateStopped;
-/** Value: "JOB_STATE_UNKNOWN" */
+/**
+ *  The job's run state isn't specified.
+ *
+ *  Value: "JOB_STATE_UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateUnknown;
-/** Value: "JOB_STATE_UPDATED" */
+/**
+ *  `JOB_STATE_UPDATED` indicates that the job was successfully updated,
+ *  meaning that this job was stopped and another job was started, inheriting
+ *  state from this one. This is a terminal job state. This state may only be
+ *  set by the Cloud Dataflow service, and only as a transition from
+ *  `JOB_STATE_RUNNING`.
+ *
+ *  Value: "JOB_STATE_UPDATED"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateUpdated;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_Job.requestedState
 
-/** Value: "JOB_STATE_CANCELLED" */
+/**
+ *  `JOB_STATE_CANCELLED` indicates that the job has been explicitly
+ *  cancelled. This is a terminal job state. This state may only be
+ *  set via a Cloud Dataflow `UpdateJob` call, and only if the job has not
+ *  yet reached another terminal state.
+ *
+ *  Value: "JOB_STATE_CANCELLED"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateCancelled;
-/** Value: "JOB_STATE_DONE" */
+/**
+ *  `JOB_STATE_DONE` indicates that the job has successfully completed.
+ *  This is a terminal job state. This state may be set by the Cloud Dataflow
+ *  service, as a transition from `JOB_STATE_RUNNING`. It may also be set via a
+ *  Cloud Dataflow `UpdateJob` call, if the job has not yet reached a terminal
+ *  state.
+ *
+ *  Value: "JOB_STATE_DONE"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDone;
-/** Value: "JOB_STATE_DRAINED" */
+/**
+ *  `JOB_STATE_DRAINED` indicates that the job has been drained.
+ *  A drained job terminated by stopping pulling from its input sources and
+ *  processing any data that remained in-flight when draining was requested.
+ *  This state is a terminal state, may only be set by the Cloud Dataflow
+ *  service, and only as a transition from `JOB_STATE_DRAINING`.
+ *
+ *  Value: "JOB_STATE_DRAINED"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDrained;
-/** Value: "JOB_STATE_DRAINING" */
+/**
+ *  `JOB_STATE_DRAINING` indicates that the job is in the process of draining.
+ *  A draining job has stopped pulling from its input sources and is processing
+ *  any data that remains in-flight. This state may be set via a Cloud Dataflow
+ *  `UpdateJob` call, but only as a transition from `JOB_STATE_RUNNING`. Jobs
+ *  that are draining may only transition to `JOB_STATE_DRAINED`,
+ *  `JOB_STATE_CANCELLED`, or `JOB_STATE_FAILED`.
+ *
+ *  Value: "JOB_STATE_DRAINING"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDraining;
-/** Value: "JOB_STATE_FAILED" */
+/**
+ *  `JOB_STATE_FAILED` indicates that the job has failed. This is a
+ *  terminal job state. This state may only be set by the Cloud Dataflow
+ *  service, and only as a transition from `JOB_STATE_RUNNING`.
+ *
+ *  Value: "JOB_STATE_FAILED"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateFailed;
-/** Value: "JOB_STATE_RUNNING" */
+/**
+ *  `JOB_STATE_RUNNING` indicates that the job is currently running.
+ *
+ *  Value: "JOB_STATE_RUNNING"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateRunning;
-/** Value: "JOB_STATE_STOPPED" */
+/**
+ *  `JOB_STATE_STOPPED` indicates that the job has not
+ *  yet started to run.
+ *
+ *  Value: "JOB_STATE_STOPPED"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateStopped;
-/** Value: "JOB_STATE_UNKNOWN" */
+/**
+ *  The job's run state isn't specified.
+ *
+ *  Value: "JOB_STATE_UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateUnknown;
-/** Value: "JOB_STATE_UPDATED" */
+/**
+ *  `JOB_STATE_UPDATED` indicates that the job was successfully updated,
+ *  meaning that this job was stopped and another job was started, inheriting
+ *  state from this one. This is a terminal job state. This state may only be
+ *  set by the Cloud Dataflow service, and only as a transition from
+ *  `JOB_STATE_RUNNING`.
+ *
+ *  Value: "JOB_STATE_UPDATED"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateUpdated;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_Job.type
 
-/** Value: "JOB_TYPE_BATCH" */
+/**
+ *  A batch job with a well-defined end point: data is read, data is
+ *  processed, data is written, and the job is done.
+ *
+ *  Value: "JOB_TYPE_BATCH"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_Type_JobTypeBatch;
-/** Value: "JOB_TYPE_STREAMING" */
+/**
+ *  A continuously streaming job with no end: data is read,
+ *  processed, and written continuously.
+ *
+ *  Value: "JOB_TYPE_STREAMING"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_Type_JobTypeStreaming;
-/** Value: "JOB_TYPE_UNKNOWN" */
+/**
+ *  The type of the job is unspecified, or unknown.
+ *
+ *  Value: "JOB_TYPE_UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_Type_JobTypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_JobMessage.messageImportance
 
-/** Value: "JOB_MESSAGE_BASIC" */
+/**
+ *  The message is at the 'basic' level: useful for keeping
+ *  track of the execution of a Dataflow pipeline. Typically,
+ *  Dataflow pipeline runners display log messages at this level by
+ *  default, and these messages are displayed by default in the
+ *  Dataflow monitoring UI.
+ *
+ *  Value: "JOB_MESSAGE_BASIC"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageBasic;
-/** Value: "JOB_MESSAGE_DEBUG" */
+/**
+ *  The message is at the 'debug' level: typically only useful for
+ *  software engineers working on the code the job is running.
+ *  Typically, Dataflow pipeline runners do not display log messages
+ *  at this level by default.
+ *
+ *  Value: "JOB_MESSAGE_DEBUG"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageDebug;
-/** Value: "JOB_MESSAGE_DETAILED" */
+/**
+ *  The message is at the 'detailed' level: somewhat verbose, but
+ *  potentially useful to users. Typically, Dataflow pipeline
+ *  runners do not display log messages at this level by default.
+ *  These messages are displayed by default in the Dataflow
+ *  monitoring UI.
+ *
+ *  Value: "JOB_MESSAGE_DETAILED"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageDetailed;
-/** Value: "JOB_MESSAGE_ERROR" */
+/**
+ *  The message is at the 'error' level: indicating a condition
+ *  preventing a job from succeeding. Typically, Dataflow pipeline
+ *  runners display log messages at this level by default, and these
+ *  messages are displayed by default in the Dataflow monitoring UI.
+ *
+ *  Value: "JOB_MESSAGE_ERROR"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageError;
-/** Value: "JOB_MESSAGE_IMPORTANCE_UNKNOWN" */
+/**
+ *  The message importance isn't specified, or is unknown.
+ *
+ *  Value: "JOB_MESSAGE_IMPORTANCE_UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageImportanceUnknown;
-/** Value: "JOB_MESSAGE_WARNING" */
+/**
+ *  The message is at the 'warning' level: indicating a condition
+ *  pertaining to a job which may require human intervention.
+ *  Typically, Dataflow pipeline runners display log messages at this
+ *  level by default, and these messages are displayed by default in
+ *  the Dataflow monitoring UI.
+ *
+ *  Value: "JOB_MESSAGE_WARNING"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageWarning;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_NameAndKind.kind
 
-/** Value: "AND" */
+/**
+ *  Aggregated value represents the logical 'and' of all contributed values.
+ *
+ *  Value: "AND"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_And;
-/** Value: "DISTRIBUTION" */
+/**
+ *  Aggregated value captures statistics about a distribution.
+ *
+ *  Value: "DISTRIBUTION"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Distribution;
-/** Value: "INVALID" */
+/**
+ *  Counter aggregation kind was not set.
+ *
+ *  Value: "INVALID"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Invalid;
-/** Value: "MAX" */
+/**
+ *  Aggregated value is the max of all contributed values.
+ *
+ *  Value: "MAX"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Max;
-/** Value: "MEAN" */
+/**
+ *  Aggregated value is the mean of all contributed values.
+ *
+ *  Value: "MEAN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Mean;
-/** Value: "MIN" */
+/**
+ *  Aggregated value is the min of all contributed values.
+ *
+ *  Value: "MIN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Min;
-/** Value: "OR" */
+/**
+ *  Aggregated value represents the logical 'or' of all contributed values.
+ *
+ *  Value: "OR"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Or;
-/** Value: "SET" */
+/**
+ *  Aggregated value is a set of unique contributed values.
+ *
+ *  Value: "SET"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Set;
-/** Value: "SUM" */
+/**
+ *  Aggregated value is the sum of all contributed values.
+ *
+ *  Value: "SUM"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Sum;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SourceSplitResponse.outcome
 
-/** Value: "SOURCE_SPLIT_OUTCOME_SPLITTING_HAPPENED" */
+/**
+ *  Splitting produced a list of bundles.
+ *
+ *  Value: "SOURCE_SPLIT_OUTCOME_SPLITTING_HAPPENED"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeSplittingHappened;
-/** Value: "SOURCE_SPLIT_OUTCOME_UNKNOWN" */
+/**
+ *  The source split outcome is unknown, or unspecified.
+ *
+ *  Value: "SOURCE_SPLIT_OUTCOME_UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeUnknown;
-/** Value: "SOURCE_SPLIT_OUTCOME_USE_CURRENT" */
+/**
+ *  The current source should be processed "as is" without splitting.
+ *
+ *  Value: "SOURCE_SPLIT_OUTCOME_USE_CURRENT"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeUseCurrent;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SourceSplitShard.derivationMode
 
-/** Value: "SOURCE_DERIVATION_MODE_CHILD_OF_CURRENT" */
+/**
+ *  Produce a Source based on the Source being split.
+ *
+ *  Value: "SOURCE_DERIVATION_MODE_CHILD_OF_CURRENT"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeChildOfCurrent;
-/** Value: "SOURCE_DERIVATION_MODE_INDEPENDENT" */
+/**
+ *  Produce a completely independent Source with no base.
+ *
+ *  Value: "SOURCE_DERIVATION_MODE_INDEPENDENT"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeIndependent;
-/** Value: "SOURCE_DERIVATION_MODE_SIBLING_OF_CURRENT" */
+/**
+ *  Produce a Source based on the base of the Source being split.
+ *
+ *  Value: "SOURCE_DERIVATION_MODE_SIBLING_OF_CURRENT"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeSiblingOfCurrent;
-/** Value: "SOURCE_DERIVATION_MODE_UNKNOWN" */
+/**
+ *  The source derivation is unknown, or unspecified.
+ *
+ *  Value: "SOURCE_DERIVATION_MODE_UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_StreamingComputationTask.taskType
 
-/** Value: "STREAMING_COMPUTATION_TASK_START" */
+/**
+ *  Start processing specified streaming computation range(s).
+ *
+ *  Value: "STREAMING_COMPUTATION_TASK_START"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskStart;
-/** Value: "STREAMING_COMPUTATION_TASK_STOP" */
+/**
+ *  Stop processing specified streaming computation range(s).
+ *
+ *  Value: "STREAMING_COMPUTATION_TASK_STOP"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskStop;
-/** Value: "STREAMING_COMPUTATION_TASK_UNKNOWN" */
+/**
+ *  The streaming computation task is unknown, or unspecified.
+ *
+ *  Value: "STREAMING_COMPUTATION_TASK_UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_TransformSummary.kind
+
+/**
+ *  Constructs from a constant value, such as with Create.of.
+ *
+ *  Value: "CONSTANT_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_ConstantKind;
+/**
+ *  Flatten transform.
+ *
+ *  Value: "FLATTEN_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_FlattenKind;
+/**
+ *  Group By Key transform.
+ *
+ *  Value: "GROUP_BY_KEY_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_GroupByKeyKind;
+/**
+ *  ParDo transform.
+ *
+ *  Value: "PAR_DO_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_ParDoKind;
+/**
+ *  Read transform.
+ *
+ *  Value: "READ_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_ReadKind;
+/**
+ *  Opening or closing a shuffle session, often as part of a GroupByKey.
+ *
+ *  Value: "SHUFFLE_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_ShuffleKind;
+/**
+ *  Creates a Singleton view of a collection.
+ *
+ *  Value: "SINGLETON_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_SingletonKind;
+/**
+ *  Unrecognized transform type.
+ *
+ *  Value: "UNKNOWN_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_UnknownKind;
+/**
+ *  Write transform.
+ *
+ *  Value: "WRITE_KIND"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_WriteKind;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_WorkerPool.defaultPackageSet
 
-/** Value: "DEFAULT_PACKAGE_SET_JAVA" */
+/**
+ *  Stage packages typically useful to workers written in Java.
+ *
+ *  Value: "DEFAULT_PACKAGE_SET_JAVA"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetJava;
-/** Value: "DEFAULT_PACKAGE_SET_NONE" */
+/**
+ *  Indicates that no packages should be staged at the worker unless
+ *  explicitly specified by the job.
+ *
+ *  Value: "DEFAULT_PACKAGE_SET_NONE"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetNone;
-/** Value: "DEFAULT_PACKAGE_SET_PYTHON" */
+/**
+ *  Stage pacakges typically useful to workers written in Python.
+ *
+ *  Value: "DEFAULT_PACKAGE_SET_PYTHON"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetPython;
-/** Value: "DEFAULT_PACKAGE_SET_UNKNOWN" */
+/**
+ *  The default set of packages to stage is unknown, or unspecified.
+ *
+ *  Value: "DEFAULT_PACKAGE_SET_UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_WorkerPool.ipConfiguration
 
-/** Value: "WORKER_IP_PRIVATE" */
+/**
+ *  Workers should have private IP addresses.
+ *
+ *  Value: "WORKER_IP_PRIVATE"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpPrivate;
-/** Value: "WORKER_IP_PUBLIC" */
+/**
+ *  Workers should have public IP addresses.
+ *
+ *  Value: "WORKER_IP_PUBLIC"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpPublic;
-/** Value: "WORKER_IP_UNSPECIFIED" */
+/**
+ *  The configuration is unknown, or unspecified.
+ *
+ *  Value: "WORKER_IP_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_WorkerPool.teardownPolicy
 
-/** Value: "TEARDOWN_ALWAYS" */
+/**
+ *  Always teardown the resource.
+ *
+ *  Value: "TEARDOWN_ALWAYS"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownAlways;
-/** Value: "TEARDOWN_NEVER" */
+/**
+ *  Never teardown the resource. This is useful for debugging and
+ *  development.
+ *
+ *  Value: "TEARDOWN_NEVER"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownNever;
-/** Value: "TEARDOWN_ON_SUCCESS" */
+/**
+ *  Teardown the resource on success. This is useful for debugging
+ *  failures.
+ *
+ *  Value: "TEARDOWN_ON_SUCCESS"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownOnSuccess;
-/** Value: "TEARDOWN_POLICY_UNKNOWN" */
+/**
+ *  The teardown policy isn't specified, or is unknown.
+ *
+ *  Value: "TEARDOWN_POLICY_UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown;
 
 /**
@@ -403,7 +942,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_Position *position;
 
 /** Obsolete. */
-@property(nonatomic, copy, nullable) NSString *remainingTime;
+@property(nonatomic, strong, nullable) GTLRDuration *remainingTime;
 
 @end
 
@@ -416,9 +955,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /**
  *  Total amount of parallelism in the portion of input of this task that has
  *  already been consumed and is no longer active. In the first two examples
- *  above (see remaining_parallelism), the value should be 29 or 2 respectively.
- *  The sum of remaining_parallelism and consumed_parallelism should equal the
- *  total amount of parallelism in this work item. If specified, must be finite.
+ *  above (see remaining_parallelism), the value should be 29 or 2
+ *  respectively. The sum of remaining_parallelism and consumed_parallelism
+ *  should equal the total amount of parallelism in this work item. If
+ *  specified, must be finite.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_ReportedParallelism *consumedParallelism;
 
@@ -434,24 +974,29 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_Position *position;
 
 /**
- *  Total amount of parallelism in the input of this task that remains, (i.e.
- *  can be delegated to this task and any new tasks via dynamic splitting).
- *  Always at least 1 for non-finished work items and 0 for finished. "Amount of
- *  parallelism" refers to how many non-empty parts of the input can be read in
- *  parallel. This does not necessarily equal number of records. An input that
- *  can be read in parallel down to the individual records is called "perfectly
- *  splittable". An example of non-perfectly parallelizable input is a
- *  block-compressed file format where a block of records has to be read as a
- *  whole, but different blocks can be read in parallel. Examples: * If we are
- *  processing record #30 (starting at 1) out of 50 in a perfectly splittable
- *  50-record input, this value should be 21 (20 remaining + 1 current). * If we
- *  are reading through block 3 in a block-compressed file consisting of 5
- *  blocks, this value should be 3 (since blocks 4 and 5 can be processed in
- *  parallel by new tasks via dynamic splitting and the current task remains
- *  processing block 3). * If we are reading through the last block in a
- *  block-compressed file, or reading or processing the last record in a
- *  perfectly splittable input, this value should be 1, because apart from the
- *  current task, no additional remainder can be split off.
+ *  Total amount of parallelism in the input of this task that remains,
+ *  (i.e. can be delegated to this task and any new tasks via dynamic
+ *  splitting). Always at least 1 for non-finished work items and 0 for
+ *  finished.
+ *  "Amount of parallelism" refers to how many non-empty parts of the input
+ *  can be read in parallel. This does not necessarily equal number
+ *  of records. An input that can be read in parallel down to the
+ *  individual records is called "perfectly splittable".
+ *  An example of non-perfectly parallelizable input is a block-compressed
+ *  file format where a block of records has to be read as a whole,
+ *  but different blocks can be read in parallel.
+ *  Examples:
+ *  * If we are processing record #30 (starting at 1) out of 50 in a perfectly
+ *  splittable 50-record input, this value should be 21 (20 remaining + 1
+ *  current).
+ *  * If we are reading through block 3 in a block-compressed file consisting
+ *  of 5 blocks, this value should be 3 (since blocks 4 and 5 can be
+ *  processed in parallel by new tasks via dynamic splitting and the current
+ *  task remains processing block 3).
+ *  * If we are reading through the last block in a block-compressed file,
+ *  or reading or processing the last record in a perfectly splittable
+ *  input, this value should be 1, because apart from the current task, no
+ *  additional remainder can be split off.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_ReportedParallelism *remainingParallelism;
 
@@ -487,11 +1032,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmBasic
- *        Value "AUTOSCALING_ALGORITHM_BASIC"
+ *        Increase worker count over time to reduce job execution time. (Value:
+ *        "AUTOSCALING_ALGORITHM_BASIC")
  *    @arg @c kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmNone
- *        Value "AUTOSCALING_ALGORITHM_NONE"
+ *        Disable autoscaling. (Value: "AUTOSCALING_ALGORITHM_NONE")
  *    @arg @c kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmUnknown
- *        Value "AUTOSCALING_ALGORITHM_UNKNOWN"
+ *        The algorithm is unknown, or unspecified. (Value:
+ *        "AUTOSCALING_ALGORITHM_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
@@ -501,6 +1048,51 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxNumWorkers;
+
+@end
+
+
+/**
+ *  Description of an interstitial value between transforms in an execution
+ *  stage.
+ */
+@interface GTLRDataflow_ComponentSource : GTLRObject
+
+/** Dataflow service generated name for this source. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  User name for the original user transform or collection with which this
+ *  source is most closely associated.
+ */
+@property(nonatomic, copy, nullable) NSString *originalTransformOrCollection;
+
+/**
+ *  Human-readable name for this transform; may be user or system generated.
+ */
+@property(nonatomic, copy, nullable) NSString *userName;
+
+@end
+
+
+/**
+ *  Description of a transform executed as part of an execution stage.
+ */
+@interface GTLRDataflow_ComponentTransform : GTLRObject
+
+/** Dataflow service generated name for this source. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  User name for the original user transform with which this transform is
+ *  most closely associated.
+ */
+@property(nonatomic, copy, nullable) NSString *originalTransform;
+
+/**
+ *  Human-readable name for this transform; may be user or system generated.
+ */
+@property(nonatomic, copy, nullable) NSString *userName;
 
 @end
 
@@ -570,16 +1162,24 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Counter aggregation kind.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflow_CounterMetadata_Kind_And Value "AND"
- *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Distribution Value
- *        "DISTRIBUTION"
- *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Invalid Value "INVALID"
- *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Max Value "MAX"
- *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Mean Value "MEAN"
- *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Min Value "MIN"
- *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Or Value "OR"
- *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Set Value "SET"
- *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Sum Value "SUM"
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_And Aggregated value represents
+ *        the logical 'and' of all contributed values. (Value: "AND")
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Distribution Aggregated value
+ *        captures statistics about a distribution. (Value: "DISTRIBUTION")
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Invalid Counter aggregation
+ *        kind was not set. (Value: "INVALID")
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Max Aggregated value is the max
+ *        of all contributed values. (Value: "MAX")
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Mean Aggregated value is the
+ *        mean of all contributed values. (Value: "MEAN")
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Min Aggregated value is the min
+ *        of all contributed values. (Value: "MIN")
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Or Aggregated value represents
+ *        the logical 'or' of all contributed values. (Value: "OR")
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Set Aggregated value is a set
+ *        of unique contributed values. (Value: "SET")
+ *    @arg @c kGTLRDataflow_CounterMetadata_Kind_Sum Aggregated value is the sum
+ *        of all contributed values. (Value: "SUM")
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -590,21 +1190,22 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  System defined Units, see above enum.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_Bytes Value "BYTES"
- *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_BytesPerSec Value
- *        "BYTES_PER_SEC"
- *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_Microseconds Value
- *        "MICROSECONDS"
- *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_Milliseconds Value
- *        "MILLISECONDS"
- *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_Nanoseconds Value
- *        "NANOSECONDS"
- *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_TimestampMsec Value
- *        "TIMESTAMP_MSEC"
- *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_TimestampNsec Value
- *        "TIMESTAMP_NSEC"
- *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_TimestampUsec Value
- *        "TIMESTAMP_USEC"
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_Bytes Counter returns
+ *        a value in bytes. (Value: "BYTES")
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_BytesPerSec Counter
+ *        returns a value in bytes per second. (Value: "BYTES_PER_SEC")
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_Microseconds Counter
+ *        returns a value in microseconds. (Value: "MICROSECONDS")
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_Milliseconds Counter
+ *        returns a value in milliseconds. (Value: "MILLISECONDS")
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_Nanoseconds Counter
+ *        returns a value in nanoseconds. (Value: "NANOSECONDS")
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_TimestampMsec Counter
+ *        returns a timestamp in milliseconds. (Value: "TIMESTAMP_MSEC")
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_TimestampNsec Counter
+ *        returns a timestamp in nanoseconds. (Value: "TIMESTAMP_NSEC")
+ *    @arg @c kGTLRDataflow_CounterMetadata_StandardUnits_TimestampUsec Counter
+ *        returns a timestamp in microseconds. (Value: "TIMESTAMP_USEC")
  */
 @property(nonatomic, copy, nullable) NSString *standardUnits;
 
@@ -624,8 +1225,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *executionStepName;
 
 /**
- *  Counter name. Not necessarily globally-unique, but unique within the context
- *  of the other fields. Required.
+ *  Counter name. Not necessarily globally-unique, but unique within the
+ *  context of the other fields.
+ *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -633,8 +1235,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  One of the standard Origins defined above.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflow_CounterStructuredName_Origin_System Value "SYSTEM"
- *    @arg @c kGTLRDataflow_CounterStructuredName_Origin_User Value "USER"
+ *    @arg @c kGTLRDataflow_CounterStructuredName_Origin_System Counter was
+ *        created by the Dataflow system. (Value: "SYSTEM")
+ *    @arg @c kGTLRDataflow_CounterStructuredName_Origin_User Counter was
+ *        created by the user. (Value: "USER")
  */
 @property(nonatomic, copy, nullable) NSString *origin;
 
@@ -651,9 +1255,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Portion of this counter, either key or value.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflow_CounterStructuredName_Portion_All Value "ALL"
- *    @arg @c kGTLRDataflow_CounterStructuredName_Portion_Key Value "KEY"
- *    @arg @c kGTLRDataflow_CounterStructuredName_Portion_Value Value "VALUE"
+ *    @arg @c kGTLRDataflow_CounterStructuredName_Portion_All Counter portion
+ *        has not been set. (Value: "ALL")
+ *    @arg @c kGTLRDataflow_CounterStructuredName_Portion_Key Counter reports a
+ *        key. (Value: "KEY")
+ *    @arg @c kGTLRDataflow_CounterStructuredName_Portion_Value Counter reports
+ *        a value. (Value: "VALUE")
  */
 @property(nonatomic, copy, nullable) NSString *portion;
 
@@ -691,9 +1298,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSNumber *boolean;
 
 /**
- *  True if this counter is reported as the total cumulative aggregate value
- *  accumulated since the worker started working on this WorkItem. By default
- *  this is false, indicating that this counter is reported as a delta.
+ *  True if this counter is reported as the total cumulative aggregate
+ *  value accumulated since the worker started working on this WorkItem.
+ *  By default this is false, indicating that this counter is reported
+ *  as a delta.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -735,8 +1343,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_NameAndKind *nameAndKind;
 
 /**
- *  The service-generated short identifier for this counter. The short_id ->
- *  (name, metadata) mapping is constant for the lifetime of a job.
+ *  The service-generated short identifier for this counter.
+ *  The short_id -> (name, metadata) mapping is constant for the lifetime of
+ *  a job.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -752,6 +1361,33 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Modeled after information exposed by /proc/stat.
+ */
+@interface GTLRDataflow_CPUTime : GTLRObject
+
+/**
+ *  Average CPU utilization rate (% non-idle cpu / second) since previous
+ *  sample.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rate;
+
+/** Timestamp of the measurement. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+/**
+ *  Total active CPU time across all cores (ie., non-idle) in milliseconds
+ *  since start-up.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalMs;
+
+@end
+
+
+/**
  *  A request to create a Cloud Dataflow job from a template.
  */
 @interface GTLRDataflow_CreateJobFromTemplateRequest : GTLRObject
@@ -760,7 +1396,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_RuntimeEnvironment *environment;
 
 /**
- *  Required. A Cloud Storage path to the template from which to create the job.
+ *  Required. A Cloud Storage path to the template from which to
+ *  create the job.
  *  Must be a valid Cloud Storage URL, beginning with `gs://`.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
@@ -809,8 +1446,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /**
  *  Mounted data disks. The order is important a data disk's 0-based index in
  *  this list defines which persistent directory the disk is mounted to, for
- *  example the list of { "myproject-1014-104817-4c2-harness-0-disk-0" }, {
- *  "myproject-1014-104817-4c2-harness-0-disk-1" }.
+ *  example the list of { "myproject-1014-104817-4c2-harness-0-disk-0" },
+ *  { "myproject-1014-104817-4c2-harness-0-disk-1" }.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dataDisks;
 
@@ -824,10 +1461,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Specification of one of the bundles produced as a result of splitting a
- *  Source (e.g. when executing a SourceSplitRequest, or when splitting an
- *  active task using WorkItemStatus.dynamic_source_split), relative to the
- *  source being split.
+ *  Specification of one of the bundles produced as a result of splitting
+ *  a Source (e.g. when executing a SourceSplitRequest, or when
+ *  splitting an active task using WorkItemStatus.dynamic_source_split),
+ *  relative to the source being split.
  */
 @interface GTLRDataflow_DerivedSource : GTLRObject
 
@@ -836,13 +1473,17 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeChildOfCurrent
- *        Value "SOURCE_DERIVATION_MODE_CHILD_OF_CURRENT"
+ *        Produce a Source based on the Source being split. (Value:
+ *        "SOURCE_DERIVATION_MODE_CHILD_OF_CURRENT")
  *    @arg @c kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeIndependent
- *        Value "SOURCE_DERIVATION_MODE_INDEPENDENT"
+ *        Produce a completely independent Source with no base. (Value:
+ *        "SOURCE_DERIVATION_MODE_INDEPENDENT")
  *    @arg @c kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeSiblingOfCurrent
- *        Value "SOURCE_DERIVATION_MODE_SIBLING_OF_CURRENT"
+ *        Produce a Source based on the base of the Source being split. (Value:
+ *        "SOURCE_DERIVATION_MODE_SIBLING_OF_CURRENT")
  *    @arg @c kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeUnknown
- *        Value "SOURCE_DERIVATION_MODE_UNKNOWN"
+ *        The source derivation is unknown, or unspecified. (Value:
+ *        "SOURCE_DERIVATION_MODE_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *derivationMode;
 
@@ -858,18 +1499,20 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_Disk : GTLRObject
 
 /**
- *  Disk storage type, as defined by Google Compute Engine. This must be a disk
- *  type appropriate to the project and zone in which the workers will run. If
- *  unknown or unspecified, the service will attempt to choose a reasonable
- *  default. For example, the standard persistent disk type is a resource name
- *  typically ending in "pd-standard". If SSD persistent disks are available,
- *  the resource name typically ends with "pd-ssd". The actual valid values are
- *  defined the Google Compute Engine API, not by the Cloud Dataflow API;
- *  consult the Google Compute Engine documentation for more information about
- *  determining the set of available disk types for a particular project and
- *  zone. Google Compute Engine Disk types are local to a particular project in
- *  a particular zone, and so the resource name will typically look something
- *  like this:
+ *  Disk storage type, as defined by Google Compute Engine. This
+ *  must be a disk type appropriate to the project and zone in which
+ *  the workers will run. If unknown or unspecified, the service
+ *  will attempt to choose a reasonable default.
+ *  For example, the standard persistent disk type is a resource name
+ *  typically ending in "pd-standard". If SSD persistent disks are
+ *  available, the resource name typically ends with "pd-ssd". The
+ *  actual valid values are defined the Google Compute Engine API,
+ *  not by the Cloud Dataflow API; consult the Google Compute Engine
+ *  documentation for more information about determining the set of
+ *  available disk types for a particular project and zone.
+ *  Google Compute Engine Disk types are local to a particular
+ *  project in a particular zone, and so the resource name will
+ *  typically look something like this:
  *  compute.googleapis.com/projects/project-id/zones/zone/diskTypes/pd-standard
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
@@ -878,12 +1521,86 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *mountPoint;
 
 /**
- *  Size of disk in GB. If zero or unspecified, the service will attempt to
- *  choose a reasonable default.
+ *  Size of disk in GB. If zero or unspecified, the service will
+ *  attempt to choose a reasonable default.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+@end
+
+
+/**
+ *  Data provided with a pipeline or transform to provide descriptive info.
+ */
+@interface GTLRDataflow_DisplayData : GTLRObject
+
+/**
+ *  Contains value if the data is of a boolean type.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/** Contains value if the data is of duration type. */
+@property(nonatomic, strong, nullable) GTLRDuration *durationValue;
+
+/**
+ *  Contains value if the data is of float type.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *floatValue;
+
+/**
+ *  Contains value if the data is of int64 type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *int64Value;
+
+/** Contains value if the data is of java class type. */
+@property(nonatomic, copy, nullable) NSString *javaClassValue;
+
+/**
+ *  The key identifying the display data.
+ *  This is intended to be used as a label for the display data
+ *  when viewed in a dax monitoring system.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** An optional label to display in a dax UI for the element. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  The namespace for the key. This is usually a class name or programming
+ *  language namespace (i.e. python module) which defines the display data.
+ *  This allows a dax monitoring system to specially handle the data
+ *  and perform custom rendering.
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+/**
+ *  A possible additional shorter value to display.
+ *  For example a java_class_name_value of com.mypackage.MyDoFn
+ *  will be stored with MyDoFn as the short_str_value and
+ *  com.mypackage.MyDoFn as the java_class_name value.
+ *  short_str_value can be displayed and java_class_name_value
+ *  will be displayed as a tooltip.
+ */
+@property(nonatomic, copy, nullable) NSString *shortStrValue;
+
+/** Contains value if the data is of string type. */
+@property(nonatomic, copy, nullable) NSString *strValue;
+
+/** Contains value if the data is of timestamp type. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestampValue;
+
+/** An optional full URL. */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -919,21 +1636,22 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  When a task splits using WorkItemStatus.dynamic_source_split, this message
- *  describes the two parts of the split relative to the description of the
- *  current task's input.
+ *  When a task splits using WorkItemStatus.dynamic_source_split, this
+ *  message describes the two parts of the split relative to the
+ *  description of the current task's input.
  */
 @interface GTLRDataflow_DynamicSourceSplit : GTLRObject
 
 /**
- *  Primary part (continued to be processed by worker). Specified relative to
- *  the previously-current source. Becomes current.
+ *  Primary part (continued to be processed by worker).
+ *  Specified relative to the previously-current source.
+ *  Becomes current.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_DerivedSource *primary;
 
 /**
- *  Residual part (returned to the pool of work). Specified relative to the
- *  previously-current source.
+ *  Residual part (returned to the pool of work).
+ *  Specified relative to the previously-current source.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_DerivedSource *residual;
 
@@ -946,15 +1664,18 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_Environment : GTLRObject
 
 /**
- *  The type of cluster manager API to use. If unknown or unspecified, the
- *  service will attempt to choose a reasonable default. This should be in the
- *  form of the API service name, e.g. "compute.googleapis.com".
+ *  The type of cluster manager API to use. If unknown or
+ *  unspecified, the service will attempt to choose a reasonable
+ *  default. This should be in the form of the API service name,
+ *  e.g. "compute.googleapis.com".
  */
 @property(nonatomic, copy, nullable) NSString *clusterManagerApiService;
 
 /**
- *  The dataset for the current project where various workflow related tables
- *  are stored. The supported resource type is: Google BigQuery:
+ *  The dataset for the current project where various workflow
+ *  related tables are stored.
+ *  The supported resource type is:
+ *  Google BigQuery:
  *  bigquery.googleapis.com/{dataset}
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
@@ -966,9 +1687,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_Environment_InternalExperiments *internalExperiments;
 
 /**
- *  The Cloud Dataflow SDK pipeline options specified by the user. These options
- *  are passed through the service and are used to recreate the SDK pipeline
- *  options on the worker in a language agnostic and platform independent way.
+ *  The Cloud Dataflow SDK pipeline options specified by the user. These
+ *  options are passed through the service and are used to recreate the
+ *  SDK pipeline options on the worker in a language agnostic and platform
+ *  independent way.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_Environment_SdkPipelineOptions *sdkPipelineOptions;
 
@@ -976,12 +1698,15 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 /**
- *  The prefix of the resources the system should use for temporary storage. The
- *  system will append the suffix "/temp-{JOBNAME} to this resource prefix,
- *  where {JOBNAME} is the value of the job_name field. The resulting bucket and
- *  object prefix is used as the prefix of the resources used to store temporary
- *  data needed during the job execution. NOTE: This will override the value in
- *  taskrunner_settings. The supported resource type is: Google Cloud Storage:
+ *  The prefix of the resources the system should use for temporary
+ *  storage. The system will append the suffix "/temp-{JOBNAME} to
+ *  this resource prefix, where {JOBNAME} is the value of the
+ *  job_name field. The resulting bucket and object prefix is used
+ *  as the prefix of the resources used to store temporary data
+ *  needed during the job execution. NOTE: This will override the
+ *  value in taskrunner_settings.
+ *  The supported resource type is:
+ *  Google Cloud Storage:
  *  storage.googleapis.com/{bucket}/{object}
  *  bucket.storage.googleapis.com/{object}
  */
@@ -997,8 +1722,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_Environment_Version *version;
 
 /**
- *  The worker pools. At least one "harness" worker pool must be specified in
- *  order for the job to have workers.
+ *  The worker pools. At least one "harness" worker pool must be
+ *  specified in order for the job to have workers.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_WorkerPool *> *workerPools;
 
@@ -1018,9 +1743,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  The Cloud Dataflow SDK pipeline options specified by the user. These options
- *  are passed through the service and are used to recreate the SDK pipeline
- *  options on the worker in a language agnostic and platform independent way.
+ *  The Cloud Dataflow SDK pipeline options specified by the user. These
+ *  options are passed through the service and are used to recreate the
+ *  SDK pipeline options on the worker in a language agnostic and platform
+ *  independent way.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1053,6 +1779,67 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDataflow_Environment_Version : GTLRObject
+@end
+
+
+/**
+ *  Description of the composing transforms, names/ids, and input/outputs of a
+ *  stage of execution. Some composing transforms and sources may have been
+ *  generated by the Dataflow service during execution planning.
+ */
+@interface GTLRDataflow_ExecutionStageSummary : GTLRObject
+
+/**
+ *  Collections produced and consumed by component transforms of this stage.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ComponentSource *> *componentSource;
+
+/** Transforms that comprise this execution stage. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ComponentTransform *> *componentTransform;
+
+/**
+ *  Dataflow service generated id for this stage.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Input sources for this stage. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_StageSource *> *inputSource;
+
+/**
+ *  Type of tranform this stage is executing.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_ExecutionStageSummary_Kind_ConstantKind Constructs
+ *        from a constant value, such as with Create.of. (Value:
+ *        "CONSTANT_KIND")
+ *    @arg @c kGTLRDataflow_ExecutionStageSummary_Kind_FlattenKind Flatten
+ *        transform. (Value: "FLATTEN_KIND")
+ *    @arg @c kGTLRDataflow_ExecutionStageSummary_Kind_GroupByKeyKind Group By
+ *        Key transform. (Value: "GROUP_BY_KEY_KIND")
+ *    @arg @c kGTLRDataflow_ExecutionStageSummary_Kind_ParDoKind ParDo
+ *        transform. (Value: "PAR_DO_KIND")
+ *    @arg @c kGTLRDataflow_ExecutionStageSummary_Kind_ReadKind Read transform.
+ *        (Value: "READ_KIND")
+ *    @arg @c kGTLRDataflow_ExecutionStageSummary_Kind_ShuffleKind Opening or
+ *        closing a shuffle session, often as part of a GroupByKey. (Value:
+ *        "SHUFFLE_KIND")
+ *    @arg @c kGTLRDataflow_ExecutionStageSummary_Kind_SingletonKind Creates a
+ *        Singleton view of a collection. (Value: "SINGLETON_KIND")
+ *    @arg @c kGTLRDataflow_ExecutionStageSummary_Kind_UnknownKind Unrecognized
+ *        transform type. (Value: "UNKNOWN_KIND")
+ *    @arg @c kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind Write
+ *        transform. (Value: "WRITE_KIND")
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Dataflow service generated name for this stage. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output sources for this stage. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_StageSource *> *outputSource;
+
 @end
 
 
@@ -1116,7 +1903,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @interface GTLRDataflow_GetDebugConfigRequest : GTLRObject
 
-/** The internal component id for which debug configuration is requested. */
+/**
+ *  The internal component id for which debug configuration is
+ *  requested.
+ */
 @property(nonatomic, copy, nullable) NSString *componentId;
 
 /** The worker id, i.e., VM hostname. */
@@ -1137,8 +1927,28 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  An input of an instruction, as a reference to an output of a producer
- *  instruction.
+ *  The response to a GetTemplate request.
+ */
+@interface GTLRDataflow_GetTemplateResponse : GTLRObject
+
+/**
+ *  The template metadata describing the template name, available
+ *  parameters, etc.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_TemplateMetadata *metadata;
+
+/**
+ *  The status of the get template request. Any problems with the
+ *  request will be indicated in the error_details.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_Status *status;
+
+@end
+
+
+/**
+ *  An input of an instruction, as a reference to an output of a
+ *  producer instruction.
  */
 @interface GTLRDataflow_InstructionInput : GTLRObject
 
@@ -1150,9 +1960,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSNumber *outputNum;
 
 /**
- *  The index (origin zero) of the parallel instruction that produces the output
- *  to be consumed by this input. This index is relative to the list of
- *  instructions in this input's instruction's containing MapTask.
+ *  The index (origin zero) of the parallel instruction that produces
+ *  the output to be consumed by this input. This index is relative
+ *  to the list of instructions in this input's instruction's
+ *  containing MapTask.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1173,28 +1984,31 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  For system-generated byte and mean byte metrics, certain instructions should
- *  only report the key size.
+ *  For system-generated byte and mean byte metrics, certain instructions
+ *  should only report the key size.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *onlyCountKeyBytes;
 
 /**
- *  For system-generated byte and mean byte metrics, certain instructions should
- *  only report the value size.
+ *  For system-generated byte and mean byte metrics, certain instructions
+ *  should only report the value size.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *onlyCountValueBytes;
 
 /**
- *  System-defined name for this output in the original workflow graph. Outputs
- *  that do not contribute to an original instruction do not set this.
+ *  System-defined name for this output in the original workflow graph.
+ *  Outputs that do not contribute to an original instruction do not set this.
  */
 @property(nonatomic, copy, nullable) NSString *originalName;
 
-/** System-defined name of this output. Unique across the workflow. */
+/**
+ *  System-defined name of this output.
+ *  Unique across the workflow.
+ */
 @property(nonatomic, copy, nullable) NSString *systemName;
 
 @end
@@ -1244,12 +2058,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /**
  *  The client's unique identifier of the job, re-used across retried attempts.
- *  If this field is set, the service will ensure its uniqueness. The request to
- *  create a job will fail if the service has knowledge of a previously
- *  submitted job with the same client's ID and job name. The caller may use
- *  this field to ensure idempotence of job creation across retried attempts to
- *  create a job. By default, the field is empty and, in that case, the service
- *  ignores it.
+ *  If this field is set, the service will ensure its uniqueness.
+ *  The request to create a job will fail if the service has knowledge of a
+ *  previously submitted job with the same client's ID and job name.
+ *  The caller may use this field to ensure idempotence of job
+ *  creation across retried attempts to create a job.
+ *  By default, the field is empty and, in that case, the service ignores it.
  */
 @property(nonatomic, copy, nullable) NSString *clientRequestId;
 
@@ -1257,59 +2071,104 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  The timestamp when the job was initially created. Immutable and set by the
  *  Cloud Dataflow service.
  */
-@property(nonatomic, copy, nullable) NSString *createTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The current state of the job. Jobs are created in the `JOB_STATE_STOPPED`
- *  state unless otherwise specified. A job in the `JOB_STATE_RUNNING` state may
- *  asynchronously enter a terminal state. After a job has reached a terminal
- *  state, no further state updates may be made. This field may be mutated by
- *  the Cloud Dataflow service; callers cannot mutate it.
+ *  The current state of the job.
+ *  Jobs are created in the `JOB_STATE_STOPPED` state unless otherwise
+ *  specified.
+ *  A job in the `JOB_STATE_RUNNING` state may asynchronously enter a
+ *  terminal state. After a job has reached a terminal state, no
+ *  further state updates may be made.
+ *  This field may be mutated by the Cloud Dataflow service;
+ *  callers cannot mutate it.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateCancelled Value
- *        "JOB_STATE_CANCELLED"
- *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateDone Value "JOB_STATE_DONE"
- *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateDrained Value
- *        "JOB_STATE_DRAINED"
- *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateDraining Value
- *        "JOB_STATE_DRAINING"
- *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateFailed Value
- *        "JOB_STATE_FAILED"
- *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateRunning Value
- *        "JOB_STATE_RUNNING"
- *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateStopped Value
- *        "JOB_STATE_STOPPED"
- *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateUnknown Value
- *        "JOB_STATE_UNKNOWN"
- *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateUpdated Value
- *        "JOB_STATE_UPDATED"
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateCancelled
+ *        `JOB_STATE_CANCELLED` indicates that the job has been explicitly
+ *        cancelled. This is a terminal job state. This state may only be
+ *        set via a Cloud Dataflow `UpdateJob` call, and only if the job has not
+ *        yet reached another terminal state. (Value: "JOB_STATE_CANCELLED")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateDone `JOB_STATE_DONE`
+ *        indicates that the job has successfully completed.
+ *        This is a terminal job state. This state may be set by the Cloud
+ *        Dataflow
+ *        service, as a transition from `JOB_STATE_RUNNING`. It may also be set
+ *        via a
+ *        Cloud Dataflow `UpdateJob` call, if the job has not yet reached a
+ *        terminal
+ *        state. (Value: "JOB_STATE_DONE")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateDrained `JOB_STATE_DRAINED`
+ *        indicates that the job has been drained.
+ *        A drained job terminated by stopping pulling from its input sources
+ *        and
+ *        processing any data that remained in-flight when draining was
+ *        requested.
+ *        This state is a terminal state, may only be set by the Cloud Dataflow
+ *        service, and only as a transition from `JOB_STATE_DRAINING`. (Value:
+ *        "JOB_STATE_DRAINED")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateDraining
+ *        `JOB_STATE_DRAINING` indicates that the job is in the process of
+ *        draining.
+ *        A draining job has stopped pulling from its input sources and is
+ *        processing
+ *        any data that remains in-flight. This state may be set via a Cloud
+ *        Dataflow
+ *        `UpdateJob` call, but only as a transition from `JOB_STATE_RUNNING`.
+ *        Jobs
+ *        that are draining may only transition to `JOB_STATE_DRAINED`,
+ *        `JOB_STATE_CANCELLED`, or `JOB_STATE_FAILED`. (Value:
+ *        "JOB_STATE_DRAINING")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateFailed `JOB_STATE_FAILED`
+ *        indicates that the job has failed. This is a
+ *        terminal job state. This state may only be set by the Cloud Dataflow
+ *        service, and only as a transition from `JOB_STATE_RUNNING`. (Value:
+ *        "JOB_STATE_FAILED")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateRunning `JOB_STATE_RUNNING`
+ *        indicates that the job is currently running. (Value:
+ *        "JOB_STATE_RUNNING")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateStopped `JOB_STATE_STOPPED`
+ *        indicates that the job has not
+ *        yet started to run. (Value: "JOB_STATE_STOPPED")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateUnknown The job's run state
+ *        isn't specified. (Value: "JOB_STATE_UNKNOWN")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateUpdated `JOB_STATE_UPDATED`
+ *        indicates that the job was successfully updated,
+ *        meaning that this job was stopped and another job was started,
+ *        inheriting
+ *        state from this one. This is a terminal job state. This state may only
+ *        be
+ *        set by the Cloud Dataflow service, and only as a transition from
+ *        `JOB_STATE_RUNNING`. (Value: "JOB_STATE_UPDATED")
  */
 @property(nonatomic, copy, nullable) NSString *currentState;
 
 /** The timestamp associated with the current state. */
-@property(nonatomic, copy, nullable) NSString *currentStateTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *currentStateTime;
 
 /** The environment for the job. */
 @property(nonatomic, strong, nullable) GTLRDataflow_Environment *environment;
 
-/** Information about how the Cloud Dataflow service will run the job. */
+/** Deprecated. */
 @property(nonatomic, strong, nullable) GTLRDataflow_JobExecutionInfo *executionInfo;
 
 /**
- *  The unique ID of this job. This field is set by the Cloud Dataflow service
- *  when the Job is created, and is immutable for the life of the job.
+ *  The unique ID of this job.
+ *  This field is set by the Cloud Dataflow service when the Job is
+ *  created, and is immutable for the life of the job.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  User-defined labels for this job. The labels map can contain no more than 64
- *  entries. Entries of the labels map are UTF8 strings that comply with the
- *  following restrictions: * Keys must conform to regexp: \\p{Ll}\\p{Lo}{0,62}
- *  * Values must conform to regexp: [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63} * Both keys
- *  and values are additionally constrained to be <= 128 bytes in size.
+ *  User-defined labels for this job.
+ *  The labels map can contain no more than 64 entries. Entries of the labels
+ *  map are UTF8 strings that comply with the following restrictions:
+ *  * Keys must conform to regexp: \\p{Ll}\\p{Lo}{0,62}
+ *  * Values must conform to regexp: [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}
+ *  * Both keys and values are additionally constrained to be <= 128 bytes in
+ *  size.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_Job_Labels *labels;
 
@@ -1317,13 +2176,23 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  The user-specified Cloud Dataflow job name. Only one Job with a given name
- *  may exist in a project at any given time. If a caller attempts to create a
- *  Job with the same name as an already-existing Job, the attempt returns the
- *  existing Job. The name must match the regular expression
+ *  The user-specified Cloud Dataflow job name.
+ *  Only one Job with a given name may exist in a project at any
+ *  given time. If a caller attempts to create a Job with the same
+ *  name as an already-existing Job, the attempt returns the
+ *  existing Job.
+ *  The name must match the regular expression
  *  `[a-z]([-a-z0-9]{0,38}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Preliminary field: The format of this data may change at any time.
+ *  A description of the user pipeline and stages through which it is executed.
+ *  Created by Cloud Dataflow service. Only retrieved with
+ *  JOB_VIEW_DESCRIPTION or JOB_VIEW_ALL.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_PipelineDescription *pipelineDescription;
 
 /** The ID of the Cloud Platform project that the job belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -1335,39 +2204,79 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *replacedByJobId;
 
 /**
- *  If this job is an update of an existing job, this field is the job ID of the
- *  job it replaced. When sending a `CreateJobRequest`, you can update a job by
- *  specifying it here. The job named here is stopped, and its intermediate
- *  state is transferred to this job.
+ *  If this job is an update of an existing job, this field is the job ID
+ *  of the job it replaced.
+ *  When sending a `CreateJobRequest`, you can update a job by specifying it
+ *  here. The job named here is stopped, and its intermediate state is
+ *  transferred to this job.
  */
 @property(nonatomic, copy, nullable) NSString *replaceJobId;
 
 /**
- *  The job's requested state. `UpdateJob` may be used to switch between the
- *  `JOB_STATE_STOPPED` and `JOB_STATE_RUNNING` states, by setting
- *  requested_state. `UpdateJob` may also be used to directly set a job's
- *  requested state to `JOB_STATE_CANCELLED` or `JOB_STATE_DONE`, irrevocably
- *  terminating the job if it has not already reached a terminal state.
+ *  The job's requested state.
+ *  `UpdateJob` may be used to switch between the `JOB_STATE_STOPPED` and
+ *  `JOB_STATE_RUNNING` states, by setting requested_state. `UpdateJob` may
+ *  also be used to directly set a job's requested state to
+ *  `JOB_STATE_CANCELLED` or `JOB_STATE_DONE`, irrevocably terminating the
+ *  job if it has not already reached a terminal state.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateCancelled Value
- *        "JOB_STATE_CANCELLED"
- *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateDone Value
- *        "JOB_STATE_DONE"
- *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateDrained Value
- *        "JOB_STATE_DRAINED"
- *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateDraining Value
- *        "JOB_STATE_DRAINING"
- *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateFailed Value
- *        "JOB_STATE_FAILED"
- *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateRunning Value
- *        "JOB_STATE_RUNNING"
- *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateStopped Value
- *        "JOB_STATE_STOPPED"
- *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateUnknown Value
- *        "JOB_STATE_UNKNOWN"
- *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateUpdated Value
- *        "JOB_STATE_UPDATED"
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateCancelled
+ *        `JOB_STATE_CANCELLED` indicates that the job has been explicitly
+ *        cancelled. This is a terminal job state. This state may only be
+ *        set via a Cloud Dataflow `UpdateJob` call, and only if the job has not
+ *        yet reached another terminal state. (Value: "JOB_STATE_CANCELLED")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateDone `JOB_STATE_DONE`
+ *        indicates that the job has successfully completed.
+ *        This is a terminal job state. This state may be set by the Cloud
+ *        Dataflow
+ *        service, as a transition from `JOB_STATE_RUNNING`. It may also be set
+ *        via a
+ *        Cloud Dataflow `UpdateJob` call, if the job has not yet reached a
+ *        terminal
+ *        state. (Value: "JOB_STATE_DONE")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateDrained
+ *        `JOB_STATE_DRAINED` indicates that the job has been drained.
+ *        A drained job terminated by stopping pulling from its input sources
+ *        and
+ *        processing any data that remained in-flight when draining was
+ *        requested.
+ *        This state is a terminal state, may only be set by the Cloud Dataflow
+ *        service, and only as a transition from `JOB_STATE_DRAINING`. (Value:
+ *        "JOB_STATE_DRAINED")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateDraining
+ *        `JOB_STATE_DRAINING` indicates that the job is in the process of
+ *        draining.
+ *        A draining job has stopped pulling from its input sources and is
+ *        processing
+ *        any data that remains in-flight. This state may be set via a Cloud
+ *        Dataflow
+ *        `UpdateJob` call, but only as a transition from `JOB_STATE_RUNNING`.
+ *        Jobs
+ *        that are draining may only transition to `JOB_STATE_DRAINED`,
+ *        `JOB_STATE_CANCELLED`, or `JOB_STATE_FAILED`. (Value:
+ *        "JOB_STATE_DRAINING")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateFailed `JOB_STATE_FAILED`
+ *        indicates that the job has failed. This is a
+ *        terminal job state. This state may only be set by the Cloud Dataflow
+ *        service, and only as a transition from `JOB_STATE_RUNNING`. (Value:
+ *        "JOB_STATE_FAILED")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateRunning
+ *        `JOB_STATE_RUNNING` indicates that the job is currently running.
+ *        (Value: "JOB_STATE_RUNNING")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateStopped
+ *        `JOB_STATE_STOPPED` indicates that the job has not
+ *        yet started to run. (Value: "JOB_STATE_STOPPED")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateUnknown The job's run
+ *        state isn't specified. (Value: "JOB_STATE_UNKNOWN")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateUpdated
+ *        `JOB_STATE_UPDATED` indicates that the job was successfully updated,
+ *        meaning that this job was stopped and another job was started,
+ *        inheriting
+ *        state from this one. This is a terminal job state. This state may only
+ *        be
+ *        set by the Cloud Dataflow service, and only as a transition from
+ *        `JOB_STATE_RUNNING`. (Value: "JOB_STATE_UPDATED")
  */
 @property(nonatomic, copy, nullable) NSString *requestedState;
 
@@ -1375,10 +2284,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Step *> *steps;
 
 /**
- *  A set of files the system should be aware of that are used for temporary
- *  storage. These temporary files will be removed on job completion. No
- *  duplicates are allowed. No file patterns are supported. The supported files
- *  are: Google Cloud Storage: storage.googleapis.com/{bucket}/{object}
+ *  A set of files the system should be aware of that are used
+ *  for temporary storage. These temporary files will be
+ *  removed on job completion.
+ *  No duplicates are allowed.
+ *  No file patterns are supported.
+ *  The supported files are:
+ *  Google Cloud Storage:
+ *  storage.googleapis.com/{bucket}/{object}
  *  bucket.storage.googleapis.com/{object}
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tempFiles;
@@ -1393,9 +2306,15 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  The type of Cloud Dataflow job.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflow_Job_Type_JobTypeBatch Value "JOB_TYPE_BATCH"
- *    @arg @c kGTLRDataflow_Job_Type_JobTypeStreaming Value "JOB_TYPE_STREAMING"
- *    @arg @c kGTLRDataflow_Job_Type_JobTypeUnknown Value "JOB_TYPE_UNKNOWN"
+ *    @arg @c kGTLRDataflow_Job_Type_JobTypeBatch A batch job with a
+ *        well-defined end point: data is read, data is
+ *        processed, data is written, and the job is done. (Value:
+ *        "JOB_TYPE_BATCH")
+ *    @arg @c kGTLRDataflow_Job_Type_JobTypeStreaming A continuously streaming
+ *        job with no end: data is read,
+ *        processed, and written continuously. (Value: "JOB_TYPE_STREAMING")
+ *    @arg @c kGTLRDataflow_Job_Type_JobTypeUnknown The type of the job is
+ *        unspecified, or unknown. (Value: "JOB_TYPE_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1403,11 +2322,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  User-defined labels for this job. The labels map can contain no more than 64
- *  entries. Entries of the labels map are UTF8 strings that comply with the
- *  following restrictions: * Keys must conform to regexp: \\p{Ll}\\p{Lo}{0,62}
- *  * Values must conform to regexp: [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63} * Both keys
- *  and values are additionally constrained to be <= 128 bytes in size.
+ *  User-defined labels for this job.
+ *  The labels map can contain no more than 64 entries. Entries of the labels
+ *  map are UTF8 strings that comply with the following restrictions:
+ *  * Keys must conform to regexp: \\p{Ll}\\p{Lo}{0,62}
+ *  * Values must conform to regexp: [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}
+ *  * Both keys and values are additionally constrained to be <= 128 bytes in
+ *  size.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1456,14 +2377,15 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Contains information about how a particular google.dataflow.v1beta3.Step
- *  will be executed.
+ *  Contains information about how a particular
+ *  google.dataflow.v1beta3.Step will be executed.
  */
 @interface GTLRDataflow_JobExecutionStageInfo : GTLRObject
 
 /**
- *  The steps associated with the execution stage. Note that stages may have
- *  several steps, and that a given step might be run by more than one stage.
+ *  The steps associated with the execution stage.
+ *  Note that stages may have several steps, and that a given step
+ *  might be run by more than one stage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *stepName;
 
@@ -1476,8 +2398,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_JobMessage : GTLRObject
 
 /**
- *  Identifies the message. This is automatically generated by the service; the
- *  caller should treat it as an opaque string.
+ *  Identifies the message. This is automatically generated by the
+ *  service; the caller should treat it as an opaque string.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1487,18 +2409,38 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Importance level of the message.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflow_JobMessage_MessageImportance_JobMessageBasic Value
- *        "JOB_MESSAGE_BASIC"
- *    @arg @c kGTLRDataflow_JobMessage_MessageImportance_JobMessageDebug Value
- *        "JOB_MESSAGE_DEBUG"
- *    @arg @c kGTLRDataflow_JobMessage_MessageImportance_JobMessageDetailed
- *        Value "JOB_MESSAGE_DETAILED"
- *    @arg @c kGTLRDataflow_JobMessage_MessageImportance_JobMessageError Value
- *        "JOB_MESSAGE_ERROR"
+ *    @arg @c kGTLRDataflow_JobMessage_MessageImportance_JobMessageBasic The
+ *        message is at the 'basic' level: useful for keeping
+ *        track of the execution of a Dataflow pipeline. Typically,
+ *        Dataflow pipeline runners display log messages at this level by
+ *        default, and these messages are displayed by default in the
+ *        Dataflow monitoring UI. (Value: "JOB_MESSAGE_BASIC")
+ *    @arg @c kGTLRDataflow_JobMessage_MessageImportance_JobMessageDebug The
+ *        message is at the 'debug' level: typically only useful for
+ *        software engineers working on the code the job is running.
+ *        Typically, Dataflow pipeline runners do not display log messages
+ *        at this level by default. (Value: "JOB_MESSAGE_DEBUG")
+ *    @arg @c kGTLRDataflow_JobMessage_MessageImportance_JobMessageDetailed The
+ *        message is at the 'detailed' level: somewhat verbose, but
+ *        potentially useful to users. Typically, Dataflow pipeline
+ *        runners do not display log messages at this level by default.
+ *        These messages are displayed by default in the Dataflow
+ *        monitoring UI. (Value: "JOB_MESSAGE_DETAILED")
+ *    @arg @c kGTLRDataflow_JobMessage_MessageImportance_JobMessageError The
+ *        message is at the 'error' level: indicating a condition
+ *        preventing a job from succeeding. Typically, Dataflow pipeline
+ *        runners display log messages at this level by default, and these
+ *        messages are displayed by default in the Dataflow monitoring UI.
+ *        (Value: "JOB_MESSAGE_ERROR")
  *    @arg @c kGTLRDataflow_JobMessage_MessageImportance_JobMessageImportanceUnknown
- *        Value "JOB_MESSAGE_IMPORTANCE_UNKNOWN"
- *    @arg @c kGTLRDataflow_JobMessage_MessageImportance_JobMessageWarning Value
- *        "JOB_MESSAGE_WARNING"
+ *        The message importance isn't specified, or is unknown. (Value:
+ *        "JOB_MESSAGE_IMPORTANCE_UNKNOWN")
+ *    @arg @c kGTLRDataflow_JobMessage_MessageImportance_JobMessageWarning The
+ *        message is at the 'warning' level: indicating a condition
+ *        pertaining to a job which may require human intervention.
+ *        Typically, Dataflow pipeline runners display log messages at this
+ *        level by default, and these messages are displayed by default in
+ *        the Dataflow monitoring UI. (Value: "JOB_MESSAGE_WARNING")
  */
 @property(nonatomic, copy, nullable) NSString *messageImportance;
 
@@ -1506,7 +2448,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *messageText;
 
 /** The timestamp of the message. */
-@property(nonatomic, copy, nullable) NSString *time;
+@property(nonatomic, strong, nullable) GTLRDateTime *time;
 
 @end
 
@@ -1514,9 +2456,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /**
  *  JobMetrics contains a collection of metrics descibing the detailed progress
  *  of a Dataflow job. Metrics correspond to user-defined and system-defined
- *  metrics in the job. This resource captures only the most recent values of
- *  each metric; time-series data can be queried for them (under the same metric
- *  names) from Cloud Monitoring.
+ *  metrics in the job.
+ *  This resource captures only the most recent values of each metric;
+ *  time-series data can be queried for them (under the same metric names)
+ *  from Cloud Monitoring.
  */
 @interface GTLRDataflow_JobMetrics : GTLRObject
 
@@ -1524,22 +2467,23 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_MetricUpdate *> *metrics;
 
 /** Timestamp as of which metric values are current. */
-@property(nonatomic, copy, nullable) NSString *metricTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *metricTime;
 
 @end
 
 
 /**
  *  Data disk assignment information for a specific key-range of a sharded
- *  computation. Currently we only support UTF-8 character splits to simplify
- *  encoding into JSON.
+ *  computation.
+ *  Currently we only support UTF-8 character splits to simplify encoding into
+ *  JSON.
  */
 @interface GTLRDataflow_KeyRangeDataDiskAssignment : GTLRObject
 
 /**
- *  The name of the data disk where data for this range is stored. This name is
- *  local to the Google Cloud Platform project and uniquely identifies the disk
- *  within that project, for example
+ *  The name of the data disk where data for this range is stored.
+ *  This name is local to the Google Cloud Platform project and uniquely
+ *  identifies the disk within that project, for example
  *  "myproject-1014-104817-4c2-harness-0-disk-1".
  */
 @property(nonatomic, copy, nullable) NSString *dataDisk;
@@ -1561,16 +2505,16 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_KeyRangeLocation : GTLRObject
 
 /**
- *  The name of the data disk where data for this range is stored. This name is
- *  local to the Google Cloud Platform project and uniquely identifies the disk
- *  within that project, for example
+ *  The name of the data disk where data for this range is stored.
+ *  This name is local to the Google Cloud Platform project and uniquely
+ *  identifies the disk within that project, for example
  *  "myproject-1014-104817-4c2-harness-0-disk-1".
  */
 @property(nonatomic, copy, nullable) NSString *dataDisk;
 
 /**
- *  The physical location of this range assignment to be used for streaming
- *  computation cross-worker message delivery.
+ *  The physical location of this range assignment to be used for
+ *  streaming computation cross-worker message delivery.
  */
 @property(nonatomic, copy, nullable) NSString *deliveryEndpoint;
 
@@ -1578,8 +2522,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *end;
 
 /**
- *  The location of the persistent state for this range, as a persistent
- *  directory in the worker local filesystem.
+ *  The location of the persistent state for this range, as a
+ *  persistent directory in the worker local filesystem.
  */
 @property(nonatomic, copy, nullable) NSString *persistentDirectory;
 
@@ -1590,18 +2534,67 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Parameters to provide to the template being launched.
+ */
+@interface GTLRDataflow_LaunchTemplateParameters : GTLRObject
+
+/** The runtime environment for the job. */
+@property(nonatomic, strong, nullable) GTLRDataflow_RuntimeEnvironment *environment;
+
+/** Required. The job name to use for the created job. */
+@property(nonatomic, copy, nullable) NSString *jobName;
+
+/** The runtime parameters to pass to the job. */
+@property(nonatomic, strong, nullable) GTLRDataflow_LaunchTemplateParameters_Parameters *parameters;
+
+@end
+
+
+/**
+ *  The runtime parameters to pass to the job.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_LaunchTemplateParameters_Parameters : GTLRObject
+@end
+
+
+/**
+ *  Response to the request to launch a template.
+ */
+@interface GTLRDataflow_LaunchTemplateResponse : GTLRObject
+
+/**
+ *  The job that was launched, if the request was not a dry run and
+ *  the job was successfully launched.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_Job *job;
+
+/**
+ *  The status of the launch template request. Any problems with the request
+ *  will be indicated in the error_details.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_Status *status;
+
+@end
+
+
+/**
  *  Request to lease WorkItems.
  */
 @interface GTLRDataflow_LeaseWorkItemRequest : GTLRObject
 
 /** The current timestamp at the worker. */
-@property(nonatomic, copy, nullable) NSString *currentWorkerTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *currentWorkerTime;
 
 /** The location which contains the WorkItem's job. */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The initial lease period. */
-@property(nonatomic, copy, nullable) NSString *requestedLeaseDuration;
+@property(nonatomic, strong, nullable) GTLRDuration *requestedLeaseDuration;
 
 /**
  *  Worker capabilities. WorkItems might be limited to workers with specific
@@ -1610,8 +2603,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSArray<NSString *> *workerCapabilities;
 
 /**
- *  Identifies the worker leasing work -- typically the ID of the virtual
- *  machine running the worker.
+ *  Identifies the worker leasing work -- typically the ID of the
+ *  virtual machine running the worker.
  */
 @property(nonatomic, copy, nullable) NSString *workerId;
 
@@ -1675,10 +2668,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  MapTask consists of an ordered set of instructions, each of which describes
- *  one particular low-level operation for the worker to perform in order to
- *  accomplish the MapTask's WorkItem. Each instruction must appear in the list
- *  before any instructions which depends on its output.
+ *  MapTask consists of an ordered set of instructions, each of which
+ *  describes one particular low-level operation for the worker to
+ *  perform in order to accomplish the MapTask's WorkItem.
+ *  Each instruction must appear in the list before any instructions which
+ *  depends on its output.
  */
 @interface GTLRDataflow_MapTask : GTLRObject
 
@@ -1686,12 +2680,15 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ParallelInstruction *> *instructions;
 
 /**
- *  System-defined name of the stage containing this MapTask. Unique across the
- *  workflow.
+ *  System-defined name of the stage containing this MapTask.
+ *  Unique across the workflow.
  */
 @property(nonatomic, copy, nullable) NSString *stageName;
 
-/** System-defined name of this MapTask. Unique across the workflow. */
+/**
+ *  System-defined name of this MapTask.
+ *  Unique across the workflow.
+ */
 @property(nonatomic, copy, nullable) NSString *systemName;
 
 @end
@@ -1704,8 +2701,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_MetricShortId : GTLRObject
 
 /**
- *  The index of the corresponding metric in the ReportWorkItemStatusRequest.
- *  Required.
+ *  The index of the corresponding metric in
+ *  the ReportWorkItemStatusRequest. Required.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1722,17 +2719,17 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Identifies a metric, by describing the source which generated the metric.
+ *  Identifies a metric, by describing the source which generated the
+ *  metric.
  */
 @interface GTLRDataflow_MetricStructuredName : GTLRObject
 
 /**
- *  Zero or more labeled fields which identify the part of the job this metric
- *  is associated with, such as the name of a step or collection. For example,
- *  built-in counters associated with steps will have context['step'] = .
- *  Counters associated with PCollections in the SDK will have
- *  context['pcollection'] =
- *  .
+ *  Zero or more labeled fields which identify the part of the job this
+ *  metric is associated with, such as the name of a step or collection.
+ *  For example, built-in counters associated with steps will have
+ *  context['step'] = <step-name>. Counters associated with PCollections
+ *  in the SDK will have context['pcollection'] = <pcollection-name>.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_MetricStructuredName_Context *context;
 
@@ -1749,12 +2746,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Zero or more labeled fields which identify the part of the job this metric
- *  is associated with, such as the name of a step or collection. For example,
- *  built-in counters associated with steps will have context['step'] = .
- *  Counters associated with PCollections in the SDK will have
- *  context['pcollection'] =
- *  .
+ *  Zero or more labeled fields which identify the part of the job this
+ *  metric is associated with, such as the name of a step or collection.
+ *  For example, built-in counters associated with steps will have
+ *  context['step'] = <step-name>. Counters associated with PCollections
+ *  in the SDK will have context['pcollection'] = <pcollection-name>.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1771,45 +2767,47 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_MetricUpdate : GTLRObject
 
 /**
- *  True if this metric is reported as the total cumulative aggregate value
- *  accumulated since the worker started working on this WorkItem. By default
- *  this is false, indicating that this metric is reported as a delta that is
- *  not associated with any WorkItem.
+ *  True if this metric is reported as the total cumulative aggregate
+ *  value accumulated since the worker started working on this WorkItem.
+ *  By default this is false, indicating that this metric is reported
+ *  as a delta that is not associated with any WorkItem.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cumulative;
 
 /**
- *  Worker-computed aggregate value for internal use by the Dataflow service.
+ *  Worker-computed aggregate value for internal use by the Dataflow
+ *  service.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id internal;
 
 /**
- *  Metric aggregation kind. The possible metric aggregation kinds are "Sum",
- *  "Max", "Min", "Mean", "Set", "And", and "Or". The specified aggregation kind
- *  is case-insensitive. If omitted, this is not an aggregated value but instead
+ *  Metric aggregation kind. The possible metric aggregation kinds are
+ *  "Sum", "Max", "Min", "Mean", "Set", "And", and "Or".
+ *  The specified aggregation kind is case-insensitive.
+ *  If omitted, this is not an aggregated value but instead
  *  a single metric sample value.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Worker-computed aggregate value for the "Mean" aggregation kind. This holds
- *  the count of the aggregated values and is used in combination with mean_sum
- *  above to obtain the actual mean aggregate value. The only possible value
- *  type is Long.
+ *  Worker-computed aggregate value for the "Mean" aggregation kind.
+ *  This holds the count of the aggregated values and is used in combination
+ *  with mean_sum above to obtain the actual mean aggregate value.
+ *  The only possible value type is Long.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id meanCount;
 
 /**
- *  Worker-computed aggregate value for the "Mean" aggregation kind. This holds
- *  the sum of the aggregated values and is used in combination with mean_count
- *  below to obtain the actual mean aggregate value. The only possible value
- *  types are Long and Double.
+ *  Worker-computed aggregate value for the "Mean" aggregation kind.
+ *  This holds the sum of the aggregated values and is used in combination
+ *  with mean_count below to obtain the actual mean aggregate value.
+ *  The only possible value types are Long and Double.
  *
  *  Can be any valid JSON type.
  */
@@ -1828,9 +2826,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /**
  *  Worker-computed aggregate value for the "Set" aggregation kind. The only
- *  possible value type is a list of Values whose type can be Long, Double, or
- *  String, according to the metric's type. All Values in the list must be of
- *  the same type.
+ *  possible value type is a list of Values whose type can be Long, Double,
+ *  or String, according to the metric's type. All Values in the list must
+ *  be of the same type.
  *
  *  Can be any valid JSON type.
  */
@@ -1838,10 +2836,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /**
  *  Timestamp associated with the metric value. Optional when workers are
- *  reporting work progress; it will be filled in responses from the metrics
- *  API.
+ *  reporting work progress; it will be filled in responses from the
+ *  metrics API.
  */
-@property(nonatomic, copy, nullable) NSString *updateTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -1852,8 +2850,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_MountedDataDisk : GTLRObject
 
 /**
- *  The name of the data disk. This name is local to the Google Cloud Platform
- *  project and uniquely identifies the disk within that project, for example
+ *  The name of the data disk.
+ *  This name is local to the Google Cloud Platform project and uniquely
+ *  identifies the disk within that project, for example
  *  "myproject-1014-104817-4c2-harness-0-disk-1".
  */
 @property(nonatomic, copy, nullable) NSString *dataDisk;
@@ -1867,8 +2866,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_MultiOutputInfo : GTLRObject
 
 /**
- *  The id of the tag the user code will emit to this output by; this should
- *  correspond to the tag of some SideInputInfo.
+ *  The id of the tag the user code will emit to this output by; this
+ *  should correspond to the tag of some SideInputInfo.
  */
 @property(nonatomic, copy, nullable) NSString *tag;
 
@@ -1884,15 +2883,24 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Counter aggregation kind.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflow_NameAndKind_Kind_And Value "AND"
- *    @arg @c kGTLRDataflow_NameAndKind_Kind_Distribution Value "DISTRIBUTION"
- *    @arg @c kGTLRDataflow_NameAndKind_Kind_Invalid Value "INVALID"
- *    @arg @c kGTLRDataflow_NameAndKind_Kind_Max Value "MAX"
- *    @arg @c kGTLRDataflow_NameAndKind_Kind_Mean Value "MEAN"
- *    @arg @c kGTLRDataflow_NameAndKind_Kind_Min Value "MIN"
- *    @arg @c kGTLRDataflow_NameAndKind_Kind_Or Value "OR"
- *    @arg @c kGTLRDataflow_NameAndKind_Kind_Set Value "SET"
- *    @arg @c kGTLRDataflow_NameAndKind_Kind_Sum Value "SUM"
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_And Aggregated value represents the
+ *        logical 'and' of all contributed values. (Value: "AND")
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Distribution Aggregated value
+ *        captures statistics about a distribution. (Value: "DISTRIBUTION")
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Invalid Counter aggregation kind
+ *        was not set. (Value: "INVALID")
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Max Aggregated value is the max of
+ *        all contributed values. (Value: "MAX")
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Mean Aggregated value is the mean
+ *        of all contributed values. (Value: "MEAN")
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Min Aggregated value is the min of
+ *        all contributed values. (Value: "MIN")
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Or Aggregated value represents the
+ *        logical 'or' of all contributed values. (Value: "OR")
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Set Aggregated value is a set of
+ *        unique contributed values. (Value: "SET")
+ *    @arg @c kGTLRDataflow_NameAndKind_Kind_Sum Aggregated value is the sum of
+ *        all contributed values. (Value: "SUM")
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1903,18 +2911,21 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  The packages that must be installed in order for a worker to run the steps
- *  of the Cloud Dataflow job that will be assigned to its worker pool. This is
- *  the mechanism by which the Cloud Dataflow SDK causes code to be loaded onto
- *  the workers. For example, the Cloud Dataflow Java SDK might use this to
- *  install jars containing the user's code and all of the various dependencies
- *  (libraries, data files, etc.) required in order for that code to run.
+ *  The packages that must be installed in order for a worker to run the
+ *  steps of the Cloud Dataflow job that will be assigned to its worker
+ *  pool.
+ *  This is the mechanism by which the Cloud Dataflow SDK causes code to
+ *  be loaded onto the workers. For example, the Cloud Dataflow Java SDK
+ *  might use this to install jars containing the user's code and all of the
+ *  various dependencies (libraries, data files, etc.) required in order
+ *  for that code to run.
  */
 @interface GTLRDataflow_Package : GTLRObject
 
 /**
  *  The resource to read the package from. The supported resource type is:
- *  Google Cloud Storage: storage.googleapis.com/{bucket}
+ *  Google Cloud Storage:
+ *  storage.googleapis.com/{bucket}
  *  bucket.storage.googleapis.com/
  */
 @property(nonatomic, copy, nullable) NSString *location;
@@ -1951,7 +2962,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** Additional information for Read instructions. */
 @property(nonatomic, strong, nullable) GTLRDataflow_ReadInstruction *read;
 
-/** System-defined name of this operation. Unique across the workflow. */
+/**
+ *  System-defined name of this operation.
+ *  Unique across the workflow.
+ */
 @property(nonatomic, copy, nullable) NSString *systemName;
 
 /** Additional information for Write instructions. */
@@ -1961,8 +2975,37 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  An instruction that does a ParDo operation. Takes one main input and zero or
- *  more side inputs, and produces zero or more outputs. Runs user code.
+ *  Metadata for a specific parameter.
+ */
+@interface GTLRDataflow_ParameterMetadata : GTLRObject
+
+/** Required. The help text to display for the parameter. */
+@property(nonatomic, copy, nullable) NSString *helpText;
+
+/**
+ *  Optional. Whether the parameter is optional. Defaults to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isOptional;
+
+/** Required. The label to display for the parameter. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/** Required. The name of the parameter. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Regexes that the parameter must match. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regexes;
+
+@end
+
+
+/**
+ *  An instruction that does a ParDo operation.
+ *  Takes one main input and zero or more side inputs, and produces
+ *  zero or more outputs.
+ *  Runs user code.
  */
 @interface GTLRDataflow_ParDoInstruction : GTLRObject
 
@@ -2001,7 +3044,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  An instruction that does a partial group-by-key. One input and one output.
+ *  An instruction that does a partial group-by-key.
+ *  One input and one output.
  */
 @interface GTLRDataflow_PartialGroupByKeyInstruction : GTLRObject
 
@@ -2057,9 +3101,30 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Position defines a position within a collection of data. The value can be
- *  either the end position, a key (used with ordered collections), a byte
- *  offset, or a record index.
+ *  A descriptive representation of submitted pipeline as well as the executed
+ *  form. This data is provided by the Dataflow service for ease of visualizing
+ *  the pipeline and interpretting Dataflow provided metrics.
+ */
+@interface GTLRDataflow_PipelineDescription : GTLRObject
+
+/** Pipeline level display data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_DisplayData *> *displayData;
+
+/** Description of each stage of execution of the pipeline. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ExecutionStageSummary *> *executionPipelineStage;
+
+/**
+ *  Description of each transform in the pipeline and collections between them.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_TransformSummary *> *originalPipelineTransform;
+
+@end
+
+
+/**
+ *  Position defines a position within a collection of data. The value
+ *  can be either the end position, a key (used with ordered
+ *  collections), a byte offset, or a record index.
  */
 @interface GTLRDataflow_Position : GTLRObject
 
@@ -2074,8 +3139,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_ConcatPosition *concatPosition;
 
 /**
- *  Position is past all other positions. Also useful for the end position of an
- *  unbounded range.
+ *  Position is past all other positions. Also useful for the end
+ *  position of an unbounded range.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2101,8 +3166,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Identifies a pubsub location to use for transferring data into or out of a
- *  streaming Dataflow job.
+ *  Identifies a pubsub location to use for transferring data into or
+ *  out of a streaming Dataflow job.
  */
 @interface GTLRDataflow_PubsubLocation : GTLRObject
 
@@ -2114,26 +3179,26 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSNumber *dropLateData;
 
 /**
- *  If set, contains a pubsub label from which to extract record ids. If left
- *  empty, record deduplication will be strictly best effort.
+ *  If set, contains a pubsub label from which to extract record ids.
+ *  If left empty, record deduplication will be strictly best effort.
  */
 @property(nonatomic, copy, nullable) NSString *idLabel;
 
 /**
- *  A pubsub subscription, in the form of "pubsub.googleapis.com/subscriptions/
- *  /"
+ *  A pubsub subscription, in the form of
+ *  "pubsub.googleapis.com/subscriptions/<project-id>/<subscription-name>"
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
 
 /**
- *  If set, contains a pubsub label from which to extract record timestamps. If
- *  left empty, record timestamps will be generated upon arrival.
+ *  If set, contains a pubsub label from which to extract record timestamps.
+ *  If left empty, record timestamps will be generated upon arrival.
  */
 @property(nonatomic, copy, nullable) NSString *timestampLabel;
 
 /**
- *  A pubsub topic, in the form of "pubsub.googleapis.com/topics/
- *  /"
+ *  A pubsub topic, in the form of
+ *  "pubsub.googleapis.com/topics/<project-id>/<topic-name>"
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
@@ -2154,7 +3219,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  An instruction that reads records. Takes no inputs, produces one output.
+ *  An instruction that reads records.
+ *  Takes no inputs, produces one output.
  */
 @interface GTLRDataflow_ReadInstruction : GTLRObject
 
@@ -2165,17 +3231,18 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Represents the level of parallelism in a WorkItem's input, reported by the
- *  worker.
+ *  Represents the level of parallelism in a WorkItem's input,
+ *  reported by the worker.
  */
 @interface GTLRDataflow_ReportedParallelism : GTLRObject
 
 /**
- *  Specifies whether the parallelism is infinite. If true, "value" is ignored.
- *  Infinite parallelism means the service will assume that the work item can
- *  always be split into more non-empty work items by dynamic splitting. This is
- *  a work-around for lack of support for infinity by the current JSON-based
- *  Java RPC stack.
+ *  Specifies whether the parallelism is infinite. If true, "value" is
+ *  ignored.
+ *  Infinite parallelism means the service will assume that the work item
+ *  can always be split into more non-empty work items by dynamic splitting.
+ *  This is a work-around for lack of support for infinity by the current
+ *  JSON-based Java RPC stack.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2197,22 +3264,23 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_ReportWorkItemStatusRequest : GTLRObject
 
 /** The current timestamp at the worker. */
-@property(nonatomic, copy, nullable) NSString *currentWorkerTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *currentWorkerTime;
 
 /** The location which contains the WorkItem's job. */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  The ID of the worker reporting the WorkItem status. If this does not match
- *  the ID of the worker which the Dataflow service believes currently has the
- *  lease on the WorkItem, the report will be dropped (with an error response).
+ *  The ID of the worker reporting the WorkItem status. If this
+ *  does not match the ID of the worker which the Dataflow service
+ *  believes currently has the lease on the WorkItem, the report
+ *  will be dropped (with an error response).
  */
 @property(nonatomic, copy, nullable) NSString *workerId;
 
 /**
- *  The order is unimportant, except that the order of the WorkItemServiceState
- *  messages in the ReportWorkItemStatusResponse corresponds to the order of
- *  WorkItemStatus messages here.
+ *  The order is unimportant, except that the order of the
+ *  WorkItemServiceState messages in the ReportWorkItemStatusResponse
+ *  corresponds to the order of WorkItemStatus messages here.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_WorkItemStatus *> *workItemStatuses;
 
@@ -2225,9 +3293,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_ReportWorkItemStatusResponse : GTLRObject
 
 /**
- *  A set of messages indicating the service-side state for each WorkItem whose
- *  status was reported, in the same order as the WorkItemStatus messages in the
- *  ReportWorkItemStatusRequest which resulting in this response.
+ *  A set of messages indicating the service-side state for each
+ *  WorkItem whose status was reported, in the same order as the
+ *  WorkItemStatus messages in the ReportWorkItemStatusRequest which
+ *  resulting in this response.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_WorkItemServiceState *> *workItemServiceStates;
 
@@ -2241,24 +3310,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @interface GTLRDataflow_ResourceUtilizationReport : GTLRObject
 
-/**
- *  'Any' is used to provide extensibility of reported metrics without requiring
- *  changes to the public API.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ResourceUtilizationReport_Metric_Item *> *metric;
+/** CPU utilization samples. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_CPUTime *> *cpuTime;
 
-@end
-
-
-/**
- *  GTLRDataflow_ResourceUtilizationReport_Metric_Item
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRDataflow_ResourceUtilizationReport_Metric_Item : GTLRObject
 @end
 
 
@@ -2275,16 +3329,16 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_RuntimeEnvironment : GTLRObject
 
 /**
- *  Whether to bypass the safety checks for the job's temporary directory. Use
- *  with caution.
+ *  Whether to bypass the safety checks for the job's temporary directory.
+ *  Use with caution.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bypassTempDirValidation;
 
 /**
- *  The maximum number of Google Compute Engine instances to be made available
- *  to your pipeline during execution, from 1 to 1000.
+ *  The maximum number of Google Compute Engine instances to be made
+ *  available to your pipeline during execution, from 1 to 1000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2294,15 +3348,15 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 /**
- *  The Cloud Storage path to use for temporary files. Must be a valid Cloud
- *  Storage URL, beginning with `gs://`.
+ *  The Cloud Storage path to use for temporary files.
+ *  Must be a valid Cloud Storage URL, beginning with `gs://`.
  */
 @property(nonatomic, copy, nullable) NSString *tempLocation;
 
 /**
  *  The Compute Engine [availability
- *  zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones) for
- *  launching worker instances to run your pipeline.
+ *  zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones)
+ *  for launching worker instances to run your pipeline.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2329,7 +3383,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Response to a send capture request. nothing
+ *  Response to a send capture request.
+ *  nothing
  */
 @interface GTLRDataflow_SendDebugCaptureResponse : GTLRObject
 @end
@@ -2372,12 +3427,15 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_SeqMapTaskOutputInfo *> *outputInfos;
 
 /**
- *  System-defined name of the stage containing the SeqDo operation. Unique
- *  across the workflow.
+ *  System-defined name of the stage containing the SeqDo operation.
+ *  Unique across the workflow.
  */
 @property(nonatomic, copy, nullable) NSString *stageName;
 
-/** System-defined name of the SeqDo operation. Unique across the workflow. */
+/**
+ *  System-defined name of the SeqDo operation.
+ *  Unique across the workflow.
+ */
 @property(nonatomic, copy, nullable) NSString *systemName;
 
 /** The user function to invoke. */
@@ -2440,14 +3498,15 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /**
  *  The source(s) to read element(s) from to get the value of this side input.
- *  If more than one source, then the elements are taken from the sources, in
- *  the specified order if order matters. At least one source is required.
+ *  If more than one source, then the elements are taken from the
+ *  sources, in the specified order if order matters.
+ *  At least one source is required.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Source *> *sources;
 
 /**
- *  The id of the tag the user code will access this side input by; this should
- *  correspond to the tag of some MultiOutputInfo.
+ *  The id of the tag the user code will access this side input by;
+ *  this should correspond to the tag of some MultiOutputInfo.
  */
 @property(nonatomic, copy, nullable) NSString *tag;
 
@@ -2510,12 +3569,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_Source : GTLRObject
 
 /**
- *  While splitting, sources may specify the produced bundles as differences
- *  against another source, in order to save backend-side memory and allow
- *  bigger jobs. For details, see SourceSplitRequest. To support this use case,
- *  the full set of parameters of the source is logically obtained by taking the
- *  latest explicitly specified value of each parameter in the order: base_specs
- *  (later items win), spec (overrides anything in base_specs).
+ *  While splitting, sources may specify the produced bundles
+ *  as differences against another source, in order to save backend-side
+ *  memory and allow bigger jobs. For details, see SourceSplitRequest.
+ *  To support this use case, the full set of parameters of the source
+ *  is logically obtained by taking the latest explicitly specified value
+ *  of each parameter in the order:
+ *  base_specs (later items win), spec (overrides anything in base_specs).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Source_BaseSpecs_Item *> *baseSpecs;
 
@@ -2523,28 +3583,33 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_Source_Codec *codec;
 
 /**
- *  Setting this value to true hints to the framework that the source doesn't
- *  need splitting, and using SourceSplitRequest on it would yield
- *  SOURCE_SPLIT_OUTCOME_USE_CURRENT. E.g. a file splitter may set this to true
- *  when splitting a single file into a set of byte ranges of appropriate size,
- *  and set this to false when splitting a filepattern into individual files.
- *  However, for efficiency, a file splitter may decide to produce file
- *  subranges directly from the filepattern to avoid a splitting round-trip. See
- *  SourceSplitRequest for an overview of the splitting process. This field is
- *  meaningful only in the Source objects populated by the user (e.g. when
- *  filling in a DerivedSource). Source objects supplied by the framework to the
- *  user don't have this field populated.
+ *  Setting this value to true hints to the framework that the source
+ *  doesn't need splitting, and using SourceSplitRequest on it would
+ *  yield SOURCE_SPLIT_OUTCOME_USE_CURRENT.
+ *  E.g. a file splitter may set this to true when splitting a single file
+ *  into a set of byte ranges of appropriate size, and set this
+ *  to false when splitting a filepattern into individual files.
+ *  However, for efficiency, a file splitter may decide to produce
+ *  file subranges directly from the filepattern to avoid a splitting
+ *  round-trip.
+ *  See SourceSplitRequest for an overview of the splitting process.
+ *  This field is meaningful only in the Source objects populated
+ *  by the user (e.g. when filling in a DerivedSource).
+ *  Source objects supplied by the framework to the user don't have
+ *  this field populated.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *doesNotNeedSplitting;
 
 /**
- *  Optionally, metadata for this source can be supplied right away, avoiding a
- *  SourceGetMetadataOperation roundtrip (see SourceOperationRequest). This
- *  field is meaningful only in the Source objects populated by the user (e.g.
- *  when filling in a DerivedSource). Source objects supplied by the framework
- *  to the user don't have this field populated.
+ *  Optionally, metadata for this source can be supplied right away,
+ *  avoiding a SourceGetMetadataOperation roundtrip
+ *  (see SourceOperationRequest).
+ *  This field is meaningful only in the Source objects populated
+ *  by the user (e.g. when filling in a DerivedSource).
+ *  Source objects supplied by the framework to the user don't have
+ *  this field populated.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_SourceMetadata *metadata;
 
@@ -2633,31 +3698,31 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Metadata about a Source useful for automatically optimizing and tuning the
- *  pipeline, etc.
+ *  Metadata about a Source useful for automatically optimizing
+ *  and tuning the pipeline, etc.
  */
 @interface GTLRDataflow_SourceMetadata : GTLRObject
 
 /**
- *  An estimate of the total size (in bytes) of the data that would be read from
- *  this source. This estimate is in terms of external storage size, before any
- *  decompression or other processing done by the reader.
+ *  An estimate of the total size (in bytes) of the data that would be
+ *  read from this source. This estimate is in terms of external storage
+ *  size, before any decompression or other processing done by the reader.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *estimatedSizeBytes;
 
 /**
- *  Specifies that the size of this source is known to be infinite (this is a
- *  streaming source).
+ *  Specifies that the size of this source is known to be infinite
+ *  (this is a streaming source).
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *infinite;
 
 /**
- *  Whether this source is known to produce key/value pairs with the (encoded)
- *  keys in lexicographically sorted order.
+ *  Whether this source is known to produce key/value pairs with
+ *  the (encoded) keys in lexicographically sorted order.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2667,8 +3732,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  A work item that represents the different operations that can be performed
- *  on a user-defined Source specification.
+ *  A work item that represents the different operations that can be
+ *  performed on a user-defined Source specification.
  */
 @interface GTLRDataflow_SourceOperationRequest : GTLRObject
 
@@ -2683,8 +3748,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /**
  *  The result of a SourceOperationRequest, specified in
- *  ReportWorkItemStatusRequest.source_operation when the work item is
- *  completed.
+ *  ReportWorkItemStatusRequest.source_operation when the work item
+ *  is completed.
  */
 @interface GTLRDataflow_SourceOperationResponse : GTLRObject
 
@@ -2698,14 +3763,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Hints for splitting a Source into bundles (parts for parallel processing)
- *  using SourceSplitRequest.
+ *  Hints for splitting a Source into bundles (parts for parallel
+ *  processing) using SourceSplitRequest.
  */
 @interface GTLRDataflow_SourceSplitOptions : GTLRObject
 
 /**
- *  The source should be split into a set of bundles where the estimated size of
- *  each is approximately this many bytes.
+ *  The source should be split into a set of bundles where the estimated size
+ *  of each is approximately this many bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2722,16 +3787,19 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Represents the operation to split a high-level Source specification into
- *  bundles (parts for parallel processing). At a high level, splitting of a
- *  source into bundles happens as follows: SourceSplitRequest is applied to the
- *  source. If it returns SOURCE_SPLIT_OUTCOME_USE_CURRENT, no further splitting
- *  happens and the source is used "as is". Otherwise, splitting is applied
- *  recursively to each produced DerivedSource. As an optimization, for any
- *  Source, if its does_not_need_splitting is true, the framework assumes that
- *  splitting this source would return SOURCE_SPLIT_OUTCOME_USE_CURRENT, and
- *  doesn't initiate a SourceSplitRequest. This applies both to the initial
- *  source being split and to bundles produced from it.
+ *  Represents the operation to split a high-level Source specification
+ *  into bundles (parts for parallel processing).
+ *  At a high level, splitting of a source into bundles happens as follows:
+ *  SourceSplitRequest is applied to the source. If it returns
+ *  SOURCE_SPLIT_OUTCOME_USE_CURRENT, no further splitting happens and the
+ *  source
+ *  is used "as is". Otherwise, splitting is applied recursively to each
+ *  produced DerivedSource.
+ *  As an optimization, for any Source, if its does_not_need_splitting is
+ *  true, the framework assumes that splitting this source would return
+ *  SOURCE_SPLIT_OUTCOME_USE_CURRENT, and doesn't initiate a SourceSplitRequest.
+ *  This applies both to the initial source being split and to bundles
+ *  produced from it.
  */
 @interface GTLRDataflow_SourceSplitRequest : GTLRObject
 
@@ -2750,26 +3818,29 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_SourceSplitResponse : GTLRObject
 
 /**
- *  If outcome is SPLITTING_HAPPENED, then this is a list of bundles into which
- *  the source was split. Otherwise this field is ignored. This list can be
- *  empty, which means the source represents an empty input.
+ *  If outcome is SPLITTING_HAPPENED, then this is a list of bundles
+ *  into which the source was split. Otherwise this field is ignored.
+ *  This list can be empty, which means the source represents an empty input.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_DerivedSource *> *bundles;
 
 /**
- *  Indicates whether splitting happened and produced a list of bundles. If this
- *  is USE_CURRENT_SOURCE_AS_IS, the current source should be processed "as is"
- *  without splitting. "bundles" is ignored in this case. If this is
- *  SPLITTING_HAPPENED, then "bundles" contains a list of bundles into which the
- *  source was split.
+ *  Indicates whether splitting happened and produced a list of bundles.
+ *  If this is USE_CURRENT_SOURCE_AS_IS, the current source should
+ *  be processed "as is" without splitting. "bundles" is ignored in this case.
+ *  If this is SPLITTING_HAPPENED, then "bundles" contains a list of
+ *  bundles into which the source was split.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeSplittingHappened
- *        Value "SOURCE_SPLIT_OUTCOME_SPLITTING_HAPPENED"
+ *        Splitting produced a list of bundles. (Value:
+ *        "SOURCE_SPLIT_OUTCOME_SPLITTING_HAPPENED")
  *    @arg @c kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeUnknown
- *        Value "SOURCE_SPLIT_OUTCOME_UNKNOWN"
+ *        The source split outcome is unknown, or unspecified. (Value:
+ *        "SOURCE_SPLIT_OUTCOME_UNKNOWN")
  *    @arg @c kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeUseCurrent
- *        Value "SOURCE_SPLIT_OUTCOME_USE_CURRENT"
+ *        The current source should be processed "as is" without splitting.
+ *        (Value: "SOURCE_SPLIT_OUTCOME_USE_CURRENT")
  */
 @property(nonatomic, copy, nullable) NSString *outcome;
 
@@ -2789,13 +3860,17 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeChildOfCurrent
- *        Value "SOURCE_DERIVATION_MODE_CHILD_OF_CURRENT"
+ *        Produce a Source based on the Source being split. (Value:
+ *        "SOURCE_DERIVATION_MODE_CHILD_OF_CURRENT")
  *    @arg @c kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeIndependent
- *        Value "SOURCE_DERIVATION_MODE_INDEPENDENT"
+ *        Produce a completely independent Source with no base. (Value:
+ *        "SOURCE_DERIVATION_MODE_INDEPENDENT")
  *    @arg @c kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeSiblingOfCurrent
- *        Value "SOURCE_DERIVATION_MODE_SIBLING_OF_CURRENT"
+ *        Produce a Source based on the base of the Source being split. (Value:
+ *        "SOURCE_DERIVATION_MODE_SIBLING_OF_CURRENT")
  *    @arg @c kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeUnknown
- *        Value "SOURCE_DERIVATION_MODE_UNKNOWN"
+ *        The source derivation is unknown, or unspecified. (Value:
+ *        "SOURCE_DERIVATION_MODE_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *derivationMode;
 
@@ -2829,6 +3904,33 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Description of an input or output of an execution stage.
+ */
+@interface GTLRDataflow_StageSource : GTLRObject
+
+/** Dataflow service generated name for this source. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  User name for the original user transform or collection with which this
+ *  source is most closely associated.
+ */
+@property(nonatomic, copy, nullable) NSString *originalTransformOrCollection;
+
+/**
+ *  Size of the source, if measurable.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeBytes;
+
+/** Human-readable name for this source; may be user or system generated. */
+@property(nonatomic, copy, nullable) NSString *userName;
+
+@end
+
+
+/**
  *  State family configuration.
  */
 @interface GTLRDataflow_StateFamilyConfig : GTLRObject
@@ -2848,38 +3950,48 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different programming environments, including REST APIs and RPC APIs. It is
- *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
- *  - Simple to use and understand for most users - Flexible enough to meet
- *  unexpected needs # Overview The `Status` message contains three pieces of
- *  data: error code, error message, and error details. The error code should be
- *  an enum value of google.rpc.Code, but it may accept additional error codes
- *  if needed. The error message should be a developer-facing English message
- *  that helps developers *understand* and *resolve* the error. If a localized
- *  user-facing error message is needed, put the localized message in the error
- *  details or localize it in the client. The optional error details may contain
- *  arbitrary information about the error. There is a predefined set of error
- *  detail types in the package `google.rpc` which can be used for common error
- *  conditions. # Language mapping The `Status` message is the logical
- *  representation of the error model, but it is not necessarily the actual wire
- *  format. When the `Status` message is exposed in different client libraries
- *  and different wire protocols, it can be mapped differently. For example, it
- *  will likely be mapped to some exceptions in Java, but more likely mapped to
- *  some error codes in C. # Other uses The error model and the `Status` message
- *  can be used in a variety of environments, either with or without APIs, to
- *  provide a consistent developer experience across different environments.
- *  Example uses of this error model include: - Partial errors. If a service
- *  needs to return partial errors to the client, it may embed the `Status` in
- *  the normal response to indicate the partial errors. - Workflow errors. A
- *  typical workflow has multiple steps. Each step may have a `Status` message
- *  for error reporting purpose. - Batch operations. If a client uses batch
- *  request and batch response, the `Status` message should be used directly
- *  inside batch response, one for each error sub-response. - Asynchronous
- *  operations. If an API call embeds asynchronous operation results in its
- *  response, the status of those operations should be represented directly
- *  using the `Status` message. - Logging. If some API errors are stored in
- *  logs, the message `Status` could be used directly after any stripping needed
- *  for security/privacy reasons.
+ *  different
+ *  programming environments, including REST APIs and RPC APIs. It is used by
+ *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  - Simple to use and understand for most users
+ *  - Flexible enough to meet unexpected needs
+ *  # Overview
+ *  The `Status` message contains three pieces of data: error code, error
+ *  message,
+ *  and error details. The error code should be an enum value of
+ *  google.rpc.Code, but it may accept additional error codes if needed. The
+ *  error message should be a developer-facing English message that helps
+ *  developers *understand* and *resolve* the error. If a localized user-facing
+ *  error message is needed, put the localized message in the error details or
+ *  localize it in the client. The optional error details may contain arbitrary
+ *  information about the error. There is a predefined set of error detail types
+ *  in the package `google.rpc` which can be used for common error conditions.
+ *  # Language mapping
+ *  The `Status` message is the logical representation of the error model, but
+ *  it
+ *  is not necessarily the actual wire format. When the `Status` message is
+ *  exposed in different client libraries and different wire protocols, it can
+ *  be
+ *  mapped differently. For example, it will likely be mapped to some exceptions
+ *  in Java, but more likely mapped to some error codes in C.
+ *  # Other uses
+ *  The error model and the `Status` message can be used in a variety of
+ *  environments, either with or without APIs, to provide a
+ *  consistent developer experience across different environments.
+ *  Example uses of this error model include:
+ *  - Partial errors. If a service needs to return partial errors to the client,
+ *  it may embed the `Status` in the normal response to indicate the partial
+ *  errors.
+ *  - Workflow errors. A typical workflow has multiple steps. Each step may
+ *  have a `Status` message for error reporting purpose.
+ *  - Batch operations. If a client uses batch request and batch response, the
+ *  `Status` message should be used directly inside batch response, one for
+ *  each error sub-response.
+ *  - Asynchronous operations. If an API call embeds asynchronous operation
+ *  results in its response, the status of those operations should be
+ *  represented directly using the `Status` message.
+ *  - Logging. If some API errors are stored in logs, the message `Status` could
+ *  be used directly after any stripping needed for security/privacy reasons.
  */
 @interface GTLRDataflow_Status : GTLRObject
 
@@ -2891,8 +4003,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a common set
- *  of message types for APIs to use.
+ *  A list of messages that carry the error details. There will be a
+ *  common set of message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Status_Details_Item *> *details;
 
@@ -2919,18 +4031,23 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Defines a particular step within a Cloud Dataflow job. A job consists of
- *  multiple steps, each of which performs some specific operation as part of
- *  the overall job. Data is typically passed from one step to another as part
- *  of the job. Here's an example of a sequence of steps which together
- *  implement a Map-Reduce job: * Read a collection of data from some source,
- *  parsing the collection's elements. * Validate the elements. * Apply a
- *  user-defined function to map each element to some value and extract an
- *  element-specific key value. * Group elements with the same key into a single
- *  element with that key, transforming a multiply-keyed collection into a
- *  uniquely-keyed collection. * Write the elements out to some data sink. Note
- *  that the Cloud Dataflow service may be used to run many different types of
- *  jobs, not just Map-Reduce.
+ *  Defines a particular step within a Cloud Dataflow job.
+ *  A job consists of multiple steps, each of which performs some
+ *  specific operation as part of the overall job. Data is typically
+ *  passed from one step to another as part of the job.
+ *  Here's an example of a sequence of steps which together implement a
+ *  Map-Reduce job:
+ *  * Read a collection of data from some source, parsing the
+ *  collection's elements.
+ *  * Validate the elements.
+ *  * Apply a user-defined function to map each element to some value
+ *  and extract an element-specific key value.
+ *  * Group elements with the same key into a single element with
+ *  that key, transforming a multiply-keyed collection into a
+ *  uniquely-keyed collection.
+ *  * Write the elements out to some data sink.
+ *  Note that the Cloud Dataflow service may be used to run many different
+ *  types of jobs, not just Map-Reduce.
  */
 @interface GTLRDataflow_Step : GTLRObject
 
@@ -2938,14 +4055,15 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name that identifies the step. This must be unique for each step with
- *  respect to all other steps in the Cloud Dataflow job.
+ *  The name that identifies the step. This must be unique for each
+ *  step with respect to all other steps in the Cloud Dataflow job.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Named properties associated with the step. Each kind of predefined step has
- *  its own required set of properties.
+ *  Named properties associated with the step. Each kind of
+ *  predefined step has its own required set of properties.
+ *  Must be provided on Create. Only retrieved with JOB_VIEW_ALL.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_Step_Properties *properties;
 
@@ -2953,8 +4071,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Named properties associated with the step. Each kind of predefined step has
- *  its own required set of properties.
+ *  Named properties associated with the step. Each kind of
+ *  predefined step has its own required set of properties.
+ *  Must be provided on Create. Only retrieved with JOB_VIEW_ALL.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2987,7 +4106,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /**
  *  Describes full or partial data disk assignment information of the
- *  computation ranges.
+ *  computation
+ *  ranges.
  */
 @interface GTLRDataflow_StreamingComputationRanges : GTLRObject
 
@@ -3017,11 +4137,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskStart
- *        Value "STREAMING_COMPUTATION_TASK_START"
+ *        Start processing specified streaming computation range(s). (Value:
+ *        "STREAMING_COMPUTATION_TASK_START")
  *    @arg @c kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskStop
- *        Value "STREAMING_COMPUTATION_TASK_STOP"
+ *        Stop processing specified streaming computation range(s). (Value:
+ *        "STREAMING_COMPUTATION_TASK_STOP")
  *    @arg @c kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskUnknown
- *        Value "STREAMING_COMPUTATION_TASK_UNKNOWN"
+ *        The streaming computation task is unknown, or unspecified. (Value:
+ *        "STREAMING_COMPUTATION_TASK_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *taskType;
 
@@ -3067,8 +4190,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSNumber *drain;
 
 /**
- *  The TCP port on which the worker should listen for messages from other
- *  streaming computation workers.
+ *  The TCP port on which the worker should listen for messages from
+ *  other streaming computation workers.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3078,8 +4201,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_TopologyConfig *streamingComputationTopology;
 
 /**
- *  The TCP port used by the worker to communicate with the Dataflow worker
- *  harness.
+ *  The TCP port used by the worker to communicate with the Dataflow
+ *  worker harness.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3103,20 +4226,23 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Identifies the location of a streaming computation stage, for stage-to-stage
- *  communication.
+ *  Identifies the location of a streaming computation stage, for
+ *  stage-to-stage communication.
  */
 @interface GTLRDataflow_StreamingStageLocation : GTLRObject
 
-/** Identifies the particular stream within the streaming Dataflow job. */
+/**
+ *  Identifies the particular stream within the streaming Dataflow
+ *  job.
+ */
 @property(nonatomic, copy, nullable) NSString *streamId;
 
 @end
 
 
 /**
- *  Describes a stream of data, either as input to be processed or as output of
- *  a streaming Dataflow job.
+ *  Describes a stream of data, either as input to be processed or as
+ *  output of a streaming Dataflow job.
  */
 @interface GTLRDataflow_StreamLocation : GTLRObject
 
@@ -3130,8 +4256,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_StreamingSideInputLocation *sideInputLocation;
 
 /**
- *  The stream is part of another computation within the current streaming
- *  Dataflow job.
+ *  The stream is part of another computation within the current
+ *  streaming Dataflow job.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_StreamingStageLocation *streamingStageLocation;
 
@@ -3166,11 +4292,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /**
  *  The base URL for the taskrunner to use when accessing Google Cloud APIs.
- *  When workers access Google Cloud APIs, they logically do so via relative
- *  URLs. If this field is specified, it supplies the base URL to use for
- *  resolving these relative URLs. The normative algorithm used is defined by
- *  RFC 1808, "Relative Uniform Resource Locators". If not specified, the
- *  default value is "http://www.googleapis.com/"
+ *  When workers access Google Cloud APIs, they logically do so via
+ *  relative URLs. If this field is specified, it supplies the base
+ *  URL to use for resolving these relative URLs. The normative
+ *  algorithm used is defined by RFC 1808, "Relative Uniform Resource
+ *  Locators".
+ *  If not specified, the default value is "http://www.googleapis.com/"
  */
 @property(nonatomic, copy, nullable) NSString *baseUrl;
 
@@ -3205,16 +4332,18 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSNumber *logToSerialconsole;
 
 /**
- *  Indicates where to put logs. If this is not specified, the logs will not be
- *  uploaded. The supported resource type is: Google Cloud Storage:
+ *  Indicates where to put logs. If this is not specified, the logs
+ *  will not be uploaded.
+ *  The supported resource type is:
+ *  Google Cloud Storage:
  *  storage.googleapis.com/{bucket}/{object}
  *  bucket.storage.googleapis.com/{object}
  */
 @property(nonatomic, copy, nullable) NSString *logUploadLocation;
 
 /**
- *  The OAuth2 scopes to be requested by the taskrunner in order to access the
- *  Cloud Dataflow API.
+ *  The OAuth2 scopes to be requested by the taskrunner in order to
+ *  access the Cloud Dataflow API.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *oauthScopes;
 
@@ -3225,20 +4354,22 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *streamingWorkerMainClass;
 
 /**
- *  The UNIX group ID on the worker VM to use for tasks launched by taskrunner;
- *  e.g. "wheel".
+ *  The UNIX group ID on the worker VM to use for tasks launched by
+ *  taskrunner; e.g. "wheel".
  */
 @property(nonatomic, copy, nullable) NSString *taskGroup;
 
 /**
- *  The UNIX user ID on the worker VM to use for tasks launched by taskrunner;
- *  e.g. "root".
+ *  The UNIX user ID on the worker VM to use for tasks launched by
+ *  taskrunner; e.g. "root".
  */
 @property(nonatomic, copy, nullable) NSString *taskUser;
 
 /**
- *  The prefix of the resources the taskrunner should use for temporary storage.
- *  The supported resource type is: Google Cloud Storage:
+ *  The prefix of the resources the taskrunner should use for
+ *  temporary storage.
+ *  The supported resource type is:
+ *  Google Cloud Storage:
  *  storage.googleapis.com/{bucket}/{object}
  *  bucket.storage.googleapis.com/{object}
  */
@@ -3254,8 +4385,39 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Global topology of the streaming Dataflow job, including all computations
- *  and their sharded locations.
+ *  Metadata describing a template.
+ */
+@interface GTLRDataflow_TemplateMetadata : GTLRObject
+
+/**
+ *  If true, will bypass the validation that the temp directory is
+ *  writable. This should only be used with templates for pipelines
+ *  that are guaranteed not to need to write to the temp directory,
+ *  which is subject to change based on the optimizer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bypassTempDirValidation;
+
+/**
+ *  Optional. A description of the template.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. The name of the template. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The parameters for the template. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ParameterMetadata *> *parameters;
+
+@end
+
+
+/**
+ *  Global topology of the streaming Dataflow job, including all
+ *  computations and their sharded locations.
  */
 @interface GTLRDataflow_TopologyConfig : GTLRObject
 
@@ -3298,9 +4460,62 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  WorkerHealthReport contains information about the health of a worker. The VM
- *  should be identified by the labels attached to the WorkerMessage that this
- *  health ping belongs to.
+ *  Description of the type, names/ids, and input/outputs for a transform.
+ */
+@interface GTLRDataflow_TransformSummary : GTLRObject
+
+/** Transform-specific display data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_DisplayData *> *displayData;
+
+/**
+ *  SDK generated id of this transform instance.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** User names for all collection inputs to this transform. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *inputCollectionName;
+
+/**
+ *  Type of transform.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_TransformSummary_Kind_ConstantKind Constructs from a
+ *        constant value, such as with Create.of. (Value: "CONSTANT_KIND")
+ *    @arg @c kGTLRDataflow_TransformSummary_Kind_FlattenKind Flatten transform.
+ *        (Value: "FLATTEN_KIND")
+ *    @arg @c kGTLRDataflow_TransformSummary_Kind_GroupByKeyKind Group By Key
+ *        transform. (Value: "GROUP_BY_KEY_KIND")
+ *    @arg @c kGTLRDataflow_TransformSummary_Kind_ParDoKind ParDo transform.
+ *        (Value: "PAR_DO_KIND")
+ *    @arg @c kGTLRDataflow_TransformSummary_Kind_ReadKind Read transform.
+ *        (Value: "READ_KIND")
+ *    @arg @c kGTLRDataflow_TransformSummary_Kind_ShuffleKind Opening or closing
+ *        a shuffle session, often as part of a GroupByKey. (Value:
+ *        "SHUFFLE_KIND")
+ *    @arg @c kGTLRDataflow_TransformSummary_Kind_SingletonKind Creates a
+ *        Singleton view of a collection. (Value: "SINGLETON_KIND")
+ *    @arg @c kGTLRDataflow_TransformSummary_Kind_UnknownKind Unrecognized
+ *        transform type. (Value: "UNKNOWN_KIND")
+ *    @arg @c kGTLRDataflow_TransformSummary_Kind_WriteKind Write transform.
+ *        (Value: "WRITE_KIND")
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** User provided name for this transform instance. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** User names for all collection outputs to this transform. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *outputCollectionName;
+
+@end
+
+
+/**
+ *  WorkerHealthReport contains information about the health of a worker.
+ *  The VM should be identified by the labels attached to the WorkerMessage that
+ *  this health ping belongs to.
  */
 @interface GTLRDataflow_WorkerHealthReport : GTLRObject
 
@@ -3313,11 +4528,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_WorkerHealthReport_Pods_Item *> *pods;
 
 /**
- *  The interval at which the worker is sending health reports. The default
- *  value of 0 should be interpreted as the field is not being explicitly set by
- *  the worker.
+ *  The interval at which the worker is sending health reports.
+ *  The default value of 0 should be interpreted as the field is not being
+ *  explicitly set by the worker.
  */
-@property(nonatomic, copy, nullable) NSString *reportInterval;
+@property(nonatomic, strong, nullable) GTLRDuration *reportInterval;
 
 /**
  *  Whether the VM is healthy.
@@ -3327,7 +4542,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSNumber *vmIsHealthy;
 
 /** The time the VM was booted. */
-@property(nonatomic, copy, nullable) NSString *vmStartupTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *vmStartupTime;
 
 @end
 
@@ -3345,17 +4560,18 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  WorkerHealthReportResponse contains information returned to the worker in
- *  response to a health ping.
+ *  WorkerHealthReportResponse contains information returned to the worker
+ *  in response to a health ping.
  */
 @interface GTLRDataflow_WorkerHealthReportResponse : GTLRObject
 
 /**
  *  A positive value indicates the worker should change its reporting interval
- *  to the specified value. The default value of zero means no change in report
- *  rate is requested by the server.
+ *  to the specified value.
+ *  The default value of zero means no change in report rate is requested by
+ *  the server.
  */
-@property(nonatomic, copy, nullable) NSString *reportInterval;
+@property(nonatomic, strong, nullable) GTLRDuration *reportInterval;
 
 @end
 
@@ -3366,17 +4582,21 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_WorkerMessage : GTLRObject
 
 /**
- *  Labels are used to group WorkerMessages. For example, a worker_message about
- *  a particular container might have the labels: { "JOB_ID": "2015-04-22",
- *  "WORKER_ID": "wordcount-vm-2015…" "CONTAINER_TYPE": "worker",
- *  "CONTAINER_ID": "ac1234def"} Label tags typically correspond to Label enum
- *  values. However, for ease of development other strings can be used as tags.
- *  LABEL_UNSPECIFIED should not be used here.
+ *  Labels are used to group WorkerMessages.
+ *  For example, a worker_message about a particular container
+ *  might have the labels:
+ *  { "JOB_ID": "2015-04-22",
+ *  "WORKER_ID": "wordcount-vm-2015…"
+ *  "CONTAINER_TYPE": "worker",
+ *  "CONTAINER_ID": "ac1234def"}
+ *  Label tags typically correspond to Label enum values. However, for ease
+ *  of development other strings can be used as tags. LABEL_UNSPECIFIED should
+ *  not be used here.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkerMessage_Labels *labels;
 
 /** The timestamp of the worker_message. */
-@property(nonatomic, copy, nullable) NSString *time;
+@property(nonatomic, strong, nullable) GTLRDateTime *time;
 
 /** The health of a worker. */
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkerHealthReport *workerHealthReport;
@@ -3391,12 +4611,16 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Labels are used to group WorkerMessages. For example, a worker_message about
- *  a particular container might have the labels: { "JOB_ID": "2015-04-22",
- *  "WORKER_ID": "wordcount-vm-2015…" "CONTAINER_TYPE": "worker",
- *  "CONTAINER_ID": "ac1234def"} Label tags typically correspond to Label enum
- *  values. However, for ease of development other strings can be used as tags.
- *  LABEL_UNSPECIFIED should not be used here.
+ *  Labels are used to group WorkerMessages.
+ *  For example, a worker_message about a particular container
+ *  might have the labels:
+ *  { "JOB_ID": "2015-04-22",
+ *  "WORKER_ID": "wordcount-vm-2015…"
+ *  "CONTAINER_TYPE": "worker",
+ *  "CONTAINER_ID": "ac1234def"}
+ *  Label tags typically correspond to Label enum values. However, for ease
+ *  of development other strings can be used as tags. LABEL_UNSPECIFIED should
+ *  not be used here.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3409,36 +4633,46 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /**
  *  A message code is used to report status and error messages to the service.
- *  The message codes are intended to be machine readable. The service will take
- *  care of translating these into user understandable messages if necessary.
- *  Example use cases: 1. Worker processes reporting successful startup. 2.
- *  Worker processes reporting specific errors (e.g. package staging failure).
+ *  The message codes are intended to be machine readable. The service will
+ *  take care of translating these into user understandable messages if
+ *  necessary.
+ *  Example use cases:
+ *  1. Worker processes reporting successful startup.
+ *  2. Worker processes reporting specific errors (e.g. package staging
+ *  failure).
  */
 @interface GTLRDataflow_WorkerMessageCode : GTLRObject
 
 /**
  *  The code is a string intended for consumption by a machine that identifies
- *  the type of message being sent. Examples: 1. "HARNESS_STARTED" might be used
- *  to indicate the worker harness has started. 2. "GCS_DOWNLOAD_ERROR" might be
- *  used to indicate an error downloading a GCS file as part of the boot process
- *  of one of the worker containers. This is a string and not an enum to make it
- *  easy to add new codes without waiting for an API change.
+ *  the type of message being sent.
+ *  Examples:
+ *  1. "HARNESS_STARTED" might be used to indicate the worker harness has
+ *  started.
+ *  2. "GCS_DOWNLOAD_ERROR" might be used to indicate an error downloading
+ *  a GCS file as part of the boot process of one of the worker containers.
+ *  This is a string and not an enum to make it easy to add new codes without
+ *  waiting for an API change.
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
 /**
- *  Parameters contains specific information about the code. This is a struct to
- *  allow parameters of different types. Examples: 1. For a "HARNESS_STARTED"
- *  message parameters might provide the name of the worker and additional data
- *  like timing information. 2. For a "GCS_DOWNLOAD_ERROR" parameters might
- *  contain fields listing the GCS objects being downloaded and fields
- *  containing errors. In general complex data structures should be avoided. If
- *  a worker needs to send a specific and complicated data structure then please
+ *  Parameters contains specific information about the code.
+ *  This is a struct to allow parameters of different types.
+ *  Examples:
+ *  1. For a "HARNESS_STARTED" message parameters might provide the name
+ *  of the worker and additional data like timing information.
+ *  2. For a "GCS_DOWNLOAD_ERROR" parameters might contain fields listing
+ *  the GCS objects being downloaded and fields containing errors.
+ *  In general complex data structures should be avoided. If a worker
+ *  needs to send a specific and complicated data structure then please
  *  consider defining a new proto and adding it to the data oneof in
- *  WorkerMessageResponse. Conventions: Parameters should only be used for
- *  information that isn't typically passed as a label. hostname and other
- *  worker identifiers should almost always be passed as labels since they will
- *  be included on most messages.
+ *  WorkerMessageResponse.
+ *  Conventions:
+ *  Parameters should only be used for information that isn't typically passed
+ *  as a label.
+ *  hostname and other worker identifiers should almost always be passed
+ *  as labels since they will be included on most messages.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkerMessageCode_Parameters *parameters;
 
@@ -3446,18 +4680,22 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Parameters contains specific information about the code. This is a struct to
- *  allow parameters of different types. Examples: 1. For a "HARNESS_STARTED"
- *  message parameters might provide the name of the worker and additional data
- *  like timing information. 2. For a "GCS_DOWNLOAD_ERROR" parameters might
- *  contain fields listing the GCS objects being downloaded and fields
- *  containing errors. In general complex data structures should be avoided. If
- *  a worker needs to send a specific and complicated data structure then please
+ *  Parameters contains specific information about the code.
+ *  This is a struct to allow parameters of different types.
+ *  Examples:
+ *  1. For a "HARNESS_STARTED" message parameters might provide the name
+ *  of the worker and additional data like timing information.
+ *  2. For a "GCS_DOWNLOAD_ERROR" parameters might contain fields listing
+ *  the GCS objects being downloaded and fields containing errors.
+ *  In general complex data structures should be avoided. If a worker
+ *  needs to send a specific and complicated data structure then please
  *  consider defining a new proto and adding it to the data oneof in
- *  WorkerMessageResponse. Conventions: Parameters should only be used for
- *  information that isn't typically passed as a label. hostname and other
- *  worker identifiers should almost always be passed as labels since they will
- *  be included on most messages.
+ *  WorkerMessageResponse.
+ *  Conventions:
+ *  Parameters should only be used for information that isn't typically passed
+ *  as a label.
+ *  hostname and other worker identifiers should almost always be passed
+ *  as labels since they will be included on most messages.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3484,10 +4722,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Describes one particular pool of Cloud Dataflow workers to be instantiated
- *  by the Cloud Dataflow service in order to perform the computations required
- *  by a job. Note that a workflow job may use multiple pools, in order to match
- *  the various computational requirements of the various stages of the job.
+ *  Describes one particular pool of Cloud Dataflow workers to be
+ *  instantiated by the Cloud Dataflow service in order to perform the
+ *  computations required by a job. Note that a workflow job may use
+ *  multiple pools, in order to match the various computational
+ *  requirements of the various stages of the job.
  */
 @interface GTLRDataflow_WorkerPool : GTLRObject
 
@@ -3498,19 +4737,23 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Disk *> *dataDisks;
 
 /**
- *  The default package set to install. This allows the service to select a
- *  default set of packages which are useful to worker harnesses written in a
- *  particular language.
+ *  The default package set to install. This allows the service to
+ *  select a default set of packages which are useful to worker
+ *  harnesses written in a particular language.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetJava
- *        Value "DEFAULT_PACKAGE_SET_JAVA"
+ *        Stage packages typically useful to workers written in Java. (Value:
+ *        "DEFAULT_PACKAGE_SET_JAVA")
  *    @arg @c kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetNone
- *        Value "DEFAULT_PACKAGE_SET_NONE"
+ *        Indicates that no packages should be staged at the worker unless
+ *        explicitly specified by the job. (Value: "DEFAULT_PACKAGE_SET_NONE")
  *    @arg @c kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetPython
- *        Value "DEFAULT_PACKAGE_SET_PYTHON"
+ *        Stage pacakges typically useful to workers written in Python. (Value:
+ *        "DEFAULT_PACKAGE_SET_PYTHON")
  *    @arg @c kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetUnknown
- *        Value "DEFAULT_PACKAGE_SET_UNKNOWN"
+ *        The default set of packages to stage is unknown, or unspecified.
+ *        (Value: "DEFAULT_PACKAGE_SET_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *defaultPackageSet;
 
@@ -3526,8 +4769,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *diskSourceImage;
 
 /**
- *  Type of root disk for VMs. If empty or unspecified, the service will attempt
- *  to choose a reasonable default.
+ *  Type of root disk for VMs. If empty or unspecified, the service will
+ *  attempt to choose a reasonable default.
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
@@ -3535,24 +4778,25 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Configuration for VM IPs.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpPrivate Value
- *        "WORKER_IP_PRIVATE"
- *    @arg @c kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpPublic Value
- *        "WORKER_IP_PUBLIC"
- *    @arg @c kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpUnspecified Value
- *        "WORKER_IP_UNSPECIFIED"
+ *    @arg @c kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpPrivate Workers
+ *        should have private IP addresses. (Value: "WORKER_IP_PRIVATE")
+ *    @arg @c kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpPublic Workers
+ *        should have public IP addresses. (Value: "WORKER_IP_PUBLIC")
+ *    @arg @c kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpUnspecified The
+ *        configuration is unknown, or unspecified. (Value:
+ *        "WORKER_IP_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *ipConfiguration;
 
 /**
- *  The kind of the worker pool; currently only `harness` and `shuffle` are
- *  supported.
+ *  The kind of the worker pool; currently only `harness` and `shuffle`
+ *  are supported.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Machine type (e.g. "n1-standard-1"). If empty or unspecified, the service
- *  will attempt to choose a reasonable default.
+ *  Machine type (e.g. "n1-standard-1"). If empty or unspecified, the
+ *  service will attempt to choose a reasonable default.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
@@ -3560,32 +4804,32 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkerPool_Metadata *metadata;
 
 /**
- *  Network to which VMs will be assigned. If empty or unspecified, the service
- *  will use the network "default".
+ *  Network to which VMs will be assigned. If empty or unspecified,
+ *  the service will use the network "default".
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
  *  The number of threads per worker harness. If empty or unspecified, the
- *  service will choose a number of threads (according to the number of cores on
- *  the selected machine type for batch, or 1 by convention for streaming).
+ *  service will choose a number of threads (according to the number of cores
+ *  on the selected machine type for batch, or 1 by convention for streaming).
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numThreadsPerWorker;
 
 /**
- *  Number of Google Compute Engine workers in this pool needed to execute the
- *  job. If zero or unspecified, the service will attempt to choose a reasonable
- *  default.
+ *  Number of Google Compute Engine workers in this pool needed to
+ *  execute the job. If zero or unspecified, the service will
+ *  attempt to choose a reasonable default.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numWorkers;
 
 /**
- *  The action to take on host maintenance, as defined by the Google Compute
- *  Engine API.
+ *  The action to take on host maintenance, as defined by the Google
+ *  Compute Engine API.
  */
 @property(nonatomic, copy, nullable) NSString *onHostMaintenance;
 
@@ -3596,39 +4840,46 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkerPool_PoolArgs *poolArgs;
 
 /**
- *  Subnetwork to which VMs will be assigned, if desired. Expected to be of the
- *  form "regions/REGION/subnetworks/SUBNETWORK".
+ *  Subnetwork to which VMs will be assigned, if desired. Expected to be of
+ *  the form "regions/REGION/subnetworks/SUBNETWORK".
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
 /**
- *  Settings passed through to Google Compute Engine workers when using the
- *  standard Dataflow task runner. Users should ignore this field.
+ *  Settings passed through to Google Compute Engine workers when
+ *  using the standard Dataflow task runner. Users should ignore
+ *  this field.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_TaskRunnerSettings *taskrunnerSettings;
 
 /**
- *  Sets the policy for determining when to turndown worker pool. Allowed values
- *  are: `TEARDOWN_ALWAYS`, `TEARDOWN_ON_SUCCESS`, and `TEARDOWN_NEVER`.
+ *  Sets the policy for determining when to turndown worker pool.
+ *  Allowed values are: `TEARDOWN_ALWAYS`, `TEARDOWN_ON_SUCCESS`, and
+ *  `TEARDOWN_NEVER`.
  *  `TEARDOWN_ALWAYS` means workers are always torn down regardless of whether
- *  the job succeeds. `TEARDOWN_ON_SUCCESS` means workers are torn down if the
- *  job succeeds. `TEARDOWN_NEVER` means the workers are never torn down. If the
- *  workers are not torn down by the service, they will continue to run and use
- *  Google Compute Engine VM resources in the user's project until they are
- *  explicitly terminated by the user. Because of this, Google recommends using
- *  the `TEARDOWN_ALWAYS` policy except for small, manually supervised test
- *  jobs. If unknown or unspecified, the service will attempt to choose a
- *  reasonable default.
+ *  the job succeeds. `TEARDOWN_ON_SUCCESS` means workers are torn down
+ *  if the job succeeds. `TEARDOWN_NEVER` means the workers are never torn
+ *  down.
+ *  If the workers are not torn down by the service, they will
+ *  continue to run and use Google Compute Engine VM resources in the
+ *  user's project until they are explicitly terminated by the user.
+ *  Because of this, Google recommends using the `TEARDOWN_ALWAYS`
+ *  policy except for small, manually supervised test jobs.
+ *  If unknown or unspecified, the service will attempt to choose a reasonable
+ *  default.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownAlways Value
- *        "TEARDOWN_ALWAYS"
- *    @arg @c kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownNever Value
- *        "TEARDOWN_NEVER"
- *    @arg @c kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownOnSuccess Value
- *        "TEARDOWN_ON_SUCCESS"
- *    @arg @c kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown
- *        Value "TEARDOWN_POLICY_UNKNOWN"
+ *    @arg @c kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownAlways Always
+ *        teardown the resource. (Value: "TEARDOWN_ALWAYS")
+ *    @arg @c kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownNever Never
+ *        teardown the resource. This is useful for debugging and
+ *        development. (Value: "TEARDOWN_NEVER")
+ *    @arg @c kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownOnSuccess Teardown
+ *        the resource on success. This is useful for debugging
+ *        failures. (Value: "TEARDOWN_ON_SUCCESS")
+ *    @arg @c kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown The
+ *        teardown policy isn't specified, or is unknown. (Value:
+ *        "TEARDOWN_POLICY_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *teardownPolicy;
 
@@ -3639,8 +4890,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *workerHarnessContainerImage;
 
 /**
- *  Zone to run the worker pools in. If empty or unspecified, the service will
- *  attempt to choose a reasonable default.
+ *  Zone to run the worker pools in. If empty or unspecified, the service
+ *  will attempt to choose a reasonable default.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3679,12 +4930,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_WorkerSettings : GTLRObject
 
 /**
- *  The base URL for accessing Google Cloud APIs. When workers access Google
- *  Cloud APIs, they logically do so via relative URLs. If this field is
- *  specified, it supplies the base URL to use for resolving these relative
- *  URLs. The normative algorithm used is defined by RFC 1808, "Relative Uniform
- *  Resource Locators". If not specified, the default value is
- *  "http://www.googleapis.com/"
+ *  The base URL for accessing Google Cloud APIs.
+ *  When workers access Google Cloud APIs, they logically do so via
+ *  relative URLs. If this field is specified, it supplies the base
+ *  URL to use for resolving these relative URLs. The normative
+ *  algorithm used is defined by RFC 1808, "Relative Uniform Resource
+ *  Locators".
+ *  If not specified, the default value is "http://www.googleapis.com/"
  */
 @property(nonatomic, copy, nullable) NSString *baseUrl;
 
@@ -3708,8 +4960,10 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *shuffleServicePath;
 
 /**
- *  The prefix of the resources the system should use for temporary storage. The
- *  supported resource type is: Google Cloud Storage:
+ *  The prefix of the resources the system should use for temporary
+ *  storage.
+ *  The supported resource type is:
+ *  Google Cloud Storage:
  *  storage.googleapis.com/{bucket}/{object}
  *  bucket.storage.googleapis.com/{object}
  */
@@ -3722,8 +4976,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  WorkItem represents basic information about a WorkItem to be executed in the
- *  cloud.
+ *  WorkItem represents basic information about a WorkItem to be executed
+ *  in the cloud.
  */
 @interface GTLRDataflow_WorkItem : GTLRObject
 
@@ -3750,14 +5004,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /** Time when the lease on this Work will expire. */
-@property(nonatomic, copy, nullable) NSString *leaseExpireTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *leaseExpireTime;
 
 /** Additional information for MapTask WorkItems. */
 @property(nonatomic, strong, nullable) GTLRDataflow_MapTask *mapTask;
 
 /**
- *  Any required packages that need to be fetched in order to execute this
- *  WorkItem.
+ *  Any required packages that need to be fetched in order to execute
+ *  this WorkItem.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Package *> *packages;
 
@@ -3765,7 +5019,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Recommended reporting interval. */
-@property(nonatomic, copy, nullable) NSString *reportStatusInterval;
+@property(nonatomic, strong, nullable) GTLRDuration *reportStatusInterval;
 
 /** Additional information for SeqMapTask WorkItems. */
 @property(nonatomic, strong, nullable) GTLRDataflow_SeqMapTask *seqMapTask;
@@ -3789,44 +5043,45 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  The Dataflow service's idea of the current state of a WorkItem being
- *  processed by a worker.
+ *  The Dataflow service's idea of the current state of a WorkItem
+ *  being processed by a worker.
  */
 @interface GTLRDataflow_WorkItemServiceState : GTLRObject
 
 /**
- *  Other data returned by the service, specific to the particular worker
- *  harness.
+ *  Other data returned by the service, specific to the particular
+ *  worker harness.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkItemServiceState_HarnessData *harnessData;
 
 /** Time at which the current lease will expire. */
-@property(nonatomic, copy, nullable) NSString *leaseExpireTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *leaseExpireTime;
 
 /**
- *  The short ids that workers should use in subsequent metric updates. Workers
- *  should strive to use short ids whenever possible, but it is ok to request
- *  the short_id again if a worker lost track of it (e.g. if the worker is
- *  recovering from a crash). NOTE: it is possible that the response may have
- *  short ids for a subset of the metrics.
+ *  The short ids that workers should use in subsequent metric updates.
+ *  Workers should strive to use short ids whenever possible, but it is ok
+ *  to request the short_id again if a worker lost track of it
+ *  (e.g. if the worker is recovering from a crash).
+ *  NOTE: it is possible that the response may have short ids for a subset
+ *  of the metrics.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_MetricShortId *> *metricShortId;
 
 /**
- *  The index value to use for the next report sent by the worker. Note: If the
- *  report call fails for whatever reason, the worker should reuse this index
- *  for subsequent report attempts.
+ *  The index value to use for the next report sent by the worker.
+ *  Note: If the report call fails for whatever reason, the worker should
+ *  reuse this index for subsequent report attempts.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nextReportIndex;
 
 /** New recommended reporting interval. */
-@property(nonatomic, copy, nullable) NSString *reportStatusInterval;
+@property(nonatomic, strong, nullable) GTLRDuration *reportStatusInterval;
 
 /**
- *  The progress point in the WorkItem where the Dataflow service suggests that
- *  the worker truncate the task.
+ *  The progress point in the WorkItem where the Dataflow service
+ *  suggests that the worker truncate the task.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_ApproximateSplitRequest *splitRequest;
 
@@ -3840,8 +5095,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Other data returned by the service, specific to the particular worker
- *  harness.
+ *  Other data returned by the service, specific to the particular
+ *  worker harness.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3871,8 +5126,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_DynamicSourceSplit *dynamicSourceSplit;
 
 /**
- *  Specifies errors which occurred during processing. If errors are provided,
- *  and completed = true, then the WorkItem is considered to have failed.
+ *  Specifies errors which occurred during processing. If errors are
+ *  provided, and completed = true, then the WorkItem is considered
+ *  to have failed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Status *> *errors;
 
@@ -3886,57 +5142,64 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_ApproximateReportedProgress *reportedProgress;
 
 /**
- *  The report index. When a WorkItem is leased, the lease will contain an
- *  initial report index. When a WorkItem's status is reported to the system,
- *  the report should be sent with that report index, and the response will
- *  contain the index the worker should use for the next report. Reports
- *  received with unexpected index values will be rejected by the service. In
- *  order to preserve idempotency, the worker should not alter the contents of a
- *  report, even if the worker must submit the same report multiple times before
- *  getting back a response. The worker should not submit a subsequent report
- *  until the response for the previous report had been received from the
- *  service.
+ *  The report index. When a WorkItem is leased, the lease will
+ *  contain an initial report index. When a WorkItem's status is
+ *  reported to the system, the report should be sent with
+ *  that report index, and the response will contain the index the
+ *  worker should use for the next report. Reports received with
+ *  unexpected index values will be rejected by the service.
+ *  In order to preserve idempotency, the worker should not alter the
+ *  contents of a report, even if the worker must submit the same
+ *  report multiple times before getting back a response. The worker
+ *  should not submit a subsequent report until the response for the
+ *  previous report had been received from the service.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reportIndex;
 
 /** Amount of time the worker requests for its lease. */
-@property(nonatomic, copy, nullable) NSString *requestedLeaseDuration;
+@property(nonatomic, strong, nullable) GTLRDuration *requestedLeaseDuration;
 
 /** DEPRECATED in favor of dynamic_source_split. */
 @property(nonatomic, strong, nullable) GTLRDataflow_SourceFork *sourceFork;
 
 /**
- *  If the work item represented a SourceOperationRequest, and the work is
- *  completed, contains the result of the operation.
+ *  If the work item represented a SourceOperationRequest, and the work
+ *  is completed, contains the result of the operation.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_SourceOperationResponse *sourceOperationResponse;
 
 /**
  *  A worker may split an active map task in two parts, "primary" and
  *  "residual", continuing to process the primary part and returning the
- *  residual part into the pool of available work. This event is called a
- *  "dynamic split" and is critical to the dynamic work rebalancing feature. The
- *  two obtained sub-tasks are called "parts" of the split. The parts, if
- *  concatenated, must represent the same input as would be read by the current
- *  task if the split did not happen. The exact way in which the original task
- *  is decomposed into the two parts is specified either as a position
- *  demarcating them (stop_position), or explicitly as two DerivedSources, if
- *  this task consumes a user-defined source type (dynamic_source_split). The
- *  "current" task is adjusted as a result of the split: after a task with range
- *  [A, B) sends a stop_position update at C, its range is considered to be [A,
- *  C), e.g.: * Progress should be interpreted relative to the new range, e.g.
- *  "75% completed" means "75% of [A, C) completed" * The worker should
- *  interpret proposed_stop_position relative to the new range, e.g. "split at
- *  68%" should be interpreted as "split at 68% of [A, C)". * If the worker
- *  chooses to split again using stop_position, only stop_positions in [A, C)
- *  will be accepted. * Etc. dynamic_source_split has similar semantics: e.g.,
- *  if a task with source S splits using dynamic_source_split into {P, R} (where
- *  P and R must be together equivalent to S), then subsequent progress and
- *  proposed_stop_position should be interpreted relative to P, and in a
- *  potential subsequent dynamic_source_split into {P', R'}, P' and R' must be
- *  together equivalent to P, etc.
+ *  residual part into the pool of available work.
+ *  This event is called a "dynamic split" and is critical to the dynamic
+ *  work rebalancing feature. The two obtained sub-tasks are called
+ *  "parts" of the split.
+ *  The parts, if concatenated, must represent the same input as would
+ *  be read by the current task if the split did not happen.
+ *  The exact way in which the original task is decomposed into the two
+ *  parts is specified either as a position demarcating them
+ *  (stop_position), or explicitly as two DerivedSources, if this
+ *  task consumes a user-defined source type (dynamic_source_split).
+ *  The "current" task is adjusted as a result of the split: after a task
+ *  with range [A, B) sends a stop_position update at C, its range is
+ *  considered to be [A, C), e.g.:
+ *  * Progress should be interpreted relative to the new range, e.g.
+ *  "75% completed" means "75% of [A, C) completed"
+ *  * The worker should interpret proposed_stop_position relative to the
+ *  new range, e.g. "split at 68%" should be interpreted as
+ *  "split at 68% of [A, C)".
+ *  * If the worker chooses to split again using stop_position, only
+ *  stop_positions in [A, C) will be accepted.
+ *  * Etc.
+ *  dynamic_source_split has similar semantics: e.g., if a task with
+ *  source S splits using dynamic_source_split into {P, R}
+ *  (where P and R must be together equivalent to S), then subsequent
+ *  progress and proposed_stop_position should be interpreted relative
+ *  to P, and in a potential subsequent dynamic_source_split into {P', R'},
+ *  P' and R' must be together equivalent to P, etc.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_Position *stopPosition;
 
@@ -3947,7 +5210,8 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  An instruction that writes records. Takes one input, produces no outputs.
+ *  An instruction that writes records.
+ *  Takes one input, produces no outputs.
  */
 @interface GTLRDataflow_WriteInstruction : GTLRObject
 

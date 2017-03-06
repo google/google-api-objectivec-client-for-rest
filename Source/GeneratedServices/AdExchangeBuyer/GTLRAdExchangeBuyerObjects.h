@@ -429,7 +429,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *advertiserId;
 
-/** The name of the company being advertised in the creative. */
+/**
+ *  The name of the company being advertised in the creative. The value provided
+ *  must exist in the advertisers.txt file.
+ */
 @property(nonatomic, copy, nullable) NSString *advertiserName;
 
 /**
@@ -447,7 +450,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *apiUploadTimestamp;
 
 /**
- *  All attributes for the ads that may be shown from this snippet.
+ *  List of buyer selectable attributes for the ads that may be shown from this
+ *  snippet. Each attribute is represented by an integer as defined in
+ *  buyer-declarable-creative-attributes.txt.
  *
  *  Uses NSNumber of intValue.
  */
@@ -527,8 +532,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *openAuctionStatus;
 
 /**
- *  Detected product categories, if any. Read-only. This field should not be set
- *  in requests.
+ *  Detected product categories, if any. Each category is represented by an
+ *  integer as defined in ad-product-categories.txt. Read-only. This field
+ *  should not be set in requests.
  *
  *  Uses NSNumber of intValue.
  */
@@ -536,14 +542,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  All restricted categories for the ads that may be shown from this snippet.
+ *  Each category is represented by an integer as defined in the
+ *  ad-restricted-categories.txt.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *restrictedCategories;
 
 /**
- *  Detected sensitive categories, if any. Read-only. This field should not be
- *  set in requests.
+ *  Detected sensitive categories, if any. Each category is represented by an
+ *  integer as defined in ad-sensitive-categories.txt. Read-only. This field
+ *  should not be set in requests.
  *
  *  Uses NSNumber of intValue.
  */
@@ -558,7 +567,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item *> *servingRestrictions;
 
 /**
- *  All vendor types for the ads that may be shown from this snippet.
+ *  List of vendor types for the ads that may be shown from this snippet. Each
+ *  vendor type is represented by an integer as defined in vendors.txt.
  *
  *  Uses NSNumber of intValue.
  */
@@ -751,8 +761,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *filteringCount;
 
 /**
- *  The filtering status code. Please refer to the creative-status-codes.txt
- *  file for different statuses.
+ *  The filtering status code as defined in creative-status-codes.txt.
  *
  *  Uses NSNumber of intValue.
  */
@@ -849,7 +858,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Only set when contextType=LOCATION. Represents the geo criterias this
- *  restriction applies to.
+ *  restriction applies to. Impressions are considered to match a context if
+ *  either the user location or publisher location matches a given
+ *  geoCriteriaId.
  *
  *  Uses NSNumber of intValue.
  */
@@ -953,6 +964,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRAdExchangeBuyer_DealServingMetadata
  */
 @interface GTLRAdExchangeBuyer_DealServingMetadata : GTLRObject
+
+/**
+ *  True if alcohol ads are allowed for this deal (read-only). This field is
+ *  only populated when querying for finalized orders using the method
+ *  GetFinalizedOrderDeals
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *alcoholAdsAllowed;
 
 /**
  *  Tracks which parties (if any) have paused a deal. (readonly, except via

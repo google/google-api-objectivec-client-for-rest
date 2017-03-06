@@ -4,9 +4,9 @@
 // API:
 //   Cloud Tool Results API (toolresults/v1beta3)
 // Description:
-//   Reads and publishes results from Cloud Test Lab.
+//   Reads and publishes results from Firebase Test Lab.
 // Documentation:
-//   https://developers.google.com/cloud-test-lab/
+//   https://firebase.google.com/docs/test-lab/
 
 #import "GTLRToolResultsObjects.h"
 #import "GTLRToolResultsQuery.h"

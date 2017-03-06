@@ -63,6 +63,7 @@
 @class GTLRBigquery_TableFieldSchema;
 @class GTLRBigquery_TableList_Tables_Item;
 @class GTLRBigquery_TableList_Tables_Item_Labels;
+@class GTLRBigquery_TableList_Tables_Item_View;
 @class GTLRBigquery_TableReference;
 @class GTLRBigquery_TableRow;
 @class GTLRBigquery_TableSchema;
@@ -976,11 +977,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [Experimental] The labels associated with this job. You can use these to
  *  organize and group your jobs. Label keys and values can be no longer than 63
- *  characters, can only contain letters, numeric characters, underscores and
- *  dashes. International characters are allowed. Label values are optional.
- *  Label keys must start with a letter and must be unique within a dataset.
- *  Both keys and values are additionally constrained to be <= 128 bytes in
- *  size.
+ *  characters, can only contain lowercase letters, numeric characters,
+ *  underscores and dashes. International characters are allowed. Label values
+ *  are optional. Label keys must start with a letter and each label in the list
+ *  must have a different key.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfiguration_Labels *labels;
 
@@ -996,11 +996,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [Experimental] The labels associated with this job. You can use these to
  *  organize and group your jobs. Label keys and values can be no longer than 63
- *  characters, can only contain letters, numeric characters, underscores and
- *  dashes. International characters are allowed. Label values are optional.
- *  Label keys must start with a letter and must be unique within a dataset.
- *  Both keys and values are additionally constrained to be <= 128 bytes in
- *  size.
+ *  characters, can only contain lowercase letters, numeric characters,
+ *  underscores and dashes. International characters are allowed. Label values
+ *  are optional. Label keys must start with a letter and each label in the list
+ *  must have a different key.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2202,11 +2201,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [Experimental] The labels associated with this table. You can use these to
  *  organize and group your tables. Label keys and values can be no longer than
- *  63 characters, can only contain letters, numeric characters, underscores and
- *  dashes. International characters are allowed. Label values are optional.
- *  Label keys must start with a letter and must be unique within a dataset.
- *  Both keys and values are additionally constrained to be <= 128 bytes in
- *  size.
+ *  63 characters, can only contain lowercase letters, numeric characters,
+ *  underscores and dashes. International characters are allowed. Label values
+ *  are optional. Label keys must start with a letter and each label in the list
+ *  must have a different key.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Table_Labels *labels;
 
@@ -2287,11 +2285,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [Experimental] The labels associated with this table. You can use these to
  *  organize and group your tables. Label keys and values can be no longer than
- *  63 characters, can only contain letters, numeric characters, underscores and
- *  dashes. International characters are allowed. Label values are optional.
- *  Label keys must start with a letter and must be unique within a dataset.
- *  Both keys and values are additionally constrained to be <= 128 bytes in
- *  size.
+ *  63 characters, can only contain lowercase letters, numeric characters,
+ *  underscores and dashes. International characters are allowed. Label values
+ *  are optional. Label keys must start with a letter and each label in the list
+ *  must have a different key.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2552,6 +2549,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The type of table. Possible values are: TABLE, VIEW. */
 @property(nonatomic, copy, nullable) NSString *type;
 
+/** Additional details for a view. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableList_Tables_Item_View *view;
+
 @end
 
 
@@ -2565,6 +2565,21 @@ NS_ASSUME_NONNULL_BEGIN
  *        fetch them all at once.
  */
 @interface GTLRBigquery_TableList_Tables_Item_Labels : GTLRObject
+@end
+
+
+/**
+ *  Additional details for a view.
+ */
+@interface GTLRBigquery_TableList_Tables_Item_View : GTLRObject
+
+/**
+ *  True if view is defined in legacy SQL dialect, false if in standard SQL.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useLegacySql;
+
 @end
 
 

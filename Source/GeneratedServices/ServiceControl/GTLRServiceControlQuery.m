@@ -19,6 +19,31 @@
 
 @end
 
+@implementation GTLRServiceControlQuery_ServicesAllocateQuota
+
+@dynamic serviceName;
+
++ (instancetype)queryWithObject:(GTLRServiceControl_AllocateQuotaRequest *)object
+                    serviceName:(NSString *)serviceName {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"serviceName" ];
+  NSString *pathURITemplate = @"v1/services/{serviceName}:allocateQuota";
+  GTLRServiceControlQuery_ServicesAllocateQuota *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.serviceName = serviceName;
+  query.expectedObjectClass = [GTLRServiceControl_AllocateQuotaResponse class];
+  query.loggingName = @"servicecontrol.services.allocateQuota";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceControlQuery_ServicesCheck
 
 @dynamic serviceName;
@@ -44,6 +69,56 @@
 
 @end
 
+@implementation GTLRServiceControlQuery_ServicesEndReconciliation
+
+@dynamic serviceName;
+
++ (instancetype)queryWithObject:(GTLRServiceControl_EndReconciliationRequest *)object
+                    serviceName:(NSString *)serviceName {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"serviceName" ];
+  NSString *pathURITemplate = @"v1/services/{serviceName}:endReconciliation";
+  GTLRServiceControlQuery_ServicesEndReconciliation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.serviceName = serviceName;
+  query.expectedObjectClass = [GTLRServiceControl_EndReconciliationResponse class];
+  query.loggingName = @"servicecontrol.services.endReconciliation";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceControlQuery_ServicesReleaseQuota
+
+@dynamic serviceName;
+
++ (instancetype)queryWithObject:(GTLRServiceControl_ReleaseQuotaRequest *)object
+                    serviceName:(NSString *)serviceName {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"serviceName" ];
+  NSString *pathURITemplate = @"v1/services/{serviceName}:releaseQuota";
+  GTLRServiceControlQuery_ServicesReleaseQuota *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.serviceName = serviceName;
+  query.expectedObjectClass = [GTLRServiceControl_ReleaseQuotaResponse class];
+  query.loggingName = @"servicecontrol.services.releaseQuota";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceControlQuery_ServicesReport
 
 @dynamic serviceName;
@@ -64,6 +139,31 @@
   query.serviceName = serviceName;
   query.expectedObjectClass = [GTLRServiceControl_ReportResponse class];
   query.loggingName = @"servicecontrol.services.report";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceControlQuery_ServicesStartReconciliation
+
+@dynamic serviceName;
+
++ (instancetype)queryWithObject:(GTLRServiceControl_StartReconciliationRequest *)object
+                    serviceName:(NSString *)serviceName {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"serviceName" ];
+  NSString *pathURITemplate = @"v1/services/{serviceName}:startReconciliation";
+  GTLRServiceControlQuery_ServicesStartReconciliation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.serviceName = serviceName;
+  query.expectedObjectClass = [GTLRServiceControl_StartReconciliationResponse class];
+  query.loggingName = @"servicecontrol.services.startReconciliation";
   return query;
 }
 

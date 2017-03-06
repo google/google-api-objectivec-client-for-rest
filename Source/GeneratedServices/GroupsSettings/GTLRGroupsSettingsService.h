@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage the settings of a Google Apps Group
+ *  Authorization scope: View and manage the settings of a G Suite group
  *
  *  Value "https://www.googleapis.com/auth/apps.groups.settings"
  */

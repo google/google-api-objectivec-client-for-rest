@@ -2,14 +2,14 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Trace API (cloudtrace/v1)
+//   Stackdriver Trace API (cloudtrace/v1)
 // Description:
-//   Send and retrieve trace data from Google Cloud Trace. Data is generated and
+//   Send and retrieve trace data from Stackdriver Trace. Data is generated and
 //   available by default for all App Engine applications. Data from other
-//   applications can be written to Cloud Trace for display, reporting, and
-//   analysis.
+//   applications can be written to Stackdriver Trace for display, reporting,
+//   and analysis.
 // Documentation:
-//   https://cloud.google.com/tools/cloud-trace
+//   https://cloud.google.com/trace
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -33,19 +33,35 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRCloudTrace_TraceSpan.kind
 
-/** Value: "RPC_CLIENT" */
+/**
+ *  Indicates that the span covers the client-side wrapper around an RPC or
+ *  other remote request.
+ *
+ *  Value: "RPC_CLIENT"
+ */
 GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_RpcClient;
-/** Value: "RPC_SERVER" */
+/**
+ *  Indicates that the span covers server-side handling of an RPC or other
+ *  remote network request.
+ *
+ *  Value: "RPC_SERVER"
+ */
 GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_RpcServer;
-/** Value: "SPAN_KIND_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "SPAN_KIND_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudTrace_Empty : GTLRObject
 @end
@@ -62,9 +78,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified;
 @interface GTLRCloudTrace_ListTracesResponse : GTLRCollectionObject
 
 /**
- *  If defined, indicates that there are more traces that match the request and
- *  that this value should be passed to the next request to continue retrieving
- *  additional traces.
+ *  If defined, indicates that there are more traces that match the request
+ *  and that this value should be passed to the next request to continue
+ *  retrieving additional traces.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -115,37 +131,47 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified;
 /**
  *  A span represents a single timed event within a trace. Spans can be nested
  *  and form a trace tree. Often, a trace contains a root span that describes
- *  the end-to-end latency of an operation and, optionally, one or more subspans
- *  for its suboperations. Spans do not need to be contiguous. There may be gaps
+ *  the
+ *  end-to-end latency of an operation and, optionally, one or more subspans for
+ *  its suboperations. Spans do not need to be contiguous. There may be gaps
  *  between spans in a trace.
  */
 @interface GTLRCloudTrace_TraceSpan : GTLRObject
 
 /** End time of the span in nanoseconds from the UNIX epoch. */
-@property(nonatomic, copy, nullable) NSString *endTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
  *  Distinguishes between spans generated in a particular context. For example,
- *  two spans with the same name may be distinguished using `RPC_CLIENT` and
- *  `RPC_SERVER` to identify queueing latency associated with the span.
+ *  two spans with the same name may be distinguished using `RPC_CLIENT`
+ *  and `RPC_SERVER` to identify queueing latency associated with the span.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudTrace_TraceSpan_Kind_RpcClient Value "RPC_CLIENT"
- *    @arg @c kGTLRCloudTrace_TraceSpan_Kind_RpcServer Value "RPC_SERVER"
- *    @arg @c kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified Value
- *        "SPAN_KIND_UNSPECIFIED"
+ *    @arg @c kGTLRCloudTrace_TraceSpan_Kind_RpcClient Indicates that the span
+ *        covers the client-side wrapper around an RPC or
+ *        other remote request. (Value: "RPC_CLIENT")
+ *    @arg @c kGTLRCloudTrace_TraceSpan_Kind_RpcServer Indicates that the span
+ *        covers server-side handling of an RPC or other
+ *        remote network request. (Value: "RPC_SERVER")
+ *    @arg @c kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified Unspecified.
+ *        (Value: "SPAN_KIND_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Collection of labels associated with the span. */
+/**
+ *  Collection of labels associated with the span. Label keys must be less than
+ *  128 bytes. Label values must be less than 16 kilobytes.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_TraceSpan_Labels *labels;
 
 /**
- *  Name of the trace. The trace name is sanitized and displayed in the
- *  Stackdriver Trace tool in the {% dynamic print site_values.console_name %}.
- *  The name may be a method name or some other per-call site name. For the same
- *  executable and the same call point, a best practice is to use a consistent
- *  name, which makes it easier to correlate cross-trace spans.
+ *  Name of the span. Must be less than 128 bytes. The span name is sanitized
+ *  and displayed in the Stackdriver Trace tool in the
+ *  {% dynamic print site_values.console_name %}.
+ *  The name may be a method name or some other per-call site name.
+ *  For the same executable and the same call point, a best practice is
+ *  to use a consistent name, which makes it easier to correlate
+ *  cross-trace spans.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -157,20 +183,22 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *parentSpanId;
 
 /**
- *  Identifier for the span. This identifier must be unique within a trace.
+ *  Identifier for the span. Must be a 64-bit integer other than 0 and
+ *  unique within a trace.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *spanId;
 
 /** Start time of the span in nanoseconds from the UNIX epoch. */
-@property(nonatomic, copy, nullable) NSString *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
 
 /**
- *  Collection of labels associated with the span.
+ *  Collection of labels associated with the span. Label keys must be less than
+ *  128 bytes. Label values must be less than 16 kilobytes.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

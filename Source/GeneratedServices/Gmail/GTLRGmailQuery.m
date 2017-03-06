@@ -21,6 +21,12 @@ NSString * const kGTLRGmailFormatMetadata = @"metadata";
 NSString * const kGTLRGmailFormatMinimal  = @"minimal";
 NSString * const kGTLRGmailFormatRaw      = @"raw";
 
+// historyTypes
+NSString * const kGTLRGmailHistoryTypesLabelAdded     = @"labelAdded";
+NSString * const kGTLRGmailHistoryTypesLabelRemoved   = @"labelRemoved";
+NSString * const kGTLRGmailHistoryTypesMessageAdded   = @"messageAdded";
+NSString * const kGTLRGmailHistoryTypesMessageDeleted = @"messageDeleted";
+
 // internalDateSource
 NSString * const kGTLRGmailInternalDateSourceDateHeader   = @"dateHeader";
 NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
@@ -217,7 +223,14 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 @implementation GTLRGmailQuery_UsersHistoryList
 
-@dynamic labelId, maxResults, pageToken, startHistoryId, userId;
+@dynamic historyTypes, labelId, maxResults, pageToken, startHistoryId, userId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"historyTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
@@ -1103,6 +1116,143 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   query.sendAsEmail = sendAsEmail;
   query.expectedObjectClass = [GTLRGmail_SendAs class];
   query.loggingName = @"gmail.users.settings.sendAs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsSendAsSmimeInfoDelete
+
+@dynamic identifier, sendAsEmail, userId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail
+                     identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"id", @"sendAsEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}";
+  GTLRGmailQuery_UsersSettingsSendAsSmimeInfoDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.sendAsEmail = sendAsEmail;
+  query.identifier = identifier;
+  query.loggingName = @"gmail.users.settings.sendAs.smimeInfo.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsSendAsSmimeInfoGet
+
+@dynamic identifier, sendAsEmail, userId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail
+                     identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"id", @"sendAsEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}";
+  GTLRGmailQuery_UsersSettingsSendAsSmimeInfoGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.sendAsEmail = sendAsEmail;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRGmail_SmimeInfo class];
+  query.loggingName = @"gmail.users.settings.sendAs.smimeInfo.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsSendAsSmimeInfoInsert
+
+@dynamic sendAsEmail, userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_SmimeInfo *)object
+                         userId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"sendAsEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}/smimeInfo";
+  GTLRGmailQuery_UsersSettingsSendAsSmimeInfoInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.sendAsEmail = sendAsEmail;
+  query.expectedObjectClass = [GTLRGmail_SmimeInfo class];
+  query.loggingName = @"gmail.users.settings.sendAs.smimeInfo.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsSendAsSmimeInfoList
+
+@dynamic sendAsEmail, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail {
+  NSArray *pathParams = @[
+    @"sendAsEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}/smimeInfo";
+  GTLRGmailQuery_UsersSettingsSendAsSmimeInfoList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.sendAsEmail = sendAsEmail;
+  query.expectedObjectClass = [GTLRGmail_ListSmimeInfoResponse class];
+  query.loggingName = @"gmail.users.settings.sendAs.smimeInfo.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsSendAsSmimeInfoSetDefault
+
+@dynamic identifier, sendAsEmail, userId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail
+                     identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"id", @"sendAsEmail", @"userId"
+  ];
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}/setDefault";
+  GTLRGmailQuery_UsersSettingsSendAsSmimeInfoSetDefault *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.sendAsEmail = sendAsEmail;
+  query.identifier = identifier;
+  query.loggingName = @"gmail.users.settings.sendAs.smimeInfo.setDefault";
   return query;
 }
 

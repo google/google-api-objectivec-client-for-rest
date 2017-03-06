@@ -42,7 +42,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeGmailInsert;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeGmailLabels;
 /**
- *  Authorization scope: View and manage your mail
+ *  Authorization scope: Read, send, delete, and manage your email
  *
  *  Value "https://mail.google.com/"
  */

@@ -25,6 +25,7 @@
 @class GTLRServiceControl_AuthenticationInfo;
 @class GTLRServiceControl_AuthorizationInfo;
 @class GTLRServiceControl_CheckError;
+@class GTLRServiceControl_CheckInfo;
 @class GTLRServiceControl_Distribution;
 @class GTLRServiceControl_ExplicitBuckets;
 @class GTLRServiceControl_ExponentialBuckets;
@@ -36,9 +37,19 @@
 @class GTLRServiceControl_MetricValue;
 @class GTLRServiceControl_MetricValue_Labels;
 @class GTLRServiceControl_MetricValueSet;
+@class GTLRServiceControl_Money;
 @class GTLRServiceControl_Operation;
 @class GTLRServiceControl_Operation_Labels;
+@class GTLRServiceControl_Operation_UserLabels;
+@class GTLRServiceControl_QuotaError;
+@class GTLRServiceControl_QuotaInfo;
+@class GTLRServiceControl_QuotaInfo_QuotaConsumed;
+@class GTLRServiceControl_QuotaOperation;
+@class GTLRServiceControl_QuotaOperation_Labels;
+@class GTLRServiceControl_QuotaProperties;
+@class GTLRServiceControl_QuotaProperties_LimitByIds;
 @class GTLRServiceControl_ReportError;
+@class GTLRServiceControl_ReportInfo;
 @class GTLRServiceControl_RequestMetadata;
 @class GTLRServiceControl_Status;
 @class GTLRServiceControl_Status_Details_Item;
@@ -49,8 +60,45 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRServiceControl_AllocateQuotaRequest.allocationMode
+
+/**
+ *  Allocates quota for the amount specified in the service configuration or
+ *  specified using the quota_metrics. If the amount is higher than the
+ *  available quota, request does not fail but all available quota will be
+ *  allocated.
+ *
+ *  Value: "BEST_EFFORT"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_AllocateQuotaRequest_AllocationMode_BestEffort;
+/**
+ *  Only checks if there is enough quota available and does not change the
+ *  available quota. No lock is placed on the available quota either.
+ *
+ *  Value: "CHECK_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_AllocateQuotaRequest_AllocationMode_CheckOnly;
+/**
+ *  Allocates quota for the amount specified in the service configuration or
+ *  specified using the quota_metrics. If the amount is higher than the
+ *  available quota, allocation error will be returned and no quota will be
+ *  allocated.
+ *
+ *  Value: "NORMAL"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_AllocateQuotaRequest_AllocationMode_Normal;
+/** Value: "UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRServiceControl_AllocateQuotaRequest_AllocationMode_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRServiceControl_CheckError.code
 
+/**
+ *  The consumer has been flagged as an abuser.
+ *
+ *  Value: "ABUSER_DETECTED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_AbuserDetected;
 /**
  *  The consumer's API Key has expired.
  *
@@ -89,12 +137,30 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_BillingDisabled
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_BillingStatusUnavailable;
 /**
+ *  Budget check failed.
+ *
+ *  Value: "BUDGET_EXCEEDED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_BudgetExceeded;
+/**
  *  The client application of the consumer request is invalid for the
  *  specific consumer project.
  *
  *  Value: "CLIENT_APP_BLOCKED"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ClientAppBlocked;
+/**
+ *  Cloud Resource Manager backend server is unavailable.
+ *
+ *  Value: "CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_CloudResourceManagerBackendUnavailable;
+/**
+ *  The consumer's request has been flagged as a DoS attack.
+ *
+ *  Value: "DENIAL_OF_SERVICE_DETECTED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_DenialOfServiceDetected;
 /**
  *  This is never used in `CheckResponse`.
  *
@@ -109,11 +175,42 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ErrorCodeUnspec
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_IpAddressBlocked;
 /**
+ *  The consumer's request should be rejected in order to protect the service
+ *  from being overloaded.
+ *
+ *  Value: "LOAD_SHEDDING"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoadShedding;
+/**
+ *  The consumer's LOAS project is not `ACTIVE` in LoquatV2.
+ *
+ *  Value: "LOAS_PROJECT_DISABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoasProjectDisabled;
+/**
+ *  The Spanner for looking up LOAS project is unavailable.
+ *
+ *  Value: "LOAS_PROJECT_LOOKUP_UNAVAILABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoasProjectLookupUnavailable;
+/**
+ *  The consumer's LOAS role is invalid.
+ *
+ *  Value: "LOAS_ROLE_INVALID"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoasRoleInvalid;
+/**
  *  The backend server for looking up project id/number is unavailable.
  *
  *  Value: "NAMESPACE_LOOKUP_UNAVAILABLE"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_NamespaceLookupUnavailable;
+/**
+ *  The consumer's LOAS role has no associated project.
+ *
+ *  Value: "NO_LOAS_PROJECT"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_NoLoasProject;
 /**
  *  The consumer's project id was not found.
  *  Same as google.rpc.Code.NOT_FOUND.
@@ -141,6 +238,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ProjectDeleted;
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ProjectInvalid;
 /**
+ *  The backend server for checking quota limits is unavailable.
+ *
+ *  Value: "QUOTA_CHECK_UNAVAILABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_QuotaCheckUnavailable;
+/**
  *  The referer address of the consumer request is invalid for the specific
  *  consumer project.
  *
@@ -154,6 +257,18 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_RefererBlocked;
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ResourceExhausted;
 /**
+ *  Backend server for evaluating security policy is unavailable.
+ *
+ *  Value: "SECURITY_POLICY_BACKEND_UNAVAILABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_SecurityPolicyBackendUnavailable;
+/**
+ *  Request is not allowed as per security policies defined in Org Policy.
+ *
+ *  Value: "SECURITY_POLICY_VIOLATED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_SecurityPolicyViolated;
+/**
  *  The consumer hasn't activated the service.
  *
  *  Value: "SERVICE_NOT_ACTIVATED"
@@ -165,6 +280,18 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ServiceNotActiv
  *  Value: "SERVICE_STATUS_UNAVAILABLE"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ServiceStatusUnavailable;
+/**
+ *  The consumer's spatula header is invalid.
+ *
+ *  Value: "SPATULA_HEADER_INVALID"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_SpatulaHeaderInvalid;
+/**
+ *  The consumer cannot access the service due to visibility configuration.
+ *
+ *  Value: "VISIBILITY_DENIED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_VisibilityDenied;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_LogEntry.severity
@@ -229,6 +356,16 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Warning;
 // GTLRServiceControl_Operation.importance
 
 /**
+ *  In addition to the behavior described in HIGH, DEBUG enables
+ *  additional validation logic that is only useful during the onboarding
+ *  process. This is only available to Google internal services and
+ *  the service must be whitelisted by chemist-dev\@google.com in order
+ *  to use this level.
+ *
+ *  Value: "DEBUG"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Debug;
+/**
  *  The API implementation doesn't cache and aggregate the data.
  *  If the method returns successfully, it's guaranteed that the data has
  *  been persisted in durable storage.
@@ -243,6 +380,288 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_High;
  *  Value: "LOW"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_QuotaError.code
+
+/**
+ *  Specified API Key has expired.
+ *
+ *  Value: "API_KEY_EXPIRED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ApiKeyExpired;
+/**
+ *  Specified API key is invalid.
+ *
+ *  Value: "API_KEY_INVALID"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ApiKeyInvalid;
+/**
+ *  Consumer cannot access the service because billing is disabled.
+ *
+ *  Value: "BILLING_NOT_ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_BillingNotActive;
+/**
+ *  The backend server for checking billing status is unavailable.
+ *
+ *  Value: "BILLING_STATUS_UNAVAILABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_BillingStatusUnavailable;
+/**
+ *  Client application of the consumer request is invalid for the
+ *  specific consumer project.
+ *
+ *  Value: "CLIENT_APP_BLOCKED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ClientAppBlocked;
+/**
+ *  IP address of the consumer is invalid for the specific consumer
+ *  project.
+ *
+ *  Value: "IP_ADDRESS_BLOCKED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_IpAddressBlocked;
+/**
+ *  The consumer's LOAS role is invalid.
+ *
+ *  Value: "LOAS_ROLE_INVALID"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_LoasRoleInvalid;
+/**
+ *  The consumer's LOAS role has no associated project.
+ *
+ *  Value: "NO_LOAS_PROJECT"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_NoLoasProject;
+/**
+ *  Consumer's project has been marked as deleted (soft deletion).
+ *
+ *  Value: "PROJECT_DELETED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectDeleted;
+/**
+ *  Consumer's project number or ID does not represent a valid project.
+ *
+ *  Value: "PROJECT_INVALID"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectInvalid;
+/**
+ *  The backend server for looking up project id/number is unavailable.
+ *
+ *  Value: "PROJECT_STATUS_UNVAILABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectStatusUnvailable;
+/**
+ *  Consumer project has been suspended.
+ *
+ *  Value: "PROJECT_SUSPENDED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectSuspended;
+/**
+ *  The backend server for checking quota limits is unavailable.
+ *
+ *  Value: "QUOTA_SYSTEM_UNAVAILABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_QuotaSystemUnavailable;
+/**
+ *  Referer address of the consumer request is invalid for the specific
+ *  consumer project.
+ *
+ *  Value: "REFERER_BLOCKED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_RefererBlocked;
+/**
+ *  Quota allocation failed.
+ *  Same as google.rpc.Code.RESOURCE_EXHAUSTED.
+ *
+ *  Value: "RESOURCE_EXHAUSTED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ResourceExhausted;
+/**
+ *  Consumer has not enabled the service.
+ *
+ *  Value: "SERVICE_NOT_ENABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ServiceNotEnabled;
+/**
+ *  The backend server for checking service status is unavailable.
+ *
+ *  Value: "SERVICE_STATUS_UNAVAILABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ServiceStatusUnavailable;
+/**
+ *  Consumer's spatula header is invalid.
+ *
+ *  Value: "SPATULA_HEADER_INVALID"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_SpatulaHeaderInvalid;
+/**
+ *  This is never used.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_QuotaOperation.quotaMode
+
+/**
+ *  For AllocateQuota request, this mode is supported only for imprecise
+ *  quota limits. In this case, the operation allocates quota for the amount
+ *  specified in the service configuration or specified using the quota
+ *  metrics. If the amount is higher than the available quota, request does
+ *  not fail but all available quota will be allocated.
+ *  For ReleaseQuota request, this mode is supported for both precise quota
+ *  limits and imprecise quota limits. In this case, this operation releases
+ *  quota for the amount specified in the service configuration or specified
+ *  using the quota metrics. If the release can make available quota
+ *  negative, request does not fail but only the available quota will be
+ *  released. After the ReleaseQuota request completes, the available quota
+ *  will be 0, and never goes to negative.
+ *
+ *  Value: "BEST_EFFORT"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_BestEffort;
+/**
+ *  For AllocateQuota request, only checks if there is enough quota
+ *  available and does not change the available quota. No lock is placed on
+ *  the available quota either. Not supported for ReleaseQuota request.
+ *
+ *  Value: "CHECK_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_CheckOnly;
+/**
+ *  For AllocateQuota request, allocates quota for the amount specified in
+ *  the service configuration or specified using the quota metrics. If the
+ *  amount is higher than the available quota, allocation error will be
+ *  returned and no quota will be allocated.
+ *  For ReleaseQuota request, this mode is supported only for precise quota
+ *  limits. In this case, this operation releases quota for the amount
+ *  specified in the service configuration or specified using the quota
+ *  metrics. If the release can make available quota negative, release error
+ *  will be returned and no quota will be released.
+ *
+ *  Value: "NORMAL"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Normal;
+/** Value: "UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_QuotaProperties.quotaMode
+
+/**
+ *  Decreases available quota by the cost specified for the operation.
+ *  If cost is higher than available quota, operation fails and returns
+ *  error.
+ *
+ *  Value: "ACQUIRE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Acquire;
+/**
+ *  Decreases available quota by the cost specified for the operation.
+ *  If cost is higher than available quota, operation does not fail and
+ *  available quota goes down to zero but it returns error.
+ *
+ *  Value: "ACQUIRE_BEST_EFFORT"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_AcquireBestEffort;
+/**
+ *  Does not change any available quota. Only checks if there is enough
+ *  quota.
+ *  No lock is placed on the checked tokens neither.
+ *
+ *  Value: "CHECK"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Check;
+/**
+ *  Increases available quota by the operation cost specified for the
+ *  operation.
+ *
+ *  Value: "RELEASE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release;
+
+/**
+ *  Request message for the AllocateQuota method.
+ */
+@interface GTLRServiceControl_AllocateQuotaRequest : GTLRObject
+
+/** Operation that describes the quota allocation. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaOperation *allocateOperation;
+
+/**
+ *  Allocation mode for this operation.
+ *  Deprecated: use QuotaMode inside the QuotaOperation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_AllocateQuotaRequest_AllocationMode_BestEffort
+ *        Allocates quota for the amount specified in the service configuration
+ *        or
+ *        specified using the quota_metrics. If the amount is higher than the
+ *        available quota, request does not fail but all available quota will be
+ *        allocated. (Value: "BEST_EFFORT")
+ *    @arg @c kGTLRServiceControl_AllocateQuotaRequest_AllocationMode_CheckOnly
+ *        Only checks if there is enough quota available and does not change the
+ *        available quota. No lock is placed on the available quota either.
+ *        (Value: "CHECK_ONLY")
+ *    @arg @c kGTLRServiceControl_AllocateQuotaRequest_AllocationMode_Normal
+ *        Allocates quota for the amount specified in the service configuration
+ *        or
+ *        specified using the quota_metrics. If the amount is higher than the
+ *        available quota, allocation error will be returned and no quota will
+ *        be
+ *        allocated. (Value: "NORMAL")
+ *    @arg @c kGTLRServiceControl_AllocateQuotaRequest_AllocationMode_Unspecified
+ *        Value "UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *allocationMode;
+
+/**
+ *  Specifies which version of service configuration should be used to process
+ *  the request. If unspecified or no matching version can be found, the latest
+ *  one will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceConfigId;
+
+@end
+
+
+/**
+ *  Response message for the AllocateQuota method.
+ */
+@interface GTLRServiceControl_AllocateQuotaResponse : GTLRObject
+
+/** Indicates the decision of the allocate. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_QuotaError *> *allocateErrors;
+
+/**
+ *  The same operation_id value used in the AllocateQuotaRequest. Used for
+ *  logging and diagnostics purposes.
+ */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Quota metrics to indicate the result of allocation. Depending on the
+ *  request, one or more of the following metrics will be included:
+ *  1. For rate quota, per quota group or per quota metric incremental usage
+ *  will be specified using the following delta metric:
+ *  "serviceruntime.googleapis.com/api/consumer/quota_used_count"
+ *  2. For allocation quota, per quota metric total usage will be specified
+ *  using the following gauge metric:
+ *  "serviceruntime.googleapis.com/allocation/consumer/quota_used_count"
+ *  3. For both rate quota and allocation quota, the quota limit reached
+ *  condition will be specified using the following boolean metric:
+ *  "serviceruntime.googleapis.com/quota/exceeded"
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
+
+/** ID of the actual config used to process the request. */
+@property(nonatomic, copy, nullable) NSString *serviceConfigId;
+
+@end
+
 
 /**
  *  Common audit log format for Google Cloud Platform API operations.
@@ -425,6 +844,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  The error code.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceControl_CheckError_Code_AbuserDetected The consumer
+ *        has been flagged as an abuser. (Value: "ABUSER_DETECTED")
  *    @arg @c kGTLRServiceControl_CheckError_Code_ApiKeyExpired The consumer's
  *        API Key has expired. (Value: "API_KEY_EXPIRED")
  *    @arg @c kGTLRServiceControl_CheckError_Code_ApiKeyInvalid The consumer's
@@ -440,17 +861,38 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *    @arg @c kGTLRServiceControl_CheckError_Code_BillingStatusUnavailable The
  *        backend server for checking billing status is unavailable. (Value:
  *        "BILLING_STATUS_UNAVAILABLE")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_BudgetExceeded Budget check
+ *        failed. (Value: "BUDGET_EXCEEDED")
  *    @arg @c kGTLRServiceControl_CheckError_Code_ClientAppBlocked The client
  *        application of the consumer request is invalid for the
  *        specific consumer project. (Value: "CLIENT_APP_BLOCKED")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_CloudResourceManagerBackendUnavailable
+ *        Cloud Resource Manager backend server is unavailable. (Value:
+ *        "CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_DenialOfServiceDetected The
+ *        consumer's request has been flagged as a DoS attack. (Value:
+ *        "DENIAL_OF_SERVICE_DETECTED")
  *    @arg @c kGTLRServiceControl_CheckError_Code_ErrorCodeUnspecified This is
  *        never used in `CheckResponse`. (Value: "ERROR_CODE_UNSPECIFIED")
  *    @arg @c kGTLRServiceControl_CheckError_Code_IpAddressBlocked The IP
  *        address of the consumer is invalid for the specific consumer
  *        project. (Value: "IP_ADDRESS_BLOCKED")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_LoadShedding The consumer's
+ *        request should be rejected in order to protect the service
+ *        from being overloaded. (Value: "LOAD_SHEDDING")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_LoasProjectDisabled The
+ *        consumer's LOAS project is not `ACTIVE` in LoquatV2. (Value:
+ *        "LOAS_PROJECT_DISABLED")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_LoasProjectLookupUnavailable
+ *        The Spanner for looking up LOAS project is unavailable. (Value:
+ *        "LOAS_PROJECT_LOOKUP_UNAVAILABLE")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_LoasRoleInvalid The consumer's
+ *        LOAS role is invalid. (Value: "LOAS_ROLE_INVALID")
  *    @arg @c kGTLRServiceControl_CheckError_Code_NamespaceLookupUnavailable The
  *        backend server for looking up project id/number is unavailable.
  *        (Value: "NAMESPACE_LOOKUP_UNAVAILABLE")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_NoLoasProject The consumer's
+ *        LOAS role has no associated project. (Value: "NO_LOAS_PROJECT")
  *    @arg @c kGTLRServiceControl_CheckError_Code_NotFound The consumer's
  *        project id was not found.
  *        Same as google.rpc.Code.NOT_FOUND. (Value: "NOT_FOUND")
@@ -464,23 +906,53 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *    @arg @c kGTLRServiceControl_CheckError_Code_ProjectInvalid The consumer's
  *        project number or id does not represent a valid project. (Value:
  *        "PROJECT_INVALID")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_QuotaCheckUnavailable The
+ *        backend server for checking quota limits is unavailable. (Value:
+ *        "QUOTA_CHECK_UNAVAILABLE")
  *    @arg @c kGTLRServiceControl_CheckError_Code_RefererBlocked The referer
  *        address of the consumer request is invalid for the specific
  *        consumer project. (Value: "REFERER_BLOCKED")
  *    @arg @c kGTLRServiceControl_CheckError_Code_ResourceExhausted Quota check
  *        failed. Same as google.rpc.Code.RESOURCE_EXHAUSTED. (Value:
  *        "RESOURCE_EXHAUSTED")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_SecurityPolicyBackendUnavailable
+ *        Backend server for evaluating security policy is unavailable. (Value:
+ *        "SECURITY_POLICY_BACKEND_UNAVAILABLE")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_SecurityPolicyViolated Request
+ *        is not allowed as per security policies defined in Org Policy. (Value:
+ *        "SECURITY_POLICY_VIOLATED")
  *    @arg @c kGTLRServiceControl_CheckError_Code_ServiceNotActivated The
  *        consumer hasn't activated the service. (Value:
  *        "SERVICE_NOT_ACTIVATED")
  *    @arg @c kGTLRServiceControl_CheckError_Code_ServiceStatusUnavailable The
  *        backend server for checking service status is unavailable. (Value:
  *        "SERVICE_STATUS_UNAVAILABLE")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_SpatulaHeaderInvalid The
+ *        consumer's spatula header is invalid. (Value:
+ *        "SPATULA_HEADER_INVALID")
+ *    @arg @c kGTLRServiceControl_CheckError_Code_VisibilityDenied The consumer
+ *        cannot access the service due to visibility configuration. (Value:
+ *        "VISIBILITY_DENIED")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
 /** Free-form text providing details on the error cause of the error. */
 @property(nonatomic, copy, nullable) NSString *detail;
+
+@end
+
+
+/**
+ *  GTLRServiceControl_CheckInfo
+ */
+@interface GTLRServiceControl_CheckInfo : GTLRObject
+
+/**
+ *  A list of fields and label keys that are ignored by the server.
+ *  The client doesn't need to send them for following requests to improve
+ *  performance and allow better aggregation.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unusedArguments;
 
 @end
 
@@ -494,12 +966,27 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
 @property(nonatomic, strong, nullable) GTLRServiceControl_Operation *operation;
 
 /**
+ *  Requests the project settings to be returned as part of the check response.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestProjectSettings;
+
+/**
  *  Specifies which version of service configuration should be used to process
  *  the request.
  *  If unspecified or no matching version can be found, the
  *  latest one will be used.
  */
 @property(nonatomic, copy, nullable) NSString *serviceConfigId;
+
+/**
+ *  Indicates if service activation check should be skipped for this request.
+ *  Default behavior is to perform the check and apply relevant quota.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipActivationCheck;
 
 @end
 
@@ -518,10 +1005,18 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_CheckError *> *checkErrors;
 
 /**
+ *  Feedback data returned from the server during processing a Check request.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_CheckInfo *checkInfo;
+
+/**
  *  The same operation_id value used in the CheckRequest.
  *  Used for logging and diagnostics purposes.
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
+
+/** Quota information for the check request associated with this response. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaInfo *quotaInfo;
 
 /** The actual config id used to process the request. */
 @property(nonatomic, copy, nullable) NSString *serviceConfigId;
@@ -602,6 +1097,49 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sumOfSquaredDeviation;
+
+@end
+
+
+/**
+ *  GTLRServiceControl_EndReconciliationRequest
+ */
+@interface GTLRServiceControl_EndReconciliationRequest : GTLRObject
+
+/** Operation that describes the quota reconciliation. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaOperation *reconciliationOperation;
+
+/**
+ *  Specifies which version of service configuration should be used to process
+ *  the request. If unspecified or no matching version can be found, the latest
+ *  one will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceConfigId;
+
+@end
+
+
+/**
+ *  GTLRServiceControl_EndReconciliationResponse
+ */
+@interface GTLRServiceControl_EndReconciliationResponse : GTLRObject
+
+/**
+ *  The same operation_id value used in the EndReconciliationRequest. Used for
+ *  logging and diagnostics purposes.
+ */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Metric values as tracked by One Platform before the adjustment was made.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
+
+/** Indicates the decision of the reconciliation end. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_QuotaError *> *reconciliationErrors;
+
+/** ID of the actual config used to process the request. */
+@property(nonatomic, copy, nullable) NSString *serviceConfigId;
 
 @end
 
@@ -863,6 +1401,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_MetricValue_Labels *labels;
 
+/** A money value. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Money *moneyValue;
+
 /**
  *  The start of the time period over which this metric value's measurement
  *  applies. The time period has different semantics for different metric
@@ -908,6 +1449,37 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
 
 
 /**
+ *  Represents an amount of money with its currency type.
+ */
+@interface GTLRServiceControl_Money : GTLRObject
+
+/** The 3-letter currency code defined in ISO 4217. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Number of nano (10^-9) units of the amount.
+ *  The value must be between -999,999,999 and +999,999,999 inclusive.
+ *  If `units` is positive, `nanos` must be positive or zero.
+ *  If `units` is zero, `nanos` can be positive, zero, or negative.
+ *  If `units` is negative, `nanos` must be negative or zero.
+ *  For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  The whole units of the amount.
+ *  For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *units;
+
+@end
+
+
+/**
  *  Represents information regarding an operation.
  */
 @interface GTLRServiceControl_Operation : GTLRObject
@@ -935,6 +1507,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  DO NOT USE. This is an experimental field.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceControl_Operation_Importance_Debug In addition to the
+ *        behavior described in HIGH, DEBUG enables
+ *        additional validation logic that is only useful during the onboarding
+ *        process. This is only available to Google internal services and
+ *        the service must be whitelisted by chemist-dev\@google.com in order
+ *        to use this level. (Value: "DEBUG")
  *    @arg @c kGTLRServiceControl_Operation_Importance_High The API
  *        implementation doesn't cache and aggregate the data.
  *        If the method returns successfully, it's guaranteed that the data has
@@ -995,8 +1573,29 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
 /** Fully qualified name of the operation. Reserved for future use. */
 @property(nonatomic, copy, nullable) NSString *operationName;
 
+/**
+ *  Represents the properties needed for quota check. Applicable only if this
+ *  operation is for a quota check request.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaProperties *quotaProperties;
+
+/**
+ *  The resource name of the parent of a resource in the resource hierarchy.
+ *  This can be in one of the following formats:
+ *  - “projects/<project-id or project-number>”
+ *  - “folders/<folder-id>”
+ *  - “organizations/<organization-id>”
+ */
+@property(nonatomic, copy, nullable) NSString *resourceContainer;
+
 /** Required. Start time of the operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  User defined labels for the resource that this operation is associated
+ *  with.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Operation_UserLabels *userLabels;
 
 @end
 
@@ -1027,6 +1626,390 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
 
 
 /**
+ *  User defined labels for the resource that this operation is associated
+ *  with.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceControl_Operation_UserLabels : GTLRObject
+@end
+
+
+/**
+ *  GTLRServiceControl_QuotaError
+ */
+@interface GTLRServiceControl_QuotaError : GTLRObject
+
+/**
+ *  Error code.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_ApiKeyExpired Specified API
+ *        Key has expired. (Value: "API_KEY_EXPIRED")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_ApiKeyInvalid Specified API
+ *        key is invalid. (Value: "API_KEY_INVALID")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_BillingNotActive Consumer
+ *        cannot access the service because billing is disabled. (Value:
+ *        "BILLING_NOT_ACTIVE")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_BillingStatusUnavailable The
+ *        backend server for checking billing status is unavailable. (Value:
+ *        "BILLING_STATUS_UNAVAILABLE")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_ClientAppBlocked Client
+ *        application of the consumer request is invalid for the
+ *        specific consumer project. (Value: "CLIENT_APP_BLOCKED")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_IpAddressBlocked IP address of
+ *        the consumer is invalid for the specific consumer
+ *        project. (Value: "IP_ADDRESS_BLOCKED")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_LoasRoleInvalid The consumer's
+ *        LOAS role is invalid. (Value: "LOAS_ROLE_INVALID")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_NoLoasProject The consumer's
+ *        LOAS role has no associated project. (Value: "NO_LOAS_PROJECT")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_ProjectDeleted Consumer's
+ *        project has been marked as deleted (soft deletion). (Value:
+ *        "PROJECT_DELETED")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_ProjectInvalid Consumer's
+ *        project number or ID does not represent a valid project. (Value:
+ *        "PROJECT_INVALID")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_ProjectStatusUnvailable The
+ *        backend server for looking up project id/number is unavailable.
+ *        (Value: "PROJECT_STATUS_UNVAILABLE")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_ProjectSuspended Consumer
+ *        project has been suspended. (Value: "PROJECT_SUSPENDED")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_QuotaSystemUnavailable The
+ *        backend server for checking quota limits is unavailable. (Value:
+ *        "QUOTA_SYSTEM_UNAVAILABLE")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_RefererBlocked Referer address
+ *        of the consumer request is invalid for the specific
+ *        consumer project. (Value: "REFERER_BLOCKED")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_ResourceExhausted Quota
+ *        allocation failed.
+ *        Same as google.rpc.Code.RESOURCE_EXHAUSTED. (Value:
+ *        "RESOURCE_EXHAUSTED")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_ServiceNotEnabled Consumer has
+ *        not enabled the service. (Value: "SERVICE_NOT_ENABLED")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_ServiceStatusUnavailable The
+ *        backend server for checking service status is unavailable. (Value:
+ *        "SERVICE_STATUS_UNAVAILABLE")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_SpatulaHeaderInvalid
+ *        Consumer's spatula header is invalid. (Value:
+ *        "SPATULA_HEADER_INVALID")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_Unspecified This is never
+ *        used. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  Free-form text that provides details on the cause of the error.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Subject to whom this error applies. See the specific enum for more details
+ *  on this field. For example, "clientip:<ip address of client>" or
+ *  "project:<Google developer project id>".
+ */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+@end
+
+
+/**
+ *  Contains the quota information for a quota check response.
+ */
+@interface GTLRServiceControl_QuotaInfo : GTLRObject
+
+/**
+ *  Quota Metrics that have exceeded quota limits.
+ *  For QuotaGroup-based quota, this is QuotaGroup.name
+ *  For QuotaLimit-based quota, this is QuotaLimit.name
+ *  See: google.api.Quota
+ *  Deprecated: Use quota_metrics to get per quota group limit exceeded status.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *limitExceeded;
+
+/**
+ *  Map of quota group name to the actual number of tokens consumed. If the
+ *  quota check was not successful, then this will not be populated due to no
+ *  quota consumption.
+ *  Deprecated: Use quota_metrics to get per quota group usage.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaInfo_QuotaConsumed *quotaConsumed;
+
+/**
+ *  Quota metrics to indicate the usage. Depending on the check request, one or
+ *  more of the following metrics will be included:
+ *  1. For rate quota, per quota group or per quota metric incremental usage
+ *  will be specified using the following delta metric:
+ *  "serviceruntime.googleapis.com/api/consumer/quota_used_count"
+ *  2. For allocation quota, per quota metric total usage will be specified
+ *  using the following gauge metric:
+ *  "serviceruntime.googleapis.com/allocation/consumer/quota_used_count"
+ *  3. For both rate quota and allocation quota, the quota limit reached
+ *  condition will be specified using the following boolean metric:
+ *  "serviceruntime.googleapis.com/quota/exceeded"
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
+
+@end
+
+
+/**
+ *  Map of quota group name to the actual number of tokens consumed. If the
+ *  quota check was not successful, then this will not be populated due to no
+ *  quota consumption.
+ *  Deprecated: Use quota_metrics to get per quota group usage.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_QuotaInfo_QuotaConsumed : GTLRObject
+@end
+
+
+/**
+ *  Represents information regarding a quota operation.
+ */
+@interface GTLRServiceControl_QuotaOperation : GTLRObject
+
+/**
+ *  Identity of the consumer for whom this quota operation is being performed.
+ *  This can be in one of the following formats:
+ *  project:<project_id>,
+ *  project_number:<project_number>,
+ *  api_key:<api_key>.
+ */
+@property(nonatomic, copy, nullable) NSString *consumerId;
+
+/** Labels describing the operation. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaOperation_Labels *labels;
+
+/**
+ *  Fully qualified name of the API method for which this quota operation is
+ *  requested. This name is used for matching quota rules or metric rules and
+ *  billing status rules defined in service configuration. This field is not
+ *  required if the quota operation is performed on non-API resources.
+ *  Example of an RPC method name:
+ *  google.example.library.v1.LibraryService.CreateShelf
+ */
+@property(nonatomic, copy, nullable) NSString *methodName;
+
+/**
+ *  Identity of the operation. This must be unique within the scope of the
+ *  service that generated the operation. If the service calls AllocateQuota
+ *  and ReleaseQuota on the same operation, the two calls should carry the
+ *  same ID.
+ *  UUID version 4 is recommended, though not required. In scenarios where an
+ *  operation is computed from existing information and an idempotent id is
+ *  desirable for deduplication purpose, UUID version 5 is recommended. See
+ *  RFC 4122 for details.
+ */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Represents information about this operation. Each MetricValueSet
+ *  corresponds to a metric defined in the service configuration.
+ *  The data type used in the MetricValueSet must agree with
+ *  the data type specified in the metric definition.
+ *  Within a single operation, it is not allowed to have more than one
+ *  MetricValue instances that have the same metric names and identical
+ *  label value combinations. If a request has such duplicated MetricValue
+ *  instances, the entire request is rejected with
+ *  an invalid argument error.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
+
+/**
+ *  Quota mode for this operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_BestEffort For
+ *        AllocateQuota request, this mode is supported only for imprecise
+ *        quota limits. In this case, the operation allocates quota for the
+ *        amount
+ *        specified in the service configuration or specified using the quota
+ *        metrics. If the amount is higher than the available quota, request
+ *        does
+ *        not fail but all available quota will be allocated.
+ *        For ReleaseQuota request, this mode is supported for both precise
+ *        quota
+ *        limits and imprecise quota limits. In this case, this operation
+ *        releases
+ *        quota for the amount specified in the service configuration or
+ *        specified
+ *        using the quota metrics. If the release can make available quota
+ *        negative, request does not fail but only the available quota will be
+ *        released. After the ReleaseQuota request completes, the available
+ *        quota
+ *        will be 0, and never goes to negative. (Value: "BEST_EFFORT")
+ *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_CheckOnly For
+ *        AllocateQuota request, only checks if there is enough quota
+ *        available and does not change the available quota. No lock is placed
+ *        on
+ *        the available quota either. Not supported for ReleaseQuota request.
+ *        (Value: "CHECK_ONLY")
+ *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_Normal For
+ *        AllocateQuota request, allocates quota for the amount specified in
+ *        the service configuration or specified using the quota metrics. If the
+ *        amount is higher than the available quota, allocation error will be
+ *        returned and no quota will be allocated.
+ *        For ReleaseQuota request, this mode is supported only for precise
+ *        quota
+ *        limits. In this case, this operation releases quota for the amount
+ *        specified in the service configuration or specified using the quota
+ *        metrics. If the release can make available quota negative, release
+ *        error
+ *        will be returned and no quota will be released. (Value: "NORMAL")
+ *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_Unspecified Value
+ *        "UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *quotaMode;
+
+@end
+
+
+/**
+ *  Labels describing the operation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceControl_QuotaOperation_Labels : GTLRObject
+@end
+
+
+/**
+ *  Represents the properties needed for quota operations.
+ *  Use the metric_value_sets field in Operation message to provide cost
+ *  override with metric_name in <service_name>/quota/<quota_group_name>/cost
+ *  format. Overrides for unmatched quota groups will be ignored.
+ *  Costs are expected to be >= 0. Cost 0 will cause no quota check,
+ *  but still traffic restrictions will be enforced.
+ */
+@interface GTLRServiceControl_QuotaProperties : GTLRObject
+
+/**
+ *  LimitType IDs that should be used for checking quota. Key in this map
+ *  should be a valid LimitType string, and the value is the ID to be used. For
+ *  example, an entry <USER, 123> will cause all user quota limits to use 123
+ *  as the user ID. See google/api/quota.proto for the definition of LimitType.
+ *  CLIENT_PROJECT: Not supported.
+ *  USER: Value of this entry will be used for enforcing user-level quota
+ *  limits. If none specified, caller IP passed in the
+ *  servicecontrol.googleapis.com/caller_ip label will be used instead.
+ *  If the server cannot resolve a value for this LimitType, an error
+ *  will be thrown. No validation will be performed on this ID.
+ *  Deprecated: use servicecontrol.googleapis.com/user label to send user ID.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaProperties_LimitByIds *limitByIds;
+
+/**
+ *  Quota mode for this operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_QuotaProperties_QuotaMode_Acquire Decreases
+ *        available quota by the cost specified for the operation.
+ *        If cost is higher than available quota, operation fails and returns
+ *        error. (Value: "ACQUIRE")
+ *    @arg @c kGTLRServiceControl_QuotaProperties_QuotaMode_AcquireBestEffort
+ *        Decreases available quota by the cost specified for the operation.
+ *        If cost is higher than available quota, operation does not fail and
+ *        available quota goes down to zero but it returns error. (Value:
+ *        "ACQUIRE_BEST_EFFORT")
+ *    @arg @c kGTLRServiceControl_QuotaProperties_QuotaMode_Check Does not
+ *        change any available quota. Only checks if there is enough
+ *        quota.
+ *        No lock is placed on the checked tokens neither. (Value: "CHECK")
+ *    @arg @c kGTLRServiceControl_QuotaProperties_QuotaMode_Release Increases
+ *        available quota by the operation cost specified for the
+ *        operation. (Value: "RELEASE")
+ */
+@property(nonatomic, copy, nullable) NSString *quotaMode;
+
+@end
+
+
+/**
+ *  LimitType IDs that should be used for checking quota. Key in this map
+ *  should be a valid LimitType string, and the value is the ID to be used. For
+ *  example, an entry <USER, 123> will cause all user quota limits to use 123
+ *  as the user ID. See google/api/quota.proto for the definition of LimitType.
+ *  CLIENT_PROJECT: Not supported.
+ *  USER: Value of this entry will be used for enforcing user-level quota
+ *  limits. If none specified, caller IP passed in the
+ *  servicecontrol.googleapis.com/caller_ip label will be used instead.
+ *  If the server cannot resolve a value for this LimitType, an error
+ *  will be thrown. No validation will be performed on this ID.
+ *  Deprecated: use servicecontrol.googleapis.com/user label to send user ID.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceControl_QuotaProperties_LimitByIds : GTLRObject
+@end
+
+
+/**
+ *  Request message for the ReleaseQuota method.
+ */
+@interface GTLRServiceControl_ReleaseQuotaRequest : GTLRObject
+
+/** Operation that describes the quota release. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaOperation *releaseOperation;
+
+/**
+ *  Specifies which version of service configuration should be used to process
+ *  the request. If unspecified or no matching version can be found, the latest
+ *  one will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceConfigId;
+
+@end
+
+
+/**
+ *  Response message for the ReleaseQuota method.
+ */
+@interface GTLRServiceControl_ReleaseQuotaResponse : GTLRObject
+
+/**
+ *  The same operation_id value used in the ReleaseQuotaRequest. Used for
+ *  logging and diagnostics purposes.
+ */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Quota metrics to indicate the result of release. Depending on the
+ *  request, one or more of the following metrics will be included:
+ *  1. For rate quota, per quota group or per quota metric released amount
+ *  will be specified using the following delta metric:
+ *  "serviceruntime.googleapis.com/api/consumer/quota_refund_count"
+ *  2. For allocation quota, per quota metric total usage will be specified
+ *  using the following gauge metric:
+ *  "serviceruntime.googleapis.com/allocation/consumer/quota_used_count"
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
+
+/** Indicates the decision of the release. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_QuotaError *> *releaseErrors;
+
+/** ID of the actual config used to process the request. */
+@property(nonatomic, copy, nullable) NSString *serviceConfigId;
+
+@end
+
+
+/**
  *  Represents the processing error of one `Operation` in the request.
  */
 @interface GTLRServiceControl_ReportError : GTLRObject
@@ -1036,6 +2019,20 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
 
 /** Details of the error when processing the `Operation`. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Status *status;
+
+@end
+
+
+/**
+ *  GTLRServiceControl_ReportInfo
+ */
+@interface GTLRServiceControl_ReportInfo : GTLRObject
+
+/** The Operation.operation_id value from the request. */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/** Quota usage info when processing the `Operation`. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaInfo *quotaInfo;
 
 @end
 
@@ -1090,6 +2087,16 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_ReportError *> *reportErrors;
 
+/**
+ *  Quota usage for each quota release `Operation` request.
+ *  Fully or partially failed quota release request may or may not be present
+ *  in `report_quota_info`. For example, a failed quota release request will
+ *  have the current quota usage info when precise quota library returns the
+ *  info. A deadline exceeded quota request will not have quota usage info.
+ *  If there is no quota release request, report_quota_info will be empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_ReportInfo *> *reportInfos;
+
 /** The actual config id used to process the request. */
 @property(nonatomic, copy, nullable) NSString *serviceConfigId;
 
@@ -1117,6 +2124,50 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *  The request was made from the `my-project` App Engine app.
  */
 @property(nonatomic, copy, nullable) NSString *callerSuppliedUserAgent;
+
+@end
+
+
+/**
+ *  GTLRServiceControl_StartReconciliationRequest
+ */
+@interface GTLRServiceControl_StartReconciliationRequest : GTLRObject
+
+/** Operation that describes the quota reconciliation. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_QuotaOperation *reconciliationOperation;
+
+/**
+ *  Specifies which version of service configuration should be used to process
+ *  the request. If unspecified or no matching version can be found, the latest
+ *  one will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceConfigId;
+
+@end
+
+
+/**
+ *  GTLRServiceControl_StartReconciliationResponse
+ */
+@interface GTLRServiceControl_StartReconciliationResponse : GTLRObject
+
+/**
+ *  The same operation_id value used in the StartReconciliationRequest. Used
+ *  for logging and diagnostics purposes.
+ */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Metric values as tracked by One Platform before the start of
+ *  reconciliation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
+
+/** Indicates the decision of the reconciliation start. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_QuotaError *> *reconciliationErrors;
+
+/** ID of the actual config used to process the request. */
+@property(nonatomic, copy, nullable) NSString *serviceConfigId;
 
 @end
 

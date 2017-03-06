@@ -50,6 +50,7 @@ NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCampaignDailyF
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCarrier = @"FILTER_CARRIER";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterChannelId = @"FILTER_CHANNEL_ID";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCity = @"FILTER_CITY";
+NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCompanionCreativeId = @"FILTER_COMPANION_CREATIVE_ID";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterConversionDelay = @"FILTER_CONVERSION_DELAY";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCountry = @"FILTER_COUNTRY";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCreativeHeight = @"FILTER_CREATIVE_HEIGHT";
@@ -98,6 +99,7 @@ NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterRegion = @"FIL
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterRegularChannelId = @"FILTER_REGULAR_CHANNEL_ID";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterSiteId = @"FILTER_SITE_ID";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterSiteLanguage = @"FILTER_SITE_LANGUAGE";
+NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterSkippableSupport = @"FILTER_SKIPPABLE_SUPPORT";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTargetedUserList = @"FILTER_TARGETED_USER_LIST";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTimeOfDay = @"FILTER_TIME_OF_DAY";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdGroupAdId = @"FILTER_TRUEVIEW_AD_GROUP_AD_ID";
@@ -167,6 +169,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCampaignDa
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCarrier = @"FILTER_CARRIER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterChannelId = @"FILTER_CHANNEL_ID";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCity = @"FILTER_CITY";
+NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCompanionCreativeId = @"FILTER_COMPANION_CREATIVE_ID";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterConversionDelay = @"FILTER_CONVERSION_DELAY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCountry = @"FILTER_COUNTRY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCreativeHeight = @"FILTER_CREATIVE_HEIGHT";
@@ -215,6 +218,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterRegion = @
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterRegularChannelId = @"FILTER_REGULAR_CHANNEL_ID";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterSiteId = @"FILTER_SITE_ID";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterSiteLanguage = @"FILTER_SITE_LANGUAGE";
+NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterSkippableSupport = @"FILTER_SKIPPABLE_SUPPORT";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTargetedUserList = @"FILTER_TARGETED_USER_LIST";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTimeOfDay = @"FILTER_TIME_OF_DAY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAdGroupAdId = @"FILTER_TRUEVIEW_AD_GROUP_AD_ID";
@@ -271,6 +275,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterYoutubeVer
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterZipCode = @"FILTER_ZIP_CODE";
 
 // GTLRDoubleClickBidManager_Parameters.metrics
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewAudibleVisibleOnCompleteImpressions = @"METRIC_ACTIVE_VIEW_AUDIBLE_VISIBLE_ON_COMPLETE_IMPRESSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewAverageViewableTime = @"METRIC_ACTIVE_VIEW_AVERAGE_VIEWABLE_TIME";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewDistributionUnmeasurable = @"METRIC_ACTIVE_VIEW_DISTRIBUTION_UNMEASURABLE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewDistributionUnviewable = @"METRIC_ACTIVE_VIEW_DISTRIBUTION_UNVIEWABLE";
@@ -279,8 +284,20 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewE
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewMeasurableImpressions = @"METRIC_ACTIVE_VIEW_MEASURABLE_IMPRESSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPctMeasurableImpressions = @"METRIC_ACTIVE_VIEW_PCT_MEASURABLE_IMPRESSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPctViewableImpressions = @"METRIC_ACTIVE_VIEW_PCT_VIEWABLE_IMPRESSIONS";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentAudibleVisibleAtStart = @"METRIC_ACTIVE_VIEW_PERCENT_AUDIBLE_VISIBLE_AT_START";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentAudibleVisibleFirstQuar = @"METRIC_ACTIVE_VIEW_PERCENT_AUDIBLE_VISIBLE_FIRST_QUAR";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentAudibleVisibleOnComplete = @"METRIC_ACTIVE_VIEW_PERCENT_AUDIBLE_VISIBLE_ON_COMPLETE";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentAudibleVisibleSecondQuar = @"METRIC_ACTIVE_VIEW_PERCENT_AUDIBLE_VISIBLE_SECOND_QUAR";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentAudibleVisibleThirdQuar = @"METRIC_ACTIVE_VIEW_PERCENT_AUDIBLE_VISIBLE_THIRD_QUAR";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentViewableForTimeThreshold = @"METRIC_ACTIVE_VIEW_PERCENT_VIEWABLE_FOR_TIME_THRESHOLD";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentVisibleAtStart = @"METRIC_ACTIVE_VIEW_PERCENT_VISIBLE_AT_START";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentVisibleFirstQuar = @"METRIC_ACTIVE_VIEW_PERCENT_VISIBLE_FIRST_QUAR";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentVisibleOnComplete = @"METRIC_ACTIVE_VIEW_PERCENT_VISIBLE_ON_COMPLETE";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentVisibleSecondQuar = @"METRIC_ACTIVE_VIEW_PERCENT_VISIBLE_SECOND_QUAR";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewPercentVisibleThirdQuar = @"METRIC_ACTIVE_VIEW_PERCENT_VISIBLE_THIRD_QUAR";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewUnmeasurableImpressions = @"METRIC_ACTIVE_VIEW_UNMEASURABLE_IMPRESSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewUnviewableImpressions = @"METRIC_ACTIVE_VIEW_UNVIEWABLE_IMPRESSIONS";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewViewableForTimeThreshold = @"METRIC_ACTIVE_VIEW_VIEWABLE_FOR_TIME_THRESHOLD";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricActiveViewViewableImpressions = @"METRIC_ACTIVE_VIEW_VIEWABLE_IMPRESSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBidRequests = @"METRIC_BID_REQUESTS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBillableCostAdvertiser = @"METRIC_BILLABLE_COST_ADVERTISER";
@@ -467,6 +484,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpc
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpcvAdvertiser = @"METRIC_REVENUE_ECPCV_ADVERTISER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpcvPartner = @"METRIC_REVENUE_ECPCV_PARTNER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpcvUsd = @"METRIC_REVENUE_ECPCV_USD";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpiavcAdvertiser = @"METRIC_REVENUE_ECPIAVC_ADVERTISER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpmAdvertiser = @"METRIC_REVENUE_ECPM_ADVERTISER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpmPartner = @"METRIC_REVENUE_ECPM_PARTNER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpmUsd = @"METRIC_REVENUE_ECPM_USD";
@@ -587,6 +605,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypePetraNielsenDail
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypePetraNielsenOnlineGlobalMarket = @"TYPE_PETRA_NIELSEN_ONLINE_GLOBAL_MARKET";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypePixelLoad = @"TYPE_PIXEL_LOAD";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypeReachAndFrequency = @"TYPE_REACH_AND_FREQUENCY";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypeReachAudience = @"TYPE_REACH_AUDIENCE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypeThirdPartyDataProvider = @"TYPE_THIRD_PARTY_DATA_PROVIDER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypeTrueview = @"TYPE_TRUEVIEW";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_TypeTrueviewIar = @"TYPE_TRUEVIEW_IAR";

@@ -93,6 +93,7 @@
 @class GTLRSheets_InsertDimensionRequest;
 @class GTLRSheets_InsertRangeRequest;
 @class GTLRSheets_InterpolationPoint;
+@class GTLRSheets_IterativeCalculationSettings;
 @class GTLRSheets_MergeCellsRequest;
 @class GTLRSheets_MoveDimensionRequest;
 @class GTLRSheets_NamedRange;
@@ -4470,6 +4471,31 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 
 /**
+ *  Settings to control how circular dependencies are resolved with iterative
+ *  calculation.
+ */
+@interface GTLRSheets_IterativeCalculationSettings : GTLRObject
+
+/**
+ *  When iterative calculation is enabled, the threshold value such that
+ *  calculation rounds stop when succesive results differ by less.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *convergenceThreshold;
+
+/**
+ *  When iterative calculation is enabled, the maximum number of calculation
+ *  rounds to perform during iterative calculation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxIterations;
+
+@end
+
+
+/**
  *  Merges all cells in the range.
  */
 @interface GTLRSheets_MergeCellsRequest : GTLRObject
@@ -5603,6 +5629,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  This field is read-only.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_CellFormat *defaultFormat;
+
+/**
+ *  Determines whether and how circular references are resolved with iterative
+ *  calculation. Absence of this field means that circular references will
+ *  result in calculation errors.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_IterativeCalculationSettings *iterativeCalculationSettings;
 
 /**
  *  The locale of the spreadsheet in one of the following formats:

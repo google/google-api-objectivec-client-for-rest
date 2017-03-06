@@ -344,6 +344,154 @@
 
 @end
 
+@implementation GTLRComputeQuery_BackendBucketsDelete
+
+@dynamic backendBucket, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                   backendBucket:(NSString *)backendBucket {
+  NSArray *pathParams = @[
+    @"backendBucket", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/backendBuckets/{backendBucket}";
+  GTLRComputeQuery_BackendBucketsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.backendBucket = backendBucket;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.backendBuckets.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_BackendBucketsGet
+
+@dynamic backendBucket, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                   backendBucket:(NSString *)backendBucket {
+  NSArray *pathParams = @[
+    @"backendBucket", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/backendBuckets/{backendBucket}";
+  GTLRComputeQuery_BackendBucketsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.backendBucket = backendBucket;
+  query.expectedObjectClass = [GTLRCompute_BackendBucket class];
+  query.loggingName = @"compute.backendBuckets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_BackendBucketsInsert
+
+@dynamic project;
+
++ (instancetype)queryWithObject:(GTLRCompute_BackendBucket *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/backendBuckets";
+  GTLRComputeQuery_BackendBucketsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.backendBuckets.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_BackendBucketsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/backendBuckets";
+  GTLRComputeQuery_BackendBucketsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_BackendBucketList class];
+  query.loggingName = @"compute.backendBuckets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_BackendBucketsPatch
+
+@dynamic backendBucket, project;
+
++ (instancetype)queryWithObject:(GTLRCompute_BackendBucket *)object
+                        project:(NSString *)project
+                  backendBucket:(NSString *)backendBucket {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"backendBucket", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/backendBuckets/{backendBucket}";
+  GTLRComputeQuery_BackendBucketsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.backendBucket = backendBucket;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.backendBuckets.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_BackendBucketsUpdate
+
+@dynamic backendBucket, project;
+
++ (instancetype)queryWithObject:(GTLRCompute_BackendBucket *)object
+                        project:(NSString *)project
+                  backendBucket:(NSString *)backendBucket {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"backendBucket", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/backendBuckets/{backendBucket}";
+  GTLRComputeQuery_BackendBucketsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.backendBucket = backendBucket;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.backendBuckets.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_BackendServicesAggregatedList
 
 @dynamic filter, maxResults, orderBy, pageToken, project;
@@ -561,7 +709,7 @@
 
 @implementation GTLRComputeQuery_DisksCreateSnapshot
 
-@dynamic disk, project, zoneProperty;
+@dynamic disk, guestFlush, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };

@@ -19,7 +19,6 @@
 #endif
 
 @class GTLRSpeech_AsyncRecognizeRequest;
-@class GTLRSpeech_CancelOperationRequest;
 @class GTLRSpeech_SyncRecognizeRequest;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -53,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSpeechQuery_OperationsCancel : GTLRSpeechQuery
 // Previous library name was
-//   +[GTLQuerySpeech queryForOperationsCancelWithObject:name:]
+//   +[GTLQuerySpeech queryForOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -72,14 +71,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  an Operation.error value with a google.rpc.Status.code of 1,
  *  corresponding to `Code.CANCELLED`.
  *
- *  @param object The @c GTLRSpeech_CancelOperationRequest to include in the
- *    query.
  *  @param name The name of the operation resource to be cancelled.
  *
  *  @returns GTLRSpeechQuery_OperationsCancel
  */
-+ (instancetype)queryWithObject:(GTLRSpeech_CancelOperationRequest *)object
-                           name:(NSString *)name;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
