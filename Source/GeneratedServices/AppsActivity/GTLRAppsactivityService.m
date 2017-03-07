@@ -2,28 +2,28 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Apps Activity API (appsactivity/v1)
+//   G Suite Activity API (appsactivity/v1)
 // Description:
 //   Provides a historical view of activity.
 // Documentation:
 //   https://developers.google.com/google-apps/activity/
 
-#import "GTLRAppsActivity.h"
+#import "GTLRAppsactivity.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeAppsActivityActivity            = @"https://www.googleapis.com/auth/activity";
-NSString * const kGTLRAuthScopeAppsActivityDrive               = @"https://www.googleapis.com/auth/drive";
-NSString * const kGTLRAuthScopeAppsActivityDriveMetadata       = @"https://www.googleapis.com/auth/drive.metadata";
-NSString * const kGTLRAuthScopeAppsActivityDriveMetadataReadonly = @"https://www.googleapis.com/auth/drive.metadata.readonly";
-NSString * const kGTLRAuthScopeAppsActivityDriveReadonly       = @"https://www.googleapis.com/auth/drive.readonly";
+NSString * const kGTLRAuthScopeAppsactivityActivity            = @"https://www.googleapis.com/auth/activity";
+NSString * const kGTLRAuthScopeAppsactivityDrive               = @"https://www.googleapis.com/auth/drive";
+NSString * const kGTLRAuthScopeAppsactivityDriveMetadata       = @"https://www.googleapis.com/auth/drive.metadata";
+NSString * const kGTLRAuthScopeAppsactivityDriveMetadataReadonly = @"https://www.googleapis.com/auth/drive.metadata.readonly";
+NSString * const kGTLRAuthScopeAppsactivityDriveReadonly       = @"https://www.googleapis.com/auth/drive.readonly";
 
 // ----------------------------------------------------------------------------
-//   GTLRAppsActivityService
+//   GTLRAppsactivityService
 //
 
-@implementation GTLRAppsActivityService
+@implementation GTLRAppsactivityService
 
 - (instancetype)init {
   self = [super init];

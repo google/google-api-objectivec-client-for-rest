@@ -167,12 +167,14 @@
 
 @implementation GTLRYouTubeAnalyticsQuery_ReportsQuery
 
-@dynamic currency, dimensions, endDate, filters, ids, maxResults, metrics, sort,
-         startDate, startIndex;
+@dynamic currency, dimensions, endDate, filters, ids,
+         includeHistoricalChannelData, maxResults, metrics, sort, startDate,
+         startIndex;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"endDate" : @"end-date",
+    @"includeHistoricalChannelData" : @"include-historical-channel-data",
     @"maxResults" : @"max-results",
     @"startDate" : @"start-date",
     @"startIndex" : @"start-index"

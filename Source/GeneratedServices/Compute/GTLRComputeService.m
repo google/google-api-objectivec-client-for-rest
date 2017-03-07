@@ -48,6 +48,8 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#autoscaler" : [GTLRCompute_Autoscaler class],
     @"compute#autoscalerAggregatedList" : [GTLRCompute_AutoscalerAggregatedList class],
     @"compute#autoscalerList" : [GTLRCompute_AutoscalerList class],
+    @"compute#backendBucket" : [GTLRCompute_BackendBucket class],
+    @"compute#backendBucketList" : [GTLRCompute_BackendBucketList class],
     @"compute#backendService" : [GTLRCompute_BackendService class],
     @"compute#backendServiceAggregatedList" : [GTLRCompute_BackendServiceAggregatedList class],
     @"compute#backendServiceGroupHealth" : [GTLRCompute_BackendServiceGroupHealth class],

@@ -2,24 +2,24 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Machine Learning (ml/v1beta1)
+//   Google Cloud Machine Learning Engine (ml/v1beta1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:
 //   https://cloud.google.com/ml/
 
-#import "GTLRCloudMachineLearning.h"
+#import "GTLRCloudMachineLearningEngine.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeCloudMachineLearningCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudMachineLearningService
+//   GTLRCloudMachineLearningEngineService
 //
 
-@implementation GTLRCloudMachineLearningService
+@implementation GTLRCloudMachineLearningEngineService
 
 - (instancetype)init {
   self = [super init];

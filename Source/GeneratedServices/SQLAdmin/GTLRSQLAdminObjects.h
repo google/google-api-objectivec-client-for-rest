@@ -37,6 +37,7 @@
 @class GTLRSQLAdmin_ImportContext_CsvImportOptions;
 @class GTLRSQLAdmin_IpConfiguration;
 @class GTLRSQLAdmin_IpMapping;
+@class GTLRSQLAdmin_Labels;
 @class GTLRSQLAdmin_LocationPreference;
 @class GTLRSQLAdmin_MaintenanceWindow;
 @class GTLRSQLAdmin_MySqlReplicaConfiguration;
@@ -876,6 +877,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  User defined labels for Cloud SQL instances.
+ */
+@interface GTLRSQLAdmin_Labels : GTLRObject
+
+/** The key of the label. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** The value of the label. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Preferred location. This specifies where a Cloud SQL instance should
  *  preferably be located, either in a specific Compute Engine zone, or
  *  co-located with an App Engine application. Note that if the preferred
@@ -1228,15 +1243,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedGaeApplications;
 
-/**
- *  The availability type. This can be one of the following.
- *  ZONAL: A Cloud SQL instance that is zonally available. The instance is bound
- *  to a single GCE zone and may be inaccessible during an outage for that GCE
- *  zone.
- *  REGIONAL: A Cloud SQL instance that is regionally available. The instance is
- *  provisioned in multiple zones within a region and is able to provide higher
- *  availability than an instance with a zonal availability type.
- */
+/** Reserved for future use. */
 @property(nonatomic, copy, nullable) NSString *availabilityType;
 
 /** The daily backup configuration for the instance. */
@@ -1285,6 +1292,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** This is always sql#settings. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** User defined labels. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Labels *> *labels;
 
 /**
  *  The location preference settings. This allows the instance to be located as

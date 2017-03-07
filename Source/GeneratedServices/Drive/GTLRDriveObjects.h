@@ -37,8 +37,11 @@
 @class GTLRDrive_File_Properties;
 @class GTLRDrive_File_VideoMediaMetadata;
 @class GTLRDrive_Permission;
+@class GTLRDrive_Permission_TeamDrivePermissionDetails_Item;
 @class GTLRDrive_Reply;
 @class GTLRDrive_Revision;
+@class GTLRDrive_TeamDrive;
+@class GTLRDrive_TeamDrive_Capabilities;
 @class GTLRDrive_User;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -169,12 +172,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A change to a file.
+ *  A change to a file or Team Drive.
  */
 @interface GTLRDrive_Change : GTLRObject
 
 /**
- *  The updated state of the file. Present if the file has not been removed.
+ *  The updated state of the file. Present if the type is file and the file has
+ *  not been removed from this list of changes.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_File *file;
 
@@ -188,15 +192,28 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Whether the file has been removed from the view of the changes list, for
- *  example by deletion or lost access.
+ *  Whether the file or Team Drive has been removed from this list of changes,
+ *  for example by deletion or loss of access.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *removed;
 
+/**
+ *  The updated state of the Team Drive. Present if the type is teamDrive, the
+ *  user is still a member of the Team Drive, and the Team Drive has not been
+ *  removed.
+ */
+@property(nonatomic, strong, nullable) GTLRDrive_TeamDrive *teamDrive;
+
+/** The ID of the Team Drive associated with this change. */
+@property(nonatomic, copy, nullable) NSString *teamDriveId;
+
 /** The time of this change (RFC 3339 date-time). */
 @property(nonatomic, strong, nullable) GTLRDateTime *time;
+
+/** The type of the change. Possible values are file and teamDrive. */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -454,7 +471,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDrive_File_AppProperties *appProperties;
 
-/** Capabilities the current user has on the file. */
+/**
+ *  Capabilities the current user has on the file. Each capability corresponds
+ *  to a fine-grained action that a user may take.
+ */
 @property(nonatomic, strong, nullable) GTLRDrive_File_Capabilities *capabilities;
 
 /**
@@ -503,6 +523,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  cleared if the new name does not contain a valid extension.
  */
 @property(nonatomic, copy, nullable) NSString *fullFileExtension;
+
+/**
+ *  Whether any users are granted file access directly on this file. This field
+ *  is only populated for Team Drive files.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasAugmentedPermissions;
 
 /**
  *  Whether this file has a thumbnail.
@@ -591,7 +619,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *originalFilename;
 
 /**
- *  Whether the user owns the file.
+ *  Whether the user owns the file. Not populated for Team Drive files.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -599,7 +627,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The owners of the file. Currently, only certain legacy files may have more
- *  than one owner.
+ *  than one owner. Not populated for Team Drive files.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_User *> *owners;
 
@@ -613,7 +641,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The full list of permissions for the file. This is only available if the
- *  requesting user can share the file.
+ *  requesting user can share the file. Not populated for Team Drive files.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission *> *permissions;
 
@@ -632,7 +660,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *quotaBytesUsed;
 
 /**
- *  Whether the file has been shared.
+ *  Whether the file has been shared. Not populated for Team Drive files.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -668,6 +696,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *starred;
 
+/** ID of the Team Drive the file resides in. */
+@property(nonatomic, copy, nullable) NSString *teamDriveId;
+
 /**
  *  A short-lived link to the file's thumbnail, if available. Typically lasts on
  *  the order of hours. Only populated when the requesting app can access the
@@ -690,6 +721,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *trashed;
+
+/**
+ *  The time that the item was trashed (RFC 3339 date-time). Only populated for
+ *  Team Drive files.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *trashedTime;
+
+/**
+ *  If the file has been explicitly trashed, the user who trashed it. Only
+ *  populated for Team Drive files.
+ */
+@property(nonatomic, strong, nullable) GTLRDrive_User *trashingUser;
 
 /**
  *  A monotonically increasing version number for the file. This reflects every
@@ -737,6 +780,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Whether users with only writer permission can modify the file's permissions.
+ *  Not populated for Team Drive files.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -760,9 +804,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Capabilities the current user has on the file.
+ *  Capabilities the current user has on the file. Each capability corresponds
+ *  to a fine-grained action that a user may take.
  */
 @interface GTLRDrive_File_Capabilities : GTLRObject
+
+/**
+ *  Whether the user can add children to this folder. This is always false when
+ *  the item is not a folder.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canAddChildren;
 
 /**
  *  Whether the user can comment on the file.
@@ -772,11 +825,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canComment;
 
 /**
- *  Whether the user can copy the file.
+ *  Whether the user can copy the file. For a Team Drive item, whether
+ *  non-folder descendants of this item, or this item itself if it is not a
+ *  folder, can be copied.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canCopy;
+
+/**
+ *  Whether the file can be deleted by the user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canDelete;
+
+/**
+ *  Whether the file can be downloaded by the user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canDownload;
 
 /**
  *  Whether the user can edit the file's content.
@@ -786,12 +855,61 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canEdit;
 
 /**
- *  Whether the current user has read access to the Revisions resource of the
- *  file.
+ *  Whether the user can list the children of this folder. This is always false
+ *  when the item is not a folder.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canListChildren;
+
+/**
+ *  Whether the current user can move this item into a Team Drive. If the item
+ *  is in a Team Drive, this field is equivalent to canMoveTeamDriveItem.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canMoveItemIntoTeamDrive;
+
+/**
+ *  Whether the user can move this Team Drive item by changing its parent. Note
+ *  that a request to change the parent for this item may still fail depending
+ *  on the new parent that is being added. Only populated for Team Drive files.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canMoveTeamDriveItem;
+
+/**
+ *  Whether the user has read access to the Revisions resource of the file. For
+ *  a Team Drive item, whether revisions of non-folder descendants of this item,
+ *  or this item itself if it is not a folder, can be read.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canReadRevisions;
+
+/**
+ *  Whether the user has read access to the Team Drive to which this file
+ *  belongs. Only populated for Team Drive files.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canReadTeamDrive;
+
+/**
+ *  Whether the user can remove children from this folder. This is always false
+ *  when the item is not a folder.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canRemoveChildren;
+
+/**
+ *  Whether the file can be renamed by the user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canRename;
 
 /**
  *  Whether the user can modify the file's permissions and sharing settings.
@@ -799,6 +917,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canShare;
+
+/**
+ *  Whether the file can be trashed by the user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canTrash;
+
+/**
+ *  Whether the file can be restored from the trash by the current user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canUntrash;
 
 @end
 
@@ -1052,6 +1184,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_File *> *files;
 
 /**
+ *  Whether the search process was incomplete. If true, then some search results
+ *  may be missing, since all documents were not searched. This may occur when
+ *  searching multiple Team Drives with the "user,allTeamDrives" corpora, but
+ *  all corpora could not be searched. When this happens, it is suggested that
+ *  clients narrow their query by choosing a different corpus such as "user" or
+ *  "teamDrive".
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *incompleteSearch;
+
+/**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "drive#fileList".
  */
@@ -1111,7 +1255,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** The email address of the user or group to which this permission refers. */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
 
-/** The time at which this permission will expire (RFC 3339 date-time). */
+/**
+ *  The time at which this permission will expire (RFC 3339 date-time).
+ *  Expiration times have the following restrictions:
+ *  - They can only be set on user and group permissions
+ *  - The time must be in the future
+ *  - The time cannot be more than a year in the future
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
 /**
@@ -1132,13 +1282,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *photoLink;
 
 /**
- *  The role granted by this permission. Valid values are:
+ *  The role granted by this permission. While new values may be supported in
+ *  the future, the following are currently allowed:
+ *  - organizer
  *  - owner
  *  - writer
  *  - commenter
  *  - reader
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+/**
+ *  Details of whether the Permissions on this Team Drive item are inherited or
+ *  directly on this item. This is an output-only field which is present only
+ *  for Team Drive items.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission_TeamDrivePermissionDetails_Item *> *teamDrivePermissionDetails;
 
 /**
  *  The type of the grantee. Valid values are:
@@ -1153,9 +1312,55 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A list of permissions for a file.
+ *  GTLRDrive_Permission_TeamDrivePermissionDetails_Item
  */
-@interface GTLRDrive_PermissionList : GTLRObject
+@interface GTLRDrive_Permission_TeamDrivePermissionDetails_Item : GTLRObject
+
+/**
+ *  Whether this permission is inherited. This field is always populated. This
+ *  is an output-only field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inherited;
+
+/**
+ *  The ID of the item from which this permission is inherited. This is an
+ *  output-only field and is only populated for members of the Team Drive.
+ */
+@property(nonatomic, copy, nullable) NSString *inheritedFrom;
+
+/**
+ *  The primary role for this user. While new values may be added in the future,
+ *  the following are currently possible:
+ *  - organizer
+ *  - writer
+ *  - commenter
+ *  - reader
+ */
+@property(nonatomic, copy, nullable) NSString *role;
+
+/**
+ *  The Team Drive permission type for this user. While new values may be added
+ *  in future, the following are currently possible:
+ *  - file
+ *  -
+ *  - member
+ */
+@property(nonatomic, copy, nullable) NSString *teamDrivePermissionType;
+
+@end
+
+
+/**
+ *  A list of permissions for a file.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "permissions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDrive_PermissionList : GTLRCollectionObject
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
@@ -1163,7 +1368,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** The list of permissions. */
+/**
+ *  The page token for the next page of permissions. This field will be absent
+ *  if the end of the permissions list has been reached. If the token is
+ *  rejected for any reason, it should be discarded, and pagination should be
+ *  restarted from the first page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of permissions. If nextPageToken is populated, then this list may
+ *  be incomplete and an additional page of results should be fetched.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission *> *permissions;
 
 @end
@@ -1392,6 +1611,174 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The starting page token for listing changes. */
 @property(nonatomic, copy, nullable) NSString *startPageToken;
+
+@end
+
+
+/**
+ *  Representation of a Team Drive.
+ */
+@interface GTLRDrive_TeamDrive : GTLRObject
+
+/** Capabilities the current user has on this Team Drive. */
+@property(nonatomic, strong, nullable) GTLRDrive_TeamDrive_Capabilities *capabilities;
+
+/**
+ *  The ID of this Team Drive which is also the ID of the top level folder for
+ *  this Team Drive.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "drive#teamDrive".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The name of this Team Drive. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Capabilities the current user has on this Team Drive.
+ */
+@interface GTLRDrive_TeamDrive_Capabilities : GTLRObject
+
+/**
+ *  Whether the current user can add children to folders in this Team Drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canAddChildren;
+
+/**
+ *  Whether the current user can comment on files in this Team Drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canComment;
+
+/**
+ *  Whether files in this Team Drive can be copied by the current user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canCopy;
+
+/**
+ *  Whether this Team Drive can be deleted by the current user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canDeleteTeamDrive;
+
+/**
+ *  Whether files in this Team Drive can be downloaded by the current user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canDownload;
+
+/**
+ *  Whether files in this Team Drive can be edited by the current user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canEdit;
+
+/**
+ *  Whether the current user can list the children of folders in this Team
+ *  Drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canListChildren;
+
+/**
+ *  Whether the current user can add members to this Team Drive or remove them
+ *  or change their role.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canManageMembers;
+
+/**
+ *  Whether the current user has read access to the Revisions resource of files
+ *  in this Team Drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canReadRevisions;
+
+/**
+ *  Whether the current user can remove children from folders in this Team
+ *  Drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canRemoveChildren;
+
+/**
+ *  Whether files or folders in this Team Drive can be renamed by the current
+ *  user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canRename;
+
+/**
+ *  Whether this Team Drive can be renamed by the current user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canRenameTeamDrive;
+
+/**
+ *  Whether the current user can share files or folders in this Team Drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canShare;
+
+@end
+
+
+/**
+ *  A list of Team Drives.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "teamDrives" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDrive_TeamDriveList : GTLRCollectionObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "drive#teamDriveList".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The page token for the next page of Team Drives. This will be absent if the
+ *  end of the Team Drives list has been reached. If the token is rejected for
+ *  any reason, it should be discarded, and pagination should be restarted from
+ *  the first page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of Team Drives. If nextPageToken is populated, then this list may
+ *  be incomplete and an additional page of results should be fetched.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_TeamDrive *> *teamDrives;
 
 @end
 

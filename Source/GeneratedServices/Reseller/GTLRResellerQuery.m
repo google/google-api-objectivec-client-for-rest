@@ -122,6 +122,55 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
 
 @end
 
+@implementation GTLRResellerQuery_ResellernotifyGetwatchdetails
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"resellernotify/getwatchdetails";
+  GTLRResellerQuery_ResellernotifyGetwatchdetails *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRReseller_NotifyGetwatchdetailsResponse class];
+  query.loggingName = @"reseller.resellernotify.getwatchdetails";
+  return query;
+}
+
+@end
+
+@implementation GTLRResellerQuery_ResellernotifyRegister
+
+@dynamic serviceAccountEmailAddress;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"resellernotify/register";
+  GTLRResellerQuery_ResellernotifyRegister *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRReseller_NotifyResource class];
+  query.loggingName = @"reseller.resellernotify.register";
+  return query;
+}
+
+@end
+
+@implementation GTLRResellerQuery_ResellernotifyUnregister
+
+@dynamic serviceAccountEmailAddress;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"resellernotify/unregister";
+  GTLRResellerQuery_ResellernotifyUnregister *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRReseller_NotifyResource class];
+  query.loggingName = @"reseller.resellernotify.unregister";
+  return query;
+}
+
+@end
+
 @implementation GTLRResellerQuery_SubscriptionsActivate
 
 @dynamic customerId, subscriptionId;

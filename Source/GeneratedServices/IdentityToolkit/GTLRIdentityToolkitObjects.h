@@ -86,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Respone of downloading accounts in batch.
+ *  Response of downloading accounts in batch.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "users" property. If returned as the result of a query, it should
@@ -764,6 +764,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Instance id token of the app. */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
+/** Privileged caller can create user with specified user id. */
+@property(nonatomic, copy, nullable) NSString *localId;
+
 /** The new password of the user. */
 @property(nonatomic, copy, nullable) NSString *password;
 
@@ -1019,6 +1022,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The email of the user. */
 @property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  If email has been verified.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *emailVerified;
 
 /**
  *  If idToken is STS id token, then this field will be expiration time of STS
@@ -1361,6 +1371,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  from the asserted email.
  */
 @property(nonatomic, copy, nullable) NSString *inputEmail;
+
+/**
+ *  True if it's a new user sign-in, false if it's a returning user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isNewUser;
 
 /** The fixed string "identitytoolkit#VerifyAssertionResponse". */
 @property(nonatomic, copy, nullable) NSString *kind;

@@ -339,9 +339,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Deletes the binding between the EMM and enterprise. This is now deprecated;
- *  use this to unenroll customers that were previously enrolled with the
- *  'insert' call, then enroll them again with the 'enroll' call.
+ *  Deletes the binding between the EMM and enterprise. This is now deprecated.
+ *  Use this method only to unenroll customers that were previously enrolled
+ *  with the insert call, then enroll them again with the enroll call.
  *
  *  Method: androidenterprise.enterprises.delete
  *
@@ -359,9 +359,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes the binding between the EMM and enterprise. This is now deprecated;
- *  use this to unenroll customers that were previously enrolled with the
- *  'insert' call, then enroll them again with the 'enroll' call.
+ *  Deletes the binding between the EMM and enterprise. This is now deprecated.
+ *  Use this method only to unenroll customers that were previously enrolled
+ *  with the insert call, then enroll them again with the enroll call.
  *
  *  @param enterpriseId The ID of the enterprise.
  *
@@ -628,7 +628,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  service account authenticated for the request. The notification set may be
  *  empty if no notification are pending.
  *  A notification set returned needs to be acknowledged within 20 seconds by
- *  calling Enterprises .AcknowledgeNotificationSet, unless the notification set
+ *  calling Enterprises.AcknowledgeNotificationSet, unless the notification set
  *  is empty.
  *  Notifications that are not acknowledged within the 20 seconds will
  *  eventually be included again in the response to another PullNotificationSet
@@ -674,7 +674,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  service account authenticated for the request. The notification set may be
  *  empty if no notification are pending.
  *  A notification set returned needs to be acknowledged within 20 seconds by
- *  calling Enterprises .AcknowledgeNotificationSet, unless the notification set
+ *  calling Enterprises.AcknowledgeNotificationSet, unless the notification set
  *  is empty.
  *  Notifications that are not acknowledged within the 20 seconds will
  *  eventually be included again in the response to another PullNotificationSet
@@ -725,7 +725,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Set the account that will be used to authenticate to the API as the
+ *  Sets the account that will be used to authenticate to the API as the
  *  enterprise.
  *
  *  Method: androidenterprise.enterprises.setAccount
@@ -743,7 +743,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 /**
  *  Fetches a @c GTLRAndroidEnterprise_EnterpriseAccount.
  *
- *  Set the account that will be used to authenticate to the API as the
+ *  Sets the account that will be used to authenticate to the API as the
  *  enterprise.
  *
  *  @param object The @c GTLRAndroidEnterprise_EnterpriseAccount to include in
@@ -830,7 +830,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Removes an entitlement to an app for a user and uninstalls it.
+ *  Removes an entitlement to an app for a user.
  *
  *  Method: androidenterprise.entitlements.delete
  *
@@ -856,7 +856,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Removes an entitlement to an app for a user and uninstalls it.
+ *  Removes an entitlement to an app for a user.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.
@@ -913,7 +913,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  List of all entitlements for the specified user. Only the ID is set.
+ *  Lists all entitlements for the specified user. Only the ID is set.
  *
  *  Method: androidenterprise.entitlements.list
  *
@@ -933,7 +933,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 /**
  *  Fetches a @c GTLRAndroidEnterprise_EntitlementsListResponse.
  *
- *  List of all entitlements for the specified user. Only the ID is set.
+ *  Lists all entitlements for the specified user. Only the ID is set.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.
@@ -1292,7 +1292,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 
 /**
  *  Requests to install the latest version of an app to a device. If the app is
- *  already installed then it is updated to the latest version if necessary.
+ *  already installed, then it is updated to the latest version if necessary.
  *  This method supports patch semantics.
  *
  *  Method: androidenterprise.installs.patch
@@ -1323,7 +1323,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  Fetches a @c GTLRAndroidEnterprise_Install.
  *
  *  Requests to install the latest version of an app to a device. If the app is
- *  already installed then it is updated to the latest version if necessary.
+ *  already installed, then it is updated to the latest version if necessary.
  *  This method supports patch semantics.
  *
  *  @param object The @c GTLRAndroidEnterprise_Install to include in the query.
@@ -1345,7 +1345,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 
 /**
  *  Requests to install the latest version of an app to a device. If the app is
- *  already installed then it is updated to the latest version if necessary.
+ *  already installed, then it is updated to the latest version if necessary.
  *
  *  Method: androidenterprise.installs.update
  *
@@ -1375,7 +1375,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  Fetches a @c GTLRAndroidEnterprise_Install.
  *
  *  Requests to install the latest version of an app to a device. If the app is
- *  already installed then it is updated to the latest version if necessary.
+ *  already installed, then it is updated to the latest version if necessary.
  *
  *  @param object The @c GTLRAndroidEnterprise_Install to include in the query.
  *  @param enterpriseId The ID of the enterprise.
@@ -2144,7 +2144,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  A pagination token is contained in a requests response when there are more
+ *  A pagination token is contained in a request''s response when there are more
  *  products. The token can be used in a subsequent request to obtain more
  *  products, and so forth. This parameter cannot be used in the initial
  *  request.
@@ -3073,7 +3073,10 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @end
 
 /**
- *  Modifies the set of products a user is entitled to access.
+ *  Modifies the set of products that a user is entitled to access (referred to
+ *  as whitelisted products). Only products that are approved or products that
+ *  were previously approved (products with revoked approval) can be
+ *  whitelisted.
  *
  *  Method: androidenterprise.users.setAvailableProductSet
  *
@@ -3093,7 +3096,10 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ProductSet.
  *
- *  Modifies the set of products a user is entitled to access.
+ *  Modifies the set of products that a user is entitled to access (referred to
+ *  as whitelisted products). Only products that are approved or products that
+ *  were previously approved (products with revoked approval) can be
+ *  whitelisted.
  *
  *  @param object The @c GTLRAndroidEnterprise_ProductSet to include in the
  *    query.

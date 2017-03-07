@@ -2,14 +2,14 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Trace API (cloudtrace/v1)
+//   Stackdriver Trace API (cloudtrace/v1)
 // Description:
-//   Send and retrieve trace data from Google Cloud Trace. Data is generated and
+//   Send and retrieve trace data from Stackdriver Trace. Data is generated and
 //   available by default for all App Engine applications. Data from other
-//   applications can be written to Cloud Trace for display, reporting, and
-//   analysis.
+//   applications can be written to Stackdriver Trace for display, reporting,
+//   and analysis.
 // Documentation:
-//   https://cloud.google.com/tools/cloud-trace
+//   https://cloud.google.com/trace
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -56,10 +56,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTraceViewViewTypeUnspecified;
 
 /**
  *  Sends new traces to Stackdriver Trace or updates existing traces. If the ID
- *  of a trace that you send matches that of an existing trace, any fields in
- *  the existing trace and its spans are overwritten by the provided values, and
- *  any new fields provided are merged with the existing trace data. If the ID
- *  does not match, a new trace is created.
+ *  of a trace that you send matches that of an existing trace, any fields
+ *  in the existing trace and its spans are overwritten by the provided values,
+ *  and any new fields provided are merged with the existing trace data. If the
+ *  ID does not match, a new trace is created.
  *
  *  Method: cloudtrace.projects.patchTraces
  *
@@ -78,10 +78,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTraceViewViewTypeUnspecified;
  *  Fetches a @c GTLRCloudTrace_Empty.
  *
  *  Sends new traces to Stackdriver Trace or updates existing traces. If the ID
- *  of a trace that you send matches that of an existing trace, any fields in
- *  the existing trace and its spans are overwritten by the provided values, and
- *  any new fields provided are merged with the existing trace data. If the ID
- *  does not match, a new trace is created.
+ *  of a trace that you send matches that of an existing trace, any fields
+ *  in the existing trace and its spans are overwritten by the provided values,
+ *  and any new fields provided are merged with the existing trace data. If the
+ *  ID does not match, a new trace is created.
  *
  *  @param object The @c GTLRCloudTrace_Traces to include in the query.
  *  @param projectId ID of the Cloud project where the trace data is stored.
@@ -144,31 +144,35 @@ GTLR_EXTERN NSString * const kGTLRCloudTraceViewViewTypeUnspecified;
  *  Start of the time interval (inclusive) during which the trace data was
  *  collected from the application.
  */
-@property(nonatomic, copy, nullable) NSString *endTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /** An optional filter for the request. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Field used to sort the returned traces. Optional. Can be one of the
- *  following: * `trace_id` * `name` (`name` field of root span in the trace) *
- *  `duration` (difference between `end_time` and `start_time` fields of the
- *  root span) * `start` (`start_time` field of the root span) Descending order
- *  can be specified by appending `desc` to the sort field (for example, `name
- *  desc`). Only one sort field is permitted.
+ *  Field used to sort the returned traces. Optional.
+ *  Can be one of the following:
+ *  * `trace_id`
+ *  * `name` (`name` field of root span in the trace)
+ *  * `duration` (difference between `end_time` and `start_time` fields of
+ *  the root span)
+ *  * `start` (`start_time` field of the root span)
+ *  Descending order can be specified by appending `desc` to the sort field
+ *  (for example, `name desc`).
+ *  Only one sort field is permitted.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Maximum number of traces to return. If not specified or <= 0, the
- *  implementation selects a reasonable value. The implementation may return
- *  fewer traces than the requested page size. Optional.
+ *  implementation selects a reasonable value. The implementation may
+ *  return fewer traces than the requested page size. Optional.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Token identifying the page of results to return. If provided, use the value
- *  of the `next_page_token` field from a previous request. Optional.
+ *  Token identifying the page of results to return. If provided, use the
+ *  value of the `next_page_token` field from a previous request. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -179,7 +183,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTraceViewViewTypeUnspecified;
  *  End of the time interval (inclusive) during which the trace data was
  *  collected from the application.
  */
-@property(nonatomic, copy, nullable) NSString *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Type of data returned for traces in the list. Optional. Default is

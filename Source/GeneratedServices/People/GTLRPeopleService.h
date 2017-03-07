@@ -4,8 +4,7 @@
 // API:
 //   Google People API (people/v1)
 // Description:
-//   The Google People API service gives access to information about profiles
-//   and contacts.
+//   Provides access to information about profiles and contacts.
 // Documentation:
 //   https://developers.google.com/people/
 
@@ -37,8 +36,8 @@ GTLR_EXTERN NSString * const kGTLRAuthScopePeopleContacts;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopePeopleContactsReadonly;
 /**
- *  Authorization scope: Know your basic profile info and list of people in your
- *  circles.
+ *  Authorization scope: Know the list of people in your circles, your age
+ *  range, and language
  *
  *  Value "https://www.googleapis.com/auth/plus.login"
  */
@@ -87,8 +86,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopePeopleUserPhonenumbersRead;
 /**
  *  Service for executing Google People API queries.
  *
- *  The Google People API service gives access to information about profiles and
- *  contacts.
+ *  Provides access to information about profiles and contacts.
  */
 @interface GTLRPeopleService : GTLRService
 

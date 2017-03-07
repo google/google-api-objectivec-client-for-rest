@@ -44,6 +44,34 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRReseller_NotifyGetwatchdetailsResponse
+//
+
+@implementation GTLRReseller_NotifyGetwatchdetailsResponse
+@dynamic serviceAccountEmailAddresses, topicName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceAccountEmailAddresses" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReseller_NotifyResource
+//
+
+@implementation GTLRReseller_NotifyResource
+@dynamic topicName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRReseller_RenewalSettings
 //
 

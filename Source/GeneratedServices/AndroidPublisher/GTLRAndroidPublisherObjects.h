@@ -1134,6 +1134,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *startTimeMillis;
 
+/**
+ *  The time at which the subscription was canceled by the user, in milliseconds
+ *  since the epoch. Only present if cancelReason is 0.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userCancellationTimeMillis;
+
 @end
 
 

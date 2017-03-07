@@ -1336,6 +1336,16 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_IterativeCalculationSettings
+//
+
+@implementation GTLRSheets_IterativeCalculationSettings
+@dynamic convergenceThreshold, maxIterations;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_MergeCellsRequest
 //
 
@@ -1728,7 +1738,8 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 //
 
 @implementation GTLRSheets_SpreadsheetProperties
-@dynamic autoRecalc, defaultFormat, locale, timeZone, title;
+@dynamic autoRecalc, defaultFormat, iterativeCalculationSettings, locale,
+         timeZone, title;
 @end
 
 

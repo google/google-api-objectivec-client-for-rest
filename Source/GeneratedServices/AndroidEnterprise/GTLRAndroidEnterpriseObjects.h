@@ -320,16 +320,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A device resource represents a mobile device managed by the EMM and
+ *  A Devices resource represents a mobile device managed by the EMM and
  *  belonging to a specific enterprise user.
- *  This collection cannot be modified via the API; it is automatically
+ *  This collection cannot be modified via the API. It is automatically
  *  populated as devices are set up to be managed.
  */
 @interface GTLRAndroidEnterprise_Device : GTLRObject
 
 /**
  *  The Google Play Services Android ID for the device encoded as a lowercase
- *  hex string, e.g. "123456789abcdef0".
+ *  hex string. For example, "123456789abcdef0".
  */
 @property(nonatomic, copy, nullable) NSString *androidId;
 
@@ -497,31 +497,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The existence of an entitlement resource means that a user has the right to
- *  use a particular app on any of their devices. This might be because the app
- *  is free or because they have been allocated a license to the app from a
- *  group license purchased by the enterprise.
- *  It should always be true that a user has an app installed on one of their
- *  devices only if they have an entitlement to it. So if an entitlement is
- *  deleted, the app will be uninstalled from all devices. Similarly if the user
- *  installs an app (and is permitted to do so), or the EMM triggers an install
- *  of the app, an entitlement to that app is automatically created. If this is
- *  impossible - e.g. the enterprise has not purchased sufficient licenses -
- *  then installation fails.
- *  Note that entitlements are always user specific, not device specific; a user
- *  may have an entitlement even though they have not installed the app
- *  anywhere. Once they have an entitlement they can install the app on multiple
- *  devices.
- *  The API can be used to create an entitlement. If the app is a free app, a
- *  group license for that app is created. If it's a paid app, creating the
- *  entitlement consumes one license; it remains consumed until the entitlement
- *  is removed. Optionally an installation of the app on all the user's managed
- *  devices can be triggered at the time the entitlement is created. An
- *  entitlement cannot be created for an app if the app requires permissions
- *  that the enterprise has not yet accepted.
- *  Entitlements for paid apps that are due to purchases by the user on a
- *  non-managed profile will have "userPurchase" as entitlement reason; those
- *  entitlements cannot be removed via the API.
+ *  The presence of an Entitlements resource indicates that a user has the right
+ *  to use a particular app. Entitlements are user specific, not device
+ *  specific. This allows a user with an entitlement to an app to install the
+ *  app on all their devices. It's also possible for a user to hold an
+ *  entitlement to an app without installing the app on any device.
+ *  The API can be used to create an entitlement. As an option, you can also use
+ *  the API to trigger the installation of an app on all a user's managed
+ *  devices at the same time the entitlement is created.
+ *  If the app is free, creating the entitlement also creates a group license
+ *  for that app. For paid apps, creating the entitlement consumes one license,
+ *  and that license remains consumed until the entitlement is removed. If the
+ *  enterprise hasn't purchased enough licenses, then no entitlement is created
+ *  and the installation fails. An entitlement is also not created for an app if
+ *  the app requires permissions that the enterprise hasn't accepted.
+ *  If an entitlement is deleted, the app may be uninstalled from a user's
+ *  device. As a best practice, uninstall the app by calling Installs.delete()
+ *  before deleting the entitlement.
+ *  Entitlements for apps that a user pays for on an unmanaged profile have
+ *  "userPurchase" as the entitlement reason. These entitlements cannot be
+ *  removed via the API.
  */
 @interface GTLRAndroidEnterprise_Entitlement : GTLRObject
 
@@ -532,15 +527,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The ID of the product that the entitlement is for, e.g.
+ *  The ID of the product that the entitlement is for. For example,
  *  "app:com.google.android.gm".
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
- *  The reason for the entitlement, e.g. "free" for free apps. This is
- *  temporary, it will be replaced by the acquisition kind field of group
- *  licenses.
+ *  The reason for the entitlement. For example, "free" for free apps. This
+ *  property is temporary: it will be replaced by the acquisition kind field of
+ *  group licenses.
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -590,19 +585,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_GroupLicense : GTLRObject
 
 /**
- *  How this group license was acquired. "bulkPurchase" means that this group
- *  license object was created because the enterprise purchased licenses for
- *  this product; this is "free" otherwise (for free products).
+ *  How this group license was acquired. "bulkPurchase" means that this
+ *  Grouplicenses resource was created because the enterprise purchased licenses
+ *  for this product; otherwise, the value is "free" (for free products).
  */
 @property(nonatomic, copy, nullable) NSString *acquisitionKind;
 
 /**
  *  Whether the product to which this group license relates is currently
- *  approved by the enterprise, as either "approved" or "unapproved". Products
- *  are approved when a group license is first created, but this approval may be
- *  revoked by an enterprise admin via Google Play. Unapproved products will not
- *  be visible to end users in collections and new entitlements to them should
- *  not normally be created.
+ *  approved by the enterprise. Products are approved when a group license is
+ *  first created, but this approval may be revoked by an enterprise admin via
+ *  Google Play. Unapproved products will not be visible to end users in
+ *  collections, and new entitlements to them should not normally be created.
  */
 @property(nonatomic, copy, nullable) NSString *approval;
 
@@ -622,15 +616,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The number of purchased licenses (possibly in multiple purchases). If this
- *  field is omitted then there is no limit on the number of licenses that can
- *  be provisioned (e.g. if the acquisition kind is "free").
+ *  field is omitted, then there is no limit on the number of licenses that can
+ *  be provisioned (for example, if the acquisition kind is "free").
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numPurchased;
 
 /**
- *  The ID of the product that the license is for, e.g.
+ *  The ID of the product that the license is for. For example,
  *  "app:com.google.android.gm".
  */
 @property(nonatomic, copy, nullable) NSString *productId;
@@ -673,18 +667,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The existence of an install resource indicates that an app is installed on a
- *  particular device (or that an install is pending).
+ *  The existence of an Installs resource indicates that an app is installed on
+ *  a particular device (or that an install is pending).
  *  The API can be used to create an install resource using the update method.
  *  This triggers the actual install of the app on the device. If the user does
- *  not already have an entitlement for the app then an attempt is made to
- *  create one. If this fails (e.g. because the app is not free and there is no
- *  available license) then the creation of the install fails.
+ *  not already have an entitlement for the app, then an attempt is made to
+ *  create one. If this fails (for example, because the app is not free and
+ *  there is no available license), then the creation of the install fails.
  *  The API can also be used to update an installed app. If the update method is
- *  used on an existing install then the app will be updated to the latest
+ *  used on an existing install, then the app will be updated to the latest
  *  available version.
  *  Note that it is not possible to force the installation of a specific version
- *  of an app; the version code is read-only.
+ *  of an app: the version code is read-only.
  *  If a user installs an app themselves (as permitted by the enterprise), then
  *  again an install resource and possibly an entitlement resource are
  *  automatically created.
@@ -710,7 +704,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The ID of the product that the install is for, e.g.
+ *  The ID of the product that the install is for. For example,
  *  "app:com.google.android.gm".
  */
 @property(nonatomic, copy, nullable) NSString *productId;
@@ -921,14 +915,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
- *  Identifies the extent to which the device is controlled by an Android for
- *  Work EMM in various deployment configurations.
+ *  Identifies the extent to which the device is controlled by an Android EMM in
+ *  various deployment configurations.
  *  Possible values include:
- *  - "managedDevice", a device that has the EMM's device policy controller
- *  (DPC) as the device owner,
- *  - "managedProfile", a device that has a work profile managed by the DPC (DPC
- *  is profile owner) in addition to a separate, personal profile that is
- *  unavailable to the DPC,
+ *  - "managedDevice", a device where the DPC is set as device owner,
+ *  - "managedProfile", a device where the DPC is set as profile owner.
  */
 @property(nonatomic, copy, nullable) NSString *managementType;
 
@@ -1064,19 +1055,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A permission represents some extra capability, to be granted to an Android
- *  app, which requires explicit consent. An enterprise admin must consent to
- *  these permissions on behalf of their users before an entitlement for the app
- *  can be created.
+ *  A Permissions resource represents some extra capability, to be granted to an
+ *  Android app, which requires explicit consent. An enterprise admin must
+ *  consent to these permissions on behalf of their users before an entitlement
+ *  for the app can be created.
  *  The permissions collection is read-only. The information provided for each
  *  permission (localized name and description) is intended to be used in the
- *  EMM user interface when obtaining consent from the enterprise.
+ *  MDM user interface when obtaining consent from the enterprise.
  */
 @interface GTLRAndroidEnterprise_Permission : GTLRObject
 
 /**
- *  A longer description of the permissions giving more details of what it
- *  affects.
+ *  A longer description of the Permissions resource, giving more details of
+ *  what it affects.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1114,7 +1105,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AppVersion *> *appVersion;
 
-/** The name of the author of the product (e.g. the app developer). */
+/** The name of the author of the product (for example, the app developer). */
 @property(nonatomic, copy, nullable) NSString *authorName;
 
 /** A link to the (consumer) Google Play details page for the product. */
@@ -1293,12 +1284,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The interpretation of this product set. "unknown" should never be sent and
- *  ignored if received. "whitelist" means that this product set constitutes a
- *  whitelist. "includeAll" means that all products are accessible, including
- *  products that are approved, not approved, and even products where approval
- *  has been revoked. If the value is "includeAll", the value of the productId
- *  field is therefore ignored. If a value is not supplied, it is interpreted to
- *  be "whitelist" for backwards compatibility.
+ *  is ignored if received. "whitelist" means that this product set constitutes
+ *  a whitelist. "includeAll" means that all products are accessible, including
+ *  products that are approved, products with revoked approval, and products
+ *  that have never been approved. If the value is "includeAll", the value of
+ *  the productId field is therefore ignored. If a value is not supplied, it is
+ *  interpreted to be "whitelist" for backwards compatibility.
  */
 @property(nonatomic, copy, nullable) NSString *productSetBehavior;
 

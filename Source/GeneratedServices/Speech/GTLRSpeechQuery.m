@@ -22,19 +22,13 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRSpeech_CancelOperationRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
++ (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1beta1/operations/{+name}:cancel";
   GTLRSpeechQuery_OperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
-  query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRSpeech_Empty class];
   query.loggingName = @"speech.operations.cancel";

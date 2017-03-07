@@ -21,6 +21,7 @@
 
 @class GTLRCloudResourceManager_GetAncestryRequest;
 @class GTLRCloudResourceManager_GetIamPolicyRequest;
+@class GTLRCloudResourceManager_Lien;
 @class GTLRCloudResourceManager_Project;
 @class GTLRCloudResourceManager_SearchOrganizationsRequest;
 @class GTLRCloudResourceManager_SetIamPolicyRequest;
@@ -36,6 +37,125 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Create a Lien which applies to the resource denoted by the `parent` field.
+ *  Callers of this method will require permission on the `parent` resource.
+ *  For example, applying to `projects/1234` requires permission
+ *  `resourcemanager.projects.updateLiens`.
+ *  NOTE: Some resources may limit the number of Liens which may be applied.
+ *
+ *  Method: cloudresourcemanager.liens.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_LiensCreate : GTLRCloudResourceManagerQuery
+// Previous library name was
+//   +[GTLQueryCloudResourceManager queryForLiensCreateWithObject:]
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Lien.
+ *
+ *  Create a Lien which applies to the resource denoted by the `parent` field.
+ *  Callers of this method will require permission on the `parent` resource.
+ *  For example, applying to `projects/1234` requires permission
+ *  `resourcemanager.projects.updateLiens`.
+ *  NOTE: Some resources may limit the number of Liens which may be applied.
+ *
+ *  @param object The @c GTLRCloudResourceManager_Lien to include in the query.
+ *
+ *  @returns GTLRCloudResourceManagerQuery_LiensCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Lien *)object;
+
+@end
+
+/**
+ *  Delete a Lien by `name`.
+ *  Callers of this method will require permission on the `parent` resource.
+ *  For example, a Lien with a `parent` of `projects/1234` requires permission
+ *  `resourcemanager.projects.updateLiens`.
+ *
+ *  Method: cloudresourcemanager.liens.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_LiensDelete : GTLRCloudResourceManagerQuery
+// Previous library name was
+//   +[GTLQueryCloudResourceManager queryForLiensDeleteWithname:]
+
+/** The name/identifier of the Lien to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Empty.
+ *
+ *  Delete a Lien by `name`.
+ *  Callers of this method will require permission on the `parent` resource.
+ *  For example, a Lien with a `parent` of `projects/1234` requires permission
+ *  `resourcemanager.projects.updateLiens`.
+ *
+ *  @param name The name/identifier of the Lien to delete.
+ *
+ *  @returns GTLRCloudResourceManagerQuery_LiensDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List all Liens applied to the `parent` resource.
+ *  Callers of this method will require permission on the `parent` resource.
+ *  For example, a Lien with a `parent` of `projects/1234` requires permission
+ *  `resourcemanager.projects.get`.
+ *
+ *  Method: cloudresourcemanager.liens.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_LiensList : GTLRCloudResourceManagerQuery
+// Previous library name was
+//   +[GTLQueryCloudResourceManager queryForLiensList]
+
+/**
+ *  The maximum number of items to return. This is a suggestion for the server.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The `next_page_token` value returned from a previous List request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The name of the resource to list all attached Liens.
+ *  For example, `projects/1234`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_ListLiensResponse.
+ *
+ *  List all Liens applied to the `parent` resource.
+ *  Callers of this method will require permission on the `parent` resource.
+ *  For example, a Lien with a `parent` of `projects/1234` requires permission
+ *  `resourcemanager.projects.get`.
+ *
+ *  @returns GTLRCloudResourceManagerQuery_LiensList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
 
 @end
 
@@ -121,8 +241,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -137,8 +256,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRCloudResourceManagerQuery_OrganizationsGetIamPolicy
  */
@@ -196,8 +314,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being specified.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -212,8 +329,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
  *    specified.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRCloudResourceManagerQuery_OrganizationsSetIamPolicy
  */
@@ -239,8 +355,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -255,8 +370,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRCloudResourceManagerQuery_OrganizationsTestIamPermissions
  */
@@ -464,8 +578,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -479,8 +592,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRCloudResourceManagerQuery_ProjectsGetIamPolicy
  */
@@ -598,8 +710,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being specified.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -639,8 +750,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
  *    specified.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRCloudResourceManagerQuery_ProjectsSetIamPolicy
  */
@@ -664,8 +774,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -678,8 +787,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRCloudResourceManagerQuery_ProjectsTestIamPermissions
  */

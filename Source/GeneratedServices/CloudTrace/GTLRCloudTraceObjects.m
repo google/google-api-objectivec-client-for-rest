@@ -2,14 +2,14 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Trace API (cloudtrace/v1)
+//   Stackdriver Trace API (cloudtrace/v1)
 // Description:
-//   Send and retrieve trace data from Google Cloud Trace. Data is generated and
+//   Send and retrieve trace data from Stackdriver Trace. Data is generated and
 //   available by default for all App Engine applications. Data from other
-//   applications can be written to Cloud Trace for display, reporting, and
-//   analysis.
+//   applications can be written to Stackdriver Trace for display, reporting,
+//   and analysis.
 // Documentation:
-//   https://cloud.google.com/tools/cloud-trace
+//   https://cloud.google.com/trace
 
 #import "GTLRCloudTraceObjects.h"
 

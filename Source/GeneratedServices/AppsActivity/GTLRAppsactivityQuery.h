@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Apps Activity API (appsactivity/v1)
+//   G Suite Activity API (appsactivity/v1)
 // Description:
 //   Provides a historical view of activity.
 // Documentation:
@@ -27,18 +27,18 @@ NS_ASSUME_NONNULL_BEGIN
 // groupingStrategy
 
 /** Value: "driveUi" */
-GTLR_EXTERN NSString * const kGTLRAppsActivityGroupingStrategyDriveUi;
+GTLR_EXTERN NSString * const kGTLRAppsactivityGroupingStrategyDriveUi;
 /** Value: "none" */
-GTLR_EXTERN NSString * const kGTLRAppsActivityGroupingStrategyNone;
+GTLR_EXTERN NSString * const kGTLRAppsactivityGroupingStrategyNone;
 
 // ----------------------------------------------------------------------------
 // Query Classes
 //
 
 /**
- *  Parent class for other AppsActivity query classes.
+ *  Parent class for other Appsactivity query classes.
  */
-@interface GTLRAppsActivityQuery : GTLRQuery
+@interface GTLRAppsactivityQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
@@ -55,15 +55,15 @@ GTLR_EXTERN NSString * const kGTLRAppsActivityGroupingStrategyNone;
  *  Method: appsactivity.activities.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeAppsActivityActivity
- *    @c kGTLRAuthScopeAppsActivityDrive
- *    @c kGTLRAuthScopeAppsActivityDriveMetadata
- *    @c kGTLRAuthScopeAppsActivityDriveMetadataReadonly
- *    @c kGTLRAuthScopeAppsActivityDriveReadonly
+ *    @c kGTLRAuthScopeAppsactivityActivity
+ *    @c kGTLRAuthScopeAppsactivityDrive
+ *    @c kGTLRAuthScopeAppsactivityDriveMetadata
+ *    @c kGTLRAuthScopeAppsactivityDriveMetadataReadonly
+ *    @c kGTLRAuthScopeAppsactivityDriveReadonly
  */
-@interface GTLRAppsActivityQuery_ActivitiesList : GTLRAppsActivityQuery
+@interface GTLRAppsactivityQuery_ActivitiesList : GTLRAppsactivityQuery
 // Previous library name was
-//   +[GTLQueryAppsActivity queryForActivitiesList]
+//   +[GTLQueryAppsactivity queryForActivitiesList]
 
 /**
  *  Identifies the Drive folder containing the items for which to return
@@ -79,11 +79,11 @@ GTLR_EXTERN NSString * const kGTLRAppsActivityGroupingStrategyNone;
  *  associated combinedEvent object.
  *
  *  Likely values:
- *    @arg @c kGTLRAppsActivityGroupingStrategyDriveUi Value "driveUi"
- *    @arg @c kGTLRAppsActivityGroupingStrategyNone Value "none"
+ *    @arg @c kGTLRAppsactivityGroupingStrategyDriveUi Value "driveUi"
+ *    @arg @c kGTLRAppsactivityGroupingStrategyNone Value "none"
  *
  *  @note If not set, the documented server-side default will be
- *        kGTLRAppsActivityGroupingStrategyDriveUi.
+ *        kGTLRAppsactivityGroupingStrategyDriveUi.
  */
 @property(nonatomic, copy, nullable) NSString *groupingStrategy;
 
@@ -114,7 +114,7 @@ GTLR_EXTERN NSString * const kGTLRAppsActivityGroupingStrategyNone;
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
- *  Fetches a @c GTLRAppsActivity_ListActivitiesResponse.
+ *  Fetches a @c GTLRAppsactivity_ListActivitiesResponse.
  *
  *  Returns a list of activities visible to the current logged in user. Visible
  *  activities are determined by the visiblity settings of the object that was
@@ -122,7 +122,7 @@ GTLR_EXTERN NSString * const kGTLRAppsActivityGroupingStrategyNone;
  *  events. Multiple events may be merged if they are similar. A request is
  *  scoped to activities from a given Google service using the source parameter.
  *
- *  @returns GTLRAppsActivityQuery_ActivitiesList
+ *  @returns GTLRAppsactivityQuery_ActivitiesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

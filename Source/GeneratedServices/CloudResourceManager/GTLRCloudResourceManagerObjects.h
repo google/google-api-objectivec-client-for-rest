@@ -21,6 +21,7 @@
 
 @class GTLRCloudResourceManager_Ancestor;
 @class GTLRCloudResourceManager_Binding;
+@class GTLRCloudResourceManager_Lien;
 @class GTLRCloudResourceManager_Operation_Metadata;
 @class GTLRCloudResourceManager_Operation_Response;
 @class GTLRCloudResourceManager_Organization;
@@ -339,6 +340,82 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 
 /**
+ *  A Lien represents an encumbrance on the actions that can be performed on a
+ *  resource.
+ */
+@interface GTLRCloudResourceManager_Lien : GTLRObject
+
+/** The creation time of this Lien. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  A system-generated unique identifier for this Lien.
+ *  Example: `liens/1234abcd`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A stable, user-visible/meaningful string identifying the origin of the
+ *  Lien, intended to be inspected programmatically. Maximum length of 200
+ *  characters.
+ *  Example: 'compute.googleapis.com'
+ */
+@property(nonatomic, copy, nullable) NSString *origin;
+
+/**
+ *  A reference to the resource this Lien is attached to. The server will
+ *  validate the parent against those for which Liens are supported.
+ *  Example: `projects/1234`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Concise user-visible strings indicating why an action cannot be performed
+ *  on a resource. Maximum lenth of 200 characters.
+ *  Example: 'Holds production API key'
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/**
+ *  The types of operations which should be blocked as a result of this Lien.
+ *  Each value should correspond to an IAM permission. The server will
+ *  validate the permissions against those for which Liens are supported.
+ *  An empty list is meaningless and will be rejected.
+ *  Example: ['resourcemanager.projects.delete']
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *restrictions;
+
+@end
+
+
+/**
+ *  The response message for Liens.ListLiens.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "liens" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudResourceManager_ListLiensResponse : GTLRCollectionObject
+
+/**
+ *  A list of Liens.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Lien *> *liens;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  A page of the response received from the
  *  ListProjects
  *  method.
@@ -473,8 +550,8 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 /**
  *  A friendly string to be used to refer to the Organization in the UI.
- *  Assigned by the server, set to the firm name of the Google For Work
- *  customer that owns this organization.
+ *  Assigned by the server, set to the primary domain of the G Suite
+ *  customer that owns the organization.
  *  \@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -594,7 +671,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 /**
  *  A Project is a high-level Google Cloud Platform entity. It is a
- *  container for ACLs, APIs, AppEngine Apps, VMs, and other
+ *  container for ACLs, APIs, App Engine Apps, VMs, and other
  *  Google Cloud Platform resources.
  */
 @interface GTLRCloudResourceManager_Project : GTLRObject
@@ -738,7 +815,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 /**
  *  A container to reference an id for any resource type. A `resource` in Google
  *  Cloud Platform is a generic term for something you (a developer) may want to
- *  interact with through one of our API's. Some examples are an AppEngine app,
+ *  interact with through one of our API's. Some examples are an App Engine app,
  *  a Compute Engine instance, a Cloud SQL database, and so on.
  */
 @interface GTLRCloudResourceManager_ResourceId : GTLRObject
@@ -753,7 +830,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 /**
  *  Required field representing the resource type this id is for.
- *  At present, the only valid type is "organization".
+ *  At present, the valid types are: "organization"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

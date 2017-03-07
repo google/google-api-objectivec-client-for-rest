@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Machine Learning (ml/v1beta1)
+//   Cloud Source Repositories API (sourcerepo/v1)
 // Description:
-//   An API to enable creating and using machine learning models.
+//   Access source code repositories hosted by Google.
 // Documentation:
-//   https://cloud.google.com/ml/
+//   https://cloud.google.com/eap/cloud-repositories/cloud-sourcerepo-api
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -29,24 +29,24 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudMachineLearningCloudPlatform;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudMachineLearningService
+//   GTLRCloudSourceRepositoriesService
 //
 
 /**
- *  Service for executing Google Cloud Machine Learning queries.
+ *  Service for executing Cloud Source Repositories API queries.
  *
- *  An API to enable creating and using machine learning models.
+ *  Access source code repositories hosted by Google.
  */
-@interface GTLRCloudMachineLearningService : GTLRService
+@interface GTLRCloudSourceRepositoriesService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudMachineLearningQuery.h. The query can the be sent with GTLRService's
-// execute methods,
+// GTLRCloudSourceRepositoriesQuery.h. The query can the be sent with
+// GTLRService's execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

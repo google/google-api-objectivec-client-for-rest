@@ -82,27 +82,19 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Linear16;
 GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 
 /**
- *  `AsyncRecognizeRequest` is the top-level message sent by the client for
- *  the `AsyncRecognize` method.
+ *  The top-level message sent by the client for the `AsyncRecognize` method.
  */
 @interface GTLRSpeech_AsyncRecognizeRequest : GTLRObject
 
-/** [Required] The audio data to be recognized. */
+/** *Required* The audio data to be recognized. */
 @property(nonatomic, strong, nullable) GTLRSpeech_RecognitionAudio *audio;
 
 /**
- *  [Required] The `config` message provides information to the recognizer
- *  that specifies how to process the request.
+ *  *Required* Provides information to the recognizer that specifies how to
+ *  process the request.
  */
 @property(nonatomic, strong, nullable) GTLRSpeech_RecognitionConfig *config;
 
-@end
-
-
-/**
- *  The request message for Operations.CancelOperation.
- */
-@interface GTLRSpeech_CancelOperationRequest : GTLRObject
 @end
 
 
@@ -114,7 +106,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 @interface GTLRSpeech_Context : GTLRObject
 
 /**
- *  [Optional] A list of strings containing words and phrases "hints" so that
+ *  *Optional* A list of strings containing words and phrases "hints" so that
  *  the speech recognition is more likely to recognize them. This can be used
  *  to improve the accuracy for specific words and phrases, for example, if
  *  specific commands are typically spoken by the user. This can also be used
@@ -251,7 +243,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 @interface GTLRSpeech_RecognitionAlternative : GTLRObject
 
 /**
- *  [Output-only] The confidence estimate between 0.0 and 1.0. A higher number
+ *  *Output-only* The confidence estimate between 0.0 and 1.0. A higher number
  *  indicates an estimated greater likelihood that the recognized words are
  *  correct. This field is typically provided only for the top hypothesis, and
  *  only for `is_final=true` results. Clients should not rely on the
@@ -264,7 +256,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  [Output-only] Transcript text representing the words that the user spoke.
+ *  *Output-only* Transcript text representing the words that the user spoke.
  */
 @property(nonatomic, copy, nullable) NSString *transcript;
 
@@ -303,13 +295,13 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 
 
 /**
- *  The `RecognitionConfig` message provides information to the recognizer
- *  that specifies how to process the request.
+ *  Provides information to the recognizer that specifies how to process the
+ *  request.
  */
 @interface GTLRSpeech_RecognitionConfig : GTLRObject
 
 /**
- *  [Required] Encoding of audio data sent in all `RecognitionAudio` messages.
+ *  *Required* Encoding of audio data sent in all `RecognitionAudio` messages.
  *
  *  Likely values:
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Amr Adaptive Multi-Rate
@@ -337,7 +329,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 @property(nonatomic, copy, nullable) NSString *encoding;
 
 /**
- *  [Optional] The language of the supplied audio as a BCP-47 language tag.
+ *  *Optional* The language of the supplied audio as a BCP-47 language tag.
  *  Example: "en-GB" https://www.rfc-editor.org/rfc/bcp/bcp47.txt
  *  If omitted, defaults to "en-US". See
  *  [Language Support](https://cloud.google.com/speech/docs/languages)
@@ -346,7 +338,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  [Optional] Maximum number of recognition hypotheses to be returned.
+ *  *Optional* Maximum number of recognition hypotheses to be returned.
  *  Specifically, the maximum number of `SpeechRecognitionAlternative` messages
  *  within each `SpeechRecognitionResult`.
  *  The server may return fewer than `max_alternatives`.
@@ -358,7 +350,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 @property(nonatomic, strong, nullable) NSNumber *maxAlternatives;
 
 /**
- *  [Optional] If set to `true`, the server will attempt to filter out
+ *  *Optional* If set to `true`, the server will attempt to filter out
  *  profanities, replacing all but the initial character in each filtered word
  *  with asterisks, e.g. "f***". If set to `false` or omitted, profanities
  *  won't be filtered out.
@@ -368,7 +360,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 @property(nonatomic, strong, nullable) NSNumber *profanityFilter;
 
 /**
- *  [Required] Sample rate in Hertz of the audio data sent in all
+ *  *Required* Sample rate in Hertz of the audio data sent in all
  *  `RecognitionAudio` messages. Valid values are: 8000-48000.
  *  16000 is optimal. For best results, set the sampling rate of the audio
  *  source to 16000 Hz. If that's not possible, use the native sample rate of
@@ -378,7 +370,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
  */
 @property(nonatomic, strong, nullable) NSNumber *sampleRate;
 
-/** [Optional] A means to provide context to assist the speech recognition. */
+/** *Optional* A means to provide context to assist the speech recognition. */
 @property(nonatomic, strong, nullable) GTLRSpeech_Context *speechContext;
 
 @end
@@ -390,7 +382,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 @interface GTLRSpeech_RecognitionResult : GTLRObject
 
 /**
- *  [Output-only] May contain one or more recognition hypotheses (up to the
+ *  *Output-only* May contain one or more recognition hypotheses (up to the
  *  maximum specified in `max_alternatives`).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionAlternative *> *alternatives;
@@ -481,17 +473,16 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 
 
 /**
- *  `SyncRecognizeRequest` is the top-level message sent by the client for
- *  the `SyncRecognize` method.
+ *  The top-level message sent by the client for the `SyncRecognize` method.
  */
 @interface GTLRSpeech_SyncRecognizeRequest : GTLRObject
 
-/** [Required] The audio data to be recognized. */
+/** *Required* The audio data to be recognized. */
 @property(nonatomic, strong, nullable) GTLRSpeech_RecognitionAudio *audio;
 
 /**
- *  [Required] The `config` message provides information to the recognizer
- *  that specifies how to process the request.
+ *  *Required* Provides information to the recognizer that specifies how to
+ *  process the request.
  */
 @property(nonatomic, strong, nullable) GTLRSpeech_RecognitionConfig *config;
 
@@ -499,14 +490,14 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 
 
 /**
- *  `SyncRecognizeResponse` is the only message returned to the client by
- *  `SyncRecognize`. It contains the result as zero or more sequential
- *  `SpeechRecognitionResult` messages.
+ *  The only message returned to the client by `SyncRecognize`. method. It
+ *  contains the result as zero or more sequential `SpeechRecognitionResult`
+ *  messages.
  */
 @interface GTLRSpeech_SyncRecognizeResponse : GTLRObject
 
 /**
- *  [Output-only] Sequential list of transcription results corresponding to
+ *  *Output-only* Sequential list of transcription results corresponding to
  *  sequential portions of audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionResult *> *results;

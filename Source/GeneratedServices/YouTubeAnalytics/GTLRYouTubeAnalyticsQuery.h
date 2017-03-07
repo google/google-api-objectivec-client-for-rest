@@ -432,6 +432,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *ids;
 
+/**
+ *  If set to true historical data (i.e. channel data from before the linking of
+ *  the channel to the content owner) will be retrieved.
+ */
+@property(nonatomic, assign) BOOL includeHistoricalChannelData;
+
 /** The maximum number of rows to include in the response. */
 @property(nonatomic, assign) NSInteger maxResults;
 

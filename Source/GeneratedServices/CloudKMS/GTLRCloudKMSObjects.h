@@ -73,6 +73,19 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_LogTypeUnspeci
 // GTLRCloudKMS_Condition.iam
 
 /**
+ *  An approver (distinct from the requester) that has authorized this
+ *  request.
+ *  When used with IN, the condition indicates that one of the approvers
+ *  associated with the request matches the specified principal, or is a
+ *  member of the specified group. Approvers can only grant additional
+ *  access, and are thus only used in a strictly positive context
+ *  (e.g. ALLOW/IN or DENY/NOT_IN).
+ *  See: go/rpc-security-policy-dynamicauth.
+ *
+ *  Value: "APPROVER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_Condition_Iam_Approver;
+/**
  *  The principal (even if an authority selector is present), which
  *  must only be used for attribution, not authorization.
  *
@@ -85,6 +98,18 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Condition_Iam_Attribution;
  *  Value: "AUTHORITY"
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_Condition_Iam_Authority;
+/**
+ *  What types of justifications have been supplied with this request.
+ *  String values should match enum names from tech.iam.JustificationType,
+ *  e.g. "MANUAL_STRING". It is not permitted to grant access based on
+ *  the *absence* of a justification, so justification conditions can only
+ *  be used in a "positive" context (e.g., ALLOW/IN or DENY/NOT_IN).
+ *  Multiple justifications, e.g., a Buganizer ID and a manually-entered
+ *  reason, are normal and supported.
+ *
+ *  Value: "JUSTIFICATION_TYPE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_Condition_Iam_JustificationType;
 /**
  *  Default non-attribute.
  *
@@ -108,7 +133,8 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Condition_Op_Discharged;
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_Condition_Op_Equals;
 /**
- *  Set-inclusion check.
+ *  The condition is true if the subject (or any element of it if it is
+ *  a set) matches any of the supplied values.
  *
  *  Value: "IN"
  */
@@ -126,7 +152,8 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Condition_Op_NoOp;
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_Condition_Op_NotEquals;
 /**
- *  Set-exclusion check.
+ *  The condition is true if the subject (or every element of it if it is
+ *  a set) matches none of the supplied values.
  *
  *  Value: "NOT_IN"
  */
@@ -271,6 +298,49 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
  *  It consists of which permission types are logged, and what identities, if
  *  any, are exempted from logging.
  *  An AuditConifg must have one or more AuditLogConfigs.
+ *  If there are AuditConfigs for both `allServices` and a specific service,
+ *  the union of the two AuditConfigs is used for that service: the log_types
+ *  specified in each AuditConfig are enabled, and the exempted_members in each
+ *  AuditConfig are exempted.
+ *  Example Policy with multiple AuditConfigs:
+ *  {
+ *  "audit_configs": [
+ *  {
+ *  "service": "allServices"
+ *  "audit_log_configs": [
+ *  {
+ *  "log_type": "DATA_READ",
+ *  "exempted_members": [
+ *  "user:foo\@gmail.com"
+ *  ]
+ *  },
+ *  {
+ *  "log_type": "DATA_WRITE",
+ *  },
+ *  {
+ *  "log_type": "ADMIN_READ",
+ *  }
+ *  ]
+ *  },
+ *  {
+ *  "service": "fooservice\@googleapis.com"
+ *  "audit_log_configs": [
+ *  {
+ *  "log_type": "DATA_READ",
+ *  },
+ *  {
+ *  "log_type": "DATA_WRITE",
+ *  "exempted_members": [
+ *  "user:bar\@gmail.com"
+ *  ]
+ *  }
+ *  ]
+ *  }
+ *  ]
+ *  }
+ *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
+ *  bar\@gmail.com from DATA_WRITE logging.
  */
 @interface GTLRCloudKMS_AuditConfig : GTLRObject
 
@@ -280,12 +350,6 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_AuditLogConfig *> *auditLogConfigs;
 
-/**
- *  Specifies the identities that are exempted from "data access" audit
- *  logging for the `service` specified above.
- *  Follows the same format of Binding.members.
- *  This field is deprecated in favor of per-permission-type exemptions.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
@@ -393,12 +457,29 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
  *  Trusted attributes supplied by the IAM system.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudKMS_Condition_Iam_Approver An approver (distinct from
+ *        the requester) that has authorized this
+ *        request.
+ *        When used with IN, the condition indicates that one of the approvers
+ *        associated with the request matches the specified principal, or is a
+ *        member of the specified group. Approvers can only grant additional
+ *        access, and are thus only used in a strictly positive context
+ *        (e.g. ALLOW/IN or DENY/NOT_IN).
+ *        See: go/rpc-security-policy-dynamicauth. (Value: "APPROVER")
  *    @arg @c kGTLRCloudKMS_Condition_Iam_Attribution The principal (even if an
  *        authority selector is present), which
  *        must only be used for attribution, not authorization. (Value:
  *        "ATTRIBUTION")
  *    @arg @c kGTLRCloudKMS_Condition_Iam_Authority Either principal or (if
  *        present) authority selector. (Value: "AUTHORITY")
+ *    @arg @c kGTLRCloudKMS_Condition_Iam_JustificationType What types of
+ *        justifications have been supplied with this request.
+ *        String values should match enum names from tech.iam.JustificationType,
+ *        e.g. "MANUAL_STRING". It is not permitted to grant access based on
+ *        the *absence* of a justification, so justification conditions can only
+ *        be used in a "positive" context (e.g., ALLOW/IN or DENY/NOT_IN).
+ *        Multiple justifications, e.g., a Buganizer ID and a manually-entered
+ *        reason, are normal and supported. (Value: "JUSTIFICATION_TYPE")
  *    @arg @c kGTLRCloudKMS_Condition_Iam_NoAttr Default non-attribute. (Value:
  *        "NO_ATTR")
  */
@@ -412,12 +493,15 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
  *        (Value: "DISCHARGED")
  *    @arg @c kGTLRCloudKMS_Condition_Op_Equals DEPRECATED. Use IN instead.
  *        (Value: "EQUALS")
- *    @arg @c kGTLRCloudKMS_Condition_Op_In Set-inclusion check. (Value: "IN")
+ *    @arg @c kGTLRCloudKMS_Condition_Op_In The condition is true if the subject
+ *        (or any element of it if it is
+ *        a set) matches any of the supplied values. (Value: "IN")
  *    @arg @c kGTLRCloudKMS_Condition_Op_NoOp Default no-op. (Value: "NO_OP")
  *    @arg @c kGTLRCloudKMS_Condition_Op_NotEquals DEPRECATED. Use NOT_IN
  *        instead. (Value: "NOT_EQUALS")
- *    @arg @c kGTLRCloudKMS_Condition_Op_NotIn Set-exclusion check. (Value:
- *        "NOT_IN")
+ *    @arg @c kGTLRCloudKMS_Condition_Op_NotIn The condition is true if the
+ *        subject (or every element of it if it is
+ *        a set) matches none of the supplied values. (Value: "NOT_IN")
  */
 @property(nonatomic, copy, nullable) NSString *op;
 

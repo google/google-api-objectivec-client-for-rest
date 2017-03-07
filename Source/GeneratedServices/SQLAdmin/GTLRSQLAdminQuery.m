@@ -295,6 +295,8 @@
 
 @implementation GTLRSQLAdminQuery_FlagsList
 
+@dynamic databaseVersion;
+
 + (instancetype)query {
   NSString *pathURITemplate = @"flags";
   GTLRSQLAdminQuery_FlagsList *query =
@@ -497,7 +499,7 @@
 
 @implementation GTLRSQLAdminQuery_InstancesList
 
-@dynamic maxResults, pageToken, project;
+@dynamic filter, maxResults, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];

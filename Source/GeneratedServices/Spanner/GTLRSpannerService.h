@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Apps Activity API (appsactivity/v1)
+//   Cloud Spanner API (spanner/v1)
 // Description:
-//   Provides a historical view of activity.
+//   Cloud Spanner is a managed, mission-critical, globally consistent and
+//   scalable relational database service.
 // Documentation:
-//   https://developers.google.com/google-apps/activity/
+//   https://cloud.google.com/spanner/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -21,54 +22,32 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 /**
- *  Authorization scope: View the activity history of your Google Apps
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
- *  Value "https://www.googleapis.com/auth/activity"
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAppsActivityActivity;
-/**
- *  Authorization scope: View and manage the files in your Google Drive
- *
- *  Value "https://www.googleapis.com/auth/drive"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAppsActivityDrive;
-/**
- *  Authorization scope: View and manage metadata of files in your Google Drive
- *
- *  Value "https://www.googleapis.com/auth/drive.metadata"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAppsActivityDriveMetadata;
-/**
- *  Authorization scope: View metadata for files in your Google Drive
- *
- *  Value "https://www.googleapis.com/auth/drive.metadata.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAppsActivityDriveMetadataReadonly;
-/**
- *  Authorization scope: View the files in your Google Drive
- *
- *  Value "https://www.googleapis.com/auth/drive.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAppsActivityDriveReadonly;
+GTLR_EXTERN NSString * const kGTLRAuthScopeSpannerCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRAppsActivityService
+//   GTLRSpannerService
 //
 
 /**
- *  Service for executing Google Apps Activity API queries.
+ *  Service for executing Cloud Spanner API queries.
  *
- *  Provides a historical view of activity.
+ *  Cloud Spanner is a managed, mission-critical, globally consistent and
+ *  scalable relational database service.
  */
-@interface GTLRAppsActivityService : GTLRService
+@interface GTLRSpannerService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRAppsActivityQuery.h. The query can the be sent with GTLRService's execute
+// GTLRSpannerQuery.h. The query can the be sent with GTLRService's execute
 // methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

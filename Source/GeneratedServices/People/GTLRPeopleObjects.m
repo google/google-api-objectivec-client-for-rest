@@ -4,8 +4,7 @@
 // API:
 //   Google People API (people/v1)
 // Description:
-//   The Google People API service gives access to information about profiles
-//   and contacts.
+//   Provides access to information about profiles and contacts.
 // Documentation:
 //   https://developers.google.com/people/
 
@@ -13,6 +12,17 @@
 
 // ----------------------------------------------------------------------------
 // Constants
+
+// GTLRPeople_AgeRangeType.ageRange
+NSString * const kGTLRPeople_AgeRangeType_AgeRange_AgeRangeUnspecified = @"AGE_RANGE_UNSPECIFIED";
+NSString * const kGTLRPeople_AgeRangeType_AgeRange_EighteenToTwenty = @"EIGHTEEN_TO_TWENTY";
+NSString * const kGTLRPeople_AgeRangeType_AgeRange_LessThanEighteen = @"LESS_THAN_EIGHTEEN";
+NSString * const kGTLRPeople_AgeRangeType_AgeRange_TwentyOneOrOlder = @"TWENTY_ONE_OR_OLDER";
+
+// GTLRPeople_Biography.contentType
+NSString * const kGTLRPeople_Biography_ContentType_ContentTypeUnspecified = @"CONTENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRPeople_Biography_ContentType_TextHtml    = @"TEXT_HTML";
+NSString * const kGTLRPeople_Biography_ContentType_TextPlain   = @"TEXT_PLAIN";
 
 // GTLRPeople_Nickname.type
 NSString * const kGTLRPeople_Nickname_Type_Default    = @"DEFAULT";
@@ -32,12 +42,17 @@ NSString * const kGTLRPeople_PersonMetadata_ObjectType_ObjectTypeUnspecified = @
 NSString * const kGTLRPeople_PersonMetadata_ObjectType_Page    = @"PAGE";
 NSString * const kGTLRPeople_PersonMetadata_ObjectType_Person  = @"PERSON";
 
+// GTLRPeople_ProfileMetadata.objectType
+NSString * const kGTLRPeople_ProfileMetadata_ObjectType_ObjectTypeUnspecified = @"OBJECT_TYPE_UNSPECIFIED";
+NSString * const kGTLRPeople_ProfileMetadata_ObjectType_Page   = @"PAGE";
+NSString * const kGTLRPeople_ProfileMetadata_ObjectType_Person = @"PERSON";
+
 // GTLRPeople_Source.type
-NSString * const kGTLRPeople_Source_Type_Account       = @"ACCOUNT";
-NSString * const kGTLRPeople_Source_Type_Contact       = @"CONTACT";
-NSString * const kGTLRPeople_Source_Type_DomainProfile = @"DOMAIN_PROFILE";
-NSString * const kGTLRPeople_Source_Type_Other         = @"OTHER";
-NSString * const kGTLRPeople_Source_Type_Profile       = @"PROFILE";
+NSString * const kGTLRPeople_Source_Type_Account               = @"ACCOUNT";
+NSString * const kGTLRPeople_Source_Type_Contact               = @"CONTACT";
+NSString * const kGTLRPeople_Source_Type_DomainProfile         = @"DOMAIN_PROFILE";
+NSString * const kGTLRPeople_Source_Type_Profile               = @"PROFILE";
+NSString * const kGTLRPeople_Source_Type_SourceTypeUnspecified = @"SOURCE_TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -53,11 +68,21 @@ NSString * const kGTLRPeople_Source_Type_Profile       = @"PROFILE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPeople_AgeRangeType
+//
+
+@implementation GTLRPeople_AgeRangeType
+@dynamic ageRange, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPeople_Biography
 //
 
 @implementation GTLRPeople_Biography
-@dynamic metadata, value;
+@dynamic contentType, metadata, value;
 @end
 
 
@@ -132,7 +157,7 @@ NSString * const kGTLRPeople_Source_Type_Profile       = @"PROFILE";
 //
 
 @implementation GTLRPeople_EmailAddress
-@dynamic formattedType, metadata, type, value;
+@dynamic displayName, formattedType, metadata, type, value;
 @end
 
 
@@ -252,8 +277,9 @@ NSString * const kGTLRPeople_Source_Type_Profile       = @"PROFILE";
 //
 
 @implementation GTLRPeople_Name
-@dynamic displayName, familyName, givenName, honorificPrefix, honorificSuffix,
-         metadata, middleName, phoneticFamilyName, phoneticGivenName,
+@dynamic displayName, displayNameLastFirst, familyName, givenName,
+         honorificPrefix, honorificSuffix, metadata, middleName,
+         phoneticFamilyName, phoneticFullName, phoneticGivenName,
          phoneticHonorificPrefix, phoneticHonorificSuffix, phoneticMiddleName;
 @end
 
@@ -295,7 +321,7 @@ NSString * const kGTLRPeople_Source_Type_Profile       = @"PROFILE";
 //
 
 @implementation GTLRPeople_Person
-@dynamic addresses, ageRange, biographies, birthdays, braggingRights,
+@dynamic addresses, ageRange, ageRanges, biographies, birthdays, braggingRights,
          coverPhotos, emailAddresses, ETag, events, genders, imClients,
          interests, locales, memberships, metadata, names, nicknames,
          occupations, organizations, phoneNumbers, photos, relations,
@@ -309,6 +335,7 @@ NSString * const kGTLRPeople_Source_Type_Profile       = @"PROFILE";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"addresses" : [GTLRPeople_Address class],
+    @"ageRanges" : [GTLRPeople_AgeRangeType class],
     @"biographies" : [GTLRPeople_Biography class],
     @"birthdays" : [GTLRPeople_Birthday class],
     @"braggingRights" : [GTLRPeople_BraggingRights class],
@@ -346,10 +373,12 @@ NSString * const kGTLRPeople_Source_Type_Profile       = @"PROFILE";
 //
 
 @implementation GTLRPeople_PersonMetadata
-@dynamic deleted, objectType, previousResourceNames, sources;
+@dynamic deleted, linkedPeopleResourceNames, objectType, previousResourceNames,
+         sources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"linkedPeopleResourceNames" : [NSString class],
     @"previousResourceNames" : [NSString class],
     @"sources" : [GTLRPeople_Source class]
   };
@@ -386,6 +415,16 @@ NSString * const kGTLRPeople_Source_Type_Profile       = @"PROFILE";
 
 @implementation GTLRPeople_Photo
 @dynamic metadata, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPeople_ProfileMetadata
+//
+
+@implementation GTLRPeople_ProfileMetadata
+@dynamic objectType;
 @end
 
 
@@ -445,10 +484,14 @@ NSString * const kGTLRPeople_Source_Type_Profile       = @"PROFILE";
 //
 
 @implementation GTLRPeople_Source
-@dynamic identifier, type;
+@dynamic ETag, identifier, profileMetadata, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
 }
 
 @end

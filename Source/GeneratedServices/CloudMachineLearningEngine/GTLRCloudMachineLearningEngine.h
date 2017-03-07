@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Machine Learning (ml/v1beta1)
+//   Google Cloud Machine Learning Engine (ml/v1beta1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:
 //   https://cloud.google.com/ml/
 
-#import "GTLRCloudMachineLearningObjects.h"
-#import "GTLRCloudMachineLearningQuery.h"
-#import "GTLRCloudMachineLearningService.h"
+#import "GTLRCloudMachineLearningEngineObjects.h"
+#import "GTLRCloudMachineLearningEngineQuery.h"
+#import "GTLRCloudMachineLearningEngineService.h"

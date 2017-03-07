@@ -25,6 +25,7 @@
 @class GTLRDrive_Permission;
 @class GTLRDrive_Reply;
 @class GTLRDrive_Revision;
+@class GTLRDrive_TeamDrive;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -109,6 +110,19 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForChangesGetStartPageToken]
 
 /**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
+
+/**
+ *  The ID of the Team Drive for which the starting pageToken for listing future
+ *  changes from that Team Drive will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *teamDriveId;
+
+/**
  *  Fetches a @c GTLRDrive_StartPageToken.
  *
  *  Gets the starting pageToken for listing future changes.
@@ -120,7 +134,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Lists changes for a user.
+ *  Lists the changes for a user or Team Drive.
  *
  *  Method: drive.changes.list
  *
@@ -138,12 +152,29 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForChangesListWithpageToken:]
 
 /**
- *  Whether to include changes indicating that items have left the view of the
- *  changes list, for example by deletion or lost access.
+ *  Whether changes should include the file resource if the file is still
+ *  accessible by the user at the time of the request, even when a file was
+ *  removed from the list of changes and there will be no further change entries
+ *  for this file.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL includeCorpusRemovals;
+
+/**
+ *  Whether to include changes indicating that items have been removed from the
+ *  list of changes, for example by deletion or loss of access.
  *
  *  @note If not set, the documented server-side default will be true.
  */
 @property(nonatomic, assign) BOOL includeRemoved;
+
+/**
+ *  Whether Team Drive files or changes should be included in results.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL includeTeamDriveItems;
 
 /**
  *  The maximum number of changes to return per page.
@@ -178,9 +209,23 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *spaces;
 
 /**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
+
+/**
+ *  The Team Drive from which changes will be returned. If specified the change
+ *  IDs will be reflective of the Team Drive; use the combined Team Drive ID and
+ *  change ID as an identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *teamDriveId;
+
+/**
  *  Fetches a @c GTLRDrive_ChangeList.
  *
- *  Lists changes for a user.
+ *  Lists the changes for a user or Team Drive.
  *
  *  @param pageToken The token for continuing a previous list request on the
  *    next page. This should be set to the value of 'nextPageToken' from the
@@ -215,12 +260,29 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForChangesWatchWithObject:pageToken:]
 
 /**
- *  Whether to include changes indicating that items have left the view of the
- *  changes list, for example by deletion or lost access.
+ *  Whether changes should include the file resource if the file is still
+ *  accessible by the user at the time of the request, even when a file was
+ *  removed from the list of changes and there will be no further change entries
+ *  for this file.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL includeCorpusRemovals;
+
+/**
+ *  Whether to include changes indicating that items have been removed from the
+ *  list of changes, for example by deletion or loss of access.
  *
  *  @note If not set, the documented server-side default will be true.
  */
 @property(nonatomic, assign) BOOL includeRemoved;
+
+/**
+ *  Whether Team Drive files or changes should be included in results.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL includeTeamDriveItems;
 
 /**
  *  The maximum number of changes to return per page.
@@ -253,6 +315,20 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be drive.
  */
 @property(nonatomic, copy, nullable) NSString *spaces;
+
+/**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
+
+/**
+ *  The Team Drive from which changes will be returned. If specified the change
+ *  IDs will be reflective of the Team Drive; use the combined Team Drive ID and
+ *  change ID as an identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *teamDriveId;
 
 /**
  *  Fetches a @c GTLRDrive_Channel.
@@ -553,6 +629,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *ocrLanguage;
 
 /**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
+
+/**
  *  Fetches a @c GTLRDrive_File.
  *
  *  Creates a copy of a file and applies any requested updates with patch
@@ -606,6 +689,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *ocrLanguage;
 
 /**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
+
+/**
  *  Whether to use the uploaded content as indexable text.
  *
  *  @note If not set, the documented server-side default will be false.
@@ -630,8 +720,9 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Permanently deletes a file owned by the user without moving it to the trash.
- *  If the target is a folder, all descendants owned by the user are also
- *  deleted.
+ *  If the file belongs to a Team Drive the user must be an organizer on the
+ *  parent. If the target is a folder, all descendants owned by the user are
+ *  also deleted.
  *
  *  Method: drive.files.delete
  *
@@ -648,12 +739,20 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
+
+/**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
  *  Permanently deletes a file owned by the user without moving it to the trash.
- *  If the target is a folder, all descendants owned by the user are also
- *  deleted.
+ *  If the file belongs to a Team Drive the user must be an organizer on the
+ *  parent. If the target is a folder, all descendants owned by the user are
+ *  also deleted.
  *
  *  @param fileId The ID of the file.
  *
@@ -795,6 +894,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
+
+/**
  *  Fetches a @c GTLRDrive_File.
  *
  *  Gets a file's metadata or content by ID.
@@ -837,18 +943,31 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForFilesList]
 
 /**
- *  The source of files to list.
+ *  Comma-separated list of bodies of items (files/documents) to which the query
+ *  applies. Supported bodies are 'user', 'domain', 'teamDrive' and
+ *  'allTeamDrives'. 'allTeamDrives' must be combined with 'user'; all other
+ *  values must be used in isolation. Prefer 'user' or 'teamDrive' to
+ *  'allTeamDrives' for efficiency.
+ */
+@property(nonatomic, copy, nullable) NSString *corpora;
+
+/**
+ *  The source of files to list. Deprecated: use 'corpora' instead.
  *
  *  Likely values:
  *    @arg @c kGTLRDriveCorpusDomain Files shared to the user's domain. (Value:
  *        "domain")
  *    @arg @c kGTLRDriveCorpusUser Files owned by or shared to the user. (Value:
  *        "user")
- *
- *  @note If not set, the documented server-side default will be
- *        kGTLRDriveCorpusUser.
  */
 @property(nonatomic, copy, nullable) NSString *corpus;
+
+/**
+ *  Whether Team Drive items should be included in results.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL includeTeamDriveItems;
 
 /**
  *  A comma-separated list of sort keys. Valid keys are 'createdTime', 'folder',
@@ -888,6 +1007,16 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be drive.
  */
 @property(nonatomic, copy, nullable) NSString *spaces;
+
+/**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
+
+/** ID of Team Drive to search. */
+@property(nonatomic, copy, nullable) NSString *teamDriveId;
 
 /**
  *  Fetches a @c GTLRDrive_FileList.
@@ -941,6 +1070,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /** A comma-separated list of parent IDs to remove. */
 @property(nonatomic, copy, nullable) NSString *removeParents;
+
+/**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
 
 /**
  *  Whether to use the uploaded content as indexable text.
@@ -997,6 +1133,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
+
+/**
  *  Fetches a @c GTLRDrive_Channel.
  *
  *  Subscribes to changes to a file
@@ -1025,7 +1168,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Creates a permission for a file.
+ *  Creates a permission for a file or Team Drive.
  *
  *  Method: drive.permissions.create
  *
@@ -1040,7 +1183,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 /** A custom message to include in the notification email. */
 @property(nonatomic, copy, nullable) NSString *emailMessage;
 
-/** The ID of the file. */
+/** The ID of the file or Team Drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
@@ -1049,6 +1192,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  requests. It must not be disabled for ownership transfers.
  */
 @property(nonatomic, assign) BOOL sendNotificationEmail;
+
+/**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
 
 /**
  *  Whether to transfer ownership to the specified user and downgrade the
@@ -1062,10 +1212,10 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Permission.
  *
- *  Creates a permission for a file.
+ *  Creates a permission for a file or Team Drive.
  *
  *  @param object The @c GTLRDrive_Permission to include in the query.
- *  @param fileId The ID of the file.
+ *  @param fileId The ID of the file or Team Drive.
  *
  *  @returns GTLRDriveQuery_PermissionsCreate
  */
@@ -1087,11 +1237,18 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 // Previous library name was
 //   +[GTLQueryDrive queryForPermissionsDeleteWithfileId:permissionId:]
 
-/** The ID of the file. */
+/** The ID of the file or Team Drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /** The ID of the permission. */
 @property(nonatomic, copy, nullable) NSString *permissionId;
+
+/**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1099,7 +1256,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  Deletes a permission.
  *
- *  @param fileId The ID of the file.
+ *  @param fileId The ID of the file or Team Drive.
  *  @param permissionId The ID of the permission.
  *
  *  @returns GTLRDriveQuery_PermissionsDelete
@@ -1133,6 +1290,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *permissionId;
 
 /**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
+
+/**
  *  Fetches a @c GTLRDrive_Permission.
  *
  *  Gets a permission by ID.
@@ -1148,7 +1312,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Lists a file's permissions.
+ *  Lists a file's or Team Drive's permissions.
  *
  *  Method: drive.permissions.list
  *
@@ -1164,17 +1328,43 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 // Previous library name was
 //   +[GTLQueryDrive queryForPermissionsListWithfileId:]
 
-/** The ID of the file. */
+/** The ID of the file or Team Drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  The maximum number of permissions to return per page. When not set for files
+ *  in a Team Drive, at most 100 results will be returned. When not set for
+ *  files that are not in a Team Drive, the entire list will be returned.
+ *
+ *  @note The documented range is 1..100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The token for continuing a previous list request on the next page. This
+ *  should be set to the value of 'nextPageToken' from the previous response.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
 
 /**
  *  Fetches a @c GTLRDrive_PermissionList.
  *
- *  Lists a file's permissions.
+ *  Lists a file's or Team Drive's permissions.
  *
- *  @param fileId The ID of the file.
+ *  @param fileId The ID of the file or Team Drive.
  *
  *  @returns GTLRDriveQuery_PermissionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithFileId:(NSString *)fileId;
 
@@ -1193,7 +1383,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 // Previous library name was
 //   +[GTLQueryDrive queryForPermissionsUpdateWithObject:fileId:permissionId:]
 
-/** The ID of the file. */
+/** The ID of the file or Team Drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /** The ID of the permission. */
@@ -1205,6 +1395,13 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL removeExpiration;
+
+/**
+ *  Whether the requesting application supports Team Drives.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL supportsTeamDrives;
 
 /**
  *  Whether to transfer ownership to the specified user and downgrade the
@@ -1221,7 +1418,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Updates a permission with patch semantics.
  *
  *  @param object The @c GTLRDrive_Permission to include in the query.
- *  @param fileId The ID of the file.
+ *  @param fileId The ID of the file or Team Drive.
  *  @param permissionId The ID of the permission.
  *
  *  @returns GTLRDriveQuery_PermissionsUpdate
@@ -1642,6 +1839,175 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 + (instancetype)queryWithObject:(GTLRDrive_Revision *)object
                          fileId:(NSString *)fileId
                      revisionId:(NSString *)revisionId;
+
+@end
+
+/**
+ *  Creates a new Team Drive.
+ *
+ *  Method: drive.teamdrives.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ */
+@interface GTLRDriveQuery_TeamdrivesCreate : GTLRDriveQuery
+// Previous library name was
+//   +[GTLQueryDrive queryForTeamdrivesCreateWithObject:requestId:]
+
+/**
+ *  An ID, such as a random UUID, which uniquely identifies this user's request
+ *  for idempotent creation of a Team Drive. A repeated request by the same user
+ *  and with the same request ID will avoid creating duplicates by attempting to
+ *  create the same Team Drive. If the Team Drive already exists a 409 error
+ *  will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDrive_TeamDrive.
+ *
+ *  Creates a new Team Drive.
+ *
+ *  @param object The @c GTLRDrive_TeamDrive to include in the query.
+ *  @param requestId An ID, such as a random UUID, which uniquely identifies
+ *    this user's request for idempotent creation of a Team Drive. A repeated
+ *    request by the same user and with the same request ID will avoid creating
+ *    duplicates by attempting to create the same Team Drive. If the Team Drive
+ *    already exists a 409 error will be returned.
+ *
+ *  @returns GTLRDriveQuery_TeamdrivesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDrive_TeamDrive *)object
+                      requestId:(NSString *)requestId;
+
+@end
+
+/**
+ *  Permanently deletes a Team Drive for which the user is an organizer. The
+ *  Team Drive cannot contain any untrashed items.
+ *
+ *  Method: drive.teamdrives.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ */
+@interface GTLRDriveQuery_TeamdrivesDelete : GTLRDriveQuery
+// Previous library name was
+//   +[GTLQueryDrive queryForTeamdrivesDeleteWithteamDriveId:]
+
+/** The ID of the Team Drive */
+@property(nonatomic, copy, nullable) NSString *teamDriveId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Permanently deletes a Team Drive for which the user is an organizer. The
+ *  Team Drive cannot contain any untrashed items.
+ *
+ *  @param teamDriveId The ID of the Team Drive
+ *
+ *  @returns GTLRDriveQuery_TeamdrivesDelete
+ */
++ (instancetype)queryWithTeamDriveId:(NSString *)teamDriveId;
+
+@end
+
+/**
+ *  Gets a Team Drive's metadata by ID.
+ *
+ *  Method: drive.teamdrives.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveReadonly
+ */
+@interface GTLRDriveQuery_TeamdrivesGet : GTLRDriveQuery
+// Previous library name was
+//   +[GTLQueryDrive queryForTeamdrivesGetWithteamDriveId:]
+
+/** The ID of the Team Drive */
+@property(nonatomic, copy, nullable) NSString *teamDriveId;
+
+/**
+ *  Fetches a @c GTLRDrive_TeamDrive.
+ *
+ *  Gets a Team Drive's metadata by ID.
+ *
+ *  @param teamDriveId The ID of the Team Drive
+ *
+ *  @returns GTLRDriveQuery_TeamdrivesGet
+ */
++ (instancetype)queryWithTeamDriveId:(NSString *)teamDriveId;
+
+@end
+
+/**
+ *  Lists the user's Team Drives.
+ *
+ *  Method: drive.teamdrives.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveReadonly
+ */
+@interface GTLRDriveQuery_TeamdrivesList : GTLRDriveQuery
+// Previous library name was
+//   +[GTLQueryDrive queryForTeamdrivesList]
+
+/**
+ *  Maximum number of Team Drives to return.
+ *
+ *  @note If not set, the documented server-side default will be 10 (from the
+ *        range 1..100).
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Page token for Team Drives. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDrive_TeamDriveList.
+ *
+ *  Lists the user's Team Drives.
+ *
+ *  @returns GTLRDriveQuery_TeamdrivesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Updates a Team Drive's metadata
+ *
+ *  Method: drive.teamdrives.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ */
+@interface GTLRDriveQuery_TeamdrivesUpdate : GTLRDriveQuery
+// Previous library name was
+//   +[GTLQueryDrive queryForTeamdrivesUpdateWithObject:teamDriveId:]
+
+/** The ID of the Team Drive */
+@property(nonatomic, copy, nullable) NSString *teamDriveId;
+
+/**
+ *  Fetches a @c GTLRDrive_TeamDrive.
+ *
+ *  Updates a Team Drive's metadata
+ *
+ *  @param object The @c GTLRDrive_TeamDrive to include in the query.
+ *  @param teamDriveId The ID of the Team Drive
+ *
+ *  @returns GTLRDriveQuery_TeamdrivesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRDrive_TeamDrive *)object
+                    teamDriveId:(NSString *)teamDriveId;
 
 @end
 

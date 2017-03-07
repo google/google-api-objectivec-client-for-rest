@@ -4,8 +4,7 @@
 // API:
 //   Google Search Console URL Testing Tools API (searchconsole/v1)
 // Description:
-//   Search Console URL Testing Tools API provides tools for running validation
-//   tests against single URLs.
+//   Provides tools for running validation tests against single URLs
 // Documentation:
 //   https://developers.google.com/webmaster-tools/search-console-api/
 

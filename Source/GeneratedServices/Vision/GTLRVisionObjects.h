@@ -22,9 +22,15 @@
 
 @class GTLRVision_AnnotateImageRequest;
 @class GTLRVision_AnnotateImageResponse;
+@class GTLRVision_Block;
 @class GTLRVision_BoundingPoly;
 @class GTLRVision_Color;
 @class GTLRVision_ColorInfo;
+@class GTLRVision_CropHint;
+@class GTLRVision_CropHintsAnnotation;
+@class GTLRVision_CropHintsParams;
+@class GTLRVision_DetectedBreak;
+@class GTLRVision_DetectedLanguage;
 @class GTLRVision_DominantColorsAnnotation;
 @class GTLRVision_EntityAnnotation;
 @class GTLRVision_FaceAnnotation;
@@ -37,17 +43,109 @@
 @class GTLRVision_LatLng;
 @class GTLRVision_LatLongRect;
 @class GTLRVision_LocationInfo;
+@class GTLRVision_Page;
+@class GTLRVision_Paragraph;
 @class GTLRVision_Position;
 @class GTLRVision_Property;
 @class GTLRVision_SafeSearchAnnotation;
 @class GTLRVision_Status;
 @class GTLRVision_Status_Details_Item;
+@class GTLRVision_Symbol;
+@class GTLRVision_TextAnnotation;
+@class GTLRVision_TextProperty;
 @class GTLRVision_Vertex;
+@class GTLRVision_WebDetection;
+@class GTLRVision_WebEntity;
+@class GTLRVision_WebImage;
+@class GTLRVision_WebPage;
+@class GTLRVision_Word;
 
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRVision_Block.blockType
+
+/**
+ *  Barcode block.
+ *
+ *  Value: "BARCODE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Barcode;
+/**
+ *  Image block.
+ *
+ *  Value: "PICTURE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Picture;
+/**
+ *  Horizontal/vertical line box.
+ *
+ *  Value: "RULER"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Ruler;
+/**
+ *  Table block.
+ *
+ *  Value: "TABLE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Table;
+/**
+ *  Regular text block.
+ *
+ *  Value: "TEXT"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Text;
+/**
+ *  Unknown block type.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRVision_DetectedBreak.type
+
+/**
+ *  Line-wrapping break.
+ *
+ *  Value: "EOL_SURE_SPACE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_EolSureSpace;
+/**
+ *  End-line hyphen that is not present in text; does
+ *
+ *  Value: "HYPHEN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_Hyphen;
+/**
+ *  not co-occur with SPACE, LEADER_SPACE, or
+ *  LINE_BREAK.
+ *  Line break that ends a paragraph.
+ *
+ *  Value: "LINE_BREAK"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_LineBreak;
+/**
+ *  Regular space.
+ *
+ *  Value: "SPACE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_Space;
+/**
+ *  Sure space (very wide).
+ *
+ *  Value: "SURE_SPACE"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_SureSpace;
+/**
+ *  Unknown break label type.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_FaceAnnotation.angerLikelihood
@@ -333,6 +431,19 @@ GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_V
 // GTLRVision_Feature.type
 
 /**
+ *  Run crop hints.
+ *
+ *  Value: "CROP_HINTS"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_CropHints;
+/**
+ *  Run dense text document OCR. Takes precedence when both
+ *  DOCUMENT_TEXT_DETECTION and TEXT_DETECTION are present.
+ *
+ *  Value: "DOCUMENT_TEXT_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_DocumentTextDetection;
+/**
  *  Run face detection.
  *
  *  Value: "FACE_DETECTION"
@@ -363,8 +474,6 @@ GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_LandmarkDetection;
  */
 GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_LogoDetection;
 /**
- *  precedence when both DOCUMENT_TEXT_DETECTION
- *  and TEXT_DETECTION are present.
  *  Run computer vision models to compute image safe-search properties.
  *
  *  Value: "SAFE_SEARCH_DETECTION"
@@ -382,6 +491,12 @@ GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_TextDetection;
  *  Value: "TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_TypeUnspecified;
+/**
+ *  Run web detection.
+ *
+ *  Value: "WEB_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_WebDetection;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_Landmark.type
@@ -780,6 +895,9 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  */
 @interface GTLRVision_AnnotateImageResponse : GTLRObject
 
+/** If present, crop hints have completed successfully. */
+@property(nonatomic, strong, nullable) GTLRVision_CropHintsAnnotation *cropHintsAnnotation;
+
 /**
  *  If set, represents the error message for the operation.
  *  Note that filled-in image annotations are guaranteed to be
@@ -789,6 +907,14 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /** If present, face detection has completed successfully. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_FaceAnnotation *> *faceAnnotations;
+
+/**
+ *  If present, text (OCR) detection or document (OCR) text detection has
+ *  completed successfully.
+ *  This annotation provides the structural hierarchy for the OCR detected
+ *  text.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_TextAnnotation *fullTextAnnotation;
 
 /** If present, image properties were extracted successfully. */
 @property(nonatomic, strong, nullable) GTLRVision_ImageProperties *imagePropertiesAnnotation;
@@ -805,11 +931,11 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 /** If present, safe-search annotation has completed successfully. */
 @property(nonatomic, strong, nullable) GTLRVision_SafeSearchAnnotation *safeSearchAnnotation;
 
-/**
- *  If present, text (OCR) detection or document (OCR) text detection has
- *  completed successfully.
- */
+/** If present, text (OCR) detection has completed successfully. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *textAnnotations;
+
+/** If present, web detection has completed successfully. */
+@property(nonatomic, strong, nullable) GTLRVision_WebDetection *webDetection;
 
 @end
 
@@ -832,6 +958,57 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /** Individual responses to image annotation requests within the batch. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_AnnotateImageResponse *> *responses;
+
+@end
+
+
+/**
+ *  Logical element on the page.
+ */
+@interface GTLRVision_Block : GTLRObject
+
+/**
+ *  Detected block type (text, image etc) for this block.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_Block_BlockType_Barcode Barcode block. (Value:
+ *        "BARCODE")
+ *    @arg @c kGTLRVision_Block_BlockType_Picture Image block. (Value:
+ *        "PICTURE")
+ *    @arg @c kGTLRVision_Block_BlockType_Ruler Horizontal/vertical line box.
+ *        (Value: "RULER")
+ *    @arg @c kGTLRVision_Block_BlockType_Table Table block. (Value: "TABLE")
+ *    @arg @c kGTLRVision_Block_BlockType_Text Regular text block. (Value:
+ *        "TEXT")
+ *    @arg @c kGTLRVision_Block_BlockType_Unknown Unknown block type. (Value:
+ *        "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *blockType;
+
+/**
+ *  The bounding box for the block.
+ *  The vertices are in the order of top-left, top-right, bottom-right,
+ *  bottom-left. When a rotation of the bounding box is detected the rotation
+ *  is represented as around the top-left corner as defined when the text is
+ *  read in the 'natural' orientation.
+ *  For example:
+ *  * when the text is horizontal it might look like:
+ *  0----1
+ *  | |
+ *  3----2
+ *  * when it's rotated 180 degrees around the top-left corner it becomes:
+ *  2----3
+ *  | |
+ *  1----0
+ *  and the vertice order will still be (0, 1, 2, 3).
+ */
+@property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingBox;
+
+/** List of paragraphs in this block (if this blocks is of type text). */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Paragraph *> *paragraphs;
+
+/** Additional information detected for the block. */
+@property(nonatomic, strong, nullable) GTLRVision_TextProperty *property;
 
 @end
 
@@ -1012,6 +1189,124 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Single crop hint that is used to generate a new crop when serving an image.
+ */
+@interface GTLRVision_CropHint : GTLRObject
+
+/**
+ *  The bounding polygon for the crop region. The coordinates of the bounding
+ *  box are in the original image's scale, as returned in `ImageParams`.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
+
+/**
+ *  Confidence of this being a salient region. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Fraction of importance of this salient region with respect to the original
+ *  image.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *importanceFraction;
+
+@end
+
+
+/**
+ *  Set of crop hints that are used to generate new crops when serving images.
+ */
+@interface GTLRVision_CropHintsAnnotation : GTLRObject
+
+/** Crop hint results. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_CropHint *> *cropHints;
+
+@end
+
+
+/**
+ *  Parameters for crop hints annotation request.
+ */
+@interface GTLRVision_CropHintsParams : GTLRObject
+
+/**
+ *  Aspect ratios in floats, representing the ratio of the width to the height
+ *  of the image. For example, if the desired aspect ratio is 4/3, the
+ *  corresponding float value should be 1.33333. If not specified, the
+ *  best possible crop is returned. The number of provided aspect ratios is
+ *  limited to a maximum of 16; any aspect ratios provided after the 16th are
+ *  ignored.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *aspectRatios;
+
+@end
+
+
+/**
+ *  Detected start or end of a structural component.
+ */
+@interface GTLRVision_DetectedBreak : GTLRObject
+
+/**
+ *  True if break prepends the element.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isPrefix;
+
+/**
+ *  Detected break type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVision_DetectedBreak_Type_EolSureSpace Line-wrapping break.
+ *        (Value: "EOL_SURE_SPACE")
+ *    @arg @c kGTLRVision_DetectedBreak_Type_Hyphen End-line hyphen that is not
+ *        present in text; does (Value: "HYPHEN")
+ *    @arg @c kGTLRVision_DetectedBreak_Type_LineBreak not co-occur with SPACE,
+ *        LEADER_SPACE, or
+ *        LINE_BREAK.
+ *        Line break that ends a paragraph. (Value: "LINE_BREAK")
+ *    @arg @c kGTLRVision_DetectedBreak_Type_Space Regular space. (Value:
+ *        "SPACE")
+ *    @arg @c kGTLRVision_DetectedBreak_Type_SureSpace Sure space (very wide).
+ *        (Value: "SURE_SPACE")
+ *    @arg @c kGTLRVision_DetectedBreak_Type_Unknown Unknown break label type.
+ *        (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Detected language for a structural component.
+ */
+@interface GTLRVision_DetectedLanguage : GTLRObject
+
+/**
+ *  Confidence of detected language. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  information, see
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
 
 @end
 
@@ -1355,6 +1650,12 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  The feature type.
  *
  *  Likely values:
+ *    @arg @c kGTLRVision_Feature_Type_CropHints Run crop hints. (Value:
+ *        "CROP_HINTS")
+ *    @arg @c kGTLRVision_Feature_Type_DocumentTextDetection Run dense text
+ *        document OCR. Takes precedence when both
+ *        DOCUMENT_TEXT_DETECTION and TEXT_DETECTION are present. (Value:
+ *        "DOCUMENT_TEXT_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_FaceDetection Run face detection. (Value:
  *        "FACE_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_ImageProperties Compute a set of image
@@ -1366,15 +1667,15 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        (Value: "LANDMARK_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_LogoDetection Run logo detection. (Value:
  *        "LOGO_DETECTION")
- *    @arg @c kGTLRVision_Feature_Type_SafeSearchDetection precedence when both
- *        DOCUMENT_TEXT_DETECTION
- *        and TEXT_DETECTION are present.
- *        Run computer vision models to compute image safe-search properties.
- *        (Value: "SAFE_SEARCH_DETECTION")
+ *    @arg @c kGTLRVision_Feature_Type_SafeSearchDetection Run computer vision
+ *        models to compute image safe-search properties. (Value:
+ *        "SAFE_SEARCH_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_TextDetection Run OCR. (Value:
  *        "TEXT_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_TypeUnspecified Unspecified feature type.
  *        (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRVision_Feature_Type_WebDetection Run web detection. (Value:
+ *        "WEB_DETECTION")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1410,6 +1711,9 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  Image context and/or feature-specific parameters.
  */
 @interface GTLRVision_ImageContext : GTLRObject
+
+/** Parameters for crop hints annotation request. */
+@property(nonatomic, strong, nullable) GTLRVision_CropHintsParams *cropHintsParams;
 
 /**
  *  List of languages to use for TEXT_DETECTION. In most cases, an empty value
@@ -1454,6 +1758,20 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  NOTE: Cloud Storage object versioning is not supported.
  */
 @property(nonatomic, copy, nullable) NSString *gcsImageUri;
+
+/**
+ *  Image URI which supports:
+ *  1) Google Cloud Storage image URI, which must be in the following form:
+ *  `gs://bucket_name/object_name` (for details, see
+ *  [Google Cloud Storage Request
+ *  URIs](https://cloud.google.com/storage/docs/reference-uris)).
+ *  NOTE: Cloud Storage object versioning is not supported.
+ *  2) Publicly accessible image HTTP/HTTPS URL.
+ *  This is preferred over the legacy `gcs_image_uri` above. When both
+ *  `gcs_image_uri` and `image_uri` are specified, `image_uri` takes
+ *  precedence.
+ */
+@property(nonatomic, copy, nullable) NSString *imageUri;
 
 @end
 
@@ -1630,6 +1948,67 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
+ *  Detected page from OCR.
+ */
+@interface GTLRVision_Page : GTLRObject
+
+/** List of blocks of text, images etc on this page. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Block *> *blocks;
+
+/**
+ *  Page height in pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *height;
+
+/** Additional information detected on the page. */
+@property(nonatomic, strong, nullable) GTLRVision_TextProperty *property;
+
+/**
+ *  Page width in pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
+ *  Structural unit of text representing a number of words in certain order.
+ */
+@interface GTLRVision_Paragraph : GTLRObject
+
+/**
+ *  The bounding box for the paragraph.
+ *  The vertices are in the order of top-left, top-right, bottom-right,
+ *  bottom-left. When a rotation of the bounding box is detected the rotation
+ *  is represented as around the top-left corner as defined when the text is
+ *  read in the 'natural' orientation.
+ *  For example:
+ *  * when the text is horizontal it might look like:
+ *  0----1
+ *  | |
+ *  3----2
+ *  * when it's rotated 180 degrees around the top-left corner it becomes:
+ *  2----3
+ *  | |
+ *  1----0
+ *  and the vertice order will still be (0, 1, 2, 3).
+ */
+@property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingBox;
+
+/** Additional information detected for the paragraph. */
+@property(nonatomic, strong, nullable) GTLRVision_TextProperty *property;
+
+/** List of words in this paragraph. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Word *> *words;
+
+@end
+
+
+/**
  *  A 3D position in the image, used primarily for Face detection landmarks.
  *  A valid Position must have both x and y coordinates.
  *  The position coordinates are in the same scale as the original image.
@@ -1668,6 +2047,13 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 /** Name of the property. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Value of numeric properties.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uint64Value;
+
 /** Value of the property. */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -1675,7 +2061,9 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
- *  GTLRVision_SafeSearchAnnotation
+ *  Set of features pertaining to the image, computed by computer vision
+ *  methods over safe-search verticals (for example, adult, spoof, medical,
+ *  violence).
  */
 @interface GTLRVision_SafeSearchAnnotation : GTLRObject
 
@@ -1851,6 +2239,73 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
+ *  A single symbol representation.
+ */
+@interface GTLRVision_Symbol : GTLRObject
+
+/**
+ *  The bounding box for the symbol.
+ *  The vertices are in the order of top-left, top-right, bottom-right,
+ *  bottom-left. When a rotation of the bounding box is detected the rotation
+ *  is represented as around the top-left corner as defined when the text is
+ *  read in the 'natural' orientation.
+ *  For example:
+ *  * when the text is horizontal it might look like:
+ *  0----1
+ *  | |
+ *  3----2
+ *  * when it's rotated 180 degrees around the top-left corner it becomes:
+ *  2----3
+ *  | |
+ *  1----0
+ *  and the vertice order will still be (0, 1, 2, 3).
+ */
+@property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingBox;
+
+/** Additional information detected for the symbol. */
+@property(nonatomic, strong, nullable) GTLRVision_TextProperty *property;
+
+/** The actual UTF-8 representation of the symbol. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  TextAnnotation contains a structured representation of OCR extracted text.
+ *  The hierarchy of an OCR extracted text structure is like this:
+ *  TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol
+ *  Each structural component, starting from Page, may further have their own
+ *  properties. Properties describe detected languages, breaks etc.. Please
+ *  refer to the google.cloud.vision.v1.TextAnnotation.TextProperty message
+ *  definition below for more detail.
+ */
+@interface GTLRVision_TextAnnotation : GTLRObject
+
+/** List of pages detected by OCR. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Page *> *pages;
+
+/** UTF-8 text detected on the pages. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Additional information detected on the structural component.
+ */
+@interface GTLRVision_TextProperty : GTLRObject
+
+/** Detected start or end of a text segment. */
+@property(nonatomic, strong, nullable) GTLRVision_DetectedBreak *detectedBreak;
+
+/** A list of detected languages together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_DetectedLanguage *> *detectedLanguages;
+
+@end
+
+
+/**
  *  A vertex represents a 2D point in the image.
  *  NOTE: the vertex coordinates are in the same scale as the original image.
  */
@@ -1869,6 +2324,134 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
+ *  Relevant information for the image from the Internet.
+ */
+@interface GTLRVision_WebDetection : GTLRObject
+
+/**
+ *  Fully matching images from the Internet.
+ *  They're definite neardups and most often a copy of the query image with
+ *  merely a size change.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_WebImage *> *fullMatchingImages;
+
+/** Web pages containing the matching images from the Internet. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_WebPage *> *pagesWithMatchingImages;
+
+/**
+ *  Partial matching images from the Internet.
+ *  Those images are similar enough to share some key-point features. For
+ *  example an original image will likely have partial matching for its crops.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_WebImage *> *partialMatchingImages;
+
+/** Deduced entities from similar images on the Internet. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_WebEntity *> *webEntities;
+
+@end
+
+
+/**
+ *  Entity deduced from similar images on the Internet.
+ */
+@interface GTLRVision_WebEntity : GTLRObject
+
+/**
+ *  Canonical description of the entity, in English.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Opaque entity ID. */
+@property(nonatomic, copy, nullable) NSString *entityId;
+
+/**
+ *  Overall relevancy score for the entity.
+ *  Not normalized and not comparable across different image queries.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Metadata for online images.
+ */
+@interface GTLRVision_WebImage : GTLRObject
+
+/**
+ *  Overall relevancy score for the image.
+ *  Not normalized and not comparable across different image queries.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/** The result image URL. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Metadata for web pages.
+ */
+@interface GTLRVision_WebPage : GTLRObject
+
+/**
+ *  Overall relevancy score for the web page.
+ *  Not normalized and not comparable across different image queries.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/** The result web page URL. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  A word representation.
+ */
+@interface GTLRVision_Word : GTLRObject
+
+/**
+ *  The bounding box for the word.
+ *  The vertices are in the order of top-left, top-right, bottom-right,
+ *  bottom-left. When a rotation of the bounding box is detected the rotation
+ *  is represented as around the top-left corner as defined when the text is
+ *  read in the 'natural' orientation.
+ *  For example:
+ *  * when the text is horizontal it might look like:
+ *  0----1
+ *  | |
+ *  3----2
+ *  * when it's rotated 180 degrees around the top-left corner it becomes:
+ *  2----3
+ *  | |
+ *  1----0
+ *  and the vertice order will still be (0, 1, 2, 3).
+ */
+@property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingBox;
+
+/** Additional information detected for the word. */
+@property(nonatomic, strong, nullable) GTLRVision_TextProperty *property;
+
+/**
+ *  List of symbols in the word.
+ *  The order of the symbols follows the natural reading order.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_Symbol *> *symbols;
 
 @end
 

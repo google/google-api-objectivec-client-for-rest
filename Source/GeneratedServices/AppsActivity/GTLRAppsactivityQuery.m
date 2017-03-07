@@ -2,34 +2,34 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Apps Activity API (appsactivity/v1)
+//   G Suite Activity API (appsactivity/v1)
 // Description:
 //   Provides a historical view of activity.
 // Documentation:
 //   https://developers.google.com/google-apps/activity/
 
-#import "GTLRAppsActivityQuery.h"
+#import "GTLRAppsactivityQuery.h"
 
-#import "GTLRAppsActivityObjects.h"
+#import "GTLRAppsactivityObjects.h"
 
 // ----------------------------------------------------------------------------
 // Constants
 
 // groupingStrategy
-NSString * const kGTLRAppsActivityGroupingStrategyDriveUi = @"driveUi";
-NSString * const kGTLRAppsActivityGroupingStrategyNone    = @"none";
+NSString * const kGTLRAppsactivityGroupingStrategyDriveUi = @"driveUi";
+NSString * const kGTLRAppsactivityGroupingStrategyNone    = @"none";
 
 // ----------------------------------------------------------------------------
 // Query Classes
 //
 
-@implementation GTLRAppsActivityQuery
+@implementation GTLRAppsactivityQuery
 
 @dynamic fields;
 
 @end
 
-@implementation GTLRAppsActivityQuery_ActivitiesList
+@implementation GTLRAppsactivityQuery_ActivitiesList
 
 @dynamic driveAncestorId, driveFileId, groupingStrategy, pageSize, pageToken,
          source, userId;
@@ -44,11 +44,11 @@ NSString * const kGTLRAppsActivityGroupingStrategyNone    = @"none";
 
 + (instancetype)query {
   NSString *pathURITemplate = @"activities";
-  GTLRAppsActivityQuery_ActivitiesList *query =
+  GTLRAppsactivityQuery_ActivitiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRAppsActivity_ListActivitiesResponse class];
+  query.expectedObjectClass = [GTLRAppsactivity_ListActivitiesResponse class];
   query.loggingName = @"appsactivity.activities.list";
   return query;
 }

@@ -19,6 +19,62 @@
 
 @end
 
+@implementation GTLRCloudResourceManagerQuery_LiensCreate
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Lien *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/liens";
+  GTLRCloudResourceManagerQuery_LiensCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Lien class];
+  query.loggingName = @"cloudresourcemanager.liens.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_LiensDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudResourceManagerQuery_LiensDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Empty class];
+  query.loggingName = @"cloudresourcemanager.liens.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_LiensList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/liens";
+  GTLRCloudResourceManagerQuery_LiensList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudResourceManager_ListLiensResponse class];
+  query.loggingName = @"cloudresourcemanager.liens.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudResourceManagerQuery_OperationsGet
 
 @dynamic name;

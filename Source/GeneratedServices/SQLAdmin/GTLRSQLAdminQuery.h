@@ -472,6 +472,12 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySQLAdmin queryForFlagsList]
 
 /**
+ *  Database version for flag retrieval. Flags are specific to the database
+ *  version.
+ */
+@property(nonatomic, copy, nullable) NSString *databaseVersion;
+
+/**
  *  Fetches a @c GTLRSQLAdmin_FlagsListResponse.
  *
  *  List all available database flags for Google Cloud SQL instances.
@@ -757,6 +763,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdminQuery_InstancesList : GTLRSQLAdminQuery
 // Previous library name was
 //   +[GTLQuerySQLAdmin queryForInstancesListWithproject:]
+
+/** A filter expression for filtering listed instances. */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** The maximum number of results to return per response. */
 @property(nonatomic, assign) NSUInteger maxResults;

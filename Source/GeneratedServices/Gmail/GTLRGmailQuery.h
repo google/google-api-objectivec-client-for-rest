@@ -31,6 +31,7 @@
 @class GTLRGmail_ModifyThreadRequest;
 @class GTLRGmail_PopSettings;
 @class GTLRGmail_SendAs;
+@class GTLRGmail_SmimeInfo;
 @class GTLRGmail_VacationSettings;
 @class GTLRGmail_WatchRequest;
 
@@ -50,6 +51,18 @@ GTLR_EXTERN NSString * const kGTLRGmailFormatMetadata;
 GTLR_EXTERN NSString * const kGTLRGmailFormatMinimal;
 /** Value: "raw" */
 GTLR_EXTERN NSString * const kGTLRGmailFormatRaw;
+
+// ----------------------------------------------------------------------------
+// historyTypes
+
+/** Value: "labelAdded" */
+GTLR_EXTERN NSString * const kGTLRGmailHistoryTypesLabelAdded;
+/** Value: "labelRemoved" */
+GTLR_EXTERN NSString * const kGTLRGmailHistoryTypesLabelRemoved;
+/** Value: "messageAdded" */
+GTLR_EXTERN NSString * const kGTLRGmailHistoryTypesMessageAdded;
+/** Value: "messageDeleted" */
+GTLR_EXTERN NSString * const kGTLRGmailHistoryTypesMessageDeleted;
 
 // ----------------------------------------------------------------------------
 // internalDateSource
@@ -433,6 +446,17 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @interface GTLRGmailQuery_UsersHistoryList : GTLRGmailQuery
 // Previous library name was
 //   +[GTLQueryGmail queryForUsersHistoryListWithuserId:]
+
+/**
+ *  History types to be returned by the function
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGmailHistoryTypesLabelAdded Value "labelAdded"
+ *    @arg @c kGTLRGmailHistoryTypesLabelRemoved Value "labelRemoved"
+ *    @arg @c kGTLRGmailHistoryTypesMessageAdded Value "messageAdded"
+ *    @arg @c kGTLRGmailHistoryTypesMessageDeleted Value "messageDeleted"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *historyTypes;
 
 /** Only return messages with a label matching the ID. */
 @property(nonatomic, copy, nullable) NSString *labelId;
@@ -1009,8 +1033,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Mark the email as permanently deleted (not TRASH) and only visible in Google
- *  Apps Vault to a Vault administrator. Only used for Google Apps for Work
- *  accounts.
+ *  Vault to a Vault administrator. Only used for G Suite accounts.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1090,8 +1113,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Mark the email as permanently deleted (not TRASH) and only visible in Google
- *  Apps Vault to a Vault administrator. Only used for Google Apps for Work
- *  accounts.
+ *  Vault to a Vault administrator. Only used for G Suite accounts.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1554,6 +1576,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  message will be sent to the recipient and the resource's verification status
  *  will be set to pending; otherwise, the resource will be created with
  *  verification status set to accepted.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.forwardingAddresses.create
  *
@@ -1579,6 +1603,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  message will be sent to the recipient and the resource's verification status
  *  will be set to pending; otherwise, the resource will be created with
  *  verification status set to accepted.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param object The @c GTLRGmail_ForwardingAddress to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -1594,6 +1620,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Deletes the specified forwarding address and revokes any verification that
  *  may have been required.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.forwardingAddresses.delete
  *
@@ -1621,6 +1649,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Deletes the specified forwarding address and revokes any verification that
  *  may have been required.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -1868,6 +1898,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  verification status will be set to pending; otherwise, the resource will be
  *  created with verification status set to accepted. If a signature is
  *  provided, Gmail will sanitize the HTML before saving it with the alias.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.sendAs.create
  *
@@ -1896,6 +1928,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  verification status will be set to pending; otherwise, the resource will be
  *  created with verification status set to accepted. If a signature is
  *  provided, Gmail will sanitize the HTML before saving it with the alias.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param object The @c GTLRGmail_SendAs to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -1911,6 +1945,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Deletes the specified send-as alias. Revokes any verification that may have
  *  been required for using it.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.sendAs.delete
  *
@@ -1938,6 +1974,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Deletes the specified send-as alias. Revokes any verification that may have
  *  been required for using it.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2037,7 +2075,10 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Updates a send-as alias. If a signature is provided, Gmail will sanitize the
- *  HTML before saving it with the alias. This method supports patch semantics.
+ *  HTML before saving it with the alias.
+ *  Addresses other than the primary address for the account can only be updated
+ *  by service account clients that have been delegated domain-wide authority.
+ *  This method supports patch semantics.
  *
  *  Method: gmail.users.settings.sendAs.patch
  *
@@ -2064,7 +2105,10 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_SendAs.
  *
  *  Updates a send-as alias. If a signature is provided, Gmail will sanitize the
- *  HTML before saving it with the alias. This method supports patch semantics.
+ *  HTML before saving it with the alias.
+ *  Addresses other than the primary address for the account can only be updated
+ *  by service account clients that have been delegated domain-wide authority.
+ *  This method supports patch semantics.
  *
  *  @param object The @c GTLRGmail_SendAs to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -2080,8 +2124,269 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
+ *  Deletes the specified S/MIME config for the specified send-as alias.
+ *
+ *  Method: gmail.users.settings.sendAs.smimeInfo.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsSendAsSmimeInfoDelete : GTLRGmailQuery
+// Previous library name was
+//   +[GTLQueryGmail queryForUsersSettingsSendAsSmimeInfoDeleteWithuserId:sendAsEmail:identifier:]
+
+/**
+ *  The immutable ID for the SmimeInfo.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The email address that appears in the "From:" header for mail sent using
+ *  this alias.
+ */
+@property(nonatomic, copy, nullable) NSString *sendAsEmail;
+
+/**
+ *  The user's email address. The special value me can be used to indicate the
+ *  authenticated user.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes the specified S/MIME config for the specified send-as alias.
+ *
+ *  @param userId The user's email address. The special value me can be used to
+ *    indicate the authenticated user. (Default me)
+ *  @param sendAsEmail The email address that appears in the "From:" header for
+ *    mail sent using this alias.
+ *  @param identifier The immutable ID for the SmimeInfo.
+ *
+ *  @returns GTLRGmailQuery_UsersSettingsSendAsSmimeInfoDelete
+ */
++ (instancetype)queryWithUserId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail
+                     identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Gets the specified S/MIME config for the specified send-as alias.
+ *
+ *  Method: gmail.users.settings.sendAs.smimeInfo.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailModify
+ *    @c kGTLRAuthScopeGmailReadonly
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsSendAsSmimeInfoGet : GTLRGmailQuery
+// Previous library name was
+//   +[GTLQueryGmail queryForUsersSettingsSendAsSmimeInfoGetWithuserId:sendAsEmail:identifier:]
+
+/**
+ *  The immutable ID for the SmimeInfo.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The email address that appears in the "From:" header for mail sent using
+ *  this alias.
+ */
+@property(nonatomic, copy, nullable) NSString *sendAsEmail;
+
+/**
+ *  The user's email address. The special value me can be used to indicate the
+ *  authenticated user.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_SmimeInfo.
+ *
+ *  Gets the specified S/MIME config for the specified send-as alias.
+ *
+ *  @param userId The user's email address. The special value me can be used to
+ *    indicate the authenticated user. (Default me)
+ *  @param sendAsEmail The email address that appears in the "From:" header for
+ *    mail sent using this alias.
+ *  @param identifier The immutable ID for the SmimeInfo.
+ *
+ *  @returns GTLRGmailQuery_UsersSettingsSendAsSmimeInfoGet
+ */
++ (instancetype)queryWithUserId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail
+                     identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Insert (upload) the given S/MIME config for the specified send-as alias.
+ *  Note that pkcs12 format is required for the key.
+ *
+ *  Method: gmail.users.settings.sendAs.smimeInfo.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsSendAsSmimeInfoInsert : GTLRGmailQuery
+// Previous library name was
+//   +[GTLQueryGmail queryForUsersSettingsSendAsSmimeInfoInsertWithObject:userId:sendAsEmail:]
+
+/**
+ *  The email address that appears in the "From:" header for mail sent using
+ *  this alias.
+ */
+@property(nonatomic, copy, nullable) NSString *sendAsEmail;
+
+/**
+ *  The user's email address. The special value me can be used to indicate the
+ *  authenticated user.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_SmimeInfo.
+ *
+ *  Insert (upload) the given S/MIME config for the specified send-as alias.
+ *  Note that pkcs12 format is required for the key.
+ *
+ *  @param object The @c GTLRGmail_SmimeInfo to include in the query.
+ *  @param userId The user's email address. The special value me can be used to
+ *    indicate the authenticated user. (Default me)
+ *  @param sendAsEmail The email address that appears in the "From:" header for
+ *    mail sent using this alias.
+ *
+ *  @returns GTLRGmailQuery_UsersSettingsSendAsSmimeInfoInsert
+ */
++ (instancetype)queryWithObject:(GTLRGmail_SmimeInfo *)object
+                         userId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail;
+
+@end
+
+/**
+ *  Lists S/MIME configs for the specified send-as alias.
+ *
+ *  Method: gmail.users.settings.sendAs.smimeInfo.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailModify
+ *    @c kGTLRAuthScopeGmailReadonly
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsSendAsSmimeInfoList : GTLRGmailQuery
+// Previous library name was
+//   +[GTLQueryGmail queryForUsersSettingsSendAsSmimeInfoListWithuserId:sendAsEmail:]
+
+/**
+ *  The email address that appears in the "From:" header for mail sent using
+ *  this alias.
+ */
+@property(nonatomic, copy, nullable) NSString *sendAsEmail;
+
+/**
+ *  The user's email address. The special value me can be used to indicate the
+ *  authenticated user.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_ListSmimeInfoResponse.
+ *
+ *  Lists S/MIME configs for the specified send-as alias.
+ *
+ *  @param userId The user's email address. The special value me can be used to
+ *    indicate the authenticated user. (Default me)
+ *  @param sendAsEmail The email address that appears in the "From:" header for
+ *    mail sent using this alias.
+ *
+ *  @returns GTLRGmailQuery_UsersSettingsSendAsSmimeInfoList
+ */
++ (instancetype)queryWithUserId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail;
+
+@end
+
+/**
+ *  Sets the default S/MIME config for the specified send-as alias.
+ *
+ *  Method: gmail.users.settings.sendAs.smimeInfo.setDefault
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsSendAsSmimeInfoSetDefault : GTLRGmailQuery
+// Previous library name was
+//   +[GTLQueryGmail queryForUsersSettingsSendAsSmimeInfoSetDefaultWithuserId:sendAsEmail:identifier:]
+
+/**
+ *  The immutable ID for the SmimeInfo.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The email address that appears in the "From:" header for mail sent using
+ *  this alias.
+ */
+@property(nonatomic, copy, nullable) NSString *sendAsEmail;
+
+/**
+ *  The user's email address. The special value me can be used to indicate the
+ *  authenticated user.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Sets the default S/MIME config for the specified send-as alias.
+ *
+ *  @param userId The user's email address. The special value me can be used to
+ *    indicate the authenticated user. (Default me)
+ *  @param sendAsEmail The email address that appears in the "From:" header for
+ *    mail sent using this alias.
+ *  @param identifier The immutable ID for the SmimeInfo.
+ *
+ *  @returns GTLRGmailQuery_UsersSettingsSendAsSmimeInfoSetDefault
+ */
++ (instancetype)queryWithUserId:(NSString *)userId
+                    sendAsEmail:(NSString *)sendAsEmail
+                     identifier:(NSString *)identifier;
+
+@end
+
+/**
  *  Updates a send-as alias. If a signature is provided, Gmail will sanitize the
  *  HTML before saving it with the alias.
+ *  Addresses other than the primary address for the account can only be updated
+ *  by service account clients that have been delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.sendAs.update
  *
@@ -2109,6 +2414,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Updates a send-as alias. If a signature is provided, Gmail will sanitize the
  *  HTML before saving it with the alias.
+ *  Addresses other than the primary address for the account can only be updated
+ *  by service account clients that have been delegated domain-wide authority.
  *
  *  @param object The @c GTLRGmail_SendAs to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -2126,6 +2433,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Sends a verification email to the specified send-as alias address. The
  *  verification status must be pending.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.sendAs.verify
  *
@@ -2153,6 +2462,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Sends a verification email to the specified send-as alias address. The
  *  verification status must be pending.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2168,6 +2479,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Updates the auto-forwarding setting for the specified account. A verified
  *  forwarding address must be specified when auto-forwarding is enabled.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.updateAutoForwarding
  *
@@ -2191,6 +2504,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Updates the auto-forwarding setting for the specified account. A verified
  *  forwarding address must be specified when auto-forwarding is enabled.
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param object The @c GTLRGmail_AutoForwarding to include in the query.
  *  @param userId User's email address. The special value "me" can be used to

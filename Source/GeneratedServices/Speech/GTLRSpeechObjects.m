@@ -33,15 +33,6 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSpeech_CancelOperationRequest
-//
-
-@implementation GTLRSpeech_CancelOperationRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSpeech_Context
 //
 

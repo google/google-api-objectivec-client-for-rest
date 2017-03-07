@@ -21,9 +21,11 @@ NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRCloudKMS_Condition.iam
-NSString * const kGTLRCloudKMS_Condition_Iam_Attribution = @"ATTRIBUTION";
-NSString * const kGTLRCloudKMS_Condition_Iam_Authority   = @"AUTHORITY";
-NSString * const kGTLRCloudKMS_Condition_Iam_NoAttr      = @"NO_ATTR";
+NSString * const kGTLRCloudKMS_Condition_Iam_Approver          = @"APPROVER";
+NSString * const kGTLRCloudKMS_Condition_Iam_Attribution       = @"ATTRIBUTION";
+NSString * const kGTLRCloudKMS_Condition_Iam_Authority         = @"AUTHORITY";
+NSString * const kGTLRCloudKMS_Condition_Iam_JustificationType = @"JUSTIFICATION_TYPE";
+NSString * const kGTLRCloudKMS_Condition_Iam_NoAttr            = @"NO_ATTR";
 
 // GTLRCloudKMS_Condition.op
 NSString * const kGTLRCloudKMS_Condition_Op_Discharged = @"DISCHARGED";

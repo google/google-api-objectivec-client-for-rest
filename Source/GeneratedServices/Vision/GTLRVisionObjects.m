@@ -15,6 +15,22 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRVision_Block.blockType
+NSString * const kGTLRVision_Block_BlockType_Barcode = @"BARCODE";
+NSString * const kGTLRVision_Block_BlockType_Picture = @"PICTURE";
+NSString * const kGTLRVision_Block_BlockType_Ruler   = @"RULER";
+NSString * const kGTLRVision_Block_BlockType_Table   = @"TABLE";
+NSString * const kGTLRVision_Block_BlockType_Text    = @"TEXT";
+NSString * const kGTLRVision_Block_BlockType_Unknown = @"UNKNOWN";
+
+// GTLRVision_DetectedBreak.type
+NSString * const kGTLRVision_DetectedBreak_Type_EolSureSpace = @"EOL_SURE_SPACE";
+NSString * const kGTLRVision_DetectedBreak_Type_Hyphen       = @"HYPHEN";
+NSString * const kGTLRVision_DetectedBreak_Type_LineBreak    = @"LINE_BREAK";
+NSString * const kGTLRVision_DetectedBreak_Type_Space        = @"SPACE";
+NSString * const kGTLRVision_DetectedBreak_Type_SureSpace    = @"SURE_SPACE";
+NSString * const kGTLRVision_DetectedBreak_Type_Unknown      = @"UNKNOWN";
+
 // GTLRVision_FaceAnnotation.angerLikelihood
 NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_Likely = @"LIKELY";
 NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_Possible = @"POSSIBLE";
@@ -72,14 +88,17 @@ NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_VeryLikely = 
 NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
 // GTLRVision_Feature.type
-NSString * const kGTLRVision_Feature_Type_FaceDetection       = @"FACE_DETECTION";
-NSString * const kGTLRVision_Feature_Type_ImageProperties     = @"IMAGE_PROPERTIES";
-NSString * const kGTLRVision_Feature_Type_LabelDetection      = @"LABEL_DETECTION";
-NSString * const kGTLRVision_Feature_Type_LandmarkDetection   = @"LANDMARK_DETECTION";
-NSString * const kGTLRVision_Feature_Type_LogoDetection       = @"LOGO_DETECTION";
-NSString * const kGTLRVision_Feature_Type_SafeSearchDetection = @"SAFE_SEARCH_DETECTION";
-NSString * const kGTLRVision_Feature_Type_TextDetection       = @"TEXT_DETECTION";
-NSString * const kGTLRVision_Feature_Type_TypeUnspecified     = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRVision_Feature_Type_CropHints            = @"CROP_HINTS";
+NSString * const kGTLRVision_Feature_Type_DocumentTextDetection = @"DOCUMENT_TEXT_DETECTION";
+NSString * const kGTLRVision_Feature_Type_FaceDetection        = @"FACE_DETECTION";
+NSString * const kGTLRVision_Feature_Type_ImageProperties      = @"IMAGE_PROPERTIES";
+NSString * const kGTLRVision_Feature_Type_LabelDetection       = @"LABEL_DETECTION";
+NSString * const kGTLRVision_Feature_Type_LandmarkDetection    = @"LANDMARK_DETECTION";
+NSString * const kGTLRVision_Feature_Type_LogoDetection        = @"LOGO_DETECTION";
+NSString * const kGTLRVision_Feature_Type_SafeSearchDetection  = @"SAFE_SEARCH_DETECTION";
+NSString * const kGTLRVision_Feature_Type_TextDetection        = @"TEXT_DETECTION";
+NSString * const kGTLRVision_Feature_Type_TypeUnspecified      = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRVision_Feature_Type_WebDetection         = @"WEB_DETECTION";
 
 // GTLRVision_Landmark.type
 NSString * const kGTLRVision_Landmark_Type_ChinGnathion        = @"CHIN_GNATHION";
@@ -174,9 +193,9 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_AnnotateImageResponse
-@dynamic error, faceAnnotations, imagePropertiesAnnotation, labelAnnotations,
-         landmarkAnnotations, logoAnnotations, safeSearchAnnotation,
-         textAnnotations;
+@dynamic cropHintsAnnotation, error, faceAnnotations, fullTextAnnotation,
+         imagePropertiesAnnotation, labelAnnotations, landmarkAnnotations,
+         logoAnnotations, safeSearchAnnotation, textAnnotations, webDetection;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -230,6 +249,24 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_Block
+//
+
+@implementation GTLRVision_Block
+@dynamic blockType, boundingBox, paragraphs, property;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"paragraphs" : [GTLRVision_Paragraph class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_BoundingPoly
 //
 
@@ -263,6 +300,72 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 @implementation GTLRVision_ColorInfo
 @dynamic color, pixelFraction, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_CropHint
+//
+
+@implementation GTLRVision_CropHint
+@dynamic boundingPoly, confidence, importanceFraction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_CropHintsAnnotation
+//
+
+@implementation GTLRVision_CropHintsAnnotation
+@dynamic cropHints;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cropHints" : [GTLRVision_CropHint class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_CropHintsParams
+//
+
+@implementation GTLRVision_CropHintsParams
+@dynamic aspectRatios;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aspectRatios" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_DetectedBreak
+//
+
+@implementation GTLRVision_DetectedBreak
+@dynamic isPrefix, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_DetectedLanguage
+//
+
+@implementation GTLRVision_DetectedLanguage
+@dynamic confidence, languageCode;
 @end
 
 
@@ -356,7 +459,7 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_ImageContext
-@dynamic languageHints, latLongRect;
+@dynamic cropHintsParams, languageHints, latLongRect;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -384,7 +487,7 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_ImageSource
-@dynamic gcsImageUri;
+@dynamic gcsImageUri, imageUri;
 @end
 
 
@@ -430,6 +533,42 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_Page
+//
+
+@implementation GTLRVision_Page
+@dynamic blocks, height, property, width;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRVision_Block class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_Paragraph
+//
+
+@implementation GTLRVision_Paragraph
+@dynamic boundingBox, property, words;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"words" : [GTLRVision_Word class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_Position
 //
 
@@ -444,7 +583,7 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_Property
-@dynamic name, value;
+@dynamic name, uint64Value, value;
 @end
 
 
@@ -492,9 +631,130 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_Symbol
+//
+
+@implementation GTLRVision_Symbol
+@dynamic boundingBox, property, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_TextAnnotation
+//
+
+@implementation GTLRVision_TextAnnotation
+@dynamic pages, text;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pages" : [GTLRVision_Page class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_TextProperty
+//
+
+@implementation GTLRVision_TextProperty
+@dynamic detectedBreak, detectedLanguages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectedLanguages" : [GTLRVision_DetectedLanguage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_Vertex
 //
 
 @implementation GTLRVision_Vertex
 @dynamic x, y;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_WebDetection
+//
+
+@implementation GTLRVision_WebDetection
+@dynamic fullMatchingImages, pagesWithMatchingImages, partialMatchingImages,
+         webEntities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fullMatchingImages" : [GTLRVision_WebImage class],
+    @"pagesWithMatchingImages" : [GTLRVision_WebPage class],
+    @"partialMatchingImages" : [GTLRVision_WebImage class],
+    @"webEntities" : [GTLRVision_WebEntity class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_WebEntity
+//
+
+@implementation GTLRVision_WebEntity
+@dynamic descriptionProperty, entityId, score;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_WebImage
+//
+
+@implementation GTLRVision_WebImage
+@dynamic score, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_WebPage
+//
+
+@implementation GTLRVision_WebPage
+@dynamic score, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_Word
+//
+
+@implementation GTLRVision_Word
+@dynamic boundingBox, property, symbols;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"symbols" : [GTLRVision_Symbol class]
+  };
+  return map;
+}
+
 @end

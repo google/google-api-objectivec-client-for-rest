@@ -536,8 +536,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -550,8 +549,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysGetIamPolicy
  */
@@ -666,8 +664,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being specified.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -681,8 +678,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
  *    specified.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysSetIamPolicy
  */
@@ -695,6 +691,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns permissions that a caller has on the specified resource.
  *  If the resource does not exist, this will return an empty set of
  *  permissions, not a NOT_FOUND error.
+ *  Note: This operation is designed to be used for building permission-aware
+ *  UIs and command-line tools, not for authorization checking. This operation
+ *  may "fail open" without warning.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.testIamPermissions
  *
@@ -707,8 +706,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -718,13 +716,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns permissions that a caller has on the specified resource.
  *  If the resource does not exist, this will return an empty set of
  *  permissions, not a NOT_FOUND error.
+ *  Note: This operation is designed to be used for building permission-aware
+ *  UIs and command-line tools, not for authorization checking. This operation
+ *  may "fail open" without warning.
  *
  *  @param object The @c GTLRCloudKMS_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysTestIamPermissions
  */
@@ -808,8 +808,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -822,8 +821,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGetIamPolicy
  */
@@ -897,8 +895,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being specified.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -912,8 +909,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
  *    specified.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsSetIamPolicy
  */
@@ -926,6 +922,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns permissions that a caller has on the specified resource.
  *  If the resource does not exist, this will return an empty set of
  *  permissions, not a NOT_FOUND error.
+ *  Note: This operation is designed to be used for building permission-aware
+ *  UIs and command-line tools, not for authorization checking. This operation
+ *  may "fail open" without warning.
  *
  *  Method: cloudkms.projects.locations.keyRings.testIamPermissions
  *
@@ -938,8 +937,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -949,13 +947,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns permissions that a caller has on the specified resource.
  *  If the resource does not exist, this will return an empty set of
  *  permissions, not a NOT_FOUND error.
+ *  Note: This operation is designed to be used for building permission-aware
+ *  UIs and command-line tools, not for authorization checking. This operation
+ *  may "fail open" without warning.
  *
  *  @param object The @c GTLRCloudKMS_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRCloudKMSQuery_ProjectsLocationsKeyRingsTestIamPermissions
  */

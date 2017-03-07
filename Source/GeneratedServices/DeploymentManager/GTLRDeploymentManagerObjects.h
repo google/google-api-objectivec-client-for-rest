@@ -53,19 +53,27 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Provides the configuration for non-admin_activity logging for a service.
- *  Controls exemptions and specific log sub-types.
+ *  Specifies the audit configuration for a service. It consists of which
+ *  permission types are logged, and what identities, if any, are exempted from
+ *  logging. An AuditConifg must have one or more AuditLogConfigs.
+ *  If there are AuditConfigs for both `allServices` and a specific service, the
+ *  union of the two AuditConfigs is used for that service: the log_types
+ *  specified in each AuditConfig are enabled, and the exempted_members in each
+ *  AuditConfig are exempted. Example Policy with multiple AuditConfigs: {
+ *  "audit_configs": [ { "service": "allServices" "audit_log_configs": [ {
+ *  "log_type": "DATA_READ", "exempted_members": [ "user:foo\@gmail.com" ] }, {
+ *  "log_type": "DATA_WRITE", }, { "log_type": "ADMIN_READ", } ] }, { "service":
+ *  "fooservice\@googleapis.com" "audit_log_configs": [ { "log_type":
+ *  "DATA_READ", }, { "log_type": "DATA_WRITE", "exempted_members": [
+ *  "user:bar\@gmail.com" ] } ] } ] } For fooservice, this policy enables
+ *  DATA_READ, DATA_WRITE and ADMIN_READ logging. It also exempts foo\@gmail.com
+ *  from DATA_READ logging, and bar\@gmail.com from DATA_WRITE logging.
  */
 @interface GTLRDeploymentManager_AuditConfig : GTLRObject
 
-/** The configuration for each type of logging */
+/** The configuration for logging of each type of permission. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_AuditLogConfig *> *auditLogConfigs;
 
-/**
- *  Specifies the identities that are exempted from "data access" audit logging
- *  for the `service` specified above. Follows the same format of
- *  Binding.members.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
@@ -79,13 +87,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Provides the configuration for a sub-type of logging.
+ *  Provides the configuration for logging a type of permissions. Example:
+ *  { "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:foo\@gmail.com" ] }, { "log_type": "DATA_WRITE", } ] }
+ *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
+ *  foo\@gmail.com from DATA_READ logging.
  */
 @interface GTLRDeploymentManager_AuditLogConfig : GTLRObject
 
 /**
- *  Specifies the identities that are exempted from this type of logging Follows
- *  the same format of Binding.members.
+ *  Specifies the identities that do not cause logging for this type of
+ *  permission. Follows the same format of [Binding.members][].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
@@ -350,6 +362,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_DeploymentUpdate : GTLRObject
 
 /**
+ *  [Output Only] An optional user-provided description of the deployment after
+ *  the current update has been applied.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
  *  [Output Only] Map of labels; provided by the client when the resource is
  *  created or updated. Specifically: Label keys must be between 1 and 63
  *  characters long and must conform to the following regular expression:
@@ -495,7 +515,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** [Output Only] Reserved for future use. */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
-/** [Output Only] Creation timestamp in RFC3339 text format. */
+/** [Deprecated] This field is deprecated. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
 /**
@@ -762,13 +782,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDeploymentManager_Policy : GTLRObject
 
-/**
- *  Specifies audit logging configs for "data access". "data access": generally
- *  refers to data reads/writes and admin reads. "admin activity": generally
- *  refers to admin writes.
- *  Note: `AuditConfig` doesn't apply to "admin activity", which always enables
- *  audit logging.
- */
+/** Specifies cloud audit logging configuration for this policy. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_AuditConfig *> *auditConfigs;
 
 /**

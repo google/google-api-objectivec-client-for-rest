@@ -21,6 +21,7 @@
 @class GTLRDataflow_CreateJobFromTemplateRequest;
 @class GTLRDataflow_GetDebugConfigRequest;
 @class GTLRDataflow_Job;
+@class GTLRDataflow_LaunchTemplateParameters;
 @class GTLRDataflow_LeaseWorkItemRequest;
 @class GTLRDataflow_ReportWorkItemStatusRequest;
 @class GTLRDataflow_SendDebugCaptureRequest;
@@ -64,10 +65,14 @@ GTLR_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageWarning;
 
 /** Value: "JOB_VIEW_ALL" */
 GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewAll;
+/** Value: "JOB_VIEW_DESCRIPTION" */
+GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewDescription;
 /** Value: "JOB_VIEW_SUMMARY" */
 GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewSummary;
 /** Value: "JOB_VIEW_UNKNOWN" */
 GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
+/** Value: "METADATA_ONLY" */
+GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -112,6 +117,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
  *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
  *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
  *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
+ *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -234,6 +240,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
  *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
  *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
  *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
+ *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -276,10 +283,10 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Return only metric data that has changed since this time. Default is to
- *  return all information about all metrics for the job.
+ *  Return only metric data that has changed since this time.
+ *  Default is to return all information about all metrics for the job.
  */
-@property(nonatomic, copy, nullable) NSString *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Fetches a @c GTLRDataflow_JobMetrics.
@@ -324,15 +331,15 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  If there are many jobs, limit response to at most this many. The actual
- *  number of jobs returned will be the lesser of max_responses and an
- *  unspecified server-defined limit.
+ *  If there are many jobs, limit response to at most this many.
+ *  The actual number of jobs returned will be the lesser of max_responses
+ *  and an unspecified server-defined limit.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Set this to the 'next_page_token' field of a previous response to request
- *  additional results in a long list.
+ *  Set this to the 'next_page_token' field of a previous response
+ *  to request additional results in a long list.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -346,6 +353,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
  *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
  *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
  *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
+ *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -376,10 +384,10 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 //   +[GTLQueryDataflow queryForProjectsJobsMessagesListWithprojectId:jobId:]
 
 /**
- *  Return only messages with timestamps < end_time. The default is now (i.e.
- *  return up to the latest messages available).
+ *  Return only messages with timestamps < end_time. The default is now
+ *  (i.e. return up to the latest messages available).
  */
-@property(nonatomic, copy, nullable) NSString *endTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /** The job to get messages about. */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -407,15 +415,16 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @property(nonatomic, copy, nullable) NSString *minimumImportance;
 
 /**
- *  If specified, determines the maximum number of messages to return. If
- *  unspecified, the service may choose an appropriate default, or may return an
- *  arbitrarily large number of results.
+ *  If specified, determines the maximum number of messages to
+ *  return. If unspecified, the service may choose an appropriate
+ *  default, or may return an arbitrarily large number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  If supplied, this should be the value of next_page_token returned by an
- *  earlier call. This will cause the next page of results to be returned.
+ *  If supplied, this should be the value of next_page_token returned
+ *  by an earlier call. This will cause the next page of results to
+ *  be returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -423,10 +432,10 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  If specified, return only messages with timestamps >= start_time. The
- *  default is the job creation time (i.e. beginning of messages).
+ *  If specified, return only messages with timestamps >= start_time.
+ *  The default is the job creation time (i.e. beginning of messages).
  */
-@property(nonatomic, copy, nullable) NSString *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Fetches a @c GTLRDataflow_ListJobMessagesResponse.
@@ -590,6 +599,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
  *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
  *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
  *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
+ *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -640,6 +650,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
  *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
  *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
  *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
+ *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -684,10 +695,10 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Return only metric data that has changed since this time. Default is to
- *  return all information about all metrics for the job.
+ *  Return only metric data that has changed since this time.
+ *  Default is to return all information about all metrics for the job.
  */
-@property(nonatomic, copy, nullable) NSString *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Fetches a @c GTLRDataflow_JobMetrics.
@@ -734,15 +745,15 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  If there are many jobs, limit response to at most this many. The actual
- *  number of jobs returned will be the lesser of max_responses and an
- *  unspecified server-defined limit.
+ *  If there are many jobs, limit response to at most this many.
+ *  The actual number of jobs returned will be the lesser of max_responses
+ *  and an unspecified server-defined limit.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Set this to the 'next_page_token' field of a previous response to request
- *  additional results in a long list.
+ *  Set this to the 'next_page_token' field of a previous response
+ *  to request additional results in a long list.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -756,6 +767,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
  *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
  *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
  *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
+ *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -788,10 +800,10 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 //   +[GTLQueryDataflow queryForProjectsLocationsJobsMessagesListWithprojectId:location:jobId:]
 
 /**
- *  Return only messages with timestamps < end_time. The default is now (i.e.
- *  return up to the latest messages available).
+ *  Return only messages with timestamps < end_time. The default is now
+ *  (i.e. return up to the latest messages available).
  */
-@property(nonatomic, copy, nullable) NSString *endTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /** The job to get messages about. */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -819,15 +831,16 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @property(nonatomic, copy, nullable) NSString *minimumImportance;
 
 /**
- *  If specified, determines the maximum number of messages to return. If
- *  unspecified, the service may choose an appropriate default, or may return an
- *  arbitrarily large number of results.
+ *  If specified, determines the maximum number of messages to
+ *  return. If unspecified, the service may choose an appropriate
+ *  default, or may return an arbitrarily large number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  If supplied, this should be the value of next_page_token returned by an
- *  earlier call. This will cause the next page of results to be returned.
+ *  If supplied, this should be the value of next_page_token returned
+ *  by an earlier call. This will cause the next page of results to
+ *  be returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -835,10 +848,10 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  If specified, return only messages with timestamps >= start_time. The
- *  default is the job creation time (i.e. beginning of messages).
+ *  If specified, return only messages with timestamps >= start_time.
+ *  The default is the job creation time (i.e. beginning of messages).
  */
-@property(nonatomic, copy, nullable) NSString *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Fetches a @c GTLRDataflow_ListJobMessagesResponse.
@@ -1016,6 +1029,98 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
  *  @returns GTLRDataflowQuery_ProjectsTemplatesCreate
  */
 + (instancetype)queryWithObject:(GTLRDataflow_CreateJobFromTemplateRequest *)object
+                      projectId:(NSString *)projectId;
+
+@end
+
+/**
+ *  Get the template associated with a template.
+ *
+ *  Method: dataflow.projects.templates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsTemplatesGet : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsTemplatesGetWithprojectId:]
+
+/**
+ *  Required. A Cloud Storage path to the template from which to
+ *  create the job.
+ *  Must be a valid Cloud Storage URL, beginning with `gs://`.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsPath;
+
+/** Required. The ID of the Cloud Platform project that the job belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  The view to retrieve. Defaults to METADATA_ONLY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflowViewMetadataOnly Value "METADATA_ONLY"
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRDataflow_GetTemplateResponse.
+ *
+ *  Get the template associated with a template.
+ *
+ *  @param projectId Required. The ID of the Cloud Platform project that the job
+ *    belongs to.
+ *
+ *  @returns GTLRDataflowQuery_ProjectsTemplatesGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId;
+
+@end
+
+/**
+ *  Launch a template.
+ *
+ *  Method: dataflow.projects.templates.launch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsTemplatesLaunch : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsTemplatesLaunchWithObject:projectId:]
+
+/**
+ *  Whether or not the job should actually be executed after
+ *  validating parameters. Defaults to false. Validation errors do
+ *  not cause the HTTP request to fail if true.
+ */
+@property(nonatomic, assign) BOOL dryRun;
+
+/**
+ *  Required. A Cloud Storage path to the template from which to create
+ *  the job.
+ *  Must be valid Cloud Storage URL, beginning with 'gs://'.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsPath;
+
+/** Required. The ID of the Cloud Platform project that the job belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDataflow_LaunchTemplateResponse.
+ *
+ *  Launch a template.
+ *
+ *  @param object The @c GTLRDataflow_LaunchTemplateParameters to include in the
+ *    query.
+ *  @param projectId Required. The ID of the Cloud Platform project that the job
+ *    belongs to.
+ *
+ *  @returns GTLRDataflowQuery_ProjectsTemplatesLaunch
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_LaunchTemplateParameters *)object
                       projectId:(NSString *)projectId;
 
 @end

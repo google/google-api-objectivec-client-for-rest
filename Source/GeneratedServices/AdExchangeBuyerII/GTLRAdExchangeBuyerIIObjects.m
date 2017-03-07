@@ -15,6 +15,14 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAdExchangeBuyerII_AppContext.appTypes
+NSString * const kGTLRAdExchangeBuyerII_AppContext_AppTypes_Native = @"NATIVE";
+NSString * const kGTLRAdExchangeBuyerII_AppContext_AppTypes_Web = @"WEB";
+
+// GTLRAdExchangeBuyerII_AuctionContext.auctionTypes
+NSString * const kGTLRAdExchangeBuyerII_AuctionContext_AuctionTypes_DirectDeals = @"DIRECT_DEALS";
+NSString * const kGTLRAdExchangeBuyerII_AuctionContext_AuctionTypes_OpenAuction = @"OPEN_AUCTION";
+
 // GTLRAdExchangeBuyerII_Client.entityType
 NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Advertiser = @"ADVERTISER";
 NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Agency = @"AGENCY";
@@ -37,6 +45,223 @@ NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_Active = @"ACTIVE";
 NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_Disabled = @"DISABLED";
 NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_Pending = @"PENDING";
 NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_UserStatusUnspecified = @"USER_STATUS_UNSPECIFIED";
+
+// GTLRAdExchangeBuyerII_Correction.type
+NSString * const kGTLRAdExchangeBuyerII_Correction_Type_CorrectionTypeUnspecified = @"CORRECTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAdExchangeBuyerII_Correction_Type_FlashAttributeRemoved = @"FLASH_ATTRIBUTE_REMOVED";
+NSString * const kGTLRAdExchangeBuyerII_Correction_Type_FlashFreeAttributeAdded = @"FLASH_FREE_ATTRIBUTE_ADDED";
+NSString * const kGTLRAdExchangeBuyerII_Correction_Type_FlashFreeAttributeRemoved = @"FLASH_FREE_ATTRIBUTE_REMOVED";
+NSString * const kGTLRAdExchangeBuyerII_Correction_Type_InBannerVideoAttributeAdded = @"IN_BANNER_VIDEO_ATTRIBUTE_ADDED";
+NSString * const kGTLRAdExchangeBuyerII_Correction_Type_MraidAttributeAdded = @"MRAID_ATTRIBUTE_ADDED";
+NSString * const kGTLRAdExchangeBuyerII_Correction_Type_RequiredAttributeAdded = @"REQUIRED_ATTRIBUTE_ADDED";
+NSString * const kGTLRAdExchangeBuyerII_Correction_Type_RequiredVendorAdded = @"REQUIRED_VENDOR_ADDED";
+NSString * const kGTLRAdExchangeBuyerII_Correction_Type_SslAttributeAdded = @"SSL_ATTRIBUTE_ADDED";
+NSString * const kGTLRAdExchangeBuyerII_Correction_Type_SslAttributeRemoved = @"SSL_ATTRIBUTE_REMOVED";
+NSString * const kGTLRAdExchangeBuyerII_Correction_Type_VendorIdsAdded = @"VENDOR_IDS_ADDED";
+NSString * const kGTLRAdExchangeBuyerII_Correction_Type_VideoInSnippetAttributeAdded = @"VIDEO_IN_SNIPPET_ATTRIBUTE_ADDED";
+
+// GTLRAdExchangeBuyerII_Creative.attributes
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AttributeUnspecified = @"ATTRIBUTE_UNSPECIFIED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingActionRolloverToExpand = @"EXPANDING_ACTION_ROLLOVER_TO_EXPAND";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionAnyDiagonal = @"EXPANDING_DIRECTION_ANY_DIAGONAL";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionDown = @"EXPANDING_DIRECTION_DOWN";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionDownLeft = @"EXPANDING_DIRECTION_DOWN_LEFT";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionDownRight = @"EXPANDING_DIRECTION_DOWN_RIGHT";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionLeft = @"EXPANDING_DIRECTION_LEFT";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionLeftOrRight = @"EXPANDING_DIRECTION_LEFT_OR_RIGHT";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionNone = @"EXPANDING_DIRECTION_NONE";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionRight = @"EXPANDING_DIRECTION_RIGHT";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUp = @"EXPANDING_DIRECTION_UP";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpLeft = @"EXPANDING_DIRECTION_UP_LEFT";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpOrDown = @"EXPANDING_DIRECTION_UP_OR_DOWN";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpRight = @"EXPANDING_DIRECTION_UP_RIGHT";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InstreamVastVideoTypeVpaidFlash = @"INSTREAM_VAST_VIDEO_TYPE_VPAID_FLASH";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsCookieTargeted = @"IS_COOKIE_TARGETED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsTagged = @"IS_TAGGED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsUserInterestTargeted = @"IS_USER_INTEREST_TARGETED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityEligible = @"NATIVE_ELIGIBILITY_ELIGIBLE";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityNotEligible = @"NATIVE_ELIGIBILITY_NOT_ELIGIBLE";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RenderingSizelessAdx = @"RENDERING_SIZELESS_ADX";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeInterstitial = @"RICH_MEDIA_CAPABILITY_TYPE_INTERSTITIAL";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeMraid = @"RICH_MEDIA_CAPABILITY_TYPE_MRAID";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeSsl = @"RICH_MEDIA_CAPABILITY_TYPE_SSL";
+
+// GTLRAdExchangeBuyerII_Creative.dealsStatus
+NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_Approved = @"APPROVED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_ConditionallyApproved = @"CONDITIONALLY_APPROVED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_Disapproved = @"DISAPPROVED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_NotChecked = @"NOT_CHECKED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
+// GTLRAdExchangeBuyerII_Creative.openAuctionStatus
+NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_Approved = @"APPROVED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_ConditionallyApproved = @"CONDITIONALLY_APPROVED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_Disapproved = @"DISAPPROVED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_NotChecked = @"NOT_CHECKED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
+// GTLRAdExchangeBuyerII_Creative.restrictedCategories
+NSString * const kGTLRAdExchangeBuyerII_Creative_RestrictedCategories_Alcohol = @"ALCOHOL";
+NSString * const kGTLRAdExchangeBuyerII_Creative_RestrictedCategories_NoRestrictedCategories = @"NO_RESTRICTED_CATEGORIES";
+
+// GTLRAdExchangeBuyerII_Disapproval.reason
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_Abortion = @"ABORTION";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_AdSizeDoesNotMatchAdSlot = @"AD_SIZE_DOES_NOT_MATCH_AD_SLOT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_AdultImageOrVideo = @"ADULT_IMAGE_OR_VIDEO";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_AutomatedAdClicking = @"AUTOMATED_AD_CLICKING";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_BadUrlLegalDisapproval = @"BAD_URL_LEGAL_DISAPPROVAL";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_BlankCreative = @"BLANK_CREATIVE";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_BrokenUrl = @"BROKEN_URL";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ClickToDownloadNotAnApp = @"CLICK_TO_DOWNLOAD_NOT_AN_APP";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ClinicalTrialRecruitment = @"CLINICAL_TRIAL_RECRUITMENT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_Contraceptives = @"CONTRACEPTIVES";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_CounterfeitDesignerGoods = @"COUNTERFEIT_DESIGNER_GOODS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsDrugs = @"DANGEROUS_PRODUCTS_DRUGS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsExplosives = @"DANGEROUS_PRODUCTS_EXPLOSIVES";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsGuns = @"DANGEROUS_PRODUCTS_GUNS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsKnives = @"DANGEROUS_PRODUCTS_KNIVES";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsTobacco = @"DANGEROUS_PRODUCTS_TOBACCO";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsWeapons = @"DANGEROUS_PRODUCTS_WEAPONS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationSiteDoesNotAllowGoingBack = @"DESTINATION_SITE_DOES_NOT_ALLOW_GOING_BACK";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationSiteNotCrawlableRobotsTxt = @"DESTINATION_SITE_NOT_CRAWLABLE_ROBOTS_TXT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationUrlSiteNotCrawlable = @"DESTINATION_URL_SITE_NOT_CRAWLABLE";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationUrlsUndeclared = @"DESTINATION_URLS_UNDECLARED";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DirectDownloadInAd = @"DIRECT_DOWNLOAD_IN_AD";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DynamicDnsAtDestinationUrl = @"DYNAMIC_DNS_AT_DESTINATION_URL";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DysfunctionalPromotion = @"DYSFUNCTIONAL_PROMOTION";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_EnablingDishonestBehavior = @"ENABLING_DISHONEST_BEHAVIOR";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableDirectionNotSupported = @"EXPANDABLE_DIRECTION_NOT_SUPPORTED";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableFunctionality = @"EXPANDABLE_FUNCTIONALITY";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableIncorrectDirection = @"EXPANDABLE_INCORRECT_DIRECTION";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableInvalidVendor = @"EXPANDABLE_INVALID_VENDOR";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_FourthPartyBrowserCookies = @"FOURTH_PARTY_BROWSER_COOKIES";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_GainingAnUnfairAdvantage = @"GAINING_AN_UNFAIR_ADVANTAGE";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_GamingTheGoogleNetwork = @"GAMING_THE_GOOGLE_NETWORK";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InaccurateAdText = @"INACCURATE_AD_TEXT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InaccurateReviewExtension = @"INACCURATE_REVIEW_EXTENSION";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InappropriateContent = @"INAPPROPRIATE_CONTENT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectAdTechnologyDeclaration = @"INCORRECT_AD_TECHNOLOGY_DECLARATION";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectDestinationUrlDeclaration = @"INCORRECT_DESTINATION_URL_DECLARATION";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectImageLayout = @"INCORRECT_IMAGE_LAYOUT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectRemarketingDeclaration = @"INCORRECT_REMARKETING_DECLARATION";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidBiddingMethod = @"INVALID_BIDDING_METHOD";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidFourthPartyCall = @"INVALID_FOURTH_PARTY_CALL";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidInterestBasedAd = @"INVALID_INTEREST_BASED_AD";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidRemarketingListUsage = @"INVALID_REMARKETING_LIST_USAGE";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidRtbProtocolUsage = @"INVALID_RTB_PROTOCOL_USAGE";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidSslDeclaration = @"INVALID_SSL_DECLARATION";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidUrlProtocol = @"INVALID_URL_PROTOCOL";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IrrelevantImageOrVideo = @"IRRELEVANT_IMAGE_OR_VIDEO";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_KcdspRegistration = @"KCDSP_REGISTRATION";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_LandingPageDisabled = @"LANDING_PAGE_DISABLED";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_LandingPageError = @"LANDING_PAGE_ERROR";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_LengthOfImageAnimation = @"LENGTH_OF_IMAGE_ANIMATION";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_LsoObjects = @"LSO_OBJECTS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MalwareSuspected = @"MALWARE_SUSPECTED";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MaximumDownloadSizeExceeded = @"MAXIMUM_DOWNLOAD_SIZE_EXCEEDED";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MaximumNumberOfCookiesExceeded = @"MAXIMUM_NUMBER_OF_COOKIES_EXCEEDED";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MaximumNumberOfHttpCallsExceeded = @"MAXIMUM_NUMBER_OF_HTTP_CALLS_EXCEEDED";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MediaNotFunctional = @"MEDIA_NOT_FUNCTIONAL";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisleadingClaimsInAd = @"MISLEADING_CLAIMS_IN_AD";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisleadingPromotions = @"MISLEADING_PROMOTIONS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisuseOfPersonalInformation = @"MISUSE_OF_PERSONAL_INFORMATION";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NeedCertificatesToAdvertiseInChina = @"NEED_CERTIFICATES_TO_ADVERTISE_IN_CHINA";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NoBorder = @"NO_BORDER";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NotFamilySafe = @"NOT_FAMILY_SAFE";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_OmissionOfRelevantInformation = @"OMISSION_OF_RELEVANT_INFORMATION";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_PersonalLoans = @"PERSONAL_LOANS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_PharmaGamblingAlcoholNotAllowed = @"PHARMA_GAMBLING_ALCOHOL_NOT_ALLOWED";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_PoorImageOrVideoQuality = @"POOR_IMAGE_OR_VIDEO_QUALITY";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_PopUp = @"POP_UP";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ProblemWithClickMacro = @"PROBLEM_WITH_CLICK_MACRO";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ProfessionalStandards = @"PROFESSIONAL_STANDARDS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_RawIpAddressInSnippet = @"RAW_IP_ADDRESS_IN_SNIPPET";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_RestrictedPoliticalContent = @"RESTRICTED_POLITICAL_CONTENT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_RestrictedProducts = @"RESTRICTED_PRODUCTS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_SensitiveEvents = @"SENSITIVE_EVENTS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_SexuallyExplicitContent = @"SEXUALLY_EXPLICIT_CONTENT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ShockingContent = @"SHOCKING_CONTENT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_TechnicalRequirements = @"TECHNICAL_REQUIREMENTS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableContent = @"UNACCEPTABLE_CONTENT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableContentSoftware = @"UNACCEPTABLE_CONTENT_SOFTWARE";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableImageContent = @"UNACCEPTABLE_IMAGE_CONTENT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnaccreditedPetPharmacy = @"UNACCREDITED_PET_PHARMACY";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnauthorizedCookieOnGoogleDomain = @"UNAUTHORIZED_COOKIE_ON_GOOGLE_DOMAIN";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnavailablePromotions = @"UNAVAILABLE_PROMOTIONS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnclearOrIrrelevantAd = @"UNCLEAR_OR_IRRELEVANT_AD";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UndeclaredFlashObjects = @"UNDECLARED_FLASH_OBJECTS";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UndeclaredRestrictedContent = @"UNDECLARED_RESTRICTED_CONTENT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedContent = @"UNSUPPORTED_CONTENT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedFlashContent = @"UNSUPPORTED_FLASH_CONTENT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoFunctionality = @"VIDEO_FUNCTIONALITY";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoInvalidVendor = @"VIDEO_INVALID_VENDOR";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoTooLong = @"VIDEO_TOO_LONG";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoUnsupportedFormat = @"VIDEO_UNSUPPORTED_FORMAT";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoUnsupportedLength = @"VIDEO_UNSUPPORTED_LENGTH";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ViolatesJapanesePharmacyLaw = @"VIOLATES_JAPANESE_PHARMACY_LAW";
+
+// GTLRAdExchangeBuyerII_PlatformContext.platforms
+NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Android = @"ANDROID";
+NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Desktop = @"DESKTOP";
+NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Ios = @"IOS";
+
+// GTLRAdExchangeBuyerII_SecurityContext.securities
+NSString * const kGTLRAdExchangeBuyerII_SecurityContext_Securities_Insecure = @"INSECURE";
+NSString * const kGTLRAdExchangeBuyerII_SecurityContext_Securities_Ssl = @"SSL";
+
+// GTLRAdExchangeBuyerII_ServingContext.all
+NSString * const kGTLRAdExchangeBuyerII_ServingContext_All_SimpleContext = @"SIMPLE_CONTEXT";
+
+// GTLRAdExchangeBuyerII_ServingRestriction.status
+NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_Disapproval = @"DISAPPROVAL";
+NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_PendingReview = @"PENDING_REVIEW";
+NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_AddDealAssociationRequest
+//
+
+@implementation GTLRAdExchangeBuyerII_AddDealAssociationRequest
+@dynamic association;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_AppContext
+//
+
+@implementation GTLRAdExchangeBuyerII_AppContext
+@dynamic appTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"appTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_AuctionContext
+//
+
+@implementation GTLRAdExchangeBuyerII_AuctionContext
+@dynamic auctionTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auctionTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -71,6 +296,144 @@ NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_UserStatusUnspecified 
 
 @implementation GTLRAdExchangeBuyerII_ClientUserInvitation
 @dynamic clientAccountId, email, invitationId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_Correction
+//
+
+@implementation GTLRAdExchangeBuyerII_Correction
+@dynamic contexts, details, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contexts" : [GTLRAdExchangeBuyerII_ServingContext class],
+    @"details" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_Creative
+//
+
+@implementation GTLRAdExchangeBuyerII_Creative
+@dynamic accountId, adChoicesDestinationUrl, advertiserName, agencyId,
+         apiUpdateTime, attributes, clickThroughUrls, corrections, creativeId,
+         dealsStatus, detectedAdvertiserIds, detectedDomains, detectedLanguages,
+         detectedProductCategories, detectedSensitiveCategories, filteringStats,
+         html, impressionTrackingUrls, native, openAuctionStatus,
+         restrictedCategories, servingRestrictions, vendorIds, version, video;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributes" : [NSString class],
+    @"clickThroughUrls" : [NSString class],
+    @"corrections" : [GTLRAdExchangeBuyerII_Correction class],
+    @"detectedAdvertiserIds" : [NSNumber class],
+    @"detectedDomains" : [NSString class],
+    @"detectedLanguages" : [NSString class],
+    @"detectedProductCategories" : [NSNumber class],
+    @"detectedSensitiveCategories" : [NSNumber class],
+    @"impressionTrackingUrls" : [NSString class],
+    @"restrictedCategories" : [NSString class],
+    @"servingRestrictions" : [GTLRAdExchangeBuyerII_ServingRestriction class],
+    @"vendorIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_CreativeDealAssociation
+//
+
+@implementation GTLRAdExchangeBuyerII_CreativeDealAssociation
+@dynamic accountId, creativeId, dealsId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_Date
+//
+
+@implementation GTLRAdExchangeBuyerII_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_Disapproval
+//
+
+@implementation GTLRAdExchangeBuyerII_Disapproval
+@dynamic details, reason;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_Empty
+//
+
+@implementation GTLRAdExchangeBuyerII_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_FilteringStats
+//
+
+@implementation GTLRAdExchangeBuyerII_FilteringStats
+@dynamic date, reasons;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reasons" : [GTLRAdExchangeBuyerII_Reason class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_HtmlContent
+//
+
+@implementation GTLRAdExchangeBuyerII_HtmlContent
+@dynamic height, snippet, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_Image
+//
+
+@implementation GTLRAdExchangeBuyerII_Image
+@dynamic height, url, width;
 @end
 
 
@@ -137,4 +500,192 @@ NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_UserStatusUnspecified 
   return @"users";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_ListCreativesResponse
+//
+
+@implementation GTLRAdExchangeBuyerII_ListCreativesResponse
+@dynamic creatives, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"creatives" : [GTLRAdExchangeBuyerII_Creative class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"creatives";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_ListDealAssociationsResponse
+//
+
+@implementation GTLRAdExchangeBuyerII_ListDealAssociationsResponse
+@dynamic associations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"associations" : [GTLRAdExchangeBuyerII_CreativeDealAssociation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"associations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_LocationContext
+//
+
+@implementation GTLRAdExchangeBuyerII_LocationContext
+@dynamic geoCriteriaIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"geoCriteriaIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_NativeContent
+//
+
+@implementation GTLRAdExchangeBuyerII_NativeContent
+@dynamic advertiserName, appIcon, body, callToAction, clickLinkUrl,
+         clickTrackingUrl, headline, image, logo, priceDisplayText, starRating,
+         storeUrl, videoUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_PlatformContext
+//
+
+@implementation GTLRAdExchangeBuyerII_PlatformContext
+@dynamic platforms;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"platforms" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_Reason
+//
+
+@implementation GTLRAdExchangeBuyerII_Reason
+@dynamic count, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_RemoveDealAssociationRequest
+//
+
+@implementation GTLRAdExchangeBuyerII_RemoveDealAssociationRequest
+@dynamic association;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_SecurityContext
+//
+
+@implementation GTLRAdExchangeBuyerII_SecurityContext
+@dynamic securities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securities" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_ServingContext
+//
+
+@implementation GTLRAdExchangeBuyerII_ServingContext
+@dynamic all, appType, auctionType, location, platform, securityType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_ServingRestriction
+//
+
+@implementation GTLRAdExchangeBuyerII_ServingRestriction
+@dynamic contexts, disapprovalReasons, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contexts" : [GTLRAdExchangeBuyerII_ServingContext class],
+    @"disapprovalReasons" : [GTLRAdExchangeBuyerII_Disapproval class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_StopWatchingCreativeRequest
+//
+
+@implementation GTLRAdExchangeBuyerII_StopWatchingCreativeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_VideoContent
+//
+
+@implementation GTLRAdExchangeBuyerII_VideoContent
+@dynamic videoUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_WatchCreativeRequest
+//
+
+@implementation GTLRAdExchangeBuyerII_WatchCreativeRequest
+@dynamic topic;
 @end

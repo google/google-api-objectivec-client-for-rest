@@ -4,8 +4,7 @@
 // API:
 //   Google People API (people/v1)
 // Description:
-//   The Google People API service gives access to information about profiles
-//   and contacts.
+//   Provides access to information about profiles and contacts.
 // Documentation:
 //   https://developers.google.com/people/
 
@@ -49,8 +48,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
 @end
 
 /**
- *  Provides a list of the authenticated user's contacts merged with any linked
- *  profiles.
+ *  Provides a list of the authenticated user's contacts merged with any
+ *  linked profiles.
  *
  *  Method: people.people.connections.list
  *
@@ -72,11 +71,22 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Comma-separated list of fields to be included in the response. Omitting this
- *  field will include all fields. Each path should start with `person.`: for
- *  example, `person.names` or `person.photos`.
+ *  Comma-separated list of fields to be included in the response. Omitting
+ *  this field will include all fields except for connections.list requests,
+ *  which have a default mask that includes common fields like metadata, name,
+ *  photo, and profile url.
+ *  Each path should start with `person.`: for example, `person.names` or
+ *  `person.photos`.
+ *
+ *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
+
+/**
+ *  Whether the response should include a sync token, which can be used to get
+ *  all changes since the last request.
+ */
+@property(nonatomic, assign) BOOL requestSyncToken;
 
 /** The resource name to return connections for. Only `people/me` is valid. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
@@ -95,16 +105,16 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
- *  A sync token, returned by a previous call to `people.connections.list`. Only
- *  resources changed since the sync token was created are returned.
+ *  A sync token, returned by a previous call to `people.connections.list`.
+ *  Only resources changed since the sync token was created will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *syncToken;
 
 /**
  *  Fetches a @c GTLRPeople_ListConnectionsResponse.
  *
- *  Provides a list of the authenticated user's contacts merged with any linked
- *  profiles.
+ *  Provides a list of the authenticated user's contacts merged with any
+ *  linked profiles.
  *
  *  @param resourceName The resource name to return connections for. Only
  *    `people/me` is valid.
@@ -141,17 +151,22 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
 //   +[GTLQueryPeople queryForPeopleGetWithresourceName:]
 
 /**
- *  Comma-separated list of fields to be included in the response. Omitting this
- *  field will include all fields. Each path should start with `person.`: for
- *  example, `person.names` or `person.photos`.
+ *  Comma-separated list of fields to be included in the response. Omitting
+ *  this field will include all fields except for connections.list requests,
+ *  which have a default mask that includes common fields like metadata, name,
+ *  photo, and profile url.
+ *  Each path should start with `person.`: for example, `person.names` or
+ *  `person.photos`.
+ *
+ *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
 
 /**
- *  The resource name of the person to provide information about. - To get
- *  information about the authenticated user, specify `people/me`. - To get
- *  information about any user, specify the resource name that identifies the
- *  user, such as the resource names returned by
+ *  The resource name of the person to provide information about.
+ *  - To get information about the authenticated user, specify `people/me`.
+ *  - To get information about any user, specify the resource name that
+ *  identifies the user, such as the resource names returned by
  *  [`people.connections.list`](/people/api/rest/v1/people.connections/list).
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
@@ -163,9 +178,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
  *  `people/me` to indicate the authenticated user.
  *
  *  @param resourceName The resource name of the person to provide information
- *    about. - To get information about the authenticated user, specify
- *    `people/me`. - To get information about any user, specify the resource
- *    name that identifies the user, such as the resource names returned by
+ *    about.
+ *    - To get information about the authenticated user, specify `people/me`.
+ *    - To get information about any user, specify the resource name that
+ *    identifies the user, such as the resource names returned by
  *    [`people.connections.list`](/people/api/rest/v1/people.connections/list).
  *
  *  @returns GTLRPeopleQuery_PeopleGet
@@ -175,8 +191,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
 @end
 
 /**
- *  Provides information about a list of specific people by specifying a list of
- *  requested resource names. Use `people/me` to indicate the authenticated
+ *  Provides information about a list of specific people by specifying a list
+ *  of requested resource names. Use `people/me` to indicate the authenticated
  *  user.
  *
  *  Method: people.people.getBatchGet
@@ -197,16 +213,21 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
 //   +[GTLQueryPeople queryForPeopleGetBatchGet]
 
 /**
- *  Comma-separated list of fields to be included in the response. Omitting this
- *  field will include all fields. Each path should start with `person.`: for
- *  example, `person.names` or `person.photos`.
+ *  Comma-separated list of fields to be included in the response. Omitting
+ *  this field will include all fields except for connections.list requests,
+ *  which have a default mask that includes common fields like metadata, name,
+ *  photo, and profile url.
+ *  Each path should start with `person.`: for example, `person.names` or
+ *  `person.photos`.
+ *
+ *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
 
 /**
  *  The resource name, such as one returned by
- *  [`people.connections.list`](/people/api/rest/v1/people.connections/list), of
- *  one of the people to provide information about. You can include this
+ *  [`people.connections.list`](/people/api/rest/v1/people.connections/list),
+ *  of one of the people to provide information about. You can include this
  *  parameter up to 50 times in one request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
@@ -214,8 +235,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
 /**
  *  Fetches a @c GTLRPeople_GetPeopleResponse.
  *
- *  Provides information about a list of specific people by specifying a list of
- *  requested resource names. Use `people/me` to indicate the authenticated
+ *  Provides information about a list of specific people by specifying a list
+ *  of requested resource names. Use `people/me` to indicate the authenticated
  *  user.
  *
  *  @returns GTLRPeopleQuery_PeopleGetBatchGet
