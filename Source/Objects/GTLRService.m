@@ -2578,7 +2578,22 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   id<GTMUIApplicationProtocol> app = [GTMSessionFetcher substituteUIApplication];
   if (app) return app;
 
-  return (id<GTMUIApplicationProtocol>)[UIApplication sharedApplication];
+  static Class applicationClass = nil;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    BOOL isAppExtension = [[[NSBundle mainBundle] bundlePath] hasSuffix:@".appex"];
+    if (!isAppExtension) {
+      Class cls = NSClassFromString(@"UIApplication");
+      if (cls && [cls respondsToSelector:NSSelectorFromString(@"sharedApplication")]) {
+        applicationClass = cls;
+      }
+    }
+  });
+
+  if (applicationClass) {
+    app = (id<GTMUIApplicationProtocol>)[applicationClass sharedApplication];
+  }
+  return app;
 }
 #endif //  GTM_BACKGROUND_TASK_FETCHING
 
