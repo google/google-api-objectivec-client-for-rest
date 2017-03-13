@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Key Management Service (KMS) API (cloudkms/v1beta1)
+//   Google Cloud Key Management Service (KMS) API (cloudkms/v1)
 // Description:
 //   Manages encryption for your cloud services the same way you do on-premise.
 //   You can generate, use, rotate, and destroy AES256 encryption keys.

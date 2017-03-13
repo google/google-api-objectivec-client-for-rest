@@ -4,8 +4,8 @@
 // API:
 //   Google Partners API (partners/v2)
 // Description:
-//   Lets advertisers search certified companies and create contact leads with
-//   them, and also audits the usage of clients.
+//   Searches certified companies and creates contact leads with them, and also
+//   audits the usage of clients.
 // Documentation:
 //   https://developers.google.com/partners/
 
@@ -15,6 +15,19 @@
 
 // ----------------------------------------------------------------------------
 // Constants
+
+// examType
+NSString * const kGTLRPartnersExamTypeCertificationExamTypeUnspecified = @"CERTIFICATION_EXAM_TYPE_UNSPECIFIED";
+NSString * const kGTLRPartnersExamTypeCetAdwordsAdvancedDisplay = @"CET_ADWORDS_ADVANCED_DISPLAY";
+NSString * const kGTLRPartnersExamTypeCetAdwordsAdvancedSearch = @"CET_ADWORDS_ADVANCED_SEARCH";
+NSString * const kGTLRPartnersExamTypeCetAdwordsFundamentals   = @"CET_ADWORDS_FUNDAMENTALS";
+NSString * const kGTLRPartnersExamTypeCetAnalytics             = @"CET_ANALYTICS";
+NSString * const kGTLRPartnersExamTypeCetDigitalSales          = @"CET_DIGITAL_SALES";
+NSString * const kGTLRPartnersExamTypeCetDoubleclick           = @"CET_DOUBLECLICK";
+NSString * const kGTLRPartnersExamTypeCetMobile                = @"CET_MOBILE";
+NSString * const kGTLRPartnersExamTypeCetMobileSites           = @"CET_MOBILE_SITES";
+NSString * const kGTLRPartnersExamTypeCetShopping              = @"CET_SHOPPING";
+NSString * const kGTLRPartnersExamTypeCetVideoAds              = @"CET_VIDEO_ADS";
 
 // gpsMotivations
 NSString * const kGTLRPartnersGpsMotivationsGpsmHelpWithAdvertising = @"GPSM_HELP_WITH_ADVERTISING";
@@ -42,6 +55,20 @@ NSString * const kGTLRPartnersServicesSAnEnhancedWebsite      = @"S_AN_ENHANCED_
 NSString * const kGTLRPartnersServicesSAnOnlineMarketingPlan  = @"S_AN_ONLINE_MARKETING_PLAN";
 NSString * const kGTLRPartnersServicesServiceUnspecified      = @"SERVICE_UNSPECIFIED";
 NSString * const kGTLRPartnersServicesSMobileAndVideoAds      = @"S_MOBILE_AND_VIDEO_ADS";
+NSString * const kGTLRPartnersServicesSMobileWebsiteServices  = @"S_MOBILE_WEBSITE_SERVICES";
+
+// specializations
+NSString * const kGTLRPartnersSpecializationsBadgeSpecializationAdwordsDisplay = @"BADGE_SPECIALIZATION_ADWORDS_DISPLAY";
+NSString * const kGTLRPartnersSpecializationsBadgeSpecializationAdwordsMobile = @"BADGE_SPECIALIZATION_ADWORDS_MOBILE";
+NSString * const kGTLRPartnersSpecializationsBadgeSpecializationAdwordsSearch = @"BADGE_SPECIALIZATION_ADWORDS_SEARCH";
+NSString * const kGTLRPartnersSpecializationsBadgeSpecializationAdwordsShopping = @"BADGE_SPECIALIZATION_ADWORDS_SHOPPING";
+NSString * const kGTLRPartnersSpecializationsBadgeSpecializationAdwordsVideo = @"BADGE_SPECIALIZATION_ADWORDS_VIDEO";
+NSString * const kGTLRPartnersSpecializationsBadgeSpecializationUnknown = @"BADGE_SPECIALIZATION_UNKNOWN";
+
+// userView
+NSString * const kGTLRPartnersUserViewBasic         = @"BASIC";
+NSString * const kGTLRPartnersUserViewProfile       = @"PROFILE";
+NSString * const kGTLRPartnersUserViewPublicProfile = @"PUBLIC_PROFILE";
 
 // view
 NSString * const kGTLRPartnersViewCompanyViewUnspecified = @"COMPANY_VIEW_UNSPECIFIED";
@@ -54,6 +81,48 @@ NSString * const kGTLRPartnersViewCvGooglePartnerSearch  = @"CV_GOOGLE_PARTNER_S
 @implementation GTLRPartnersQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRPartnersQuery_AnalyticsList
+
+@dynamic pageSize, pageToken, requestMetadataExperimentIds,
+         requestMetadataLocale, requestMetadataPartnersSessionId,
+         requestMetadataTrafficSourceTrafficSourceId,
+         requestMetadataTrafficSourceTrafficSubId,
+         requestMetadataUserOverridesIpAddress,
+         requestMetadataUserOverridesUserId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"requestMetadataExperimentIds" : @"requestMetadata.experimentIds",
+    @"requestMetadataLocale" : @"requestMetadata.locale",
+    @"requestMetadataPartnersSessionId" : @"requestMetadata.partnersSessionId",
+    @"requestMetadataTrafficSourceTrafficSourceId" : @"requestMetadata.trafficSource.trafficSourceId",
+    @"requestMetadataTrafficSourceTrafficSubId" : @"requestMetadata.trafficSource.trafficSubId",
+    @"requestMetadataUserOverridesIpAddress" : @"requestMetadata.userOverrides.ipAddress",
+    @"requestMetadataUserOverridesUserId" : @"requestMetadata.userOverrides.userId"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestMetadata.experimentIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v2/analytics";
+  GTLRPartnersQuery_AnalyticsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRPartners_ListAnalyticsResponse class];
+  query.loggingName = @"partners.analytics.list";
+  return query;
+}
 
 @end
 
@@ -158,7 +227,8 @@ NSString * const kGTLRPartnersViewCvGooglePartnerSearch  = @"CV_GOOGLE_PARTNER_S
          requestMetadataTrafficSourceTrafficSourceId,
          requestMetadataTrafficSourceTrafficSubId,
          requestMetadataUserOverridesIpAddress,
-         requestMetadataUserOverridesUserId, services, view, websiteUrl;
+         requestMetadataUserOverridesUserId, services, specializations, view,
+         websiteUrl;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -185,7 +255,8 @@ NSString * const kGTLRPartnersViewCvGooglePartnerSearch  = @"CV_GOOGLE_PARTNER_S
     @"industries" : [NSString class],
     @"languageCodes" : [NSString class],
     @"requestMetadata.experimentIds" : [NSString class],
-    @"services" : [NSString class]
+    @"services" : [NSString class],
+    @"specializations" : [NSString class]
   };
   return map;
 }
@@ -198,6 +269,177 @@ NSString * const kGTLRPartnersViewCvGooglePartnerSearch  = @"CV_GOOGLE_PARTNER_S
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRPartners_ListCompaniesResponse class];
   query.loggingName = @"partners.companies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPartnersQuery_ExamsGetToken
+
+@dynamic examType, requestMetadataExperimentIds, requestMetadataLocale,
+         requestMetadataPartnersSessionId,
+         requestMetadataTrafficSourceTrafficSourceId,
+         requestMetadataTrafficSourceTrafficSubId,
+         requestMetadataUserOverridesIpAddress,
+         requestMetadataUserOverridesUserId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"requestMetadataExperimentIds" : @"requestMetadata.experimentIds",
+    @"requestMetadataLocale" : @"requestMetadata.locale",
+    @"requestMetadataPartnersSessionId" : @"requestMetadata.partnersSessionId",
+    @"requestMetadataTrafficSourceTrafficSourceId" : @"requestMetadata.trafficSource.trafficSourceId",
+    @"requestMetadataTrafficSourceTrafficSubId" : @"requestMetadata.trafficSource.trafficSubId",
+    @"requestMetadataUserOverridesIpAddress" : @"requestMetadata.userOverrides.ipAddress",
+    @"requestMetadataUserOverridesUserId" : @"requestMetadata.userOverrides.userId"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestMetadata.experimentIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithExamType:(NSString *)examType {
+  NSArray *pathParams = @[ @"examType" ];
+  NSString *pathURITemplate = @"v2/exams/{examType}/token";
+  GTLRPartnersQuery_ExamsGetToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.examType = examType;
+  query.expectedObjectClass = [GTLRPartners_ExamToken class];
+  query.loggingName = @"partners.exams.getToken";
+  return query;
+}
+
+@end
+
+@implementation GTLRPartnersQuery_LeadsList
+
+@dynamic orderBy, pageSize, pageToken, requestMetadataExperimentIds,
+         requestMetadataLocale, requestMetadataPartnersSessionId,
+         requestMetadataTrafficSourceTrafficSourceId,
+         requestMetadataTrafficSourceTrafficSubId,
+         requestMetadataUserOverridesIpAddress,
+         requestMetadataUserOverridesUserId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"requestMetadataExperimentIds" : @"requestMetadata.experimentIds",
+    @"requestMetadataLocale" : @"requestMetadata.locale",
+    @"requestMetadataPartnersSessionId" : @"requestMetadata.partnersSessionId",
+    @"requestMetadataTrafficSourceTrafficSourceId" : @"requestMetadata.trafficSource.trafficSourceId",
+    @"requestMetadataTrafficSourceTrafficSubId" : @"requestMetadata.trafficSource.trafficSubId",
+    @"requestMetadataUserOverridesIpAddress" : @"requestMetadata.userOverrides.ipAddress",
+    @"requestMetadataUserOverridesUserId" : @"requestMetadata.userOverrides.userId"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestMetadata.experimentIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v2/leads";
+  GTLRPartnersQuery_LeadsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRPartners_ListLeadsResponse class];
+  query.loggingName = @"partners.leads.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPartnersQuery_OffersHistoryList
+
+@dynamic entireCompany, orderBy, pageSize, pageToken,
+         requestMetadataExperimentIds, requestMetadataLocale,
+         requestMetadataPartnersSessionId,
+         requestMetadataTrafficSourceTrafficSourceId,
+         requestMetadataTrafficSourceTrafficSubId,
+         requestMetadataUserOverridesIpAddress,
+         requestMetadataUserOverridesUserId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"requestMetadataExperimentIds" : @"requestMetadata.experimentIds",
+    @"requestMetadataLocale" : @"requestMetadata.locale",
+    @"requestMetadataPartnersSessionId" : @"requestMetadata.partnersSessionId",
+    @"requestMetadataTrafficSourceTrafficSourceId" : @"requestMetadata.trafficSource.trafficSourceId",
+    @"requestMetadataTrafficSourceTrafficSubId" : @"requestMetadata.trafficSource.trafficSubId",
+    @"requestMetadataUserOverridesIpAddress" : @"requestMetadata.userOverrides.ipAddress",
+    @"requestMetadataUserOverridesUserId" : @"requestMetadata.userOverrides.userId"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestMetadata.experimentIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v2/offers/history";
+  GTLRPartnersQuery_OffersHistoryList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRPartners_ListOffersHistoryResponse class];
+  query.loggingName = @"partners.offers.history.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPartnersQuery_OffersList
+
+@dynamic requestMetadataExperimentIds, requestMetadataLocale,
+         requestMetadataPartnersSessionId,
+         requestMetadataTrafficSourceTrafficSourceId,
+         requestMetadataTrafficSourceTrafficSubId,
+         requestMetadataUserOverridesIpAddress,
+         requestMetadataUserOverridesUserId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"requestMetadataExperimentIds" : @"requestMetadata.experimentIds",
+    @"requestMetadataLocale" : @"requestMetadata.locale",
+    @"requestMetadataPartnersSessionId" : @"requestMetadata.partnersSessionId",
+    @"requestMetadataTrafficSourceTrafficSourceId" : @"requestMetadata.trafficSource.trafficSourceId",
+    @"requestMetadataTrafficSourceTrafficSubId" : @"requestMetadata.trafficSource.trafficSubId",
+    @"requestMetadataUserOverridesIpAddress" : @"requestMetadata.userOverrides.ipAddress",
+    @"requestMetadataUserOverridesUserId" : @"requestMetadata.userOverrides.userId"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestMetadata.experimentIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v2/offers";
+  GTLRPartnersQuery_OffersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRPartners_ListOffersResponse class];
+  query.loggingName = @"partners.offers.list";
   return query;
 }
 
@@ -218,6 +460,144 @@ NSString * const kGTLRPartnersViewCvGooglePartnerSearch  = @"CV_GOOGLE_PARTNER_S
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRPartners_LogUserEventResponse class];
   query.loggingName = @"partners.userEvents.log";
+  return query;
+}
+
+@end
+
+@implementation GTLRPartnersQuery_UsersCreateCompanyRelation
+
+@dynamic requestMetadataExperimentIds, requestMetadataLocale,
+         requestMetadataPartnersSessionId,
+         requestMetadataTrafficSourceTrafficSourceId,
+         requestMetadataTrafficSourceTrafficSubId,
+         requestMetadataUserOverridesIpAddress,
+         requestMetadataUserOverridesUserId, userId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"requestMetadataExperimentIds" : @"requestMetadata.experimentIds",
+    @"requestMetadataLocale" : @"requestMetadata.locale",
+    @"requestMetadataPartnersSessionId" : @"requestMetadata.partnersSessionId",
+    @"requestMetadataTrafficSourceTrafficSourceId" : @"requestMetadata.trafficSource.trafficSourceId",
+    @"requestMetadataTrafficSourceTrafficSubId" : @"requestMetadata.trafficSource.trafficSubId",
+    @"requestMetadataUserOverridesIpAddress" : @"requestMetadata.userOverrides.ipAddress",
+    @"requestMetadataUserOverridesUserId" : @"requestMetadata.userOverrides.userId"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestMetadata.experimentIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithObject:(GTLRPartners_CompanyRelation *)object
+                         userId:(NSString *)userId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"v2/users/{userId}/companyRelation";
+  GTLRPartnersQuery_UsersCreateCompanyRelation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRPartners_CompanyRelation class];
+  query.loggingName = @"partners.users.createCompanyRelation";
+  return query;
+}
+
+@end
+
+@implementation GTLRPartnersQuery_UsersDeleteCompanyRelation
+
+@dynamic requestMetadataExperimentIds, requestMetadataLocale,
+         requestMetadataPartnersSessionId,
+         requestMetadataTrafficSourceTrafficSourceId,
+         requestMetadataTrafficSourceTrafficSubId,
+         requestMetadataUserOverridesIpAddress,
+         requestMetadataUserOverridesUserId, userId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"requestMetadataExperimentIds" : @"requestMetadata.experimentIds",
+    @"requestMetadataLocale" : @"requestMetadata.locale",
+    @"requestMetadataPartnersSessionId" : @"requestMetadata.partnersSessionId",
+    @"requestMetadataTrafficSourceTrafficSourceId" : @"requestMetadata.trafficSource.trafficSourceId",
+    @"requestMetadataTrafficSourceTrafficSubId" : @"requestMetadata.trafficSource.trafficSubId",
+    @"requestMetadataUserOverridesIpAddress" : @"requestMetadata.userOverrides.ipAddress",
+    @"requestMetadataUserOverridesUserId" : @"requestMetadata.userOverrides.userId"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestMetadata.experimentIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithUserId:(NSString *)userId {
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"v2/users/{userId}/companyRelation";
+  GTLRPartnersQuery_UsersDeleteCompanyRelation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRPartners_Empty class];
+  query.loggingName = @"partners.users.deleteCompanyRelation";
+  return query;
+}
+
+@end
+
+@implementation GTLRPartnersQuery_UsersGet
+
+@dynamic requestMetadataExperimentIds, requestMetadataLocale,
+         requestMetadataPartnersSessionId,
+         requestMetadataTrafficSourceTrafficSourceId,
+         requestMetadataTrafficSourceTrafficSubId,
+         requestMetadataUserOverridesIpAddress,
+         requestMetadataUserOverridesUserId, userId, userView;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"requestMetadataExperimentIds" : @"requestMetadata.experimentIds",
+    @"requestMetadataLocale" : @"requestMetadata.locale",
+    @"requestMetadataPartnersSessionId" : @"requestMetadata.partnersSessionId",
+    @"requestMetadataTrafficSourceTrafficSourceId" : @"requestMetadata.trafficSource.trafficSourceId",
+    @"requestMetadataTrafficSourceTrafficSubId" : @"requestMetadata.trafficSource.trafficSubId",
+    @"requestMetadataUserOverridesIpAddress" : @"requestMetadata.userOverrides.ipAddress",
+    @"requestMetadataUserOverridesUserId" : @"requestMetadata.userOverrides.userId"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestMetadata.experimentIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithUserId:(NSString *)userId {
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"v2/users/{userId}";
+  GTLRPartnersQuery_UsersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRPartners_User class];
+  query.loggingName = @"partners.users.get";
   return query;
 }
 
@@ -260,6 +640,189 @@ NSString * const kGTLRPartnersViewCvGooglePartnerSearch  = @"CV_GOOGLE_PARTNER_S
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRPartners_ListUserStatesResponse class];
   query.loggingName = @"partners.userStates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPartnersQuery_UsersUpdateProfile
+
+@dynamic requestMetadataExperimentIds, requestMetadataLocale,
+         requestMetadataPartnersSessionId,
+         requestMetadataTrafficSourceTrafficSourceId,
+         requestMetadataTrafficSourceTrafficSubId,
+         requestMetadataUserOverridesIpAddress,
+         requestMetadataUserOverridesUserId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"requestMetadataExperimentIds" : @"requestMetadata.experimentIds",
+    @"requestMetadataLocale" : @"requestMetadata.locale",
+    @"requestMetadataPartnersSessionId" : @"requestMetadata.partnersSessionId",
+    @"requestMetadataTrafficSourceTrafficSourceId" : @"requestMetadata.trafficSource.trafficSourceId",
+    @"requestMetadataTrafficSourceTrafficSubId" : @"requestMetadata.trafficSource.trafficSubId",
+    @"requestMetadataUserOverridesIpAddress" : @"requestMetadata.userOverrides.ipAddress",
+    @"requestMetadataUserOverridesUserId" : @"requestMetadata.userOverrides.userId"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestMetadata.experimentIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithObject:(GTLRPartners_UserProfile *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v2/users/profile";
+  GTLRPartnersQuery_UsersUpdateProfile *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRPartners_UserProfile class];
+  query.loggingName = @"partners.users.updateProfile";
+  return query;
+}
+
+@end
+
+@implementation GTLRPartnersQuery_V2GetPartnersstatus
+
+@dynamic requestMetadataExperimentIds, requestMetadataLocale,
+         requestMetadataPartnersSessionId,
+         requestMetadataTrafficSourceTrafficSourceId,
+         requestMetadataTrafficSourceTrafficSubId,
+         requestMetadataUserOverridesIpAddress,
+         requestMetadataUserOverridesUserId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"requestMetadataExperimentIds" : @"requestMetadata.experimentIds",
+    @"requestMetadataLocale" : @"requestMetadata.locale",
+    @"requestMetadataPartnersSessionId" : @"requestMetadata.partnersSessionId",
+    @"requestMetadataTrafficSourceTrafficSourceId" : @"requestMetadata.trafficSource.trafficSourceId",
+    @"requestMetadataTrafficSourceTrafficSubId" : @"requestMetadata.trafficSource.trafficSubId",
+    @"requestMetadataUserOverridesIpAddress" : @"requestMetadata.userOverrides.ipAddress",
+    @"requestMetadataUserOverridesUserId" : @"requestMetadata.userOverrides.userId"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestMetadata.experimentIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v2/partnersstatus";
+  GTLRPartnersQuery_V2GetPartnersstatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRPartners_GetPartnersStatusResponse class];
+  query.loggingName = @"partners.getPartnersstatus";
+  return query;
+}
+
+@end
+
+@implementation GTLRPartnersQuery_V2UpdateCompanies
+
+@dynamic requestMetadataExperimentIds, requestMetadataLocale,
+         requestMetadataPartnersSessionId,
+         requestMetadataTrafficSourceTrafficSourceId,
+         requestMetadataTrafficSourceTrafficSubId,
+         requestMetadataUserOverridesIpAddress,
+         requestMetadataUserOverridesUserId, updateMask;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"requestMetadataExperimentIds" : @"requestMetadata.experimentIds",
+    @"requestMetadataLocale" : @"requestMetadata.locale",
+    @"requestMetadataPartnersSessionId" : @"requestMetadata.partnersSessionId",
+    @"requestMetadataTrafficSourceTrafficSourceId" : @"requestMetadata.trafficSource.trafficSourceId",
+    @"requestMetadataTrafficSourceTrafficSubId" : @"requestMetadata.trafficSource.trafficSubId",
+    @"requestMetadataUserOverridesIpAddress" : @"requestMetadata.userOverrides.ipAddress",
+    @"requestMetadataUserOverridesUserId" : @"requestMetadata.userOverrides.userId"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestMetadata.experimentIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithObject:(GTLRPartners_Company *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v2/companies";
+  GTLRPartnersQuery_V2UpdateCompanies *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRPartners_Company class];
+  query.loggingName = @"partners.updateCompanies";
+  return query;
+}
+
+@end
+
+@implementation GTLRPartnersQuery_V2UpdateLeads
+
+@dynamic requestMetadataExperimentIds, requestMetadataLocale,
+         requestMetadataPartnersSessionId,
+         requestMetadataTrafficSourceTrafficSourceId,
+         requestMetadataTrafficSourceTrafficSubId,
+         requestMetadataUserOverridesIpAddress,
+         requestMetadataUserOverridesUserId, updateMask;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"requestMetadataExperimentIds" : @"requestMetadata.experimentIds",
+    @"requestMetadataLocale" : @"requestMetadata.locale",
+    @"requestMetadataPartnersSessionId" : @"requestMetadata.partnersSessionId",
+    @"requestMetadataTrafficSourceTrafficSourceId" : @"requestMetadata.trafficSource.trafficSourceId",
+    @"requestMetadataTrafficSourceTrafficSubId" : @"requestMetadata.trafficSource.trafficSubId",
+    @"requestMetadataUserOverridesIpAddress" : @"requestMetadata.userOverrides.ipAddress",
+    @"requestMetadataUserOverridesUserId" : @"requestMetadata.userOverrides.userId"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestMetadata.experimentIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithObject:(GTLRPartners_Lead *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v2/leads";
+  GTLRPartnersQuery_V2UpdateLeads *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRPartners_Lead class];
+  query.loggingName = @"partners.updateLeads";
   return query;
 }
 

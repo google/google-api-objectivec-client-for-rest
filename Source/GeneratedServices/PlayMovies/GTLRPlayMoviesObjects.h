@@ -30,143 +30,323 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRPlayMovies_Avail.formatProfile
 
-/** Value: "FORMAT_PROFILE_UNSPECIFIED" */
+/**
+ *  Value could not be determined, please contact technical support if
+ *  it should.
+ *
+ *  Value: "FORMAT_PROFILE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_FormatProfile_FormatProfileUnspecified;
-/** Value: "HD" */
+/**
+ *  High-definition format.
+ *
+ *  Value: "HD"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_FormatProfile_Hd;
-/** Value: "SD" */
+/**
+ *  Standard-definition format.
+ *
+ *  Value: "SD"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_FormatProfile_Sd;
-/** Value: "UHD" */
+/**
+ *  4K UHD.
+ *
+ *  Value: "UHD"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_FormatProfile_Uhd;
 
 // ----------------------------------------------------------------------------
 // GTLRPlayMovies_Avail.licenseType
 
-/** Value: "EST" */
+/**
+ *  Electronic Sell Through - purchase policy for unlimited viewing.
+ *
+ *  Value: "EST"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_LicenseType_Est;
-/** Value: "LICENSE_TYPE_UNSPECIFIED" */
+/**
+ *  Value could not be determined, please contact technical support if
+ *  it should.
+ *
+ *  Value: "LICENSE_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_LicenseType_LicenseTypeUnspecified;
-/** Value: "POEST" */
+/**
+ *  Pre-order Electronic Sell Through - pre-order purchase only window.
+ *
+ *  Value: "POEST"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_LicenseType_Poest;
-/** Value: "SVOD" */
+/**
+ *  Subscription Video On Demand - used for subscription platforms.
+ *  Not supported on Google Play.
+ *
+ *  Value: "SVOD"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_LicenseType_Svod;
-/** Value: "VOD" */
+/**
+ *  Video On Demand - rental policy for temporary viewing.
+ *
+ *  Value: "VOD"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_LicenseType_Vod;
 
 // ----------------------------------------------------------------------------
 // GTLRPlayMovies_Avail.workType
 
-/** Value: "BUNDLE" */
+/**
+ *  A collection of movies, i.e. "Googlers 1 and Googlers, the return"
+ *
+ *  Value: "BUNDLE"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_WorkType_Bundle;
-/** Value: "EPISODE" */
+/**
+ *  An episode of a TV show.
+ *
+ *  Value: "EPISODE"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_WorkType_Episode;
-/** Value: "MOVIE" */
+/**
+ *  A movie picture.
+ *
+ *  Value: "MOVIE"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_WorkType_Movie;
-/** Value: "SEASON" */
+/**
+ *  A season of a TV show.
+ *
+ *  Value: "SEASON"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_WorkType_Season;
-/** Value: "TITLE_TYPE_UNSPECIFIED" */
+/**
+ *  Value could not be determined, please contact technical support if
+ *  it should.
+ *
+ *  Value: "TITLE_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Avail_WorkType_TitleTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPlayMovies_Order.normalizedPriority
 
-/** Value: "HIGH_PRIORITY" */
+/**
+ *  A high-priority asset, typically from a new release or box office hit.
+ *
+ *  Value: "HIGH_PRIORITY"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_NormalizedPriority_HighPriority;
-/** Value: "LOW_PRIORITY" */
+/**
+ *  A low-priority asset, typically from a library movie.
+ *
+ *  Value: "LOW_PRIORITY"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_NormalizedPriority_LowPriority;
-/** Value: "NORMALIZED_PRIORITY_UNSPECIFIED" */
+/**
+ *  Value could not be determined, please contact technical support if
+ *  it should.
+ *
+ *  Value: "NORMALIZED_PRIORITY_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_NormalizedPriority_NormalizedPriorityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPlayMovies_Order.status
 
-/** Value: "STATUS_APPROVED" */
+/**
+ *  Approved by Google.
+ *
+ *  Value: "STATUS_APPROVED"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_Status_StatusApproved;
-/** Value: "STATUS_FAILED" */
+/**
+ *  Waiting for partner to re-deliver the asset after a rejection by Google.
+ *
+ *  Value: "STATUS_FAILED"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_Status_StatusFailed;
-/** Value: "STATUS_NOT_AVAILABLE" */
+/**
+ *  Used when Status is not available (i.e: Orders for TV Seasons).
+ *
+ *  Value: "STATUS_NOT_AVAILABLE"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_Status_StatusNotAvailable;
-/** Value: "STATUS_PROCESSING" */
+/**
+ *  Waiting for Google to process the asset.
+ *
+ *  Value: "STATUS_PROCESSING"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_Status_StatusProcessing;
-/** Value: "STATUS_UNFULFILLED" */
+/**
+ *  Waiting for partner to deliver the asset.
+ *
+ *  Value: "STATUS_UNFULFILLED"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_Status_StatusUnfulfilled;
-/** Value: "STATUS_UNSPECIFIED" */
+/**
+ *  Value could not be determined, please contact technical support if
+ *  it should.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPlayMovies_Order.statusDetail
 
-/** Value: "ORDER_STATUS_AWAITING_REDELIVERY" */
+/**
+ *  Waiting for re-delivery from partner.
+ *
+ *  Value: "ORDER_STATUS_AWAITING_REDELIVERY"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_StatusDetail_OrderStatusAwaitingRedelivery;
-/** Value: "ORDER_STATUS_FILE_PROCESSING" */
+/**
+ *  Waiting for Google to process the asset.
+ *
+ *  Value: "ORDER_STATUS_FILE_PROCESSING"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_StatusDetail_OrderStatusFileProcessing;
-/** Value: "ORDER_STATUS_INTERNAL_FIX" */
+/**
+ *  Internal error while processing the Order.
+ *
+ *  Value: "ORDER_STATUS_INTERNAL_FIX"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_StatusDetail_OrderStatusInternalFix;
-/** Value: "ORDER_STATUS_NOT_AVAILABLE" */
+/**
+ *  Used on Orders that do not have Status, like TV Seasons.
+ *
+ *  Value: "ORDER_STATUS_NOT_AVAILABLE"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_StatusDetail_OrderStatusNotAvailable;
-/** Value: "ORDER_STATUS_OPEN_ORDER" */
+/**
+ *  Waiting for initial delivery from partner.
+ *
+ *  Value: "ORDER_STATUS_OPEN_ORDER"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_StatusDetail_OrderStatusOpenOrder;
-/** Value: "ORDER_STATUS_QC_APPROVED" */
+/**
+ *  Approved by Google's Quality Control team.
+ *
+ *  Value: "ORDER_STATUS_QC_APPROVED"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_StatusDetail_OrderStatusQcApproved;
-/** Value: "ORDER_STATUS_QC_REJECTION" */
+/**
+ *  Rejected by Google's Quality Control team, pending partner redelivery.
+ *
+ *  Value: "ORDER_STATUS_QC_REJECTION"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_StatusDetail_OrderStatusQcRejection;
-/** Value: "ORDER_STATUS_READY_FOR_QC" */
+/**
+ *  Asset was delivered by partner, but is being reviewed by Google's
+ *  Quality Control team.
+ *
+ *  Value: "ORDER_STATUS_READY_FOR_QC"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_StatusDetail_OrderStatusReadyForQc;
-/** Value: "ORDER_STATUS_UNSPECIFIED" */
+/**
+ *  Value could not be determined, please contact technical support if
+ *  it should.
+ *
+ *  Value: "ORDER_STATUS_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_StatusDetail_OrderStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPlayMovies_Order.type
 
-/** Value: "BUNDLE" */
+/**
+ *  A collection of movies, i.e. "Googlers 1 and Googlers, the return"
+ *
+ *  Value: "BUNDLE"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_Type_Bundle;
-/** Value: "EPISODE" */
+/**
+ *  An episode of a TV show.
+ *
+ *  Value: "EPISODE"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_Type_Episode;
-/** Value: "MOVIE" */
+/**
+ *  A movie picture.
+ *
+ *  Value: "MOVIE"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_Type_Movie;
-/** Value: "SEASON" */
+/**
+ *  A season of a TV show.
+ *
+ *  Value: "SEASON"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_Type_Season;
-/** Value: "TITLE_TYPE_UNSPECIFIED" */
+/**
+ *  Value could not be determined, please contact technical support if
+ *  it should.
+ *
+ *  Value: "TITLE_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_Order_Type_TitleTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPlayMovies_StoreInfo.type
 
-/** Value: "BUNDLE" */
+/**
+ *  A collection of movies, i.e. "Googlers 1 and Googlers, the return"
+ *
+ *  Value: "BUNDLE"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_Bundle;
-/** Value: "EPISODE" */
+/**
+ *  An episode of a TV show.
+ *
+ *  Value: "EPISODE"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_Episode;
-/** Value: "MOVIE" */
+/**
+ *  A movie picture.
+ *
+ *  Value: "MOVIE"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_Movie;
-/** Value: "SEASON" */
+/**
+ *  A season of a TV show.
+ *
+ *  Value: "SEASON"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_Season;
-/** Value: "TITLE_TYPE_UNSPECIFIED" */
+/**
+ *  Value could not be determined, please contact technical support if
+ *  it should.
+ *
+ *  Value: "TITLE_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified;
 
 /**
  *  An Avail describes the Availability Window of a specific Edit in a given
  *  country, which means the period Google is allowed to sell or rent the Edit.
  *  Avails are exposed in EMA format Version 1.6b (available at
- *  http://www.movielabs.com/md/avails/) Studios can see the Avails for the
- *  Titles they own. Post-production houses cannot see any Avails.
+ *  http://www.movielabs.com/md/avails/)
+ *  Studios can see the Avails for the Titles they own.
+ *  Post-production houses cannot see any Avails.
  */
 @interface GTLRPlayMovies_Avail : GTLRObject
 
 /**
- *  Other identifier referring to the Edit, as defined by partner. Example:
- *  "GOOGLER_2006"
+ *  Other identifier referring to the Edit, as defined by partner.
+ *  Example: "GOOGLER_2006"
  */
 @property(nonatomic, copy, nullable) NSString *altId;
 
 /**
- *  ID internally generated by Google to uniquely identify an Avail. Not part of
- *  EMA Specs.
+ *  ID internally generated by Google to uniquely identify an Avail.
+ *  Not part of EMA Specs.
  */
 @property(nonatomic, copy, nullable) NSString *availId;
 
 /**
- *  Communicating an exempt category as defined by FCC regulations. It is not
- *  required for non-US Avails. Example: "1"
+ *  Communicating an exempt category as defined by FCC regulations.
+ *  It is not required for non-US Avails.
+ *  Example: "1"
  */
 @property(nonatomic, copy, nullable) NSString *captionExemption;
 
@@ -178,45 +358,52 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
 @property(nonatomic, strong, nullable) NSNumber *captionIncluded;
 
 /**
- *  Title Identifier. This should be the Title Level EIDR. Example:
- *  "10.5240/1489-49A2-3956-4B2D-FE16-5".
+ *  Title Identifier. This should be the Title Level EIDR.
+ *  Example: "10.5240/1489-49A2-3956-4B2D-FE16-5".
  */
 @property(nonatomic, copy, nullable) NSString *contentId;
 
 /**
- *  The name of the studio that owns the Edit referred in the Avail. This is the
- *  equivalent of `studio_name` in other resources, but it follows the EMA
- *  nomenclature. Example: "Google Films".
+ *  The name of the studio that owns the Edit referred in the Avail.
+ *  This is the equivalent of `studio_name` in other resources, but it follows
+ *  the EMA nomenclature.
+ *  Example: "Google Films".
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Manifestation Identifier. This should be the Manifestation Level EIDR.
+ *  Manifestation Identifier. This should be the Manifestation
+ *  Level EIDR.
  *  Example: "10.2340/1489-49A2-3956-4B2D-FE16-7"
  */
 @property(nonatomic, copy, nullable) NSString *encodeId;
 
 /**
- *  End of term in YYYY-MM-DD format in the timezone of the country of the
- *  Avail. "Open" if no end date is available. Example: "2019-02-17"
+ *  End of term in YYYY-MM-DD format in the timezone of the country
+ *  of the Avail.
+ *  "Open" if no end date is available.
+ *  Example: "2019-02-17"
  */
 @property(nonatomic, copy, nullable) NSString *end;
 
 /**
- *  Other identifier referring to the episode, as defined by partner. Only
- *  available on TV avails. Example: "rs_googlers_s1_3".
+ *  Other identifier referring to the episode, as defined by partner.
+ *  Only available on TV avails.
+ *  Example: "rs_googlers_s1_3".
  */
 @property(nonatomic, copy, nullable) NSString *episodeAltId;
 
 /**
- *  The number assigned to the episode within a season. Only available on TV
- *  Avails. Example: "3".
+ *  The number assigned to the episode within a season.
+ *  Only available on TV Avails.
+ *  Example: "3".
  */
 @property(nonatomic, copy, nullable) NSString *episodeNumber;
 
 /**
  *  OPTIONAL.TV Only. Title used by involved parties to refer to this episode.
- *  Only available on TV Avails. Example: "Coding at Google".
+ *  Only available on TV Avails.
+ *  Example: "Coding at Google".
  */
 @property(nonatomic, copy, nullable) NSString *episodeTitleInternalAlias;
 
@@ -225,10 +412,13 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
  *
  *  Likely values:
  *    @arg @c kGTLRPlayMovies_Avail_FormatProfile_FormatProfileUnspecified Value
- *        "FORMAT_PROFILE_UNSPECIFIED"
- *    @arg @c kGTLRPlayMovies_Avail_FormatProfile_Hd Value "HD"
- *    @arg @c kGTLRPlayMovies_Avail_FormatProfile_Sd Value "SD"
- *    @arg @c kGTLRPlayMovies_Avail_FormatProfile_Uhd Value "UHD"
+ *        could not be determined, please contact technical support if
+ *        it should. (Value: "FORMAT_PROFILE_UNSPECIFIED")
+ *    @arg @c kGTLRPlayMovies_Avail_FormatProfile_Hd High-definition format.
+ *        (Value: "HD")
+ *    @arg @c kGTLRPlayMovies_Avail_FormatProfile_Sd Standard-definition format.
+ *        (Value: "SD")
+ *    @arg @c kGTLRPlayMovies_Avail_FormatProfile_Uhd 4K UHD. (Value: "UHD")
  */
 @property(nonatomic, copy, nullable) NSString *formatProfile;
 
@@ -236,130 +426,159 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
  *  Type of transaction.
  *
  *  Likely values:
- *    @arg @c kGTLRPlayMovies_Avail_LicenseType_Est Value "EST"
+ *    @arg @c kGTLRPlayMovies_Avail_LicenseType_Est Electronic Sell Through -
+ *        purchase policy for unlimited viewing. (Value: "EST")
  *    @arg @c kGTLRPlayMovies_Avail_LicenseType_LicenseTypeUnspecified Value
- *        "LICENSE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRPlayMovies_Avail_LicenseType_Poest Value "POEST"
- *    @arg @c kGTLRPlayMovies_Avail_LicenseType_Svod Value "SVOD"
- *    @arg @c kGTLRPlayMovies_Avail_LicenseType_Vod Value "VOD"
+ *        could not be determined, please contact technical support if
+ *        it should. (Value: "LICENSE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPlayMovies_Avail_LicenseType_Poest Pre-order Electronic Sell
+ *        Through - pre-order purchase only window. (Value: "POEST")
+ *    @arg @c kGTLRPlayMovies_Avail_LicenseType_Svod Subscription Video On
+ *        Demand - used for subscription platforms.
+ *        Not supported on Google Play. (Value: "SVOD")
+ *    @arg @c kGTLRPlayMovies_Avail_LicenseType_Vod Video On Demand - rental
+ *        policy for temporary viewing. (Value: "VOD")
  */
 @property(nonatomic, copy, nullable) NSString *licenseType;
 
 /**
- *  Name of the post-production houses that manage the Avail. Not part of EMA
- *  Specs.
+ *  Name of the post-production houses that manage the Avail.
+ *  Not part of EMA Specs.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pphNames;
 
 /**
- *  Type of pricing that should be applied to this Avail based on how the
- *  partner classify them. Example: "Tier", "WSP", "SRP", or "Category".
+ *  Type of pricing that should be applied to this Avail
+ *  based on how the partner classify them.
+ *  Example: "Tier", "WSP", "SRP", or "Category".
  */
 @property(nonatomic, copy, nullable) NSString *priceType;
 
-/** Value to be applied to the pricing type. Example: "4" or "2.99" */
+/**
+ *  Value to be applied to the pricing type.
+ *  Example: "4" or "2.99"
+ */
 @property(nonatomic, copy, nullable) NSString *priceValue;
 
 /**
- *  Edit Identifier. This should be the Edit Level EIDR. Example:
- *  "10.2340/1489-49A2-3956-4B2D-FE16-6"
+ *  Edit Identifier. This should be the Edit Level EIDR.
+ *  Example: "10.2340/1489-49A2-3956-4B2D-FE16-6"
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
- *  Value representing the rating reason. Rating reasons should be formatted as
- *  per [EMA ratings spec](http://www.movielabs.com/md/ratings/) and
- *  comma-separated for inclusion of multiple reasons. Example: "L, S, V"
+ *  Value representing the rating reason.
+ *  Rating reasons should be formatted as per
+ *  [EMA ratings spec](http://www.movielabs.com/md/ratings/)
+ *  and comma-separated for inclusion of multiple reasons.
+ *  Example: "L, S, V"
  */
 @property(nonatomic, copy, nullable) NSString *ratingReason;
 
 /**
- *  Rating system applied to the version of title within territory of Avail.
- *  Rating systems should be formatted as per [EMA ratings
- *  spec](http://www.movielabs.com/md/ratings/) Example: "MPAA"
+ *  Rating system applied to the version of title within territory
+ *  of Avail.
+ *  Rating systems should be formatted as per
+ *  [EMA ratings spec](http://www.movielabs.com/md/ratings/)
+ *  Example: "MPAA"
  */
 @property(nonatomic, copy, nullable) NSString *ratingSystem;
 
 /**
- *  Value representing the rating. Ratings should be formatted as per
- *  http://www.movielabs.com/md/ratings/ Example: "PG"
+ *  Value representing the rating.
+ *  Ratings should be formatted as per http://www.movielabs.com/md/ratings/
+ *  Example: "PG"
  */
 @property(nonatomic, copy, nullable) NSString *ratingValue;
 
 /**
- *  Release date of the Title in earliest released territory. Typically it is
- *  just the year, but it is free-form as per EMA spec. Examples: "1979", "Oct
- *  2014"
+ *  Release date of the Title in earliest released territory.
+ *  Typically it is just the year, but it is free-form as per EMA spec.
+ *  Examples: "1979", "Oct 2014"
  */
 @property(nonatomic, copy, nullable) NSString *releaseDate;
 
 /**
- *  Other identifier referring to the season, as defined by partner. Only
- *  available on TV avails. Example: "rs_googlers_s1".
+ *  Other identifier referring to the season, as defined by partner.
+ *  Only available on TV avails.
+ *  Example: "rs_googlers_s1".
  */
 @property(nonatomic, copy, nullable) NSString *seasonAltId;
 
 /**
- *  The number assigned to the season within a series. Only available on TV
- *  Avails. Example: "1".
+ *  The number assigned to the season within a series.
+ *  Only available on TV Avails.
+ *  Example: "1".
  */
 @property(nonatomic, copy, nullable) NSString *seasonNumber;
 
 /**
- *  Title used by involved parties to refer to this season. Only available on TV
- *  Avails. Example: "Googlers, The".
+ *  Title used by involved parties to refer to this season.
+ *  Only available on TV Avails.
+ *  Example: "Googlers, The".
  */
 @property(nonatomic, copy, nullable) NSString *seasonTitleInternalAlias;
 
 /**
- *  Other identifier referring to the series, as defined by partner. Only
- *  available on TV avails. Example: "rs_googlers".
+ *  Other identifier referring to the series, as defined by partner.
+ *  Only available on TV avails.
+ *  Example: "rs_googlers".
  */
 @property(nonatomic, copy, nullable) NSString *seriesAltId;
 
 /**
- *  Title used by involved parties to refer to this series. Only available on TV
- *  Avails. Example: "Googlers, The".
+ *  Title used by involved parties to refer to this series.
+ *  Only available on TV Avails.
+ *  Example: "Googlers, The".
  */
 @property(nonatomic, copy, nullable) NSString *seriesTitleInternalAlias;
 
 /**
- *  Start of term in YYYY-MM-DD format in the timezone of the country of the
- *  Avail. Example: "2013-05-14".
+ *  Start of term in YYYY-MM-DD format in the timezone of the
+ *  country of the Avail.
+ *  Example: "2013-05-14".
  */
 @property(nonatomic, copy, nullable) NSString *start;
 
 /**
- *  Spoken language of the intended audience. Language shall be encoded in
- *  accordance with RFC 5646. Example: "fr".
+ *  Spoken language of the intended audience.
+ *  Language shall be encoded in accordance with RFC 5646.
+ *  Example: "fr".
  */
 @property(nonatomic, copy, nullable) NSString *storeLanguage;
 
 /**
- *  First date an Edit could be publically announced as becoming available at a
- *  specific future date in territory of Avail. *Not* the Avail start date or
- *  pre-order start date. Format is YYYY-MM-DD. Only available for pre-orders.
+ *  First date an Edit could be publically announced as becoming
+ *  available at a specific future date in territory of Avail.
+ *  *Not* the Avail start date or pre-order start date.
+ *  Format is YYYY-MM-DD.
+ *  Only available for pre-orders.
  *  Example: "2012-12-10"
  */
 @property(nonatomic, copy, nullable) NSString *suppressionLiftDate;
 
 /**
- *  ISO 3166-1 alpha-2 country code for the country or territory of this Avail.
- *  For Avails, we use Territory in lieu of Country to comply with EMA
- *  specifications. But please note that Territory and Country identify the same
- *  thing. Example: "US".
+ *  ISO 3166-1 alpha-2 country code for the country or territory
+ *  of this Avail.
+ *  For Avails, we use Territory in lieu of Country to comply with
+ *  EMA specifications.
+ *  But please note that Territory and Country identify the same thing.
+ *  Example: "US".
  */
 @property(nonatomic, copy, nullable) NSString *territory;
 
 /**
- *  Title used by involved parties to refer to this content. Example: "Googlers,
- *  The". Only available on Movie Avails.
+ *  Title used by involved parties to refer to this content.
+ *  Example: "Googlers, The".
+ *  Only available on Movie Avails.
  */
 @property(nonatomic, copy, nullable) NSString *titleInternalAlias;
 
 /**
  *  Google-generated ID identifying the video linked to this Avail, once
- *  delivered. Not part of EMA Specs. Example: 'gtry456_xc'
+ *  delivered.
+ *  Not part of EMA Specs.
+ *  Example: 'gtry456_xc'
  */
 @property(nonatomic, copy, nullable) NSString *videoId;
 
@@ -367,12 +586,17 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
  *  Work type as enumerated in EMA.
  *
  *  Likely values:
- *    @arg @c kGTLRPlayMovies_Avail_WorkType_Bundle Value "BUNDLE"
- *    @arg @c kGTLRPlayMovies_Avail_WorkType_Episode Value "EPISODE"
- *    @arg @c kGTLRPlayMovies_Avail_WorkType_Movie Value "MOVIE"
- *    @arg @c kGTLRPlayMovies_Avail_WorkType_Season Value "SEASON"
- *    @arg @c kGTLRPlayMovies_Avail_WorkType_TitleTypeUnspecified Value
- *        "TITLE_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRPlayMovies_Avail_WorkType_Bundle A collection of movies, i.e.
+ *        "Googlers 1 and Googlers, the return" (Value: "BUNDLE")
+ *    @arg @c kGTLRPlayMovies_Avail_WorkType_Episode An episode of a TV show.
+ *        (Value: "EPISODE")
+ *    @arg @c kGTLRPlayMovies_Avail_WorkType_Movie A movie picture. (Value:
+ *        "MOVIE")
+ *    @arg @c kGTLRPlayMovies_Avail_WorkType_Season A season of a TV show.
+ *        (Value: "SEASON")
+ *    @arg @c kGTLRPlayMovies_Avail_WorkType_TitleTypeUnspecified Value could
+ *        not be determined, please contact technical support if
+ *        it should. (Value: "TITLE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *workType;
 
@@ -473,56 +697,66 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
 
 
 /**
- *  An Order tracks the fulfillment of an Edit when delivered using the legacy,
- *  non-component-based delivery. Each Order is uniquely identified by an
- *  `order_id`, which is generated by Google. Externally, Orders can also be
- *  identified by partners using its `custom_id` (when provided).
+ *  An Order tracks the fulfillment of an Edit when delivered using the
+ *  legacy, non-component-based delivery.
+ *  Each Order is uniquely identified by an `order_id`, which is generated
+ *  by Google.
+ *  Externally, Orders can also be identified by partners using its `custom_id`
+ *  (when provided).
  */
 @interface GTLRPlayMovies_Order : GTLRObject
 
 /** Timestamp when the Order was approved. */
-@property(nonatomic, copy, nullable) NSString *approvedTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *approvedTime;
 
 /**
- *  YouTube Channel ID that should be used to fulfill the Order. Example:
- *  "UCRG64darCZhb".
+ *  YouTube Channel ID that should be used to fulfill the Order.
+ *  Example: "UCRG64darCZhb".
  */
 @property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
- *  YouTube Channel Name that should be used to fulfill the Order. Example:
- *  "Google_channel".
+ *  YouTube Channel Name that should be used to fulfill the Order.
+ *  Example: "Google_channel".
  */
 @property(nonatomic, copy, nullable) NSString *channelName;
 
 /**
- *  Countries where the Order is available, using the "ISO 3166-1 alpha-2"
- *  format (example: "US").
+ *  Countries where the Order is available,
+ *  using the "ISO 3166-1 alpha-2" format (example: "US").
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *countries;
 
 /**
- *  ID that can be used to externally identify an Order. This ID is provided by
- *  partners when submitting the Avails. Example: 'GOOGLER_2006'
+ *  ID that can be used to externally identify an Order.
+ *  This ID is provided by partners when submitting the Avails.
+ *  Example: 'GOOGLER_2006'
  */
 @property(nonatomic, copy, nullable) NSString *customId;
 
 /**
- *  Timestamp of the earliest start date of the Avails linked to this Order.
+ *  Timestamp of the earliest start date of the Avails
+ *  linked to this Order.
  */
-@property(nonatomic, copy, nullable) NSString *earliestAvailStartTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *earliestAvailStartTime;
 
 /**
- *  Default Episode name, usually in the language of the country of origin. Only
- *  available for TV Edits Example: "Googlers, The - Pilot".
+ *  Default Episode name,
+ *  usually in the language of the country of origin.
+ *  Only available for TV Edits
+ *  Example: "Googlers, The - Pilot".
  */
 @property(nonatomic, copy, nullable) NSString *episodeName;
 
-/** Legacy Order priority, as defined by Google. Example: 'P0' */
+/**
+ *  Legacy Order priority, as defined by Google.
+ *  Example: 'P0'
+ */
 @property(nonatomic, copy, nullable) NSString *legacyPriority;
 
 /**
- *  Default Edit name, usually in the language of the country of origin.
+ *  Default Edit name,
+ *  usually in the language of the country of origin.
  *  Example: "Googlers, The".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -531,21 +765,24 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
  *  A simpler representation of the priority.
  *
  *  Likely values:
- *    @arg @c kGTLRPlayMovies_Order_NormalizedPriority_HighPriority Value
- *        "HIGH_PRIORITY"
- *    @arg @c kGTLRPlayMovies_Order_NormalizedPriority_LowPriority Value
- *        "LOW_PRIORITY"
+ *    @arg @c kGTLRPlayMovies_Order_NormalizedPriority_HighPriority A
+ *        high-priority asset, typically from a new release or box office hit.
+ *        (Value: "HIGH_PRIORITY")
+ *    @arg @c kGTLRPlayMovies_Order_NormalizedPriority_LowPriority A
+ *        low-priority asset, typically from a library movie. (Value:
+ *        "LOW_PRIORITY")
  *    @arg @c kGTLRPlayMovies_Order_NormalizedPriority_NormalizedPriorityUnspecified
- *        Value "NORMALIZED_PRIORITY_UNSPECIFIED"
+ *        Value could not be determined, please contact technical support if
+ *        it should. (Value: "NORMALIZED_PRIORITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *normalizedPriority;
 
 /** Timestamp when the Order was created. */
-@property(nonatomic, copy, nullable) NSString *orderedTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *orderedTime;
 
 /**
- *  ID internally generated by Google to uniquely identify an Order. Example:
- *  'abcde12_x'
+ *  ID internally generated by Google to uniquely identify an Order.
+ *  Example: 'abcde12_x'
  */
 @property(nonatomic, copy, nullable) NSString *orderId;
 
@@ -553,31 +790,36 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
 @property(nonatomic, copy, nullable) NSString *pphName;
 
 /**
- *  Order priority, as defined by Google. The higher the value, the higher the
- *  priority. Example: 90
+ *  Order priority, as defined by Google.
+ *  The higher the value, the higher the priority.
+ *  Example: 90
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *priority;
 
 /** Timestamp when the Order was fulfilled. */
-@property(nonatomic, copy, nullable) NSString *receivedTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *receivedTime;
 
 /**
- *  Field explaining why an Order has been rejected. Example: "Trailer audio is
- *  2ch mono, please re-deliver in stereo".
+ *  Field explaining why an Order has been rejected.
+ *  Example: "Trailer audio is 2ch mono, please re-deliver in stereo".
  */
 @property(nonatomic, copy, nullable) NSString *rejectionNote;
 
 /**
- *  Default Season name, usually in the language of the country of origin. Only
- *  available for TV Edits Example: "Googlers, The - A Brave New World".
+ *  Default Season name,
+ *  usually in the language of the country of origin.
+ *  Only available for TV Edits
+ *  Example: "Googlers, The - A Brave New World".
  */
 @property(nonatomic, copy, nullable) NSString *seasonName;
 
 /**
- *  Default Show name, usually in the language of the country of origin. Only
- *  available for TV Edits Example: "Googlers, The".
+ *  Default Show name,
+ *  usually in the language of the country of origin.
+ *  Only available for TV Edits
+ *  Example: "Googlers, The".
  */
 @property(nonatomic, copy, nullable) NSString *showName;
 
@@ -585,17 +827,21 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
  *  High-level status of the order.
  *
  *  Likely values:
- *    @arg @c kGTLRPlayMovies_Order_Status_StatusApproved Value
- *        "STATUS_APPROVED"
- *    @arg @c kGTLRPlayMovies_Order_Status_StatusFailed Value "STATUS_FAILED"
- *    @arg @c kGTLRPlayMovies_Order_Status_StatusNotAvailable Value
- *        "STATUS_NOT_AVAILABLE"
- *    @arg @c kGTLRPlayMovies_Order_Status_StatusProcessing Value
- *        "STATUS_PROCESSING"
- *    @arg @c kGTLRPlayMovies_Order_Status_StatusUnfulfilled Value
- *        "STATUS_UNFULFILLED"
- *    @arg @c kGTLRPlayMovies_Order_Status_StatusUnspecified Value
- *        "STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRPlayMovies_Order_Status_StatusApproved Approved by Google.
+ *        (Value: "STATUS_APPROVED")
+ *    @arg @c kGTLRPlayMovies_Order_Status_StatusFailed Waiting for partner to
+ *        re-deliver the asset after a rejection by Google. (Value:
+ *        "STATUS_FAILED")
+ *    @arg @c kGTLRPlayMovies_Order_Status_StatusNotAvailable Used when Status
+ *        is not available (i.e: Orders for TV Seasons). (Value:
+ *        "STATUS_NOT_AVAILABLE")
+ *    @arg @c kGTLRPlayMovies_Order_Status_StatusProcessing Waiting for Google
+ *        to process the asset. (Value: "STATUS_PROCESSING")
+ *    @arg @c kGTLRPlayMovies_Order_Status_StatusUnfulfilled Waiting for partner
+ *        to deliver the asset. (Value: "STATUS_UNFULFILLED")
+ *    @arg @c kGTLRPlayMovies_Order_Status_StatusUnspecified Value could not be
+ *        determined, please contact technical support if
+ *        it should. (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -604,23 +850,29 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
  *
  *  Likely values:
  *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusAwaitingRedelivery
- *        Value "ORDER_STATUS_AWAITING_REDELIVERY"
- *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusFileProcessing Value
- *        "ORDER_STATUS_FILE_PROCESSING"
- *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusInternalFix Value
- *        "ORDER_STATUS_INTERNAL_FIX"
- *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusNotAvailable Value
- *        "ORDER_STATUS_NOT_AVAILABLE"
- *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusOpenOrder Value
- *        "ORDER_STATUS_OPEN_ORDER"
- *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusQcApproved Value
- *        "ORDER_STATUS_QC_APPROVED"
- *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusQcRejection Value
- *        "ORDER_STATUS_QC_REJECTION"
- *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusReadyForQc Value
- *        "ORDER_STATUS_READY_FOR_QC"
+ *        Waiting for re-delivery from partner. (Value:
+ *        "ORDER_STATUS_AWAITING_REDELIVERY")
+ *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusFileProcessing
+ *        Waiting for Google to process the asset. (Value:
+ *        "ORDER_STATUS_FILE_PROCESSING")
+ *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusInternalFix Internal
+ *        error while processing the Order. (Value: "ORDER_STATUS_INTERNAL_FIX")
+ *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusNotAvailable Used on
+ *        Orders that do not have Status, like TV Seasons. (Value:
+ *        "ORDER_STATUS_NOT_AVAILABLE")
+ *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusOpenOrder Waiting
+ *        for initial delivery from partner. (Value: "ORDER_STATUS_OPEN_ORDER")
+ *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusQcApproved Approved
+ *        by Google's Quality Control team. (Value: "ORDER_STATUS_QC_APPROVED")
+ *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusQcRejection Rejected
+ *        by Google's Quality Control team, pending partner redelivery. (Value:
+ *        "ORDER_STATUS_QC_REJECTION")
+ *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusReadyForQc Asset was
+ *        delivered by partner, but is being reviewed by Google's
+ *        Quality Control team. (Value: "ORDER_STATUS_READY_FOR_QC")
  *    @arg @c kGTLRPlayMovies_Order_StatusDetail_OrderStatusUnspecified Value
- *        "ORDER_STATUS_UNSPECIFIED"
+ *        could not be determined, please contact technical support if
+ *        it should. (Value: "ORDER_STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *statusDetail;
 
@@ -631,18 +883,23 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
  *  Type of the Edit linked to the Order.
  *
  *  Likely values:
- *    @arg @c kGTLRPlayMovies_Order_Type_Bundle Value "BUNDLE"
- *    @arg @c kGTLRPlayMovies_Order_Type_Episode Value "EPISODE"
- *    @arg @c kGTLRPlayMovies_Order_Type_Movie Value "MOVIE"
- *    @arg @c kGTLRPlayMovies_Order_Type_Season Value "SEASON"
- *    @arg @c kGTLRPlayMovies_Order_Type_TitleTypeUnspecified Value
- *        "TITLE_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRPlayMovies_Order_Type_Bundle A collection of movies, i.e.
+ *        "Googlers 1 and Googlers, the return" (Value: "BUNDLE")
+ *    @arg @c kGTLRPlayMovies_Order_Type_Episode An episode of a TV show.
+ *        (Value: "EPISODE")
+ *    @arg @c kGTLRPlayMovies_Order_Type_Movie A movie picture. (Value: "MOVIE")
+ *    @arg @c kGTLRPlayMovies_Order_Type_Season A season of a TV show. (Value:
+ *        "SEASON")
+ *    @arg @c kGTLRPlayMovies_Order_Type_TitleTypeUnspecified Value could not be
+ *        determined, please contact technical support if
+ *        it should. (Value: "TITLE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Google-generated ID identifying the video linked to this Order, once
- *  delivered. Example: 'gtry456_xc'.
+ *  delivered.
+ *  Example: 'gtry456_xc'.
  */
 @property(nonatomic, copy, nullable) NSString *videoId;
 
@@ -650,11 +907,12 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
 
 
 /**
- *  Information about a playable sequence (video) associated with an Edit and
- *  available at the Google Play Store. Internally, each StoreInfo is uniquely
- *  identified by a `video_id` and `country`. Externally, Title-level EIDR or
- *  Edit-level EIDR, if provided, can also be used to identify a specific title
- *  or edit in a country.
+ *  Information about a playable sequence (video) associated with an Edit
+ *  and available at the Google Play Store.
+ *  Internally, each StoreInfo is uniquely identified by a `video_id`
+ *  and `country`.
+ *  Externally, Title-level EIDR or Edit-level EIDR, if provided,
+ *  can also be used to identify a specific title or edit in a country.
  */
 @interface GTLRPlayMovies_StoreInfo : GTLRObject
 
@@ -662,17 +920,22 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
 @property(nonatomic, strong, nullable) NSArray<NSString *> *audioTracks;
 
 /**
- *  Country where Edit is available in ISO 3166-1 alpha-2 country code. Example:
- *  "US".
+ *  Country where Edit is available in ISO 3166-1 alpha-2 country
+ *  code.
+ *  Example: "US".
  */
 @property(nonatomic, copy, nullable) NSString *country;
 
-/** Edit-level EIDR ID. Example: "10.5240/1489-49A2-3956-4B2D-FE16-6". */
+/**
+ *  Edit-level EIDR ID.
+ *  Example: "10.5240/1489-49A2-3956-4B2D-FE16-6".
+ */
 @property(nonatomic, copy, nullable) NSString *editLevelEidr;
 
 /**
- *  The number assigned to the episode within a season. Only available on TV
- *  Edits. Example: "1".
+ *  The number assigned to the episode within a season.
+ *  Only available on TV Edits.
+ *  Example: "1".
  */
 @property(nonatomic, copy, nullable) NSString *episodeNumber;
 
@@ -719,18 +982,21 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
 @property(nonatomic, strong, nullable) NSNumber *hasVodOffer;
 
 /** Timestamp when the Edit went live on the Store. */
-@property(nonatomic, copy, nullable) NSString *liveTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *liveTime;
 
 /**
- *  Knowledge Graph ID associated to this Edit, if available. This ID links the
- *  Edit to its knowledge entity, externally accessible at http://freebase.com.
+ *  Knowledge Graph ID associated to this Edit, if available.
+ *  This ID links the Edit to its knowledge entity, externally accessible
+ *  at http://freebase.com.
  *  In the absense of Title EIDR or Edit EIDR, this ID helps link together
- *  multiple Edits across countries. Example: '/m/0ffx29'
+ *  multiple Edits across countries.
+ *  Example: '/m/0ffx29'
  */
 @property(nonatomic, copy, nullable) NSString *mid;
 
 /**
- *  Default Edit name, usually in the language of the country of origin.
+ *  Default Edit name, usually in the language of the country of
+ *  origin.
  *  Example: "Googlers, The".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -739,32 +1005,39 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pphNames;
 
 /**
- *  Google-generated ID identifying the season linked to the Edit. Only
- *  available for TV Edits. Example: 'ster23ex'
+ *  Google-generated ID identifying the season linked to the Edit.
+ *  Only available for TV Edits.
+ *  Example: 'ster23ex'
  */
 @property(nonatomic, copy, nullable) NSString *seasonId;
 
 /**
- *  Default Season name, usually in the language of the country of origin. Only
- *  available for TV Edits Example: "Googlers, The - A Brave New World".
+ *  Default Season name, usually in the language of the country of
+ *  origin.
+ *  Only available for TV Edits
+ *  Example: "Googlers, The - A Brave New World".
  */
 @property(nonatomic, copy, nullable) NSString *seasonName;
 
 /**
- *  The number assigned to the season within a show. Only available on TV Edits.
+ *  The number assigned to the season within a show.
+ *  Only available on TV Edits.
  *  Example: "1".
  */
 @property(nonatomic, copy, nullable) NSString *seasonNumber;
 
 /**
- *  Google-generated ID identifying the show linked to the Edit. Only available
- *  for TV Edits. Example: 'et2hsue_x'
+ *  Google-generated ID identifying the show linked to the Edit.
+ *  Only available for TV Edits.
+ *  Example: 'et2hsue_x'
  */
 @property(nonatomic, copy, nullable) NSString *showId;
 
 /**
- *  Default Show name, usually in the language of the country of origin. Only
- *  available for TV Edits Example: "Googlers, The".
+ *  Default Show name, usually in the language of the country of
+ *  origin.
+ *  Only available for TV Edits
+ *  Example: "Googlers, The".
  */
 @property(nonatomic, copy, nullable) NSString *showName;
 
@@ -774,12 +1047,15 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
 /** Subtitles available for this Edit. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subtitles;
 
-/** Title-level EIDR ID. Example: "10.5240/1489-49A2-3956-4B2D-FE16-5". */
+/**
+ *  Title-level EIDR ID.
+ *  Example: "10.5240/1489-49A2-3956-4B2D-FE16-5".
+ */
 @property(nonatomic, copy, nullable) NSString *titleLevelEidr;
 
 /**
- *  Google-generated ID identifying the trailer linked to the Edit. Example:
- *  'bhd_4e_cx'
+ *  Google-generated ID identifying the trailer linked to the Edit.
+ *  Example: 'bhd_4e_cx'
  */
 @property(nonatomic, copy, nullable) NSString *trailerId;
 
@@ -787,18 +1063,23 @@ GTLR_EXTERN NSString * const kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified
  *  Edit type, like Movie, Episode or Season.
  *
  *  Likely values:
- *    @arg @c kGTLRPlayMovies_StoreInfo_Type_Bundle Value "BUNDLE"
- *    @arg @c kGTLRPlayMovies_StoreInfo_Type_Episode Value "EPISODE"
- *    @arg @c kGTLRPlayMovies_StoreInfo_Type_Movie Value "MOVIE"
- *    @arg @c kGTLRPlayMovies_StoreInfo_Type_Season Value "SEASON"
- *    @arg @c kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified Value
- *        "TITLE_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRPlayMovies_StoreInfo_Type_Bundle A collection of movies, i.e.
+ *        "Googlers 1 and Googlers, the return" (Value: "BUNDLE")
+ *    @arg @c kGTLRPlayMovies_StoreInfo_Type_Episode An episode of a TV show.
+ *        (Value: "EPISODE")
+ *    @arg @c kGTLRPlayMovies_StoreInfo_Type_Movie A movie picture. (Value:
+ *        "MOVIE")
+ *    @arg @c kGTLRPlayMovies_StoreInfo_Type_Season A season of a TV show.
+ *        (Value: "SEASON")
+ *    @arg @c kGTLRPlayMovies_StoreInfo_Type_TitleTypeUnspecified Value could
+ *        not be determined, please contact technical support if
+ *        it should. (Value: "TITLE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  Google-generated ID identifying the video linked to the Edit. Example:
- *  'gtry456_xc'
+ *  Google-generated ID identifying the video linked to the Edit.
+ *  Example: 'gtry456_xc'
  */
 @property(nonatomic, copy, nullable) NSString *videoId;
 

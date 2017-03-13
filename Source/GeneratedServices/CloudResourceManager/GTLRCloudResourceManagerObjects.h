@@ -20,6 +20,8 @@
 #endif
 
 @class GTLRCloudResourceManager_Ancestor;
+@class GTLRCloudResourceManager_AuditConfig;
+@class GTLRCloudResourceManager_AuditLogConfig;
 @class GTLRCloudResourceManager_Binding;
 @class GTLRCloudResourceManager_Lien;
 @class GTLRCloudResourceManager_Operation_Metadata;
@@ -37,6 +39,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_AuditLogConfig.logType
+
+/**
+ *  Admin reads. Example: CloudIAM getIamPolicy
+ *
+ *  Value: "ADMIN_READ"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_AdminRead;
+/**
+ *  Data reads. Example: CloudSQL Users list
+ *
+ *  Value: "DATA_READ"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataRead;
+/**
+ *  Data writes. Example: CloudSQL Users create
+ *
+ *  Value: "DATA_WRITE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataWrite;
+/**
+ *  Default case. Should never be this.
+ *
+ *  Value: "LOG_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudResourceManager_FolderOperation.operationType
@@ -181,6 +211,119 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 /** Resource id of the ancestor. */
 @property(nonatomic, strong, nullable) GTLRCloudResourceManager_ResourceId *resourceId;
+
+@end
+
+
+/**
+ *  Specifies the audit configuration for a service.
+ *  It consists of which permission types are logged, and what identities, if
+ *  any, are exempted from logging.
+ *  An AuditConifg must have one or more AuditLogConfigs.
+ *  If there are AuditConfigs for both `allServices` and a specific service,
+ *  the union of the two AuditConfigs is used for that service: the log_types
+ *  specified in each AuditConfig are enabled, and the exempted_members in each
+ *  AuditConfig are exempted.
+ *  Example Policy with multiple AuditConfigs:
+ *  {
+ *  "audit_configs": [
+ *  {
+ *  "service": "allServices"
+ *  "audit_log_configs": [
+ *  {
+ *  "log_type": "DATA_READ",
+ *  "exempted_members": [
+ *  "user:foo\@gmail.com"
+ *  ]
+ *  },
+ *  {
+ *  "log_type": "DATA_WRITE",
+ *  },
+ *  {
+ *  "log_type": "ADMIN_READ",
+ *  }
+ *  ]
+ *  },
+ *  {
+ *  "service": "fooservice\@googleapis.com"
+ *  "audit_log_configs": [
+ *  {
+ *  "log_type": "DATA_READ",
+ *  },
+ *  {
+ *  "log_type": "DATA_WRITE",
+ *  "exempted_members": [
+ *  "user:bar\@gmail.com"
+ *  ]
+ *  }
+ *  ]
+ *  }
+ *  ]
+ *  }
+ *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
+ *  bar\@gmail.com from DATA_WRITE logging.
+ */
+@interface GTLRCloudResourceManager_AuditConfig : GTLRObject
+
+/**
+ *  The configuration for logging of each type of permission.
+ *  Next ID: 4
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_AuditLogConfig *> *auditLogConfigs;
+
+/**
+ *  Specifies a service that will be enabled for audit logging.
+ *  For example, `resourcemanager`, `storage`, `compute`.
+ *  `allServices` is a special value that covers all services.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Provides the configuration for logging a type of permissions.
+ *  Example:
+ *  {
+ *  "audit_log_configs": [
+ *  {
+ *  "log_type": "DATA_READ",
+ *  "exempted_members": [
+ *  "user:foo\@gmail.com"
+ *  ]
+ *  },
+ *  {
+ *  "log_type": "DATA_WRITE",
+ *  }
+ *  ]
+ *  }
+ *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
+ *  foo\@gmail.com from DATA_READ logging.
+ */
+@interface GTLRCloudResourceManager_AuditLogConfig : GTLRObject
+
+/**
+ *  Specifies the identities that do not cause logging for this type of
+ *  permission.
+ *  Follows the same format of Binding.members.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/**
+ *  The log type that this config enables.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_AuditLogConfig_LogType_AdminRead Admin
+ *        reads. Example: CloudIAM getIamPolicy (Value: "ADMIN_READ")
+ *    @arg @c kGTLRCloudResourceManager_AuditLogConfig_LogType_DataRead Data
+ *        reads. Example: CloudSQL Users list (Value: "DATA_READ")
+ *    @arg @c kGTLRCloudResourceManager_AuditLogConfig_LogType_DataWrite Data
+ *        writes. Example: CloudSQL Users create (Value: "DATA_WRITE")
+ *    @arg @c kGTLRCloudResourceManager_AuditLogConfig_LogType_LogTypeUnspecified
+ *        Default case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *logType;
 
 @end
 
@@ -636,6 +779,9 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  */
 @interface GTLRCloudResourceManager_Policy : GTLRObject
 
+/** Specifies cloud audit logging configuration for this policy. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_AuditConfig *> *auditConfigs;
+
 /**
  *  Associates a list of `members` to a `role`.
  *  Multiple `bindings` must not be specified for the same `role`.
@@ -917,6 +1063,17 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRCloudResourceManager_Policy *policy;
+
+/**
+ *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
+ *  the fields in the mask will be modified. If no mask is provided, a default
+ *  mask is used:
+ *  paths: "bindings, etag"
+ *  This field is only used by Cloud IAM.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 

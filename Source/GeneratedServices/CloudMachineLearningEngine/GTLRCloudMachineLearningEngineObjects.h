@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Machine Learning Engine (ml/v1beta1)
+//   Google Cloud Machine Learning Engine (ml/v1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:
@@ -19,20 +19,20 @@
 #endif
 
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterOutput;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterOutput_Hyperparameters;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterOutputHyperparameterMetric;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterSpec;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ManualScaling;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Model;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionInput;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionOutput;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ManualScaling;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionOutput;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version;
 @class GTLRCloudMachineLearningEngine_GoogleLongrunningOperation;
 @class GTLRCloudMachineLearningEngine_GoogleLongrunningOperation_Metadata;
@@ -44,83 +44,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
-
-// ----------------------------------------------------------------------------
-// GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterSpec.goal
-
-/**
- *  Goal Type will default to maximize.
- *
- *  Value: "GOAL_TYPE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterSpec_Goal_GoalTypeUnspecified;
-/**
- *  Maximize the goal metric.
- *
- *  Value: "MAXIMIZE"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterSpec_Goal_Maximize;
-/**
- *  Minimize the goal metric.
- *
- *  Value: "MINIMIZE"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterSpec_Goal_Minimize;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job.state
-
-/**
- *  The job has been cancelled.
- *  `error_message` should describe the reason for the cancellation.
- *
- *  Value: "CANCELLED"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Cancelled;
-/**
- *  The job is being cancelled.
- *  `error_message` should describe the reason for the cancellation.
- *
- *  Value: "CANCELLING"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Cancelling;
-/**
- *  The job failed.
- *  `error_message` should contain the details of the failure.
- *
- *  Value: "FAILED"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Failed;
-/**
- *  The service is preparing to run the job.
- *
- *  Value: "PREPARING"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Preparing;
-/**
- *  The job has been just created and processing has not yet begun.
- *
- *  Value: "QUEUED"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Queued;
-/**
- *  The job is in progress.
- *
- *  Value: "RUNNING"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Running;
-/**
- *  The job state is unspecified.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_StateUnspecified;
-/**
- *  The job completed successfully.
- *
- *  Value: "SUCCEEDED"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1OperationMetadata.operationType
@@ -151,156 +74,81 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1OperationMetadata_OperationType_OperationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec.scaleType
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.goal
 
 /**
- *  By default, no scaling is applied.
+ *  Goal Type will default to maximize.
  *
- *  Value: "NONE"
+ *  Value: "GOAL_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_ScaleType_None;
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_GoalTypeUnspecified;
 /**
- *  Scales the feasible space to (0, 1) linearly.
+ *  Maximize the goal metric.
  *
- *  Value: "UNIT_LINEAR_SCALE"
+ *  Value: "MAXIMIZE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_ScaleType_UnitLinearScale;
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_Maximize;
 /**
- *  Scales the feasible space logarithmically to (0, 1). The entire feasible
- *  space must be strictly positive.
+ *  Minimize the goal metric.
  *
- *  Value: "UNIT_LOG_SCALE"
+ *  Value: "MINIMIZE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_ScaleType_UnitLogScale;
-/**
- *  Scales the feasible space "reverse" logarithmically to (0, 1). The result
- *  is that values close to the top of the feasible space are spread out more
- *  than points near the bottom. The entire feasible space must be strictly
- *  positive.
- *
- *  Value: "UNIT_REVERSE_LOG_SCALE"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_ScaleType_UnitReverseLogScale;
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_Minimize;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec.type
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job.state
 
 /**
- *  The parameter is categorical, with a value chosen from the categories
- *  field.
+ *  The job has been cancelled.
+ *  `error_message` should describe the reason for the cancellation.
  *
- *  Value: "CATEGORICAL"
+ *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_Type_Categorical;
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Cancelled;
 /**
- *  The parameter is real valued, with a fixed set of feasible points. If
- *  `type==DISCRETE`, feasible_points must be provided, and
- *  {`min_value`, `max_value`} will be ignored.
+ *  The job is being cancelled.
+ *  `error_message` should describe the reason for the cancellation.
  *
- *  Value: "DISCRETE"
+ *  Value: "CANCELLING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_Type_Discrete;
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Cancelling;
 /**
- *  Type for real-valued parameters.
+ *  The job failed.
+ *  `error_message` should contain the details of the failure.
  *
- *  Value: "DOUBLE"
+ *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_Type_Double;
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Failed;
 /**
- *  Type for integral parameters.
+ *  The service is preparing to run the job.
  *
- *  Value: "INTEGER"
+ *  Value: "PREPARING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_Type_Integer;
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Preparing;
 /**
- *  You must specify a valid type. Using this unspecified type will result in
- *  an error.
+ *  The job has been just created and processing has not yet begun.
  *
- *  Value: "PARAMETER_TYPE_UNSPECIFIED"
+ *  Value: "QUEUED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_Type_ParameterTypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionInput.dataFormat
-
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Queued;
 /**
- *  Unspecified format.
+ *  The job is in progress.
  *
- *  Value: "DATA_FORMAT_UNSPECIFIED"
+ *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionInput_DataFormat_DataFormatUnspecified;
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Running;
 /**
- *  The source file is a text file with instances separated by the
- *  new-line character.
+ *  The job state is unspecified.
  *
- *  Value: "TEXT"
+ *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionInput_DataFormat_Text;
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_StateUnspecified;
 /**
- *  The source file is a TFRecord file.
+ *  The job completed successfully.
  *
- *  Value: "TF_RECORD"
+ *  Value: "SUCCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionInput_DataFormat_TfRecord;
-/**
- *  The source file is a GZIP-compressed TFRecord file.
- *
- *  Value: "TF_RECORD_GZIP"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionInput_DataFormat_TfRecordGzip;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput.scaleTier
-
-/**
- *  A single worker instance. This tier is suitable for learning how to use
- *  Cloud ML, and for experimenting with new models using small datasets.
- *
- *  Value: "BASIC"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Basic;
-/**
- *  A single worker instance [with a GPU](ml/docs/how-tos/using-gpus).
- *
- *  Value: "BASIC_GPU"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput_ScaleTier_BasicGpu;
-/**
- *  The CUSTOM tier is not a set tier, but rather enables you to use your
- *  own cluster specification. When you use this tier, set values to
- *  configure your processing cluster according to these guidelines:
- *  * You _must_ set `TrainingInput.masterType` to specify the type
- *  of machine to use for your master node. This is the only required
- *  setting.
- *  * You _may_ set `TrainingInput.workerCount` to specify the number of
- *  workers to use. If you specify one or more workers, you _must_ also
- *  set `TrainingInput.workerType` to specify the type of machine to use
- *  for your worker nodes.
- *  * You _may_ set `TrainingInput.parameterServerCount` to specify the
- *  number of parameter servers to use. If you specify one or more
- *  parameter servers, you _must_ also set
- *  `TrainingInput.parameterServerType` to specify the type of machine to
- *  use for your parameter servers.
- *  Note that all of your workers must use the same machine type, which can
- *  be different from your parameter server type and master type. Your
- *  parameter servers must likewise use the same machine type, which can be
- *  different from your worker type and master type.
- *
- *  Value: "CUSTOM"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Custom;
-/**
- *  A large number of workers with many parameter servers.
- *
- *  Value: "PREMIUM_1"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Premium1;
-/**
- *  Many workers and a few parameter servers.
- *
- *  Value: "STANDARD_1"
- */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Standard1;
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata.operationType
@@ -329,6 +177,158 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
  *  Value: "OPERATION_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_OperationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec.scaleType
+
+/**
+ *  By default, no scaling is applied.
+ *
+ *  Value: "NONE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_None;
+/**
+ *  Scales the feasible space to (0, 1) linearly.
+ *
+ *  Value: "UNIT_LINEAR_SCALE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitLinearScale;
+/**
+ *  Scales the feasible space logarithmically to (0, 1). The entire feasible
+ *  space must be strictly positive.
+ *
+ *  Value: "UNIT_LOG_SCALE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitLogScale;
+/**
+ *  Scales the feasible space "reverse" logarithmically to (0, 1). The result
+ *  is that values close to the top of the feasible space are spread out more
+ *  than points near the bottom. The entire feasible space must be strictly
+ *  positive.
+ *
+ *  Value: "UNIT_REVERSE_LOG_SCALE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitReverseLogScale;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec.type
+
+/**
+ *  The parameter is categorical, with a value chosen from the categories
+ *  field.
+ *
+ *  Value: "CATEGORICAL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Categorical;
+/**
+ *  The parameter is real valued, with a fixed set of feasible points. If
+ *  `type==DISCRETE`, feasible_points must be provided, and
+ *  {`min_value`, `max_value`} will be ignored.
+ *
+ *  Value: "DISCRETE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Discrete;
+/**
+ *  Type for real-valued parameters.
+ *
+ *  Value: "DOUBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Double;
+/**
+ *  Type for integral parameters.
+ *
+ *  Value: "INTEGER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Integer;
+/**
+ *  You must specify a valid type. Using this unspecified type will result in
+ *  an error.
+ *
+ *  Value: "PARAMETER_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_ParameterTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput.dataFormat
+
+/**
+ *  Unspecified format.
+ *
+ *  Value: "DATA_FORMAT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_DataFormatUnspecified;
+/**
+ *  The source file is a text file with instances separated by the
+ *  new-line character.
+ *
+ *  Value: "TEXT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Text;
+/**
+ *  The source file is a TFRecord file.
+ *
+ *  Value: "TF_RECORD"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecord;
+/**
+ *  The source file is a GZIP-compressed TFRecord file.
+ *
+ *  Value: "TF_RECORD_GZIP"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecordGzip;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput.scaleTier
+
+/**
+ *  A single worker instance. This tier is suitable for learning how to use
+ *  Cloud ML, and for experimenting with new models using small datasets.
+ *
+ *  Value: "BASIC"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Basic;
+/**
+ *  A single worker instance [with a GPU](ml/docs/how-tos/using-gpus).
+ *
+ *  Value: "BASIC_GPU"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicGpu;
+/**
+ *  The CUSTOM tier is not a set tier, but rather enables you to use your
+ *  own cluster specification. When you use this tier, set values to
+ *  configure your processing cluster according to these guidelines:
+ *  * You _must_ set `TrainingInput.masterType` to specify the type
+ *  of machine to use for your master node. This is the only required
+ *  setting.
+ *  * You _may_ set `TrainingInput.workerCount` to specify the number of
+ *  workers to use. If you specify one or more workers, you _must_ also
+ *  set `TrainingInput.workerType` to specify the type of machine to use
+ *  for your worker nodes.
+ *  * You _may_ set `TrainingInput.parameterServerCount` to specify the
+ *  number of parameter servers to use. If you specify one or more
+ *  parameter servers, you _must_ also set
+ *  `TrainingInput.parameterServerType` to specify the type of machine to
+ *  use for your parameter servers.
+ *  Note that all of your workers must use the same machine type, which can
+ *  be different from your parameter server type and master type. Your
+ *  parameter servers must likewise use the same machine type, which can be
+ *  different from your worker type and master type.
+ *
+ *  Value: "CUSTOM"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Custom;
+/**
+ *  A large number of workers with many parameter servers.
+ *
+ *  Value: "PREMIUM_1"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Premium1;
+/**
+ *  Many workers and a few parameter servers.
+ *
+ *  Value: "STANDARD_1"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Standard1;
 
 /**
  *  Message that represents an arbitrary HTTP body. It should only be used for
@@ -377,292 +377,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
 
 
 /**
- *  Request message for the CancelJob method.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1CancelJobRequest : GTLRObject
-@end
-
-
-/**
- *  Returns service account information associated with a project.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1GetConfigResponse : GTLRObject
-
-/** The service account Cloud ML uses to access resources in the project. */
-@property(nonatomic, copy, nullable) NSString *serviceAccount;
-
-/**
- *  The project number for `service_account`.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *serviceAccountProject;
-
-@end
-
-
-/**
- *  Represents the result of a single hyperparameter tuning trial from a
- *  training job. The TrainingOutput object that is returned on successful
- *  completion of a training job with hyperparameter tuning includes a list
- *  of HyperparameterOutput objects, one for each successful trial.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterOutput : GTLRObject
-
-/** All recorded object metrics for this trial. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterOutputHyperparameterMetric *> *allMetrics;
-
-/** The final objective metric seen for this trial. */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterOutputHyperparameterMetric *finalMetric;
-
-/** The hyperparameters given to this trial. */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterOutput_Hyperparameters *hyperparameters;
-
-/** The trial id for these results. */
-@property(nonatomic, copy, nullable) NSString *trialId;
-
-@end
-
-
-/**
- *  The hyperparameters given to this trial.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterOutput_Hyperparameters : GTLRObject
-@end
-
-
-/**
- *  An observed value of a metric.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterOutputHyperparameterMetric : GTLRObject
-
-/**
- *  The objective value at this training step.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *objectiveValue;
-
-/**
- *  The global training step for this metric.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *trainingStep;
-
-@end
-
-
-/**
- *  Represents a set of hyperparameters to optimize.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterSpec : GTLRObject
-
-/**
- *  Required. The type of goal to use for tuning. Available types are
- *  `MAXIMIZE` and `MINIMIZE`.
- *  Defaults to `MAXIMIZE`.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterSpec_Goal_GoalTypeUnspecified
- *        Goal Type will default to maximize. (Value: "GOAL_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterSpec_Goal_Maximize
- *        Maximize the goal metric. (Value: "MAXIMIZE")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterSpec_Goal_Minimize
- *        Minimize the goal metric. (Value: "MINIMIZE")
- */
-@property(nonatomic, copy, nullable) NSString *goal;
-
-/**
- *  Optional. The Tensorflow summary tag name to use for optimizing trials. For
- *  current versions of Tensorflow, this tag name should exactly match what is
- *  shown in Tensorboard, including all scopes. For versions of Tensorflow
- *  prior to 0.12, this should be only the tag passed to tf.Summary.
- *  By default, "training/hptuning/metric" will be used.
- */
-@property(nonatomic, copy, nullable) NSString *hyperparameterMetricTag;
-
-/**
- *  Optional. The number of training trials to run concurrently.
- *  You can reduce the time it takes to perform hyperparameter tuning by adding
- *  trials in parallel. However, each trail only benefits from the information
- *  gained in completed trials. That means that a trial does not get access to
- *  the results of trials running at the same time, which could reduce the
- *  quality of the overall optimization.
- *  Each trial will use the same scale tier and machine types.
- *  Defaults to one.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxParallelTrials;
-
-/**
- *  Optional. How many training trials should be attempted to optimize
- *  the specified hyperparameters.
- *  Defaults to one.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxTrials;
-
-/** Required. The set of parameters to tune. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec *> *params;
-
-@end
-
-
-/**
- *  Represents a training or prediction job.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job : GTLRObject
-
-/** Output only. When the job was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. When the job processing was completed. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/** Output only. The details of a failure or a cancellation. */
-@property(nonatomic, copy, nullable) NSString *errorMessage;
-
-/** Required. The user-specified id of the job. */
-@property(nonatomic, copy, nullable) NSString *jobId;
-
-/** Input parameters to create a prediction job. */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionInput *predictionInput;
-
-/** The current prediction job result. */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionOutput *predictionOutput;
-
-/** Output only. When the job processing was started. */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-/**
- *  Output only. The detailed state of a job.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Cancelled
- *        The job has been cancelled.
- *        `error_message` should describe the reason for the cancellation.
- *        (Value: "CANCELLED")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Cancelling
- *        The job is being cancelled.
- *        `error_message` should describe the reason for the cancellation.
- *        (Value: "CANCELLING")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Failed
- *        The job failed.
- *        `error_message` should contain the details of the failure. (Value:
- *        "FAILED")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Preparing
- *        The service is preparing to run the job. (Value: "PREPARING")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Queued
- *        The job has been just created and processing has not yet begun.
- *        (Value: "QUEUED")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Running
- *        The job is in progress. (Value: "RUNNING")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_StateUnspecified
- *        The job state is unspecified. (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job_State_Succeeded
- *        The job completed successfully. (Value: "SUCCEEDED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** Input parameters to create a training job. */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput *trainingInput;
-
-/** The current training job result. */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingOutput *trainingOutput;
-
-@end
-
-
-/**
- *  Response message for the ListJobs method.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "jobs" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ListJobsResponse : GTLRCollectionObject
-
-/**
- *  The list of jobs.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Job *> *jobs;
-
-/**
- *  Optional. Pass this token as the `page_token` field of the request for a
- *  subsequent call.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  Response message for the ListModels method.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "models" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ListModelsResponse : GTLRCollectionObject
-
-/**
- *  The list of models.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Model *> *models;
-
-/**
- *  Optional. Pass this token as the `page_token` field of the request for a
- *  subsequent call.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  Response message for the ListVersions method.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "versions" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ListVersionsResponse : GTLRCollectionObject
-
-/**
- *  Optional. Pass this token as the `page_token` field of the request for a
- *  subsequent call.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  The list of versions.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version *> *versions;
-
-@end
-
-
-/**
  *  Options for manually scaling a model.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ManualScaling : GTLRObject
@@ -676,53 +390,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nodes;
-
-@end
-
-
-/**
- *  Represents a machine learning solution.
- *  A model can have multiple versions, each of which is a deployed, trained
- *  model ready to receive prediction requests. The model itself is just a
- *  container.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Model : GTLRObject
-
-/**
- *  Output only. The default version of the model. This version will be used to
- *  handle prediction requests that do not specify a version.
- *  You can change the default version by calling
- *  [projects.methods.versions.setDefault](/ml/reference/rest/v1beta1/projects.models.versions/setDefault).
- */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version *defaultVersion;
-
-/**
- *  Optional. The description specified for the model when it was created.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Required. The name specified for the model when it was created.
- *  The model name must be unique within the project it is created in.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. If true, enables StackDriver Logging for online prediction.
- *  Default is false.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *onlinePredictionLogging;
-
-/**
- *  Optional. The list of regions where the model is going to be deployed.
- *  Currently only one region per model is supported.
- *  Defaults to 'us-central1' if nothing is set.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
 
 @end
 
@@ -773,9 +440,475 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
 
 
 /**
+ *  Represents a version of the model.
+ *  Each version is a trained model deployed in the cloud, ready to handle
+ *  prediction requests. A model can have multiple versions. You can get
+ *  information about all of the versions of a given model by calling
+ *  [projects.models.versions.list](/ml/reference/rest/v1beta1/projects.models.versions/list).
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version : GTLRObject
+
+/** Output only. The time the version was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The Google Cloud Storage location of the trained model used to
+ *  create the version. See the
+ *  [overview of model deployment](/ml/docs/concepts/deployment-overview) for
+ *  more informaiton.
+ *  When passing Version to
+ *  [projects.models.versions.create](/ml/reference/rest/v1beta1/projects.models.versions/create)
+ *  the model service uses the specified location as the source of the model.
+ *  Once deployed, the model version is hosted by the prediction service, so
+ *  this location is useful only as a historical record.
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentUri;
+
+/**
+ *  Optional. The description specified for the version when it was created.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. If true, this version will be used to handle prediction
+ *  requests that do not specify a version.
+ *  You can change the default version by calling
+ *  [projects.methods.versions.setDefault](/ml/reference/rest/v1beta1/projects.models.versions/setDefault).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDefault;
+
+/** Output only. The time the version was last used for prediction. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUseTime;
+
+/**
+ *  Optional. Manually select the number of nodes to use for serving the
+ *  model. If unset (i.e., by default), the number of nodes used to serve
+ *  the model automatically scales with traffic. However, care should be
+ *  taken to ramp up traffic according to the model's ability to scale. If
+ *  your model needs to handle bursts of traffic beyond it's ability to
+ *  scale, it is recommended you set this field appropriately.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ManualScaling *manualScaling;
+
+/**
+ *  Required.The name specified for the version when it was created.
+ *  The version name must be unique within the model it is created in.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The Google Cloud ML runtime version to use for this deployment.
+ *  If not set, Google Cloud ML will choose a version.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeVersion;
+
+@end
+
+
+/**
+ *  Request message for the CancelJob method.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1CancelJobRequest : GTLRObject
+@end
+
+
+/**
+ *  Returns service account information associated with a project.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1GetConfigResponse : GTLRObject
+
+/** The service account Cloud ML uses to access resources in the project. */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
+ *  The project number for `service_account`.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *serviceAccountProject;
+
+@end
+
+
+/**
+ *  Represents the result of a single hyperparameter tuning trial from a
+ *  training job. The TrainingOutput object that is returned on successful
+ *  completion of a training job with hyperparameter tuning includes a list
+ *  of HyperparameterOutput objects, one for each successful trial.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput : GTLRObject
+
+/** All recorded object metrics for this trial. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric *> *allMetrics;
+
+/** The final objective metric seen for this trial. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric *finalMetric;
+
+/** The hyperparameters given to this trial. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters *hyperparameters;
+
+/** The trial id for these results. */
+@property(nonatomic, copy, nullable) NSString *trialId;
+
+@end
+
+
+/**
+ *  The hyperparameters given to this trial.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters : GTLRObject
+@end
+
+
+/**
+ *  An observed value of a metric.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric : GTLRObject
+
+/**
+ *  The objective value at this training step.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *objectiveValue;
+
+/**
+ *  The global training step for this metric.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trainingStep;
+
+@end
+
+
+/**
+ *  Represents a set of hyperparameters to optimize.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec : GTLRObject
+
+/**
+ *  Required. The type of goal to use for tuning. Available types are
+ *  `MAXIMIZE` and `MINIMIZE`.
+ *  Defaults to `MAXIMIZE`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_GoalTypeUnspecified
+ *        Goal Type will default to maximize. (Value: "GOAL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_Maximize
+ *        Maximize the goal metric. (Value: "MAXIMIZE")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_Minimize
+ *        Minimize the goal metric. (Value: "MINIMIZE")
+ */
+@property(nonatomic, copy, nullable) NSString *goal;
+
+/**
+ *  Optional. The Tensorflow summary tag name to use for optimizing trials. For
+ *  current versions of Tensorflow, this tag name should exactly match what is
+ *  shown in Tensorboard, including all scopes. For versions of Tensorflow
+ *  prior to 0.12, this should be only the tag passed to tf.Summary.
+ *  By default, "training/hptuning/metric" will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *hyperparameterMetricTag;
+
+/**
+ *  Optional. The number of training trials to run concurrently.
+ *  You can reduce the time it takes to perform hyperparameter tuning by adding
+ *  trials in parallel. However, each trail only benefits from the information
+ *  gained in completed trials. That means that a trial does not get access to
+ *  the results of trials running at the same time, which could reduce the
+ *  quality of the overall optimization.
+ *  Each trial will use the same scale tier and machine types.
+ *  Defaults to one.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxParallelTrials;
+
+/**
+ *  Optional. How many training trials should be attempted to optimize
+ *  the specified hyperparameters.
+ *  Defaults to one.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxTrials;
+
+/** Required. The set of parameters to tune. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec *> *params;
+
+@end
+
+
+/**
+ *  Represents a training or prediction job.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job : GTLRObject
+
+/** Output only. When the job was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. When the job processing was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. The details of a failure or a cancellation. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** Required. The user-specified id of the job. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** Input parameters to create a prediction job. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput *predictionInput;
+
+/** The current prediction job result. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionOutput *predictionOutput;
+
+/** Output only. When the job processing was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The detailed state of a job.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Cancelled
+ *        The job has been cancelled.
+ *        `error_message` should describe the reason for the cancellation.
+ *        (Value: "CANCELLED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Cancelling
+ *        The job is being cancelled.
+ *        `error_message` should describe the reason for the cancellation.
+ *        (Value: "CANCELLING")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Failed
+ *        The job failed.
+ *        `error_message` should contain the details of the failure. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Preparing
+ *        The service is preparing to run the job. (Value: "PREPARING")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Queued
+ *        The job has been just created and processing has not yet begun.
+ *        (Value: "QUEUED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Running
+ *        The job is in progress. (Value: "RUNNING")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_StateUnspecified
+ *        The job state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Succeeded
+ *        The job completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Input parameters to create a training job. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput *trainingInput;
+
+/** The current training job result. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput *trainingOutput;
+
+@end
+
+
+/**
+ *  Response message for the ListJobs method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "jobs" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListJobsResponse : GTLRCollectionObject
+
+/**
+ *  The list of jobs.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job *> *jobs;
+
+/**
+ *  Optional. Pass this token as the `page_token` field of the request for a
+ *  subsequent call.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for the ListModels method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "models" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListModelsResponse : GTLRCollectionObject
+
+/**
+ *  The list of models.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model *> *models;
+
+/**
+ *  Optional. Pass this token as the `page_token` field of the request for a
+ *  subsequent call.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for the ListVersions method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "versions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListVersionsResponse : GTLRCollectionObject
+
+/**
+ *  Optional. Pass this token as the `page_token` field of the request for a
+ *  subsequent call.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of versions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version *> *versions;
+
+@end
+
+
+/**
+ *  Options for manually scaling a model.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ManualScaling : GTLRObject
+
+/**
+ *  The number of nodes to allocate for this model. These nodes are always up,
+ *  starting from the time the model is deployed, so the cost of operating
+ *  this model will be proportional to nodes * number of hours since
+ *  deployment.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodes;
+
+@end
+
+
+/**
+ *  Represents a machine learning solution.
+ *  A model can have multiple versions, each of which is a deployed, trained
+ *  model ready to receive prediction requests. The model itself is just a
+ *  container.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model : GTLRObject
+
+/**
+ *  Output only. The default version of the model. This version will be used to
+ *  handle prediction requests that do not specify a version.
+ *  You can change the default version by calling
+ *  [projects.methods.versions.setDefault](/ml/reference/rest/v1/projects.models.versions/setDefault).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version *defaultVersion;
+
+/**
+ *  Optional. The description specified for the model when it was created.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The name specified for the model when it was created.
+ *  The model name must be unique within the project it is created in.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. If true, enables StackDriver Logging for online prediction.
+ *  Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *onlinePredictionLogging;
+
+/**
+ *  Optional. The list of regions where the model is going to be deployed.
+ *  Currently only one region per model is supported.
+ *  Defaults to 'us-central1' if nothing is set.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
+
+@end
+
+
+/**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata : GTLRObject
+
+/** The time the operation was submitted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time operation processing completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Indicates whether a request to cancel this operation has been made.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isCancellationRequested;
+
+/** Contains the name of the model associated with the operation. */
+@property(nonatomic, copy, nullable) NSString *modelName;
+
+/**
+ *  The operation type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_CreateVersion
+ *        An operation to create a new version. (Value: "CREATE_VERSION")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_DeleteModel
+ *        An operation to delete an existing model. (Value: "DELETE_MODEL")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_DeleteVersion
+ *        An operation to delete an existing version. (Value: "DELETE_VERSION")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_OperationTypeUnspecified
+ *        Unspecified operation type. (Value: "OPERATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/** The time operation processing started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/** Contains the version associated with the operation. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version *version;
+
+@end
+
+
+/**
  *  Represents a single hyperparameter to optimize.
  */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec : GTLRObject
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec : GTLRObject
 
 /** Required if type is `CATEGORICAL`. The list of possible categories. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *categoricalValues;
@@ -822,16 +955,16 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
  *  parameters (e.g., `UNIT_LINEAR_SCALE`).
  *
  *  Likely values:
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_ScaleType_None
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_None
  *        By default, no scaling is applied. (Value: "NONE")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_ScaleType_UnitLinearScale
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitLinearScale
  *        Scales the feasible space to (0, 1) linearly. (Value:
  *        "UNIT_LINEAR_SCALE")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_ScaleType_UnitLogScale
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitLogScale
  *        Scales the feasible space logarithmically to (0, 1). The entire
  *        feasible
  *        space must be strictly positive. (Value: "UNIT_LOG_SCALE")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_ScaleType_UnitReverseLogScale
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitReverseLogScale
  *        Scales the feasible space "reverse" logarithmically to (0, 1). The
  *        result
  *        is that values close to the top of the feasible space are spread out
@@ -846,18 +979,18 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
  *  Required. The type of the parameter.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_Type_Categorical
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Categorical
  *        The parameter is categorical, with a value chosen from the categories
  *        field. (Value: "CATEGORICAL")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_Type_Discrete
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Discrete
  *        The parameter is real valued, with a fixed set of feasible points. If
  *        `type==DISCRETE`, feasible_points must be provided, and
  *        {`min_value`, `max_value`} will be ignored. (Value: "DISCRETE")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_Type_Double
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Double
  *        Type for real-valued parameters. (Value: "DOUBLE")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_Type_Integer
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Integer
  *        Type for integral parameters. (Value: "INTEGER")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ParameterSpec_Type_ParameterTypeUnspecified
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_ParameterTypeUnspecified
  *        You must specify a valid type. Using this unspecified type will result
  *        in
  *        an error. (Value: "PARAMETER_TYPE_UNSPECIFIED")
@@ -870,20 +1003,20 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
 /**
  *  Represents input parameters for a prediction job.
  */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionInput : GTLRObject
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput : GTLRObject
 
 /**
  *  Required. The format of the input data files.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionInput_DataFormat_DataFormatUnspecified
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_DataFormatUnspecified
  *        Unspecified format. (Value: "DATA_FORMAT_UNSPECIFIED")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionInput_DataFormat_Text
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Text
  *        The source file is a text file with instances separated by the
  *        new-line character. (Value: "TEXT")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionInput_DataFormat_TfRecord
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecord
  *        The source file is a TFRecord file. (Value: "TF_RECORD")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionInput_DataFormat_TfRecordGzip
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecordGzip
  *        The source file is a GZIP-compressed TFRecord file. (Value:
  *        "TF_RECORD_GZIP")
  */
@@ -947,7 +1080,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
 /**
  *  Represents results of a prediction job.
  */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictionOutput : GTLRObject
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionOutput : GTLRObject
 
 /**
  *  The number of data instances which resulted in errors.
@@ -1160,7 +1293,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
  *  instance, the response body will contain no predictions and will contian
  *  a single error entry instead.
  */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1PredictRequest : GTLRObject
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictRequest : GTLRObject
 
 /** Required. The prediction request body. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleApiHttpBody *httpBody;
@@ -1171,20 +1304,20 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
 /**
  *  Request message for the SetDefaultVersion request.
  */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1SetDefaultVersionRequest : GTLRObject
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1SetDefaultVersionRequest : GTLRObject
 @end
 
 
 /**
  *  Represents input parameters for a training job.
  */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput : GTLRObject
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput : GTLRObject
 
 /** Optional. Command line arguments to pass to the program. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
 /** Optional. The set of Hyperparameters to tune. */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterSpec *hyperparameters;
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec *hyperparameters;
 
 /**
  *  Optional. A Google Cloud Storage path in which to store training outputs
@@ -1288,15 +1421,15 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
  *  and parameter servers.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Basic
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Basic
  *        A single worker instance. This tier is suitable for learning how to
  *        use
  *        Cloud ML, and for experimenting with new models using small datasets.
  *        (Value: "BASIC")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput_ScaleTier_BasicGpu
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicGpu
  *        A single worker instance [with a GPU](ml/docs/how-tos/using-gpus).
  *        (Value: "BASIC_GPU")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Custom
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Custom
  *        The CUSTOM tier is not a set tier, but rather enables you to use your
  *        own cluster specification. When you use this tier, set values to
  *        configure your processing cluster according to these guidelines:
@@ -1318,10 +1451,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
  *        parameter servers must likewise use the same machine type, which can
  *        be
  *        different from your worker type and master type. (Value: "CUSTOM")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Premium1
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Premium1
  *        A large number of workers with many parameter servers. (Value:
  *        "PREMIUM_1")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingInput_ScaleTier_Standard1
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Standard1
  *        Many workers and a few parameter servers. (Value: "STANDARD_1")
  */
 @property(nonatomic, copy, nullable) NSString *scaleTier;
@@ -1352,7 +1485,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
 /**
  *  Represents results of a training job. Output only.
  */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1TrainingOutput : GTLRObject
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput : GTLRObject
 
 /**
  *  The number of hyperparameter tuning trials that completed successfully.
@@ -1380,140 +1513,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
  *  Results for individual Hyperparameter trials.
  *  Only set for hyperparameter tuning jobs.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1HyperparameterOutput *> *trials;
-
-@end
-
-
-/**
- *  Represents a version of the model.
- *  Each version is a trained model deployed in the cloud, ready to handle
- *  prediction requests. A model can have multiple versions. You can get
- *  information about all of the versions of a given model by calling
- *  [projects.models.versions.list](/ml/reference/rest/v1beta1/projects.models.versions/list).
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version : GTLRObject
-
-/** Output only. The time the version was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Required. The Google Cloud Storage location of the trained model used to
- *  create the version. See the
- *  [overview of model deployment](/ml/docs/concepts/deployment-overview) for
- *  more informaiton.
- *  When passing Version to
- *  [projects.models.versions.create](/ml/reference/rest/v1beta1/projects.models.versions/create)
- *  the model service uses the specified location as the source of the model.
- *  Once deployed, the model version is hosted by the prediction service, so
- *  this location is useful only as a historical record.
- */
-@property(nonatomic, copy, nullable) NSString *deploymentUri;
-
-/**
- *  Optional. The description specified for the version when it was created.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Output only. If true, this version will be used to handle prediction
- *  requests that do not specify a version.
- *  You can change the default version by calling
- *  [projects.methods.versions.setDefault](/ml/reference/rest/v1beta1/projects.models.versions/setDefault).
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isDefault;
-
-/** Output only. The time the version was last used for prediction. */
-@property(nonatomic, strong, nullable) GTLRDateTime *lastUseTime;
-
-/**
- *  Optional. Manually select the number of nodes to use for serving the
- *  model. If unset (i.e., by default), the number of nodes used to serve
- *  the model automatically scales with traffic. However, care should be
- *  taken to ramp up traffic according to the model's ability to scale. If
- *  your model needs to handle bursts of traffic beyond it's ability to
- *  scale, it is recommended you set this field appropriately.
- */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ManualScaling *manualScaling;
-
-/**
- *  Required.The name specified for the version when it was created.
- *  The version name must be unique within the model it is created in.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. The Google Cloud ML runtime version to use for this deployment.
- *  If not set, Google Cloud ML will choose a version.
- */
-@property(nonatomic, copy, nullable) NSString *runtimeVersion;
-
-@end
-
-
-/**
- *  Options for manually scaling a model.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ManualScaling : GTLRObject
-
-/**
- *  The number of nodes to allocate for this model. These nodes are always up,
- *  starting from the time the model is deployed, so the cost of operating
- *  this model will be proportional to nodes * number of hours since
- *  deployment.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *nodes;
-
-@end
-
-
-/**
- *  Represents the metadata of the long-running operation.
- */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata : GTLRObject
-
-/** The time the operation was submitted. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** The time operation processing completed. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Indicates whether a request to cancel this operation has been made.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isCancellationRequested;
-
-/** Contains the name of the model associated with the operation. */
-@property(nonatomic, copy, nullable) NSString *modelName;
-
-/**
- *  The operation type.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_CreateVersion
- *        An operation to create a new version. (Value: "CREATE_VERSION")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_DeleteModel
- *        An operation to delete an existing model. (Value: "DELETE_MODEL")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_DeleteVersion
- *        An operation to delete an existing version. (Value: "DELETE_VERSION")
- *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_OperationTypeUnspecified
- *        Unspecified operation type. (Value: "OPERATION_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *operationType;
-
-/** The time operation processing started. */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-/** Contains the version associated with the operation. */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version *version;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput *> *trials;
 
 @end
 

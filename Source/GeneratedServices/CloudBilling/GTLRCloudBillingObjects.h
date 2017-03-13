@@ -4,8 +4,9 @@
 // API:
 //   Google Cloud Billing API (cloudbilling/v1)
 // Description:
-//   Retrieves Google Developers Console billing accounts and associates them
-//   with projects.
+//   Allows developers to manage billing for their Google Cloud Platform
+//   projects
+//   programmatically.
 // Documentation:
 //   https://cloud.google.com/billing/
 
@@ -25,15 +26,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  A billing account in [Google Developers
- *  Console](https://console.developers.google.com/). You can assign a billing
- *  account to one or more projects.
+ *  A billing account in [Google Cloud
+ *  Console](https://console.cloud.google.com/). You can assign a billing
+ *  account
+ *  to one or more projects.
  */
 @interface GTLRCloudBilling_BillingAccount : GTLRObject
 
 /**
- *  The display name given to the billing account, such as `My Billing Account`.
- *  This name is displayed in the Google Developers Console.
+ *  The display name given to the billing account, such as `My Billing
+ *  Account`. This name is displayed in the Google Cloud Console.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -115,9 +117,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Encapsulation of billing information for a Developers Console project. A
- *  project has at most one associated billing account at a time (but a billing
- *  account can be assigned to multiple projects).
+ *  Encapsulation of billing information for a Cloud Console project. A project
+ *  has at most one associated billing account at a time (but a billing account
+ *  can be assigned to multiple projects).
  */
 @interface GTLRCloudBilling_ProjectBillingInfo : GTLRObject
 

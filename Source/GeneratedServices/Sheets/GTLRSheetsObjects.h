@@ -125,6 +125,7 @@
 @class GTLRSheets_SpreadsheetProperties;
 @class GTLRSheets_TextFormat;
 @class GTLRSheets_TextFormatRun;
+@class GTLRSheets_TextRotation;
 @class GTLRSheets_TextToColumnsRequest;
 @class GTLRSheets_UnmergeCellsRequest;
 @class GTLRSheets_UpdateBandingRequest;
@@ -2998,6 +2999,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 /** The format of the text in the cell (unless overridden by a format run). */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
+/** The rotation applied to text in a cell */
+@property(nonatomic, strong, nullable) GTLRSheets_TextRotation *textRotation;
+
 /**
  *  The vertical alignment of the value in the cell.
  *
@@ -4477,8 +4481,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_IterativeCalculationSettings : GTLRObject
 
 /**
- *  When iterative calculation is enabled, the threshold value such that
- *  calculation rounds stop when succesive results differ by less.
+ *  When iterative calculation is enabled and successive results differ by
+ *  less than this threshold value, the calculation rounds stop.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -4486,7 +4490,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /**
  *  When iterative calculation is enabled, the maximum number of calculation
- *  rounds to perform during iterative calculation.
+ *  rounds to perform.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4572,7 +4576,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 /**
  *  Pattern string used for formatting. If not set, a default pattern based on
  *  the user's locale will be used if necessary for the given type.
- *  See the [Date and Number Formats guide](/sheets/guides/formats) for more
+ *  See the [Date and Number Formats guide](/sheets/api/guides/formats) for more
  *  information about the supported patterns.
  */
 @property(nonatomic, copy, nullable) NSString *pattern;
@@ -5725,6 +5729,42 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+@end
+
+
+/**
+ *  The rotation applied to text in a cell.
+ */
+@interface GTLRSheets_TextRotation : GTLRObject
+
+/**
+ *  The angle between the standard orientation and the desired orientation.
+ *  Measured in degrees. Valid values are between -90 and 90. Positive
+ *  angles are angled upwards, negative are angled downwards.
+ *  Note: For LTR text direction positive angles are in the counterclockwise
+ *  direction, whereas for RTL they are in the clockwise direction
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *angle;
+
+/**
+ *  If true, text reads top to bottom, but the orientation of individual
+ *  characters is unchanged.
+ *  For example:
+ *  | V |
+ *  | e |
+ *  | r |
+ *  | t |
+ *  | i |
+ *  | c |
+ *  | a |
+ *  | l |
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vertical;
 
 @end
 

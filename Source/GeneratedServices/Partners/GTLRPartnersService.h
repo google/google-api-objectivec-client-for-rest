@@ -4,8 +4,8 @@
 // API:
 //   Google Partners API (partners/v2)
 // Description:
-//   Lets advertisers search certified companies and create contact leads with
-//   them, and also audits the usage of clients.
+//   Searches certified companies and creates contact leads with them, and also
+//   audits the usage of clients.
 // Documentation:
 //   https://developers.google.com/partners/
 
@@ -24,8 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Service for executing Google Partners API queries.
  *
- *  Lets advertisers search certified companies and create contact leads with
- *  them, and also audits the usage of clients.
+ *  Searches certified companies and creates contact leads with them, and also
+ *  audits the usage of clients.
  */
 @interface GTLRPartnersService : GTLRService
 

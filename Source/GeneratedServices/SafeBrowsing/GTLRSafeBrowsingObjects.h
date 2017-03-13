@@ -2,10 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Safe Browsing APIs (safebrowsing/v4)
+//   Google Safe Browsing API (safebrowsing/v4)
 // Description:
-//   Enables client applications to check web resources (most commonly URLs)
-//   against Google-generated lists of unsafe web resources.
+//   The Safe Browsing API is an experimental API that allows client
+//   applications to check URLs against Google's constantly-updated blacklists
+//   of suspected phishing and malware pages. Your client application can use
+//   the API to download an encrypted table for local, client-side lookups of
+//   URLs.
 // Documentation:
 //   https://developers.google.com/safe-browsing/
 
@@ -53,117 +56,323 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_Constraints_SupportedCompressions
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateRequest.platformType
 
-/** Value: "ALL_PLATFORMS" */
+/**
+ *  Threat posed to all defined platforms.
+ *
+ *  Value: "ALL_PLATFORMS"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_AllPlatforms;
-/** Value: "ANDROID" */
+/**
+ *  Threat posed to Android.
+ *
+ *  Value: "ANDROID"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Android;
-/** Value: "ANY_PLATFORM" */
+/**
+ *  Threat posed to at least one of the defined platforms.
+ *
+ *  Value: "ANY_PLATFORM"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_AnyPlatform;
-/** Value: "CHROME" */
+/**
+ *  Threat posed to Chrome.
+ *
+ *  Value: "CHROME"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Chrome;
-/** Value: "IOS" */
+/**
+ *  Threat posed to iOS.
+ *
+ *  Value: "IOS"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Ios;
-/** Value: "LINUX" */
+/**
+ *  Threat posed to Linux.
+ *
+ *  Value: "LINUX"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Linux;
-/** Value: "OSX" */
+/**
+ *  Threat posed to OS X.
+ *
+ *  Value: "OSX"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Osx;
-/** Value: "PLATFORM_TYPE_UNSPECIFIED" */
+/**
+ *  Unknown platform.
+ *
+ *  Value: "PLATFORM_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_PlatformTypeUnspecified;
-/** Value: "WINDOWS" */
+/**
+ *  Threat posed to Windows.
+ *
+ *  Value: "WINDOWS"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Windows;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateRequest.threatEntryType
 
-/** Value: "EXECUTABLE" */
+/**
+ *  CERT
+ *
+ *  Value: "CERT"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Cert;
+/**
+ *  Chrome extension.
+ *
+ *  Value: "CHROME_EXTENSION"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_ChromeExtension;
+/**
+ *  An executable program.
+ *
+ *  Value: "EXECUTABLE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Executable;
-/** Value: "IP_RANGE" */
+/**
+ *  Filename.
+ *
+ *  Value: "FILENAME"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Filename;
+/**
+ *  An IP range.
+ *
+ *  Value: "IP_RANGE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_IpRange;
-/** Value: "THREAT_ENTRY_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "THREAT_ENTRY_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_ThreatEntryTypeUnspecified;
-/** Value: "URL" */
+/**
+ *  A URL.
+ *
+ *  Value: "URL"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Url;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateRequest.threatType
 
-/** Value: "MALWARE" */
+/**
+ *  Malware threat type.
+ *
+ *  Value: "MALWARE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Malware;
-/** Value: "POTENTIALLY_HARMFUL_APPLICATION" */
+/**
+ *  Potentially harmful application threat type.
+ *
+ *  Value: "POTENTIALLY_HARMFUL_APPLICATION"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_PotentiallyHarmfulApplication;
-/** Value: "SOCIAL_ENGINEERING" */
+/**
+ *  Social engineering threat type.
+ *
+ *  Value: "SOCIAL_ENGINEERING"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineering;
-/** Value: "THREAT_TYPE_UNSPECIFIED" */
+/**
+ *  Unknown.
+ *
+ *  Value: "THREAT_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ThreatTypeUnspecified;
-/** Value: "UNWANTED_SOFTWARE" */
+/**
+ *  Unwanted software threat type.
+ *
+ *  Value: "UNWANTED_SOFTWARE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_UnwantedSoftware;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateResponse.platformType
 
-/** Value: "ALL_PLATFORMS" */
+/**
+ *  Threat posed to all defined platforms.
+ *
+ *  Value: "ALL_PLATFORMS"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_AllPlatforms;
-/** Value: "ANDROID" */
+/**
+ *  Threat posed to Android.
+ *
+ *  Value: "ANDROID"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Android;
-/** Value: "ANY_PLATFORM" */
+/**
+ *  Threat posed to at least one of the defined platforms.
+ *
+ *  Value: "ANY_PLATFORM"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_AnyPlatform;
-/** Value: "CHROME" */
+/**
+ *  Threat posed to Chrome.
+ *
+ *  Value: "CHROME"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Chrome;
-/** Value: "IOS" */
+/**
+ *  Threat posed to iOS.
+ *
+ *  Value: "IOS"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Ios;
-/** Value: "LINUX" */
+/**
+ *  Threat posed to Linux.
+ *
+ *  Value: "LINUX"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Linux;
-/** Value: "OSX" */
+/**
+ *  Threat posed to OS X.
+ *
+ *  Value: "OSX"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Osx;
-/** Value: "PLATFORM_TYPE_UNSPECIFIED" */
+/**
+ *  Unknown platform.
+ *
+ *  Value: "PLATFORM_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_PlatformTypeUnspecified;
-/** Value: "WINDOWS" */
+/**
+ *  Threat posed to Windows.
+ *
+ *  Value: "WINDOWS"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Windows;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateResponse.responseType
 
-/** Value: "FULL_UPDATE" */
+/**
+ *  Full updates replace the client's entire local database. This means
+ *  that either the client was seriously out-of-date or the client is
+ *  believed to be corrupt.
+ *
+ *  Value: "FULL_UPDATE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_FullUpdate;
-/** Value: "PARTIAL_UPDATE" */
+/**
+ *  Partial updates are applied to the client's existing local database.
+ *
+ *  Value: "PARTIAL_UPDATE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_PartialUpdate;
-/** Value: "RESPONSE_TYPE_UNSPECIFIED" */
+/**
+ *  Unknown.
+ *
+ *  Value: "RESPONSE_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_ResponseTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateResponse.threatEntryType
 
-/** Value: "EXECUTABLE" */
+/**
+ *  CERT
+ *
+ *  Value: "CERT"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Cert;
+/**
+ *  Chrome extension.
+ *
+ *  Value: "CHROME_EXTENSION"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_ChromeExtension;
+/**
+ *  An executable program.
+ *
+ *  Value: "EXECUTABLE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Executable;
-/** Value: "IP_RANGE" */
+/**
+ *  Filename.
+ *
+ *  Value: "FILENAME"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Filename;
+/**
+ *  An IP range.
+ *
+ *  Value: "IP_RANGE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_IpRange;
-/** Value: "THREAT_ENTRY_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "THREAT_ENTRY_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_ThreatEntryTypeUnspecified;
-/** Value: "URL" */
+/**
+ *  A URL.
+ *
+ *  Value: "URL"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Url;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateResponse.threatType
 
-/** Value: "MALWARE" */
+/**
+ *  Malware threat type.
+ *
+ *  Value: "MALWARE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Malware;
-/** Value: "POTENTIALLY_HARMFUL_APPLICATION" */
+/**
+ *  Potentially harmful application threat type.
+ *
+ *  Value: "POTENTIALLY_HARMFUL_APPLICATION"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_PotentiallyHarmfulApplication;
-/** Value: "SOCIAL_ENGINEERING" */
+/**
+ *  Social engineering threat type.
+ *
+ *  Value: "SOCIAL_ENGINEERING"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineering;
-/** Value: "THREAT_TYPE_UNSPECIFIED" */
+/**
+ *  Unknown.
+ *
+ *  Value: "THREAT_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ThreatTypeUnspecified;
-/** Value: "UNWANTED_SOFTWARE" */
+/**
+ *  Unwanted software threat type.
+ *
+ *  Value: "UNWANTED_SOFTWARE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_UnwantedSoftware;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatEntrySet.compressionType
 
-/** Value: "COMPRESSION_TYPE_UNSPECIFIED" */
+/**
+ *  Unknown.
+ *
+ *  Value: "COMPRESSION_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_CompressionTypeUnspecified;
-/** Value: "RAW" */
+/**
+ *  Raw, uncompressed data.
+ *
+ *  Value: "RAW"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_Raw;
-/** Value: "RICE" */
+/**
+ *  Rice-Golomb encoded data.
+ *
+ *  Value: "RICE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_Rice;
 
 // ----------------------------------------------------------------------------
@@ -191,8 +400,14 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Windows;
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatInfo.threatEntryTypes
 
+/** Value: "CERT" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Cert;
+/** Value: "CHROME_EXTENSION" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_ChromeExtension;
 /** Value: "EXECUTABLE" */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Executable;
+/** Value: "FILENAME" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Filename;
 /** Value: "IP_RANGE" */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_IpRange;
 /** Value: "THREAT_ENTRY_TYPE_UNSPECIFIED" */
@@ -217,97 +432,277 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_UnwantedSo
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatListDescriptor.platformType
 
-/** Value: "ALL_PLATFORMS" */
+/**
+ *  Threat posed to all defined platforms.
+ *
+ *  Value: "ALL_PLATFORMS"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_AllPlatforms;
-/** Value: "ANDROID" */
+/**
+ *  Threat posed to Android.
+ *
+ *  Value: "ANDROID"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Android;
-/** Value: "ANY_PLATFORM" */
+/**
+ *  Threat posed to at least one of the defined platforms.
+ *
+ *  Value: "ANY_PLATFORM"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_AnyPlatform;
-/** Value: "CHROME" */
+/**
+ *  Threat posed to Chrome.
+ *
+ *  Value: "CHROME"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Chrome;
-/** Value: "IOS" */
+/**
+ *  Threat posed to iOS.
+ *
+ *  Value: "IOS"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Ios;
-/** Value: "LINUX" */
+/**
+ *  Threat posed to Linux.
+ *
+ *  Value: "LINUX"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Linux;
-/** Value: "OSX" */
+/**
+ *  Threat posed to OS X.
+ *
+ *  Value: "OSX"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Osx;
-/** Value: "PLATFORM_TYPE_UNSPECIFIED" */
+/**
+ *  Unknown platform.
+ *
+ *  Value: "PLATFORM_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_PlatformTypeUnspecified;
-/** Value: "WINDOWS" */
+/**
+ *  Threat posed to Windows.
+ *
+ *  Value: "WINDOWS"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Windows;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatListDescriptor.threatEntryType
 
-/** Value: "EXECUTABLE" */
+/**
+ *  CERT
+ *
+ *  Value: "CERT"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Cert;
+/**
+ *  Chrome extension.
+ *
+ *  Value: "CHROME_EXTENSION"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_ChromeExtension;
+/**
+ *  An executable program.
+ *
+ *  Value: "EXECUTABLE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Executable;
-/** Value: "IP_RANGE" */
+/**
+ *  Filename.
+ *
+ *  Value: "FILENAME"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Filename;
+/**
+ *  An IP range.
+ *
+ *  Value: "IP_RANGE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_IpRange;
-/** Value: "THREAT_ENTRY_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "THREAT_ENTRY_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_ThreatEntryTypeUnspecified;
-/** Value: "URL" */
+/**
+ *  A URL.
+ *
+ *  Value: "URL"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Url;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatListDescriptor.threatType
 
-/** Value: "MALWARE" */
+/**
+ *  Malware threat type.
+ *
+ *  Value: "MALWARE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Malware;
-/** Value: "POTENTIALLY_HARMFUL_APPLICATION" */
+/**
+ *  Potentially harmful application threat type.
+ *
+ *  Value: "POTENTIALLY_HARMFUL_APPLICATION"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_PotentiallyHarmfulApplication;
-/** Value: "SOCIAL_ENGINEERING" */
+/**
+ *  Social engineering threat type.
+ *
+ *  Value: "SOCIAL_ENGINEERING"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineering;
-/** Value: "THREAT_TYPE_UNSPECIFIED" */
+/**
+ *  Unknown.
+ *
+ *  Value: "THREAT_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ThreatTypeUnspecified;
-/** Value: "UNWANTED_SOFTWARE" */
+/**
+ *  Unwanted software threat type.
+ *
+ *  Value: "UNWANTED_SOFTWARE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_UnwantedSoftware;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatMatch.platformType
 
-/** Value: "ALL_PLATFORMS" */
+/**
+ *  Threat posed to all defined platforms.
+ *
+ *  Value: "ALL_PLATFORMS"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_AllPlatforms;
-/** Value: "ANDROID" */
+/**
+ *  Threat posed to Android.
+ *
+ *  Value: "ANDROID"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Android;
-/** Value: "ANY_PLATFORM" */
+/**
+ *  Threat posed to at least one of the defined platforms.
+ *
+ *  Value: "ANY_PLATFORM"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_AnyPlatform;
-/** Value: "CHROME" */
+/**
+ *  Threat posed to Chrome.
+ *
+ *  Value: "CHROME"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Chrome;
-/** Value: "IOS" */
+/**
+ *  Threat posed to iOS.
+ *
+ *  Value: "IOS"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Ios;
-/** Value: "LINUX" */
+/**
+ *  Threat posed to Linux.
+ *
+ *  Value: "LINUX"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Linux;
-/** Value: "OSX" */
+/**
+ *  Threat posed to OS X.
+ *
+ *  Value: "OSX"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Osx;
-/** Value: "PLATFORM_TYPE_UNSPECIFIED" */
+/**
+ *  Unknown platform.
+ *
+ *  Value: "PLATFORM_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_PlatformTypeUnspecified;
-/** Value: "WINDOWS" */
+/**
+ *  Threat posed to Windows.
+ *
+ *  Value: "WINDOWS"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Windows;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatMatch.threatEntryType
 
-/** Value: "EXECUTABLE" */
+/**
+ *  CERT
+ *
+ *  Value: "CERT"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Cert;
+/**
+ *  Chrome extension.
+ *
+ *  Value: "CHROME_EXTENSION"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_ChromeExtension;
+/**
+ *  An executable program.
+ *
+ *  Value: "EXECUTABLE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Executable;
-/** Value: "IP_RANGE" */
+/**
+ *  Filename.
+ *
+ *  Value: "FILENAME"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Filename;
+/**
+ *  An IP range.
+ *
+ *  Value: "IP_RANGE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_IpRange;
-/** Value: "THREAT_ENTRY_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "THREAT_ENTRY_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_ThreatEntryTypeUnspecified;
-/** Value: "URL" */
+/**
+ *  A URL.
+ *
+ *  Value: "URL"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Url;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatMatch.threatType
 
-/** Value: "MALWARE" */
+/**
+ *  Malware threat type.
+ *
+ *  Value: "MALWARE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_Malware;
-/** Value: "POTENTIALLY_HARMFUL_APPLICATION" */
+/**
+ *  Potentially harmful application threat type.
+ *
+ *  Value: "POTENTIALLY_HARMFUL_APPLICATION"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_PotentiallyHarmfulApplication;
-/** Value: "SOCIAL_ENGINEERING" */
+/**
+ *  Social engineering threat type.
+ *
+ *  Value: "SOCIAL_ENGINEERING"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineering;
-/** Value: "THREAT_TYPE_UNSPECIFIED" */
+/**
+ *  Unknown.
+ *
+ *  Value: "THREAT_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ThreatTypeUnspecified;
-/** Value: "UNWANTED_SOFTWARE" */
+/**
+ *  Unwanted software threat type.
+ *
+ *  Value: "UNWANTED_SOFTWARE"
+ */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSoftware;
 
 /**
@@ -350,9 +745,9 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
 @interface GTLRSafeBrowsing_Constraints : GTLRObject
 
 /**
- *  Sets the maximum number of entries that the client is willing to have in the
- *  local database. This should be a power of 2 between 2**10 and 2**20. If
- *  zero, no database size limit is set.
+ *  Sets the maximum number of entries that the client is willing to have
+ *  in the local database. This should be a power of 2 between 2**10 and
+ *  2**20. If zero, no database size limit is set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -368,9 +763,9 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
 @property(nonatomic, strong, nullable) NSNumber *maxUpdateEntries;
 
 /**
- *  Requests the list for a specific geographic location. If not set the server
- *  may pick that value based on the user's IP address. Expects ISO 3166-1
- *  alpha-2 format.
+ *  Requests the list for a specific geographic location. If not set the
+ *  server may pick that value based on the user's IP address. Expects ISO
+ *  3166-1 alpha-2 format.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
@@ -382,8 +777,10 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
 
 /**
  *  Describes a Safe Browsing API update request. Clients can request updates
- *  for multiple lists in a single request. NOTE: Field index 2 is unused. NEXT:
- *  4
+ *  for
+ *  multiple lists in a single request.
+ *  NOTE: Field index 2 is unused.
+ *  NEXT: 5
  */
 @interface GTLRSafeBrowsing_FetchThreatListUpdatesRequest : GTLRObject
 
@@ -405,10 +802,10 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
 @property(nonatomic, strong, nullable) NSArray<GTLRSafeBrowsing_ListUpdateResponse *> *listUpdateResponses;
 
 /**
- *  The minimum duration the client must wait before issuing any update request.
- *  If this field is not set clients may update as soon as they want.
+ *  The minimum duration the client must wait before issuing any update
+ *  request. If this field is not set clients may update as soon as they want.
  */
-@property(nonatomic, copy, nullable) NSString *minimumWaitDuration;
+@property(nonatomic, strong, nullable) GTLRDuration *minimumWaitDuration;
 
 @end
 
@@ -417,6 +814,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  Request to return full hashes matched by the provided hash prefixes.
  */
 @interface GTLRSafeBrowsing_FindFullHashesRequest : GTLRObject
+
+/**
+ *  Client metadata associated with callers of higher-level APIs built on top
+ *  of the client's implementation.
+ */
+@property(nonatomic, strong, nullable) GTLRSafeBrowsing_ClientInfo *apiClient;
 
 /** The client metadata. */
 @property(nonatomic, strong, nullable) GTLRSafeBrowsing_ClientInfo *client;
@@ -448,13 +851,13 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  request. If this field is not set, clients can issue a request as soon as
  *  they want.
  */
-@property(nonatomic, copy, nullable) NSString *minimumWaitDuration;
+@property(nonatomic, strong, nullable) GTLRDuration *minimumWaitDuration;
 
 /**
- *  For requested entities that did not match the threat list, how long to cache
- *  the response.
+ *  For requested entities that did not match the threat list, how long to
+ *  cache the response.
  */
-@property(nonatomic, copy, nullable) NSString *negativeCacheDuration;
+@property(nonatomic, strong, nullable) GTLRDuration *negativeCacheDuration;
 
 @end
 
@@ -508,27 +911,30 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *
  *  Likely values:
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_AllPlatforms
- *        Value "ALL_PLATFORMS"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Android Value
- *        "ANDROID"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_AnyPlatform Value
- *        "ANY_PLATFORM"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Chrome Value
- *        "CHROME"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Ios Value "IOS"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Linux Value
- *        "LINUX"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Osx Value "OSX"
+ *        Threat posed to all defined platforms. (Value: "ALL_PLATFORMS")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Android Threat
+ *        posed to Android. (Value: "ANDROID")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_AnyPlatform
+ *        Threat posed to at least one of the defined platforms. (Value:
+ *        "ANY_PLATFORM")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Chrome Threat
+ *        posed to Chrome. (Value: "CHROME")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Ios Threat posed
+ *        to iOS. (Value: "IOS")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Linux Threat
+ *        posed to Linux. (Value: "LINUX")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Osx Threat posed
+ *        to OS X. (Value: "OSX")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_PlatformTypeUnspecified
- *        Value "PLATFORM_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Windows Value
- *        "WINDOWS"
+ *        Unknown platform. (Value: "PLATFORM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Windows Threat
+ *        posed to Windows. (Value: "WINDOWS")
  */
 @property(nonatomic, copy, nullable) NSString *platformType;
 
 /**
- *  The current state of the client for the requested list (the encrypted client
- *  state that was received from the last successful list update).
+ *  The current state of the client for the requested list (the encrypted
+ *  client state that was received from the last successful list update).
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -539,14 +945,20 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The types of entries present in the list.
  *
  *  Likely values:
- *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Executable
- *        Value "EXECUTABLE"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_IpRange Value
- *        "IP_RANGE"
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Cert CERT
+ *        (Value: "CERT")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_ChromeExtension
+ *        Chrome extension. (Value: "CHROME_EXTENSION")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Executable An
+ *        executable program. (Value: "EXECUTABLE")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Filename
+ *        Filename. (Value: "FILENAME")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_IpRange An IP
+ *        range. (Value: "IP_RANGE")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_ThreatEntryTypeUnspecified
- *        Value "THREAT_ENTRY_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Url Value
- *        "URL"
+ *        Unspecified. (Value: "THREAT_ENTRY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Url A URL.
+ *        (Value: "URL")
  */
 @property(nonatomic, copy, nullable) NSString *threatEntryType;
 
@@ -554,16 +966,17 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The type of threat posed by entries present in the list.
  *
  *  Likely values:
- *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Malware Value
- *        "MALWARE"
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Malware Malware
+ *        threat type. (Value: "MALWARE")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_PotentiallyHarmfulApplication
- *        Value "POTENTIALLY_HARMFUL_APPLICATION"
+ *        Potentially harmful application threat type. (Value:
+ *        "POTENTIALLY_HARMFUL_APPLICATION")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineering
- *        Value "SOCIAL_ENGINEERING"
+ *        Social engineering threat type. (Value: "SOCIAL_ENGINEERING")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ThreatTypeUnspecified
- *        Value "THREAT_TYPE_UNSPECIFIED"
+ *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_UnwantedSoftware
- *        Value "UNWANTED_SOFTWARE"
+ *        Unwanted software threat type. (Value: "UNWANTED_SOFTWARE")
  */
 @property(nonatomic, copy, nullable) NSString *threatType;
 
@@ -576,16 +989,17 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
 @interface GTLRSafeBrowsing_ListUpdateResponse : GTLRObject
 
 /**
- *  A set of entries to add to a local threat type's list. Repeated to allow for
- *  a combination of compressed and raw data to be sent in a single response.
+ *  A set of entries to add to a local threat type's list. Repeated to allow
+ *  for a combination of compressed and raw data to be sent in a single
+ *  response.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSafeBrowsing_ThreatEntrySet *> *additions;
 
 /**
- *  The expected SHA256 hash of the client state; that is, of the sorted list of
- *  all hashes present in the database after applying the provided update. If
- *  the client state doesn't match the expected state, the client must disregard
- *  this update and retry later.
+ *  The expected SHA256 hash of the client state; that is, of the sorted list
+ *  of all hashes present in the database after applying the provided update.
+ *  If the client state doesn't match the expected state, the client must
+ *  disregard this update and retry later.
  */
 @property(nonatomic, strong, nullable) GTLRSafeBrowsing_Checksum *checksum;
 
@@ -602,27 +1016,30 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *
  *  Likely values:
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_AllPlatforms
- *        Value "ALL_PLATFORMS"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Android Value
- *        "ANDROID"
+ *        Threat posed to all defined platforms. (Value: "ALL_PLATFORMS")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Android Threat
+ *        posed to Android. (Value: "ANDROID")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_AnyPlatform
- *        Value "ANY_PLATFORM"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Chrome Value
- *        "CHROME"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Ios Value "IOS"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Linux Value
- *        "LINUX"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Osx Value "OSX"
+ *        Threat posed to at least one of the defined platforms. (Value:
+ *        "ANY_PLATFORM")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Chrome Threat
+ *        posed to Chrome. (Value: "CHROME")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Ios Threat posed
+ *        to iOS. (Value: "IOS")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Linux Threat
+ *        posed to Linux. (Value: "LINUX")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Osx Threat posed
+ *        to OS X. (Value: "OSX")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_PlatformTypeUnspecified
- *        Value "PLATFORM_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Windows Value
- *        "WINDOWS"
+ *        Unknown platform. (Value: "PLATFORM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Windows Threat
+ *        posed to Windows. (Value: "WINDOWS")
  */
 @property(nonatomic, copy, nullable) NSString *platformType;
 
 /**
- *  A set of entries to remove from a local threat type's list. Repeated for the
- *  same reason as above.
+ *  A set of entries to remove from a local threat type's list. In practice,
+ *  this field is empty or contains exactly one ThreatEntrySet.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSafeBrowsing_ThreatEntrySet *> *removals;
 
@@ -631,12 +1048,15 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  client when the response is received.
  *
  *  Likely values:
- *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_FullUpdate Value
- *        "FULL_UPDATE"
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_FullUpdate Full
+ *        updates replace the client's entire local database. This means
+ *        that either the client was seriously out-of-date or the client is
+ *        believed to be corrupt. (Value: "FULL_UPDATE")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_PartialUpdate
- *        Value "PARTIAL_UPDATE"
+ *        Partial updates are applied to the client's existing local database.
+ *        (Value: "PARTIAL_UPDATE")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_ResponseTypeUnspecified
- *        Value "RESPONSE_TYPE_UNSPECIFIED"
+ *        Unknown. (Value: "RESPONSE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *responseType;
 
@@ -644,14 +1064,20 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The format of the threats.
  *
  *  Likely values:
- *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Executable
- *        Value "EXECUTABLE"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_IpRange Value
- *        "IP_RANGE"
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Cert CERT
+ *        (Value: "CERT")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_ChromeExtension
+ *        Chrome extension. (Value: "CHROME_EXTENSION")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Executable An
+ *        executable program. (Value: "EXECUTABLE")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Filename
+ *        Filename. (Value: "FILENAME")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_IpRange An IP
+ *        range. (Value: "IP_RANGE")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_ThreatEntryTypeUnspecified
- *        Value "THREAT_ENTRY_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Url Value
- *        "URL"
+ *        Unspecified. (Value: "THREAT_ENTRY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Url A URL.
+ *        (Value: "URL")
  */
 @property(nonatomic, copy, nullable) NSString *threatEntryType;
 
@@ -659,16 +1085,17 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The threat type for which data is returned.
  *
  *  Likely values:
- *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Malware Value
- *        "MALWARE"
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Malware Malware
+ *        threat type. (Value: "MALWARE")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_PotentiallyHarmfulApplication
- *        Value "POTENTIALLY_HARMFUL_APPLICATION"
+ *        Potentially harmful application threat type. (Value:
+ *        "POTENTIALLY_HARMFUL_APPLICATION")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineering
- *        Value "SOCIAL_ENGINEERING"
+ *        Social engineering threat type. (Value: "SOCIAL_ENGINEERING")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ThreatTypeUnspecified
- *        Value "THREAT_TYPE_UNSPECIFIED"
+ *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_UnwantedSoftware
- *        Value "UNWANTED_SOFTWARE"
+ *        Unwanted software threat type. (Value: "UNWANTED_SOFTWARE")
  */
 @property(nonatomic, copy, nullable) NSString *threatType;
 
@@ -681,7 +1108,7 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
 @interface GTLRSafeBrowsing_MetadataEntry : GTLRObject
 
 /**
- *  The metadata entry key.
+ *  The metadata entry key. For JSON requests, the key is base64-encoded.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -689,7 +1116,7 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  The metadata entry value.
+ *  The metadata entry value. For JSON requests, the value is base64-encoded.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -701,11 +1128,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
 
 /**
  *  The uncompressed threat entries in hash format of a particular prefix
- *  length. Hashes can be anywhere from 4 to 32 bytes in size. A large majority
- *  are 4 bytes, but some hashes are lengthened if they collide with the hash of
- *  a popular URL. Used for sending ThreatEntrySet to clients that do not
- *  support compression, or when sending non-4-byte hashes to clients that do
- *  support compression.
+ *  length.
+ *  Hashes can be anywhere from 4 to 32 bytes in size. A large majority are 4
+ *  bytes, but some hashes are lengthened if they collide with the hash of a
+ *  popular URL.
+ *  Used for sending ThreatEntrySet to clients that do not support compression,
+ *  or when sending non-4-byte hashes to clients that do support compression.
  */
 @interface GTLRSafeBrowsing_RawHashes : GTLRObject
 
@@ -718,8 +1146,9 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
 @property(nonatomic, strong, nullable) NSNumber *prefixSize;
 
 /**
- *  The hashes, all concatenated into one long string. Each hash has a prefix
- *  size of |prefix_size| above. Hashes are sorted in lexicographic order.
+ *  The hashes, in binary format, concatenated into one long string. Hashes are
+ *  sorted in lexicographic order. For JSON API users, hashes are
+ *  base64-encoded.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -776,8 +1205,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
 @property(nonatomic, strong, nullable) NSNumber *numEntries;
 
 /**
- *  The Golomb-Rice parameter, which is a number between 2 and 28. This field is
- *  missing (that is, zero) if `num_entries` is zero.
+ *  The Golomb-Rice parameter, which is a number between 2 and 28. This field
+ *  is missing (that is, zero) if `num_entries` is zero.
  *
  *  Uses NSNumber of intValue.
  */
@@ -793,8 +1222,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
 @interface GTLRSafeBrowsing_ThreatEntry : GTLRObject
 
 /**
- *  The digest of an executable in SHA256 format. The API supports both binary
- *  and hex digests.
+ *  The digest of an executable in SHA256 format. The API supports both
+ *  binary and hex digests. For JSON requests, digests are base64-encoded.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -803,7 +1232,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
 
 /**
  *  A hash prefix, consisting of the most significant 4-32 bytes of a SHA256
- *  hash. This field is in binary format.
+ *  hash. This field is in binary format. For JSON requests, hashes are
+ *  base64-encoded.
  *
  *  Remapped to 'hashProperty' to avoid NSObject's 'hash'.
  *
@@ -841,9 +1271,11 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *
  *  Likely values:
  *    @arg @c kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_CompressionTypeUnspecified
- *        Value "COMPRESSION_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_Raw Value "RAW"
- *    @arg @c kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_Rice Value "RICE"
+ *        Unknown. (Value: "COMPRESSION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_Raw Raw,
+ *        uncompressed data. (Value: "RAW")
+ *    @arg @c kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_Rice Rice-Golomb
+ *        encoded data. (Value: "RICE")
  */
 @property(nonatomic, copy, nullable) NSString *compressionType;
 
@@ -854,14 +1286,17 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
 @property(nonatomic, strong, nullable) GTLRSafeBrowsing_RawIndices *rawIndices;
 
 /**
- *  The encoded 4-byte prefixes of SHA256-formatted entries, using a Golomb-Rice
- *  encoding.
+ *  The encoded 4-byte prefixes of SHA256-formatted entries, using a
+ *  Golomb-Rice encoding. The hashes are converted to uint32, sorted in
+ *  ascending order, then delta encoded and stored as encoded_data.
  */
 @property(nonatomic, strong, nullable) GTLRSafeBrowsing_RiceDeltaEncoding *riceHashes;
 
 /**
  *  The encoded local, lexicographically-sorted list indices, using a
- *  Golomb-Rice encoding. Used for sending compressed removal indices.
+ *  Golomb-Rice encoding. Used for sending compressed removal indices. The
+ *  removal indices (uint32) are sorted in ascending order, then delta encoded
+ *  and stored as encoded_data.
  */
 @property(nonatomic, strong, nullable) GTLRSafeBrowsing_RiceDeltaEncoding *riceIndices;
 
@@ -901,23 +1336,24 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *
  *  Likely values:
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_AllPlatforms
- *        Value "ALL_PLATFORMS"
- *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Android Value
- *        "ANDROID"
+ *        Threat posed to all defined platforms. (Value: "ALL_PLATFORMS")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Android Threat
+ *        posed to Android. (Value: "ANDROID")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_AnyPlatform
- *        Value "ANY_PLATFORM"
- *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Chrome Value
- *        "CHROME"
- *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Ios Value
- *        "IOS"
- *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Linux Value
- *        "LINUX"
- *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Osx Value
- *        "OSX"
+ *        Threat posed to at least one of the defined platforms. (Value:
+ *        "ANY_PLATFORM")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Chrome Threat
+ *        posed to Chrome. (Value: "CHROME")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Ios Threat
+ *        posed to iOS. (Value: "IOS")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Linux Threat
+ *        posed to Linux. (Value: "LINUX")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Osx Threat
+ *        posed to OS X. (Value: "OSX")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_PlatformTypeUnspecified
- *        Value "PLATFORM_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Windows Value
- *        "WINDOWS"
+ *        Unknown platform. (Value: "PLATFORM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Windows Threat
+ *        posed to Windows. (Value: "WINDOWS")
  */
 @property(nonatomic, copy, nullable) NSString *platformType;
 
@@ -925,14 +1361,20 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The entry types contained in the list.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Cert CERT
+ *        (Value: "CERT")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_ChromeExtension
+ *        Chrome extension. (Value: "CHROME_EXTENSION")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Executable
- *        Value "EXECUTABLE"
- *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_IpRange
- *        Value "IP_RANGE"
+ *        An executable program. (Value: "EXECUTABLE")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Filename
+ *        Filename. (Value: "FILENAME")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_IpRange An
+ *        IP range. (Value: "IP_RANGE")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_ThreatEntryTypeUnspecified
- *        Value "THREAT_ENTRY_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Url Value
- *        "URL"
+ *        Unspecified. (Value: "THREAT_ENTRY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Url A URL.
+ *        (Value: "URL")
  */
 @property(nonatomic, copy, nullable) NSString *threatEntryType;
 
@@ -940,16 +1382,17 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The threat type posed by the list's entries.
  *
  *  Likely values:
- *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Malware Value
- *        "MALWARE"
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Malware Malware
+ *        threat type. (Value: "MALWARE")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_PotentiallyHarmfulApplication
- *        Value "POTENTIALLY_HARMFUL_APPLICATION"
+ *        Potentially harmful application threat type. (Value:
+ *        "POTENTIALLY_HARMFUL_APPLICATION")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineering
- *        Value "SOCIAL_ENGINEERING"
+ *        Social engineering threat type. (Value: "SOCIAL_ENGINEERING")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ThreatTypeUnspecified
- *        Value "THREAT_TYPE_UNSPECIFIED"
+ *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_UnwantedSoftware
- *        Value "UNWANTED_SOFTWARE"
+ *        Unwanted software threat type. (Value: "UNWANTED_SOFTWARE")
  */
 @property(nonatomic, copy, nullable) NSString *threatType;
 
@@ -965,24 +1408,31 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The cache lifetime for the returned match. Clients must not cache this
  *  response for more than this duration to avoid false positives.
  */
-@property(nonatomic, copy, nullable) NSString *cacheDuration;
+@property(nonatomic, strong, nullable) GTLRDuration *cacheDuration;
 
 /**
  *  The platform type matching this threat.
  *
  *  Likely values:
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_AllPlatforms Value
- *        "ALL_PLATFORMS"
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_Android Value "ANDROID"
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_AnyPlatform Value
- *        "ANY_PLATFORM"
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_Chrome Value "CHROME"
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_Ios Value "IOS"
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_Linux Value "LINUX"
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_Osx Value "OSX"
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_AllPlatforms Threat
+ *        posed to all defined platforms. (Value: "ALL_PLATFORMS")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_Android Threat posed to
+ *        Android. (Value: "ANDROID")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_AnyPlatform Threat
+ *        posed to at least one of the defined platforms. (Value:
+ *        "ANY_PLATFORM")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_Chrome Threat posed to
+ *        Chrome. (Value: "CHROME")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_Ios Threat posed to
+ *        iOS. (Value: "IOS")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_Linux Threat posed to
+ *        Linux. (Value: "LINUX")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_Osx Threat posed to OS
+ *        X. (Value: "OSX")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_PlatformTypeUnspecified
- *        Value "PLATFORM_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_Windows Value "WINDOWS"
+ *        Unknown platform. (Value: "PLATFORM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_PlatformType_Windows Threat posed to
+ *        Windows. (Value: "WINDOWS")
  */
 @property(nonatomic, copy, nullable) NSString *platformType;
 
@@ -996,13 +1446,20 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The threat entry type matching this threat.
  *
  *  Likely values:
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Executable Value
- *        "EXECUTABLE"
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_IpRange Value
- *        "IP_RANGE"
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Cert CERT (Value:
+ *        "CERT")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_ChromeExtension
+ *        Chrome extension. (Value: "CHROME_EXTENSION")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Executable An
+ *        executable program. (Value: "EXECUTABLE")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Filename Filename.
+ *        (Value: "FILENAME")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_IpRange An IP range.
+ *        (Value: "IP_RANGE")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_ThreatEntryTypeUnspecified
- *        Value "THREAT_ENTRY_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Url Value "URL"
+ *        Unspecified. (Value: "THREAT_ENTRY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Url A URL. (Value:
+ *        "URL")
  */
 @property(nonatomic, copy, nullable) NSString *threatEntryType;
 
@@ -1010,15 +1467,17 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The threat type matching this threat.
  *
  *  Likely values:
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_Malware Value "MALWARE"
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_Malware Malware threat
+ *        type. (Value: "MALWARE")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_PotentiallyHarmfulApplication
- *        Value "POTENTIALLY_HARMFUL_APPLICATION"
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineering Value
- *        "SOCIAL_ENGINEERING"
+ *        Potentially harmful application threat type. (Value:
+ *        "POTENTIALLY_HARMFUL_APPLICATION")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineering Social
+ *        engineering threat type. (Value: "SOCIAL_ENGINEERING")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_ThreatTypeUnspecified
- *        Value "THREAT_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSoftware Value
- *        "UNWANTED_SOFTWARE"
+ *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSoftware Unwanted
+ *        software threat type. (Value: "UNWANTED_SOFTWARE")
  */
 @property(nonatomic, copy, nullable) NSString *threatType;
 

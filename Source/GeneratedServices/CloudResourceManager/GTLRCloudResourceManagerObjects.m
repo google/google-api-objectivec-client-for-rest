@@ -14,6 +14,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudResourceManager_AuditLogConfig.logType
+NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataRead = @"DATA_READ";
+NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
 // GTLRCloudResourceManager_FolderOperation.operationType
 NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Create = @"CREATE";
 NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Move = @"MOVE";
@@ -48,6 +54,42 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 @implementation GTLRCloudResourceManager_Ancestor
 @dynamic resourceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_AuditConfig
+//
+
+@implementation GTLRCloudResourceManager_AuditConfig
+@dynamic auditLogConfigs, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditLogConfigs" : [GTLRCloudResourceManager_AuditLogConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_AuditLogConfig
+//
+
+@implementation GTLRCloudResourceManager_AuditLogConfig
+@dynamic exemptedMembers, logType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -260,7 +302,7 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 //
 
 @implementation GTLRCloudResourceManager_Policy
-@dynamic bindings, ETag, version;
+@dynamic auditConfigs, bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -268,6 +310,7 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"auditConfigs" : [GTLRCloudResourceManager_AuditConfig class],
     @"bindings" : [GTLRCloudResourceManager_Binding class]
   };
   return map;
@@ -364,7 +407,7 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 //
 
 @implementation GTLRCloudResourceManager_SetIamPolicyRequest
-@dynamic policy;
+@dynamic policy, updateMask;
 @end
 
 

@@ -1326,7 +1326,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *contentLanguage;
 
-/** The type of data feed. */
+/**
+ *  The type of data feed. For product inventory feeds, only feeds for local
+ *  stores, not online stores, are supported.
+ */
 @property(nonatomic, copy, nullable) NSString *contentType;
 
 /** Fetch schedule for the feed file. */

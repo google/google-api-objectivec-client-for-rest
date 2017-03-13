@@ -802,8 +802,8 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 @implementation GTLRSheets_CellFormat
 @dynamic backgroundColor, borders, horizontalAlignment, hyperlinkDisplayType,
-         numberFormat, padding, textDirection, textFormat, verticalAlignment,
-         wrapStrategy;
+         numberFormat, padding, textDirection, textFormat, textRotation,
+         verticalAlignment, wrapStrategy;
 @end
 
 
@@ -1761,6 +1761,16 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 @implementation GTLRSheets_TextFormatRun
 @dynamic format, startIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_TextRotation
+//
+
+@implementation GTLRSheets_TextRotation
+@dynamic angle, vertical;
 @end
 
 

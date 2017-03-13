@@ -106,7 +106,7 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 
 @implementation GTLRFirebaseDynamicLinks_DynamicLinkInfo
 @dynamic analyticsInfo, androidInfo, dynamicLinkDomain, iosInfo, link,
-         socialMetaTagInfo;
+         navigationInfo, socialMetaTagInfo;
 @end
 
 
@@ -148,6 +148,16 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 
 @implementation GTLRFirebaseDynamicLinks_ITunesConnectAnalytics
 @dynamic at, ct, mt, pt;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDynamicLinks_NavigationInfo
+//
+
+@implementation GTLRFirebaseDynamicLinks_NavigationInfo
+@dynamic enableForcedRedirect;
 @end
 
 

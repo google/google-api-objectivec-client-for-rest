@@ -26,6 +26,7 @@
 @class GTLRFirebaseDynamicLinks_GooglePlayAnalytics;
 @class GTLRFirebaseDynamicLinks_IosInfo;
 @class GTLRFirebaseDynamicLinks_ITunesConnectAnalytics;
+@class GTLRFirebaseDynamicLinks_NavigationInfo;
 @class GTLRFirebaseDynamicLinks_SocialMetaTagInfo;
 @class GTLRFirebaseDynamicLinks_Suffix;
 
@@ -356,6 +357,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
  */
 @property(nonatomic, copy, nullable) NSString *link;
 
+/** Information of navigation behavior of a Firebase Dynamic Links. */
+@property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_NavigationInfo *navigationInfo;
+
 /**
  *  Parameters for social meta tag params.
  *  Used to set meta tag data for link previews on social sites.
@@ -556,6 +560,22 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
  *  Connect.
  */
 @property(nonatomic, copy, nullable) NSString *pt;
+
+@end
+
+
+/**
+ *  Information of navigation behavior.
+ */
+@interface GTLRFirebaseDynamicLinks_NavigationInfo : GTLRObject
+
+/**
+ *  If this option is on, FDL click will be forced to redirect rather than
+ *  show an interstitial page.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableForcedRedirect;
 
 @end
 
