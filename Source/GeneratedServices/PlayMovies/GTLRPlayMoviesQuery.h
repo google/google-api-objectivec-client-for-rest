@@ -88,9 +88,9 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 @end
 
 /**
- *  List Avails owned or managed by the partner. See _Authentication and
- *  Authorization rules_ and _List methods rules_ for more information about
- *  this method.
+ *  List Avails owned or managed by the partner.
+ *  See _Authentication and Authorization rules_ and
+ *  _List methods rules_ for more information about this method.
  *
  *  Method: playmoviespartner.accounts.avails.list
  *
@@ -106,8 +106,8 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 
 /**
  *  Filter Avails that match a case-insensitive, partner-specific custom id.
- *  NOTE: this field is deprecated and will be removed on V2; `alt_ids` should
- *  be used instead.
+ *  NOTE: this field is deprecated and will be removed on V2; `alt_ids`
+ *  should be used instead.
  */
 @property(nonatomic, copy, nullable) NSString *altId;
 
@@ -137,9 +137,9 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 
 /**
  *  Filter that matches Avails with a `title_internal_alias`,
- *  `series_title_internal_alias`, `season_title_internal_alias`, or
- *  `episode_title_internal_alias` that contains the given case-insensitive
- *  title.
+ *  `series_title_internal_alias`, `season_title_internal_alias`,
+ *  or `episode_title_internal_alias` that contains the given
+ *  case-insensitive title.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -149,9 +149,9 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 /**
  *  Fetches a @c GTLRPlayMovies_ListAvailsResponse.
  *
- *  List Avails owned or managed by the partner. See _Authentication and
- *  Authorization rules_ and _List methods rules_ for more information about
- *  this method.
+ *  List Avails owned or managed by the partner.
+ *  See _Authentication and Authorization rules_ and
+ *  _List methods rules_ for more information about this method.
  *
  *  @param accountId REQUIRED. See _General rules_ for more information about
  *    this field.
@@ -167,7 +167,8 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 @end
 
 /**
- *  Get an Order given its id. See _Authentication and Authorization rules_ and
+ *  Get an Order given its id.
+ *  See _Authentication and Authorization rules_ and
  *  _Get methods rules_ for more information about this method.
  *
  *  Method: playmoviespartner.accounts.orders.get
@@ -188,7 +189,8 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 /**
  *  Fetches a @c GTLRPlayMovies_Order.
  *
- *  Get an Order given its id. See _Authentication and Authorization rules_ and
+ *  Get an Order given its id.
+ *  See _Authentication and Authorization rules_ and
  *  _Get methods rules_ for more information about this method.
  *
  *  @param accountId REQUIRED. See _General rules_ for more information about
@@ -203,9 +205,9 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 @end
 
 /**
- *  List Orders owned or managed by the partner. See _Authentication and
- *  Authorization rules_ and _List methods rules_ for more information about
- *  this method.
+ *  List Orders owned or managed by the partner.
+ *  See _Authentication and Authorization rules_ and
+ *  _List methods rules_ for more information about this method.
  *
  *  Method: playmoviespartner.accounts.orders.list
  *
@@ -225,8 +227,8 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 @property(nonatomic, copy, nullable) NSString *customId;
 
 /**
- *  Filter that matches Orders with a `name`, `show`, `season` or `episode` that
- *  contains the given case-insensitive name.
+ *  Filter that matches Orders with a `name`, `show`, `season` or `episode`
+ *  that contains the given case-insensitive name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -262,9 +264,9 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 /**
  *  Fetches a @c GTLRPlayMovies_ListOrdersResponse.
  *
- *  List Orders owned or managed by the partner. See _Authentication and
- *  Authorization rules_ and _List methods rules_ for more information about
- *  this method.
+ *  List Orders owned or managed by the partner.
+ *  See _Authentication and Authorization rules_ and
+ *  _List methods rules_ for more information about this method.
  *
  *  @param accountId REQUIRED. See _General rules_ for more information about
  *    this field.
@@ -280,9 +282,9 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 @end
 
 /**
- *  Get a StoreInfo given its video id and country. See _Authentication and
- *  Authorization rules_ and _Get methods rules_ for more information about this
- *  method.
+ *  Get a StoreInfo given its video id and country.
+ *  See _Authentication and Authorization rules_ and
+ *  _Get methods rules_ for more information about this method.
  *
  *  Method: playmoviespartner.accounts.storeInfos.country.get
  *
@@ -305,9 +307,9 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 /**
  *  Fetches a @c GTLRPlayMovies_StoreInfo.
  *
- *  Get a StoreInfo given its video id and country. See _Authentication and
- *  Authorization rules_ and _Get methods rules_ for more information about this
- *  method.
+ *  Get a StoreInfo given its video id and country.
+ *  See _Authentication and Authorization rules_ and
+ *  _Get methods rules_ for more information about this method.
  *
  *  @param accountId REQUIRED. See _General rules_ for more information about
  *    this field.
@@ -323,9 +325,9 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 @end
 
 /**
- *  List StoreInfos owned or managed by the partner. See _Authentication and
- *  Authorization rules_ and _List methods rules_ for more information about
- *  this method.
+ *  List StoreInfos owned or managed by the partner.
+ *  See _Authentication and Authorization rules_ and
+ *  _List methods rules_ for more information about this method.
  *
  *  Method: playmoviespartner.accounts.storeInfos.list
  *
@@ -349,8 +351,8 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *mids;
 
 /**
- *  Filter that matches StoreInfos with a `name` or `show_name` that contains
- *  the given case-insensitive name.
+ *  Filter that matches StoreInfos with a `name` or `show_name`
+ *  that contains the given case-insensitive name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -370,8 +372,9 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *studioNames;
 
 /**
- *  Filter StoreInfos that match a given `video_id`. NOTE: this field is
- *  deprecated and will be removed on V2; `video_ids` should be used instead.
+ *  Filter StoreInfos that match a given `video_id`.
+ *  NOTE: this field is deprecated and will be removed on V2; `video_ids`
+ *  should be used instead.
  */
 @property(nonatomic, copy, nullable) NSString *videoId;
 
@@ -381,9 +384,9 @@ GTLR_EXTERN NSString * const kGTLRPlayMoviesStatusStatusUnspecified;
 /**
  *  Fetches a @c GTLRPlayMovies_ListStoreInfosResponse.
  *
- *  List StoreInfos owned or managed by the partner. See _Authentication and
- *  Authorization rules_ and _List methods rules_ for more information about
- *  this method.
+ *  List StoreInfos owned or managed by the partner.
+ *  See _Authentication and Authorization rules_ and
+ *  _List methods rules_ for more information about this method.
  *
  *  @param accountId REQUIRED. See _General rules_ for more information about
  *    this field.

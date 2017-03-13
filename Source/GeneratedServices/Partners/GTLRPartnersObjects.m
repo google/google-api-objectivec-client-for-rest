@@ -4,8 +4,8 @@
 // API:
 //   Google Partners API (partners/v2)
 // Description:
-//   Lets advertisers search certified companies and create contact leads with
-//   them, and also audits the usage of clients.
+//   Searches certified companies and creates contact leads with them, and also
+//   audits the usage of clients.
 // Documentation:
 //   https://developers.google.com/partners/
 
@@ -14,25 +14,80 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRPartners_AvailableOffer.offerLevel
+NSString * const kGTLRPartners_AvailableOffer_OfferLevel_OfferLevelDenyContract = @"OFFER_LEVEL_DENY_CONTRACT";
+NSString * const kGTLRPartners_AvailableOffer_OfferLevel_OfferLevelDenyProblem = @"OFFER_LEVEL_DENY_PROBLEM";
+NSString * const kGTLRPartners_AvailableOffer_OfferLevel_OfferLevelLimit0 = @"OFFER_LEVEL_LIMIT_0";
+NSString * const kGTLRPartners_AvailableOffer_OfferLevel_OfferLevelLimit15 = @"OFFER_LEVEL_LIMIT_15";
+NSString * const kGTLRPartners_AvailableOffer_OfferLevel_OfferLevelLimit5 = @"OFFER_LEVEL_LIMIT_5";
+NSString * const kGTLRPartners_AvailableOffer_OfferLevel_OfferLevelLimit50 = @"OFFER_LEVEL_LIMIT_50";
+NSString * const kGTLRPartners_AvailableOffer_OfferLevel_OfferLevelManual = @"OFFER_LEVEL_MANUAL";
+NSString * const kGTLRPartners_AvailableOffer_OfferLevel_OfferLevelUnspecified = @"OFFER_LEVEL_UNSPECIFIED";
+
+// GTLRPartners_AvailableOffer.offerType
+NSString * const kGTLRPartners_AvailableOffer_OfferType_OfferTypeSpendMatch = @"OFFER_TYPE_SPEND_MATCH";
+NSString * const kGTLRPartners_AvailableOffer_OfferType_OfferTypeSpendXGetY = @"OFFER_TYPE_SPEND_X_GET_Y";
+NSString * const kGTLRPartners_AvailableOffer_OfferType_OfferTypeUnspecified = @"OFFER_TYPE_UNSPECIFIED";
+NSString * const kGTLRPartners_AvailableOffer_OfferType_OfferTypeVideo = @"OFFER_TYPE_VIDEO";
+
+// GTLRPartners_Certification.certificationType
+NSString * const kGTLRPartners_Certification_CertificationType_CertificationTypeUnspecified = @"CERTIFICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRPartners_Certification_CertificationType_CtAdwords = @"CT_ADWORDS";
+NSString * const kGTLRPartners_Certification_CertificationType_CtAdwordsDisplay = @"CT_ADWORDS_DISPLAY";
+NSString * const kGTLRPartners_Certification_CertificationType_CtAdwordsSearch = @"CT_ADWORDS_SEARCH";
+NSString * const kGTLRPartners_Certification_CertificationType_CtAnalytics = @"CT_ANALYTICS";
+NSString * const kGTLRPartners_Certification_CertificationType_CtDigitalSales = @"CT_DIGITAL_SALES";
+NSString * const kGTLRPartners_Certification_CertificationType_CtDoubleclick = @"CT_DOUBLECLICK";
+NSString * const kGTLRPartners_Certification_CertificationType_CtMobile = @"CT_MOBILE";
+NSString * const kGTLRPartners_Certification_CertificationType_CtMobileSites = @"CT_MOBILE_SITES";
+NSString * const kGTLRPartners_Certification_CertificationType_CtShopping = @"CT_SHOPPING";
+NSString * const kGTLRPartners_Certification_CertificationType_CtVideoads = @"CT_VIDEOADS";
+NSString * const kGTLRPartners_Certification_CertificationType_CtYoutube = @"CT_YOUTUBE";
+
 // GTLRPartners_CertificationExamStatus.type
 NSString * const kGTLRPartners_CertificationExamStatus_Type_CertificationExamTypeUnspecified = @"CERTIFICATION_EXAM_TYPE_UNSPECIFIED";
 NSString * const kGTLRPartners_CertificationExamStatus_Type_CetAdwordsAdvancedDisplay = @"CET_ADWORDS_ADVANCED_DISPLAY";
 NSString * const kGTLRPartners_CertificationExamStatus_Type_CetAdwordsAdvancedSearch = @"CET_ADWORDS_ADVANCED_SEARCH";
+NSString * const kGTLRPartners_CertificationExamStatus_Type_CetAdwordsFundamentals = @"CET_ADWORDS_FUNDAMENTALS";
 NSString * const kGTLRPartners_CertificationExamStatus_Type_CetAnalytics = @"CET_ANALYTICS";
+NSString * const kGTLRPartners_CertificationExamStatus_Type_CetDigitalSales = @"CET_DIGITAL_SALES";
 NSString * const kGTLRPartners_CertificationExamStatus_Type_CetDoubleclick = @"CET_DOUBLECLICK";
 NSString * const kGTLRPartners_CertificationExamStatus_Type_CetMobile = @"CET_MOBILE";
+NSString * const kGTLRPartners_CertificationExamStatus_Type_CetMobileSites = @"CET_MOBILE_SITES";
 NSString * const kGTLRPartners_CertificationExamStatus_Type_CetShopping = @"CET_SHOPPING";
 NSString * const kGTLRPartners_CertificationExamStatus_Type_CetVideoAds = @"CET_VIDEO_ADS";
 
 // GTLRPartners_CertificationStatus.type
 NSString * const kGTLRPartners_CertificationStatus_Type_CertificationTypeUnspecified = @"CERTIFICATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRPartners_CertificationStatus_Type_CtAdwords = @"CT_ADWORDS";
+NSString * const kGTLRPartners_CertificationStatus_Type_CtAdwordsDisplay = @"CT_ADWORDS_DISPLAY";
+NSString * const kGTLRPartners_CertificationStatus_Type_CtAdwordsSearch = @"CT_ADWORDS_SEARCH";
 NSString * const kGTLRPartners_CertificationStatus_Type_CtAnalytics = @"CT_ANALYTICS";
+NSString * const kGTLRPartners_CertificationStatus_Type_CtDigitalSales = @"CT_DIGITAL_SALES";
 NSString * const kGTLRPartners_CertificationStatus_Type_CtDoubleclick = @"CT_DOUBLECLICK";
 NSString * const kGTLRPartners_CertificationStatus_Type_CtMobile = @"CT_MOBILE";
+NSString * const kGTLRPartners_CertificationStatus_Type_CtMobileSites = @"CT_MOBILE_SITES";
 NSString * const kGTLRPartners_CertificationStatus_Type_CtShopping = @"CT_SHOPPING";
 NSString * const kGTLRPartners_CertificationStatus_Type_CtVideoads = @"CT_VIDEOADS";
 NSString * const kGTLRPartners_CertificationStatus_Type_CtYoutube = @"CT_YOUTUBE";
+
+// GTLRPartners_Company.badgeTier
+NSString * const kGTLRPartners_Company_BadgeTier_BadgeTierNone = @"BADGE_TIER_NONE";
+NSString * const kGTLRPartners_Company_BadgeTier_BadgeTierPremier = @"BADGE_TIER_PREMIER";
+NSString * const kGTLRPartners_Company_BadgeTier_BadgeTierRegular = @"BADGE_TIER_REGULAR";
+
+// GTLRPartners_Company.companyTypes
+NSString * const kGTLRPartners_Company_CompanyTypes_AdvertisingToolDevelopment = @"ADVERTISING_TOOL_DEVELOPMENT";
+NSString * const kGTLRPartners_Company_CompanyTypes_CdigitalAgency = @"CDIGITAL_AGENCY";
+NSString * const kGTLRPartners_Company_CompanyTypes_CompanyTypeUnspecified = @"COMPANY_TYPE_UNSPECIFIED";
+NSString * const kGTLRPartners_Company_CompanyTypes_CreativeAgency = @"CREATIVE_AGENCY";
+NSString * const kGTLRPartners_Company_CompanyTypes_FullServiceAgency = @"FULL_SERVICE_AGENCY";
+NSString * const kGTLRPartners_Company_CompanyTypes_MediaAgency = @"MEDIA_AGENCY";
+NSString * const kGTLRPartners_Company_CompanyTypes_PerformanceMarketing = @"PERFORMANCE_MARKETING";
+NSString * const kGTLRPartners_Company_CompanyTypes_Pr         = @"PR";
+NSString * const kGTLRPartners_Company_CompanyTypes_Reseller   = @"RESELLER";
+NSString * const kGTLRPartners_Company_CompanyTypes_SelfManaged = @"SELF_MANAGED";
+NSString * const kGTLRPartners_Company_CompanyTypes_SemSeo     = @"SEM_SEO";
 
 // GTLRPartners_Company.industries
 NSString * const kGTLRPartners_Company_Industries_IAutomotive  = @"I_AUTOMOTIVE";
@@ -47,6 +102,12 @@ NSString * const kGTLRPartners_Company_Industries_IRetail      = @"I_RETAIL";
 NSString * const kGTLRPartners_Company_Industries_ITechnology  = @"I_TECHNOLOGY";
 NSString * const kGTLRPartners_Company_Industries_ITravel      = @"I_TRAVEL";
 
+// GTLRPartners_Company.profileStatus
+NSString * const kGTLRPartners_Company_ProfileStatus_CompanyProfileStatusUnspecified = @"COMPANY_PROFILE_STATUS_UNSPECIFIED";
+NSString * const kGTLRPartners_Company_ProfileStatus_Hidden    = @"HIDDEN";
+NSString * const kGTLRPartners_Company_ProfileStatus_Published = @"PUBLISHED";
+NSString * const kGTLRPartners_Company_ProfileStatus_Searchable = @"SEARCHABLE";
+
 // GTLRPartners_Company.services
 NSString * const kGTLRPartners_Company_Services_SAdvancedAdwordsSupport = @"S_ADVANCED_ADWORDS_SUPPORT";
 NSString * const kGTLRPartners_Company_Services_SAdvertisingOnGoogle = @"S_ADVERTISING_ON_GOOGLE";
@@ -54,6 +115,30 @@ NSString * const kGTLRPartners_Company_Services_SAnEnhancedWebsite = @"S_AN_ENHA
 NSString * const kGTLRPartners_Company_Services_SAnOnlineMarketingPlan = @"S_AN_ONLINE_MARKETING_PLAN";
 NSString * const kGTLRPartners_Company_Services_ServiceUnspecified = @"SERVICE_UNSPECIFIED";
 NSString * const kGTLRPartners_Company_Services_SMobileAndVideoAds = @"S_MOBILE_AND_VIDEO_ADS";
+NSString * const kGTLRPartners_Company_Services_SMobileWebsiteServices = @"S_MOBILE_WEBSITE_SERVICES";
+
+// GTLRPartners_CompanyRelation.badgeTier
+NSString * const kGTLRPartners_CompanyRelation_BadgeTier_BadgeTierNone = @"BADGE_TIER_NONE";
+NSString * const kGTLRPartners_CompanyRelation_BadgeTier_BadgeTierPremier = @"BADGE_TIER_PREMIER";
+NSString * const kGTLRPartners_CompanyRelation_BadgeTier_BadgeTierRegular = @"BADGE_TIER_REGULAR";
+
+// GTLRPartners_CompanyRelation.segment
+NSString * const kGTLRPartners_CompanyRelation_Segment_CompanySegmentNal = @"COMPANY_SEGMENT_NAL";
+NSString * const kGTLRPartners_CompanyRelation_Segment_CompanySegmentPpsp = @"COMPANY_SEGMENT_PPSP";
+NSString * const kGTLRPartners_CompanyRelation_Segment_CompanySegmentPsp = @"COMPANY_SEGMENT_PSP";
+NSString * const kGTLRPartners_CompanyRelation_Segment_CompanySegmentUnknown = @"COMPANY_SEGMENT_UNKNOWN";
+
+// GTLRPartners_CompanyRelation.state
+NSString * const kGTLRPartners_CompanyRelation_State_UserCompanyReationStateNoneSpecified = @"USER_COMPANY_REATION_STATE_NONE_SPECIFIED";
+NSString * const kGTLRPartners_CompanyRelation_State_UserCompanyRelationStateApproved = @"USER_COMPANY_RELATION_STATE_APPROVED";
+NSString * const kGTLRPartners_CompanyRelation_State_UserCompanyRelationStateAwaitAdmin = @"USER_COMPANY_RELATION_STATE_AWAIT_ADMIN";
+NSString * const kGTLRPartners_CompanyRelation_State_UserCompanyRelationStateAwaitEmail = @"USER_COMPANY_RELATION_STATE_AWAIT_EMAIL";
+
+// GTLRPartners_CountryOfferInfo.offerType
+NSString * const kGTLRPartners_CountryOfferInfo_OfferType_OfferTypeSpendMatch = @"OFFER_TYPE_SPEND_MATCH";
+NSString * const kGTLRPartners_CountryOfferInfo_OfferType_OfferTypeSpendXGetY = @"OFFER_TYPE_SPEND_X_GET_Y";
+NSString * const kGTLRPartners_CountryOfferInfo_OfferType_OfferTypeUnspecified = @"OFFER_TYPE_UNSPECIFIED";
+NSString * const kGTLRPartners_CountryOfferInfo_OfferType_OfferTypeVideo = @"OFFER_TYPE_VIDEO";
 
 // GTLRPartners_CreateLeadResponse.recaptchaStatus
 NSString * const kGTLRPartners_CreateLeadResponse_RecaptchaStatus_RecaptchaStatusUnspecified = @"RECAPTCHA_STATUS_UNSPECIFIED";
@@ -83,7 +168,7 @@ NSString * const kGTLRPartners_EventData_Key_Exam              = @"EXAM";
 NSString * const kGTLRPartners_EventData_Key_ExperimentId      = @"EXPERIMENT_ID";
 NSString * const kGTLRPartners_EventData_Key_GpsMotivation     = @"GPS_MOTIVATION";
 NSString * const kGTLRPartners_EventData_Key_HistoryToken      = @"HISTORY_TOKEN";
-NSString * const kGTLRPartners_EventData_Key_Identifier        = @"IDENTIFIER";
+NSString * const kGTLRPartners_EventData_Key_Id                = @"ID";
 NSString * const kGTLRPartners_EventData_Key_Industry          = @"INDUSTRY";
 NSString * const kGTLRPartners_EventData_Key_InsightTag        = @"INSIGHT_TAG";
 NSString * const kGTLRPartners_EventData_Key_Language          = @"LANGUAGE";
@@ -101,15 +186,67 @@ NSString * const kGTLRPartners_EventData_Key_Url               = @"URL";
 NSString * const kGTLRPartners_EventData_Key_ViewPort          = @"VIEW_PORT";
 NSString * const kGTLRPartners_EventData_Key_Website           = @"WEBSITE";
 
+// GTLRPartners_ExamStatus.examType
+NSString * const kGTLRPartners_ExamStatus_ExamType_CertificationExamTypeUnspecified = @"CERTIFICATION_EXAM_TYPE_UNSPECIFIED";
+NSString * const kGTLRPartners_ExamStatus_ExamType_CetAdwordsAdvancedDisplay = @"CET_ADWORDS_ADVANCED_DISPLAY";
+NSString * const kGTLRPartners_ExamStatus_ExamType_CetAdwordsAdvancedSearch = @"CET_ADWORDS_ADVANCED_SEARCH";
+NSString * const kGTLRPartners_ExamStatus_ExamType_CetAdwordsFundamentals = @"CET_ADWORDS_FUNDAMENTALS";
+NSString * const kGTLRPartners_ExamStatus_ExamType_CetAnalytics = @"CET_ANALYTICS";
+NSString * const kGTLRPartners_ExamStatus_ExamType_CetDigitalSales = @"CET_DIGITAL_SALES";
+NSString * const kGTLRPartners_ExamStatus_ExamType_CetDoubleclick = @"CET_DOUBLECLICK";
+NSString * const kGTLRPartners_ExamStatus_ExamType_CetMobile   = @"CET_MOBILE";
+NSString * const kGTLRPartners_ExamStatus_ExamType_CetMobileSites = @"CET_MOBILE_SITES";
+NSString * const kGTLRPartners_ExamStatus_ExamType_CetShopping = @"CET_SHOPPING";
+NSString * const kGTLRPartners_ExamStatus_ExamType_CetVideoAds = @"CET_VIDEO_ADS";
+
+// GTLRPartners_ExamToken.examType
+NSString * const kGTLRPartners_ExamToken_ExamType_CertificationExamTypeUnspecified = @"CERTIFICATION_EXAM_TYPE_UNSPECIFIED";
+NSString * const kGTLRPartners_ExamToken_ExamType_CetAdwordsAdvancedDisplay = @"CET_ADWORDS_ADVANCED_DISPLAY";
+NSString * const kGTLRPartners_ExamToken_ExamType_CetAdwordsAdvancedSearch = @"CET_ADWORDS_ADVANCED_SEARCH";
+NSString * const kGTLRPartners_ExamToken_ExamType_CetAdwordsFundamentals = @"CET_ADWORDS_FUNDAMENTALS";
+NSString * const kGTLRPartners_ExamToken_ExamType_CetAnalytics = @"CET_ANALYTICS";
+NSString * const kGTLRPartners_ExamToken_ExamType_CetDigitalSales = @"CET_DIGITAL_SALES";
+NSString * const kGTLRPartners_ExamToken_ExamType_CetDoubleclick = @"CET_DOUBLECLICK";
+NSString * const kGTLRPartners_ExamToken_ExamType_CetMobile    = @"CET_MOBILE";
+NSString * const kGTLRPartners_ExamToken_ExamType_CetMobileSites = @"CET_MOBILE_SITES";
+NSString * const kGTLRPartners_ExamToken_ExamType_CetShopping  = @"CET_SHOPPING";
+NSString * const kGTLRPartners_ExamToken_ExamType_CetVideoAds  = @"CET_VIDEO_ADS";
+
+// GTLRPartners_HistoricalOffer.offerType
+NSString * const kGTLRPartners_HistoricalOffer_OfferType_OfferTypeSpendMatch = @"OFFER_TYPE_SPEND_MATCH";
+NSString * const kGTLRPartners_HistoricalOffer_OfferType_OfferTypeSpendXGetY = @"OFFER_TYPE_SPEND_X_GET_Y";
+NSString * const kGTLRPartners_HistoricalOffer_OfferType_OfferTypeUnspecified = @"OFFER_TYPE_UNSPECIFIED";
+NSString * const kGTLRPartners_HistoricalOffer_OfferType_OfferTypeVideo = @"OFFER_TYPE_VIDEO";
+
+// GTLRPartners_HistoricalOffer.status
+NSString * const kGTLRPartners_HistoricalOffer_Status_OfferStatusAwarded = @"OFFER_STATUS_AWARDED";
+NSString * const kGTLRPartners_HistoricalOffer_Status_OfferStatusDistributed = @"OFFER_STATUS_DISTRIBUTED";
+NSString * const kGTLRPartners_HistoricalOffer_Status_OfferStatusExpired = @"OFFER_STATUS_EXPIRED";
+NSString * const kGTLRPartners_HistoricalOffer_Status_OfferStatusRedeemed = @"OFFER_STATUS_REDEEMED";
+NSString * const kGTLRPartners_HistoricalOffer_Status_OfferStatusUnspecified = @"OFFER_STATUS_UNSPECIFIED";
+
 // GTLRPartners_Lead.gpsMotivations
 NSString * const kGTLRPartners_Lead_GpsMotivations_GpsmHelpWithAdvertising = @"GPSM_HELP_WITH_ADVERTISING";
 NSString * const kGTLRPartners_Lead_GpsMotivations_GpsmHelpWithWebsite = @"GPSM_HELP_WITH_WEBSITE";
 NSString * const kGTLRPartners_Lead_GpsMotivations_GpsmNoWebsite = @"GPSM_NO_WEBSITE";
 NSString * const kGTLRPartners_Lead_GpsMotivations_GpsMotivationUnspecified = @"GPS_MOTIVATION_UNSPECIFIED";
 
+// GTLRPartners_Lead.state
+NSString * const kGTLRPartners_Lead_State_Client               = @"CLIENT";
+NSString * const kGTLRPartners_Lead_State_Contacted            = @"CONTACTED";
+NSString * const kGTLRPartners_Lead_State_Lead                 = @"LEAD";
+NSString * const kGTLRPartners_Lead_State_LeadStateUnspecified = @"LEAD_STATE_UNSPECIFIED";
+NSString * const kGTLRPartners_Lead_State_Other                = @"OTHER";
+
 // GTLRPartners_Lead.type
 NSString * const kGTLRPartners_Lead_Type_LeadTypeUnspecified = @"LEAD_TYPE_UNSPECIFIED";
 NSString * const kGTLRPartners_Lead_Type_LtGps               = @"LT_GPS";
+
+// GTLRPartners_ListOffersResponse.noOfferReason
+NSString * const kGTLRPartners_ListOffersResponse_NoOfferReason_NoOfferReasonIneligible = @"NO_OFFER_REASON_INELIGIBLE";
+NSString * const kGTLRPartners_ListOffersResponse_NoOfferReason_NoOfferReasonLimitReached = @"NO_OFFER_REASON_LIMIT_REACHED";
+NSString * const kGTLRPartners_ListOffersResponse_NoOfferReason_NoOfferReasonNoMcc = @"NO_OFFER_REASON_NO_MCC";
+NSString * const kGTLRPartners_ListOffersResponse_NoOfferReason_NoOfferReasonUnspecified = @"NO_OFFER_REASON_UNSPECIFIED";
 
 // GTLRPartners_ListUserStatesResponse.userStates
 NSString * const kGTLRPartners_ListUserStatesResponse_UserStates_UserStateUnspecified = @"USER_STATE_UNSPECIFIED";
@@ -266,6 +403,8 @@ NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbFailedRecaptch
 NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbNoPartnersAvailableWithSearchCriteria = @"SMB_NO_PARTNERS_AVAILABLE_WITH_SEARCH_CRITERIA";
 NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbPerformedSearchOnGps = @"SMB_PERFORMED_SEARCH_ON_GPS";
 NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedAdwordsCertificate = @"SMB_VIEWED_ADWORDS_CERTIFICATE";
+NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedAdwordsDisplayCertificate = @"SMB_VIEWED_ADWORDS_DISPLAY_CERTIFICATE";
+NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedAdwordsSearchCertificate = @"SMB_VIEWED_ADWORDS_SEARCH_CERTIFICATE";
 NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedAnalyticsCertificate = @"SMB_VIEWED_ANALYTICS_CERTIFICATE";
 NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedAPartnerOnGps = @"SMB_VIEWED_A_PARTNER_ON_GPS";
 NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedAPartnerProfile = @"SMB_VIEWED_A_PARTNER_PROFILE";
@@ -301,9 +440,121 @@ NSString * const kGTLRPartners_LogUserEventRequest_EventScope_Page = @"PAGE";
 NSString * const kGTLRPartners_LogUserEventRequest_EventScope_Session = @"SESSION";
 NSString * const kGTLRPartners_LogUserEventRequest_EventScope_Visitor = @"VISITOR";
 
+// GTLRPartners_OfferCustomer.offerType
+NSString * const kGTLRPartners_OfferCustomer_OfferType_OfferTypeSpendMatch = @"OFFER_TYPE_SPEND_MATCH";
+NSString * const kGTLRPartners_OfferCustomer_OfferType_OfferTypeSpendXGetY = @"OFFER_TYPE_SPEND_X_GET_Y";
+NSString * const kGTLRPartners_OfferCustomer_OfferType_OfferTypeUnspecified = @"OFFER_TYPE_UNSPECIFIED";
+NSString * const kGTLRPartners_OfferCustomer_OfferType_OfferTypeVideo = @"OFFER_TYPE_VIDEO";
+
 // GTLRPartners_Rank.type
 NSString * const kGTLRPartners_Rank_Type_RankTypeUnspecified = @"RANK_TYPE_UNSPECIFIED";
 NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE";
+
+// GTLRPartners_SpecializationStatus.badgeSpecialization
+NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecialization_BadgeSpecializationAdwordsDisplay = @"BADGE_SPECIALIZATION_ADWORDS_DISPLAY";
+NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecialization_BadgeSpecializationAdwordsMobile = @"BADGE_SPECIALIZATION_ADWORDS_MOBILE";
+NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecialization_BadgeSpecializationAdwordsSearch = @"BADGE_SPECIALIZATION_ADWORDS_SEARCH";
+NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecialization_BadgeSpecializationAdwordsShopping = @"BADGE_SPECIALIZATION_ADWORDS_SHOPPING";
+NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecialization_BadgeSpecializationAdwordsVideo = @"BADGE_SPECIALIZATION_ADWORDS_VIDEO";
+NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecialization_BadgeSpecializationUnknown = @"BADGE_SPECIALIZATION_UNKNOWN";
+
+// GTLRPartners_SpecializationStatus.badgeSpecializationState
+NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializationState_BadgeSpecializationStateInGrace = @"BADGE_SPECIALIZATION_STATE_IN_GRACE";
+NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializationState_BadgeSpecializationStateNotPassed = @"BADGE_SPECIALIZATION_STATE_NOT_PASSED";
+NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializationState_BadgeSpecializationStatePassed = @"BADGE_SPECIALIZATION_STATE_PASSED";
+NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializationState_BadgeSpecializationStateUnknown = @"BADGE_SPECIALIZATION_STATE_UNKNOWN";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_AdWordsManagerAccountInfo
+//
+
+@implementation GTLRPartners_AdWordsManagerAccountInfo
+@dynamic customerName, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_Analytics
+//
+
+@implementation GTLRPartners_Analytics
+@dynamic contacts, eventDate, profileViews, searchViews;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_AnalyticsDataPoint
+//
+
+@implementation GTLRPartners_AnalyticsDataPoint
+@dynamic eventCount, eventLocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eventLocations" : [GTLRPartners_LatLng class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_AnalyticsSummary
+//
+
+@implementation GTLRPartners_AnalyticsSummary
+@dynamic contactsCount, profileViewsCount, searchViewsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_AvailableOffer
+//
+
+@implementation GTLRPartners_AvailableOffer
+@dynamic available, countryOfferInfos, descriptionProperty, identifier,
+         maxAccountAge, name, offerLevel, offerType, qualifiedCustomer,
+         qualifiedCustomersComplete, showSpecialOfferCopy, terms;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"countryOfferInfos" : [GTLRPartners_CountryOfferInfo class],
+    @"qualifiedCustomer" : [GTLRPartners_OfferCustomer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_Certification
+//
+
+@implementation GTLRPartners_Certification
+@dynamic achieved, certificationType, expiration, lastAchieved, warning;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -321,7 +572,7 @@ NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE"
 //
 
 @implementation GTLRPartners_CertificationStatus
-@dynamic examStatuses, isCertified, type;
+@dynamic examStatuses, isCertified, type, userCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -339,9 +590,12 @@ NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE"
 //
 
 @implementation GTLRPartners_Company
-@dynamic certificationStatuses, convertedMinMonthlyBudget, identifier,
-         industries, localizedInfos, locations, name, originalMinMonthlyBudget,
-         publicProfile, ranks, services, websiteUrl;
+@dynamic additionalWebsites, autoApprovalEmailDomains, badgeTier,
+         certificationStatuses, companyTypes, convertedMinMonthlyBudget,
+         identifier, industries, localizedInfos, locations, name,
+         originalMinMonthlyBudget, primaryAdwordsManagerAccountId,
+         primaryLanguageCode, primaryLocation, profileStatus, publicProfile,
+         ranks, services, specializationStatus, websiteUrl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -349,16 +603,51 @@ NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"additionalWebsites" : [NSString class],
+    @"autoApprovalEmailDomains" : [NSString class],
     @"certificationStatuses" : [GTLRPartners_CertificationStatus class],
+    @"companyTypes" : [NSString class],
     @"industries" : [NSString class],
     @"localizedInfos" : [GTLRPartners_LocalizedCompanyInfo class],
     @"locations" : [GTLRPartners_Location class],
     @"ranks" : [GTLRPartners_Rank class],
-    @"services" : [NSString class]
+    @"services" : [NSString class],
+    @"specializationStatus" : [GTLRPartners_SpecializationStatus class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_CompanyRelation
+//
+
+@implementation GTLRPartners_CompanyRelation
+@dynamic address, badgeTier, companyAdmin, companyId, creationTime, isPending,
+         logoUrl, managerAccount, name, phoneNumber, resolvedTimestamp, segment,
+         specializationStatus, state, website;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"segment" : [NSString class],
+    @"specializationStatus" : [GTLRPartners_SpecializationStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_CountryOfferInfo
+//
+
+@implementation GTLRPartners_CountryOfferInfo
+@dynamic getYAmount, offerCountryCode, offerType, spendXAmount;
 @end
 
 
@@ -384,11 +673,30 @@ NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPartners_Date
+//
+
+@implementation GTLRPartners_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPartners_DebugInfo
 //
 
 @implementation GTLRPartners_DebugInfo
 @dynamic serverInfo, serverTraceInfo, serviceUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_Empty
+//
+
+@implementation GTLRPartners_Empty
 @end
 
 
@@ -412,11 +720,53 @@ NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPartners_ExamStatus
+//
+
+@implementation GTLRPartners_ExamStatus
+@dynamic examType, expiration, lastPassed, passed, taken, warning;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_ExamToken
+//
+
+@implementation GTLRPartners_ExamToken
+@dynamic examId, examType, token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPartners_GetCompanyResponse
 //
 
 @implementation GTLRPartners_GetCompanyResponse
 @dynamic company, responseMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_GetPartnersStatusResponse
+//
+
+@implementation GTLRPartners_GetPartnersStatusResponse
+@dynamic responseMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_HistoricalOffer
+//
+
+@implementation GTLRPartners_HistoricalOffer
+@dynamic adwordsUrl, clientEmail, clientId, clientName, creationTime,
+         expirationTime, lastModifiedTime, offerCode, offerCountryCode,
+         offerType, senderName, status;
 @end
 
 
@@ -436,8 +786,9 @@ NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE"
 //
 
 @implementation GTLRPartners_Lead
-@dynamic comments, email, familyName, givenName, gpsMotivations, identifier,
-         minMonthlyBudget, phoneNumber, type, websiteUrl;
+@dynamic adwordsCustomerId, comments, createTime, email, familyName, givenName,
+         gpsMotivations, identifier, languageCode, marketingOptIn,
+         minMonthlyBudget, phoneNumber, state, type, websiteUrl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -448,6 +799,28 @@ NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE"
     @"gpsMotivations" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_ListAnalyticsResponse
+//
+
+@implementation GTLRPartners_ListAnalyticsResponse
+@dynamic analytics, analyticsSummary, nextPageToken, responseMetadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"analytics" : [GTLRPartners_Analytics class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"analytics";
 }
 
 @end
@@ -470,6 +843,69 @@ NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE"
 
 + (NSString *)collectionItemsKey {
   return @"companies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_ListLeadsResponse
+//
+
+@implementation GTLRPartners_ListLeadsResponse
+@dynamic leads, nextPageToken, responseMetadata, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"leads" : [GTLRPartners_Lead class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"leads";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_ListOffersHistoryResponse
+//
+
+@implementation GTLRPartners_ListOffersHistoryResponse
+@dynamic canShowEntireCompany, nextPageToken, offers, responseMetadata,
+         showingEntireCompany, totalResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"offers" : [GTLRPartners_HistoricalOffer class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"offers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_ListOffersResponse
+//
+
+@implementation GTLRPartners_ListOffersResponse
+@dynamic availableOffers, noOfferReason, responseMetadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"availableOffers" : [GTLRPartners_AvailableOffer class]
+  };
+  return map;
 }
 
 @end
@@ -517,7 +953,16 @@ NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE"
 //
 
 @implementation GTLRPartners_Location
-@dynamic address, latLng;
+@dynamic address, addressLine, administrativeArea, dependentLocality,
+         languageCode, latLng, locality, postalCode, regionCode, sortingCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addressLine" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -596,11 +1041,33 @@ NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPartners_OfferCustomer
+//
+
+@implementation GTLRPartners_OfferCustomer
+@dynamic adwordsUrl, countryCode, creationTime, eligibilityDaysLeft,
+         externalCid, getYAmount, name, offerType, spendXAmount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_OptIns
+//
+
+@implementation GTLRPartners_OptIns
+@dynamic marketComm, performanceSuggestions, phoneContact, physicalMail,
+         specialOffers;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPartners_PublicProfile
 //
 
 @implementation GTLRPartners_PublicProfile
-@dynamic displayImageUrl, displayName, identifier, url;
+@dynamic displayImageUrl, displayName, identifier, profileImage, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -664,6 +1131,16 @@ NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPartners_SpecializationStatus
+//
+
+@implementation GTLRPartners_SpecializationStatus
+@dynamic badgeSpecialization, badgeSpecializationState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPartners_TrafficSource
 //
 
@@ -674,9 +1151,60 @@ NSString * const kGTLRPartners_Rank_Type_RtFinalScore        = @"RT_FINAL_SCORE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPartners_User
+//
+
+@implementation GTLRPartners_User
+@dynamic availableAdwordsManagerAccounts, certificationStatus, company,
+         companyVerificationEmail, examStatus, identifier, lastAccessTime,
+         primaryEmails, profile, publicProfile;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"availableAdwordsManagerAccounts" : [GTLRPartners_AdWordsManagerAccountInfo class],
+    @"certificationStatus" : [GTLRPartners_Certification class],
+    @"examStatus" : [GTLRPartners_ExamStatus class],
+    @"primaryEmails" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPartners_UserOverrides
 //
 
 @implementation GTLRPartners_UserOverrides
 @dynamic ipAddress, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPartners_UserProfile
+//
+
+@implementation GTLRPartners_UserProfile
+@dynamic address, adwordsManagerAccount, channels, emailAddress, emailOptIns,
+         familyName, givenName, industries, jobFunctions, languages, markets,
+         phoneNumber, primaryCountryCode, profilePublic;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"channels" : [NSString class],
+    @"industries" : [NSString class],
+    @"jobFunctions" : [NSString class],
+    @"languages" : [NSString class],
+    @"markets" : [NSString class]
+  };
+  return map;
+}
+
 @end

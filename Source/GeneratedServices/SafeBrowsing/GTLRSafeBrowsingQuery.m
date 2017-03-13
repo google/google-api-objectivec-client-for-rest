@@ -2,10 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Safe Browsing APIs (safebrowsing/v4)
+//   Google Safe Browsing API (safebrowsing/v4)
 // Description:
-//   Enables client applications to check web resources (most commonly URLs)
-//   against Google-generated lists of unsafe web resources.
+//   The Safe Browsing API is an experimental API that allows client
+//   applications to check URLs against Google's constantly-updated blacklists
+//   of suspected phishing and malware pages. Your client application can use
+//   the API to download an encrypted table for local, client-side lookups of
+//   URLs.
 // Documentation:
 //   https://developers.google.com/safe-browsing/
 
@@ -16,6 +19,44 @@
 @implementation GTLRSafeBrowsingQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRSafeBrowsingQuery_EncodedFullHashesGet
+
+@dynamic clientId, clientVersion, encodedRequest;
+
++ (instancetype)queryWithEncodedRequest:(NSString *)encodedRequest {
+  NSArray *pathParams = @[ @"encodedRequest" ];
+  NSString *pathURITemplate = @"v4/encodedFullHashes/{encodedRequest}";
+  GTLRSafeBrowsingQuery_EncodedFullHashesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.encodedRequest = encodedRequest;
+  query.expectedObjectClass = [GTLRSafeBrowsing_FindFullHashesResponse class];
+  query.loggingName = @"safebrowsing.encodedFullHashes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSafeBrowsingQuery_EncodedUpdatesGet
+
+@dynamic clientId, clientVersion, encodedRequest;
+
++ (instancetype)queryWithEncodedRequest:(NSString *)encodedRequest {
+  NSArray *pathParams = @[ @"encodedRequest" ];
+  NSString *pathURITemplate = @"v4/encodedUpdates/{encodedRequest}";
+  GTLRSafeBrowsingQuery_EncodedUpdatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.encodedRequest = encodedRequest;
+  query.expectedObjectClass = [GTLRSafeBrowsing_FetchThreatListUpdatesResponse class];
+  query.loggingName = @"safebrowsing.encodedUpdates.get";
+  return query;
+}
 
 @end
 

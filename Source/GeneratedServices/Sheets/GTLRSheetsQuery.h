@@ -311,9 +311,9 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  existing data and find a "table" within that range. Values will be
  *  appended to the next row of the table, starting with the first column of
  *  the table. See the
- *  [guide](/sheets/guides/values#appending_values)
+ *  [guide](/sheets/api/guides/values#appending_values)
  *  and
- *  [sample code](/sheets/samples/writing#append_values)
+ *  [sample code](/sheets/api/samples/writing#append_values)
  *  for specific details of how tables are detected and data is appended.
  *  The caller must specify the spreadsheet ID, range, and
  *  a valueInputOption. The `valueInputOption` only
@@ -401,9 +401,9 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  existing data and find a "table" within that range. Values will be
  *  appended to the next row of the table, starting with the first column of
  *  the table. See the
- *  [guide](/sheets/guides/values#appending_values)
+ *  [guide](/sheets/api/guides/values#appending_values)
  *  and
- *  [sample code](/sheets/samples/writing#append_values)
+ *  [sample code](/sheets/api/samples/writing#append_values)
  *  for specific details of how tables are detected and data is appended.
  *  The caller must specify the spreadsheet ID, range, and
  *  a valueInputOption. The `valueInputOption` only

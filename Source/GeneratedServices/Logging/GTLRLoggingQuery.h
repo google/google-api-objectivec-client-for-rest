@@ -455,8 +455,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Writes log entries to Stackdriver Logging. All log entries are written by
- *  this method.
+ *  Writes log entries to Stackdriver Logging.
  *
  *  Method: logging.entries.write
  *
@@ -472,8 +471,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_WriteLogEntriesResponse.
  *
- *  Writes log entries to Stackdriver Logging. All log entries are written by
- *  this method.
+ *  Writes log entries to Stackdriver Logging.
  *
  *  @param object The @c GTLRLogging_WriteLogEntriesRequest to include in the
  *    query.

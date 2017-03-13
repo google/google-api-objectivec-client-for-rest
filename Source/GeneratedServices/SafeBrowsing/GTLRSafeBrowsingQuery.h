@@ -2,10 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Safe Browsing APIs (safebrowsing/v4)
+//   Google Safe Browsing API (safebrowsing/v4)
 // Description:
-//   Enables client applications to check web resources (most commonly URLs)
-//   against Google-generated lists of unsafe web resources.
+//   The Safe Browsing API is an experimental API that allows client
+//   applications to check URLs against Google's constantly-updated blacklists
+//   of suspected phishing and malware pages. Your client application can use
+//   the API to download an encrypted table for local, client-side lookups of
+//   URLs.
 // Documentation:
 //   https://developers.google.com/safe-browsing/
 
@@ -32,6 +35,80 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  GTLRSafeBrowsingQuery_EncodedFullHashesGet
+ *
+ *  Method: safebrowsing.encodedFullHashes.get
+ */
+@interface GTLRSafeBrowsingQuery_EncodedFullHashesGet : GTLRSafeBrowsingQuery
+// Previous library name was
+//   +[GTLQuerySafeBrowsing queryForEncodedFullHashesGetWithencodedRequest:]
+
+/**
+ *  A client ID that (hopefully) uniquely identifies the client implementation
+ *  of the Safe Browsing API.
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** The version of the client implementation. */
+@property(nonatomic, copy, nullable) NSString *clientVersion;
+
+/**
+ *  A serialized FindFullHashesRequest proto.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *encodedRequest;
+
+/**
+ *  Fetches a @c GTLRSafeBrowsing_FindFullHashesResponse.
+ *
+ *  @param encodedRequest A serialized FindFullHashesRequest proto.
+ *
+ *  @returns GTLRSafeBrowsingQuery_EncodedFullHashesGet
+ */
++ (instancetype)queryWithEncodedRequest:(NSString *)encodedRequest;
+
+@end
+
+/**
+ *  GTLRSafeBrowsingQuery_EncodedUpdatesGet
+ *
+ *  Method: safebrowsing.encodedUpdates.get
+ */
+@interface GTLRSafeBrowsingQuery_EncodedUpdatesGet : GTLRSafeBrowsingQuery
+// Previous library name was
+//   +[GTLQuerySafeBrowsing queryForEncodedUpdatesGetWithencodedRequest:]
+
+/**
+ *  A client ID that uniquely identifies the client implementation of the Safe
+ *  Browsing API.
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** The version of the client implementation. */
+@property(nonatomic, copy, nullable) NSString *clientVersion;
+
+/**
+ *  A serialized FetchThreatListUpdatesRequest proto.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *encodedRequest;
+
+/**
+ *  Fetches a @c GTLRSafeBrowsing_FetchThreatListUpdatesResponse.
+ *
+ *  @param encodedRequest A serialized FetchThreatListUpdatesRequest proto.
+ *
+ *  @returns GTLRSafeBrowsingQuery_EncodedUpdatesGet
+ */
++ (instancetype)queryWithEncodedRequest:(NSString *)encodedRequest;
 
 @end
 

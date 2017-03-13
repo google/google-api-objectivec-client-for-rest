@@ -2,10 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Safe Browsing APIs (safebrowsing/v4)
+//   Google Safe Browsing API (safebrowsing/v4)
 // Description:
-//   Enables client applications to check web resources (most commonly URLs)
-//   against Google-generated lists of unsafe web resources.
+//   The Safe Browsing API is an experimental API that allows client
+//   applications to check URLs against Google's constantly-updated blacklists
+//   of suspected phishing and malware pages. Your client application can use
+//   the API to download an encrypted table for local, client-side lookups of
+//   URLs.
 // Documentation:
 //   https://developers.google.com/safe-browsing/
 
@@ -31,7 +34,10 @@ NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_PlatformTypeUn
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Windows = @"WINDOWS";
 
 // GTLRSafeBrowsing_ListUpdateRequest.threatEntryType
+NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Cert = @"CERT";
+NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_ChromeExtension = @"CHROME_EXTENSION";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Executable = @"EXECUTABLE";
+NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Filename = @"FILENAME";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_IpRange = @"IP_RANGE";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_ThreatEntryTypeUnspecified = @"THREAT_ENTRY_TYPE_UNSPECIFIED";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Url = @"URL";
@@ -60,7 +66,10 @@ NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_PartialUpdate
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_ResponseTypeUnspecified = @"RESPONSE_TYPE_UNSPECIFIED";
 
 // GTLRSafeBrowsing_ListUpdateResponse.threatEntryType
+NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Cert = @"CERT";
+NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_ChromeExtension = @"CHROME_EXTENSION";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Executable = @"EXECUTABLE";
+NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Filename = @"FILENAME";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_IpRange = @"IP_RANGE";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_ThreatEntryTypeUnspecified = @"THREAT_ENTRY_TYPE_UNSPECIFIED";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Url = @"URL";
@@ -89,7 +98,10 @@ NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_PlatformTypeUnspecif
 NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Windows = @"WINDOWS";
 
 // GTLRSafeBrowsing_ThreatInfo.threatEntryTypes
+NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Cert = @"CERT";
+NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_ChromeExtension = @"CHROME_EXTENSION";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Executable = @"EXECUTABLE";
+NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Filename = @"FILENAME";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_IpRange = @"IP_RANGE";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_ThreatEntryTypeUnspecified = @"THREAT_ENTRY_TYPE_UNSPECIFIED";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Url = @"URL";
@@ -113,7 +125,10 @@ NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_PlatformTyp
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Windows = @"WINDOWS";
 
 // GTLRSafeBrowsing_ThreatListDescriptor.threatEntryType
+NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Cert = @"CERT";
+NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_ChromeExtension = @"CHROME_EXTENSION";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Executable = @"EXECUTABLE";
+NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Filename = @"FILENAME";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_IpRange = @"IP_RANGE";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_ThreatEntryTypeUnspecified = @"THREAT_ENTRY_TYPE_UNSPECIFIED";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Url = @"URL";
@@ -137,7 +152,10 @@ NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_PlatformTypeUnspecif
 NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Windows = @"WINDOWS";
 
 // GTLRSafeBrowsing_ThreatMatch.threatEntryType
+NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Cert = @"CERT";
+NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_ChromeExtension = @"CHROME_EXTENSION";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Executable = @"EXECUTABLE";
+NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Filename = @"FILENAME";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_IpRange = @"IP_RANGE";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_ThreatEntryTypeUnspecified = @"THREAT_ENTRY_TYPE_UNSPECIFIED";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Url = @"URL";
@@ -229,7 +247,7 @@ NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSoftware = @"U
 //
 
 @implementation GTLRSafeBrowsing_FindFullHashesRequest
-@dynamic client, clientStates, threatInfo;
+@dynamic apiClient, client, clientStates, threatInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

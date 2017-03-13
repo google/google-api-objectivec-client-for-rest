@@ -2,15 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Safe Browsing API (safebrowsing/v4)
+//   Google Cloud Functions API (cloudfunctions/v1beta2)
 // Description:
-//   The Safe Browsing API is an experimental API that allows client
-//   applications to check URLs against Google's constantly-updated blacklists
-//   of suspected phishing and malware pages. Your client application can use
-//   the API to download an encrypted table for local, client-side lookups of
-//   URLs.
+//   API for managing lightweight user-provided functions executed in response
+//   to events.
 // Documentation:
-//   https://developers.google.com/safe-browsing/
+//   https://cloud.google.com/functions
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -24,21 +21,34 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
 /**
- *  Service for executing Google Safe Browsing API queries.
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
- *  The Safe Browsing API is an experimental API that allows client applications
- *  to check URLs against Google's constantly-updated blacklists of suspected
- *  phishing and malware pages. Your client application can use the API to
- *  download an encrypted table for local, client-side lookups of URLs.
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-@interface GTLRSafeBrowsingService : GTLRService
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudFunctionsCloudPlatform;
+
+// ----------------------------------------------------------------------------
+//   GTLRCloudFunctionsService
+//
+
+/**
+ *  Service for executing Google Cloud Functions API queries.
+ *
+ *  API for managing lightweight user-provided functions executed in response to
+ *  events.
+ */
+@interface GTLRCloudFunctionsService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRSafeBrowsingQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRCloudFunctionsQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

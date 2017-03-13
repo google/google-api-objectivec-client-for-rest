@@ -64,8 +64,11 @@
 @class GTLRServiceUser_PublishedService;
 @class GTLRServiceUser_Service;
 @class GTLRServiceUser_SourceContext;
+@class GTLRServiceUser_SourceInfo;
+@class GTLRServiceUser_SourceInfo_SourceFiles_Item;
 @class GTLRServiceUser_Status;
 @class GTLRServiceUser_Status_Details_Item;
+@class GTLRServiceUser_Step;
 @class GTLRServiceUser_SystemParameter;
 @class GTLRServiceUser_SystemParameterRule;
 @class GTLRServiceUser_SystemParameters;
@@ -375,6 +378,46 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_MetricDescriptor_ValueType_String;
  *  Value: "VALUE_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRServiceUser_MetricDescriptor_ValueType_ValueTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUser_Step.status
+
+/**
+ *  The operation or step has completed with cancellation.
+ *
+ *  Value: "CANCELLED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUser_Step_Status_Cancelled;
+/**
+ *  The operation or step has completed without errors.
+ *
+ *  Value: "DONE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUser_Step_Status_Done;
+/**
+ *  The operation or step has completed with errors.
+ *
+ *  Value: "FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUser_Step_Status_Failed;
+/**
+ *  The operation or step is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUser_Step_Status_InProgress;
+/**
+ *  The operation or step has not started yet.
+ *
+ *  Value: "NOT_STARTED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUser_Step_Status_NotStarted;
+/**
+ *  Unspecifed code.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUser_Step_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUser_Type.syntax
@@ -2165,6 +2208,33 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  The metadata associated with a long running operation resource.
+ */
+@interface GTLRServiceUser_OperationMetadata : GTLRObject
+
+/**
+ *  Percentage of completion of this operation, ranging from 0 to 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *progressPercentage;
+
+/**
+ *  The full name of the resources that this operation is directly
+ *  associated with.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
+
+/** The start time of the operation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/** Detailed status information for each step. The order is undetermined. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUser_Step *> *steps;
+
+@end
+
+
+/**
  *  A protocol buffer option, which can be attached to a message, field,
  *  enumeration, etc.
  */
@@ -2416,6 +2486,11 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *producerProjectId;
 
+/**
+ *  Output only. The source information for this configuration if available.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUser_SourceInfo *sourceInfo;
+
 /** System parameter configuration. */
 @property(nonatomic, strong, nullable) GTLRServiceUser_SystemParameters *systemParameters;
 
@@ -2463,6 +2538,29 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *fileName;
 
+@end
+
+
+/**
+ *  Source information used to create a Service Config
+ */
+@interface GTLRServiceUser_SourceInfo : GTLRObject
+
+/** All files used during config generation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUser_SourceInfo_SourceFiles_Item *> *sourceFiles;
+
+@end
+
+
+/**
+ *  GTLRServiceUser_SourceInfo_SourceFiles_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceUser_SourceInfo_SourceFiles_Item : GTLRObject
 @end
 
 
@@ -2545,6 +2643,40 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceUser_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Represents the status of one operation step.
+ */
+@interface GTLRServiceUser_Step : GTLRObject
+
+/**
+ *  The short description of the step.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The status code.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUser_Step_Status_Cancelled The operation or step has
+ *        completed with cancellation. (Value: "CANCELLED")
+ *    @arg @c kGTLRServiceUser_Step_Status_Done The operation or step has
+ *        completed without errors. (Value: "DONE")
+ *    @arg @c kGTLRServiceUser_Step_Status_Failed The operation or step has
+ *        completed with errors. (Value: "FAILED")
+ *    @arg @c kGTLRServiceUser_Step_Status_InProgress The operation or step is
+ *        in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRServiceUser_Step_Status_NotStarted The operation or step has
+ *        not started yet. (Value: "NOT_STARTED")
+ *    @arg @c kGTLRServiceUser_Step_Status_StatusUnspecified Unspecifed code.
+ *        (Value: "STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
 @end
 
 

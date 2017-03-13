@@ -36,7 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Disable a managed service for a consumer.
+ *  Disable a service so it can no longer be used with a
+ *  project. This prevents unintended usage that may cause unexpected billing
+ *  charges or security leaks.
  *  Operation<response: google.protobuf.Empty>
  *
  *  Method: serviceuser.projects.services.disable
@@ -61,7 +63,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRServiceUser_Operation.
  *
- *  Disable a managed service for a consumer.
+ *  Disable a service so it can no longer be used with a
+ *  project. This prevents unintended usage that may cause unexpected billing
+ *  charges or security leaks.
  *  Operation<response: google.protobuf.Empty>
  *
  *  @param object The @c GTLRServiceUser_DisableServiceRequest to include in the
@@ -82,10 +86,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Enable a managed service for a consumer with the default settings.
+ *  Enable a service so it can be used with a project.
+ *  See [Cloud Auth Guide](https://cloud.google.com/docs/authentication) for
+ *  more information.
  *  Operation<response: google.protobuf.Empty>
- *  google.rpc.Status errors may contain a
- *  google.rpc.PreconditionFailure error detail.
  *
  *  Method: serviceuser.projects.services.enable
  *
@@ -107,10 +111,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRServiceUser_Operation.
  *
- *  Enable a managed service for a consumer with the default settings.
+ *  Enable a service so it can be used with a project.
+ *  See [Cloud Auth Guide](https://cloud.google.com/docs/authentication) for
+ *  more information.
  *  Operation<response: google.protobuf.Empty>
- *  google.rpc.Status errors may contain a
- *  google.rpc.PreconditionFailure error detail.
  *
  *  @param object The @c GTLRServiceUser_EnableServiceRequest to include in the
  *    query.

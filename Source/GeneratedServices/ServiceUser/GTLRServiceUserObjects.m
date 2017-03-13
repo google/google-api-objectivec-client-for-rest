@@ -74,6 +74,14 @@ NSString * const kGTLRServiceUser_MetricDescriptor_ValueType_Money = @"MONEY";
 NSString * const kGTLRServiceUser_MetricDescriptor_ValueType_String = @"STRING";
 NSString * const kGTLRServiceUser_MetricDescriptor_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
 
+// GTLRServiceUser_Step.status
+NSString * const kGTLRServiceUser_Step_Status_Cancelled        = @"CANCELLED";
+NSString * const kGTLRServiceUser_Step_Status_Done             = @"DONE";
+NSString * const kGTLRServiceUser_Step_Status_Failed           = @"FAILED";
+NSString * const kGTLRServiceUser_Step_Status_InProgress       = @"IN_PROGRESS";
+NSString * const kGTLRServiceUser_Step_Status_NotStarted       = @"NOT_STARTED";
+NSString * const kGTLRServiceUser_Step_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
 // GTLRServiceUser_Type.syntax
 NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
@@ -753,6 +761,25 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUser_OperationMetadata
+//
+
+@implementation GTLRServiceUser_OperationMetadata
+@dynamic progressPercentage, resourceNames, startTime, steps;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceNames" : [NSString class],
+    @"steps" : [GTLRServiceUser_Step class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUser_Option
 //
 
@@ -834,8 +861,8 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 @dynamic apis, authentication, backend, configVersion, context, control,
          customError, documentation, endpoints, enums, experimental, http,
          identifier, logging, logs, metrics, monitoredResources, monitoring,
-         name, producerProjectId, systemParameters, systemTypes, title, types,
-         usage, visibility;
+         name, producerProjectId, sourceInfo, systemParameters, systemTypes,
+         title, types, usage, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -870,6 +897,38 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUser_SourceInfo
+//
+
+@implementation GTLRServiceUser_SourceInfo
+@dynamic sourceFiles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sourceFiles" : [GTLRServiceUser_SourceInfo_SourceFiles_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUser_SourceInfo_SourceFiles_Item
+//
+
+@implementation GTLRServiceUser_SourceInfo_SourceFiles_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUser_Status
 //
 
@@ -895,6 +954,21 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUser_Step
+//
+
+@implementation GTLRServiceUser_Step
+@dynamic descriptionProperty, status;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end

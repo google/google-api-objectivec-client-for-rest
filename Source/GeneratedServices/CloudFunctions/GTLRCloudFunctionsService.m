@@ -2,31 +2,31 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Key Management Service (KMS) API (cloudkms/v1)
+//   Google Cloud Functions API (cloudfunctions/v1beta2)
 // Description:
-//   Manages encryption for your cloud services the same way you do on-premise.
-//   You can generate, use, rotate, and destroy AES256 encryption keys.
+//   API for managing lightweight user-provided functions executed in response
+//   to events.
 // Documentation:
-//   https://cloud.google.com/kms/
+//   https://cloud.google.com/functions
 
-#import "GTLRCloudKMS.h"
+#import "GTLRCloudFunctions.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeCloudKMSCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudFunctionsCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudKMSService
+//   GTLRCloudFunctionsService
 //
 
-@implementation GTLRCloudKMSService
+@implementation GTLRCloudFunctionsService
 
 - (instancetype)init {
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://cloudkms.googleapis.com/";
+    self.rootURLString = @"https://cloudfunctions.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
   }
