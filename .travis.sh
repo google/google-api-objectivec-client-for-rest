@@ -10,8 +10,8 @@ fi
 readonly BUILD_MODE="$1"
 readonly BUILD_CFG="$2"
 
-# Default to "build", based on BUILD_MODE below.
-XCODEBUILD_ACTION="build"
+# Default to "test", changed via BUILD_MODE below.
+XCODEBUILD_ACTION="test"
 
 # Report then run the build
 RunXcodeBuild() {
@@ -26,14 +26,12 @@ case "${BUILD_MODE}" in
       -scheme "iOS Framework and Tests"
       -destination "platform=iOS Simulator,name=iPhone 6,OS=latest"
     )
-    XCODEBUILD_ACTION="test"
     ;;
   OSXCore)
     CMD_BUILDER+=(
       -project Source/GTLRCore.xcodeproj
       -scheme "OS X Framework and Tests"
     )
-    XCODEBUILD_ACTION="test"
     ;;
   tvOSCore)
     CMD_BUILDER+=(
@@ -41,7 +39,13 @@ case "${BUILD_MODE}" in
       -scheme "tvOS Framework and Tests"
       -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest"
     )
-    XCODEBUILD_ACTION="test"
+    ;;
+  ServiceGenerator)
+    CMD_BUILDER+=(
+      -project "Source/Tools/ServiceGenerator/ServiceGenerator.xcodeproj"
+      -scheme "ServiceGenerator"
+    )
+    XCODEBUILD_ACTION="build"
     ;;
   Example_*)
     EXAMPLE_NAME="${BUILD_MODE/Example_/}"
@@ -49,6 +53,7 @@ case "${BUILD_MODE}" in
       -project "Examples/${EXAMPLE_NAME}/${EXAMPLE_NAME}.xcodeproj"
       -scheme "${EXAMPLE_NAME}"
     )
+    XCODEBUILD_ACTION="build"
     ;;
   *)
     echo "Unknown BUILD_MODE: ${BUILD_MODE}"
