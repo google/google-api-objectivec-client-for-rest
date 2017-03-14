@@ -248,7 +248,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 @synthesize api = _api,
             options = _options,
             verboseLevel = _verboseLevel,
-            frameworkName = _frameworkName;
+            importPrefix = _importPrefix;
 
 @synthesize warnings = _warnings,
             infos = _infos;
@@ -257,26 +257,26 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
                         options:(SGGeneratorOptions)options
                    verboseLevel:(NSUInteger)verboseLevel
           formattedNameOverride:(NSString *)formattedNameOverride
-               useFrameworkName:(NSString *)frameworkName {
+                   importPrefix:(NSString *)importPrefix {
   return [[self alloc] initWithApi:api
                            options:options
                       verboseLevel:verboseLevel
              formattedNameOverride:formattedNameOverride
-                  useFrameworkName:frameworkName];
+                      importPrefix:importPrefix];
 }
 
 - (instancetype)initWithApi:(GTLRDiscovery_RestDescription *)api
                     options:(SGGeneratorOptions)options
                verboseLevel:(NSUInteger)verboseLevel
       formattedNameOverride:(NSString *)formattedNameOverride
-           useFrameworkName:(NSString *)frameworkName {
+               importPrefix:(NSString *)importPrefix {
   self = [super init];
   if (self != nil) {
     _api = api;
     _options = options;
     _verboseLevel = verboseLevel;
     _formattedName = [formattedNameOverride copy];
-    _frameworkName = [frameworkName copy];
+    _importPrefix = [importPrefix copy];
     if (api) {
       NSValue *generatorAsValue = [NSValue valueWithNonretainedObject:self];
       [self.api sg_setProperty:generatorAsValue forKey:kWrappedGeneratorKey];
@@ -2830,18 +2830,21 @@ static NSString *MappedParamName(NSString *name) {
 }
 
 - (NSString *)frameworkedImport:(NSString *)headerName {
-  NSMutableString *result = [NSMutableString string];
 
-  if (self.frameworkName) {
-    [result appendFormat:@"#import <%@/%@.h>\n", self.frameworkName, headerName];
-  } else {
-    [result appendFormat:@"#if %@\n", kFrameworkIncludeGate];
-    [result appendFormat:@"  #import \"%@/%@.h\"\n", kProjectPrefix, headerName];
-    [result appendString:@"#else\n"];
-    [result appendFormat:@"  #import \"%@.h\"\n", headerName];
-    [result appendString:@"#endif\n"];
+  if (self.importPrefix) {
+    if ((_options & kSGGeneratorOptionImportPrefixIsFramework) != 0) {
+      return [NSString stringWithFormat:@"#import <%@/%@.h>\n", self.importPrefix, headerName];
+    } else {
+      return [NSString stringWithFormat:@"#import \"%@/%@.h\"\n", self.importPrefix, headerName];
+    }
   }
 
+  NSMutableString *result = [NSMutableString string];
+  [result appendFormat:@"#if %@\n", kFrameworkIncludeGate];
+  [result appendFormat:@"  #import \"%@/%@.h\"\n", kProjectPrefix, headerName];
+  [result appendString:@"#else\n"];
+  [result appendFormat:@"  #import \"%@.h\"\n", headerName];
+  [result appendString:@"#endif\n"];
   return result;
 }
 
