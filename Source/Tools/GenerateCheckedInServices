@@ -1,0 +1,107 @@
+#!/bin/bash
+# This script does work currently needed to regenerate the sources found
+# in Source/GeneratedServices.
+
+set -e
+
+# Where does this script live so we can hit things in the tree.
+readonly ToolsDir=$(dirname "$(echo $0 | sed -e "s,^\([^/]\),$(pwd)/\1,")")
+readonly ScriptName=$(basename "$0")
+
+readonly ServiceGeneratorDir="${ToolsDir}/ServiceGenerator"
+readonly GeneratedServicesDir="${ToolsDir}/../GeneratedServices"
+# This only works for Xcode default setting on where build output goes.
+readonly ServiceGeneratorBinary="${ServiceGeneratorDir}/build/Debug/ServiceGenerator"
+
+BLOCK_WAITING_FOR_CANONICAL_NAMES=1
+if [[ $# -ge 1 && ( "$1" == "-a" || "$1" == "--all" ) ]] ; then
+  BLOCK_WAITING_FOR_CANONICAL_NAMES=0
+  shift
+fi
+BRIEF_MODE=--brief
+if [[ $# -ge 1 && ( "$1" == "--no-brief" ) ]] ; then
+  BRIEF_MODE=
+  shift
+fi
+readonly EXTRA_OPTS=$*
+
+# -----------------------------------------------------------------------------
+
+# Helper to print a message and hopefully have it seen.
+Banner() {
+  echo ""
+  echo "==============================================================================="
+  echo "    $*"
+  echo "==============================================================================="
+  echo ""
+}
+
+# -----------------------------------------------------------------------------
+
+Banner "Ensuring ServiceGenerator is up to date..."
+/usr/bin/xcodebuild \
+  -project "${ServiceGeneratorDir}/ServiceGenerator.xcodeproj" \
+  -scheme ServiceGenerator \
+  -configuration Debug \
+  build
+
+# -----------------------------------------------------------------------------
+
+SERVICE_GENERATOR_COMMAND=(
+  "${ServiceGeneratorBinary}"
+    --outputDir "${GeneratedServicesDir}"
+    --addServiceNameDir yes
+    --removeUnknownFiles yes
+    --auditJSON
+    --guessFormattedNames
+    --httpHeader X-User-IP:0.0.0.0
+    ${BRIEF_MODE}
+    ${EXTRA_OPTS}
+    # Generate everything flagged as preferred.
+    --generatePreferred
+)
+
+SERVICE_GENERATOR_COMMAND+=(
+  # The Admin SDK is odd, it is a bunch of 'admin' apis with different
+  # versions to "group" them, so only one gets marked as preferred. To generate
+  # it we have to manually fetch anything not preferred which means updating
+  # this if there are changes. admin:reports_v1 is currently the preferred one
+  # in discovery.
+  admin:datatransfer_v1
+  admin:directory_v1
+
+  # APIs currently blocked because they include Foo::Bar and FooBar, so it
+  # causes class collisions.
+  servicemanagement:-
+  genomics:-
+
+  # Include a filter so there are no warnings/infos during normal generation.
+  --messageFilter "${ToolsDir}/${ScriptName}-message_filter.json"
+)
+
+if [[ "${BLOCK_WAITING_FOR_CANONICAL_NAMES}" == 1 ]] ; then
+  SERVICE_GENERATOR_COMMAND+=(
+    # APIs currently waiting for canonical names before generating.
+    acceleratedmobilepageurl:-
+    appengine:-
+    clouderrorreporting:-
+    dataproc:-
+    dfareporting:-
+    iam:-
+    kgsearch:-
+    proximitybeacon:- # old version was end-of-lifed, but api
+                      # is exposed new infra, except in discovery
+    replicapool:-
+    replicapoolupdater:-
+    resourceviews:-
+  )
+fi
+
+# Away it goes...
+Banner "Running the ServiceGenerator..."
+"${SERVICE_GENERATOR_COMMAND[@]}"
+
+# -----------------------------------------------------------------------------
+
+Banner "Ensure the podspec is up to date..."
+"${ToolsDir}/update_podspec_services.py"

@@ -880,8 +880,9 @@
          ipWhitelisted, isAdmin, isDelegatedAdmin, isEnforcedIn2Sv,
          isEnrolledIn2Sv, isMailboxSetup, kind, lastLoginTime, name,
          nonEditableAliases, notes, organizations, orgUnitPath, password,
-         phones, primaryEmail, relations, suspended, suspensionReason,
-         thumbnailPhotoEtag, thumbnailPhotoUrl, websites;
+         phones, posixAccounts, primaryEmail, relations, sshPublicKeys,
+         suspended, suspensionReason, thumbnailPhotoEtag, thumbnailPhotoUrl,
+         websites;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1050,6 +1051,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_UserPosixAccount
+//
+
+@implementation GTLRDirectory_UserPosixAccount
+@dynamic gecos, gid, homeDirectory, primary, shell, systemId, uid, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_UserRelation
 //
 
@@ -1085,6 +1096,16 @@
   return @"users";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_UserSshPublicKey
+//
+
+@implementation GTLRDirectory_UserSshPublicKey
+@dynamic expirationTimeUsec, fingerprint, key;
 @end
 
 

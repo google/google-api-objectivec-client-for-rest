@@ -4,7 +4,7 @@
 // API:
 //   Enterprise License Manager API (licensing/v1)
 // Description:
-//   Licensing API to view and manage license for your domain.
+//   Views and manages licenses for your domain.
 // Documentation:
 //   https://developers.google.com/google-apps/licensing/
 
@@ -33,14 +33,20 @@ NS_ASSUME_NONNULL_BEGIN
 /** Identifies the resource as a LicenseAssignment. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Name of the product. */
+/** Id of the product. */
 @property(nonatomic, copy, nullable) NSString *productId;
+
+/** Display Name of the product. */
+@property(nonatomic, copy, nullable) NSString *productName;
 
 /** Link to this page. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
-/** Name of the sku of the product. */
+/** Id of the sku of the product. */
 @property(nonatomic, copy, nullable) NSString *skuId;
+
+/** Display Name of the sku of the product. */
+@property(nonatomic, copy, nullable) NSString *skuName;
 
 /** Email id of the user. */
 @property(nonatomic, copy, nullable) NSString *userId;

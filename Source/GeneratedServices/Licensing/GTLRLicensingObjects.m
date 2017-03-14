@@ -4,7 +4,7 @@
 // API:
 //   Enterprise License Manager API (licensing/v1)
 // Description:
-//   Licensing API to view and manage license for your domain.
+//   Views and manages licenses for your domain.
 // Documentation:
 //   https://developers.google.com/google-apps/licensing/
 
@@ -16,7 +16,7 @@
 //
 
 @implementation GTLRLicensing_LicenseAssignment
-@dynamic etags, kind, productId, selfLink, skuId, userId;
+@dynamic etags, kind, productId, productName, selfLink, skuId, skuName, userId;
 @end
 
 

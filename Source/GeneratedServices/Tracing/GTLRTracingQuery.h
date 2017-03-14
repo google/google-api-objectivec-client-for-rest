@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryTracing queryForProjectsTracesGetWithname:]
 
-/** ID of the trace which is "projects/<project_id>/traces/<trace_id>". */
+/** ID of the trace. Format is `projects/PROJECT_ID/traces/TRACE_ID`. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -93,8 +93,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns a specific trace.
  *
- *  @param name ID of the trace which is
- *    "projects/<project_id>/traces/<trace_id>".
+ *  @param name ID of the trace. Format is
+ *    `projects/PROJECT_ID/traces/TRACE_ID`.
  *
  *  @returns GTLRTracingQuery_ProjectsTracesGet
  */
@@ -124,8 +124,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  An optional filter for the request.
  *  Example:
- *  "version_label_key:a some_label:some_label_key"
- *  returns traces from version a and has some_label with some_label_key.
+ *  `version_label_key:a some_label:some_label_key`
+ *  returns traces from version `a` and has `some_label` with `some_label_key`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -195,12 +195,15 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryTracing queryForProjectsTracesListSpansWithname:]
 
-/** ID of the span set where is "projects/<project_id>/traces/<trace_id>". */
+/**
+ *  ID of the trace for which to list child spans. Format is
+ *  `projects/PROJECT_ID/traces/TRACE_ID`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Token identifying the page of results to return. If provided, use the
- *  value of the `page_token` field from a previous request. Optional.
+ *  value of the `nextPageToken` field from a previous request. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -209,8 +212,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns a list of spans within a trace.
  *
- *  @param name ID of the span set where is
- *    "projects/<project_id>/traces/<trace_id>".
+ *  @param name ID of the trace for which to list child spans. Format is
+ *    `projects/PROJECT_ID/traces/TRACE_ID`.
  *
  *  @returns GTLRTracingQuery_ProjectsTracesListSpans
  *

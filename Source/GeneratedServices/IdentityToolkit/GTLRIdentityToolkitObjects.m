@@ -134,7 +134,9 @@
 //
 
 @implementation GTLRIdentityToolkit_Relyingparty
-@dynamic captchaResp, challenge, email, idToken, kind, newEmail, requestType,
+@dynamic androidInstallApp, androidMinimumVersion, androidPackageName,
+         canHandleCodeInApp, captchaResp, challenge, continueUrl, email,
+         idToken, iOSAppStoreId, iOSBundleId, kind, newEmail, requestType,
          userIp;
 @end
 
@@ -367,9 +369,9 @@
 //
 
 @implementation GTLRIdentityToolkit_RelyingpartyVerifyAssertionRequest
-@dynamic delegatedProjectNumber, idToken, instanceId, pendingIdToken, postBody,
-         requestUri, returnIdpCredential, returnRefreshToken, returnSecureToken,
-         sessionId;
+@dynamic autoCreate, delegatedProjectNumber, idToken, instanceId,
+         pendingIdToken, postBody, requestUri, returnIdpCredential,
+         returnRefreshToken, returnSecureToken, sessionId;
 @end
 
 

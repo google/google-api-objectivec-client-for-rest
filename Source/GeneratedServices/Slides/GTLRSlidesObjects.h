@@ -126,6 +126,7 @@
 @class GTLRSlides_UpdateVideoPropertiesRequest;
 @class GTLRSlides_Video;
 @class GTLRSlides_VideoProperties;
+@class GTLRSlides_WeightedFontFamily;
 @class GTLRSlides_WordArt;
 @class GTLRSlides_WriteControl;
 
@@ -7847,6 +7848,16 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @property(nonatomic, strong, nullable) NSNumber *underline;
 
+/**
+ *  The font family and rendered weight of the text. This property is
+ *  read-only.
+ *  This field is an extension of `font_family` meant to support explicit font
+ *  weights without breaking backwards compatibility. As such, when reading the
+ *  style of a range of text, the value of `weighted_font_family.font_family`
+ *  will always be equal to that of `font_family`.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_WeightedFontFamily *weightedFontFamily;
+
 @end
 
 
@@ -8267,6 +8278,36 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  videos created in the Slides editor.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Outline *outline;
+
+@end
+
+
+/**
+ *  Represents a font family and weight used to style a TextRun.
+ */
+@interface GTLRSlides_WeightedFontFamily : GTLRObject
+
+/**
+ *  The font family of the text.
+ *  The font family can be any font from the Font menu in Slides or from
+ *  [Google Fonts] (https://fonts.google.com/). If the font name is
+ *  unrecognized, the text is rendered in `Arial`.
+ */
+@property(nonatomic, copy, nullable) NSString *fontFamily;
+
+/**
+ *  The rendered weight of the text. This field can have any value that is a
+ *  multiple of 100 between 100 and 900, inclusive. This range corresponds to
+ *  only the numerical values described in the "Cascading Style Sheets Level
+ *  2 Revision 1 (CSS 2.1) Specification",
+ *  [section 15.6](https://www.w3.org/TR/CSS21/fonts.html#font-boldness). The
+ *  non-numerical values in the specification are disallowed. Weights greater
+ *  than or equal to 700 are considered bold, and weights less than 700 are
+ *  not bold. The default value is `400` ("normal").
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weight;
 
 @end
 

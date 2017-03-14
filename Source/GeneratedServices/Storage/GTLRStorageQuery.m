@@ -238,6 +238,25 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
+@implementation GTLRStorageQuery_BucketsGetIamPolicy
+
+@dynamic bucket;
+
++ (instancetype)queryWithBucket:(NSString *)bucket {
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/iam";
+  GTLRStorageQuery_BucketsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_Policy class];
+  query.loggingName = @"storage.buckets.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageQuery_BucketsInsert
 
 @dynamic predefinedAcl, predefinedDefaultObjectAcl, project, projection;
@@ -301,6 +320,59 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   query.bucket = bucket;
   query.expectedObjectClass = [GTLRStorage_Bucket class];
   query.loggingName = @"storage.buckets.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_BucketsSetIamPolicy
+
+@dynamic bucket;
+
++ (instancetype)queryWithObject:(GTLRStorage_Policy *)object
+                         bucket:(NSString *)bucket {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/iam";
+  GTLRStorageQuery_BucketsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_Policy class];
+  query.loggingName = @"storage.buckets.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_BucketsTestIamPermissions
+
+@dynamic bucket, permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                    permissions:(NSArray<NSString *> *)permissions {
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/iam/testPermissions";
+  GTLRStorageQuery_BucketsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.permissions = permissions;
+  query.expectedObjectClass = [GTLRStorage_TestIamPermissionsResponse class];
+  query.loggingName = @"storage.buckets.testIamPermissions";
   return query;
 }
 
@@ -818,6 +890,29 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
+@implementation GTLRStorageQuery_ObjectsGetIamPolicy
+
+@dynamic bucket, generation, object;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                         object:(NSString *)object_param {
+  NSArray *pathParams = @[
+    @"bucket", @"object"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/o/{object}/iam";
+  GTLRStorageQuery_ObjectsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.object = object_param;
+  query.expectedObjectClass = [GTLRStorage_Policy class];
+  query.loggingName = @"storage.objects.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageQuery_ObjectsInsert
 
 @dynamic bucket, contentEncoding, ifGenerationMatch, ifGenerationNotMatch,
@@ -944,6 +1039,67 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   query.destinationObject = destinationObject;
   query.expectedObjectClass = [GTLRStorage_RewriteResponse class];
   query.loggingName = @"storage.objects.rewrite";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_ObjectsSetIamPolicy
+
+@dynamic bucket, generation, object;
+
++ (instancetype)queryWithObject:(GTLRStorage_Policy *)object
+                         bucket:(NSString *)bucket
+                         object:(NSString *)object_param {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"bucket", @"object"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/o/{object}/iam";
+  GTLRStorageQuery_ObjectsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.bucket = bucket;
+  query.object = object_param;
+  query.expectedObjectClass = [GTLRStorage_Policy class];
+  query.loggingName = @"storage.objects.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_ObjectsTestIamPermissions
+
+@dynamic bucket, generation, object, permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                         object:(NSString *)object_param
+                    permissions:(NSArray<NSString *> *)permissions {
+  NSArray *pathParams = @[
+    @"bucket", @"object"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/o/{object}/iam/testPermissions";
+  GTLRStorageQuery_ObjectsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.object = object_param;
+  query.permissions = permissions;
+  query.expectedObjectClass = [GTLRStorage_TestIamPermissionsResponse class];
+  query.loggingName = @"storage.objects.testIamPermissions";
   return query;
 }
 
