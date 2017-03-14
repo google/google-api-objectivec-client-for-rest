@@ -63,6 +63,10 @@ static ArgInfo optionalFlags[] = {
     " you'll likely want to pass \"GoogleApiClientForRest\" as the value for"
     " this."
   },
+  { "--gtlrImportPrefix PREFIX",
+    "Will generate sources that include GTLR's headers as if they are in the"
+    " given directory."
+  },
   { "--apiLogDir DIR",
     "Write out a file into DIR for each JSON API description processed.  These"
     " can be useful for reporting bugs if generation fails with an error."
@@ -204,6 +208,7 @@ typedef enum {
 @property(copy) NSString *outputDir;
 @property(copy) NSString *discoveryRootURLString;
 @property(copy) NSString *gtlrFrameworkName;
+@property(copy) NSString *gtlrImportPrefix;
 @property(copy) NSString *apiLogDir;
 @property(copy) NSString *httpLogDir;
 @property(copy) NSString *messageFilterPath;
@@ -278,6 +283,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
             outputDir = _outputDir,
             discoveryRootURLString = _discoveryRootURLString,
             gtlrFrameworkName = _gtlrFrameworkName,
+            gtlrImportPrefix = _gtlrImportPrefix,
             apiLogDir = _apiLogDir,
             httpLogDir = _httpLogDir,
             messageFilterPath = _messageFilterPath,
@@ -743,6 +749,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     { "outputDir",           required_argument, NULL,                 'o' },
     { "discoveryRootURL",    required_argument, NULL,                 'd' },
     { "gtlrFrameworkName",   required_argument, NULL,                 'n' },
+    { "gtlrImportPrefix",    required_argument, NULL,                 'i' },
     { "apiLogDir",           required_argument, NULL,                 'a' },
     { "httpLogDir",          required_argument, NULL,                 'h' },
     { "generatePreferred",   no_argument,       &generatePreferred,   1 },
@@ -772,6 +779,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         break;
       case 'n':
         self.gtlrFrameworkName = @(optarg);
+        break;
+      case 'i':
+        self.gtlrImportPrefix = @(optarg);
         break;
       case 'a':
         self.apiLogDir = @(optarg);
@@ -886,6 +896,18 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
 
   if (self.gtlrFrameworkName.length == 0) {
     self.gtlrFrameworkName = nil;
+  }
+  while ([self.gtlrImportPrefix hasSuffix:@"/"]) {
+    self.gtlrImportPrefix = [self.gtlrImportPrefix substringToIndex:self.gtlrImportPrefix.length - 1];
+  }
+  if (self.gtlrImportPrefix.length == 0) {
+    self.gtlrImportPrefix = nil;
+  }
+
+  if (self.gtlrFrameworkName && self.gtlrImportPrefix) {
+    [self reportError:@"Cannot use both --gtlrFrameworkName and --gtlrImportPrefix."];
+    [self printUsage:stderr brief:NO];
+    return;
   }
 
   // Make sure output dir exists.
@@ -1339,11 +1361,17 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
           options |= kSGGeneratorOptionLegacyObjectNaming;
         }
 
+        NSString *importPrefix = self.gtlrImportPrefix;
+        if (self.gtlrFrameworkName) {
+          importPrefix = self.gtlrFrameworkName;
+          options |= kSGGeneratorOptionImportPrefixIsFramework;
+        }
+
         SGGenerator *aGenerator = [SGGenerator generatorForApi:api
                                                        options:options
                                                   verboseLevel:self.verboseLevel
                                          formattedNameOverride:formattedNameOverride
-                                              useFrameworkName:self.gtlrFrameworkName];
+                                                  importPrefix:importPrefix];
 
         NSDictionary *generatedFiles =
           [aGenerator generateFilesWithHandler:^(SGGeneratorHandlerMessageType msgType,
