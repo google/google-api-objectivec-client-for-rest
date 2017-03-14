@@ -17,7 +17,6 @@ NSString * const kGTLRAuthScopeClassroomCourses                = @"https://www.g
 NSString * const kGTLRAuthScopeClassroomCoursesReadonly        = @"https://www.googleapis.com/auth/classroom.courses.readonly";
 NSString * const kGTLRAuthScopeClassroomCourseworkMe           = @"https://www.googleapis.com/auth/classroom.coursework.me";
 NSString * const kGTLRAuthScopeClassroomCourseworkMeReadonly   = @"https://www.googleapis.com/auth/classroom.coursework.me.readonly";
-NSString * const kGTLRAuthScopeClassroomCourseWorkReadonly     = @"https://www.googleapis.com/auth/classroom.course-work.readonly";
 NSString * const kGTLRAuthScopeClassroomCourseworkStudents     = @"https://www.googleapis.com/auth/classroom.coursework.students";
 NSString * const kGTLRAuthScopeClassroomCourseworkStudentsReadonly = @"https://www.googleapis.com/auth/classroom.coursework.students.readonly";
 NSString * const kGTLRAuthScopeClassroomProfileEmails          = @"https://www.googleapis.com/auth/classroom.profile.emails";

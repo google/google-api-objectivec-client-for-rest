@@ -424,9 +424,67 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorage_Policy
+//
+
+@implementation GTLRStorage_Policy
+@dynamic bindings, ETag, kind, resourceId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bindings" : [GTLRStorage_Policy_Bindings_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Policy_Bindings_Item
+//
+
+@implementation GTLRStorage_Policy_Bindings_Item
+@dynamic members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorage_RewriteResponse
 //
 
 @implementation GTLRStorage_RewriteResponse
 @dynamic done, kind, objectSize, resource, rewriteToken, totalBytesRewritten;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_TestIamPermissionsResponse
+//
+
+@implementation GTLRStorage_TestIamPermissionsResponse
+@dynamic kind, permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
 @end

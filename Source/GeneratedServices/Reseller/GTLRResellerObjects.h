@@ -381,6 +381,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *skuId;
 
+/**
+ *  Read-only external display name for a product's SKU assigned to a customer
+ *  in the subscription. SKU names are subject to change at Google's discretion.
+ *  For products and SKUs available in this version of the API, see Product and
+ *  SKU IDs.
+ */
+@property(nonatomic, copy, nullable) NSString *skuName;
+
 /** This is an optional property. */
 @property(nonatomic, copy, nullable) NSString *status;
 

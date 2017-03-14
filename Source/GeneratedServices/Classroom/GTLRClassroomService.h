@@ -49,13 +49,6 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomCourseworkMe;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomCourseworkMeReadonly;
 /**
- *  Authorization scope: View instructions for teacher-assigned work in your
- *  Google Classroom classes
- *
- *  Value "https://www.googleapis.com/auth/classroom.course-work.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomCourseWorkReadonly;
-/**
  *  Authorization scope: Manage course work and grades for students in the
  *  Google Classroom classes you teach and view the course work and grades for
  *  classes you administer

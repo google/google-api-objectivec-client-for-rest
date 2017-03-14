@@ -386,11 +386,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseDateTi
 /**
  *  Instructs date, time, datetime, and duration fields to be output
  *  as doubles in "serial number" format, as popularized by Lotus 1-2-3.
- *  Days are counted from December 31st 1899 and are incremented by 1,
- *  and times are fractions of a day. For example, January 1st 1900 at noon
- *  would be 1.5, 1 because it's 1 day offset from December 31st 1899,
- *  and .5 because noon is half a day. February 1st 1900 at 3pm would
- *  be 32.625. This correctly treats the year 1900 as not a leap year.
+ *  The whole number portion of the value (left of the decimal) counts
+ *  the days since December 30th 1899. The fractional portion (right of
+ *  the decimal) counts the time as a fraction of the day. For example,
+ *  January 1st 1900 at noon would be 2.5, 2 because it's 2 days after
+ *  December 30st 1899, and .5 because noon is half a day. February 1st
+ *  1900 at 3pm would be 33.625. This correctly treats the year 1900 as
+ *  not a leap year.
  *
  *  Value: "SERIAL_NUMBER"
  */
@@ -2513,13 +2515,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_BatchUpdateValuesRequest_ResponseDateTimeRenderOption_SerialNumber
  *        Instructs date, time, datetime, and duration fields to be output
  *        as doubles in "serial number" format, as popularized by Lotus 1-2-3.
- *        Days are counted from December 31st 1899 and are incremented by 1,
- *        and times are fractions of a day. For example, January 1st 1900 at
- *        noon
- *        would be 1.5, 1 because it's 1 day offset from December 31st 1899,
- *        and .5 because noon is half a day. February 1st 1900 at 3pm would
- *        be 32.625. This correctly treats the year 1900 as not a leap year.
- *        (Value: "SERIAL_NUMBER")
+ *        The whole number portion of the value (left of the decimal) counts
+ *        the days since December 30th 1899. The fractional portion (right of
+ *        the decimal) counts the time as a fraction of the day. For example,
+ *        January 1st 1900 at noon would be 2.5, 2 because it's 2 days after
+ *        December 30st 1899, and .5 because noon is half a day. February 1st
+ *        1900 at 3pm would be 33.625. This correctly treats the year 1900 as
+ *        not a leap year. (Value: "SERIAL_NUMBER")
  */
 @property(nonatomic, copy, nullable) NSString *responseDateTimeRenderOption;
 

@@ -1784,6 +1784,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) id phones;
 
+/**
+ *  posixAccounts
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id posixAccounts;
+
 /** username of User */
 @property(nonatomic, copy, nullable) NSString *primaryEmail;
 
@@ -1793,6 +1800,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id relations;
+
+/**
+ *  sshPublicKeys
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id sshPublicKeys;
 
 /**
  *  Indicates if user is suspended
@@ -2179,6 +2193,51 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  JSON template for a POSIX account entry. Description of the field family:
+ *  go/fbs-posix.
+ */
+@interface GTLRDirectory_UserPosixAccount : GTLRObject
+
+/** The GECOS (user information) entry for this account. */
+@property(nonatomic, copy, nullable) NSString *gecos;
+
+/**
+ *  The default group ID.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gid;
+
+/** The path to the home directory for this account. */
+@property(nonatomic, copy, nullable) NSString *homeDirectory;
+
+/**
+ *  If this is user's primary account within the SystemId.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *primary;
+
+/** The path to the login shell for this account. */
+@property(nonatomic, copy, nullable) NSString *shell;
+
+/** System identifier for which account Username or Uid apply to. */
+@property(nonatomic, copy, nullable) NSString *systemId;
+
+/**
+ *  The user ID.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uid;
+
+/** The username of the account. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
  *  JSON template for a relation entry.
  */
 @interface GTLRDirectory_UserRelation : GTLRObject
@@ -2227,6 +2286,27 @@ NS_ASSUME_NONNULL_BEGIN
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_User *> *users;
+
+@end
+
+
+/**
+ *  JSON template for a POSIX account entry.
+ */
+@interface GTLRDirectory_UserSshPublicKey : GTLRObject
+
+/**
+ *  An expiration time in microseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expirationTimeUsec;
+
+/** A SHA-256 fingerprint of the SSH public key. (Read-only) */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/** An SSH public key. */
+@property(nonatomic, copy, nullable) NSString *key;
 
 @end
 

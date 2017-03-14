@@ -39,6 +39,7 @@
 @class GTLRStorage_Object_Owner;
 @class GTLRStorage_ObjectAccessControl;
 @class GTLRStorage_ObjectAccessControl_ProjectTeam;
+@class GTLRStorage_Policy_Bindings_Item;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -945,6 +946,105 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  A bucket/object IAM policy.
+ */
+@interface GTLRStorage_Policy : GTLRObject
+
+/**
+ *  An association between a role, which comes with a set of permissions, and
+ *  members who may assume that role.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStorage_Policy_Bindings_Item *> *bindings;
+
+/**
+ *  HTTP 1.1 Entity tag for the policy.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The kind of item this is. For policies, this is always storage#policy. This
+ *  field is ignored on input.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The ID of the resource to which this policy belongs. Will be of the form
+ *  buckets/bucket for buckets, and buckets/bucket/objects/object for objects. A
+ *  specific generation may be specified by appending #generationNumber to the
+ *  end of the object name, e.g. buckets/my-bucket/objects/data.txt#17. The
+ *  current generation can be denoted with #0. This field is ignored on input.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+@end
+
+
+/**
+ *  GTLRStorage_Policy_Bindings_Item
+ */
+@interface GTLRStorage_Policy_Bindings_Item : GTLRObject
+
+/**
+ *  A collection of identifiers for members who may assume the provided role.
+ *  Recognized identifiers are as follows:
+ *  - allUsers — A special identifier that represents anyone on the internet;
+ *  with or without a Google account.
+ *  - allAuthenticatedUsers — A special identifier that represents anyone who is
+ *  authenticated with a Google account or a service account.
+ *  - user:emailid — An email address that represents a specific account. For
+ *  example, user:alice\@gmail.com or user:joe\@example.com.
+ *  - serviceAccount:emailid — An email address that represents a service
+ *  account. For example,
+ *  serviceAccount:my-other-app\@appspot.gserviceaccount.com .
+ *  - group:emailid — An email address that represents a Google group. For
+ *  example, group:admins\@example.com.
+ *  - domain:domain — A Google Apps domain name that represents all the users of
+ *  that domain. For example, domain:google.com or domain:example.com.
+ *  - projectOwner:projectid — Owners of the given project. For example,
+ *  projectOwner:my-example-project
+ *  - projectEditor:projectid — Editors of the given project. For example,
+ *  projectEditor:my-example-project
+ *  - projectViewer:projectid — Viewers of the given project. For example,
+ *  projectViewer:my-example-project
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *members;
+
+/**
+ *  The role to which members belong. Two types of roles are supported: new IAM
+ *  roles, which grant permissions that do not map directly to those provided by
+ *  ACLs, and legacy IAM roles, which do map directly to ACL permissions. All
+ *  roles are of the format roles/storage.specificRole.
+ *  The new IAM roles are:
+ *  - roles/storage.admin — Full control of Google Cloud Storage resources.
+ *  - roles/storage.objectViewer — Read-Only access to Google Cloud Storage
+ *  objects.
+ *  - roles/storage.objectCreator — Access to create objects in Google Cloud
+ *  Storage.
+ *  - roles/storage.objectAdmin — Full control of Google Cloud Storage objects.
+ *  The legacy IAM roles are:
+ *  - roles/storage.legacyObjectReader — Read-only access to objects without
+ *  listing. Equivalent to an ACL entry on an object with the READER role.
+ *  - roles/storage.legacyObjectOwner — Read/write access to existing objects
+ *  without listing. Equivalent to an ACL entry on an object with the OWNER
+ *  role.
+ *  - roles/storage.legacyBucketReader — Read access to buckets with object
+ *  listing. Equivalent to an ACL entry on a bucket with the READER role.
+ *  - roles/storage.legacyBucketWriter — Read access to buckets with object
+ *  listing/creation/deletion. Equivalent to an ACL entry on a bucket with the
+ *  WRITER role.
+ *  - roles/storage.legacyBucketOwner — Read and write access to existing
+ *  buckets with object listing/creation/deletion. Equivalent to an ACL entry on
+ *  a bucket with the OWNER role.
+ */
+@property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
  *  A rewrite response.
  */
 @interface GTLRStorage_RewriteResponse : GTLRObject
@@ -987,6 +1087,38 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalBytesRewritten;
+
+@end
+
+
+/**
+ *  A storage.(buckets|objects).testIamPermissions response.
+ */
+@interface GTLRStorage_TestIamPermissionsResponse : GTLRObject
+
+/** The kind of item this is. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The permissions held by the caller. Permissions are always of the format
+ *  storage.resource.capability, where resource is one of buckets or objects.
+ *  The supported permissions are as follows:
+ *  - storage.buckets.delete — Delete bucket.
+ *  - storage.buckets.get — Read bucket metadata.
+ *  - storage.buckets.getIamPolicy — Read bucket IAM policy.
+ *  - storage.buckets.create — Create bucket.
+ *  - storage.buckets.list — List buckets.
+ *  - storage.buckets.setIamPolicy — Update bucket IAM policy.
+ *  - storage.buckets.update — Update bucket metadata.
+ *  - storage.objects.delete — Delete object.
+ *  - storage.objects.get — Read object data and metadata.
+ *  - storage.objects.getIamPolicy — Read object IAM policy.
+ *  - storage.objects.create — Create object.
+ *  - storage.objects.list — List objects.
+ *  - storage.objects.setIamPolicy — Update object IAM policy.
+ *  - storage.objects.update — Update object metadata.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 

@@ -56,117 +56,288 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRClassroom_Course.courseState
 
-/** Value: "ACTIVE" */
+/**
+ *  The course is active.
+ *
+ *  Value: "ACTIVE"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Active;
-/** Value: "ARCHIVED" */
+/**
+ *  The course has been archived. You cannot modify it except to change it
+ *  to a different state.
+ *
+ *  Value: "ARCHIVED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Archived;
-/** Value: "COURSE_STATE_UNSPECIFIED" */
+/**
+ *  No course state. No returned Course message will use this value.
+ *
+ *  Value: "COURSE_STATE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_CourseStateUnspecified;
-/** Value: "DECLINED" */
+/**
+ *  The course has been created, but declined. It is accessible by the
+ *  course owner and domain administrators, though it will not be
+ *  displayed in the web UI. You cannot modify the course except to change it
+ *  to the `PROVISIONED` state.
+ *  A course may only be changed to `DECLINED` if it is in the `PROVISIONED`
+ *  state.
+ *
+ *  Value: "DECLINED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Declined;
-/** Value: "PROVISIONED" */
+/**
+ *  The course has been created, but not yet activated. It is accessible by
+ *  the primary teacher and domain administrators, who may modify it or
+ *  change it to the `ACTIVE` or `DECLINED` states.
+ *  A course may only be changed to `PROVISIONED` if it is in the `DECLINED`
+ *  state.
+ *
+ *  Value: "PROVISIONED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Provisioned;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_CourseWork.state
 
-/** Value: "COURSE_WORK_STATE_UNSPECIFIED" */
+/**
+ *  No state specified. This is never returned.
+ *
+ *  Value: "COURSE_WORK_STATE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_State_CourseWorkStateUnspecified;
-/** Value: "DELETED" */
+/**
+ *  Status for work that was published but is now deleted.
+ *  Work in this state is visible only to course teachers and domain
+ *  administrators.
+ *  Work in this state is deleted after some time.
+ *
+ *  Value: "DELETED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_State_Deleted;
-/** Value: "DRAFT" */
+/**
+ *  Status for work that is not yet published.
+ *  Work in this state is visible only to course teachers and domain
+ *  administrators.
+ *
+ *  Value: "DRAFT"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_State_Draft;
-/** Value: "PUBLISHED" */
+/**
+ *  Status for work that has been published.
+ *  This is the default state.
+ *
+ *  Value: "PUBLISHED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_State_Published;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_CourseWork.submissionModificationMode
 
-/** Value: "MODIFIABLE" */
+/**
+ *  Submisisons can be modified at any time.
+ *
+ *  Value: "MODIFIABLE"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMode_Modifiable;
-/** Value: "MODIFIABLE_UNTIL_TURNED_IN" */
+/**
+ *  Submisisons can be modified before being turned in.
+ *
+ *  Value: "MODIFIABLE_UNTIL_TURNED_IN"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMode_ModifiableUntilTurnedIn;
-/** Value: "SUBMISSION_MODIFICATION_MODE_UNSPECIFIED" */
+/**
+ *  No modification mode specified. This is never returned.
+ *
+ *  Value: "SUBMISSION_MODIFICATION_MODE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMode_SubmissionModificationModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_CourseWork.workType
 
-/** Value: "ASSIGNMENT" */
+/**
+ *  An assignment.
+ *
+ *  Value: "ASSIGNMENT"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_Assignment;
-/** Value: "COURSE_WORK_TYPE_UNSPECIFIED" */
+/**
+ *  No work type specified. This is never returned.
+ *
+ *  Value: "COURSE_WORK_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_CourseWorkTypeUnspecified;
-/** Value: "MULTIPLE_CHOICE_QUESTION" */
+/**
+ *  A multiple-choice question.
+ *
+ *  Value: "MULTIPLE_CHOICE_QUESTION"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_MultipleChoiceQuestion;
-/** Value: "SHORT_ANSWER_QUESTION" */
+/**
+ *  A short answer question.
+ *
+ *  Value: "SHORT_ANSWER_QUESTION"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuestion;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_GlobalPermission.permission
 
-/** Value: "CREATE_COURSE" */
+/**
+ *  User is permitted to create a course.
+ *
+ *  Value: "CREATE_COURSE"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_GlobalPermission_Permission_CreateCourse;
-/** Value: "PERMISSION_UNSPECIFIED" */
+/**
+ *  No permission is specified. This is not returned and is not a
+ *  valid value.
+ *
+ *  Value: "PERMISSION_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_GlobalPermission_Permission_PermissionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_GuardianInvitation.state
 
-/** Value: "COMPLETE" */
+/**
+ *  The invitation is no longer active. It may have been accepted, declined,
+ *  withdrawn or it may have expired.
+ *
+ *  Value: "COMPLETE"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_Complete;
-/** Value: "GUARDIAN_INVITATION_STATE_UNSPECIFIED" */
+/**
+ *  Should never be returned.
+ *
+ *  Value: "GUARDIAN_INVITATION_STATE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_GuardianInvitationStateUnspecified;
-/** Value: "PENDING" */
+/**
+ *  The invitation is active and awaiting a response.
+ *
+ *  Value: "PENDING"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_Invitation.role
 
-/** Value: "COURSE_ROLE_UNSPECIFIED" */
+/**
+ *  No course role.
+ *
+ *  Value: "COURSE_ROLE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_Invitation_Role_CourseRoleUnspecified;
-/** Value: "STUDENT" */
+/**
+ *  Student in the course.
+ *
+ *  Value: "STUDENT"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_Invitation_Role_Student;
-/** Value: "TEACHER" */
+/**
+ *  Teacher of the course.
+ *
+ *  Value: "TEACHER"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_Invitation_Role_Teacher;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_SharedDriveFile.shareMode
 
-/** Value: "EDIT" */
+/**
+ *  Students can edit the shared file.
+ *
+ *  Value: "EDIT"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_Edit;
-/** Value: "STUDENT_COPY" */
+/**
+ *  Students have a personal copy of the shared file.
+ *
+ *  Value: "STUDENT_COPY"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_StudentCopy;
-/** Value: "UNKNOWN_SHARE_MODE" */
+/**
+ *  No sharing mode specified. This should never be returned.
+ *
+ *  Value: "UNKNOWN_SHARE_MODE"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_UnknownShareMode;
-/** Value: "VIEW" */
+/**
+ *  Students can view the shared file.
+ *
+ *  Value: "VIEW"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_View;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_StudentSubmission.courseWorkType
 
-/** Value: "ASSIGNMENT" */
+/**
+ *  An assignment.
+ *
+ *  Value: "ASSIGNMENT"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_Assignment;
-/** Value: "COURSE_WORK_TYPE_UNSPECIFIED" */
+/**
+ *  No work type specified. This is never returned.
+ *
+ *  Value: "COURSE_WORK_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_CourseWorkTypeUnspecified;
-/** Value: "MULTIPLE_CHOICE_QUESTION" */
+/**
+ *  A multiple-choice question.
+ *
+ *  Value: "MULTIPLE_CHOICE_QUESTION"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_MultipleChoiceQuestion;
-/** Value: "SHORT_ANSWER_QUESTION" */
+/**
+ *  A short answer question.
+ *
+ *  Value: "SHORT_ANSWER_QUESTION"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_ShortAnswerQuestion;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_StudentSubmission.state
 
-/** Value: "CREATED" */
+/**
+ *  Has been created.
+ *
+ *  Value: "CREATED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Created;
-/** Value: "NEW" */
+/**
+ *  The student has never accessed this submission. Attachments are not
+ *  returned and timestamps is not set.
+ *
+ *  Value: "NEW"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_New;
-/** Value: "RECLAIMED_BY_STUDENT" */
+/**
+ *  Student chose to "unsubmit" the assignment.
+ *
+ *  Value: "RECLAIMED_BY_STUDENT"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_ReclaimedByStudent;
-/** Value: "RETURNED" */
+/**
+ *  Has been returned to the student.
+ *
+ *  Value: "RETURNED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Returned;
-/** Value: "SUBMISSION_STATE_UNSPECIFIED" */
+/**
+ *  No state specified. This should never be returned.
+ *
+ *  Value: "SUBMISSION_STATE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_SubmissionStateUnspecified;
-/** Value: "TURNED_IN" */
+/**
+ *  Has been turned in to the teacher.
+ *
+ *  Value: "TURNED_IN"
+ */
 GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
@@ -175,8 +346,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @interface GTLRClassroom_Assignment : GTLRObject
 
 /**
- *  Drive folder where attachments from student submissions are placed. This is
- *  only populated for course teachers.
+ *  Drive folder where attachments from student submissions are placed.
+ *  This is only populated for course teachers.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_DriveFolder *studentWorkFolder;
 
@@ -189,12 +360,13 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @interface GTLRClassroom_AssignmentSubmission : GTLRObject
 
 /**
- *  Attachments added by the student. Drive files that correspond to materials
- *  with a share mode of STUDENT_COPY may not exist yet if the student has not
- *  accessed the assignment in Classroom. Some attachment metadata is only
- *  populated if the requesting user has permission to access it. Identifier and
- *  alternate_link fields are always available, but others (e.g. title) may not
- *  be.
+ *  Attachments added by the student.
+ *  Drive files that correspond to materials with a share mode of
+ *  STUDENT_COPY may not exist yet if the student has not accessed the
+ *  assignment in Classroom.
+ *  Some attachment metadata is only populated if the requesting user has
+ *  permission to access it. Identifier and alternate_link fields are always
+ *  available, but others (e.g. title) may not be.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Attachment *> *attachments;
 
@@ -202,8 +374,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 
 /**
- *  Attachment added to student assignment work. When creating attachments,
- *  setting the `form` field is not supported.
+ *  Attachment added to student assignment work.
+ *  When creating attachments, setting the `form` field is not supported.
  */
 @interface GTLRClassroom_Attachment : GTLRObject
 
@@ -227,7 +399,10 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @interface GTLRClassroom_Course : GTLRObject
 
-/** Absolute link to this course in the Classroom web UI. Read-only. */
+/**
+ *  Absolute link to this course in the Classroom web UI.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *alternateLink;
 
 /**
@@ -238,49 +413,74 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseGroupEmail;
 
 /**
- *  Sets of materials that appear on the "about" page of this course. Read-only.
+ *  Sets of materials that appear on the "about" page of this course.
+ *  Read-only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_CourseMaterialSet *> *courseMaterialSets;
 
 /**
- *  State of the course. If unspecified, the default state is `PROVISIONED`.
+ *  State of the course.
+ *  If unspecified, the default state is `PROVISIONED`.
  *
  *  Likely values:
- *    @arg @c kGTLRClassroom_Course_CourseState_Active Value "ACTIVE"
- *    @arg @c kGTLRClassroom_Course_CourseState_Archived Value "ARCHIVED"
- *    @arg @c kGTLRClassroom_Course_CourseState_CourseStateUnspecified Value
- *        "COURSE_STATE_UNSPECIFIED"
- *    @arg @c kGTLRClassroom_Course_CourseState_Declined Value "DECLINED"
- *    @arg @c kGTLRClassroom_Course_CourseState_Provisioned Value "PROVISIONED"
+ *    @arg @c kGTLRClassroom_Course_CourseState_Active The course is active.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRClassroom_Course_CourseState_Archived The course has been
+ *        archived. You cannot modify it except to change it
+ *        to a different state. (Value: "ARCHIVED")
+ *    @arg @c kGTLRClassroom_Course_CourseState_CourseStateUnspecified No course
+ *        state. No returned Course message will use this value. (Value:
+ *        "COURSE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRClassroom_Course_CourseState_Declined The course has been
+ *        created, but declined. It is accessible by the
+ *        course owner and domain administrators, though it will not be
+ *        displayed in the web UI. You cannot modify the course except to change
+ *        it
+ *        to the `PROVISIONED` state.
+ *        A course may only be changed to `DECLINED` if it is in the
+ *        `PROVISIONED`
+ *        state. (Value: "DECLINED")
+ *    @arg @c kGTLRClassroom_Course_CourseState_Provisioned The course has been
+ *        created, but not yet activated. It is accessible by
+ *        the primary teacher and domain administrators, who may modify it or
+ *        change it to the `ACTIVE` or `DECLINED` states.
+ *        A course may only be changed to `PROVISIONED` if it is in the
+ *        `DECLINED`
+ *        state. (Value: "PROVISIONED")
  */
 @property(nonatomic, copy, nullable) NSString *courseState;
 
 /**
- *  Creation time of the course. Specifying this field in a course update mask
- *  results in an error. Read-only.
+ *  Creation time of the course.
+ *  Specifying this field in a course update mask results in an error.
+ *  Read-only.
  */
-@property(nonatomic, copy, nullable) NSString *creationTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /**
- *  Optional description. For example, "We'll be learning about the structure of
- *  living creatures from a combination of textbooks, guest lectures, and lab
- *  work. Expect to be excited!" If set, this field must be a valid UTF-8 string
- *  and no longer than 30,000 characters.
+ *  Optional description.
+ *  For example, "We'll be learning about the structure of living
+ *  creatures from a combination of textbooks, guest lectures, and lab work.
+ *  Expect to be excited!"
+ *  If set, this field must be a valid UTF-8 string and no longer than 30,000
+ *  characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional heading for the description. For example, "Welcome to 10th Grade
- *  Biology." If set, this field must be a valid UTF-8 string and no longer than
- *  3600 characters.
+ *  Optional heading for the description.
+ *  For example, "Welcome to 10th Grade Biology."
+ *  If set, this field must be a valid UTF-8 string and no longer than 3600
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionHeading;
 
 /**
- *  Enrollment code to use when joining this course. Specifying this field in a
- *  course update mask results in an error. Read-only.
+ *  Enrollment code to use when joining this course.
+ *  Specifying this field in a course update mask results in an error.
+ *  Read-only.
  */
 @property(nonatomic, copy, nullable) NSString *enrollmentCode;
 
@@ -293,48 +493,63 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, strong, nullable) NSNumber *guardiansEnabled;
 
 /**
- *  Identifier for this course assigned by Classroom. When creating a course,
- *  you may optionally set this identifier to an alias string in the request to
- *  create a corresponding alias. The `id` is still assigned by Classroom and
- *  cannot be updated after the course is created. Specifying this field in a
- *  course update mask results in an error.
+ *  Identifier for this course assigned by Classroom.
+ *  When
+ *  creating a course,
+ *  you may optionally set this identifier to an
+ *  alias string in the
+ *  request to create a corresponding alias. The `id` is still assigned by
+ *  Classroom and cannot be updated after the course is created.
+ *  Specifying this field in a course update mask results in an error.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Name of the course. For example, "10th Grade Biology". The name is required.
- *  It must be between 1 and 750 characters and a valid UTF-8 string.
+ *  Name of the course.
+ *  For example, "10th Grade Biology".
+ *  The name is required. It must be between 1 and 750 characters and a valid
+ *  UTF-8 string.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The identifier of the owner of a course. When specified as a parameter of a
- *  create course request, this field is required. The identifier can be one of
- *  the following: * the numeric identifier for the user * the email address of
- *  the user * the string literal `"me"`, indicating the requesting user This
- *  must be set in a create request. Specifying this field in a course update
- *  mask results in an `INVALID_ARGUMENT` error.
+ *  The identifier of the owner of a course.
+ *  When specified as a parameter of a
+ *  create course request, this
+ *  field is required.
+ *  The identifier can be one of the following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
+ *  This must be set in a create request. Specifying this field in a course
+ *  update mask results in an `INVALID_ARGUMENT` error.
  */
 @property(nonatomic, copy, nullable) NSString *ownerId;
 
 /**
- *  Optional room location. For example, "301". If set, this field must be a
- *  valid UTF-8 string and no longer than 650 characters.
+ *  Optional room location.
+ *  For example, "301".
+ *  If set, this field must be a valid UTF-8 string and no longer than 650
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *room;
 
 /**
- *  Section of the course. For example, "Period 2". If set, this field must be a
- *  valid UTF-8 string and no longer than 2800 characters.
+ *  Section of the course.
+ *  For example, "Period 2".
+ *  If set, this field must be a valid UTF-8 string and no longer than 2800
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *section;
 
 /**
  *  Information about a Drive Folder that is shared with all teachers of the
- *  course. This field will only be set for teachers of the course and domain
- *  administrators. Read-only.
+ *  course.
+ *  This field will only be set for teachers of the course and domain
+ *  administrators.
+ *  Read-only.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_DriveFolder *teacherFolder;
 
@@ -346,34 +561,39 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, copy, nullable) NSString *teacherGroupEmail;
 
 /**
- *  Time of the most recent update to this course. Specifying this field in a
- *  course update mask results in an error. Read-only.
+ *  Time of the most recent update to this course.
+ *  Specifying this field in a course update mask results in an error.
+ *  Read-only.
  */
-@property(nonatomic, copy, nullable) NSString *updateTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  Alternative identifier for a course. An alias uniquely identifies a course.
- *  It must be unique within one of the following scopes: * domain: A
- *  domain-scoped alias is visible to all users within the alias creator's
- *  domain and can be created only by a domain admin. A domain-scoped alias is
- *  often used when a course has an identifier external to Classroom. * project:
- *  A project-scoped alias is visible to any request from an application using
- *  the Developer Console project ID that created the alias and can be created
- *  by any project. A project-scoped alias is often used when an application has
- *  alternative identifiers. A random value can also be used to avoid duplicate
- *  courses in the event of transmission failures, as retrying a request will
- *  return `ALREADY_EXISTS` if a previous one has succeeded.
+ *  Alternative identifier for a course.
+ *  An alias uniquely identifies a course. It must be unique within one of the
+ *  following scopes:
+ *  * domain: A domain-scoped alias is visible to all users within the alias
+ *  creator's domain and can be created only by a domain admin. A domain-scoped
+ *  alias is often used when a course has an identifier external to Classroom.
+ *  * project: A project-scoped alias is visible to any request from an
+ *  application using the Developer Console project ID that created the alias
+ *  and can be created by any project. A project-scoped alias is often used when
+ *  an application has alternative identifiers. A random value can also be used
+ *  to avoid duplicate courses in the event of transmission failures, as
+ *  retrying
+ *  a request will return `ALREADY_EXISTS` if a previous one has succeeded.
  */
 @interface GTLRClassroom_CourseAlias : GTLRObject
 
 /**
  *  Alias string. The format of the string indicates the desired alias scoping.
- *  * `d:` indicates a domain-scoped alias. Example: `d:math_101` * `p:`
- *  indicates a project-scoped alias. Example: `p:abc123` This field has a
- *  maximum length of 256 characters.
+ *  * `d:<name>` indicates a domain-scoped alias.
+ *  Example: `d:math_101`
+ *  * `p:<name>` indicates a project-scoped alias.
+ *  Example: `p:abc123`
+ *  This field has a maximum length of 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
@@ -401,8 +621,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 
 /**
- *  A set of materials that appears on the "About" page of the course. These
- *  materials might include a syllabus, schedule, or other background
+ *  A set of materials that appears on the "About" page of the course.
+ *  These materials might include a syllabus, schedule, or other background
  *  information relating to the course as a whole.
  */
 @interface GTLRClassroom_CourseMaterialSet : GTLRObject
@@ -422,35 +642,46 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @interface GTLRClassroom_CourseWork : GTLRObject
 
 /**
- *  Absolute link to this course work in the Classroom web UI. This is only
- *  populated if `state` is `PUBLISHED`. Read-only.
+ *  Absolute link to this course work in the Classroom web UI.
+ *  This is only populated if `state` is `PUBLISHED`.
+ *  Read-only.
  */
 @property(nonatomic, copy, nullable) NSString *alternateLink;
 
 /**
- *  Assignment details. This is populated only when `work_type` is `ASSIGNMENT`.
+ *  Assignment details.
+ *  This is populated only when `work_type` is `ASSIGNMENT`.
  *  Read-only.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_Assignment *assignment;
 
 /**
  *  Whether this course work item is associated with the Developer Console
- *  project making the request. See google.classroom.Work.CreateCourseWork for
- *  more details. Read-only.
+ *  project making the request.
+ *  See google.classroom.Work.CreateCourseWork for more
+ *  details.
+ *  Read-only.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *associatedWithDeveloper;
 
-/** Identifier of the course. Read-only. */
+/**
+ *  Identifier of the course.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
-/** Timestamp when this course work was created. Read-only. */
-@property(nonatomic, copy, nullable) NSString *creationTime;
+/**
+ *  Timestamp when this course work was created.
+ *  Read-only.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /**
- *  Optional description of this course work. If set, the description must be a
- *  valid UTF-8 string containing no more than 30,000 characters.
+ *  Optional description of this course work.
+ *  If set, the description must be a valid UTF-8 string containing no more
+ *  than 30,000 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -463,8 +694,9 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, strong, nullable) GTLRClassroom_Date *dueDate;
 
 /**
- *  Optional time of day, in UTC, that submissions for this this course work are
- *  due. This must be specified if `due_date` is specified.
+ *  Optional time of day, in UTC, that submissions for this this course work
+ *  are due.
+ *  This must be specified if `due_date` is specified.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_TimeOfDay *dueTime;
 
@@ -477,73 +709,96 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Additional materials. CourseWork must have no more than 20 material items.
+ *  Additional materials.
+ *  CourseWork must have no more than 20 material items.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Material *> *materials;
 
 /**
- *  Maximum grade for this course work. If zero or unspecified, this assignment
- *  is considered ungraded. This must be a non-negative integer value.
+ *  Maximum grade for this course work.
+ *  If zero or unspecified, this assignment is considered ungraded.
+ *  This must be a non-negative integer value.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxPoints;
 
 /**
- *  Multiple choice question details. For read operations, this field is
- *  populated only when `work_type` is `MULTIPLE_CHOICE_QUESTION`. For write
- *  operations, this field must be specified when creating course work with a
- *  `work_type` of `MULTIPLE_CHOICE_QUESTION`, and it must not be set otherwise.
+ *  Multiple choice question details.
+ *  For read operations, this field is populated only when `work_type` is
+ *  `MULTIPLE_CHOICE_QUESTION`.
+ *  For write operations, this field must be specified when creating course
+ *  work with a `work_type` of `MULTIPLE_CHOICE_QUESTION`, and it must not be
+ *  set otherwise.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_MultipleChoiceQuestion *multipleChoiceQuestion;
 
 /**
- *  Status of this course work. If unspecified, the default state is `DRAFT`.
+ *  Status of this course work.
+ *  If unspecified, the default state is `DRAFT`.
  *
  *  Likely values:
- *    @arg @c kGTLRClassroom_CourseWork_State_CourseWorkStateUnspecified Value
- *        "COURSE_WORK_STATE_UNSPECIFIED"
- *    @arg @c kGTLRClassroom_CourseWork_State_Deleted Value "DELETED"
- *    @arg @c kGTLRClassroom_CourseWork_State_Draft Value "DRAFT"
- *    @arg @c kGTLRClassroom_CourseWork_State_Published Value "PUBLISHED"
+ *    @arg @c kGTLRClassroom_CourseWork_State_CourseWorkStateUnspecified No
+ *        state specified. This is never returned. (Value:
+ *        "COURSE_WORK_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRClassroom_CourseWork_State_Deleted Status for work that was
+ *        published but is now deleted.
+ *        Work in this state is visible only to course teachers and domain
+ *        administrators.
+ *        Work in this state is deleted after some time. (Value: "DELETED")
+ *    @arg @c kGTLRClassroom_CourseWork_State_Draft Status for work that is not
+ *        yet published.
+ *        Work in this state is visible only to course teachers and domain
+ *        administrators. (Value: "DRAFT")
+ *    @arg @c kGTLRClassroom_CourseWork_State_Published Status for work that has
+ *        been published.
+ *        This is the default state. (Value: "PUBLISHED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Setting to determine when students are allowed to modify submissions. If
- *  unspecified, the default value is `MODIFIABLE_UNTIL_TURNED_IN`.
+ *  Setting to determine when students are allowed to modify submissions.
+ *  If unspecified, the default value is `MODIFIABLE_UNTIL_TURNED_IN`.
  *
  *  Likely values:
  *    @arg @c kGTLRClassroom_CourseWork_SubmissionModificationMode_Modifiable
- *        Value "MODIFIABLE"
+ *        Submisisons can be modified at any time. (Value: "MODIFIABLE")
  *    @arg @c kGTLRClassroom_CourseWork_SubmissionModificationMode_ModifiableUntilTurnedIn
- *        Value "MODIFIABLE_UNTIL_TURNED_IN"
+ *        Submisisons can be modified before being turned in. (Value:
+ *        "MODIFIABLE_UNTIL_TURNED_IN")
  *    @arg @c kGTLRClassroom_CourseWork_SubmissionModificationMode_SubmissionModificationModeUnspecified
- *        Value "SUBMISSION_MODIFICATION_MODE_UNSPECIFIED"
+ *        No modification mode specified. This is never returned. (Value:
+ *        "SUBMISSION_MODIFICATION_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *submissionModificationMode;
 
 /**
- *  Title of this course work. The title must be a valid UTF-8 string containing
- *  between 1 and 3000 characters.
+ *  Title of this course work.
+ *  The title must be a valid UTF-8 string containing between 1 and 3000
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** Timestamp of the most recent change to this course work. Read-only. */
-@property(nonatomic, copy, nullable) NSString *updateTime;
+/**
+ *  Timestamp of the most recent change to this course work.
+ *  Read-only.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Type of this course work. The type is set when the course work is created
- *  and cannot be changed.
+ *  Type of this course work.
+ *  The type is set when the course work is created and cannot be changed.
  *
  *  Likely values:
- *    @arg @c kGTLRClassroom_CourseWork_WorkType_Assignment Value "ASSIGNMENT"
- *    @arg @c kGTLRClassroom_CourseWork_WorkType_CourseWorkTypeUnspecified Value
- *        "COURSE_WORK_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRClassroom_CourseWork_WorkType_MultipleChoiceQuestion Value
- *        "MULTIPLE_CHOICE_QUESTION"
- *    @arg @c kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuestion Value
- *        "SHORT_ANSWER_QUESTION"
+ *    @arg @c kGTLRClassroom_CourseWork_WorkType_Assignment An assignment.
+ *        (Value: "ASSIGNMENT")
+ *    @arg @c kGTLRClassroom_CourseWork_WorkType_CourseWorkTypeUnspecified No
+ *        work type specified. This is never returned. (Value:
+ *        "COURSE_WORK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRClassroom_CourseWork_WorkType_MultipleChoiceQuestion A
+ *        multiple-choice question. (Value: "MULTIPLE_CHOICE_QUESTION")
+ *    @arg @c kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuestion A short
+ *        answer question. (Value: "SHORT_ANSWER_QUESTION")
  */
 @property(nonatomic, copy, nullable) NSString *workType;
 
@@ -552,18 +807,19 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Represents a whole calendar date, e.g. date of birth. The time of day and
- *  time zone are either specified elsewhere or are not significant. The date is
- *  relative to the Proleptic Gregorian Calendar. The day may be 0 to represent
- *  a year and month where the day is not significant, e.g. credit card
+ *  time zone are either specified elsewhere or are not significant. The date
+ *  is relative to the Proleptic Gregorian Calendar. The day may be 0 to
+ *  represent a year and month where the day is not significant, e.g. credit
+ *  card
  *  expiration date. The year may be 0 to represent a month and day independent
- *  of year, e.g. anniversary date. Related types are google.type.TimeOfDay and
- *  `google.protobuf.Timestamp`.
+ *  of year, e.g. anniversary date. Related types are google.type.TimeOfDay
+ *  and `google.protobuf.Timestamp`.
  */
 @interface GTLRClassroom_Date : GTLRObject
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
- *  specifying a year/month where the day is not significant.
+ *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  if specifying a year/month where the day is not significant.
  *
  *  Uses NSNumber of intValue.
  */
@@ -577,8 +833,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
- *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
- *  year.
+ *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without
+ *  a year.
  *
  *  Uses NSNumber of intValue.
  */
@@ -592,7 +848,10 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @interface GTLRClassroom_DriveFile : GTLRObject
 
-/** URL that can be used to access the Drive item. Read-only. */
+/**
+ *  URL that can be used to access the Drive item.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *alternateLink;
 
 /**
@@ -602,10 +861,16 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** URL of a thumbnail image of the Drive item. Read-only. */
+/**
+ *  URL of a thumbnail image of the Drive item.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *thumbnailUrl;
 
-/** Title of the Drive item. Read-only. */
+/**
+ *  Title of the Drive item.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
@@ -616,7 +881,10 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @interface GTLRClassroom_DriveFolder : GTLRObject
 
-/** URL that can be used to access the Drive folder. Read-only. */
+/**
+ *  URL that can be used to access the Drive folder.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *alternateLink;
 
 /**
@@ -626,7 +894,10 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Title of the Drive folder. Read-only. */
+/**
+ *  Title of the Drive folder.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
@@ -635,9 +906,11 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRClassroom_Empty : GTLRObject
 @end
@@ -652,16 +925,23 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, copy, nullable) NSString *formUrl;
 
 /**
- *  URL of the form responses document. Only set if respsonses have been
- *  recorded and only when the requesting user is an editor of the form.
+ *  URL of the form responses document.
+ *  Only set if respsonses have been recorded and only when the
+ *  requesting user is an editor of the form.
  *  Read-only.
  */
 @property(nonatomic, copy, nullable) NSString *responseUrl;
 
-/** URL of a thumbnail image of the Form. Read-only. */
+/**
+ *  URL of a thumbnail image of the Form.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *thumbnailUrl;
 
-/** Title of the Form. Read-only. */
+/**
+ *  Title of the Form.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
@@ -676,10 +956,11 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  *  Permission value.
  *
  *  Likely values:
- *    @arg @c kGTLRClassroom_GlobalPermission_Permission_CreateCourse Value
- *        "CREATE_COURSE"
+ *    @arg @c kGTLRClassroom_GlobalPermission_Permission_CreateCourse User is
+ *        permitted to create a course. (Value: "CREATE_COURSE")
  *    @arg @c kGTLRClassroom_GlobalPermission_Permission_PermissionUnspecified
- *        Value "PERMISSION_UNSPECIFIED"
+ *        No permission is specified. This is not returned and is not a
+ *        valid value. (Value: "PERMISSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *permission;
 
@@ -699,8 +980,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, strong, nullable) GTLRClassroom_UserProfile *guardianProfile;
 
 /**
- *  The email address to which the initial guardian invitation was sent. This
- *  field is only visible to domain administrators.
+ *  The email address to which the initial guardian invitation was sent.
+ *  This field is only visible to domain administrators.
  */
 @property(nonatomic, copy, nullable) NSString *invitedEmailAddress;
 
@@ -712,19 +993,26 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  An invitation to become the guardian of a specified user, sent to a
- *  specified email address.
+ *  specified
+ *  email address.
  */
 @interface GTLRClassroom_GuardianInvitation : GTLRObject
 
-/** The time that this invitation was created. Read-only. */
-@property(nonatomic, copy, nullable) NSString *creationTime;
+/**
+ *  The time that this invitation was created.
+ *  Read-only.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
-/** Unique identifier for this invitation. Read-only. */
+/**
+ *  Unique identifier for this invitation.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *invitationId;
 
 /**
- *  Email address that the invitation was sent to. This field is only visible to
- *  domain administrators.
+ *  Email address that the invitation was sent to.
+ *  This field is only visible to domain administrators.
  */
 @property(nonatomic, copy, nullable) NSString *invitedEmailAddress;
 
@@ -732,10 +1020,14 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  *  The state that this invitation is in.
  *
  *  Likely values:
- *    @arg @c kGTLRClassroom_GuardianInvitation_State_Complete Value "COMPLETE"
+ *    @arg @c kGTLRClassroom_GuardianInvitation_State_Complete The invitation is
+ *        no longer active. It may have been accepted, declined,
+ *        withdrawn or it may have expired. (Value: "COMPLETE")
  *    @arg @c kGTLRClassroom_GuardianInvitation_State_GuardianInvitationStateUnspecified
- *        Value "GUARDIAN_INVITATION_STATE_UNSPECIFIED"
- *    @arg @c kGTLRClassroom_GuardianInvitation_State_Pending Value "PENDING"
+ *        Should never be returned. (Value:
+ *        "GUARDIAN_INVITATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRClassroom_GuardianInvitation_State_Pending The invitation is
+ *        active and awaiting a response. (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -754,28 +1046,34 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier assigned by Classroom. Read-only.
+ *  Identifier assigned by Classroom.
+ *  Read-only.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Role to invite the user to have. Must not be `COURSE_ROLE_UNSPECIFIED`.
+ *  Role to invite the user to have.
+ *  Must not be `COURSE_ROLE_UNSPECIFIED`.
  *
  *  Likely values:
- *    @arg @c kGTLRClassroom_Invitation_Role_CourseRoleUnspecified Value
- *        "COURSE_ROLE_UNSPECIFIED"
- *    @arg @c kGTLRClassroom_Invitation_Role_Student Value "STUDENT"
- *    @arg @c kGTLRClassroom_Invitation_Role_Teacher Value "TEACHER"
+ *    @arg @c kGTLRClassroom_Invitation_Role_CourseRoleUnspecified No course
+ *        role. (Value: "COURSE_ROLE_UNSPECIFIED")
+ *    @arg @c kGTLRClassroom_Invitation_Role_Student Student in the course.
+ *        (Value: "STUDENT")
+ *    @arg @c kGTLRClassroom_Invitation_Role_Teacher Teacher of the course.
+ *        (Value: "TEACHER")
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
 /**
- *  Identifier of the invited user. When specified as a parameter of a request,
- *  this identifier can be set to one of the following: * the numeric identifier
- *  for the user * the email address of the user * the string literal `"me"`,
- *  indicating the requesting user
+ *  Identifier of the invited user.
+ *  When specified as a parameter of a request, this identifier can be set to
+ *  one of the following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
@@ -787,15 +1085,21 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @interface GTLRClassroom_Link : GTLRObject
 
-/** URL of a thumbnail image of the target URL. Read-only. */
+/**
+ *  URL of a thumbnail image of the target URL.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *thumbnailUrl;
 
-/** Title of the target of the URL. Read-only. */
+/**
+ *  Title of the target of the URL.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
- *  URL to link to. This must be a valid UTF-8 string containing between 1 and
- *  2024 characters.
+ *  URL to link to.
+ *  This must be a valid UTF-8 string containing between 1 and 2024 characters.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -921,8 +1225,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @interface GTLRClassroom_ListGuardiansResponse : GTLRCollectionObject
 
 /**
- *  Guardians on this page of results that met the criteria specified in the
- *  request.
+ *  Guardians on this page of results that met the criteria specified in
+ *  the request.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1047,8 +1351,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 
 /**
- *  Material attached to course work. When creating attachments, setting the
- *  `form` field is not supported.
+ *  Material attached to course work.
+ *  When creating attachments, setting the `form` field is not supported.
  */
 @interface GTLRClassroom_Material : GTLRObject
 
@@ -1059,8 +1363,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, strong, nullable) GTLRClassroom_Form *form;
 
 /**
- *  Link material. On creation, will be upgraded to a more appropriate type if
- *  possible, and this will be reflected in the response.
+ *  Link material. On creation, will be upgraded to a more appropriate type
+ *  if possible, and this will be reflected in the response.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_Link *link;
 
@@ -1076,8 +1380,9 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @interface GTLRClassroom_ModifyAttachmentsRequest : GTLRObject
 
 /**
- *  Attachments to add. A student submission may not have more than 20
- *  attachments. Form attachments are not supported.
+ *  Attachments to add.
+ *  A student submission may not have more than 20 attachments.
+ *  Form attachments are not supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Attachment *> *addAttachments;
 
@@ -1111,16 +1416,23 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @interface GTLRClassroom_Name : GTLRObject
 
-/** The user's last name. Read-only. */
+/**
+ *  The user's last name.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *familyName;
 
 /**
- *  The user's full name formed by concatenating the first and last name values.
+ *  The user's full name formed by concatenating the first and last name
+ *  values.
  *  Read-only.
  */
 @property(nonatomic, copy, nullable) NSString *fullName;
 
-/** The user's first name. Read-only. */
+/**
+ *  The user's first name.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *givenName;
 
 @end
@@ -1152,12 +1464,15 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  *  Mechanism by which students access the Drive item.
  *
  *  Likely values:
- *    @arg @c kGTLRClassroom_SharedDriveFile_ShareMode_Edit Value "EDIT"
- *    @arg @c kGTLRClassroom_SharedDriveFile_ShareMode_StudentCopy Value
- *        "STUDENT_COPY"
- *    @arg @c kGTLRClassroom_SharedDriveFile_ShareMode_UnknownShareMode Value
- *        "UNKNOWN_SHARE_MODE"
- *    @arg @c kGTLRClassroom_SharedDriveFile_ShareMode_View Value "VIEW"
+ *    @arg @c kGTLRClassroom_SharedDriveFile_ShareMode_Edit Students can edit
+ *        the shared file. (Value: "EDIT")
+ *    @arg @c kGTLRClassroom_SharedDriveFile_ShareMode_StudentCopy Students have
+ *        a personal copy of the shared file. (Value: "STUDENT_COPY")
+ *    @arg @c kGTLRClassroom_SharedDriveFile_ShareMode_UnknownShareMode No
+ *        sharing mode specified. This should never be returned. (Value:
+ *        "UNKNOWN_SHARE_MODE")
+ *    @arg @c kGTLRClassroom_SharedDriveFile_ShareMode_View Students can view
+ *        the shared file. (Value: "VIEW")
  */
 @property(nonatomic, copy, nullable) NSString *shareMode;
 
@@ -1180,23 +1495,32 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @interface GTLRClassroom_Student : GTLRObject
 
-/** Identifier of the course. Read-only. */
+/**
+ *  Identifier of the course.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
-/** Global user information for the student. Read-only. */
+/**
+ *  Global user information for the student.
+ *  Read-only.
+ */
 @property(nonatomic, strong, nullable) GTLRClassroom_UserProfile *profile;
 
 /**
  *  Information about a Drive Folder for this student's work in this course.
- *  Only visible to the student and domain administrators. Read-only.
+ *  Only visible to the student and domain administrators.
+ *  Read-only.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_DriveFolder *studentWorkFolder;
 
 /**
- *  Identifier of the user. When specified as a parameter of a request, this
- *  identifier can be one of the following: * the numeric identifier for the
- *  user * the email address of the user * the string literal `"me"`, indicating
- *  the requesting user
+ *  Identifier of the user.
+ *  When specified as a parameter of a request, this identifier can be one of
+ *  the following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
@@ -1204,19 +1528,23 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 
 /**
- *  Student submission for course work. StudentSubmission items are generated
- *  when a CourseWork item is created. StudentSubmissions that have never been
- *  accessed (i.e. with `state` = NEW) may not have a creation time or update
- *  time.
+ *  Student submission for course work.
+ *  StudentSubmission items are generated when a CourseWork item is created.
+ *  StudentSubmissions that have never been accessed (i.e. with `state` = NEW)
+ *  may not have a creation time or update time.
  */
 @interface GTLRClassroom_StudentSubmission : GTLRObject
 
-/** Absolute link to the submission in the Classroom web UI. Read-only. */
+/**
+ *  Absolute link to the submission in the Classroom web UI.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *alternateLink;
 
 /**
- *  Optional grade. If unset, no grade was set. This must be a non-negative
- *  integer value. This may be modified only by course teachers.
+ *  Optional grade. If unset, no grade was set.
+ *  This must be a non-negative integer value.
+ *  This may be modified only by course teachers.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1227,59 +1555,72 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Whether this student submission is associated with the Developer Console
- *  project making the request. See google.classroom.Work.CreateCourseWork for
- *  more details. Read-only.
+ *  project making the request.
+ *  See google.classroom.Work.CreateCourseWork for more
+ *  details.
+ *  Read-only.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *associatedWithDeveloper;
 
-/** Identifier of the course. Read-only. */
+/**
+ *  Identifier of the course.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
-/** Identifier for the course work this corresponds to. Read-only. */
+/**
+ *  Identifier for the course work this corresponds to.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *courseWorkId;
 
 /**
- *  Type of course work this submission is for. Read-only.
+ *  Type of course work this submission is for.
+ *  Read-only.
  *
  *  Likely values:
- *    @arg @c kGTLRClassroom_StudentSubmission_CourseWorkType_Assignment Value
- *        "ASSIGNMENT"
+ *    @arg @c kGTLRClassroom_StudentSubmission_CourseWorkType_Assignment An
+ *        assignment. (Value: "ASSIGNMENT")
  *    @arg @c kGTLRClassroom_StudentSubmission_CourseWorkType_CourseWorkTypeUnspecified
- *        Value "COURSE_WORK_TYPE_UNSPECIFIED"
+ *        No work type specified. This is never returned. (Value:
+ *        "COURSE_WORK_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRClassroom_StudentSubmission_CourseWorkType_MultipleChoiceQuestion
- *        Value "MULTIPLE_CHOICE_QUESTION"
+ *        A multiple-choice question. (Value: "MULTIPLE_CHOICE_QUESTION")
  *    @arg @c kGTLRClassroom_StudentSubmission_CourseWorkType_ShortAnswerQuestion
- *        Value "SHORT_ANSWER_QUESTION"
+ *        A short answer question. (Value: "SHORT_ANSWER_QUESTION")
  */
 @property(nonatomic, copy, nullable) NSString *courseWorkType;
 
 /**
- *  Creation time of this submission. This may be unset if the student has not
- *  accessed this item. Read-only.
+ *  Creation time of this submission.
+ *  This may be unset if the student has not accessed this item.
+ *  Read-only.
  */
-@property(nonatomic, copy, nullable) NSString *creationTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /**
- *  Optional pending grade. If unset, no grade was set. This must be a
- *  non-negative integer value. This is only visible to and modifiable by course
- *  teachers.
+ *  Optional pending grade. If unset, no grade was set.
+ *  This must be a non-negative integer value.
+ *  This is only visible to and modifiable by course teachers.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *draftGrade;
 
 /**
- *  Classroom-assigned Identifier for the student submission. This is unique
- *  among submissions for the relevant course work. Read-only.
+ *  Classroom-assigned Identifier for the student submission.
+ *  This is unique among submissions for the relevant course work.
+ *  Read-only.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Whether this submission is late. Read-only.
+ *  Whether this submission is late.
+ *  Read-only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1292,27 +1633,38 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, strong, nullable) GTLRClassroom_ShortAnswerSubmission *shortAnswerSubmission;
 
 /**
- *  State of this submission. Read-only.
+ *  State of this submission.
+ *  Read-only.
  *
  *  Likely values:
- *    @arg @c kGTLRClassroom_StudentSubmission_State_Created Value "CREATED"
- *    @arg @c kGTLRClassroom_StudentSubmission_State_New Value "NEW"
- *    @arg @c kGTLRClassroom_StudentSubmission_State_ReclaimedByStudent Value
- *        "RECLAIMED_BY_STUDENT"
- *    @arg @c kGTLRClassroom_StudentSubmission_State_Returned Value "RETURNED"
+ *    @arg @c kGTLRClassroom_StudentSubmission_State_Created Has been created.
+ *        (Value: "CREATED")
+ *    @arg @c kGTLRClassroom_StudentSubmission_State_New The student has never
+ *        accessed this submission. Attachments are not
+ *        returned and timestamps is not set. (Value: "NEW")
+ *    @arg @c kGTLRClassroom_StudentSubmission_State_ReclaimedByStudent Student
+ *        chose to "unsubmit" the assignment. (Value: "RECLAIMED_BY_STUDENT")
+ *    @arg @c kGTLRClassroom_StudentSubmission_State_Returned Has been returned
+ *        to the student. (Value: "RETURNED")
  *    @arg @c kGTLRClassroom_StudentSubmission_State_SubmissionStateUnspecified
- *        Value "SUBMISSION_STATE_UNSPECIFIED"
- *    @arg @c kGTLRClassroom_StudentSubmission_State_TurnedIn Value "TURNED_IN"
+ *        No state specified. This should never be returned. (Value:
+ *        "SUBMISSION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRClassroom_StudentSubmission_State_TurnedIn Has been turned in
+ *        to the teacher. (Value: "TURNED_IN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Last update time of this submission. This may be unset if the student has
- *  not accessed this item. Read-only.
+ *  Last update time of this submission.
+ *  This may be unset if the student has not accessed this item.
+ *  Read-only.
  */
-@property(nonatomic, copy, nullable) NSString *updateTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** Identifier for the student that owns this submission. Read-only. */
+/**
+ *  Identifier for the student that owns this submission.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 @end
@@ -1323,17 +1675,25 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @interface GTLRClassroom_Teacher : GTLRObject
 
-/** Identifier of the course. Read-only. */
+/**
+ *  Identifier of the course.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
-/** Global user information for the teacher. Read-only. */
+/**
+ *  Global user information for the teacher.
+ *  Read-only.
+ */
 @property(nonatomic, strong, nullable) GTLRClassroom_UserProfile *profile;
 
 /**
- *  Identifier of the user. When specified as a parameter of a request, this
- *  identifier can be one of the following: * the numeric identifier for the
- *  user * the email address of the user * the string literal `"me"`, indicating
- *  the requesting user
+ *  Identifier of the user.
+ *  When specified as a parameter of a request, this identifier can be one of
+ *  the following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
@@ -1342,14 +1702,14 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Represents a time of day. The date and time zone are either not significant
- *  or are specified elsewhere. An API may chose to allow leap seconds. Related
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
  *  types are google.type.Date and `google.protobuf.Timestamp`.
  */
 @interface GTLRClassroom_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+ *  to allow the value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1392,23 +1752,36 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @interface GTLRClassroom_UserProfile : GTLRObject
 
-/** Email address of the user. Read-only. */
+/**
+ *  Email address of the user.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
 
 /**
- *  Identifier of the user. Read-only.
+ *  Identifier of the user.
+ *  Read-only.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Name of the user. Read-only. */
+/**
+ *  Name of the user.
+ *  Read-only.
+ */
 @property(nonatomic, strong, nullable) GTLRClassroom_Name *name;
 
-/** Global permissions of the user. Read-only. */
+/**
+ *  Global permissions of the user.
+ *  Read-only.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_GlobalPermission *> *permissions;
 
-/** URL of user's profile photo. Read-only. */
+/**
+ *  URL of user's profile photo.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *photoUrl;
 
 @end
@@ -1419,7 +1792,10 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @interface GTLRClassroom_YouTubeVideo : GTLRObject
 
-/** URL that can be used to view the YouTube video. Read-only. */
+/**
+ *  URL that can be used to view the YouTube video.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *alternateLink;
 
 /**
@@ -1429,10 +1805,16 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** URL of a thumbnail image of the YouTube video. Read-only. */
+/**
+ *  URL of a thumbnail image of the YouTube video.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *thumbnailUrl;
 
-/** Title of the YouTube video. Read-only. */
+/**
+ *  Title of the YouTube video.
+ *  Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end

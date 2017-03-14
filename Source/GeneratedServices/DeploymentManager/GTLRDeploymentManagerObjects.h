@@ -53,9 +53,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Specifies the audit configuration for a service. It consists of which
- *  permission types are logged, and what identities, if any, are exempted from
- *  logging. An AuditConifg must have one or more AuditLogConfigs.
+ *  Specifies the audit configuration for a service. The configuration
+ *  determines which permission types are logged, and what identities, if any,
+ *  are exempted from logging. An AuditConifg must have one or more
+ *  AuditLogConfigs.
  *  If there are AuditConfigs for both `allServices` and a specific service, the
  *  union of the two AuditConfigs is used for that service: the log_types
  *  specified in each AuditConfig are enabled, and the exempted_members in each
@@ -78,8 +79,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Specifies a service that will be enabled for audit logging. For example,
- *  `resourcemanager`, `storage`, `compute`. `allServices` is a special value
- *  that covers all services.
+ *  `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
+ *  special value that covers all services.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 

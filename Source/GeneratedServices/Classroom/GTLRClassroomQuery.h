@@ -109,10 +109,15 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Creates an alias for a course. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  create the alias or for access errors. * `NOT_FOUND` if the course does not
- *  exist. * `ALREADY_EXISTS` if the alias already exists.
+ *  Creates an alias for a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to create the
+ *  alias or for access errors.
+ *  * `NOT_FOUND` if the course does not exist.
+ *  * `ALREADY_EXISTS` if the alias already exists.
+ *  * `FAILED_PRECONDITION` if the alias requested does not make sense for the
+ *  requesting user or course (for example, if a user not in a domain
+ *  attempts to access a domain-scoped alias).
  *
  *  Method: classroom.courses.aliases.create
  *
@@ -124,22 +129,29 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesAliasesCreateWithObject:courseId:]
 
 /**
- *  Identifier of the course to alias. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course to alias.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Fetches a @c GTLRClassroom_CourseAlias.
  *
- *  Creates an alias for a course. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  create the alias or for access errors. * `NOT_FOUND` if the course does not
- *  exist. * `ALREADY_EXISTS` if the alias already exists.
+ *  Creates an alias for a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to create the
+ *  alias or for access errors.
+ *  * `NOT_FOUND` if the course does not exist.
+ *  * `ALREADY_EXISTS` if the alias already exists.
+ *  * `FAILED_PRECONDITION` if the alias requested does not make sense for the
+ *  requesting user or course (for example, if a user not in a domain
+ *  attempts to access a domain-scoped alias).
  *
  *  @param object The @c GTLRClassroom_CourseAlias to include in the query.
- *  @param courseId Identifier of the course to alias. This identifier can be
- *    either the Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course to alias.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *
  *  @returns GTLRClassroomQuery_CoursesAliasesCreate
  */
@@ -149,9 +161,14 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Deletes an alias of a course. This method returns the following error codes:
+ *  Deletes an alias of a course.
+ *  This method returns the following error codes:
  *  * `PERMISSION_DENIED` if the requesting user is not permitted to remove the
- *  alias or for access errors. * `NOT_FOUND` if the alias does not exist.
+ *  alias or for access errors.
+ *  * `NOT_FOUND` if the alias does not exist.
+ *  * `FAILED_PRECONDITION` if the alias requested does not make sense for the
+ *  requesting user or course (for example, if a user not in a domain
+ *  attempts to delete a domain-scoped alias).
  *
  *  Method: classroom.courses.aliases.delete
  *
@@ -162,26 +179,36 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 // Previous library name was
 //   +[GTLQueryClassroom queryForCoursesAliasesDeleteWithcourseId:alias:]
 
-/** Alias to delete. This may not be the Classroom-assigned identifier. */
+/**
+ *  Alias to delete.
+ *  This may not be the Classroom-assigned identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *alias;
 
 /**
- *  Identifier of the course whose alias should be deleted. This identifier can
- *  be either the Classroom-assigned identifier or an alias.
+ *  Identifier of the course whose alias should be deleted.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Fetches a @c GTLRClassroom_Empty.
  *
- *  Deletes an alias of a course. This method returns the following error codes:
+ *  Deletes an alias of a course.
+ *  This method returns the following error codes:
  *  * `PERMISSION_DENIED` if the requesting user is not permitted to remove the
- *  alias or for access errors. * `NOT_FOUND` if the alias does not exist.
+ *  alias or for access errors.
+ *  * `NOT_FOUND` if the alias does not exist.
+ *  * `FAILED_PRECONDITION` if the alias requested does not make sense for the
+ *  requesting user or course (for example, if a user not in a domain
+ *  attempts to delete a domain-scoped alias).
  *
- *  @param courseId Identifier of the course whose alias should be deleted. This
- *    identifier can be either the Classroom-assigned identifier or an alias.
- *  @param alias Alias to delete. This may not be the Classroom-assigned
- *    identifier.
+ *  @param courseId Identifier of the course whose alias should be deleted.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
+ *  @param alias Alias to delete.
+ *    This may not be the Classroom-assigned identifier.
  *
  *  @returns GTLRClassroomQuery_CoursesAliasesDelete
  */
@@ -191,10 +218,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a list of aliases for a course. This method returns the following
- *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
- *  to access the course or for access errors. * `NOT_FOUND` if the course does
- *  not exist.
+ *  Returns a list of aliases for a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  course or for access errors.
+ *  * `NOT_FOUND` if the course does not exist.
  *
  *  Method: classroom.courses.aliases.list
  *
@@ -207,35 +235,41 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesAliasesListWithcourseId:]
 
 /**
- *  The identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  The identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Maximum number of items to return. Zero or unspecified indicates that the
- *  server may assign a maximum. The server may return fewer than the specified
- *  number of results.
+ *  server may assign a maximum.
+ *  The server may return fewer than the specified number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  nextPageToken value returned from a previous list call, indicating that the
- *  subsequent page of results should be returned. The list request must be
- *  otherwise identical to the one that resulted in this token.
+ *  nextPageToken
+ *  value returned from a previous
+ *  list call,
+ *  indicating that the subsequent page of results should be returned.
+ *  The list request
+ *  must be otherwise identical to the one that resulted in this token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRClassroom_ListCourseAliasesResponse.
  *
- *  Returns a list of aliases for a course. This method returns the following
- *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
- *  to access the course or for access errors. * `NOT_FOUND` if the course does
- *  not exist.
+ *  Returns a list of aliases for a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  course or for access errors.
+ *  * `NOT_FOUND` if the course does not exist.
  *
- *  @param courseId The identifier of the course. This identifier can be either
- *    the Classroom-assigned identifier or an alias.
+ *  @param courseId The identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *
  *  @returns GTLRClassroomQuery_CoursesAliasesList
  *
@@ -248,18 +282,21 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Creates course work. The resulting course work (and corresponding student
- *  submissions) are associated with the Developer Console project of the [OAuth
- *  client ID](https://support.google.com/cloud/answer/6158849) used to make the
- *  request. Classroom API requests to modify course work and student
+ *  Creates course work.
+ *  The resulting course work (and corresponding student submissions) are
+ *  associated with the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  make the request. Classroom API requests to modify course work and student
  *  submissions must be made with an OAuth client ID from the associated
- *  Developer Console project. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
- *  requested course, create course work in the requested course, share a Drive
- *  attachment, or for access errors. * `INVALID_ARGUMENT` if the request is
- *  malformed. * `NOT_FOUND` if the requested course does not exist. *
- *  `FAILED_PRECONDITION` for the following request error: *
- *  AttachmentNotVisible
+ *  Developer Console project.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course, create course work in the requested course, share a
+ *  Drive attachment, or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course does not exist.
+ *  * `FAILED_PRECONDITION` for the following request error:
+ *  * AttachmentNotVisible
  *
  *  Method: classroom.courses.courseWork.create
  *
@@ -271,30 +308,35 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesCourseWorkCreateWithObject:courseId:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Fetches a @c GTLRClassroom_CourseWork.
  *
- *  Creates course work. The resulting course work (and corresponding student
- *  submissions) are associated with the Developer Console project of the [OAuth
- *  client ID](https://support.google.com/cloud/answer/6158849) used to make the
- *  request. Classroom API requests to modify course work and student
+ *  Creates course work.
+ *  The resulting course work (and corresponding student submissions) are
+ *  associated with the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  make the request. Classroom API requests to modify course work and student
  *  submissions must be made with an OAuth client ID from the associated
- *  Developer Console project. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
- *  requested course, create course work in the requested course, share a Drive
- *  attachment, or for access errors. * `INVALID_ARGUMENT` if the request is
- *  malformed. * `NOT_FOUND` if the requested course does not exist. *
- *  `FAILED_PRECONDITION` for the following request error: *
- *  AttachmentNotVisible
+ *  Developer Console project.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course, create course work in the requested course, share a
+ *  Drive attachment, or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course does not exist.
+ *  * `FAILED_PRECONDITION` for the following request error:
+ *  * AttachmentNotVisible
  *
  *  @param object The @c GTLRClassroom_CourseWork to include in the query.
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *
  *  @returns GTLRClassroomQuery_CoursesCourseWorkCreate
  */
@@ -304,14 +346,16 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Deletes a course work. This request must be made by the Developer Console
- *  project of the [OAuth client
- *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting developer project did not
- *  create the corresponding course work, if the requesting user is not
- *  permitted to delete the requested course or for access errors. *
- *  `FAILED_PRECONDITION` if the requested course work has already been deleted.
+ *  Deletes a course work.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting developer project did not create
+ *  the corresponding course work, if the requesting user is not permitted
+ *  to delete the requested course or for access errors.
+ *  * `FAILED_PRECONDITION` if the requested course work has already been
+ *  deleted.
  *  * `NOT_FOUND` if no course exists with the requested ID.
  *
  *  Method: classroom.courses.courseWork.delete
@@ -324,14 +368,15 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesCourseWorkDeleteWithcourseId:identifier:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the course work to delete. This identifier is a
- *  Classroom-assigned identifier.
+ *  Identifier of the course work to delete.
+ *  This identifier is a Classroom-assigned identifier.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -340,20 +385,23 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_Empty.
  *
- *  Deletes a course work. This request must be made by the Developer Console
- *  project of the [OAuth client
- *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting developer project did not
- *  create the corresponding course work, if the requesting user is not
- *  permitted to delete the requested course or for access errors. *
- *  `FAILED_PRECONDITION` if the requested course work has already been deleted.
+ *  Deletes a course work.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting developer project did not create
+ *  the corresponding course work, if the requesting user is not permitted
+ *  to delete the requested course or for access errors.
+ *  * `FAILED_PRECONDITION` if the requested course work has already been
+ *  deleted.
  *  * `NOT_FOUND` if no course exists with the requested ID.
  *
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
- *  @param identifier Identifier of the course work to delete. This identifier
- *    is a Classroom-assigned identifier.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
+ *  @param identifier Identifier of the course work to delete.
+ *    This identifier is a Classroom-assigned identifier.
  *
  *  @returns GTLRClassroomQuery_CoursesCourseWorkDelete
  */
@@ -363,18 +411,18 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns course work. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
- *  requested course or course work, or for access errors. * `INVALID_ARGUMENT`
- *  if the request is malformed. * `NOT_FOUND` if the requested course or course
- *  work does not exist.
+ *  Returns course work.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course or course work does not exist.
  *
  *  Method: classroom.courses.courseWork.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeClassroomCourseworkMe
  *    @c kGTLRAuthScopeClassroomCourseworkMeReadonly
- *    @c kGTLRAuthScopeClassroomCourseWorkReadonly
  *    @c kGTLRAuthScopeClassroomCourseworkStudents
  *    @c kGTLRAuthScopeClassroomCourseworkStudentsReadonly
  */
@@ -383,8 +431,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesCourseWorkGetWithcourseId:identifier:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
@@ -398,14 +447,16 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_CourseWork.
  *
- *  Returns course work. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
- *  requested course or course work, or for access errors. * `INVALID_ARGUMENT`
- *  if the request is malformed. * `NOT_FOUND` if the requested course or course
- *  work does not exist.
+ *  Returns course work.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course or course work does not exist.
  *
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *  @param identifier Identifier of the course work.
  *
  *  @returns GTLRClassroomQuery_CoursesCourseWorkGet
@@ -417,19 +468,19 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Returns a list of course work that the requester is permitted to view.
- *  Course students may only view `PUBLISHED` course work. Course teachers and
- *  domain administrators may view all course work. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
- *  permitted to access the requested course or for access errors. *
- *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
- *  requested course does not exist.
+ *  Course students may only view `PUBLISHED` course work. Course teachers
+ *  and domain administrators may view all course work.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access
+ *  the requested course or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course does not exist.
  *
  *  Method: classroom.courses.courseWork.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeClassroomCourseworkMe
  *    @c kGTLRAuthScopeClassroomCourseworkMeReadonly
- *    @c kGTLRAuthScopeClassroomCourseWorkReadonly
  *    @c kGTLRAuthScopeClassroomCourseworkStudents
  *    @c kGTLRAuthScopeClassroomCourseworkStudentsReadonly
  */
@@ -438,15 +489,16 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesCourseWorkListWithcourseId:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Restriction on the work status to return. Only courseWork that matches is
- *  returned. If unspecified, items with a work status of `PUBLISHED` is
- *  returned.
+ *  Restriction on the work status to return. Only courseWork that matches
+ *  is returned. If unspecified, items with a work status of `PUBLISHED`
+ *  is returned.
  *
  *  Likely values:
  *    @arg @c kGTLRClassroomCourseWorkStatesCourseWorkStateUnspecified Value
@@ -458,25 +510,28 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *courseWorkStates;
 
 /**
- *  Optional sort ordering for results. A comma-separated list of fields with an
- *  optional sort direction keyword. Supported fields are `updateTime` and
- *  `dueDate`. Supported direction keywords are `asc` and `desc`. If not
- *  specified, `updateTime desc` is the default behavior. Examples: `dueDate
- *  asc,updateTime desc`, `updateTime,dueDate desc`
+ *  Optional sort ordering for results. A comma-separated list of fields with
+ *  an optional sort direction keyword. Supported fields are `updateTime`
+ *  and `dueDate`. Supported direction keywords are `asc` and `desc`.
+ *  If not specified, `updateTime desc` is the default behavior.
+ *  Examples: `dueDate asc,updateTime desc`, `updateTime,dueDate desc`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Maximum number of items to return. Zero or unspecified indicates that the
- *  server may assign a maximum. The server may return fewer than the specified
- *  number of results.
+ *  server may assign a maximum.
+ *  The server may return fewer than the specified number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  nextPageToken value returned from a previous list call, indicating that the
- *  subsequent page of results should be returned. The list request must be
- *  otherwise identical to the one that resulted in this token.
+ *  nextPageToken
+ *  value returned from a previous
+ *  list call,
+ *  indicating that the subsequent page of results should be returned.
+ *  The list request
+ *  must be otherwise identical to the one that resulted in this token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -484,15 +539,17 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Fetches a @c GTLRClassroom_ListCourseWorkResponse.
  *
  *  Returns a list of course work that the requester is permitted to view.
- *  Course students may only view `PUBLISHED` course work. Course teachers and
- *  domain administrators may view all course work. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
- *  permitted to access the requested course or for access errors. *
- *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
- *  requested course does not exist.
+ *  Course students may only view `PUBLISHED` course work. Course teachers
+ *  and domain administrators may view all course work.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access
+ *  the requested course or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course does not exist.
  *
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *
  *  @returns GTLRClassroomQuery_CoursesCourseWorkList
  *
@@ -505,18 +562,22 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Updates one or more fields of a course work. See
- *  google.classroom.v1.CourseWork for details of which fields may be updated
- *  and who may change them. This request must be made by the Developer Console
- *  project of the [OAuth client
- *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting developer project did not
- *  create the corresponding course work, if the user is not permitted to make
- *  the requested modification to the student submission, or for access errors.
- *  * `INVALID_ARGUMENT` if the request is malformed. * `FAILED_PRECONDITION` if
- *  the requested course work has already been deleted. * `NOT_FOUND` if the
- *  requested course, course work, or student submission does not exist.
+ *  Updates one or more fields of a course work.
+ *  See google.classroom.v1.CourseWork for details
+ *  of which fields may be updated and who may change them.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting developer project did not create
+ *  the corresponding course work, if the user is not permitted to make the
+ *  requested modification to the student submission, or for
+ *  access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `FAILED_PRECONDITION` if the requested course work has already been
+ *  deleted.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
  *  Method: classroom.courses.courseWork.patch
  *
@@ -528,8 +589,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesCourseWorkPatchWithObject:courseId:identifier:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
@@ -541,37 +603,50 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Mask that identifies which fields on the course work to update. This field
- *  is required to do an update. The update fails if invalid fields are
- *  specified. If a field supports empty values, it can be cleared by specifying
- *  it in the update mask and not in the CourseWork object. If a field that does
- *  not support empty values is included in the update mask and not set in the
- *  CourseWork object, an `INVALID_ARGUMENT` error will be returned. The
- *  following fields may be specified by teachers: * `title` * `description` *
- *  `state` * `due_date` * `due_time` * `max_points` *
- *  `submission_modification_mode`
+ *  Mask that identifies which fields on the course work to update.
+ *  This field is required to do an update. The update fails if invalid
+ *  fields are specified. If a field supports empty values, it can be cleared
+ *  by specifying it in the update mask and not in the CourseWork object. If a
+ *  field that does not support empty values is included in the update mask and
+ *  not set in the CourseWork object, an `INVALID_ARGUMENT` error will be
+ *  returned.
+ *  The following fields may be specified by teachers:
+ *  * `title`
+ *  * `description`
+ *  * `state`
+ *  * `due_date`
+ *  * `due_time`
+ *  * `max_points`
+ *  * `submission_modification_mode`
+ *
+ *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
  *  Fetches a @c GTLRClassroom_CourseWork.
  *
- *  Updates one or more fields of a course work. See
- *  google.classroom.v1.CourseWork for details of which fields may be updated
- *  and who may change them. This request must be made by the Developer Console
- *  project of the [OAuth client
- *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting developer project did not
- *  create the corresponding course work, if the user is not permitted to make
- *  the requested modification to the student submission, or for access errors.
- *  * `INVALID_ARGUMENT` if the request is malformed. * `FAILED_PRECONDITION` if
- *  the requested course work has already been deleted. * `NOT_FOUND` if the
- *  requested course, course work, or student submission does not exist.
+ *  Updates one or more fields of a course work.
+ *  See google.classroom.v1.CourseWork for details
+ *  of which fields may be updated and who may change them.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting developer project did not create
+ *  the corresponding course work, if the user is not permitted to make the
+ *  requested modification to the student submission, or for
+ *  access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `FAILED_PRECONDITION` if the requested course work has already been
+ *  deleted.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
  *  @param object The @c GTLRClassroom_CourseWork to include in the query.
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *  @param identifier Identifier of the course work.
  *
  *  @returns GTLRClassroomQuery_CoursesCourseWorkPatch
@@ -583,11 +658,13 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a student submission. * `PERMISSION_DENIED` if the requesting user
- *  is not permitted to access the requested course, course work, or student
- *  submission or for access errors. * `INVALID_ARGUMENT` if the request is
- *  malformed. * `NOT_FOUND` if the requested course, course work, or student
- *  submission does not exist.
+ *  Returns a student submission.
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course, course work, or student submission or for
+ *  access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
  *  Method: classroom.courses.courseWork.studentSubmissions.get
  *
@@ -604,8 +681,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsGetWithcourseId:courseWorkId:identifier:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
@@ -622,14 +700,17 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_StudentSubmission.
  *
- *  Returns a student submission. * `PERMISSION_DENIED` if the requesting user
- *  is not permitted to access the requested course, course work, or student
- *  submission or for access errors. * `INVALID_ARGUMENT` if the request is
- *  malformed. * `NOT_FOUND` if the requested course, course work, or student
- *  submission does not exist.
+ *  Returns a student submission.
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course, course work, or student submission or for
+ *  access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *  @param courseWorkId Identifier of the course work.
  *  @param identifier Identifier of the student submission.
  *
@@ -643,14 +724,16 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Returns a list of student submissions that the requester is permitted to
- *  view, factoring in the OAuth scopes of the request. `-` may be specified as
- *  the `course_work_id` to include student submissions for multiple course work
- *  items. Course students may only view their own work. Course teachers and
- *  domain administrators may view all student submissions. This method returns
- *  the following error codes: * `PERMISSION_DENIED` if the requesting user is
- *  not permitted to access the requested course or course work, or for access
- *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
- *  the requested course does not exist.
+ *  view, factoring in the OAuth scopes of the request.
+ *  `-` may be specified as the `course_work_id` to include student
+ *  submissions for multiple course work items.
+ *  Course students may only view their own work. Course teachers
+ *  and domain administrators may view all student submissions.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course does not exist.
  *
  *  Method: classroom.courses.courseWork.studentSubmissions.list
  *
@@ -667,22 +750,23 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsListWithcourseId:courseWorkId:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifer of the student work to request. This may be set to the string
- *  literal `"-"` to request student work for all course work in the specified
- *  course.
+ *  Identifer of the student work to request.
+ *  This may be set to the string literal `"-"` to request student work for
+ *  all course work in the specified course.
  */
 @property(nonatomic, copy, nullable) NSString *courseWorkId;
 
 /**
  *  Requested lateness value. If specified, returned student submissions are
- *  restricted by the requested value. If unspecified, submissions are returned
- *  regardless of `late` value.
+ *  restricted by the requested value.
+ *  If unspecified, submissions are returned regardless of `late` value.
  *
  *  Likely values:
  *    @arg @c kGTLRClassroomLateLateValuesUnspecified Value
@@ -694,15 +778,18 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Maximum number of items to return. Zero or unspecified indicates that the
- *  server may assign a maximum. The server may return fewer than the specified
- *  number of results.
+ *  server may assign a maximum.
+ *  The server may return fewer than the specified number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  nextPageToken value returned from a previous list call, indicating that the
- *  subsequent page of results should be returned. The list request must be
- *  otherwise identical to the one that resulted in this token.
+ *  nextPageToken
+ *  value returned from a previous
+ *  list call,
+ *  indicating that the subsequent page of results should be returned.
+ *  The list request
+ *  must be otherwise identical to the one that resulted in this token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -725,8 +812,10 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Optional argument to restrict returned student work to those owned by the
  *  student with the specified identifier. The identifier can be one of the
- *  following: * the numeric identifier for the user * the email address of the
- *  user * the string literal `"me"`, indicating the requesting user
+ *  following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
@@ -734,20 +823,23 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Fetches a @c GTLRClassroom_ListStudentSubmissionsResponse.
  *
  *  Returns a list of student submissions that the requester is permitted to
- *  view, factoring in the OAuth scopes of the request. `-` may be specified as
- *  the `course_work_id` to include student submissions for multiple course work
- *  items. Course students may only view their own work. Course teachers and
- *  domain administrators may view all student submissions. This method returns
- *  the following error codes: * `PERMISSION_DENIED` if the requesting user is
- *  not permitted to access the requested course or course work, or for access
- *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
- *  the requested course does not exist.
+ *  view, factoring in the OAuth scopes of the request.
+ *  `-` may be specified as the `course_work_id` to include student
+ *  submissions for multiple course work items.
+ *  Course students may only view their own work. Course teachers
+ *  and domain administrators may view all student submissions.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course does not exist.
  *
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
- *  @param courseWorkId Identifer of the student work to request. This may be
- *    set to the string literal `"-"` to request student work for all course
- *    work in the specified course.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
+ *  @param courseWorkId Identifer of the student work to request.
+ *    This may be set to the string literal `"-"` to request student work for
+ *    all course work in the specified course.
  *
  *  @returns GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsList
  *
@@ -761,17 +853,20 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Modifies attachments of student submission. Attachments may only be added to
- *  student submissions belonging to course work objects with a `workType` of
- *  `ASSIGNMENT`. This request must be made by the Developer Console project of
- *  the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used
- *  to create the corresponding course work item. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
- *  permitted to access the requested course or course work, if the user is not
- *  permitted to modify attachments on the requested student submission, or for
- *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
- *  `NOT_FOUND` if the requested course, course work, or student submission does
- *  not exist.
+ *  Modifies attachments of student submission.
+ *  Attachments may only be added to student submissions belonging to course
+ *  work objects with a `workType` of `ASSIGNMENT`.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, if the user is not permitted to modify
+ *  attachments on the requested student submission, or for
+ *  access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
  *  Method: classroom.courses.courseWork.studentSubmissions.modifyAttachments
  *
@@ -784,8 +879,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsModifyAttachmentsWithObject:courseId:courseWorkId:identifier:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
@@ -802,22 +898,26 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_StudentSubmission.
  *
- *  Modifies attachments of student submission. Attachments may only be added to
- *  student submissions belonging to course work objects with a `workType` of
- *  `ASSIGNMENT`. This request must be made by the Developer Console project of
- *  the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used
- *  to create the corresponding course work item. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
- *  permitted to access the requested course or course work, if the user is not
- *  permitted to modify attachments on the requested student submission, or for
- *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
- *  `NOT_FOUND` if the requested course, course work, or student submission does
- *  not exist.
+ *  Modifies attachments of student submission.
+ *  Attachments may only be added to student submissions belonging to course
+ *  work objects with a `workType` of `ASSIGNMENT`.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, if the user is not permitted to modify
+ *  attachments on the requested student submission, or for
+ *  access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
  *  @param object The @c GTLRClassroom_ModifyAttachmentsRequest to include in
  *    the query.
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *  @param courseWorkId Identifier of the course work.
  *  @param identifier Identifier of the student submission.
  *
@@ -831,17 +931,20 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Updates one or more fields of a student submission. See
- *  google.classroom.v1.StudentSubmission for details of which fields may be
- *  updated and who may change them. This request must be made by the Developer
- *  Console project of the [OAuth client
- *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting developer project did not
- *  create the corresponding course work, if the user is not permitted to make
- *  the requested modification to the student submission, or for access errors.
- *  * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
- *  requested course, course work, or student submission does not exist.
+ *  Updates one or more fields of a student submission.
+ *  See google.classroom.v1.StudentSubmission for details
+ *  of which fields may be updated and who may change them.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting developer project did not create
+ *  the corresponding course work, if the user is not permitted to make the
+ *  requested modification to the student submission, or for
+ *  access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
  *  Method: classroom.courses.courseWork.studentSubmissions.patch
  *
@@ -854,8 +957,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsPatchWithObject:courseId:courseWorkId:identifier:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
@@ -870,32 +974,40 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Mask that identifies which fields on the student submission to update. This
- *  field is required to do an update. The update fails if invalid fields are
- *  specified. The following fields may be specified by teachers: *
- *  `draft_grade` * `assigned_grade`
+ *  Mask that identifies which fields on the student submission to update.
+ *  This field is required to do an update. The update fails if invalid
+ *  fields are specified.
+ *  The following fields may be specified by teachers:
+ *  * `draft_grade`
+ *  * `assigned_grade`
+ *
+ *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
  *  Fetches a @c GTLRClassroom_StudentSubmission.
  *
- *  Updates one or more fields of a student submission. See
- *  google.classroom.v1.StudentSubmission for details of which fields may be
- *  updated and who may change them. This request must be made by the Developer
- *  Console project of the [OAuth client
- *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting developer project did not
- *  create the corresponding course work, if the user is not permitted to make
- *  the requested modification to the student submission, or for access errors.
- *  * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
- *  requested course, course work, or student submission does not exist.
+ *  Updates one or more fields of a student submission.
+ *  See google.classroom.v1.StudentSubmission for details
+ *  of which fields may be updated and who may change them.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting developer project did not create
+ *  the corresponding course work, if the user is not permitted to make the
+ *  requested modification to the student submission, or for
+ *  access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
  *  @param object The @c GTLRClassroom_StudentSubmission to include in the
  *    query.
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *  @param courseWorkId Identifier of the course work.
  *  @param identifier Identifier of the student submission.
  *
@@ -910,19 +1022,21 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Reclaims a student submission on behalf of the student that owns it.
- *  Reclaiming a student submission transfers ownership of attached Drive files
- *  to the student and update the submission state. Only the student that owns
- *  the requested student submission may call this method, and only for a
- *  student submission that has been turned in. This request must be made by the
- *  Developer Console project of the [OAuth client
- *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  access the requested course or course work, unsubmit the requested student
- *  submission, or for access errors. * `FAILED_PRECONDITION` if the student
- *  submission has not been turned in. * `INVALID_ARGUMENT` if the request is
- *  malformed. * `NOT_FOUND` if the requested course, course work, or student
- *  submission does not exist.
+ *  Reclaiming a student submission transfers ownership of attached Drive
+ *  files to the student and update the submission state.
+ *  Only the student that owns the requested student submission may call this
+ *  method, and only for a student submission that has been turned in.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, unsubmit the requested student submission,
+ *  or for access errors.
+ *  * `FAILED_PRECONDITION` if the student submission has not been turned in.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
  *  Method: classroom.courses.courseWork.studentSubmissions.reclaim
  *
@@ -934,8 +1048,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsReclaimWithObject:courseId:courseWorkId:identifier:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
@@ -953,24 +1068,27 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Fetches a @c GTLRClassroom_Empty.
  *
  *  Reclaims a student submission on behalf of the student that owns it.
- *  Reclaiming a student submission transfers ownership of attached Drive files
- *  to the student and update the submission state. Only the student that owns
- *  the requested student submission may call this method, and only for a
- *  student submission that has been turned in. This request must be made by the
- *  Developer Console project of the [OAuth client
- *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  access the requested course or course work, unsubmit the requested student
- *  submission, or for access errors. * `FAILED_PRECONDITION` if the student
- *  submission has not been turned in. * `INVALID_ARGUMENT` if the request is
- *  malformed. * `NOT_FOUND` if the requested course, course work, or student
- *  submission does not exist.
+ *  Reclaiming a student submission transfers ownership of attached Drive
+ *  files to the student and update the submission state.
+ *  Only the student that owns the requested student submission may call this
+ *  method, and only for a student submission that has been turned in.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, unsubmit the requested student submission,
+ *  or for access errors.
+ *  * `FAILED_PRECONDITION` if the student submission has not been turned in.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
  *  @param object The @c GTLRClassroom_ReclaimStudentSubmissionRequest to
  *    include in the query.
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *  @param courseWorkId Identifier of the course work.
  *  @param identifier Identifier of the student submission.
  *
@@ -984,19 +1102,23 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a student submission. Returning a student submission transfers
- *  ownership of attached Drive files to the student and may also update the
- *  submission state. Unlike the Classroom application, returning a student
- *  submission does not set assignedGrade to the draftGrade value. Only a
- *  teacher of the course that contains the requested student submission may
- *  call this method. This request must be made by the Developer Console project
- *  of the [OAuth client ID](https://support.google.com/cloud/answer/6158849)
- *  used to create the corresponding course work item. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
- *  permitted to access the requested course or course work, return the
- *  requested student submission, or for access errors. * `INVALID_ARGUMENT` if
- *  the request is malformed. * `NOT_FOUND` if the requested course, course
- *  work, or student submission does not exist.
+ *  Returns a student submission.
+ *  Returning a student submission transfers ownership of attached Drive
+ *  files to the student and may also update the submission state.
+ *  Unlike the Classroom application, returning a student submission does not
+ *  set assignedGrade to the draftGrade value.
+ *  Only a teacher of the course that contains the requested student submission
+ *  may call this method.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, return the requested student submission,
+ *  or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
  *  Method: classroom.courses.courseWork.studentSubmissions.return
  *
@@ -1008,8 +1130,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsReturnWithObject:courseId:courseWorkId:identifier:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
@@ -1026,24 +1149,29 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_Empty.
  *
- *  Returns a student submission. Returning a student submission transfers
- *  ownership of attached Drive files to the student and may also update the
- *  submission state. Unlike the Classroom application, returning a student
- *  submission does not set assignedGrade to the draftGrade value. Only a
- *  teacher of the course that contains the requested student submission may
- *  call this method. This request must be made by the Developer Console project
- *  of the [OAuth client ID](https://support.google.com/cloud/answer/6158849)
- *  used to create the corresponding course work item. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
- *  permitted to access the requested course or course work, return the
- *  requested student submission, or for access errors. * `INVALID_ARGUMENT` if
- *  the request is malformed. * `NOT_FOUND` if the requested course, course
- *  work, or student submission does not exist.
+ *  Returns a student submission.
+ *  Returning a student submission transfers ownership of attached Drive
+ *  files to the student and may also update the submission state.
+ *  Unlike the Classroom application, returning a student submission does not
+ *  set assignedGrade to the draftGrade value.
+ *  Only a teacher of the course that contains the requested student submission
+ *  may call this method.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, return the requested student submission,
+ *  or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
  *  @param object The @c GTLRClassroom_ReturnStudentSubmissionRequest to include
  *    in the query.
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *  @param courseWorkId Identifier of the course work.
  *  @param identifier Identifier of the student submission.
  *
@@ -1057,18 +1185,21 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Turns in a student submission. Turning in a student submission transfers
- *  ownership of attached Drive files to the teacher and may also update the
- *  submission state. This may only be called by the student that owns the
- *  specified student submission. This request must be made by the Developer
- *  Console project of the [OAuth client
- *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  access the requested course or course work, turn in the requested student
- *  submission, or for access errors. * `INVALID_ARGUMENT` if the request is
- *  malformed. * `NOT_FOUND` if the requested course, course work, or student
- *  submission does not exist.
+ *  Turns in a student submission.
+ *  Turning in a student submission transfers ownership of attached Drive
+ *  files to the teacher and may also update the submission state.
+ *  This may only be called by the student that owns the specified student
+ *  submission.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, turn in the requested student submission,
+ *  or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
  *  Method: classroom.courses.courseWork.studentSubmissions.turnIn
  *
@@ -1080,8 +1211,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsTurnInWithObject:courseId:courseWorkId:identifier:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
@@ -1098,23 +1230,27 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_Empty.
  *
- *  Turns in a student submission. Turning in a student submission transfers
- *  ownership of attached Drive files to the teacher and may also update the
- *  submission state. This may only be called by the student that owns the
- *  specified student submission. This request must be made by the Developer
- *  Console project of the [OAuth client
- *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  access the requested course or course work, turn in the requested student
- *  submission, or for access errors. * `INVALID_ARGUMENT` if the request is
- *  malformed. * `NOT_FOUND` if the requested course, course work, or student
- *  submission does not exist.
+ *  Turns in a student submission.
+ *  Turning in a student submission transfers ownership of attached Drive
+ *  files to the teacher and may also update the submission state.
+ *  This may only be called by the student that owns the specified student
+ *  submission.
+ *  This request must be made by the Developer Console project of the
+ *  [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+ *  create the corresponding course work item.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, turn in the requested student submission,
+ *  or for access errors.
+ *  * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `NOT_FOUND` if the requested course, course work, or student submission
+ *  does not exist.
  *
  *  @param object The @c GTLRClassroom_TurnInStudentSubmissionRequest to include
  *    in the query.
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *  @param courseWorkId Identifier of the course work.
  *  @param identifier Identifier of the student submission.
  *
@@ -1128,14 +1264,18 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Creates a course. The user specified in `ownerId` is the owner of the
- *  created course and added as a teacher. This method returns the following
- *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
- *  to create courses or for access errors. * `NOT_FOUND` if the primary teacher
- *  is not a valid user. * `FAILED_PRECONDITION` if the course owner's account
- *  is disabled or for the following request errors: *
- *  UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if an alias was
- *  specified in the `id` and already exists.
+ *  Creates a course.
+ *  The user specified in `ownerId` is the owner of the created course
+ *  and added as a teacher.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to create
+ *  courses or for access errors.
+ *  * `NOT_FOUND` if the primary teacher is not a valid user.
+ *  * `FAILED_PRECONDITION` if the course owner's account is disabled or for
+ *  the following request errors:
+ *  * UserGroupsMembershipLimitReached
+ *  * `ALREADY_EXISTS` if an alias was specified in the `id` and
+ *  already exists.
  *
  *  Method: classroom.courses.create
  *
@@ -1149,14 +1289,18 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_Course.
  *
- *  Creates a course. The user specified in `ownerId` is the owner of the
- *  created course and added as a teacher. This method returns the following
- *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
- *  to create courses or for access errors. * `NOT_FOUND` if the primary teacher
- *  is not a valid user. * `FAILED_PRECONDITION` if the course owner's account
- *  is disabled or for the following request errors: *
- *  UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if an alias was
- *  specified in the `id` and already exists.
+ *  Creates a course.
+ *  The user specified in `ownerId` is the owner of the created course
+ *  and added as a teacher.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to create
+ *  courses or for access errors.
+ *  * `NOT_FOUND` if the primary teacher is not a valid user.
+ *  * `FAILED_PRECONDITION` if the course owner's account is disabled or for
+ *  the following request errors:
+ *  * UserGroupsMembershipLimitReached
+ *  * `ALREADY_EXISTS` if an alias was specified in the `id` and
+ *  already exists.
  *
  *  @param object The @c GTLRClassroom_Course to include in the query.
  *
@@ -1167,10 +1311,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Deletes a course. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to delete the
- *  requested course or for access errors. * `NOT_FOUND` if no course exists
- *  with the requested ID.
+ *  Deletes a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to delete the
+ *  requested course or for access errors.
+ *  * `NOT_FOUND` if no course exists with the requested ID.
  *
  *  Method: classroom.courses.delete
  *
@@ -1182,8 +1327,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesDeleteWithidentifier:]
 
 /**
- *  Identifier of the course to delete. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course to delete.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1192,13 +1338,15 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_Empty.
  *
- *  Deletes a course. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to delete the
- *  requested course or for access errors. * `NOT_FOUND` if no course exists
- *  with the requested ID.
+ *  Deletes a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to delete the
+ *  requested course or for access errors.
+ *  * `NOT_FOUND` if no course exists with the requested ID.
  *
- *  @param identifier Identifier of the course to delete. This identifier can be
- *    either the Classroom-assigned identifier or an alias.
+ *  @param identifier Identifier of the course to delete.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *
  *  @returns GTLRClassroomQuery_CoursesDelete
  */
@@ -1207,10 +1355,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a course. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
- *  requested course or for access errors. * `NOT_FOUND` if no course exists
- *  with the requested ID.
+ *  Returns a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or for access errors.
+ *  * `NOT_FOUND` if no course exists with the requested ID.
  *
  *  Method: classroom.courses.get
  *
@@ -1223,8 +1372,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesGetWithidentifier:]
 
 /**
- *  Identifier of the course to return. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course to return.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1233,13 +1383,15 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_Course.
  *
- *  Returns a course. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
- *  requested course or for access errors. * `NOT_FOUND` if no course exists
- *  with the requested ID.
+ *  Returns a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or for access errors.
+ *  * `NOT_FOUND` if no course exists with the requested ID.
  *
- *  @param identifier Identifier of the course to return. This identifier can be
- *    either the Classroom-assigned identifier or an alias.
+ *  @param identifier Identifier of the course to return.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *
  *  @returns GTLRClassroomQuery_CoursesGet
  */
@@ -1249,10 +1401,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Returns a list of courses that the requesting user is permitted to view,
- *  restricted to those that match the request. This method returns the
- *  following error codes: * `PERMISSION_DENIED` for access errors. *
- *  `INVALID_ARGUMENT` if the query argument is malformed. * `NOT_FOUND` if any
- *  users specified in the query arguments do not exist.
+ *  restricted to those that match the request.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` for access errors.
+ *  * `INVALID_ARGUMENT` if the query argument is malformed.
+ *  * `NOT_FOUND` if any users specified in the query arguments do not exist.
  *
  *  Method: classroom.courses.list
  *
@@ -1266,6 +1419,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Restricts returned courses to those in one of the specified states
+ *  The default value is ACTIVE, ARCHIVED, PROVISIONED, DECLINED.
  *
  *  Likely values:
  *    @arg @c kGTLRClassroomCourseStatesCourseStateUnspecified Value
@@ -1279,31 +1433,36 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Maximum number of items to return. Zero or unspecified indicates that the
- *  server may assign a maximum. The server may return fewer than the specified
- *  number of results.
+ *  server may assign a maximum.
+ *  The server may return fewer than the specified number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  nextPageToken value returned from a previous list call, indicating that the
- *  subsequent page of results should be returned. The list request must be
+ *  nextPageToken
+ *  value returned from a previous
+ *  list call,
+ *  indicating that the subsequent page of results should be returned.
+ *  The list request must be
  *  otherwise identical to the one that resulted in this token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Restricts returned courses to those having a student with the specified
- *  identifier. The identifier can be one of the following: * the numeric
- *  identifier for the user * the email address of the user * the string literal
- *  `"me"`, indicating the requesting user
+ *  identifier. The identifier can be one of the following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *studentId;
 
 /**
  *  Restricts returned courses to those having a teacher with the specified
- *  identifier. The identifier can be one of the following: * the numeric
- *  identifier for the user * the email address of the user * the string literal
- *  `"me"`, indicating the requesting user
+ *  identifier. The identifier can be one of the following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *teacherId;
 
@@ -1311,10 +1470,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Fetches a @c GTLRClassroom_ListCoursesResponse.
  *
  *  Returns a list of courses that the requesting user is permitted to view,
- *  restricted to those that match the request. This method returns the
- *  following error codes: * `PERMISSION_DENIED` for access errors. *
- *  `INVALID_ARGUMENT` if the query argument is malformed. * `NOT_FOUND` if any
- *  users specified in the query arguments do not exist.
+ *  restricted to those that match the request.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` for access errors.
+ *  * `INVALID_ARGUMENT` if the query argument is malformed.
+ *  * `NOT_FOUND` if any users specified in the query arguments do not exist.
  *
  *  @returns GTLRClassroomQuery_CoursesList
  *
@@ -1327,13 +1487,15 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Updates one or more fields in a course. This method returns the following
- *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
- *  to modify the requested course or for access errors. * `NOT_FOUND` if no
- *  course exists with the requested ID. * `INVALID_ARGUMENT` if invalid fields
- *  are specified in the update mask or if no update mask is supplied. *
- *  `FAILED_PRECONDITION` for the following request errors: *
- *  CourseNotModifiable
+ *  Updates one or more fields in a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to modify the
+ *  requested course or for access errors.
+ *  * `NOT_FOUND` if no course exists with the requested ID.
+ *  * `INVALID_ARGUMENT` if invalid fields are specified in the update mask or
+ *  if no update mask is supplied.
+ *  * `FAILED_PRECONDITION` for the following request errors:
+ *  * CourseNotModifiable
  *
  *  Method: classroom.courses.patch
  *
@@ -1345,36 +1507,48 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesPatchWithObject:identifier:]
 
 /**
- *  Identifier of the course to update. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course to update.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Mask that identifies which fields on the course to update. This field is
- *  required to do an update. The update will fail if invalid fields are
- *  specified. The following fields are valid: * `name` * `section` *
- *  `descriptionHeading` * `description` * `room` * `courseState` When set in a
- *  query parameter, this field should be specified as `updateMask=,,...`
+ *  Mask that identifies which fields on the course to update.
+ *  This field is required to do an update. The update will fail if invalid
+ *  fields are specified. The following fields are valid:
+ *  * `name`
+ *  * `section`
+ *  * `descriptionHeading`
+ *  * `description`
+ *  * `room`
+ *  * `courseState`
+ *  When set in a query parameter, this field should be specified as
+ *  `updateMask=<field1>,<field2>,...`
+ *
+ *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
  *  Fetches a @c GTLRClassroom_Course.
  *
- *  Updates one or more fields in a course. This method returns the following
- *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
- *  to modify the requested course or for access errors. * `NOT_FOUND` if no
- *  course exists with the requested ID. * `INVALID_ARGUMENT` if invalid fields
- *  are specified in the update mask or if no update mask is supplied. *
- *  `FAILED_PRECONDITION` for the following request errors: *
- *  CourseNotModifiable
+ *  Updates one or more fields in a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to modify the
+ *  requested course or for access errors.
+ *  * `NOT_FOUND` if no course exists with the requested ID.
+ *  * `INVALID_ARGUMENT` if invalid fields are specified in the update mask or
+ *  if no update mask is supplied.
+ *  * `FAILED_PRECONDITION` for the following request errors:
+ *  * CourseNotModifiable
  *
  *  @param object The @c GTLRClassroom_Course to include in the query.
- *  @param identifier Identifier of the course to update. This identifier can be
- *    either the Classroom-assigned identifier or an alias.
+ *  @param identifier Identifier of the course to update.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *
  *  @returns GTLRClassroomQuery_CoursesPatch
  */
@@ -1384,14 +1558,18 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Adds a user as a student of a course. This method returns the following
- *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
- *  to create students in this course or for access errors. * `NOT_FOUND` if the
- *  requested course ID does not exist. * `FAILED_PRECONDITION` if the requested
- *  user's account is disabled, for the following request errors: *
- *  CourseMemberLimitReached * CourseNotModifiable *
- *  UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if the user is already a
- *  student or teacher in the course.
+ *  Adds a user as a student of a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to create
+ *  students in this course or for access errors.
+ *  * `NOT_FOUND` if the requested course ID does not exist.
+ *  * `FAILED_PRECONDITION` if the requested user's account is disabled,
+ *  for the following request errors:
+ *  * CourseMemberLimitReached
+ *  * CourseNotModifiable
+ *  * UserGroupsMembershipLimitReached
+ *  * `ALREADY_EXISTS` if the user is already a student or teacher in the
+ *  course.
  *
  *  Method: classroom.courses.students.create
  *
@@ -1405,34 +1583,40 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesStudentsCreateWithObject:courseId:]
 
 /**
- *  Identifier of the course to create the student in. This identifier can be
- *  either the Classroom-assigned identifier or an alias.
+ *  Identifier of the course to create the student in.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Enrollment code of the course to create the student in. This code is
- *  required if userId corresponds to the requesting user; it may be omitted if
- *  the requesting user has administrative permissions to create students for
- *  any user.
+ *  Enrollment code of the course to create the student in.
+ *  This code is required if userId
+ *  corresponds to the requesting user; it may be omitted if the requesting
+ *  user has administrative permissions to create students for any user.
  */
 @property(nonatomic, copy, nullable) NSString *enrollmentCode;
 
 /**
  *  Fetches a @c GTLRClassroom_Student.
  *
- *  Adds a user as a student of a course. This method returns the following
- *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
- *  to create students in this course or for access errors. * `NOT_FOUND` if the
- *  requested course ID does not exist. * `FAILED_PRECONDITION` if the requested
- *  user's account is disabled, for the following request errors: *
- *  CourseMemberLimitReached * CourseNotModifiable *
- *  UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if the user is already a
- *  student or teacher in the course.
+ *  Adds a user as a student of a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to create
+ *  students in this course or for access errors.
+ *  * `NOT_FOUND` if the requested course ID does not exist.
+ *  * `FAILED_PRECONDITION` if the requested user's account is disabled,
+ *  for the following request errors:
+ *  * CourseMemberLimitReached
+ *  * CourseNotModifiable
+ *  * UserGroupsMembershipLimitReached
+ *  * `ALREADY_EXISTS` if the user is already a student or teacher in the
+ *  course.
  *
  *  @param object The @c GTLRClassroom_Student to include in the query.
- *  @param courseId Identifier of the course to create the student in. This
- *    identifier can be either the Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course to create the student in.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *
  *  @returns GTLRClassroomQuery_CoursesStudentsCreate
  */
@@ -1442,10 +1626,12 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Deletes a student of a course. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  delete students of this course or for access errors. * `NOT_FOUND` if no
- *  student of this course has the requested ID or if the course does not exist.
+ *  Deletes a student of a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to delete
+ *  students of this course or for access errors.
+ *  * `NOT_FOUND` if no student of this course has the requested ID or if the
+ *  course does not exist.
  *
  *  Method: classroom.courses.students.delete
  *
@@ -1457,32 +1643,40 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesStudentsDeleteWithcourseId:userId:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Identifier of the student to delete. The identifier can be one of the
- *  following: * the numeric identifier for the user * the email address of the
- *  user * the string literal `"me"`, indicating the requesting user
+ *  following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRClassroom_Empty.
  *
- *  Deletes a student of a course. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  delete students of this course or for access errors. * `NOT_FOUND` if no
- *  student of this course has the requested ID or if the course does not exist.
+ *  Deletes a student of a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to delete
+ *  students of this course or for access errors.
+ *  * `NOT_FOUND` if no student of this course has the requested ID or if the
+ *  course does not exist.
  *
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *  @param userId Identifier of the student to delete. The identifier can be one
- *    of the following: * the numeric identifier for the user * the email
- *    address of the user * the string literal `"me"`, indicating the requesting
- *    user
+ *    of the
+ *    following:
+ *    * the numeric identifier for the user
+ *    * the email address of the user
+ *    * the string literal `"me"`, indicating the requesting user
  *
  *  @returns GTLRClassroomQuery_CoursesStudentsDelete
  */
@@ -1492,10 +1686,12 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a student of a course. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to view
- *  students of this course or for access errors. * `NOT_FOUND` if no student of
- *  this course has the requested ID or if the course does not exist.
+ *  Returns a student of a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to view
+ *  students of this course or for access errors.
+ *  * `NOT_FOUND` if no student of this course has the requested ID or if the
+ *  course does not exist.
  *
  *  Method: classroom.courses.students.get
  *
@@ -1510,32 +1706,40 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesStudentsGetWithcourseId:userId:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Identifier of the student to return. The identifier can be one of the
- *  following: * the numeric identifier for the user * the email address of the
- *  user * the string literal `"me"`, indicating the requesting user
+ *  following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRClassroom_Student.
  *
- *  Returns a student of a course. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to view
- *  students of this course or for access errors. * `NOT_FOUND` if no student of
- *  this course has the requested ID or if the course does not exist.
+ *  Returns a student of a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to view
+ *  students of this course or for access errors.
+ *  * `NOT_FOUND` if no student of this course has the requested ID or if the
+ *  course does not exist.
  *
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *  @param userId Identifier of the student to return. The identifier can be one
- *    of the following: * the numeric identifier for the user * the email
- *    address of the user * the string literal `"me"`, indicating the requesting
- *    user
+ *    of the
+ *    following:
+ *    * the numeric identifier for the user
+ *    * the email address of the user
+ *    * the string literal `"me"`, indicating the requesting user
  *
  *  @returns GTLRClassroomQuery_CoursesStudentsGet
  */
@@ -1545,9 +1749,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a list of students of this course that the requester is permitted to
- *  view. This method returns the following error codes: * `NOT_FOUND` if the
- *  course does not exist. * `PERMISSION_DENIED` for access errors.
+ *  Returns a list of students of this course that the requester
+ *  is permitted to view.
+ *  This method returns the following error codes:
+ *  * `NOT_FOUND` if the course does not exist.
+ *  * `PERMISSION_DENIED` for access errors.
  *
  *  Method: classroom.courses.students.list
  *
@@ -1562,20 +1768,24 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesStudentsListWithcourseId:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Maximum number of items to return. Zero means no maximum. The server may
- *  return fewer than the specified number of results.
+ *  Maximum number of items to return. Zero means no maximum.
+ *  The server may return fewer than the specified number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  nextPageToken value returned from a previous list call, indicating that the
- *  subsequent page of results should be returned. The list request must be
+ *  nextPageToken
+ *  value returned from a previous
+ *  list call, indicating that
+ *  the subsequent page of results should be returned.
+ *  The list request must be
  *  otherwise identical to the one that resulted in this token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1583,12 +1793,15 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_ListStudentsResponse.
  *
- *  Returns a list of students of this course that the requester is permitted to
- *  view. This method returns the following error codes: * `NOT_FOUND` if the
- *  course does not exist. * `PERMISSION_DENIED` for access errors.
+ *  Returns a list of students of this course that the requester
+ *  is permitted to view.
+ *  This method returns the following error codes:
+ *  * `NOT_FOUND` if the course does not exist.
+ *  * `PERMISSION_DENIED` for access errors.
  *
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *
  *  @returns GTLRClassroomQuery_CoursesStudentsList
  *
@@ -1601,14 +1814,19 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Creates a teacher of a course. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  create teachers in this course or for access errors. * `NOT_FOUND` if the
- *  requested course ID does not exist. * `FAILED_PRECONDITION` if the requested
- *  user's account is disabled, for the following request errors: *
- *  CourseMemberLimitReached * CourseNotModifiable * CourseTeacherLimitReached *
- *  UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if the user is already a
- *  teacher or student in the course.
+ *  Creates a teacher of a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to create
+ *  teachers in this course or for access errors.
+ *  * `NOT_FOUND` if the requested course ID does not exist.
+ *  * `FAILED_PRECONDITION` if the requested user's account is disabled,
+ *  for the following request errors:
+ *  * CourseMemberLimitReached
+ *  * CourseNotModifiable
+ *  * CourseTeacherLimitReached
+ *  * UserGroupsMembershipLimitReached
+ *  * `ALREADY_EXISTS` if the user is already a teacher or student in the
+ *  course.
  *
  *  Method: classroom.courses.teachers.create
  *
@@ -1622,26 +1840,33 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesTeachersCreateWithObject:courseId:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Fetches a @c GTLRClassroom_Teacher.
  *
- *  Creates a teacher of a course. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  create teachers in this course or for access errors. * `NOT_FOUND` if the
- *  requested course ID does not exist. * `FAILED_PRECONDITION` if the requested
- *  user's account is disabled, for the following request errors: *
- *  CourseMemberLimitReached * CourseNotModifiable * CourseTeacherLimitReached *
- *  UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if the user is already a
- *  teacher or student in the course.
+ *  Creates a teacher of a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to create
+ *  teachers in this course or for access errors.
+ *  * `NOT_FOUND` if the requested course ID does not exist.
+ *  * `FAILED_PRECONDITION` if the requested user's account is disabled,
+ *  for the following request errors:
+ *  * CourseMemberLimitReached
+ *  * CourseNotModifiable
+ *  * CourseTeacherLimitReached
+ *  * UserGroupsMembershipLimitReached
+ *  * `ALREADY_EXISTS` if the user is already a teacher or student in the
+ *  course.
  *
  *  @param object The @c GTLRClassroom_Teacher to include in the query.
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *
  *  @returns GTLRClassroomQuery_CoursesTeachersCreate
  */
@@ -1651,10 +1876,12 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Deletes a teacher of a course. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  delete teachers of this course or for access errors. * `NOT_FOUND` if no
- *  teacher of this course has the requested ID or if the course does not exist.
+ *  Deletes a teacher of a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to delete
+ *  teachers of this course or for access errors.
+ *  * `NOT_FOUND` if no teacher of this course has the requested ID or if the
+ *  course does not exist.
  *  * `FAILED_PRECONDITION` if the requested ID belongs to the primary teacher
  *  of this course.
  *
@@ -1668,34 +1895,42 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesTeachersDeleteWithcourseId:userId:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Identifier of the teacher to delete. The identifier can be one of the
- *  following: * the numeric identifier for the user * the email address of the
- *  user * the string literal `"me"`, indicating the requesting user
+ *  following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRClassroom_Empty.
  *
- *  Deletes a teacher of a course. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  delete teachers of this course or for access errors. * `NOT_FOUND` if no
- *  teacher of this course has the requested ID or if the course does not exist.
+ *  Deletes a teacher of a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to delete
+ *  teachers of this course or for access errors.
+ *  * `NOT_FOUND` if no teacher of this course has the requested ID or if the
+ *  course does not exist.
  *  * `FAILED_PRECONDITION` if the requested ID belongs to the primary teacher
  *  of this course.
  *
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *  @param userId Identifier of the teacher to delete. The identifier can be one
- *    of the following: * the numeric identifier for the user * the email
- *    address of the user * the string literal `"me"`, indicating the requesting
- *    user
+ *    of the
+ *    following:
+ *    * the numeric identifier for the user
+ *    * the email address of the user
+ *    * the string literal `"me"`, indicating the requesting user
  *
  *  @returns GTLRClassroomQuery_CoursesTeachersDelete
  */
@@ -1705,10 +1940,12 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a teacher of a course. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to view
- *  teachers of this course or for access errors. * `NOT_FOUND` if no teacher of
- *  this course has the requested ID or if the course does not exist.
+ *  Returns a teacher of a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to view
+ *  teachers of this course or for access errors.
+ *  * `NOT_FOUND` if no teacher of this course has the requested ID or if the
+ *  course does not exist.
  *
  *  Method: classroom.courses.teachers.get
  *
@@ -1723,32 +1960,40 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesTeachersGetWithcourseId:userId:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
  *  Identifier of the teacher to return. The identifier can be one of the
- *  following: * the numeric identifier for the user * the email address of the
- *  user * the string literal `"me"`, indicating the requesting user
+ *  following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRClassroom_Teacher.
  *
- *  Returns a teacher of a course. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to view
- *  teachers of this course or for access errors. * `NOT_FOUND` if no teacher of
- *  this course has the requested ID or if the course does not exist.
+ *  Returns a teacher of a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to view
+ *  teachers of this course or for access errors.
+ *  * `NOT_FOUND` if no teacher of this course has the requested ID or if the
+ *  course does not exist.
  *
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *  @param userId Identifier of the teacher to return. The identifier can be one
- *    of the following: * the numeric identifier for the user * the email
- *    address of the user * the string literal `"me"`, indicating the requesting
- *    user
+ *    of the
+ *    following:
+ *    * the numeric identifier for the user
+ *    * the email address of the user
+ *    * the string literal `"me"`, indicating the requesting user
  *
  *  @returns GTLRClassroomQuery_CoursesTeachersGet
  */
@@ -1758,9 +2003,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a list of teachers of this course that the requester is permitted to
- *  view. This method returns the following error codes: * `NOT_FOUND` if the
- *  course does not exist. * `PERMISSION_DENIED` for access errors.
+ *  Returns a list of teachers of this course that the requester
+ *  is permitted to view.
+ *  This method returns the following error codes:
+ *  * `NOT_FOUND` if the course does not exist.
+ *  * `PERMISSION_DENIED` for access errors.
  *
  *  Method: classroom.courses.teachers.list
  *
@@ -1775,20 +2022,24 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesTeachersListWithcourseId:]
 
 /**
- *  Identifier of the course. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  */
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Maximum number of items to return. Zero means no maximum. The server may
- *  return fewer than the specified number of results.
+ *  Maximum number of items to return. Zero means no maximum.
+ *  The server may return fewer than the specified number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  nextPageToken value returned from a previous list call, indicating that the
- *  subsequent page of results should be returned. The list request must be
+ *  nextPageToken
+ *  value returned from a previous
+ *  list call, indicating that
+ *  the subsequent page of results should be returned.
+ *  The list request must be
  *  otherwise identical to the one that resulted in this token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1796,12 +2047,15 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_ListTeachersResponse.
  *
- *  Returns a list of teachers of this course that the requester is permitted to
- *  view. This method returns the following error codes: * `NOT_FOUND` if the
- *  course does not exist. * `PERMISSION_DENIED` for access errors.
+ *  Returns a list of teachers of this course that the requester
+ *  is permitted to view.
+ *  This method returns the following error codes:
+ *  * `NOT_FOUND` if the course does not exist.
+ *  * `PERMISSION_DENIED` for access errors.
  *
- *  @param courseId Identifier of the course. This identifier can be either the
- *    Classroom-assigned identifier or an alias.
+ *  @param courseId Identifier of the course.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *
  *  @returns GTLRClassroomQuery_CoursesTeachersList
  *
@@ -1814,11 +2068,13 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Updates a course. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to modify the
- *  requested course or for access errors. * `NOT_FOUND` if no course exists
- *  with the requested ID. * `FAILED_PRECONDITION` for the following request
- *  errors: * CourseNotModifiable
+ *  Updates a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to modify the
+ *  requested course or for access errors.
+ *  * `NOT_FOUND` if no course exists with the requested ID.
+ *  * `FAILED_PRECONDITION` for the following request errors:
+ *  * CourseNotModifiable
  *
  *  Method: classroom.courses.update
  *
@@ -1830,8 +2086,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForCoursesUpdateWithObject:identifier:]
 
 /**
- *  Identifier of the course to update. This identifier can be either the
- *  Classroom-assigned identifier or an alias.
+ *  Identifier of the course to update.
+ *  This identifier can be either the Classroom-assigned identifier or an
+ *  alias.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1840,15 +2097,18 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_Course.
  *
- *  Updates a course. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to modify the
- *  requested course or for access errors. * `NOT_FOUND` if no course exists
- *  with the requested ID. * `FAILED_PRECONDITION` for the following request
- *  errors: * CourseNotModifiable
+ *  Updates a course.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to modify the
+ *  requested course or for access errors.
+ *  * `NOT_FOUND` if no course exists with the requested ID.
+ *  * `FAILED_PRECONDITION` for the following request errors:
+ *  * CourseNotModifiable
  *
  *  @param object The @c GTLRClassroom_Course to include in the query.
- *  @param identifier Identifier of the course to update. This identifier can be
- *    either the Classroom-assigned identifier or an alias.
+ *  @param identifier Identifier of the course to update.
+ *    This identifier can be either the Classroom-assigned identifier or an
+ *    alias.
  *
  *  @returns GTLRClassroomQuery_CoursesUpdate
  */
@@ -1860,13 +2120,16 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Accepts an invitation, removing it and adding the invited user to the
  *  teachers or students (as appropriate) of the specified course. Only the
- *  invited user may accept an invitation. This method returns the following
- *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
- *  to accept the requested invitation or for access errors. *
- *  `FAILED_PRECONDITION` for the following request errors: *
- *  CourseMemberLimitReached * CourseNotModifiable * CourseTeacherLimitReached *
- *  UserGroupsMembershipLimitReached * `NOT_FOUND` if no invitation exists with
- *  the requested ID.
+ *  invited user may accept an invitation.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to accept the
+ *  requested invitation or for access errors.
+ *  * `FAILED_PRECONDITION` for the following request errors:
+ *  * CourseMemberLimitReached
+ *  * CourseNotModifiable
+ *  * CourseTeacherLimitReached
+ *  * UserGroupsMembershipLimitReached
+ *  * `NOT_FOUND` if no invitation exists with the requested ID.
  *
  *  Method: classroom.invitations.accept
  *
@@ -1889,13 +2152,16 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  Accepts an invitation, removing it and adding the invited user to the
  *  teachers or students (as appropriate) of the specified course. Only the
- *  invited user may accept an invitation. This method returns the following
- *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
- *  to accept the requested invitation or for access errors. *
- *  `FAILED_PRECONDITION` for the following request errors: *
- *  CourseMemberLimitReached * CourseNotModifiable * CourseTeacherLimitReached *
- *  UserGroupsMembershipLimitReached * `NOT_FOUND` if no invitation exists with
- *  the requested ID.
+ *  invited user may accept an invitation.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to accept the
+ *  requested invitation or for access errors.
+ *  * `FAILED_PRECONDITION` for the following request errors:
+ *  * CourseMemberLimitReached
+ *  * CourseNotModifiable
+ *  * CourseTeacherLimitReached
+ *  * UserGroupsMembershipLimitReached
+ *  * `NOT_FOUND` if no invitation exists with the requested ID.
  *
  *  @param identifier Identifier of the invitation to accept.
  *
@@ -1907,14 +2173,15 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Creates an invitation. Only one invitation for a user and course may exist
- *  at a time. Delete and re-create an invitation to make changes. This method
- *  returns the following error codes: * `PERMISSION_DENIED` if the requesting
- *  user is not permitted to create invitations for this course or for access
- *  errors. * `NOT_FOUND` if the course or the user does not exist. *
- *  `FAILED_PRECONDITION` if the requested user's account is disabled or if the
- *  user already has this role or a role with greater permissions. *
- *  `ALREADY_EXISTS` if an invitation for the specified user and course already
- *  exists.
+ *  at a time. Delete and re-create an invitation to make changes.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to create
+ *  invitations for this course or for access errors.
+ *  * `NOT_FOUND` if the course or the user does not exist.
+ *  * `FAILED_PRECONDITION` if the requested user's account is disabled or if
+ *  the user already has this role or a role with greater permissions.
+ *  * `ALREADY_EXISTS` if an invitation for the specified user and course
+ *  already exists.
  *
  *  Method: classroom.invitations.create
  *
@@ -1929,14 +2196,15 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Fetches a @c GTLRClassroom_Invitation.
  *
  *  Creates an invitation. Only one invitation for a user and course may exist
- *  at a time. Delete and re-create an invitation to make changes. This method
- *  returns the following error codes: * `PERMISSION_DENIED` if the requesting
- *  user is not permitted to create invitations for this course or for access
- *  errors. * `NOT_FOUND` if the course or the user does not exist. *
- *  `FAILED_PRECONDITION` if the requested user's account is disabled or if the
- *  user already has this role or a role with greater permissions. *
- *  `ALREADY_EXISTS` if an invitation for the specified user and course already
- *  exists.
+ *  at a time. Delete and re-create an invitation to make changes.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to create
+ *  invitations for this course or for access errors.
+ *  * `NOT_FOUND` if the course or the user does not exist.
+ *  * `FAILED_PRECONDITION` if the requested user's account is disabled or if
+ *  the user already has this role or a role with greater permissions.
+ *  * `ALREADY_EXISTS` if an invitation for the specified user and course
+ *  already exists.
  *
  *  @param object The @c GTLRClassroom_Invitation to include in the query.
  *
@@ -1947,10 +2215,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Deletes an invitation. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to delete the
- *  requested invitation or for access errors. * `NOT_FOUND` if no invitation
- *  exists with the requested ID.
+ *  Deletes an invitation.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to delete the
+ *  requested invitation or for access errors.
+ *  * `NOT_FOUND` if no invitation exists with the requested ID.
  *
  *  Method: classroom.invitations.delete
  *
@@ -1971,10 +2240,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_Empty.
  *
- *  Deletes an invitation. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to delete the
- *  requested invitation or for access errors. * `NOT_FOUND` if no invitation
- *  exists with the requested ID.
+ *  Deletes an invitation.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to delete the
+ *  requested invitation or for access errors.
+ *  * `NOT_FOUND` if no invitation exists with the requested ID.
  *
  *  @param identifier Identifier of the invitation to delete.
  *
@@ -1985,10 +2255,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns an invitation. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to view the
- *  requested invitation or for access errors. * `NOT_FOUND` if no invitation
- *  exists with the requested ID.
+ *  Returns an invitation.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to view the
+ *  requested invitation or for access errors.
+ *  * `NOT_FOUND` if no invitation exists with the requested ID.
  *
  *  Method: classroom.invitations.get
  *
@@ -2010,10 +2281,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_Invitation.
  *
- *  Returns an invitation. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to view the
- *  requested invitation or for access errors. * `NOT_FOUND` if no invitation
- *  exists with the requested ID.
+ *  Returns an invitation.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to view the
+ *  requested invitation or for access errors.
+ *  * `NOT_FOUND` if no invitation exists with the requested ID.
  *
  *  @param identifier Identifier of the invitation to return.
  *
@@ -2024,11 +2296,12 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a list of invitations that the requesting user is permitted to view,
- *  restricted to those that match the list request. *Note:* At least one of
- *  `user_id` or `course_id` must be supplied. Both fields can be supplied. This
- *  method returns the following error codes: * `PERMISSION_DENIED` for access
- *  errors.
+ *  Returns a list of invitations that the requesting user is permitted to
+ *  view, restricted to those that match the list request.
+ *  *Note:* At least one of `user_id` or `course_id` must be supplied. Both
+ *  fields can be supplied.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` for access errors.
  *
  *  Method: classroom.invitations.list
  *
@@ -2047,34 +2320,39 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Maximum number of items to return. Zero means no maximum. The server may
- *  return fewer than the specified number of results.
+ *  Maximum number of items to return. Zero means no maximum.
+ *  The server may return fewer than the specified number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  nextPageToken value returned from a previous list call, indicating that the
- *  subsequent page of results should be returned. The list request must be
+ *  nextPageToken
+ *  value returned from a previous
+ *  list call, indicating
+ *  that the subsequent page of results should be returned.
+ *  The list request must be
  *  otherwise identical to the one that resulted in this token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Restricts returned invitations to those for a specific user. The identifier
- *  can be one of the following: * the numeric identifier for the user * the
- *  email address of the user * the string literal `"me"`, indicating the
- *  requesting user
+ *  can be one of the following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRClassroom_ListInvitationsResponse.
  *
- *  Returns a list of invitations that the requesting user is permitted to view,
- *  restricted to those that match the list request. *Note:* At least one of
- *  `user_id` or `course_id` must be supplied. Both fields can be supplied. This
- *  method returns the following error codes: * `PERMISSION_DENIED` for access
- *  errors.
+ *  Returns a list of invitations that the requesting user is permitted to
+ *  view, restricted to those that match the list request.
+ *  *Note:* At least one of `user_id` or `course_id` must be supplied. Both
+ *  fields can be supplied.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` for access errors.
  *
  *  @returns GTLRClassroomQuery_InvitationsList
  *
@@ -2087,10 +2365,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a user profile. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to access this
- *  user profile, if no profile exists with the requested ID, or for access
- *  errors.
+ *  Returns a user profile.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access
+ *  this user profile, if no profile exists with the requested ID, or for
+ *  access errors.
  *
  *  Method: classroom.userProfiles.get
  *
@@ -2106,23 +2385,28 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Identifier of the profile to return. The identifier can be one of the
- *  following: * the numeric identifier for the user * the email address of the
- *  user * the string literal `"me"`, indicating the requesting user
+ *  following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRClassroom_UserProfile.
  *
- *  Returns a user profile. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the requesting user is not permitted to access this
- *  user profile, if no profile exists with the requested ID, or for access
- *  errors.
+ *  Returns a user profile.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to access
+ *  this user profile, if no profile exists with the requested ID, or for
+ *  access errors.
  *
  *  @param userId Identifier of the profile to return. The identifier can be one
- *    of the following: * the numeric identifier for the user * the email
- *    address of the user * the string literal `"me"`, indicating the requesting
- *    user
+ *    of the
+ *    following:
+ *    * the numeric identifier for the user
+ *    * the email address of the user
+ *    * the string literal `"me"`, indicating the requesting user
  *
  *  @returns GTLRClassroomQuery_UserProfilesGet
  */
@@ -2132,27 +2416,31 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Creates a guardian invitation, and sends an email to the guardian asking
- *  them to confirm that they are the student's guardian. Once the guardian
- *  accepts the invitation, their `state` will change to `COMPLETED` and they
- *  will start receiving guardian notifications. A `Guardian` resource will also
- *  be created to represent the active guardian. The request object must have
- *  the `student_id` and `invited_email_address` fields set. Failing to set
- *  these fields, or setting any other fields in the request, will result in an
- *  error. This method returns the following error codes: * `PERMISSION_DENIED`
- *  if the current user does not have permission to manage guardians, if the
- *  guardian in question has already rejected too many requests for that
- *  student, if guardians are not enabled for the domain in question, or for
- *  other access errors. * `RESOURCE_EXHAUSTED` if the student or guardian has
- *  exceeded the guardian link limit. * `INVALID_ARGUMENT` if the guardian email
- *  address is not valid (for example, if it is too long), or if the format of
- *  the student ID provided cannot be recognized (it is not an email address,
- *  nor a `user_id` from this API). This error will also be returned if
- *  read-only fields are set, or if the `state` field is set to to a value other
- *  than `PENDING`. * `NOT_FOUND` if the student ID provided is a valid student
- *  ID, but Classroom has no record of that student. * `ALREADY_EXISTS` if there
- *  is already a pending guardian invitation for the student and
- *  `invited_email_address` provided, or if the provided `invited_email_address`
- *  matches the Google account of an existing `Guardian` for this user.
+ *  them to confirm that they are the student's guardian.
+ *  Once the guardian accepts the invitation, their `state` will change to
+ *  `COMPLETED` and they will start receiving guardian notifications. A
+ *  `Guardian` resource will also be created to represent the active guardian.
+ *  The request object must have the `student_id` and
+ *  `invited_email_address` fields set. Failing to set these fields, or
+ *  setting any other fields in the request, will result in an error.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the current user does not have permission to
+ *  manage guardians, if the guardian in question has already rejected
+ *  too many requests for that student, if guardians are not enabled for the
+ *  domain in question, or for other access errors.
+ *  * `RESOURCE_EXHAUSTED` if the student or guardian has exceeded the guardian
+ *  link limit.
+ *  * `INVALID_ARGUMENT` if the guardian email address is not valid (for
+ *  example, if it is too long), or if the format of the student ID provided
+ *  cannot be recognized (it is not an email address, nor a `user_id` from
+ *  this API). This error will also be returned if read-only fields are set,
+ *  or if the `state` field is set to to a value other than `PENDING`.
+ *  * `NOT_FOUND` if the student ID provided is a valid student ID, but
+ *  Classroom has no record of that student.
+ *  * `ALREADY_EXISTS` if there is already a pending guardian invitation for
+ *  the student and `invited_email_address` provided, or if the provided
+ *  `invited_email_address` matches the Google account of an existing
+ *  `Guardian` for this user.
  *
  *  Method: classroom.userProfiles.guardianInvitations.create
  */
@@ -2167,27 +2455,31 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Fetches a @c GTLRClassroom_GuardianInvitation.
  *
  *  Creates a guardian invitation, and sends an email to the guardian asking
- *  them to confirm that they are the student's guardian. Once the guardian
- *  accepts the invitation, their `state` will change to `COMPLETED` and they
- *  will start receiving guardian notifications. A `Guardian` resource will also
- *  be created to represent the active guardian. The request object must have
- *  the `student_id` and `invited_email_address` fields set. Failing to set
- *  these fields, or setting any other fields in the request, will result in an
- *  error. This method returns the following error codes: * `PERMISSION_DENIED`
- *  if the current user does not have permission to manage guardians, if the
- *  guardian in question has already rejected too many requests for that
- *  student, if guardians are not enabled for the domain in question, or for
- *  other access errors. * `RESOURCE_EXHAUSTED` if the student or guardian has
- *  exceeded the guardian link limit. * `INVALID_ARGUMENT` if the guardian email
- *  address is not valid (for example, if it is too long), or if the format of
- *  the student ID provided cannot be recognized (it is not an email address,
- *  nor a `user_id` from this API). This error will also be returned if
- *  read-only fields are set, or if the `state` field is set to to a value other
- *  than `PENDING`. * `NOT_FOUND` if the student ID provided is a valid student
- *  ID, but Classroom has no record of that student. * `ALREADY_EXISTS` if there
- *  is already a pending guardian invitation for the student and
- *  `invited_email_address` provided, or if the provided `invited_email_address`
- *  matches the Google account of an existing `Guardian` for this user.
+ *  them to confirm that they are the student's guardian.
+ *  Once the guardian accepts the invitation, their `state` will change to
+ *  `COMPLETED` and they will start receiving guardian notifications. A
+ *  `Guardian` resource will also be created to represent the active guardian.
+ *  The request object must have the `student_id` and
+ *  `invited_email_address` fields set. Failing to set these fields, or
+ *  setting any other fields in the request, will result in an error.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the current user does not have permission to
+ *  manage guardians, if the guardian in question has already rejected
+ *  too many requests for that student, if guardians are not enabled for the
+ *  domain in question, or for other access errors.
+ *  * `RESOURCE_EXHAUSTED` if the student or guardian has exceeded the guardian
+ *  link limit.
+ *  * `INVALID_ARGUMENT` if the guardian email address is not valid (for
+ *  example, if it is too long), or if the format of the student ID provided
+ *  cannot be recognized (it is not an email address, nor a `user_id` from
+ *  this API). This error will also be returned if read-only fields are set,
+ *  or if the `state` field is set to to a value other than `PENDING`.
+ *  * `NOT_FOUND` if the student ID provided is a valid student ID, but
+ *  Classroom has no record of that student.
+ *  * `ALREADY_EXISTS` if there is already a pending guardian invitation for
+ *  the student and `invited_email_address` provided, or if the provided
+ *  `invited_email_address` matches the Google account of an existing
+ *  `Guardian` for this user.
  *
  *  @param object The @c GTLRClassroom_GuardianInvitation to include in the
  *    query.
@@ -2201,16 +2493,18 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a specific guardian invitation. This method returns the following
- *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
- *  to view guardian invitations for the student identified by the `student_id`,
- *  if guardians are not enabled for the domain in question, or for other access
- *  errors. * `INVALID_ARGUMENT` if a `student_id` is specified, but its format
- *  cannot be recognized (it is not an email address, nor a `student_id` from
- *  the API, nor the literal string `me`). * `NOT_FOUND` if Classroom cannot
- *  find any record of the given student or `invitation_id`. May also be
- *  returned if the student exists, but the requesting user does not have access
- *  to see that student.
+ *  Returns a specific guardian invitation.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to view
+ *  guardian invitations for the student identified by the `student_id`, if
+ *  guardians are not enabled for the domain in question, or for other
+ *  access errors.
+ *  * `INVALID_ARGUMENT` if a `student_id` is specified, but its format cannot
+ *  be recognized (it is not an email address, nor a `student_id` from the
+ *  API, nor the literal string `me`).
+ *  * `NOT_FOUND` if Classroom cannot find any record of the given student or
+ *  `invitation_id`. May also be returned if the student exists, but the
+ *  requesting user does not have access to see that student.
  *
  *  Method: classroom.userProfiles.guardianInvitations.get
  */
@@ -2227,16 +2521,18 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  Fetches a @c GTLRClassroom_GuardianInvitation.
  *
- *  Returns a specific guardian invitation. This method returns the following
- *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
- *  to view guardian invitations for the student identified by the `student_id`,
- *  if guardians are not enabled for the domain in question, or for other access
- *  errors. * `INVALID_ARGUMENT` if a `student_id` is specified, but its format
- *  cannot be recognized (it is not an email address, nor a `student_id` from
- *  the API, nor the literal string `me`). * `NOT_FOUND` if Classroom cannot
- *  find any record of the given student or `invitation_id`. May also be
- *  returned if the student exists, but the requesting user does not have access
- *  to see that student.
+ *  Returns a specific guardian invitation.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the requesting user is not permitted to view
+ *  guardian invitations for the student identified by the `student_id`, if
+ *  guardians are not enabled for the domain in question, or for other
+ *  access errors.
+ *  * `INVALID_ARGUMENT` if a `student_id` is specified, but its format cannot
+ *  be recognized (it is not an email address, nor a `student_id` from the
+ *  API, nor the literal string `me`).
+ *  * `NOT_FOUND` if Classroom cannot find any record of the given student or
+ *  `invitation_id`. May also be returned if the student exists, but the
+ *  requesting user does not have access to see that student.
  *
  *  @param studentId The ID of the student whose guardian invitation is being
  *    requested.
@@ -2251,17 +2547,19 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a list of guardian invitations that the requesting user is permitted
- *  to view, filtered by the parameters provided. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if a `student_id` is specified,
- *  and the requesting user is not permitted to view guardian invitations for
- *  that student, if `"-"` is specified as the `student_id` and the user is not
- *  a domain administrator, if guardians are not enabled for the domain in
- *  question, or for other access errors. * `INVALID_ARGUMENT` if a `student_id`
- *  is specified, but its format cannot be recognized (it is not an email
- *  address, nor a `student_id` from the API, nor the literal string `me`). May
- *  also be returned if an invalid `page_token` or `state` is provided. *
- *  `NOT_FOUND` if a `student_id` is specified, and its format can be
+ *  Returns a list of guardian invitations that the requesting user is
+ *  permitted to view, filtered by the parameters provided.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if a `student_id` is specified, and the requesting
+ *  user is not permitted to view guardian invitations for that student, if
+ *  `"-"` is specified as the `student_id` and the user is not a domain
+ *  administrator, if guardians are not enabled for the domain in question,
+ *  or for other access errors.
+ *  * `INVALID_ARGUMENT` if a `student_id` is specified, but its format cannot
+ *  be recognized (it is not an email address, nor a `student_id` from the
+ *  API, nor the literal string `me`). May also be returned if an invalid
+ *  `page_token` or `state` is provided.
+ *  * `NOT_FOUND` if a `student_id` is specified, and its format can be
  *  recognized, but Classroom has no record of that student.
  *
  *  Method: classroom.userProfiles.guardianInvitations.list
@@ -2271,22 +2569,25 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 //   +[GTLQueryClassroom queryForUserProfilesGuardianInvitationsListWithstudentId:]
 
 /**
- *  If specified, only results with the specified `invited_email_address` will
- *  be returned.
+ *  If specified, only results with the specified `invited_email_address`
+ *  will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *invitedEmailAddress;
 
 /**
  *  Maximum number of items to return. Zero or unspecified indicates that the
- *  server may assign a maximum. The server may return fewer than the specified
- *  number of results.
+ *  server may assign a maximum.
+ *  The server may return fewer than the specified number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  nextPageToken value returned from a previous list call, indicating that the
- *  subsequent page of results should be returned. The list request must be
- *  otherwise identical to the one that resulted in this token.
+ *  nextPageToken
+ *  value returned from a previous
+ *  list call,
+ *  indicating that the subsequent page of results should be returned.
+ *  The list request
+ *  must be otherwise identical to the one that resulted in this token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2303,37 +2604,44 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *states;
 
 /**
- *  The ID of the student whose guardian invitations are to be returned. The
- *  identifier can be one of the following: * the numeric identifier for the
- *  user * the email address of the user * the string literal `"me"`, indicating
- *  the requesting user * the string literal `"-"`, indicating that results
- *  should be returned for all students that the requesting user is permitted to
- *  view guardian invitations.
+ *  The ID of the student whose guardian invitations are to be returned.
+ *  The identifier can be one of the following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
+ *  * the string literal `"-"`, indicating that results should be returned for
+ *  all students that the requesting user is permitted to view guardian
+ *  invitations.
  */
 @property(nonatomic, copy, nullable) NSString *studentId;
 
 /**
  *  Fetches a @c GTLRClassroom_ListGuardianInvitationsResponse.
  *
- *  Returns a list of guardian invitations that the requesting user is permitted
- *  to view, filtered by the parameters provided. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if a `student_id` is specified,
- *  and the requesting user is not permitted to view guardian invitations for
- *  that student, if `"-"` is specified as the `student_id` and the user is not
- *  a domain administrator, if guardians are not enabled for the domain in
- *  question, or for other access errors. * `INVALID_ARGUMENT` if a `student_id`
- *  is specified, but its format cannot be recognized (it is not an email
- *  address, nor a `student_id` from the API, nor the literal string `me`). May
- *  also be returned if an invalid `page_token` or `state` is provided. *
- *  `NOT_FOUND` if a `student_id` is specified, and its format can be
+ *  Returns a list of guardian invitations that the requesting user is
+ *  permitted to view, filtered by the parameters provided.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if a `student_id` is specified, and the requesting
+ *  user is not permitted to view guardian invitations for that student, if
+ *  `"-"` is specified as the `student_id` and the user is not a domain
+ *  administrator, if guardians are not enabled for the domain in question,
+ *  or for other access errors.
+ *  * `INVALID_ARGUMENT` if a `student_id` is specified, but its format cannot
+ *  be recognized (it is not an email address, nor a `student_id` from the
+ *  API, nor the literal string `me`). May also be returned if an invalid
+ *  `page_token` or `state` is provided.
+ *  * `NOT_FOUND` if a `student_id` is specified, and its format can be
  *  recognized, but Classroom has no record of that student.
  *
  *  @param studentId The ID of the student whose guardian invitations are to be
- *    returned. The identifier can be one of the following: * the numeric
- *    identifier for the user * the email address of the user * the string
- *    literal `"me"`, indicating the requesting user * the string literal `"-"`,
- *    indicating that results should be returned for all students that the
- *    requesting user is permitted to view guardian invitations.
+ *    returned.
+ *    The identifier can be one of the following:
+ *    * the numeric identifier for the user
+ *    * the email address of the user
+ *    * the string literal `"me"`, indicating the requesting user
+ *    * the string literal `"-"`, indicating that results should be returned for
+ *    all students that the requesting user is permitted to view guardian
+ *    invitations.
  *
  *  @returns GTLRClassroomQuery_UserProfilesGuardianInvitationsList
  *
@@ -2346,19 +2654,21 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Modifies a guardian invitation. Currently, the only valid modification is to
- *  change the `state` from `PENDING` to `COMPLETE`. This has the effect of
- *  withdrawing the invitation. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the current user does not have permission to manage
- *  guardians, if guardians are not enabled for the domain in question or for
- *  other access errors. * `FAILED_PRECONDITION` if the guardian link is not in
- *  the `PENDING` state. * `INVALID_ARGUMENT` if the format of the student ID
- *  provided cannot be recognized (it is not an email address, nor a `user_id`
- *  from this API), or if the passed `GuardianInvitation` has a `state` other
- *  than `COMPLETE`, or if it modifies fields other than `state`. * `NOT_FOUND`
- *  if the student ID provided is a valid student ID, but Classroom has no
- *  record of that student, or if the `id` field does not refer to a guardian
- *  invitation known to Classroom.
+ *  Modifies a guardian invitation.
+ *  Currently, the only valid modification is to change the `state` from
+ *  `PENDING` to `COMPLETE`. This has the effect of withdrawing the invitation.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the current user does not have permission to
+ *  manage guardians, if guardians are not enabled for the domain in question
+ *  or for other access errors.
+ *  * `FAILED_PRECONDITION` if the guardian link is not in the `PENDING` state.
+ *  * `INVALID_ARGUMENT` if the format of the student ID provided
+ *  cannot be recognized (it is not an email address, nor a `user_id` from
+ *  this API), or if the passed `GuardianInvitation` has a `state` other than
+ *  `COMPLETE`, or if it modifies fields other than `state`.
+ *  * `NOT_FOUND` if the student ID provided is a valid student ID, but
+ *  Classroom has no record of that student, or if the `id` field does not
+ *  refer to a guardian invitation known to Classroom.
  *
  *  Method: classroom.userProfiles.guardianInvitations.patch
  */
@@ -2373,29 +2683,35 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *studentId;
 
 /**
- *  Mask that identifies which fields on the course to update. This field is
- *  required to do an update. The update will fail if invalid fields are
- *  specified. The following fields are valid: * `state` When set in a query
- *  parameter, this field should be specified as `updateMask=,,...`
+ *  Mask that identifies which fields on the course to update.
+ *  This field is required to do an update. The update will fail if invalid
+ *  fields are specified. The following fields are valid:
+ *  * `state`
+ *  When set in a query parameter, this field should be specified as
+ *  `updateMask=<field1>,<field2>,...`
+ *
+ *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
  *  Fetches a @c GTLRClassroom_GuardianInvitation.
  *
- *  Modifies a guardian invitation. Currently, the only valid modification is to
- *  change the `state` from `PENDING` to `COMPLETE`. This has the effect of
- *  withdrawing the invitation. This method returns the following error codes: *
- *  `PERMISSION_DENIED` if the current user does not have permission to manage
- *  guardians, if guardians are not enabled for the domain in question or for
- *  other access errors. * `FAILED_PRECONDITION` if the guardian link is not in
- *  the `PENDING` state. * `INVALID_ARGUMENT` if the format of the student ID
- *  provided cannot be recognized (it is not an email address, nor a `user_id`
- *  from this API), or if the passed `GuardianInvitation` has a `state` other
- *  than `COMPLETE`, or if it modifies fields other than `state`. * `NOT_FOUND`
- *  if the student ID provided is a valid student ID, but Classroom has no
- *  record of that student, or if the `id` field does not refer to a guardian
- *  invitation known to Classroom.
+ *  Modifies a guardian invitation.
+ *  Currently, the only valid modification is to change the `state` from
+ *  `PENDING` to `COMPLETE`. This has the effect of withdrawing the invitation.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if the current user does not have permission to
+ *  manage guardians, if guardians are not enabled for the domain in question
+ *  or for other access errors.
+ *  * `FAILED_PRECONDITION` if the guardian link is not in the `PENDING` state.
+ *  * `INVALID_ARGUMENT` if the format of the student ID provided
+ *  cannot be recognized (it is not an email address, nor a `user_id` from
+ *  this API), or if the passed `GuardianInvitation` has a `state` other than
+ *  `COMPLETE`, or if it modifies fields other than `state`.
+ *  * `NOT_FOUND` if the student ID provided is a valid student ID, but
+ *  Classroom has no record of that student, or if the `id` field does not
+ *  refer to a guardian invitation known to Classroom.
  *
  *  @param object The @c GTLRClassroom_GuardianInvitation to include in the
  *    query.
@@ -2413,18 +2729,21 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Deletes a guardian. The guardian will no longer receive guardian
- *  notifications and the guardian will no longer be accessible via the API.
- *  This method returns the following error codes: * `PERMISSION_DENIED` if no
- *  user that matches the provided `student_id` is visible to the requesting
- *  user, if the requesting user is not permitted to manage guardians for the
- *  student identified by the `student_id`, if guardians are not enabled for the
- *  domain in question, or for other access errors. * `INVALID_ARGUMENT` if a
- *  `student_id` is specified, but its format cannot be recognized (it is not an
- *  email address, nor a `student_id` from the API). * `NOT_FOUND` if the
- *  requesting user is permitted to modify guardians for the requested
- *  `student_id`, but no `Guardian` record exists for that student with the
- *  provided `guardian_id`.
+ *  Deletes a guardian.
+ *  The guardian will no longer receive guardian notifications and the guardian
+ *  will no longer be accessible via the API.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if no user that matches the provided `student_id`
+ *  is visible to the requesting user, if the requesting user is not
+ *  permitted to manage guardians for the student identified by the
+ *  `student_id`, if guardians are not enabled for the domain in question,
+ *  or for other access errors.
+ *  * `INVALID_ARGUMENT` if a `student_id` is specified, but its format cannot
+ *  be recognized (it is not an email address, nor a `student_id` from the
+ *  API).
+ *  * `NOT_FOUND` if the requesting user is permitted to modify guardians for
+ *  the requested `student_id`, but no `Guardian` record exists for that
+ *  student with the provided `guardian_id`.
  *
  *  Method: classroom.userProfiles.guardians.delete
  */
@@ -2436,31 +2755,37 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *guardianId;
 
 /**
- *  The student whose guardian is to be deleted. One of the following: * the
- *  numeric identifier for the user * the email address of the user * the string
- *  literal `"me"`, indicating the requesting user
+ *  The student whose guardian is to be deleted. One of the following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *studentId;
 
 /**
  *  Fetches a @c GTLRClassroom_Empty.
  *
- *  Deletes a guardian. The guardian will no longer receive guardian
- *  notifications and the guardian will no longer be accessible via the API.
- *  This method returns the following error codes: * `PERMISSION_DENIED` if no
- *  user that matches the provided `student_id` is visible to the requesting
- *  user, if the requesting user is not permitted to manage guardians for the
- *  student identified by the `student_id`, if guardians are not enabled for the
- *  domain in question, or for other access errors. * `INVALID_ARGUMENT` if a
- *  `student_id` is specified, but its format cannot be recognized (it is not an
- *  email address, nor a `student_id` from the API). * `NOT_FOUND` if the
- *  requesting user is permitted to modify guardians for the requested
- *  `student_id`, but no `Guardian` record exists for that student with the
- *  provided `guardian_id`.
+ *  Deletes a guardian.
+ *  The guardian will no longer receive guardian notifications and the guardian
+ *  will no longer be accessible via the API.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if no user that matches the provided `student_id`
+ *  is visible to the requesting user, if the requesting user is not
+ *  permitted to manage guardians for the student identified by the
+ *  `student_id`, if guardians are not enabled for the domain in question,
+ *  or for other access errors.
+ *  * `INVALID_ARGUMENT` if a `student_id` is specified, but its format cannot
+ *  be recognized (it is not an email address, nor a `student_id` from the
+ *  API).
+ *  * `NOT_FOUND` if the requesting user is permitted to modify guardians for
+ *  the requested `student_id`, but no `Guardian` record exists for that
+ *  student with the provided `guardian_id`.
  *
  *  @param studentId The student whose guardian is to be deleted. One of the
- *    following: * the numeric identifier for the user * the email address of
- *    the user * the string literal `"me"`, indicating the requesting user
+ *    following:
+ *    * the numeric identifier for the user
+ *    * the email address of the user
+ *    * the string literal `"me"`, indicating the requesting user
  *  @param guardianId The `id` field from a `Guardian`.
  *
  *  @returns GTLRClassroomQuery_UserProfilesGuardiansDelete
@@ -2471,17 +2796,19 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a specific guardian. This method returns the following error codes:
- *  * `PERMISSION_DENIED` if no user that matches the provided `student_id` is
- *  visible to the requesting user, if the requesting user is not permitted to
- *  view guardian information for the student identified by the `student_id`, if
- *  guardians are not enabled for the domain in question, or for other access
- *  errors. * `INVALID_ARGUMENT` if a `student_id` is specified, but its format
- *  cannot be recognized (it is not an email address, nor a `student_id` from
- *  the API, nor the literal string `me`). * `NOT_FOUND` if the requesting user
- *  is permitted to view guardians for the requested `student_id`, but no
- *  `Guardian` record exists for that student that matches the provided
- *  `guardian_id`.
+ *  Returns a specific guardian.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if no user that matches the provided `student_id`
+ *  is visible to the requesting user, if the requesting user is not
+ *  permitted to view guardian information for the student identified by the
+ *  `student_id`, if guardians are not enabled for the domain in question,
+ *  or for other access errors.
+ *  * `INVALID_ARGUMENT` if a `student_id` is specified, but its format cannot
+ *  be recognized (it is not an email address, nor a `student_id` from the
+ *  API, nor the literal string `me`).
+ *  * `NOT_FOUND` if the requesting user is permitted to view guardians for
+ *  the requested `student_id`, but no `Guardian` record exists for that
+ *  student that matches the provided `guardian_id`.
  *
  *  Method: classroom.userProfiles.guardians.get
  */
@@ -2493,30 +2820,35 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *guardianId;
 
 /**
- *  The student whose guardian is being requested. One of the following: * the
- *  numeric identifier for the user * the email address of the user * the string
- *  literal `"me"`, indicating the requesting user
+ *  The student whose guardian is being requested. One of the following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
  */
 @property(nonatomic, copy, nullable) NSString *studentId;
 
 /**
  *  Fetches a @c GTLRClassroom_Guardian.
  *
- *  Returns a specific guardian. This method returns the following error codes:
- *  * `PERMISSION_DENIED` if no user that matches the provided `student_id` is
- *  visible to the requesting user, if the requesting user is not permitted to
- *  view guardian information for the student identified by the `student_id`, if
- *  guardians are not enabled for the domain in question, or for other access
- *  errors. * `INVALID_ARGUMENT` if a `student_id` is specified, but its format
- *  cannot be recognized (it is not an email address, nor a `student_id` from
- *  the API, nor the literal string `me`). * `NOT_FOUND` if the requesting user
- *  is permitted to view guardians for the requested `student_id`, but no
- *  `Guardian` record exists for that student that matches the provided
- *  `guardian_id`.
+ *  Returns a specific guardian.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if no user that matches the provided `student_id`
+ *  is visible to the requesting user, if the requesting user is not
+ *  permitted to view guardian information for the student identified by the
+ *  `student_id`, if guardians are not enabled for the domain in question,
+ *  or for other access errors.
+ *  * `INVALID_ARGUMENT` if a `student_id` is specified, but its format cannot
+ *  be recognized (it is not an email address, nor a `student_id` from the
+ *  API, nor the literal string `me`).
+ *  * `NOT_FOUND` if the requesting user is permitted to view guardians for
+ *  the requested `student_id`, but no `Guardian` record exists for that
+ *  student that matches the provided `guardian_id`.
  *
  *  @param studentId The student whose guardian is being requested. One of the
- *    following: * the numeric identifier for the user * the email address of
- *    the user * the string literal `"me"`, indicating the requesting user
+ *    following:
+ *    * the numeric identifier for the user
+ *    * the email address of the user
+ *    * the string literal `"me"`, indicating the requesting user
  *  @param guardianId The `id` field from a `Guardian`.
  *
  *  @returns GTLRClassroomQuery_UserProfilesGuardiansGet
@@ -2527,20 +2859,22 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
- *  Returns a list of guardians that the requesting user is permitted to view,
- *  restricted to those that match the request. To list guardians for any
- *  student that the requesting user may view guardians for, use the literal
- *  character `-` for the student ID. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if a `student_id` is specified, and the
- *  requesting user is not permitted to view guardian information for that
- *  student, if `"-"` is specified as the `student_id` and the user is not a
- *  domain administrator, if guardians are not enabled for the domain in
- *  question, if the `invited_email_address` filter is set by a user who is not
- *  a domain administrator, or for other access errors. * `INVALID_ARGUMENT` if
- *  a `student_id` is specified, but its format cannot be recognized (it is not
- *  an email address, nor a `student_id` from the API, nor the literal string
- *  `me`). May also be returned if an invalid `page_token` is provided. *
- *  `NOT_FOUND` if a `student_id` is specified, and its format can be
+ *  Returns a list of guardians that the requesting user is permitted to
+ *  view, restricted to those that match the request.
+ *  To list guardians for any student that the requesting user may view
+ *  guardians for, use the literal character `-` for the student ID.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if a `student_id` is specified, and the requesting
+ *  user is not permitted to view guardian information for that student, if
+ *  `"-"` is specified as the `student_id` and the user is not a domain
+ *  administrator, if guardians are not enabled for the domain in question,
+ *  if the `invited_email_address` filter is set by a user who is not a
+ *  domain administrator, or for other access errors.
+ *  * `INVALID_ARGUMENT` if a `student_id` is specified, but its format cannot
+ *  be recognized (it is not an email address, nor a `student_id` from the
+ *  API, nor the literal string `me`). May also be returned if an invalid
+ *  `page_token` is provided.
+ *  * `NOT_FOUND` if a `student_id` is specified, and its format can be
  *  recognized, but Classroom has no record of that student.
  *
  *  Method: classroom.userProfiles.guardians.list
@@ -2551,59 +2885,68 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Filter results by the email address that the original invitation was sent
- *  to, resulting in this guardian link. This filter can only be used by domain
- *  administrators.
+ *  to, resulting in this guardian link.
+ *  This filter can only be used by domain administrators.
  */
 @property(nonatomic, copy, nullable) NSString *invitedEmailAddress;
 
 /**
  *  Maximum number of items to return. Zero or unspecified indicates that the
- *  server may assign a maximum. The server may return fewer than the specified
- *  number of results.
+ *  server may assign a maximum.
+ *  The server may return fewer than the specified number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  nextPageToken value returned from a previous list call, indicating that the
- *  subsequent page of results should be returned. The list request must be
- *  otherwise identical to the one that resulted in this token.
+ *  nextPageToken
+ *  value returned from a previous
+ *  list call,
+ *  indicating that the subsequent page of results should be returned.
+ *  The list request
+ *  must be otherwise identical to the one that resulted in this token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Filter results by the student who the guardian is linked to. The identifier
- *  can be one of the following: * the numeric identifier for the user * the
- *  email address of the user * the string literal `"me"`, indicating the
- *  requesting user * the string literal `"-"`, indicating that results should
- *  be returned for all students that the requesting user has access to view.
+ *  Filter results by the student who the guardian is linked to.
+ *  The identifier can be one of the following:
+ *  * the numeric identifier for the user
+ *  * the email address of the user
+ *  * the string literal `"me"`, indicating the requesting user
+ *  * the string literal `"-"`, indicating that results should be returned for
+ *  all students that the requesting user has access to view.
  */
 @property(nonatomic, copy, nullable) NSString *studentId;
 
 /**
  *  Fetches a @c GTLRClassroom_ListGuardiansResponse.
  *
- *  Returns a list of guardians that the requesting user is permitted to view,
- *  restricted to those that match the request. To list guardians for any
- *  student that the requesting user may view guardians for, use the literal
- *  character `-` for the student ID. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if a `student_id` is specified, and the
- *  requesting user is not permitted to view guardian information for that
- *  student, if `"-"` is specified as the `student_id` and the user is not a
- *  domain administrator, if guardians are not enabled for the domain in
- *  question, if the `invited_email_address` filter is set by a user who is not
- *  a domain administrator, or for other access errors. * `INVALID_ARGUMENT` if
- *  a `student_id` is specified, but its format cannot be recognized (it is not
- *  an email address, nor a `student_id` from the API, nor the literal string
- *  `me`). May also be returned if an invalid `page_token` is provided. *
- *  `NOT_FOUND` if a `student_id` is specified, and its format can be
+ *  Returns a list of guardians that the requesting user is permitted to
+ *  view, restricted to those that match the request.
+ *  To list guardians for any student that the requesting user may view
+ *  guardians for, use the literal character `-` for the student ID.
+ *  This method returns the following error codes:
+ *  * `PERMISSION_DENIED` if a `student_id` is specified, and the requesting
+ *  user is not permitted to view guardian information for that student, if
+ *  `"-"` is specified as the `student_id` and the user is not a domain
+ *  administrator, if guardians are not enabled for the domain in question,
+ *  if the `invited_email_address` filter is set by a user who is not a
+ *  domain administrator, or for other access errors.
+ *  * `INVALID_ARGUMENT` if a `student_id` is specified, but its format cannot
+ *  be recognized (it is not an email address, nor a `student_id` from the
+ *  API, nor the literal string `me`). May also be returned if an invalid
+ *  `page_token` is provided.
+ *  * `NOT_FOUND` if a `student_id` is specified, and its format can be
  *  recognized, but Classroom has no record of that student.
  *
  *  @param studentId Filter results by the student who the guardian is linked
- *    to. The identifier can be one of the following: * the numeric identifier
- *    for the user * the email address of the user * the string literal `"me"`,
- *    indicating the requesting user * the string literal `"-"`, indicating that
- *    results should be returned for all students that the requesting user has
- *    access to view.
+ *    to.
+ *    The identifier can be one of the following:
+ *    * the numeric identifier for the user
+ *    * the email address of the user
+ *    * the string literal `"me"`, indicating the requesting user
+ *    * the string literal `"-"`, indicating that results should be returned for
+ *    all students that the requesting user has access to view.
  *
  *  @returns GTLRClassroomQuery_UserProfilesGuardiansList
  *
