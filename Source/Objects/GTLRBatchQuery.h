@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Queries included in this batch.  Each query should have a unique @c requestID.
  */
-@property(atomic, nullable) NSArray<GTLRQuery *> *queries;
+@property(atomic, copy, nullable) NSArray<GTLRQuery *> *queries;
 
 /**
  *  Flag indicating if query execution should skip authorization. Defaults to NO.

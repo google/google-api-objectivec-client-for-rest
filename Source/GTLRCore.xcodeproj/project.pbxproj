@@ -269,6 +269,9 @@
 		4FEE17CE1C03DB9E00A38758 /* GTMHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17CA1C03DB9E00A38758 /* GTMHTTPServer.m */; };
 		4FEE17CF1C03DB9E00A38758 /* GTMSessionFetcherTestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17CC1C03DB9E00A38758 /* GTMSessionFetcherTestServer.m */; };
 		4FEE17D01C03DB9E00A38758 /* GTMSessionFetcherTestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17CC1C03DB9E00A38758 /* GTMSessionFetcherTestServer.m */; };
+		F41BA4381E7AD486004F6E95 /* CompiledTestNoARC.m in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4361E7AD482004F6E95 /* CompiledTestNoARC.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F41BA4391E7AD487004F6E95 /* CompiledTestNoARC.m in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4361E7AD482004F6E95 /* CompiledTestNoARC.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F41BA43A1E7AD488004F6E95 /* CompiledTestNoARC.m in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4361E7AD482004F6E95 /* CompiledTestNoARC.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F4368F7B1B8235B800E17643 /* GTLRObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE22521384818E005AEFAA /* GTLRObject.m */; };
 		F4368F7C1B8235B800E17643 /* GTLRQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE22541384818E005AEFAA /* GTLRQuery.m */; };
 		F4368F7D1B8235B800E17643 /* GTLRBatchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE224A1384818E005AEFAA /* GTLRBatchQuery.m */; };
@@ -666,6 +669,7 @@
 		4FEE17CC1C03DB9E00A38758 /* GTMSessionFetcherTestServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcherTestServer.m; path = UnitTests/GTMSessionFetcherTestServer.m; sourceTree = "<group>"; };
 		F407F0FE136F948A005A4866 /* GTLRTasksConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRTasksConstants.h; path = Generated/GTLRTasksConstants.h; sourceTree = "<group>"; };
 		F407F0FF136F948A005A4866 /* GTLRTasksConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRTasksConstants.m; path = Generated/GTLRTasksConstants.m; sourceTree = "<group>"; };
+		F41BA4361E7AD482004F6E95 /* CompiledTestNoARC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompiledTestNoARC.m; path = Tests/CompiledTestNoARC.m; sourceTree = "<group>"; };
 		F4368F721B8233BF00E17643 /* GTLRiOSUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GTLRiOSUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4469DB41C40229D00BCFAA1 /* GTLR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTLR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4469DB91C4024F200BCFAA1 /* GTLRiOSFramework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GTLRiOSFramework-Info.plist"; path = "Resources/GTLRiOSFramework-Info.plist"; sourceTree = "<group>"; };
@@ -1093,6 +1097,7 @@
 		4FCC7A1B11EFD9C80097924C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				F41BA4361E7AD482004F6E95 /* CompiledTestNoARC.m */,
 				4F934F50151286FE00C4EA34 /* GTLRBase64Test.m */,
 				4F9F7E3811F5103B0033A2C1 /* GTLRDateTimeTest.m */,
 				F4D9D5251D833D5D000EBBED /* GTLRDurationTest.m */,
@@ -1744,6 +1749,7 @@
 				F4D9D52B1D833D7C000EBBED /* GTLRDuration.m in Sources */,
 				F4469DF81C4573E200BCFAA1 /* GTLRURITemplateTest.m in Sources */,
 				4FDE225D1384818E005AEFAA /* GTLRObject.m in Sources */,
+				F41BA4381E7AD486004F6E95 /* CompiledTestNoARC.m in Sources */,
 				4FDE225E1384818E005AEFAA /* GTLRQuery.m in Sources */,
 				4FDE225F1384818E005AEFAA /* GTLRRuntimeCommon.m in Sources */,
 				4FDE22601384818E005AEFAA /* GTLRService.m in Sources */,
@@ -1854,6 +1860,7 @@
 				F4368F991B8235EF00E17643 /* GTLRBase64Test.m in Sources */,
 				F4368F7F1B8235B800E17643 /* GTLRBatchResult.m in Sources */,
 				F4368F961B8235EF00E17643 /* GTLRQueryTest.m in Sources */,
+				F41BA4391E7AD487004F6E95 /* CompiledTestNoARC.m in Sources */,
 				F4368F901B8235DC00E17643 /* GTMOAuth2Authentication.m in Sources */,
 				F4368F911B8235DC00E17643 /* GTMOAuth2SignIn.m in Sources */,
 				F4469DF91C4573E200BCFAA1 /* GTLRURITemplateTest.m in Sources */,
@@ -1982,6 +1989,7 @@
 				F4ACE7CE1DAD20B400053F91 /* GTLRUtilities.m in Sources */,
 				F4ACE7ED1DAD222900053F91 /* GTMSessionFetcherService.m in Sources */,
 				F4ACE7C51DAD20B400053F91 /* GTLRErrorObject.m in Sources */,
+				F41BA43A1E7AD488004F6E95 /* CompiledTestNoARC.m in Sources */,
 				F4ACE7CA1DAD20B400053F91 /* GTLRUploadParameters.m in Sources */,
 				F4ACE7D81DAD20CF00053F91 /* GTLRURITemplateTest.m in Sources */,
 				F4ACE7D51DAD20CF00053F91 /* GTLRQueryTest.m in Sources */,
