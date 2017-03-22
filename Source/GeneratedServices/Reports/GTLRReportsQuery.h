@@ -4,7 +4,7 @@
 // API:
 //   Admin Reports API (admin/reports_v1)
 // Description:
-//   Fetches reports for the administrators of Google Apps customers about the
+//   Fetches reports for the administrators of G Suite customers about the
 //   usage, collaboration, security, and risk for their users.
 // Documentation:
 //   https://developers.google.com/admin-sdk/reports/
@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Represents the customer for which the data is to be fetched. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Return events which occured at or before this time. */
+/** Return events which occurred at or before this time. */
 @property(nonatomic, copy, nullable) NSString *endTime;
 
 /** Name of the event being queried. */
@@ -79,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Token to specify next page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Return events which occured at or after this time. */
+/** Return events which occurred at or after this time. */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
@@ -135,7 +135,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Represents the customer for which the data is to be fetched. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Return events which occured at or before this time. */
+/** Return events which occurred at or before this time. */
 @property(nonatomic, copy, nullable) NSString *endTime;
 
 /** Name of the event being queried. */
@@ -157,7 +157,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Token to specify next page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Return events which occured at or after this time. */
+/** Return events which occurred at or after this time. */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
 /**

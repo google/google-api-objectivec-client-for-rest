@@ -822,7 +822,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_KeyRangeLocation
-@dynamic dataDisk, deliveryEndpoint, end, persistentDirectory, start;
+@dynamic dataDisk, deliveryEndpoint, deprecatedPersistentDirectory, end, start;
 @end
 
 
@@ -856,7 +856,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_LaunchTemplateResponse
-@dynamic job, status;
+@dynamic job;
 @end
 
 

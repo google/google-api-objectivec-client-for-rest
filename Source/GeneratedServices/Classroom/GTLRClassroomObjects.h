@@ -96,6 +96,15 @@ GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Declined;
  *  Value: "PROVISIONED"
  */
 GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Provisioned;
+/**
+ *  The course has been suspended. You cannot modify the course, and only the
+ *  user identified by the `owner_id` can view the course.
+ *  A course may be placed in this state if it potentially violates the
+ *  Terms of Service.
+ *
+ *  Value: "SUSPENDED"
+ */
+GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Suspended;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_CourseWork.state
@@ -447,6 +456,11 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  *        A course may only be changed to `PROVISIONED` if it is in the
  *        `DECLINED`
  *        state. (Value: "PROVISIONED")
+ *    @arg @c kGTLRClassroom_Course_CourseState_Suspended The course has been
+ *        suspended. You cannot modify the course, and only the
+ *        user identified by the `owner_id` can view the course.
+ *        A course may be placed in this state if it potentially violates the
+ *        Terms of Service. (Value: "SUSPENDED")
  */
 @property(nonatomic, copy, nullable) NSString *courseState;
 

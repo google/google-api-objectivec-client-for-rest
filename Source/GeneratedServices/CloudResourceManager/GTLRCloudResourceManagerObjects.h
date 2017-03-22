@@ -108,9 +108,9 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
 /**
  *  The attempted action would move a folder that is already being moved.
  *
- *  Value: "FOLDER_ALREADY_BEING_MOVED"
+ *  Value: "FOLDER_BEING_MOVED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderAlreadyBeingMoved;
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderBeingMoved;
 /**
  *  The attempted action would violate the max folder depth constraint.
  *
@@ -217,8 +217,8 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 /**
  *  Specifies the audit configuration for a service.
- *  It consists of which permission types are logged, and what identities, if
- *  any, are exempted from logging.
+ *  The configuration determines which permission types are logged, and what
+ *  identities, if any, are exempted from logging.
  *  An AuditConifg must have one or more AuditLogConfigs.
  *  If there are AuditConfigs for both `allServices` and a specific service,
  *  the union of the two AuditConfigs is used for that service: the log_types
@@ -274,7 +274,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 /**
  *  Specifies a service that will be enabled for audit logging.
- *  For example, `resourcemanager`, `storage`, `compute`.
+ *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
  *  `allServices` is a special value that covers all services.
  */
 @property(nonatomic, copy, nullable) NSString *service;
@@ -425,9 +425,9 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ErrorTypeUnspecified
  *        The error type was unrecognized or unspecified. (Value:
  *        "ERROR_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderAlreadyBeingMoved
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderBeingMoved
  *        The attempted action would move a folder that is already being moved.
- *        (Value: "FOLDER_ALREADY_BEING_MOVED")
+ *        (Value: "FOLDER_BEING_MOVED")
  *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderHeightViolation
  *        The attempted action would violate the max folder depth constraint.
  *        (Value: "FOLDER_HEIGHT_VIOLATION")
@@ -1066,8 +1066,8 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 /**
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
- *  the fields in the mask will be modified. If no mask is provided, a default
- *  mask is used:
+ *  the fields in the mask will be modified. If no mask is provided, the
+ *  following default mask is used:
  *  paths: "bindings, etag"
  *  This field is only used by Cloud IAM.
  *

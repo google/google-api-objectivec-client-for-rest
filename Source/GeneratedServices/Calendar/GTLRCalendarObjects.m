@@ -232,6 +232,34 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCalendar_DeepLinkData
+//
+
+@implementation GTLRCalendar_DeepLinkData
+@dynamic links, url;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"links" : [GTLRCalendar_Link class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_DisplayInfo
+//
+
+@implementation GTLRCalendar_DisplayInfo
+@dynamic appIconUrl, appShortTitle, appTitle, linkShortTitle, linkTitle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCalendar_Error
 //
 
@@ -450,6 +478,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCalendar_EventHabitInstance
+//
+
+@implementation GTLRCalendar_EventHabitInstance
+@dynamic data, parentId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCalendar_EventReminder
 //
 
@@ -593,6 +631,36 @@
   return [GTLRCalendar_FreeBusyGroup class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_HabitInstanceData
+//
+
+@implementation GTLRCalendar_HabitInstanceData
+@dynamic status, statusInferred, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_LaunchInfo
+//
+
+@implementation GTLRCalendar_LaunchInfo
+@dynamic appId, installUrl, intentAction, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_Link
+//
+
+@implementation GTLRCalendar_Link
+@dynamic applinkingSource, displayInfo, launchInfo, platform, url;
 @end
 
 

@@ -23,6 +23,27 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// thumbnailPropertiesMimeType
+
+/** Value: "PNG" */
+GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesMimeTypePng;
+
+// ----------------------------------------------------------------------------
+// thumbnailPropertiesThumbnailSize
+
+/** Value: "LARGE" */
+GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeLarge;
+/** Value: "THUMBNAIL_SIZE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Slides query classes.
  */
@@ -191,6 +212,65 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param pageObjectId The object ID of the page to retrieve.
  *
  *  @returns GTLRSlidesQuery_PresentationsPagesGet
+ */
++ (instancetype)queryWithPresentationId:(NSString *)presentationId
+                           pageObjectId:(NSString *)pageObjectId;
+
+@end
+
+/**
+ *  Generates a thumbnail of the latest version of the specified page in the
+ *  presentation and returns a URL to the thumbnail image.
+ *
+ *  Method: slides.presentations.pages.getThumbnail
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSlidesDrive
+ *    @c kGTLRAuthScopeSlidesDriveReadonly
+ *    @c kGTLRAuthScopeSlidesPresentations
+ *    @c kGTLRAuthScopeSlidesPresentationsReadonly
+ */
+@interface GTLRSlidesQuery_PresentationsPagesGetThumbnail : GTLRSlidesQuery
+// Previous library name was
+//   +[GTLQuerySlides queryForPresentationsPagesGetThumbnailWithpresentationId:pageObjectId:]
+
+/** The object ID of the page whose thumbnail to retrieve. */
+@property(nonatomic, copy, nullable) NSString *pageObjectId;
+
+/** The ID of the presentation to retrieve. */
+@property(nonatomic, copy, nullable) NSString *presentationId;
+
+/**
+ *  The optional mime type of the thumbnail image.
+ *  If you don't specify the mime type, the default mime type will be PNG.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlidesThumbnailPropertiesMimeTypePng Value "PNG"
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnailPropertiesMimeType;
+
+/**
+ *  The optional thumbnail image size.
+ *  If you don't specify the size, the server chooses a default size of the
+ *  image.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspecified
+ *        Value "THUMBNAIL_SIZE_UNSPECIFIED"
+ *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeLarge Value "LARGE"
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnailPropertiesThumbnailSize;
+
+/**
+ *  Fetches a @c GTLRSlides_Thumbnail.
+ *
+ *  Generates a thumbnail of the latest version of the specified page in the
+ *  presentation and returns a URL to the thumbnail image.
+ *
+ *  @param presentationId The ID of the presentation to retrieve.
+ *  @param pageObjectId The object ID of the page whose thumbnail to retrieve.
+ *
+ *  @returns GTLRSlidesQuery_PresentationsPagesGetThumbnail
  */
 + (instancetype)queryWithPresentationId:(NSString *)presentationId
                            pageObjectId:(NSString *)pageObjectId;

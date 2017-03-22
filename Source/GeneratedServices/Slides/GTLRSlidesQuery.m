@@ -12,6 +12,20 @@
 
 #import "GTLRSlidesObjects.h"
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// thumbnailPropertiesMimeType
+NSString * const kGTLRSlidesThumbnailPropertiesMimeTypePng = @"PNG";
+
+// thumbnailPropertiesThumbnailSize
+NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeLarge = @"LARGE";
+NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspecified = @"THUMBNAIL_SIZE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRSlidesQuery
 
 @dynamic fields;
@@ -100,6 +114,38 @@
   query.pageObjectId = pageObjectId;
   query.expectedObjectClass = [GTLRSlides_Page class];
   query.loggingName = @"slides.presentations.pages.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSlidesQuery_PresentationsPagesGetThumbnail
+
+@dynamic pageObjectId, presentationId, thumbnailPropertiesMimeType,
+         thumbnailPropertiesThumbnailSize;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"thumbnailPropertiesMimeType" : @"thumbnailProperties.mimeType",
+    @"thumbnailPropertiesThumbnailSize" : @"thumbnailProperties.thumbnailSize"
+  };
+  return map;
+}
+
++ (instancetype)queryWithPresentationId:(NSString *)presentationId
+                           pageObjectId:(NSString *)pageObjectId {
+  NSArray *pathParams = @[
+    @"pageObjectId", @"presentationId"
+  ];
+  NSString *pathURITemplate = @"v1/presentations/{presentationId}/pages/{pageObjectId}/thumbnail";
+  GTLRSlidesQuery_PresentationsPagesGetThumbnail *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.presentationId = presentationId;
+  query.pageObjectId = pageObjectId;
+  query.expectedObjectClass = [GTLRSlides_Thumbnail class];
+  query.loggingName = @"slides.presentations.pages.getThumbnail";
   return query;
 }
 

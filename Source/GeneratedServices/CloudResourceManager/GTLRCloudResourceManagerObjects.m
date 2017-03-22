@@ -28,7 +28,7 @@ NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Operati
 // GTLRCloudResourceManager_FolderOperationError.errorMessageId
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedError = @"CYCLE_INTRODUCED_ERROR";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ErrorTypeUnspecified = @"ERROR_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderAlreadyBeingMoved = @"FOLDER_ALREADY_BEING_MOVED";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderBeingMoved = @"FOLDER_BEING_MOVED";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderHeightViolation = @"FOLDER_HEIGHT_VIOLATION";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderNameUniquenessViolation = @"FOLDER_NAME_UNIQUENESS_VIOLATION";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmpty = @"FOLDER_TO_DELETE_NON_EMPTY";

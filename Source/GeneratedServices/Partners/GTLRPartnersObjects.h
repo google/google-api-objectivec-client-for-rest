@@ -2073,6 +2073,12 @@ GTLR_EXTERN NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbVi
  */
 GTLR_EXTERN NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedMobileCertificate;
 /**
+ *  Advertiser viewed Mobile Sites certificate.
+ *
+ *  Value: "SMB_VIEWED_MOBILE_SITES_CERTIFICATE"
+ */
+GTLR_EXTERN NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedMobileSitesCertificate;
+/**
  *  Advertiser clicked Shopping certificate help icon.
  *
  *  Value: "SMB_VIEWED_SHOPPING_CERTIFICATE"
@@ -4345,6 +4351,9 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
  *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedMobileCertificate
  *        Advertiser clicked Mobile certificate help icon. (Value:
  *        "SMB_VIEWED_MOBILE_CERTIFICATE")
+ *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedMobileSitesCertificate
+ *        Advertiser viewed Mobile Sites certificate. (Value:
+ *        "SMB_VIEWED_MOBILE_SITES_CERTIFICATE")
  *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedShoppingCertificate
  *        Advertiser clicked Shopping certificate help icon. (Value:
  *        "SMB_VIEWED_SHOPPING_CERTIFICATE")

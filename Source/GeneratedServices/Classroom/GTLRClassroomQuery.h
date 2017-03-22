@@ -49,6 +49,8 @@ GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesCourseStateUnspecified;
 GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesDeclined;
 /** Value: "PROVISIONED" */
 GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesProvisioned;
+/** Value: "SUSPENDED" */
+GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesSuspended;
 
 // ----------------------------------------------------------------------------
 // courseWorkStates
@@ -1428,6 +1430,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @arg @c kGTLRClassroomCourseStatesArchived Value "ARCHIVED"
  *    @arg @c kGTLRClassroomCourseStatesProvisioned Value "PROVISIONED"
  *    @arg @c kGTLRClassroomCourseStatesDeclined Value "DECLINED"
+ *    @arg @c kGTLRClassroomCourseStatesSuspended Value "SUSPENDED"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *courseStates;
 

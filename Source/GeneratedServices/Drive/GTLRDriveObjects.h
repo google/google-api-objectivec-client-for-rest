@@ -608,7 +608,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *modifiedTime;
 
-/** The name of the file. This is not necessarily unique within a folder. */
+/**
+ *  The name of the file. This is not necessarily unique within a folder. Note
+ *  that for immutable items such as the top level folders of Team Drives, My
+ *  Drive root folder, and Application Data folder the name is constant.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**

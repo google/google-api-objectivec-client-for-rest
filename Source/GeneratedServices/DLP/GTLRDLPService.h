@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Firebase Rules API (firebaserules/v1)
+//   DLP API (dlp/v2beta1)
 // Description:
-//   Creates and manages rules that determine when a Firebase Rules-enabled
-//   service should permit a request.
+//   The Google Data Loss Prevention API provides methods for detection of
+//   privacy-sensitive fragments in text, images, and Google Cloud Platform
+//   storage repositories.
 // Documentation:
-//   https://firebase.google.com/docs/storage/security
+//   https://cloud.google.com/dlp/docs/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -22,7 +23,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
@@ -30,37 +31,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFirebaseRulesAPICloudPlatform;
-/**
- *  Authorization scope: View and administer all your Firebase data and settings
- *
- *  Value "https://www.googleapis.com/auth/firebase"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFirebaseRulesAPIFirebase;
-/**
- *  Authorization scope: View all your Firebase data and settings
- *
- *  Value "https://www.googleapis.com/auth/firebase.readonly"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFirebaseRulesAPIFirebaseReadonly;
+GTLR_EXTERN NSString * const kGTLRAuthScopeDLPCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRFirebaseRulesAPIService
+//   GTLRDLPService
 //
 
 /**
- *  Service for executing Firebase Rules API queries.
+ *  Service for executing DLP API queries.
  *
- *  Creates and manages rules that determine when a Firebase Rules-enabled
- *  service should permit a request.
+ *  The Google Data Loss Prevention API provides methods for detection of
+ *  privacy-sensitive fragments in text, images, and Google Cloud Platform
+ *  storage repositories.
  */
-@interface GTLRFirebaseRulesAPIService : GTLRService
+@interface GTLRDLPService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRFirebaseRulesAPIQuery.h. The query can the be sent with GTLRService's
-// execute methods,
+// GTLRDLPQuery.h. The query can the be sent with GTLRService's execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

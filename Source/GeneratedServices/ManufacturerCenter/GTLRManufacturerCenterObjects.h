@@ -19,13 +19,111 @@
 #endif
 
 @class GTLRManufacturerCenter_Attributes;
+@class GTLRManufacturerCenter_Capacity;
+@class GTLRManufacturerCenter_Count;
+@class GTLRManufacturerCenter_FeatureDescription;
+@class GTLRManufacturerCenter_Image;
 @class GTLRManufacturerCenter_Issue;
+@class GTLRManufacturerCenter_Price;
 @class GTLRManufacturerCenter_Product;
+@class GTLRManufacturerCenter_ProductDetail;
 
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRManufacturerCenter_Image.status
+
+/**
+ *  There was an error while crawling the image.
+ *
+ *  Value: "CRAWL_ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_CrawlError;
+/**
+ *  The image was manually overridden and will not be crawled.
+ *
+ *  Value: "CRAWL_SKIPPED"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_CrawlSkipped;
+/**
+ *  The image cannot be decoded.
+ *
+ *  Value: "DECODING_ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_DecodingError;
+/**
+ *  The image was processed and it meets the requirements.
+ *
+ *  Value: "OK"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Ok;
+/**
+ *  The image crawl is still pending.
+ *
+ *  Value: "PENDING_CRAWL"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_PendingCrawl;
+/**
+ *  Image was uploaded and is being processed.
+ *
+ *  Value: "PENDING_PROCESSING"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_PendingProcessing;
+/**
+ *  The image cannot be processed.
+ *
+ *  Value: "PROCESSING_ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_ProcessingError;
+/**
+ *  The image URL is protected by robots.txt file and cannot be crawled.
+ *
+ *  Value: "ROBOTED"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Roboted;
+/**
+ *  Status is unspecified. Should not be used.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_StatusUnspecified;
+/**
+ *  The image is too big.
+ *
+ *  Value: "TOO_BIG"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_TooBig;
+/**
+ *  The image URL is protected by X-Robots-Tag and cannot be crawled.
+ *
+ *  Value: "XROBOTED"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Xroboted;
+
+// ----------------------------------------------------------------------------
+// GTLRManufacturerCenter_Image.type
+
+/**
+ *  The image was crawled from a provided URL.
+ *
+ *  Value: "CRAWLED"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Type_Crawled;
+/**
+ *  Type is unspecified. Should not be used.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Type_TypeUnspecified;
+/**
+ *  The image was uploaded.
+ *
+ *  Value: "UPLOADED"
+ */
+GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Type_Uploaded;
 
 // ----------------------------------------------------------------------------
 // GTLRManufacturerCenter_Issue.severity
@@ -66,10 +164,78 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
 @interface GTLRManufacturerCenter_Attributes : GTLRObject
 
 /**
+ *  The additional images of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#addlimage.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_Image *> *additionalImageLink;
+
+/**
+ *  The target age group of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#agegroup.
+ */
+@property(nonatomic, copy, nullable) NSString *ageGroup;
+
+/**
  *  The brand name of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#brand.
  */
 @property(nonatomic, copy, nullable) NSString *brand;
+
+/**
+ *  The capacity of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#capacity.
+ */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_Capacity *capacity;
+
+/**
+ *  The color of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#color.
+ */
+@property(nonatomic, copy, nullable) NSString *color;
+
+/**
+ *  The count of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#count.
+ */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_Count *count;
+
+/**
+ *  The description of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The disclosure date of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#disclosure.
+ */
+@property(nonatomic, copy, nullable) NSString *disclosureDate;
+
+/**
+ *  The rich format description of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#featuredesc.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_FeatureDescription *> *featureDescription;
+
+/**
+ *  The flavor of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#flavor.
+ */
+@property(nonatomic, copy, nullable) NSString *flavor;
+
+/**
+ *  The format of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#format.
+ */
+@property(nonatomic, copy, nullable) NSString *format;
+
+/**
+ *  The target gender of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#gender.
+ */
+@property(nonatomic, copy, nullable) NSString *gender;
 
 /**
  *  The Global Trade Item Number (GTIN) of the product. For more information,
@@ -78,10 +244,40 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *gtin;
 
 /**
+ *  The image of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#image.
+ */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_Image *imageLink;
+
+/**
+ *  The item group id of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#itemgroupid.
+ */
+@property(nonatomic, copy, nullable) NSString *itemGroupId;
+
+/**
+ *  The material of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#material.
+ */
+@property(nonatomic, copy, nullable) NSString *material;
+
+/**
  *  The Manufacturer Part Number (MPN) of the product. For more information,
  *  see https://support.google.com/manufacturers/answer/6124116#mpn.
  */
 @property(nonatomic, copy, nullable) NSString *mpn;
+
+/**
+ *  The pattern of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#pattern.
+ */
+@property(nonatomic, copy, nullable) NSString *pattern;
+
+/**
+ *  The details of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#productdetail.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_ProductDetail *> *productDetail;
 
 /**
  *  The name of the group of products related to the product. For more
@@ -97,23 +293,185 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
 @property(nonatomic, copy, nullable) NSString *productName;
 
 /**
- *  The URL of the manufacturer's detail page of the product. For more
- *  information, see
+ *  The URL of the detail page of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#productpage.
  */
 @property(nonatomic, copy, nullable) NSString *productPageUrl;
 
 /**
- *  The manufacturer's category of the product. For more information, see
+ *  The category of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#producttype.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *productType;
+
+/**
+ *  The release date of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#release.
+ */
+@property(nonatomic, copy, nullable) NSString *releaseDate;
+
+/**
+ *  The scent of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#scent.
+ */
+@property(nonatomic, copy, nullable) NSString *scent;
+
+/**
+ *  The size of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#size.
+ */
+@property(nonatomic, copy, nullable) NSString *size;
+
+/**
+ *  The size system of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#sizesystem.
+ */
+@property(nonatomic, copy, nullable) NSString *sizeSystem;
+
+/**
+ *  The size type of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#sizetype.
+ */
+@property(nonatomic, copy, nullable) NSString *sizeType;
+
+/**
+ *  The suggested retail price (MSRP) of the product. For more information,
+ *  see https://support.google.com/manufacturers/answer/6124116#price.
+ */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_Price *suggestedRetailPrice;
+
+/**
+ *  The theme of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#theme.
+ */
+@property(nonatomic, copy, nullable) NSString *theme;
 
 /**
  *  The title of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#title.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  The videos of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#video.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *videoLink;
+
+@end
+
+
+/**
+ *  The capacity of a product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#capacity.
+ */
+@interface GTLRManufacturerCenter_Capacity : GTLRObject
+
+/** The unit of the capacity, i.e., MB, GB, or TB. */
+@property(nonatomic, copy, nullable) NSString *unit;
+
+/**
+ *  The numeric value of the capacity.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  The number of products in a single package. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#count.
+ */
+@interface GTLRManufacturerCenter_Count : GTLRObject
+
+/** The unit in which these products are counted. */
+@property(nonatomic, copy, nullable) NSString *unit;
+
+/**
+ *  The numeric value of the number of products in a package.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  A feature description of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#featuredesc.
+ */
+@interface GTLRManufacturerCenter_FeatureDescription : GTLRObject
+
+/** A short description of the feature. */
+@property(nonatomic, copy, nullable) NSString *headline;
+
+/** An optional image describing the feature. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_Image *image;
+
+/** A detailed description of the feature. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  An image.
+ */
+@interface GTLRManufacturerCenter_Image : GTLRObject
+
+/**
+ *  The URL of the image. For crawled images, this is the provided URL. For
+ *  uploaded images, this is a serving URL from Google if the image has been
+ *  processed successfully.
+ */
+@property(nonatomic, copy, nullable) NSString *imageUrl;
+
+/**
+ *  The status of the image.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManufacturerCenter_Image_Status_CrawlError There was an error
+ *        while crawling the image. (Value: "CRAWL_ERROR")
+ *    @arg @c kGTLRManufacturerCenter_Image_Status_CrawlSkipped The image was
+ *        manually overridden and will not be crawled. (Value: "CRAWL_SKIPPED")
+ *    @arg @c kGTLRManufacturerCenter_Image_Status_DecodingError The image
+ *        cannot be decoded. (Value: "DECODING_ERROR")
+ *    @arg @c kGTLRManufacturerCenter_Image_Status_Ok The image was processed
+ *        and it meets the requirements. (Value: "OK")
+ *    @arg @c kGTLRManufacturerCenter_Image_Status_PendingCrawl The image crawl
+ *        is still pending. (Value: "PENDING_CRAWL")
+ *    @arg @c kGTLRManufacturerCenter_Image_Status_PendingProcessing Image was
+ *        uploaded and is being processed. (Value: "PENDING_PROCESSING")
+ *    @arg @c kGTLRManufacturerCenter_Image_Status_ProcessingError The image
+ *        cannot be processed. (Value: "PROCESSING_ERROR")
+ *    @arg @c kGTLRManufacturerCenter_Image_Status_Roboted The image URL is
+ *        protected by robots.txt file and cannot be crawled. (Value: "ROBOTED")
+ *    @arg @c kGTLRManufacturerCenter_Image_Status_StatusUnspecified Status is
+ *        unspecified. Should not be used. (Value: "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRManufacturerCenter_Image_Status_TooBig The image is too big.
+ *        (Value: "TOO_BIG")
+ *    @arg @c kGTLRManufacturerCenter_Image_Status_Xroboted The image URL is
+ *        protected by X-Robots-Tag and cannot be crawled. (Value: "XROBOTED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  The type of the image, i.e., crawled or uploaded.
+ *  \@OutputOnly
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManufacturerCenter_Image_Type_Crawled The image was crawled
+ *        from a provided URL. (Value: "CRAWLED")
+ *    @arg @c kGTLRManufacturerCenter_Image_Type_TypeUnspecified Type is
+ *        unspecified. Should not be used. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRManufacturerCenter_Image_Type_Uploaded The image was
+ *        uploaded. (Value: "UPLOADED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -156,6 +514,9 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
  */
 @property(nonatomic, copy, nullable) NSString *severity;
 
+/** The timestamp when this issue appeared. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
 /**
  *  The server-generated type of the issue, for example,
  *  “INCORRECT_TEXT_FORMATTING”, “IMAGE_NOT_SERVEABLE”, etc.
@@ -185,6 +546,20 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_Product *> *products;
+
+@end
+
+
+/**
+ *  A price.
+ */
+@interface GTLRManufacturerCenter_Price : GTLRObject
+
+/** The numeric value of the price. */
+@property(nonatomic, copy, nullable) NSString *amount;
+
+/** The currency in which the price is denoted. */
+@property(nonatomic, copy, nullable) NSString *currency;
 
 @end
 
@@ -267,6 +642,26 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
  *  feeds.
  */
 @property(nonatomic, strong, nullable) GTLRManufacturerCenter_Attributes *uploadedAttributes;
+
+@end
+
+
+/**
+ *  A product detail of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#productdetail.
+ */
+@interface GTLRManufacturerCenter_ProductDetail : GTLRObject
+
+/** The name of the attribute. */
+@property(nonatomic, copy, nullable) NSString *attributeName;
+
+/** The value of the attribute. */
+@property(nonatomic, copy, nullable) NSString *attributeValue;
+
+/**
+ *  A short section name that can be reused between multiple product details.
+ */
+@property(nonatomic, copy, nullable) NSString *sectionName;
 
 @end
 

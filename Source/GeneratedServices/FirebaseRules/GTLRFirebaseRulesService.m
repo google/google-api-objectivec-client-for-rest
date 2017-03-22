@@ -9,20 +9,20 @@
 // Documentation:
 //   https://firebase.google.com/docs/storage/security
 
-#import "GTLRFirebaseRulesAPI.h"
+#import "GTLRFirebaseRules.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeFirebaseRulesAPICloudPlatform   = @"https://www.googleapis.com/auth/cloud-platform";
-NSString * const kGTLRAuthScopeFirebaseRulesAPIFirebase        = @"https://www.googleapis.com/auth/firebase";
-NSString * const kGTLRAuthScopeFirebaseRulesAPIFirebaseReadonly = @"https://www.googleapis.com/auth/firebase.readonly";
+NSString * const kGTLRAuthScopeFirebaseRulesCloudPlatform    = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeFirebaseRulesFirebase         = @"https://www.googleapis.com/auth/firebase";
+NSString * const kGTLRAuthScopeFirebaseRulesFirebaseReadonly = @"https://www.googleapis.com/auth/firebase.readonly";
 
 // ----------------------------------------------------------------------------
-//   GTLRFirebaseRulesAPIService
+//   GTLRFirebaseRulesService
 //
 
-@implementation GTLRFirebaseRulesAPIService
+@implementation GTLRFirebaseRulesService
 
 - (instancetype)init {
   self = [super init];

@@ -2350,6 +2350,9 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_WebImage *> *partialMatchingImages;
 
+/** The visually similar image results. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_WebImage *> *visuallySimilarImages;
+
 /** Deduced entities from similar images on the Internet. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_WebEntity *> *webEntities;
 

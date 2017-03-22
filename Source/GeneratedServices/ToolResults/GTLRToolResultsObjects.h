@@ -72,6 +72,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricTy
 // ----------------------------------------------------------------------------
 // GTLRToolResults_BasicPerfSampleSeries.perfUnit
 
+/** Value: "bytesPerSecond" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_BytesPerSecond;
 /** Value: "kibibyte" */
 GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte;
 /** Value: "percent" */
@@ -94,6 +96,12 @@ GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeries
 GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssShared;
 /** Value: "memoryRssTotal" */
 GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssTotal;
+/** Value: "memoryTotal" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryTotal;
+/** Value: "networkReceived" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkReceived;
+/** Value: "networkSent" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkSent;
 /** Value: "ntBytesReceived" */
 GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesReceived;
 /** Value: "ntBytesTransferred" */
@@ -240,6 +248,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  perfUnit
  *
  *  Likely values:
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_BytesPerSecond
+ *        Value "bytesPerSecond"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte Value
  *        "kibibyte"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Percent Value
@@ -265,6 +275,12 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *        Value "memoryRssShared"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssTotal
  *        Value "memoryRssTotal"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryTotal
+ *        Value "memoryTotal"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkReceived
+ *        Value "networkReceived"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkSent
+ *        Value "networkSent"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesReceived
  *        Value "ntBytesReceived"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesTransferred

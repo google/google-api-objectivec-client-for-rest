@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Reports API (admin/reports_v1)
+//   Firebase Rules API (firebaserules/v1)
 // Description:
-//   Fetches reports for the administrators of G Suite customers about the
-//   usage, collaboration, security, and risk for their users.
+//   Creates and manages rules that determine when a Firebase Rules-enabled
+//   service should permit a request.
 // Documentation:
-//   https://developers.google.com/admin-sdk/reports/
+//   https://firebase.google.com/docs/storage/security
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -25,35 +25,42 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: View audit reports for your G Suite domain
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
- *  Value "https://www.googleapis.com/auth/admin.reports.audit.readonly"
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeReportsReportsAuditReadonly;
+GTLR_EXTERN NSString * const kGTLRAuthScopeFirebaseRulesCloudPlatform;
 /**
- *  Authorization scope: View usage reports for your G Suite domain
+ *  Authorization scope: View and administer all your Firebase data and settings
  *
- *  Value "https://www.googleapis.com/auth/admin.reports.usage.readonly"
+ *  Value "https://www.googleapis.com/auth/firebase"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeReportsReportsUsageReadonly;
+GTLR_EXTERN NSString * const kGTLRAuthScopeFirebaseRulesFirebase;
+/**
+ *  Authorization scope: View all your Firebase data and settings
+ *
+ *  Value "https://www.googleapis.com/auth/firebase.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeFirebaseRulesFirebaseReadonly;
 
 // ----------------------------------------------------------------------------
-//   GTLRReportsService
+//   GTLRFirebaseRulesService
 //
 
 /**
- *  Service for executing Admin Reports API queries.
+ *  Service for executing Firebase Rules API queries.
  *
- *  Fetches reports for the administrators of G Suite customers about the usage,
- *  collaboration, security, and risk for their users.
+ *  Creates and manages rules that determine when a Firebase Rules-enabled
+ *  service should permit a request.
  */
-@interface GTLRReportsService : GTLRService
+@interface GTLRFirebaseRulesService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRReportsQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRFirebaseRulesQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

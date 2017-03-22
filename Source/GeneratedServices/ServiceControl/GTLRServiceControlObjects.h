@@ -515,9 +515,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_Unspecified;
  *  For ReleaseQuota request, this mode is supported for both precise quota
  *  limits and imprecise quota limits. In this case, this operation releases
  *  quota for the amount specified in the service configuration or specified
- *  using the quota metrics. If the release can make available quota
- *  negative, request does not fail but only the available quota will be
- *  released. After the ReleaseQuota request completes, the available quota
+ *  using the quota metrics. If the release can make used quota
+ *  negative, request does not fail but only the used quota will be
+ *  released. After the ReleaseQuota request completes, the used quota
  *  will be 0, and never goes to negative.
  *
  *  Value: "BEST_EFFORT"
@@ -539,7 +539,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_CheckO
  *  For ReleaseQuota request, this mode is supported only for precise quota
  *  limits. In this case, this operation releases quota for the amount
  *  specified in the service configuration or specified using the quota
- *  metrics. If the release can make available quota negative, release error
+ *  metrics. If the release can make used quota negative, release error
  *  will be returned and no quota will be released.
  *
  *  Value: "NORMAL"
@@ -654,6 +654,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  3. For both rate quota and allocation quota, the quota limit reached
  *  condition will be specified using the following boolean metric:
  *  "serviceruntime.googleapis.com/quota/exceeded"
+ *  4. For allocation quota, value for each quota limit associated with
+ *  the metrics will be specified using the following gauge metric:
+ *  "serviceruntime.googleapis.com/quota/limit"
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
 
@@ -1132,6 +1135,13 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /**
  *  Metric values as tracked by One Platform before the adjustment was made.
+ *  The following metrics will be included:
+ *  1. Per quota metric total usage will be specified using the following gauge
+ *  metric:
+ *  "serviceruntime.googleapis.com/allocation/consumer/quota_used_count"
+ *  2. Value for each quota limit associated with the metrics will be specified
+ *  using the following gauge metric:
+ *  "serviceruntime.googleapis.com/quota/limit"
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
 
@@ -1843,10 +1853,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *        releases
  *        quota for the amount specified in the service configuration or
  *        specified
- *        using the quota metrics. If the release can make available quota
- *        negative, request does not fail but only the available quota will be
- *        released. After the ReleaseQuota request completes, the available
- *        quota
+ *        using the quota metrics. If the release can make used quota
+ *        negative, request does not fail but only the used quota will be
+ *        released. After the ReleaseQuota request completes, the used quota
  *        will be 0, and never goes to negative. (Value: "BEST_EFFORT")
  *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_CheckOnly For
  *        AllocateQuota request, only checks if there is enough quota
@@ -1863,8 +1872,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *        quota
  *        limits. In this case, this operation releases quota for the amount
  *        specified in the service configuration or specified using the quota
- *        metrics. If the release can make available quota negative, release
- *        error
+ *        metrics. If the release can make used quota negative, release error
  *        will be returned and no quota will be released. (Value: "NORMAL")
  *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_Unspecified Value
  *        "UNSPECIFIED"
@@ -1997,6 +2005,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  2. For allocation quota, per quota metric total usage will be specified
  *  using the following gauge metric:
  *  "serviceruntime.googleapis.com/allocation/consumer/quota_used_count"
+ *  3. For allocation quota, value for each quota limit associated with
+ *  the metrics will be specified using the following gauge metric:
+ *  "serviceruntime.googleapis.com/quota/limit"
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
 
@@ -2159,7 +2170,13 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /**
  *  Metric values as tracked by One Platform before the start of
- *  reconciliation.
+ *  reconciliation. The following metrics will be included:
+ *  1. Per quota metric total usage will be specified using the following gauge
+ *  metric:
+ *  "serviceruntime.googleapis.com/allocation/consumer/quota_used_count"
+ *  2. Value for each quota limit associated with the metrics will be specified
+ *  using the following gauge metric:
+ *  "serviceruntime.googleapis.com/quota/limit"
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
 

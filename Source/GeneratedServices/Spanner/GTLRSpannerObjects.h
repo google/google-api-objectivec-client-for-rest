@@ -101,6 +101,19 @@ GTLR_EXTERN NSString * const kGTLRSpanner_AuditLogConfig_LogType_LogTypeUnspecif
 // GTLRSpanner_Condition.iam
 
 /**
+ *  An approver (distinct from the requester) that has authorized this
+ *  request.
+ *  When used with IN, the condition indicates that one of the approvers
+ *  associated with the request matches the specified principal, or is a
+ *  member of the specified group. Approvers can only grant additional
+ *  access, and are thus only used in a strictly positive context
+ *  (e.g. ALLOW/IN or DENY/NOT_IN).
+ *  See: go/rpc-security-policy-dynamicauth.
+ *
+ *  Value: "APPROVER"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_Condition_Iam_Approver;
+/**
  *  The principal (even if an authority selector is present), which
  *  must only be used for attribution, not authorization.
  *
@@ -637,6 +650,15 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Trusted attributes supplied by the IAM system.
  *
  *  Likely values:
+ *    @arg @c kGTLRSpanner_Condition_Iam_Approver An approver (distinct from the
+ *        requester) that has authorized this
+ *        request.
+ *        When used with IN, the condition indicates that one of the approvers
+ *        associated with the request matches the specified principal, or is a
+ *        member of the specified group. Approvers can only grant additional
+ *        access, and are thus only used in a strictly positive context
+ *        (e.g. ALLOW/IN or DENY/NOT_IN).
+ *        See: go/rpc-security-policy-dynamicauth. (Value: "APPROVER")
  *    @arg @c kGTLRSpanner_Condition_Iam_Attribution The principal (even if an
  *        authority selector is present), which
  *        must only be used for attribution, not authorization. (Value:

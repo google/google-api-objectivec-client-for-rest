@@ -4,7 +4,7 @@
 // API:
 //   Admin Reports API (admin/reports_v1)
 // Description:
-//   Fetches reports for the administrators of Google Apps customers about the
+//   Fetches reports for the administrators of G Suite customers about the
 //   usage, collaboration, security, and risk for their users.
 // Documentation:
 //   https://developers.google.com/admin-sdk/reports/

@@ -20,6 +20,7 @@ NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Network =
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_PerfMetricTypeUnspecified = @"perfMetricTypeUnspecified";
 
 // GTLRToolResults_BasicPerfSampleSeries.perfUnit
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_BytesPerSecond = @"bytesPerSecond";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte = @"kibibyte";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Percent = @"percent";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_PerfUnitUnspecified = @"perfUnitUnspecified";
@@ -31,6 +32,9 @@ NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuUse
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssPrivate = @"memoryRssPrivate";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssShared = @"memoryRssShared";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssTotal = @"memoryRssTotal";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryTotal = @"memoryTotal";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkReceived = @"networkReceived";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkSent = @"networkSent";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesReceived = @"ntBytesReceived";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesTransferred = @"ntBytesTransferred";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_SampleSeriesTypeUnspecified = @"sampleSeriesTypeUnspecified";
