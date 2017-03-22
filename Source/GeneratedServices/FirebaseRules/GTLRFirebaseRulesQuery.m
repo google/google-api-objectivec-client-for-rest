@@ -9,21 +9,21 @@
 // Documentation:
 //   https://firebase.google.com/docs/storage/security
 
-#import "GTLRFirebaseRulesAPIQuery.h"
+#import "GTLRFirebaseRulesQuery.h"
 
-#import "GTLRFirebaseRulesAPIObjects.h"
+#import "GTLRFirebaseRulesObjects.h"
 
-@implementation GTLRFirebaseRulesAPIQuery
+@implementation GTLRFirebaseRulesQuery
 
 @dynamic fields;
 
 @end
 
-@implementation GTLRFirebaseRulesAPIQuery_ProjectsReleasesCreate
+@implementation GTLRFirebaseRulesQuery_ProjectsReleasesCreate
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseRulesAPI_Release *)object
++ (instancetype)queryWithObject:(GTLRFirebaseRules_Release *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -31,81 +31,81 @@
   }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}/releases";
-  GTLRFirebaseRulesAPIQuery_ProjectsReleasesCreate *query =
+  GTLRFirebaseRulesQuery_ProjectsReleasesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseRulesAPI_Release class];
+  query.expectedObjectClass = [GTLRFirebaseRules_Release class];
   query.loggingName = @"firebaserules.projects.releases.create";
   return query;
 }
 
 @end
 
-@implementation GTLRFirebaseRulesAPIQuery_ProjectsReleasesDelete
+@implementation GTLRFirebaseRulesQuery_ProjectsReleasesDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}";
-  GTLRFirebaseRulesAPIQuery_ProjectsReleasesDelete *query =
+  GTLRFirebaseRulesQuery_ProjectsReleasesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseRulesAPI_Empty class];
+  query.expectedObjectClass = [GTLRFirebaseRules_Empty class];
   query.loggingName = @"firebaserules.projects.releases.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRFirebaseRulesAPIQuery_ProjectsReleasesGet
+@implementation GTLRFirebaseRulesQuery_ProjectsReleasesGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}";
-  GTLRFirebaseRulesAPIQuery_ProjectsReleasesGet *query =
+  GTLRFirebaseRulesQuery_ProjectsReleasesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseRulesAPI_Release class];
+  query.expectedObjectClass = [GTLRFirebaseRules_Release class];
   query.loggingName = @"firebaserules.projects.releases.get";
   return query;
 }
 
 @end
 
-@implementation GTLRFirebaseRulesAPIQuery_ProjectsReleasesList
+@implementation GTLRFirebaseRulesQuery_ProjectsReleasesList
 
 @dynamic filter, name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}/releases";
-  GTLRFirebaseRulesAPIQuery_ProjectsReleasesList *query =
+  GTLRFirebaseRulesQuery_ProjectsReleasesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseRulesAPI_ListReleasesResponse class];
+  query.expectedObjectClass = [GTLRFirebaseRules_ListReleasesResponse class];
   query.loggingName = @"firebaserules.projects.releases.list";
   return query;
 }
 
 @end
 
-@implementation GTLRFirebaseRulesAPIQuery_ProjectsReleasesUpdate
+@implementation GTLRFirebaseRulesQuery_ProjectsReleasesUpdate
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseRulesAPI_Release *)object
++ (instancetype)queryWithObject:(GTLRFirebaseRules_Release *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -113,24 +113,24 @@
   }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}";
-  GTLRFirebaseRulesAPIQuery_ProjectsReleasesUpdate *query =
+  GTLRFirebaseRulesQuery_ProjectsReleasesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseRulesAPI_Release class];
+  query.expectedObjectClass = [GTLRFirebaseRules_Release class];
   query.loggingName = @"firebaserules.projects.releases.update";
   return query;
 }
 
 @end
 
-@implementation GTLRFirebaseRulesAPIQuery_ProjectsRulesetsCreate
+@implementation GTLRFirebaseRulesQuery_ProjectsRulesetsCreate
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseRulesAPI_Ruleset *)object
++ (instancetype)queryWithObject:(GTLRFirebaseRules_Ruleset *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -138,81 +138,81 @@
   }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}/rulesets";
-  GTLRFirebaseRulesAPIQuery_ProjectsRulesetsCreate *query =
+  GTLRFirebaseRulesQuery_ProjectsRulesetsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseRulesAPI_Ruleset class];
+  query.expectedObjectClass = [GTLRFirebaseRules_Ruleset class];
   query.loggingName = @"firebaserules.projects.rulesets.create";
   return query;
 }
 
 @end
 
-@implementation GTLRFirebaseRulesAPIQuery_ProjectsRulesetsDelete
+@implementation GTLRFirebaseRulesQuery_ProjectsRulesetsDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}";
-  GTLRFirebaseRulesAPIQuery_ProjectsRulesetsDelete *query =
+  GTLRFirebaseRulesQuery_ProjectsRulesetsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseRulesAPI_Empty class];
+  query.expectedObjectClass = [GTLRFirebaseRules_Empty class];
   query.loggingName = @"firebaserules.projects.rulesets.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRFirebaseRulesAPIQuery_ProjectsRulesetsGet
+@implementation GTLRFirebaseRulesQuery_ProjectsRulesetsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}";
-  GTLRFirebaseRulesAPIQuery_ProjectsRulesetsGet *query =
+  GTLRFirebaseRulesQuery_ProjectsRulesetsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseRulesAPI_Ruleset class];
+  query.expectedObjectClass = [GTLRFirebaseRules_Ruleset class];
   query.loggingName = @"firebaserules.projects.rulesets.get";
   return query;
 }
 
 @end
 
-@implementation GTLRFirebaseRulesAPIQuery_ProjectsRulesetsList
+@implementation GTLRFirebaseRulesQuery_ProjectsRulesetsList
 
-@dynamic name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}/rulesets";
-  GTLRFirebaseRulesAPIQuery_ProjectsRulesetsList *query =
+  GTLRFirebaseRulesQuery_ProjectsRulesetsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseRulesAPI_ListRulesetsResponse class];
+  query.expectedObjectClass = [GTLRFirebaseRules_ListRulesetsResponse class];
   query.loggingName = @"firebaserules.projects.rulesets.list";
   return query;
 }
 
 @end
 
-@implementation GTLRFirebaseRulesAPIQuery_ProjectsTest
+@implementation GTLRFirebaseRulesQuery_ProjectsTest
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseRulesAPI_TestRulesetRequest *)object
++ (instancetype)queryWithObject:(GTLRFirebaseRules_TestRulesetRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -220,13 +220,13 @@
   }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}:test";
-  GTLRFirebaseRulesAPIQuery_ProjectsTest *query =
+  GTLRFirebaseRulesQuery_ProjectsTest *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseRulesAPI_TestRulesetResponse class];
+  query.expectedObjectClass = [GTLRFirebaseRules_TestRulesetResponse class];
   query.loggingName = @"firebaserules.projects.test";
   return query;
 }

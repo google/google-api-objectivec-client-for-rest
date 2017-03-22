@@ -2,31 +2,32 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Functions API (cloudfunctions/v1)
+//   DLP API (dlp/v2beta1)
 // Description:
-//   API for managing lightweight user-provided functions executed in response
-//   to events.
+//   The Google Data Loss Prevention API provides methods for detection of
+//   privacy-sensitive fragments in text, images, and Google Cloud Platform
+//   storage repositories.
 // Documentation:
-//   https://cloud.google.com/functions
+//   https://cloud.google.com/dlp/docs/
 
-#import "GTLRCloudFunctions.h"
+#import "GTLRDLP.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeCloudFunctionsCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeDLPCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudFunctionsService
+//   GTLRDLPService
 //
 
-@implementation GTLRCloudFunctionsService
+@implementation GTLRDLPService
 
 - (instancetype)init {
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://cloudfunctions.googleapis.com/";
+    self.rootURLString = @"https://dlp.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
   }

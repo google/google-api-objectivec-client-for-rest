@@ -9,6 +9,6 @@
 // Documentation:
 //   https://firebase.google.com/docs/storage/security
 
-#import "GTLRFirebaseRulesAPIObjects.h"
-#import "GTLRFirebaseRulesAPIQuery.h"
-#import "GTLRFirebaseRulesAPIService.h"
+#import "GTLRFirebaseRulesObjects.h"
+#import "GTLRFirebaseRulesQuery.h"
+#import "GTLRFirebaseRulesService.h"

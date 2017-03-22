@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Functions API (cloudfunctions/v1beta2)
+//   Google Cloud Functions API (cloudfunctions/v1)
 // Description:
 //   API for managing lightweight user-provided functions executed in response
 //   to events.

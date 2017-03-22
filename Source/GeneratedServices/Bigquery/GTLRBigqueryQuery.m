@@ -378,7 +378,8 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @implementation GTLRBigqueryQuery_TabledataList
 
-@dynamic datasetId, maxResults, pageToken, projectId, startIndex, tableId;
+@dynamic datasetId, maxResults, pageToken, projectId, selectedFields,
+         startIndex, tableId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          datasetId:(NSString *)datasetId
@@ -427,7 +428,7 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @implementation GTLRBigqueryQuery_TablesGet
 
-@dynamic datasetId, projectId, tableId;
+@dynamic datasetId, projectId, selectedFields, tableId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          datasetId:(NSString *)datasetId

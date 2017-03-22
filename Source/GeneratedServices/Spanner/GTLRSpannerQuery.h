@@ -707,10 +707,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  limit.
  *  Cloud Spanner limits the number of sessions that can exist at any given
  *  time; thus, it is a good idea to delete idle and/or unneeded sessions.
- *  Aside from explicit deletes, Cloud Spanner can delete sessions for
- *  which no operations are sent for more than an hour, or due to
- *  internal errors. If a session is deleted, requests to it
- *  return `NOT_FOUND`.
+ *  Aside from explicit deletes, Cloud Spanner can delete sessions for which no
+ *  operations are sent for more than an hour. If a session is deleted,
+ *  requests to it return `NOT_FOUND`.
  *  Idle sessions can be kept alive by sending a trivial SQL query
  *  periodically, e.g., `"SELECT 1"`.
  *
@@ -740,10 +739,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  limit.
  *  Cloud Spanner limits the number of sessions that can exist at any given
  *  time; thus, it is a good idea to delete idle and/or unneeded sessions.
- *  Aside from explicit deletes, Cloud Spanner can delete sessions for
- *  which no operations are sent for more than an hour, or due to
- *  internal errors. If a session is deleted, requests to it
- *  return `NOT_FOUND`.
+ *  Aside from explicit deletes, Cloud Spanner can delete sessions for which no
+ *  operations are sent for more than an hour. If a session is deleted,
+ *  requests to it return `NOT_FOUND`.
  *  Idle sessions can be kept alive by sending a trivial SQL query
  *  periodically, e.g., `"SELECT 1"`.
  *

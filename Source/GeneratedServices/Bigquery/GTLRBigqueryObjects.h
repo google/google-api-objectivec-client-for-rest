@@ -356,9 +356,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  [Experimental] The labels associated with this dataset. You can use these to
- *  organize and group your datasets. You can set this property when inserting
- *  or updating a dataset. See Labeling Datasets for more information.
+ *  The labels associated with this dataset. You can use these to organize and
+ *  group your datasets. You can set this property when inserting or updating a
+ *  dataset. See Labeling Datasets for more information.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Dataset_Labels *labels;
 
@@ -371,8 +371,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedTime;
 
 /**
- *  [Experimental] The geographic location where the dataset should reside.
- *  Possible values include EU and US. The default value is US.
+ *  The geographic location where the dataset should reside. Possible values
+ *  include EU and US. The default value is US.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -433,9 +433,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  [Experimental] The labels associated with this dataset. You can use these to
- *  organize and group your datasets. You can set this property when inserting
- *  or updating a dataset. See Labeling Datasets for more information.
+ *  The labels associated with this dataset. You can use these to organize and
+ *  group your datasets. You can set this property when inserting or updating a
+ *  dataset. See Labeling Datasets for more information.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -516,8 +516,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  [Experimental] The labels associated with this dataset. You can use these to
- *  organize and group your datasets.
+ *  The labels associated with this dataset. You can use these to organize and
+ *  group your datasets.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetList_Datasets_Item_Labels *labels;
 
@@ -525,8 +525,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  [Experimental] The labels associated with this dataset. You can use these to
- *  organize and group your datasets.
+ *  The labels associated with this dataset. You can use these to organize and
+ *  group your datasets.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -697,8 +697,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_ExternalDataConfiguration : GTLRObject
 
 /**
- *  [Experimental] Try to detect schema and format options automatically. Any
- *  option specified explicitly will be honored.
+ *  Try to detect schema and format options automatically. Any option specified
+ *  explicitly will be honored.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -757,10 +757,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Required] The data format. For CSV files, specify "CSV". For Google sheets,
  *  specify "GOOGLE_SHEETS". For newline-delimited JSON, specify
  *  "NEWLINE_DELIMITED_JSON". For Avro files, specify "AVRO". For Google Cloud
- *  Datastore backups, specify "DATASTORE_BACKUP". [Experimental] For Google
- *  Cloud Bigtable, specify "BIGTABLE". Please note that reading from Google
- *  Cloud Bigtable is experimental and has to be enabled for your project.
- *  Please contact Google Cloud Support to enable this for your project.
+ *  Datastore backups, specify "DATASTORE_BACKUP". [Beta] For Google Cloud
+ *  Bigtable, specify "BIGTABLE".
  */
 @property(nonatomic, copy, nullable) NSString *sourceFormat;
 
@@ -822,8 +820,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  [Output-only, Experimental] The number of rows affected by a DML statement.
- *  Present only for DML statements INSERT, UPDATE or DELETE.
+ *  [Output-only] The number of rows affected by a DML statement. Present only
+ *  for DML statements INSERT, UPDATE or DELETE.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1086,8 +1084,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *allowQuotedNewlines;
 
 /**
- *  [Experimental] Indicates if we should automatically infer the options and
- *  schema for CSV and JSON sources.
+ *  Indicates if we should automatically infer the options and schema for CSV
+ *  and JSON sources.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1159,12 +1157,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *nullMarker;
 
 /**
- *  [Experimental] If sourceFormat is set to "DATASTORE_BACKUP", indicates which
- *  entity properties to load into BigQuery from a Cloud Datastore backup.
- *  Property names are case sensitive and must be top-level properties. If no
- *  properties are specified, BigQuery loads all properties. If any named
- *  property isn't found in the Cloud Datastore backup, an invalid error is
- *  returned in the job result.
+ *  If sourceFormat is set to "DATASTORE_BACKUP", indicates which entity
+ *  properties to load into BigQuery from a Cloud Datastore backup. Property
+ *  names are case sensitive and must be top-level properties. If no properties
+ *  are specified, BigQuery loads all properties. If any named property isn't
+ *  found in the Cloud Datastore backup, an invalid error is returned in the job
+ *  result.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projectionFields;
 
@@ -1312,9 +1310,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *maximumBytesBilled;
 
 /**
- *  [Experimental] Standard SQL only. Set to POSITIONAL to use positional (?)
- *  query parameters or to NAMED to use named (\@myparam) query parameters in
- *  this query.
+ *  Standard SQL only. Set to POSITIONAL to use positional (?) query parameters
+ *  or to NAMED to use named (\@myparam) query parameters in this query.
  */
 @property(nonatomic, copy, nullable) NSString *parameterMode;
 
@@ -1380,9 +1377,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *useQueryCache;
 
-/**
- *  [Experimental] Describes user-defined function resources used in the query.
- */
+/** Describes user-defined function resources used in the query. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_UserDefinedFunctionResource *> *userDefinedFunctionResources;
 
 /**
@@ -1619,14 +1614,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *cacheHit;
 
 /**
- *  [Output-only, Experimental] The number of rows affected by a DML statement.
- *  Present only for DML statements INSERT, UPDATE or DELETE.
+ *  [Output-only] The number of rows affected by a DML statement. Present only
+ *  for DML statements INSERT, UPDATE or DELETE.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numDmlAffectedRows;
 
-/** [Output-only, Experimental] Describes execution plan for the query. */
+/** [Output-only] Describes execution plan for the query. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ExplainQueryStage *> *queryPlan;
 
 /**
@@ -1970,9 +1965,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *maxResults;
 
 /**
- *  [Experimental] Standard SQL only. Set to POSITIONAL to use positional (?)
- *  query parameters or to NAMED to use named (\@myparam) query parameters in
- *  this query.
+ *  Standard SQL only. Set to POSITIONAL to use positional (?) query parameters
+ *  or to NAMED to use named (\@myparam) query parameters in this query.
  */
 @property(nonatomic, copy, nullable) NSString *parameterMode;
 
@@ -1990,7 +1984,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
-/** [Experimental] Query parameters for Standard SQL queries. */
+/** Query parameters for Standard SQL queries. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameter *> *queryParameters;
 
 /**
@@ -2070,8 +2064,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  [Output-only, Experimental] The number of rows affected by a DML statement.
- *  Present only for DML statements INSERT, UPDATE or DELETE.
+ *  [Output-only] The number of rows affected by a DML statement. Present only
+ *  for DML statements INSERT, UPDATE or DELETE.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2688,9 +2682,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *useLegacySql;
 
-/**
- *  [Experimental] Describes user-defined function resources used in the query.
- */
+/** Describes user-defined function resources used in the query. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_UserDefinedFunctionResource *> *userDefinedFunctionResources;
 
 @end

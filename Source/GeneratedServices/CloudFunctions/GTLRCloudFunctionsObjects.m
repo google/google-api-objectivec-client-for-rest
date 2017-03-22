@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Functions API (cloudfunctions/v1beta2)
+//   Google Cloud Functions API (cloudfunctions/v1)
 // Description:
 //   API for managing lightweight user-provided functions executed in response
 //   to events.
@@ -14,136 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRCloudFunctions_CloudFunction.status
-NSString * const kGTLRCloudFunctions_CloudFunction_Status_Deleting = @"DELETING";
-NSString * const kGTLRCloudFunctions_CloudFunction_Status_Deploying = @"DEPLOYING";
-NSString * const kGTLRCloudFunctions_CloudFunction_Status_Failed = @"FAILED";
-NSString * const kGTLRCloudFunctions_CloudFunction_Status_Ready = @"READY";
-NSString * const kGTLRCloudFunctions_CloudFunction_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
-
 // GTLRCloudFunctions_OperationMetadataV1Beta2.type
 NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_CreateFunction = @"CREATE_FUNCTION";
 NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_DeleteFunction = @"DELETE_FUNCTION";
 NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_OperationUnspecified = @"OPERATION_UNSPECIFIED";
 NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunction = @"UPDATE_FUNCTION";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_CallFunctionRequest
-//
-
-@implementation GTLRCloudFunctions_CallFunctionRequest
-@dynamic data;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_CallFunctionResponse
-//
-
-@implementation GTLRCloudFunctions_CallFunctionResponse
-@dynamic error, executionId, result;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_CloudFunction
-//
-
-@implementation GTLRCloudFunctions_CloudFunction
-@dynamic availableMemoryMb, entryPoint, eventTrigger, httpsTrigger,
-         latestOperation, name, serviceAccount, sourceArchiveUrl,
-         sourceRepository, status, timeout, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_EventTrigger
-//
-
-@implementation GTLRCloudFunctions_EventTrigger
-@dynamic eventType, resource;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_HTTPSTrigger
-//
-
-@implementation GTLRCloudFunctions_HTTPSTrigger
-@dynamic url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_ListFunctionsResponse
-//
-
-@implementation GTLRCloudFunctions_ListFunctionsResponse
-@dynamic functions, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"functions" : [GTLRCloudFunctions_CloudFunction class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"functions";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_ListLocationsResponse
-//
-
-@implementation GTLRCloudFunctions_ListLocationsResponse
-@dynamic locations, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"locations" : [GTLRCloudFunctions_Location class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"locations";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_ListOperationsResponse
-//
-
-@implementation GTLRCloudFunctions_ListOperationsResponse
-@dynamic nextPageToken, operations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudFunctions_Operation class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"operations";
-}
-
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -185,44 +60,6 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudFunctions_Operation
-//
-
-@implementation GTLRCloudFunctions_Operation
-@dynamic done, error, metadata, name, response;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_Operation_Metadata
-//
-
-@implementation GTLRCloudFunctions_Operation_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_Operation_Response
-//
-
-@implementation GTLRCloudFunctions_Operation_Response
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudFunctions_OperationMetadataV1Beta2
 //
 
@@ -237,48 +74,6 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 //
 
 @implementation GTLRCloudFunctions_OperationMetadataV1Beta2_Request
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_SourceRepository
-//
-
-@implementation GTLRCloudFunctions_SourceRepository
-@dynamic branch, deployedRevision, repositoryUrl, revision, sourcePath, tag;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_Status
-//
-
-@implementation GTLRCloudFunctions_Status
-@dynamic code, details, message;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRCloudFunctions_Status_Details_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_Status_Details_Item
-//
-
-@implementation GTLRCloudFunctions_Status_Details_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

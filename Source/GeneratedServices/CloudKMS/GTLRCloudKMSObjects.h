@@ -295,8 +295,8 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
 
 /**
  *  Specifies the audit configuration for a service.
- *  It consists of which permission types are logged, and what identities, if
- *  any, are exempted from logging.
+ *  The configuration determines which permission types are logged, and what
+ *  identities, if any, are exempted from logging.
  *  An AuditConifg must have one or more AuditLogConfigs.
  *  If there are AuditConfigs for both `allServices` and a specific service,
  *  the union of the two AuditConfigs is used for that service: the log_types
@@ -354,7 +354,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
 
 /**
  *  Specifies a service that will be enabled for audit logging.
- *  For example, `resourcemanager`, `storage`, `compute`.
+ *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
  *  `allServices` is a special value that covers all services.
  */
 @property(nonatomic, copy, nullable) NSString *service;
@@ -1182,8 +1182,8 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
 
 /**
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
- *  the fields in the mask will be modified. If no mask is provided, a default
- *  mask is used:
+ *  the fields in the mask will be modified. If no mask is provided, the
+ *  following default mask is used:
  *  paths: "bindings, etag"
  *  This field is only used by Cloud IAM.
  *

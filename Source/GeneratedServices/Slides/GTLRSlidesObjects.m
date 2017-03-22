@@ -1725,6 +1725,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_Thumbnail
+//
+
+@implementation GTLRSlides_Thumbnail
+@dynamic contentUrl, height, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_UpdateImagePropertiesRequest
 //
 

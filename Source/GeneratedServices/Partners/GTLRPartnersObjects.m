@@ -410,6 +410,7 @@ NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedAPartner
 NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedAPartnerProfile = @"SMB_VIEWED_A_PARTNER_PROFILE";
 NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedDoubleclickCertificate = @"SMB_VIEWED_DOUBLECLICK_CERTIFICATE";
 NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedMobileCertificate = @"SMB_VIEWED_MOBILE_CERTIFICATE";
+NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedMobileSitesCertificate = @"SMB_VIEWED_MOBILE_SITES_CERTIFICATE";
 NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedShoppingCertificate = @"SMB_VIEWED_SHOPPING_CERTIFICATE";
 NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedVideoAdsCertificate = @"SMB_VIEWED_VIDEO_ADS_CERTIFICATE";
 NSString * const kGTLRPartners_LogUserEventRequest_EventAction_VisitedAgencyPortal = @"VISITED_AGENCY_PORTAL";

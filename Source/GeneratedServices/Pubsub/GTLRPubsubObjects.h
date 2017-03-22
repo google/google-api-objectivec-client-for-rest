@@ -397,11 +397,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Every endpoint has a set of API supported attributes that can be used to
  *  control different aspects of the message delivery.
  *  The currently supported attribute is `x-goog-version`, which you can
- *  use to change the format of the push message. This attribute
+ *  use to change the format of the pushed message. This attribute
  *  indicates the version of the data expected by the endpoint. This
- *  controls the shape of the envelope (i.e. its fields and metadata).
- *  The endpoint version is based on the version of the Pub/Sub
- *  API.
+ *  controls the shape of the pushed message (i.e., its fields and metadata).
+ *  The endpoint version is based on the version of the Pub/Sub API.
  *  If not present during the `CreateSubscription` call, it will default to
  *  the version of the API used to make such call. If not present during a
  *  `ModifyPushConfig` call, its value will not be changed. `GetSubscription`
@@ -427,11 +426,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Every endpoint has a set of API supported attributes that can be used to
  *  control different aspects of the message delivery.
  *  The currently supported attribute is `x-goog-version`, which you can
- *  use to change the format of the push message. This attribute
+ *  use to change the format of the pushed message. This attribute
  *  indicates the version of the data expected by the endpoint. This
- *  controls the shape of the envelope (i.e. its fields and metadata).
- *  The endpoint version is based on the version of the Pub/Sub
- *  API.
+ *  controls the shape of the pushed message (i.e., its fields and metadata).
+ *  The endpoint version is based on the version of the Pub/Sub API.
  *  If not present during the `CreateSubscription` call, it will default to
  *  the version of the API used to make such call. If not present during a
  *  `ModifyPushConfig` call, its value will not be changed. `GetSubscription`

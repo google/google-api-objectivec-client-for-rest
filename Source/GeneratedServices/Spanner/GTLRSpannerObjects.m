@@ -21,6 +21,7 @@ NSString * const kGTLRSpanner_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRSpanner_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRSpanner_Condition.iam
+NSString * const kGTLRSpanner_Condition_Iam_Approver      = @"APPROVER";
 NSString * const kGTLRSpanner_Condition_Iam_Attribution   = @"ATTRIBUTION";
 NSString * const kGTLRSpanner_Condition_Iam_Authority     = @"AUTHORITY";
 NSString * const kGTLRSpanner_Condition_Iam_NoAttr        = @"NO_ATTR";

@@ -19,6 +19,7 @@ NSString * const kGTLRClassroom_Course_CourseState_Archived    = @"ARCHIVED";
 NSString * const kGTLRClassroom_Course_CourseState_CourseStateUnspecified = @"COURSE_STATE_UNSPECIFIED";
 NSString * const kGTLRClassroom_Course_CourseState_Declined    = @"DECLINED";
 NSString * const kGTLRClassroom_Course_CourseState_Provisioned = @"PROVISIONED";
+NSString * const kGTLRClassroom_Course_CourseState_Suspended   = @"SUSPENDED";
 
 // GTLRClassroom_CourseWork.state
 NSString * const kGTLRClassroom_CourseWork_State_CourseWorkStateUnspecified = @"COURSE_WORK_STATE_UNSPECIFIED";

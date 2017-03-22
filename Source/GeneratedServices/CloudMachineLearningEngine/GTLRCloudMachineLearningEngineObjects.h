@@ -1363,7 +1363,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *  <dd>
  *  A machine equivalent to <code suppresswarning="true">standard</code> that
  *  also includes a
- *  <a href="ml/docs/how-tos/using-gpus">
+ *  <a href="/ml-engine/docs/how-tos/using-gpus">
  *  GPU that you can use in your trainer</a>.
  *  </dd>
  *  <dt>complex_model_m_gpu</dt>

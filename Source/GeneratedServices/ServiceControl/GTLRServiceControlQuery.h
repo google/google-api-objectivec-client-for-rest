@@ -44,6 +44,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  This method requires the `servicemanagement.services.quota`
  *  permission on the specified service. For more information, see
  *  [Google Cloud IAM](https://cloud.google.com/iam).
+ *  **NOTE:** the client code **must** fail-open if the server returns one
+ *  of the following quota errors:
+ *  - `PROJECT_STATUS_UNVAILABLE`
+ *  - `SERVICE_STATUS_UNAVAILABLE`
+ *  - `BILLING_STATUS_UNAVAILABLE`
+ *  - `QUOTA_SYSTEM_UNAVAILABLE`
+ *  The server may inject above errors to prohibit any hard dependency
+ *  on the quota system.
  *
  *  Method: servicecontrol.services.allocateQuota
  *
@@ -70,6 +78,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  This method requires the `servicemanagement.services.quota`
  *  permission on the specified service. For more information, see
  *  [Google Cloud IAM](https://cloud.google.com/iam).
+ *  **NOTE:** the client code **must** fail-open if the server returns one
+ *  of the following quota errors:
+ *  - `PROJECT_STATUS_UNVAILABLE`
+ *  - `SERVICE_STATUS_UNAVAILABLE`
+ *  - `BILLING_STATUS_UNAVAILABLE`
+ *  - `QUOTA_SYSTEM_UNAVAILABLE`
+ *  The server may inject above errors to prohibit any hard dependency
+ *  on the quota system.
  *
  *  @param object The @c GTLRServiceControl_AllocateQuotaRequest to include in
  *    the query.
@@ -194,6 +210,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  This method requires the `servicemanagement.services.quota`
  *  permission on the specified service. For more information, see
  *  [Google Cloud IAM](https://cloud.google.com/iam).
+ *  **NOTE:** the client code **must** fail-open if the server returns one
+ *  of the following quota errors:
+ *  - `PROJECT_STATUS_UNVAILABLE`
+ *  - `SERVICE_STATUS_UNAVAILABLE`
+ *  - `BILLING_STATUS_UNAVAILABLE`
+ *  - `QUOTA_SYSTEM_UNAVAILABLE`
+ *  The server may inject above errors to prohibit any hard dependency
+ *  on the quota system.
  *
  *  Method: servicecontrol.services.releaseQuota
  *
@@ -219,6 +243,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  This method requires the `servicemanagement.services.quota`
  *  permission on the specified service. For more information, see
  *  [Google Cloud IAM](https://cloud.google.com/iam).
+ *  **NOTE:** the client code **must** fail-open if the server returns one
+ *  of the following quota errors:
+ *  - `PROJECT_STATUS_UNVAILABLE`
+ *  - `SERVICE_STATUS_UNAVAILABLE`
+ *  - `BILLING_STATUS_UNAVAILABLE`
+ *  - `QUOTA_SYSTEM_UNAVAILABLE`
+ *  The server may inject above errors to prohibit any hard dependency
+ *  on the quota system.
  *
  *  @param object The @c GTLRServiceControl_ReleaseQuotaRequest to include in
  *    the query.

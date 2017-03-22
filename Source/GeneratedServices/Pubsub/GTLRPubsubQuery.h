@@ -58,8 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -72,8 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRPubsubQuery_ProjectsSnapshotsGetIamPolicy
  */
@@ -97,8 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being specified.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -111,8 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
  *    specified.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRPubsubQuery_ProjectsSnapshotsSetIamPolicy
  */
@@ -141,8 +137,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -160,8 +155,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRPubsubQuery_ProjectsSnapshotsTestIamPermissions
  */
@@ -365,8 +359,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -379,8 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRPubsubQuery_ProjectsSubscriptionsGetIamPolicy
  */
@@ -580,8 +572,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being specified.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -594,8 +585,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
  *    specified.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRPubsubQuery_ProjectsSubscriptionsSetIamPolicy
  */
@@ -624,8 +614,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -643,8 +632,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRPubsubQuery_ProjectsSubscriptionsTestIamPermissions
  */
@@ -787,8 +775,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -801,8 +788,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRPubsubQuery_ProjectsTopicsGetIamPolicy
  */
@@ -912,8 +898,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy is being specified.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -926,8 +911,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
  *    specified.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRPubsubQuery_ProjectsTopicsSetIamPolicy
  */
@@ -999,8 +983,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested.
- *  `resource` is usually specified as a path. For example, a Project
- *  resource is specified as `projects/{project}`.
+ *  See the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1018,8 +1001,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
  *    requested.
- *    `resource` is usually specified as a path. For example, a Project
- *    resource is specified as `projects/{project}`.
+ *    See the operation documentation for the appropriate value for this field.
  *
  *  @returns GTLRPubsubQuery_ProjectsTopicsTestIamPermissions
  */

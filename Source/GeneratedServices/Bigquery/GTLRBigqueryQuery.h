@@ -714,6 +714,12 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 /** Project ID of the table to read */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
+/**
+ *  List of fields to return (comma-separated). If unspecified, all fields are
+ *  returned
+ */
+@property(nonatomic, copy, nullable) NSString *selectedFields;
+
 /** Zero-based index of the starting row to read */
 @property(nonatomic, assign) unsigned long long startIndex;
 
@@ -801,6 +807,12 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 
 /** Project ID of the requested table */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  List of fields to return (comma-separated). If unspecified, all fields are
+ *  returned
+ */
+@property(nonatomic, copy, nullable) NSString *selectedFields;
 
 /** Table ID of the requested table */
 @property(nonatomic, copy, nullable) NSString *tableId;

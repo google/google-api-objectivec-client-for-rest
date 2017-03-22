@@ -2518,14 +2518,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, copy, nullable) NSString *deliveryEndpoint;
 
-/** The end (exclusive) of the key range. */
-@property(nonatomic, copy, nullable) NSString *end;
-
 /**
- *  The location of the persistent state for this range, as a
+ *  DEPRECATED. The location of the persistent state for this range, as a
  *  persistent directory in the worker local filesystem.
  */
-@property(nonatomic, copy, nullable) NSString *persistentDirectory;
+@property(nonatomic, copy, nullable) NSString *deprecatedPersistentDirectory;
+
+/** The end (exclusive) of the key range. */
+@property(nonatomic, copy, nullable) NSString *end;
 
 /** The start (inclusive) of the key range. */
 @property(nonatomic, copy, nullable) NSString *start;
@@ -2572,12 +2572,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  the job was successfully launched.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_Job *job;
-
-/**
- *  The status of the launch template request. Any problems with the request
- *  will be indicated in the error_details.
- */
-@property(nonatomic, strong, nullable) GTLRDataflow_Status *status;
 
 @end
 

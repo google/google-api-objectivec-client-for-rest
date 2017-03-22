@@ -692,13 +692,14 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 @implementation GTLRVision_WebDetection
 @dynamic fullMatchingImages, pagesWithMatchingImages, partialMatchingImages,
-         webEntities;
+         visuallySimilarImages, webEntities;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"fullMatchingImages" : [GTLRVision_WebImage class],
     @"pagesWithMatchingImages" : [GTLRVision_WebPage class],
     @"partialMatchingImages" : [GTLRVision_WebImage class],
+    @"visuallySimilarImages" : [GTLRVision_WebImage class],
     @"webEntities" : [GTLRVision_WebEntity class]
   };
   return map;
