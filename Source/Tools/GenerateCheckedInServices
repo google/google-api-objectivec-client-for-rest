@@ -10,7 +10,8 @@ readonly ScriptName=$(basename "$0")
 
 readonly ServiceGeneratorDir="${ToolsDir}/ServiceGenerator"
 readonly GeneratedServicesDir="${ToolsDir}/../GeneratedServices"
-# This only works for Xcode default setting on where build output goes.
+# This only works for Xcode default setting on where build output goes and when
+# building with -alltargets and not with -scheme.
 readonly ServiceGeneratorBinary="${ServiceGeneratorDir}/build/Debug/ServiceGenerator"
 
 BLOCK_WAITING_FOR_CANONICAL_NAMES=1
@@ -41,8 +42,8 @@ Banner() {
 Banner "Ensuring ServiceGenerator is up to date..."
 /usr/bin/xcodebuild \
   -project "${ServiceGeneratorDir}/ServiceGenerator.xcodeproj" \
-  -scheme ServiceGenerator \
   -configuration Debug \
+  -alltargets \
   build
 
 # -----------------------------------------------------------------------------
