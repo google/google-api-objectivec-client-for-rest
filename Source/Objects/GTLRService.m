@@ -23,6 +23,10 @@
 #import <UIKit/UIKit.h>
 #endif
 
+#if !defined(GTLR_USE_FRAMEWORK_IMPORTS)
+  #define GTLR_USE_FRAMEWORK_IMPORTS 0
+#endif
+
 #import "GTLRService.h"
 
 #import "GTLRFramework.h"
@@ -30,6 +34,15 @@
 #import "GTLRUtilities.h"
 
 #import "GTMMIMEDocument.h"
+
+#if GTLR_USE_FRAMEWORK_IMPORTS
+  #import <GTMSessionFetcher/GTMSessionFetcher.h>
+  #import <GTMSessionFetcher/GTMSessionFetcherService.h>
+#else
+  #import "GTMSessionFetcher.h"
+  #import "GTMSessionFetcherService.h"
+#endif  // GTLR_USE_FRAMEWORK_IMPORTS
+
 
 #ifndef STRIP_GTM_FETCH_LOGGING
   #error GTMSessionFetcher headers should have defaulted this if it wasn't already defined.

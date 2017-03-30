@@ -20,6 +20,7 @@
 #import "StorageSampleWindowController.h"
 
 #import "GTLR/AppAuth.h"
+#import "GTLR/GTMSessionFetcherService.h"
 #import "GTLR/GTMSessionFetcherLogging.h"
 #import "GTLR/GTMAppAuth.h"
 

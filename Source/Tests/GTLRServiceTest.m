@@ -22,6 +22,8 @@
 
 #import "GTLRServiceTestServiceClasses.h"
 
+#import "GTMSessionFetcherService.h"
+
 @interface GTLRServiceTest : XCTestCase
 @end
 
