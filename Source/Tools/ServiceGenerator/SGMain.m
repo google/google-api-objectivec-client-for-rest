@@ -34,6 +34,7 @@
 #include <unistd.h>
 
 #import "GTLRDiscovery.h"
+#import "GTMSessionFetcherService.h"
 #import "GTMSessionFetcherLogging.h"
 
 #import "SGGenerator.h"

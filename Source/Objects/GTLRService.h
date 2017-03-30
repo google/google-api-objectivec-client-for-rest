@@ -27,17 +27,9 @@
 #import "GTLRObject.h"
 #import "GTLRQuery.h"
 
-#if !defined(GTLR_USE_FRAMEWORK_IMPORTS)
-  #define GTLR_USE_FRAMEWORK_IMPORTS 0
-#endif
-
-#if GTLR_USE_FRAMEWORK_IMPORTS
-  #import <GTMSessionFetcher/GTMSessionFetcher.h>
-  #import <GTMSessionFetcher/GTMSessionFetcherService.h>
-#else
-  #import "GTMSessionFetcher.h"
-  #import "GTMSessionFetcherService.h"
-#endif  // GTLR_USE_FRAMEWORK_IMPORTS
+@class GTMSessionFetcher;
+@class GTMSessionFetcherService;
+@protocol GTMFetcherAuthorizationProtocol;
 
 NS_ASSUME_NONNULL_BEGIN
 
