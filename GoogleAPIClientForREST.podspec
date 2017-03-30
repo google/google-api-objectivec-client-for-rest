@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'GoogleAPIClientForREST'
-  s.version      = '1.2.1'
+  s.version      = '1.3.0'
   s.author       = 'Google Inc.'
   s.homepage     = 'https://github.com/google/google-api-objectivec-client-for-rest'
   s.license      = { :type => 'Apache', :file => 'LICENSE' }
@@ -18,8 +18,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.9'
   s.tvos.deployment_target = '9.0'
 
-  s.user_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GTLR_USE_FRAMEWORK_IMPORTS=1' }
-  s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT=1' }
+  s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GTLR_USE_FRAMEWORK_IMPORTS=1 GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT=1' }
 
   # Require at least 1.1.7 of the SessionFetcher for some changes in that
   # project's headers.
