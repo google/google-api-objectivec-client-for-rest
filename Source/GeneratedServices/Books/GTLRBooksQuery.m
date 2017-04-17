@@ -539,7 +539,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 @implementation GTLRBooksQuery_MylibraryAnnotationsInsert
 
-@dynamic country, showOnlySummaryInResponse, source;
+@dynamic annotationId, country, showOnlySummaryInResponse, source;
 
 + (instancetype)queryWithObject:(GTLRBooks_Annotation *)object {
   if (object == nil) {

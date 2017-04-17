@@ -1582,6 +1582,30 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
 
 @end
 
+@implementation GTLRAnalyticsQuery_ManagementRemarketingAudienceDelete
+
+@dynamic accountId, remarketingAudienceId, webPropertyId;
+
++ (instancetype)queryWithAccountId:(NSString *)accountId
+                     webPropertyId:(NSString *)webPropertyId
+             remarketingAudienceId:(NSString *)remarketingAudienceId {
+  NSArray *pathParams = @[
+    @"accountId", @"remarketingAudienceId", @"webPropertyId"
+  ];
+  NSString *pathURITemplate = @"management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences/{remarketingAudienceId}";
+  GTLRAnalyticsQuery_ManagementRemarketingAudienceDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.webPropertyId = webPropertyId;
+  query.remarketingAudienceId = remarketingAudienceId;
+  query.loggingName = @"analytics.management.remarketingAudience.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRAnalyticsQuery_ManagementRemarketingAudienceGet
 
 @dynamic accountId, remarketingAudienceId, webPropertyId;

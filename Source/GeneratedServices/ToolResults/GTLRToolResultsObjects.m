@@ -15,12 +15,14 @@
 
 // GTLRToolResults_BasicPerfSampleSeries.perfMetricType
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Cpu = @"cpu";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Graphics = @"graphics";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Memory = @"memory";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Network = @"network";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_PerfMetricTypeUnspecified = @"perfMetricTypeUnspecified";
 
 // GTLRToolResults_BasicPerfSampleSeries.perfUnit
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_BytesPerSecond = @"bytesPerSecond";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_FramesPerSecond = @"framesPerSecond";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte = @"kibibyte";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Percent = @"percent";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_PerfUnitUnspecified = @"perfUnitUnspecified";
@@ -29,6 +31,7 @@ NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_PerfUnitUnspeci
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuKernel = @"cpuKernel";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuTotal = @"cpuTotal";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuUser = @"cpuUser";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_GraphicsFrameRate = @"graphicsFrameRate";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssPrivate = @"memoryRssPrivate";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssShared = @"memoryRssShared";
 NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssTotal = @"memoryRssTotal";
@@ -54,6 +57,7 @@ NSString * const kGTLRToolResults_Outcome_Summary_Unset        = @"unset";
 
 // GTLRToolResults_PerfMetricsSummary.perfMetrics
 NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Cpu = @"cpu";
+NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Graphics = @"graphics";
 NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Memory = @"memory";
 NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Network = @"network";
 NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_PerfMetricTypeUnspecified = @"perfMetricTypeUnspecified";

@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Tag Manager API (tagmanager/v1)
+//   Tag Manager API (tagmanager/v2)
 // Description:
 //   Accesses Tag Manager accounts and containers.
 // Documentation:
-//   https://developers.google.com/tag-manager/api/v1/
+//   https://developers.google.com/tag-manager/api/v2/
 
 #import "GTLRTagManager.h"
 
@@ -32,7 +32,7 @@ NSString * const kGTLRAuthScopeTagManagerReadonly              = @"https://www.g
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"tagmanager/v1/";
+    self.servicePath = @"tagmanager/v2/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

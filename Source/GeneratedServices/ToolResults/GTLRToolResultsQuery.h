@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Value: "cpu" */
 GTLR_EXTERN NSString * const kGTLRToolResultsFilterCpu;
+/** Value: "graphics" */
+GTLR_EXTERN NSString * const kGTLRToolResultsFilterGraphics;
 /** Value: "memory" */
 GTLR_EXTERN NSString * const kGTLRToolResultsFilterMemory;
 /** Value: "network" */
@@ -922,6 +924,7 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *
  *  Likely values:
  *    @arg @c kGTLRToolResultsFilterCpu Value "cpu"
+ *    @arg @c kGTLRToolResultsFilterGraphics Value "graphics"
  *    @arg @c kGTLRToolResultsFilterMemory Value "memory"
  *    @arg @c kGTLRToolResultsFilterNetwork Value "network"
  *    @arg @c kGTLRToolResultsFilterPerfMetricTypeUnspecified Value

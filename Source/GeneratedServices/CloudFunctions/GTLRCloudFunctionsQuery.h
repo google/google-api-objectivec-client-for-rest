@@ -31,32 +31,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-/**
- *  Get information about a location.
- *
- *  Method: cloudfunctions.projects.locations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
- */
-@interface GTLRCloudFunctionsQuery_ProjectsLocationsGet : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForProjectsLocationsGetWithname:]
-
-/** Resource name for the location. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudFunctions_Location.
- *
- *  Get information about a location.
- *
- *  @param name Resource name for the location.
- *
- *  @returns GTLRCloudFunctionsQuery_ProjectsLocationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
 NS_ASSUME_NONNULL_END

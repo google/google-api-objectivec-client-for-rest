@@ -21,6 +21,7 @@
 @class GTLRDataflow_ApproximateProgress;
 @class GTLRDataflow_ApproximateReportedProgress;
 @class GTLRDataflow_ApproximateSplitRequest;
+@class GTLRDataflow_AutoscalingEvent;
 @class GTLRDataflow_AutoscalingSettings;
 @class GTLRDataflow_ComponentSource;
 @class GTLRDataflow_ComponentTransform;
@@ -44,6 +45,7 @@
 @class GTLRDataflow_Environment_SdkPipelineOptions;
 @class GTLRDataflow_Environment_UserAgent;
 @class GTLRDataflow_Environment_Version;
+@class GTLRDataflow_ExecutionStageState;
 @class GTLRDataflow_ExecutionStageSummary;
 @class GTLRDataflow_FailedLocation;
 @class GTLRDataflow_FlattenInstruction;
@@ -74,6 +76,7 @@
 @class GTLRDataflow_NameAndKind;
 @class GTLRDataflow_Package;
 @class GTLRDataflow_ParallelInstruction;
+@class GTLRDataflow_Parameter;
 @class GTLRDataflow_ParameterMetadata;
 @class GTLRDataflow_ParDoInstruction;
 @class GTLRDataflow_ParDoInstruction_UserFn;
@@ -128,6 +131,7 @@
 @class GTLRDataflow_StreamingStageLocation;
 @class GTLRDataflow_StreamLocation;
 @class GTLRDataflow_StringList;
+@class GTLRDataflow_StructuredMessage;
 @class GTLRDataflow_TaskRunnerSettings;
 @class GTLRDataflow_TemplateMetadata;
 @class GTLRDataflow_TopologyConfig;
@@ -155,6 +159,50 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_AutoscalingEvent.eventType
+
+/**
+ *  The ACTUATION_FAILURE type should be used when we want to report
+ *  an error to the user indicating why the current number of workers
+ *  in the pool could not be changed.
+ *  Displayed in the current status and history widgets.
+ *
+ *  Value: "ACTUATION_FAILURE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_ActuationFailure;
+/**
+ *  The CURRENT_NUM_WORKERS_CHANGED type should be used when actual worker
+ *  pool size has been changed, but the target_num_workers has not changed.
+ *
+ *  Value: "CURRENT_NUM_WORKERS_CHANGED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_CurrentNumWorkersChanged;
+/**
+ *  Used when we want to report to the user a reason why we are
+ *  not currently adjusting the number of workers.
+ *  Should specify both target_num_workers, current_num_workers and a
+ *  decision_message.
+ *
+ *  Value: "NO_CHANGE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_NoChange;
+/**
+ *  The TARGET_NUM_WORKERS_CHANGED type should be used when the target
+ *  worker pool size has changed at the start of an actuation. An event
+ *  should always be specified as TARGET_NUM_WORKERS_CHANGED if it reflects
+ *  a change in the target_num_workers.
+ *
+ *  Value: "TARGET_NUM_WORKERS_CHANGED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_TargetNumWorkersChanged;
+/**
+ *  Default type for the enum. Value should never be returned.
+ *
+ *  Value: "TYPE_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_TypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_AutoscalingSettings.algorithm
@@ -355,6 +403,103 @@ GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDe
 GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeUnknown;
 
 // ----------------------------------------------------------------------------
+// GTLRDataflow_ExecutionStageState.executionStageState
+
+/**
+ *  `JOB_STATE_CANCELLED` indicates that the job has been explicitly
+ *  cancelled. This is a terminal job state. This state may only be
+ *  set via a Cloud Dataflow `UpdateJob` call, and only if the job has not
+ *  yet reached another terminal state.
+ *
+ *  Value: "JOB_STATE_CANCELLED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelled;
+/**
+ *  'JOB_STATE_CANCELLING' indicates that the job has been explicitly cancelled
+ *  and is in the process of stopping. Jobs that are cancelling may only
+ *  transition to 'JOB_STATE_CANCELLED' or 'JOB_STATE_FAILED'.
+ *
+ *  Value: "JOB_STATE_CANCELLING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelling;
+/**
+ *  `JOB_STATE_DONE` indicates that the job has successfully completed.
+ *  This is a terminal job state. This state may be set by the Cloud Dataflow
+ *  service, as a transition from `JOB_STATE_RUNNING`. It may also be set via a
+ *  Cloud Dataflow `UpdateJob` call, if the job has not yet reached a terminal
+ *  state.
+ *
+ *  Value: "JOB_STATE_DONE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateDone;
+/**
+ *  `JOB_STATE_DRAINED` indicates that the job has been drained.
+ *  A drained job terminated by stopping pulling from its input sources and
+ *  processing any data that remained in-flight when draining was requested.
+ *  This state is a terminal state, may only be set by the Cloud Dataflow
+ *  service, and only as a transition from `JOB_STATE_DRAINING`.
+ *
+ *  Value: "JOB_STATE_DRAINED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateDrained;
+/**
+ *  `JOB_STATE_DRAINING` indicates that the job is in the process of draining.
+ *  A draining job has stopped pulling from its input sources and is processing
+ *  any data that remains in-flight. This state may be set via a Cloud Dataflow
+ *  `UpdateJob` call, but only as a transition from `JOB_STATE_RUNNING`. Jobs
+ *  that are draining may only transition to `JOB_STATE_DRAINED`,
+ *  `JOB_STATE_CANCELLED`, or `JOB_STATE_FAILED`.
+ *
+ *  Value: "JOB_STATE_DRAINING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateDraining;
+/**
+ *  `JOB_STATE_FAILED` indicates that the job has failed. This is a
+ *  terminal job state. This state may only be set by the Cloud Dataflow
+ *  service, and only as a transition from `JOB_STATE_RUNNING`.
+ *
+ *  Value: "JOB_STATE_FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateFailed;
+/**
+ *  'JOB_STATE_PENDING' indicates that the job has been created but is not yet
+ *  running. Jobs that are pending may only transition to `JOB_STATE_RUNNING`,
+ *  or `JOB_STATE_FAILED`.
+ *
+ *  Value: "JOB_STATE_PENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePending;
+/**
+ *  `JOB_STATE_RUNNING` indicates that the job is currently running.
+ *
+ *  Value: "JOB_STATE_RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateRunning;
+/**
+ *  `JOB_STATE_STOPPED` indicates that the job has not
+ *  yet started to run.
+ *
+ *  Value: "JOB_STATE_STOPPED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateStopped;
+/**
+ *  The job's run state isn't specified.
+ *
+ *  Value: "JOB_STATE_UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateUnknown;
+/**
+ *  `JOB_STATE_UPDATED` indicates that the job was successfully updated,
+ *  meaning that this job was stopped and another job was started, inheriting
+ *  state from this one. This is a terminal job state. This state may only be
+ *  set by the Cloud Dataflow service, and only as a transition from
+ *  `JOB_STATE_RUNNING`.
+ *
+ *  Value: "JOB_STATE_UPDATED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateUpdated;
+
+// ----------------------------------------------------------------------------
 // GTLRDataflow_ExecutionStageSummary.kind
 
 /**
@@ -425,6 +570,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind;
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateCancelled;
 /**
+ *  'JOB_STATE_CANCELLING' indicates that the job has been explicitly cancelled
+ *  and is in the process of stopping. Jobs that are cancelling may only
+ *  transition to 'JOB_STATE_CANCELLED' or 'JOB_STATE_FAILED'.
+ *
+ *  Value: "JOB_STATE_CANCELLING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateCancelling;
+/**
  *  `JOB_STATE_DONE` indicates that the job has successfully completed.
  *  This is a terminal job state. This state may be set by the Cloud Dataflow
  *  service, as a transition from `JOB_STATE_RUNNING`. It may also be set via a
@@ -463,6 +616,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDraining;
  *  Value: "JOB_STATE_FAILED"
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateFailed;
+/**
+ *  'JOB_STATE_PENDING' indicates that the job has been created but is not yet
+ *  running. Jobs that are pending may only transition to `JOB_STATE_RUNNING`,
+ *  or `JOB_STATE_FAILED`.
+ *
+ *  Value: "JOB_STATE_PENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStatePending;
 /**
  *  `JOB_STATE_RUNNING` indicates that the job is currently running.
  *
@@ -506,6 +667,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateUpdated;
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateCancelled;
 /**
+ *  'JOB_STATE_CANCELLING' indicates that the job has been explicitly cancelled
+ *  and is in the process of stopping. Jobs that are cancelling may only
+ *  transition to 'JOB_STATE_CANCELLED' or 'JOB_STATE_FAILED'.
+ *
+ *  Value: "JOB_STATE_CANCELLING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateCancelling;
+/**
  *  `JOB_STATE_DONE` indicates that the job has successfully completed.
  *  This is a terminal job state. This state may be set by the Cloud Dataflow
  *  service, as a transition from `JOB_STATE_RUNNING`. It may also be set via a
@@ -544,6 +713,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDraining;
  *  Value: "JOB_STATE_FAILED"
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateFailed;
+/**
+ *  'JOB_STATE_PENDING' indicates that the job has been created but is not yet
+ *  running. Jobs that are pending may only transition to `JOB_STATE_RUNNING`,
+ *  or `JOB_STATE_FAILED`.
+ *
+ *  Value: "JOB_STATE_PENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStatePending;
 /**
  *  `JOB_STATE_RUNNING` indicates that the job is currently running.
  *
@@ -1023,6 +1200,75 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  A structured message reporting an autoscaling decision made by the Dataflow
+ *  service.
+ */
+@interface GTLRDataflow_AutoscalingEvent : GTLRObject
+
+/**
+ *  The current number of workers the job has.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *currentNumWorkers;
+
+/**
+ *  A message describing why the system decided to adjust the current
+ *  number of workers, why it failed, or why the system decided to
+ *  not make any changes to the number of workers.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_StructuredMessage *descriptionProperty;
+
+/**
+ *  The type of autoscaling event to report.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_AutoscalingEvent_EventType_ActuationFailure The
+ *        ACTUATION_FAILURE type should be used when we want to report
+ *        an error to the user indicating why the current number of workers
+ *        in the pool could not be changed.
+ *        Displayed in the current status and history widgets. (Value:
+ *        "ACTUATION_FAILURE")
+ *    @arg @c kGTLRDataflow_AutoscalingEvent_EventType_CurrentNumWorkersChanged
+ *        The CURRENT_NUM_WORKERS_CHANGED type should be used when actual worker
+ *        pool size has been changed, but the target_num_workers has not
+ *        changed. (Value: "CURRENT_NUM_WORKERS_CHANGED")
+ *    @arg @c kGTLRDataflow_AutoscalingEvent_EventType_NoChange Used when we
+ *        want to report to the user a reason why we are
+ *        not currently adjusting the number of workers.
+ *        Should specify both target_num_workers, current_num_workers and a
+ *        decision_message. (Value: "NO_CHANGE")
+ *    @arg @c kGTLRDataflow_AutoscalingEvent_EventType_TargetNumWorkersChanged
+ *        The TARGET_NUM_WORKERS_CHANGED type should be used when the target
+ *        worker pool size has changed at the start of an actuation. An event
+ *        should always be specified as TARGET_NUM_WORKERS_CHANGED if it
+ *        reflects
+ *        a change in the target_num_workers. (Value:
+ *        "TARGET_NUM_WORKERS_CHANGED")
+ *    @arg @c kGTLRDataflow_AutoscalingEvent_EventType_TypeUnknown Default type
+ *        for the enum. Value should never be returned. (Value: "TYPE_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/**
+ *  The target number of workers the worker pool wants to resize to use.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetNumWorkers;
+
+/**
+ *  The time this event was emitted to indicate a new target or current
+ *  num_workers value.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *time;
+
+@end
+
+
+/**
  *  Settings for WorkerPool autoscaling.
  */
 @interface GTLRDataflow_AutoscalingSettings : GTLRObject
@@ -1405,6 +1651,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** Required. The job name to use for the created job. */
 @property(nonatomic, copy, nullable) NSString *jobName;
 
+/** The location to which to direct the request. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** The runtime parameters to pass to the job. */
 @property(nonatomic, strong, nullable) GTLRDataflow_CreateJobFromTemplateRequest_Parameters *parameters;
 
@@ -1783,6 +2032,95 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  A message describing the state of a particular execution stage.
+ */
+@interface GTLRDataflow_ExecutionStageState : GTLRObject
+
+/** The time at which the stage transitioned to this state. */
+@property(nonatomic, strong, nullable) GTLRDateTime *currentStateTime;
+
+/** The name of the execution stage. */
+@property(nonatomic, copy, nullable) NSString *executionStageName;
+
+/**
+ *  Executions stage states allow the same set of values as JobState.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelled
+ *        `JOB_STATE_CANCELLED` indicates that the job has been explicitly
+ *        cancelled. This is a terminal job state. This state may only be
+ *        set via a Cloud Dataflow `UpdateJob` call, and only if the job has not
+ *        yet reached another terminal state. (Value: "JOB_STATE_CANCELLED")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelling
+ *        'JOB_STATE_CANCELLING' indicates that the job has been explicitly
+ *        cancelled
+ *        and is in the process of stopping. Jobs that are cancelling may only
+ *        transition to 'JOB_STATE_CANCELLED' or 'JOB_STATE_FAILED'. (Value:
+ *        "JOB_STATE_CANCELLING")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateDone
+ *        `JOB_STATE_DONE` indicates that the job has successfully completed.
+ *        This is a terminal job state. This state may be set by the Cloud
+ *        Dataflow
+ *        service, as a transition from `JOB_STATE_RUNNING`. It may also be set
+ *        via a
+ *        Cloud Dataflow `UpdateJob` call, if the job has not yet reached a
+ *        terminal
+ *        state. (Value: "JOB_STATE_DONE")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateDrained
+ *        `JOB_STATE_DRAINED` indicates that the job has been drained.
+ *        A drained job terminated by stopping pulling from its input sources
+ *        and
+ *        processing any data that remained in-flight when draining was
+ *        requested.
+ *        This state is a terminal state, may only be set by the Cloud Dataflow
+ *        service, and only as a transition from `JOB_STATE_DRAINING`. (Value:
+ *        "JOB_STATE_DRAINED")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateDraining
+ *        `JOB_STATE_DRAINING` indicates that the job is in the process of
+ *        draining.
+ *        A draining job has stopped pulling from its input sources and is
+ *        processing
+ *        any data that remains in-flight. This state may be set via a Cloud
+ *        Dataflow
+ *        `UpdateJob` call, but only as a transition from `JOB_STATE_RUNNING`.
+ *        Jobs
+ *        that are draining may only transition to `JOB_STATE_DRAINED`,
+ *        `JOB_STATE_CANCELLED`, or `JOB_STATE_FAILED`. (Value:
+ *        "JOB_STATE_DRAINING")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateFailed
+ *        `JOB_STATE_FAILED` indicates that the job has failed. This is a
+ *        terminal job state. This state may only be set by the Cloud Dataflow
+ *        service, and only as a transition from `JOB_STATE_RUNNING`. (Value:
+ *        "JOB_STATE_FAILED")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePending
+ *        'JOB_STATE_PENDING' indicates that the job has been created but is not
+ *        yet
+ *        running. Jobs that are pending may only transition to
+ *        `JOB_STATE_RUNNING`,
+ *        or `JOB_STATE_FAILED`. (Value: "JOB_STATE_PENDING")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateRunning
+ *        `JOB_STATE_RUNNING` indicates that the job is currently running.
+ *        (Value: "JOB_STATE_RUNNING")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateStopped
+ *        `JOB_STATE_STOPPED` indicates that the job has not
+ *        yet started to run. (Value: "JOB_STATE_STOPPED")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateUnknown
+ *        The job's run state isn't specified. (Value: "JOB_STATE_UNKNOWN")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateUpdated
+ *        `JOB_STATE_UPDATED` indicates that the job was successfully updated,
+ *        meaning that this job was stopped and another job was started,
+ *        inheriting
+ *        state from this one. This is a terminal job state. This state may only
+ *        be
+ *        set by the Cloud Dataflow service, and only as a transition from
+ *        `JOB_STATE_RUNNING`. (Value: "JOB_STATE_UPDATED")
+ */
+@property(nonatomic, copy, nullable) NSString *executionStageState;
+
+@end
+
+
+/**
  *  Description of the composing transforms, names/ids, and input/outputs of a
  *  stage of execution. Some composing transforms and sources may have been
  *  generated by the Dataflow service during execution planning.
@@ -1908,6 +2246,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  requested.
  */
 @property(nonatomic, copy, nullable) NSString *componentId;
+
+/** The location which contains the job specified by job_id. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** The worker id, i.e., VM hostname. */
 @property(nonatomic, copy, nullable) NSString *workerId;
@@ -2089,6 +2430,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        cancelled. This is a terminal job state. This state may only be
  *        set via a Cloud Dataflow `UpdateJob` call, and only if the job has not
  *        yet reached another terminal state. (Value: "JOB_STATE_CANCELLED")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateCancelling
+ *        'JOB_STATE_CANCELLING' indicates that the job has been explicitly
+ *        cancelled
+ *        and is in the process of stopping. Jobs that are cancelling may only
+ *        transition to 'JOB_STATE_CANCELLED' or 'JOB_STATE_FAILED'. (Value:
+ *        "JOB_STATE_CANCELLING")
  *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateDone `JOB_STATE_DONE`
  *        indicates that the job has successfully completed.
  *        This is a terminal job state. This state may be set by the Cloud
@@ -2124,6 +2471,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        terminal job state. This state may only be set by the Cloud Dataflow
  *        service, and only as a transition from `JOB_STATE_RUNNING`. (Value:
  *        "JOB_STATE_FAILED")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStatePending 'JOB_STATE_PENDING'
+ *        indicates that the job has been created but is not yet
+ *        running. Jobs that are pending may only transition to
+ *        `JOB_STATE_RUNNING`,
+ *        or `JOB_STATE_FAILED`. (Value: "JOB_STATE_PENDING")
  *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateRunning `JOB_STATE_RUNNING`
  *        indicates that the job is currently running. (Value:
  *        "JOB_STATE_RUNNING")
@@ -2226,6 +2578,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        cancelled. This is a terminal job state. This state may only be
  *        set via a Cloud Dataflow `UpdateJob` call, and only if the job has not
  *        yet reached another terminal state. (Value: "JOB_STATE_CANCELLED")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateCancelling
+ *        'JOB_STATE_CANCELLING' indicates that the job has been explicitly
+ *        cancelled
+ *        and is in the process of stopping. Jobs that are cancelling may only
+ *        transition to 'JOB_STATE_CANCELLED' or 'JOB_STATE_FAILED'. (Value:
+ *        "JOB_STATE_CANCELLING")
  *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateDone `JOB_STATE_DONE`
  *        indicates that the job has successfully completed.
  *        This is a terminal job state. This state may be set by the Cloud
@@ -2261,6 +2619,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        terminal job state. This state may only be set by the Cloud Dataflow
  *        service, and only as a transition from `JOB_STATE_RUNNING`. (Value:
  *        "JOB_STATE_FAILED")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStatePending
+ *        'JOB_STATE_PENDING' indicates that the job has been created but is not
+ *        yet
+ *        running. Jobs that are pending may only transition to
+ *        `JOB_STATE_RUNNING`,
+ *        or `JOB_STATE_FAILED`. (Value: "JOB_STATE_PENDING")
  *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateRunning
  *        `JOB_STATE_RUNNING` indicates that the job is currently running.
  *        (Value: "JOB_STATE_RUNNING")
@@ -2279,6 +2643,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        `JOB_STATE_RUNNING`. (Value: "JOB_STATE_UPDATED")
  */
 @property(nonatomic, copy, nullable) NSString *requestedState;
+
+/**
+ *  This field may be mutated by the Cloud Dataflow service;
+ *  callers cannot mutate it.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ExecutionStageState *> *stageStates;
 
 /** The top-level steps that constitute the entire job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Step *> *steps;
@@ -2398,8 +2768,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_JobMessage : GTLRObject
 
 /**
- *  Identifies the message. This is automatically generated by the
- *  service; the caller should treat it as an opaque string.
+ *  Deprecated.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2621,20 +2990,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /**
  *  Response to a request to list job messages.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "jobMessages" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
  */
-@interface GTLRDataflow_ListJobMessagesResponse : GTLRCollectionObject
+@interface GTLRDataflow_ListJobMessagesResponse : GTLRObject
 
-/**
- *  Messages in ascending timestamp order.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
+/** Autoscaling events in ascending timestamp order. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_AutoscalingEvent *> *autoscalingEvents;
+
+/** Messages in ascending timestamp order. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_JobMessage *> *jobMessages;
 
 /** The token to obtain the next page of results if there are more. */
@@ -2964,6 +3326,24 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** Additional information for Write instructions. */
 @property(nonatomic, strong, nullable) GTLRDataflow_WriteInstruction *write;
+
+@end
+
+
+/**
+ *  Structured data associated with this message.
+ */
+@interface GTLRDataflow_Parameter : GTLRObject
+
+/** Key or name for this parameter. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Value for this parameter.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id value;
 
 @end
 
@@ -3370,6 +3750,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** The encoded debug information. */
 @property(nonatomic, copy, nullable) NSString *data;
 
+/** The location which contains the job specified by job_id. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** The worker id, i.e., VM hostname. */
 @property(nonatomic, copy, nullable) NSString *workerId;
 
@@ -3388,6 +3771,9 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  A request for sending worker messages to the service.
  */
 @interface GTLRDataflow_SendWorkerMessagesRequest : GTLRObject
+
+/** The location which contains the job */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** The WorkerMessages to send. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_WorkerMessage *> *workerMessages;
@@ -4265,6 +4651,28 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** Elements of the list. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *elements;
+
+@end
+
+
+/**
+ *  A rich message format, including a human readable string, a key for
+ *  identifying the message, and structured data associated with the message for
+ *  programmatic consumption.
+ */
+@interface GTLRDataflow_StructuredMessage : GTLRObject
+
+/**
+ *  Idenfier for this message type. Used by external systems to
+ *  internationalize or personalize message.
+ */
+@property(nonatomic, copy, nullable) NSString *messageKey;
+
+/** Human-readable version of message. */
+@property(nonatomic, copy, nullable) NSString *messageText;
+
+/** The structured data associated with this message. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Parameter *> *parameters;
 
 @end
 

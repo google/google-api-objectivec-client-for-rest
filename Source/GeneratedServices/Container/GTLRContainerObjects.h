@@ -4,8 +4,8 @@
 // API:
 //   Google Container Engine API (container/v1)
 // Description:
-//   Builds and manages clusters that run container-based applications, powered
-//   by open source Kubernetes technology.
+//   The Google Container Engine API is used for building and managing container
+//   based applications, powered by the open source Kubernetes technology.
 // Documentation:
 //   https://cloud.google.com/container-engine/
 
@@ -25,6 +25,8 @@
 @class GTLRContainer_ClusterUpdate;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpLoadBalancing;
+@class GTLRContainer_Item;
+@class GTLRContainer_LegacyAbac;
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_NodeConfig;
 @class GTLRContainer_NodeConfig_Labels;
@@ -33,6 +35,7 @@
 @class GTLRContainer_NodePool;
 @class GTLRContainer_NodePoolAutoscaling;
 @class GTLRContainer_Operation;
+@class GTLRContainer_ResourceLabels;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,74 +45,243 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRContainer_Cluster.status
 
-/** Value: "ERROR" */
+/**
+ *  The ERROR state indicates the cluster may be unusable. Details
+ *  can be found in the `statusMessage` field.
+ *
+ *  Value: "ERROR"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Error;
-/** Value: "PROVISIONING" */
+/**
+ *  The PROVISIONING state indicates the cluster is being created.
+ *
+ *  Value: "PROVISIONING"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Provisioning;
-/** Value: "RECONCILING" */
+/**
+ *  The RECONCILING state indicates that some work is actively being done on
+ *  the cluster, such as upgrading the master or node software. Details can
+ *  be found in the `statusMessage` field.
+ *
+ *  Value: "RECONCILING"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Reconciling;
-/** Value: "RUNNING" */
+/**
+ *  The RUNNING state indicates the cluster has been created and is fully
+ *  usable.
+ *
+ *  Value: "RUNNING"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Running;
-/** Value: "STATUS_UNSPECIFIED" */
+/**
+ *  Not set.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_StatusUnspecified;
-/** Value: "STOPPING" */
+/**
+ *  The STOPPING state indicates the cluster is being deleted.
+ *
+ *  Value: "STOPPING"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Stopping;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NodePool.status
 
-/** Value: "ERROR" */
+/**
+ *  The ERROR state indicates the node pool may be unusable. Details
+ *  can be found in the `statusMessage` field.
+ *
+ *  Value: "ERROR"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Error;
-/** Value: "PROVISIONING" */
+/**
+ *  The PROVISIONING state indicates the node pool is being created.
+ *
+ *  Value: "PROVISIONING"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Provisioning;
-/** Value: "RECONCILING" */
+/**
+ *  The RECONCILING state indicates that some work is actively being done on
+ *  the node pool, such as upgrading node software. Details can
+ *  be found in the `statusMessage` field.
+ *
+ *  Value: "RECONCILING"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Reconciling;
-/** Value: "RUNNING" */
+/**
+ *  The RUNNING state indicates the node pool has been created
+ *  and is fully usable.
+ *
+ *  Value: "RUNNING"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Running;
-/** Value: "RUNNING_WITH_ERROR" */
+/**
+ *  The RUNNING_WITH_ERROR state indicates the node pool has been created
+ *  and is partially usable. Some error state has occurred and some
+ *  functionality may be impaired. Customer may need to reissue a request
+ *  or trigger a new update.
+ *
+ *  Value: "RUNNING_WITH_ERROR"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_RunningWithError;
-/** Value: "STATUS_UNSPECIFIED" */
+/**
+ *  Not set.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_StatusUnspecified;
-/** Value: "STOPPING" */
+/**
+ *  The STOPPING state indicates the node pool is being deleted.
+ *
+ *  Value: "STOPPING"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Stopping;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_Operation.operationType
 
-/** Value: "CREATE_CLUSTER" */
+/**
+ *  Automatic node pool repair.
+ *
+ *  Value: "AUTO_REPAIR_NODES"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_AutoRepairNodes;
+/**
+ *  Automatic node upgrade.
+ *
+ *  Value: "AUTO_UPGRADE_NODES"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_AutoUpgradeNodes;
+/**
+ *  Cluster create.
+ *
+ *  Value: "CREATE_CLUSTER"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_CreateCluster;
-/** Value: "CREATE_NODE_POOL" */
+/**
+ *  Node pool create.
+ *
+ *  Value: "CREATE_NODE_POOL"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_CreateNodePool;
-/** Value: "DELETE_CLUSTER" */
+/**
+ *  Cluster delete.
+ *
+ *  Value: "DELETE_CLUSTER"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_DeleteCluster;
-/** Value: "DELETE_NODE_POOL" */
+/**
+ *  Node pool delete.
+ *
+ *  Value: "DELETE_NODE_POOL"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_DeleteNodePool;
-/** Value: "REPAIR_CLUSTER" */
+/**
+ *  Cluster repair.
+ *
+ *  Value: "REPAIR_CLUSTER"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_RepairCluster;
-/** Value: "SET_NODE_POOL_MANAGEMENT" */
+/**
+ *  Set labels.
+ *
+ *  Value: "SET_LABELS"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetLabels;
+/**
+ *  Set/generate master auth materials
+ *
+ *  Value: "SET_MASTER_AUTH"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMasterAuth;
+/**
+ *  Set node pool management.
+ *
+ *  Value: "SET_NODE_POOL_MANAGEMENT"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolManagement;
-/** Value: "TYPE_UNSPECIFIED" */
+/**
+ *  Not set.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_TypeUnspecified;
-/** Value: "UPDATE_CLUSTER" */
+/**
+ *  Cluster update.
+ *
+ *  Value: "UPDATE_CLUSTER"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_UpdateCluster;
-/** Value: "UPGRADE_MASTER" */
+/**
+ *  A master upgrade.
+ *
+ *  Value: "UPGRADE_MASTER"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_UpgradeMaster;
-/** Value: "UPGRADE_NODES" */
+/**
+ *  A node upgrade.
+ *
+ *  Value: "UPGRADE_NODES"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_UpgradeNodes;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_Operation.status
 
-/** Value: "ABORTING" */
+/**
+ *  The operation is aborting.
+ *
+ *  Value: "ABORTING"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_Aborting;
-/** Value: "DONE" */
+/**
+ *  The operation is done, either cancelled or completed.
+ *
+ *  Value: "DONE"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_Done;
-/** Value: "PENDING" */
+/**
+ *  The operation has been created.
+ *
+ *  Value: "PENDING"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_Pending;
-/** Value: "RUNNING" */
+/**
+ *  The operation is currently running.
+ *
+ *  Value: "RUNNING"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_Running;
-/** Value: "STATUS_UNSPECIFIED" */
+/**
+ *  Not set.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_SetMasterAuthRequest.action
+
+/**
+ *  Generate a new password and set it to that.
+ *
+ *  Value: "GENERATE_PASSWORD"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_GeneratePassword;
+/**
+ *  Set the password to a user generated value.
+ *
+ *  Value: "SET_PASSWORD"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetPassword;
+/**
+ *  Operation is unknown and will error out
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /**
  *  Configuration for the addons that can be automatically spun up in the
@@ -118,15 +290,15 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @interface GTLRContainer_AddonsConfig : GTLRObject
 
 /**
- *  Configuration for the horizontal pod autoscaling feature, which increases or
- *  decreases the number of replica pods a replication controller has based on
- *  the resource usage of the existing pods.
+ *  Configuration for the horizontal pod autoscaling feature, which
+ *  increases or decreases the number of replica pods a replication controller
+ *  has based on the resource usage of the existing pods.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_HorizontalPodAutoscaling *horizontalPodAutoscaling;
 
 /**
- *  Configuration for the HTTP (L7) load balancing controller addon, which makes
- *  it easy to set up HTTP load balancers for services in a cluster.
+ *  Configuration for the HTTP (L7) load balancing controller addon, which
+ *  makes it easy to set up HTTP load balancers for services in a cluster.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_HttpLoadBalancing *httpLoadBalancing;
 
@@ -140,15 +312,15 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @interface GTLRContainer_AutoUpgradeOptions : GTLRObject
 
 /**
- *  [Output only] This field is set when upgrades are about to commence with the
- *  approximate start time for the upgrades, in
+ *  [Output only] This field is set when upgrades are about to commence
+ *  with the approximate start time for the upgrades, in
  *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @property(nonatomic, copy, nullable) NSString *autoUpgradeStartTime;
 
 /**
- *  [Output only] This field is set when upgrades are about to commence with the
- *  description of the upgrade.
+ *  [Output only] This field is set when upgrades are about to commence
+ *  with the description of the upgrade.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -174,9 +346,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 /**
  *  The IP address range of the container pods in this cluster, in
- *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation
- *  (e.g. `10.96.0.0/14`). Leave blank to have one automatically chosen or
- *  specify a `/14` block in `10.0.0.0/8`.
+ *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`). Leave blank to have
+ *  one automatically chosen or specify a `/14` block in `10.0.0.0/8`.
  */
 @property(nonatomic, copy, nullable) NSString *clusterIpv4Cidr;
 
@@ -197,9 +369,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *currentNodeCount;
 
 /**
- *  [Output only] The current version of the node software components. If they
- *  are currently at multiple versions because they're in the process of being
- *  upgraded, this reflects the minimum version of all nodes.
+ *  [Output only] The current version of the node software components.
+ *  If they are currently at multiple versions because they're in the process
+ *  of being upgraded, this reflects the minimum version of all nodes.
  */
 @property(nonatomic, copy, nullable) NSString *currentNodeVersion;
 
@@ -213,25 +385,27 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 /**
  *  Kubernetes alpha features are enabled on this cluster. This includes alpha
  *  API groups (e.g. v1alpha1) and features that may not be production ready in
- *  the kubernetes version of the master and nodes. The cluster has no SLA for
- *  uptime and master/node upgrades are disabled. Alpha enabled clusters are
- *  automatically deleted thirty days after creation.
+ *  the kubernetes version of the master and nodes.
+ *  The cluster has no SLA for uptime and master/node upgrades are disabled.
+ *  Alpha enabled clusters are automatically deleted thirty days after
+ *  creation.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableKubernetesAlpha;
 
 /**
- *  [Output only] The IP address of this cluster's master endpoint. The endpoint
- *  can be accessed from the internet at `https://username:password\@endpoint/`.
- *  See the `masterAuth` property of this resource for username and password
- *  information.
+ *  [Output only] The IP address of this cluster's master endpoint.
+ *  The endpoint can be accessed from the internet at
+ *  `https://username:password\@endpoint/`.
+ *  See the `masterAuth` property of this resource for username and
+ *  password information.
  */
 @property(nonatomic, copy, nullable) NSString *endpoint;
 
 /**
- *  [Output only] The time the cluster will be automatically deleted in
- *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+ *  [Output only] The time the cluster will be automatically
+ *  deleted in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @property(nonatomic, copy, nullable) NSString *expireTime;
 
@@ -244,12 +418,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 /**
  *  The number of nodes to create in this cluster. You must ensure that your
- *  Compute Engine resource quota is sufficient for this number of instances.
- *  You must also have available firewall and routes quota. For requests, this
- *  field should only be used in lieu of a "node_pool" object, since this
- *  configuration (along with the "node_config") will be used to create a
- *  "NodePool" object with an auto-generated name. Do not use this and a
- *  node_pool at the same time.
+ *  Compute Engine <a href="/compute/docs/resource-quotas">resource quota</a>
+ *  is sufficient for this number of instances. You must also have available
+ *  firewall and routes quota.
+ *  For requests, this field should only be used in lieu of a
+ *  "node_pool" object, since this configuration (along with the
+ *  "node_config") will be used to create a "NodePool" object with an
+ *  auto-generated name. Do not use this and a node_pool at the same time.
  *
  *  Uses NSNumber of intValue.
  */
@@ -257,21 +432,30 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 /**
  *  [Output only] The resource URLs of [instance
- *  groups](/compute/docs/instance-groups/) associated with this cluster.
+ *  groups](/compute/docs/instance-groups/) associated with this
+ *  cluster.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceGroupUrls;
 
+/** The fingerprint of the set of labels for this cluster. */
+@property(nonatomic, copy, nullable) NSString *labelFingerprint;
+
+/** Configuration for the legacy ABAC authorization mode. */
+@property(nonatomic, strong, nullable) GTLRContainer_LegacyAbac *legacyAbac;
+
 /**
- *  The list of Google Compute Engine [locations](/compute/docs/zones#available)
- *  in which the cluster's nodes should be located.
+ *  The list of Google Compute Engine
+ *  [locations](/compute/docs/zones#available) in which the cluster's nodes
+ *  should be located.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
 /**
- *  The logging service the cluster should use to write logs. Currently
- *  available options: * `logging.googleapis.com` - the Google Cloud Logging
- *  service. * `none` - no logs will be exported from the cluster. * if left as
- *  an empty string,`logging.googleapis.com` will be used.
+ *  The logging service the cluster should use to write logs.
+ *  Currently available options:
+ *  * `logging.googleapis.com` - the Google Cloud Logging service.
+ *  * `none` - no logs will be exported from the cluster.
+ *  * if left as an empty string,`logging.googleapis.com` will be used.
  */
 @property(nonatomic, copy, nullable) NSString *loggingService;
 
@@ -279,63 +463,75 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuth *masterAuth;
 
 /**
- *  The monitoring service the cluster should use to write metrics. Currently
- *  available options: * `monitoring.googleapis.com` - the Google Cloud
- *  Monitoring service. * `none` - no metrics will be exported from the cluster.
+ *  The monitoring service the cluster should use to write metrics.
+ *  Currently available options:
+ *  * `monitoring.googleapis.com` - the Google Cloud Monitoring service.
+ *  * `none` - no metrics will be exported from the cluster.
  *  * if left as an empty string, `monitoring.googleapis.com` will be used.
  */
 @property(nonatomic, copy, nullable) NSString *monitoringService;
 
 /**
- *  The name of this cluster. The name must be unique within this project and
- *  zone, and can be up to 40 characters with the following restrictions: *
- *  Lowercase letters, numbers, and hyphens only. * Must start with a letter. *
- *  Must end with a number or a letter.
+ *  The name of this cluster. The name must be unique within this project
+ *  and zone, and can be up to 40 characters with the following restrictions:
+ *  * Lowercase letters, numbers, and hyphens only.
+ *  * Must start with a letter.
+ *  * Must end with a number or a letter.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The name of the Google Compute Engine
  *  [network](/compute/docs/networks-and-firewalls#networks) to which the
- *  cluster is connected. If left unspecified, the `default` network will be
- *  used.
+ *  cluster is connected. If left unspecified, the `default` network
+ *  will be used.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Parameters used in creating the cluster's nodes. See `nodeConfig` for the
- *  description of its properties. For requests, this field should only be used
- *  in lieu of a "node_pool" object, since this configuration (along with the
+ *  Parameters used in creating the cluster's nodes.
+ *  See `nodeConfig` for the description of its properties.
+ *  For requests, this field should only be used in lieu of a
+ *  "node_pool" object, since this configuration (along with the
  *  "initial_node_count") will be used to create a "NodePool" object with an
- *  auto-generated name. Do not use this and a node_pool at the same time. For
- *  responses, this field will be populated with the node configuration of the
- *  first node pool. If unspecified, the defaults are used.
+ *  auto-generated name. Do not use this and a node_pool at the same time.
+ *  For responses, this field will be populated with the node configuration of
+ *  the first node pool.
+ *  If unspecified, the defaults are used.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig *nodeConfig;
 
 /**
  *  [Output only] The size of the address space on each node for hosting
- *  containers. This is provisioned from within the `container_ipv4_cidr` range.
+ *  containers. This is provisioned from within the `container_ipv4_cidr`
+ *  range.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nodeIpv4CidrSize;
 
 /**
- *  The node pools associated with this cluster. This field should not be set if
- *  "node_config" or "initial_node_count" are specified.
+ *  The node pools associated with this cluster.
+ *  This field should not be set if "node_config" or "initial_node_count" are
+ *  specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_NodePool *> *nodePools;
+
+/**
+ *  The resource labels for the cluster to use to annotate any related GCE
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ResourceLabels *resourceLabels;
 
 /** [Output only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  [Output only] The IP address range of the Kubernetes services in this
- *  cluster, in
- *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation
- *  (e.g. `1.2.3.4/29`). Service addresses are typically put in the last `/16`
- *  from the container CIDR.
+ *  [Output only] The IP address range of the Kubernetes services in
+ *  this cluster, in
+ *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `1.2.3.4/29`). Service addresses are
+ *  typically put in the last `/16` from the container CIDR.
  */
 @property(nonatomic, copy, nullable) NSString *servicesIpv4Cidr;
 
@@ -343,13 +539,23 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  *  [Output only] The current status of this cluster.
  *
  *  Likely values:
- *    @arg @c kGTLRContainer_Cluster_Status_Error Value "ERROR"
- *    @arg @c kGTLRContainer_Cluster_Status_Provisioning Value "PROVISIONING"
- *    @arg @c kGTLRContainer_Cluster_Status_Reconciling Value "RECONCILING"
- *    @arg @c kGTLRContainer_Cluster_Status_Running Value "RUNNING"
- *    @arg @c kGTLRContainer_Cluster_Status_StatusUnspecified Value
- *        "STATUS_UNSPECIFIED"
- *    @arg @c kGTLRContainer_Cluster_Status_Stopping Value "STOPPING"
+ *    @arg @c kGTLRContainer_Cluster_Status_Error The ERROR state indicates the
+ *        cluster may be unusable. Details
+ *        can be found in the `statusMessage` field. (Value: "ERROR")
+ *    @arg @c kGTLRContainer_Cluster_Status_Provisioning The PROVISIONING state
+ *        indicates the cluster is being created. (Value: "PROVISIONING")
+ *    @arg @c kGTLRContainer_Cluster_Status_Reconciling The RECONCILING state
+ *        indicates that some work is actively being done on
+ *        the cluster, such as upgrading the master or node software. Details
+ *        can
+ *        be found in the `statusMessage` field. (Value: "RECONCILING")
+ *    @arg @c kGTLRContainer_Cluster_Status_Running The RUNNING state indicates
+ *        the cluster has been created and is fully
+ *        usable. (Value: "RUNNING")
+ *    @arg @c kGTLRContainer_Cluster_Status_StatusUnspecified Not set. (Value:
+ *        "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_Cluster_Status_Stopping The STOPPING state
+ *        indicates the cluster is being deleted. (Value: "STOPPING")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -361,13 +567,15 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 /**
  *  The name of the Google Compute Engine
- *  [subnetwork](/compute/docs/subnetworks) to which the cluster is connected.
+ *  [subnetwork](/compute/docs/subnetworks) to which the
+ *  cluster is connected.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
 /**
  *  [Output only] The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster resides.
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -377,8 +585,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 
 /**
- *  ClusterUpdate describes an update to the cluster. Exactly one update can be
- *  applied to a cluster with each request, so at most one field can be
+ *  ClusterUpdate describes an update to the cluster. Exactly one update can
+ *  be applied to a cluster with each request, so at most one field can be
  *  provided.
  */
 @interface GTLRContainer_ClusterUpdate : GTLRObject
@@ -387,18 +595,18 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *desiredAddonsConfig;
 
 /**
- *  The desired image type for the node pool. NOTE: Set the "desired_node_pool"
- *  field as well.
+ *  The desired image type for the node pool.
+ *  NOTE: Set the "desired_node_pool" field as well.
  */
 @property(nonatomic, copy, nullable) NSString *desiredImageType;
 
 /**
  *  The desired list of Google Compute Engine
  *  [locations](/compute/docs/zones#available) in which the cluster's nodes
- *  should be located. Changing the locations a cluster is in will result in
- *  nodes being either created or removed from the cluster, depending on whether
- *  locations are being added or removed. This list must always include the
- *  cluster's primary zone.
+ *  should be located. Changing the locations a cluster is in will result
+ *  in nodes being either created or removed from the cluster, depending on
+ *  whether locations are being added or removed.
+ *  This list must always include the cluster's primary zone.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *desiredLocations;
 
@@ -410,31 +618,33 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, copy, nullable) NSString *desiredMasterVersion;
 
 /**
- *  The monitoring service the cluster should use to write metrics. Currently
- *  available options: * "monitoring.googleapis.com" - the Google Cloud
- *  Monitoring service * "none" - no metrics will be exported from the cluster
+ *  The monitoring service the cluster should use to write metrics.
+ *  Currently available options:
+ *  * "monitoring.googleapis.com" - the Google Cloud Monitoring service
+ *  * "none" - no metrics will be exported from the cluster
  */
 @property(nonatomic, copy, nullable) NSString *desiredMonitoringService;
 
 /**
  *  Autoscaler configuration for the node pool specified in
- *  desired_node_pool_id. If there is only one pool in the cluster and
- *  desired_node_pool_id is not provided then the change applies to that single
- *  node pool.
+ *  desired_node_pool_id. If there is only one pool in the
+ *  cluster and desired_node_pool_id is not provided then
+ *  the change applies to that single node pool.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodePoolAutoscaling *desiredNodePoolAutoscaling;
 
 /**
  *  The node pool to be upgraded. This field is mandatory if
  *  "desired_node_version", "desired_image_family" or
- *  "desired_node_pool_autoscaling" is specified and there is more than one node
- *  pool on the cluster.
+ *  "desired_node_pool_autoscaling" is specified and there is more than one
+ *  node pool on the cluster.
  */
 @property(nonatomic, copy, nullable) NSString *desiredNodePoolId;
 
 /**
- *  The Kubernetes version to change the nodes to (typically an upgrade). Use
- *  `-` to upgrade to the latest version supported by the server.
+ *  The Kubernetes version to change the nodes to (typically an
+ *  upgrade). Use `-` to upgrade to the latest version supported by
+ *  the server.
  */
 @property(nonatomic, copy, nullable) NSString *desiredNodeVersion;
 
@@ -469,9 +679,11 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRContainer_Empty : GTLRObject
 @end
@@ -503,12 +715,47 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @interface GTLRContainer_HttpLoadBalancing : GTLRObject
 
 /**
- *  Whether the HTTP Load Balancing controller is enabled in the cluster. When
- *  enabled, it runs a small pod in the cluster that manages the load balancers.
+ *  Whether the HTTP Load Balancing controller is enabled in the cluster.
+ *  When enabled, it runs a small pod in the cluster that manages the load
+ *  balancers.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+@end
+
+
+/**
+ *  A label to be applied to Google Compute Engine resources. It must comply
+ *  with RFC1035 for each key and value.
+ */
+@interface GTLRContainer_Item : GTLRObject
+
+/** The Key for this label. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** The Value for this label. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Configuration for the legacy Attribute Based Access Control authorization
+ *  mode.
+ */
+@interface GTLRContainer_LegacyAbac : GTLRObject
+
+/**
+ *  Whether the ABAC authorizer is enabled for this cluster. When enabled,
+ *  identities in the system, including service accounts, nodes, and
+ *  controllers, will have statically granted permissions beyond those
+ *  provided by the RBAC configuration or IAM.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -519,13 +766,14 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @interface GTLRContainer_ListClustersResponse : GTLRObject
 
 /**
- *  A list of clusters in the project in the specified zone, or across all ones.
+ *  A list of clusters in the project in the specified zone, or
+ *  across all ones.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_Cluster *> *clusters;
 
 /**
- *  If any zones are listed here, the list of clusters returned may be missing
- *  those zones.
+ *  If any zones are listed here, the list of clusters returned
+ *  may be missing those zones.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *missingZones;
 
@@ -549,8 +797,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @interface GTLRContainer_ListOperationsResponse : GTLRObject
 
 /**
- *  If any zones are listed here, the list of operations returned may be missing
- *  the operations from those zones.
+ *  If any zones are listed here, the list of operations returned
+ *  may be missing the operations from those zones.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *missingZones;
 
@@ -574,14 +822,14 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, copy, nullable) NSString *clientCertificate;
 
 /**
- *  [Output only] Base64-encoded private key used by clients to authenticate to
- *  the cluster endpoint.
+ *  [Output only] Base64-encoded private key used by clients to authenticate
+ *  to the cluster endpoint.
  */
 @property(nonatomic, copy, nullable) NSString *clientKey;
 
 /**
- *  [Output only] Base64-encoded public certificate that is the root of trust
- *  for the cluster.
+ *  [Output only] Base64-encoded public certificate that is the root of
+ *  trust for the cluster.
  */
 @property(nonatomic, copy, nullable) NSString *clusterCaCertificate;
 
@@ -606,36 +854,38 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @interface GTLRContainer_NodeConfig : GTLRObject
 
 /**
- *  Size of the disk attached to each node, specified in GB. The smallest
- *  allowed disk size is 10GB. If unspecified, the default disk size is 100GB.
+ *  Size of the disk attached to each node, specified in GB.
+ *  The smallest allowed disk size is 10GB.
+ *  If unspecified, the default disk size is 100GB.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
 
 /**
- *  The image type to use for this node. Note that for a given image type, the
- *  latest version of it will be used.
+ *  The image type to use for this node. Note that for a given image type,
+ *  the latest version of it will be used.
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
  *  The map of Kubernetes labels (key/value pairs) to be applied to each node.
- *  These will added in addition to any default label(s) that Kubernetes may
- *  apply to the node. In case of conflict in label keys, the applied set may
- *  differ depending on the Kubernetes version -- it's best to assume the
- *  behavior is undefined and conflicts should be avoided. For more information,
- *  including usage and the valid values, see:
+ *  These will added in addition to any default label(s) that
+ *  Kubernetes may apply to the node.
+ *  In case of conflict in label keys, the applied set may differ depending on
+ *  the Kubernetes version -- it's best to assume the behavior is undefined
+ *  and conflicts should be avoided.
+ *  For more information, including usage and the valid values, see:
  *  http://kubernetes.io/v1.1/docs/user-guide/labels.html
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_Labels *labels;
 
 /**
- *  The number of local SSD disks to be attached to the node. The limit for this
- *  value is dependant upon the maximum number of disks available on a machine
- *  per zone. See:
- *  https://cloud.google.com/compute/docs/disks/local-ssd#local_ssd_limits for
- *  more information.
+ *  The number of local SSD disks to be attached to the node.
+ *  The limit for this value is dependant upon the maximum number of
+ *  disks available on a machine per zone. See:
+ *  https://cloud.google.com/compute/docs/disks/local-ssd#local_ssd_limits
+ *  for more information.
  *
  *  Uses NSNumber of intValue.
  */
@@ -643,36 +893,39 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 /**
  *  The name of a Google Compute Engine [machine
- *  type](/compute/docs/machine-types) (e.g. `n1-standard-1`). If unspecified,
- *  the default machine type is `n1-standard-1`.
+ *  type](/compute/docs/machine-types) (e.g.
+ *  `n1-standard-1`).
+ *  If unspecified, the default machine type is
+ *  `n1-standard-1`.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
 /**
- *  The metadata key/value pairs assigned to instances in the cluster. Keys must
- *  conform to the regexp [a-zA-Z0-9-_]+ and be less than 128 bytes in length.
- *  These are reflected as part of a URL in the metadata server. Additionally,
- *  to avoid ambiguity, keys must not conflict with any other metadata keys for
- *  the project or be one of the four reserved keys: "instance-template",
- *  "kube-env", "startup-script", and "user-data" Values are free-form strings,
- *  and only have meaning as interpreted by the image running in the instance.
- *  The only restriction placed on them is that each value's size must be less
- *  than or equal to 32 KB. The total size of all keys and values must be less
- *  than 512 KB.
+ *  The metadata key/value pairs assigned to instances in the cluster.
+ *  Keys must conform to the regexp [a-zA-Z0-9-_]+ and be less than 128 bytes
+ *  in length. These are reflected as part of a URL in the metadata server.
+ *  Additionally, to avoid ambiguity, keys must not conflict with any other
+ *  metadata keys for the project or be one of the four reserved keys:
+ *  "instance-template", "kube-env", "startup-script", and "user-data"
+ *  Values are free-form strings, and only have meaning as interpreted by
+ *  the image running in the instance. The only restriction placed on them is
+ *  that each value's size must be less than or equal to 32 KB.
+ *  The total size of all keys and values must be less than 512 KB.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_Metadata *metadata;
 
 /**
- *  The set of Google API scopes to be made available on all of the node VMs
- *  under the "default" service account. The following scopes are recommended,
- *  but not required, and by default are not included: *
- *  `https://www.googleapis.com/auth/compute` is required for mounting
- *  persistent storage on your nodes. *
- *  `https://www.googleapis.com/auth/devstorage.read_only` is required for
- *  communicating with **gcr.io** (the [Google Container
- *  Registry](/container-registry/)). If unspecified, no scopes are added,
- *  unless Cloud Logging or Cloud Monitoring are enabled, in which case their
- *  required scopes will be added.
+ *  The set of Google API scopes to be made available on all of the
+ *  node VMs under the "default" service account.
+ *  The following scopes are recommended, but not required, and by default are
+ *  not included:
+ *  * `https://www.googleapis.com/auth/compute` is required for mounting
+ *  persistent storage on your nodes.
+ *  * `https://www.googleapis.com/auth/devstorage.read_only` is required for
+ *  communicating with **gcr.io**
+ *  (the [Google Container Registry](/container-registry/)).
+ *  If unspecified, no scopes are added, unless Cloud Logging or Cloud
+ *  Monitoring are enabled, in which case their required scopes will be added.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *oauthScopes;
 
@@ -686,16 +939,16 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *preemptible;
 
 /**
- *  The Google Cloud Platform Service Account to be used by the node VMs. If no
- *  Service Account is specified, the "default" service account is used.
+ *  The Google Cloud Platform Service Account to be used by the node VMs. If
+ *  no Service Account is specified, the "default" service account is used.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
  *  The list of instance tags applied to all nodes. Tags are used to identify
- *  valid sources or targets for network firewalls and are specified by the
- *  client during cluster or node pool creation. Each tag within the list must
- *  comply with RFC1035.
+ *  valid sources or targets for network firewalls and are specified by
+ *  the client during cluster or node pool creation. Each tag within the list
+ *  must comply with RFC1035.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -704,11 +957,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 /**
  *  The map of Kubernetes labels (key/value pairs) to be applied to each node.
- *  These will added in addition to any default label(s) that Kubernetes may
- *  apply to the node. In case of conflict in label keys, the applied set may
- *  differ depending on the Kubernetes version -- it's best to assume the
- *  behavior is undefined and conflicts should be avoided. For more information,
- *  including usage and the valid values, see:
+ *  These will added in addition to any default label(s) that
+ *  Kubernetes may apply to the node.
+ *  In case of conflict in label keys, the applied set may differ depending on
+ *  the Kubernetes version -- it's best to assume the behavior is undefined
+ *  and conflicts should be avoided.
+ *  For more information, including usage and the valid values, see:
  *  http://kubernetes.io/v1.1/docs/user-guide/labels.html
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -721,16 +975,16 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 
 /**
- *  The metadata key/value pairs assigned to instances in the cluster. Keys must
- *  conform to the regexp [a-zA-Z0-9-_]+ and be less than 128 bytes in length.
- *  These are reflected as part of a URL in the metadata server. Additionally,
- *  to avoid ambiguity, keys must not conflict with any other metadata keys for
- *  the project or be one of the four reserved keys: "instance-template",
- *  "kube-env", "startup-script", and "user-data" Values are free-form strings,
- *  and only have meaning as interpreted by the image running in the instance.
- *  The only restriction placed on them is that each value's size must be less
- *  than or equal to 32 KB. The total size of all keys and values must be less
- *  than 512 KB.
+ *  The metadata key/value pairs assigned to instances in the cluster.
+ *  Keys must conform to the regexp [a-zA-Z0-9-_]+ and be less than 128 bytes
+ *  in length. These are reflected as part of a URL in the metadata server.
+ *  Additionally, to avoid ambiguity, keys must not conflict with any other
+ *  metadata keys for the project or be one of the four reserved keys:
+ *  "instance-template", "kube-env", "startup-script", and "user-data"
+ *  Values are free-form strings, and only have meaning as interpreted by
+ *  the image running in the instance. The only restriction placed on them is
+ *  that each value's size must be less than or equal to 32 KB.
+ *  The total size of all keys and values must be less than 512 KB.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -748,7 +1002,19 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @interface GTLRContainer_NodeManagement : GTLRObject
 
 /**
- *  Whether the nodes will be automatically upgraded.
+ *  A flag that specifies whether the node auto-repair is enabled for the node
+ *  pool. If enabled, the nodes in this node pool will be monitored and, if
+ *  they fail health checks too many times, an automatic repair action will be
+ *  triggered.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoRepair;
+
+/**
+ *  A flag that specifies whether node auto-upgrade is enabled for the node
+ *  pool. If enabled, node auto-upgrade helps keep the nodes in your node pool
+ *  up to date with the latest release version of Kubernetes.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -761,8 +1027,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 
 /**
- *  NodePool contains the name and configuration for a cluster's node pool. Node
- *  pools are a set of nodes (i.e. VM's), with a common configuration and
+ *  NodePool contains the name and configuration for a cluster's node pool.
+ *  Node pools are a set of nodes (i.e. VM's), with a common configuration and
  *  specification, under the control of the cluster master. They may have a set
  *  of Kubernetes labels applied to them, which may be used to reference them
  *  during pod scheduling. They may also be resized up or down, to accommodate
@@ -771,8 +1037,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @interface GTLRContainer_NodePool : GTLRObject
 
 /**
- *  Autoscaler configuration for this NodePool. Autoscaler is enabled only if a
- *  valid configuration is present.
+ *  Autoscaler configuration for this NodePool. Autoscaler is enabled
+ *  only if a valid configuration is present.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodePoolAutoscaling *autoscaling;
 
@@ -780,9 +1046,10 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig *config;
 
 /**
- *  The initial node count for the pool. You must ensure that your Compute
- *  Engine resource quota is sufficient for this number of instances. You must
- *  also have available firewall and routes quota.
+ *  The initial node count for the pool. You must ensure that your
+ *  Compute Engine <a href="/compute/docs/resource-quotas">resource quota</a>
+ *  is sufficient for this number of instances. You must also have available
+ *  firewall and routes quota.
  *
  *  Uses NSNumber of intValue.
  */
@@ -790,7 +1057,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 /**
  *  [Output only] The resource URLs of [instance
- *  groups](/compute/docs/instance-groups/) associated with this node pool.
+ *  groups](/compute/docs/instance-groups/) associated with this
+ *  node pool.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceGroupUrls;
 
@@ -807,21 +1075,33 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  *  [Output only] The status of the nodes in this pool instance.
  *
  *  Likely values:
- *    @arg @c kGTLRContainer_NodePool_Status_Error Value "ERROR"
- *    @arg @c kGTLRContainer_NodePool_Status_Provisioning Value "PROVISIONING"
- *    @arg @c kGTLRContainer_NodePool_Status_Reconciling Value "RECONCILING"
- *    @arg @c kGTLRContainer_NodePool_Status_Running Value "RUNNING"
- *    @arg @c kGTLRContainer_NodePool_Status_RunningWithError Value
- *        "RUNNING_WITH_ERROR"
- *    @arg @c kGTLRContainer_NodePool_Status_StatusUnspecified Value
- *        "STATUS_UNSPECIFIED"
- *    @arg @c kGTLRContainer_NodePool_Status_Stopping Value "STOPPING"
+ *    @arg @c kGTLRContainer_NodePool_Status_Error The ERROR state indicates the
+ *        node pool may be unusable. Details
+ *        can be found in the `statusMessage` field. (Value: "ERROR")
+ *    @arg @c kGTLRContainer_NodePool_Status_Provisioning The PROVISIONING state
+ *        indicates the node pool is being created. (Value: "PROVISIONING")
+ *    @arg @c kGTLRContainer_NodePool_Status_Reconciling The RECONCILING state
+ *        indicates that some work is actively being done on
+ *        the node pool, such as upgrading node software. Details can
+ *        be found in the `statusMessage` field. (Value: "RECONCILING")
+ *    @arg @c kGTLRContainer_NodePool_Status_Running The RUNNING state indicates
+ *        the node pool has been created
+ *        and is fully usable. (Value: "RUNNING")
+ *    @arg @c kGTLRContainer_NodePool_Status_RunningWithError The
+ *        RUNNING_WITH_ERROR state indicates the node pool has been created
+ *        and is partially usable. Some error state has occurred and some
+ *        functionality may be impaired. Customer may need to reissue a request
+ *        or trigger a new update. (Value: "RUNNING_WITH_ERROR")
+ *    @arg @c kGTLRContainer_NodePool_Status_StatusUnspecified Not set. (Value:
+ *        "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_NodePool_Status_Stopping The STOPPING state
+ *        indicates the node pool is being deleted. (Value: "STOPPING")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  [Output only] Additional information about the current status of this node
- *  pool instance, if available.
+ *  [Output only] Additional information about the current status of this
+ *  node pool instance, if available.
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
 
@@ -853,7 +1133,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
 
 /**
- *  Minimum number of nodes in the NodePool. Must be >= 1 and <= max_node_count.
+ *  Minimum number of nodes in the NodePool. Must be >= 1 and <=
+ *  max_node_count.
  *
  *  Uses NSNumber of intValue.
  */
@@ -878,26 +1159,34 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  *  The operation type.
  *
  *  Likely values:
- *    @arg @c kGTLRContainer_Operation_OperationType_CreateCluster Value
- *        "CREATE_CLUSTER"
- *    @arg @c kGTLRContainer_Operation_OperationType_CreateNodePool Value
- *        "CREATE_NODE_POOL"
- *    @arg @c kGTLRContainer_Operation_OperationType_DeleteCluster Value
- *        "DELETE_CLUSTER"
- *    @arg @c kGTLRContainer_Operation_OperationType_DeleteNodePool Value
- *        "DELETE_NODE_POOL"
- *    @arg @c kGTLRContainer_Operation_OperationType_RepairCluster Value
- *        "REPAIR_CLUSTER"
- *    @arg @c kGTLRContainer_Operation_OperationType_SetNodePoolManagement Value
- *        "SET_NODE_POOL_MANAGEMENT"
- *    @arg @c kGTLRContainer_Operation_OperationType_TypeUnspecified Value
- *        "TYPE_UNSPECIFIED"
- *    @arg @c kGTLRContainer_Operation_OperationType_UpdateCluster Value
- *        "UPDATE_CLUSTER"
- *    @arg @c kGTLRContainer_Operation_OperationType_UpgradeMaster Value
- *        "UPGRADE_MASTER"
- *    @arg @c kGTLRContainer_Operation_OperationType_UpgradeNodes Value
- *        "UPGRADE_NODES"
+ *    @arg @c kGTLRContainer_Operation_OperationType_AutoRepairNodes Automatic
+ *        node pool repair. (Value: "AUTO_REPAIR_NODES")
+ *    @arg @c kGTLRContainer_Operation_OperationType_AutoUpgradeNodes Automatic
+ *        node upgrade. (Value: "AUTO_UPGRADE_NODES")
+ *    @arg @c kGTLRContainer_Operation_OperationType_CreateCluster Cluster
+ *        create. (Value: "CREATE_CLUSTER")
+ *    @arg @c kGTLRContainer_Operation_OperationType_CreateNodePool Node pool
+ *        create. (Value: "CREATE_NODE_POOL")
+ *    @arg @c kGTLRContainer_Operation_OperationType_DeleteCluster Cluster
+ *        delete. (Value: "DELETE_CLUSTER")
+ *    @arg @c kGTLRContainer_Operation_OperationType_DeleteNodePool Node pool
+ *        delete. (Value: "DELETE_NODE_POOL")
+ *    @arg @c kGTLRContainer_Operation_OperationType_RepairCluster Cluster
+ *        repair. (Value: "REPAIR_CLUSTER")
+ *    @arg @c kGTLRContainer_Operation_OperationType_SetLabels Set labels.
+ *        (Value: "SET_LABELS")
+ *    @arg @c kGTLRContainer_Operation_OperationType_SetMasterAuth Set/generate
+ *        master auth materials (Value: "SET_MASTER_AUTH")
+ *    @arg @c kGTLRContainer_Operation_OperationType_SetNodePoolManagement Set
+ *        node pool management. (Value: "SET_NODE_POOL_MANAGEMENT")
+ *    @arg @c kGTLRContainer_Operation_OperationType_TypeUnspecified Not set.
+ *        (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_Operation_OperationType_UpdateCluster Cluster
+ *        update. (Value: "UPDATE_CLUSTER")
+ *    @arg @c kGTLRContainer_Operation_OperationType_UpgradeMaster A master
+ *        upgrade. (Value: "UPGRADE_MASTER")
+ *    @arg @c kGTLRContainer_Operation_OperationType_UpgradeNodes A node
+ *        upgrade. (Value: "UPGRADE_NODES")
  */
 @property(nonatomic, copy, nullable) NSString *operationType;
 
@@ -908,12 +1197,16 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  *  The current status of the operation.
  *
  *  Likely values:
- *    @arg @c kGTLRContainer_Operation_Status_Aborting Value "ABORTING"
- *    @arg @c kGTLRContainer_Operation_Status_Done Value "DONE"
- *    @arg @c kGTLRContainer_Operation_Status_Pending Value "PENDING"
- *    @arg @c kGTLRContainer_Operation_Status_Running Value "RUNNING"
- *    @arg @c kGTLRContainer_Operation_Status_StatusUnspecified Value
- *        "STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRContainer_Operation_Status_Aborting The operation is
+ *        aborting. (Value: "ABORTING")
+ *    @arg @c kGTLRContainer_Operation_Status_Done The operation is done, either
+ *        cancelled or completed. (Value: "DONE")
+ *    @arg @c kGTLRContainer_Operation_Status_Pending The operation has been
+ *        created. (Value: "PENDING")
+ *    @arg @c kGTLRContainer_Operation_Status_Running The operation is currently
+ *        running. (Value: "RUNNING")
+ *    @arg @c kGTLRContainer_Operation_Status_StatusUnspecified Not set. (Value:
+ *        "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -924,12 +1217,35 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 @property(nonatomic, copy, nullable) NSString *targetLink;
 
 /**
- *  The name of the Google Compute Engine [zone](/compute/docs/zones#available)
- *  in which the operation is taking place.
+ *  The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the operation
+ *  is taking place.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  The set of Google Compute Engine labels that will be applied to any
+ *  underlying resources that the Google Container Cluster creates or uses.
+ *  These are merely metadata on the resources, and do not change the behavior
+ *  of the cluster.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRContainer_ResourceLabels : GTLRCollectionObject
+
+/**
+ *  The list of labels.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_Item *> *items;
 
 @end
 
@@ -962,6 +1278,71 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 /** List of valid node upgrade target versions. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *validNodeVersions;
+
+@end
+
+
+/**
+ *  SetLabelsRequest sets the Google Cloud Platform labels on a Google Container
+ *  Engine cluster, which will in turn set them for Google Compute Engine
+ *  resources used by that cluster
+ */
+@interface GTLRContainer_SetLabelsRequest : GTLRObject
+
+/**
+ *  The fingerprint of the previous set of labels for this resource,
+ *  used to detect conflicts. The fingerprint is initially generated by
+ *  Container Engine and changes after every request to modify or update
+ *  labels. You must always provide an up-to-date fingerprint hash when
+ *  updating or changing labels. Make a <code>get()</code> request to the
+ *  resource to get the latest fingerprint.
+ */
+@property(nonatomic, copy, nullable) NSString *labelFingerprint;
+
+/** The labels to set for that cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_ResourceLabels *resourceLabels;
+
+@end
+
+
+/**
+ *  SetLegacyAbacRequest enables or disables the ABAC authorization mechanism
+ *  for
+ *  a cluster.
+ */
+@interface GTLRContainer_SetLegacyAbacRequest : GTLRObject
+
+/**
+ *  Whether ABAC authorization will be enabled in the cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  SetMasterAuthRequest updates the admin password of a cluster.
+ */
+@interface GTLRContainer_SetMasterAuthRequest : GTLRObject
+
+/**
+ *  The exact form of action to be taken on the master auth
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_SetMasterAuthRequest_Action_GeneratePassword
+ *        Generate a new password and set it to that. (Value:
+ *        "GENERATE_PASSWORD")
+ *    @arg @c kGTLRContainer_SetMasterAuthRequest_Action_SetPassword Set the
+ *        password to a user generated value. (Value: "SET_PASSWORD")
+ *    @arg @c kGTLRContainer_SetMasterAuthRequest_Action_Unknown Operation is
+ *        unknown and will error out (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** A description of the update. */
+@property(nonatomic, strong, nullable) GTLRContainer_MasterAuth *update;
 
 @end
 

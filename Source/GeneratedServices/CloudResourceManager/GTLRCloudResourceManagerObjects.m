@@ -20,6 +20,11 @@ NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataRead = @"D
 NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudResourceManager_Constraint.constraintDefault
+NSString * const kGTLRCloudResourceManager_Constraint_ConstraintDefault_Allow = @"ALLOW";
+NSString * const kGTLRCloudResourceManager_Constraint_ConstraintDefault_ConstraintDefaultUnspecified = @"CONSTRAINT_DEFAULT_UNSPECIFIED";
+NSString * const kGTLRCloudResourceManager_Constraint_ConstraintDefault_Deny = @"DENY";
+
 // GTLRCloudResourceManager_FolderOperation.operationType
 NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Create = @"CREATE";
 NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Move = @"MOVE";
@@ -27,6 +32,7 @@ NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Operati
 
 // GTLRCloudResourceManager_FolderOperationError.errorMessageId
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedError = @"CYCLE_INTRODUCED_ERROR";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_DeletedFolderHeightViolation = @"DELETED_FOLDER_HEIGHT_VIOLATION";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ErrorTypeUnspecified = @"ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderBeingMoved = @"FOLDER_BEING_MOVED";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderHeightViolation = @"FOLDER_HEIGHT_VIOLATION";
@@ -35,6 +41,11 @@ NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_F
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_MaxChildFoldersViolation = @"MAX_CHILD_FOLDERS_VIOLATION";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeleted = @"PARENT_DELETED";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeleted = @"RESOURCE_DELETED";
+
+// GTLRCloudResourceManager_ListPolicy.allValues
+NSString * const kGTLRCloudResourceManager_ListPolicy_AllValues_Allow = @"ALLOW";
+NSString * const kGTLRCloudResourceManager_ListPolicy_AllValues_AllValuesUnspecified = @"ALL_VALUES_UNSPECIFIED";
+NSString * const kGTLRCloudResourceManager_ListPolicy_AllValues_Deny = @"DENY";
 
 // GTLRCloudResourceManager_Organization.lifecycleState
 NSString * const kGTLRCloudResourceManager_Organization_LifecycleState_Active = @"ACTIVE";
@@ -113,6 +124,56 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_BooleanConstraint
+//
+
+@implementation GTLRCloudResourceManager_BooleanConstraint
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_BooleanPolicy
+//
+
+@implementation GTLRCloudResourceManager_BooleanPolicy
+@dynamic enforced;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ClearOrgPolicyRequest
+//
+
+@implementation GTLRCloudResourceManager_ClearOrgPolicyRequest
+@dynamic constraint, ETag;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_Constraint
+//
+
+@implementation GTLRCloudResourceManager_Constraint
+@dynamic booleanConstraint, constraintDefault, descriptionProperty, displayName,
+         listConstraint, name, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_Empty
 //
 
@@ -169,10 +230,30 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_GetEffectiveOrgPolicyRequest
+//
+
+@implementation GTLRCloudResourceManager_GetEffectiveOrgPolicyRequest
+@dynamic constraint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_GetIamPolicyRequest
 //
 
 @implementation GTLRCloudResourceManager_GetIamPolicyRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_GetOrgPolicyRequest
+//
+
+@implementation GTLRCloudResourceManager_GetOrgPolicyRequest
+@dynamic constraint;
 @end
 
 
@@ -196,6 +277,48 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_ListAvailableOrgPolicyConstraintsRequest
+//
+
+@implementation GTLRCloudResourceManager_ListAvailableOrgPolicyConstraintsRequest
+@dynamic pageSize, pageToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ListAvailableOrgPolicyConstraintsResponse
+//
+
+@implementation GTLRCloudResourceManager_ListAvailableOrgPolicyConstraintsResponse
+@dynamic constraints, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"constraints" : [GTLRCloudResourceManager_Constraint class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"constraints";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ListConstraint
+//
+
+@implementation GTLRCloudResourceManager_ListConstraint
+@dynamic suggestedValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_ListLiensResponse
 //
 
@@ -211,6 +334,58 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 + (NSString *)collectionItemsKey {
   return @"liens";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ListOrgPoliciesRequest
+//
+
+@implementation GTLRCloudResourceManager_ListOrgPoliciesRequest
+@dynamic pageSize, pageToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ListOrgPoliciesResponse
+//
+
+@implementation GTLRCloudResourceManager_ListOrgPoliciesResponse
+@dynamic nextPageToken, policies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policies" : [GTLRCloudResourceManager_OrgPolicy class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"policies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ListPolicy
+//
+
+@implementation GTLRCloudResourceManager_ListPolicy
+@dynamic allowedValues, allValues, deniedValues, inheritFromParent,
+         suggestedValue;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedValues" : [NSString class],
+    @"deniedValues" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -298,6 +473,22 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_OrgPolicy
+//
+
+@implementation GTLRCloudResourceManager_OrgPolicy
+@dynamic booleanPolicy, constraint, ETag, listPolicy, restoreDefault,
+         updateTime, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_Policy
 //
 
@@ -371,6 +562,15 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_RestoreDefault
+//
+
+@implementation GTLRCloudResourceManager_RestoreDefault
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_SearchOrganizationsRequest
 //
 
@@ -408,6 +608,16 @@ NSString * const kGTLRCloudResourceManager_Project_LifecycleState_LifecycleState
 
 @implementation GTLRCloudResourceManager_SetIamPolicyRequest
 @dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_SetOrgPolicyRequest
+//
+
+@implementation GTLRCloudResourceManager_SetOrgPolicyRequest
+@dynamic policy;
 @end
 
 

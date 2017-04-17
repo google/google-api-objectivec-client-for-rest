@@ -27,20 +27,20 @@ NS_ASSUME_NONNULL_BEGIN
 // sortOrder
 
 /** Value: "FIRST_NAME_ASCENDING" */
-GTLR_EXTERN NSString * const kGTLRPeopleSortOrderFirstNameAscending;
+GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderFirstNameAscending;
 /** Value: "LAST_MODIFIED_ASCENDING" */
-GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastModifiedAscending;
+GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastModifiedAscending;
 /** Value: "LAST_NAME_ASCENDING" */
-GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
+GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
 // ----------------------------------------------------------------------------
 // Query Classes
 //
 
 /**
- *  Parent class for other People query classes.
+ *  Parent class for other People Service query classes.
  */
-@interface GTLRPeopleQuery : GTLRQuery
+@interface GTLRPeopleServiceQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
@@ -54,12 +54,12 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
  *  Method: people.people.connections.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePeopleContacts
- *    @c kGTLRAuthScopePeopleContactsReadonly
+ *    @c kGTLRAuthScopePeopleServiceContacts
+ *    @c kGTLRAuthScopePeopleServiceContactsReadonly
  */
-@interface GTLRPeopleQuery_PeopleConnectionsList : GTLRPeopleQuery
+@interface GTLRPeopleServiceQuery_PeopleConnectionsList : GTLRPeopleServiceQuery
 // Previous library name was
-//   +[GTLQueryPeople queryForPeopleConnectionsListWithresourceName:]
+//   +[GTLQueryPeopleService queryForPeopleConnectionsListWithresourceName:]
 
 /**
  *  The number of connections to include in the response. Valid values are
@@ -96,11 +96,12 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
  *  `LAST_MODIFIED_ASCENDING`.
  *
  *  Likely values:
- *    @arg @c kGTLRPeopleSortOrderLastModifiedAscending Value
+ *    @arg @c kGTLRPeopleServiceSortOrderLastModifiedAscending Value
  *        "LAST_MODIFIED_ASCENDING"
- *    @arg @c kGTLRPeopleSortOrderFirstNameAscending Value
+ *    @arg @c kGTLRPeopleServiceSortOrderFirstNameAscending Value
  *        "FIRST_NAME_ASCENDING"
- *    @arg @c kGTLRPeopleSortOrderLastNameAscending Value "LAST_NAME_ASCENDING"
+ *    @arg @c kGTLRPeopleServiceSortOrderLastNameAscending Value
+ *        "LAST_NAME_ASCENDING"
  */
 @property(nonatomic, copy, nullable) NSString *sortOrder;
 
@@ -111,7 +112,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *syncToken;
 
 /**
- *  Fetches a @c GTLRPeople_ListConnectionsResponse.
+ *  Fetches a @c GTLRPeopleService_ListConnectionsResponse.
  *
  *  Provides a list of the authenticated user's contacts merged with any
  *  linked profiles.
@@ -119,7 +120,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
  *  @param resourceName The resource name to return connections for. Only
  *    `people/me` is valid.
  *
- *  @returns GTLRPeopleQuery_PeopleConnectionsList
+ *  @returns GTLRPeopleServiceQuery_PeopleConnectionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -136,19 +137,19 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
  *  Method: people.people.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePeopleContacts
- *    @c kGTLRAuthScopePeopleContactsReadonly
- *    @c kGTLRAuthScopePeoplePlusLogin
- *    @c kGTLRAuthScopePeopleUserAddressesRead
- *    @c kGTLRAuthScopePeopleUserBirthdayRead
- *    @c kGTLRAuthScopePeopleUserEmailsRead
- *    @c kGTLRAuthScopePeopleUserinfoEmail
- *    @c kGTLRAuthScopePeopleUserinfoProfile
- *    @c kGTLRAuthScopePeopleUserPhonenumbersRead
+ *    @c kGTLRAuthScopePeopleServiceContacts
+ *    @c kGTLRAuthScopePeopleServiceContactsReadonly
+ *    @c kGTLRAuthScopePeopleServicePlusLogin
+ *    @c kGTLRAuthScopePeopleServiceUserAddressesRead
+ *    @c kGTLRAuthScopePeopleServiceUserBirthdayRead
+ *    @c kGTLRAuthScopePeopleServiceUserEmailsRead
+ *    @c kGTLRAuthScopePeopleServiceUserinfoEmail
+ *    @c kGTLRAuthScopePeopleServiceUserinfoProfile
+ *    @c kGTLRAuthScopePeopleServiceUserPhonenumbersRead
  */
-@interface GTLRPeopleQuery_PeopleGet : GTLRPeopleQuery
+@interface GTLRPeopleServiceQuery_PeopleGet : GTLRPeopleServiceQuery
 // Previous library name was
-//   +[GTLQueryPeople queryForPeopleGetWithresourceName:]
+//   +[GTLQueryPeopleService queryForPeopleGetWithresourceName:]
 
 /**
  *  Comma-separated list of fields to be included in the response. Omitting
@@ -172,7 +173,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
- *  Fetches a @c GTLRPeople_Person.
+ *  Fetches a @c GTLRPeopleService_Person.
  *
  *  Provides information about a person resource for a resource name. Use
  *  `people/me` to indicate the authenticated user.
@@ -184,7 +185,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
  *    identifies the user, such as the resource names returned by
  *    [`people.connections.list`](/people/api/rest/v1/people.connections/list).
  *
- *  @returns GTLRPeopleQuery_PeopleGet
+ *  @returns GTLRPeopleServiceQuery_PeopleGet
  */
 + (instancetype)queryWithResourceName:(NSString *)resourceName;
 
@@ -198,19 +199,19 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
  *  Method: people.people.getBatchGet
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePeopleContacts
- *    @c kGTLRAuthScopePeopleContactsReadonly
- *    @c kGTLRAuthScopePeoplePlusLogin
- *    @c kGTLRAuthScopePeopleUserAddressesRead
- *    @c kGTLRAuthScopePeopleUserBirthdayRead
- *    @c kGTLRAuthScopePeopleUserEmailsRead
- *    @c kGTLRAuthScopePeopleUserinfoEmail
- *    @c kGTLRAuthScopePeopleUserinfoProfile
- *    @c kGTLRAuthScopePeopleUserPhonenumbersRead
+ *    @c kGTLRAuthScopePeopleServiceContacts
+ *    @c kGTLRAuthScopePeopleServiceContactsReadonly
+ *    @c kGTLRAuthScopePeopleServicePlusLogin
+ *    @c kGTLRAuthScopePeopleServiceUserAddressesRead
+ *    @c kGTLRAuthScopePeopleServiceUserBirthdayRead
+ *    @c kGTLRAuthScopePeopleServiceUserEmailsRead
+ *    @c kGTLRAuthScopePeopleServiceUserinfoEmail
+ *    @c kGTLRAuthScopePeopleServiceUserinfoProfile
+ *    @c kGTLRAuthScopePeopleServiceUserPhonenumbersRead
  */
-@interface GTLRPeopleQuery_PeopleGetBatchGet : GTLRPeopleQuery
+@interface GTLRPeopleServiceQuery_PeopleGetBatchGet : GTLRPeopleServiceQuery
 // Previous library name was
-//   +[GTLQueryPeople queryForPeopleGetBatchGet]
+//   +[GTLQueryPeopleService queryForPeopleGetBatchGet]
 
 /**
  *  Comma-separated list of fields to be included in the response. Omitting
@@ -233,13 +234,13 @@ GTLR_EXTERN NSString * const kGTLRPeopleSortOrderLastNameAscending;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
 /**
- *  Fetches a @c GTLRPeople_GetPeopleResponse.
+ *  Fetches a @c GTLRPeopleService_GetPeopleResponse.
  *
  *  Provides information about a list of specific people by specifying a list
  *  of requested resource names. Use `people/me` to indicate the authenticated
  *  user.
  *
- *  @returns GTLRPeopleQuery_PeopleGetBatchGet
+ *  @returns GTLRPeopleServiceQuery_PeopleGetBatchGet
  */
 + (instancetype)query;
 

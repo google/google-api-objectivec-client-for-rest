@@ -39,9 +39,11 @@
 @class GTLRCompute_BackendBucket;
 @class GTLRCompute_BackendService;
 @class GTLRCompute_BackendServiceAggregatedList_Items;
+@class GTLRCompute_BackendServiceCdnPolicy;
 @class GTLRCompute_BackendServicesScopedList;
 @class GTLRCompute_BackendServicesScopedList_Warning;
 @class GTLRCompute_BackendServicesScopedList_Warning_Data_Item;
+@class GTLRCompute_CacheKeyPolicy;
 @class GTLRCompute_ConnectionDraining;
 @class GTLRCompute_CustomerEncryptionKey;
 @class GTLRCompute_CustomerEncryptionKeyProtectedDisk;
@@ -1458,7 +1460,11 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Name of this access configuration. */
+/**
+ *  The name of this access configuration. The default and recommended name is
+ *  External NAT but you can use any arbitrary string you would like. For
+ *  example, My external IP or Network Access.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1486,10 +1492,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @interface GTLRCompute_Address : GTLRObject
 
-/**
- *  The static external IP address represented by this resource. Only IPv4 is
- *  supported.
- */
+/** The static external IP address represented by this resource. */
 @property(nonatomic, copy, nullable) NSString *address;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
@@ -2573,6 +2576,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /** The list of backends that serve this BackendService. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_Backend *> *backends;
 
+/** Cloud CDN configuration for this BackendService. */
+@property(nonatomic, strong, nullable) GTLRCompute_BackendServiceCdnPolicy *cdnPolicy;
+
 @property(nonatomic, strong, nullable) GTLRCompute_ConnectionDraining *connectionDraining;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
@@ -2767,6 +2773,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
+ *  Message containing Cloud CDN configuration for a backend service.
+ */
+@interface GTLRCompute_BackendServiceCdnPolicy : GTLRObject
+
+/** The CacheKeyPolicy for this CdnPolicy. */
+@property(nonatomic, strong, nullable) GTLRCompute_CacheKeyPolicy *cacheKeyPolicy;
+
+@end
+
+
+/**
  *  GTLRCompute_BackendServiceGroupHealth
  */
 @interface GTLRCompute_BackendServiceGroupHealth : GTLRObject
@@ -2939,6 +2956,55 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *host;
 
 @property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  Message containing what to include in the cache key for a request for Cloud
+ *  CDN.
+ */
+@interface GTLRCompute_CacheKeyPolicy : GTLRObject
+
+/**
+ *  If true, requests to different hosts will be cached separately.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeHost;
+
+/**
+ *  If true, http and https requests will be cached separately.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeProtocol;
+
+/**
+ *  If true, include query string parameters in the cache key according to
+ *  query_string_whitelist and query_string_blacklist. If neither is set, the
+ *  entire query string will be included. If false, the query string will be
+ *  excluded from the cache key entirely.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeQueryString;
+
+/**
+ *  Names of query string parameters to exclude in cache keys. All other
+ *  parameters will be included. Either specify query_string_whitelist or
+ *  query_string_blacklist, not both. '&' and '=' will be percent encoded and
+ *  not treated as delimiters.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *queryStringBlacklist;
+
+/**
+ *  Names of query string parameters to include in cache keys. All other
+ *  parameters will be excluded. Either specify query_string_whitelist or
+ *  query_string_blacklist, not both. '&' and '=' will be percent encoded and
+ *  not treated as delimiters.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *queryStringWhitelist;
 
 @end
 
@@ -4004,8 +4070,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  When the load balancing scheme is INTERNAL, a single port or a comma
  *  separated list of ports can be configured. Only packets addressed to these
  *  ports will be forwarded to the backends configured with this forwarding
- *  rule. If the port list is not provided then all ports are allowed to pass
- *  through.
+ *  rule.
  *  You may specify a maximum of up to 5 ports.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ports;
@@ -4034,8 +4099,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  forwarding rules, this target must live in the same region as the forwarding
  *  rule. For global forwarding rules, this target must be a global load
  *  balancing resource. The forwarded traffic must be of a type appropriate to
- *  the target object. For example, TargetHttpProxy requires HTTP traffic, and
- *  TargetHttpsProxy requires HTTPS traffic.
+ *  the target object.
  *  This field is not used for internal load balancing.
  */
 @property(nonatomic, copy, nullable) NSString *target;
@@ -5171,7 +5235,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_NetworkInterface *> *networkInterfaces;
 
-/** Scheduling options for this instance. */
+/** Sets the scheduling options for this instance. */
 @property(nonatomic, strong, nullable) GTLRCompute_Scheduling *scheduling;
 
 /** [Output Only] Server-defined URL for this resource. */
@@ -8244,7 +8308,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @interface GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest : GTLRObject
 
-/** The names of one or more instances to abandon. */
+/**
+ *  The URLs of one or more instances to abandon. This can be a full URL or a
+ *  partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
 
 @end
@@ -8255,7 +8322,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @interface GTLRCompute_RegionInstanceGroupManagersDeleteInstancesRequest : GTLRObject
 
-/** The names of one or more instances to delete. */
+/**
+ *  The URLs of one or more instances to delete. This can be a full URL or a
+ *  partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
 
 @end
@@ -8909,8 +8979,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *ipRange;
 
 /**
- *  URI of linked VPN tunnel. It must be in the same region as the router. Each
- *  interface can have at most one linked resource.
+ *  URI of the linked VPN tunnel. It must be in the same region as the router.
+ *  Each interface can have at most one linked resource and it could either be a
+ *  VPN Tunnel or an interconnect attachment.
  */
 @property(nonatomic, copy, nullable) NSString *linkedVpnTunnel;
 
@@ -9169,6 +9240,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  terminated by Compute Engine (not terminated by a user). You can only set
  *  the automatic restart option for standard instances. Preemptible instances
  *  cannot be automatically restarted.
+ *  By default, this is set to true so an instance is automatically restarted if
+ *  it is terminated by Compute Engine.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9188,7 +9261,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *onHostMaintenance;
 
 /**
- *  Whether the instance is preemptible.
+ *  Defines whether the instance is preemptible. This can only be set during
+ *  instance creation, it cannot be set or changed after the instance has been
+ *  created.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9639,6 +9714,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
+/**
+ *  Whether the VMs in this subnet can access Google services without assigned
+ *  external IP addresses.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *privateIpGoogleAccess;
+
 /** URL of the region where the Subnetwork resides. */
 @property(nonatomic, copy, nullable) NSString *region;
 
@@ -9853,6 +9936,21 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_SubnetworksSetPrivateIpGoogleAccessRequest
+ */
+@interface GTLRCompute_SubnetworksSetPrivateIpGoogleAccessRequest : GTLRObject
+
+/**
+ *  privateIpGoogleAccess
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *privateIpGoogleAccess;
 
 @end
 

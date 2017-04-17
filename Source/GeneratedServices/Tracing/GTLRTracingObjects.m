@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Tracing API (tracing/v1)
+//   Google Tracing API (tracing/v2)
 // Description:
 //   Send and retrieve trace data from Google Stackdriver Trace.
 // Documentation:
@@ -64,23 +64,17 @@ NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSPECI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTracing_BatchUpdateSpansRequest
+//   GTLRTracing_BatchWriteSpansRequest
 //
 
-@implementation GTLRTracing_BatchUpdateSpansRequest
-@dynamic spanUpdates;
-@end
+@implementation GTLRTracing_BatchWriteSpansRequest
+@dynamic spans;
 
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTracing_BatchUpdateSpansRequest_SpanUpdates
-//
-
-@implementation GTLRTracing_BatchUpdateSpansRequest_SpanUpdates
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRTracing_SpanUpdates class];
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"spans" : [GTLRTracing_Span class]
+  };
+  return map;
 }
 
 @end
@@ -165,7 +159,7 @@ NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSPECI
 //
 
 @implementation GTLRTracing_NetworkEvent
-@dynamic kernelTime, messageId, messageSize, type;
+@dynamic messageId, messageSize, time, type;
 @end
 
 
@@ -175,12 +169,8 @@ NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSPECI
 //
 
 @implementation GTLRTracing_Span
-@dynamic attributes, hasRemoteParent, identifier, links, localEndTime,
-         localStartTime, name, parentId, stackTrace, status, timeEvents;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
+@dynamic attributes, displayName, endTime, links, name, parentSpanId, spanId,
+         stackTrace, startTime, status, timeEvents;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -202,24 +192,6 @@ NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSPECI
 
 + (Class)classForAdditionalProperties {
   return [GTLRTracing_AttributeValue class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTracing_SpanUpdates
-//
-
-@implementation GTLRTracing_SpanUpdates
-@dynamic spans;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"spans" : [GTLRTracing_Span class]
-  };
-  return map;
 }
 
 @end
@@ -292,7 +264,7 @@ NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSPECI
 //
 
 @implementation GTLRTracing_TimeEvent
-@dynamic annotation, localTime, networkEvent;
+@dynamic annotation, networkEvent, time;
 @end
 
 

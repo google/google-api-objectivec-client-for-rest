@@ -21,11 +21,12 @@ NSString * const kGTLRSpanner_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRSpanner_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRSpanner_Condition.iam
-NSString * const kGTLRSpanner_Condition_Iam_Approver      = @"APPROVER";
-NSString * const kGTLRSpanner_Condition_Iam_Attribution   = @"ATTRIBUTION";
-NSString * const kGTLRSpanner_Condition_Iam_Authority     = @"AUTHORITY";
-NSString * const kGTLRSpanner_Condition_Iam_NoAttr        = @"NO_ATTR";
-NSString * const kGTLRSpanner_Condition_Iam_SecurityRealm = @"SECURITY_REALM";
+NSString * const kGTLRSpanner_Condition_Iam_Approver          = @"APPROVER";
+NSString * const kGTLRSpanner_Condition_Iam_Attribution       = @"ATTRIBUTION";
+NSString * const kGTLRSpanner_Condition_Iam_Authority         = @"AUTHORITY";
+NSString * const kGTLRSpanner_Condition_Iam_JustificationType = @"JUSTIFICATION_TYPE";
+NSString * const kGTLRSpanner_Condition_Iam_NoAttr            = @"NO_ATTR";
+NSString * const kGTLRSpanner_Condition_Iam_SecurityRealm     = @"SECURITY_REALM";
 
 // GTLRSpanner_Condition.op
 NSString * const kGTLRSpanner_Condition_Op_Discharged = @"DISCHARGED";

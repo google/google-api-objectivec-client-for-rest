@@ -28,59 +28,59 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/contacts"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleContacts;
+GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceContacts;
 /**
  *  Authorization scope: View your contacts
  *
  *  Value "https://www.googleapis.com/auth/contacts.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleContactsReadonly;
+GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceContactsReadonly;
 /**
  *  Authorization scope: Know the list of people in your circles, your age
  *  range, and language
  *
  *  Value "https://www.googleapis.com/auth/plus.login"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeoplePlusLogin;
+GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServicePlusLogin;
 /**
  *  Authorization scope: View your street addresses
  *
  *  Value "https://www.googleapis.com/auth/user.addresses.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleUserAddressesRead;
+GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserAddressesRead;
 /**
  *  Authorization scope: View your complete date of birth
  *
  *  Value "https://www.googleapis.com/auth/user.birthday.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleUserBirthdayRead;
+GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserBirthdayRead;
 /**
  *  Authorization scope: View your email addresses
  *
  *  Value "https://www.googleapis.com/auth/user.emails.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleUserEmailsRead;
+GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserEmailsRead;
 /**
  *  Authorization scope: View your email address
  *
  *  Value "https://www.googleapis.com/auth/userinfo.email"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleUserinfoEmail;
+GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserinfoEmail;
 /**
  *  Authorization scope: View your basic profile info
  *
  *  Value "https://www.googleapis.com/auth/userinfo.profile"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleUserinfoProfile;
+GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserinfoProfile;
 /**
  *  Authorization scope: View your phone numbers
  *
  *  Value "https://www.googleapis.com/auth/user.phonenumbers.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleUserPhonenumbersRead;
+GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserPhonenumbersRead;
 
 // ----------------------------------------------------------------------------
-//   GTLRPeopleService
+//   GTLRPeopleServiceService
 //
 
 /**
@@ -88,13 +88,13 @@ GTLR_EXTERN NSString * const kGTLRAuthScopePeopleUserPhonenumbersRead;
  *
  *  Provides access to information about profiles and contacts.
  */
-@interface GTLRPeopleService : GTLRService
+@interface GTLRPeopleServiceService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRPeopleQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRPeopleServiceQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

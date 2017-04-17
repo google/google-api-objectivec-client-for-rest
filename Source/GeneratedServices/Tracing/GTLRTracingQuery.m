@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Tracing API (tracing/v1)
+//   Google Tracing API (tracing/v2)
 // Description:
 //   Send and retrieve trace data from Google Stackdriver Trace.
 // Documentation:
@@ -18,45 +18,26 @@
 
 @end
 
-@implementation GTLRTracingQuery_ProjectsTracesBatchUpdate
+@implementation GTLRTracingQuery_ProjectsTracesBatchWrite
 
-@dynamic parent;
+@dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRTracing_BatchUpdateSpansRequest *)object
-                         parent:(NSString *)parent {
++ (instancetype)queryWithObject:(GTLRTracing_BatchWriteSpansRequest *)object
+                           name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/traces:batchUpdate";
-  GTLRTracingQuery_ProjectsTracesBatchUpdate *query =
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/traces:batchWrite";
+  GTLRTracingQuery_ProjectsTracesBatchWrite *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRTracing_Empty class];
-  query.loggingName = @"tracing.projects.traces.batchUpdate";
-  return query;
-}
-
-@end
-
-@implementation GTLRTracingQuery_ProjectsTracesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRTracingQuery_ProjectsTracesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRTracing_Trace class];
-  query.loggingName = @"tracing.projects.traces.get";
+  query.expectedObjectClass = [GTLRTracing_Empty class];
+  query.loggingName = @"tracing.projects.traces.batchWrite";
   return query;
 }
 
@@ -68,7 +49,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/traces";
+  NSString *pathURITemplate = @"v2/{+parent}/traces";
   GTLRTracingQuery_ProjectsTracesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -83,18 +64,43 @@
 
 @implementation GTLRTracingQuery_ProjectsTracesListSpans
 
-@dynamic name, pageToken;
+@dynamic pageToken, parent;
 
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:listSpans";
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}:listSpans";
   GTLRTracingQuery_ProjectsTracesListSpans *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.name = name;
+  query.parent = parent;
   query.expectedObjectClass = [GTLRTracing_ListSpansResponse class];
   query.loggingName = @"tracing.projects.traces.listSpans";
+  return query;
+}
+
+@end
+
+@implementation GTLRTracingQuery_ProjectsTracesSpansCreate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRTracing_Span *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRTracingQuery_ProjectsTracesSpansCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRTracing_Span class];
+  query.loggingName = @"tracing.projects.traces.spans.create";
   return query;
 }
 

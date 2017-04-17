@@ -70,6 +70,7 @@
 @class GTLRCompute_SslCertificate;
 @class GTLRCompute_Subnetwork;
 @class GTLRCompute_SubnetworksExpandIpCidrRangeRequest;
+@class GTLRCompute_SubnetworksSetPrivateIpGoogleAccessRequest;
 @class GTLRCompute_Tags;
 @class GTLRCompute_TargetHttpProxy;
 @class GTLRCompute_TargetHttpsProxiesSetSslCertificatesRequest;
@@ -715,12 +716,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_AutoscalersPatch : GTLRComputeQuery
 // Previous library name was
-//   +[GTLQueryCompute queryForAutoscalersPatchWithObject:project:zoneProperty:autoscaler:]
+//   +[GTLQueryCompute queryForAutoscalersPatchWithObject:project:zoneProperty:]
 
-/** Name of the autoscaler to update. */
+/** Name of the autoscaler to patch. */
 @property(nonatomic, copy, nullable) NSString *autoscaler;
 
 /** Project ID for this request. */
@@ -742,14 +744,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_Autoscaler to include in the query.
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
- *  @param autoscaler Name of the autoscaler to update.
  *
  *  @returns GTLRComputeQuery_AutoscalersPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
                         project:(NSString *)project
-                   zoneProperty:(NSString *)zoneProperty
-                     autoscaler:(NSString *)autoscaler;
+                   zoneProperty:(NSString *)zoneProperty;
 
 @end
 
@@ -1000,12 +1000,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_BackendBucketsPatch : GTLRComputeQuery
 // Previous library name was
 //   +[GTLQueryCompute queryForBackendBucketsPatchWithObject:project:backendBucket:]
 
-/** Name of the BackendBucket resource to update. */
+/** Name of the BackendBucket resource to patch. */
 @property(nonatomic, copy, nullable) NSString *backendBucket;
 
 /** Project ID for this request. */
@@ -1019,7 +1020,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCompute_BackendBucket to include in the query.
  *  @param project Project ID for this request.
- *  @param backendBucket Name of the BackendBucket resource to update.
+ *  @param backendBucket Name of the BackendBucket resource to patch.
  *
  *  @returns GTLRComputeQuery_BackendBucketsPatch
  */
@@ -1390,7 +1391,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the specified BackendService resource with the data included in the
+ *  Patches the specified BackendService resource with the data included in the
  *  request. There are several restrictions and guidelines to keep in mind when
  *  updating a backend service. Read Restrictions and Guidelines for more
  *  information. This method supports patch semantics.
@@ -1400,12 +1401,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_BackendServicesPatch : GTLRComputeQuery
 // Previous library name was
 //   +[GTLQueryCompute queryForBackendServicesPatchWithObject:project:backendService:]
 
-/** Name of the BackendService resource to update. */
+/** Name of the BackendService resource to patch. */
 @property(nonatomic, copy, nullable) NSString *backendService;
 
 /** Project ID for this request. */
@@ -1414,14 +1416,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Updates the specified BackendService resource with the data included in the
+ *  Patches the specified BackendService resource with the data included in the
  *  request. There are several restrictions and guidelines to keep in mind when
  *  updating a backend service. Read Restrictions and Guidelines for more
  *  information. This method supports patch semantics.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
- *  @param backendService Name of the BackendService resource to update.
+ *  @param backendService Name of the BackendService resource to patch.
  *
  *  @returns GTLRComputeQuery_BackendServicesPatch
  */
@@ -2306,7 +2308,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the specified firewall rule with the data included in the request.
- *  This method supports patch semantics.
+ *  Using PUT method, can only update following fields of firewall rule:
+ *  allowed, description, sourceRanges, sourceTags, targetTags. This method
+ *  supports patch semantics.
  *
  *  Method: compute.firewalls.patch
  *
@@ -2328,7 +2332,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified firewall rule with the data included in the request.
- *  This method supports patch semantics.
+ *  Using PUT method, can only update following fields of firewall rule:
+ *  allowed, description, sourceRanges, sourceTags, targetTags. This method
+ *  supports patch semantics.
  *
  *  @param object The @c GTLRCompute_Firewall to include in the query.
  *  @param project Project ID for this request.
@@ -2344,6 +2350,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the specified firewall rule with the data included in the request.
+ *  Using PUT method, can only update following fields of firewall rule:
+ *  allowed, description, sourceRanges, sourceTags, targetTags.
  *
  *  Method: compute.firewalls.update
  *
@@ -2365,6 +2373,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified firewall rule with the data included in the request.
+ *  Using PUT method, can only update following fields of firewall rule:
+ *  allowed, description, sourceRanges, sourceTags, targetTags.
  *
  *  @param object The @c GTLRCompute_Firewall to include in the query.
  *  @param project Project ID for this request.
@@ -3585,12 +3595,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_HealthChecksPatch : GTLRComputeQuery
 // Previous library name was
 //   +[GTLQueryCompute queryForHealthChecksPatchWithObject:project:healthCheck:]
 
-/** Name of the HealthCheck resource to update. */
+/** Name of the HealthCheck resource to patch. */
 @property(nonatomic, copy, nullable) NSString *healthCheck;
 
 /** Project ID for this request. */
@@ -3604,7 +3615,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCompute_HealthCheck to include in the query.
  *  @param project Project ID for this request.
- *  @param healthCheck Name of the HealthCheck resource to update.
+ *  @param healthCheck Name of the HealthCheck resource to patch.
  *
  *  @returns GTLRComputeQuery_HealthChecksPatch
  */
@@ -3854,12 +3865,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_HttpHealthChecksPatch : GTLRComputeQuery
 // Previous library name was
 //   +[GTLQueryCompute queryForHttpHealthChecksPatchWithObject:project:httpHealthCheck:]
 
-/** Name of the HttpHealthCheck resource to update. */
+/** Name of the HttpHealthCheck resource to patch. */
 @property(nonatomic, copy, nullable) NSString *httpHealthCheck;
 
 /** Project ID for this request. */
@@ -3873,7 +3885,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCompute_HttpHealthCheck to include in the query.
  *  @param project Project ID for this request.
- *  @param httpHealthCheck Name of the HttpHealthCheck resource to update.
+ *  @param httpHealthCheck Name of the HttpHealthCheck resource to patch.
  *
  *  @returns GTLRComputeQuery_HttpHealthChecksPatch
  */
@@ -4123,12 +4135,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_HttpsHealthChecksPatch : GTLRComputeQuery
 // Previous library name was
 //   +[GTLQueryCompute queryForHttpsHealthChecksPatchWithObject:project:httpsHealthCheck:]
 
-/** Name of the HttpsHealthCheck resource to update. */
+/** Name of the HttpsHealthCheck resource to patch. */
 @property(nonatomic, copy, nullable) NSString *httpsHealthCheck;
 
 /** Project ID for this request. */
@@ -4142,7 +4155,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCompute_HttpsHealthCheck to include in the query.
  *  @param project Project ID for this request.
- *  @param httpsHealthCheck Name of the HttpsHealthCheck resource to update.
+ *  @param httpsHealthCheck Name of the HttpsHealthCheck resource to patch.
  *
  *  @returns GTLRComputeQuery_HttpsHealthChecksPatch
  */
@@ -4478,6 +4491,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the action is scheduled even if the instances have
  *  not yet been removed from the group. You must separately verify the status
  *  of the abandoning action with the listmanagedinstances method.
+ *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  Method: compute.instanceGroupManagers.abandonInstances
  *
@@ -4513,6 +4527,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the action is scheduled even if the instances have
  *  not yet been removed from the group. You must separately verify the status
  *  of the abandoning action with the listmanagedinstances method.
+ *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  @param object The @c
  *    GTLRCompute_InstanceGroupManagersAbandonInstancesRequest to include in the
@@ -4671,6 +4686,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  marked as DONE when the action is scheduled even if the instances are still
  *  being deleted. You must separately verify the status of the deleting action
  *  with the listmanagedinstances method.
+ *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  Method: compute.instanceGroupManagers.deleteInstances
  *
@@ -4705,6 +4721,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  marked as DONE when the action is scheduled even if the instances are still
  *  being deleted. You must separately verify the status of the deleting action
  *  with the listmanagedinstances method.
+ *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  @param object The @c GTLRCompute_InstanceGroupManagersDeleteInstancesRequest
  *    to include in the query.
@@ -4776,6 +4793,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the group is created even if the instances in the
  *  group have not yet been created. You must separately verify the status of
  *  the individual instances with the listmanagedinstances method.
+ *  A managed instance group can have up to 1000 VM instances per group.
  *
  *  Method: compute.instanceGroupManagers.insert
  *
@@ -4806,6 +4824,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the group is created even if the instances in the
  *  group have not yet been created. You must separately verify the status of
  *  the individual instances with the listmanagedinstances method.
+ *  A managed instance group can have up to 1000 VM instances per group.
  *
  *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
  *    query.
@@ -4993,6 +5012,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  as DONE when the action is scheduled even if the instances have not yet been
  *  recreated. You must separately verify the status of the recreating action
  *  with the listmanagedinstances method.
+ *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  Method: compute.instanceGroupManagers.recreateInstances
  *
@@ -5026,6 +5046,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  as DONE when the action is scheduled even if the instances have not yet been
  *  recreated. You must separately verify the status of the recreating action
  *  with the listmanagedinstances method.
+ *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  @param object The @c
  *    GTLRCompute_InstanceGroupManagersRecreateInstancesRequest to include in
@@ -6370,7 +6391,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Performs a hard reset on the instance.
+ *  Performs a reset on the instance. For more information, see Resetting an
+ *  instance.
  *
  *  Method: compute.instances.reset
  *
@@ -6398,7 +6420,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Performs a hard reset on the instance.
+ *  Performs a reset on the instance. For more information, see Resetting an
+ *  instance.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -7920,12 +7943,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionAutoscalersPatch : GTLRComputeQuery
 // Previous library name was
-//   +[GTLQueryCompute queryForRegionAutoscalersPatchWithObject:project:region:autoscaler:]
+//   +[GTLQueryCompute queryForRegionAutoscalersPatchWithObject:project:region:]
 
-/** Name of the autoscaler to update. */
+/** Name of the autoscaler to patch. */
 @property(nonatomic, copy, nullable) NSString *autoscaler;
 
 /** Project ID for this request. */
@@ -7943,14 +7967,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_Autoscaler to include in the query.
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
- *  @param autoscaler Name of the autoscaler to update.
  *
  *  @returns GTLRComputeQuery_RegionAutoscalersPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
                         project:(NSString *)project
-                         region:(NSString *)region
-                     autoscaler:(NSString *)autoscaler;
+                         region:(NSString *)region;
 
 @end
 
@@ -8266,12 +8288,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionBackendServicesPatch : GTLRComputeQuery
 // Previous library name was
 //   +[GTLQueryCompute queryForRegionBackendServicesPatchWithObject:project:region:backendService:]
 
-/** Name of the BackendService resource to update. */
+/** Name of the BackendService resource to patch. */
 @property(nonatomic, copy, nullable) NSString *backendService;
 
 /** Project ID for this request. */
@@ -8291,7 +8314,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
- *  @param backendService Name of the BackendService resource to update.
+ *  @param backendService Name of the BackendService resource to patch.
  *
  *  @returns GTLRComputeQuery_RegionBackendServicesPatch
  */
@@ -8358,6 +8381,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the action is scheduled even if the instances have
  *  not yet been removed from the group. You must separately verify the status
  *  of the abandoning action with the listmanagedinstances method.
+ *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  Method: compute.regionInstanceGroupManagers.abandonInstances
  *
@@ -8389,6 +8413,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the action is scheduled even if the instances have
  *  not yet been removed from the group. You must separately verify the status
  *  of the abandoning action with the listmanagedinstances method.
+ *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  @param object The @c
  *    GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest to include
@@ -8455,6 +8480,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  marked as DONE when the action is scheduled even if the instances are still
  *  being deleted. You must separately verify the status of the deleting action
  *  with the listmanagedinstances method.
+ *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  Method: compute.regionInstanceGroupManagers.deleteInstances
  *
@@ -8485,6 +8511,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  marked as DONE when the action is scheduled even if the instances are still
  *  being deleted. You must separately verify the status of the deleting action
  *  with the listmanagedinstances method.
+ *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  @param object The @c
  *    GTLRCompute_RegionInstanceGroupManagersDeleteInstancesRequest to include
@@ -8549,6 +8576,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the group is created even if the instances in the
  *  group have not yet been created. You must separately verify the status of
  *  the individual instances with the listmanagedinstances method.
+ *  A regional managed instance group can contain up to 2000 instances.
  *
  *  Method: compute.regionInstanceGroupManagers.insert
  *
@@ -8575,6 +8603,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the group is created even if the instances in the
  *  group have not yet been created. You must separately verify the status of
  *  the individual instances with the listmanagedinstances method.
+ *  A regional managed instance group can contain up to 2000 instances.
  *
  *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
  *    query.
@@ -8747,6 +8776,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  as DONE when the action is scheduled even if the instances have not yet been
  *  recreated. You must separately verify the status of the recreating action
  *  with the listmanagedinstances method.
+ *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  Method: compute.regionInstanceGroupManagers.recreateInstances
  *
@@ -8776,6 +8806,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  as DONE when the action is scheduled even if the instances have not yet been
  *  recreated. You must separately verify the status of the recreating action
  *  with the listmanagedinstances method.
+ *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  @param object The @c GTLRCompute_RegionInstanceGroupManagersRecreateRequest
  *    to include in the query.
@@ -9858,7 +9889,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the specified Router resource with the data included in the request.
+ *  Patches the specified Router resource with the data included in the request.
  *  This method supports patch semantics.
  *
  *  Method: compute.routers.patch
@@ -9866,6 +9897,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RoutersPatch : GTLRComputeQuery
 // Previous library name was
@@ -9877,19 +9909,19 @@ NS_ASSUME_NONNULL_BEGIN
 /** Name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** Name of the Router resource to update. */
+/** Name of the Router resource to patch. */
 @property(nonatomic, copy, nullable) NSString *router;
 
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Updates the specified Router resource with the data included in the request.
+ *  Patches the specified Router resource with the data included in the request.
  *  This method supports patch semantics.
  *
  *  @param object The @c GTLRCompute_Router to include in the query.
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
- *  @param router Name of the Router resource to update.
+ *  @param router Name of the Router resource to patch.
  *
  *  @returns GTLRComputeQuery_RoutersPatch
  */
@@ -10870,6 +10902,50 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region;
+
+@end
+
+/**
+ *  Set whether VMs in this subnet can access Google services without assigning
+ *  external IP addresses through Cloudpath.
+ *
+ *  Method: compute.subnetworks.setPrivateIpGoogleAccess
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SubnetworksSetPrivateIpGoogleAccess : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSubnetworksSetPrivateIpGoogleAccessWithObject:project:region:subnetwork:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name of the Subnetwork resource. */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Set whether VMs in this subnet can access Google services without assigning
+ *  external IP addresses through Cloudpath.
+ *
+ *  @param object The @c GTLRCompute_SubnetworksSetPrivateIpGoogleAccessRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param subnetwork Name of the Subnetwork resource.
+ *
+ *  @returns GTLRComputeQuery_SubnetworksSetPrivateIpGoogleAccess
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SubnetworksSetPrivateIpGoogleAccessRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                     subnetwork:(NSString *)subnetwork;
 
 @end
 
@@ -13078,7 +13154,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the specified UrlMap resource with the data included in the request.
+ *  Patches the specified UrlMap resource with the data included in the request.
  *  This method supports patch semantics.
  *
  *  Method: compute.urlMaps.patch
@@ -13086,6 +13162,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_UrlMapsPatch : GTLRComputeQuery
 // Previous library name was
@@ -13094,18 +13171,18 @@ NS_ASSUME_NONNULL_BEGIN
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** Name of the UrlMap resource to update. */
+/** Name of the UrlMap resource to patch. */
 @property(nonatomic, copy, nullable) NSString *urlMap;
 
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Updates the specified UrlMap resource with the data included in the request.
+ *  Patches the specified UrlMap resource with the data included in the request.
  *  This method supports patch semantics.
  *
  *  @param object The @c GTLRCompute_UrlMap to include in the query.
  *  @param project Project ID for this request.
- *  @param urlMap Name of the UrlMap resource to update.
+ *  @param urlMap Name of the UrlMap resource to patch.
  *
  *  @returns GTLRComputeQuery_UrlMapsPatch
  */

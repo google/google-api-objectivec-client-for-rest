@@ -237,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a model which will later contain one or more versions.
  *  You must add at least one version before you can request predictions from
  *  the model. Add versions by calling
- *  [projects.models.versions.create](/ml/reference/rest/v1/projects.models.versions/create).
+ *  [projects.models.versions.create](/ml-engine/reference/rest/v1/projects.models.versions/create).
  *
  *  Method: ml.projects.models.create
  *
@@ -260,7 +260,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a model which will later contain one or more versions.
  *  You must add at least one version before you can request predictions from
  *  the model. Add versions by calling
- *  [projects.models.versions.create](/ml/reference/rest/v1/projects.models.versions/create).
+ *  [projects.models.versions.create](/ml-engine/reference/rest/v1/projects.models.versions/create).
  *
  *  @param object The @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model to
  *    include in the query.
@@ -278,7 +278,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a model.
  *  You can only delete a model if there are no versions in it. You can delete
  *  versions by calling
- *  [projects.models.versions.delete](/ml/reference/rest/v1/projects.models.versions/delete).
+ *  [projects.models.versions.delete](/ml-engine/reference/rest/v1/projects.models.versions/delete).
  *
  *  Method: ml.projects.models.delete
  *
@@ -301,7 +301,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a model.
  *  You can only delete a model if there are no versions in it. You can delete
  *  versions by calling
- *  [projects.models.versions.delete](/ml/reference/rest/v1/projects.models.versions/delete).
+ *  [projects.models.versions.delete](/ml-engine/reference/rest/v1/projects.models.versions/delete).
  *
  *  @param name Required. The name of the model.
  *    Authorization: requires `Editor` role on the parent project.
@@ -412,7 +412,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  model. When you add a version to a model that already has one or more
  *  versions, the default version does not automatically change. If you want a
  *  new version to be the default, you must call
- *  [projects.models.versions.setDefault](/ml/reference/rest/v1/projects.models.versions/setDefault).
+ *  [projects.models.versions.setDefault](/ml-engine/reference/rest/v1/projects.models.versions/setDefault).
  *
  *  Method: ml.projects.models.versions.create
  *
@@ -438,7 +438,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  model. When you add a version to a model that already has one or more
  *  versions, the default version does not automatically change. If you want a
  *  new version to be the default, you must call
- *  [projects.models.versions.setDefault](/ml/reference/rest/v1/projects.models.versions/setDefault).
+ *  [projects.models.versions.setDefault](/ml-engine/reference/rest/v1/projects.models.versions/setDefault).
  *
  *  @param object The @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version
  *    to include in the query.
@@ -471,7 +471,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The name of the version. You can get the names of all the
  *  versions of a model by calling
- *  [projects.models.versions.list](/ml/reference/rest/v1/projects.models.versions/list).
+ *  [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
  *  Authorization: requires `Editor` role on the parent project.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -488,7 +488,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. The name of the version. You can get the names of all
  *    the
  *    versions of a model by calling
- *    [projects.models.versions.list](/ml/reference/rest/v1/projects.models.versions/list).
+ *    [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
  *    Authorization: requires `Editor` role on the parent project.
  *
  *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsDelete
@@ -500,7 +500,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Gets information about a model version.
  *  Models can have multiple versions. You can call
- *  [projects.models.versions.list](/ml/reference/rest/v1/projects.models.versions/list)
+ *  [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list)
  *  to get the same information that this method returns for all of the
  *  versions of a model.
  *
@@ -524,7 +524,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets information about a model version.
  *  Models can have multiple versions. You can call
- *  [projects.models.versions.list](/ml/reference/rest/v1/projects.models.versions/list)
+ *  [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list)
  *  to get the same information that this method returns for all of the
  *  versions of a model.
  *
@@ -615,7 +615,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The name of the version to make the default for the model. You
  *  can get the names of all the versions of a model by calling
- *  [projects.models.versions.list](/ml/reference/rest/v1/projects.models.versions/list).
+ *  [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
  *  Authorization: requires `Editor` role on the parent project.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -636,7 +636,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. The name of the version to make the default for the
  *    model. You
  *    can get the names of all the versions of a model by calling
- *    [projects.models.versions.list](/ml/reference/rest/v1/projects.models.versions/list).
+ *    [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
  *    Authorization: requires `Editor` role on the parent project.
  *
  *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsSetDefault

@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Tag Manager API (tagmanager/v1)
+//   Tag Manager API (tagmanager/v2)
 // Description:
 //   Accesses Tag Manager accounts and containers.
 // Documentation:
-//   https://developers.google.com/tag-manager/api/v1/
+//   https://developers.google.com/tag-manager/api/v2/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -22,14 +22,205 @@
 @class GTLRTagManager_Container;
 @class GTLRTagManager_ContainerVersion;
 @class GTLRTagManager_CreateContainerVersionRequestVersionOptions;
+@class GTLRTagManager_CreateWorkspaceProposalRequest;
+@class GTLRTagManager_Entity;
 @class GTLRTagManager_Environment;
 @class GTLRTagManager_Folder;
 @class GTLRTagManager_Tag;
 @class GTLRTagManager_Trigger;
-@class GTLRTagManager_UserAccess;
+@class GTLRTagManager_UpdateWorkspaceProposalRequest;
+@class GTLRTagManager_UserPermission;
 @class GTLRTagManager_Variable;
+@class GTLRTagManager_Workspace;
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// type
+
+/** Value: "advertiserId" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAdvertiserId;
+/** Value: "advertisingTrackingEnabled" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAdvertisingTrackingEnabled;
+/** Value: "ampBrowserLanguage" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpBrowserLanguage;
+/** Value: "ampCanonicalHost" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpCanonicalHost;
+/** Value: "ampCanonicalPath" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpCanonicalPath;
+/** Value: "ampCanonicalUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpCanonicalUrl;
+/** Value: "ampClientId" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientId;
+/** Value: "ampClientMaxScrollX" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientMaxScrollX;
+/** Value: "ampClientMaxScrollY" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientMaxScrollY;
+/** Value: "ampClientScreenHeight" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientScreenHeight;
+/** Value: "ampClientScreenWidth" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientScreenWidth;
+/** Value: "ampClientScrollX" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientScrollX;
+/** Value: "ampClientScrollY" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientScrollY;
+/** Value: "ampClientTimestamp" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientTimestamp;
+/** Value: "ampClientTimezone" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientTimezone;
+/** Value: "ampGtmEvent" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpGtmEvent;
+/** Value: "ampPageDownloadTime" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpPageDownloadTime;
+/** Value: "ampPageLoadTime" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpPageLoadTime;
+/** Value: "ampPageViewId" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpPageViewId;
+/** Value: "ampReferrer" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpReferrer;
+/** Value: "ampTitle" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpTitle;
+/** Value: "ampTotalEngagedTime" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpTotalEngagedTime;
+/** Value: "appId" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAppId;
+/** Value: "appName" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAppName;
+/** Value: "appVersionCode" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAppVersionCode;
+/** Value: "appVersionName" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeAppVersionName;
+/** Value: "builtInVariableTypeUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeBuiltInVariableTypeUnspecified;
+/** Value: "clickClasses" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickClasses;
+/** Value: "clickElement" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickElement;
+/** Value: "clickId" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickId;
+/** Value: "clickTarget" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickTarget;
+/** Value: "clickText" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickText;
+/** Value: "clickUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickUrl;
+/** Value: "containerId" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeContainerId;
+/** Value: "containerVersion" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeContainerVersion;
+/** Value: "debugMode" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeDebugMode;
+/** Value: "deviceName" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeDeviceName;
+/** Value: "environmentName" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeEnvironmentName;
+/** Value: "errorLine" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeErrorLine;
+/** Value: "errorMessage" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeErrorMessage;
+/** Value: "errorUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeErrorUrl;
+/** Value: "event" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeEvent;
+/** Value: "eventName" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeEventName;
+/** Value: "firebaseEventParameterCampaign" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaign;
+/** Value: "firebaseEventParameterCampaignAclid" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignAclid;
+/** Value: "firebaseEventParameterCampaignAnid" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignAnid;
+/** Value: "firebaseEventParameterCampaignClickTimestamp" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignClickTimestamp;
+/** Value: "firebaseEventParameterCampaignContent" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignContent;
+/** Value: "firebaseEventParameterCampaignCp1" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignCp1;
+/** Value: "firebaseEventParameterCampaignGclid" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignGclid;
+/** Value: "firebaseEventParameterCampaignSource" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignSource;
+/** Value: "firebaseEventParameterCampaignTerm" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignTerm;
+/** Value: "firebaseEventParameterCurrency" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCurrency;
+/** Value: "firebaseEventParameterDynamicLinkAcceptTime" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterDynamicLinkAcceptTime;
+/** Value: "firebaseEventParameterDynamicLinkLinkid" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterDynamicLinkLinkid;
+/** Value: "firebaseEventParameterNotificationMessageDeviceTime" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageDeviceTime;
+/** Value: "firebaseEventParameterNotificationMessageId" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageId;
+/** Value: "firebaseEventParameterNotificationMessageName" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageName;
+/** Value: "firebaseEventParameterNotificationMessageTime" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageTime;
+/** Value: "firebaseEventParameterNotificationTopic" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationTopic;
+/** Value: "firebaseEventParameterPreviousAppVersion" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterPreviousAppVersion;
+/** Value: "firebaseEventParameterPreviousOsVersion" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterPreviousOsVersion;
+/** Value: "firebaseEventParameterPrice" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterPrice;
+/** Value: "firebaseEventParameterProductId" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterProductId;
+/** Value: "firebaseEventParameterQuantity" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterQuantity;
+/** Value: "firebaseEventParameterValue" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterValue;
+/** Value: "formClasses" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFormClasses;
+/** Value: "formElement" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFormElement;
+/** Value: "formId" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFormId;
+/** Value: "formTarget" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFormTarget;
+/** Value: "formText" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFormText;
+/** Value: "formUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFormUrl;
+/** Value: "historySource" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeHistorySource;
+/** Value: "htmlId" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeHtmlId;
+/** Value: "language" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeLanguage;
+/** Value: "newHistoryFragment" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeNewHistoryFragment;
+/** Value: "newHistoryState" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeNewHistoryState;
+/** Value: "oldHistoryFragment" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeOldHistoryFragment;
+/** Value: "oldHistoryState" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeOldHistoryState;
+/** Value: "osVersion" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeOsVersion;
+/** Value: "pageHostname" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypePageHostname;
+/** Value: "pagePath" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypePagePath;
+/** Value: "pageUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypePageUrl;
+/** Value: "platform" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypePlatform;
+/** Value: "randomNumber" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeRandomNumber;
+/** Value: "referrer" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeReferrer;
+/** Value: "resolution" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeResolution;
+/** Value: "sdkVersion" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeSdkVersion;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
 
 /**
  *  Parent class for other Tag Manager query classes.
@@ -51,10 +242,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTagManagerQuery_AccountsContainersCreate : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersCreateWithObject:accountId:]
+//   +[GTLQueryTagManager queryForAccountsContainersCreateWithObject:parent:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
+/** GTM Account's API relative path. Example: accounts/{account_id}. */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRTagManager_Container.
@@ -62,12 +253,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a Container.
  *
  *  @param object The @c GTLRTagManager_Container to include in the query.
- *  @param accountId The GTM Account ID.
+ *  @param parent GTM Account's API relative path. Example:
+ *    accounts/{account_id}.
  *
  *  @returns GTLRTagManagerQuery_AccountsContainersCreate
  */
 + (instancetype)queryWithObject:(GTLRTagManager_Container *)object
-                      accountId:(NSString *)accountId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -81,13 +273,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTagManagerQuery_AccountsContainersDelete : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersDeleteWithaccountId:containerId:]
+//   +[GTLQueryTagManager queryForAccountsContainersDeleteWithpath:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
+/**
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -95,13 +287,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a Container.
  *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
+ *  @param path GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @returns GTLRTagManagerQuery_AccountsContainersDelete
  */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId;
++ (instancetype)queryWithPath:(NSString *)path;
 
 @end
 
@@ -115,13 +306,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTagManagerQuery_AccountsContainersEnvironmentsCreate : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsCreateWithObject:accountId:containerId:]
+//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsCreateWithObject:parent:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
+/**
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRTagManager_Environment.
@@ -129,14 +320,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a GTM Environment.
  *
  *  @param object The @c GTLRTagManager_Environment to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
+ *  @param parent GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @returns GTLRTagManagerQuery_AccountsContainersEnvironmentsCreate
  */
 + (instancetype)queryWithObject:(GTLRTagManager_Environment *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -150,16 +340,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTagManagerQuery_AccountsContainersEnvironmentsDelete : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsDeleteWithaccountId:containerId:environmentId:]
+//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsDeleteWithpath:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Environment ID. */
-@property(nonatomic, copy, nullable) NSString *environmentId;
+/**
+ *  GTM Environment's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -167,15 +354,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a GTM Environment.
  *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param environmentId The GTM Environment ID.
+ *  @param path GTM Environment's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  *
  *  @returns GTLRTagManagerQuery_AccountsContainersEnvironmentsDelete
  */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                     environmentId:(NSString *)environmentId;
++ (instancetype)queryWithPath:(NSString *)path;
 
 @end
 
@@ -190,31 +374,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTagManagerQuery_AccountsContainersEnvironmentsGet : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsGetWithaccountId:containerId:environmentId:]
+//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsGetWithpath:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Environment ID. */
-@property(nonatomic, copy, nullable) NSString *environmentId;
+/**
+ *  GTM Environment's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  Fetches a @c GTLRTagManager_Environment.
  *
  *  Gets a GTM Environment.
  *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param environmentId The GTM Environment ID.
+ *  @param path GTM Environment's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  *
  *  @returns GTLRTagManagerQuery_AccountsContainersEnvironmentsGet
  */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                     environmentId:(NSString *)environmentId;
++ (instancetype)queryWithPath:(NSString *)path;
 
 @end
 
@@ -229,26 +407,32 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTagManagerQuery_AccountsContainersEnvironmentsList : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsListWithaccountId:containerId:]
+//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsListWithparent:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
+/**
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRTagManager_ListEnvironmentsResponse.
  *
  *  Lists all GTM Environments of a GTM Container.
  *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
+ *  @param parent GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @returns GTLRTagManagerQuery_AccountsContainersEnvironmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -262,16 +446,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTagManagerQuery_AccountsContainersEnvironmentsPatch : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsPatchWithObject:accountId:containerId:environmentId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Environment ID. */
-@property(nonatomic, copy, nullable) NSString *environmentId;
+//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsPatchWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the
@@ -280,21 +455,58 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
+ *  GTM Environment's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
  *  Fetches a @c GTLRTagManager_Environment.
  *
  *  Updates a GTM Environment. This method supports patch semantics.
  *
  *  @param object The @c GTLRTagManager_Environment to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param environmentId The GTM Environment ID.
+ *  @param path GTM Environment's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  *
  *  @returns GTLRTagManagerQuery_AccountsContainersEnvironmentsPatch
  */
 + (instancetype)queryWithObject:(GTLRTagManager_Environment *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId
-                  environmentId:(NSString *)environmentId;
+                           path:(NSString *)path;
+
+@end
+
+/**
+ *  Re-generates the authorization code for a GTM Environment.
+ *
+ *  Method: tagmanager.accounts.containers.environments.reauthorize
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerPublish
+ */
+@interface GTLRTagManagerQuery_AccountsContainersEnvironmentsReauthorize : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsReauthorizeWithObject:path:]
+
+/**
+ *  GTM Environment's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Environment.
+ *
+ *  Re-generates the authorization code for a GTM Environment.
+ *
+ *  @param object The @c GTLRTagManager_Environment to include in the query.
+ *  @param path GTM Environment's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersEnvironmentsReauthorize
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Environment *)object
+                           path:(NSString *)path;
 
 @end
 
@@ -308,16 +520,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTagManagerQuery_AccountsContainersEnvironmentsUpdate : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsUpdateWithObject:accountId:containerId:environmentId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Environment ID. */
-@property(nonatomic, copy, nullable) NSString *environmentId;
+//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsUpdateWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the
@@ -326,253 +529,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
+ *  GTM Environment's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
  *  Fetches a @c GTLRTagManager_Environment.
  *
  *  Updates a GTM Environment.
  *
  *  @param object The @c GTLRTagManager_Environment to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param environmentId The GTM Environment ID.
+ *  @param path GTM Environment's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  *
  *  @returns GTLRTagManagerQuery_AccountsContainersEnvironmentsUpdate
  */
 + (instancetype)queryWithObject:(GTLRTagManager_Environment *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId
-                  environmentId:(NSString *)environmentId;
-
-@end
-
-/**
- *  Creates a GTM Folder.
- *
- *  Method: tagmanager.accounts.containers.folders.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- */
-@interface GTLRTagManagerQuery_AccountsContainersFoldersCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersFoldersCreateWithObject:accountId:containerId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/**
- *  Fetches a @c GTLRTagManager_Folder.
- *
- *  Creates a GTM Folder.
- *
- *  @param object The @c GTLRTagManager_Folder to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersFoldersCreate
- */
-+ (instancetype)queryWithObject:(GTLRTagManager_Folder *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId;
-
-@end
-
-/**
- *  Deletes a GTM Folder.
- *
- *  Method: tagmanager.accounts.containers.folders.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- */
-@interface GTLRTagManagerQuery_AccountsContainersFoldersDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersFoldersDeleteWithaccountId:containerId:folderId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Folder ID. */
-@property(nonatomic, copy, nullable) NSString *folderId;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Deletes a GTM Folder.
- *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param folderId The GTM Folder ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersFoldersDelete
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                          folderId:(NSString *)folderId;
-
-@end
-
-/**
- *  List all entities in a GTM Folder.
- *
- *  Method: tagmanager.accounts.containers.folders.entities.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- *    @c kGTLRAuthScopeTagManagerReadonly
- */
-@interface GTLRTagManagerQuery_AccountsContainersFoldersEntitiesList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersFoldersEntitiesListWithaccountId:containerId:folderId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Folder ID. */
-@property(nonatomic, copy, nullable) NSString *folderId;
-
-/**
- *  Fetches a @c GTLRTagManager_FolderEntities.
- *
- *  List all entities in a GTM Folder.
- *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param folderId The GTM Folder ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersFoldersEntitiesList
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                          folderId:(NSString *)folderId;
-
-@end
-
-/**
- *  Gets a GTM Folder.
- *
- *  Method: tagmanager.accounts.containers.folders.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- *    @c kGTLRAuthScopeTagManagerReadonly
- */
-@interface GTLRTagManagerQuery_AccountsContainersFoldersGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersFoldersGetWithaccountId:containerId:folderId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Folder ID. */
-@property(nonatomic, copy, nullable) NSString *folderId;
-
-/**
- *  Fetches a @c GTLRTagManager_Folder.
- *
- *  Gets a GTM Folder.
- *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param folderId The GTM Folder ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersFoldersGet
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                          folderId:(NSString *)folderId;
-
-@end
-
-/**
- *  Lists all GTM Folders of a Container.
- *
- *  Method: tagmanager.accounts.containers.folders.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- *    @c kGTLRAuthScopeTagManagerReadonly
- */
-@interface GTLRTagManagerQuery_AccountsContainersFoldersList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersFoldersListWithaccountId:containerId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/**
- *  Fetches a @c GTLRTagManager_ListFoldersResponse.
- *
- *  Lists all GTM Folders of a Container.
- *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersFoldersList
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId;
-
-@end
-
-/**
- *  Updates a GTM Folder.
- *
- *  Method: tagmanager.accounts.containers.folders.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- */
-@interface GTLRTagManagerQuery_AccountsContainersFoldersUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersFoldersUpdateWithObject:accountId:containerId:folderId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/**
- *  When provided, this fingerprint must match the fingerprint of the folder in
- *  storage.
- */
-@property(nonatomic, copy, nullable) NSString *fingerprint;
-
-/** The GTM Folder ID. */
-@property(nonatomic, copy, nullable) NSString *folderId;
-
-/**
- *  Fetches a @c GTLRTagManager_Folder.
- *
- *  Updates a GTM Folder.
- *
- *  @param object The @c GTLRTagManager_Folder to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param folderId The GTM Folder ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersFoldersUpdate
- */
-+ (instancetype)queryWithObject:(GTLRTagManager_Folder *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId
-                       folderId:(NSString *)folderId;
+                           path:(NSString *)path;
 
 @end
 
@@ -587,26 +561,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTagManagerQuery_AccountsContainersGet : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersGetWithaccountId:containerId:]
+//   +[GTLQueryTagManager queryForAccountsContainersGetWithpath:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
+/**
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  Fetches a @c GTLRTagManager_Container.
  *
  *  Gets a Container.
  *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
+ *  @param path GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @returns GTLRTagManagerQuery_AccountsContainersGet
  */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId;
++ (instancetype)queryWithPath:(NSString *)path;
 
 @end
 
@@ -621,44 +594,1203 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTagManagerQuery_AccountsContainersList : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersListWithaccountId:]
+//   +[GTLQueryTagManager queryForAccountsContainersListWithparent:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** GTM Accounts's API relative path. Example: accounts/{account_id}. */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRTagManager_ListContainersResponse.
  *
  *  Lists all Containers that belongs to a GTM Account.
  *
- *  @param accountId The GTM Account ID.
+ *  @param parent GTM Accounts's API relative path. Example:
+ *    accounts/{account_id}.
  *
  *  @returns GTLRTagManagerQuery_AccountsContainersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
-+ (instancetype)queryWithAccountId:(NSString *)accountId;
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Container.
+ *
+ *  Method: tagmanager.accounts.containers.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersUpdate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersUpdateWithObject:path:]
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the container
+ *  in storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Container.
+ *
+ *  Updates a Container.
+ *
+ *  @param object The @c GTLRTagManager_Container to include in the query.
+ *  @param path GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersUpdate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Container *)object
+                           path:(NSString *)path;
+
+@end
+
+/**
+ *  Gets the latest container version header
+ *
+ *  Method: tagmanager.accounts.containers.version_headers.latest
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersVersionHeadersLatest : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersVersionHeadersLatestWithparent:]
+
+/**
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ContainerVersionHeader.
+ *
+ *  Gets the latest container version header
+ *
+ *  @param parent GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersVersionHeadersLatest
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists all Container Versions of a GTM Container.
+ *
+ *  Method: tagmanager.accounts.containers.version_headers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerEditContainerversions
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersVersionHeadersList : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersVersionHeadersListWithparent:]
+
+/** Also retrieve deleted (archived) versions when true. */
+@property(nonatomic, assign) BOOL includeDeleted;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ListContainerVersionsResponse.
+ *
+ *  Lists all Container Versions of a GTM Container.
+ *
+ *  @param parent GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersVersionHeadersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Container Version.
+ *
+ *  Method: tagmanager.accounts.containers.versions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainerversions
+ */
+@interface GTLRTagManagerQuery_AccountsContainersVersionsDelete : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersVersionsDeleteWithpath:]
+
+/**
+ *  GTM ContainerVersion's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a Container Version.
+ *
+ *  @param path GTM ContainerVersion's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersVersionsDelete
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Gets a Container Version.
+ *
+ *  Method: tagmanager.accounts.containers.versions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerEditContainerversions
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersVersionsGet : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersVersionsGetWithpath:]
+
+/**
+ *  The GTM ContainerVersion ID. Specify published to retrieve the currently
+ *  published version.
+ */
+@property(nonatomic, copy, nullable) NSString *containerVersionId;
+
+/**
+ *  GTM ContainerVersion's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_ContainerVersion.
+ *
+ *  Gets a Container Version.
+ *
+ *  @param path GTM ContainerVersion's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersVersionsGet
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Gets the live (i.e. published) container version
+ *
+ *  Method: tagmanager.accounts.containers.versions.live
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersVersionsLive : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersVersionsLiveWithparent:]
+
+/**
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ContainerVersion.
+ *
+ *  Gets the live (i.e. published) container version
+ *
+ *  @param parent GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersVersionsLive
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Publishes a Container Version.
+ *
+ *  Method: tagmanager.accounts.containers.versions.publish
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerPublish
+ */
+@interface GTLRTagManagerQuery_AccountsContainersVersionsPublish : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersVersionsPublishWithpath:]
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the container
+ *  version in storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM ContainerVersion's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_PublishContainerVersionResponse.
+ *
+ *  Publishes a Container Version.
+ *
+ *  @param path GTM ContainerVersion's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersVersionsPublish
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Sets the latest version used for synchronization of workspaces when
+ *  detecting conflicts and errors.
+ *
+ *  Method: tagmanager.accounts.containers.versions.set_latest
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersVersionsSetLatest : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersVersionsSetLatestWithpath:]
+
+/**
+ *  GTM ContainerVersion's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_ContainerVersion.
+ *
+ *  Sets the latest version used for synchronization of workspaces when
+ *  detecting conflicts and errors.
+ *
+ *  @param path GTM ContainerVersion's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersVersionsSetLatest
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Undeletes a Container Version.
+ *
+ *  Method: tagmanager.accounts.containers.versions.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainerversions
+ */
+@interface GTLRTagManagerQuery_AccountsContainersVersionsUndelete : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersVersionsUndeleteWithpath:]
+
+/**
+ *  GTM ContainerVersion's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_ContainerVersion.
+ *
+ *  Undeletes a Container Version.
+ *
+ *  @param path GTM ContainerVersion's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersVersionsUndelete
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Updates a Container Version.
+ *
+ *  Method: tagmanager.accounts.containers.versions.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainerversions
+ */
+@interface GTLRTagManagerQuery_AccountsContainersVersionsUpdate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersVersionsUpdateWithObject:path:]
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the container
+ *  version in storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM ContainerVersion's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_ContainerVersion.
+ *
+ *  Updates a Container Version.
+ *
+ *  @param object The @c GTLRTagManager_ContainerVersion to include in the
+ *    query.
+ *  @param path GTM ContainerVersion's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersVersionsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_ContainerVersion *)object
+                           path:(NSString *)path;
+
+@end
+
+/**
+ *  Creates one or more GTM Built-In Variables.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.built_in_variables.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesCreate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesCreateWithparent:]
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The types of built-in variables to enable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManagerTypeAdvertiserId Value "advertiserId"
+ *    @arg @c kGTLRTagManagerTypeAdvertisingTrackingEnabled Value
+ *        "advertisingTrackingEnabled"
+ *    @arg @c kGTLRTagManagerTypeAmpBrowserLanguage Value "ampBrowserLanguage"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalHost Value "ampCanonicalHost"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalPath Value "ampCanonicalPath"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalUrl Value "ampCanonicalUrl"
+ *    @arg @c kGTLRTagManagerTypeAmpClientId Value "ampClientId"
+ *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollX Value "ampClientMaxScrollX"
+ *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollY Value "ampClientMaxScrollY"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScreenHeight Value
+ *        "ampClientScreenHeight"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScreenWidth Value
+ *        "ampClientScreenWidth"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScrollX Value "ampClientScrollX"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScrollY Value "ampClientScrollY"
+ *    @arg @c kGTLRTagManagerTypeAmpClientTimestamp Value "ampClientTimestamp"
+ *    @arg @c kGTLRTagManagerTypeAmpClientTimezone Value "ampClientTimezone"
+ *    @arg @c kGTLRTagManagerTypeAmpGtmEvent Value "ampGtmEvent"
+ *    @arg @c kGTLRTagManagerTypeAmpPageDownloadTime Value "ampPageDownloadTime"
+ *    @arg @c kGTLRTagManagerTypeAmpPageLoadTime Value "ampPageLoadTime"
+ *    @arg @c kGTLRTagManagerTypeAmpPageViewId Value "ampPageViewId"
+ *    @arg @c kGTLRTagManagerTypeAmpReferrer Value "ampReferrer"
+ *    @arg @c kGTLRTagManagerTypeAmpTitle Value "ampTitle"
+ *    @arg @c kGTLRTagManagerTypeAmpTotalEngagedTime Value "ampTotalEngagedTime"
+ *    @arg @c kGTLRTagManagerTypeAppId Value "appId"
+ *    @arg @c kGTLRTagManagerTypeAppName Value "appName"
+ *    @arg @c kGTLRTagManagerTypeAppVersionCode Value "appVersionCode"
+ *    @arg @c kGTLRTagManagerTypeAppVersionName Value "appVersionName"
+ *    @arg @c kGTLRTagManagerTypeBuiltInVariableTypeUnspecified Value
+ *        "builtInVariableTypeUnspecified"
+ *    @arg @c kGTLRTagManagerTypeClickClasses Value "clickClasses"
+ *    @arg @c kGTLRTagManagerTypeClickElement Value "clickElement"
+ *    @arg @c kGTLRTagManagerTypeClickId Value "clickId"
+ *    @arg @c kGTLRTagManagerTypeClickTarget Value "clickTarget"
+ *    @arg @c kGTLRTagManagerTypeClickText Value "clickText"
+ *    @arg @c kGTLRTagManagerTypeClickUrl Value "clickUrl"
+ *    @arg @c kGTLRTagManagerTypeContainerId Value "containerId"
+ *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
+ *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
+ *    @arg @c kGTLRTagManagerTypeDeviceName Value "deviceName"
+ *    @arg @c kGTLRTagManagerTypeEnvironmentName Value "environmentName"
+ *    @arg @c kGTLRTagManagerTypeErrorLine Value "errorLine"
+ *    @arg @c kGTLRTagManagerTypeErrorMessage Value "errorMessage"
+ *    @arg @c kGTLRTagManagerTypeErrorUrl Value "errorUrl"
+ *    @arg @c kGTLRTagManagerTypeEvent Value "event"
+ *    @arg @c kGTLRTagManagerTypeEventName Value "eventName"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaign Value
+ *        "firebaseEventParameterCampaign"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignAclid Value
+ *        "firebaseEventParameterCampaignAclid"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignAnid Value
+ *        "firebaseEventParameterCampaignAnid"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignClickTimestamp
+ *        Value "firebaseEventParameterCampaignClickTimestamp"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignContent Value
+ *        "firebaseEventParameterCampaignContent"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignCp1 Value
+ *        "firebaseEventParameterCampaignCp1"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignGclid Value
+ *        "firebaseEventParameterCampaignGclid"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignSource Value
+ *        "firebaseEventParameterCampaignSource"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignTerm Value
+ *        "firebaseEventParameterCampaignTerm"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCurrency Value
+ *        "firebaseEventParameterCurrency"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterDynamicLinkAcceptTime
+ *        Value "firebaseEventParameterDynamicLinkAcceptTime"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterDynamicLinkLinkid Value
+ *        "firebaseEventParameterDynamicLinkLinkid"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageDeviceTime
+ *        Value "firebaseEventParameterNotificationMessageDeviceTime"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageId
+ *        Value "firebaseEventParameterNotificationMessageId"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageName
+ *        Value "firebaseEventParameterNotificationMessageName"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageTime
+ *        Value "firebaseEventParameterNotificationMessageTime"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationTopic Value
+ *        "firebaseEventParameterNotificationTopic"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterPreviousAppVersion Value
+ *        "firebaseEventParameterPreviousAppVersion"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterPreviousOsVersion Value
+ *        "firebaseEventParameterPreviousOsVersion"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterPrice Value
+ *        "firebaseEventParameterPrice"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterProductId Value
+ *        "firebaseEventParameterProductId"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterQuantity Value
+ *        "firebaseEventParameterQuantity"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterValue Value
+ *        "firebaseEventParameterValue"
+ *    @arg @c kGTLRTagManagerTypeFormClasses Value "formClasses"
+ *    @arg @c kGTLRTagManagerTypeFormElement Value "formElement"
+ *    @arg @c kGTLRTagManagerTypeFormId Value "formId"
+ *    @arg @c kGTLRTagManagerTypeFormTarget Value "formTarget"
+ *    @arg @c kGTLRTagManagerTypeFormText Value "formText"
+ *    @arg @c kGTLRTagManagerTypeFormUrl Value "formUrl"
+ *    @arg @c kGTLRTagManagerTypeHistorySource Value "historySource"
+ *    @arg @c kGTLRTagManagerTypeHtmlId Value "htmlId"
+ *    @arg @c kGTLRTagManagerTypeLanguage Value "language"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryFragment Value "newHistoryFragment"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryFragment Value "oldHistoryFragment"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
+ *    @arg @c kGTLRTagManagerTypeOsVersion Value "osVersion"
+ *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
+ *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
+ *    @arg @c kGTLRTagManagerTypePageUrl Value "pageUrl"
+ *    @arg @c kGTLRTagManagerTypePlatform Value "platform"
+ *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
+ *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
+ *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
+ *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *type;
+
+/**
+ *  Fetches a @c GTLRTagManager_CreateBuiltInVariableResponse.
+ *
+ *  Creates one or more GTM Built-In Variables.
+ *
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesCreate
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes one or more GTM Built-In Variables.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.built_in_variables.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesDelete : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesDeleteWithpath:]
+
+/**
+ *  GTM BuiltInVariable's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  The types of built-in variables to delete.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManagerTypeAdvertiserId Value "advertiserId"
+ *    @arg @c kGTLRTagManagerTypeAdvertisingTrackingEnabled Value
+ *        "advertisingTrackingEnabled"
+ *    @arg @c kGTLRTagManagerTypeAmpBrowserLanguage Value "ampBrowserLanguage"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalHost Value "ampCanonicalHost"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalPath Value "ampCanonicalPath"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalUrl Value "ampCanonicalUrl"
+ *    @arg @c kGTLRTagManagerTypeAmpClientId Value "ampClientId"
+ *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollX Value "ampClientMaxScrollX"
+ *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollY Value "ampClientMaxScrollY"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScreenHeight Value
+ *        "ampClientScreenHeight"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScreenWidth Value
+ *        "ampClientScreenWidth"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScrollX Value "ampClientScrollX"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScrollY Value "ampClientScrollY"
+ *    @arg @c kGTLRTagManagerTypeAmpClientTimestamp Value "ampClientTimestamp"
+ *    @arg @c kGTLRTagManagerTypeAmpClientTimezone Value "ampClientTimezone"
+ *    @arg @c kGTLRTagManagerTypeAmpGtmEvent Value "ampGtmEvent"
+ *    @arg @c kGTLRTagManagerTypeAmpPageDownloadTime Value "ampPageDownloadTime"
+ *    @arg @c kGTLRTagManagerTypeAmpPageLoadTime Value "ampPageLoadTime"
+ *    @arg @c kGTLRTagManagerTypeAmpPageViewId Value "ampPageViewId"
+ *    @arg @c kGTLRTagManagerTypeAmpReferrer Value "ampReferrer"
+ *    @arg @c kGTLRTagManagerTypeAmpTitle Value "ampTitle"
+ *    @arg @c kGTLRTagManagerTypeAmpTotalEngagedTime Value "ampTotalEngagedTime"
+ *    @arg @c kGTLRTagManagerTypeAppId Value "appId"
+ *    @arg @c kGTLRTagManagerTypeAppName Value "appName"
+ *    @arg @c kGTLRTagManagerTypeAppVersionCode Value "appVersionCode"
+ *    @arg @c kGTLRTagManagerTypeAppVersionName Value "appVersionName"
+ *    @arg @c kGTLRTagManagerTypeBuiltInVariableTypeUnspecified Value
+ *        "builtInVariableTypeUnspecified"
+ *    @arg @c kGTLRTagManagerTypeClickClasses Value "clickClasses"
+ *    @arg @c kGTLRTagManagerTypeClickElement Value "clickElement"
+ *    @arg @c kGTLRTagManagerTypeClickId Value "clickId"
+ *    @arg @c kGTLRTagManagerTypeClickTarget Value "clickTarget"
+ *    @arg @c kGTLRTagManagerTypeClickText Value "clickText"
+ *    @arg @c kGTLRTagManagerTypeClickUrl Value "clickUrl"
+ *    @arg @c kGTLRTagManagerTypeContainerId Value "containerId"
+ *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
+ *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
+ *    @arg @c kGTLRTagManagerTypeDeviceName Value "deviceName"
+ *    @arg @c kGTLRTagManagerTypeEnvironmentName Value "environmentName"
+ *    @arg @c kGTLRTagManagerTypeErrorLine Value "errorLine"
+ *    @arg @c kGTLRTagManagerTypeErrorMessage Value "errorMessage"
+ *    @arg @c kGTLRTagManagerTypeErrorUrl Value "errorUrl"
+ *    @arg @c kGTLRTagManagerTypeEvent Value "event"
+ *    @arg @c kGTLRTagManagerTypeEventName Value "eventName"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaign Value
+ *        "firebaseEventParameterCampaign"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignAclid Value
+ *        "firebaseEventParameterCampaignAclid"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignAnid Value
+ *        "firebaseEventParameterCampaignAnid"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignClickTimestamp
+ *        Value "firebaseEventParameterCampaignClickTimestamp"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignContent Value
+ *        "firebaseEventParameterCampaignContent"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignCp1 Value
+ *        "firebaseEventParameterCampaignCp1"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignGclid Value
+ *        "firebaseEventParameterCampaignGclid"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignSource Value
+ *        "firebaseEventParameterCampaignSource"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignTerm Value
+ *        "firebaseEventParameterCampaignTerm"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCurrency Value
+ *        "firebaseEventParameterCurrency"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterDynamicLinkAcceptTime
+ *        Value "firebaseEventParameterDynamicLinkAcceptTime"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterDynamicLinkLinkid Value
+ *        "firebaseEventParameterDynamicLinkLinkid"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageDeviceTime
+ *        Value "firebaseEventParameterNotificationMessageDeviceTime"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageId
+ *        Value "firebaseEventParameterNotificationMessageId"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageName
+ *        Value "firebaseEventParameterNotificationMessageName"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageTime
+ *        Value "firebaseEventParameterNotificationMessageTime"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationTopic Value
+ *        "firebaseEventParameterNotificationTopic"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterPreviousAppVersion Value
+ *        "firebaseEventParameterPreviousAppVersion"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterPreviousOsVersion Value
+ *        "firebaseEventParameterPreviousOsVersion"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterPrice Value
+ *        "firebaseEventParameterPrice"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterProductId Value
+ *        "firebaseEventParameterProductId"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterQuantity Value
+ *        "firebaseEventParameterQuantity"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterValue Value
+ *        "firebaseEventParameterValue"
+ *    @arg @c kGTLRTagManagerTypeFormClasses Value "formClasses"
+ *    @arg @c kGTLRTagManagerTypeFormElement Value "formElement"
+ *    @arg @c kGTLRTagManagerTypeFormId Value "formId"
+ *    @arg @c kGTLRTagManagerTypeFormTarget Value "formTarget"
+ *    @arg @c kGTLRTagManagerTypeFormText Value "formText"
+ *    @arg @c kGTLRTagManagerTypeFormUrl Value "formUrl"
+ *    @arg @c kGTLRTagManagerTypeHistorySource Value "historySource"
+ *    @arg @c kGTLRTagManagerTypeHtmlId Value "htmlId"
+ *    @arg @c kGTLRTagManagerTypeLanguage Value "language"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryFragment Value "newHistoryFragment"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryFragment Value "oldHistoryFragment"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
+ *    @arg @c kGTLRTagManagerTypeOsVersion Value "osVersion"
+ *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
+ *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
+ *    @arg @c kGTLRTagManagerTypePageUrl Value "pageUrl"
+ *    @arg @c kGTLRTagManagerTypePlatform Value "platform"
+ *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
+ *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
+ *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
+ *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *type;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes one or more GTM Built-In Variables.
+ *
+ *  @param path GTM BuiltInVariable's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesDelete
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Lists all the enabled Built-In Variables of a GTM Container.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.built_in_variables.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesList : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesListWithparent:]
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ListEnabledBuiltInVariablesResponse.
+ *
+ *  Lists all the enabled Built-In Variables of a GTM Container.
+ *
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Reverts changes to a GTM Built-In Variables in a GTM Workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.built_in_variables.revert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesRevert : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesRevertWithpath:]
+
+/**
+ *  GTM BuiltInVariable's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  The type of built-in variable to revert.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManagerTypeAdvertiserId Value "advertiserId"
+ *    @arg @c kGTLRTagManagerTypeAdvertisingTrackingEnabled Value
+ *        "advertisingTrackingEnabled"
+ *    @arg @c kGTLRTagManagerTypeAmpBrowserLanguage Value "ampBrowserLanguage"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalHost Value "ampCanonicalHost"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalPath Value "ampCanonicalPath"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalUrl Value "ampCanonicalUrl"
+ *    @arg @c kGTLRTagManagerTypeAmpClientId Value "ampClientId"
+ *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollX Value "ampClientMaxScrollX"
+ *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollY Value "ampClientMaxScrollY"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScreenHeight Value
+ *        "ampClientScreenHeight"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScreenWidth Value
+ *        "ampClientScreenWidth"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScrollX Value "ampClientScrollX"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScrollY Value "ampClientScrollY"
+ *    @arg @c kGTLRTagManagerTypeAmpClientTimestamp Value "ampClientTimestamp"
+ *    @arg @c kGTLRTagManagerTypeAmpClientTimezone Value "ampClientTimezone"
+ *    @arg @c kGTLRTagManagerTypeAmpGtmEvent Value "ampGtmEvent"
+ *    @arg @c kGTLRTagManagerTypeAmpPageDownloadTime Value "ampPageDownloadTime"
+ *    @arg @c kGTLRTagManagerTypeAmpPageLoadTime Value "ampPageLoadTime"
+ *    @arg @c kGTLRTagManagerTypeAmpPageViewId Value "ampPageViewId"
+ *    @arg @c kGTLRTagManagerTypeAmpReferrer Value "ampReferrer"
+ *    @arg @c kGTLRTagManagerTypeAmpTitle Value "ampTitle"
+ *    @arg @c kGTLRTagManagerTypeAmpTotalEngagedTime Value "ampTotalEngagedTime"
+ *    @arg @c kGTLRTagManagerTypeAppId Value "appId"
+ *    @arg @c kGTLRTagManagerTypeAppName Value "appName"
+ *    @arg @c kGTLRTagManagerTypeAppVersionCode Value "appVersionCode"
+ *    @arg @c kGTLRTagManagerTypeAppVersionName Value "appVersionName"
+ *    @arg @c kGTLRTagManagerTypeBuiltInVariableTypeUnspecified Value
+ *        "builtInVariableTypeUnspecified"
+ *    @arg @c kGTLRTagManagerTypeClickClasses Value "clickClasses"
+ *    @arg @c kGTLRTagManagerTypeClickElement Value "clickElement"
+ *    @arg @c kGTLRTagManagerTypeClickId Value "clickId"
+ *    @arg @c kGTLRTagManagerTypeClickTarget Value "clickTarget"
+ *    @arg @c kGTLRTagManagerTypeClickText Value "clickText"
+ *    @arg @c kGTLRTagManagerTypeClickUrl Value "clickUrl"
+ *    @arg @c kGTLRTagManagerTypeContainerId Value "containerId"
+ *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
+ *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
+ *    @arg @c kGTLRTagManagerTypeDeviceName Value "deviceName"
+ *    @arg @c kGTLRTagManagerTypeEnvironmentName Value "environmentName"
+ *    @arg @c kGTLRTagManagerTypeErrorLine Value "errorLine"
+ *    @arg @c kGTLRTagManagerTypeErrorMessage Value "errorMessage"
+ *    @arg @c kGTLRTagManagerTypeErrorUrl Value "errorUrl"
+ *    @arg @c kGTLRTagManagerTypeEvent Value "event"
+ *    @arg @c kGTLRTagManagerTypeEventName Value "eventName"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaign Value
+ *        "firebaseEventParameterCampaign"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignAclid Value
+ *        "firebaseEventParameterCampaignAclid"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignAnid Value
+ *        "firebaseEventParameterCampaignAnid"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignClickTimestamp
+ *        Value "firebaseEventParameterCampaignClickTimestamp"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignContent Value
+ *        "firebaseEventParameterCampaignContent"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignCp1 Value
+ *        "firebaseEventParameterCampaignCp1"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignGclid Value
+ *        "firebaseEventParameterCampaignGclid"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignSource Value
+ *        "firebaseEventParameterCampaignSource"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaignTerm Value
+ *        "firebaseEventParameterCampaignTerm"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCurrency Value
+ *        "firebaseEventParameterCurrency"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterDynamicLinkAcceptTime
+ *        Value "firebaseEventParameterDynamicLinkAcceptTime"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterDynamicLinkLinkid Value
+ *        "firebaseEventParameterDynamicLinkLinkid"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageDeviceTime
+ *        Value "firebaseEventParameterNotificationMessageDeviceTime"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageId
+ *        Value "firebaseEventParameterNotificationMessageId"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageName
+ *        Value "firebaseEventParameterNotificationMessageName"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageTime
+ *        Value "firebaseEventParameterNotificationMessageTime"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterNotificationTopic Value
+ *        "firebaseEventParameterNotificationTopic"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterPreviousAppVersion Value
+ *        "firebaseEventParameterPreviousAppVersion"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterPreviousOsVersion Value
+ *        "firebaseEventParameterPreviousOsVersion"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterPrice Value
+ *        "firebaseEventParameterPrice"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterProductId Value
+ *        "firebaseEventParameterProductId"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterQuantity Value
+ *        "firebaseEventParameterQuantity"
+ *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterValue Value
+ *        "firebaseEventParameterValue"
+ *    @arg @c kGTLRTagManagerTypeFormClasses Value "formClasses"
+ *    @arg @c kGTLRTagManagerTypeFormElement Value "formElement"
+ *    @arg @c kGTLRTagManagerTypeFormId Value "formId"
+ *    @arg @c kGTLRTagManagerTypeFormTarget Value "formTarget"
+ *    @arg @c kGTLRTagManagerTypeFormText Value "formText"
+ *    @arg @c kGTLRTagManagerTypeFormUrl Value "formUrl"
+ *    @arg @c kGTLRTagManagerTypeHistorySource Value "historySource"
+ *    @arg @c kGTLRTagManagerTypeHtmlId Value "htmlId"
+ *    @arg @c kGTLRTagManagerTypeLanguage Value "language"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryFragment Value "newHistoryFragment"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryFragment Value "oldHistoryFragment"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
+ *    @arg @c kGTLRTagManagerTypeOsVersion Value "osVersion"
+ *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
+ *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
+ *    @arg @c kGTLRTagManagerTypePageUrl Value "pageUrl"
+ *    @arg @c kGTLRTagManagerTypePlatform Value "platform"
+ *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
+ *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
+ *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
+ *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Fetches a @c GTLRTagManager_RevertBuiltInVariableResponse.
+ *
+ *  Reverts changes to a GTM Built-In Variables in a GTM Workspace.
+ *
+ *  @param path GTM BuiltInVariable's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesRevert
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Creates a Workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesCreate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesCreateWithObject:parent:]
+
+/**
+ *  GTM parent Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_Workspace.
+ *
+ *  Creates a Workspace.
+ *
+ *  @param object The @c GTLRTagManager_Workspace to include in the query.
+ *  @param parent GTM parent Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesCreate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Workspace *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a Container Version from the entities present in the workspace,
+ *  deletes the workspace, and sets the base container version to the newly
+ *  created version.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.create_version
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainerversions
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesCreateVersion : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesCreateVersionWithObject:path:]
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_CreateContainerVersionResponse.
+ *
+ *  Creates a Container Version from the entities present in the workspace,
+ *  deletes the workspace, and sets the base container version to the newly
+ *  created version.
+ *
+ *  @param object The @c
+ *    GTLRTagManager_CreateContainerVersionRequestVersionOptions to include in
+ *    the query.
+ *  @param path GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesCreateVersion
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_CreateContainerVersionRequestVersionOptions *)object
+                           path:(NSString *)path;
+
+@end
+
+/**
+ *  Deletes a Workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerDeleteContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesDelete : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesDeleteWithpath:]
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a Workspace.
+ *
+ *  @param path GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesDelete
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Creates a GTM Folder.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.folders.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersCreate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersCreateWithObject:parent:]
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_Folder.
+ *
+ *  Creates a GTM Folder.
+ *
+ *  @param object The @c GTLRTagManager_Folder to include in the query.
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersCreate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Folder *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a GTM Folder.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.folders.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersDelete : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersDeleteWithpath:]
+
+/**
+ *  GTM Folder's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a GTM Folder.
+ *
+ *  @param path GTM Folder's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersDelete
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  List all entities in a GTM Folder.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.folders.entities
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersEntities : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersEntitiesWithpath:]
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  GTM Folder's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_FolderEntities.
+ *
+ *  List all entities in a GTM Folder.
+ *
+ *  @param path GTM Folder's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersEntities
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Gets a GTM Folder.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.folders.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersGet : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersGetWithpath:]
+
+/**
+ *  GTM Folder's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Folder.
+ *
+ *  Gets a GTM Folder.
+ *
+ *  @param path GTM Folder's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersGet
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Lists all GTM Folders of a Container.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.folders.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersList : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersListWithparent:]
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ListFoldersResponse.
+ *
+ *  Lists all GTM Folders of a Container.
+ *
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
 /**
  *  Moves entities to a GTM Folder.
  *
- *  Method: tagmanager.accounts.containers.move_folders.update
+ *  Method: tagmanager.accounts.containers.workspaces.folders.move_entities_to_folder
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
-@interface GTLRTagManagerQuery_AccountsContainersMoveFoldersUpdate : GTLRTagManagerQuery
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersMoveEntitiesToFolder : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersMoveFoldersUpdateWithObject:accountId:containerId:folderId:]
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersMoveEntitiesToFolderWithObject:path:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Folder ID. */
-@property(nonatomic, copy, nullable) NSString *folderId;
+/**
+ *  GTM Folder's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /** The tags to be moved to the folder. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagId;
@@ -676,223 +1808,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  Moves entities to a GTM Folder.
  *
  *  @param object The @c GTLRTagManager_Folder to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param folderId The GTM Folder ID.
+ *  @param path GTM Folder's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  *
- *  @returns GTLRTagManagerQuery_AccountsContainersMoveFoldersUpdate
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersMoveEntitiesToFolder
  */
 + (instancetype)queryWithObject:(GTLRTagManager_Folder *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId
-                       folderId:(NSString *)folderId;
+                           path:(NSString *)path;
 
 @end
 
 /**
- *  Re-generates the authorization code for a GTM Environment.
+ *  Reverts changes to a GTM Folder in a GTM Workspace.
  *
- *  Method: tagmanager.accounts.containers.reauthorize_environments.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerPublish
- */
-@interface GTLRTagManagerQuery_AccountsContainersReauthorizeEnvironmentsUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersReauthorizeEnvironmentsUpdateWithObject:accountId:containerId:environmentId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Environment ID. */
-@property(nonatomic, copy, nullable) NSString *environmentId;
-
-/**
- *  Fetches a @c GTLRTagManager_Environment.
- *
- *  Re-generates the authorization code for a GTM Environment.
- *
- *  @param object The @c GTLRTagManager_Environment to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param environmentId The GTM Environment ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersReauthorizeEnvironmentsUpdate
- */
-+ (instancetype)queryWithObject:(GTLRTagManager_Environment *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId
-                  environmentId:(NSString *)environmentId;
-
-@end
-
-/**
- *  Creates a GTM Tag.
- *
- *  Method: tagmanager.accounts.containers.tags.create
+ *  Method: tagmanager.accounts.containers.workspaces.folders.revert
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
-@interface GTLRTagManagerQuery_AccountsContainersTagsCreate : GTLRTagManagerQuery
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersRevert : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersTagsCreateWithObject:accountId:containerId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/**
- *  Fetches a @c GTLRTagManager_Tag.
- *
- *  Creates a GTM Tag.
- *
- *  @param object The @c GTLRTagManager_Tag to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersTagsCreate
- */
-+ (instancetype)queryWithObject:(GTLRTagManager_Tag *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId;
-
-@end
-
-/**
- *  Deletes a GTM Tag.
- *
- *  Method: tagmanager.accounts.containers.tags.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- */
-@interface GTLRTagManagerQuery_AccountsContainersTagsDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersTagsDeleteWithaccountId:containerId:tagId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Tag ID. */
-@property(nonatomic, copy, nullable) NSString *tagId;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Deletes a GTM Tag.
- *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param tagId The GTM Tag ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersTagsDelete
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                             tagId:(NSString *)tagId;
-
-@end
-
-/**
- *  Gets a GTM Tag.
- *
- *  Method: tagmanager.accounts.containers.tags.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- *    @c kGTLRAuthScopeTagManagerReadonly
- */
-@interface GTLRTagManagerQuery_AccountsContainersTagsGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersTagsGetWithaccountId:containerId:tagId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Tag ID. */
-@property(nonatomic, copy, nullable) NSString *tagId;
-
-/**
- *  Fetches a @c GTLRTagManager_Tag.
- *
- *  Gets a GTM Tag.
- *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param tagId The GTM Tag ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersTagsGet
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                             tagId:(NSString *)tagId;
-
-@end
-
-/**
- *  Lists all GTM Tags of a Container.
- *
- *  Method: tagmanager.accounts.containers.tags.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- *    @c kGTLRAuthScopeTagManagerReadonly
- */
-@interface GTLRTagManagerQuery_AccountsContainersTagsList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersTagsListWithaccountId:containerId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/**
- *  Fetches a @c GTLRTagManager_ListTagsResponse.
- *
- *  Lists all GTM Tags of a Container.
- *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersTagsList
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId;
-
-@end
-
-/**
- *  Updates a GTM Tag.
- *
- *  Method: tagmanager.accounts.containers.tags.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- */
-@interface GTLRTagManagerQuery_AccountsContainersTagsUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersTagsUpdateWithObject:accountId:containerId:tagId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersRevertWithpath:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the tag in
@@ -900,8 +1836,575 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/** The GTM Tag ID. */
-@property(nonatomic, copy, nullable) NSString *tagId;
+/**
+ *  GTM Folder's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_RevertFolderResponse.
+ *
+ *  Reverts changes to a GTM Folder in a GTM Workspace.
+ *
+ *  @param path GTM Folder's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersRevert
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Updates a GTM Folder.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.folders.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersUpdate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersUpdateWithObject:path:]
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the folder in
+ *  storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Folder's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Folder.
+ *
+ *  Updates a GTM Folder.
+ *
+ *  @param object The @c GTLRTagManager_Folder to include in the query.
+ *  @param path GTM Folder's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersUpdate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Folder *)object
+                           path:(NSString *)path;
+
+@end
+
+/**
+ *  Gets a Workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesGet : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesGetWithpath:]
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Workspace.
+ *
+ *  Gets a Workspace.
+ *
+ *  @param path GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesGet
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Gets a GTM Workspace Proposal.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.getProposal
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesGetProposal : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesGetProposalWithpath:]
+
+/**
+ *  GTM workspace proposal's relative path: Example:
+ *  accounts/{aid}/containers/{cid}/workspace/{wid}/workspace_proposal
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_WorkspaceProposal.
+ *
+ *  Gets a GTM Workspace Proposal.
+ *
+ *  @param path GTM workspace proposal's relative path: Example:
+ *    accounts/{aid}/containers/{cid}/workspace/{wid}/workspace_proposal
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesGetProposal
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Finds conflicting and modified entities in the workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.getStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesGetStatus : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesGetStatusWithpath:]
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_GetWorkspaceStatusResponse.
+ *
+ *  Finds conflicting and modified entities in the workspace.
+ *
+ *  @param path GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesGetStatus
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Lists all Workspaces that belong to a GTM Container.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesList : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesListWithparent:]
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  GTM parent Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ListWorkspacesResponse.
+ *
+ *  Lists all Workspaces that belong to a GTM Container.
+ *
+ *  @param parent GTM parent Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a GTM Workspace Proposal.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.proposal.create
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesProposalCreate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesProposalCreateWithObject:parent:]
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{aid}/containers/{cid}/workspace/{wid}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_WorkspaceProposal.
+ *
+ *  Creates a GTM Workspace Proposal.
+ *
+ *  @param object The @c GTLRTagManager_CreateWorkspaceProposalRequest to
+ *    include in the query.
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{aid}/containers/{cid}/workspace/{wid}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesProposalCreate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_CreateWorkspaceProposalRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a GTM Workspace Proposal.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.proposal.delete
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesProposalDelete : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesProposalDeleteWithpath:]
+
+/**
+ *  GTM workspace proposal's relative path: Example:
+ *  accounts/{aid}/containers/{cid}/workspace/{wid}/workspace_proposal
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a GTM Workspace Proposal.
+ *
+ *  @param path GTM workspace proposal's relative path: Example:
+ *    accounts/{aid}/containers/{cid}/workspace/{wid}/workspace_proposal
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesProposalDelete
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Quick previews a workspace by creating a fake container version from all
+ *  entities in the provided workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.quick_preview
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainerversions
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesQuickPreview : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesQuickPreviewWithpath:]
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_QuickPreviewResponse.
+ *
+ *  Quick previews a workspace by creating a fake container version from all
+ *  entities in the provided workspace.
+ *
+ *  @param path GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesQuickPreview
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Resolves a merge conflict for a workspace entity by updating it to the
+ *  resolved entity passed in the request.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.resolve_conflict
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesResolveConflict : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesResolveConflictWithObject:path:]
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the
+ *  entity_in_workspace in the merge conflict.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Resolves a merge conflict for a workspace entity by updating it to the
+ *  resolved entity passed in the request.
+ *
+ *  @param object The @c GTLRTagManager_Entity to include in the query.
+ *  @param path GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesResolveConflict
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Entity *)object
+                           path:(NSString *)path;
+
+@end
+
+/**
+ *  Syncs a workspace to the latest container version by updating all unmodified
+ *  workspace entities and displaying conflicts for modified entities.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.sync
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesSync : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesSyncWithpath:]
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_SyncWorkspaceResponse.
+ *
+ *  Syncs a workspace to the latest container version by updating all unmodified
+ *  workspace entities and displaying conflicts for modified entities.
+ *
+ *  @param path GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesSync
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Creates a GTM Tag.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.tags.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTagsCreate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsCreateWithObject:parent:]
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_Tag.
+ *
+ *  Creates a GTM Tag.
+ *
+ *  @param object The @c GTLRTagManager_Tag to include in the query.
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesTagsCreate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Tag *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a GTM Tag.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.tags.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTagsDelete : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsDeleteWithpath:]
+
+/**
+ *  GTM Tag's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a GTM Tag.
+ *
+ *  @param path GTM Tag's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesTagsDelete
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Gets a GTM Tag.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.tags.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTagsGet : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsGetWithpath:]
+
+/**
+ *  GTM Tag's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Tag.
+ *
+ *  Gets a GTM Tag.
+ *
+ *  @param path GTM Tag's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesTagsGet
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Lists all GTM Tags of a Container.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.tags.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTagsList : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsListWithparent:]
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ListTagsResponse.
+ *
+ *  Lists all GTM Tags of a Container.
+ *
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesTagsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Reverts changes to a GTM Tag in a GTM Workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.tags.revert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTagsRevert : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsRevertWithpath:]
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of thetag in
+ *  storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Tag's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_RevertTagResponse.
+ *
+ *  Reverts changes to a GTM Tag in a GTM Workspace.
+ *
+ *  @param path GTM Tag's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesTagsRevert
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Updates a GTM Tag.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.tags.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTagsUpdate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsUpdateWithObject:path:]
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the tag in
+ *  storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Tag's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  Fetches a @c GTLRTagManager_Tag.
@@ -909,36 +2412,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a GTM Tag.
  *
  *  @param object The @c GTLRTagManager_Tag to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param tagId The GTM Tag ID.
+ *  @param path GTM Tag's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  *
- *  @returns GTLRTagManagerQuery_AccountsContainersTagsUpdate
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesTagsUpdate
  */
 + (instancetype)queryWithObject:(GTLRTagManager_Tag *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId
-                          tagId:(NSString *)tagId;
+                           path:(NSString *)path;
 
 @end
 
 /**
  *  Creates a GTM Trigger.
  *
- *  Method: tagmanager.accounts.containers.triggers.create
+ *  Method: tagmanager.accounts.containers.workspaces.triggers.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
-@interface GTLRTagManagerQuery_AccountsContainersTriggersCreate : GTLRTagManagerQuery
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersCreate : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersTriggersCreateWithObject:accountId:containerId:]
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersCreateWithObject:parent:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
+/**
+ *  GTM Workspaces's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRTagManager_Trigger.
@@ -946,37 +2446,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a GTM Trigger.
  *
  *  @param object The @c GTLRTagManager_Trigger to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
+ *  @param parent GTM Workspaces's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
- *  @returns GTLRTagManagerQuery_AccountsContainersTriggersCreate
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersCreate
  */
 + (instancetype)queryWithObject:(GTLRTagManager_Trigger *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId;
+                         parent:(NSString *)parent;
 
 @end
 
 /**
  *  Deletes a GTM Trigger.
  *
- *  Method: tagmanager.accounts.containers.triggers.delete
+ *  Method: tagmanager.accounts.containers.workspaces.triggers.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
-@interface GTLRTagManagerQuery_AccountsContainersTriggersDelete : GTLRTagManagerQuery
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersDelete : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersTriggersDeleteWithaccountId:containerId:triggerId:]
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersDeleteWithpath:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Trigger ID. */
-@property(nonatomic, copy, nullable) NSString *triggerId;
+/**
+ *  GTM Trigger's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -984,108 +2480,99 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a GTM Trigger.
  *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param triggerId The GTM Trigger ID.
+ *  @param path GTM Trigger's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  *
- *  @returns GTLRTagManagerQuery_AccountsContainersTriggersDelete
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersDelete
  */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                         triggerId:(NSString *)triggerId;
++ (instancetype)queryWithPath:(NSString *)path;
 
 @end
 
 /**
  *  Gets a GTM Trigger.
  *
- *  Method: tagmanager.accounts.containers.triggers.get
+ *  Method: tagmanager.accounts.containers.workspaces.triggers.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
-@interface GTLRTagManagerQuery_AccountsContainersTriggersGet : GTLRTagManagerQuery
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersGet : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersTriggersGetWithaccountId:containerId:triggerId:]
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersGetWithpath:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Trigger ID. */
-@property(nonatomic, copy, nullable) NSString *triggerId;
+/**
+ *  GTM Trigger's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  Fetches a @c GTLRTagManager_Trigger.
  *
  *  Gets a GTM Trigger.
  *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param triggerId The GTM Trigger ID.
+ *  @param path GTM Trigger's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  *
- *  @returns GTLRTagManagerQuery_AccountsContainersTriggersGet
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersGet
  */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                         triggerId:(NSString *)triggerId;
++ (instancetype)queryWithPath:(NSString *)path;
 
 @end
 
 /**
  *  Lists all GTM Triggers of a Container.
  *
- *  Method: tagmanager.accounts.containers.triggers.list
+ *  Method: tagmanager.accounts.containers.workspaces.triggers.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
-@interface GTLRTagManagerQuery_AccountsContainersTriggersList : GTLRTagManagerQuery
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersList : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersTriggersListWithaccountId:containerId:]
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersListWithparent:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
+/**
+ *  GTM Workspaces's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRTagManager_ListTriggersResponse.
  *
  *  Lists all GTM Triggers of a Container.
  *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
+ *  @param parent GTM Workspaces's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
- *  @returns GTLRTagManagerQuery_AccountsContainersTriggersList
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
 /**
- *  Updates a GTM Trigger.
+ *  Reverts changes to a GTM Trigger in a GTM Workspace.
  *
- *  Method: tagmanager.accounts.containers.triggers.update
+ *  Method: tagmanager.accounts.containers.workspaces.triggers.revert
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
-@interface GTLRTagManagerQuery_AccountsContainersTriggersUpdate : GTLRTagManagerQuery
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersRevert : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersTriggersUpdateWithObject:accountId:containerId:triggerId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersRevertWithpath:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the trigger in
@@ -1093,8 +2580,49 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/** The GTM Trigger ID. */
-@property(nonatomic, copy, nullable) NSString *triggerId;
+/**
+ *  GTM Trigger's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_RevertTriggerResponse.
+ *
+ *  Reverts changes to a GTM Trigger in a GTM Workspace.
+ *
+ *  @param path GTM Trigger's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersRevert
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Updates a GTM Trigger.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.triggers.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersUpdate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersUpdateWithObject:path:]
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the trigger in
+ *  storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Trigger's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  Fetches a @c GTLRTagManager_Trigger.
@@ -1102,77 +2630,105 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a GTM Trigger.
  *
  *  @param object The @c GTLRTagManager_Trigger to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param triggerId The GTM Trigger ID.
+ *  @param path GTM Trigger's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  *
- *  @returns GTLRTagManagerQuery_AccountsContainersTriggersUpdate
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersUpdate
  */
 + (instancetype)queryWithObject:(GTLRTagManager_Trigger *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId
-                      triggerId:(NSString *)triggerId;
+                           path:(NSString *)path;
 
 @end
 
 /**
- *  Updates a Container.
+ *  Updates a Workspace.
  *
- *  Method: tagmanager.accounts.containers.update
+ *  Method: tagmanager.accounts.containers.workspaces.update
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
-@interface GTLRTagManagerQuery_AccountsContainersUpdate : GTLRTagManagerQuery
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesUpdate : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersUpdateWithObject:accountId:containerId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesUpdateWithObject:path:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the container
+ *  When provided, this fingerprint must match the fingerprint of the workspace
  *  in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  Fetches a @c GTLRTagManager_Container.
- *
- *  Updates a Container.
- *
- *  @param object The @c GTLRTagManager_Container to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersUpdate
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
-+ (instancetype)queryWithObject:(GTLRTagManager_Container *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId;
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Workspace.
+ *
+ *  Updates a Workspace.
+ *
+ *  @param object The @c GTLRTagManager_Workspace to include in the query.
+ *  @param path GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Workspace *)object
+                           path:(NSString *)path;
+
+@end
+
+/**
+ *  Updates a GTM Workspace Proposal.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.updateProposal
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesUpdateProposal : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesUpdateProposalWithObject:path:]
+
+/**
+ *  GTM workspace proposal's relative path: Example:
+ *  accounts/{aid}/containers/{cid}/workspace/{wid}/workspace_proposal
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_WorkspaceProposal.
+ *
+ *  Updates a GTM Workspace Proposal.
+ *
+ *  @param object The @c GTLRTagManager_UpdateWorkspaceProposalRequest to
+ *    include in the query.
+ *  @param path GTM workspace proposal's relative path: Example:
+ *    accounts/{aid}/containers/{cid}/workspace/{wid}/workspace_proposal
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesUpdateProposal
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_UpdateWorkspaceProposalRequest *)object
+                           path:(NSString *)path;
 
 @end
 
 /**
  *  Creates a GTM Variable.
  *
- *  Method: tagmanager.accounts.containers.variables.create
+ *  Method: tagmanager.accounts.containers.workspaces.variables.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
-@interface GTLRTagManagerQuery_AccountsContainersVariablesCreate : GTLRTagManagerQuery
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesCreate : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVariablesCreateWithObject:accountId:containerId:]
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesCreateWithObject:parent:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRTagManager_Variable.
@@ -1180,37 +2736,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a GTM Variable.
  *
  *  @param object The @c GTLRTagManager_Variable to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
- *  @returns GTLRTagManagerQuery_AccountsContainersVariablesCreate
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesCreate
  */
 + (instancetype)queryWithObject:(GTLRTagManager_Variable *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId;
+                         parent:(NSString *)parent;
 
 @end
 
 /**
  *  Deletes a GTM Variable.
  *
- *  Method: tagmanager.accounts.containers.variables.delete
+ *  Method: tagmanager.accounts.containers.workspaces.variables.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
-@interface GTLRTagManagerQuery_AccountsContainersVariablesDelete : GTLRTagManagerQuery
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesDelete : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVariablesDeleteWithaccountId:containerId:variableId:]
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesDeleteWithpath:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Variable ID. */
-@property(nonatomic, copy, nullable) NSString *variableId;
+/**
+ *  GTM Variable's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1218,108 +2770,99 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a GTM Variable.
  *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param variableId The GTM Variable ID.
+ *  @param path GTM Variable's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  *
- *  @returns GTLRTagManagerQuery_AccountsContainersVariablesDelete
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesDelete
  */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                        variableId:(NSString *)variableId;
++ (instancetype)queryWithPath:(NSString *)path;
 
 @end
 
 /**
  *  Gets a GTM Variable.
  *
- *  Method: tagmanager.accounts.containers.variables.get
+ *  Method: tagmanager.accounts.containers.workspaces.variables.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
-@interface GTLRTagManagerQuery_AccountsContainersVariablesGet : GTLRTagManagerQuery
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesGet : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVariablesGetWithaccountId:containerId:variableId:]
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesGetWithpath:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Variable ID. */
-@property(nonatomic, copy, nullable) NSString *variableId;
+/**
+ *  GTM Variable's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  Fetches a @c GTLRTagManager_Variable.
  *
  *  Gets a GTM Variable.
  *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param variableId The GTM Variable ID.
+ *  @param path GTM Variable's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  *
- *  @returns GTLRTagManagerQuery_AccountsContainersVariablesGet
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesGet
  */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                        variableId:(NSString *)variableId;
++ (instancetype)queryWithPath:(NSString *)path;
 
 @end
 
 /**
  *  Lists all GTM Variables of a Container.
  *
- *  Method: tagmanager.accounts.containers.variables.list
+ *  Method: tagmanager.accounts.containers.workspaces.variables.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
-@interface GTLRTagManagerQuery_AccountsContainersVariablesList : GTLRTagManagerQuery
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesList : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVariablesListWithaccountId:containerId:]
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesListWithparent:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRTagManager_ListVariablesResponse.
  *
  *  Lists all GTM Variables of a Container.
  *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
- *  @returns GTLRTagManagerQuery_AccountsContainersVariablesList
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
 /**
- *  Updates a GTM Variable.
+ *  Reverts changes to a GTM Variable in a GTM Workspace.
  *
- *  Method: tagmanager.accounts.containers.variables.update
+ *  Method: tagmanager.accounts.containers.workspaces.variables.revert
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
-@interface GTLRTagManagerQuery_AccountsContainersVariablesUpdate : GTLRTagManagerQuery
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesRevert : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVariablesUpdateWithObject:accountId:containerId:variableId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesRevertWithpath:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the variable
@@ -1327,8 +2870,49 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/** The GTM Variable ID. */
-@property(nonatomic, copy, nullable) NSString *variableId;
+/**
+ *  GTM Variable's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_RevertVariableResponse.
+ *
+ *  Reverts changes to a GTM Variable in a GTM Workspace.
+ *
+ *  @param path GTM Variable's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesRevert
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Updates a GTM Variable.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.variables.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesUpdate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesUpdateWithObject:path:]
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the variable
+ *  in storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Variable's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  Fetches a @c GTLRTagManager_Variable.
@@ -1336,358 +2920,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a GTM Variable.
  *
  *  @param object The @c GTLRTagManager_Variable to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param variableId The GTM Variable ID.
+ *  @param path GTM Variable's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  *
- *  @returns GTLRTagManagerQuery_AccountsContainersVariablesUpdate
+ *  @returns GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesUpdate
  */
 + (instancetype)queryWithObject:(GTLRTagManager_Variable *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId
-                     variableId:(NSString *)variableId;
-
-@end
-
-/**
- *  Creates a Container Version.
- *
- *  Method: tagmanager.accounts.containers.versions.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainerversions
- */
-@interface GTLRTagManagerQuery_AccountsContainersVersionsCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsCreateWithObject:accountId:containerId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/**
- *  Fetches a @c GTLRTagManager_CreateContainerVersionResponse.
- *
- *  Creates a Container Version.
- *
- *  @param object The @c
- *    GTLRTagManager_CreateContainerVersionRequestVersionOptions to include in
- *    the query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersVersionsCreate
- */
-+ (instancetype)queryWithObject:(GTLRTagManager_CreateContainerVersionRequestVersionOptions *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId;
-
-@end
-
-/**
- *  Deletes a Container Version.
- *
- *  Method: tagmanager.accounts.containers.versions.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainerversions
- */
-@interface GTLRTagManagerQuery_AccountsContainersVersionsDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsDeleteWithaccountId:containerId:containerVersionId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Container Version ID. */
-@property(nonatomic, copy, nullable) NSString *containerVersionId;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Deletes a Container Version.
- *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param containerVersionId The GTM Container Version ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersVersionsDelete
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                containerVersionId:(NSString *)containerVersionId;
-
-@end
-
-/**
- *  Gets a Container Version.
- *
- *  Method: tagmanager.accounts.containers.versions.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- *    @c kGTLRAuthScopeTagManagerEditContainerversions
- *    @c kGTLRAuthScopeTagManagerReadonly
- */
-@interface GTLRTagManagerQuery_AccountsContainersVersionsGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsGetWithaccountId:containerId:containerVersionId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/**
- *  The GTM Container Version ID. Specify published to retrieve the currently
- *  published version.
- */
-@property(nonatomic, copy, nullable) NSString *containerVersionId;
-
-/**
- *  Fetches a @c GTLRTagManager_ContainerVersion.
- *
- *  Gets a Container Version.
- *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param containerVersionId The GTM Container Version ID. Specify published to
- *    retrieve the currently published version.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersVersionsGet
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                containerVersionId:(NSString *)containerVersionId;
-
-@end
-
-/**
- *  Lists all Container Versions of a GTM Container.
- *
- *  Method: tagmanager.accounts.containers.versions.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- *    @c kGTLRAuthScopeTagManagerEditContainerversions
- *    @c kGTLRAuthScopeTagManagerReadonly
- */
-@interface GTLRTagManagerQuery_AccountsContainersVersionsList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsListWithaccountId:containerId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/**
- *  Retrieve headers only when true.
- *
- *  @note If not set, the documented server-side default will be false.
- */
-@property(nonatomic, assign) BOOL headers;
-
-/**
- *  Also retrieve deleted (archived) versions when true.
- *
- *  @note If not set, the documented server-side default will be false.
- */
-@property(nonatomic, assign) BOOL includeDeleted;
-
-/**
- *  Fetches a @c GTLRTagManager_ListContainerVersionsResponse.
- *
- *  Lists all Container Versions of a GTM Container.
- *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersVersionsList
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId;
-
-@end
-
-/**
- *  Publishes a Container Version.
- *
- *  Method: tagmanager.accounts.containers.versions.publish
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerPublish
- */
-@interface GTLRTagManagerQuery_AccountsContainersVersionsPublish : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsPublishWithaccountId:containerId:containerVersionId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Container Version ID. */
-@property(nonatomic, copy, nullable) NSString *containerVersionId;
-
-/**
- *  When provided, this fingerprint must match the fingerprint of the container
- *  version in storage.
- */
-@property(nonatomic, copy, nullable) NSString *fingerprint;
-
-/**
- *  Fetches a @c GTLRTagManager_PublishContainerVersionResponse.
- *
- *  Publishes a Container Version.
- *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param containerVersionId The GTM Container Version ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersVersionsPublish
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                containerVersionId:(NSString *)containerVersionId;
-
-@end
-
-/**
- *  Restores a Container Version. This will overwrite the container's current
- *  configuration (including its variables, triggers and tags). The operation
- *  will not have any effect on the version that is being served (i.e. the
- *  published version).
- *
- *  Method: tagmanager.accounts.containers.versions.restore
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainers
- */
-@interface GTLRTagManagerQuery_AccountsContainersVersionsRestore : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsRestoreWithaccountId:containerId:containerVersionId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Container Version ID. */
-@property(nonatomic, copy, nullable) NSString *containerVersionId;
-
-/**
- *  Fetches a @c GTLRTagManager_ContainerVersion.
- *
- *  Restores a Container Version. This will overwrite the container's current
- *  configuration (including its variables, triggers and tags). The operation
- *  will not have any effect on the version that is being served (i.e. the
- *  published version).
- *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param containerVersionId The GTM Container Version ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersVersionsRestore
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                containerVersionId:(NSString *)containerVersionId;
-
-@end
-
-/**
- *  Undeletes a Container Version.
- *
- *  Method: tagmanager.accounts.containers.versions.undelete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainerversions
- */
-@interface GTLRTagManagerQuery_AccountsContainersVersionsUndelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsUndeleteWithaccountId:containerId:containerVersionId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Container Version ID. */
-@property(nonatomic, copy, nullable) NSString *containerVersionId;
-
-/**
- *  Fetches a @c GTLRTagManager_ContainerVersion.
- *
- *  Undeletes a Container Version.
- *
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param containerVersionId The GTM Container Version ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersVersionsUndelete
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                       containerId:(NSString *)containerId
-                containerVersionId:(NSString *)containerVersionId;
-
-@end
-
-/**
- *  Updates a Container Version.
- *
- *  Method: tagmanager.accounts.containers.versions.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerEditContainerversions
- */
-@interface GTLRTagManagerQuery_AccountsContainersVersionsUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsUpdateWithObject:accountId:containerId:containerVersionId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/** The GTM Container Version ID. */
-@property(nonatomic, copy, nullable) NSString *containerVersionId;
-
-/**
- *  When provided, this fingerprint must match the fingerprint of the container
- *  version in storage.
- */
-@property(nonatomic, copy, nullable) NSString *fingerprint;
-
-/**
- *  Fetches a @c GTLRTagManager_ContainerVersion.
- *
- *  Updates a Container Version.
- *
- *  @param object The @c GTLRTagManager_ContainerVersion to include in the
- *    query.
- *  @param accountId The GTM Account ID.
- *  @param containerId The GTM Container ID.
- *  @param containerVersionId The GTM Container Version ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsContainersVersionsUpdate
- */
-+ (instancetype)queryWithObject:(GTLRTagManager_ContainerVersion *)object
-                      accountId:(NSString *)accountId
-                    containerId:(NSString *)containerId
-             containerVersionId:(NSString *)containerVersionId;
+                           path:(NSString *)path;
 
 @end
 
@@ -1703,21 +2942,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTagManagerQuery_AccountsGet : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsGetWithaccountId:]
+//   +[GTLQueryTagManager queryForAccountsGetWithpath:]
 
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
+/** GTM Accounts's API relative path. Example: accounts/{account_id} */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  Fetches a @c GTLRTagManager_Account.
  *
  *  Gets a GTM Account.
  *
- *  @param accountId The GTM Account ID.
+ *  @param path GTM Accounts's API relative path. Example: accounts/{account_id}
  *
  *  @returns GTLRTagManagerQuery_AccountsGet
  */
-+ (instancetype)queryWithAccountId:(NSString *)accountId;
++ (instancetype)queryWithPath:(NSString *)path;
 
 @end
 
@@ -1735,179 +2974,21 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryTagManager queryForAccountsList]
 
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
 /**
  *  Fetches a @c GTLRTagManager_ListAccountsResponse.
  *
  *  Lists all GTM Accounts that a user has access to.
  *
  *  @returns GTLRTagManagerQuery_AccountsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)query;
-
-@end
-
-/**
- *  Creates a user's Account & Container Permissions.
- *
- *  Method: tagmanager.accounts.permissions.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerManageUsers
- */
-@interface GTLRTagManagerQuery_AccountsPermissionsCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsPermissionsCreateWithObject:accountId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/**
- *  Fetches a @c GTLRTagManager_UserAccess.
- *
- *  Creates a user's Account & Container Permissions.
- *
- *  @param object The @c GTLRTagManager_UserAccess to include in the query.
- *  @param accountId The GTM Account ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsPermissionsCreate
- */
-+ (instancetype)queryWithObject:(GTLRTagManager_UserAccess *)object
-                      accountId:(NSString *)accountId;
-
-@end
-
-/**
- *  Removes a user from the account, revoking access to it and all of its
- *  containers.
- *
- *  Method: tagmanager.accounts.permissions.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerManageUsers
- */
-@interface GTLRTagManagerQuery_AccountsPermissionsDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsPermissionsDeleteWithaccountId:permissionId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM User ID. */
-@property(nonatomic, copy, nullable) NSString *permissionId;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Removes a user from the account, revoking access to it and all of its
- *  containers.
- *
- *  @param accountId The GTM Account ID.
- *  @param permissionId The GTM User ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsPermissionsDelete
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                      permissionId:(NSString *)permissionId;
-
-@end
-
-/**
- *  Gets a user's Account & Container Permissions.
- *
- *  Method: tagmanager.accounts.permissions.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerManageUsers
- */
-@interface GTLRTagManagerQuery_AccountsPermissionsGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsPermissionsGetWithaccountId:permissionId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM User ID. */
-@property(nonatomic, copy, nullable) NSString *permissionId;
-
-/**
- *  Fetches a @c GTLRTagManager_UserAccess.
- *
- *  Gets a user's Account & Container Permissions.
- *
- *  @param accountId The GTM Account ID.
- *  @param permissionId The GTM User ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsPermissionsGet
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId
-                      permissionId:(NSString *)permissionId;
-
-@end
-
-/**
- *  List all users that have access to the account along with Account and
- *  Container Permissions granted to each of them.
- *
- *  Method: tagmanager.accounts.permissions.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerManageUsers
- */
-@interface GTLRTagManagerQuery_AccountsPermissionsList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsPermissionsListWithaccountId:]
-
-/** The GTM Account ID. \@required tagmanager.accounts.permissions.list */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/**
- *  Fetches a @c GTLRTagManager_ListAccountUsersResponse.
- *
- *  List all users that have access to the account along with Account and
- *  Container Permissions granted to each of them.
- *
- *  @param accountId The GTM Account ID. \@required
- *    tagmanager.accounts.permissions.list
- *
- *  @returns GTLRTagManagerQuery_AccountsPermissionsList
- */
-+ (instancetype)queryWithAccountId:(NSString *)accountId;
-
-@end
-
-/**
- *  Updates a user's Account & Container Permissions.
- *
- *  Method: tagmanager.accounts.permissions.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeTagManagerManageUsers
- */
-@interface GTLRTagManagerQuery_AccountsPermissionsUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsPermissionsUpdateWithObject:accountId:permissionId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** The GTM User ID. */
-@property(nonatomic, copy, nullable) NSString *permissionId;
-
-/**
- *  Fetches a @c GTLRTagManager_UserAccess.
- *
- *  Updates a user's Account & Container Permissions.
- *
- *  @param object The @c GTLRTagManager_UserAccess to include in the query.
- *  @param accountId The GTM Account ID.
- *  @param permissionId The GTM User ID.
- *
- *  @returns GTLRTagManagerQuery_AccountsPermissionsUpdate
- */
-+ (instancetype)queryWithObject:(GTLRTagManager_UserAccess *)object
-                      accountId:(NSString *)accountId
-                   permissionId:(NSString *)permissionId;
 
 @end
 
@@ -1921,10 +3002,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTagManagerQuery_AccountsUpdate : GTLRTagManagerQuery
 // Previous library name was
-//   +[GTLQueryTagManager queryForAccountsUpdateWithObject:accountId:]
-
-/** The GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
+//   +[GTLQueryTagManager queryForAccountsUpdateWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the account in
@@ -1932,18 +3010,191 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
+/** GTM Accounts's API relative path. Example: accounts/{account_id} */
+@property(nonatomic, copy, nullable) NSString *path;
+
 /**
  *  Fetches a @c GTLRTagManager_Account.
  *
  *  Updates a GTM Account.
  *
  *  @param object The @c GTLRTagManager_Account to include in the query.
- *  @param accountId The GTM Account ID.
+ *  @param path GTM Accounts's API relative path. Example: accounts/{account_id}
  *
  *  @returns GTLRTagManagerQuery_AccountsUpdate
  */
 + (instancetype)queryWithObject:(GTLRTagManager_Account *)object
-                      accountId:(NSString *)accountId;
+                           path:(NSString *)path;
+
+@end
+
+/**
+ *  Creates a user's Account & Container access.
+ *
+ *  Method: tagmanager.accounts.user_permissions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerManageUsers
+ */
+@interface GTLRTagManagerQuery_AccountsUserPermissionsCreate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsUserPermissionsCreateWithObject:parent:]
+
+/** GTM Account's API relative path. Example: accounts/{account_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_UserPermission.
+ *
+ *  Creates a user's Account & Container access.
+ *
+ *  @param object The @c GTLRTagManager_UserPermission to include in the query.
+ *  @param parent GTM Account's API relative path. Example:
+ *    accounts/{account_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsUserPermissionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_UserPermission *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Removes a user from the account, revoking access to it and all of its
+ *  containers.
+ *
+ *  Method: tagmanager.accounts.user_permissions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerManageUsers
+ */
+@interface GTLRTagManagerQuery_AccountsUserPermissionsDelete : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsUserPermissionsDeleteWithpath:]
+
+/**
+ *  GTM UserPermission's API relative path. Example:
+ *  accounts/{account_id}/user_permissions/{user_permission_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Removes a user from the account, revoking access to it and all of its
+ *  containers.
+ *
+ *  @param path GTM UserPermission's API relative path. Example:
+ *    accounts/{account_id}/user_permissions/{user_permission_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsUserPermissionsDelete
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Gets a user's Account & Container access.
+ *
+ *  Method: tagmanager.accounts.user_permissions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerManageUsers
+ */
+@interface GTLRTagManagerQuery_AccountsUserPermissionsGet : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsUserPermissionsGetWithpath:]
+
+/**
+ *  GTM UserPermission's API relative path. Example:
+ *  accounts/{account_id}/user_permissions/{user_permission_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_UserPermission.
+ *
+ *  Gets a user's Account & Container access.
+ *
+ *  @param path GTM UserPermission's API relative path. Example:
+ *    accounts/{account_id}/user_permissions/{user_permission_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsUserPermissionsGet
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  List all users that have access to the account along with Account and
+ *  Container user access granted to each of them.
+ *
+ *  Method: tagmanager.accounts.user_permissions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerManageUsers
+ */
+@interface GTLRTagManagerQuery_AccountsUserPermissionsList : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsUserPermissionsListWithparent:]
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** GTM Accounts's API relative path. Example: accounts/{account_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ListUserPermissionsResponse.
+ *
+ *  List all users that have access to the account along with Account and
+ *  Container user access granted to each of them.
+ *
+ *  @param parent GTM Accounts's API relative path. Example:
+ *    accounts/{account_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsUserPermissionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a user's Account & Container access.
+ *
+ *  Method: tagmanager.accounts.user_permissions.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerManageUsers
+ */
+@interface GTLRTagManagerQuery_AccountsUserPermissionsUpdate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsUserPermissionsUpdateWithObject:path:]
+
+/**
+ *  GTM UserPermission's API relative path. Example:
+ *  accounts/{account_id}/user_permissions/{user_permission_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_UserPermission.
+ *
+ *  Updates a user's Account & Container access.
+ *
+ *  @param object The @c GTLRTagManager_UserPermission to include in the query.
+ *  @param path GTM UserPermission's API relative path. Example:
+ *    accounts/{account_id}/user_permissions/{user_permission_id}
+ *
+ *  @returns GTLRTagManagerQuery_AccountsUserPermissionsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_UserPermission *)object
+                           path:(NSString *)path;
 
 @end
 

@@ -1244,6 +1244,9 @@ GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 // Previous library name was
 //   +[GTLQueryBooks queryForMylibraryAnnotationsInsertWithObject:]
 
+/** The ID for the annotation to insert. */
+@property(nonatomic, copy, nullable) NSString *annotationId;
+
 /** ISO-3166-1 code to override the IP-based location. */
 @property(nonatomic, copy, nullable) NSString *country;
 

@@ -288,7 +288,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Pred
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Basic;
 /**
- *  A single worker instance [with a GPU](ml/docs/how-tos/using-gpus).
+ *  A single worker instance [with a GPU](/ml-engine/docs/how-tos/using-gpus).
  *
  *  Value: "BASIC_GPU"
  */
@@ -444,7 +444,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *  Each version is a trained model deployed in the cloud, ready to handle
  *  prediction requests. A model can have multiple versions. You can get
  *  information about all of the versions of a given model by calling
- *  [projects.models.versions.list](/ml/reference/rest/v1beta1/projects.models.versions/list).
+ *  [projects.models.versions.list](/ml-engine/reference/rest/v1beta1/projects.models.versions/list).
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version : GTLRObject
 
@@ -454,13 +454,15 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
 /**
  *  Required. The Google Cloud Storage location of the trained model used to
  *  create the version. See the
- *  [overview of model deployment](/ml/docs/concepts/deployment-overview) for
- *  more informaiton.
+ *  [overview of model
+ *  deployment](/ml-engine/docs/concepts/deployment-overview) for more
+ *  informaiton.
  *  When passing Version to
- *  [projects.models.versions.create](/ml/reference/rest/v1beta1/projects.models.versions/create)
+ *  [projects.models.versions.create](/ml-engine/reference/rest/v1beta1/projects.models.versions/create)
  *  the model service uses the specified location as the source of the model.
  *  Once deployed, the model version is hosted by the prediction service, so
  *  this location is useful only as a historical record.
+ *  The total number of model files can't exceed 1000.
  */
 @property(nonatomic, copy, nullable) NSString *deploymentUri;
 
@@ -475,7 +477,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *  Output only. If true, this version will be used to handle prediction
  *  requests that do not specify a version.
  *  You can change the default version by calling
- *  [projects.methods.versions.setDefault](/ml/reference/rest/v1beta1/projects.models.versions/setDefault).
+ *  [projects.methods.versions.setDefault](/ml-engine/reference/rest/v1beta1/projects.models.versions/setDefault).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -825,7 +827,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *  Output only. The default version of the model. This version will be used to
  *  handle prediction requests that do not specify a version.
  *  You can change the default version by calling
- *  [projects.methods.versions.setDefault](/ml/reference/rest/v1/projects.models.versions/setDefault).
+ *  [projects.methods.versions.setDefault](/ml-engine/reference/rest/v1/projects.models.versions/setDefault).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version *defaultVersion;
 
@@ -854,6 +856,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *  Optional. The list of regions where the model is going to be deployed.
  *  Currently only one region per model is supported.
  *  Defaults to 'us-central1' if nothing is set.
+ *  Note:
+ *  * No matter where a model is deployed, it can always be accessed by
+ *  users from anywhere, both for online and batch prediction.
+ *  * The region for a batch prediction job is set by the region field when
+ *  submitting the batch prediction job and does not take its value from
+ *  this field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
 
@@ -1380,6 +1388,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
 /**
  *  Required. The Google Cloud Storage location of the packages with
  *  the training program and any additional dependencies.
+ *  The maximum number of package URIs is 100.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *packageUris;
 
@@ -1427,8 +1436,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *        Cloud ML, and for experimenting with new models using small datasets.
  *        (Value: "BASIC")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicGpu
- *        A single worker instance [with a GPU](ml/docs/how-tos/using-gpus).
- *        (Value: "BASIC_GPU")
+ *        A single worker instance [with a
+ *        GPU](/ml-engine/docs/how-tos/using-gpus). (Value: "BASIC_GPU")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Custom
  *        The CUSTOM tier is not a set tier, but rather enables you to use your
  *        own cluster specification. When you use this tier, set values to
@@ -1523,7 +1532,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *  Each version is a trained model deployed in the cloud, ready to handle
  *  prediction requests. A model can have multiple versions. You can get
  *  information about all of the versions of a given model by calling
- *  [projects.models.versions.list](/ml/reference/rest/v1/projects.models.versions/list).
+ *  [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version : GTLRObject
 
@@ -1533,13 +1542,15 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
 /**
  *  Required. The Google Cloud Storage location of the trained model used to
  *  create the version. See the
- *  [overview of model deployment](/ml/docs/concepts/deployment-overview) for
- *  more informaiton.
+ *  [overview of model
+ *  deployment](/ml-engine/docs/concepts/deployment-overview) for more
+ *  informaiton.
  *  When passing Version to
- *  [projects.models.versions.create](/ml/reference/rest/v1/projects.models.versions/create)
+ *  [projects.models.versions.create](/ml-engine/reference/rest/v1/projects.models.versions/create)
  *  the model service uses the specified location as the source of the model.
  *  Once deployed, the model version is hosted by the prediction service, so
  *  this location is useful only as a historical record.
+ *  The total number of model files can't exceed 1000.
  */
 @property(nonatomic, copy, nullable) NSString *deploymentUri;
 
@@ -1554,7 +1565,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *  Output only. If true, this version will be used to handle prediction
  *  requests that do not specify a version.
  *  You can change the default version by calling
- *  [projects.methods.versions.setDefault](/ml/reference/rest/v1/projects.models.versions/setDefault).
+ *  [projects.methods.versions.setDefault](/ml-engine/reference/rest/v1/projects.models.versions/setDefault).
  *
  *  Uses NSNumber of boolValue.
  */

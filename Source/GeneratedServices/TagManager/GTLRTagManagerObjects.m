@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Tag Manager API (tagmanager/v1)
+//   Tag Manager API (tagmanager/v2)
 // Description:
 //   Accesses Tag Manager accounts and containers.
 // Documentation:
-//   https://developers.google.com/tag-manager/api/v1/
+//   https://developers.google.com/tag-manager/api/v2/
 
 #import "GTLRTagManagerObjects.h"
 
@@ -14,13 +14,103 @@
 // Constants
 
 // GTLRTagManager_AccountAccess.permission
-NSString * const kGTLRTagManager_AccountAccess_Permission_Delete = @"delete";
-NSString * const kGTLRTagManager_AccountAccess_Permission_Edit = @"edit";
-NSString * const kGTLRTagManager_AccountAccess_Permission_Manage = @"manage";
-NSString * const kGTLRTagManager_AccountAccess_Permission_Publish = @"publish";
-NSString * const kGTLRTagManager_AccountAccess_Permission_Read = @"read";
+NSString * const kGTLRTagManager_AccountAccess_Permission_AccountPermissionUnspecified = @"accountPermissionUnspecified";
+NSString * const kGTLRTagManager_AccountAccess_Permission_Admin = @"admin";
+NSString * const kGTLRTagManager_AccountAccess_Permission_NoAccess = @"noAccess";
+NSString * const kGTLRTagManager_AccountAccess_Permission_User = @"user";
+
+// GTLRTagManager_BuiltInVariable.type
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AdvertiserId = @"advertiserId";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AdvertisingTrackingEnabled = @"advertisingTrackingEnabled";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpBrowserLanguage = @"ampBrowserLanguage";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpCanonicalHost = @"ampCanonicalHost";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpCanonicalPath = @"ampCanonicalPath";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpCanonicalUrl = @"ampCanonicalUrl";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientId = @"ampClientId";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientMaxScrollX = @"ampClientMaxScrollX";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientMaxScrollY = @"ampClientMaxScrollY";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientScreenHeight = @"ampClientScreenHeight";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientScreenWidth = @"ampClientScreenWidth";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientScrollX = @"ampClientScrollX";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientScrollY = @"ampClientScrollY";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientTimestamp = @"ampClientTimestamp";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientTimezone = @"ampClientTimezone";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpGtmEvent = @"ampGtmEvent";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpPageDownloadTime = @"ampPageDownloadTime";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpPageLoadTime = @"ampPageLoadTime";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpPageViewId = @"ampPageViewId";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpReferrer = @"ampReferrer";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpTitle = @"ampTitle";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpTotalEngagedTime = @"ampTotalEngagedTime";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AppId    = @"appId";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AppName  = @"appName";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AppVersionCode = @"appVersionCode";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_AppVersionName = @"appVersionName";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_BuiltInVariableTypeUnspecified = @"builtInVariableTypeUnspecified";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickClasses = @"clickClasses";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickElement = @"clickElement";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickId  = @"clickId";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickTarget = @"clickTarget";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickText = @"clickText";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickUrl = @"clickUrl";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ContainerId = @"containerId";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ContainerVersion = @"containerVersion";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_DebugMode = @"debugMode";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_DeviceName = @"deviceName";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_EnvironmentName = @"environmentName";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ErrorLine = @"errorLine";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ErrorMessage = @"errorMessage";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ErrorUrl = @"errorUrl";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_Event    = @"event";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_EventName = @"eventName";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaign = @"firebaseEventParameterCampaign";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignAclid = @"firebaseEventParameterCampaignAclid";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignAnid = @"firebaseEventParameterCampaignAnid";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignClickTimestamp = @"firebaseEventParameterCampaignClickTimestamp";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignContent = @"firebaseEventParameterCampaignContent";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignCp1 = @"firebaseEventParameterCampaignCp1";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignGclid = @"firebaseEventParameterCampaignGclid";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignSource = @"firebaseEventParameterCampaignSource";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignTerm = @"firebaseEventParameterCampaignTerm";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCurrency = @"firebaseEventParameterCurrency";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterDynamicLinkAcceptTime = @"firebaseEventParameterDynamicLinkAcceptTime";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterDynamicLinkLinkid = @"firebaseEventParameterDynamicLinkLinkid";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationMessageDeviceTime = @"firebaseEventParameterNotificationMessageDeviceTime";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationMessageId = @"firebaseEventParameterNotificationMessageId";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationMessageName = @"firebaseEventParameterNotificationMessageName";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationMessageTime = @"firebaseEventParameterNotificationMessageTime";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationTopic = @"firebaseEventParameterNotificationTopic";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterPreviousAppVersion = @"firebaseEventParameterPreviousAppVersion";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterPreviousOsVersion = @"firebaseEventParameterPreviousOsVersion";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterPrice = @"firebaseEventParameterPrice";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterProductId = @"firebaseEventParameterProductId";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterQuantity = @"firebaseEventParameterQuantity";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterValue = @"firebaseEventParameterValue";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FormClasses = @"formClasses";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FormElement = @"formElement";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FormId   = @"formId";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FormTarget = @"formTarget";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FormText = @"formText";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FormUrl  = @"formUrl";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_HistorySource = @"historySource";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_HtmlId   = @"htmlId";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_Language = @"language";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_NewHistoryFragment = @"newHistoryFragment";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_NewHistoryState = @"newHistoryState";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_OldHistoryFragment = @"oldHistoryFragment";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_OldHistoryState = @"oldHistoryState";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_OsVersion = @"osVersion";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_PageHostname = @"pageHostname";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_PagePath = @"pagePath";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_PageUrl  = @"pageUrl";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_Platform = @"platform";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_RandomNumber = @"randomNumber";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_Referrer = @"referrer";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_Resolution = @"resolution";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_SdkVersion = @"sdkVersion";
 
 // GTLRTagManager_Condition.type
+NSString * const kGTLRTagManager_Condition_Type_ConditionTypeUnspecified = @"conditionTypeUnspecified";
 NSString * const kGTLRTagManager_Condition_Type_Contains       = @"contains";
 NSString * const kGTLRTagManager_Condition_Type_CssSelector    = @"cssSelector";
 NSString * const kGTLRTagManager_Condition_Type_EndsWith       = @"endsWith";
@@ -33,97 +123,120 @@ NSString * const kGTLRTagManager_Condition_Type_MatchRegex     = @"matchRegex";
 NSString * const kGTLRTagManager_Condition_Type_StartsWith     = @"startsWith";
 NSString * const kGTLRTagManager_Condition_Type_UrlMatches     = @"urlMatches";
 
-// GTLRTagManager_Container.enabledBuiltInVariable
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_AdvertiserId = @"advertiserId";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_AdvertisingTrackingEnabled = @"advertisingTrackingEnabled";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_AppId = @"appId";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_AppName = @"appName";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_AppVersionCode = @"appVersionCode";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_AppVersionName = @"appVersionName";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ClickClasses = @"clickClasses";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ClickElement = @"clickElement";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ClickId = @"clickId";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ClickTarget = @"clickTarget";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ClickText = @"clickText";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ClickUrl = @"clickUrl";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ContainerId = @"containerId";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ContainerVersion = @"containerVersion";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_DebugMode = @"debugMode";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_DeviceName = @"deviceName";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_EnvironmentName = @"environmentName";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ErrorLine = @"errorLine";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ErrorMessage = @"errorMessage";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ErrorUrl = @"errorUrl";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_Event = @"event";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_FormClasses = @"formClasses";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_FormElement = @"formElement";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_FormId = @"formId";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_FormTarget = @"formTarget";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_FormText = @"formText";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_FormUrl = @"formUrl";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_HistorySource = @"historySource";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_HtmlId = @"htmlId";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_Language = @"language";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_NewHistoryFragment = @"newHistoryFragment";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_NewHistoryState = @"newHistoryState";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_OldHistoryFragment = @"oldHistoryFragment";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_OldHistoryState = @"oldHistoryState";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_OsVersion = @"osVersion";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_PageHostname = @"pageHostname";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_PagePath = @"pagePath";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_PageUrl = @"pageUrl";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_Platform = @"platform";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_RandomNumber = @"randomNumber";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_Referrer = @"referrer";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_Resolution = @"resolution";
-NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_SdkVersion = @"sdkVersion";
-
 // GTLRTagManager_Container.usageContext
+NSString * const kGTLRTagManager_Container_UsageContext_Amp    = @"amp";
 NSString * const kGTLRTagManager_Container_UsageContext_Android = @"android";
 NSString * const kGTLRTagManager_Container_UsageContext_AndroidSdk5 = @"androidSdk5";
 NSString * const kGTLRTagManager_Container_UsageContext_Ios    = @"ios";
 NSString * const kGTLRTagManager_Container_UsageContext_IosSdk5 = @"iosSdk5";
+NSString * const kGTLRTagManager_Container_UsageContext_UsageContextUnspecified = @"usageContextUnspecified";
 NSString * const kGTLRTagManager_Container_UsageContext_Web    = @"web";
 
 // GTLRTagManager_ContainerAccess.permission
-NSString * const kGTLRTagManager_ContainerAccess_Permission_Delete = @"delete";
+NSString * const kGTLRTagManager_ContainerAccess_Permission_Approve = @"approve";
+NSString * const kGTLRTagManager_ContainerAccess_Permission_ContainerPermissionUnspecified = @"containerPermissionUnspecified";
 NSString * const kGTLRTagManager_ContainerAccess_Permission_Edit = @"edit";
-NSString * const kGTLRTagManager_ContainerAccess_Permission_Manage = @"manage";
+NSString * const kGTLRTagManager_ContainerAccess_Permission_NoAccess = @"noAccess";
 NSString * const kGTLRTagManager_ContainerAccess_Permission_Publish = @"publish";
 NSString * const kGTLRTagManager_ContainerAccess_Permission_Read = @"read";
 
+// GTLRTagManager_Entity.changeStatus
+NSString * const kGTLRTagManager_Entity_ChangeStatus_Added     = @"added";
+NSString * const kGTLRTagManager_Entity_ChangeStatus_ChangeStatusUnspecified = @"changeStatusUnspecified";
+NSString * const kGTLRTagManager_Entity_ChangeStatus_Deleted   = @"deleted";
+NSString * const kGTLRTagManager_Entity_ChangeStatus_None      = @"none";
+NSString * const kGTLRTagManager_Entity_ChangeStatus_Updated   = @"updated";
+
 // GTLRTagManager_Environment.type
-NSString * const kGTLRTagManager_Environment_Type_Draft  = @"draft";
-NSString * const kGTLRTagManager_Environment_Type_Latest = @"latest";
-NSString * const kGTLRTagManager_Environment_Type_Live   = @"live";
-NSString * const kGTLRTagManager_Environment_Type_User   = @"user";
+NSString * const kGTLRTagManager_Environment_Type_Latest    = @"latest";
+NSString * const kGTLRTagManager_Environment_Type_Live      = @"live";
+NSString * const kGTLRTagManager_Environment_Type_User      = @"user";
+NSString * const kGTLRTagManager_Environment_Type_Workspace = @"workspace";
 
 // GTLRTagManager_Parameter.type
-NSString * const kGTLRTagManager_Parameter_Type_Boolean  = @"boolean";
-NSString * const kGTLRTagManager_Parameter_Type_Integer  = @"integer";
-NSString * const kGTLRTagManager_Parameter_Type_List     = @"list";
-NSString * const kGTLRTagManager_Parameter_Type_Map      = @"map";
-NSString * const kGTLRTagManager_Parameter_Type_Template = @"template";
+NSString * const kGTLRTagManager_Parameter_Type_Boolean        = @"boolean";
+NSString * const kGTLRTagManager_Parameter_Type_Integer        = @"integer";
+NSString * const kGTLRTagManager_Parameter_Type_List           = @"list";
+NSString * const kGTLRTagManager_Parameter_Type_Map            = @"map";
+NSString * const kGTLRTagManager_Parameter_Type_Template       = @"template";
+NSString * const kGTLRTagManager_Parameter_Type_TypeUnspecified = @"typeUnspecified";
 
 // GTLRTagManager_Tag.tagFiringOption
 NSString * const kGTLRTagManager_Tag_TagFiringOption_OncePerEvent = @"oncePerEvent";
 NSString * const kGTLRTagManager_Tag_TagFiringOption_OncePerLoad = @"oncePerLoad";
+NSString * const kGTLRTagManager_Tag_TagFiringOption_TagFiringOptionUnspecified = @"tagFiringOptionUnspecified";
 NSString * const kGTLRTagManager_Tag_TagFiringOption_Unlimited = @"unlimited";
 
 // GTLRTagManager_Trigger.type
-NSString * const kGTLRTagManager_Trigger_Type_AjaxSubmission = @"ajaxSubmission";
-NSString * const kGTLRTagManager_Trigger_Type_Always         = @"always";
-NSString * const kGTLRTagManager_Trigger_Type_Click          = @"click";
-NSString * const kGTLRTagManager_Trigger_Type_CustomEvent    = @"customEvent";
-NSString * const kGTLRTagManager_Trigger_Type_DomReady       = @"domReady";
-NSString * const kGTLRTagManager_Trigger_Type_FormSubmission = @"formSubmission";
-NSString * const kGTLRTagManager_Trigger_Type_HistoryChange  = @"historyChange";
-NSString * const kGTLRTagManager_Trigger_Type_JsError        = @"jsError";
-NSString * const kGTLRTagManager_Trigger_Type_LinkClick      = @"linkClick";
-NSString * const kGTLRTagManager_Trigger_Type_Pageview       = @"pageview";
-NSString * const kGTLRTagManager_Trigger_Type_Timer          = @"timer";
-NSString * const kGTLRTagManager_Trigger_Type_WindowLoaded   = @"windowLoaded";
-NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
+NSString * const kGTLRTagManager_Trigger_Type_Always           = @"always";
+NSString * const kGTLRTagManager_Trigger_Type_AmpClick         = @"ampClick";
+NSString * const kGTLRTagManager_Trigger_Type_AmpScroll        = @"ampScroll";
+NSString * const kGTLRTagManager_Trigger_Type_AmpTimer         = @"ampTimer";
+NSString * const kGTLRTagManager_Trigger_Type_AmpVisibility    = @"ampVisibility";
+NSString * const kGTLRTagManager_Trigger_Type_Click            = @"click";
+NSString * const kGTLRTagManager_Trigger_Type_CustomEvent      = @"customEvent";
+NSString * const kGTLRTagManager_Trigger_Type_DomReady         = @"domReady";
+NSString * const kGTLRTagManager_Trigger_Type_EventTypeUnspecified = @"eventTypeUnspecified";
+NSString * const kGTLRTagManager_Trigger_Type_FirebaseAppException = @"firebaseAppException";
+NSString * const kGTLRTagManager_Trigger_Type_FirebaseAppUpdate = @"firebaseAppUpdate";
+NSString * const kGTLRTagManager_Trigger_Type_FirebaseCampaign = @"firebaseCampaign";
+NSString * const kGTLRTagManager_Trigger_Type_FirebaseFirstOpen = @"firebaseFirstOpen";
+NSString * const kGTLRTagManager_Trigger_Type_FirebaseInAppPurchase = @"firebaseInAppPurchase";
+NSString * const kGTLRTagManager_Trigger_Type_FirebaseNotificationDismiss = @"firebaseNotificationDismiss";
+NSString * const kGTLRTagManager_Trigger_Type_FirebaseNotificationForeground = @"firebaseNotificationForeground";
+NSString * const kGTLRTagManager_Trigger_Type_FirebaseNotificationOpen = @"firebaseNotificationOpen";
+NSString * const kGTLRTagManager_Trigger_Type_FirebaseNotificationReceive = @"firebaseNotificationReceive";
+NSString * const kGTLRTagManager_Trigger_Type_FirebaseOsUpdate = @"firebaseOsUpdate";
+NSString * const kGTLRTagManager_Trigger_Type_FirebaseSessionStart = @"firebaseSessionStart";
+NSString * const kGTLRTagManager_Trigger_Type_FirebaseUserEngagement = @"firebaseUserEngagement";
+NSString * const kGTLRTagManager_Trigger_Type_FormSubmission   = @"formSubmission";
+NSString * const kGTLRTagManager_Trigger_Type_HistoryChange    = @"historyChange";
+NSString * const kGTLRTagManager_Trigger_Type_JsError          = @"jsError";
+NSString * const kGTLRTagManager_Trigger_Type_LinkClick        = @"linkClick";
+NSString * const kGTLRTagManager_Trigger_Type_Pageview         = @"pageview";
+NSString * const kGTLRTagManager_Trigger_Type_Timer            = @"timer";
+NSString * const kGTLRTagManager_Trigger_Type_WindowLoaded     = @"windowLoaded";
+
+// GTLRTagManager_UpdateWorkspaceProposalRequest.status
+NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Approved = @"approved";
+NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Cancelled = @"cancelled";
+NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Completed = @"completed";
+NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Requested = @"requested";
+NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Reviewed = @"reviewed";
+NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_StatusUnspecified = @"statusUnspecified";
+
+// GTLRTagManager_WorkspaceProposal.status
+NSString * const kGTLRTagManager_WorkspaceProposal_Status_Approved = @"approved";
+NSString * const kGTLRTagManager_WorkspaceProposal_Status_Cancelled = @"cancelled";
+NSString * const kGTLRTagManager_WorkspaceProposal_Status_Completed = @"completed";
+NSString * const kGTLRTagManager_WorkspaceProposal_Status_Requested = @"requested";
+NSString * const kGTLRTagManager_WorkspaceProposal_Status_Reviewed = @"reviewed";
+NSString * const kGTLRTagManager_WorkspaceProposal_Status_StatusUnspecified = @"statusUnspecified";
+
+// GTLRTagManager_WorkspaceProposalHistory.type
+NSString * const kGTLRTagManager_WorkspaceProposalHistory_Type_Comment = @"comment";
+NSString * const kGTLRTagManager_WorkspaceProposalHistory_Type_StatusChange = @"statusChange";
+NSString * const kGTLRTagManager_WorkspaceProposalHistory_Type_Unspecified = @"unspecified";
+
+// GTLRTagManager_WorkspaceProposalHistoryStatusChange.newStatus
+NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Approved = @"approved";
+NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Cancelled = @"cancelled";
+NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Completed = @"completed";
+NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Requested = @"requested";
+NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Reviewed = @"reviewed";
+NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_StatusUnspecified = @"statusUnspecified";
+
+// GTLRTagManager_WorkspaceProposalHistoryStatusChange.oldStatus
+NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Approved = @"approved";
+NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Cancelled = @"cancelled";
+NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Completed = @"completed";
+NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Requested = @"requested";
+NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Reviewed = @"reviewed";
+NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_StatusUnspecified = @"statusUnspecified";
+
+// GTLRTagManager_WorkspaceProposalUser.type
+NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_GaiaId = @"gaiaId";
+NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System = @"system";
 
 // ----------------------------------------------------------------------------
 //
@@ -131,7 +244,7 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_Account
-@dynamic accountId, fingerprint, name, shareData;
+@dynamic accountId, fingerprint, name, path, shareData, tagManagerUrl;
 @end
 
 
@@ -142,14 +255,16 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 
 @implementation GTLRTagManager_AccountAccess
 @dynamic permission;
+@end
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permission" : [NSString class]
-  };
-  return map;
-}
 
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_BuiltInVariable
+//
+
+@implementation GTLRTagManager_BuiltInVariable
+@dynamic accountId, containerId, name, path, type, workspaceId;
 @end
 
 
@@ -177,14 +292,12 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_Container
-@dynamic accountId, containerId, domainName, enabledBuiltInVariable,
-         fingerprint, name, notes, publicId, timeZoneCountryId, timeZoneId,
-         usageContext;
+@dynamic accountId, containerId, domainName, fingerprint, name, notes, path,
+         publicId, tagManagerUrl, usageContext;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"domainName" : [NSString class],
-    @"enabledBuiltInVariable" : [NSString class],
     @"usageContext" : [NSString class]
   };
   return map;
@@ -200,14 +313,6 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 
 @implementation GTLRTagManager_ContainerAccess
 @dynamic containerId, permission;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permission" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -217,14 +322,18 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_ContainerVersion
-@dynamic accountId, container, containerId, containerVersionId, deleted,
-         fingerprint, folder, macro, name, notes, rule, tag, trigger, variable;
+@dynamic accountId, builtInVariable, container, containerId, containerVersionId,
+         deleted, descriptionProperty, fingerprint, folder, name, path, tag,
+         tagManagerUrl, trigger, variable;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"builtInVariable" : [GTLRTagManager_BuiltInVariable class],
     @"folder" : [GTLRTagManager_Folder class],
-    @"macro" : [GTLRTagManager_Macro class],
-    @"rule" : [GTLRTagManager_Rule class],
     @"tag" : [GTLRTagManager_Tag class],
     @"trigger" : [GTLRTagManager_Trigger class],
     @"variable" : [GTLRTagManager_Variable class]
@@ -242,7 +351,25 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 
 @implementation GTLRTagManager_ContainerVersionHeader
 @dynamic accountId, containerId, containerVersionId, deleted, name, numMacros,
-         numRules, numTags, numTriggers, numVariables;
+         numRules, numTags, numTriggers, numVariables, path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_CreateBuiltInVariableResponse
+//
+
+@implementation GTLRTagManager_CreateBuiltInVariableResponse
+@dynamic builtInVariable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"builtInVariable" : [GTLRTagManager_BuiltInVariable class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -252,7 +379,7 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_CreateContainerVersionRequestVersionOptions
-@dynamic name, notes, quickPreview;
+@dynamic name, notes;
 @end
 
 
@@ -262,7 +389,35 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_CreateContainerVersionResponse
-@dynamic compilerError, containerVersion;
+@dynamic compilerError, containerVersion, newWorkspacePath, syncStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_CreateWorkspaceProposalRequest
+//
+
+@implementation GTLRTagManager_CreateWorkspaceProposalRequest
+@dynamic initialComment, reviewers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reviewers" : [GTLRTagManager_WorkspaceProposalUser class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_Entity
+//
+
+@implementation GTLRTagManager_Entity
+@dynamic changeStatus, folder, tag, trigger, variable;
 @end
 
 
@@ -272,9 +427,9 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_Environment
-@dynamic accountId, authorizationCode, authorizationTimestampMs, containerId,
+@dynamic accountId, authorizationCode, authorizationTimestamp, containerId,
          containerVersionId, descriptionProperty, enableDebug, environmentId,
-         fingerprint, name, type, url;
+         fingerprint, name, path, tagManagerUrl, type, url, workspaceId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -289,7 +444,8 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_Folder
-@dynamic accountId, containerId, fingerprint, folderId, name;
+@dynamic accountId, containerId, fingerprint, folderId, name, notes, path,
+         tagManagerUrl, workspaceId;
 @end
 
 
@@ -299,7 +455,7 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_FolderEntities
-@dynamic tag, trigger, variable;
+@dynamic nextPageToken, tag, trigger, variable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -315,15 +471,16 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTagManager_ListAccountsResponse
+//   GTLRTagManager_GetWorkspaceStatusResponse
 //
 
-@implementation GTLRTagManager_ListAccountsResponse
-@dynamic accounts;
+@implementation GTLRTagManager_GetWorkspaceStatusResponse
+@dynamic mergeConflict, workspaceChange;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"accounts" : [GTLRTagManager_Account class]
+    @"mergeConflict" : [GTLRTagManager_MergeConflict class],
+    @"workspaceChange" : [GTLRTagManager_Entity class]
   };
   return map;
 }
@@ -333,17 +490,21 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTagManager_ListAccountUsersResponse
+//   GTLRTagManager_ListAccountsResponse
 //
 
-@implementation GTLRTagManager_ListAccountUsersResponse
-@dynamic userAccess;
+@implementation GTLRTagManager_ListAccountsResponse
+@dynamic account, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"userAccess" : [GTLRTagManager_UserAccess class]
+    @"account" : [GTLRTagManager_Account class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"account";
 }
 
 @end
@@ -355,13 +516,17 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_ListContainersResponse
-@dynamic containers;
+@dynamic container, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"containers" : [GTLRTagManager_Container class]
+    @"container" : [GTLRTagManager_Container class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"container";
 }
 
 @end
@@ -373,14 +538,39 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_ListContainerVersionsResponse
-@dynamic containerVersion, containerVersionHeader;
+@dynamic containerVersionHeader, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"containerVersion" : [GTLRTagManager_ContainerVersion class],
     @"containerVersionHeader" : [GTLRTagManager_ContainerVersionHeader class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"containerVersionHeader";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_ListEnabledBuiltInVariablesResponse
+//
+
+@implementation GTLRTagManager_ListEnabledBuiltInVariablesResponse
+@dynamic builtInVariable, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"builtInVariable" : [GTLRTagManager_BuiltInVariable class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"builtInVariable";
 }
 
 @end
@@ -392,13 +582,17 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_ListEnvironmentsResponse
-@dynamic environments;
+@dynamic environment, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"environments" : [GTLRTagManager_Environment class]
+    @"environment" : [GTLRTagManager_Environment class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"environment";
 }
 
 @end
@@ -410,13 +604,17 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_ListFoldersResponse
-@dynamic folders;
+@dynamic folder, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"folders" : [GTLRTagManager_Folder class]
+    @"folder" : [GTLRTagManager_Folder class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"folder";
 }
 
 @end
@@ -428,13 +626,17 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_ListTagsResponse
-@dynamic tags;
+@dynamic nextPageToken, tag;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"tags" : [GTLRTagManager_Tag class]
+    @"tag" : [GTLRTagManager_Tag class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"tag";
 }
 
 @end
@@ -446,13 +648,39 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_ListTriggersResponse
-@dynamic triggers;
+@dynamic nextPageToken, trigger;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"triggers" : [GTLRTagManager_Trigger class]
+    @"trigger" : [GTLRTagManager_Trigger class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"trigger";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_ListUserPermissionsResponse
+//
+
+@implementation GTLRTagManager_ListUserPermissionsResponse
+@dynamic nextPageToken, userPermission;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userPermission" : [GTLRTagManager_UserPermission class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userPermission";
 }
 
 @end
@@ -464,13 +692,17 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 //
 
 @implementation GTLRTagManager_ListVariablesResponse
-@dynamic variables;
+@dynamic nextPageToken, variable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"variables" : [GTLRTagManager_Variable class]
+    @"variable" : [GTLRTagManager_Variable class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"variable";
 }
 
 @end
@@ -478,23 +710,33 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTagManager_Macro
+//   GTLRTagManager_ListWorkspacesResponse
 //
 
-@implementation GTLRTagManager_Macro
-@dynamic accountId, containerId, disablingRuleId, enablingRuleId, fingerprint,
-         macroId, name, notes, parameter, parentFolderId, scheduleEndMs,
-         scheduleStartMs, type;
+@implementation GTLRTagManager_ListWorkspacesResponse
+@dynamic nextPageToken, workspace;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"disablingRuleId" : [NSString class],
-    @"enablingRuleId" : [NSString class],
-    @"parameter" : [GTLRTagManager_Parameter class]
+    @"workspace" : [GTLRTagManager_Workspace class]
   };
   return map;
 }
 
++ (NSString *)collectionItemsKey {
+  return @"workspace";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_MergeConflict
+//
+
+@implementation GTLRTagManager_MergeConflict
+@dynamic entityInBaseVersion, entityInWorkspace;
 @end
 
 
@@ -529,19 +771,61 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTagManager_Rule
+//   GTLRTagManager_QuickPreviewResponse
 //
 
-@implementation GTLRTagManager_Rule
-@dynamic accountId, condition, containerId, fingerprint, name, notes, ruleId;
+@implementation GTLRTagManager_QuickPreviewResponse
+@dynamic compilerError, containerVersion, syncStatus;
+@end
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"condition" : [GTLRTagManager_Condition class]
-  };
-  return map;
-}
 
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_RevertBuiltInVariableResponse
+//
+
+@implementation GTLRTagManager_RevertBuiltInVariableResponse
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_RevertFolderResponse
+//
+
+@implementation GTLRTagManager_RevertFolderResponse
+@dynamic folder;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_RevertTagResponse
+//
+
+@implementation GTLRTagManager_RevertTagResponse
+@dynamic tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_RevertTriggerResponse
+//
+
+@implementation GTLRTagManager_RevertTriggerResponse
+@dynamic trigger;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_RevertVariableResponse
+//
+
+@implementation GTLRTagManager_RevertVariableResponse
+@dynamic variable;
 @end
 
 
@@ -557,14 +841,43 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTagManager_SyncStatus
+//
+
+@implementation GTLRTagManager_SyncStatus
+@dynamic mergeConflict, syncError;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_SyncWorkspaceResponse
+//
+
+@implementation GTLRTagManager_SyncWorkspaceResponse
+@dynamic mergeConflict, syncStatus;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mergeConflict" : [GTLRTagManager_MergeConflict class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTagManager_Tag
 //
 
 @implementation GTLRTagManager_Tag
 @dynamic accountId, blockingRuleId, blockingTriggerId, containerId, fingerprint,
          firingRuleId, firingTriggerId, liveOnly, name, notes, parameter,
-         parentFolderId, priority, scheduleEndMs, scheduleStartMs, setupTag,
-         tagFiringOption, tagId, teardownTag, type;
+         parentFolderId, path, priority, scheduleEndMs, scheduleStartMs,
+         setupTag, tagFiringOption, tagId, tagManagerUrl, teardownTag, type,
+         workspaceId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -594,14 +907,28 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTagManager_Timestamp
+//
+
+@implementation GTLRTagManager_Timestamp
+@dynamic nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTagManager_Trigger
 //
 
 @implementation GTLRTagManager_Trigger
 @dynamic accountId, autoEventFilter, checkValidation, containerId,
-         customEventFilter, enableAllVideos, eventName, filter, fingerprint,
-         interval, limit, name, parentFolderId, triggerId, type,
-         uniqueTriggerId, videoPercentageList, waitForTags, waitForTagsTimeout;
+         continuousTimeMinMilliseconds, customEventFilter, eventName, filter,
+         fingerprint, horizontalScrollPercentageList, interval, intervalSeconds,
+         limit, maxTimerLengthSeconds, name, notes, parentFolderId, path,
+         selector, tagManagerUrl, totalTimeMinMilliseconds, triggerId, type,
+         uniqueTriggerId, verticalScrollPercentageList, visibilitySelector,
+         visiblePercentageMax, visiblePercentageMin, waitForTags,
+         waitForTagsTimeout, workspaceId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -617,11 +944,29 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTagManager_UserAccess
+//   GTLRTagManager_UpdateWorkspaceProposalRequest
 //
 
-@implementation GTLRTagManager_UserAccess
-@dynamic accountAccess, accountId, containerAccess, emailAddress, permissionId;
+@implementation GTLRTagManager_UpdateWorkspaceProposalRequest
+@dynamic fingerprint, newComment, reviewers, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reviewers" : [GTLRTagManager_WorkspaceProposalUser class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_UserPermission
+//
+
+@implementation GTLRTagManager_UserPermission
+@dynamic accountAccess, accountId, containerAccess, emailAddress, path;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -640,8 +985,9 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
 
 @implementation GTLRTagManager_Variable
 @dynamic accountId, containerId, disablingTriggerId, enablingTriggerId,
-         fingerprint, name, notes, parameter, parentFolderId, scheduleEndMs,
-         scheduleStartMs, type, variableId;
+         fingerprint, name, notes, parameter, parentFolderId, path,
+         scheduleEndMs, scheduleStartMs, tagManagerUrl, type, variableId,
+         workspaceId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -652,4 +998,80 @@ NSString * const kGTLRTagManager_Trigger_Type_YouTube        = @"youTube";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_Workspace
+//
+
+@implementation GTLRTagManager_Workspace
+@dynamic accountId, containerId, descriptionProperty, fingerprint, name, path,
+         tagManagerUrl, workspaceId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_WorkspaceProposal
+//
+
+@implementation GTLRTagManager_WorkspaceProposal
+@dynamic authors, fingerprint, history, path, reviewers, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authors" : [GTLRTagManager_WorkspaceProposalUser class],
+    @"history" : [GTLRTagManager_WorkspaceProposalHistory class],
+    @"reviewers" : [GTLRTagManager_WorkspaceProposalUser class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_WorkspaceProposalHistory
+//
+
+@implementation GTLRTagManager_WorkspaceProposalHistory
+@dynamic comment, createdBy, createdTimestamp, statusChange, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_WorkspaceProposalHistoryComment
+//
+
+@implementation GTLRTagManager_WorkspaceProposalHistoryComment
+@dynamic content;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_WorkspaceProposalHistoryStatusChange
+//
+
+@implementation GTLRTagManager_WorkspaceProposalHistoryStatusChange
+@dynamic newStatus, oldStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_WorkspaceProposalUser
+//
+
+@implementation GTLRTagManager_WorkspaceProposalUser
+@dynamic gaiaId, type;
 @end

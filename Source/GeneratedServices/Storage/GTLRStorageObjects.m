@@ -16,7 +16,7 @@
 //
 
 @implementation GTLRStorage_Bucket
-@dynamic acl, cors, defaultObjectAcl, ETag, identifier, kind, lifecycle,
+@dynamic acl, cors, defaultObjectAcl, ETag, identifier, kind, labels, lifecycle,
          location, logging, metageneration, name, owner, projectNumber,
          selfLink, storageClass, timeCreated, updated, versioning, website;
 
@@ -55,6 +55,20 @@
     @"responseHeader" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_Labels
+//
+
+@implementation GTLRStorage_Bucket_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -292,6 +306,69 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorage_Notification
+//
+
+@implementation GTLRStorage_Notification
+@dynamic customAttributes, ETag, eventTypes, identifier, kind, objectNamePrefix,
+         payloadFormat, selfLink, topic;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"customAttributes" : @"custom_attributes",
+    @"ETag" : @"etag",
+    @"eventTypes" : @"event_types",
+    @"identifier" : @"id",
+    @"objectNamePrefix" : @"object_name_prefix",
+    @"payloadFormat" : @"payload_format"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"event_types" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Notification_CustomAttributes
+//
+
+@implementation GTLRStorage_Notification_CustomAttributes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Notifications
+//
+
+@implementation GTLRStorage_Notifications
+@dynamic items, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRStorage_Notification class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorage_Object
 //
 
@@ -469,6 +546,21 @@
 
 @implementation GTLRStorage_RewriteResponse
 @dynamic done, kind, objectSize, resource, rewriteToken, totalBytesRewritten;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_ServiceAccount
+//
+
+@implementation GTLRStorage_ServiceAccount
+@dynamic emailAddress, kind;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"emailAddress" : @"email_address" };
+}
+
 @end
 
 

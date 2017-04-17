@@ -258,7 +258,7 @@
 //
 
 @implementation GTLRConsumerSurveys_SurveysStartResponse
-@dynamic requestId, resource;
+@dynamic requestId;
 @end
 
 
@@ -268,7 +268,7 @@
 //
 
 @implementation GTLRConsumerSurveys_SurveysStopResponse
-@dynamic requestId, resource;
+@dynamic requestId;
 @end
 
 

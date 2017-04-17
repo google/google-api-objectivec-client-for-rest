@@ -67,6 +67,7 @@
 @class GTLRBooks_Usersettings_Notification;
 @class GTLRBooks_Usersettings_Notification_MoreFromAuthors;
 @class GTLRBooks_Usersettings_Notification_MoreFromSeries;
+@class GTLRBooks_Usersettings_Notification_RewardExpirations;
 @class GTLRBooks_Volume;
 @class GTLRBooks_Volume_AccessInfo;
 @class GTLRBooks_Volume_AccessInfo_Epub;
@@ -1645,6 +1646,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong, nullable) GTLRBooks_Usersettings_Notification_MoreFromAuthors *moreFromAuthors;
 @property(nonatomic, strong, nullable) GTLRBooks_Usersettings_Notification_MoreFromSeries *moreFromSeries;
+@property(nonatomic, strong, nullable) GTLRBooks_Usersettings_Notification_RewardExpirations *rewardExpirations;
 
 @end
 
@@ -1663,6 +1665,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRBooks_Usersettings_Notification_MoreFromSeries
  */
 @interface GTLRBooks_Usersettings_Notification_MoreFromSeries : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *optedState;
+
+@end
+
+
+/**
+ *  GTLRBooks_Usersettings_Notification_RewardExpirations
+ */
+@interface GTLRBooks_Usersettings_Notification_RewardExpirations : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *optedState;
 

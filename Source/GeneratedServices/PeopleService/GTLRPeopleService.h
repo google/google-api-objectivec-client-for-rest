@@ -8,6 +8,6 @@
 // Documentation:
 //   https://developers.google.com/people/
 
-#import "GTLRPeopleObjects.h"
-#import "GTLRPeopleQuery.h"
-#import "GTLRPeopleService.h"
+#import "GTLRPeopleServiceObjects.h"
+#import "GTLRPeopleServiceQuery.h"
+#import "GTLRPeopleServiceService.h"

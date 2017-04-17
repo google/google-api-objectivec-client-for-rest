@@ -260,7 +260,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction;
  *  ]
  *  },
  *  {
- *  "service": "fooservice\@googleapis.com"
+ *  "service": "fooservice.googleapis.com"
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
