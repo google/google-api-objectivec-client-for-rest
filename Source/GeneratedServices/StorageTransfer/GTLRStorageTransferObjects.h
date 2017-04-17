@@ -47,76 +47,269 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRStorageTransfer_ErrorSummary.errorCode
 
-/** Value: "ABORTED" */
+/**
+ *  The operation was aborted, typically due to a concurrency issue such as
+ *  a sequencer check failure or transaction abort.
+ *  See the guidelines above for deciding between `FAILED_PRECONDITION`,
+ *  `ABORTED`, and `UNAVAILABLE`.
+ *  HTTP Mapping: 409 Conflict
+ *
+ *  Value: "ABORTED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Aborted;
-/** Value: "ALREADY_EXISTS" */
+/**
+ *  The entity that a client attempted to create (e.g., file or directory)
+ *  already exists.
+ *  HTTP Mapping: 409 Conflict
+ *
+ *  Value: "ALREADY_EXISTS"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_AlreadyExists;
-/** Value: "CANCELLED" */
+/**
+ *  The operation was cancelled, typically by the caller.
+ *  HTTP Mapping: 499 Client Closed Request
+ *
+ *  Value: "CANCELLED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Cancelled;
-/** Value: "DATA_LOSS" */
+/**
+ *  Unrecoverable data loss or corruption.
+ *  HTTP Mapping: 500 Internal Server Error
+ *
+ *  Value: "DATA_LOSS"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_DataLoss;
-/** Value: "DEADLINE_EXCEEDED" */
+/**
+ *  The deadline expired before the operation could complete. For operations
+ *  that change the state of the system, this error may be returned
+ *  even if the operation has completed successfully. For example, a
+ *  successful response from a server could have been delayed long
+ *  enough for the deadline to expire.
+ *  HTTP Mapping: 504 Gateway Timeout
+ *
+ *  Value: "DEADLINE_EXCEEDED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_DeadlineExceeded;
-/** Value: "FAILED_PRECONDITION" */
+/**
+ *  The operation was rejected because the system is not in a state
+ *  required for the operation's execution. For example, the directory
+ *  to be deleted is non-empty, an rmdir operation is applied to
+ *  a non-directory, etc.
+ *  Service implementors can use the following guidelines to decide
+ *  between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:
+ *  (a) Use `UNAVAILABLE` if the client can retry just the failing call.
+ *  (b) Use `ABORTED` if the client should retry at a higher level
+ *  (e.g., when a client-specified test-and-set fails, indicating the
+ *  client should restart a read-modify-write sequence).
+ *  (c) Use `FAILED_PRECONDITION` if the client should not retry until
+ *  the system state has been explicitly fixed. E.g., if an "rmdir"
+ *  fails because the directory is non-empty, `FAILED_PRECONDITION`
+ *  should be returned since the client should not retry unless
+ *  the files are deleted from the directory.
+ *  HTTP Mapping: 400 Bad Request
+ *
+ *  Value: "FAILED_PRECONDITION"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_FailedPrecondition;
-/** Value: "INTERNAL" */
+/**
+ *  Internal errors. This means that some invariants expected by the
+ *  underlying system have been broken. This error code is reserved
+ *  for serious errors.
+ *  HTTP Mapping: 500 Internal Server Error
+ *
+ *  Value: "INTERNAL"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Internal;
-/** Value: "INVALID_ARGUMENT" */
+/**
+ *  The client specified an invalid argument. Note that this differs
+ *  from `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments
+ *  that are problematic regardless of the state of the system
+ *  (e.g., a malformed file name).
+ *  HTTP Mapping: 400 Bad Request
+ *
+ *  Value: "INVALID_ARGUMENT"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_InvalidArgument;
-/** Value: "NOT_FOUND" */
+/**
+ *  Some requested entity (e.g., file or directory) was not found.
+ *  Note to server developers: if a request is denied for an entire class
+ *  of users, such as gradual feature rollout or undocumented whitelist,
+ *  `NOT_FOUND` may be used. If a request is denied for some users within
+ *  a class of users, such as user-based access control, `PERMISSION_DENIED`
+ *  must be used.
+ *  HTTP Mapping: 404 Not Found
+ *
+ *  Value: "NOT_FOUND"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_NotFound;
-/** Value: "OK" */
+/**
+ *  Not an error; returned on success
+ *  HTTP Mapping: 200 OK
+ *
+ *  Value: "OK"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Ok;
-/** Value: "OUT_OF_RANGE" */
+/**
+ *  The operation was attempted past the valid range. E.g., seeking or
+ *  reading past end-of-file.
+ *  Unlike `INVALID_ARGUMENT`, this error indicates a problem that may
+ *  be fixed if the system state changes. For example, a 32-bit file
+ *  system will generate `INVALID_ARGUMENT` if asked to read at an
+ *  offset that is not in the range [0,2^32-1], but it will generate
+ *  `OUT_OF_RANGE` if asked to read from an offset past the current
+ *  file size.
+ *  There is a fair bit of overlap between `FAILED_PRECONDITION` and
+ *  `OUT_OF_RANGE`. We recommend using `OUT_OF_RANGE` (the more specific
+ *  error) when it applies so that callers who are iterating through
+ *  a space can easily look for an `OUT_OF_RANGE` error to detect when
+ *  they are done.
+ *  HTTP Mapping: 400 Bad Request
+ *
+ *  Value: "OUT_OF_RANGE"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_OutOfRange;
-/** Value: "PERMISSION_DENIED" */
+/**
+ *  The caller does not have permission to execute the specified
+ *  operation. `PERMISSION_DENIED` must not be used for rejections
+ *  caused by exhausting some resource (use `RESOURCE_EXHAUSTED`
+ *  instead for those errors). `PERMISSION_DENIED` must not be
+ *  used if the caller can not be identified (use `UNAUTHENTICATED`
+ *  instead for those errors). This error code does not imply the
+ *  request is valid or the requested entity exists or satisfies
+ *  other pre-conditions.
+ *  HTTP Mapping: 403 Forbidden
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_PermissionDenied;
-/** Value: "RESOURCE_EXHAUSTED" */
+/**
+ *  Some resource has been exhausted, perhaps a per-user quota, or
+ *  perhaps the entire file system is out of space.
+ *  HTTP Mapping: 429 Too Many Requests
+ *
+ *  Value: "RESOURCE_EXHAUSTED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_ResourceExhausted;
-/** Value: "UNAUTHENTICATED" */
+/**
+ *  The request does not have valid authentication credentials for the
+ *  operation.
+ *  HTTP Mapping: 401 Unauthorized
+ *
+ *  Value: "UNAUTHENTICATED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unauthenticated;
-/** Value: "UNAVAILABLE" */
+/**
+ *  The service is currently unavailable. This is most likely a
+ *  transient condition, which can be corrected by retrying with
+ *  a backoff.
+ *  See the guidelines above for deciding between `FAILED_PRECONDITION`,
+ *  `ABORTED`, and `UNAVAILABLE`.
+ *  HTTP Mapping: 503 Service Unavailable
+ *
+ *  Value: "UNAVAILABLE"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unavailable;
-/** Value: "UNIMPLEMENTED" */
+/**
+ *  The operation is not implemented or is not supported/enabled in this
+ *  service.
+ *  HTTP Mapping: 501 Not Implemented
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unimplemented;
-/** Value: "UNKNOWN" */
+/**
+ *  Unknown error. For example, this error may be returned when
+ *  a `Status` value received from another address space belongs to
+ *  an error space that is not known in this address space. Also
+ *  errors raised by APIs that do not return enough error information
+ *  may be converted to this error.
+ *  HTTP Mapping: 500 Internal Server Error
+ *
+ *  Value: "UNKNOWN"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRStorageTransfer_TransferJob.status
 
-/** Value: "DELETED" */
+/**
+ *  This is a soft delete state. After a transfer job is set to this
+ *  state, the job and all the transfer executions are subject to
+ *  garbage collection.
+ *
+ *  Value: "DELETED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_Deleted;
-/** Value: "DISABLED" */
+/**
+ *  New transfers will not be scheduled.
+ *
+ *  Value: "DISABLED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_Disabled;
-/** Value: "ENABLED" */
+/**
+ *  New transfers will be performed based on the schedule.
+ *
+ *  Value: "ENABLED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_Enabled;
-/** Value: "STATUS_UNSPECIFIED" */
+/**
+ *  Zero is an illegal value.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRStorageTransfer_TransferOperation.status
 
-/** Value: "ABORTED" */
+/**
+ *  Aborted by the user.
+ *
+ *  Value: "ABORTED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Aborted;
-/** Value: "FAILED" */
+/**
+ *  Terminated due to an unrecoverable failure.
+ *
+ *  Value: "FAILED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Failed;
-/** Value: "IN_PROGRESS" */
+/**
+ *  In progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_InProgress;
-/** Value: "PAUSED" */
+/**
+ *  Paused.
+ *
+ *  Value: "PAUSED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Paused;
-/** Value: "STATUS_UNSPECIFIED" */
+/**
+ *  Zero is an illegal value.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_StatusUnspecified;
-/** Value: "SUCCESS" */
+/**
+ *  Completed successfully.
+ *
+ *  Value: "SUCCESS"
+ */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success;
 
 /**
- *  AWS access key (see [AWS Security
+ *  AWS access key (see
+ *  [AWS Security
  *  Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)).
  */
 @interface GTLRStorageTransfer_AwsAccessKey : GTLRObject
 
-/** AWS access key ID. Required. */
+/**
+ *  AWS access key ID.
+ *  Required.
+ */
 @property(nonatomic, copy, nullable) NSString *accessKeyId;
 
 /**
@@ -129,20 +322,22 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 
 /**
- *  An AwsS3Data can be a data source, but not a data sink. In an AwsS3Data, an
- *  object's name is the S3 object's key name.
+ *  An AwsS3Data can be a data source, but not a data sink.
+ *  In an AwsS3Data, an object's name is the S3 object's key name.
  */
 @interface GTLRStorageTransfer_AwsS3Data : GTLRObject
 
 /**
  *  AWS access key used to sign the API requests to the AWS S3 bucket.
- *  Permissions on the bucket must be granted to the access ID of the AWS access
- *  key. Required.
+ *  Permissions on the bucket must be granted to the access ID of the
+ *  AWS access key.
+ *  Required.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_AwsAccessKey *awsAccessKey;
 
 /**
- *  S3 Bucket name (see [Creating a
+ *  S3 Bucket name (see
+ *  [Creating a
  *  bucket](http://docs.aws.amazon.com/AmazonS3/latest/dev/create-bucket-get-location-example.html)).
  *  Required.
  */
@@ -153,34 +348,34 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 /**
  *  Represents a whole calendar date, e.g. date of birth. The time of day and
- *  time zone are either specified elsewhere or are not significant. The date is
- *  relative to the Proleptic Gregorian Calendar. The day may be 0 to represent
- *  a year and month where the day is not significant, e.g. credit card
+ *  time zone are either specified elsewhere or are not significant. The date
+ *  is relative to the Proleptic Gregorian Calendar. The day may be 0 to
+ *  represent a year and month where the day is not significant, e.g. credit
+ *  card
  *  expiration date. The year may be 0 to represent a month and day independent
- *  of year, e.g. anniversary date. Related types are
- *  [google.type.TimeOfDay][google.type.TimeOfDay] and
- *  `google.protobuf.Timestamp`.
+ *  of year, e.g. anniversary date. Related types are google.type.TimeOfDay
+ *  and `google.protobuf.Timestamp`.
  */
 @interface GTLRStorageTransfer_Date : GTLRObject
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
- *  specifying a year/month where the day is not sigificant.
+ *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  if specifying a year/month where the day is not significant.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year of date. Must be from 1 to 12.
+ *  Month of year. Must be from 1 to 12.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
- *  Year of date. Must be from 1 to 9,999, or 0 if specifying a date without a
- *  year.
+ *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without
+ *  a year.
  *
  *  Uses NSNumber of intValue.
  */
@@ -192,9 +387,11 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRStorageTransfer_Empty : GTLRObject
 @end
@@ -209,8 +406,9 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, strong, nullable) NSArray<NSString *> *errorDetails;
 
 /**
- *  A URL that refers to the target (a data source, a data sink, or an object)
- *  with which the error is associated. Required.
+ *  A URL that refers to the target (a data source, a data sink,
+ *  or an object) with which the error is associated.
+ *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -227,44 +425,126 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  Required.
  *
  *  Likely values:
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Aborted Value
- *        "ABORTED"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_AlreadyExists Value
- *        "ALREADY_EXISTS"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Cancelled Value
- *        "CANCELLED"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_DataLoss Value
- *        "DATA_LOSS"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_DeadlineExceeded Value
- *        "DEADLINE_EXCEEDED"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_FailedPrecondition
- *        Value "FAILED_PRECONDITION"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Internal Value
- *        "INTERNAL"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_InvalidArgument Value
- *        "INVALID_ARGUMENT"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_NotFound Value
- *        "NOT_FOUND"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Ok Value "OK"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_OutOfRange Value
- *        "OUT_OF_RANGE"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_PermissionDenied Value
- *        "PERMISSION_DENIED"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_ResourceExhausted
- *        Value "RESOURCE_EXHAUSTED"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unauthenticated Value
- *        "UNAUTHENTICATED"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unavailable Value
- *        "UNAVAILABLE"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unimplemented Value
- *        "UNIMPLEMENTED"
- *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unknown Value
- *        "UNKNOWN"
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Aborted The operation
+ *        was aborted, typically due to a concurrency issue such as
+ *        a sequencer check failure or transaction abort.
+ *        See the guidelines above for deciding between `FAILED_PRECONDITION`,
+ *        `ABORTED`, and `UNAVAILABLE`.
+ *        HTTP Mapping: 409 Conflict (Value: "ABORTED")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_AlreadyExists The
+ *        entity that a client attempted to create (e.g., file or directory)
+ *        already exists.
+ *        HTTP Mapping: 409 Conflict (Value: "ALREADY_EXISTS")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Cancelled The
+ *        operation was cancelled, typically by the caller.
+ *        HTTP Mapping: 499 Client Closed Request (Value: "CANCELLED")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_DataLoss Unrecoverable
+ *        data loss or corruption.
+ *        HTTP Mapping: 500 Internal Server Error (Value: "DATA_LOSS")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_DeadlineExceeded The
+ *        deadline expired before the operation could complete. For operations
+ *        that change the state of the system, this error may be returned
+ *        even if the operation has completed successfully. For example, a
+ *        successful response from a server could have been delayed long
+ *        enough for the deadline to expire.
+ *        HTTP Mapping: 504 Gateway Timeout (Value: "DEADLINE_EXCEEDED")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_FailedPrecondition The
+ *        operation was rejected because the system is not in a state
+ *        required for the operation's execution. For example, the directory
+ *        to be deleted is non-empty, an rmdir operation is applied to
+ *        a non-directory, etc.
+ *        Service implementors can use the following guidelines to decide
+ *        between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:
+ *        (a) Use `UNAVAILABLE` if the client can retry just the failing call.
+ *        (b) Use `ABORTED` if the client should retry at a higher level
+ *        (e.g., when a client-specified test-and-set fails, indicating the
+ *        client should restart a read-modify-write sequence).
+ *        (c) Use `FAILED_PRECONDITION` if the client should not retry until
+ *        the system state has been explicitly fixed. E.g., if an "rmdir"
+ *        fails because the directory is non-empty, `FAILED_PRECONDITION`
+ *        should be returned since the client should not retry unless
+ *        the files are deleted from the directory.
+ *        HTTP Mapping: 400 Bad Request (Value: "FAILED_PRECONDITION")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Internal Internal
+ *        errors. This means that some invariants expected by the
+ *        underlying system have been broken. This error code is reserved
+ *        for serious errors.
+ *        HTTP Mapping: 500 Internal Server Error (Value: "INTERNAL")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_InvalidArgument The
+ *        client specified an invalid argument. Note that this differs
+ *        from `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments
+ *        that are problematic regardless of the state of the system
+ *        (e.g., a malformed file name).
+ *        HTTP Mapping: 400 Bad Request (Value: "INVALID_ARGUMENT")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_NotFound Some
+ *        requested entity (e.g., file or directory) was not found.
+ *        Note to server developers: if a request is denied for an entire class
+ *        of users, such as gradual feature rollout or undocumented whitelist,
+ *        `NOT_FOUND` may be used. If a request is denied for some users within
+ *        a class of users, such as user-based access control,
+ *        `PERMISSION_DENIED`
+ *        must be used.
+ *        HTTP Mapping: 404 Not Found (Value: "NOT_FOUND")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Ok Not an error;
+ *        returned on success
+ *        HTTP Mapping: 200 OK (Value: "OK")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_OutOfRange The
+ *        operation was attempted past the valid range. E.g., seeking or
+ *        reading past end-of-file.
+ *        Unlike `INVALID_ARGUMENT`, this error indicates a problem that may
+ *        be fixed if the system state changes. For example, a 32-bit file
+ *        system will generate `INVALID_ARGUMENT` if asked to read at an
+ *        offset that is not in the range [0,2^32-1], but it will generate
+ *        `OUT_OF_RANGE` if asked to read from an offset past the current
+ *        file size.
+ *        There is a fair bit of overlap between `FAILED_PRECONDITION` and
+ *        `OUT_OF_RANGE`. We recommend using `OUT_OF_RANGE` (the more specific
+ *        error) when it applies so that callers who are iterating through
+ *        a space can easily look for an `OUT_OF_RANGE` error to detect when
+ *        they are done.
+ *        HTTP Mapping: 400 Bad Request (Value: "OUT_OF_RANGE")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_PermissionDenied The
+ *        caller does not have permission to execute the specified
+ *        operation. `PERMISSION_DENIED` must not be used for rejections
+ *        caused by exhausting some resource (use `RESOURCE_EXHAUSTED`
+ *        instead for those errors). `PERMISSION_DENIED` must not be
+ *        used if the caller can not be identified (use `UNAUTHENTICATED`
+ *        instead for those errors). This error code does not imply the
+ *        request is valid or the requested entity exists or satisfies
+ *        other pre-conditions.
+ *        HTTP Mapping: 403 Forbidden (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_ResourceExhausted Some
+ *        resource has been exhausted, perhaps a per-user quota, or
+ *        perhaps the entire file system is out of space.
+ *        HTTP Mapping: 429 Too Many Requests (Value: "RESOURCE_EXHAUSTED")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unauthenticated The
+ *        request does not have valid authentication credentials for the
+ *        operation.
+ *        HTTP Mapping: 401 Unauthorized (Value: "UNAUTHENTICATED")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unavailable The
+ *        service is currently unavailable. This is most likely a
+ *        transient condition, which can be corrected by retrying with
+ *        a backoff.
+ *        See the guidelines above for deciding between `FAILED_PRECONDITION`,
+ *        `ABORTED`, and `UNAVAILABLE`.
+ *        HTTP Mapping: 503 Service Unavailable (Value: "UNAVAILABLE")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unimplemented The
+ *        operation is not implemented or is not supported/enabled in this
+ *        service.
+ *        HTTP Mapping: 501 Not Implemented (Value: "UNIMPLEMENTED")
+ *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unknown Unknown error.
+ *        For example, this error may be returned when
+ *        a `Status` value received from another address space belongs to
+ *        an error space that is not known in this address space. Also
+ *        errors raised by APIs that do not return enough error information
+ *        may be converted to this error.
+ *        HTTP Mapping: 500 Internal Server Error (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *errorCode;
 
 /**
- *  Count of this type of error. Required.
+ *  Count of this type of error.
+ *  Required.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -279,12 +559,14 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 /**
  *  In a GcsData, an object's name is the Google Cloud Storage object's name and
  *  its `lastModificationTime` refers to the object's updated time, which
- *  changes when the content or the metadata of the object is updated.
+ *  changes
+ *  when the content or the metadata of the object is updated.
  */
 @interface GTLRStorageTransfer_GcsData : GTLRObject
 
 /**
- *  Google Cloud Storage bucket name (see [Bucket Name
+ *  Google Cloud Storage bucket name (see
+ *  [Bucket Name
  *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
  *  Required.
  */
@@ -310,26 +592,42 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  file referenced by a URL. The first line in the file must be
  *  "TsvHttpData-1.0", which specifies the format of the file. Subsequent lines
  *  specify the information of the list of objects, one object per list entry.
- *  Each entry has the following tab-delimited fields: * HTTP URL * Length * MD5
- *  - This field is a base64-encoded MD5 hash of the object An HTTP URL that
- *  points to the object to be transferred. It must be a valid URL with URL
- *  scheme HTTP or HTTPS. When an object with URL `http(s)://hostname:port/` is
- *  transferred to the data sink, the name of the object at the data sink is
- *  `/`. Length and MD5 provide the size and the base64-encoded MD5 hash of the
- *  object. If Length does not match the actual length of the object fetched,
- *  the object will not be transferred. If MD5 does not match the MD5 computed
- *  from the transferred bytes, the object transfer will fail.
- *  `lastModificationTime` is not available in HttpData objects. The objects
- *  that the URL list points to must allow public access. Storage Transfer
- *  Service obeys `robots.txt` rules and requires the HTTP server to support
- *  Range requests and to return a Content-Length header in each response.
+ *  Each entry has the following tab-delimited fields:
+ *  * HTTP URL - The location of the object.
+ *  * Length - The size of the object in bytes.
+ *  * MD5 - The base64-encoded MD5 hash of the object.
+ *  For an example of a valid TSV file, see
+ *  [Transferring data from
+ *  URLs](https://cloud.google.com/storage/transfer/#urls)
+ *  When transferring data based on a URL list, keep the following in mind:
+ *  * When an object located at `http(s)://hostname:port/<URL-path>` is
+ *  transferred
+ *  to a data sink, the name of the object at the data sink is
+ *  `<hostname>/<URL-path>`.
+ *  * If the specified size of an object does not match the actual size of the
+ *  object fetched, the object will not be transferred.
+ *  * If the specified MD5 does not match the MD5 computed from the transferred
+ *  bytes, the object transfer will fail. For more information, see
+ *  [Generating MD5 hashes](https://cloud.google.com/storage/transfer/#md5)
+ *  * Ensure that each URL you specify is publicly accessible. For
+ *  example, in Google Cloud Storage you can
+ *  [share an object publicly]
+ *  (https://cloud.google.com/storage/docs/cloud-console#_sharingdata) and get
+ *  a link to it.
+ *  * Storage Transfer Service obeys `robots.txt` rules and requires the source
+ *  HTTP server to support `Range` requests and to return a `Content-Length`
+ *  header in each response.
+ *  * [ObjectConditions](#ObjectConditions) have no effect when filtering
+ *  objects
+ *  to transfer.
  */
 @interface GTLRStorageTransfer_HttpData : GTLRObject
 
 /**
- *  The URL that points to the file that stores the object list entries. This
- *  file must allow public access. Currently, only URLs with HTTP and HTTPS
- *  schemes are supported. Required.
+ *  The URL that points to the file that stores the object list entries.
+ *  This file must allow public access. Currently, only URLs with HTTP and
+ *  HTTPS schemes are supported.
+ *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *listUrl;
 
@@ -337,8 +635,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 
 /**
- *  The response message for
- *  [Operations.ListOperations][google.longrunning.Operations.ListOperations].
+ *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "operations" property. If returned as the result of a query, it
@@ -392,28 +689,38 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 /**
  *  `excludePrefixes` must follow the requirements described for
- *  `includePrefixes`. The max size of `excludePrefixes` is 20.
+ *  `includePrefixes`.
+ *  The max size of `excludePrefixes` is 1000.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludePrefixes;
 
 /**
  *  If `includePrefixes` is specified, objects that satisfy the object
- *  conditions must have names that start with one of the `includePrefixes` and
- *  that do not start with any of the `excludePrefixes`. If `includePrefixes` is
- *  not specified, all objects except those that have names starting with one of
- *  the `excludePrefixes` must satisfy the object conditions. Requirements: *
- *  Each include-prefix and exclude-prefix can contain any sequence of Unicode
- *  characters, of max length 1024 bytes when UTF8-encoded, and must not contain
- *  Carriage Return or Line Feed characters. Wildcard matching and regular
- *  expression matching are not supported. * None of the include-prefix or the
- *  exclude-prefix values can be empty, if specified. * Each include-prefix must
- *  include a distinct portion of the object namespace, i.e., no include-prefix
- *  may be a prefix of another include-prefix. * Each exclude-prefix must
- *  exclude a distinct portion of the object namespace, i.e., no exclude-prefix
- *  may be a prefix of another exclude-prefix. * If `includePrefixes` is
- *  specified, then each exclude-prefix must start with the value of a path
- *  explicitly included by `includePrefixes`. The max size of `includePrefixes`
- *  is 20.
+ *  conditions must have names that start with one of the `includePrefixes`
+ *  and that do not start with any of the `excludePrefixes`. If
+ *  `includePrefixes`
+ *  is not specified, all objects except those that have names starting with
+ *  one of the `excludePrefixes` must satisfy the object conditions.
+ *  Requirements:
+ *  * Each include-prefix and exclude-prefix can contain any sequence of
+ *  Unicode characters, of max length 1024 bytes when UTF8-encoded, and
+ *  must not contain Carriage Return or Line Feed characters. Wildcard
+ *  matching and regular expression matching are not supported.
+ *  * Each include-prefix and exclude-prefix must omit the leading slash.
+ *  For example, to include the `requests.gz` object in a transfer from
+ *  `s3://my-aws-bucket/logs/y=2015/requests.gz`, specify the include
+ *  prefix as `logs/y=2015/requests.gz`.
+ *  * None of the include-prefix or the exclude-prefix values can be empty,
+ *  if specified.
+ *  * Each include-prefix must include a distinct portion of the object
+ *  namespace, i.e., no include-prefix may be a prefix of another
+ *  include-prefix.
+ *  * Each exclude-prefix must exclude a distinct portion of the object
+ *  namespace, i.e., no exclude-prefix may be a prefix of another
+ *  exclude-prefix.
+ *  * If `includePrefixes` is specified, then each exclude-prefix must start
+ *  with the value of a path explicitly included by `includePrefixes`.
+ *  The max size of `includePrefixes` is 1000.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includePrefixes;
 
@@ -421,17 +728,18 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  `maxTimeElapsedSinceLastModification` is the complement to
  *  `minTimeElapsedSinceLastModification`.
  */
-@property(nonatomic, copy, nullable) NSString *maxTimeElapsedSinceLastModification;
+@property(nonatomic, strong, nullable) GTLRDuration *maxTimeElapsedSinceLastModification;
 
 /**
- *  If unspecified, `minTimeElapsedSinceLastModification` takes a zero value and
- *  `maxTimeElapsedSinceLastModification` takes the maximum possible value of
- *  Duration. Objects that satisfy the object conditions must either have a
- *  `lastModificationTime` greater or equal to `NOW` -
- *  `maxTimeElapsedSinceLastModification` and less than `NOW` -
- *  `minTimeElapsedSinceLastModification`, or not have a `lastModificationTime`.
+ *  If unspecified, `minTimeElapsedSinceLastModification` takes a zero value
+ *  and `maxTimeElapsedSinceLastModification` takes the maximum possible
+ *  value of Duration. Objects that satisfy the object conditions
+ *  must either have a `lastModificationTime` greater or equal to
+ *  `NOW` - `maxTimeElapsedSinceLastModification` and less than
+ *  `NOW` - `minTimeElapsedSinceLastModification`, or not have a
+ *  `lastModificationTime`.
  */
-@property(nonatomic, copy, nullable) NSString *minTimeElapsedSinceLastModification;
+@property(nonatomic, strong, nullable) GTLRDuration *minTimeElapsedSinceLastModification;
 
 @end
 
@@ -443,14 +751,15 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @interface GTLRStorageTransfer_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress. If
- *  true, the operation is completed and the `result` is available.
+ *  If the value is `false`, it means the operation is still in progress.
+ *  If true, the operation is completed, and either `error` or `response` is
+ *  available.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *done;
 
-/** The error result of the operation in case of failure. */
+/** The error result of the operation in case of failure or cancellation. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Status *error;
 
 /** Represents the transfer operation object. */
@@ -458,8 +767,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping above, the `name`
- *  should have the format of `operations/some/unique/name`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should have the format of `transferOperations/some/unique/name`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -468,9 +777,10 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
- *  original method name. For example, if the original method name is
- *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx`
+ *  is the original method name. For example, if the original method name
+ *  is `TakeSnapshot()`, the inferred response type is
+ *  `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Operation_Response *response;
 
@@ -494,9 +804,10 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
- *  original method name. For example, if the original method name is
- *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx`
+ *  is the original method name. For example, if the original method name
+ *  is `TakeSnapshot()`, the inferred response type is
+ *  `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -527,18 +838,28 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @interface GTLRStorageTransfer_Schedule : GTLRObject
 
 /**
- *  The last day the recurring transfer will be run. If `scheduleEndDate` is the
- *  same as `scheduleStartDate`, the transfer will be executed only once.
+ *  The last day the recurring transfer will be run. If `scheduleEndDate`
+ *  is the same as `scheduleStartDate`, the transfer will be executed only
+ *  once.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Date *scheduleEndDate;
 
-/** The first day the recurring transfer is scheduled to run. Required. */
+/**
+ *  The first day the recurring transfer is scheduled to run. If
+ *  `scheduleStartDate` is in the past, the transfer will run for the first
+ *  time on the following day.
+ *  Required.
+ */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Date *scheduleStartDate;
 
 /**
  *  The time in UTC at which the transfer will be scheduled to start in a day.
- *  Transfers may start later than this time. If not specified, transfers are
- *  scheduled to start at midnight UTC.
+ *  Transfers may start later than this time. If not specified, recurring and
+ *  one-time transfers that are scheduled to run today will run immediately;
+ *  recurring transfers that are scheduled to run on a future date will start
+ *  at approximately midnight UTC on that date. Note that when configuring a
+ *  transfer with the Cloud Platform Console, the transfer's start time in a
+ *  day is specified in your local timezone.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TimeOfDay *startTimeOfDay;
 
@@ -547,60 +868,68 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different programming environments, including REST APIs and RPC APIs. It is
- *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
- *  - Simple to use and understand for most users - Flexible enough to meet
- *  unexpected needs # Overview The `Status` message contains three pieces of
- *  data: error code, error message, and error details. The error code should be
- *  an enum value of [google.rpc.Code][google.rpc.Code], but it may accept
- *  additional error codes if needed. The error message should be a
- *  developer-facing English message that helps developers *understand* and
- *  *resolve* the error. If a localized user-facing error message is needed, put
- *  the localized message in the error details or localize it in the client. The
- *  optional error details may contain arbitrary information about the error.
- *  There is a predefined set of error detail types in the package `google.rpc`
- *  which can be used for common error conditions. # Language mapping The
- *  `Status` message is the logical representation of the error model, but it is
- *  not necessarily the actual wire format. When the `Status` message is exposed
- *  in different client libraries and different wire protocols, it can be mapped
- *  differently. For example, it will likely be mapped to some exceptions in
- *  Java, but more likely mapped to some error codes in C. # Other uses The
- *  error model and the `Status` message can be used in a variety of
- *  environments, either with or without APIs, to provide a consistent developer
- *  experience across different environments. Example uses of this error model
- *  include: - Partial errors. If a service needs to return partial errors to
- *  the client, it may embed the `Status` in the normal response to indicate the
- *  partial errors. - Workflow errors. A typical workflow has multiple steps.
- *  Each step may have a `Status` message for error reporting purpose. - Batch
- *  operations. If a client uses batch request and batch response, the `Status`
- *  message should be used directly inside batch response, one for each error
- *  sub-response. - Asynchronous operations. If an API call embeds asynchronous
- *  operation results in its response, the status of those operations should be
- *  represented directly using the `Status` message. - Logging. If some API
- *  errors are stored in logs, the message `Status` could be used directly after
- *  any stripping needed for security/privacy reasons.
+ *  different
+ *  programming environments, including REST APIs and RPC APIs. It is used by
+ *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  - Simple to use and understand for most users
+ *  - Flexible enough to meet unexpected needs
+ *  # Overview
+ *  The `Status` message contains three pieces of data: error code, error
+ *  message,
+ *  and error details. The error code should be an enum value of
+ *  google.rpc.Code, but it may accept additional error codes if needed. The
+ *  error message should be a developer-facing English message that helps
+ *  developers *understand* and *resolve* the error. If a localized user-facing
+ *  error message is needed, put the localized message in the error details or
+ *  localize it in the client. The optional error details may contain arbitrary
+ *  information about the error. There is a predefined set of error detail types
+ *  in the package `google.rpc` which can be used for common error conditions.
+ *  # Language mapping
+ *  The `Status` message is the logical representation of the error model, but
+ *  it
+ *  is not necessarily the actual wire format. When the `Status` message is
+ *  exposed in different client libraries and different wire protocols, it can
+ *  be
+ *  mapped differently. For example, it will likely be mapped to some exceptions
+ *  in Java, but more likely mapped to some error codes in C.
+ *  # Other uses
+ *  The error model and the `Status` message can be used in a variety of
+ *  environments, either with or without APIs, to provide a
+ *  consistent developer experience across different environments.
+ *  Example uses of this error model include:
+ *  - Partial errors. If a service needs to return partial errors to the client,
+ *  it may embed the `Status` in the normal response to indicate the partial
+ *  errors.
+ *  - Workflow errors. A typical workflow has multiple steps. Each step may
+ *  have a `Status` message for error reporting purpose.
+ *  - Batch operations. If a client uses batch request and batch response, the
+ *  `Status` message should be used directly inside batch response, one for
+ *  each error sub-response.
+ *  - Asynchronous operations. If an API call embeds asynchronous operation
+ *  results in its response, the status of those operations should be
+ *  represented directly using the `Status` message.
+ *  - Logging. If some API errors are stored in logs, the message `Status` could
+ *  be used directly after any stripping needed for security/privacy reasons.
  */
 @interface GTLRStorageTransfer_Status : GTLRObject
 
 /**
- *  The status code, which should be an enum value of
- *  [google.rpc.Code][google.rpc.Code].
+ *  The status code, which should be an enum value of google.rpc.Code.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a common set
- *  of message types for APIs to use.
+ *  A list of messages that carry the error details. There will be a
+ *  common set of message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorageTransfer_Status_Details_Item *> *details;
 
 /**
  *  A developer-facing error message, which should be in English. Any
  *  user-facing error message should be localized and sent in the
- *  [google.rpc.Status.details][google.rpc.Status.details] field, or localized
- *  by the client.
+ *  google.rpc.Status.details field, or localized by the client.
  */
 @property(nonatomic, copy, nullable) NSString *message;
 
@@ -621,15 +950,14 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 /**
  *  Represents a time of day. The date and time zone are either not significant
- *  or are specified elsewhere. An API may chose to allow leap seconds. Related
- *  types are [google.type.Date][google.type.Date] and
- *  `google.protobuf.Timestamp`.
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and `google.protobuf.Timestamp`.
  */
 @interface GTLRStorageTransfer_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+ *  to allow the value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
@@ -694,8 +1022,9 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, strong, nullable) NSNumber *bytesFailedToDeleteFromSink;
 
 /**
- *  Bytes found in the data source that are scheduled to be transferred, which
- *  will be copied, excluded based on conditions, or skipped due to failures.
+ *  Bytes found in the data source that are scheduled to be transferred,
+ *  which will be copied, excluded based on conditions, or skipped due to
+ *  failures.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -716,8 +1045,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, strong, nullable) NSNumber *bytesFromSourceFailed;
 
 /**
- *  Bytes in the data source that are not transferred because they already exist
- *  in the data sink.
+ *  Bytes in the data source that are not transferred because they already
+ *  exist in the data sink.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -752,8 +1081,9 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, strong, nullable) NSNumber *objectsFailedToDeleteFromSink;
 
 /**
- *  Objects found in the data source that are scheduled to be transferred, which
- *  will be copied, excluded based on conditions, or skipped due to failures.
+ *  Objects found in the data source that are scheduled to be transferred,
+ *  which will be copied, excluded based on conditions, or skipped due to
+ *  failures.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -791,54 +1121,68 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @interface GTLRStorageTransfer_TransferJob : GTLRObject
 
 /** This field cannot be changed by user requests. */
-@property(nonatomic, copy, nullable) NSString *creationTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /** This field cannot be changed by user requests. */
-@property(nonatomic, copy, nullable) NSString *deletionTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *deletionTime;
 
 /**
- *  A description provided by the user for the job. Its max length is 1024 bytes
- *  when Unicode-encoded.
+ *  A description provided by the user for the job. Its max length is 1024
+ *  bytes when Unicode-encoded.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** This field cannot be changed by user requests. */
-@property(nonatomic, copy, nullable) NSString *lastModificationTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *lastModificationTime;
 
 /**
- *  A globally unique name assigned by Storage Transfer Service when the job is
- *  created. This field should be left empty in requests to create a new
- *  transfer job; otherwise, the requests result in an `INVALID_ARGUMENT` error.
+ *  A globally unique name assigned by Storage Transfer Service when the
+ *  job is created. This field should be left empty in requests to create a new
+ *  transfer job; otherwise, the requests result in an `INVALID_ARGUMENT`
+ *  error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The ID of the Google Developers Console project that owns the job. Required.
+ *  The ID of the Google Cloud Platform Console project that owns the job.
+ *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Schedule specification. Required. */
+/**
+ *  Schedule specification.
+ *  Required.
+ */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Schedule *schedule;
 
 /**
  *  Status of the job. This value MUST be specified for
- *  `CreateTransferJobRequests`. NOTE: The effect of the new job status takes
- *  place during a subsequent job run. For example, if you change the job status
- *  from `ENABLED` to `DISABLED`, and an operation spawned by the transfer is
- *  running, the status change would not affect the current operation.
+ *  `CreateTransferJobRequests`.
+ *  NOTE: The effect of the new job status takes place during a subsequent job
+ *  run. For example, if you change the job status from `ENABLED` to
+ *  `DISABLED`, and an operation spawned by the transfer is running, the status
+ *  change would not affect the current operation.
  *
  *  Likely values:
- *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Deleted Value "DELETED"
- *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Disabled Value "DISABLED"
- *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Enabled Value "ENABLED"
- *    @arg @c kGTLRStorageTransfer_TransferJob_Status_StatusUnspecified Value
- *        "STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Deleted This is a soft
+ *        delete state. After a transfer job is set to this
+ *        state, the job and all the transfer executions are subject to
+ *        garbage collection. (Value: "DELETED")
+ *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Disabled New transfers
+ *        will not be scheduled. (Value: "DISABLED")
+ *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Enabled New transfers will
+ *        be performed based on the schedule. (Value: "ENABLED")
+ *    @arg @c kGTLRStorageTransfer_TransferJob_Status_StatusUnspecified Zero is
+ *        an illegal value. (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/** Transfer specification. Required. */
+/**
+ *  Transfer specification.
+ *  Required.
+ */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferSpec *transferSpec;
 
 @end
@@ -853,7 +1197,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferCounters *counters;
 
 /** End time of this transfer execution. */
-@property(nonatomic, copy, nullable) NSString *endTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /** Summarizes errors encountered with sample error log entries. */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorageTransfer_ErrorSummary *> *errorBreakdowns;
@@ -862,51 +1206,54 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The ID of the Google Developers Console project that owns the operation.
+ *  The ID of the Google Cloud Platform Console project that owns the operation.
  *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Start time of this transfer execution. */
-@property(nonatomic, copy, nullable) NSString *startTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Status of the transfer operation.
  *
  *  Likely values:
- *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_Aborted Value
- *        "ABORTED"
- *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_Failed Value
- *        "FAILED"
- *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_InProgress Value
- *        "IN_PROGRESS"
- *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_Paused Value
- *        "PAUSED"
+ *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_Aborted Aborted by
+ *        the user. (Value: "ABORTED")
+ *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_Failed Terminated
+ *        due to an unrecoverable failure. (Value: "FAILED")
+ *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_InProgress In
+ *        progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_Paused Paused.
+ *        (Value: "PAUSED")
  *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_StatusUnspecified
- *        Value "STATUS_UNSPECIFIED"
- *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_Success Value
- *        "SUCCESS"
+ *        Zero is an illegal value. (Value: "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_Success Completed
+ *        successfully. (Value: "SUCCESS")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /** The name of the transfer job that triggers this transfer operation. */
 @property(nonatomic, copy, nullable) NSString *transferJobName;
 
-/** Transfer specification. Required. */
+/**
+ *  Transfer specification.
+ *  Required.
+ */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferSpec *transferSpec;
 
 @end
 
 
 /**
- *  TransferOptions uses three boolean parameters to define the actions to be
- *  performed on objects in a transfer.
+ *  TransferOptions uses three boolean parameters to define the actions
+ *  to be performed on objects in a transfer.
  */
 @interface GTLRStorageTransfer_TransferOptions : GTLRObject
 
 /**
- *  Whether objects should be deleted from the source after they are transferred
- *  to the sink.
+ *  Whether objects should be deleted from the source after they are
+ *  transferred to the sink.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -947,16 +1294,16 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_HttpData *httpDataSource;
 
 /**
- *  Only objects that satisfy these object conditions are included in the set of
- *  data source and data sink objects. Object conditions based on objects'
- *  `lastModificationTime` do not exclude objects in a data sink.
+ *  Only objects that satisfy these object conditions are included in the set
+ *  of data source and data sink objects. Object conditions based on
+ *  objects' `lastModificationTime` do not exclude objects in a data sink.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_ObjectConditions *objectConditions;
 
 /**
- *  If the option `deleteObjectsUniqueInSink` is `true`, object conditions based
- *  on objects' `lastModificationTime` are ignored and do not exclude objects in
- *  a data source or a data sink.
+ *  If the option `deleteObjectsUniqueInSink` is `true`, object conditions
+ *  based on objects' `lastModificationTime` are ignored and do not exclude
+ *  objects in a data source or a data sink.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferOptions *transferOptions;
 
@@ -969,20 +1316,26 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @interface GTLRStorageTransfer_UpdateTransferJobRequest : GTLRObject
 
 /**
- *  The ID of the Google Developers Console project that owns the job. Required.
+ *  The ID of the Google Cloud Platform Console project that owns the job.
+ *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** The job to update. Required. */
+/**
+ *  The job to update.
+ *  Required.
+ */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferJob *transferJob;
 
 /**
- *  The field mask of the fields in `transferJob` that are to be updated in this
- *  request. Fields in `transferJob` that can be updated are: `description`,
- *  `transferSpec`, and `status`. To update the `transferSpec` of the job, a
- *  complete transfer specification has to be provided. An incomplete
- *  specification which misses any required fields will be rejected with the
- *  error `INVALID_ARGUMENT`.
+ *  The field mask of the fields in `transferJob` that are to be updated in
+ *  this request. Fields in `transferJob` that can be updated are:
+ *  `description`, `transferSpec`, and `status`. To update the `transferSpec`
+ *  of the job, a complete transfer specification has to be provided. An
+ *  incomplete specification which misses any required fields will be rejected
+ *  with the error `INVALID_ARGUMENT`.
+ *
+ *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateTransferJobFieldMask;
 

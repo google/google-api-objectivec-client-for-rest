@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Tracing API (tracing/v1)
+//   Google Tracing API (tracing/v2)
 // Description:
 //   Send and retrieve trace data from Google Stackdriver Trace.
 // Documentation:
@@ -21,13 +21,11 @@
 @class GTLRTracing_Annotation;
 @class GTLRTracing_Annotation_Attributes;
 @class GTLRTracing_AttributeValue;
-@class GTLRTracing_BatchUpdateSpansRequest_SpanUpdates;
 @class GTLRTracing_Link;
 @class GTLRTracing_Module;
 @class GTLRTracing_NetworkEvent;
 @class GTLRTracing_Span;
 @class GTLRTracing_Span_Attributes;
-@class GTLRTracing_SpanUpdates;
 @class GTLRTracing_StackFrame;
 @class GTLRTracing_StackTrace;
 @class GTLRTracing_Status;
@@ -85,15 +83,22 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_Sent;
 GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 
 /**
- *  Text annotation with a set of attributes.
+ *  Text annotation with a set of attributes. A maximum of 32 annotations are
+ *  allowed per Span.
  */
 @interface GTLRTracing_Annotation : GTLRObject
 
-/** A set of attributes on the annotation. */
+/**
+ *  A set of attributes on the annotation. A maximum of 4 attributes are
+ *  allowed per Annotation. The maximum key length is 128 bytes. The
+ *  value can be a string (up to 256 bytes), integer, or boolean
+ *  (true/false).
+ */
 @property(nonatomic, strong, nullable) GTLRTracing_Annotation_Attributes *attributes;
 
 /**
- *  A user-supplied message describing the event.
+ *  A user-supplied message describing the event. The maximum length for
+ *  the description is 256 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -103,7 +108,10 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 
 
 /**
- *  A set of attributes on the annotation.
+ *  A set of attributes on the annotation. A maximum of 4 attributes are
+ *  allowed per Annotation. The maximum key length is 128 bytes. The
+ *  value can be a string (up to 256 bytes), integer, or boolean
+ *  (true/false).
  *
  *  @note This class is documented as having more properties of
  *        GTLRTracing_AttributeValue. Use @c -additionalJSONKeys and @c
@@ -140,25 +148,13 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 
 
 /**
- *  The request message for the `BatchUpdateSpans` method.
+ *  The request message for the `BatchWriteSpans` method.
  */
-@interface GTLRTracing_BatchUpdateSpansRequest : GTLRObject
+@interface GTLRTracing_BatchWriteSpansRequest : GTLRObject
 
-/** A map from trace name to spans to be stored or updated. */
-@property(nonatomic, strong, nullable) GTLRTracing_BatchUpdateSpansRequest_SpanUpdates *spanUpdates;
+/** A collection of spans. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTracing_Span *> *spans;
 
-@end
-
-
-/**
- *  A map from trace name to spans to be stored or updated.
- *
- *  @note This class is documented as having more properties of
- *        GTLRTracing_SpanUpdates. Use @c -additionalJSONKeys and @c
- *        -additionalPropertyForName: to get the list of properties and then
- *        fetch them; or @c -additionalProperties to fetch them all at once.
- */
-@interface GTLRTracing_BatchUpdateSpansRequest_SpanUpdates : GTLRObject
 @end
 
 
@@ -176,20 +172,26 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 
 
 /**
- *  A pointer from this span to another span in a different `Trace`. Used
+ *  A pointer from this span to another span in a different `Trace` within
+ *  the same service project or within a different service project. Used
  *  (for example) in batching operations, where a single batch handler
- *  processes multiple requests from different traces.
+ *  processes multiple requests from different traces or when receives a
+ *  request from a different service project.
  */
 @interface GTLRTracing_Link : GTLRObject
 
 /**
- *  The `id` of the linked span.
- *
- *  Uses NSNumber of unsignedLongLongValue.
+ *  `SPAN_ID` is a unique identifier for a span within a trace. It is a
+ *  base16-encoded, case-insensitive string of a 8-bytes array and is
+ *  required to be 16 char long.
  */
-@property(nonatomic, strong, nullable) NSNumber *spanId;
+@property(nonatomic, copy, nullable) NSString *spanId;
 
-/** The ID of the parent trace of the linked span. */
+/**
+ *  `TRACE_ID` is a unique identifier for a trace within a project. It is
+ *  a base16-encoded, case-insensitive string of a 16-bytes array and is
+ *  required to be 32 char long.
+ */
 @property(nonatomic, copy, nullable) NSString *traceId;
 
 /**
@@ -270,14 +272,14 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 @interface GTLRTracing_Module : GTLRObject
 
 /**
- *  Build_id is a unique identifier for the module,
- *  usually a hash of its contents
+ *  Build_id is a unique identifier for the module, usually a hash of its
+ *  contents (up to 128 characters).
  */
 @property(nonatomic, copy, nullable) NSString *buildId;
 
 /**
  *  E.g. main binary, kernel modules, and dynamic libraries
- *  such as libc.so, sharedlib.so
+ *  such as libc.so, sharedlib.so (up to 256 characters).
  */
 @property(nonatomic, copy, nullable) NSString *module;
 
@@ -285,17 +287,10 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 
 
 /**
- *  An event describing an RPC message sent/received on the network.
+ *  An event describing an RPC message sent/received on the network. A
+ *  maximum of 128 network events are allowed per Span.
  */
 @interface GTLRTracing_NetworkEvent : GTLRObject
-
-/**
- *  If available, this is the kernel time:
- *  * For sent messages, this is the time at which the first bit was sent.
- *  * For received messages, this is the time at which the last bit was
- *  received.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *kernelTime;
 
 /**
  *  An identifier for the message, which must be unique in this span.
@@ -310,6 +305,14 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *messageSize;
+
+/**
+ *  If available, this is the kernel time:
+ *  * For sent messages, this is the time at which the first bit was sent.
+ *  * For received messages, this is the time at which the last bit was
+ *  received.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *time;
 
 /**
  *  Type of NetworkEvent. Indicates whether the RPC message was sent or
@@ -340,9 +343,9 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 @interface GTLRTracing_Span : GTLRObject
 
 /**
- *  Properties of a span in key:value format. The maximum length for the
- *  key is 128 characters. The value can be a string (up to 2000 characters),
- *  int, or boolean.
+ *  Attributes of a span with a key:value format. A maximum of 16 custom
+ *  attributes are allowed per Span. The maximum key length is 128 bytes. The
+ *  value can be a string (up to 256 bytes), integer, or boolean (true/false).
  *  Some common pair examples:
  *  "/instance_id": "my-instance"
  *  "/zone": "us-central1-a"
@@ -357,27 +360,15 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 @property(nonatomic, strong, nullable) GTLRTracing_Span_Attributes *attributes;
 
 /**
- *  True if this span has a remote parent (is an RPC server span).
- *
- *  Uses NSNumber of boolValue.
+ *  Description of the operation in the span. It is sanitized and displayed in
+ *  the Stackdriver Trace tool in the
+ *  {% dynamic print site_values.console_name %}.
+ *  The display_name may be a method name or some other per-call site
+ *  name. For the same executable and the same call point, a best practice is
+ *  to use a consistent operation name, which makes it easier to correlate
+ *  cross-trace spans.
  */
-@property(nonatomic, strong, nullable) NSNumber *hasRemoteParent;
-
-/**
- *  Identifier for the span. Must be a 64-bit integer other than 0 and
- *  unique within a trace.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- *
- *  Uses NSNumber of unsignedLongLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
-
-/**
- *  A collection of links, which are references from this span to another span
- *  in a different trace.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRTracing_Link *> *links;
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  End time of the span.
@@ -386,7 +377,40 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  *  side, this is the time at which the server application handler stopped
  *  running.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *localEndTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  A collection of links, which are references from this span to a span
+ *  in the same or different trace.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTracing_Link *> *links;
+
+/**
+ *  The resource name of Span in the format
+ *  `projects/PROJECT_ID/traces/TRACE_ID/spans/SPAN_ID`.
+ *  `TRACE_ID` is a unique identifier for a trace within a project and is a
+ *  base16-encoded, case-insensitive string and is required to be 32 char long.
+ *  `SPAN_ID` is a unique identifier for a span within a trace. It is a
+ *  base 16-encoded, case-insensitive string of a 8-bytes array and is required
+ *  to be 16 char long.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  ID of parent span which is a base 16-encoded, case-insensitive string of
+ *  a 8-bytes array and is required to be 16 char long. If this is a root span,
+ *  the value must be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *parentSpanId;
+
+/**
+ *  Unique identifier for a span within a trace. It is a base 16-encoded,
+ *  case-insensitive string of a 8-bytes array and is required.
+ */
+@property(nonatomic, copy, nullable) NSString *spanId;
+
+/** Stack trace captured at the start of the span. */
+@property(nonatomic, strong, nullable) GTLRTracing_StackTrace *stackTrace;
 
 /**
  *  Start time of the span.
@@ -395,28 +419,7 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  *  side, this is the time at which the server application handler started
  *  running.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *localStartTime;
-
-/**
- *  Name of the span. The span name is sanitized and displayed in the
- *  Stackdriver Trace tool in the {% dynamic print site_values.console_name %}.
- *  The name may be a method name or some other per-call site name.
- *  For the same executable and the same call point, a best practice is
- *  to use a consistent name, which makes it easier to correlate
- *  cross-trace spans.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  ID of the parent span. If this is a root span, the value must be `0` or
- *  empty.
- *
- *  Uses NSNumber of unsignedLongLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *parentId;
-
-/** Stack trace captured at the start of the span. */
-@property(nonatomic, strong, nullable) GTLRTracing_StackTrace *stackTrace;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /** An optional final status for this span. */
 @property(nonatomic, strong, nullable) GTLRTracing_Status *status;
@@ -432,9 +435,9 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 
 
 /**
- *  Properties of a span in key:value format. The maximum length for the
- *  key is 128 characters. The value can be a string (up to 2000 characters),
- *  int, or boolean.
+ *  Attributes of a span with a key:value format. A maximum of 16 custom
+ *  attributes are allowed per Span. The maximum key length is 128 bytes. The
+ *  value can be a string (up to 256 bytes), integer, or boolean (true/false).
  *  Some common pair examples:
  *  "/instance_id": "my-instance"
  *  "/zone": "us-central1-a"
@@ -456,17 +459,6 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 
 
 /**
- *  Collection of spans to update.
- */
-@interface GTLRTracing_SpanUpdates : GTLRObject
-
-/** A collection of spans. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTracing_Span *> *spans;
-
-@end
-
-
-/**
  *  Represents a single stack frame in a stack trace.
  */
 @interface GTLRTracing_StackFrame : GTLRObject
@@ -479,12 +471,12 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  */
 @property(nonatomic, strong, nullable) NSNumber *columnNumber;
 
-/** The filename of the file containing this frame. */
+/** The filename of the file containing this frame (up to 256 characters). */
 @property(nonatomic, copy, nullable) NSString *fileName;
 
 /**
  *  The fully-qualified name that uniquely identifies this function or
- *  method.
+ *  method (up to 1024 characters).
  */
 @property(nonatomic, copy, nullable) NSString *functionName;
 
@@ -501,11 +493,11 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 /**
  *  Used when the function name is
  *  [mangled](http://www.avabodh.com/cxxin/namemangling.html). May be
- *  fully-qualified.
+ *  fully-qualified (up to 1024 characters).
  */
 @property(nonatomic, copy, nullable) NSString *originalFunctionName;
 
-/** The version of the deployed source code. */
+/** The version of the deployed source code (up to 128 characters). */
 @property(nonatomic, copy, nullable) NSString *sourceVersion;
 
 @end
@@ -516,7 +508,7 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  */
 @interface GTLRTracing_StackTrace : GTLRObject
 
-/** Stack frames of this stack trace. */
+/** Stack frames in this stack trace. A maximum of 128 frames are allowed. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTracing_StackFrame *> *stackFrame;
 
 /**
@@ -625,11 +617,11 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 /** One or more key:value pairs. */
 @property(nonatomic, strong, nullable) GTLRTracing_Annotation *annotation;
 
-/** The timestamp indicating the time the event occurred. */
-@property(nonatomic, strong, nullable) GTLRDateTime *localTime;
-
 /** An event describing an RPC message sent/received on the network. */
 @property(nonatomic, strong, nullable) GTLRTracing_NetworkEvent *networkEvent;
+
+/** The timestamp indicating the time the event occurred. */
+@property(nonatomic, strong, nullable) GTLRDateTime *time;
 
 @end
 
@@ -642,9 +634,10 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 @interface GTLRTracing_Trace : GTLRObject
 
 /**
- *  A globally unique identifier for the trace in the format
- *  `projects/PROJECT_NUMBER/traces/TRACE_ID`. `TRACE_ID` is a base16-encoded
- *  string of a 128-bit number and is required to be 32 char long.
+ *  The resource name of Trace in the format
+ *  `projects/PROJECT_ID/traces/TRACE_ID`. `TRACE_ID` is a unique identifier
+ *  for a trace within a project and is a base16-encoded, case-insensitive
+ *  string and is required to be 32 char long.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

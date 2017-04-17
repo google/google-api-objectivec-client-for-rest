@@ -23,15 +23,22 @@
 @class GTLRCloudResourceManager_AuditConfig;
 @class GTLRCloudResourceManager_AuditLogConfig;
 @class GTLRCloudResourceManager_Binding;
+@class GTLRCloudResourceManager_BooleanConstraint;
+@class GTLRCloudResourceManager_BooleanPolicy;
+@class GTLRCloudResourceManager_Constraint;
 @class GTLRCloudResourceManager_Lien;
+@class GTLRCloudResourceManager_ListConstraint;
+@class GTLRCloudResourceManager_ListPolicy;
 @class GTLRCloudResourceManager_Operation_Metadata;
 @class GTLRCloudResourceManager_Operation_Response;
 @class GTLRCloudResourceManager_Organization;
 @class GTLRCloudResourceManager_OrganizationOwner;
+@class GTLRCloudResourceManager_OrgPolicy;
 @class GTLRCloudResourceManager_Policy;
 @class GTLRCloudResourceManager_Project;
 @class GTLRCloudResourceManager_Project_Labels;
 @class GTLRCloudResourceManager_ResourceId;
+@class GTLRCloudResourceManager_RestoreDefault;
 @class GTLRCloudResourceManager_Status;
 @class GTLRCloudResourceManager_Status_Details_Item;
 
@@ -69,6 +76,31 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_Da
 GTLR_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_Constraint.constraintDefault
+
+/**
+ *  Indicate that all values are allowed for list constraints.
+ *  Indicate that enforcement is off for boolean constraints.
+ *
+ *  Value: "ALLOW"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Constraint_ConstraintDefault_Allow;
+/**
+ *  This is only used for distinguishing unset values and should never be
+ *  used.
+ *
+ *  Value: "CONSTRAINT_DEFAULT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Constraint_ConstraintDefault_ConstraintDefaultUnspecified;
+/**
+ *  Indicate that all values are denied for list constraints.
+ *  Indicate that enforcement is on for boolean constraints.
+ *
+ *  Value: "DENY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Constraint_ConstraintDefault_Deny;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudResourceManager_FolderOperation.operationType
 
 /**
@@ -99,6 +131,13 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperation_Operation
  *  Value: "CYCLE_INTRODUCED_ERROR"
  */
 GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedError;
+/**
+ *  The attempted action would violate the max deleted folder depth
+ *  constraint.
+ *
+ *  Value: "DELETED_FOLDER_HEIGHT_VIOLATION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_DeletedFolderHeightViolation;
 /**
  *  The error type was unrecognized or unspecified.
  *
@@ -148,6 +187,28 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
  *  Value: "RESOURCE_DELETED"
  */
 GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeleted;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_ListPolicy.allValues
+
+/**
+ *  A policy with this set allows all values.
+ *
+ *  Value: "ALLOW"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_ListPolicy_AllValues_Allow;
+/**
+ *  Indicates that either allowed_values or denied_values must be set.
+ *
+ *  Value: "ALL_VALUES_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_ListPolicy_AllValues_AllValuesUnspecified;
+/**
+ *  A policy with this set denies all values.
+ *
+ *  Value: "DENY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_ListPolicy_AllValues_Deny;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudResourceManager_Organization.lifecycleState
@@ -219,7 +280,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  Specifies the audit configuration for a service.
  *  The configuration determines which permission types are logged, and what
  *  identities, if any, are exempted from logging.
- *  An AuditConifg must have one or more AuditLogConfigs.
+ *  An AuditConfig must have one or more AuditLogConfigs.
  *  If there are AuditConfigs for both `allServices` and a specific service,
  *  the union of the two AuditConfigs is used for that service: the log_types
  *  specified in each AuditConfig are enabled, and the exempted_members in each
@@ -245,7 +306,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  ]
  *  },
  *  {
- *  "service": "fooservice\@googleapis.com"
+ *  "service": "fooservice.googleapis.com"
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -362,6 +423,162 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 
 /**
+ *  A `Constraint` that is either enforced or not.
+ *  For example a constraint `constraints/compute.disableSerialPortAccess`.
+ *  If it is enforced on a VM instance, serial port connections will not be
+ *  opened to that instance.
+ */
+@interface GTLRCloudResourceManager_BooleanConstraint : GTLRObject
+@end
+
+
+/**
+ *  Used in `policy_type` to specify how `boolean_policy` will behave at this
+ *  resource.
+ */
+@interface GTLRCloudResourceManager_BooleanPolicy : GTLRObject
+
+/**
+ *  If `true`, then the `Policy` is enforced. If `false`, then any
+ *  configuration is acceptable.
+ *  Suppose you have a `Constraint`
+ *  `constraints/compute.disableSerialPortAccess`
+ *  with `constraint_default` set to `ALLOW`. A `Policy` for that
+ *  `Constraint` exhibits the following behavior:
+ *  - If the `Policy` at this resource has enforced set to `false`, serial
+ *  port connection attempts will be allowed.
+ *  - If the `Policy` at this resource has enforced set to `true`, serial
+ *  port connection attempts will be refused.
+ *  - If the `Policy` at this resource is `RestoreDefault`, serial port
+ *  connection attempts will be allowed.
+ *  - If no `Policy` is set at this resource or anywhere higher in the
+ *  resource hierarchy, serial port connection attempts will be allowed.
+ *  - If no `Policy` is set at this resource, but one exists higher in the
+ *  resource hierarchy, the behavior is as if the`Policy` were set at
+ *  this resource.
+ *  The following examples demonstrate the different possible layerings:
+ *  Example 1 (nearest `Constraint` wins):
+ *  `organizations/foo` has a `Policy` with:
+ *  {enforced: false}
+ *  `projects/bar` has no `Policy` set.
+ *  The constraint at `projects/bar` and `organizations/foo` will not be
+ *  enforced.
+ *  Example 2 (enforcement gets replaced):
+ *  `organizations/foo` has a `Policy` with:
+ *  {enforced: false}
+ *  `projects/bar` has a `Policy` with:
+ *  {enforced: true}
+ *  The constraint at `organizations/foo` is not enforced.
+ *  The constraint at `projects/bar` is enforced.
+ *  Example 3 (RestoreDefault):
+ *  `organizations/foo` has a `Policy` with:
+ *  {enforced: true}
+ *  `projects/bar` has a `Policy` with:
+ *  {RestoreDefault: {}}
+ *  The constraint at `organizations/foo` is enforced.
+ *  The constraint at `projects/bar` is not enforced, because
+ *  `constraint_default` for the `Constraint` is `ALLOW`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforced;
+
+@end
+
+
+/**
+ *  The request sent to the ClearOrgPolicy method.
+ */
+@interface GTLRCloudResourceManager_ClearOrgPolicyRequest : GTLRObject
+
+/** Name of the `Constraint` of the `Policy` to clear. */
+@property(nonatomic, copy, nullable) NSString *constraint;
+
+/**
+ *  The current version, for concurrency control. Not sending an `etag`
+ *  will cause the `Policy` to be cleared blindly.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+@end
+
+
+/**
+ *  A `Constraint` describes a way in which a resource's configuration can be
+ *  restricted. For example, it controls which cloud services can be activated
+ *  across an organization, or whether a Compute Engine instance can have
+ *  serial port connections established. `Constraints` can be configured by the
+ *  organization's policy adminstrator to fit the needs of the organzation by
+ *  setting Policies for `Constraints` at different locations in the
+ *  organization's resource hierarchy. Policies are inherited down the resource
+ *  hierarchy from higher levels, but can also be overridden. For details about
+ *  the inheritance rules please read about
+ *  Policies.
+ *  `Constraints` have a default behavior determined by the `constraint_default`
+ *  field, which is the enforcement behavior that is used in the absence of a
+ *  `Policy` being defined or inherited for the resource in question.
+ */
+@interface GTLRCloudResourceManager_Constraint : GTLRObject
+
+/** Defines this constraint as being a BooleanConstraint. */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_BooleanConstraint *booleanConstraint;
+
+/**
+ *  The evaluation behavior of this constraint in the absense of 'Policy'.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_Constraint_ConstraintDefault_Allow
+ *        Indicate that all values are allowed for list constraints.
+ *        Indicate that enforcement is off for boolean constraints. (Value:
+ *        "ALLOW")
+ *    @arg @c kGTLRCloudResourceManager_Constraint_ConstraintDefault_ConstraintDefaultUnspecified
+ *        This is only used for distinguishing unset values and should never be
+ *        used. (Value: "CONSTRAINT_DEFAULT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudResourceManager_Constraint_ConstraintDefault_Deny
+ *        Indicate that all values are denied for list constraints.
+ *        Indicate that enforcement is on for boolean constraints. (Value:
+ *        "DENY")
+ */
+@property(nonatomic, copy, nullable) NSString *constraintDefault;
+
+/**
+ *  Detailed description of what this `Constraint` controls as well as how and
+ *  where it is enforced.
+ *  Mutable.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The human readable name.
+ *  Mutable.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Defines this constraint as being a ListConstraint. */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_ListConstraint *listConstraint;
+
+/**
+ *  Immutable value, required to globally be unique. For example,
+ *  `constraints/serviceuser.services`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Version of the `Constraint`. Default version is 0;
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -422,6 +639,9 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedError
  *        The attempted action would introduce cycle in resource path. (Value:
  *        "CYCLE_INTRODUCED_ERROR")
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_DeletedFolderHeightViolation
+ *        The attempted action would violate the max deleted folder depth
+ *        constraint. (Value: "DELETED_FOLDER_HEIGHT_VIOLATION")
  *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ErrorTypeUnspecified
  *        The error type was unrecognized or unspecified. (Value:
  *        "ERROR_TYPE_UNSPECIFIED")
@@ -476,9 +696,31 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 
 /**
+ *  The request sent to the GetEffectiveOrgPolicy method.
+ */
+@interface GTLRCloudResourceManager_GetEffectiveOrgPolicyRequest : GTLRObject
+
+/** The name of the `Constraint` to compute the effective `Policy`. */
+@property(nonatomic, copy, nullable) NSString *constraint;
+
+@end
+
+
+/**
  *  Request message for `GetIamPolicy` method.
  */
 @interface GTLRCloudResourceManager_GetIamPolicyRequest : GTLRObject
+@end
+
+
+/**
+ *  The request sent to the GetOrgPolicy method.
+ */
+@interface GTLRCloudResourceManager_GetOrgPolicyRequest : GTLRObject
+
+/** Name of the `Constraint` to get the `Policy`. */
+@property(nonatomic, copy, nullable) NSString *constraint;
+
 @end
 
 
@@ -532,6 +774,72 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 
 /**
+ *  The request sent to the [ListAvailableOrgPolicyConstraints]
+ *  google.cloud.OrgPolicy.v1.ListAvailableOrgPolicyConstraints] method.
+ */
+@interface GTLRCloudResourceManager_ListAvailableOrgPolicyConstraintsRequest : GTLRObject
+
+/**
+ *  Size of the pages to be returned. This is currently unsupported and will
+ *  be ignored. The server may at any point start using this field to limit
+ *  page size.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Page token used to retrieve the next page. This is currently unsupported
+ *  and will be ignored. The server may at any point start using this field.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+@end
+
+
+/**
+ *  The response returned from the ListAvailableOrgPolicyConstraints method.
+ *  Returns all `Constraints` that could be set at this level of the hierarchy
+ *  (contrast with the response from `ListPolicies`, which returns all policies
+ *  which are set).
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "constraints" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudResourceManager_ListAvailableOrgPolicyConstraintsResponse : GTLRCollectionObject
+
+/**
+ *  The collection of constraints that are settable on the request resource.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Constraint *> *constraints;
+
+/** Page token used to retrieve the next page. This is currently not used. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  A `Constraint` that allows or disallows a list of string values, which are
+ *  configured by an Organization's policy administrator with a `Policy`.
+ */
+@interface GTLRCloudResourceManager_ListConstraint : GTLRObject
+
+/**
+ *  Optional. The Google Cloud Console will try to default to a configuration
+ *  that matches the value specified in this `Constraint`.
+ */
+@property(nonatomic, copy, nullable) NSString *suggestedValue;
+
+@end
+
+
+/**
  *  The response message for Liens.ListLiens.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -554,6 +862,187 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The request sent to the ListOrgPolicies method.
+ */
+@interface GTLRCloudResourceManager_ListOrgPoliciesRequest : GTLRObject
+
+/**
+ *  Size of the pages to be returned. This is currently unsupported and will
+ *  be ignored. The server may at any point start using this field to limit
+ *  page size.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Page token used to retrieve the next page. This is currently unsupported
+ *  and will be ignored. The server may at any point start using this field.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+@end
+
+
+/**
+ *  The response returned from the ListOrgPolicies method. It will be empty
+ *  if no `Policies` are set on the resource.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "policies" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudResourceManager_ListOrgPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  Page token used to retrieve the next page. This is currently not used, but
+ *  the server may at any point start supplying a valid token.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The `Policies` that are set on the resource. It will be empty if no
+ *  `Policies` are set.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_OrgPolicy *> *policies;
+
+@end
+
+
+/**
+ *  Used in `policy_type` to specify how `list_policy` behaves at this
+ *  resource.
+ *  A `ListPolicy` can define specific values that are allowed or denied by
+ *  setting either the `allowed_values` or `denied_values` fields. It can also
+ *  be used to allow or deny all values, by setting the `all_values` field. If
+ *  `all_values` is `ALL_VALUES_UNSPECIFIED`, exactly one of `allowed_values`
+ *  or `denied_values` must be set (attempting to set both or neither will
+ *  result in a failed request). If `all_values` is set to either `ALLOW` or
+ *  `DENY`, `allowed_values` and `denied_values` must be unset.
+ */
+@interface GTLRCloudResourceManager_ListPolicy : GTLRObject
+
+/**
+ *  List of values allowed at this resource. an only be set if no values are
+ *  set for `denied_values` and `all_values` is set to
+ *  `ALL_VALUES_UNSPECIFIED`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedValues;
+
+/**
+ *  The policy all_values state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_ListPolicy_AllValues_Allow A policy with
+ *        this set allows all values. (Value: "ALLOW")
+ *    @arg @c kGTLRCloudResourceManager_ListPolicy_AllValues_AllValuesUnspecified
+ *        Indicates that either allowed_values or denied_values must be set.
+ *        (Value: "ALL_VALUES_UNSPECIFIED")
+ *    @arg @c kGTLRCloudResourceManager_ListPolicy_AllValues_Deny A policy with
+ *        this set denies all values. (Value: "DENY")
+ */
+@property(nonatomic, copy, nullable) NSString *allValues;
+
+/**
+ *  List of values denied at this resource. Can only be set if no values are
+ *  set for `allowed_values` and `all_values` is set to
+ *  `ALL_VALUES_UNSPECIFIED`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deniedValues;
+
+/**
+ *  Determines the inheritance behavior for this `Policy`.
+ *  By default, a `ListPolicy` set at a resource supercedes any `Policy` set
+ *  anywhere up the resource hierarchy. However, if `inherit_from_parent` is
+ *  set to `true`, then the values from the effective `Policy` of the parent
+ *  resource are inherited, meaning the values set in this `Policy` are
+ *  added to the values inherited up the hierarchy.
+ *  Setting `Policy` hierarchies that inherit both allowed values and denied
+ *  values isn't recommended in most circumstances to keep the configuration
+ *  simple and understandable. However, it is possible to set a `Policy` with
+ *  `allowed_values` set that inherits a `Policy` with `denied_values` set.
+ *  In this case, the values that are allowed must be in `allowed_values` and
+ *  not present in `denied_values`.
+ *  For example, suppose you have a `Constraint`
+ *  `constraints/serviceuser.services`, which has a `constraint_type` of
+ *  `list_constraint`, and with `constraint_default` set to `ALLOW`.
+ *  Suppose that at the Organization level, a `Policy` is applied that
+ *  restricts the allowed API activations to {`E1`, `E2`}. Then, if a
+ *  `Policy` is applied to a project below the Organization that has
+ *  `inherit_from_parent` set to `false` and field all_values set to DENY,
+ *  then an attempt to activate any API will be denied.
+ *  The following examples demonstrate different possible layerings:
+ *  Example 1 (no inherited values):
+ *  `organizations/foo` has a `Policy` with values:
+ *  {allowed_values: “E1” allowed_values:”E2”}
+ *  ``projects/bar`` has `inherit_from_parent` `false` and values:
+ *  {allowed_values: "E3" allowed_values: "E4"}
+ *  The accepted values at `organizations/foo` are `E1`, `E2`.
+ *  The accepted values at `projects/bar` are `E3`, and `E4`.
+ *  Example 2 (inherited values):
+ *  `organizations/foo` has a `Policy` with values:
+ *  {allowed_values: “E1” allowed_values:”E2”}
+ *  `projects/bar` has a `Policy` with values:
+ *  {value: “E3” value: ”E4” inherit_from_parent: true}
+ *  The accepted values at `organizations/foo` are `E1`, `E2`.
+ *  The accepted values at `projects/bar` are `E1`, `E2`, `E3`, and `E4`.
+ *  Example 3 (inheriting both allowed and denied values):
+ *  `organizations/foo` has a `Policy` with values:
+ *  {allowed_values: "E1" allowed_values: "E2"}
+ *  `projects/bar` has a `Policy` with:
+ *  {denied_values: "E1"}
+ *  The accepted values at `organizations/foo` are `E1`, `E2`.
+ *  The value accepted at `projects/bar` is `E2`.
+ *  Example 4 (RestoreDefault):
+ *  `organizations/foo` has a `Policy` with values:
+ *  {allowed_values: “E1” allowed_values:”E2”}
+ *  `projects/bar` has a `Policy` with values:
+ *  {RestoreDefault: {}}
+ *  The accepted values at `organizations/foo` are `E1`, `E2`.
+ *  The accepted values at `projects/bar` are either all or none depending on
+ *  the value of `constraint_default` (if `ALLOW`, all; if
+ *  `DENY`, none).
+ *  Example 5 (no policy inherits parent policy):
+ *  `organizations/foo` has no `Policy` set.
+ *  `projects/bar` has no `Policy` set.
+ *  The accepted values at both levels are either all or none depending on
+ *  the value of `constraint_default` (if `ALLOW`, all; if
+ *  `DENY`, none).
+ *  Example 6 (ListConstraint allowing all):
+ *  `organizations/foo` has a `Policy` with values:
+ *  {allowed_values: “E1” allowed_values: ”E2”}
+ *  `projects/bar` has a `Policy` with:
+ *  {all: ALLOW}
+ *  The accepted values at `organizations/foo` are `E1`, E2`.
+ *  Any value is accepted at `projects/bar`.
+ *  Example 7 (ListConstraint allowing none):
+ *  `organizations/foo` has a `Policy` with values:
+ *  {allowed_values: “E1” allowed_values: ”E2”}
+ *  `projects/bar` has a `Policy` with:
+ *  {all: DENY}
+ *  The accepted values at `organizations/foo` are `E1`, E2`.
+ *  No value is accepted at `projects/bar`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inheritFromParent;
+
+/**
+ *  Optional. The Google Cloud Console will try to default to a configuration
+ *  that matches the value specified in this `Policy`. If `suggested_value`
+ *  is not set, it will inherit the value specified higher in the hierarchy,
+ *  unless `inherit_from_parent` is `false`.
+ */
+@property(nonatomic, copy, nullable) NSString *suggestedValue;
 
 @end
 
@@ -743,6 +1232,68 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 /** The Google for Work customer id used in the Directory API. */
 @property(nonatomic, copy, nullable) NSString *directoryCustomerId;
+
+@end
+
+
+/**
+ *  Defines a Cloud Organization `Policy` which is used to specify `Constraints`
+ *  for configurations of Cloud Platform resources.
+ */
+@interface GTLRCloudResourceManager_OrgPolicy : GTLRObject
+
+/** For boolean `Constraints`, whether to enforce the `Constraint` or not. */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_BooleanPolicy *booleanPolicy;
+
+/**
+ *  The name of the `Constraint` the `Policy` is configuring, for example,
+ *  `constraints/serviceuser.services`.
+ *  Immutable after creation.
+ */
+@property(nonatomic, copy, nullable) NSString *constraint;
+
+/**
+ *  An opaque tag indicating the current version of the `Policy`, used for
+ *  concurrency control.
+ *  When the `Policy` is returned from either a `GetPolicy` or a
+ *  `ListOrgPolicy` request, this `etag` indicates the version of the current
+ *  `Policy` to use when executing a read-modify-write loop.
+ *  When the `Policy` is returned from a `GetEffectivePolicy` request, the
+ *  `etag` will be unset.
+ *  When the `Policy` is used in a `SetOrgPolicy` method, use the `etag` value
+ *  that was returned from a `GetOrgPolicy` request as part of a
+ *  read-modify-write loop for concurrency control. Not setting the `etag`in a
+ *  `SetOrgPolicy` request will result in an unconditional write of the
+ *  `Policy`.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** List of values either allowed or disallowed. */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_ListPolicy *listPolicy;
+
+/**
+ *  Restores the default behavior of the constraint; independent of
+ *  `Constraint` type.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_RestoreDefault *restoreDefault;
+
+/**
+ *  The time stamp the `Policy` was previously updated. This is set by the
+ *  server, not specified by the caller, and represents the last time a call to
+ *  `SetOrgPolicy` was made for that `Policy`. Any value set by the client will
+ *  be ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Version of the `Policy`. Default version is 0;
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
 
 @end
 
@@ -984,6 +1535,23 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 
 /**
+ *  Ignores policies set above this resource and restores the
+ *  `constraint_default` enforcement behavior of the specific `Constraint` at
+ *  this resource.
+ *  Suppose that `constraint_default` is set to `ALLOW` for the
+ *  `Constraint` `constraints/serviceuser.services`. Suppose that organization
+ *  foo.com sets a `Policy` at their Organization resource node that restricts
+ *  the allowed service activations to deny all service activations. They
+ *  could then set a `Policy` with the `policy_type` `restore_default` on
+ *  several experimental projects, restoring the `constraint_default`
+ *  enforcement of the `Constraint` for only those projects, allowing those
+ *  projects to have all services activated.
+ */
+@interface GTLRCloudResourceManager_RestoreDefault : GTLRObject
+@end
+
+
+/**
  *  The request sent to the `SearchOrganizations` method.
  */
 @interface GTLRCloudResourceManager_SearchOrganizationsRequest : GTLRObject
@@ -1074,6 +1642,17 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  The request sent to the SetOrgPolicyRequest method.
+ */
+@interface GTLRCloudResourceManager_SetOrgPolicyRequest : GTLRObject
+
+/** `Policy` to set on the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_OrgPolicy *policy;
 
 @end
 

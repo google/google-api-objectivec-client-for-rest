@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Google Cloud IAM](https://cloud.google.com/iam).
  *  **NOTE:** the client code **must** fail-open if the server returns one
  *  of the following quota errors:
- *  - `PROJECT_STATUS_UNVAILABLE`
+ *  - `PROJECT_STATUS_UNAVAILABLE`
  *  - `SERVICE_STATUS_UNAVAILABLE`
  *  - `BILLING_STATUS_UNAVAILABLE`
  *  - `QUOTA_SYSTEM_UNAVAILABLE`
@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Google Cloud IAM](https://cloud.google.com/iam).
  *  **NOTE:** the client code **must** fail-open if the server returns one
  *  of the following quota errors:
- *  - `PROJECT_STATUS_UNVAILABLE`
+ *  - `PROJECT_STATUS_UNAVAILABLE`
  *  - `SERVICE_STATUS_UNAVAILABLE`
  *  - `BILLING_STATUS_UNAVAILABLE`
  *  - `QUOTA_SYSTEM_UNAVAILABLE`
@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Google Cloud IAM](https://cloud.google.com/iam).
  *  **NOTE:** the client code **must** fail-open if the server returns one
  *  of the following quota errors:
- *  - `PROJECT_STATUS_UNVAILABLE`
+ *  - `PROJECT_STATUS_UNAVAILABLE`
  *  - `SERVICE_STATUS_UNAVAILABLE`
  *  - `BILLING_STATUS_UNAVAILABLE`
  *  - `QUOTA_SYSTEM_UNAVAILABLE`
@@ -245,7 +245,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Google Cloud IAM](https://cloud.google.com/iam).
  *  **NOTE:** the client code **must** fail-open if the server returns one
  *  of the following quota errors:
- *  - `PROJECT_STATUS_UNVAILABLE`
+ *  - `PROJECT_STATUS_UNAVAILABLE`
  *  - `SERVICE_STATUS_UNAVAILABLE`
  *  - `BILLING_STATUS_UNAVAILABLE`
  *  - `QUOTA_SYSTEM_UNAVAILABLE`

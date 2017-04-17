@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Tag Manager API (tagmanager/v1)
+//   Tag Manager API (tagmanager/v2)
 // Description:
 //   Accesses Tag Manager accounts and containers.
 // Documentation:
-//   https://developers.google.com/tag-manager/api/v1/
+//   https://developers.google.com/tag-manager/api/v2/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

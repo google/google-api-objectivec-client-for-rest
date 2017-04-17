@@ -149,7 +149,7 @@
 //
 
 @implementation GTLRSurveys_StartResponse
-@dynamic requestId, resource;
+@dynamic requestId;
 @end
 
 
@@ -159,7 +159,7 @@
 //
 
 @implementation GTLRSurveys_StopResponse
-@dynamic requestId, resource;
+@dynamic requestId;
 @end
 
 

@@ -2507,6 +2507,46 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 @end
 
 /**
+ *  Delete a remarketing audience.
+ *
+ *  Method: analytics.management.remarketingAudience.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsEdit
+ */
+@interface GTLRAnalyticsQuery_ManagementRemarketingAudienceDelete : GTLRAnalyticsQuery
+// Previous library name was
+//   +[GTLQueryAnalytics queryForManagementRemarketingAudienceDeleteWithaccountId:webPropertyId:remarketingAudienceId:]
+
+/** Account ID to which the remarketing audience belongs. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** The ID of the remarketing audience to delete. */
+@property(nonatomic, copy, nullable) NSString *remarketingAudienceId;
+
+/** Web property ID to which the remarketing audience belongs. */
+@property(nonatomic, copy, nullable) NSString *webPropertyId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Delete a remarketing audience.
+ *
+ *  @param accountId Account ID to which the remarketing audience belongs.
+ *  @param webPropertyId Web property ID to which the remarketing audience
+ *    belongs.
+ *  @param remarketingAudienceId The ID of the remarketing audience to delete.
+ *
+ *  @returns GTLRAnalyticsQuery_ManagementRemarketingAudienceDelete
+ */
++ (instancetype)queryWithAccountId:(NSString *)accountId
+                     webPropertyId:(NSString *)webPropertyId
+             remarketingAudienceId:(NSString *)remarketingAudienceId;
+
+@end
+
+/**
  *  Gets a remarketing audience to which the user has access.
  *
  *  Method: analytics.management.remarketingAudience.get

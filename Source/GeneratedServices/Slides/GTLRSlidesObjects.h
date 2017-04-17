@@ -3726,10 +3726,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** A list of updates to apply to the presentation. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_Request *> *requests;
 
-/**
- *  Provides control over how write requests are executed, such as
- *  conditionally updating the presentation.
- */
+/** Provides control over how write requests are executed. */
 @property(nonatomic, strong, nullable) GTLRSlides_WriteControl *writeControl;
 
 @end
@@ -5758,9 +5755,11 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  to the presentation.
  *  The format of the revision ID may change over time, so it should be treated
  *  opaquely. A returned revision ID is only guaranteed to be valid for 24
- *  hours after it has been returned and cannot be shared across
- *  users. Callers can assume that if two revision IDs are equal then the
- *  presentation has not changed.
+ *  hours after it has been returned and cannot be shared across users. If the
+ *  revision ID is unchanged between calls, then the presentation has not
+ *  changed. Conversely, a changed ID (for the same presentation and user)
+ *  usually means the presentation has been updated; however, a changed ID can
+ *  also be due to internal factors such as ID format changes.
  */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
@@ -5984,8 +5983,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The text direction of this paragraph. If unset, the value defaults to
- *  LEFT_TO_RIGHT
- *  since text direction is not inherited.
+ *  LEFT_TO_RIGHT since
+ *  text direction is not inherited.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_ParagraphStyle_Direction_LeftToRight The text goes
@@ -6061,8 +6060,8 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_Placeholder : GTLRObject
 
 /**
- *  The index of the placeholder. If the same placeholder types are the present
- *  in the same page, they would have different index values.
+ *  The index of the placeholder. If the same placeholder types are present in
+ *  the same page, they would have different index values.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6165,9 +6164,11 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  presentation.
  *  The format of the revision ID may change over time, so it should be treated
  *  opaquely. A returned revision ID is only guaranteed to be valid for 24
- *  hours after it has been returned and cannot be shared across users. Callers
- *  can assume that if two revision IDs are equal then the presentation has not
- *  changed.
+ *  hours after it has been returned and cannot be shared across users. If the
+ *  revision ID is unchanged between calls, then the presentation has not
+ *  changed. Conversely, a changed ID (for the same presentation and user)
+ *  usually means the presentation has been updated; however, a changed ID can
+ *  also be due to internal factors such as ID format changes.
  */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
@@ -8330,13 +8331,13 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The rendered weight of the text. This field can have any value that is a
- *  multiple of 100 between 100 and 900, inclusive. This range corresponds to
- *  only the numerical values described in the "Cascading Style Sheets Level
- *  2 Revision 1 (CSS 2.1) Specification",
- *  [section 15.6](https://www.w3.org/TR/CSS21/fonts.html#font-boldness). The
- *  non-numerical values in the specification are disallowed. Weights greater
- *  than or equal to 700 are considered bold, and weights less than 700 are
- *  not bold. The default value is `400` ("normal").
+ *  multiple of `100` between `100` and `900`, inclusive. This range
+ *  corresponds to the numerical values described in the CSS 2.1
+ *  Specification, [section
+ *  15.6](https://www.w3.org/TR/CSS21/fonts.html#font-boldness),
+ *  with non-numerical values disallowed. Weights greater than or equal to
+ *  `700` are considered bold, and weights less than `700`are not bold. The
+ *  default value is `400` ("normal").
  *
  *  Uses NSNumber of intValue.
  */

@@ -1267,6 +1267,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *passwordUpdatedAt;
 
+/** User's phone number. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
 /** The URL of the user profile photo. */
 @property(nonatomic, copy, nullable) NSString *photoUrl;
 
@@ -1317,6 +1320,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** User's identifier at IDP. */
 @property(nonatomic, copy, nullable) NSString *federatedId;
+
+/** User's phone number. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
 
 /** The user's photo url at the IDP. */
 @property(nonatomic, copy, nullable) NSString *photoUrl;

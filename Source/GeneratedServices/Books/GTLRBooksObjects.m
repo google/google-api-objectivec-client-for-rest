@@ -925,7 +925,7 @@
 //
 
 @implementation GTLRBooks_Usersettings_Notification
-@dynamic moreFromAuthors, moreFromSeries;
+@dynamic moreFromAuthors, moreFromSeries, rewardExpirations;
 @end
 
 
@@ -950,6 +950,21 @@
 //
 
 @implementation GTLRBooks_Usersettings_Notification_MoreFromSeries
+@dynamic optedState;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"optedState" : @"opted_state" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBooks_Usersettings_Notification_RewardExpirations
+//
+
+@implementation GTLRBooks_Usersettings_Notification_RewardExpirations
 @dynamic optedState;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

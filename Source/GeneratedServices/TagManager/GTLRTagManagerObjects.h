@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Tag Manager API (tagmanager/v1)
+//   Tag Manager API (tagmanager/v2)
 // Description:
 //   Accesses Tag Manager accounts and containers.
 // Documentation:
-//   https://developers.google.com/tag-manager/api/v1/
+//   https://developers.google.com/tag-manager/api/v2/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -20,22 +20,30 @@
 
 @class GTLRTagManager_Account;
 @class GTLRTagManager_AccountAccess;
+@class GTLRTagManager_BuiltInVariable;
 @class GTLRTagManager_Condition;
 @class GTLRTagManager_Container;
 @class GTLRTagManager_ContainerAccess;
 @class GTLRTagManager_ContainerVersion;
 @class GTLRTagManager_ContainerVersionHeader;
+@class GTLRTagManager_Entity;
 @class GTLRTagManager_Environment;
 @class GTLRTagManager_Folder;
-@class GTLRTagManager_Macro;
+@class GTLRTagManager_MergeConflict;
 @class GTLRTagManager_Parameter;
-@class GTLRTagManager_Rule;
 @class GTLRTagManager_SetupTag;
+@class GTLRTagManager_SyncStatus;
 @class GTLRTagManager_Tag;
 @class GTLRTagManager_TeardownTag;
+@class GTLRTagManager_Timestamp;
 @class GTLRTagManager_Trigger;
-@class GTLRTagManager_UserAccess;
+@class GTLRTagManager_UserPermission;
 @class GTLRTagManager_Variable;
+@class GTLRTagManager_Workspace;
+@class GTLRTagManager_WorkspaceProposalHistory;
+@class GTLRTagManager_WorkspaceProposalHistoryComment;
+@class GTLRTagManager_WorkspaceProposalHistoryStatusChange;
+@class GTLRTagManager_WorkspaceProposalUser;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -45,20 +53,200 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRTagManager_AccountAccess.permission
 
-/** Value: "delete" */
-GTLR_EXTERN NSString * const kGTLRTagManager_AccountAccess_Permission_Delete;
-/** Value: "edit" */
-GTLR_EXTERN NSString * const kGTLRTagManager_AccountAccess_Permission_Edit;
-/** Value: "manage" */
-GTLR_EXTERN NSString * const kGTLRTagManager_AccountAccess_Permission_Manage;
-/** Value: "publish" */
-GTLR_EXTERN NSString * const kGTLRTagManager_AccountAccess_Permission_Publish;
-/** Value: "read" */
-GTLR_EXTERN NSString * const kGTLRTagManager_AccountAccess_Permission_Read;
+/** Value: "accountPermissionUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_AccountAccess_Permission_AccountPermissionUnspecified;
+/** Value: "admin" */
+GTLR_EXTERN NSString * const kGTLRTagManager_AccountAccess_Permission_Admin;
+/** Value: "noAccess" */
+GTLR_EXTERN NSString * const kGTLRTagManager_AccountAccess_Permission_NoAccess;
+/** Value: "user" */
+GTLR_EXTERN NSString * const kGTLRTagManager_AccountAccess_Permission_User;
+
+// ----------------------------------------------------------------------------
+// GTLRTagManager_BuiltInVariable.type
+
+/** Value: "advertiserId" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AdvertiserId;
+/** Value: "advertisingTrackingEnabled" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AdvertisingTrackingEnabled;
+/** Value: "ampBrowserLanguage" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpBrowserLanguage;
+/** Value: "ampCanonicalHost" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpCanonicalHost;
+/** Value: "ampCanonicalPath" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpCanonicalPath;
+/** Value: "ampCanonicalUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpCanonicalUrl;
+/** Value: "ampClientId" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientId;
+/** Value: "ampClientMaxScrollX" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientMaxScrollX;
+/** Value: "ampClientMaxScrollY" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientMaxScrollY;
+/** Value: "ampClientScreenHeight" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientScreenHeight;
+/** Value: "ampClientScreenWidth" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientScreenWidth;
+/** Value: "ampClientScrollX" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientScrollX;
+/** Value: "ampClientScrollY" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientScrollY;
+/** Value: "ampClientTimestamp" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientTimestamp;
+/** Value: "ampClientTimezone" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpClientTimezone;
+/** Value: "ampGtmEvent" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpGtmEvent;
+/** Value: "ampPageDownloadTime" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpPageDownloadTime;
+/** Value: "ampPageLoadTime" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpPageLoadTime;
+/** Value: "ampPageViewId" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpPageViewId;
+/** Value: "ampReferrer" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpReferrer;
+/** Value: "ampTitle" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpTitle;
+/** Value: "ampTotalEngagedTime" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpTotalEngagedTime;
+/** Value: "appId" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AppId;
+/** Value: "appName" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AppName;
+/** Value: "appVersionCode" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AppVersionCode;
+/** Value: "appVersionName" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AppVersionName;
+/** Value: "builtInVariableTypeUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_BuiltInVariableTypeUnspecified;
+/** Value: "clickClasses" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickClasses;
+/** Value: "clickElement" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickElement;
+/** Value: "clickId" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickId;
+/** Value: "clickTarget" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickTarget;
+/** Value: "clickText" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickText;
+/** Value: "clickUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickUrl;
+/** Value: "containerId" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ContainerId;
+/** Value: "containerVersion" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ContainerVersion;
+/** Value: "debugMode" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_DebugMode;
+/** Value: "deviceName" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_DeviceName;
+/** Value: "environmentName" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_EnvironmentName;
+/** Value: "errorLine" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ErrorLine;
+/** Value: "errorMessage" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ErrorMessage;
+/** Value: "errorUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ErrorUrl;
+/** Value: "event" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_Event;
+/** Value: "eventName" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_EventName;
+/** Value: "firebaseEventParameterCampaign" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaign;
+/** Value: "firebaseEventParameterCampaignAclid" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignAclid;
+/** Value: "firebaseEventParameterCampaignAnid" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignAnid;
+/** Value: "firebaseEventParameterCampaignClickTimestamp" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignClickTimestamp;
+/** Value: "firebaseEventParameterCampaignContent" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignContent;
+/** Value: "firebaseEventParameterCampaignCp1" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignCp1;
+/** Value: "firebaseEventParameterCampaignGclid" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignGclid;
+/** Value: "firebaseEventParameterCampaignSource" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignSource;
+/** Value: "firebaseEventParameterCampaignTerm" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignTerm;
+/** Value: "firebaseEventParameterCurrency" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCurrency;
+/** Value: "firebaseEventParameterDynamicLinkAcceptTime" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterDynamicLinkAcceptTime;
+/** Value: "firebaseEventParameterDynamicLinkLinkid" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterDynamicLinkLinkid;
+/** Value: "firebaseEventParameterNotificationMessageDeviceTime" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationMessageDeviceTime;
+/** Value: "firebaseEventParameterNotificationMessageId" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationMessageId;
+/** Value: "firebaseEventParameterNotificationMessageName" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationMessageName;
+/** Value: "firebaseEventParameterNotificationMessageTime" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationMessageTime;
+/** Value: "firebaseEventParameterNotificationTopic" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationTopic;
+/** Value: "firebaseEventParameterPreviousAppVersion" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterPreviousAppVersion;
+/** Value: "firebaseEventParameterPreviousOsVersion" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterPreviousOsVersion;
+/** Value: "firebaseEventParameterPrice" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterPrice;
+/** Value: "firebaseEventParameterProductId" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterProductId;
+/** Value: "firebaseEventParameterQuantity" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterQuantity;
+/** Value: "firebaseEventParameterValue" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterValue;
+/** Value: "formClasses" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FormClasses;
+/** Value: "formElement" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FormElement;
+/** Value: "formId" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FormId;
+/** Value: "formTarget" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FormTarget;
+/** Value: "formText" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FormText;
+/** Value: "formUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_FormUrl;
+/** Value: "historySource" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_HistorySource;
+/** Value: "htmlId" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_HtmlId;
+/** Value: "language" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_Language;
+/** Value: "newHistoryFragment" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_NewHistoryFragment;
+/** Value: "newHistoryState" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_NewHistoryState;
+/** Value: "oldHistoryFragment" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_OldHistoryFragment;
+/** Value: "oldHistoryState" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_OldHistoryState;
+/** Value: "osVersion" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_OsVersion;
+/** Value: "pageHostname" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_PageHostname;
+/** Value: "pagePath" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_PagePath;
+/** Value: "pageUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_PageUrl;
+/** Value: "platform" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_Platform;
+/** Value: "randomNumber" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_RandomNumber;
+/** Value: "referrer" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_Referrer;
+/** Value: "resolution" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_Resolution;
+/** Value: "sdkVersion" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_SdkVersion;
 
 // ----------------------------------------------------------------------------
 // GTLRTagManager_Condition.type
 
+/** Value: "conditionTypeUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Condition_Type_ConditionTypeUnspecified;
 /** Value: "contains" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Condition_Type_Contains;
 /** Value: "cssSelector" */
@@ -83,98 +271,10 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Condition_Type_StartsWith;
 GTLR_EXTERN NSString * const kGTLRTagManager_Condition_Type_UrlMatches;
 
 // ----------------------------------------------------------------------------
-// GTLRTagManager_Container.enabledBuiltInVariable
-
-/** Value: "advertiserId" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_AdvertiserId;
-/** Value: "advertisingTrackingEnabled" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_AdvertisingTrackingEnabled;
-/** Value: "appId" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_AppId;
-/** Value: "appName" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_AppName;
-/** Value: "appVersionCode" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_AppVersionCode;
-/** Value: "appVersionName" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_AppVersionName;
-/** Value: "clickClasses" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ClickClasses;
-/** Value: "clickElement" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ClickElement;
-/** Value: "clickId" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ClickId;
-/** Value: "clickTarget" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ClickTarget;
-/** Value: "clickText" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ClickText;
-/** Value: "clickUrl" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ClickUrl;
-/** Value: "containerId" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ContainerId;
-/** Value: "containerVersion" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ContainerVersion;
-/** Value: "debugMode" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_DebugMode;
-/** Value: "deviceName" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_DeviceName;
-/** Value: "environmentName" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_EnvironmentName;
-/** Value: "errorLine" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ErrorLine;
-/** Value: "errorMessage" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ErrorMessage;
-/** Value: "errorUrl" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_ErrorUrl;
-/** Value: "event" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_Event;
-/** Value: "formClasses" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_FormClasses;
-/** Value: "formElement" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_FormElement;
-/** Value: "formId" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_FormId;
-/** Value: "formTarget" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_FormTarget;
-/** Value: "formText" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_FormText;
-/** Value: "formUrl" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_FormUrl;
-/** Value: "historySource" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_HistorySource;
-/** Value: "htmlId" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_HtmlId;
-/** Value: "language" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_Language;
-/** Value: "newHistoryFragment" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_NewHistoryFragment;
-/** Value: "newHistoryState" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_NewHistoryState;
-/** Value: "oldHistoryFragment" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_OldHistoryFragment;
-/** Value: "oldHistoryState" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_OldHistoryState;
-/** Value: "osVersion" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_OsVersion;
-/** Value: "pageHostname" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_PageHostname;
-/** Value: "pagePath" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_PagePath;
-/** Value: "pageUrl" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_PageUrl;
-/** Value: "platform" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_Platform;
-/** Value: "randomNumber" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_RandomNumber;
-/** Value: "referrer" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_Referrer;
-/** Value: "resolution" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_Resolution;
-/** Value: "sdkVersion" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Container_EnabledBuiltInVariable_SdkVersion;
-
-// ----------------------------------------------------------------------------
 // GTLRTagManager_Container.usageContext
 
+/** Value: "amp" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Container_UsageContext_Amp;
 /** Value: "android" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Container_UsageContext_Android;
 /** Value: "androidSdk5" */
@@ -183,34 +283,52 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Container_UsageContext_AndroidSdk5;
 GTLR_EXTERN NSString * const kGTLRTagManager_Container_UsageContext_Ios;
 /** Value: "iosSdk5" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Container_UsageContext_IosSdk5;
+/** Value: "usageContextUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Container_UsageContext_UsageContextUnspecified;
 /** Value: "web" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Container_UsageContext_Web;
 
 // ----------------------------------------------------------------------------
 // GTLRTagManager_ContainerAccess.permission
 
-/** Value: "delete" */
-GTLR_EXTERN NSString * const kGTLRTagManager_ContainerAccess_Permission_Delete;
+/** Value: "approve" */
+GTLR_EXTERN NSString * const kGTLRTagManager_ContainerAccess_Permission_Approve;
+/** Value: "containerPermissionUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_ContainerAccess_Permission_ContainerPermissionUnspecified;
 /** Value: "edit" */
 GTLR_EXTERN NSString * const kGTLRTagManager_ContainerAccess_Permission_Edit;
-/** Value: "manage" */
-GTLR_EXTERN NSString * const kGTLRTagManager_ContainerAccess_Permission_Manage;
+/** Value: "noAccess" */
+GTLR_EXTERN NSString * const kGTLRTagManager_ContainerAccess_Permission_NoAccess;
 /** Value: "publish" */
 GTLR_EXTERN NSString * const kGTLRTagManager_ContainerAccess_Permission_Publish;
 /** Value: "read" */
 GTLR_EXTERN NSString * const kGTLRTagManager_ContainerAccess_Permission_Read;
 
 // ----------------------------------------------------------------------------
+// GTLRTagManager_Entity.changeStatus
+
+/** Value: "added" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Entity_ChangeStatus_Added;
+/** Value: "changeStatusUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Entity_ChangeStatus_ChangeStatusUnspecified;
+/** Value: "deleted" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Entity_ChangeStatus_Deleted;
+/** Value: "none" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Entity_ChangeStatus_None;
+/** Value: "updated" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Entity_ChangeStatus_Updated;
+
+// ----------------------------------------------------------------------------
 // GTLRTagManager_Environment.type
 
-/** Value: "draft" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Environment_Type_Draft;
 /** Value: "latest" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Environment_Type_Latest;
 /** Value: "live" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Environment_Type_Live;
 /** Value: "user" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Environment_Type_User;
+/** Value: "workspace" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Environment_Type_Workspace;
 
 // ----------------------------------------------------------------------------
 // GTLRTagManager_Parameter.type
@@ -225,6 +343,8 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Parameter_Type_List;
 GTLR_EXTERN NSString * const kGTLRTagManager_Parameter_Type_Map;
 /** Value: "template" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Parameter_Type_Template;
+/** Value: "typeUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Parameter_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRTagManager_Tag.tagFiringOption
@@ -233,22 +353,56 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Parameter_Type_Template;
 GTLR_EXTERN NSString * const kGTLRTagManager_Tag_TagFiringOption_OncePerEvent;
 /** Value: "oncePerLoad" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Tag_TagFiringOption_OncePerLoad;
+/** Value: "tagFiringOptionUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Tag_TagFiringOption_TagFiringOptionUnspecified;
 /** Value: "unlimited" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Tag_TagFiringOption_Unlimited;
 
 // ----------------------------------------------------------------------------
 // GTLRTagManager_Trigger.type
 
-/** Value: "ajaxSubmission" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_AjaxSubmission;
 /** Value: "always" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Always;
+/** Value: "ampClick" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_AmpClick;
+/** Value: "ampScroll" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_AmpScroll;
+/** Value: "ampTimer" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_AmpTimer;
+/** Value: "ampVisibility" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_AmpVisibility;
 /** Value: "click" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Click;
 /** Value: "customEvent" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_CustomEvent;
 /** Value: "domReady" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_DomReady;
+/** Value: "eventTypeUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_EventTypeUnspecified;
+/** Value: "firebaseAppException" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseAppException;
+/** Value: "firebaseAppUpdate" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseAppUpdate;
+/** Value: "firebaseCampaign" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseCampaign;
+/** Value: "firebaseFirstOpen" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseFirstOpen;
+/** Value: "firebaseInAppPurchase" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseInAppPurchase;
+/** Value: "firebaseNotificationDismiss" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseNotificationDismiss;
+/** Value: "firebaseNotificationForeground" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseNotificationForeground;
+/** Value: "firebaseNotificationOpen" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseNotificationOpen;
+/** Value: "firebaseNotificationReceive" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseNotificationReceive;
+/** Value: "firebaseOsUpdate" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseOsUpdate;
+/** Value: "firebaseSessionStart" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseSessionStart;
+/** Value: "firebaseUserEngagement" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseUserEngagement;
 /** Value: "formSubmission" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FormSubmission;
 /** Value: "historyChange" */
@@ -263,8 +417,88 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Pageview;
 GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Timer;
 /** Value: "windowLoaded" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_WindowLoaded;
-/** Value: "youTube" */
-GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
+
+// ----------------------------------------------------------------------------
+// GTLRTagManager_UpdateWorkspaceProposalRequest.status
+
+/** Value: "approved" */
+GTLR_EXTERN NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Approved;
+/** Value: "cancelled" */
+GTLR_EXTERN NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Cancelled;
+/** Value: "completed" */
+GTLR_EXTERN NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Completed;
+/** Value: "requested" */
+GTLR_EXTERN NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Requested;
+/** Value: "reviewed" */
+GTLR_EXTERN NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Reviewed;
+/** Value: "statusUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTagManager_WorkspaceProposal.status
+
+/** Value: "approved" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposal_Status_Approved;
+/** Value: "cancelled" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposal_Status_Cancelled;
+/** Value: "completed" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposal_Status_Completed;
+/** Value: "requested" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposal_Status_Requested;
+/** Value: "reviewed" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposal_Status_Reviewed;
+/** Value: "statusUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposal_Status_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTagManager_WorkspaceProposalHistory.type
+
+/** Value: "comment" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistory_Type_Comment;
+/** Value: "statusChange" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistory_Type_StatusChange;
+/** Value: "unspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistory_Type_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTagManager_WorkspaceProposalHistoryStatusChange.newStatus
+
+/** Value: "approved" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Approved;
+/** Value: "cancelled" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Cancelled;
+/** Value: "completed" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Completed;
+/** Value: "requested" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Requested;
+/** Value: "reviewed" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Reviewed;
+/** Value: "statusUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTagManager_WorkspaceProposalHistoryStatusChange.oldStatus
+
+/** Value: "approved" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Approved;
+/** Value: "cancelled" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Cancelled;
+/** Value: "completed" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Completed;
+/** Value: "requested" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Requested;
+/** Value: "reviewed" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Reviewed;
+/** Value: "statusUnspecified" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTagManager_WorkspaceProposalUser.type
+
+/** Value: "gaiaId" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_GaiaId;
+/** Value: "system" */
+GTLR_EXTERN NSString * const kGTLRTagManager_WorkspaceProposalUser_Type_System;
 
 /**
  *  Represents a Google Tag Manager Account.
@@ -283,12 +517,22 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 /** Account display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** GTM Account's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
 /**
- *  Whether the account shares data anonymously with Google and others.
+ *  Whether the account shares data anonymously with Google and others. This
+ *  flag enables benchmarking by sharing your data in an anonymous form. Google
+ *  will remove all identifiable information about your website, combine the
+ *  data with hundreds of other anonymous sites and report aggregate trends in
+ *  the benchmarking service.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *shareData;
+
+/** Auto generated link to the tag manager UI */
+@property(nonatomic, copy, nullable) NSString *tagManagerUrl;
 
 @end
 
@@ -299,9 +543,202 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @interface GTLRTagManager_AccountAccess : GTLRObject
 
 /**
- *  List of Account permissions. Valid account permissions are read and manage.
+ *  Whether the user has no access, user access, or admin access to an account.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_AccountAccess_Permission_AccountPermissionUnspecified
+ *        Value "accountPermissionUnspecified"
+ *    @arg @c kGTLRTagManager_AccountAccess_Permission_Admin Value "admin"
+ *    @arg @c kGTLRTagManager_AccountAccess_Permission_NoAccess Value "noAccess"
+ *    @arg @c kGTLRTagManager_AccountAccess_Permission_User Value "user"
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *permission;
+@property(nonatomic, copy, nullable) NSString *permission;
+
+@end
+
+
+/**
+ *  Built-in variables are a special category of variables that are pre-created
+ *  and non-customizable. They provide common functionality like accessing
+ *  propeties of the gtm data layer, monitoring clicks, or accessing elements of
+ *  a page URL.
+ */
+@interface GTLRTagManager_BuiltInVariable : GTLRObject
+
+/** GTM Account ID. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** GTM Container ID. */
+@property(nonatomic, copy, nullable) NSString *containerId;
+
+/**
+ *  Name of the built-in variable to be used to refer to the built-in variable.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** GTM BuiltInVariable's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Type of built-in variable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AdvertiserId Value
+ *        "advertiserId"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AdvertisingTrackingEnabled
+ *        Value "advertisingTrackingEnabled"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpBrowserLanguage Value
+ *        "ampBrowserLanguage"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpCanonicalHost Value
+ *        "ampCanonicalHost"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpCanonicalPath Value
+ *        "ampCanonicalPath"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpCanonicalUrl Value
+ *        "ampCanonicalUrl"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpClientId Value
+ *        "ampClientId"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpClientMaxScrollX Value
+ *        "ampClientMaxScrollX"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpClientMaxScrollY Value
+ *        "ampClientMaxScrollY"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpClientScreenHeight Value
+ *        "ampClientScreenHeight"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpClientScreenWidth Value
+ *        "ampClientScreenWidth"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpClientScrollX Value
+ *        "ampClientScrollX"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpClientScrollY Value
+ *        "ampClientScrollY"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpClientTimestamp Value
+ *        "ampClientTimestamp"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpClientTimezone Value
+ *        "ampClientTimezone"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpGtmEvent Value
+ *        "ampGtmEvent"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpPageDownloadTime Value
+ *        "ampPageDownloadTime"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpPageLoadTime Value
+ *        "ampPageLoadTime"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpPageViewId Value
+ *        "ampPageViewId"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpReferrer Value
+ *        "ampReferrer"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpTitle Value "ampTitle"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpTotalEngagedTime Value
+ *        "ampTotalEngagedTime"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AppId Value "appId"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AppName Value "appName"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AppVersionCode Value
+ *        "appVersionCode"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AppVersionName Value
+ *        "appVersionName"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_BuiltInVariableTypeUnspecified
+ *        Value "builtInVariableTypeUnspecified"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ClickClasses Value
+ *        "clickClasses"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ClickElement Value
+ *        "clickElement"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ClickId Value "clickId"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ClickTarget Value
+ *        "clickTarget"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ClickText Value "clickText"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ClickUrl Value "clickUrl"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ContainerId Value
+ *        "containerId"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ContainerVersion Value
+ *        "containerVersion"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_DebugMode Value "debugMode"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_DeviceName Value "deviceName"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_EnvironmentName Value
+ *        "environmentName"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ErrorLine Value "errorLine"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ErrorMessage Value
+ *        "errorMessage"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ErrorUrl Value "errorUrl"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_Event Value "event"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_EventName Value "eventName"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaign
+ *        Value "firebaseEventParameterCampaign"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignAclid
+ *        Value "firebaseEventParameterCampaignAclid"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignAnid
+ *        Value "firebaseEventParameterCampaignAnid"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignClickTimestamp
+ *        Value "firebaseEventParameterCampaignClickTimestamp"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignContent
+ *        Value "firebaseEventParameterCampaignContent"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignCp1
+ *        Value "firebaseEventParameterCampaignCp1"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignGclid
+ *        Value "firebaseEventParameterCampaignGclid"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignSource
+ *        Value "firebaseEventParameterCampaignSource"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCampaignTerm
+ *        Value "firebaseEventParameterCampaignTerm"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterCurrency
+ *        Value "firebaseEventParameterCurrency"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterDynamicLinkAcceptTime
+ *        Value "firebaseEventParameterDynamicLinkAcceptTime"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterDynamicLinkLinkid
+ *        Value "firebaseEventParameterDynamicLinkLinkid"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationMessageDeviceTime
+ *        Value "firebaseEventParameterNotificationMessageDeviceTime"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationMessageId
+ *        Value "firebaseEventParameterNotificationMessageId"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationMessageName
+ *        Value "firebaseEventParameterNotificationMessageName"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationMessageTime
+ *        Value "firebaseEventParameterNotificationMessageTime"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterNotificationTopic
+ *        Value "firebaseEventParameterNotificationTopic"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterPreviousAppVersion
+ *        Value "firebaseEventParameterPreviousAppVersion"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterPreviousOsVersion
+ *        Value "firebaseEventParameterPreviousOsVersion"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterPrice
+ *        Value "firebaseEventParameterPrice"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterProductId
+ *        Value "firebaseEventParameterProductId"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterQuantity
+ *        Value "firebaseEventParameterQuantity"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterValue
+ *        Value "firebaseEventParameterValue"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FormClasses Value
+ *        "formClasses"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FormElement Value
+ *        "formElement"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FormId Value "formId"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FormTarget Value "formTarget"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FormText Value "formText"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_FormUrl Value "formUrl"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_HistorySource Value
+ *        "historySource"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_HtmlId Value "htmlId"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_Language Value "language"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_NewHistoryFragment Value
+ *        "newHistoryFragment"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_NewHistoryState Value
+ *        "newHistoryState"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_OldHistoryFragment Value
+ *        "oldHistoryFragment"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_OldHistoryState Value
+ *        "oldHistoryState"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_OsVersion Value "osVersion"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_PageHostname Value
+ *        "pageHostname"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_PagePath Value "pagePath"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_PageUrl Value "pageUrl"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_Platform Value "platform"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_RandomNumber Value
+ *        "randomNumber"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_Referrer Value "referrer"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_Resolution Value "resolution"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_SdkVersion Value "sdkVersion"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** GTM Workspace ID. */
+@property(nonatomic, copy, nullable) NSString *workspaceId;
 
 @end
 
@@ -329,6 +766,8 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *  The type of operator for this condition.
  *
  *  Likely values:
+ *    @arg @c kGTLRTagManager_Condition_Type_ConditionTypeUnspecified Value
+ *        "conditionTypeUnspecified"
  *    @arg @c kGTLRTagManager_Condition_Type_Contains Value "contains"
  *    @arg @c kGTLRTagManager_Condition_Type_CssSelector Value "cssSelector"
  *    @arg @c kGTLRTagManager_Condition_Type_EndsWith Value "endsWith"
@@ -348,7 +787,8 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 
 
 /**
- *  Represents a Google Tag Manager Container.
+ *  Represents a Google Tag Manager Container, which specifies the platform tags
+ *  will run on, manages workspaces, and retains container versions.
  */
 @interface GTLRTagManager_Container : GTLRObject
 
@@ -358,18 +798,8 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 /** The Container ID uniquely identifies the GTM Container. */
 @property(nonatomic, copy, nullable) NSString *containerId;
 
-/** Optional list of domain names associated with the Container. */
+/** List of domain names associated with the Container. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *domainName;
-
-/**
- *  List of enabled built-in variables. Valid values include: pageUrl,
- *  pageHostname, pagePath, referrer, event, clickElement, clickClasses,
- *  clickId, clickTarget, clickUrl, clickText, formElement, formClasses, formId,
- *  formTarget, formUrl, formText, errorMessage, errorUrl, errorLine,
- *  newHistoryFragment, oldHistoryFragment, newHistoryState, oldHistoryState,
- *  historySource, containerVersion, debugMode, randomNumber, containerId.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledBuiltInVariable;
 
 /**
  *  The fingerprint of the GTM Container as computed at storage time. This value
@@ -383,18 +813,18 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 /** Container Notes. */
 @property(nonatomic, copy, nullable) NSString *notes;
 
+/** GTM Container's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
 /** Container Public ID. */
 @property(nonatomic, copy, nullable) NSString *publicId;
 
-/** Container Country ID. */
-@property(nonatomic, copy, nullable) NSString *timeZoneCountryId;
-
-/** Container Time Zone ID. */
-@property(nonatomic, copy, nullable) NSString *timeZoneId;
+/** Auto generated link to the tag manager UI */
+@property(nonatomic, copy, nullable) NSString *tagManagerUrl;
 
 /**
  *  List of Usage Contexts for the Container. Valid values include: web,
- *  android, ios.
+ *  android, or ios.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *usageContext;
 
@@ -410,10 +840,19 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
- *  List of Container permissions. Valid container permissions are: read, edit,
- *  delete, publish.
+ *  List of Container permissions.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_ContainerAccess_Permission_Approve Value "approve"
+ *    @arg @c kGTLRTagManager_ContainerAccess_Permission_ContainerPermissionUnspecified
+ *        Value "containerPermissionUnspecified"
+ *    @arg @c kGTLRTagManager_ContainerAccess_Permission_Edit Value "edit"
+ *    @arg @c kGTLRTagManager_ContainerAccess_Permission_NoAccess Value
+ *        "noAccess"
+ *    @arg @c kGTLRTagManager_ContainerAccess_Permission_Publish Value "publish"
+ *    @arg @c kGTLRTagManager_ContainerAccess_Permission_Read Value "read"
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *permission;
+@property(nonatomic, copy, nullable) NSString *permission;
 
 @end
 
@@ -425,6 +864,11 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 
 /** GTM Account ID. */
 @property(nonatomic, copy, nullable) NSString *accountId;
+
+/**
+ *  The built-in variables in the container that this version was taken from.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_BuiltInVariable *> *builtInVariable;
 
 /** The container that this version was taken from. */
 @property(nonatomic, strong, nullable) GTLRTagManager_Container *container;
@@ -443,6 +887,13 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @property(nonatomic, strong, nullable) NSNumber *deleted;
 
 /**
+ *  Container version description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
  *  The fingerprint of the GTM Container Version as computed at storage time.
  *  This value is recomputed whenever the container version is modified.
  */
@@ -451,20 +902,17 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 /** The folders in the container that this version was taken from. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Folder *> *folder;
 
-/** The macros in the container that this version was taken from. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Macro *> *macro;
-
 /** Container version display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** User notes on how to apply this container version in the container. */
-@property(nonatomic, copy, nullable) NSString *notes;
-
-/** The rules in the container that this version was taken from. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Rule *> *rule;
+/** GTM ContainerVersions's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /** The tags in the container that this version was taken from. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Tag *> *tag;
+
+/** Auto generated link to the tag manager UI */
+@property(nonatomic, copy, nullable) NSString *tagManagerUrl;
 
 /** The triggers in the container that this version was taken from. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Trigger *> *trigger;
@@ -514,6 +962,20 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 /** Number of variables in the container version. */
 @property(nonatomic, copy, nullable) NSString *numVariables;
 
+/** GTM Container Versions's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  GTLRTagManager_CreateBuiltInVariableResponse
+ */
+@interface GTLRTagManager_CreateBuiltInVariableResponse : GTLRObject
+
+/** List of created built-in variables. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_BuiltInVariable *> *builtInVariable;
+
 @end
 
 
@@ -527,14 +989,6 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 
 /** The notes of the container version to be created. */
 @property(nonatomic, copy, nullable) NSString *notes;
-
-/**
- *  The creation of this version may be for quick preview and shouldn't be
- *  saved.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *quickPreview;
 
 @end
 
@@ -554,6 +1008,69 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 /** The container version created. */
 @property(nonatomic, strong, nullable) GTLRTagManager_ContainerVersion *containerVersion;
 
+/**
+ *  Auto generated workspace path created as a result of version creation. This
+ *  field should only be populated if the created version was not a quick
+ *  preview.
+ */
+@property(nonatomic, copy, nullable) NSString *newWorkspacePath NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Whether version creation failed when syncing the workspace to the latest
+ *  container version.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_SyncStatus *syncStatus;
+
+@end
+
+
+/**
+ *  Creates a workspace proposal to start a review of a workspace.
+ */
+@interface GTLRTagManager_CreateWorkspaceProposalRequest : GTLRObject
+
+/**
+ *  If present, an initial comment to associate with the workspace proposal.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_WorkspaceProposalHistoryComment *initialComment;
+
+/** List of users to review the workspace proposal. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_WorkspaceProposalUser *> *reviewers;
+
+@end
+
+
+/**
+ *  A workspace entity that may represent a tag, trigger, variable, or folder in
+ *  addition to its status in the workspace.
+ */
+@interface GTLRTagManager_Entity : GTLRObject
+
+/**
+ *  Represents how the entity has been changed in the workspace.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_Entity_ChangeStatus_Added Value "added"
+ *    @arg @c kGTLRTagManager_Entity_ChangeStatus_ChangeStatusUnspecified Value
+ *        "changeStatusUnspecified"
+ *    @arg @c kGTLRTagManager_Entity_ChangeStatus_Deleted Value "deleted"
+ *    @arg @c kGTLRTagManager_Entity_ChangeStatus_None Value "none"
+ *    @arg @c kGTLRTagManager_Entity_ChangeStatus_Updated Value "updated"
+ */
+@property(nonatomic, copy, nullable) NSString *changeStatus;
+
+/** The Folder being represented by the entity. */
+@property(nonatomic, strong, nullable) GTLRTagManager_Folder *folder;
+
+/** The tag being represented by the entity. */
+@property(nonatomic, strong, nullable) GTLRTagManager_Tag *tag;
+
+/** The trigger being represented by the entity. */
+@property(nonatomic, strong, nullable) GTLRTagManager_Trigger *trigger;
+
+/** The variable being represented by the entity. */
+@property(nonatomic, strong, nullable) GTLRTagManager_Variable *variable;
+
 @end
 
 
@@ -570,16 +1087,13 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 /** The environment authorization code. */
 @property(nonatomic, copy, nullable) NSString *authorizationCode;
 
-/**
- *  The last update time-stamp for the authorization code.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *authorizationTimestampMs;
+/** The last update time-stamp for the authorization code. */
+@property(nonatomic, strong, nullable) GTLRTagManager_Timestamp *authorizationTimestamp;
 
 /** GTM Container ID. */
 @property(nonatomic, copy, nullable) NSString *containerId;
 
+/** Represents a link to a container version. */
 @property(nonatomic, copy, nullable) NSString *containerVersionId;
 
 /**
@@ -591,7 +1105,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Whether or not to enable debug by default on for the environment.
+ *  Whether or not to enable debug by default for the environment.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -612,19 +1126,28 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** GTM Environment's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Auto generated link to the tag manager UI */
+@property(nonatomic, copy, nullable) NSString *tagManagerUrl;
+
 /**
  *  The type of this environment.
  *
  *  Likely values:
- *    @arg @c kGTLRTagManager_Environment_Type_Draft Value "draft"
  *    @arg @c kGTLRTagManager_Environment_Type_Latest Value "latest"
  *    @arg @c kGTLRTagManager_Environment_Type_Live Value "live"
  *    @arg @c kGTLRTagManager_Environment_Type_User Value "user"
+ *    @arg @c kGTLRTagManager_Environment_Type_Workspace Value "workspace"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /** Default preview page url for the environment. */
 @property(nonatomic, copy, nullable) NSString *url;
+
+/** Represents a link to a quick preview of a workspace. */
+@property(nonatomic, copy, nullable) NSString *workspaceId;
 
 @end
 
@@ -652,6 +1175,18 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 /** Folder display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** User notes on how to apply this folder in the container. */
+@property(nonatomic, copy, nullable) NSString *notes;
+
+/** GTM Folder's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Auto generated link to the tag manager UI */
+@property(nonatomic, copy, nullable) NSString *tagManagerUrl;
+
+/** GTM Workspace ID. */
+@property(nonatomic, copy, nullable) NSString *workspaceId;
+
 @end
 
 
@@ -659,6 +1194,9 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *  Represents a Google Tag Manager Folder's contents.
  */
 @interface GTLRTagManager_FolderEntities : GTLRObject
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** The list of tags inside the folder. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Tag *> *tag;
@@ -673,169 +1211,302 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 
 
 /**
- *  List Accounts Response.
+ *  The changes that have occurred in the workspace since the base container
+ *  version.
  */
-@interface GTLRTagManager_ListAccountsResponse : GTLRObject
+@interface GTLRTagManager_GetWorkspaceStatusResponse : GTLRObject
 
-/** List of GTM Accounts that a user has access to. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Account *> *accounts;
+/** The merge conflict after sync. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_MergeConflict *> *mergeConflict;
+
+/** Entities that have been changed in the workspace. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Entity *> *workspaceChange;
 
 @end
 
 
 /**
- *  List AccountUsers Response.
+ *  List Accounts Response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "account" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRTagManager_ListAccountUsersResponse : GTLRObject
+@interface GTLRTagManager_ListAccountsResponse : GTLRCollectionObject
 
-/** All GTM AccountUsers of a GTM Account. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_UserAccess *> *userAccess;
+/**
+ *  List of GTM Accounts that a user has access to.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Account *> *account;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
 
 /**
  *  List Containers Response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "container" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRTagManager_ListContainersResponse : GTLRObject
+@interface GTLRTagManager_ListContainersResponse : GTLRCollectionObject
 
-/** All Containers of a GTM Account. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Container *> *containers;
+/**
+ *  All Containers of a GTM Account.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Container *> *container;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
 
 /**
  *  List container versions response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "containerVersionHeader" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
  */
-@interface GTLRTagManager_ListContainerVersionsResponse : GTLRObject
+@interface GTLRTagManager_ListContainerVersionsResponse : GTLRCollectionObject
 
-/** All versions of a GTM Container. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_ContainerVersion *> *containerVersion;
-
-/** All container version headers of a GTM Container. */
+/**
+ *  All container version headers of a GTM Container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_ContainerVersionHeader *> *containerVersionHeader;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  A list of enabled built-in variables.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "builtInVariable" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRTagManager_ListEnabledBuiltInVariablesResponse : GTLRCollectionObject
+
+/**
+ *  All GTM BuiltInVariables of a GTM container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_BuiltInVariable *> *builtInVariable;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
 
 /**
  *  List Environments Response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "environment" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRTagManager_ListEnvironmentsResponse : GTLRObject
+@interface GTLRTagManager_ListEnvironmentsResponse : GTLRCollectionObject
 
-/** All Environments of a GTM Container. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Environment *> *environments;
+/**
+ *  All Environments of a GTM Container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Environment *> *environment;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
 
 /**
  *  List Folders Response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "folder" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRTagManager_ListFoldersResponse : GTLRObject
+@interface GTLRTagManager_ListFoldersResponse : GTLRCollectionObject
 
-/** All GTM Folders of a GTM Container. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Folder *> *folders;
+/**
+ *  All GTM Folders of a GTM Container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Folder *> *folder;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
 
 /**
  *  List Tags Response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "tag" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRTagManager_ListTagsResponse : GTLRObject
+@interface GTLRTagManager_ListTagsResponse : GTLRCollectionObject
 
-/** All GTM Tags of a GTM Container. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Tag *> *tags;
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  All GTM Tags of a GTM Container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Tag *> *tag;
 
 @end
 
 
 /**
  *  List triggers response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "trigger" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRTagManager_ListTriggersResponse : GTLRObject
+@interface GTLRTagManager_ListTriggersResponse : GTLRCollectionObject
 
-/** All GTM Triggers of a GTM Container. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Trigger *> *triggers;
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  All GTM Triggers of a GTM Container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Trigger *> *trigger;
+
+@end
+
+
+/**
+ *  List user permissions response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "userPermission" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRTagManager_ListUserPermissionsResponse : GTLRCollectionObject
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  All GTM UserPermissions of a GTM Account.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_UserPermission *> *userPermission;
 
 @end
 
 
 /**
  *  List Variables Response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "variable" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRTagManager_ListVariablesResponse : GTLRObject
+@interface GTLRTagManager_ListVariablesResponse : GTLRCollectionObject
 
-/** All GTM Variables of a GTM Container. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Variable *> *variables;
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  All GTM Variables of a GTM Container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Variable *> *variable;
 
 @end
 
 
 /**
- *  Represents a Google Tag Manager Macro.
- */
-@interface GTLRTagManager_Macro : GTLRObject
-
-/** GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
-
-/** GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
-
-/**
- *  For mobile containers only: A list of rule IDs for disabling conditional
- *  macros; the macro is enabled if one of the enabling rules is true while all
- *  the disabling rules are false. Treated as an unordered set.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *disablingRuleId;
-
-/**
- *  For mobile containers only: A list of rule IDs for enabling conditional
- *  macros; the macro is enabled if one of the enabling rules is true while all
- *  the disabling rules are false. Treated as an unordered set.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *enablingRuleId;
-
-/**
- *  The fingerprint of the GTM Macro as computed at storage time. This value is
- *  recomputed whenever the macro is modified.
- */
-@property(nonatomic, copy, nullable) NSString *fingerprint;
-
-/** The Macro ID uniquely identifies the GTM Macro. */
-@property(nonatomic, copy, nullable) NSString *macroId;
-
-/** Macro display name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** User notes on how to apply this macro in the container. */
-@property(nonatomic, copy, nullable) NSString *notes;
-
-/** The macro's parameters. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
-
-/** Parent folder id. */
-@property(nonatomic, copy, nullable) NSString *parentFolderId;
-
-/**
- *  The end timestamp in milliseconds to schedule a macro.
+ *  A list of workspaces in a container.
  *
- *  Uses NSNumber of longLongValue.
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "workspace" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@property(nonatomic, strong, nullable) NSNumber *scheduleEndMs;
+@interface GTLRTagManager_ListWorkspacesResponse : GTLRCollectionObject
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The start timestamp in milliseconds to schedule a macro.
+ *  All Workspaces of a GTM Container.
  *
- *  Uses NSNumber of longLongValue.
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSNumber *scheduleStartMs;
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Workspace *> *workspace;
 
-/** GTM Macro Type. */
-@property(nonatomic, copy, nullable) NSString *type;
+@end
+
+
+/**
+ *  Represents a merge conflict.
+ */
+@interface GTLRTagManager_MergeConflict : GTLRObject
+
+/**
+ *  The base version entity (since the latest sync operation) that has
+ *  conflicting changes compared to the workspace. If this field is missing, it
+ *  means the workspace entity is deleted from the base version.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Entity *entityInBaseVersion;
+
+/**
+ *  The workspace entity that has conflicting changes compared to the base
+ *  version. If an entity is deleted in a workspace, it will still appear with a
+ *  deleted change status.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Entity *entityInWorkspace;
 
 @end
 
@@ -872,6 +1543,8 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *    @arg @c kGTLRTagManager_Parameter_Type_List Value "list"
  *    @arg @c kGTLRTagManager_Parameter_Type_Map Value "map"
  *    @arg @c kGTLRTagManager_Parameter_Type_Template Value "template"
+ *    @arg @c kGTLRTagManager_Parameter_Type_TypeUnspecified Value
+ *        "typeUnspecified"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -903,41 +1576,107 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 
 
 /**
- *  Represents a Google Tag Manager Rule.
+ *  Response to quick previewing a workspace.
  */
-@interface GTLRTagManager_Rule : GTLRObject
-
-/** GTM Account ID. */
-@property(nonatomic, copy, nullable) NSString *accountId;
+@interface GTLRTagManager_QuickPreviewResponse : GTLRObject
 
 /**
- *  The list of conditions that make up this rule (implicit AND between them).
+ *  Were there compiler errors or not.
+ *
+ *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Condition *> *condition;
+@property(nonatomic, strong, nullable) NSNumber *compilerError;
 
-/** GTM Container ID. */
-@property(nonatomic, copy, nullable) NSString *containerId;
+/** The quick previewed container version. */
+@property(nonatomic, strong, nullable) GTLRTagManager_ContainerVersion *containerVersion;
 
 /**
- *  The fingerprint of the GTM Rule as computed at storage time. This value is
- *  recomputed whenever the rule is modified.
+ *  Whether quick previewing failed when syncing the workspace to the latest
+ *  container version.
  */
-@property(nonatomic, copy, nullable) NSString *fingerprint;
-
-/** Rule display name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** User notes on how to apply this rule in the container. */
-@property(nonatomic, copy, nullable) NSString *notes;
-
-/** The Rule ID uniquely identifies the GTM Rule. */
-@property(nonatomic, copy, nullable) NSString *ruleId;
+@property(nonatomic, strong, nullable) GTLRTagManager_SyncStatus *syncStatus;
 
 @end
 
 
 /**
- *  GTLRTagManager_SetupTag
+ *  The result of reverting a built-in variable in a workspace.
+ */
+@interface GTLRTagManager_RevertBuiltInVariableResponse : GTLRObject
+
+/**
+ *  Whether the built-in variable is enabled after reversion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  The result of reverting folder changes in a workspace.
+ */
+@interface GTLRTagManager_RevertFolderResponse : GTLRObject
+
+/**
+ *  Folder as it appears in the latest container version since the last
+ *  workspace synchronization operation. If no folder is present, that means the
+ *  folder was deleted in the latest container version.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Folder *folder;
+
+@end
+
+
+/**
+ *  The result of reverting a tag in a workspace.
+ */
+@interface GTLRTagManager_RevertTagResponse : GTLRObject
+
+/**
+ *  Tag as it appears in the latest container version since the last workspace
+ *  synchronization operation. If no tag is present, that means the tag was
+ *  deleted in the latest container version.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Tag *tag;
+
+@end
+
+
+/**
+ *  The result of reverting a trigger in a workspace.
+ */
+@interface GTLRTagManager_RevertTriggerResponse : GTLRObject
+
+/**
+ *  Trigger as it appears in the latest container version since the last
+ *  workspace synchronization operation. If no trigger is present, that means
+ *  the trigger was deleted in the latest container version.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Trigger *trigger;
+
+@end
+
+
+/**
+ *  The result of reverting a variable in a workspace.
+ */
+@interface GTLRTagManager_RevertVariableResponse : GTLRObject
+
+/**
+ *  Variable as it appears in the latest container version since the last
+ *  workspace synchronization operation. If no variable is present, that means
+ *  the variable was deleted in the latest container version.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Variable *variable;
+
+@end
+
+
+/**
+ *  Represents a reference to atag that fires before another tag in order to set
+ *  up dependencies.
  */
 @interface GTLRTagManager_SetupTag : GTLRObject
 
@@ -951,6 +1690,49 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 
 /** The name of the setup tag. */
 @property(nonatomic, copy, nullable) NSString *tagName;
+
+@end
+
+
+/**
+ *  The status of a workspace after synchronization.
+ */
+@interface GTLRTagManager_SyncStatus : GTLRObject
+
+/**
+ *  Synchornization operation detected a merge conflict.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mergeConflict;
+
+/**
+ *  An error occurred during the synchronization operation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *syncError;
+
+@end
+
+
+/**
+ *  A response after synchronizing the workspace to the latest container
+ *  version.
+ */
+@interface GTLRTagManager_SyncWorkspaceResponse : GTLRObject
+
+/**
+ *  The merge conflict after sync. If this field is not empty, the sync is still
+ *  treated as successful. But a version cannot be created until all conflicts
+ *  are resolved.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_MergeConflict *> *mergeConflict;
+
+/**
+ *  Indicates whether synchronization caused a merge conflict or sync error.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_SyncStatus *syncStatus;
 
 @end
 
@@ -1016,6 +1798,9 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 /** Parent folder id. */
 @property(nonatomic, copy, nullable) NSString *parentFolderId;
 
+/** GTM Tag's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
 /**
  *  User defined numeric priority of the tag. Tags are fired asynchronously in
  *  order of priority. Tags with higher numeric value fire first. A tag's
@@ -1048,6 +1833,8 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *        "oncePerEvent"
  *    @arg @c kGTLRTagManager_Tag_TagFiringOption_OncePerLoad Value
  *        "oncePerLoad"
+ *    @arg @c kGTLRTagManager_Tag_TagFiringOption_TagFiringOptionUnspecified
+ *        Value "tagFiringOptionUnspecified"
  *    @arg @c kGTLRTagManager_Tag_TagFiringOption_Unlimited Value "unlimited"
  */
 @property(nonatomic, copy, nullable) NSString *tagFiringOption;
@@ -1055,17 +1842,24 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 /** The Tag ID uniquely identifies the GTM Tag. */
 @property(nonatomic, copy, nullable) NSString *tagId;
 
+/** Auto generated link to the tag manager UI */
+@property(nonatomic, copy, nullable) NSString *tagManagerUrl;
+
 /** The list of teardown tags. Currently we only allow one. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_TeardownTag *> *teardownTag;
 
 /** GTM Tag Type. */
 @property(nonatomic, copy, nullable) NSString *type;
 
+/** GTM Workspace ID. */
+@property(nonatomic, copy, nullable) NSString *workspaceId;
+
 @end
 
 
 /**
- *  GTLRTagManager_TeardownTag
+ *  Represents a tag that fires after another tag in order to tear down
+ *  dependencies.
  */
 @interface GTLRTagManager_TeardownTag : GTLRObject
 
@@ -1080,6 +1874,82 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 
 /** The name of the teardown tag. */
 @property(nonatomic, copy, nullable) NSString *tagName;
+
+@end
+
+
+/**
+ *  A Timestamp represents a point in time independent of any time zone or
+ *  calendar, represented as seconds and fractions of seconds at nanosecond
+ *  resolution in UTC Epoch time. It is encoded using the Proleptic Gregorian
+ *  Calendar which extends the Gregorian calendar backwards to year one. It is
+ *  encoded assuming all minutes are 60 seconds long, i.e. leap seconds are
+ *  "smeared" so that no leap second table is needed for interpretation. Range
+ *  is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+ *  restricting to that range, we ensure that we can convert to and from RFC
+ *  3339 date strings. See
+ *  [https://www.ietf.org/rfc/rfc3339.txt](https://www.ietf.org/rfc/rfc3339.txt).
+ *  # Examples
+ *  Example 1: Compute Timestamp from POSIX `time()`.
+ *  Timestamp timestamp; timestamp.set_seconds(time(NULL));
+ *  timestamp.set_nanos(0);
+ *  Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+ *  struct timeval tv; gettimeofday(&tv, NULL);
+ *  Timestamp timestamp; timestamp.set_seconds(tv.tv_sec);
+ *  timestamp.set_nanos(tv.tv_usec * 1000);
+ *  Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+ *  FILETIME ft; GetSystemTimeAsFileTime(&ft); UINT64 ticks =
+ *  (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+ *  // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z //
+ *  is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z. Timestamp
+ *  timestamp; timestamp.set_seconds((INT64) ((ticks / 10000000) -
+ *  11644473600LL)); timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+ *  Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+ *  long millis = System.currentTimeMillis();
+ *  Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+ *  .setNanos((int) ((millis % 1000) * 1000000)).build();
+ *  Example 5: Compute Timestamp from current time in Python.
+ *  timestamp = Timestamp() timestamp.GetCurrentTime()
+ *  # JSON Mapping
+ *  In JSON format, the Timestamp type is encoded as a string in the [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the format is
+ *  "{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z" where {year} is
+ *  always expressed using four digits while {month}, {day}, {hour}, {min}, and
+ *  {sec} are zero-padded to two digits each. The fractional seconds, which can
+ *  go up to 9 digits (i.e. up to 1 nanosecond resolution), are optional. The
+ *  "Z" suffix indicates the timezone ("UTC"); the timezone is required, though
+ *  only UTC (as indicated by "Z") is presently supported.
+ *  For example, "2017-01-15T01:30:15.01Z" encodes 15.01 seconds past 01:30 UTC
+ *  on January 15, 2017.
+ *  In JavaScript, one can convert a Date object to this format using the
+ *  standard
+ *  [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString]
+ *  method. In Python, a standard `datetime.datetime` object can be converted to
+ *  this format using
+ *  [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+ *  the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+ *  the Joda Time's [`ISODateTimeFormat.dateTime()`](
+ *  http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime())
+ *  to obtain a formatter capable of generating timestamps in this format.
+ */
+@interface GTLRTagManager_Timestamp : GTLRObject
+
+/**
+ *  Non-negative fractions of a second at nanosecond resolution. Negative second
+ *  values with fractions must still have non-negative nanos values that count
+ *  forward in time. Must be from 0 to 999,999,999 inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must
+ *  be from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
 
 @end
 
@@ -1106,17 +1976,16 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @property(nonatomic, copy, nullable) NSString *containerId;
 
 /**
+ *  A visibility trigger minimum continuous visible time (in milliseconds). Only
+ *  valid for AMP Visibility trigger.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *continuousTimeMinMilliseconds;
+
+/**
  *  Used in the case of custom event, which is fired iff all Conditions are
  *  true.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Condition *> *customEventFilter;
-
-/**
- *  Reloads the videos in the page that don't already have the YT API enabled.
- *  If false, only capture events from videos that already have the API enabled.
- *  Only valid for YouTube triggers.
- */
-@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *enableAllVideos;
 
 /** Name of the GTM event that is fired. Only valid for Timer triggers. */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *eventName;
@@ -1131,10 +2000,23 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
+ *  List of integer percentage values for scroll triggers. The trigger will fire
+ *  when each percentage is reached when the view is scrolled horizontally. Only
+ *  valid for AMP scroll triggers.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *horizontalScrollPercentageList;
+
+/**
  *  Time between triggering recurring Timer Events (in milliseconds). Only valid
  *  for Timer triggers.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *interval;
+
+/**
+ *  Time between Timer Events to fire (in seconds). Only valid for AMP Timer
+ *  trigger.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *intervalSeconds;
 
 /**
  *  Limit of the number of GTM events this Timer Trigger will fire. If no limit
@@ -1143,11 +2025,38 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *limit;
 
+/**
+ *  Max time to fire Timer Events (in seconds). Only valid for AMP Timer
+ *  trigger.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *maxTimerLengthSeconds;
+
 /** Trigger display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** User notes on how to apply this trigger in the container. */
+@property(nonatomic, copy, nullable) NSString *notes;
+
 /** Parent folder id. */
 @property(nonatomic, copy, nullable) NSString *parentFolderId;
+
+/** GTM Trigger's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  A click trigger CSS selector (i.e. "a", "button" etc.). Only valid for AMP
+ *  Click trigger.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *selector;
+
+/** Auto generated link to the tag manager UI */
+@property(nonatomic, copy, nullable) NSString *tagManagerUrl;
+
+/**
+ *  A visibility trigger minimum total visible time (in milliseconds). Only
+ *  valid for AMP Visibility trigger.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *totalTimeMinMilliseconds;
 
 /** The Trigger ID uniquely identifies the GTM Trigger. */
 @property(nonatomic, copy, nullable) NSString *triggerId;
@@ -1156,11 +2065,40 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *  Defines the data layer event that causes this trigger.
  *
  *  Likely values:
- *    @arg @c kGTLRTagManager_Trigger_Type_AjaxSubmission Value "ajaxSubmission"
  *    @arg @c kGTLRTagManager_Trigger_Type_Always Value "always"
+ *    @arg @c kGTLRTagManager_Trigger_Type_AmpClick Value "ampClick"
+ *    @arg @c kGTLRTagManager_Trigger_Type_AmpScroll Value "ampScroll"
+ *    @arg @c kGTLRTagManager_Trigger_Type_AmpTimer Value "ampTimer"
+ *    @arg @c kGTLRTagManager_Trigger_Type_AmpVisibility Value "ampVisibility"
  *    @arg @c kGTLRTagManager_Trigger_Type_Click Value "click"
  *    @arg @c kGTLRTagManager_Trigger_Type_CustomEvent Value "customEvent"
  *    @arg @c kGTLRTagManager_Trigger_Type_DomReady Value "domReady"
+ *    @arg @c kGTLRTagManager_Trigger_Type_EventTypeUnspecified Value
+ *        "eventTypeUnspecified"
+ *    @arg @c kGTLRTagManager_Trigger_Type_FirebaseAppException Value
+ *        "firebaseAppException"
+ *    @arg @c kGTLRTagManager_Trigger_Type_FirebaseAppUpdate Value
+ *        "firebaseAppUpdate"
+ *    @arg @c kGTLRTagManager_Trigger_Type_FirebaseCampaign Value
+ *        "firebaseCampaign"
+ *    @arg @c kGTLRTagManager_Trigger_Type_FirebaseFirstOpen Value
+ *        "firebaseFirstOpen"
+ *    @arg @c kGTLRTagManager_Trigger_Type_FirebaseInAppPurchase Value
+ *        "firebaseInAppPurchase"
+ *    @arg @c kGTLRTagManager_Trigger_Type_FirebaseNotificationDismiss Value
+ *        "firebaseNotificationDismiss"
+ *    @arg @c kGTLRTagManager_Trigger_Type_FirebaseNotificationForeground Value
+ *        "firebaseNotificationForeground"
+ *    @arg @c kGTLRTagManager_Trigger_Type_FirebaseNotificationOpen Value
+ *        "firebaseNotificationOpen"
+ *    @arg @c kGTLRTagManager_Trigger_Type_FirebaseNotificationReceive Value
+ *        "firebaseNotificationReceive"
+ *    @arg @c kGTLRTagManager_Trigger_Type_FirebaseOsUpdate Value
+ *        "firebaseOsUpdate"
+ *    @arg @c kGTLRTagManager_Trigger_Type_FirebaseSessionStart Value
+ *        "firebaseSessionStart"
+ *    @arg @c kGTLRTagManager_Trigger_Type_FirebaseUserEngagement Value
+ *        "firebaseUserEngagement"
  *    @arg @c kGTLRTagManager_Trigger_Type_FormSubmission Value "formSubmission"
  *    @arg @c kGTLRTagManager_Trigger_Type_HistoryChange Value "historyChange"
  *    @arg @c kGTLRTagManager_Trigger_Type_JsError Value "jsError"
@@ -1168,7 +2106,6 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  *    @arg @c kGTLRTagManager_Trigger_Type_Pageview Value "pageview"
  *    @arg @c kGTLRTagManager_Trigger_Type_Timer Value "timer"
  *    @arg @c kGTLRTagManager_Trigger_Type_WindowLoaded Value "windowLoaded"
- *    @arg @c kGTLRTagManager_Trigger_Type_YouTube Value "youTube"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1182,10 +2119,29 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *uniqueTriggerId;
 
 /**
- *  List of integer percentage values. The trigger will fire as each percentage
- *  is reached in any instrumented videos. Only valid for YouTube triggers.
+ *  List of integer percentage values for scroll triggers. The trigger will fire
+ *  when each percentage is reached when the view is scrolled vertically. Only
+ *  valid for AMP scroll triggers.
  */
-@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *videoPercentageList;
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *verticalScrollPercentageList;
+
+/**
+ *  A visibility trigger CSS selector (i.e. "#id"). Only valid for AMP
+ *  Visibility trigger.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *visibilitySelector;
+
+/**
+ *  A visibility trigger maximum percent visibility. Only valid for AMP
+ *  Visibility trigger.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *visiblePercentageMax;
+
+/**
+ *  A visibility trigger minimum percent visibility. Only valid for AMP
+ *  Visibility trigger.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *visiblePercentageMin;
 
 /**
  *  Whether or not we should delay the form submissions or link opening until
@@ -1202,18 +2158,60 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *waitForTagsTimeout;
 
+/** GTM Workspace ID. */
+@property(nonatomic, copy, nullable) NSString *workspaceId;
+
+@end
+
+
+/**
+ *  Updates a workspace proposal with patch-like semantics.
+ */
+@interface GTLRTagManager_UpdateWorkspaceProposalRequest : GTLRObject
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the proposal
+ *  in storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/** If present, a new comment is added to the workspace proposal history. */
+@property(nonatomic, strong, nullable) GTLRTagManager_WorkspaceProposalHistoryComment *newComment NS_RETURNS_NOT_RETAINED;
+
+/** If present, the list of reviewers of the workspace proposal is updated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_WorkspaceProposalUser *> *reviewers;
+
+/**
+ *  If present, the status of the workspace proposal is updated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Approved
+ *        Value "approved"
+ *    @arg @c kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Cancelled
+ *        Value "cancelled"
+ *    @arg @c kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Completed
+ *        Value "completed"
+ *    @arg @c kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Requested
+ *        Value "requested"
+ *    @arg @c kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_Reviewed
+ *        Value "reviewed"
+ *    @arg @c kGTLRTagManager_UpdateWorkspaceProposalRequest_Status_StatusUnspecified
+ *        Value "statusUnspecified"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
 @end
 
 
 /**
  *  Represents a user's permissions to an account and its container.
  */
-@interface GTLRTagManager_UserAccess : GTLRObject
+@interface GTLRTagManager_UserPermission : GTLRObject
 
 /** GTM Account access permissions. */
 @property(nonatomic, strong, nullable) GTLRTagManager_AccountAccess *accountAccess;
 
-/** GTM Account ID. */
+/** The Account ID uniquely identifies the GTM Account. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /** GTM Container access permissions. */
@@ -1222,8 +2220,8 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 /** User's email address. */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
 
-/** Account Permission ID. */
-@property(nonatomic, copy, nullable) NSString *permissionId;
+/** GTM UserPermission's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
 
 @end
 
@@ -1271,6 +2269,9 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
 /** Parent folder id. */
 @property(nonatomic, copy, nullable) NSString *parentFolderId;
 
+/** GTM Variable's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
 /**
  *  The end timestamp in milliseconds to schedule a variable.
  *
@@ -1285,11 +2286,214 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_YouTube;
  */
 @property(nonatomic, strong, nullable) NSNumber *scheduleStartMs;
 
+/** Auto generated link to the tag manager UI */
+@property(nonatomic, copy, nullable) NSString *tagManagerUrl;
+
 /** GTM Variable Type. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /** The Variable ID uniquely identifies the GTM Variable. */
 @property(nonatomic, copy, nullable) NSString *variableId;
+
+/** GTM Workspace ID. */
+@property(nonatomic, copy, nullable) NSString *workspaceId;
+
+@end
+
+
+/**
+ *  Represents a Google Tag Manager Container Workspace.
+ */
+@interface GTLRTagManager_Workspace : GTLRObject
+
+/** GTM Account ID. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** GTM Container ID. */
+@property(nonatomic, copy, nullable) NSString *containerId;
+
+/**
+ *  Workspace description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The fingerprint of the GTM Workspace as computed at storage time. This value
+ *  is recomputed whenever the workspace is modified.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/** Workspace display name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** GTM Workspace's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Auto generated link to the tag manager UI */
+@property(nonatomic, copy, nullable) NSString *tagManagerUrl;
+
+/** The Workspace ID uniquely identifies the GTM Workspace. */
+@property(nonatomic, copy, nullable) NSString *workspaceId;
+
+@end
+
+
+/**
+ *  A workspace proposal represents an ongoing review of workspace changes in an
+ *  effort to gain approval for container version creation.
+ */
+@interface GTLRTagManager_WorkspaceProposal : GTLRObject
+
+/** List of authors for the workspace proposal. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_WorkspaceProposalUser *> *authors;
+
+/**
+ *  The fingerprint of the GTM workspace proposal as computed at storage time.
+ *  This value is recomputed whenever the proposal is modified.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/** Records the history of comments and status changes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_WorkspaceProposalHistory *> *history;
+
+/** GTM workspace proposal's relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Lists of reviewers for the workspace proposal. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_WorkspaceProposalUser *> *reviewers;
+
+/**
+ *  The status of the workspace proposal as it goes through review.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_WorkspaceProposal_Status_Approved Value "approved"
+ *    @arg @c kGTLRTagManager_WorkspaceProposal_Status_Cancelled Value
+ *        "cancelled"
+ *    @arg @c kGTLRTagManager_WorkspaceProposal_Status_Completed Value
+ *        "completed"
+ *    @arg @c kGTLRTagManager_WorkspaceProposal_Status_Requested Value
+ *        "requested"
+ *    @arg @c kGTLRTagManager_WorkspaceProposal_Status_Reviewed Value "reviewed"
+ *    @arg @c kGTLRTagManager_WorkspaceProposal_Status_StatusUnspecified Value
+ *        "statusUnspecified"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  A history event that represents a comment or status change in the proposal.
+ */
+@interface GTLRTagManager_WorkspaceProposalHistory : GTLRObject
+
+/** A user or reviewer comment. */
+@property(nonatomic, strong, nullable) GTLRTagManager_WorkspaceProposalHistoryComment *comment;
+
+/** The party responsible for the change in history. */
+@property(nonatomic, strong, nullable) GTLRTagManager_WorkspaceProposalUser *createdBy;
+
+/** When this history event was added to the workspace proposal. */
+@property(nonatomic, strong, nullable) GTLRTagManager_Timestamp *createdTimestamp;
+
+/** A change in the proposal's status. */
+@property(nonatomic, strong, nullable) GTLRTagManager_WorkspaceProposalHistoryStatusChange *statusChange;
+
+/**
+ *  The history type distinguishing between comments and status changes.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistory_Type_Comment Value
+ *        "comment"
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistory_Type_StatusChange Value
+ *        "statusChange"
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistory_Type_Unspecified Value
+ *        "unspecified"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A comment from the reviewer or author.
+ */
+@interface GTLRTagManager_WorkspaceProposalHistoryComment : GTLRObject
+
+/** The contents of the reviewer or author comment. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+@end
+
+
+/**
+ *  A change in the proposal's status.
+ */
+@interface GTLRTagManager_WorkspaceProposalHistoryStatusChange : GTLRObject
+
+/**
+ *  The new proposal status after that status change.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Approved
+ *        Value "approved"
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Cancelled
+ *        Value "cancelled"
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Completed
+ *        Value "completed"
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Requested
+ *        Value "requested"
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_Reviewed
+ *        Value "reviewed"
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_NewStatus_StatusUnspecified
+ *        Value "statusUnspecified"
+ */
+@property(nonatomic, copy, nullable) NSString *newStatus NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  The old proposal status before the status change.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Approved
+ *        Value "approved"
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Cancelled
+ *        Value "cancelled"
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Completed
+ *        Value "completed"
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Requested
+ *        Value "requested"
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_Reviewed
+ *        Value "reviewed"
+ *    @arg @c kGTLRTagManager_WorkspaceProposalHistoryStatusChange_OldStatus_StatusUnspecified
+ *        Value "statusUnspecified"
+ */
+@property(nonatomic, copy, nullable) NSString *oldStatus;
+
+@end
+
+
+/**
+ *  Represents an external user or internal Google Tag Manager system.
+ */
+@interface GTLRTagManager_WorkspaceProposalUser : GTLRObject
+
+/**
+ *  Gaia id associated with a user, absent for the Google Tag Manager system.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gaiaId;
+
+/**
+ *  User type distinguishes between a user and the Google Tag Manager system.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_WorkspaceProposalUser_Type_GaiaId Value "gaiaId"
+ *    @arg @c kGTLRTagManager_WorkspaceProposalUser_Type_System Value "system"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

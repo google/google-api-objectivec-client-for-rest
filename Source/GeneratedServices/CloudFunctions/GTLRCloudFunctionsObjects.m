@@ -22,44 +22,6 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudFunctions_Location
-//
-
-@implementation GTLRCloudFunctions_Location
-@dynamic labels, locationId, metadata, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_Location_Labels
-//
-
-@implementation GTLRCloudFunctions_Location_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_Location_Metadata
-//
-
-@implementation GTLRCloudFunctions_Location_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudFunctions_OperationMetadataV1Beta2
 //
 

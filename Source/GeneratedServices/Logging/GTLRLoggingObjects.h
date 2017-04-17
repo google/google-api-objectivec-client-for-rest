@@ -938,6 +938,19 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Optional. This field presently applies only to sinks in organizations and
+ *  folders. If true, then logs from children of this entity will also be
+ *  available to this sink for export. Whether particular log entries from the
+ *  children are exported depends on the sink's filter expression. For example,
+ *  if this sink is associated with an organization, then logs from all projects
+ *  in the organization as well as from the organization itself will be
+ *  available for export.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeChildren;
+
+/**
  *  Required. The client-assigned sink identifier, unique within the project.
  *  Example: "my-syslog-errors-to-pubsub". Sink identifiers are limited to 100
  *  characters and can include only the following characters: upper and

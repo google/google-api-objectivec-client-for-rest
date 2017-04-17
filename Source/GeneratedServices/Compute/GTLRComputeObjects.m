@@ -1040,10 +1040,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_BackendService
-@dynamic affinityCookieTtlSec, backends, connectionDraining, creationTimestamp,
-         descriptionProperty, enableCDN, fingerprint, healthChecks, identifier,
-         kind, loadBalancingScheme, name, port, portName, protocol, region,
-         selfLink, sessionAffinity, timeoutSec;
+@dynamic affinityCookieTtlSec, backends, cdnPolicy, connectionDraining,
+         creationTimestamp, descriptionProperty, enableCDN, fingerprint,
+         healthChecks, identifier, kind, loadBalancingScheme, name, port,
+         portName, protocol, region, selfLink, sessionAffinity, timeoutSec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1090,6 +1090,16 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
   return [GTLRCompute_BackendServicesScopedList class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceCdnPolicy
+//
+
+@implementation GTLRCompute_BackendServiceCdnPolicy
+@dynamic cacheKeyPolicy;
 @end
 
 
@@ -1186,6 +1196,26 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_CacheInvalidationRule
 @dynamic host, path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CacheKeyPolicy
+//
+
+@implementation GTLRCompute_CacheKeyPolicy
+@dynamic includeHost, includeProtocol, includeQueryString, queryStringBlacklist,
+         queryStringWhitelist;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queryStringBlacklist" : [NSString class],
+    @"queryStringWhitelist" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3971,7 +4001,8 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_Subnetwork
 @dynamic creationTimestamp, descriptionProperty, gatewayAddress, identifier,
-         ipCidrRange, kind, name, network, region, selfLink;
+         ipCidrRange, kind, name, network, privateIpGoogleAccess, region,
+         selfLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -4088,6 +4119,16 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_SubnetworksScopedList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SubnetworksSetPrivateIpGoogleAccessRequest
+//
+
+@implementation GTLRCompute_SubnetworksSetPrivateIpGoogleAccessRequest
+@dynamic privateIpGoogleAccess;
 @end
 
 

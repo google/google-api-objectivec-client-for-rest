@@ -37,13 +37,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the Google service account that is used by Storage Transfer Service
- *  to access buckets in the project where transfers run or in other projects.
- *  Each Google service account is associated with one Google Developers Console
- *  project. Users should add this service account to the Google Cloud Storage
- *  bucket ACLs to grant access to Storage Transfer Service. This service
- *  account is created and owned by Storage Transfer Service and can only be
- *  used by Storage Transfer Service.
+ *  Returns the Google service account that is used by Storage Transfer
+ *  Service to access buckets in the project where transfers
+ *  run or in other projects. Each Google service account is associated
+ *  with one Google Cloud Platform Console project. Users
+ *  should add this service account to the Google Cloud Storage bucket
+ *  ACLs to grant access to Storage Transfer Service. This service
+ *  account is created and owned by Storage Transfer Service and can
+ *  only be used by Storage Transfer Service.
  *
  *  Method: storagetransfer.googleServiceAccounts.get
  *
@@ -55,24 +56,28 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryStorageTransfer queryForGoogleServiceAccountsGetWithprojectId:]
 
 /**
- *  The ID of the Google Developers Console project that the Google service
- *  account is associated with. Required.
+ *  The ID of the Google Cloud Platform Console project that the Google service
+ *  account is associated with.
+ *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRStorageTransfer_GoogleServiceAccount.
  *
- *  Returns the Google service account that is used by Storage Transfer Service
- *  to access buckets in the project where transfers run or in other projects.
- *  Each Google service account is associated with one Google Developers Console
- *  project. Users should add this service account to the Google Cloud Storage
- *  bucket ACLs to grant access to Storage Transfer Service. This service
- *  account is created and owned by Storage Transfer Service and can only be
- *  used by Storage Transfer Service.
+ *  Returns the Google service account that is used by Storage Transfer
+ *  Service to access buckets in the project where transfers
+ *  run or in other projects. Each Google service account is associated
+ *  with one Google Cloud Platform Console project. Users
+ *  should add this service account to the Google Cloud Storage bucket
+ *  ACLs to grant access to Storage Transfer Service. This service
+ *  account is created and owned by Storage Transfer Service and can
+ *  only be used by Storage Transfer Service.
  *
- *  @param projectId The ID of the Google Developers Console project that the
- *    Google service account is associated with. Required.
+ *  @param projectId The ID of the Google Cloud Platform Console project that
+ *    the Google service
+ *    account is associated with.
+ *    Required.
  *
  *  @returns GTLRStorageTransferQuery_GoogleServiceAccountsGet
  */
@@ -118,11 +123,15 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryStorageTransfer queryForTransferJobsGetWithjobName:]
 
-/** The job to get. Required. */
+/**
+ *  The job to get.
+ *  Required.
+ */
 @property(nonatomic, copy, nullable) NSString *jobName;
 
 /**
- *  The ID of the Google Developers Console project that owns the job. Required.
+ *  The ID of the Google Cloud Platform Console project that owns the job.
+ *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -131,7 +140,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a transfer job.
  *
- *  @param jobName The job to get. Required.
+ *  @param jobName The job to get.
+ *    Required.
  *
  *  @returns GTLRStorageTransferQuery_TransferJobsGet
  */
@@ -153,12 +163,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A list of query parameters specified as JSON text in the form of
- *  {"`project_id`":"my_project_id", "`job_names`":["jobid1","jobid2",...],
- *  "`job_statuses`":["status1","status2",...]}. Since `job_names` and
- *  `job_statuses` support multiple values, their values must be specified with
- *  array notation. `project_id` is required. `job_names` and `job_statuses` are
- *  optional. The valid values for `job_statuses` are case-insensitive:
- *  `ENABLED`, `DISABLED`, and `DELETED`.
+ *  {"project_id":"my_project_id",
+ *  "job_names":["jobid1","jobid2",...],
+ *  "job_statuses":["status1","status2",...]}.
+ *  Since `job_names` and `job_statuses` support multiple values, their values
+ *  must be specified with array notation. `project_id` is required. `job_names`
+ *  and `job_statuses` are optional. The valid values for `job_statuses` are
+ *  case-insensitive: `ENABLED`, `DISABLED`, and `DELETED`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -185,8 +196,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a transfer job. Updating a job's transfer spec does not affect
- *  transfer operations that are running already. Updating the scheduling of a
- *  job is not allowed.
+ *  transfer operations that are running already. Updating the scheduling
+ *  of a job is not allowed.
  *
  *  Method: storagetransfer.transferJobs.patch
  *
@@ -197,19 +208,23 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryStorageTransfer queryForTransferJobsPatchWithObject:jobName:]
 
-/** The name of job to update. Required. */
+/**
+ *  The name of job to update.
+ *  Required.
+ */
 @property(nonatomic, copy, nullable) NSString *jobName;
 
 /**
  *  Fetches a @c GTLRStorageTransfer_TransferJob.
  *
  *  Updates a transfer job. Updating a job's transfer spec does not affect
- *  transfer operations that are running already. Updating the scheduling of a
- *  job is not allowed.
+ *  transfer operations that are running already. Updating the scheduling
+ *  of a job is not allowed.
  *
  *  @param object The @c GTLRStorageTransfer_UpdateTransferJobRequest to include
  *    in the query.
- *  @param jobName The name of job to update. Required.
+ *  @param jobName The name of job to update.
+ *    Required.
  *
  *  @returns GTLRStorageTransferQuery_TransferJobsPatch
  */
@@ -310,9 +325,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding below allows API services to override the binding to use
- *  different resource name schemes, such as `users/ * /operations`.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *  NOTE: the `name` binding below allows API services to override the binding
+ *  to use different resource name schemes, such as `users/ * /operations`.
  *
  *  Method: storagetransfer.transferOperations.list
  *
@@ -323,25 +338,33 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryStorageTransfer queryForTransferOperationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A list of query parameters specified as JSON text in the form of
+ *  {\\"project_id\\" : \\"my_project_id\\", \\"job_names\\" : [\\"jobid1\\",
+ *  \\"jobid2\\",...], \\"operation_names\\" : [\\"opid1\\", \\"opid2\\",...],
+ *  \\"transfer_statuses\\":[\\"status1\\", \\"status2\\",...]}. Since
+ *  `job_names`, `operation_names`, and `transfer_statuses` support multiple
+ *  values, they must be specified with array notation. `job_names`,
+ *  `operation_names`, and `transfer_statuses` are optional.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The value `transferOperations`. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/** The list page size. The max allowed value is 256. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/** The list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRStorageTransfer_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding below allows API services to override the binding to use
- *  different resource name schemes, such as `users/ * /operations`.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *  NOTE: the `name` binding below allows API services to override the binding
+ *  to use different resource name schemes, such as `users/ * /operations`.
  *
  *  @param name The value `transferOperations`.
  *
@@ -367,7 +390,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryStorageTransfer queryForTransferOperationsPauseWithObject:name:]
 
-/** The name of the transfer operation. Required. */
+/**
+ *  The name of the transfer operation.
+ *  Required.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -377,7 +403,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRStorageTransfer_PauseTransferOperationRequest to
  *    include in the query.
- *  @param name The name of the transfer operation. Required.
+ *  @param name The name of the transfer operation.
+ *    Required.
  *
  *  @returns GTLRStorageTransferQuery_TransferOperationsPause
  */
@@ -398,7 +425,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryStorageTransfer queryForTransferOperationsResumeWithObject:name:]
 
-/** The name of the transfer operation. Required. */
+/**
+ *  The name of the transfer operation.
+ *  Required.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -408,53 +438,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRStorageTransfer_ResumeTransferOperationRequest to
  *    include in the query.
- *  @param name The name of the transfer operation. Required.
+ *  @param name The name of the transfer operation.
+ *    Required.
  *
  *  @returns GTLRStorageTransferQuery_TransferOperationsResume
  */
 + (instancetype)queryWithObject:(GTLRStorageTransfer_ResumeTransferOperationRequest *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Returns the Google service account that is used by Storage Transfer Service
- *  to access buckets in the project where transfers run or in other projects.
- *  Each Google service account is associated with one Google Developers Console
- *  project. Users should add this service account to the Google Cloud Storage
- *  bucket ACLs to grant access to Storage Transfer Service. This service
- *  account is created and owned by Storage Transfer Service and can only be
- *  used by Storage Transfer Service.
- *
- *  Method: storagetransfer.getGoogleServiceAccount
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeStorageTransferCloudPlatform
- */
-@interface GTLRStorageTransferQuery_V1GetGoogleServiceAccount : GTLRStorageTransferQuery
-// Previous library name was
-//   +[GTLQueryStorageTransfer queryForGetGoogleServiceAccount]
-
-/**
- *  The ID of the Google Developers Console project that the Google service
- *  account is associated with. Required.
- */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRStorageTransfer_GoogleServiceAccount.
- *
- *  Returns the Google service account that is used by Storage Transfer Service
- *  to access buckets in the project where transfers run or in other projects.
- *  Each Google service account is associated with one Google Developers Console
- *  project. Users should add this service account to the Google Cloud Storage
- *  bucket ACLs to grant access to Storage Transfer Service. This service
- *  account is created and owned by Storage Transfer Service and can only be
- *  used by Storage Transfer Service.
- *
- *  @returns GTLRStorageTransferQuery_V1GetGoogleServiceAccount
- */
-+ (instancetype)query;
 
 @end
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Tracing API (tracing/v1)
+//   Google Tracing API (tracing/v2)
 // Description:
 //   Send and retrieve trace data from Google Stackdriver Trace.
 // Documentation:

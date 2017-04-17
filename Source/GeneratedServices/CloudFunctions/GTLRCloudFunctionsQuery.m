@@ -11,29 +11,8 @@
 
 #import "GTLRCloudFunctionsQuery.h"
 
-#import "GTLRCloudFunctionsObjects.h"
-
 @implementation GTLRCloudFunctionsQuery
 
 @dynamic fields;
-
-@end
-
-@implementation GTLRCloudFunctionsQuery_ProjectsLocationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudFunctionsQuery_ProjectsLocationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudFunctions_Location class];
-  query.loggingName = @"cloudfunctions.projects.locations.get";
-  return query;
-}
 
 @end

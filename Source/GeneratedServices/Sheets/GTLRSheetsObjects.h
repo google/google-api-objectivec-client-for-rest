@@ -2297,7 +2297,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /**
  *  The domain of data this is charting.
- *  Only a single domain is currently supported.
+ *  Only a single domain is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_BasicChartDomain *> *domains;
 
@@ -2388,7 +2388,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 
 /**
- *  The response when updating a range of values in a spreadsheet.
+ *  The response when clearing a range of values in a spreadsheet.
  */
 @interface GTLRSheets_BatchClearValuesResponse : GTLRObject
 
@@ -2436,7 +2436,11 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  */
 @property(nonatomic, strong, nullable) NSNumber *includeSpreadsheetInResponse;
 
-/** A list of updates to apply to the spreadsheet. */
+/**
+ *  A list of updates to apply to the spreadsheet.
+ *  Requests will be applied in the order they are specified.
+ *  If any request is not valid, no requests will be applied.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_Request *> *requests;
 
 /**

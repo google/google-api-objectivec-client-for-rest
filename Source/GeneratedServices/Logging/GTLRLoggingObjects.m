@@ -320,8 +320,8 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
 //
 
 @implementation GTLRLogging_LogSink
-@dynamic destination, endTime, filter, name, outputVersionFormat, startTime,
-         writerIdentity;
+@dynamic destination, endTime, filter, includeChildren, name,
+         outputVersionFormat, startTime, writerIdentity;
 @end
 
 

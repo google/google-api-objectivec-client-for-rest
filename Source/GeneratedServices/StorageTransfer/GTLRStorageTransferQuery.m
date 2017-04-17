@@ -244,20 +244,3 @@
 }
 
 @end
-
-@implementation GTLRStorageTransferQuery_V1GetGoogleServiceAccount
-
-@dynamic projectId;
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"v1:getGoogleServiceAccount";
-  GTLRStorageTransferQuery_V1GetGoogleServiceAccount *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRStorageTransfer_GoogleServiceAccount class];
-  query.loggingName = @"storagetransfer.getGoogleServiceAccount";
-  return query;
-}
-
-@end

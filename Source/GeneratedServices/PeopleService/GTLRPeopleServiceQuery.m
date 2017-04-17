@@ -8,29 +8,29 @@
 // Documentation:
 //   https://developers.google.com/people/
 
-#import "GTLRPeopleQuery.h"
+#import "GTLRPeopleServiceQuery.h"
 
-#import "GTLRPeopleObjects.h"
+#import "GTLRPeopleServiceObjects.h"
 
 // ----------------------------------------------------------------------------
 // Constants
 
 // sortOrder
-NSString * const kGTLRPeopleSortOrderFirstNameAscending    = @"FIRST_NAME_ASCENDING";
-NSString * const kGTLRPeopleSortOrderLastModifiedAscending = @"LAST_MODIFIED_ASCENDING";
-NSString * const kGTLRPeopleSortOrderLastNameAscending     = @"LAST_NAME_ASCENDING";
+NSString * const kGTLRPeopleServiceSortOrderFirstNameAscending = @"FIRST_NAME_ASCENDING";
+NSString * const kGTLRPeopleServiceSortOrderLastModifiedAscending = @"LAST_MODIFIED_ASCENDING";
+NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASCENDING";
 
 // ----------------------------------------------------------------------------
 // Query Classes
 //
 
-@implementation GTLRPeopleQuery
+@implementation GTLRPeopleServiceQuery
 
 @dynamic fields;
 
 @end
 
-@implementation GTLRPeopleQuery_PeopleConnectionsList
+@implementation GTLRPeopleServiceQuery_PeopleConnectionsList
 
 @dynamic pageSize, pageToken, requestMaskIncludeField, requestSyncToken,
          resourceName, sortOrder, syncToken;
@@ -42,19 +42,19 @@ NSString * const kGTLRPeopleSortOrderLastNameAscending     = @"LAST_NAME_ASCENDI
 + (instancetype)queryWithResourceName:(NSString *)resourceName {
   NSArray *pathParams = @[ @"resourceName" ];
   NSString *pathURITemplate = @"v1/{+resourceName}/connections";
-  GTLRPeopleQuery_PeopleConnectionsList *query =
+  GTLRPeopleServiceQuery_PeopleConnectionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.resourceName = resourceName;
-  query.expectedObjectClass = [GTLRPeople_ListConnectionsResponse class];
+  query.expectedObjectClass = [GTLRPeopleService_ListConnectionsResponse class];
   query.loggingName = @"people.people.connections.list";
   return query;
 }
 
 @end
 
-@implementation GTLRPeopleQuery_PeopleGet
+@implementation GTLRPeopleServiceQuery_PeopleGet
 
 @dynamic requestMaskIncludeField, resourceName;
 
@@ -65,19 +65,19 @@ NSString * const kGTLRPeopleSortOrderLastNameAscending     = @"LAST_NAME_ASCENDI
 + (instancetype)queryWithResourceName:(NSString *)resourceName {
   NSArray *pathParams = @[ @"resourceName" ];
   NSString *pathURITemplate = @"v1/{+resourceName}";
-  GTLRPeopleQuery_PeopleGet *query =
+  GTLRPeopleServiceQuery_PeopleGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.resourceName = resourceName;
-  query.expectedObjectClass = [GTLRPeople_Person class];
+  query.expectedObjectClass = [GTLRPeopleService_Person class];
   query.loggingName = @"people.people.get";
   return query;
 }
 
 @end
 
-@implementation GTLRPeopleQuery_PeopleGetBatchGet
+@implementation GTLRPeopleServiceQuery_PeopleGetBatchGet
 
 @dynamic requestMaskIncludeField, resourceNames;
 
@@ -94,11 +94,11 @@ NSString * const kGTLRPeopleSortOrderLastNameAscending     = @"LAST_NAME_ASCENDI
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/people:batchGet";
-  GTLRPeopleQuery_PeopleGetBatchGet *query =
+  GTLRPeopleServiceQuery_PeopleGetBatchGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRPeople_GetPeopleResponse class];
+  query.expectedObjectClass = [GTLRPeopleService_GetPeopleResponse class];
   query.loggingName = @"people.people.getBatchGet";
   return query;
 }

@@ -127,6 +127,18 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Condition_Iam_Attribution;
  */
 GTLR_EXTERN NSString * const kGTLRSpanner_Condition_Iam_Authority;
 /**
+ *  What types of justifications have been supplied with this request.
+ *  String values should match enum names from tech.iam.JustificationType,
+ *  e.g. "MANUAL_STRING". It is not permitted to grant access based on
+ *  the *absence* of a justification, so justification conditions can only
+ *  be used in a "positive" context (e.g., ALLOW/IN or DENY/NOT_IN).
+ *  Multiple justifications, e.g., a Buganizer ID and a manually-entered
+ *  reason, are normal and supported.
+ *
+ *  Value: "JUSTIFICATION_TYPE"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_Condition_Iam_JustificationType;
+/**
  *  Default non-attribute.
  *
  *  Value: "NO_ATTR"
@@ -160,7 +172,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Condition_Op_Discharged;
  */
 GTLR_EXTERN NSString * const kGTLRSpanner_Condition_Op_Equals;
 /**
- *  Set-inclusion check.
+ *  The condition is true if the subject (or any element of it if it is
+ *  a set) matches any of the supplied values.
  *
  *  Value: "IN"
  */
@@ -178,7 +191,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Condition_Op_NoOp;
  */
 GTLR_EXTERN NSString * const kGTLRSpanner_Condition_Op_NotEquals;
 /**
- *  Set-exclusion check.
+ *  The condition is true if the subject (or every element of it if it is
+ *  a set) matches none of the supplied values.
  *
  *  Value: "NOT_IN"
  */
@@ -431,9 +445,52 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
  *  Specifies the audit configuration for a service.
- *  It consists of which permission types are logged, and what identities, if
- *  any, are exempted from logging.
+ *  The configuration determines which permission types are logged, and what
+ *  identities, if any, are exempted from logging.
  *  An AuditConifg must have one or more AuditLogConfigs.
+ *  If there are AuditConfigs for both `allServices` and a specific service,
+ *  the union of the two AuditConfigs is used for that service: the log_types
+ *  specified in each AuditConfig are enabled, and the exempted_members in each
+ *  AuditConfig are exempted.
+ *  Example Policy with multiple AuditConfigs:
+ *  {
+ *  "audit_configs": [
+ *  {
+ *  "service": "allServices"
+ *  "audit_log_configs": [
+ *  {
+ *  "log_type": "DATA_READ",
+ *  "exempted_members": [
+ *  "user:foo\@gmail.com"
+ *  ]
+ *  },
+ *  {
+ *  "log_type": "DATA_WRITE",
+ *  },
+ *  {
+ *  "log_type": "ADMIN_READ",
+ *  }
+ *  ]
+ *  },
+ *  {
+ *  "service": "fooservice\@googleapis.com"
+ *  "audit_log_configs": [
+ *  {
+ *  "log_type": "DATA_READ",
+ *  },
+ *  {
+ *  "log_type": "DATA_WRITE",
+ *  "exempted_members": [
+ *  "user:bar\@gmail.com"
+ *  ]
+ *  }
+ *  ]
+ *  }
+ *  ]
+ *  }
+ *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
+ *  bar\@gmail.com from DATA_WRITE logging.
  */
 @interface GTLRSpanner_AuditConfig : GTLRObject
 
@@ -443,12 +500,6 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_AuditLogConfig *> *auditLogConfigs;
 
-/**
- *  Specifies the identities that are exempted from "data access" audit
- *  logging for the `service` specified above.
- *  Follows the same format of Binding.members.
- *  This field is deprecated in favor of per-permission-type exemptions.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
@@ -665,6 +716,14 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        "ATTRIBUTION")
  *    @arg @c kGTLRSpanner_Condition_Iam_Authority Either principal or (if
  *        present) authority selector. (Value: "AUTHORITY")
+ *    @arg @c kGTLRSpanner_Condition_Iam_JustificationType What types of
+ *        justifications have been supplied with this request.
+ *        String values should match enum names from tech.iam.JustificationType,
+ *        e.g. "MANUAL_STRING". It is not permitted to grant access based on
+ *        the *absence* of a justification, so justification conditions can only
+ *        be used in a "positive" context (e.g., ALLOW/IN or DENY/NOT_IN).
+ *        Multiple justifications, e.g., a Buganizer ID and a manually-entered
+ *        reason, are normal and supported. (Value: "JUSTIFICATION_TYPE")
  *    @arg @c kGTLRSpanner_Condition_Iam_NoAttr Default non-attribute. (Value:
  *        "NO_ATTR")
  *    @arg @c kGTLRSpanner_Condition_Iam_SecurityRealm Any of the security
@@ -687,12 +746,15 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        "DISCHARGED")
  *    @arg @c kGTLRSpanner_Condition_Op_Equals DEPRECATED. Use IN instead.
  *        (Value: "EQUALS")
- *    @arg @c kGTLRSpanner_Condition_Op_In Set-inclusion check. (Value: "IN")
+ *    @arg @c kGTLRSpanner_Condition_Op_In The condition is true if the subject
+ *        (or any element of it if it is
+ *        a set) matches any of the supplied values. (Value: "IN")
  *    @arg @c kGTLRSpanner_Condition_Op_NoOp Default no-op. (Value: "NO_OP")
  *    @arg @c kGTLRSpanner_Condition_Op_NotEquals DEPRECATED. Use NOT_IN
  *        instead. (Value: "NOT_EQUALS")
- *    @arg @c kGTLRSpanner_Condition_Op_NotIn Set-exclusion check. (Value:
- *        "NOT_IN")
+ *    @arg @c kGTLRSpanner_Condition_Op_NotIn The condition is true if the
+ *        subject (or every element of it if it is
+ *        a set) matches none of the supplied values. (Value: "NOT_IN")
  */
 @property(nonatomic, copy, nullable) NSString *op;
 
@@ -2243,8 +2305,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
- *  the fields in the mask will be modified. If no mask is provided, a default
- *  mask is used:
+ *  the fields in the mask will be modified. If no mask is provided, the
+ *  following default mask is used:
  *  paths: "bindings, etag"
  *  This field is only used by Cloud IAM.
  *

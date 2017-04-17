@@ -570,6 +570,95 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
+@implementation GTLRStorageQuery_NotificationsDelete
+
+@dynamic bucket, notification;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   notification:(NSString *)notification {
+  NSArray *pathParams = @[
+    @"bucket", @"notification"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/notificationConfigs/{notification}";
+  GTLRStorageQuery_NotificationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.notification = notification;
+  query.loggingName = @"storage.notifications.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_NotificationsGet
+
+@dynamic bucket, notification;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   notification:(NSString *)notification {
+  NSArray *pathParams = @[
+    @"bucket", @"notification"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/notificationConfigs/{notification}";
+  GTLRStorageQuery_NotificationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.notification = notification;
+  query.expectedObjectClass = [GTLRStorage_Notification class];
+  query.loggingName = @"storage.notifications.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_NotificationsInsert
+
+@dynamic bucket;
+
++ (instancetype)queryWithObject:(GTLRStorage_Notification *)object
+                         bucket:(NSString *)bucket {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/notificationConfigs";
+  GTLRStorageQuery_NotificationsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_Notification class];
+  query.loggingName = @"storage.notifications.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_NotificationsList
+
+@dynamic bucket;
+
++ (instancetype)queryWithBucket:(NSString *)bucket {
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/notificationConfigs";
+  GTLRStorageQuery_NotificationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_Notifications class];
+  query.loggingName = @"storage.notifications.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageQuery_ObjectAccessControlsDelete
 
 @dynamic bucket, entity, generation, object;
@@ -1169,6 +1258,25 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   query.bucket = bucket;
   query.expectedObjectClass = [GTLRStorage_Channel class];
   query.loggingName = @"storage.objects.watchAll";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_ProjectsServiceAccountGet
+
+@dynamic projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId {
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"projects/{projectId}/serviceAccount";
+  GTLRStorageQuery_ProjectsServiceAccountGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRStorage_ServiceAccount class];
+  query.loggingName = @"storage.projects.serviceAccount.get";
   return query;
 }
 

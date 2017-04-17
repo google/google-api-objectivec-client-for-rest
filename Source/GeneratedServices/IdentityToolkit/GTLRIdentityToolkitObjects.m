@@ -480,8 +480,9 @@
 
 @implementation GTLRIdentityToolkit_UserInfo
 @dynamic createdAt, customAuth, disabled, displayName, email, emailVerified,
-         lastLoginAt, localId, passwordHash, passwordUpdatedAt, photoUrl,
-         providerUserInfo, rawPassword, salt, screenName, validSince, version;
+         lastLoginAt, localId, passwordHash, passwordUpdatedAt, phoneNumber,
+         photoUrl, providerUserInfo, rawPassword, salt, screenName, validSince,
+         version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -499,8 +500,8 @@
 //
 
 @implementation GTLRIdentityToolkit_UserInfo_ProviderUserInfo_Item
-@dynamic displayName, email, federatedId, photoUrl, providerId, rawId,
-         screenName;
+@dynamic displayName, email, federatedId, phoneNumber, photoUrl, providerId,
+         rawId, screenName;
 @end
 
 

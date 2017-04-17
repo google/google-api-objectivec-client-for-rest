@@ -286,8 +286,7 @@
 
 + (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
                         project:(NSString *)project
-                   zoneProperty:(NSString *)zoneProperty
-                     autoscaler:(NSString *)autoscaler {
+                   zoneProperty:(NSString *)zoneProperty {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
@@ -303,7 +302,6 @@
   query.bodyObject = object;
   query.project = project;
   query.zoneProperty = zoneProperty;
-  query.autoscaler = autoscaler;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.autoscalers.patch";
   return query;
@@ -3963,8 +3961,7 @@
 
 + (instancetype)queryWithObject:(GTLRCompute_Autoscaler *)object
                         project:(NSString *)project
-                         region:(NSString *)region
-                     autoscaler:(NSString *)autoscaler {
+                         region:(NSString *)region {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
@@ -3980,7 +3977,6 @@
   query.bodyObject = object;
   query.project = project;
   query.region = region;
-  query.autoscaler = autoscaler;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.regionAutoscalers.patch";
   return query;
@@ -5381,6 +5377,37 @@
   query.region = region;
   query.expectedObjectClass = [GTLRCompute_SubnetworkList class];
   query.loggingName = @"compute.subnetworks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SubnetworksSetPrivateIpGoogleAccess
+
+@dynamic project, region, subnetwork;
+
++ (instancetype)queryWithObject:(GTLRCompute_SubnetworksSetPrivateIpGoogleAccessRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                     subnetwork:(NSString *)subnetwork {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"subnetwork"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{subnetwork}/setPrivateIpGoogleAccess";
+  GTLRComputeQuery_SubnetworksSetPrivateIpGoogleAccess *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.subnetwork = subnetwork;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.subnetworks.setPrivateIpGoogleAccess";
   return query;
 }
 

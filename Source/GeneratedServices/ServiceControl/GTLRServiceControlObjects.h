@@ -449,9 +449,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectInvalid;
 /**
  *  The backend server for looking up project id/number is unavailable.
  *
- *  Value: "PROJECT_STATUS_UNVAILABLE"
+ *  Value: "PROJECT_STATUS_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectStatusUnvailable;
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectStatusUnavailable;
 /**
  *  Consumer project has been suspended.
  *
@@ -1142,6 +1142,15 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  2. Value for each quota limit associated with the metrics will be specified
  *  using the following gauge metric:
  *  "serviceruntime.googleapis.com/quota/limit"
+ *  3. Delta value of the usage after the reconciliation for limits associated
+ *  with the metrics will be specified using the following metric:
+ *  "serviceruntime.googleapis.com/allocation/reconciliation_delta"
+ *  The delta value is defined as:
+ *  new_usage_from_client - existing_value_in_spanner.
+ *  This metric is not defined in serviceruntime.yaml or in Cloud Monarch.
+ *  This metric is meant for callers' use only. Since this metric is not
+ *  defined in the monitoring backend, reporting on this metric will result in
+ *  an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_MetricValueSet *> *quotaMetrics;
 
@@ -1683,9 +1692,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *    @arg @c kGTLRServiceControl_QuotaError_Code_ProjectInvalid Consumer's
  *        project number or ID does not represent a valid project. (Value:
  *        "PROJECT_INVALID")
- *    @arg @c kGTLRServiceControl_QuotaError_Code_ProjectStatusUnvailable The
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_ProjectStatusUnavailable The
  *        backend server for looking up project id/number is unavailable.
- *        (Value: "PROJECT_STATUS_UNVAILABLE")
+ *        (Value: "PROJECT_STATUS_UNAVAILABLE")
  *    @arg @c kGTLRServiceControl_QuotaError_Code_ProjectSuspended Consumer
  *        project has been suspended. (Value: "PROJECT_SUSPENDED")
  *    @arg @c kGTLRServiceControl_QuotaError_Code_QuotaSystemUnavailable The
@@ -1896,11 +1905,6 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /**
  *  Represents the properties needed for quota operations.
- *  Use the metric_value_sets field in Operation message to provide cost
- *  override with metric_name in <service_name>/quota/<quota_group_name>/cost
- *  format. Overrides for unmatched quota groups will be ignored.
- *  Costs are expected to be >= 0. Cost 0 will cause no quota check,
- *  but still traffic restrictions will be enforced.
  */
 @interface GTLRServiceControl_QuotaProperties : GTLRObject
 

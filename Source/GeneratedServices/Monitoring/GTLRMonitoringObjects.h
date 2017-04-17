@@ -1057,7 +1057,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The ListMonitoredResourcDescriptors response.
+ *  The ListMonitoredResourceDescriptors response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "resourceDescriptors" property. If returned as the result of a

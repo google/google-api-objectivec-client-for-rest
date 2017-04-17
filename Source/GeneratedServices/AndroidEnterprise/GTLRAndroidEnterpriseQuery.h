@@ -524,8 +524,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 
 /**
  *  Returns the store layout for the enterprise. If the store layout has not
- *  been set, or if the store layout has no homepageId set, returns a NOT_FOUND
- *  error.
+ *  been set, returns "basic" as the store layout type and no homepage.
  *
  *  Method: androidenterprise.enterprises.getStoreLayout
  *
@@ -543,8 +542,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  Fetches a @c GTLRAndroidEnterprise_StoreLayout.
  *
  *  Returns the store layout for the enterprise. If the store layout has not
- *  been set, or if the store layout has no homepageId set, returns a NOT_FOUND
- *  error.
+ *  been set, returns "basic" as the store layout type and no homepage.
  *
  *  @param enterpriseId The ID of the enterprise.
  *
@@ -763,8 +761,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  contains apps approved by the admin, and that have been added to the
  *  available product set for a user (using the setAvailableProductSet call).
  *  Apps on the page are sorted in order of their product ID value. If you
- *  create a custom store layout (by setting storeLayoutType = "custom"), the
- *  basic store layout is disabled.
+ *  create a custom store layout (by setting storeLayoutType = "custom" and
+ *  setting a homepage), the basic store layout is disabled.
  *
  *  Method: androidenterprise.enterprises.setStoreLayout
  *
@@ -786,8 +784,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  contains apps approved by the admin, and that have been added to the
  *  available product set for a user (using the setAvailableProductSet call).
  *  Apps on the page are sorted in order of their product ID value. If you
- *  create a custom store layout (by setting storeLayoutType = "custom"), the
- *  basic store layout is disabled.
+ *  create a custom store layout (by setting storeLayoutType = "custom" and
+ *  setting a homepage), the basic store layout is disabled.
  *
  *  @param object The @c GTLRAndroidEnterprise_StoreLayout to include in the
  *    query.

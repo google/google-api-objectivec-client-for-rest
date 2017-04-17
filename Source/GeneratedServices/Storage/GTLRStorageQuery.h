@@ -22,6 +22,7 @@
 @class GTLRStorage_BucketAccessControl;
 @class GTLRStorage_Channel;
 @class GTLRStorage_ComposeRequest;
+@class GTLRStorage_Notification;
 @class GTLRStorage_Object;
 @class GTLRStorage_ObjectAccessControl;
 @class GTLRStorage_Policy;
@@ -1209,6 +1210,143 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 + (instancetype)queryWithObject:(GTLRStorage_ObjectAccessControl *)object
                          bucket:(NSString *)bucket
                          entity:(NSString *)entity;
+
+@end
+
+/**
+ *  Permanently deletes a notification subscription.
+ *
+ *  Method: storage.notifications.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_NotificationsDelete : GTLRStorageQuery
+// Previous library name was
+//   +[GTLQueryStorage queryForNotificationsDeleteWithbucket:notification:]
+
+/** The parent bucket of the notification. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** ID of the notification to delete. */
+@property(nonatomic, copy, nullable) NSString *notification;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Permanently deletes a notification subscription.
+ *
+ *  @param bucket The parent bucket of the notification.
+ *  @param notification ID of the notification to delete.
+ *
+ *  @returns GTLRStorageQuery_NotificationsDelete
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   notification:(NSString *)notification;
+
+@end
+
+/**
+ *  View a notification configuration.
+ *
+ *  Method: storage.notifications.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_NotificationsGet : GTLRStorageQuery
+// Previous library name was
+//   +[GTLQueryStorage queryForNotificationsGetWithbucket:notification:]
+
+/** The parent bucket of the notification. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Notification ID */
+@property(nonatomic, copy, nullable) NSString *notification;
+
+/**
+ *  Fetches a @c GTLRStorage_Notification.
+ *
+ *  View a notification configuration.
+ *
+ *  @param bucket The parent bucket of the notification.
+ *  @param notification Notification ID
+ *
+ *  @returns GTLRStorageQuery_NotificationsGet
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   notification:(NSString *)notification;
+
+@end
+
+/**
+ *  Creates a notification subscription for a given bucket.
+ *
+ *  Method: storage.notifications.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_NotificationsInsert : GTLRStorageQuery
+// Previous library name was
+//   +[GTLQueryStorage queryForNotificationsInsertWithObject:bucket:]
+
+/** The parent bucket of the notification. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Fetches a @c GTLRStorage_Notification.
+ *
+ *  Creates a notification subscription for a given bucket.
+ *
+ *  @param object The @c GTLRStorage_Notification to include in the query.
+ *  @param bucket The parent bucket of the notification.
+ *
+ *  @returns GTLRStorageQuery_NotificationsInsert
+ */
++ (instancetype)queryWithObject:(GTLRStorage_Notification *)object
+                         bucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Retrieves a list of notification subscriptions for a given bucket.
+ *
+ *  Method: storage.notifications.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_NotificationsList : GTLRStorageQuery
+// Previous library name was
+//   +[GTLQueryStorage queryForNotificationsListWithbucket:]
+
+/** Name of a GCS bucket. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Fetches a @c GTLRStorage_Notifications.
+ *
+ *  Retrieves a list of notification subscriptions for a given bucket.
+ *
+ *  @param bucket Name of a GCS bucket.
+ *
+ *  @returns GTLRStorageQuery_NotificationsList
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket;
 
 @end
 
@@ -2801,6 +2939,38 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 + (instancetype)queryWithObject:(GTLRStorage_Channel *)object
                          bucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Get the email address of this project's GCS service account.
+ *
+ *  Method: storage.projects.serviceAccount.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_ProjectsServiceAccountGet : GTLRStorageQuery
+// Previous library name was
+//   +[GTLQueryStorage queryForProjectsServiceAccountGetWithprojectId:]
+
+/** Project ID */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRStorage_ServiceAccount.
+ *
+ *  Get the email address of this project's GCS service account.
+ *
+ *  @param projectId Project ID
+ *
+ *  @returns GTLRStorageQuery_ProjectsServiceAccountGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId;
 
 @end
 

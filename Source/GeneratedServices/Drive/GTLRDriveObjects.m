@@ -18,11 +18,12 @@
 
 @implementation GTLRDrive_About
 @dynamic appInstalled, exportFormats, folderColorPalette, importFormats, kind,
-         maxImportSizes, maxUploadSize, storageQuota, user;
+         maxImportSizes, maxUploadSize, storageQuota, teamDriveThemes, user;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"folderColorPalette" : [NSString class]
+    @"folderColorPalette" : [NSString class],
+    @"teamDriveThemes" : [GTLRDrive_About_TeamDriveThemes_Item class]
   };
   return map;
 }
@@ -79,6 +80,21 @@
 
 @implementation GTLRDrive_About_StorageQuota
 @dynamic limit, usage, usageInDrive, usageInDriveTrash;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_About_TeamDriveThemes_Item
+//
+
+@implementation GTLRDrive_About_TeamDriveThemes_Item
+@dynamic backgroundImageLink, colorRgb, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -378,8 +394,9 @@
 //
 
 @implementation GTLRDrive_Permission
-@dynamic allowFileDiscovery, displayName, domain, emailAddress, expirationTime,
-         identifier, kind, photoLink, role, teamDrivePermissionDetails, type;
+@dynamic allowFileDiscovery, deleted, displayName, domain, emailAddress,
+         expirationTime, identifier, kind, photoLink, role,
+         teamDrivePermissionDetails, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -520,7 +537,23 @@
 //
 
 @implementation GTLRDrive_TeamDrive
-@dynamic capabilities, identifier, kind, name;
+@dynamic backgroundImageFile, backgroundImageLink, capabilities, colorRgb,
+         identifier, kind, name, themeId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_TeamDrive_BackgroundImageFile
+//
+
+@implementation GTLRDrive_TeamDrive_BackgroundImageFile
+@dynamic identifier, width, xCoordinate, yCoordinate;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -535,9 +568,10 @@
 //
 
 @implementation GTLRDrive_TeamDrive_Capabilities
-@dynamic canAddChildren, canComment, canCopy, canDeleteTeamDrive, canDownload,
-         canEdit, canListChildren, canManageMembers, canReadRevisions,
-         canRemoveChildren, canRename, canRenameTeamDrive, canShare;
+@dynamic canAddChildren, canChangeTeamDriveBackground, canComment, canCopy,
+         canDeleteTeamDrive, canDownload, canEdit, canListChildren,
+         canManageMembers, canReadRevisions, canRemoveChildren, canRename,
+         canRenameTeamDrive, canShare;
 @end
 
 

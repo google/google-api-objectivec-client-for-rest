@@ -17,6 +17,7 @@
 
 // filter
 NSString * const kGTLRToolResultsFilterCpu                     = @"cpu";
+NSString * const kGTLRToolResultsFilterGraphics                = @"graphics";
 NSString * const kGTLRToolResultsFilterMemory                  = @"memory";
 NSString * const kGTLRToolResultsFilterNetwork                 = @"network";
 NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified = @"perfMetricTypeUnspecified";

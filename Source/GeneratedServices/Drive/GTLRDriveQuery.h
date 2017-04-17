@@ -981,7 +981,8 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The maximum number of files to return per page.
+ *  The maximum number of files to return per page. Partial or empty result
+ *  pages are possible even before the end of the files list has been reached.
  *
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).

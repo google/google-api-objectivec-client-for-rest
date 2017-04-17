@@ -4,8 +4,8 @@
 // API:
 //   Google Container Engine API (container/v1)
 // Description:
-//   Builds and manages clusters that run container-based applications, powered
-//   by open source Kubernetes technology.
+//   The Google Container Engine API is used for building and managing container
+//   based applications, powered by the open source Kubernetes technology.
 // Documentation:
 //   https://cloud.google.com/container-engine/
 
@@ -39,8 +39,8 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeContainerCloudPlatform;
 /**
  *  Service for executing Google Container Engine API queries.
  *
- *  Builds and manages clusters that run container-based applications, powered
- *  by open source Kubernetes technology.
+ *  The Google Container Engine API is used for building and managing container
+ *  based applications, powered by the open source Kubernetes technology.
  */
 @interface GTLRContainerService : GTLRService
 

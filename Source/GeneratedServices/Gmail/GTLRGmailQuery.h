@@ -1086,7 +1086,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  @param userId The user's email address. The special value me can be used to
  *    indicate the authenticated user. (Default me)
  *  @param uploadParameters The media to include in this query. Maximum size
- *    35MB. Accepted MIME type: message/rfc822
+ *    50MB. Accepted MIME type: message/rfc822
  *
  *  @returns GTLRGmailQuery_UsersMessagesImport
  */
@@ -1149,7 +1149,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  @param userId The user's email address. The special value me can be used to
  *    indicate the authenticated user. (Default me)
  *  @param uploadParameters The media to include in this query. Maximum size
- *    35MB. Accepted MIME type: message/rfc822
+ *    50MB. Accepted MIME type: message/rfc822
  *
  *  @returns GTLRGmailQuery_UsersMessagesInsert
  */

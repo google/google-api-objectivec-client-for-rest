@@ -62,6 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Value: "cpu" */
 GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Cpu;
+/** Value: "graphics" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Graphics;
 /** Value: "memory" */
 GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Memory;
 /** Value: "network" */
@@ -74,6 +76,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricTy
 
 /** Value: "bytesPerSecond" */
 GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_BytesPerSecond;
+/** Value: "framesPerSecond" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_FramesPerSecond;
 /** Value: "kibibyte" */
 GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte;
 /** Value: "percent" */
@@ -90,6 +94,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeries
 GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuTotal;
 /** Value: "cpuUser" */
 GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuUser;
+/** Value: "graphicsFrameRate" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_GraphicsFrameRate;
 /** Value: "memoryRssPrivate" */
 GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssPrivate;
 /** Value: "memoryRssShared" */
@@ -140,6 +146,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Unset;
 
 /** Value: "cpu" */
 GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Cpu;
+/** Value: "graphics" */
+GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Graphics;
 /** Value: "memory" */
 GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Memory;
 /** Value: "network" */
@@ -235,6 +243,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  Likely values:
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Cpu Value
  *        "cpu"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Graphics
+ *        Value "graphics"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Memory Value
  *        "memory"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Network
@@ -250,6 +260,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  Likely values:
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_BytesPerSecond
  *        Value "bytesPerSecond"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_FramesPerSecond
+ *        Value "framesPerSecond"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte Value
  *        "kibibyte"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Percent Value
@@ -269,6 +281,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *        Value "cpuTotal"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuUser
  *        Value "cpuUser"
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_GraphicsFrameRate
+ *        Value "graphicsFrameRate"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssPrivate
  *        Value "memoryRssPrivate"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssShared
@@ -389,7 +403,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
 
 /**
  *  Signed seconds of the span of time. Must be from -315,576,000,000 to
- *  +315,576,000,000 inclusive.
+ *  +315,576,000,000 inclusive. Note: these bounds are computed from: 60 sec/min
+ *  * 60 min/hr * 24 hr/day * 365.25 days/year * 10000 years
  *
  *  Uses NSNumber of longLongValue.
  */

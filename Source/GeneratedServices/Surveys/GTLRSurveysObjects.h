@@ -230,9 +230,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
-/** Survey object containing the specification of the started Survey. */
-@property(nonatomic, strong, nullable) GTLRSurveys_Survey *resource;
-
 @end
 
 
@@ -246,9 +243,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  error reporting or troubleshooting requests.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
-
-/** Survey object containing the specification of the stopped Survey. */
-@property(nonatomic, strong, nullable) GTLRSurveys_Survey *resource;
 
 @end
 
