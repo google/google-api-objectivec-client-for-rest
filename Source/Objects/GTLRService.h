@@ -573,7 +573,7 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
  *
  *  Example usage is in the unit test method @c testService_MockService_Succeeding
  *
- *  @param objectOrNil An object derived from GTLRObject to be passed to query completion handlers.
+ *  @param object An object derived from GTLRObject to be passed to query completion handlers.
  *  @param error       An error to be passed to query completion handlers.
  *
  *  @return A mock instance of the service, suitable for unit testing.
