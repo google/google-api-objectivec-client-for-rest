@@ -90,8 +90,6 @@ if [[ "${BLOCK_WAITING_FOR_CANONICAL_NAMES}" == 1 ]] ; then
     dfareporting:-
     iam:-
     kgsearch:-
-    proximitybeacon:- # old version was end-of-lifed, but api
-                      # is exposed new infra, except in discovery
     replicapool:-
     replicapoolupdater:-
     resourceviews:-
