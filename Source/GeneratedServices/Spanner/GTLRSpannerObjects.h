@@ -473,7 +473,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  ]
  *  },
  *  {
- *  "service": "fooservice\@googleapis.com"
+ *  "service": "fooservice.googleapis.com"
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -504,7 +504,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
  *  Specifies a service that will be enabled for audit logging.
- *  For example, `resourcemanager`, `storage`, `compute`.
+ *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
  *  `allServices` is a special value that covers all services.
  */
 @property(nonatomic, copy, nullable) NSString *service;
@@ -821,6 +821,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Required. A `CREATE DATABASE` statement, which specifies the ID of the
  *  new database. The database ID must conform to the regular expression
  *  `a-z*[a-z0-9]` and be between 2 and 30 characters in length.
+ *  If the database ID is a reserved word or if it contains a hyphen, the
+ *  database ID must be enclosed in backticks (`` ` ``).
  */
 @property(nonatomic, copy, nullable) NSString *createStatement;
 
@@ -1480,23 +1482,6 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
  *  Specifies what kind of log the caller must write
- *  Increment a streamz counter with the specified metric and field names.
- *  Metric names should start with a '/', generally be lowercase-only,
- *  and end in "_count". Field names should not contain an initial slash.
- *  The actual exported metric names will have "/iam/policy" prepended.
- *  Field names correspond to IAM request parameters and field values are
- *  their respective values.
- *  At present the only supported field names are
- *  - "iam_principal", corresponding to IAMContext.principal;
- *  - "" (empty string), resulting in one aggretated counter with no field.
- *  Examples:
- *  counter { metric: "/debug_access_count" field: "iam_principal" }
- *  ==> increment counter /iam/policy/backend_debug_access_count
- *  {iam_principal=[value of IAMContext.principal]}
- *  At this time we do not support:
- *  * multiple field names (though this may be supported in the future)
- *  * decrementing the counter
- *  * incrementing it by anything other than 1
  */
 @interface GTLRSpanner_LogConfig : GTLRObject
 

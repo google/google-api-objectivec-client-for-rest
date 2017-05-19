@@ -262,7 +262,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_ComputationTopology
 @dynamic computationId, inputs, keyRanges, outputs, stateFamilies,
-         systemStageName, userStageName;
+         systemStageName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -445,7 +445,15 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_DistributionUpdate
-@dynamic count, max, min, sum, sumOfSquares;
+@dynamic count, logBuckets, max, min, sum, sumOfSquares;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"logBuckets" : [GTLRDataflow_LogBucket class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -990,6 +998,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_LogBucket
+//
+
+@implementation GTLRDataflow_LogBucket
+@dynamic count, log;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_MapTask
 //
 
@@ -1046,8 +1064,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_MetricUpdate
-@dynamic cumulative, internal, kind, meanCount, meanSum, name, scalar, set,
-         updateTime;
+@dynamic cumulative, distribution, internal, kind, meanCount, meanSum, name,
+         scalar, set, updateTime;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -1362,8 +1380,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_RuntimeEnvironment
-@dynamic bypassTempDirValidation, maxWorkers, serviceAccountEmail, tempLocation,
-         zoneProperty;
+@dynamic bypassTempDirValidation, machineType, maxWorkers, serviceAccountEmail,
+         tempLocation, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -1873,7 +1891,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_StreamingConfigTask
-@dynamic streamingComputationConfigs, userStepToStateFamilyNameMap;
+@dynamic streamingComputationConfigs, userStepToStateFamilyNameMap,
+         windmillServiceEndpoint, windmillServicePort;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

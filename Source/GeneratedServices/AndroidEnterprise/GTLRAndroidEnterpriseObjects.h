@@ -344,12 +344,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Play EMM in various deployment configurations.
  *  Possible values include:
  *  - "managedDevice", a device that has the EMM's device policy controller
- *  (DPC) as the device owner,
+ *  (DPC) as the device owner.
  *  - "managedProfile", a device that has a profile managed by the DPC (DPC is
  *  profile owner) in addition to a separate, personal profile that is
- *  unavailable to the DPC,
- *  - "containerApp", a device running the container App. The container App is
- *  managed by the DPC,
+ *  unavailable to the DPC.
+ *  - "containerApp", no longer used (deprecated).
  *  - "unmanagedProfile", a device that has been allowed (by the domain's admin,
  *  using the Admin Console to enable the privilege) to use managed Google Play,
  *  but the profile is itself not owned by a DPC.
@@ -622,6 +621,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numPurchased;
+
+/**
+ *  The permission approval status of the product. This field is only set if the
+ *  product is approved. Possible states are:
+ *  - "currentApproved", the current set of permissions is approved, but
+ *  additional permissions will require the administrator to reapprove the
+ *  product (If the product was approved without specifying the approved
+ *  permissions setting, then this is the default behavior.),
+ *  - "needsReapproval", the product has unapproved permissions. No additional
+ *  product licenses can be assigned until the product is reapproved,
+ *  - "allCurrentAndFutureApproved", the current permissions are approved and
+ *  any future permission updates will be automatically approved without
+ *  administrator review.
+ */
+@property(nonatomic, copy, nullable) NSString *permissions;
 
 /**
  *  The ID of the product that the license is for. For example,
@@ -982,6 +996,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Notifications about new app permissions. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_NewPermissionsEvent *newPermissionsEvent NS_RETURNS_NOT_RETAINED;
 
+/** Type of the notification. */
+@property(nonatomic, copy, nullable) NSString *notificationType;
+
 /** Notifications about changes to a product's approval status. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ProductApprovalEvent *productApprovalEvent;
 
@@ -1147,8 +1164,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *productPricing;
 
 /**
- *  Whether this app can only be installed on devices using the Android
- *  container app.
+ *  Deprecated.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1265,6 +1281,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ApprovalUrlInfo *approvalUrlInfo;
 
+/**
+ *  Sets how new permission requests for the product are handled.
+ *  "allPermissions" automatically approves all current and future permissions
+ *  for the product. "currentPermissionsOnly" approves the current set of
+ *  permissions for the product, but any future permissions added through
+ *  updates will require manual reapproval. If not specified, only the current
+ *  set of permissions will be approved.
+ */
+@property(nonatomic, copy, nullable) NSString *approvedPermissions;
+
 @end
 
 
@@ -1284,12 +1310,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The interpretation of this product set. "unknown" should never be sent and
- *  is ignored if received. "whitelist" means that this product set constitutes
- *  a whitelist. "includeAll" means that all products are accessible, including
- *  products that are approved, products with revoked approval, and products
- *  that have never been approved. If the value is "includeAll", the value of
- *  the productId field is therefore ignored. If a value is not supplied, it is
- *  interpreted to be "whitelist" for backwards compatibility.
+ *  is ignored if received. "whitelist" means that the user is entitled to
+ *  access the product set. "includeAll" means that all products are accessible,
+ *  including products that are approved, products with revoked approval, and
+ *  products that have never been approved. "allApproved" means that the user is
+ *  entitled to access all products that are approved for the enterprise. If the
+ *  value is "allApproved" or "includeAll", the productId field is ignored. If
+ *  no value is provided, it is interpreted as "whitelist" for backwards
+ *  compatibility.
  */
 @property(nonatomic, copy, nullable) NSString *productSetBehavior;
 

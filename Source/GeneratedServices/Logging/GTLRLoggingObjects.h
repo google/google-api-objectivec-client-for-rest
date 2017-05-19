@@ -633,6 +633,11 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @property(nonatomic, strong, nullable) GTLRLogging_LogEntry_ProtoPayload *protoPayload;
 
 /**
+ *  Output only. The time the log entry was received by Stackdriver Logging.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *receiveTimestamp;
+
+/**
  *  Required. The monitored resource associated with this log entry. Example: a
  *  log entry that reports a database error would be associated with the
  *  monitored resource designating the particular database that reported the
@@ -938,13 +943,18 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. This field presently applies only to sinks in organizations and
- *  folders. If true, then logs from children of this entity will also be
- *  available to this sink for export. Whether particular log entries from the
- *  children are exported depends on the sink's filter expression. For example,
- *  if this sink is associated with an organization, then logs from all projects
- *  in the organization as well as from the organization itself will be
- *  available for export.
+ *  Optional. This field applies only to sinks owned by organizations and
+ *  folders. If the field is false, the default, only the logs owned by the
+ *  sink's parent resource are available for export. If the field is true, then
+ *  logs from all the projects, folders, and billing accounts contained in the
+ *  sink's parent resource are also available for export. Whether a particular
+ *  log entry from the children is exported depends on the sink's filter
+ *  expression. For example, if this field is true, then the filter
+ *  resource.type=gce_instance would export all Compute Engine VM instance log
+ *  entries from all projects in the sink's parent. To only export entries from
+ *  certain child projects, filter on the project part of the log name:
+ *  logName:("projects/test-project1/" OR "projects/test-project2/") AND
+ *  resource.type=gce_instance
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1015,15 +1025,15 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 
 /**
  *  Required. Values for all of the labels listed in the associated monitored
- *  resource descriptor. For example, Cloud SQL databases use the labels
- *  "database_id" and "zone".
+ *  resource descriptor. For example, Compute Engine VM instances use the labels
+ *  "project_id", "instance_id", and "zone".
  */
 @property(nonatomic, strong, nullable) GTLRLogging_MonitoredResource_Labels *labels;
 
 /**
  *  Required. The monitored resource type. This field must match the type field
- *  of a MonitoredResourceDescriptor object. For example, the type of a Cloud
- *  SQL database is "cloudsql_database".
+ *  of a MonitoredResourceDescriptor object. For example, the type of a Compute
+ *  Engine VM instance is gce_instance.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1032,8 +1042,8 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 
 /**
  *  Required. Values for all of the labels listed in the associated monitored
- *  resource descriptor. For example, Cloud SQL databases use the labels
- *  "database_id" and "zone".
+ *  resource descriptor. For example, Compute Engine VM instances use the labels
+ *  "project_id", "instance_id", and "zone".
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

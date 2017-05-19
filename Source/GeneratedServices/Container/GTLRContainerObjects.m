@@ -130,6 +130,20 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_Cluster_ResourceLabels
+//
+
+@implementation GTLRContainer_Cluster_ResourceLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_ClusterUpdate
 //
 
@@ -145,6 +159,15 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_CompleteIPRotationRequest
+//
+
+@implementation GTLRContainer_CompleteIPRotationRequest
 @end
 
 
@@ -194,16 +217,6 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 @implementation GTLRContainer_HttpLoadBalancing
 @dynamic disabled;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContainer_Item
-//
-
-@implementation GTLRContainer_Item
-@dynamic key, value;
 @end
 
 
@@ -388,24 +401,6 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContainer_ResourceLabels
-//
-
-@implementation GTLRContainer_ResourceLabels
-@dynamic items;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRContainer_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRContainer_RollbackNodePoolUpgradeRequest
 //
 
@@ -446,6 +441,20 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_SetLabelsRequest_ResourceLabels
+//
+
+@implementation GTLRContainer_SetLabelsRequest_ResourceLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_SetLegacyAbacRequest
 //
 
@@ -471,6 +480,15 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 @implementation GTLRContainer_SetNodePoolManagementRequest
 @dynamic management;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_StartIPRotationRequest
+//
+
+@implementation GTLRContainer_StartIPRotationRequest
 @end
 
 

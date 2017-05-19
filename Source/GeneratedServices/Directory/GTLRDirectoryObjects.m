@@ -878,7 +878,7 @@
          creationTime, customerId, customSchemas, deletionTime, emails, ETag,
          externalIds, hashFunction, identifier, ims, includeInGlobalAddressList,
          ipWhitelisted, isAdmin, isDelegatedAdmin, isEnforcedIn2Sv,
-         isEnrolledIn2Sv, isMailboxSetup, kind, lastLoginTime, name,
+         isEnrolledIn2Sv, isMailboxSetup, kind, lastLoginTime, locations, name,
          nonEditableAliases, notes, organizations, orgUnitPath, password,
          phones, posixAccounts, primaryEmail, relations, sshPublicKeys,
          suspended, suspensionReason, thumbnailPhotoEtag, thumbnailPhotoUrl,
@@ -980,6 +980,16 @@
 
 @implementation GTLRDirectory_UserIm
 @dynamic customProtocol, customType, im, primary, protocol, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_UserLocation
+//
+
+@implementation GTLRDirectory_UserLocation
+@dynamic area, buildingId, customType, deskCode, floorName, floorSection, type;
 @end
 
 

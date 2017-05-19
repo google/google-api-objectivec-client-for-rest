@@ -70,6 +70,28 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_DataWrite;
 GTLR_EXTERN NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudKMS_CloudAuditOptions.logName
+
+/**
+ *  Corresponds to "cloudaudit.googleapis.com/activity"
+ *
+ *  Value: "ADMIN_ACTIVITY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_CloudAuditOptions_LogName_AdminActivity;
+/**
+ *  Corresponds to "cloudaudit.googleapis.com/data_access"
+ *
+ *  Value: "DATA_ACCESS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_CloudAuditOptions_LogName_DataAccess;
+/**
+ *  Default. Should not be used.
+ *
+ *  Value: "UNSPECIFIED_LOG_NAME"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_CloudAuditOptions_LogName_UnspecifiedLogName;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudKMS_Condition.iam
 
 /**
@@ -297,7 +319,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
  *  Specifies the audit configuration for a service.
  *  The configuration determines which permission types are logged, and what
  *  identities, if any, are exempted from logging.
- *  An AuditConifg must have one or more AuditLogConfigs.
+ *  An AuditConfig must have one or more AuditLogConfigs.
  *  If there are AuditConfigs for both `allServices` and a specific service,
  *  the union of the two AuditConfigs is used for that service: the log_types
  *  specified in each AuditConfig are enabled, and the exempted_members in each
@@ -445,6 +467,20 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
  *  Write a Cloud Audit log
  */
 @interface GTLRCloudKMS_CloudAuditOptions : GTLRObject
+
+/**
+ *  The log_name to populate in the Cloud Audit Record.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_CloudAuditOptions_LogName_AdminActivity Corresponds
+ *        to "cloudaudit.googleapis.com/activity" (Value: "ADMIN_ACTIVITY")
+ *    @arg @c kGTLRCloudKMS_CloudAuditOptions_LogName_DataAccess Corresponds to
+ *        "cloudaudit.googleapis.com/data_access" (Value: "DATA_ACCESS")
+ *    @arg @c kGTLRCloudKMS_CloudAuditOptions_LogName_UnspecifiedLogName
+ *        Default. Should not be used. (Value: "UNSPECIFIED_LOG_NAME")
+ */
+@property(nonatomic, copy, nullable) NSString *logName;
+
 @end
 
 

@@ -16,7 +16,7 @@
 NSString * const kGTLRAuthScopeScriptAdminDirectoryGroup = @"https://www.googleapis.com/auth/admin.directory.group";
 NSString * const kGTLRAuthScopeScriptAdminDirectoryUser  = @"https://www.googleapis.com/auth/admin.directory.user";
 NSString * const kGTLRAuthScopeScriptDrive               = @"https://www.googleapis.com/auth/drive";
-NSString * const kGTLRAuthScopeScriptFeeds               = @"https://www.google.com/m8/feeds";
+NSString * const kGTLRAuthScopeScriptFeeds               = @"https://www.google.com/calendar/feeds";
 NSString * const kGTLRAuthScopeScriptForms               = @"https://www.googleapis.com/auth/forms";
 NSString * const kGTLRAuthScopeScriptFormsCurrentonly    = @"https://www.googleapis.com/auth/forms.currentonly";
 NSString * const kGTLRAuthScopeScriptGroups              = @"https://www.googleapis.com/auth/groups";

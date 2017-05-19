@@ -22,10 +22,10 @@
 @class GTLRContainer_AddonsConfig;
 @class GTLRContainer_AutoUpgradeOptions;
 @class GTLRContainer_Cluster;
+@class GTLRContainer_Cluster_ResourceLabels;
 @class GTLRContainer_ClusterUpdate;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpLoadBalancing;
-@class GTLRContainer_Item;
 @class GTLRContainer_LegacyAbac;
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_NodeConfig;
@@ -35,7 +35,7 @@
 @class GTLRContainer_NodePool;
 @class GTLRContainer_NodePoolAutoscaling;
 @class GTLRContainer_Operation;
-@class GTLRContainer_ResourceLabels;
+@class GTLRContainer_SetLabelsRequest_ResourceLabels;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -410,9 +410,10 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @property(nonatomic, copy, nullable) NSString *expireTime;
 
 /**
- *  [Output only] The software version of the master endpoint and kubelets used
- *  in the cluster when it was first created. The version can be upgraded over
- *  time.
+ *  The initial Kubernetes version for this cluster. Valid versions are those
+ *  found in validMasterVersions returned by getServerConfig. The version can
+ *  be upgraded over time; such upgrades are reflected in
+ *  currentMasterVersion and currentNodeVersion.
  */
 @property(nonatomic, copy, nullable) NSString *initialClusterVersion;
 
@@ -521,7 +522,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  The resource labels for the cluster to use to annotate any related GCE
  *  resources.
  */
-@property(nonatomic, strong, nullable) GTLRContainer_ResourceLabels *resourceLabels;
+@property(nonatomic, strong, nullable) GTLRContainer_Cluster_ResourceLabels *resourceLabels;
 
 /** [Output only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -581,6 +582,19 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
 
+@end
+
+
+/**
+ *  The resource labels for the cluster to use to annotate any related GCE
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainer_Cluster_ResourceLabels : GTLRObject
 @end
 
 
@@ -648,6 +662,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *desiredNodeVersion;
 
+@end
+
+
+/**
+ *  CompleteIPRotationRequest moves the cluster master back into single-IP mode.
+ */
+@interface GTLRContainer_CompleteIPRotationRequest : GTLRObject
 @end
 
 
@@ -722,21 +743,6 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
-
-@end
-
-
-/**
- *  A label to be applied to Google Compute Engine resources. It must comply
- *  with RFC1035 for each key and value.
- */
-@interface GTLRContainer_Item : GTLRObject
-
-/** The Key for this label. */
-@property(nonatomic, copy, nullable) NSString *key;
-
-/** The Value for this label. */
-@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -836,12 +842,15 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 /**
  *  The password to use for HTTP basic authentication to the master endpoint.
  *  Because the master endpoint is open to the Internet, you should create a
- *  strong password.
+ *  strong password. If a password is provided for cluster creation, username
+ *  must be non-empty.
  */
 @property(nonatomic, copy, nullable) NSString *password;
 
 /**
  *  The username to use for HTTP basic authentication to the master endpoint.
+ *  For clusters v1.6.0 and later, you can disable basic authentication by
+ *  providing an empty username.
  */
 @property(nonatomic, copy, nullable) NSString *username;
 
@@ -1229,28 +1238,6 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 
 /**
- *  The set of Google Compute Engine labels that will be applied to any
- *  underlying resources that the Google Container Cluster creates or uses.
- *  These are merely metadata on the resources, and do not change the behavior
- *  of the cluster.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property.
- */
-@interface GTLRContainer_ResourceLabels : GTLRCollectionObject
-
-/**
- *  The list of labels.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainer_Item *> *items;
-
-@end
-
-
-/**
  *  RollbackNodePoolUpgradeRequest rollbacks the previously Aborted or Failed
  *  NodePool upgrade. This will be an no-op if the last upgrade successfully
  *  completed.
@@ -1300,8 +1287,20 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @property(nonatomic, copy, nullable) NSString *labelFingerprint;
 
 /** The labels to set for that cluster. */
-@property(nonatomic, strong, nullable) GTLRContainer_ResourceLabels *resourceLabels;
+@property(nonatomic, strong, nullable) GTLRContainer_SetLabelsRequest_ResourceLabels *resourceLabels;
 
+@end
+
+
+/**
+ *  The labels to set for that cluster.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainer_SetLabelsRequest_ResourceLabels : GTLRObject
 @end
 
 
@@ -1356,6 +1355,14 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 /** NodeManagement configuration for the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
 
+@end
+
+
+/**
+ *  StartIPRotationRequest creates a new IP for the cluster and then performs
+ *  a node upgrade on each node pool to point to the new IP.
+ */
+@interface GTLRContainer_StartIPRotationRequest : GTLRObject
 @end
 
 

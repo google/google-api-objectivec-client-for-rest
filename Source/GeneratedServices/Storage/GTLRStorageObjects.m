@@ -16,9 +16,10 @@
 //
 
 @implementation GTLRStorage_Bucket
-@dynamic acl, cors, defaultObjectAcl, ETag, identifier, kind, labels, lifecycle,
-         location, logging, metageneration, name, owner, projectNumber,
-         selfLink, storageClass, timeCreated, updated, versioning, website;
+@dynamic acl, billing, cors, defaultObjectAcl, ETag, identifier, kind, labels,
+         lifecycle, location, logging, metageneration, name, owner,
+         projectNumber, selfLink, storageClass, timeCreated, updated,
+         versioning, website;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -37,6 +38,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_Billing
+//
+
+@implementation GTLRStorage_Bucket_Billing
+@dynamic requesterPays;
 @end
 
 

@@ -40,10 +40,20 @@ NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSPECI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTracing_Annotation_Attributes
+//   GTLRTracing_Attributes
 //
 
-@implementation GTLRTracing_Annotation_Attributes
+@implementation GTLRTracing_Attributes
+@dynamic attributeMap, droppedAttributesCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTracing_Attributes_AttributeMap
+//
+
+@implementation GTLRTracing_Attributes_AttributeMap
 
 + (Class)classForAdditionalProperties {
   return [GTLRTracing_AttributeValue class];
@@ -96,6 +106,24 @@ NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSPECI
 
 @implementation GTLRTracing_Link
 @dynamic spanId, traceId, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTracing_Links
+//
+
+@implementation GTLRTracing_Links
+@dynamic droppedLinksCount, link;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"link" : [GTLRTracing_Link class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -171,29 +199,6 @@ NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSPECI
 @implementation GTLRTracing_Span
 @dynamic attributes, displayName, endTime, links, name, parentSpanId, spanId,
          stackTrace, startTime, status, timeEvents;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"links" : [GTLRTracing_Link class],
-    @"timeEvents" : [GTLRTracing_TimeEvent class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTracing_Span_Attributes
-//
-
-@implementation GTLRTracing_Span_Attributes
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRTracing_AttributeValue class];
-}
-
 @end
 
 
@@ -210,19 +215,29 @@ NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSPECI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTracing_StackTrace
+//   GTLRTracing_StackFrames
 //
 
-@implementation GTLRTracing_StackTrace
-@dynamic stackFrame, stackTraceHashId;
+@implementation GTLRTracing_StackFrames
+@dynamic droppedFramesCount, frame;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"stackFrame" : [GTLRTracing_StackFrame class]
+    @"frame" : [GTLRTracing_StackFrame class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTracing_StackTrace
+//
+
+@implementation GTLRTracing_StackTrace
+@dynamic stackFrames, stackTraceHashId;
 @end
 
 
@@ -270,9 +285,37 @@ NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSPECI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTracing_TimeEvents
+//
+
+@implementation GTLRTracing_TimeEvents
+@dynamic droppedAnnotationsCount, droppedNetworkEventsCount, timeEvent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeEvent" : [GTLRTracing_TimeEvent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTracing_Trace
 //
 
 @implementation GTLRTracing_Trace
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTracing_TruncatableString
+//
+
+@implementation GTLRTracing_TruncatableString
+@dynamic truncatedCharacterCount, value;
 @end

@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRStorage_Bucket;
+@class GTLRStorage_Bucket_Billing;
 @class GTLRStorage_Bucket_Cors_Item;
 @class GTLRStorage_Bucket_Labels;
 @class GTLRStorage_Bucket_Lifecycle;
@@ -53,6 +54,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Access controls on the bucket. */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorage_BucketAccessControl *> *acl;
+
+/** The bucket's billing configuration. */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_Billing *billing;
 
 /** The bucket's Cross-Origin Resource Sharing (CORS) configuration. */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorage_Bucket_Cors_Item *> *cors;
@@ -146,6 +150,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  more information.
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_Website *website;
+
+@end
+
+
+/**
+ *  The bucket's billing configuration.
+ */
+@interface GTLRStorage_Bucket_Billing : GTLRObject
+
+/**
+ *  When set to true, bucket is requester pays.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requesterPays;
 
 @end
 
@@ -1174,7 +1193,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The total size of the object being copied in bytes. This property is always
  *  present in the response.
  *
- *  Uses NSNumber of unsignedLongLongValue.
+ *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *objectSize;
 
@@ -1194,7 +1213,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The total bytes written so far, which can be used to provide a waiting user
  *  with a progress indicator. This property is always present in the response.
  *
- *  Uses NSNumber of unsignedLongLongValue.
+ *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalBytesRewritten;
 

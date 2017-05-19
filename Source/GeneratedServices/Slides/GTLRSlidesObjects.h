@@ -6192,7 +6192,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The optional zero-based index of the end of the collection.
- *  Required for `SPECIFIC_RANGE` delete mode.
+ *  Required for `FIXED_RANGE` ranges.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6200,7 +6200,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The optional zero-based index of the beginning of the collection.
- *  Required for `SPECIFIC_RANGE` and `FROM_START_INDEX` ranges.
+ *  Required for `FIXED_RANGE` and `FROM_START_INDEX` ranges.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7850,12 +7850,30 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *underline;
 
 /**
- *  The font family and rendered weight of the text. This property is
- *  read-only.
+ *  The font family and rendered weight of the text.
  *  This field is an extension of `font_family` meant to support explicit font
  *  weights without breaking backwards compatibility. As such, when reading the
- *  style of a range of text, the value of `weighted_font_family.font_family`
- *  will always be equal to that of `font_family`.
+ *  style of a range of text, the value of `weighted_font_family#font_family`
+ *  will always be equal to that of `font_family`. However, when writing, if
+ *  both fields are included in the field mask (either explicitly or through
+ *  the wildcard `"*"`), their values are reconciled as follows:
+ *  * If `font_family` is set and `weighted_font_family` is not, the value of
+ *  `font_family` is applied with weight `400` ("normal").
+ *  * If both fields are set, the value of `font_family` must match that of
+ *  `weighted_font_family#font_family`. If so, the font family and weight of
+ *  `weighted_font_family` is applied. Otherwise, a 400 bad request error is
+ *  returned.
+ *  * If `weighted_font_family` is set and `font_family` is not, the font
+ *  family and weight of `weighted_font_family` is applied.
+ *  * If neither field is set, the font family and weight of the text inherit
+ *  from the parent. Note that these properties cannot inherit separately
+ *  from each other.
+ *  If an update request specifies values for both `weighted_font_family` and
+ *  `bold`, the `weighted_font_family` is applied first, then `bold`.
+ *  If `weighted_font_family#weight` is not set, it defaults to `400`.
+ *  If `weighted_font_family` is set, then `weighted_font_family#font_family`
+ *  must also be set with a non-empty value. Otherwise, a 400 bad request error
+ *  is returned.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_WeightedFontFamily *weightedFontFamily;
 

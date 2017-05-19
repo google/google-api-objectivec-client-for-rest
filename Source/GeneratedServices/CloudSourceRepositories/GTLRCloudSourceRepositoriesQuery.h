@@ -6,7 +6,7 @@
 // Description:
 //   Access source code repositories hosted by Google.
 // Documentation:
-//   https://cloud.google.com/eap/cloud-repositories/cloud-sourcerepo-api
+//   https://cloud.google.com/source-repositories/docs/apis
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -194,6 +194,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Maximum number of repositories to return; between 1 and 500.
+ *  If not set or zero, defaults to 100 at the server.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Resume listing repositories where a prior ListReposResponse
+ *  left off. This is an opaque token that must be obtained from
+ *  a recent, prior ListReposResponse's next_page_token field.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
  *  Fetches a @c GTLRCloudSourceRepositories_ListReposResponse.
  *
  *  Returns all repos belonging to a project.
@@ -203,6 +216,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/<project>`.
  *
  *  @returns GTLRCloudSourceRepositoriesQuery_ProjectsReposList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
 

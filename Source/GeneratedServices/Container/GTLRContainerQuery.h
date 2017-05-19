@@ -20,6 +20,7 @@
 #endif
 
 @class GTLRContainer_CancelOperationRequest;
+@class GTLRContainer_CompleteIPRotationRequest;
 @class GTLRContainer_CreateClusterRequest;
 @class GTLRContainer_CreateNodePoolRequest;
 @class GTLRContainer_RollbackNodePoolUpgradeRequest;
@@ -27,6 +28,7 @@
 @class GTLRContainer_SetLegacyAbacRequest;
 @class GTLRContainer_SetMasterAuthRequest;
 @class GTLRContainer_SetNodePoolManagementRequest;
+@class GTLRContainer_StartIPRotationRequest;
 @class GTLRContainer_UpdateClusterRequest;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -38,6 +40,59 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Completes master IP rotation.
+ *
+ *  Method: container.projects.zones.clusters.completeIpRotation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsZonesClustersCompleteIpRotation : GTLRContainerQuery
+// Previous library name was
+//   +[GTLQueryContainer queryForProjectsZonesClustersCompleteIpRotationWithObject:projectId:zoneProperty:clusterId:]
+
+/** The name of the cluster. */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The Google Developers Console [project ID or project
+ *  number](https://developers.google.com/console/help/new/#projectnumber).
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRContainer_Operation.
+ *
+ *  Completes master IP rotation.
+ *
+ *  @param object The @c GTLRContainer_CompleteIPRotationRequest to include in
+ *    the query.
+ *  @param projectId The Google Developers Console [project ID or project
+ *    number](https://developers.google.com/console/help/new/#projectnumber).
+ *  @param zoneProperty The name of the Google Compute Engine
+ *    [zone](/compute/docs/zones#available) in which the cluster
+ *    resides.
+ *  @param clusterId The name of the cluster.
+ *
+ *  @returns GTLRContainerQuery_ProjectsZonesClustersCompleteIpRotation
+ */
++ (instancetype)queryWithObject:(GTLRContainer_CompleteIPRotationRequest *)object
+                      projectId:(NSString *)projectId
+                   zoneProperty:(NSString *)zoneProperty
+                      clusterId:(NSString *)clusterId;
 
 @end
 
@@ -753,6 +808,59 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRContainerQuery_ProjectsZonesClustersSetMasterAuth
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetMasterAuthRequest *)object
+                      projectId:(NSString *)projectId
+                   zoneProperty:(NSString *)zoneProperty
+                      clusterId:(NSString *)clusterId;
+
+@end
+
+/**
+ *  Start master IP rotation.
+ *
+ *  Method: container.projects.zones.clusters.startIpRotation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsZonesClustersStartIpRotation : GTLRContainerQuery
+// Previous library name was
+//   +[GTLQueryContainer queryForProjectsZonesClustersStartIpRotationWithObject:projectId:zoneProperty:clusterId:]
+
+/** The name of the cluster. */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The Google Developers Console [project ID or project
+ *  number](https://developers.google.com/console/help/new/#projectnumber).
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRContainer_Operation.
+ *
+ *  Start master IP rotation.
+ *
+ *  @param object The @c GTLRContainer_StartIPRotationRequest to include in the
+ *    query.
+ *  @param projectId The Google Developers Console [project ID or project
+ *    number](https://developers.google.com/console/help/new/#projectnumber).
+ *  @param zoneProperty The name of the Google Compute Engine
+ *    [zone](/compute/docs/zones#available) in which the cluster
+ *    resides.
+ *  @param clusterId The name of the cluster.
+ *
+ *  @returns GTLRContainerQuery_ProjectsZonesClustersStartIpRotation
+ */
++ (instancetype)queryWithObject:(GTLRContainer_StartIPRotationRequest *)object
                       projectId:(NSString *)projectId
                    zoneProperty:(NSString *)zoneProperty
                       clusterId:(NSString *)clusterId;

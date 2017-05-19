@@ -4,9 +4,9 @@
 // API:
 //   Google Cloud Natural Language API (language/v1)
 // Description:
-//   Google Cloud Natural Language API provides natural language understanding
-//   technologies to developers. Examples include sentiment analysis, entity
-//   recognition, and text annotations.
+//   Provides natural language understanding technologies to developers.
+//   Examples include sentiment analysis, entity recognition, entity sentiment
+//   analysis, and text annotations.
 // Documentation:
 //   https://cloud.google.com/natural-language/
 
@@ -1332,7 +1332,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
- *  See `Document.language` field for more details.
+ *  See Document.language field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -1344,10 +1344,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  */
 @interface GTLRCloudNaturalLanguage_AnalyzeSentimentRequest : GTLRObject
 
-/**
- *  Input document. Currently, `analyzeSentiment` only supports English text
- *  (Document.language="EN").
- */
+/** Input document. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Document *document;
 
 /**
@@ -1393,7 +1390,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
- *  See `Document.language` field for more details.
+ *  See Document.language field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -1451,7 +1448,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
- *  See `Document.language` field for more details.
+ *  See Document.language field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -1529,7 +1526,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
- *  See `Document.language` field for more details.
+ *  See Document.language field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -1753,8 +1750,8 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *  The language of the document (if not specified, the language is
  *  automatically detected). Both ISO and BCP-47 language codes are
  *  accepted.<br>
- *  **Current Language Restrictions:**
- *  * Only English, Spanish, and Japanese textual content are supported.
+ *  [Language Support](/natural-language/docs/languages)
+ *  lists currently supported languages for each API method.
  *  If the language (either specified by the caller or automatically detected)
  *  is not supported by the called API method, an `INVALID_ARGUMENT` error
  *  is returned.
@@ -2237,7 +2234,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *  error message is needed, put the localized message in the error details or
  *  localize it in the client. The optional error details may contain arbitrary
  *  information about the error. There is a predefined set of error detail types
- *  in the package `google.rpc` which can be used for common error conditions.
+ *  in the package `google.rpc` that can be used for common error conditions.
  *  # Language mapping
  *  The `Status` message is the logical representation of the error model, but
  *  it
@@ -2255,7 +2252,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  *  it may embed the `Status` in the normal response to indicate the partial
  *  errors.
  *  - Workflow errors. A typical workflow has multiple steps. Each step may
- *  have a `Status` message for error reporting purpose.
+ *  have a `Status` message for error reporting.
  *  - Batch operations. If a client uses batch request and batch response, the
  *  `Status` message should be used directly inside batch response, one for
  *  each error sub-response.

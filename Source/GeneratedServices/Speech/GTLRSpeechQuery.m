@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Speech API (speech/v1beta1)
+//   Google Cloud Speech API (speech/v1)
 // Description:
-//   Google Cloud Speech API.
+//   Converts audio to text by applying powerful neural network models.
 // Documentation:
 //   https://cloud.google.com/speech/
 
@@ -22,13 +22,19 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithName:(NSString *)name {
++ (instancetype)queryWithObject:(GTLRSpeech_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/operations/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/operations/{+name}:cancel";
   GTLRSpeechQuery_OperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
+  query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRSpeech_Empty class];
   query.loggingName = @"speech.operations.cancel";
@@ -43,7 +49,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/operations/{+name}";
+  NSString *pathURITemplate = @"v1/operations/{+name}";
   GTLRSpeechQuery_OperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -62,7 +68,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/operations/{+name}";
+  NSString *pathURITemplate = @"v1/operations/{+name}";
   GTLRSpeechQuery_OperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -80,7 +86,7 @@
 @dynamic filter, name, pageSize, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v1beta1/operations";
+  NSString *pathURITemplate = @"v1/operations";
   GTLRSpeechQuery_OperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -92,41 +98,41 @@
 
 @end
 
-@implementation GTLRSpeechQuery_SpeechAsyncrecognize
+@implementation GTLRSpeechQuery_SpeechLongrunningrecognize
 
-+ (instancetype)queryWithObject:(GTLRSpeech_AsyncRecognizeRequest *)object {
++ (instancetype)queryWithObject:(GTLRSpeech_LongRunningRecognizeRequest *)object {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"v1beta1/speech:asyncrecognize";
-  GTLRSpeechQuery_SpeechAsyncrecognize *query =
+  NSString *pathURITemplate = @"v1/speech:longrunningrecognize";
+  GTLRSpeechQuery_SpeechLongrunningrecognize *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRSpeech_Operation class];
-  query.loggingName = @"speech.speech.asyncrecognize";
+  query.loggingName = @"speech.speech.longrunningrecognize";
   return query;
 }
 
 @end
 
-@implementation GTLRSpeechQuery_SpeechSyncrecognize
+@implementation GTLRSpeechQuery_SpeechRecognize
 
-+ (instancetype)queryWithObject:(GTLRSpeech_SyncRecognizeRequest *)object {
++ (instancetype)queryWithObject:(GTLRSpeech_RecognizeRequest *)object {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"v1beta1/speech:syncrecognize";
-  GTLRSpeechQuery_SpeechSyncrecognize *query =
+  NSString *pathURITemplate = @"v1/speech:recognize";
+  GTLRSpeechQuery_SpeechRecognize *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRSpeech_SyncRecognizeResponse class];
-  query.loggingName = @"speech.speech.syncrecognize";
+  query.expectedObjectClass = [GTLRSpeech_RecognizeResponse class];
+  query.loggingName = @"speech.speech.recognize";
   return query;
 }
 

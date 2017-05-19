@@ -2918,7 +2918,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified ForwardingRule resource.
+ *  Deletes the specified GlobalForwardingRule resource.
  *
  *  Method: compute.globalForwardingRules.delete
  *
@@ -2939,7 +2939,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified ForwardingRule resource.
+ *  Deletes the specified GlobalForwardingRule resource.
  *
  *  @param project Project ID for this request.
  *  @param forwardingRule Name of the ForwardingRule resource to delete.
@@ -2952,7 +2952,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified ForwardingRule resource. Get a list of available
+ *  Returns the specified GlobalForwardingRule resource. Get a list of available
  *  forwarding rules by making a list() request.
  *
  *  Method: compute.globalForwardingRules.get
@@ -2975,7 +2975,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_ForwardingRule.
  *
- *  Returns the specified ForwardingRule resource. Get a list of available
+ *  Returns the specified GlobalForwardingRule resource. Get a list of available
  *  forwarding rules by making a list() request.
  *
  *  @param project Project ID for this request.
@@ -2989,8 +2989,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a ForwardingRule resource in the specified project and region using
- *  the data included in the request.
+ *  Creates a GlobalForwardingRule resource in the specified project using the
+ *  data included in the request.
  *
  *  Method: compute.globalForwardingRules.insert
  *
@@ -3008,8 +3008,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Creates a ForwardingRule resource in the specified project and region using
- *  the data included in the request.
+ *  Creates a GlobalForwardingRule resource in the specified project using the
+ *  data included in the request.
  *
  *  @param object The @c GTLRCompute_ForwardingRule to include in the query.
  *  @param project Project ID for this request.
@@ -3022,8 +3022,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a list of ForwardingRule resources available to the specified
- *  project.
+ *  Retrieves a list of GlobalForwardingRule resources available to the
+ *  specified project.
  *
  *  Method: compute.globalForwardingRules.list
  *
@@ -3095,8 +3095,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_ForwardingRuleList.
  *
- *  Retrieves a list of ForwardingRule resources available to the specified
- *  project.
+ *  Retrieves a list of GlobalForwardingRule resources available to the
+ *  specified project.
  *
  *  @param project Project ID for this request.
  *
@@ -3111,8 +3111,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes target URL for forwarding rule. The new target should be of the same
- *  type as the old target.
+ *  Changes target URL for the GlobalForwardingRule resource. The new target
+ *  should be of the same type as the old target.
  *
  *  Method: compute.globalForwardingRules.setTarget
  *
@@ -3133,8 +3133,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Changes target URL for forwarding rule. The new target should be of the same
- *  type as the old target.
+ *  Changes target URL for the GlobalForwardingRule resource. The new target
+ *  should be of the same type as the old target.
  *
  *  @param object The @c GTLRCompute_TargetReference to include in the query.
  *  @param project Project ID for this request.
@@ -5956,7 +5956,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Attaches a Disk resource to an instance.
+ *  Attaches an existing Disk resource to an instance. You must first create the
+ *  disk before you can attach it. It is not possible to create and attach a
+ *  disk at the same time. For more information, read Adding a persistent disk
+ *  to your instance.
  *
  *  Method: compute.instances.attachDisk
  *
@@ -5984,7 +5987,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Attaches a Disk resource to an instance.
+ *  Attaches an existing Disk resource to an instance. You must first create the
+ *  disk before you can attach it. It is not possible to create and attach a
+ *  disk at the same time. For more information, read Adding a persistent disk
+ *  to your instance.
  *
  *  @param object The @c GTLRCompute_AttachedDisk to include in the query.
  *  @param project Project ID for this request.
@@ -10907,7 +10913,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Set whether VMs in this subnet can access Google services without assigning
- *  external IP addresses through Cloudpath.
+ *  external IP addresses through Private Google Access.
  *
  *  Method: compute.subnetworks.setPrivateIpGoogleAccess
  *
@@ -10932,7 +10938,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Set whether VMs in this subnet can access Google services without assigning
- *  external IP addresses through Cloudpath.
+ *  external IP addresses through Private Google Access.
  *
  *  @param object The @c GTLRCompute_SubnetworksSetPrivateIpGoogleAccessRequest
  *    to include in the query.

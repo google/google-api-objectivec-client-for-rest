@@ -292,7 +292,7 @@
 
 @implementation GTLRAndroidEnterprise_GroupLicense
 @dynamic acquisitionKind, approval, kind, numProvisioned, numPurchased,
-         productId;
+         permissions, productId;
 @end
 
 
@@ -509,7 +509,8 @@
 @implementation GTLRAndroidEnterprise_Notification
 @dynamic appRestrictionsSchemaChangeEvent, appUpdateEvent, enterpriseId,
          installFailureEvent, newDeviceEvent, newPermissionsEvent,
-         productApprovalEvent, productAvailabilityChangeEvent, timestampMillis;
+         notificationType, productApprovalEvent, productAvailabilityChangeEvent,
+         timestampMillis;
 @end
 
 
@@ -630,7 +631,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ProductsApproveRequest
-@dynamic approvalUrlInfo;
+@dynamic approvalUrlInfo, approvedPermissions;
 @end
 
 

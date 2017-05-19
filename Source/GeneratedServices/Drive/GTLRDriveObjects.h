@@ -559,7 +559,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *hasAugmentedPermissions;
 
 /**
- *  Whether this file has a thumbnail.
+ *  Whether this file has a thumbnail. This does not indicate whether the
+ *  requesting app has access to the thumbnail. To check access, look for the
+ *  presence of the thumbnailLink field.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -846,6 +848,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canAddChildren;
+
+/**
+ *  Whether the current user can change whether viewers can copy the contents of
+ *  this file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canChangeViewersCanCopyContent;
 
 /**
  *  Whether the current user can comment on this file.
@@ -1278,8 +1288,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *allowFileDiscovery;
 
 /**
- *  Whether the account of the permission has been deleted. This field only
- *  pertains to user and group permissions.
+ *  Whether the account associated with this permission has been deleted. This
+ *  field only pertains to user and group permissions.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1383,7 +1393,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  The Team Drive permission type for this user. While new values may be added
  *  in future, the following are currently possible:
  *  - file
- *  -
  *  - member
  */
 @property(nonatomic, copy, nullable) NSString *teamDrivePermissionType;
@@ -1661,9 +1670,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An image file and cropping parameters from which a background image for this
- *  Team Drive is set. This is a write only field that can only be set on a
- *  drive.teamdrives.update request that does not set themeId. When specified,
- *  all fields of the backgroundImageFile must be set.
+ *  Team Drive is set. This is a write only field; it can only be set on
+ *  drive.teamdrives.update requests that don't set themeId. When specified, all
+ *  fields of the backgroundImageFile must be set.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_TeamDrive_BackgroundImageFile *backgroundImageFile;
 
@@ -1701,8 +1710,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  The set of possible teamDriveThemes can be retrieved from a drive.about.get
  *  response. When not specified on a drive.teamdrives.create request, a random
  *  theme is chosen from which the background image and color are set. This is a
- *  write only field that can only be set on a request that does not set
- *  colorRgb or backgroundImageFile.
+ *  write-only field; it can only be set on requests that don't set colorRgb or
+ *  backgroundImageFile.
  */
 @property(nonatomic, copy, nullable) NSString *themeId;
 
@@ -1711,9 +1720,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An image file and cropping parameters from which a background image for this
- *  Team Drive is set. This is a write only field that can only be set on a
- *  drive.teamdrives.update request that does not set themeId. When specified,
- *  all fields of the backgroundImageFile must be set.
+ *  Team Drive is set. This is a write only field; it can only be set on
+ *  drive.teamdrives.update requests that don't set themeId. When specified, all
+ *  fields of the backgroundImageFile must be set.
  */
 @interface GTLRDrive_TeamDrive_BackgroundImageFile : GTLRObject
 
@@ -1725,10 +1734,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The width of the cropped image in the closed range of 0 to 1, which is the
- *  width of the cropped image divided by the width of the entire image. The
- *  height is computed by applying a width to height aspect ratio of 80 to 9.
- *  The resulting image must be at least 1280 pixels wide and 144 pixels high.
+ *  The width of the cropped image in the closed range of 0 to 1. This value
+ *  represents the width of the cropped image divided by the width of the entire
+ *  image. The height is computed by applying a width to height aspect ratio of
+ *  80 to 9. The resulting image must be at least 1280 pixels wide and 144
+ *  pixels high.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -1736,9 +1746,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The X coordinate of the upper left corner of the cropping area in the
- *  background image. This is a value in the closed range of 0 to 1 which is the
- *  horizontal distance from the left side of the entire image to the left side
- *  of the cropping area divided by the width of the entire image.
+ *  background image. This is a value in the closed range of 0 to 1. This value
+ *  represents the horizontal distance from the left side of the entire image to
+ *  the left side of the cropping area divided by the width of the entire image.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -1746,9 +1756,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The Y coordinate of the upper left corner of the cropping area in the
- *  background image. This is a value in the closed range of 0 to 1 which is the
- *  vertical distance from the top side of the entire image to the top side of
- *  the cropping area divided by the height of the entire image.
+ *  background image. This is a value in the closed range of 0 to 1. This value
+ *  represents the vertical distance from the top side of the entire image to
+ *  the top side of the cropping area divided by the height of the entire image.
  *
  *  Uses NSNumber of floatValue.
  */

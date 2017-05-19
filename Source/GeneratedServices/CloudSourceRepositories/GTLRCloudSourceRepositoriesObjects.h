@@ -6,7 +6,7 @@
 // Description:
 //   Access source code repositories hosted by Google.
 // Documentation:
-//   https://cloud.google.com/eap/cloud-repositories/cloud-sourcerepo-api
+//   https://cloud.google.com/source-repositories/docs/apis
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -234,7 +234,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction;
  *  Specifies the audit configuration for a service.
  *  The configuration determines which permission types are logged, and what
  *  identities, if any, are exempted from logging.
- *  An AuditConifg must have one or more AuditLogConfigs.
+ *  An AuditConfig must have one or more AuditLogConfigs.
  *  If there are AuditConfigs for both `allServices` and a specific service,
  *  the union of the two AuditConfigs is used for that service: the log_types
  *  specified in each AuditConfig are enabled, and the exempted_members in each
@@ -509,10 +509,27 @@ GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction;
 
 /**
  *  Response for ListRepos.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "repos" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRCloudSourceRepositories_ListReposResponse : GTLRObject
+@interface GTLRCloudSourceRepositories_ListReposResponse : GTLRCollectionObject
 
-/** The listed repos. */
+/**
+ *  If non-empty, additional repositories exist within the project. These
+ *  can be retrieved by including this value in the next ListReposRequest's
+ *  page_token field.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The listed repos.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSourceRepositories_Repo *> *repos;
 
 @end
@@ -665,7 +682,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The size in bytes of the repo.
+ *  The disk usage of the repo, in bytes.
+ *  Only returned by GetRepo.
  *
  *  Uses NSNumber of longLongValue.
  */

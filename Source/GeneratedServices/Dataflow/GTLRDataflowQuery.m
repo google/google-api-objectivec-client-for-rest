@@ -642,7 +642,7 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsLocationsTemplatesLaunch
 
-@dynamic dryRun, gcsPath, location, projectId;
+@dynamic gcsPath, location, projectId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRDataflow_LaunchTemplateParameters *)object
                       projectId:(NSString *)projectId
@@ -744,7 +744,7 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsTemplatesLaunch
 
-@dynamic dryRun, gcsPath, location, projectId;
+@dynamic gcsPath, location, projectId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRDataflow_LaunchTemplateParameters *)object
                       projectId:(NSString *)projectId {

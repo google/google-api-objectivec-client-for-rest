@@ -164,7 +164,7 @@
 
 @implementation GTLRDLPQuery_InspectResultsFindingsList
 
-@dynamic name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

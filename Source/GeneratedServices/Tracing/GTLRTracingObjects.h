@@ -19,19 +19,23 @@
 #endif
 
 @class GTLRTracing_Annotation;
-@class GTLRTracing_Annotation_Attributes;
+@class GTLRTracing_Attributes;
+@class GTLRTracing_Attributes_AttributeMap;
 @class GTLRTracing_AttributeValue;
 @class GTLRTracing_Link;
+@class GTLRTracing_Links;
 @class GTLRTracing_Module;
 @class GTLRTracing_NetworkEvent;
 @class GTLRTracing_Span;
-@class GTLRTracing_Span_Attributes;
 @class GTLRTracing_StackFrame;
+@class GTLRTracing_StackFrames;
 @class GTLRTracing_StackTrace;
 @class GTLRTracing_Status;
 @class GTLRTracing_Status_Details_Item;
 @class GTLRTracing_TimeEvent;
+@class GTLRTracing_TimeEvents;
 @class GTLRTracing_Trace;
+@class GTLRTracing_TruncatableString;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -90,35 +94,75 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 
 /**
  *  A set of attributes on the annotation. A maximum of 4 attributes are
- *  allowed per Annotation. The maximum key length is 128 bytes. The
- *  value can be a string (up to 256 bytes), integer, or boolean
- *  (true/false).
+ *  allowed per Annotation.
  */
-@property(nonatomic, strong, nullable) GTLRTracing_Annotation_Attributes *attributes;
+@property(nonatomic, strong, nullable) GTLRTracing_Attributes *attributes;
 
 /**
  *  A user-supplied message describing the event. The maximum length for
- *  the description is 256 characters.
+ *  the description is 256 bytes.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, strong, nullable) GTLRTracing_TruncatableString *descriptionProperty;
 
 @end
 
 
 /**
- *  A set of attributes on the annotation. A maximum of 4 attributes are
- *  allowed per Annotation. The maximum key length is 128 bytes. The
- *  value can be a string (up to 256 bytes), integer, or boolean
- *  (true/false).
+ *  Attributes of a span with a key:value format.
+ */
+@interface GTLRTracing_Attributes : GTLRObject
+
+/**
+ *  The maximum key length is 128 bytes (attributes are dropped if the
+ *  key size is larger than the maximum allowed). The value can be a string
+ *  (up to 256 bytes), integer, or boolean (true/false). Some common pair
+ *  examples:
+ *  "/instance_id": "my-instance"
+ *  "/zone": "us-central1-a"
+ *  "/grpc/peer_address": "ip:port" (dns, etc.)
+ *  "/grpc/deadline": "Duration"
+ *  "/http/user_agent"
+ *  "/http/request_bytes": 300
+ *  "/http/response_bytes": 1200
+ *  "/http/url": google.com/apis
+ *  "abc.com/myattribute": true
+ */
+@property(nonatomic, strong, nullable) GTLRTracing_Attributes_AttributeMap *attributeMap;
+
+/**
+ *  The number of dropped attributes after the maximum size was enforced. If
+ *  0 then no attributes were dropped.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *droppedAttributesCount;
+
+@end
+
+
+/**
+ *  The maximum key length is 128 bytes (attributes are dropped if the
+ *  key size is larger than the maximum allowed). The value can be a string
+ *  (up to 256 bytes), integer, or boolean (true/false). Some common pair
+ *  examples:
+ *  "/instance_id": "my-instance"
+ *  "/zone": "us-central1-a"
+ *  "/grpc/peer_address": "ip:port" (dns, etc.)
+ *  "/grpc/deadline": "Duration"
+ *  "/http/user_agent"
+ *  "/http/request_bytes": 300
+ *  "/http/response_bytes": 1200
+ *  "/http/url": google.com/apis
+ *  "abc.com/myattribute": true
  *
  *  @note This class is documented as having more properties of
  *        GTLRTracing_AttributeValue. Use @c -additionalJSONKeys and @c
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRTracing_Annotation_Attributes : GTLRObject
+@interface GTLRTracing_Attributes_AttributeMap : GTLRObject
 @end
 
 
@@ -141,8 +185,8 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  */
 @property(nonatomic, strong, nullable) NSNumber *intValue;
 
-/** A string value. */
-@property(nonatomic, copy, nullable) NSString *stringValue;
+/** A string value (up to 256 bytes). */
+@property(nonatomic, strong, nullable) GTLRTracing_TruncatableString *stringValue;
 
 @end
 
@@ -206,6 +250,26 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  *        spans is unknown. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A collection of links, which are references from this span to a span
+ *  in the same or different trace.
+ */
+@interface GTLRTracing_Links : GTLRObject
+
+/**
+ *  The number of dropped links after the maximum size was enforced. If
+ *  0 then no links were dropped.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *droppedLinksCount;
+
+/** A collection of links. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTracing_Link *> *link;
 
 @end
 
@@ -275,13 +339,13 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  *  Build_id is a unique identifier for the module, usually a hash of its
  *  contents (up to 128 characters).
  */
-@property(nonatomic, copy, nullable) NSString *buildId;
+@property(nonatomic, strong, nullable) GTLRTracing_TruncatableString *buildId;
 
 /**
  *  E.g. main binary, kernel modules, and dynamic libraries
  *  such as libc.so, sharedlib.so (up to 256 characters).
  */
-@property(nonatomic, copy, nullable) NSString *module;
+@property(nonatomic, strong, nullable) GTLRTracing_TruncatableString *module;
 
 @end
 
@@ -343,21 +407,10 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 @interface GTLRTracing_Span : GTLRObject
 
 /**
- *  Attributes of a span with a key:value format. A maximum of 16 custom
- *  attributes are allowed per Span. The maximum key length is 128 bytes. The
- *  value can be a string (up to 256 bytes), integer, or boolean (true/false).
- *  Some common pair examples:
- *  "/instance_id": "my-instance"
- *  "/zone": "us-central1-a"
- *  "/grpc/peer_address": "ip:port" (dns, etc.)
- *  "/grpc/deadline": "Duration"
- *  "/http/user_agent"
- *  "/http/request_bytes": 300
- *  "/http/response_bytes": 1200
- *  "/http/url": google.com/apis
- *  "abc.com/myattribute": true
+ *  A set of attributes on the span. A maximum of 32 attributes are allowed per
+ *  Span.
  */
-@property(nonatomic, strong, nullable) GTLRTracing_Span_Attributes *attributes;
+@property(nonatomic, strong, nullable) GTLRTracing_Attributes *attributes;
 
 /**
  *  Description of the operation in the span. It is sanitized and displayed in
@@ -367,8 +420,9 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  *  name. For the same executable and the same call point, a best practice is
  *  to use a consistent operation name, which makes it easier to correlate
  *  cross-trace spans.
+ *  The maximum length for the display_name is 128 bytes.
  */
-@property(nonatomic, copy, nullable) NSString *displayName;
+@property(nonatomic, strong, nullable) GTLRTracing_TruncatableString *displayName;
 
 /**
  *  End time of the span.
@@ -379,11 +433,8 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/**
- *  A collection of links, which are references from this span to a span
- *  in the same or different trace.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRTracing_Link *> *links;
+/** A maximum of 128 links are allowed per Span. */
+@property(nonatomic, strong, nullable) GTLRTracing_Links *links;
 
 /**
  *  The resource name of Span in the format
@@ -425,36 +476,10 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 @property(nonatomic, strong, nullable) GTLRTracing_Status *status;
 
 /**
- *  A collection of `TimeEvent`s. A `TimeEvent` is a time-stamped annotation
- *  on the span, consisting of either user-supplied key:value pairs, or
- *  details of an RPC message sent/received on the network.
+ *  A maximum of 32 annotations and 128 network events are allowed per Span.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRTracing_TimeEvent *> *timeEvents;
+@property(nonatomic, strong, nullable) GTLRTracing_TimeEvents *timeEvents;
 
-@end
-
-
-/**
- *  Attributes of a span with a key:value format. A maximum of 16 custom
- *  attributes are allowed per Span. The maximum key length is 128 bytes. The
- *  value can be a string (up to 256 bytes), integer, or boolean (true/false).
- *  Some common pair examples:
- *  "/instance_id": "my-instance"
- *  "/zone": "us-central1-a"
- *  "/grpc/peer_address": "ip:port" (dns, etc.)
- *  "/grpc/deadline": "Duration"
- *  "/http/user_agent"
- *  "/http/request_bytes": 300
- *  "/http/response_bytes": 1200
- *  "/http/url": google.com/apis
- *  "abc.com/myattribute": true
- *
- *  @note This class is documented as having more properties of
- *        GTLRTracing_AttributeValue. Use @c -additionalJSONKeys and @c
- *        -additionalPropertyForName: to get the list of properties and then
- *        fetch them; or @c -additionalProperties to fetch them all at once.
- */
-@interface GTLRTracing_Span_Attributes : GTLRObject
 @end
 
 
@@ -472,13 +497,13 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *columnNumber;
 
 /** The filename of the file containing this frame (up to 256 characters). */
-@property(nonatomic, copy, nullable) NSString *fileName;
+@property(nonatomic, strong, nullable) GTLRTracing_TruncatableString *fileName;
 
 /**
  *  The fully-qualified name that uniquely identifies this function or
  *  method (up to 1024 characters).
  */
-@property(nonatomic, copy, nullable) NSString *functionName;
+@property(nonatomic, strong, nullable) GTLRTracing_TruncatableString *functionName;
 
 /**
  *  Line number of the frame.
@@ -495,10 +520,29 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  *  [mangled](http://www.avabodh.com/cxxin/namemangling.html). May be
  *  fully-qualified (up to 1024 characters).
  */
-@property(nonatomic, copy, nullable) NSString *originalFunctionName;
+@property(nonatomic, strong, nullable) GTLRTracing_TruncatableString *originalFunctionName;
 
 /** The version of the deployed source code (up to 128 characters). */
-@property(nonatomic, copy, nullable) NSString *sourceVersion;
+@property(nonatomic, strong, nullable) GTLRTracing_TruncatableString *sourceVersion;
+
+@end
+
+
+/**
+ *  Represents collection of StackFrames that can be truncated.
+ */
+@interface GTLRTracing_StackFrames : GTLRObject
+
+/**
+ *  The number of dropped stack frames after the maximum size was enforced.
+ *  If 0 then no frames were dropped.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *droppedFramesCount;
+
+/** Stack frames in this stack trace. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTracing_StackFrame *> *frame;
 
 @end
 
@@ -509,7 +553,7 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 @interface GTLRTracing_StackTrace : GTLRObject
 
 /** Stack frames in this stack trace. A maximum of 128 frames are allowed. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTracing_StackFrame *> *stackFrame;
+@property(nonatomic, strong, nullable) GTLRTracing_StackFrames *stackFrames;
 
 /**
  *  The hash ID is used to conserve network bandwidth for duplicate
@@ -544,7 +588,7 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  *  error message is needed, put the localized message in the error details or
  *  localize it in the client. The optional error details may contain arbitrary
  *  information about the error. There is a predefined set of error detail types
- *  in the package `google.rpc` which can be used for common error conditions.
+ *  in the package `google.rpc` that can be used for common error conditions.
  *  # Language mapping
  *  The `Status` message is the logical representation of the error model, but
  *  it
@@ -562,7 +606,7 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  *  it may embed the `Status` in the normal response to indicate the partial
  *  errors.
  *  - Workflow errors. A typical workflow has multiple steps. Each step may
- *  have a `Status` message for error reporting purpose.
+ *  have a `Status` message for error reporting.
  *  - Batch operations. If a client uses batch request and batch response, the
  *  `Status` message should be used directly inside batch response, one for
  *  each error sub-response.
@@ -627,6 +671,35 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
 
 
 /**
+ *  A collection of `TimeEvent`s. A `TimeEvent` is a time-stamped annotation
+ *  on the span, consisting of either user-supplied key:value pairs, or
+ *  details of an RPC message sent/received on the network.
+ */
+@interface GTLRTracing_TimeEvents : GTLRObject
+
+/**
+ *  The number of dropped annotations after the maximum size was enforced. If
+ *  0 then no annotations were dropped.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *droppedAnnotationsCount;
+
+/**
+ *  The number of dropped network events after the maximum size was enforced.
+ *  If 0 then no annotations were dropped.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *droppedNetworkEventsCount;
+
+/** A collection of `TimeEvent`s. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTracing_TimeEvent *> *timeEvent;
+
+@end
+
+
+/**
  *  A trace describes how long it takes for an application to perform some
  *  operations. It consists of a set of spans, each representing
  *  an operation and including time information and operation details.
@@ -640,6 +713,28 @@ GTLR_EXTERN NSString * const kGTLRTracing_NetworkEvent_Type_TypeUnspecified;
  *  string and is required to be 32 char long.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents a string value that might be truncated.
+ */
+@interface GTLRTracing_TruncatableString : GTLRObject
+
+/**
+ *  The number of characters truncated from the original string value. If 0 it
+ *  means that the string value was not truncated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *truncatedCharacterCount;
+
+/**
+ *  The truncated string value. E.g. for a string attribute this may have up to
+ *  256 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

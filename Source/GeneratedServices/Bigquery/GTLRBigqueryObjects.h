@@ -1331,7 +1331,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *priority;
 
-/** [Required] BigQuery SQL query to execute. */
+/**
+ *  [Required] SQL query text to execute. The useLegacySql field can be used to
+ *  indicate whether the query uses legacy SQL or standard SQL.
+ */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /** Query parameters for standard SQL queries. */
@@ -2442,7 +2445,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_TableFieldSchema : GTLRObject
 
 /**
- *  [Optional] The field description. The maximum length is 16K characters.
+ *  [Optional] The field description. The maximum length is 512 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */

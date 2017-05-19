@@ -40,6 +40,7 @@
 @class GTLRCompute_BackendService;
 @class GTLRCompute_BackendServiceAggregatedList_Items;
 @class GTLRCompute_BackendServiceCdnPolicy;
+@class GTLRCompute_BackendServiceIAP;
 @class GTLRCompute_BackendServicesScopedList;
 @class GTLRCompute_BackendServicesScopedList_Warning;
 @class GTLRCompute_BackendServicesScopedList_Warning_Data_Item;
@@ -2301,23 +2302,20 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_AutoscalingPolicyCustomMetricUtilization : GTLRObject
 
 /**
- *  The identifier of the Stackdriver Monitoring metric. The metric cannot have
- *  negative values and should be a utilization metric, which means that the
- *  number of virtual machines handling requests should increase or decrease
- *  proportionally to the metric. The metric must also have a label of
- *  compute.googleapis.com/resource_id with the value of the instance's unique
- *  ID, although this alone does not guarantee that the metric is valid.
- *  For example, the following is a valid metric:
- *  compute.googleapis.com/instance/network/received_bytes_count
- *  The following is not a valid metric because it does not increase or decrease
- *  based on usage:
- *  compute.googleapis.com/instance/cpu/reserved_cores
+ *  The identifier (type) of the Stackdriver Monitoring metric. The metric
+ *  cannot have negative values and should be a utilization metric, which means
+ *  that the number of virtual machines handling requests should increase or
+ *  decrease proportionally to the metric.
+ *  The metric must have a value type of INT64 or DOUBLE.
  */
 @property(nonatomic, copy, nullable) NSString *metric;
 
 /**
- *  Target value of the metric which autoscaler should maintain. Must be a
- *  positive value.
+ *  The target value of the metric that autoscaler should maintain. This must be
+ *  a positive value.
+ *  For example, a good metric to use as a utilization_target is
+ *  compute.googleapis.com/instance/network/received_bytes_count. The autoscaler
+ *  will work to keep this value constant for each of the instances.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -2441,10 +2439,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, strong, nullable) NSNumber *maxRate;
 
 /**
- *  The max requests per second (RPS) that a single backend instance can
- *  handle.This is used to calculate the capacity of the group. Can be used in
- *  either balancing mode. For RATE mode, either maxRate or maxRatePerInstance
- *  must be set.
+ *  The max requests per second (RPS) that a single backend instance can handle.
+ *  This is used to calculate the capacity of the group. Can be used in either
+ *  balancing mode. For RATE mode, either maxRate or maxRatePerInstance must be
+ *  set.
  *  This cannot be used for internal load balancing.
  *
  *  Uses NSNumber of floatValue.
@@ -2619,6 +2617,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  specified instead.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *healthChecks;
+
+@property(nonatomic, strong, nullable) GTLRCompute_BackendServiceIAP *iap;
 
 /**
  *  [Output Only] The unique identifier for the resource. This identifier is
@@ -2795,6 +2795,29 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  the health of backend services.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Identity-Aware Proxy
+ */
+@interface GTLRCompute_BackendServiceIAP : GTLRObject
+
+/**
+ *  enabled
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@property(nonatomic, copy, nullable) NSString *oauth2ClientId;
+@property(nonatomic, copy, nullable) NSString *oauth2ClientSecret;
+
+/**
+ *  [Output Only] SHA256 hash value for the field oauth2_client_secret above.
+ */
+@property(nonatomic, copy, nullable) NSString *oauth2ClientSecretSha256;
 
 @end
 
@@ -3810,7 +3833,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  [Output Ony] Type of the resource. Always compute#firewall for firewall
+ *  [Output Only] Type of the resource. Always compute#firewall for firewall
  *  rules.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -3952,7 +3975,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /**
  *  A ForwardingRule resource. A ForwardingRule resource specifies which pool of
  *  target virtual machines to forward a packet to if it matches the given
- *  [IPAddress, IPProtocol, portRange] tuple.
+ *  [IPAddress, IPProtocol, ports] tuple.
  */
 @interface GTLRCompute_ForwardingRule : GTLRObject
 
@@ -4057,16 +4080,25 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
+ *  This field is used along with the target field for TargetHttpProxy,
+ *  TargetHttpsProxy, TargetSslProxy, TargetTcpProxy, TargetVpnGateway,
+ *  TargetPool, TargetInstance.
  *  Applicable only when IPProtocol is TCP, UDP, or SCTP, only packets addressed
  *  to ports in the specified range will be forwarded to target. Forwarding
  *  rules with the same [IPAddress, IPProtocol] pair must have disjoint port
  *  ranges.
- *  This field is not used for internal load balancing.
+ *  Some types of forwarding target have constraints on the acceptable ports:
+ *  - TargetHttpProxy: 80, 8080
+ *  - TargetHttpsProxy: 443
+ *  - TargetSslProxy: 443
+ *  - TargetVpnGateway: 500, 4500
+ *  -
  */
 @property(nonatomic, copy, nullable) NSString *portRange;
 
 /**
- *  This field is not used for external load balancing.
+ *  This field is used along with the backend_service field for internal load
+ *  balancing.
  *  When the load balancing scheme is INTERNAL, a single port or a comma
  *  separated list of ports can be configured. Only packets addressed to these
  *  ports will be forwarded to the backends configured with this forwarding
@@ -4963,11 +4995,11 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /**
  *  A list of features to enable on the guest OS. Applicable for bootable images
- *  only. Currently, only one feature can be enabled, VIRTIO_SCSCI_MULTIQUEUE,
+ *  only. Currently, only one feature can be enabled, VIRTIO_SCSI_MULTIQUEUE,
  *  which allows each virtual CPU to have its own queue. For Windows images, you
- *  can only enable VIRTIO_SCSCI_MULTIQUEUE on images with driver version
+ *  can only enable VIRTIO_SCSI_MULTIQUEUE on images with driver version
  *  1.2.0.1621 or higher. Linux images with kernel versions 3.17 and higher will
- *  support VIRTIO_SCSCI_MULTIQUEUE.
+ *  support VIRTIO_SCSI_MULTIQUEUE.
  *  For new Windows images, the server might also populate this field with the
  *  value WINDOWS, to indicate that this is a Windows image. This value is
  *  purely informational and does not enable or disable any features.
@@ -5846,8 +5878,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_InstanceGroupManagersAbandonInstancesRequest : GTLRObject
 
 /**
- *  The URL for one or more instances to abandon from the managed instance
- *  group.
+ *  The URLs of one or more instances to abandon. This can be a full URL or a
+ *  partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
 
@@ -5860,8 +5892,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_InstanceGroupManagersDeleteInstancesRequest : GTLRObject
 
 /**
- *  The list of instances to delete from this managed instance group. Specify
- *  one or more instance URLs.
+ *  The URLs of one or more instances to delete. This can be a full URL or a
+ *  partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
 
@@ -5884,7 +5916,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @interface GTLRCompute_InstanceGroupManagersRecreateInstancesRequest : GTLRObject
 
-/** The URL for one or more instances to recreate. */
+/**
+ *  The URLs of one or more instances to recreate. This can be a full URL or a
+ *  partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
 
 @end
@@ -8347,7 +8382,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @interface GTLRCompute_RegionInstanceGroupManagersRecreateRequest : GTLRObject
 
-/** The URL for one or more instances to recreate. */
+/**
+ *  The URLs of one or more instances to recreate. This can be a full URL or a
+ *  partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
 
 @end
@@ -9155,6 +9193,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /** Best routes for this router's network. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_Route *> *bestRoutes;
+
+/** Best routes learned by this router. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Route *> *bestRoutesForRouter;
 
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouterStatusBgpPeerStatus *> *bgpPeerStatus;
 

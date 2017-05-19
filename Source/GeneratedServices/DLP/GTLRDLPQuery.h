@@ -269,6 +269,17 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDLP queryForInspectResultsFindingsListWithname:]
 
 /**
+ *  Restrict findings to items that match. Supports info_type and likelihood.
+ *  <p>Examples:<br/>
+ *  <li>info_type=EMAIL_ADDRESS
+ *  <li>info_type=PHONE_NUMBER,EMAIL_ADDRESS
+ *  <li>likelihood=VERY_LIKELY
+ *  <li>likelihood=VERY_LIKELY,LIKELY
+ *  <li>info_type=EMAIL_ADDRESS,likelihood=VERY_LIKELY,LIKELY
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Identifier of the results set returned as metadata of
  *  the longrunning operation created by a call to CreateInspectOperation.
  *  Should be in the format of `inspect/results/{id}.
@@ -277,7 +288,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Maximum number of results to return.
- *  If 0, the implementation will select a reasonable value.
+ *  If 0, the implementation select a reasonable value.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

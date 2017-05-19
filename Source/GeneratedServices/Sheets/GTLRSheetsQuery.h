@@ -131,6 +131,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSheetsDrive
+ *    @c kGTLRAuthScopeSheetsDriveFile
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsBatchUpdate : GTLRSheetsQuery
@@ -178,6 +179,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSheetsDrive
+ *    @c kGTLRAuthScopeSheetsDriveFile
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsCreate : GTLRSheetsQuery
@@ -219,6 +221,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSheetsDrive
+ *    @c kGTLRAuthScopeSheetsDriveFile
  *    @c kGTLRAuthScopeSheetsDriveReadonly
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  *    @c kGTLRAuthScopeSheetsSpreadsheetsReadonly
@@ -275,6 +278,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSheetsDrive
+ *    @c kGTLRAuthScopeSheetsDriveFile
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsSheetsCopyTo : GTLRSheetsQuery
@@ -325,6 +329,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSheetsDrive
+ *    @c kGTLRAuthScopeSheetsDriveFile
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesAppend : GTLRSheetsQuery
@@ -435,6 +440,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSheetsDrive
+ *    @c kGTLRAuthScopeSheetsDriveFile
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesBatchClear : GTLRSheetsQuery
@@ -471,6 +477,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSheetsDrive
+ *    @c kGTLRAuthScopeSheetsDriveFile
  *    @c kGTLRAuthScopeSheetsDriveReadonly
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  *    @c kGTLRAuthScopeSheetsSpreadsheetsReadonly
@@ -550,6 +557,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSheetsDrive
+ *    @c kGTLRAuthScopeSheetsDriveFile
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesBatchUpdate : GTLRSheetsQuery
@@ -588,6 +596,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSheetsDrive
+ *    @c kGTLRAuthScopeSheetsDriveFile
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesClear : GTLRSheetsQuery
@@ -628,6 +637,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSheetsDrive
+ *    @c kGTLRAuthScopeSheetsDriveFile
  *    @c kGTLRAuthScopeSheetsDriveReadonly
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  *    @c kGTLRAuthScopeSheetsSpreadsheetsReadonly
@@ -708,6 +718,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSheetsDrive
+ *    @c kGTLRAuthScopeSheetsDriveFile
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesUpdate : GTLRSheetsQuery

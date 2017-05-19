@@ -10,6 +10,15 @@
 
 #import "GTLRDoubleClickBidManager.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopeDoubleClickBidManager = @"https://www.googleapis.com/auth/doubleclickbidmanager";
+
+// ----------------------------------------------------------------------------
+//   GTLRDoubleClickBidManagerService
+//
+
 @implementation GTLRDoubleClickBidManagerService
 
 - (instancetype)init {

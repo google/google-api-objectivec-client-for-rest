@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Speech API (speech/v1beta1)
+//   Google Cloud Speech API (speech/v1)
 // Description:
-//   Google Cloud Speech API.
+//   Converts audio to text by applying powerful neural network models.
 // Documentation:
 //   https://cloud.google.com/speech/
 
@@ -20,14 +20,15 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_EncodingUnspecified = @"
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Flac   = @"FLAC";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Linear16 = @"LINEAR16";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
+NSString * const kGTLRSpeech_RecognitionConfig_Encoding_OggOpus = @"OGG_OPUS";
+NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"SPEEX_WITH_HEADER_BYTE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSpeech_AsyncRecognizeRequest
+//   GTLRSpeech_CancelOperationRequest
 //
 
-@implementation GTLRSpeech_AsyncRecognizeRequest
-@dynamic audio, config;
+@implementation GTLRSpeech_CancelOperationRequest
 @end
 
 
@@ -77,6 +78,16 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
   return @"operations";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_LongRunningRecognizeRequest
+//
+
+@implementation GTLRSpeech_LongRunningRecognizeRequest
+@dynamic audio, config;
 @end
 
 
@@ -144,8 +155,16 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
 //
 
 @implementation GTLRSpeech_RecognitionConfig
-@dynamic encoding, languageCode, maxAlternatives, profanityFilter, sampleRate,
-         speechContext;
+@dynamic encoding, languageCode, maxAlternatives, profanityFilter,
+         sampleRateHertz, speechContexts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"speechContexts" : [GTLRSpeech_Context class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -160,6 +179,34 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"alternatives" : [GTLRSpeech_RecognitionAlternative class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_RecognizeRequest
+//
+
+@implementation GTLRSpeech_RecognizeRequest
+@dynamic audio, config;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_RecognizeResponse
+//
+
+@implementation GTLRSpeech_RecognizeResponse
+@dynamic results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRSpeech_RecognitionResult class]
   };
   return map;
 }
@@ -194,34 +241,6 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSpeech_SyncRecognizeRequest
-//
-
-@implementation GTLRSpeech_SyncRecognizeRequest
-@dynamic audio, config;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSpeech_SyncRecognizeResponse
-//
-
-@implementation GTLRSpeech_SyncRecognizeResponse
-@dynamic results;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"results" : [GTLRSpeech_RecognitionResult class]
-  };
-  return map;
 }
 
 @end
