@@ -158,17 +158,6 @@
 		4F3E9C931C6C32B7004192DE /* Drive1BatchPaging2.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3E9C8E1C6C32B7004192DE /* Drive1BatchPaging2.response.txt */; };
 		4F3E9C941C6C32B7004192DE /* Drive1BatchPaging3.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3E9C8F1C6C32B7004192DE /* Drive1BatchPaging3.response.txt */; };
 		4F3E9C951C6C32B7004192DE /* Drive1BatchPaging3.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3E9C8F1C6C32B7004192DE /* Drive1BatchPaging3.response.txt */; };
-		4F697FA7131C1A4100A5AB6A /* GTMOAuth2Authentication.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F697FA3131C1A4100A5AB6A /* GTMOAuth2Authentication.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4F697FA8131C1A4100A5AB6A /* GTMOAuth2Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F697FA4131C1A4100A5AB6A /* GTMOAuth2Authentication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4F697FA9131C1A4100A5AB6A /* GTMOAuth2SignIn.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F697FA5131C1A4100A5AB6A /* GTMOAuth2SignIn.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4F697FAA131C1A4100A5AB6A /* GTMOAuth2SignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F697FA6131C1A4100A5AB6A /* GTMOAuth2SignIn.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4F697FAD131C1A4100A5AB6A /* GTMOAuth2Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F697FA4131C1A4100A5AB6A /* GTMOAuth2Authentication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4F697FAE131C1A4100A5AB6A /* GTMOAuth2SignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F697FA6131C1A4100A5AB6A /* GTMOAuth2SignIn.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4F697FAF131C1A4100A5AB6A /* GTMOAuth2Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F697FA4131C1A4100A5AB6A /* GTMOAuth2Authentication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4F697FB6131C1A5800A5AB6A /* GTMOAuth2Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F697FB3131C1A5800A5AB6A /* GTMOAuth2Window.xib */; };
-		4F697FB7131C1A5800A5AB6A /* GTMOAuth2WindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F697FB4131C1A5800A5AB6A /* GTMOAuth2WindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4F697FB8131C1A5800A5AB6A /* GTMOAuth2WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F697FB5131C1A5800A5AB6A /* GTMOAuth2WindowController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4F697FC2131C1A7A00A5AB6A /* GTMOAuth2SignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F697FA6131C1A4100A5AB6A /* GTMOAuth2SignIn.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4F6F2E6D1C6142B0001065A5 /* GTLRServiceTestServiceClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F2E6C1C6142B0001065A5 /* GTLRServiceTestServiceClasses.m */; };
 		4F6F2E6E1C6142B0001065A5 /* GTLRServiceTestServiceClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F2E6C1C6142B0001065A5 /* GTLRServiceTestServiceClasses.m */; };
 		4F6F2E721C615492001065A5 /* Drive1BatchCorrupt.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F6F2E701C615492001065A5 /* Drive1BatchCorrupt.response.txt */; };
@@ -284,9 +273,6 @@
 		F4368F841B8235C600E17643 /* GTLRFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE223313848173005AEFAA /* GTLRFramework.m */; };
 		F4368F861B8235C600E17643 /* GTLRUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE223813848173005AEFAA /* GTLRUtilities.m */; };
 		F4368F871B8235C600E17643 /* GTLRBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F934E661512712100C4EA34 /* GTLRBase64.m */; };
-		F4368F901B8235DC00E17643 /* GTMOAuth2Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F697FA4131C1A4100A5AB6A /* GTMOAuth2Authentication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F4368F911B8235DC00E17643 /* GTMOAuth2SignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F697FA6131C1A4100A5AB6A /* GTMOAuth2SignIn.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F4368F921B8235E200E17643 /* GTMOAuth2ViewControllerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F697FBC131C1A6800A5AB6A /* GTMOAuth2ViewControllerTouch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F4368F931B8235EF00E17643 /* GTLRDateTimeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9F7E3811F5103B0033A2C1 /* GTLRDateTimeTest.m */; };
 		F4368F941B8235EF00E17643 /* GTLRFrameworkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9F7E3A11F510430033A2C1 /* GTLRFrameworkTest.m */; };
 		F4368F951B8235EF00E17643 /* GTLRObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F45D6A4012F0B2140091E9D9 /* GTLRObjectTest.m */; };
@@ -314,10 +300,6 @@
 		F4469D8E1C40229D00BCFAA1 /* GTMGatherInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FEE17981C03DB5900A38758 /* GTMGatherInputStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4469D8F1C40229D00BCFAA1 /* GTMReadMonitorInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FEE179C1C03DB5900A38758 /* GTMReadMonitorInputStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4469D901C40229D00BCFAA1 /* GTMMIMEDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FEE179A1C03DB5900A38758 /* GTMMIMEDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F4469D911C40229D00BCFAA1 /* GTMOAuth2Authentication.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F697FA3131C1A4100A5AB6A /* GTMOAuth2Authentication.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F4469D921C40229D00BCFAA1 /* GTMOAuth2SignIn.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F697FA5131C1A4100A5AB6A /* GTMOAuth2SignIn.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F4469D971C40229D00BCFAA1 /* GTMOAuth2Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F697FA4131C1A4100A5AB6A /* GTMOAuth2Authentication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F4469D981C40229D00BCFAA1 /* GTMOAuth2SignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F697FA6131C1A4100A5AB6A /* GTMOAuth2SignIn.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F4469D9A1C40229D00BCFAA1 /* GTLRFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE223313848173005AEFAA /* GTLRFramework.m */; };
 		F4469D9C1C40229D00BCFAA1 /* GTLRUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE223813848173005AEFAA /* GTLRUtilities.m */; };
 		F4469D9D1C40229D00BCFAA1 /* GTLRBatchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE224A1384818E005AEFAA /* GTLRBatchQuery.m */; };
@@ -337,9 +319,6 @@
 		F4469DAB1C40229D00BCFAA1 /* GTMGatherInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17991C03DB5900A38758 /* GTMGatherInputStream.m */; };
 		F4469DAC1C40229D00BCFAA1 /* GTMReadMonitorInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE179D1C03DB5900A38758 /* GTMReadMonitorInputStream.m */; };
 		F4469DAD1C40229D00BCFAA1 /* GTMMIMEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE179B1C03DB5900A38758 /* GTMMIMEDocument.m */; };
-		F4469DB61C40247800BCFAA1 /* GTMOAuth2ViewControllerTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F697FBB131C1A6800A5AB6A /* GTMOAuth2ViewControllerTouch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F4469DB71C40247800BCFAA1 /* GTMOAuth2ViewControllerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F697FBC131C1A6800A5AB6A /* GTMOAuth2ViewControllerTouch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F4469DB81C40247800BCFAA1 /* GTMOAuth2ViewTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F697FBD131C1A6800A5AB6A /* GTMOAuth2ViewTouch.xib */; };
 		F4469DBE1C40274400BCFAA1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4469DBD1C40274400BCFAA1 /* Security.framework */; };
 		F4469DC01C40275300BCFAA1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4469DBF1C40275300BCFAA1 /* SystemConfiguration.framework */; };
 		F4469DC21C40283B00BCFAA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4469DC11C40283B00BCFAA1 /* Foundation.framework */; };
@@ -605,16 +584,6 @@
 		4F3E9C8D1C6C32B7004192DE /* Drive1BatchPaging1.response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Drive1BatchPaging1.response.txt; path = Tests/Data/Drive1BatchPaging1.response.txt; sourceTree = "<group>"; };
 		4F3E9C8E1C6C32B7004192DE /* Drive1BatchPaging2.response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Drive1BatchPaging2.response.txt; path = Tests/Data/Drive1BatchPaging2.response.txt; sourceTree = "<group>"; };
 		4F3E9C8F1C6C32B7004192DE /* Drive1BatchPaging3.response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Drive1BatchPaging3.response.txt; path = Tests/Data/Drive1BatchPaging3.response.txt; sourceTree = "<group>"; };
-		4F697FA3131C1A4100A5AB6A /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2Authentication.h; sourceTree = "<group>"; };
-		4F697FA4131C1A4100A5AB6A /* GTMOAuth2Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2Authentication.m; sourceTree = "<group>"; };
-		4F697FA5131C1A4100A5AB6A /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2SignIn.h; sourceTree = "<group>"; };
-		4F697FA6131C1A4100A5AB6A /* GTMOAuth2SignIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2SignIn.m; sourceTree = "<group>"; };
-		4F697FB3131C1A5800A5AB6A /* GTMOAuth2Window.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GTMOAuth2Window.xib; path = Mac/GTMOAuth2Window.xib; sourceTree = "<group>"; };
-		4F697FB4131C1A5800A5AB6A /* GTMOAuth2WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2WindowController.h; path = Mac/GTMOAuth2WindowController.h; sourceTree = "<group>"; };
-		4F697FB5131C1A5800A5AB6A /* GTMOAuth2WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMOAuth2WindowController.m; path = Mac/GTMOAuth2WindowController.m; sourceTree = "<group>"; };
-		4F697FBB131C1A6800A5AB6A /* GTMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2ViewControllerTouch.h; path = Touch/GTMOAuth2ViewControllerTouch.h; sourceTree = "<group>"; };
-		4F697FBC131C1A6800A5AB6A /* GTMOAuth2ViewControllerTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMOAuth2ViewControllerTouch.m; path = Touch/GTMOAuth2ViewControllerTouch.m; sourceTree = "<group>"; };
-		4F697FBD131C1A6800A5AB6A /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GTMOAuth2ViewTouch.xib; path = Touch/GTMOAuth2ViewTouch.xib; sourceTree = "<group>"; };
 		4F6F2E6B1C6142B0001065A5 /* GTLRServiceTestServiceClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRServiceTestServiceClasses.h; path = Tests/GTLRServiceTestServiceClasses.h; sourceTree = "<group>"; };
 		4F6F2E6C1C6142B0001065A5 /* GTLRServiceTestServiceClasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRServiceTestServiceClasses.m; path = Tests/GTLRServiceTestServiceClasses.m; sourceTree = "<group>"; };
 		4F6F2E701C615492001065A5 /* Drive1BatchCorrupt.response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Drive1BatchCorrupt.response.txt; path = Tests/Data/Drive1BatchCorrupt.response.txt; sourceTree = "<group>"; };
@@ -983,26 +952,6 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
-		4F244248121E0A8D00FEE1DA /* Touch */ = {
-			isa = PBXGroup;
-			children = (
-				4F697FBB131C1A6800A5AB6A /* GTMOAuth2ViewControllerTouch.h */,
-				4F697FBC131C1A6800A5AB6A /* GTMOAuth2ViewControllerTouch.m */,
-				4F697FBD131C1A6800A5AB6A /* GTMOAuth2ViewTouch.xib */,
-			);
-			name = Touch;
-			sourceTree = "<group>";
-		};
-		4F244249121E0A9500FEE1DA /* Mac */ = {
-			isa = PBXGroup;
-			children = (
-				4F697FB3131C1A5800A5AB6A /* GTMOAuth2Window.xib */,
-				4F697FB4131C1A5800A5AB6A /* GTMOAuth2WindowController.h */,
-				4F697FB5131C1A5800A5AB6A /* GTMOAuth2WindowController.m */,
-			);
-			name = Mac;
-			sourceTree = "<group>";
-		};
 		4F346DD20D7500C9006033E0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -1151,20 +1100,6 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
-		4FDE39371134948400700DC8 /* OAuth2 */ = {
-			isa = PBXGroup;
-			children = (
-				4F697FA3131C1A4100A5AB6A /* GTMOAuth2Authentication.h */,
-				4F697FA4131C1A4100A5AB6A /* GTMOAuth2Authentication.m */,
-				4F697FA5131C1A4100A5AB6A /* GTMOAuth2SignIn.h */,
-				4F697FA6131C1A4100A5AB6A /* GTMOAuth2SignIn.m */,
-				4F244249121E0A9500FEE1DA /* Mac */,
-				4F244248121E0A8D00FEE1DA /* Touch */,
-			);
-			name = OAuth2;
-			path = "gtm-oauth2/Source";
-			sourceTree = "<group>";
-		};
 		F4469DC31C40285700BCFAA1 /* OS X Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1216,7 +1151,6 @@
 				345D0C351DDF80560044C585 /* AppAuthHeaders */,
 				340DADFA1D581BBA00EC285B /* AppAuth.xcodeproj */,
 				4FB730D70BE27A92000C493E /* SessionFetcher */,
-				4FDE39371134948400700DC8 /* OAuth2 */,
 			);
 			name = Deps;
 			path = ../Deps;
@@ -1280,12 +1214,9 @@
 				345D0E361DDF80A50044C585 /* OIDError.h in Headers */,
 				345D0E2D1DDF80A50044C585 /* OIDAuthStateChangeDelegate.h in Headers */,
 				345D0EBA1DDF811F0044C585 /* OIDAuthState+Mac.h in Headers */,
-				4F697FA7131C1A4100A5AB6A /* GTMOAuth2Authentication.h in Headers */,
 				341E70B91DE1883F004353C1 /* GTMTVAuthorizationResponse.h in Headers */,
 				345D0E5E1DDF80A50044C585 /* OIDResponseTypes.h in Headers */,
-				4F697FA9131C1A4100A5AB6A /* GTMOAuth2SignIn.h in Headers */,
 				345D0C701DDF80560044C585 /* AppAuth.h in Headers */,
-				4F697FB7131C1A5800A5AB6A /* GTMOAuth2WindowController.h in Headers */,
 				34F271941D6AB67B004A4FC7 /* GTMKeychain.h in Headers */,
 				345D0E301DDF80A50044C585 /* OIDAuthStateErrorDelegate.h in Headers */,
 				345D0E7C1DDF80A50044C585 /* OIDServiceConfiguration.h in Headers */,
@@ -1325,7 +1256,6 @@
 				345D0E4B1DDF80A50044C585 /* OIDFieldMapping.h in Headers */,
 				345D0E9B1DDF80A50044C585 /* OIDTokenResponse.h in Headers */,
 				F4469D881C40229D00BCFAA1 /* GTLRUploadParameters.h in Headers */,
-				F4469DB61C40247800BCFAA1 /* GTMOAuth2ViewControllerTouch.h in Headers */,
 				345D0E411DDF80A50044C585 /* OIDErrorUtilities.h in Headers */,
 				345D0EAF1DDF80A50044C585 /* OIDURLQueryComponent.h in Headers */,
 				345D0E0D1DDF80A50044C585 /* OIDAuthorizationResponse.h in Headers */,
@@ -1348,10 +1278,8 @@
 				345D0E2E1DDF80A50044C585 /* OIDAuthStateChangeDelegate.h in Headers */,
 				F4469D901C40229D00BCFAA1 /* GTMMIMEDocument.h in Headers */,
 				345D0E5F1DDF80A50044C585 /* OIDResponseTypes.h in Headers */,
-				F4469D911C40229D00BCFAA1 /* GTMOAuth2Authentication.h in Headers */,
 				345D0C711DDF80560044C585 /* AppAuth.h in Headers */,
 				345D0DBD1DDF80A50044C585 /* OIDAuthorizationUICoordinatorIOS.h in Headers */,
-				F4469D921C40229D00BCFAA1 /* GTMOAuth2SignIn.h in Headers */,
 				340DAEF91D591EB900EC285B /* GTMAppAuthFetcherAuthorization.h in Headers */,
 				345D0E311DDF80A50044C585 /* OIDAuthStateErrorDelegate.h in Headers */,
 				345D0E7D1DDF80A50044C585 /* OIDServiceConfiguration.h in Headers */,
@@ -1656,7 +1584,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F697FB6131C1A5800A5AB6A /* GTMOAuth2Window.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1688,7 +1615,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4469DB81C40247800BCFAA1 /* GTMOAuth2ViewTouch.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1737,8 +1663,6 @@
 				F4CC6A111239450100522D45 /* GTLRQueryTest.m in Sources */,
 				4F6F2E6E1C6142B0001065A5 /* GTLRServiceTestServiceClasses.m in Sources */,
 				F45D6A4112F0B2140091E9D9 /* GTLRObjectTest.m in Sources */,
-				4F697FAD131C1A4100A5AB6A /* GTMOAuth2Authentication.m in Sources */,
-				4F697FAE131C1A4100A5AB6A /* GTMOAuth2SignIn.m in Sources */,
 				4FDE223913848173005AEFAA /* GTLRFramework.m in Sources */,
 				4FDE223B13848173005AEFAA /* GTLRUtilities.m in Sources */,
 				4FDE22591384818E005AEFAA /* GTLRBatchQuery.m in Sources */,
@@ -1775,8 +1699,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F1AD90D0B71607400DC0485 /* main.m in Sources */,
-				4F697FAF131C1A4100A5AB6A /* GTMOAuth2Authentication.m in Sources */,
-				4F697FC2131C1A7A00A5AB6A /* GTMOAuth2SignIn.m in Sources */,
 				4FDE224613848173005AEFAA /* GTLRFramework.m in Sources */,
 				4FDE224813848173005AEFAA /* GTLRUtilities.m in Sources */,
 				4FDE22791384818E005AEFAA /* GTLRBatchQuery.m in Sources */,
@@ -1805,11 +1727,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F697FA8131C1A4100A5AB6A /* GTMOAuth2Authentication.m in Sources */,
 				340DAEFA1D591EB900EC285B /* GTMAppAuthFetcherAuthorization.m in Sources */,
 				34F271981D6AB67B004A4FC7 /* GTMOAuth2KeychainCompatibility.m in Sources */,
-				4F697FAA131C1A4100A5AB6A /* GTMOAuth2SignIn.m in Sources */,
-				4F697FB8131C1A5800A5AB6A /* GTMOAuth2WindowController.m in Sources */,
 				4FDE223D13848173005AEFAA /* GTLRFramework.m in Sources */,
 				4FDE224213848173005AEFAA /* GTLRUtilities.m in Sources */,
 				4FDE22621384818E005AEFAA /* GTLRBatchQuery.m in Sources */,
@@ -1851,7 +1770,6 @@
 				F4368F831B8235B800E17643 /* GTLRRuntimeCommon.m in Sources */,
 				F4469DFB1C45742000BCFAA1 /* GTLRURITemplate.m in Sources */,
 				F4368F931B8235EF00E17643 /* GTLRDateTimeTest.m in Sources */,
-				F4368F921B8235E200E17643 /* GTMOAuth2ViewControllerTouch.m in Sources */,
 				F4368F7C1B8235B800E17643 /* GTLRQuery.m in Sources */,
 				F4368F811B8235B800E17643 /* GTLRDateTime.m in Sources */,
 				F4D9D52A1D833D7C000EBBED /* GTLRDuration.m in Sources */,
@@ -1861,8 +1779,6 @@
 				F4368F7F1B8235B800E17643 /* GTLRBatchResult.m in Sources */,
 				F4368F961B8235EF00E17643 /* GTLRQueryTest.m in Sources */,
 				F41BA4391E7AD487004F6E95 /* CompiledTestNoARC.m in Sources */,
-				F4368F901B8235DC00E17643 /* GTMOAuth2Authentication.m in Sources */,
-				F4368F911B8235DC00E17643 /* GTMOAuth2SignIn.m in Sources */,
 				F4469DF91C4573E200BCFAA1 /* GTLRURITemplateTest.m in Sources */,
 				F4368F941B8235EF00E17643 /* GTLRFrameworkTest.m in Sources */,
 				F4368F7D1B8235B800E17643 /* GTLRBatchQuery.m in Sources */,
@@ -1890,10 +1806,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				340DAEFB1D591EB900EC285B /* GTMAppAuthFetcherAuthorization.m in Sources */,
-				F4469D971C40229D00BCFAA1 /* GTMOAuth2Authentication.m in Sources */,
 				34F271991D6AB67B004A4FC7 /* GTMOAuth2KeychainCompatibility.m in Sources */,
-				F4469D981C40229D00BCFAA1 /* GTMOAuth2SignIn.m in Sources */,
-				F4469DB71C40247800BCFAA1 /* GTMOAuth2ViewControllerTouch.m in Sources */,
 				F4469D9A1C40229D00BCFAA1 /* GTLRFramework.m in Sources */,
 				F4469D9C1C40229D00BCFAA1 /* GTLRUtilities.m in Sources */,
 				F4469D9D1C40229D00BCFAA1 /* GTLRBatchQuery.m in Sources */,
