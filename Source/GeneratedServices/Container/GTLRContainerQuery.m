@@ -19,6 +19,41 @@
 
 @end
 
+@implementation GTLRContainerQuery_ProjectsZonesClustersCompleteIpRotation
+
+@dynamic clusterId, projectId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRContainer_CompleteIPRotationRequest *)object
+                      projectId:(NSString *)projectId
+                   zoneProperty:(NSString *)zoneProperty
+                      clusterId:(NSString *)clusterId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"clusterId", @"projectId", @"zone"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:completeIpRotation";
+  GTLRContainerQuery_ProjectsZonesClustersCompleteIpRotation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.zoneProperty = zoneProperty;
+  query.clusterId = clusterId;
+  query.expectedObjectClass = [GTLRContainer_Operation class];
+  query.loggingName = @"container.projects.zones.clusters.completeIpRotation";
+  return query;
+}
+
+@end
+
 @implementation GTLRContainerQuery_ProjectsZonesClustersCreate
 
 @dynamic projectId, zoneProperty;
@@ -437,6 +472,41 @@
   query.clusterId = clusterId;
   query.expectedObjectClass = [GTLRContainer_Operation class];
   query.loggingName = @"container.projects.zones.clusters.setMasterAuth";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerQuery_ProjectsZonesClustersStartIpRotation
+
+@dynamic clusterId, projectId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRContainer_StartIPRotationRequest *)object
+                      projectId:(NSString *)projectId
+                   zoneProperty:(NSString *)zoneProperty
+                      clusterId:(NSString *)clusterId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"clusterId", @"projectId", @"zone"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:startIpRotation";
+  GTLRContainerQuery_ProjectsZonesClustersStartIpRotation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.zoneProperty = zoneProperty;
+  query.clusterId = clusterId;
+  query.expectedObjectClass = [GTLRContainer_Operation class];
+  query.loggingName = @"container.projects.zones.clusters.startIpRotation";
   return query;
 }
 

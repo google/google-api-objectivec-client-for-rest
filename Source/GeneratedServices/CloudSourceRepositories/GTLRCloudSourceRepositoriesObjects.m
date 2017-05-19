@@ -6,7 +6,7 @@
 // Description:
 //   Access source code repositories hosted by Google.
 // Documentation:
-//   https://cloud.google.com/eap/cloud-repositories/cloud-sourcerepo-api
+//   https://cloud.google.com/source-repositories/docs/apis
 
 #import "GTLRCloudSourceRepositoriesObjects.h"
 
@@ -165,13 +165,17 @@ NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction = @"NO_ACTION
 //
 
 @implementation GTLRCloudSourceRepositories_ListReposResponse
-@dynamic repos;
+@dynamic nextPageToken, repos;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"repos" : [GTLRCloudSourceRepositories_Repo class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"repos";
 }
 
 @end

@@ -4,8 +4,7 @@
 // API:
 //   Firebase Dynamic Links API (firebasedynamiclinks/v1)
 // Description:
-//   Firebase Dynamic Links API enables third party developers to
-//   programmatically create and manage Dynamic Links.
+//   Programmatically creates and manages Firebase Dynamic Links.
 // Documentation:
 //   https://firebase.google.com/docs/dynamic-links/
 
@@ -323,20 +322,19 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 
 /**
  *  Parameters used for tracking. See all tracking parameters in the
- *  [documentation](https://firebase.google.com/docs/dynamic-links/android#create-a-dynamic-link-programmatically).
+ *  [documentation](https://firebase.google.com/docs/dynamic-links/create-manually).
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_AnalyticsInfo *analyticsInfo;
 
 /**
  *  Android related information. See Android related parameters in the
- *  [documentation](https://firebase.google.com/docs/dynamic-links/android#create-a-dynamic-link-programmatically).
+ *  [documentation](https://firebase.google.com/docs/dynamic-links/create-manually).
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_AndroidInfo *androidInfo;
 
 /**
  *  Dynamic Links domain that the project owns, e.g. abcd.app.goo.gl
- *  [Learn
- *  more](https://firebase.google.com/docs/dynamic-links/android#set-up-firebase-and-the-dynamic-links-sdk)
+ *  [Learn more](https://firebase.google.com/docs/dynamic-links/android/receive)
  *  on how to set up Dynamic Link domain associated with your Firebase project.
  *  Required.
  */
@@ -344,7 +342,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 
 /**
  *  iOS related information. See iOS related parameters in the
- *  [documentation](https://firebase.google.com/docs/dynamic-links/ios#create-a-dynamic-link-programmatically).
+ *  [documentation](https://firebase.google.com/docs/dynamic-links/create-manually).
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_IosInfo *iosInfo;
 
@@ -352,7 +350,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
  *  The link your app will open, You can specify any URL your app can handle.
  *  This link must be a well-formatted URL, be properly URL-encoded, and use
  *  the HTTP or HTTPS scheme. See 'link' parameters in the
- *  [documentation](https://firebase.google.com/docs/dynamic-links/android#create-a-dynamic-link-programmatically).
+ *  [documentation](https://firebase.google.com/docs/dynamic-links/create-manually).
  *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *link;

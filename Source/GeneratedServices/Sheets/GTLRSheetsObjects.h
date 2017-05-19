@@ -2893,7 +2893,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /**
  *  A hyperlink this cell points to, if any.
- *  This field is read-only. (To set it, use a `=HYPERLINK` formula.)
+ *  This field is read-only. (To set it, use a `=HYPERLINK` formula
+ *  in the userEnteredValue.formulaValue
+ *  field.)
  */
 @property(nonatomic, copy, nullable) NSString *hyperlink;
 

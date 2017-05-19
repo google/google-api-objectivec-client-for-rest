@@ -72,6 +72,16 @@ NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_CloudStoragePath
+//
+
+@implementation GTLRDLP_CloudStoragePath
+@dynamic path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_ContentItem
 //
 
@@ -86,7 +96,7 @@ NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLI
 //
 
 @implementation GTLRDLP_CreateInspectOperationRequest
-@dynamic inspectConfig, storageConfig;
+@dynamic inspectConfig, outputConfig, storageConfig;
 @end
 
 
@@ -421,11 +431,21 @@ NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_OutputStorageConfig
+//
+
+@implementation GTLRDLP_OutputStorageConfig
+@dynamic storagePath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_PartitionId
 //
 
 @implementation GTLRDLP_PartitionId
-@dynamic databaseId, namespaceId, projectId;
+@dynamic namespaceId, projectId;
 @end
 
 

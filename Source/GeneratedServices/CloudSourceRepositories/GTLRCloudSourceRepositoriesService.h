@@ -6,7 +6,7 @@
 // Description:
 //   Access source code repositories hosted by Google.
 // Documentation:
-//   https://cloud.google.com/eap/cloud-repositories/cloud-sourcerepo-api
+//   https://cloud.google.com/source-repositories/docs/apis
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

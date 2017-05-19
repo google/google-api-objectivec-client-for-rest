@@ -1042,7 +1042,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 @implementation GTLRCompute_BackendService
 @dynamic affinityCookieTtlSec, backends, cdnPolicy, connectionDraining,
          creationTimestamp, descriptionProperty, enableCDN, fingerprint,
-         healthChecks, identifier, kind, loadBalancingScheme, name, port,
+         healthChecks, iap, identifier, kind, loadBalancingScheme, name, port,
          portName, protocol, region, selfLink, sessionAffinity, timeoutSec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1118,6 +1118,16 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceIAP
+//
+
+@implementation GTLRCompute_BackendServiceIAP
+@dynamic enabled, oauth2ClientId, oauth2ClientSecret, oauth2ClientSecretSha256;
 @end
 
 
@@ -3811,11 +3821,12 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_RouterStatus
-@dynamic bestRoutes, bgpPeerStatus, network;
+@dynamic bestRoutes, bestRoutesForRouter, bgpPeerStatus, network;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"bestRoutes" : [GTLRCompute_Route class],
+    @"bestRoutesForRouter" : [GTLRCompute_Route class],
     @"bgpPeerStatus" : [GTLRCompute_RouterStatusBgpPeerStatus class]
   };
   return map;

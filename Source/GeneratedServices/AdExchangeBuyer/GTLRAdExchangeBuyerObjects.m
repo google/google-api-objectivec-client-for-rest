@@ -845,10 +845,10 @@
 @dynamic buyerPrivateData, creationTimeMs, creativePreApprovalPolicy,
          creativeSafeFrameCompatibility, dealId, dealServingMetadata,
          deliveryControl, externalDealId, flightEndTimeMs, flightStartTimeMs,
-         inventoryDescription, isRfpTemplate, kind, lastUpdateTimeMs, name,
-         productId, productRevisionNumber, programmaticCreativeSource,
-         proposalId, sellerContacts, sharedTargetings, syndicationProduct,
-         terms, webPropertyCode;
+         inventoryDescription, isRfpTemplate, isSetupComplete, kind,
+         lastUpdateTimeMs, name, productId, productRevisionNumber,
+         programmaticCreativeSource, proposalId, sellerContacts,
+         sharedTargetings, syndicationProduct, terms, webPropertyCode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1053,7 +1053,7 @@
 //
 
 @implementation GTLRAdExchangeBuyer_PricePerBuyer
-@dynamic auctionTier, buyer, price;
+@dynamic auctionTier, billedBuyer, buyer, price;
 @end
 
 
@@ -1073,12 +1073,13 @@
 //
 
 @implementation GTLRAdExchangeBuyer_Product
-@dynamic creationTimeMs, creatorContacts, deliveryControl, flightEndTimeMs,
-         flightStartTimeMs, hasCreatorSignedOff, inventorySource, kind, labels,
-         lastUpdateTimeMs, legacyOfferId, marketplacePublisherProfileId, name,
-         privateAuctionId, productId, publisherProfileId,
-         publisherProvidedForecast, revisionNumber, seller, sharedTargetings,
-         state, syndicationProduct, terms, webPropertyCode;
+@dynamic billedBuyer, buyer, creationTimeMs, creatorContacts, creatorRole,
+         deliveryControl, flightEndTimeMs, flightStartTimeMs,
+         hasCreatorSignedOff, inventorySource, kind, labels, lastUpdateTimeMs,
+         legacyOfferId, marketplacePublisherProfileId, name, privateAuctionId,
+         productId, publisherProfileId, publisherProvidedForecast,
+         revisionNumber, seller, sharedTargetings, state, syndicationProduct,
+         terms, webPropertyCode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1204,7 +1205,8 @@
 //
 
 @implementation GTLRAdExchangeBuyer_TargetingValueCreativeSize
-@dynamic companionSizes, creativeSizeType, size, skippableAdType;
+@dynamic companionSizes, creativeSizeType, nativeTemplate, size,
+         skippableAdType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

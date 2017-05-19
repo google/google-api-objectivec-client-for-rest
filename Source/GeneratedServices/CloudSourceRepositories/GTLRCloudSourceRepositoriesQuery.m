@@ -6,7 +6,7 @@
 // Description:
 //   Access source code repositories hosted by Google.
 // Documentation:
-//   https://cloud.google.com/eap/cloud-repositories/cloud-sourcerepo-api
+//   https://cloud.google.com/source-repositories/docs/apis
 
 #import "GTLRCloudSourceRepositoriesQuery.h"
 
@@ -102,7 +102,7 @@
 
 @implementation GTLRCloudSourceRepositoriesQuery_ProjectsReposList
 
-@dynamic name;
+@dynamic name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

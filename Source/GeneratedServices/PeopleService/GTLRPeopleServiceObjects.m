@@ -235,7 +235,7 @@ NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecified = @"SOURCE
 //
 
 @implementation GTLRPeopleService_ListConnectionsResponse
-@dynamic connections, nextPageToken, nextSyncToken, totalPeople;
+@dynamic connections, nextPageToken, nextSyncToken, totalItems, totalPeople;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -394,7 +394,7 @@ NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecified = @"SOURCE
 //
 
 @implementation GTLRPeopleService_PersonResponse
-@dynamic httpStatusCode, person, requestedResourceName;
+@dynamic httpStatusCode, person, requestedResourceName, status;
 @end
 
 
@@ -492,6 +492,38 @@ NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecified = @"SOURCE
     @"identifier" : @"id"
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPeopleService_Status
+//
+
+@implementation GTLRPeopleService_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRPeopleService_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPeopleService_Status_Details_Item
+//
+
+@implementation GTLRPeopleService_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

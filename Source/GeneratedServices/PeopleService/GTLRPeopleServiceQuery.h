@@ -63,7 +63,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
 /**
  *  The number of connections to include in the response. Valid values are
- *  between 1 and 500, inclusive. Defaults to 100.
+ *  between 1 and 2000, inclusive. Defaults to 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -131,7 +131,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @end
 
 /**
- *  Provides information about a person resource for a resource name. Use
+ *  Provides information about a person for a resource name. Use
  *  `people/me` to indicate the authenticated user.
  *
  *  Method: people.people.get
@@ -175,7 +175,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 /**
  *  Fetches a @c GTLRPeopleService_Person.
  *
- *  Provides information about a person resource for a resource name. Use
+ *  Provides information about a person for a resource name. Use
  *  `people/me` to indicate the authenticated user.
  *
  *  @param resourceName The resource name of the person to provide information

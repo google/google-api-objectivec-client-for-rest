@@ -1311,15 +1311,15 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  Required. Values for all of the labels listed in the associated monitored
- *  resource descriptor. For example, Cloud SQL databases use the labels
- *  "database_id" and "zone".
+ *  resource descriptor. For example, Compute Engine VM instances use the labels
+ *  "project_id", "instance_id", and "zone".
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource_Labels *labels;
 
 /**
  *  Required. The monitored resource type. This field must match the type field
- *  of a MonitoredResourceDescriptor object. For example, the type of a Cloud
- *  SQL database is "cloudsql_database".
+ *  of a MonitoredResourceDescriptor object. For example, the type of a Compute
+ *  Engine VM instance is gce_instance.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1328,8 +1328,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 /**
  *  Required. Values for all of the labels listed in the associated monitored
- *  resource descriptor. For example, Cloud SQL databases use the labels
- *  "database_id" and "zone".
+ *  resource descriptor. For example, Compute Engine VM instances use the labels
+ *  "project_id", "instance_id", and "zone".
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1564,8 +1564,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Point *> *points;
 
 /**
- *  The associated resource. A fully-specified monitored resource used to
- *  identify the time series.
+ *  The associated monitored resource. Custom metrics can use only certain
+ *  monitored resource types in their time series data.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *resource;
 

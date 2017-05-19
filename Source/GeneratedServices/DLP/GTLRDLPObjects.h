@@ -23,6 +23,7 @@
 @class GTLRDLP_CategoryDescription;
 @class GTLRDLP_CloudStorageKey;
 @class GTLRDLP_CloudStorageOptions;
+@class GTLRDLP_CloudStoragePath;
 @class GTLRDLP_ContentItem;
 @class GTLRDLP_DatastoreKey;
 @class GTLRDLP_DatastoreOptions;
@@ -40,6 +41,7 @@
 @class GTLRDLP_Operation;
 @class GTLRDLP_Operation_Metadata;
 @class GTLRDLP_Operation_Response;
+@class GTLRDLP_OutputStorageConfig;
 @class GTLRDLP_PartitionId;
 @class GTLRDLP_PathElement;
 @class GTLRDLP_Projection;
@@ -60,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRDLP_Finding.likelihood
 
 /**
- *  Default value; information with all likelihoods will be included.
+ *  Default value; information with all likelihoods is included.
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
@@ -92,7 +94,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_Finding_Likelihood_VeryUnlikely;
 // GTLRDLP_InspectConfig.minLikelihood
 
 /**
- *  Default value; information with all likelihoods will be included.
+ *  Default value; information with all likelihoods is included.
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
@@ -171,6 +173,17 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
 
 
 /**
+ *  A location in Cloud Storage.
+ */
+@interface GTLRDLP_CloudStoragePath : GTLRObject
+
+/** The url, in the format of `gs://bucket/<path>`. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
  *  Container structure for the content to inspect.
  */
 @interface GTLRDLP_ContentItem : GTLRObject
@@ -204,6 +217,24 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
 
 /** Configuration for the inspector. */
 @property(nonatomic, strong, nullable) GTLRDLP_InspectConfig *inspectConfig;
+
+/**
+ *  Optional location to store findings. The bucket must already exist and
+ *  the Google APIs service account for DLP must have write permission to
+ *  write to the given bucket.
+ *  <p>Results are split over multiple csv files with each file name matching
+ *  the pattern "[operation_id]_[count].csv", for example
+ *  `3094877188788974909_1.csv`. The `operation_id` matches the
+ *  identifier for the Operation, and the `count` is a counter used for
+ *  tracking the number of files written. <p>The CSV file(s) contain the
+ *  following columns regardless of storage type scanned: <li>id <li>info_type
+ *  <li>likelihood <li>byte size of finding <li>quote <li>time_stamp<br/>
+ *  <p>For Cloud Storage the next columns are: <li>file_path
+ *  <li>start_offset<br/>
+ *  <p>For Cloud Datastore the next columns are: <li>project_id
+ *  <li>namespace_id <li>path <li>column_name <li>offset
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_OutputStorageConfig *outputConfig;
 
 /** Specification of the data set to process. */
 @property(nonatomic, strong, nullable) GTLRDLP_StorageConfig *storageConfig;
@@ -275,7 +306,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
 @interface GTLRDLP_FileSet : GTLRObject
 
 /**
- *  The url, in the format gs://<bucket>/<path>. Trailing wildcard in the
+ *  The url, in the format `gs://<bucket>/<path>`. Trailing wildcard in the
  *  path is allowed.
  */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -299,7 +330,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_Finding_Likelihood_LikelihoodUnspecified Default value;
- *        information with all likelihoods will be included. (Value:
+ *        information with all likelihoods is included. (Value:
  *        "LIKELIHOOD_UNSPECIFIED")
  *    @arg @c kGTLRDLP_Finding_Likelihood_Likely Value "LIKELY"
  *    @arg @c kGTLRDLP_Finding_Likelihood_Possible Some matching elements.
@@ -401,8 +432,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
 @property(nonatomic, strong, nullable) NSNumber *excludeTypes;
 
 /**
- *  When true, a contextual quote from the data that triggered a finding will
- *  be included in the response; see Finding.quote.
+ *  When true, a contextual quote from the data that triggered a finding is
+ *  included in the response; see Finding.quote.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -427,7 +458,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_InspectConfig_MinLikelihood_LikelihoodUnspecified Default
- *        value; information with all likelihoods will be included. (Value:
+ *        value; information with all likelihoods is included. (Value:
  *        "LIKELIHOOD_UNSPECIFIED")
  *    @arg @c kGTLRDLP_InspectConfig_MinLikelihood_Likely Value "LIKELY"
  *    @arg @c kGTLRDLP_InspectConfig_MinLikelihood_Possible Some matching
@@ -473,7 +504,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
 @interface GTLRDLP_InspectContentResponse : GTLRObject
 
 /**
- *  Each content_item from the request will have a result in this list, in the
+ *  Each content_item from the request has a result in this list, in the
  *  same order as the request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_InspectResult *> *results;
@@ -692,6 +723,17 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
 
 
 /**
+ *  Cloud repository for storing output.
+ */
+@interface GTLRDLP_OutputStorageConfig : GTLRObject
+
+/** The path to a Google Cloud Storage location to store output. */
+@property(nonatomic, strong, nullable) GTLRDLP_CloudStoragePath *storagePath;
+
+@end
+
+
+/**
  *  Datastore partition ID.
  *  A partition ID identifies a grouping of entities. The grouping is always
  *  by project and namespace, however the namespace ID may be empty.
@@ -699,12 +741,6 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
  *  project ID and namespace ID.
  */
 @interface GTLRDLP_PartitionId : GTLRObject
-
-/**
- *  If not empty, the ID of the database to which the entities
- *  belong.
- */
-@property(nonatomic, copy, nullable) NSString *databaseId;
 
 /** If not empty, the ID of the namespace to which the entities belong. */
 @property(nonatomic, copy, nullable) NSString *namespaceId;
@@ -837,7 +873,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
 
 
 /**
- *  Results of deidentifying a list of items.
+ *  Results of redacting a list of items.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -862,8 +898,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
 
 /**
  *  Type of information to replace. Only one ReplaceConfig per info_type
- *  should be provided. If ReplaceConfig does not have an info_type, we'll
- *  match it against all info_types that are found but not specified in
+ *  should be provided. If ReplaceConfig does not have an info_type, the DLP
+ *  API matches it against all info_types that are found but not specified in
  *  another ReplaceConfig.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_InfoType *infoType;
@@ -891,7 +927,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
  *  error message is needed, put the localized message in the error details or
  *  localize it in the client. The optional error details may contain arbitrary
  *  information about the error. There is a predefined set of error detail types
- *  in the package `google.rpc` which can be used for common error conditions.
+ *  in the package `google.rpc` that can be used for common error conditions.
  *  # Language mapping
  *  The `Status` message is the logical representation of the error model, but
  *  it
@@ -909,7 +945,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
  *  it may embed the `Status` in the normal response to indicate the partial
  *  errors.
  *  - Workflow errors. A typical workflow has multiple steps. Each step may
- *  have a `Status` message for error reporting purpose.
+ *  have a `Status` message for error reporting.
  *  - Batch operations. If a client uses batch request and batch response, the
  *  `Status` message should be used directly inside batch response, one for
  *  each error sub-response.

@@ -354,7 +354,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Date and time the device was last synchronized with the policy settings in
- *  the Google Apps administrator control panel (Read-only)
+ *  the G Suite administrator control panel (Read-only)
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastSync;
 
@@ -515,7 +515,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The unique ID for the customer's Google account. (Readonly)
+ *  The unique ID for the customer's G Suite account. (Readonly)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -904,7 +904,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Date and time the device was first synchronized with the policy settings in
- *  the Google Apps administrator control panel (Read-only)
+ *  the G Suite administrator control panel (Read-only)
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *firstSync;
 
@@ -925,7 +925,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Date and time the device was last synchronized with the policy settings in
- *  the Google Apps administrator control panel (Read-only)
+ *  the G Suite administrator control panel (Read-only)
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastSync;
 
@@ -1651,7 +1651,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *changePasswordAtNextLogin;
 
-/** User's Google account creation time. (Read-only) */
+/** User's G Suite account creation time. (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /** CustomerId of User (Read-only) */
@@ -1750,6 +1750,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** User's last login time. (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastLoginTime;
+
+/**
+ *  locations
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id locations;
 
 /** User's name */
 @property(nonatomic, strong, nullable) GTLRDirectory_UserName *name;
@@ -2026,6 +2033,48 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  JSON template for a location entry.
+ */
+@interface GTLRDirectory_UserLocation : GTLRObject
+
+/**
+ *  Textual location. This is most useful for display purposes to concisely
+ *  describe the location. E.g. "Mountain View, CA", "Near Seattle", "US-NYC-9TH
+ *  9A209A".
+ */
+@property(nonatomic, copy, nullable) NSString *area;
+
+/** Building Identifier. */
+@property(nonatomic, copy, nullable) NSString *buildingId;
+
+/** Custom Type. */
+@property(nonatomic, copy, nullable) NSString *customType;
+
+/** Most specific textual code of individual desk location. */
+@property(nonatomic, copy, nullable) NSString *deskCode;
+
+/** Floor name/number. */
+@property(nonatomic, copy, nullable) NSString *floorName;
+
+/**
+ *  Floor Section. More specific location within the floor. E.g. if a floor is
+ *  divided into sections "A", "B", and "C", this field would identify one of
+ *  those values.
+ */
+@property(nonatomic, copy, nullable) NSString *floorSection;
+
+/**
+ *  Each entry can have a type which indicates standard types of that entry. For
+ *  example location could be of types default and desk. In addition to standard
+ *  type, an entry can have a custom type and can give it any name. Such types
+ *  should have "custom" as type and also have a customType value.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  JSON request template for setting/revoking admin status of a user in
  *  Directory API.
  */
@@ -2198,7 +2247,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDirectory_UserPosixAccount : GTLRObject
 
-/** The GECOS (user information) entry for this account. */
+/** The GECOS (user information) for this account. */
 @property(nonatomic, copy, nullable) NSString *gecos;
 
 /**
@@ -2225,7 +2274,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *systemId;
 
 /**
- *  The user ID.
+ *  The POSIX compliant user ID.
  *
  *  Uses NSNumber of intValue.
  */

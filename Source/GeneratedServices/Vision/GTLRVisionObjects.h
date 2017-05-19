@@ -115,14 +115,13 @@ GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Unknown;
  */
 GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_EolSureSpace;
 /**
- *  End-line hyphen that is not present in text; does
+ *  End-line hyphen that is not present in text; does not co-occur with
+ *  `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
  *
  *  Value: "HYPHEN"
  */
 GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_Hyphen;
 /**
- *  not co-occur with SPACE, LEADER_SPACE, or
- *  LINE_BREAK.
  *  Line break that ends a paragraph.
  *
  *  Value: "LINE_BREAK"
@@ -1272,11 +1271,10 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *    @arg @c kGTLRVision_DetectedBreak_Type_EolSureSpace Line-wrapping break.
  *        (Value: "EOL_SURE_SPACE")
  *    @arg @c kGTLRVision_DetectedBreak_Type_Hyphen End-line hyphen that is not
- *        present in text; does (Value: "HYPHEN")
- *    @arg @c kGTLRVision_DetectedBreak_Type_LineBreak not co-occur with SPACE,
- *        LEADER_SPACE, or
- *        LINE_BREAK.
- *        Line break that ends a paragraph. (Value: "LINE_BREAK")
+ *        present in text; does not co-occur with
+ *        `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`. (Value: "HYPHEN")
+ *    @arg @c kGTLRVision_DetectedBreak_Type_LineBreak Line break that ends a
+ *        paragraph. (Value: "LINE_BREAK")
  *    @arg @c kGTLRVision_DetectedBreak_Type_Space Regular space. (Value:
  *        "SPACE")
  *    @arg @c kGTLRVision_DetectedBreak_Type_SureSpace Sure space (very wide).
@@ -1900,8 +1898,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)
  *  assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)
  *  assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)
- *  The code in logs/storage/validator/logs_validator_traits.cc treats this type
- *  as if it were annotated as ST_LOCATION.
  */
 @interface GTLRVision_LatLng : GTLRObject
 
@@ -2173,7 +2169,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  error message is needed, put the localized message in the error details or
  *  localize it in the client. The optional error details may contain arbitrary
  *  information about the error. There is a predefined set of error detail types
- *  in the package `google.rpc` which can be used for common error conditions.
+ *  in the package `google.rpc` that can be used for common error conditions.
  *  # Language mapping
  *  The `Status` message is the logical representation of the error model, but
  *  it
@@ -2191,7 +2187,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *  it may embed the `Status` in the normal response to indicate the partial
  *  errors.
  *  - Workflow errors. A typical workflow has multiple steps. Each step may
- *  have a `Status` message for error reporting purpose.
+ *  have a `Status` message for error reporting.
  *  - Batch operations. If a client uses batch request and batch response, the
  *  `Status` message should be used directly inside batch response, one for
  *  each error sub-response.
@@ -2335,8 +2331,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /**
  *  Fully matching images from the Internet.
- *  They're definite neardups and most often a copy of the query image with
- *  merely a size change.
+ *  Can include resized copies of the query image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_WebImage *> *fullMatchingImages;
 

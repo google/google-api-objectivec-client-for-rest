@@ -1201,13 +1201,6 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 //   +[GTLQueryDataflow queryForProjectsLocationsTemplatesLaunchWithObject:projectId:location:]
 
 /**
- *  Whether or not the job should actually be executed after
- *  validating parameters. Defaults to false. Validation errors do
- *  not cause the HTTP request to fail if true.
- */
-@property(nonatomic, assign) BOOL dryRun;
-
-/**
  *  Required. A Cloud Storage path to the template from which to create
  *  the job.
  *  Must be valid Cloud Storage URL, beginning with 'gs://'.
@@ -1219,6 +1212,12 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /** Required. The ID of the Cloud Platform project that the job belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  If true, the request is validated but not actually executed.
+ *  Defaults to false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRDataflow_LaunchTemplateResponse.
@@ -1375,13 +1374,6 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 //   +[GTLQueryDataflow queryForProjectsTemplatesLaunchWithObject:projectId:]
 
 /**
- *  Whether or not the job should actually be executed after
- *  validating parameters. Defaults to false. Validation errors do
- *  not cause the HTTP request to fail if true.
- */
-@property(nonatomic, assign) BOOL dryRun;
-
-/**
  *  Required. A Cloud Storage path to the template from which to create
  *  the job.
  *  Must be valid Cloud Storage URL, beginning with 'gs://'.
@@ -1393,6 +1385,12 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /** Required. The ID of the Cloud Platform project that the job belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  If true, the request is validated but not actually executed.
+ *  Defaults to false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRDataflow_LaunchTemplateResponse.

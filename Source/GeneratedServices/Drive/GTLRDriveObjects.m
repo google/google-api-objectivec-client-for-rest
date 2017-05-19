@@ -274,10 +274,11 @@
 //
 
 @implementation GTLRDrive_File_Capabilities
-@dynamic canAddChildren, canComment, canCopy, canDelete, canDownload, canEdit,
-         canListChildren, canMoveItemIntoTeamDrive, canMoveTeamDriveItem,
-         canReadRevisions, canReadTeamDrive, canRemoveChildren, canRename,
-         canShare, canTrash, canUntrash;
+@dynamic canAddChildren, canChangeViewersCanCopyContent, canComment, canCopy,
+         canDelete, canDownload, canEdit, canListChildren,
+         canMoveItemIntoTeamDrive, canMoveTeamDriveItem, canReadRevisions,
+         canReadTeamDrive, canRemoveChildren, canRename, canShare, canTrash,
+         canUntrash;
 @end
 
 

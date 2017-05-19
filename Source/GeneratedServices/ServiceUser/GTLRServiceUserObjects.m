@@ -131,7 +131,7 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUser_AuthenticationRule
-@dynamic allowWithoutCredential, oauth, requirements, selector;
+@dynamic allowWithoutCredential, customAuth, oauth, requirements, selector;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -202,7 +202,7 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUser_BackendRule
-@dynamic address, deadline, selector;
+@dynamic address, deadline, minDeadline, selector;
 @end
 
 
@@ -250,6 +250,16 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRServiceUser_Control
 @dynamic environment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUser_CustomAuthRequirements
+//
+
+@implementation GTLRServiceUser_CustomAuthRequirements
+@dynamic provider;
 @end
 
 
@@ -468,7 +478,7 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRServiceUser_HttpRule
 @dynamic additionalBindings, body, custom, deleteProperty, get, mediaDownload,
-         mediaUpload, patch, post, put, responseBody, selector;
+         mediaUpload, patch, post, put, responseBody, restCollection, selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
@@ -586,7 +596,8 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUser_MediaDownload
-@dynamic downloadService, enabled;
+@dynamic completeNotification, downloadService, dropzone, enabled,
+         maxDirectDownloadSize, useDirectDownload;
 @end
 
 
@@ -596,7 +607,16 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUser_MediaUpload
-@dynamic enabled, uploadService;
+@dynamic completeNotification, dropzone, enabled, maxSize, mimeTypes,
+         progressNotification, startNotification, uploadService;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mimeTypes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -4,8 +4,7 @@
 // API:
 //   Firebase Dynamic Links API (firebasedynamiclinks/v1)
 // Description:
-//   Firebase Dynamic Links API enables third party developers to
-//   programmatically create and manage Dynamic Links.
+//   Programmatically creates and manages Firebase Dynamic Links.
 // Documentation:
 //   https://firebase.google.com/docs/dynamic-links/
 
@@ -38,8 +37,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeFirebaseDynamicLinksFirebase;
 /**
  *  Service for executing Firebase Dynamic Links API queries.
  *
- *  Firebase Dynamic Links API enables third party developers to
- *  programmatically create and manage Dynamic Links.
+ *  Programmatically creates and manages Firebase Dynamic Links.
  */
 @interface GTLRFirebaseDynamicLinksService : GTLRService
 

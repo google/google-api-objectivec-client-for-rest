@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Speech API (speech/v1beta1)
+//   Google Cloud Speech API (speech/v1)
 // Description:
-//   Google Cloud Speech API.
+//   Converts audio to text by applying powerful neural network models.
 // Documentation:
 //   https://cloud.google.com/speech/
 

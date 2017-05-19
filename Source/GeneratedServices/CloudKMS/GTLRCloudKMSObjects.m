@@ -20,6 +20,11 @@ NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudKMS_CloudAuditOptions.logName
+NSString * const kGTLRCloudKMS_CloudAuditOptions_LogName_AdminActivity = @"ADMIN_ACTIVITY";
+NSString * const kGTLRCloudKMS_CloudAuditOptions_LogName_DataAccess = @"DATA_ACCESS";
+NSString * const kGTLRCloudKMS_CloudAuditOptions_LogName_UnspecifiedLogName = @"UNSPECIFIED_LOG_NAME";
+
 // GTLRCloudKMS_Condition.iam
 NSString * const kGTLRCloudKMS_Condition_Iam_Approver          = @"APPROVER";
 NSString * const kGTLRCloudKMS_Condition_Iam_Attribution       = @"ATTRIBUTION";
@@ -122,6 +127,7 @@ NSString * const kGTLRCloudKMS_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRCloudKMS_CloudAuditOptions
+@dynamic logName;
 @end
 
 

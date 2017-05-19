@@ -877,14 +877,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  User defined labels for Cloud SQL instances.
+ *  Reserved for future use.
  */
 @interface GTLRSQLAdmin_Labels : GTLRObject
 
-/** The key of the label. */
+/** Reserved for future use. */
 @property(nonatomic, copy, nullable) NSString *key;
 
-/** The value of the label. */
+/** Reserved for future use. */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
@@ -1090,7 +1090,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** Name of the database instance related to this operation. */
 @property(nonatomic, copy, nullable) NSString *targetId;
 
-/** The URI of the instance related to the operation. */
 @property(nonatomic, copy, nullable) NSString *targetLink;
 
 /** The project ID of the target instance related to this operation. */
@@ -1293,7 +1292,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** This is always sql#settings. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** User defined labels. */
+/** Reserved for future use. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Labels *> *labels;
 
 /**

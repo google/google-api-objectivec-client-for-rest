@@ -20,6 +20,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: View and manage your reports in DoubleClick Bid Manager
+ *
+ *  Value "https://www.googleapis.com/auth/doubleclickbidmanager"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeDoubleClickBidManager;
+
+// ----------------------------------------------------------------------------
+//   GTLRDoubleClickBidManagerService
+//
+
 /**
  *  Service for executing DoubleClick Bid Manager API queries.
  *

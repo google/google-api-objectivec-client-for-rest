@@ -147,8 +147,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  - PROTOCOL_OPENRTB_2_2
  *  - PROTOCOL_OPENRTB_2_3
  *  - PROTOCOL_OPENRTB_2_4
+ *  - PROTOCOL_OPENRTB_2_5
  *  - PROTOCOL_OPENRTB_PROTOBUF_2_3
  *  - PROTOCOL_OPENRTB_PROTOBUF_2_4
+ *  - PROTOCOL_OPENRTB_PROTOBUF_2_5
  */
 @property(nonatomic, copy, nullable) NSString *bidProtocol;
 
@@ -562,7 +564,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  The granular status of this ad in specific contexts. A context here relates
  *  to where something ultimately serves (for example, a physical location, a
  *  platform, an HTTPS vs HTTP request, or the type of auction). Read-only. This
- *  field should not be set in requests.
+ *  field should not be set in requests. See the examples in the Creatives guide
+ *  for more details.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item *> *servingRestrictions;
 
@@ -1120,7 +1123,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The timestamp (in ms since epoch) when the original reservation price for
  *  the deal was first converted to DFP currency. This is used to convert the
- *  contracted price into advertiser's currency without discrepancy.
+ *  contracted price into buyer's currency without discrepancy.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1506,6 +1509,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isRfpTemplate;
+
+/**
+ *  True, if the buyside inventory setup is complete for this deal. (readonly,
+ *  except via OrderSetupCompleted action)
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isSetupComplete;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
@@ -2155,17 +2166,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Used to specify pricing rules for buyers/advertisers. Each PricePerBuyer in
- *  an product can become [0,1] deals. To check if there is a PricePerBuyer for
- *  a particular buyer or buyer/advertiser pair, we look for the most specific
- *  matching rule - we first look for a rule matching the buyer and advertiser,
- *  next a rule with the buyer but an empty advertiser list, and otherwise look
- *  for a matching rule where no buyer is set.
+ *  Used to specify pricing rules for buyers. Each PricePerBuyer in a product
+ *  can become [0,1] deals. To check if there is a PricePerBuyer for a
+ *  particular buyer we look for the most specific matching rule - we first look
+ *  for a rule matching the buyer and otherwise look for a matching rule where
+ *  no buyer is set.
  */
 @interface GTLRAdExchangeBuyer_PricePerBuyer : GTLRObject
 
 /** Optional access type for this buyer. */
 @property(nonatomic, copy, nullable) NSString *auctionTier;
+
+/** Reference to the buyer that will get billed. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Buyer *billedBuyer;
 
 /**
  *  The buyer who will pay this price. If unset, all buyers can pay this price
@@ -2211,6 +2224,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_Product : GTLRObject
 
 /**
+ *  The billed buyer corresponding to the buyer that created the offer.
+ *  (readonly, except on create)
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Buyer *billedBuyer;
+
+/**
+ *  The buyer that created the offer if this is a buyer initiated offer
+ *  (readonly, except on create)
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Buyer *buyer;
+
+/**
  *  Creation time in ms. since epoch (readonly)
  *
  *  Uses NSNumber of longLongValue.
@@ -2222,6 +2247,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  (buyer-readonly)
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_ContactInformation *> *creatorContacts;
+
+/**
+ *  The role that created the offer. Set to BUYER for buyer initiated offers.
+ */
+@property(nonatomic, copy, nullable) NSString *creatorRole;
 
 /**
  *  The set of fields around delivery control that are interesting for a buyer
@@ -2405,7 +2435,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  True, if the buyside inventory setup is complete for this proposal.
- *  (readonly, except via OrderSetupCompleted action)
+ *  (readonly, except via OrderSetupCompleted action) Deprecated in favor of
+ *  deal level setup complete flag.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2666,6 +2697,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The Creative size type. */
 @property(nonatomic, copy, nullable) NSString *creativeSizeType;
+
+/** The native template for native ad. */
+@property(nonatomic, copy, nullable) NSString *nativeTemplate;
 
 /**
  *  For regular or video creative size type, specifies the size of the creative.

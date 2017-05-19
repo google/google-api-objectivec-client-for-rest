@@ -66,6 +66,7 @@
 @class GTLRDataflow_KeyRangeDataDiskAssignment;
 @class GTLRDataflow_KeyRangeLocation;
 @class GTLRDataflow_LaunchTemplateParameters_Parameters;
+@class GTLRDataflow_LogBucket;
 @class GTLRDataflow_MapTask;
 @class GTLRDataflow_MetricShortId;
 @class GTLRDataflow_MetricStructuredName;
@@ -1366,9 +1367,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** The system stage name. */
 @property(nonatomic, copy, nullable) NSString *systemStageName;
 
-/** The user stage name. */
-@property(nonatomic, copy, nullable) NSString *userStageName;
-
 @end
 
 
@@ -1861,6 +1859,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** The count of the number of elements present in the distribution. */
 @property(nonatomic, strong, nullable) GTLRDataflow_SplitInt64 *count;
+
+/**
+ *  (Optional) Logarithmic histogram of values.
+ *  Each log may be in no more than one bucket. Order does not matter.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_LogBucket *> *logBuckets;
 
 /** The maximum value present in the distribution. */
 @property(nonatomic, strong, nullable) GTLRDataflow_SplitInt64 *max;
@@ -3024,6 +3028,35 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Bucket of values for Distribution's logarithmic histogram.
+ */
+@interface GTLRDataflow_LogBucket : GTLRObject
+
+/**
+ *  Number of values in this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  floor(log2(value)); defined to be zero for nonpositive values.
+ *  log(-1) = 0
+ *  log(0) = 0
+ *  log(1) = 0
+ *  log(2) = 1
+ *  log(3) = 1
+ *  log(4) = 2
+ *  log(5) = 2
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *log;
+
+@end
+
+
+/**
  *  MapTask consists of an ordered set of instructions, each of which
  *  describes one particular low-level operation for the worker to
  *  perform in order to accomplish the MapTask's WorkItem.
@@ -3133,6 +3166,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSNumber *cumulative;
 
 /**
+ *  A struct value describing properties of a distribution of numeric values.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id distribution;
+
+/**
  *  Worker-computed aggregate value for internal use by the Dataflow
  *  service.
  *
@@ -3142,7 +3182,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /**
  *  Metric aggregation kind. The possible metric aggregation kinds are
- *  "Sum", "Max", "Min", "Mean", "Set", "And", and "Or".
+ *  "Sum", "Max", "Min", "Mean", "Set", "And", "Or", and "Distribution".
  *  The specified aggregation kind is case-insensitive.
  *  If omitted, this is not an aggregated value but instead
  *  a single metric sample value.
@@ -3709,6 +3749,12 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bypassTempDirValidation;
+
+/**
+ *  The machine type to use for the job. Defaults to the value from the
+ *  template if not specified.
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
 
 /**
  *  The maximum number of Google Compute Engine instances to be made
@@ -4345,7 +4391,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  error message is needed, put the localized message in the error details or
  *  localize it in the client. The optional error details may contain arbitrary
  *  information about the error. There is a predefined set of error detail types
- *  in the package `google.rpc` which can be used for common error conditions.
+ *  in the package `google.rpc` that can be used for common error conditions.
  *  # Language mapping
  *  The `Status` message is the logical representation of the error model, but
  *  it
@@ -4363,7 +4409,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  it may embed the `Status` in the normal response to indicate the partial
  *  errors.
  *  - Workflow errors. A typical workflow has multiple steps. Each step may
- *  have a `Status` message for error reporting purpose.
+ *  have a `Status` message for error reporting.
  *  - Batch operations. If a client uses batch request and batch response, the
  *  `Status` message should be used directly inside batch response, one for
  *  each error sub-response.
@@ -4541,6 +4587,22 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** Map from user step names to state families. */
 @property(nonatomic, strong, nullable) GTLRDataflow_StreamingConfigTask_UserStepToStateFamilyNameMap *userStepToStateFamilyNameMap;
+
+/**
+ *  If present, the worker must use this endpoint to communicate with Windmill
+ *  Service dispatchers, otherwise the worker must continue to use whatever
+ *  endpoint it had been using.
+ */
+@property(nonatomic, copy, nullable) NSString *windmillServiceEndpoint;
+
+/**
+ *  If present, the worker must use this port to communicate with Windmill
+ *  Service dispatchers. Only applicable when windmill_service_endpoint is
+ *  specified.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *windmillServicePort;
 
 @end
 

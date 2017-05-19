@@ -44,9 +44,9 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeScriptAdminDirectoryUser;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeScriptDrive;
 /**
- *  Authorization scope: Manage your contacts
+ *  Authorization scope: Manage your calendars
  *
- *  Value "https://www.google.com/m8/feeds"
+ *  Value "https://www.google.com/calendar/feeds"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeScriptFeeds;
 /**

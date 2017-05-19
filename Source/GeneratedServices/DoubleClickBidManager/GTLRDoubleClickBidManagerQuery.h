@@ -40,6 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieves line items in CSV format.
  *
  *  Method: doubleclickbidmanager.lineitems.downloadlineitems
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_LineitemsDownloadlineitems : GTLRDoubleClickBidManagerQuery
 // Previous library name was
@@ -63,6 +66,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uploads line items in CSV format.
  *
  *  Method: doubleclickbidmanager.lineitems.uploadlineitems
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_LineitemsUploadlineitems : GTLRDoubleClickBidManagerQuery
 // Previous library name was
@@ -86,6 +92,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a query.
  *
  *  Method: doubleclickbidmanager.queries.createquery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_QueriesCreatequery : GTLRDoubleClickBidManagerQuery
 // Previous library name was
@@ -109,6 +118,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a stored query as well as the associated stored reports.
  *
  *  Method: doubleclickbidmanager.queries.deletequery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_QueriesDeletequery : GTLRDoubleClickBidManagerQuery
 // Previous library name was
@@ -135,6 +147,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieves a stored query.
  *
  *  Method: doubleclickbidmanager.queries.getquery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_QueriesGetquery : GTLRDoubleClickBidManagerQuery
 // Previous library name was
@@ -160,6 +175,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieves stored queries.
  *
  *  Method: doubleclickbidmanager.queries.listqueries
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_QueriesListqueries : GTLRDoubleClickBidManagerQuery
 // Previous library name was
@@ -180,6 +198,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Runs a stored query to generate a report.
  *
  *  Method: doubleclickbidmanager.queries.runquery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_QueriesRunquery : GTLRDoubleClickBidManagerQuery
 // Previous library name was
@@ -209,6 +230,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieves stored reports.
  *
  *  Method: doubleclickbidmanager.reports.listreports
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_ReportsListreports : GTLRDoubleClickBidManagerQuery
 // Previous library name was
@@ -234,6 +258,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieves entities in SDF format.
  *
  *  Method: doubleclickbidmanager.sdf.download
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_SdfDownload : GTLRDoubleClickBidManagerQuery
 // Previous library name was

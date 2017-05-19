@@ -31,6 +31,7 @@
 @class GTLRServiceUser_Context;
 @class GTLRServiceUser_ContextRule;
 @class GTLRServiceUser_Control;
+@class GTLRServiceUser_CustomAuthRequirements;
 @class GTLRServiceUser_CustomError;
 @class GTLRServiceUser_CustomErrorRule;
 @class GTLRServiceUser_CustomHttpPattern;
@@ -400,7 +401,8 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Step_Status_Cancelled;
  */
 GTLR_EXTERN NSString * const kGTLRServiceUser_Step_Status_Done;
 /**
- *  The operation or step has completed with errors.
+ *  The operation or step has completed with errors. If the operation is
+ *  rollbackable, the rollback completed with errors too.
  *
  *  Value: "FAILED"
  */
@@ -552,6 +554,9 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowWithoutCredential;
+
+/** Configuration for custom authentication. */
+@property(nonatomic, strong, nullable) GTLRServiceUser_CustomAuthRequirements *customAuth;
 
 /** The requirements for OAuth credentials. */
 @property(nonatomic, strong, nullable) GTLRServiceUser_OAuthRequirements *oauth;
@@ -711,6 +716,14 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSNumber *deadline;
 
 /**
+ *  Minimum deadline in seconds needed for this method. Calls having deadline
+ *  value lower than this will be rejected.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minDeadline;
+
+/**
  *  Selects the methods to which this rule applies.
  *  Refer to selector for syntax details.
  */
@@ -778,6 +791,21 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  feature (like quota and billing) will be enabled.
  */
 @property(nonatomic, copy, nullable) NSString *environment;
+
+@end
+
+
+/**
+ *  Configuration for a custom authentication provider.
+ */
+@interface GTLRServiceUser_CustomAuthRequirements : GTLRObject
+
+/**
+ *  A configuration string containing connection information for the
+ *  authentication provider, typically formatted as a SmartService string
+ *  (go/smartservice).
+ */
+@property(nonatomic, copy, nullable) NSString *provider;
 
 @end
 
@@ -1022,7 +1050,11 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, strong, nullable) NSNumber *allowCors;
 
-/** The list of APIs served by this endpoint. */
+/**
+ *  The list of APIs served by this endpoint.
+ *  If no APIs are specified this translates to "all APIs" exported by the
+ *  service, as defined in the top-level service configuration.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *apis;
 
 /** The list of features enabled on this endpoint. */
@@ -1481,6 +1513,24 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *responseBody;
 
 /**
+ *  Optional. The REST collection name is by default derived from the URL
+ *  pattern. If specified, this field overrides the default collection name.
+ *  Example:
+ *  rpc AddressesAggregatedList(AddressesAggregatedListRequest)
+ *  returns (AddressesAggregatedListResponse) {
+ *  option (google.api.http) = {
+ *  get: "/v1/projects/{project_id}/aggregated/addresses"
+ *  rest_collection: "projects.addresses"
+ *  };
+ *  }
+ *  This method has the automatically derived collection name
+ *  "projects.aggregated". Because, semantically, this rpc is actually an
+ *  operation on the "projects.addresses" collection, the `rest_collection`
+ *  field is configured to override the derived collection name.
+ */
+@property(nonatomic, copy, nullable) NSString *restCollection;
+
+/**
  *  Selects methods to which this rule applies.
  *  Refer to selector for syntax details.
  */
@@ -1664,6 +1714,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Defines the Media configuration for a service in case of a download.
  *  Use this only for Scotty Requests. Do not use this for media support using
  *  Bytestream, add instead [][google.bytestream.RestByteStream] as an API to
  *  your configuration for Bytestream methods.
@@ -1671,10 +1722,21 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceUser_MediaDownload : GTLRObject
 
 /**
- *  DO NOT USE THIS FIELD UNTIL THIS WARNING IS REMOVED.
+ *  A boolean that determines whether a notification for the completion of a
+ *  download should be sent to the backend.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completeNotification;
+
+/**
+ *  DO NOT USE FIELDS BELOW THIS LINE UNTIL THIS WARNING IS REMOVED.
  *  Specify name of the download service if one is used for download.
  */
 @property(nonatomic, copy, nullable) NSString *downloadService;
+
+/** Name of the Scotty dropzone to use for the current API. */
+@property(nonatomic, copy, nullable) NSString *dropzone;
 
 /**
  *  Whether download is enabled.
@@ -1683,15 +1745,44 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
+/**
+ *  Optional maximum acceptable size for direct download.
+ *  The size is specified in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxDirectDownloadSize;
+
+/**
+ *  A boolean that determines if direct download from ESF should be used for
+ *  download of this media.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useDirectDownload;
+
 @end
 
 
 /**
+ *  Defines the Media configuration for a service in case of an upload.
  *  Use this only for Scotty Requests. Do not use this for media support using
  *  Bytestream, add instead [][google.bytestream.RestByteStream] as an API to
  *  your configuration for Bytestream methods.
  */
 @interface GTLRServiceUser_MediaUpload : GTLRObject
+
+/**
+ *  A boolean that determines whether a notification for the completion of an
+ *  upload should be sent to the backend. These notifications will not be seen
+ *  by the client and will not consume quota.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completeNotification;
+
+/** Name of the Scotty dropzone to use for the current API. */
+@property(nonatomic, copy, nullable) NSString *dropzone;
 
 /**
  *  Whether upload is enabled.
@@ -1701,7 +1792,35 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  DO NOT USE THIS FIELD UNTIL THIS WARNING IS REMOVED.
+ *  Optional maximum acceptable size for an upload.
+ *  The size is specified in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSize;
+
+/**
+ *  An array of mimetype patterns. Esf will only accept uploads that match one
+ *  of the given patterns.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mimeTypes;
+
+/**
+ *  Whether to receive a notification for progress changes of media upload.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *progressNotification;
+
+/**
+ *  Whether to receive a notification on the start of media upload.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startNotification;
+
+/**
+ *  DO NOT USE FIELDS BELOW THIS LINE UNTIL THIS WARNING IS REMOVED.
  *  Specify name of the upload service if one is used for upload.
  */
 @property(nonatomic, copy, nullable) NSString *uploadService;
@@ -2908,7 +3027,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  error message is needed, put the localized message in the error details or
  *  localize it in the client. The optional error details may contain arbitrary
  *  information about the error. There is a predefined set of error detail types
- *  in the package `google.rpc` which can be used for common error conditions.
+ *  in the package `google.rpc` that can be used for common error conditions.
  *  # Language mapping
  *  The `Status` message is the logical representation of the error model, but
  *  it
@@ -2926,7 +3045,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  it may embed the `Status` in the normal response to indicate the partial
  *  errors.
  *  - Workflow errors. A typical workflow has multiple steps. Each step may
- *  have a `Status` message for error reporting purpose.
+ *  have a `Status` message for error reporting.
  *  - Batch operations. If a client uses batch request and batch response, the
  *  `Status` message should be used directly inside batch response, one for
  *  each error sub-response.
@@ -2994,7 +3113,9 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *    @arg @c kGTLRServiceUser_Step_Status_Done The operation or step has
  *        completed without errors. (Value: "DONE")
  *    @arg @c kGTLRServiceUser_Step_Status_Failed The operation or step has
- *        completed with errors. (Value: "FAILED")
+ *        completed with errors. If the operation is
+ *        rollbackable, the rollback completed with errors too. (Value:
+ *        "FAILED")
  *    @arg @c kGTLRServiceUser_Step_Status_InProgress The operation or step is
  *        in progress. (Value: "IN_PROGRESS")
  *    @arg @c kGTLRServiceUser_Step_Status_NotStarted The operation or step has

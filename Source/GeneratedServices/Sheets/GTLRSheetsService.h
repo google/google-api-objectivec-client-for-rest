@@ -30,6 +30,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeSheetsDrive;
 /**
+ *  Authorization scope: View and manage Google Drive files and folders that you
+ *  have opened or created with this app
+ *
+ *  Value "https://www.googleapis.com/auth/drive.file"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeSheetsDriveFile;
+/**
  *  Authorization scope: View the files in your Google Drive
  *
  *  Value "https://www.googleapis.com/auth/drive.readonly"

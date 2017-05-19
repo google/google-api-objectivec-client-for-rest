@@ -217,8 +217,8 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
 
 @implementation GTLRLogging_LogEntry
 @dynamic httpRequest, insertId, jsonPayload, labels, logName, operation,
-         protoPayload, resource, severity, sourceLocation, textPayload,
-         timestamp, trace;
+         protoPayload, receiveTimestamp, resource, severity, sourceLocation,
+         textPayload, timestamp, trace;
 @end
 
 

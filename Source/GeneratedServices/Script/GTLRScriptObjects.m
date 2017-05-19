@@ -58,6 +58,48 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRScript_JoinAsyncRequest
+//
+
+@implementation GTLRScript_JoinAsyncRequest
+@dynamic names, scriptId, timeout;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRScript_JoinAsyncResponse
+//
+
+@implementation GTLRScript_JoinAsyncResponse
+@dynamic results;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRScript_JoinAsyncResponse_Results
+//
+
+@implementation GTLRScript_JoinAsyncResponse_Results
+
++ (Class)classForAdditionalProperties {
+  return [GTLRScript_Operation class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRScript_Operation
 //
 
