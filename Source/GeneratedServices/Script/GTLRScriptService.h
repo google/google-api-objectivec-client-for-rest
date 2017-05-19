@@ -38,17 +38,17 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeScriptAdminDirectoryGroup;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeScriptAdminDirectoryUser;
 /**
+ *  Authorization scope: Manage your calendars
+ *
+ *  Value "https://www.google.com/calendar/feeds"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeScriptCalendarFeeds;
+/**
  *  Authorization scope: View and manage the files in your Google Drive
  *
  *  Value "https://www.googleapis.com/auth/drive"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeScriptDrive;
-/**
- *  Authorization scope: Manage your calendars
- *
- *  Value "https://www.google.com/calendar/feeds"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptFeeds;
 /**
  *  Authorization scope: View and manage your forms in Google Drive
  *
@@ -68,6 +68,12 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeScriptFormsCurrentonly;
  *  Value "https://www.googleapis.com/auth/groups"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeScriptGroups;
+/**
+ *  Authorization scope: Manage your contacts
+ *
+ *  Value "https://www.google.com/m8/feeds"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeScriptM8Feeds;
 /**
  *  Authorization scope: Read, send, delete, and manage your email
  *

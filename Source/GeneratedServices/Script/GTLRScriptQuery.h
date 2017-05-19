@@ -47,12 +47,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeScriptAdminDirectoryGroup
  *    @c kGTLRAuthScopeScriptAdminDirectoryUser
+ *    @c kGTLRAuthScopeScriptCalendarFeeds
  *    @c kGTLRAuthScopeScriptDrive
- *    @c kGTLRAuthScopeScriptFeeds
- *    @c kGTLRAuthScopeScriptFeeds
  *    @c kGTLRAuthScopeScriptForms
  *    @c kGTLRAuthScopeScriptFormsCurrentonly
  *    @c kGTLRAuthScopeScriptGroups
+ *    @c kGTLRAuthScopeScriptM8Feeds
  *    @c kGTLRAuthScopeScriptMailGoogleCom
  *    @c kGTLRAuthScopeScriptSpreadsheets
  *    @c kGTLRAuthScopeScriptUserinfoEmail
