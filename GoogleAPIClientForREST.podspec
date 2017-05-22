@@ -18,8 +18,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.9'
   s.tvos.deployment_target = '9.0'
 
-  s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GTLR_USE_FRAMEWORK_IMPORTS=1 GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT=1' }
-
   # Require at least 1.1.7 of the SessionFetcher for some changes in that
   # project's headers.
   s.dependency 'GTMSessionFetcher', '>= 1.1.7'
