@@ -24,7 +24,11 @@
 #endif
 
 #if !defined(GTLR_USE_FRAMEWORK_IMPORTS)
-  #define GTLR_USE_FRAMEWORK_IMPORTS 0
+  #if defined(COCOAPODS) && COCOAPODS
+    #define GTLR_USE_FRAMEWORK_IMPORTS 1
+  #else
+    #define GTLR_USE_FRAMEWORK_IMPORTS 0
+  #endif
 #endif
 
 #import "GTLRService.h"
@@ -154,7 +158,11 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 @end
 
 #if !defined(GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT)
-#define GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT 0
+  #if defined(COCOAPODS) && COCOAPODS
+    #define GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT 1
+  #else
+    #define GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT 0
+  #endif
 #endif
 
 #if GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT
