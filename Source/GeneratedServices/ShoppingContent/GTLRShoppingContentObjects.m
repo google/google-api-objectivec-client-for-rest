@@ -75,6 +75,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_AccountsClaimWebsiteResponse
+//
+
+@implementation GTLRShoppingContent_AccountsClaimWebsiteResponse
+@dynamic kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_AccountsCustomBatchRequest
 //
 
@@ -97,7 +107,7 @@
 //
 
 @implementation GTLRShoppingContent_AccountsCustomBatchRequestEntry
-@dynamic account, accountId, batchId, merchantId, method;
+@dynamic account, accountId, batchId, merchantId, method, overwrite;
 @end
 
 
@@ -157,7 +167,7 @@
 //
 
 @implementation GTLRShoppingContent_AccountStatus
-@dynamic accountId, dataQualityIssues, kind;
+@dynamic accountId, dataQualityIssues, kind, websiteClaimed;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

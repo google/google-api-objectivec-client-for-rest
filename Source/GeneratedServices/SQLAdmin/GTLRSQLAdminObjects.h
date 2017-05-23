@@ -695,6 +695,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *fileType;
 
+/**
+ *  The PostgreSQL user to use for this import operation. Defaults to
+ *  cloudsqlsuperuser. Does not apply to MySQL instances.
+ */
+@property(nonatomic, copy, nullable) NSString *importUser;
+
 /** This is always sql#importContext. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1335,7 +1341,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Configuration to increase storage size automatically. The default value is
- *  false. Applies only to Second Generation instances.
+ *  true. Applies only to Second Generation instances.
  *
  *  Uses NSNumber of boolValue.
  */

@@ -255,6 +255,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_AccountsClaimWebsiteResponse
+ */
+@interface GTLRShoppingContent_AccountsClaimWebsiteResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#accountsClaimWebsiteResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_AccountsCustomBatchRequest
  */
 @interface GTLRShoppingContent_AccountsCustomBatchRequest : GTLRObject
@@ -277,8 +291,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Account *account;
 
 /**
- *  The ID of the account to get or delete. Only defined if the method is get or
- *  delete.
+ *  The ID of the targeted account. Only defined if the method is get, delete or
+ *  claimwebsite.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -299,6 +313,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *merchantId;
 
 @property(nonatomic, copy, nullable) NSString *method;
+
+/**
+ *  Only applicable if the method is claimwebsite. Indicates whether or not to
+ *  take the claim from another account in case there is a conflict.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *overwrite;
 
 @end
 
@@ -327,7 +349,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The retrieved, created, or updated account. Not defined if the method was
- *  delete.
+ *  delete or claimwebsite.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Account *account;
 
@@ -397,6 +419,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  "content#accountStatus".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Whether the account's website is claimed or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *websiteClaimed;
 
 @end
 

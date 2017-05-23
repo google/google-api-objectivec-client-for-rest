@@ -31,16 +31,16 @@ NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Move = 
 NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
 
 // GTLRCloudResourceManager_FolderOperationError.errorMessageId
-NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedError = @"CYCLE_INTRODUCED_ERROR";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ActiveFolderHeightViolation = @"ACTIVE_FOLDER_HEIGHT_VIOLATION";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedViolation = @"CYCLE_INTRODUCED_VIOLATION";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_DeletedFolderHeightViolation = @"DELETED_FOLDER_HEIGHT_VIOLATION";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ErrorTypeUnspecified = @"ERROR_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderBeingMoved = @"FOLDER_BEING_MOVED";
-NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderHeightViolation = @"FOLDER_HEIGHT_VIOLATION";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderBeingMovedViolation = @"FOLDER_BEING_MOVED_VIOLATION";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderNameUniquenessViolation = @"FOLDER_NAME_UNIQUENESS_VIOLATION";
-NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmpty = @"FOLDER_TO_DELETE_NON_EMPTY";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmptyViolation = @"FOLDER_TO_DELETE_NON_EMPTY_VIOLATION";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_MaxChildFoldersViolation = @"MAX_CHILD_FOLDERS_VIOLATION";
-NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeleted = @"PARENT_DELETED";
-NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeleted = @"RESOURCE_DELETED";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeletedViolation = @"PARENT_DELETED_VIOLATION";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeletedViolation = @"RESOURCE_DELETED_VIOLATION";
 
 // GTLRCloudResourceManager_ListPolicy.allValues
 NSString * const kGTLRCloudResourceManager_ListPolicy_AllValues_Allow = @"ALLOW";

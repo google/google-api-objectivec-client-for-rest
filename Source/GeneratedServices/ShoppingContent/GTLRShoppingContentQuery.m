@@ -64,6 +64,29 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @end
 
+@implementation GTLRShoppingContentQuery_AccountsClaimwebsite
+
+@dynamic accountId, merchantId, overwrite;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId {
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/accounts/{accountId}/claimwebsite";
+  GTLRShoppingContentQuery_AccountsClaimwebsite *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_AccountsClaimWebsiteResponse class];
+  query.loggingName = @"content.accounts.claimwebsite";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_AccountsCustombatch
 
 @dynamic dryRun;
@@ -1210,6 +1233,8 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @implementation GTLRShoppingContentQuery_ProductstatusesCustombatch
 
+@dynamic includeAttributes;
+
 + (instancetype)queryWithObject:(GTLRShoppingContent_ProductstatusesCustomBatchRequest *)object {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -1230,7 +1255,7 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @implementation GTLRShoppingContentQuery_ProductstatusesGet
 
-@dynamic merchantId, productId;
+@dynamic includeAttributes, merchantId, productId;
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                           productId:(NSString *)productId {
@@ -1253,7 +1278,8 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @implementation GTLRShoppingContentQuery_ProductstatusesList
 
-@dynamic includeInvalidInsertedItems, maxResults, merchantId, pageToken;
+@dynamic includeAttributes, includeInvalidInsertedItems, maxResults, merchantId,
+         pageToken;
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];

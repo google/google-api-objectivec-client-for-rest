@@ -134,6 +134,47 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
+ *  Claims the website of a Merchant Center sub-account. This method can only be
+ *  called for multi-client accounts.
+ *
+ *  Method: content.accounts.claimwebsite
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsClaimwebsite : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForAccountsClaimwebsiteWithmerchantId:accountId:]
+
+/** The ID of the account whose website is claimed. */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/** The ID of the managing account. */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Flag to remove any existing claim on the requested website by another
+ *  account and replace it with a claim from this account.
+ */
+@property(nonatomic, assign) BOOL overwrite;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_AccountsClaimWebsiteResponse.
+ *
+ *  Claims the website of a Merchant Center sub-account. This method can only be
+ *  called for multi-client accounts.
+ *
+ *  @param merchantId The ID of the managing account.
+ *  @param accountId The ID of the account whose website is claimed.
+ *
+ *  @returns GTLRShoppingContentQuery_AccountsClaimwebsite
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId;
+
+@end
+
+/**
  *  Retrieves, inserts, updates, and deletes multiple Merchant Center
  *  (sub-)accounts in a single request.
  *
@@ -1985,6 +2026,12 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 //   +[GTLQueryShoppingContent queryForProductstatusesCustombatchWithObject:]
 
 /**
+ *  Flag to include full product data in the results of this request. The
+ *  default value is false.
+ */
+@property(nonatomic, assign) BOOL includeAttributes;
+
+/**
  *  Fetches a @c GTLRShoppingContent_ProductstatusesCustomBatchResponse.
  *
  *  Gets the statuses of multiple products in a single request. This method can
@@ -2011,6 +2058,12 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @interface GTLRShoppingContentQuery_ProductstatusesGet : GTLRShoppingContentQuery
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForProductstatusesGetWithmerchantId:productId:]
+
+/**
+ *  Flag to include full product data in the result of this get request. The
+ *  default value is false.
+ */
+@property(nonatomic, assign) BOOL includeAttributes;
 
 /** The ID of the managing account. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -2046,6 +2099,12 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @interface GTLRShoppingContentQuery_ProductstatusesList : GTLRShoppingContentQuery
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForProductstatusesListWithmerchantId:]
+
+/**
+ *  Flag to include full product data in the results of the list request. The
+ *  default value is false.
+ */
+@property(nonatomic, assign) BOOL includeAttributes;
 
 /**
  *  Flag to include the invalid inserted items in the result of the list

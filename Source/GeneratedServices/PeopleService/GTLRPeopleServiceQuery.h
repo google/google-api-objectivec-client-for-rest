@@ -71,12 +71,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Comma-separated list of fields to be included in the response. Omitting
- *  this field will include all fields except for connections.list requests,
- *  which have a default mask that includes common fields like metadata, name,
- *  photo, and profile url.
- *  Each path should start with `person.`: for example, `person.names` or
- *  `person.photos`.
+ *  Required. Comma-separated list of person fields to be included in the
+ *  response. Each path should start with `person.`: for example,
+ *  `person.names` or `person.photos`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -131,7 +128,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @end
 
 /**
- *  Provides information about a person for a resource name. Use
+ *  Provides information about a person by specifying a resource name. Use
  *  `people/me` to indicate the authenticated user.
  *
  *  Method: people.people.get
@@ -152,12 +149,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 //   +[GTLQueryPeopleService queryForPeopleGetWithresourceName:]
 
 /**
- *  Comma-separated list of fields to be included in the response. Omitting
- *  this field will include all fields except for connections.list requests,
- *  which have a default mask that includes common fields like metadata, name,
- *  photo, and profile url.
- *  Each path should start with `person.`: for example, `person.names` or
- *  `person.photos`.
+ *  Required. Comma-separated list of person fields to be included in the
+ *  response. Each path should start with `person.`: for example,
+ *  `person.names` or `person.photos`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -175,7 +169,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 /**
  *  Fetches a @c GTLRPeopleService_Person.
  *
- *  Provides information about a person for a resource name. Use
+ *  Provides information about a person by specifying a resource name. Use
  *  `people/me` to indicate the authenticated user.
  *
  *  @param resourceName The resource name of the person to provide information
@@ -214,12 +208,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 //   +[GTLQueryPeopleService queryForPeopleGetBatchGet]
 
 /**
- *  Comma-separated list of fields to be included in the response. Omitting
- *  this field will include all fields except for connections.list requests,
- *  which have a default mask that includes common fields like metadata, name,
- *  photo, and profile url.
- *  Each path should start with `person.`: for example, `person.names` or
- *  `person.photos`.
+ *  Required. Comma-separated list of person fields to be included in the
+ *  response. Each path should start with `person.`: for example,
+ *  `person.names` or `person.photos`.
  *
  *  String format is a comma-separated list of fields.
  */

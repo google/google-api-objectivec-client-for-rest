@@ -64,6 +64,26 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomCourseworkStudents;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomCourseworkStudentsReadonly;
 /**
+ *  Authorization scope: View your Google Classroom guardians
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.guardianlinks.me.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomGuardianlinksMeReadonly;
+/**
+ *  Authorization scope: View and manage guardians for students in your Google
+ *  Classroom classes
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.guardianlinks.students"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomGuardianlinksStudents;
+/**
+ *  Authorization scope: View guardians for students in your Google Classroom
+ *  classes
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.guardianlinks.students.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeClassroomGuardianlinksStudentsReadonly;
+/**
  *  Authorization scope: View the email addresses of people in your classes
  *
  *  Value "https://www.googleapis.com/auth/classroom.profile.emails"
