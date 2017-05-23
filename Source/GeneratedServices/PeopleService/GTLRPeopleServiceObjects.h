@@ -1191,7 +1191,11 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** Metadata about the photo. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_FieldMetadata *metadata;
 
-/** The URL of the photo. */
+/**
+ *  The URL of the photo. You can change the desired size by appending a query
+ *  parameter `sz=<size>` at the end of the url. Example:
+ *  `https://lh3.googleusercontent.com/-T_wVWLlmg7w/AAAAAAAAAAI/AAAAAAAABa8/00gzXvDBYqw/s100/photo.jpg?sz=50`
+ */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end

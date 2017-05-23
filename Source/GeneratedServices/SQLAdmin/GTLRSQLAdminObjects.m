@@ -271,7 +271,7 @@
 //
 
 @implementation GTLRSQLAdmin_ImportContext
-@dynamic csvImportOptions, database, fileType, kind, uri;
+@dynamic csvImportOptions, database, fileType, importUser, kind, uri;
 @end
 
 

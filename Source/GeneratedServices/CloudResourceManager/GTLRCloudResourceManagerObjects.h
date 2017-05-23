@@ -126,11 +126,17 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperation_Operation
 // GTLRCloudResourceManager_FolderOperationError.errorMessageId
 
 /**
+ *  The attempted action would violate the max folder depth constraint.
+ *
+ *  Value: "ACTIVE_FOLDER_HEIGHT_VIOLATION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ActiveFolderHeightViolation;
+/**
  *  The attempted action would introduce cycle in resource path.
  *
- *  Value: "CYCLE_INTRODUCED_ERROR"
+ *  Value: "CYCLE_INTRODUCED_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedError;
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedViolation;
 /**
  *  The attempted action would violate the max deleted folder depth
  *  constraint.
@@ -147,15 +153,9 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
 /**
  *  The attempted action would move a folder that is already being moved.
  *
- *  Value: "FOLDER_BEING_MOVED"
+ *  Value: "FOLDER_BEING_MOVED_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderBeingMoved;
-/**
- *  The attempted action would violate the max folder depth constraint.
- *
- *  Value: "FOLDER_HEIGHT_VIOLATION"
- */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderHeightViolation;
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderBeingMovedViolation;
 /**
  *  The attempted action would violate the locally-unique folder
  *  display_name constraint.
@@ -166,9 +166,9 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
 /**
  *  The folder the caller is trying to delete contains active resources.
  *
- *  Value: "FOLDER_TO_DELETE_NON_EMPTY"
+ *  Value: "FOLDER_TO_DELETE_NON_EMPTY_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmpty;
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmptyViolation;
 /**
  *  The attempted action would violate the max child folders constraint.
  *
@@ -178,15 +178,15 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
 /**
  *  The resource a folder was being added to has been deleted.
  *
- *  Value: "PARENT_DELETED"
+ *  Value: "PARENT_DELETED_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeleted;
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeletedViolation;
 /**
  *  The resource being moved has been deleted.
  *
- *  Value: "RESOURCE_DELETED"
+ *  Value: "RESOURCE_DELETED_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeleted;
+GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeletedViolation;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudResourceManager_ListPolicy.allValues
@@ -636,35 +636,36 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
  *  The type of operation error experienced.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedError
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ActiveFolderHeightViolation
+ *        The attempted action would violate the max folder depth constraint.
+ *        (Value: "ACTIVE_FOLDER_HEIGHT_VIOLATION")
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedViolation
  *        The attempted action would introduce cycle in resource path. (Value:
- *        "CYCLE_INTRODUCED_ERROR")
+ *        "CYCLE_INTRODUCED_VIOLATION")
  *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_DeletedFolderHeightViolation
  *        The attempted action would violate the max deleted folder depth
  *        constraint. (Value: "DELETED_FOLDER_HEIGHT_VIOLATION")
  *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ErrorTypeUnspecified
  *        The error type was unrecognized or unspecified. (Value:
  *        "ERROR_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderBeingMoved
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderBeingMovedViolation
  *        The attempted action would move a folder that is already being moved.
- *        (Value: "FOLDER_BEING_MOVED")
- *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderHeightViolation
- *        The attempted action would violate the max folder depth constraint.
- *        (Value: "FOLDER_HEIGHT_VIOLATION")
+ *        (Value: "FOLDER_BEING_MOVED_VIOLATION")
  *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderNameUniquenessViolation
  *        The attempted action would violate the locally-unique folder
  *        display_name constraint. (Value: "FOLDER_NAME_UNIQUENESS_VIOLATION")
- *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmpty
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmptyViolation
  *        The folder the caller is trying to delete contains active resources.
- *        (Value: "FOLDER_TO_DELETE_NON_EMPTY")
+ *        (Value: "FOLDER_TO_DELETE_NON_EMPTY_VIOLATION")
  *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_MaxChildFoldersViolation
  *        The attempted action would violate the max child folders constraint.
  *        (Value: "MAX_CHILD_FOLDERS_VIOLATION")
- *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeleted
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeletedViolation
  *        The resource a folder was being added to has been deleted. (Value:
- *        "PARENT_DELETED")
- *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeleted
- *        The resource being moved has been deleted. (Value: "RESOURCE_DELETED")
+ *        "PARENT_DELETED_VIOLATION")
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeletedViolation
+ *        The resource being moved has been deleted. (Value:
+ *        "RESOURCE_DELETED_VIOLATION")
  */
 @property(nonatomic, copy, nullable) NSString *errorMessageId;
 

@@ -491,6 +491,7 @@
     "Unexpected JSON key under tracing/v2.resources.projects.resources.traces.methods.list: flatPath",
     "Unexpected JSON key under tracing/v2.resources.projects.resources.traces.methods.listSpans: flatPath",
     "Unexpected JSON key under tracing/v2.resources.projects.resources.traces.resources.spans.methods.create: flatPath",
+    "Unexpected JSON key under videointelligence/v1beta1.resources.videos.methods.annotate: flatPath",
     "Unexpected JSON key under vision/v1.resources.images.methods.annotate: flatPath",
     "Unexpected JSON key under youtubereporting/v1.resources.jobs.methods.create: flatPath",
     "Unexpected JSON key under youtubereporting/v1.resources.jobs.methods.delete: flatPath",

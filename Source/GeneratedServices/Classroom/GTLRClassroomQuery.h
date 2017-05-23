@@ -2446,6 +2446,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `Guardian` for this user.
  *
  *  Method: classroom.userProfiles.guardianInvitations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomGuardianlinksStudents
  */
 @interface GTLRClassroomQuery_UserProfilesGuardianInvitationsCreate : GTLRClassroomQuery
 // Previous library name was
@@ -2510,6 +2513,10 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  requesting user does not have access to see that student.
  *
  *  Method: classroom.userProfiles.guardianInvitations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomGuardianlinksStudents
+ *    @c kGTLRAuthScopeClassroomGuardianlinksStudentsReadonly
  */
 @interface GTLRClassroomQuery_UserProfilesGuardianInvitationsGet : GTLRClassroomQuery
 // Previous library name was
@@ -2566,6 +2573,10 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  recognized, but Classroom has no record of that student.
  *
  *  Method: classroom.userProfiles.guardianInvitations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomGuardianlinksStudents
+ *    @c kGTLRAuthScopeClassroomGuardianlinksStudentsReadonly
  */
 @interface GTLRClassroomQuery_UserProfilesGuardianInvitationsList : GTLRClassroomQuery
 // Previous library name was
@@ -2674,6 +2685,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  refer to a guardian invitation known to Classroom.
  *
  *  Method: classroom.userProfiles.guardianInvitations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomGuardianlinksStudents
  */
 @interface GTLRClassroomQuery_UserProfilesGuardianInvitationsPatch : GTLRClassroomQuery
 // Previous library name was
@@ -2749,6 +2763,9 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  student with the provided `guardian_id`.
  *
  *  Method: classroom.userProfiles.guardians.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomGuardianlinksStudents
  */
 @interface GTLRClassroomQuery_UserProfilesGuardiansDelete : GTLRClassroomQuery
 // Previous library name was
@@ -2814,6 +2831,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  student that matches the provided `guardian_id`.
  *
  *  Method: classroom.userProfiles.guardians.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomGuardianlinksMeReadonly
+ *    @c kGTLRAuthScopeClassroomGuardianlinksStudents
+ *    @c kGTLRAuthScopeClassroomGuardianlinksStudentsReadonly
  */
 @interface GTLRClassroomQuery_UserProfilesGuardiansGet : GTLRClassroomQuery
 // Previous library name was
@@ -2881,6 +2903,11 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  recognized, but Classroom has no record of that student.
  *
  *  Method: classroom.userProfiles.guardians.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomGuardianlinksMeReadonly
+ *    @c kGTLRAuthScopeClassroomGuardianlinksStudents
+ *    @c kGTLRAuthScopeClassroomGuardianlinksStudentsReadonly
  */
 @interface GTLRClassroomQuery_UserProfilesGuardiansList : GTLRClassroomQuery
 // Previous library name was
