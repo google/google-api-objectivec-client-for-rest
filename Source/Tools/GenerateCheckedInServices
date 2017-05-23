@@ -14,11 +14,6 @@ readonly GeneratedServicesDir="${ToolsDir}/../GeneratedServices"
 # building with -alltargets and not with -scheme.
 readonly ServiceGeneratorBinary="${ServiceGeneratorDir}/build/Debug/ServiceGenerator"
 
-BLOCK_WAITING_FOR_CANONICAL_NAMES=1
-if [[ $# -ge 1 && ( "$1" == "-a" || "$1" == "--all" ) ]] ; then
-  BLOCK_WAITING_FOR_CANONICAL_NAMES=0
-  shift
-fi
 BRIEF_MODE=--brief
 if [[ $# -ge 1 && ( "$1" == "--no-brief" ) ]] ; then
   BRIEF_MODE=
@@ -74,22 +69,6 @@ SERVICE_GENERATOR_COMMAND+=(
   # Include a filter so there are no warnings/infos during normal generation.
   --messageFilter "${ToolsDir}/${ScriptName}-message_filter.json"
 )
-
-if [[ "${BLOCK_WAITING_FOR_CANONICAL_NAMES}" == 1 ]] ; then
-  SERVICE_GENERATOR_COMMAND+=(
-    # APIs currently waiting for canonical names before generating.
-    acceleratedmobilepageurl:-
-    appengine:-
-    clouderrorreporting:-
-    dataproc:-
-    dfareporting:-
-    iam:-
-    kgsearch:-
-    replicapool:-
-    replicapoolupdater:-
-    resourceviews:-
-  )
-fi
 
 # Away it goes...
 Banner "Running the ServiceGenerator..."
