@@ -71,11 +71,6 @@ SERVICE_GENERATOR_COMMAND+=(
   admin:datatransfer_v1
   admin:directory_v1
 
-  # APIs currently blocked because they include Foo::Bar and FooBar, so it
-  # causes class collisions.
-  servicemanagement:-
-  genomics:-
-
   # Include a filter so there are no warnings/infos during normal generation.
   --messageFilter "${ToolsDir}/${ScriptName}-message_filter.json"
 )

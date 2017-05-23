@@ -244,6 +244,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/GamesManagement/*.{h,m}'
   end
+  s.subspec 'Genomics' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Genomics/*.{h,m}'
+  end
   s.subspec 'Gmail' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Gmail/*.{h,m}'
@@ -351,6 +355,10 @@ Pod::Spec.new do |s|
   s.subspec 'ServiceControl' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ServiceControl/*.{h,m}'
+  end
+  s.subspec 'ServiceManagement' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ServiceManagement/*.{h,m}'
   end
   s.subspec 'ServiceUser' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
