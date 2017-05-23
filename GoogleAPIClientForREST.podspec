@@ -32,6 +32,10 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
 
   # subspecs for all the services.
+  s.subspec 'Acceleratedmobilepageurl' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Acceleratedmobilepageurl/*.{h,m}'
+  end
   s.subspec 'AdExchangeBuyer' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AdExchangeBuyer/*.{h,m}'
@@ -71,6 +75,10 @@ Pod::Spec.new do |s|
   s.subspec 'AppState' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AppState/*.{h,m}'
+  end
+  s.subspec 'Appengine' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Appengine/*.{h,m}'
   end
   s.subspec 'Appsactivity' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -156,6 +164,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudVideoIntelligence/*.{h,m}'
   end
+  s.subspec 'Clouderrorreporting' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Clouderrorreporting/*.{h,m}'
+  end
   s.subspec 'Compute' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Compute/*.{h,m}'
@@ -184,6 +196,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Dataflow/*.{h,m}'
   end
+  s.subspec 'Dataproc' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Dataproc/*.{h,m}'
+  end
   s.subspec 'Datastore' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Datastore/*.{h,m}'
@@ -191,6 +207,10 @@ Pod::Spec.new do |s|
   s.subspec 'DeploymentManager' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DeploymentManager/*.{h,m}'
+  end
+  s.subspec 'Dfareporting' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Dfareporting/*.{h,m}'
   end
   s.subspec 'Directory' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -260,9 +280,17 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/GroupsSettings/*.{h,m}'
   end
+  s.subspec 'Iam' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Iam/*.{h,m}'
+  end
   s.subspec 'IdentityToolkit' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/IdentityToolkit/*.{h,m}'
+  end
+  s.subspec 'Kgsearch' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Kgsearch/*.{h,m}'
   end
   s.subspec 'Licensing' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -328,6 +356,14 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/QPXExpress/*.{h,m}'
   end
+  s.subspec 'Replicapool' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Replicapool/*.{h,m}'
+  end
+  s.subspec 'Replicapoolupdater' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Replicapoolupdater/*.{h,m}'
+  end
   s.subspec 'Reports' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Reports/*.{h,m}'
@@ -335,6 +371,10 @@ Pod::Spec.new do |s|
   s.subspec 'Reseller' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Reseller/*.{h,m}'
+  end
+  s.subspec 'Resourceviews' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Resourceviews/*.{h,m}'
   end
   s.subspec 'SQLAdmin' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
