@@ -1432,7 +1432,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
 // Append "_param" to any name used as a local variable when generating the
 // query method implementation to avoid duplication variables.
-static NSString *MappedParamName(NSString *name) {
+static NSString *MappedParamImplName(NSString *name) {
   NSString *result = name;
 
   if ([name isEqual:@"object"] ||
@@ -1440,6 +1440,19 @@ static NSString *MappedParamName(NSString *name) {
       [name isEqual:@"pathParams"] ||
       [name isEqual:@"query"] ||
       [name isEqual:@"uploadParameters"]) {
+    result = [name stringByAppendingString:@"_param"];
+  }
+
+  return result;
+}
+
+// Append "_param" to any name used as a parameter when generating the
+// query method interface to avoid duplication variables.
+static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL takesUploadParams) {
+  NSString *result = name;
+
+  if ((takesObject && [name isEqual:@"object"]) ||
+      (takesUploadParams && [name isEqual:@"uploadParameters"])) {
     result = [name stringByAppendingString:@"_param"];
   }
 
@@ -1935,10 +1948,14 @@ static NSString *MappedParamName(NSString *name) {
         NSString *capitalizeObjCName = param.sg_capObjCName;
         [methodStr appendFormat:@"With%@:(%@%@)%@",
          capitalizeObjCName, objcType, (asPtr ? @" *" : @""),
-         (mode == kGenerateInterface ? name : MappedParamName(name))];
+         (mode == kGenerateInterface
+          ? MappedParamInterfaceName(name, doesQueryTakeObject, supportsMediaUpload)
+          : MappedParamImplName(name))];
         [downloadMethodStr appendFormat:@"With%@:(%@%@)%@",
          capitalizeObjCName, objcType, (asPtr ? @" *" : @""),
-         (mode == kGenerateInterface ? name : MappedParamName(name))];
+         (mode == kGenerateInterface
+          ? MappedParamInterfaceName(name, doesQueryTakeObject, supportsMediaUpload)
+          : MappedParamImplName(name))];
         nameWidth += 4 + capitalizeObjCName.length; // 'With%@'
         downloadNameWidth += 4 + capitalizeObjCName.length;
         needsWith = NO;
@@ -1949,11 +1966,15 @@ static NSString *MappedParamName(NSString *name) {
         [methodStr appendFormat:@"\n%*s:(%@%@)%@",
          (int)nameWidth, name.UTF8String, objcType,
          (asPtr ? @" *" : @""),
-         (mode == kGenerateInterface ? name : MappedParamName(name))];
+         (mode == kGenerateInterface
+          ? MappedParamInterfaceName(name, doesQueryTakeObject, supportsMediaUpload)
+          : MappedParamImplName(name))];
         [downloadMethodStr appendFormat:@"\n%*s:(%@%@)%@",
          (int)downloadNameWidth, name.UTF8String, objcType,
          (asPtr ? @" *" : @""),
-         (mode == kGenerateInterface ? name : MappedParamName(name))];
+         (mode == kGenerateInterface
+          ? MappedParamInterfaceName(name, doesQueryTakeObject, supportsMediaUpload)
+          : MappedParamImplName(name))];
       }
 
       NSString *paramDesc = param.descriptionProperty;
@@ -1970,7 +1991,8 @@ static NSString *MappedParamName(NSString *name) {
       if (paramDesc.length == 0) {
         paramDesc = objcType;
       }
-      [methodHDoc appendParam:name string:paramDesc];
+      [methodHDoc appendParam:MappedParamInterfaceName(name, doesQueryTakeObject, supportsMediaUpload)
+                       string:paramDesc];
 
     }  // for (param in method.sg_sortedParameters)
 
@@ -2188,7 +2210,7 @@ static NSString *MappedParamName(NSString *name) {
         for (GTLRDiscovery_JsonSchema *param in method.sg_sortedParameters) {
           if (param.required.boolValue) {
             NSString *name = param.sg_objcName;
-            NSString *nameAsValue = MappedParamName(name);
+            NSString *nameAsValue = MappedParamImplName(name);
             [methodStr appendFormat:@"  query.%@ = %@;\n", name, nameAsValue];
           }
         }
@@ -2242,13 +2264,13 @@ static NSString *MappedParamName(NSString *name) {
           if (needsWith) {
             NSString *capitalizeObjCName = param.sg_capObjCName;
             [downloadMethodStr appendFormat:@"With%@:%@",
-             capitalizeObjCName, MappedParamName(param.sg_objcName)];
+             capitalizeObjCName, MappedParamImplName(param.sg_objcName)];
             nameWidth += 4 + capitalizeObjCName.length; // 'With%@'
             needsWith = NO;
           } else {
             NSString *name = param.sg_objcName;
             [downloadMethodStr appendFormat:@"\n%*s:%@",
-             (int)nameWidth, name.UTF8String, MappedParamName(name)];
+             (int)nameWidth, name.UTF8String, MappedParamImplName(name)];
           }
         }
       }
