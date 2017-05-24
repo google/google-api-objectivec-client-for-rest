@@ -4317,8 +4317,8 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
  *        Advertiser entered website in contact form. (Value:
  *        "SMB_ENTERED_WEBSITE_IN_CONTACT_PARTNER_FORM")
  *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_SmbFailedRecaptchaInContactPartnerForm
- *        Advertiser failed <a
- *        href="https://www.google.com/recaptcha/">reCaptcha</a>
+ *        Advertiser failed
+ *        <a href="https://www.google.com/recaptcha/">reCaptcha</a>
  *        in contact form. (Value:
  *        "SMB_FAILED_RECAPTCHA_IN_CONTACT_PARTNER_FORM")
  *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_SmbNoPartnersAvailableWithSearchCriteria

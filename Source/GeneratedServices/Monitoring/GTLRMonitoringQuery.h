@@ -121,9 +121,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @end
 
 /**
- *  Stackdriver Monitoring Agent only: Creates a new time series.<aside
- *  class="caution">This method is only for use by the Stackdriver Monitoring
- *  Agent. Use projects.timeSeries.create instead.</aside>
+ *  Stackdriver Monitoring Agent only: Creates a new time
+ *  series.<aside class="caution">This method is only for use by the Stackdriver
+ *  Monitoring Agent. Use projects.timeSeries.create instead.</aside>
  *
  *  Method: monitoring.projects.collectdTimeSeries.create
  *
@@ -145,9 +145,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 /**
  *  Fetches a @c GTLRMonitoring_Empty.
  *
- *  Stackdriver Monitoring Agent only: Creates a new time series.<aside
- *  class="caution">This method is only for use by the Stackdriver Monitoring
- *  Agent. Use projects.timeSeries.create instead.</aside>
+ *  Stackdriver Monitoring Agent only: Creates a new time
+ *  series.<aside class="caution">This method is only for use by the Stackdriver
+ *  Monitoring Agent. Use projects.timeSeries.create instead.</aside>
  *
  *  @param object The @c GTLRMonitoring_CreateCollectdTimeSeriesRequest to
  *    include in the query.

@@ -22,6 +22,16 @@
 #import "SGUtils.h"
 #import "GTLRUtilities.h"
 
+@interface SGUtils ()
++ (NSString *)stringOfLinesFromString:(NSString *)str
+                      firstLinePrefix:(NSString *)firstLinePrefix
+                     extraLinesPrefix:(NSString *)extraLinesPrefix
+                          linesSuffix:(NSString *)linesSuffix
+                       lastLineSuffix:(NSString *)lastLineSuffix
+                        elementJoiner:(NSString *)elementJoiner
+                       handleHTMLTags:(BOOL)handleHTMLTags;
+@end
+
 static const NSUInteger kMaxWidth = 80;
 
 @implementation SGHeaderDoc {
@@ -216,7 +226,8 @@ static const NSUInteger kMaxWidth = 80;
                                       extraLinesPrefix:extraLinePrefix
                                            linesSuffix:@""
                                         lastLineSuffix:@""
-                                         elementJoiner:@" "];
+                                         elementJoiner:@" "
+                                        handleHTMLTags:YES];
   [self internalAppend:wrapped];
 }
 
@@ -392,6 +403,22 @@ static const NSUInteger kMaxWidth = 80;
                           linesSuffix:(NSString *)linesSuffix
                        lastLineSuffix:(NSString *)lastLineSuffix
                         elementJoiner:(NSString *)elementJoiner {
+  return [self stringOfLinesFromString:str
+                       firstLinePrefix:firstLinePrefix
+                      extraLinesPrefix:extraLinesPrefix
+                           linesSuffix:linesSuffix
+                        lastLineSuffix:lastLineSuffix
+                         elementJoiner:elementJoiner
+                        handleHTMLTags:NO];
+}
+
++ (NSString *)stringOfLinesFromString:(NSString *)str
+                      firstLinePrefix:(NSString *)firstLinePrefix
+                     extraLinesPrefix:(NSString *)extraLinesPrefix
+                          linesSuffix:(NSString *)linesSuffix
+                       lastLineSuffix:(NSString *)lastLineSuffix
+                        elementJoiner:(NSString *)elementJoiner
+                       handleHTMLTags:(BOOL)handleHTMLTags {
   if (str.length == 0) return nil;
 
   // Support forced new line by letting them through as words.
@@ -405,8 +432,50 @@ static const NSUInteger kMaxWidth = 80;
   if (words.count > 1) {
     str = [words componentsJoinedByString:@" \n "];
   }
+
   NSCharacterSet *wsSet = [NSCharacterSet whitespaceCharacterSet];
-  words = [str componentsSeparatedByCharactersInSet:wsSet];
+  if (handleHTMLTags) {
+    // Clang's -Wdocumentation doesn't like word wrapping within an
+    // html tag. Xcode also seems to get confused by it when providing
+    // the contextual help. So this option looks for HTML tags and
+    // keeps them as a single thing to wordwrap.
+    static NSRegularExpression *regex;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+      // Match anything that isn't whitespace, '<', a letter, anything but '>',
+      // anything that isn't whitespace.  This gets us anything before a tag and
+      // attached to the tag, and anything attached after it.
+      // NOTE: This is a little fragile, in that we don't want to catch things
+      // like "<= 12" or "<10".
+      regex = [NSRegularExpression regularExpressionWithPattern:@"\\S*<[a-zA-Z][^<>]*>\\S*"
+                                                        options:0
+                                                          error:NULL];
+      NSAssert(regex != nil, @"Ooops?");
+    });
+    __block NSUInteger lastOffset = 0;
+    NSMutableArray *collector = [NSMutableArray array];
+    [regex enumerateMatchesInString:str
+                            options:0
+                              range:NSMakeRange(0, str.length)
+                         usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+      if (lastOffset != result.range.location) {
+        // Everything before this match, split on whitespaces.
+        NSRange prevRange = NSMakeRange(lastOffset, result.range.location - lastOffset);
+        NSString *subStr = [str substringWithRange:prevRange];
+        [collector addObjectsFromArray:[subStr componentsSeparatedByCharactersInSet:wsSet]];
+      }
+      // Add this tag match so it will be wrapped as one chunk.
+      NSString *tag = [str substringWithRange:result.range];
+      [collector addObject:tag];
+      lastOffset = NSMaxRange(result.range);
+    }];
+    // Add anything left after the last match split on whitespece.
+    NSString *subStr = [str substringFromIndex:lastOffset];
+    [collector addObjectsFromArray:[subStr componentsSeparatedByCharactersInSet:wsSet]];
+    words = collector;
+  } else {
+    words = [str componentsSeparatedByCharactersInSet:wsSet];
+  }
 
   // componentsSeparatedByCharactersInSet (and componentsSeparatedByString) is
   // documented to take adjacent occurrences of the separator and produce empty
