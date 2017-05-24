@@ -297,8 +297,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *  @param groupName [Required] The group resource name. Written as
  *    <code>projects/<var>projectID</var>/groups/<var>group_name</var></code>.
  *    Call
- *    <a
- *    href="/error-reporting/reference/rest/v1beta1/projects.groupStats/list">
+ *    <a href="/error-reporting/reference/rest/v1beta1/projects.groupStats/list">
  *    <code>groupStats.list</code></a> to return a list of groups belonging to
  *    this project.
  *    Example: <code>projects/my-project-123/groups/my-group</code>
