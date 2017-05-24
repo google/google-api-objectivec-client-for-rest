@@ -72,7 +72,29 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_Sc
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleApiHttpBody
-@dynamic contentType, data;
+@dynamic contentType, data, extensions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensions" : [GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

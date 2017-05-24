@@ -97,6 +97,7 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#operationAggregatedList" : [GTLRCompute_OperationAggregatedList class],
     @"compute#operationList" : [GTLRCompute_OperationList class],
     @"compute#project" : [GTLRCompute_Project class],
+    @"compute#projectsGetXpnResources" : [GTLRCompute_ProjectsGetXpnResources class],
     @"compute#region" : [GTLRCompute_Region class],
     @"compute#regionAutoscalerList" : [GTLRCompute_RegionAutoscalerList class],
     @"compute#regionInstanceGroupList" : [GTLRCompute_RegionInstanceGroupList class],
@@ -138,6 +139,7 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#vpnTunnel" : [GTLRCompute_VpnTunnel class],
     @"compute#vpnTunnelAggregatedList" : [GTLRCompute_VpnTunnelAggregatedList class],
     @"compute#vpnTunnelList" : [GTLRCompute_VpnTunnelList class],
+    @"compute#xpnHostList" : [GTLRCompute_XpnHostList class],
     @"compute#zone" : [GTLRCompute_Zone class],
     @"compute#zoneList" : [GTLRCompute_ZoneList class],
   };

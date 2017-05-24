@@ -6362,6 +6362,15 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *imageUrl;
 
 /**
+ *  If non-empty, limits the matches to page elements only on the given pages.
+ *  Returns a 400 bad request error if given the page object ID of a
+ *  notes page or a
+ *  notes master, or if a
+ *  page with that object ID doesn't exist in the presentation.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pageObjectIds;
+
+/**
  *  The replace method.
  *
  *  Likely values:
@@ -6435,6 +6444,15 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @property(nonatomic, copy, nullable) NSString *linkingMode;
 
+/**
+ *  If non-empty, limits the matches to page elements only on the given pages.
+ *  Returns a 400 bad request error if given the page object ID of a
+ *  notes page or a
+ *  notes master, or if a
+ *  page with that object ID doesn't exist in the presentation.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pageObjectIds;
+
 /** The ID of the Google Sheets spreadsheet that contains the chart. */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
@@ -6463,6 +6481,14 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** Finds text in a shape matching this substring. */
 @property(nonatomic, strong, nullable) GTLRSlides_SubstringMatchCriteria *containsText;
+
+/**
+ *  If non-empty, limits the matches to page elements only on the given pages.
+ *  Returns a 400 bad request error if given the page object ID of a
+ *  notes master,
+ *  or if a page with that object ID doesn't exist in the presentation.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pageObjectIds;
 
 /** The text that will replace the matched text. */
 @property(nonatomic, copy, nullable) NSString *replaceText;

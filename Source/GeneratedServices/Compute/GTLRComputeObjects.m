@@ -397,6 +397,10 @@ NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ResourceNotDelet
 NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_Project.xpnProjectStatus
+NSString * const kGTLRCompute_Project_XpnProjectStatus_Host    = @"HOST";
+NSString * const kGTLRCompute_Project_XpnProjectStatus_UnspecifiedXpnProjectStatus = @"UNSPECIFIED_XPN_PROJECT_STATUS";
+
 // GTLRCompute_Quota.metric
 NSString * const kGTLRCompute_Quota_Metric_Autoscalers         = @"AUTOSCALERS";
 NSString * const kGTLRCompute_Quota_Metric_BackendBuckets      = @"BACKEND_BUCKETS";
@@ -640,6 +644,10 @@ NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ResourceInUseByO
 NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
 NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_XpnResourceId.type
+NSString * const kGTLRCompute_XpnResourceId_Type_Project       = @"PROJECT";
+NSString * const kGTLRCompute_XpnResourceId_Type_XpnResourceTypeUnspecified = @"XPN_RESOURCE_TYPE_UNSPECIFIED";
 
 // GTLRCompute_Zone.status
 NSString * const kGTLRCompute_Zone_Status_Down = @"DOWN";
@@ -1276,7 +1284,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_Disk
 @dynamic creationTimestamp, descriptionProperty, diskEncryptionKey, identifier,
-         kind, lastAttachTimestamp, lastDetachTimestamp, licenses, name,
+         kind, labels, lastAttachTimestamp, lastDetachTimestamp, licenses, name,
          options, selfLink, sizeGb, sourceImage, sourceImageEncryptionKey,
          sourceImageId, sourceSnapshot, sourceSnapshotEncryptionKey,
          sourceSnapshotId, status, type, users, zoneProperty;
@@ -1296,6 +1304,20 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
     @"users" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_Disk_Labels
+//
+
+@implementation GTLRCompute_Disk_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1733,6 +1755,30 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_GlobalSetLabelsRequest
+//
+
+@implementation GTLRCompute_GlobalSetLabelsRequest
+@dynamic labelFingerprint, labels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_GlobalSetLabelsRequest_Labels
+//
+
+@implementation GTLRCompute_GlobalSetLabelsRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_GuestOsFeature
 //
 
@@ -1941,7 +1987,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 @implementation GTLRCompute_Image
 @dynamic archiveSizeBytes, creationTimestamp, deprecated, descriptionProperty,
          diskSizeGb, family, guestOsFeatures, identifier, imageEncryptionKey,
-         kind, licenses, name, rawDisk, selfLink, sourceDisk,
+         kind, labels, licenses, name, rawDisk, selfLink, sourceDisk,
          sourceDiskEncryptionKey, sourceDiskId, sourceType, status;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1958,6 +2004,20 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
     @"licenses" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_Image_Labels
+//
+
+@implementation GTLRCompute_Image_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -2002,7 +2062,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_Instance
 @dynamic canIpForward, cpuPlatform, creationTimestamp, descriptionProperty,
-         disks, identifier, kind, machineType, metadata, name,
+         disks, identifier, kind, labels, machineType, metadata, name,
          networkInterfaces, scheduling, selfLink, serviceAccounts, status,
          statusMessage, tags, zoneProperty;
 
@@ -2022,6 +2082,20 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
     @"serviceAccounts" : [GTLRCompute_ServiceAccount class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_Instance_Labels
+//
+
+@implementation GTLRCompute_Instance_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -2545,8 +2619,8 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_InstanceProperties
-@dynamic canIpForward, descriptionProperty, disks, machineType, metadata,
-         networkInterfaces, scheduling, serviceAccounts, tags;
+@dynamic canIpForward, descriptionProperty, disks, labels, machineType,
+         metadata, networkInterfaces, scheduling, serviceAccounts, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2559,6 +2633,20 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
     @"serviceAccounts" : [GTLRCompute_ServiceAccount class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceProperties_Labels
+//
+
+@implementation GTLRCompute_InstanceProperties_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -2617,6 +2705,30 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_InstancesScopedList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstancesSetLabelsRequest
+//
+
+@implementation GTLRCompute_InstancesSetLabelsRequest
+@dynamic labelFingerprint, labels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstancesSetLabelsRequest_Labels
+//
+
+@implementation GTLRCompute_InstancesSetLabelsRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -3263,7 +3375,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 @implementation GTLRCompute_Project
 @dynamic commonInstanceMetadata, creationTimestamp, defaultServiceAccount,
          descriptionProperty, enabledFeatures, identifier, kind, name, quotas,
-         selfLink, usageExportLocation;
+         selfLink, usageExportLocation, xpnProjectStatus;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -3281,6 +3393,58 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ProjectsDisableXpnResourceRequest
+//
+
+@implementation GTLRCompute_ProjectsDisableXpnResourceRequest
+@dynamic xpnResource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ProjectsEnableXpnResourceRequest
+//
+
+@implementation GTLRCompute_ProjectsEnableXpnResourceRequest
+@dynamic xpnResource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ProjectsGetXpnResources
+//
+
+@implementation GTLRCompute_ProjectsGetXpnResources
+@dynamic kind, nextPageToken, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRCompute_XpnResourceId class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"resources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ProjectsListXpnHostsRequest
+//
+
+@implementation GTLRCompute_ProjectsListXpnHostsRequest
+@dynamic organization;
 @end
 
 
@@ -3909,7 +4073,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_Snapshot
 @dynamic creationTimestamp, descriptionProperty, diskSizeGb, identifier, kind,
-         licenses, name, selfLink, snapshotEncryptionKey, sourceDisk,
+         labels, licenses, name, selfLink, snapshotEncryptionKey, sourceDisk,
          sourceDiskEncryptionKey, sourceDiskId, status, storageBytes,
          storageBytesStatus;
 
@@ -3926,6 +4090,20 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
     @"licenses" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_Snapshot_Labels
+//
+
+@implementation GTLRCompute_Snapshot_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -5100,6 +5278,43 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_XpnHostList
+//
+
+@implementation GTLRCompute_XpnHostList
+@dynamic identifier, items, kind, nextPageToken, selfLink;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_Project class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_XpnResourceId
+//
+
+@implementation GTLRCompute_XpnResourceId
+@dynamic identifier, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_Zone
 //
 
@@ -5135,6 +5350,30 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
     @"items" : [GTLRCompute_Zone class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ZoneSetLabelsRequest
+//
+
+@implementation GTLRCompute_ZoneSetLabelsRequest
+@dynamic labelFingerprint, labels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ZoneSetLabelsRequest_Labels
+//
+
+@implementation GTLRCompute_ZoneSetLabelsRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

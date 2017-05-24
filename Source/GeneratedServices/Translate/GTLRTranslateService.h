@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Translate API (translate/v2)
+//   Google Cloud Translation API (translate/v2)
 // Description:
-//   Translates text from one language to another.
+//   The Google Cloud Translation API lets websites and programs integrate with
+//   Google Translate programmatically.
 // Documentation:
-//   https://developers.google.com/translate/v2/using_rest
+//   https://code.google.com/apis/language/translate/v2/getting_started.html
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -20,10 +21,33 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
 /**
- *  Service for executing Translate API queries.
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
- *  Translates text from one language to another.
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeTranslateCloudPlatform;
+/**
+ *  Authorization scope: Translate text from one language to another using
+ *  Google Translate
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-translation"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeTranslateCloudTranslation;
+
+// ----------------------------------------------------------------------------
+//   GTLRTranslateService
+//
+
+/**
+ *  Service for executing Google Cloud Translation API queries.
+ *
+ *  The Google Cloud Translation API lets websites and programs integrate with
+ *  Google Translate programmatically.
  */
 @interface GTLRTranslateService : GTLRService
 

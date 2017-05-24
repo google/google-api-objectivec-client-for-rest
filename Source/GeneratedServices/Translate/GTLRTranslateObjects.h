@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Translate API (translate/v2)
+//   Google Cloud Translation API (translate/v2)
 // Description:
-//   Translates text from one language to another.
+//   The Google Cloud Translation API lets websites and programs integrate with
+//   Google Translate programmatically.
 // Documentation:
-//   https://developers.google.com/translate/v2/using_rest
+//   https://code.google.com/apis/language/translate/v2/getting_started.html
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -41,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_DetectionsResource_Item : GTLRObject
 
 /**
- *  The confidence of the detection resul of this language.
+ *  The confidence of the detection result of this language.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -54,8 +55,36 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *isReliable;
 
-/** The language we detect */
+/** The language we detected. */
 @property(nonatomic, copy, nullable) NSString *language;
+
+@end
+
+
+/**
+ *  The request message for language detection.
+ */
+@interface GTLRTranslate_DetectLanguageRequest : GTLRObject
+
+/**
+ *  The input text upon which to perform language detection. Repeat this
+ *  parameter to perform language detection on multiple text inputs.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *q;
+
+@end
+
+
+/**
+ *  The request message for discovering supported languages.
+ */
+@interface GTLRTranslate_GetSupportedLanguagesRequest : GTLRObject
+
+/**
+ *  The language to use to return localized, human readable names of supported
+ *  languages.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
 
 @end
 
@@ -81,17 +110,61 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTranslate_LanguagesResource : GTLRObject
 
-/** The language code. */
+/**
+ *  Supported language code, generally consisting of its ISO 639-1
+ *  identifier. (E.g. 'en', 'ja'). In certain cases, BCP-47 codes including
+ *  language + region identifiers are returned (e.g. 'zh-TW' and 'zh-CH')
+ */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/** The localized name of the language if target parameter is given. */
+/** Human readable name of the language localized to the target language. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
 
 /**
- *  GTLRTranslate_TranslationsListResponse
+ *  The main translation request message for the Cloud Translation API.
+ */
+@interface GTLRTranslate_TextRequest : GTLRObject
+
+/**
+ *  The format of the source text, in either HTML (default) or plain-text. A
+ *  value of "html" indicates HTML and a value of "text" indicates plain-text.
+ */
+@property(nonatomic, copy, nullable) NSString *format;
+
+/**
+ *  The `model` type requested for this translation. Valid values are
+ *  listed in public documentation.
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  The input text to translate. Repeat this parameter to perform translation
+ *  operations on multiple text inputs.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *q;
+
+/**
+ *  The language of the source text, set to one of the language codes listed in
+ *  Language Support. If the source language is not specified, the API will
+ *  attempt to identify the source language automatically and return it within
+ *  the response.
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  The language to use for translation of the input text, set to one of the
+ *  language codes listed in Language Support.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+@end
+
+
+/**
+ *  The main language translation response message.
  */
 @interface GTLRTranslate_TranslationsListResponse : GTLRObject
 
@@ -106,10 +179,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTranslate_TranslationsResource : GTLRObject
 
-/** Detected source language if source parameter is unspecified. */
+/**
+ *  The source language of the initial request, detected automatically, if
+ *  no source language was passed within the initial request. If the
+ *  source language was passed, auto-detection of the language will not
+ *  occur and this field will be empty.
+ */
 @property(nonatomic, copy, nullable) NSString *detectedSourceLanguage;
 
-/** The translation. */
+/**
+ *  The `model` type used for this translation. Valid values are
+ *  listed in public documentation. Can be different from requested `model`.
+ *  Present only if specific model type was explicitly requested.
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/** Text translated into the target language. */
 @property(nonatomic, copy, nullable) NSString *translatedText;
 
 @end

@@ -1347,7 +1347,15 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_ReplaceAllShapesWithImageRequest
-@dynamic containsText, imageUrl, replaceMethod;
+@dynamic containsText, imageUrl, pageObjectIds, replaceMethod;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pageObjectIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1367,7 +1375,15 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_ReplaceAllShapesWithSheetsChartRequest
-@dynamic chartId, containsText, linkingMode, spreadsheetId;
+@dynamic chartId, containsText, linkingMode, pageObjectIds, spreadsheetId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pageObjectIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1387,7 +1403,15 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_ReplaceAllTextRequest
-@dynamic containsText, replaceText;
+@dynamic containsText, pageObjectIds, replaceText;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pageObjectIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
