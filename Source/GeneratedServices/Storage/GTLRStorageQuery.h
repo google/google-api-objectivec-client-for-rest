@@ -1653,14 +1653,14 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  @param object The @c GTLRStorage_ObjectAccessControl to include in the
  *    query.
  *  @param bucket Name of a bucket.
- *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *  @param object_param Name of the object. For information about how to URL
+ *    encode object names to be path safe, see Encoding URI Path Parts.
  *
  *  @returns GTLRStorageQuery_ObjectAccessControlsInsert
  */
 + (instancetype)queryWithObject:(GTLRStorage_ObjectAccessControl *)object
                          bucket:(NSString *)bucket
-                         object:(NSString *)object;
+                         object:(NSString *)object_param;
 
 @end
 
@@ -1764,8 +1764,8 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  @param object The @c GTLRStorage_ObjectAccessControl to include in the
  *    query.
  *  @param bucket Name of a bucket.
- *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *  @param object_param Name of the object. For information about how to URL
+ *    encode object names to be path safe, see Encoding URI Path Parts.
  *  @param entity The entity holding the permission. Can be user-userId,
  *    user-emailAddress, group-groupId, group-emailAddress, allUsers, or
  *    allAuthenticatedUsers.
@@ -1774,7 +1774,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 + (instancetype)queryWithObject:(GTLRStorage_ObjectAccessControl *)object
                          bucket:(NSString *)bucket
-                         object:(NSString *)object
+                         object:(NSString *)object_param
                          entity:(NSString *)entity;
 
 @end
@@ -1827,8 +1827,8 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  @param object The @c GTLRStorage_ObjectAccessControl to include in the
  *    query.
  *  @param bucket Name of a bucket.
- *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *  @param object_param Name of the object. For information about how to URL
+ *    encode object names to be path safe, see Encoding URI Path Parts.
  *  @param entity The entity holding the permission. Can be user-userId,
  *    user-emailAddress, group-groupId, group-emailAddress, allUsers, or
  *    allAuthenticatedUsers.
@@ -1837,7 +1837,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 + (instancetype)queryWithObject:(GTLRStorage_ObjectAccessControl *)object
                          bucket:(NSString *)bucket
-                         object:(NSString *)object
+                         object:(NSString *)object_param
                          entity:(NSString *)entity;
 
 @end
@@ -2682,14 +2682,14 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  @param object The @c GTLRStorage_Object to include in the query.
  *  @param bucket Name of the bucket in which the object resides.
- *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *  @param object_param Name of the object. For information about how to URL
+ *    encode object names to be path safe, see Encoding URI Path Parts.
  *
  *  @returns GTLRStorageQuery_ObjectsPatch
  */
 + (instancetype)queryWithObject:(GTLRStorage_Object *)object
                          bucket:(NSString *)bucket
-                         object:(NSString *)object;
+                         object:(NSString *)object_param;
 
 @end
 
@@ -2914,14 +2914,14 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  @param object The @c GTLRStorage_Policy to include in the query.
  *  @param bucket Name of the bucket in which the object resides.
- *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *  @param object_param Name of the object. For information about how to URL
+ *    encode object names to be path safe, see Encoding URI Path Parts.
  *
  *  @returns GTLRStorageQuery_ObjectsSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRStorage_Policy *)object
                          bucket:(NSString *)bucket
-                         object:(NSString *)object;
+                         object:(NSString *)object_param;
 
 @end
 
@@ -3083,14 +3083,14 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  @param object The @c GTLRStorage_Object to include in the query.
  *  @param bucket Name of the bucket in which the object resides.
- *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *  @param object_param Name of the object. For information about how to URL
+ *    encode object names to be path safe, see Encoding URI Path Parts.
  *
  *  @returns GTLRStorageQuery_ObjectsUpdate
  */
 + (instancetype)queryWithObject:(GTLRStorage_Object *)object
                          bucket:(NSString *)bucket
-                         object:(NSString *)object;
+                         object:(NSString *)object_param;
 
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.
@@ -3099,14 +3099,14 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  @param object The @c GTLRStorage_Object to include in the query.
  *  @param bucket Name of the bucket in which the object resides.
- *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *  @param object_param Name of the object. For information about how to URL
+ *    encode object names to be path safe, see Encoding URI Path Parts.
  *
  *  @returns GTLRStorageQuery_ObjectsUpdate
  */
 + (instancetype)queryForMediaWithObject:(GTLRStorage_Object *)object
                                  bucket:(NSString *)bucket
-                                 object:(NSString *)object;
+                                 object:(NSString *)object_param;
 
 @end
 
