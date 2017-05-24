@@ -2,13 +2,24 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Translate API (translate/v2)
+//   Google Cloud Translation API (translate/v2)
 // Description:
-//   Translates text from one language to another.
+//   The Google Cloud Translation API lets websites and programs integrate with
+//   Google Translate programmatically.
 // Documentation:
-//   https://developers.google.com/translate/v2/using_rest
+//   https://code.google.com/apis/language/translate/v2/getting_started.html
 
 #import "GTLRTranslate.h"
+
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+NSString * const kGTLRAuthScopeTranslateCloudPlatform    = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeTranslateCloudTranslation = @"https://www.googleapis.com/auth/cloud-translation";
+
+// ----------------------------------------------------------------------------
+//   GTLRTranslateService
+//
 
 @implementation GTLRTranslateService
 
@@ -16,10 +27,10 @@
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
+    self.rootURLString = @"https://translation.googleapis.com/";
     self.servicePath = @"language/translate/";
-    self.batchPath = @"batch";
-    self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
+    self.batchPath = @"batch/translate";
+    self.prettyPrintQueryParameterNames = @[ @"prettyPrint", @"pp" ];
 
     // This service uses the 'data' wrapper on results.
     self.dataWrapperRequired = YES;

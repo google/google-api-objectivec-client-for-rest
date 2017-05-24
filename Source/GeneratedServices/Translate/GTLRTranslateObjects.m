@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Translate API (translate/v2)
+//   Google Cloud Translation API (translate/v2)
 // Description:
-//   Translates text from one language to another.
+//   The Google Cloud Translation API lets websites and programs integrate with
+//   Google Translate programmatically.
 // Documentation:
-//   https://developers.google.com/translate/v2/using_rest
+//   https://code.google.com/apis/language/translate/v2/getting_started.html
 
 #import "GTLRTranslateObjects.h"
 
@@ -40,6 +41,34 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranslate_DetectLanguageRequest
+//
+
+@implementation GTLRTranslate_DetectLanguageRequest
+@dynamic q;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"q" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_GetSupportedLanguagesRequest
+//
+
+@implementation GTLRTranslate_GetSupportedLanguagesRequest
+@dynamic target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranslate_LanguagesListResponse
 //
 
@@ -68,6 +97,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranslate_TextRequest
+//
+
+@implementation GTLRTranslate_TextRequest
+@dynamic format, model, q, source, target;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"q" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranslate_TranslationsListResponse
 //
 
@@ -90,5 +137,5 @@
 //
 
 @implementation GTLRTranslate_TranslationsResource
-@dynamic detectedSourceLanguage, translatedText;
+@dynamic detectedSourceLanguage, model, translatedText;
 @end

@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody;
+@class GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ManualScaling;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput;
@@ -373,6 +374,24 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  */
 @property(nonatomic, copy, nullable) NSString *data;
 
+/**
+ *  Application specific response metadata. Must be set in the first response
+ *  for streaming APIs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item *> *extensions;
+
+@end
+
+
+/**
+ *  GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item : GTLRObject
 @end
 
 

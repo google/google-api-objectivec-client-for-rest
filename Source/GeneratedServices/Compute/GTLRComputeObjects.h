@@ -50,6 +50,7 @@
 @class GTLRCompute_CustomerEncryptionKeyProtectedDisk;
 @class GTLRCompute_DeprecationStatus;
 @class GTLRCompute_Disk;
+@class GTLRCompute_Disk_Labels;
 @class GTLRCompute_DiskAggregatedList_Items;
 @class GTLRCompute_DisksScopedList;
 @class GTLRCompute_DisksScopedList_Warning;
@@ -66,6 +67,7 @@
 @class GTLRCompute_ForwardingRulesScopedList;
 @class GTLRCompute_ForwardingRulesScopedList_Warning;
 @class GTLRCompute_ForwardingRulesScopedList_Warning_Data_Item;
+@class GTLRCompute_GlobalSetLabelsRequest_Labels;
 @class GTLRCompute_GuestOsFeature;
 @class GTLRCompute_HealthCheck;
 @class GTLRCompute_HealthCheckReference;
@@ -76,8 +78,10 @@
 @class GTLRCompute_HttpsHealthCheck;
 @class GTLRCompute_HTTPSHealthCheck;
 @class GTLRCompute_Image;
+@class GTLRCompute_Image_Labels;
 @class GTLRCompute_Image_RawDisk;
 @class GTLRCompute_Instance;
+@class GTLRCompute_Instance_Labels;
 @class GTLRCompute_InstanceAggregatedList_Items;
 @class GTLRCompute_InstanceGroup;
 @class GTLRCompute_InstanceGroupAggregatedList_Items;
@@ -91,10 +95,12 @@
 @class GTLRCompute_InstanceGroupsScopedList_Warning;
 @class GTLRCompute_InstanceGroupsScopedList_Warning_Data_Item;
 @class GTLRCompute_InstanceProperties;
+@class GTLRCompute_InstanceProperties_Labels;
 @class GTLRCompute_InstanceReference;
 @class GTLRCompute_InstancesScopedList;
 @class GTLRCompute_InstancesScopedList_Warning;
 @class GTLRCompute_InstancesScopedList_Warning_Data_Item;
+@class GTLRCompute_InstancesSetLabelsRequest_Labels;
 @class GTLRCompute_InstanceTemplate;
 @class GTLRCompute_InstanceWithNamedPorts;
 @class GTLRCompute_MachineType;
@@ -123,6 +129,7 @@
 @class GTLRCompute_OperationsScopedList_Warning_Data_Item;
 @class GTLRCompute_PathMatcher;
 @class GTLRCompute_PathRule;
+@class GTLRCompute_Project;
 @class GTLRCompute_Quota;
 @class GTLRCompute_Region;
 @class GTLRCompute_Route;
@@ -141,6 +148,7 @@
 @class GTLRCompute_Scheduling;
 @class GTLRCompute_ServiceAccount;
 @class GTLRCompute_Snapshot;
+@class GTLRCompute_Snapshot_Labels;
 @class GTLRCompute_SslCertificate;
 @class GTLRCompute_SSLHealthCheck;
 @class GTLRCompute_Subnetwork;
@@ -178,7 +186,9 @@
 @class GTLRCompute_VpnTunnelsScopedList;
 @class GTLRCompute_VpnTunnelsScopedList_Warning;
 @class GTLRCompute_VpnTunnelsScopedList_Warning_Data_Item;
+@class GTLRCompute_XpnResourceId;
 @class GTLRCompute_Zone;
+@class GTLRCompute_ZoneSetLabelsRequest_Labels;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -954,6 +964,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_Sing
 GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_Project.xpnProjectStatus
+
+/** Value: "HOST" */
+GTLR_EXTERN NSString * const kGTLRCompute_Project_XpnProjectStatus_Host;
+/** Value: "UNSPECIFIED_XPN_PROJECT_STATUS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Project_XpnProjectStatus_UnspecifiedXpnProjectStatus;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_Quota.metric
 
 /** Value: "AUTOSCALERS" */
@@ -1440,6 +1458,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_Reso
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_XpnResourceId.type
+
+/** Value: "PROJECT" */
+GTLR_EXTERN NSString * const kGTLRCompute_XpnResourceId_Type_Project;
+/** Value: "XPN_RESOURCE_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCompute_XpnResourceId_Type_XpnResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Zone.status
@@ -3180,6 +3206,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /** [Output Only] Type of the resource. Always compute#disk for disks. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  Labels to apply to this disk. These can be later modified by the setLabels
+ *  method.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Disk_Labels *labels;
+
 /** [Output Only] Last attach timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *lastAttachTimestamp;
 
@@ -3308,6 +3340,19 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
 
+@end
+
+
+/**
+ *  Labels to apply to this disk. These can be later modified by the setLabels
+ *  method.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_Disk_Labels : GTLRObject
 @end
 
 
@@ -4011,14 +4056,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  The IP address that this forwarding rule is serving on behalf of.
  *  For global forwarding rules, the address must be a global IP. For regional
  *  forwarding rules, the address must live in the same region as the forwarding
- *  rule. By default, this field is empty and an ephemeral IP from the same
- *  scope (global or regional) will be assigned.
+ *  rule. By default, this field is empty and an ephemeral IPv4 address from the
+ *  same scope (global or regional) will be assigned. A regional forwarding rule
+ *  supports IPv4 only. A global forwarding rule supports either IPv4 or IPv6.
  *  When the load balancing scheme is INTERNAL, this can only be an RFC 1918 IP
  *  address belonging to the network/subnetwork configured for the forwarding
  *  rule. A reserved address cannot be used. If the field is empty, the IP
  *  address will be automatically allocated from the internal IP range of the
- *  subnetwork or network configured for this forwarding rule. Only IPv4 is
- *  supported.
+ *  subnetwork or network configured for this forwarding rule.
  */
 @property(nonatomic, copy, nullable) NSString *IPAddress;
 
@@ -4327,6 +4372,55 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
 
+@end
+
+
+/**
+ *  GTLRCompute_GlobalSetLabelsRequest
+ */
+@interface GTLRCompute_GlobalSetLabelsRequest : GTLRObject
+
+/**
+ *  The fingerprint of the previous set of labels for this resource, used to
+ *  detect conflicts. The fingerprint is initially generated by Compute Engine
+ *  and changes after every request to modify or update labels. You must always
+ *  provide an up-to-date fingerprint hash when updating or changing labels.
+ *  Make a get() request to the resource to get the latest fingerprint.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *labelFingerprint;
+
+/**
+ *  A list of labels to apply for this resource. Each label key & value must
+ *  comply with RFC1035. Specifically, the name must be 1-63 characters long and
+ *  match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the
+ *  first character must be a lowercase letter, and all following characters
+ *  must be a dash, lowercase letter, or digit, except the last character, which
+ *  cannot be a dash. For example, "webserver-frontend": "images". A label value
+ *  can also be empty (e.g. "my-label": "").
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_GlobalSetLabelsRequest_Labels *labels;
+
+@end
+
+
+/**
+ *  A list of labels to apply for this resource. Each label key & value must
+ *  comply with RFC1035. Specifically, the name must be 1-63 characters long and
+ *  match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the
+ *  first character must be a lowercase letter, and all following characters
+ *  must be a dash, lowercase letter, or digit, except the last character, which
+ *  cannot be a dash. For example, "webserver-frontend": "images". A label value
+ *  can also be empty (e.g. "my-label": "").
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_GlobalSetLabelsRequest_Labels : GTLRObject
 @end
 
 
@@ -5032,6 +5126,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /** [Output Only] Type of the resource. Always compute#image for images. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  Labels to apply to this image. These can be later modified by the setLabels
+ *  method.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Image_Labels *labels;
+
 /** Any applicable license URI. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
 
@@ -5099,6 +5199,19 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
+@end
+
+
+/**
+ *  Labels to apply to this image. These can be later modified by the setLabels
+ *  method.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_Image_Labels : GTLRObject
 @end
 
 
@@ -5226,6 +5339,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  Labels to apply to this instance. These can be later modified by the
+ *  setLabels method.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Instance_Labels *labels;
+
+/**
  *  Full or partial URL of the machine type resource to use for this instance,
  *  in the format: zones/zone/machineTypes/machine-type. This is provided by the
  *  client when the instance is created. For example, the following is a valid
@@ -5317,6 +5436,19 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
 
+@end
+
+
+/**
+ *  Labels to apply to this instance. These can be later modified by the
+ *  setLabels method.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_Instance_Labels : GTLRObject
 @end
 
 
@@ -6395,6 +6527,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_AttachedDisk *> *disks;
 
+/** Labels to apply to instances that are created from this template. */
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceProperties_Labels *labels;
+
 /**
  *  The machine type to use for instances that are created from this template.
  */
@@ -6432,6 +6567,18 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, strong, nullable) GTLRCompute_Tags *tags;
 
+@end
+
+
+/**
+ *  Labels to apply to instances that are created from this template.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_InstanceProperties_Labels : GTLRObject
 @end
 
 
@@ -6542,6 +6689,38 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
 
+@end
+
+
+/**
+ *  GTLRCompute_InstancesSetLabelsRequest
+ */
+@interface GTLRCompute_InstancesSetLabelsRequest : GTLRObject
+
+/**
+ *  Fingerprint of the previous set of labels for this resource, used to prevent
+ *  conflicts. Provide the latest fingerprint value when making a request to add
+ *  or change labels.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *labelFingerprint;
+
+@property(nonatomic, strong, nullable) GTLRCompute_InstancesSetLabelsRequest_Labels *labels;
+
+@end
+
+
+/**
+ *  GTLRCompute_InstancesSetLabelsRequest_Labels
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_InstancesSetLabelsRequest_Labels : GTLRObject
 @end
 
 
@@ -8076,6 +8255,90 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, strong, nullable) GTLRCompute_UsageExportLocation *usageExportLocation;
 
+/**
+ *  [Output Only] The role this project has in a Cross Project Network (XPN)
+ *  configuration. Currently only HOST projects are differentiated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Project_XpnProjectStatus_Host Value "HOST"
+ *    @arg @c kGTLRCompute_Project_XpnProjectStatus_UnspecifiedXpnProjectStatus
+ *        Value "UNSPECIFIED_XPN_PROJECT_STATUS"
+ */
+@property(nonatomic, copy, nullable) NSString *xpnProjectStatus;
+
+@end
+
+
+/**
+ *  GTLRCompute_ProjectsDisableXpnResourceRequest
+ */
+@interface GTLRCompute_ProjectsDisableXpnResourceRequest : GTLRObject
+
+/** XPN resource ID. */
+@property(nonatomic, strong, nullable) GTLRCompute_XpnResourceId *xpnResource;
+
+@end
+
+
+/**
+ *  GTLRCompute_ProjectsEnableXpnResourceRequest
+ */
+@interface GTLRCompute_ProjectsEnableXpnResourceRequest : GTLRObject
+
+/** XPN resource ID. */
+@property(nonatomic, strong, nullable) GTLRCompute_XpnResourceId *xpnResource;
+
+@end
+
+
+/**
+ *  GTLRCompute_ProjectsGetXpnResources
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resources" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_ProjectsGetXpnResources : GTLRCollectionObject
+
+/**
+ *  [Output Only] Type of resource. Always compute#projectsGetXpnResources for
+ *  lists of XPN resources.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  XPN resources attached to this project as their XPN host.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_XpnResourceId *> *resources;
+
+@end
+
+
+/**
+ *  GTLRCompute_ProjectsListXpnHostsRequest
+ */
+@interface GTLRCompute_ProjectsListXpnHostsRequest : GTLRObject
+
+/**
+ *  Optional organization ID managed by Cloud Resource Manager, for which to
+ *  list XPN host projects. If not specified, the organization will be inferred
+ *  from the project.
+ */
+@property(nonatomic, copy, nullable) NSString *organization;
+
 @end
 
 
@@ -9405,6 +9668,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  Labels to apply to this snapshot. These can be later modified by the
+ *  setLabels method. Label values may be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Snapshot_Labels *labels;
+
+/**
  *  [Output Only] A list of public visible licenses that apply to this snapshot.
  *  This can be because the original image had licenses attached (such as a
  *  Windows image).
@@ -9490,6 +9759,19 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *storageBytesStatus;
 
+@end
+
+
+/**
+ *  Labels to apply to this snapshot. These can be later modified by the
+ *  setLabels method. Label values may be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_Snapshot_Labels : GTLRObject
 @end
 
 
@@ -9701,7 +9983,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /**
  *  An optional description of this resource. Provide this property when you
- *  create the resource.
+ *  create the resource. This field can be set only at resource creation time.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -9709,7 +9991,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /**
  *  [Output Only] The gateway address for default routes to reach destination
- *  addresses outside this subnetwork.
+ *  addresses outside this subnetwork. This field can be set only at resource
+ *  creation time.
  */
 @property(nonatomic, copy, nullable) NSString *gatewayAddress;
 
@@ -9727,7 +10010,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  The range of internal addresses that are owned by this subnetwork. Provide
  *  this property when you create the subnetwork. For example, 10.0.0.0/8 or
  *  192.168.0.0/16. Ranges must be unique and non-overlapping within a network.
- *  Only IPv4 is supported.
+ *  Only IPv4 is supported. This field can be set only at resource creation
+ *  time.
  */
 @property(nonatomic, copy, nullable) NSString *ipCidrRange;
 
@@ -9751,19 +10035,24 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /**
  *  The URL of the network to which this subnetwork belongs, provided by the
  *  client when initially creating the subnetwork. Only networks that are in the
- *  distributed mode can have subnetworks.
+ *  distributed mode can have subnetworks. This field can be set only at
+ *  resource creation time.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
  *  Whether the VMs in this subnet can access Google services without assigned
- *  external IP addresses.
+ *  external IP addresses. This field can be both set at resource creation time
+ *  and updated using setPrivateIpGoogleAccess.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *privateIpGoogleAccess;
 
-/** URL of the region where the Subnetwork resides. */
+/**
+ *  URL of the region where the Subnetwork resides. This field can be set only
+ *  at resource creation time.
+ */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /** [Output Only] Server-defined URL for the resource. */
@@ -11958,6 +12247,79 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
+ *  GTLRCompute_XpnHostList
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_XpnHostList : GTLRCollectionObject
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  [Output Only] A list of XPN host project URLs.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Project *> *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#xpnHostList for lists of XPN
+ *  hosts.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  XpnResourceId
+ */
+@interface GTLRCompute_XpnResourceId : GTLRObject
+
+/**
+ *  The ID of the XPN resource. In the case of projects, this field matches the
+ *  project's name, not the canonical ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The type of the XPN resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_XpnResourceId_Type_Project Value "PROJECT"
+ *    @arg @c kGTLRCompute_XpnResourceId_Type_XpnResourceTypeUnspecified Value
+ *        "XPN_RESOURCE_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  A Zone resource.
  */
 @interface GTLRCompute_Zone : GTLRObject
@@ -12049,6 +12411,41 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+@end
+
+
+/**
+ *  GTLRCompute_ZoneSetLabelsRequest
+ */
+@interface GTLRCompute_ZoneSetLabelsRequest : GTLRObject
+
+/**
+ *  The fingerprint of the previous set of labels for this resource, used to
+ *  detect conflicts. The fingerprint is initially generated by Compute Engine
+ *  and changes after every request to modify or update labels. You must always
+ *  provide an up-to-date fingerprint hash in order to update or change labels.
+ *  Make a get() request to the resource to get the latest fingerprint.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *labelFingerprint;
+
+/** The labels to set for this resource. */
+@property(nonatomic, strong, nullable) GTLRCompute_ZoneSetLabelsRequest_Labels *labels;
+
+@end
+
+
+/**
+ *  The labels to set for this resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_ZoneSetLabelsRequest_Labels : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

@@ -31,6 +31,7 @@
 @class GTLRCompute_DisksResizeRequest;
 @class GTLRCompute_Firewall;
 @class GTLRCompute_ForwardingRule;
+@class GTLRCompute_GlobalSetLabelsRequest;
 @class GTLRCompute_HealthCheck;
 @class GTLRCompute_HttpHealthCheck;
 @class GTLRCompute_HttpsHealthCheck;
@@ -49,12 +50,16 @@
 @class GTLRCompute_InstanceGroupsSetNamedPortsRequest;
 @class GTLRCompute_InstanceMoveRequest;
 @class GTLRCompute_InstanceReference;
+@class GTLRCompute_InstancesSetLabelsRequest;
 @class GTLRCompute_InstancesSetMachineTypeRequest;
 @class GTLRCompute_InstancesSetServiceAccountRequest;
 @class GTLRCompute_InstancesStartWithEncryptionKeyRequest;
 @class GTLRCompute_InstanceTemplate;
 @class GTLRCompute_Metadata;
 @class GTLRCompute_Network;
+@class GTLRCompute_ProjectsDisableXpnResourceRequest;
+@class GTLRCompute_ProjectsEnableXpnResourceRequest;
+@class GTLRCompute_ProjectsListXpnHostsRequest;
 @class GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest;
 @class GTLRCompute_RegionInstanceGroupManagersDeleteInstancesRequest;
 @class GTLRCompute_RegionInstanceGroupManagersRecreateRequest;
@@ -92,6 +97,7 @@
 @class GTLRCompute_UrlMapsValidateRequest;
 @class GTLRCompute_UsageExportLocation;
 @class GTLRCompute_VpnTunnel;
+@class GTLRCompute_ZoneSetLabelsRequest;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -1889,6 +1895,54 @@ NS_ASSUME_NONNULL_BEGIN
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty
                            disk:(NSString *)disk;
+
+@end
+
+/**
+ *  Sets the labels on a disk. To learn more about labels, read the Labeling or
+ *  Tagging Resources documentation.
+ *
+ *  Method: compute.disks.setLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_DisksSetLabels : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForDisksSetLabelsWithObject:project:zoneProperty:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the labels on a disk. To learn more about labels, read the Labeling or
+ *  Tagging Resources documentation.
+ *
+ *  @param object The @c GTLRCompute_ZoneSetLabelsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name of the resource for this request.
+ *
+ *  @returns GTLRComputeQuery_DisksSetLabels
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ZoneSetLabelsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource;
 
 @end
 
@@ -4483,6 +4537,45 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Sets the labels on an image. To learn more about labels, read the Labeling
+ *  or Tagging Resources documentation.
+ *
+ *  Method: compute.images.setLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ImagesSetLabels : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForImagesSetLabelsWithObject:project:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the labels on an image. To learn more about labels, read the Labeling
+ *  or Tagging Resources documentation.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetLabelsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name of the resource for this request.
+ *
+ *  @returns GTLRComputeQuery_ImagesSetLabels
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetLabelsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Schedules a group action to remove the specified instances from the managed
  *  instance group. Abandoning an instance does not delete the instance, but it
  *  does remove the instance from any target pools that are applied by the
@@ -4491,6 +4584,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the action is scheduled even if the instances have
  *  not yet been removed from the group. You must separately verify the status
  *  of the abandoning action with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  Method: compute.instanceGroupManagers.abandonInstances
@@ -4527,6 +4623,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the action is scheduled even if the instances have
  *  not yet been removed from the group. You must separately verify the status
  *  of the abandoning action with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  @param object The @c
@@ -4686,6 +4785,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  marked as DONE when the action is scheduled even if the instances are still
  *  being deleted. You must separately verify the status of the deleting action
  *  with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  Method: compute.instanceGroupManagers.deleteInstances
@@ -4721,6 +4823,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  marked as DONE when the action is scheduled even if the instances are still
  *  being deleted. You must separately verify the status of the deleting action
  *  with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  @param object The @c GTLRCompute_InstanceGroupManagersDeleteInstancesRequest
@@ -4793,7 +4898,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the group is created even if the instances in the
  *  group have not yet been created. You must separately verify the status of
  *  the individual instances with the listmanagedinstances method.
- *  A managed instance group can have up to 1000 VM instances per group.
+ *  A managed instance group can have up to 1000 VM instances per group. Please
+ *  contact Cloud Support if you need an increase in this limit.
  *
  *  Method: compute.instanceGroupManagers.insert
  *
@@ -4824,7 +4930,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the group is created even if the instances in the
  *  group have not yet been created. You must separately verify the status of
  *  the individual instances with the listmanagedinstances method.
- *  A managed instance group can have up to 1000 VM instances per group.
+ *  A managed instance group can have up to 1000 VM instances per group. Please
+ *  contact Cloud Support if you need an increase in this limit.
  *
  *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
  *    query.
@@ -5012,6 +5119,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  as DONE when the action is scheduled even if the instances have not yet been
  *  recreated. You must separately verify the status of the recreating action
  *  with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  Method: compute.instanceGroupManagers.recreateInstances
@@ -5046,6 +5156,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  as DONE when the action is scheduled even if the instances have not yet been
  *  recreated. You must separately verify the status of the recreating action
  *  with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  @param object The @c
@@ -5072,6 +5185,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  when the resize actions are scheduled even if the group has not yet added or
  *  deleted any instances. You must separately verify the status of the creating
  *  or deleting actions with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *
  *  Method: compute.instanceGroupManagers.resize
  *
@@ -5112,6 +5228,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  when the resize actions are scheduled even if the group has not yet added or
  *  deleted any instances. You must separately verify the status of the creating
  *  or deleting actions with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the managed instance group is
@@ -5723,6 +5842,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Removes one or more instances from the specified instance group, but does
  *  not delete those instances.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration before the VM instance is removed or deleted.
  *
  *  Method: compute.instanceGroups.removeInstances
  *
@@ -5755,6 +5877,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Removes one or more instances from the specified instance group, but does
  *  not delete those instances.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration before the VM instance is removed or deleted.
  *
  *  @param object The @c GTLRCompute_InstanceGroupsRemoveInstancesRequest to
  *    include in the query.
@@ -6492,6 +6617,54 @@ NS_ASSUME_NONNULL_BEGIN
                         instance:(NSString *)instance
                       autoDelete:(BOOL)autoDelete
                       deviceName:(NSString *)deviceName;
+
+@end
+
+/**
+ *  Sets labels on an instance. To learn more about labels, read the Labeling or
+ *  Tagging Resources documentation.
+ *
+ *  Method: compute.instances.setLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesSetLabels : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesSetLabelsWithObject:project:zoneProperty:instance:]
+
+/** Name of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets labels on an instance. To learn more about labels, read the Labeling or
+ *  Tagging Resources documentation.
+ *
+ *  @param object The @c GTLRCompute_InstancesSetLabelsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance scoping this request.
+ *
+ *  @returns GTLRComputeQuery_InstancesSetLabels
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstancesSetLabelsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
 
 @end
 
@@ -7565,6 +7738,132 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Disable this project as an XPN host project.
+ *
+ *  Method: compute.projects.disableXpnHost
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ProjectsDisableXpnHost : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForProjectsDisableXpnHostWithproject:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Disable this project as an XPN host project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_ProjectsDisableXpnHost
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Disable an XPN resource associated with this host project.
+ *
+ *  Method: compute.projects.disableXpnResource
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ProjectsDisableXpnResource : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForProjectsDisableXpnResourceWithObject:project:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Disable an XPN resource associated with this host project.
+ *
+ *  @param object The @c GTLRCompute_ProjectsDisableXpnResourceRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_ProjectsDisableXpnResource
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ProjectsDisableXpnResourceRequest *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Enable this project as an XPN host project.
+ *
+ *  Method: compute.projects.enableXpnHost
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ProjectsEnableXpnHost : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForProjectsEnableXpnHostWithproject:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Enable this project as an XPN host project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_ProjectsEnableXpnHost
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Enable XPN resource (a.k.a service project or service folder in the future)
+ *  for a host project, so that subnetworks in the host project can be used by
+ *  instances in the service project or folder.
+ *
+ *  Method: compute.projects.enableXpnResource
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ProjectsEnableXpnResource : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForProjectsEnableXpnResourceWithObject:project:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Enable XPN resource (a.k.a service project or service folder in the future)
+ *  for a host project, so that subnetworks in the host project can be used by
+ *  instances in the service project or folder.
+ *
+ *  @param object The @c GTLRCompute_ProjectsEnableXpnResourceRequest to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_ProjectsEnableXpnResource
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ProjectsEnableXpnResourceRequest *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
  *  Returns the specified Project resource.
  *
  *  Method: compute.projects.get
@@ -7591,6 +7890,135 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRComputeQuery_ProjectsGet
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Get the XPN host project that this project links to. May be empty if no link
+ *  exists.
+ *
+ *  Method: compute.projects.getXpnHost
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ProjectsGetXpnHost : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForProjectsGetXpnHostWithproject:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Project.
+ *
+ *  Get the XPN host project that this project links to. May be empty if no link
+ *  exists.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_ProjectsGetXpnHost
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Get XPN resources associated with this host project.
+ *
+ *  Method: compute.projects.getXpnResources
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ProjectsGetXpnResources : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForProjectsGetXpnResourcesWithproject:]
+
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  maxResults
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_ProjectsGetXpnResources.
+ *
+ *  Get XPN resources associated with this host project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_ProjectsGetXpnResources
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  List all XPN host projects visible to the user in an organization.
+ *
+ *  Method: compute.projects.listXpnHosts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ProjectsListXpnHosts : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForProjectsListXpnHostsWithObject:project:]
+
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  maxResults
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_XpnHostList.
+ *
+ *  List all XPN host projects visible to the user in an organization.
+ *
+ *  @param object The @c GTLRCompute_ProjectsListXpnHostsRequest to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_ProjectsListXpnHosts
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ProjectsListXpnHostsRequest *)object
+                        project:(NSString *)project;
 
 @end
 
@@ -8387,6 +8815,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the action is scheduled even if the instances have
  *  not yet been removed from the group. You must separately verify the status
  *  of the abandoning action with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  Method: compute.regionInstanceGroupManagers.abandonInstances
@@ -8419,6 +8850,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  is marked as DONE when the action is scheduled even if the instances have
  *  not yet been removed from the group. You must separately verify the status
  *  of the abandoning action with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  @param object The @c
@@ -8486,6 +8920,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  marked as DONE when the action is scheduled even if the instances are still
  *  being deleted. You must separately verify the status of the deleting action
  *  with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  Method: compute.regionInstanceGroupManagers.deleteInstances
@@ -8517,6 +8954,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  marked as DONE when the action is scheduled even if the instances are still
  *  being deleted. You must separately verify the status of the deleting action
  *  with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  @param object The @c
@@ -8782,6 +9222,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  as DONE when the action is scheduled even if the instances have not yet been
  *  recreated. You must separately verify the status of the recreating action
  *  with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  Method: compute.regionInstanceGroupManagers.recreateInstances
@@ -8812,6 +9255,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  as DONE when the action is scheduled even if the instances have not yet been
  *  recreated. You must separately verify the status of the recreating action
  *  with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  @param object The @c GTLRCompute_RegionInstanceGroupManagersRecreateRequest
@@ -8837,6 +9283,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  when the resize actions are scheduled even if the group has not yet added or
  *  deleted any instances. You must separately verify the status of the creating
  *  or deleting actions with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *
  *  Method: compute.regionInstanceGroupManagers.resize
  *
@@ -8870,6 +9319,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  when the resize actions are scheduled even if the group has not yet added or
  *  deleted any instances. You must separately verify the status of the creating
  *  or deleting actions with the listmanagedinstances method.
+ *  If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is removed or deleted.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -10379,6 +10831,45 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Sets the labels on a snapshot. To learn more about labels, read the Labeling
+ *  or Tagging Resources documentation.
+ *
+ *  Method: compute.snapshots.setLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SnapshotsSetLabels : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSnapshotsSetLabelsWithObject:project:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the labels on a snapshot. To learn more about labels, read the Labeling
+ *  or Tagging Resources documentation.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetLabelsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name of the resource for this request.
+ *
+ *  @returns GTLRComputeQuery_SnapshotsSetLabels
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetLabelsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
 
 @end
 

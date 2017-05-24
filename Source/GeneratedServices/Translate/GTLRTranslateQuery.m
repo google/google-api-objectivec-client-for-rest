@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Translate API (translate/v2)
+//   Google Cloud Translation API (translate/v2)
 // Description:
-//   Translates text from one language to another.
+//   The Google Cloud Translation API lets websites and programs integrate with
+//   Google Translate programmatically.
 // Documentation:
-//   https://developers.google.com/translate/v2/using_rest
+//   https://code.google.com/apis/language/translate/v2/getting_started.html
 
 #import "GTLRTranslateQuery.h"
 
@@ -26,6 +27,26 @@ NSString * const kGTLRTranslateFormatText = @"text";
 @implementation GTLRTranslateQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRTranslateQuery_DetectionsDetect
+
++ (instancetype)queryWithObject:(GTLRTranslate_DetectLanguageRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v2/detect";
+  GTLRTranslateQuery_DetectionsDetect *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRTranslate_DetectionsListResponse class];
+  query.loggingName = @"language.detections.detect";
+  return query;
+}
 
 @end
 
@@ -56,7 +77,7 @@ NSString * const kGTLRTranslateFormatText = @"text";
 
 @implementation GTLRTranslateQuery_LanguagesList
 
-@dynamic target;
+@dynamic model, target;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v2/languages";
@@ -73,7 +94,7 @@ NSString * const kGTLRTranslateFormatText = @"text";
 
 @implementation GTLRTranslateQuery_TranslationsList
 
-@dynamic cid, format, q, source, target;
+@dynamic cid, format, model, q, source, target;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -94,6 +115,26 @@ NSString * const kGTLRTranslateFormatText = @"text";
   query.target = target;
   query.expectedObjectClass = [GTLRTranslate_TranslationsListResponse class];
   query.loggingName = @"language.translations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_TranslationsTranslate
+
++ (instancetype)queryWithObject:(GTLRTranslate_TextRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v2";
+  GTLRTranslateQuery_TranslationsTranslate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRTranslate_TranslationsListResponse class];
+  query.loggingName = @"language.translations.translate";
   return query;
 }
 

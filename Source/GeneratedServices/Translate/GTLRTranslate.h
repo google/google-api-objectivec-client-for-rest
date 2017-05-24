@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Translate API (translate/v2)
+//   Google Cloud Translation API (translate/v2)
 // Description:
-//   Translates text from one language to another.
+//   The Google Cloud Translation API lets websites and programs integrate with
+//   Google Translate programmatically.
 // Documentation:
-//   https://developers.google.com/translate/v2/using_rest
+//   https://code.google.com/apis/language/translate/v2/getting_started.html
 
 #import "GTLRTranslateObjects.h"
 #import "GTLRTranslateQuery.h"
