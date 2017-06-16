@@ -2886,6 +2886,12 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /**
+ *  The internal company ID.
+ *  Only available for a whitelisted set of api clients.
+ */
+@property(nonatomic, copy, nullable) NSString *internalCompanyId;
+
+/**
  *  The flag that indicates if the company is pending verification.
  *
  *  Uses NSNumber of boolValue.
@@ -2907,6 +2913,15 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
 
 /** The phone number for the company's primary address. */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/** The primary location of the company. */
+@property(nonatomic, strong, nullable) GTLRPartners_Location *primaryAddress;
+
+/** The primary country code of the company. */
+@property(nonatomic, copy, nullable) NSString *primaryCountryCode;
+
+/** The primary language code of the company. */
+@property(nonatomic, copy, nullable) NSString *primaryLanguageCode;
 
 /**
  *  The timestamp when the user was approved.
@@ -3435,8 +3450,6 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
  *  assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)
  *  assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)
  *  assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)
- *  The code in logs/storage/validator/logs_validator_traits.cc treats this type
- *  as if it were annotated as ST_LOCATION.
  */
 @interface GTLRPartners_LatLng : GTLRObject
 
@@ -4818,6 +4831,12 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The internal user ID.
+ *  Only available for a whitelisted set of api clients.
+ */
+@property(nonatomic, copy, nullable) NSString *internalId;
 
 /**
  *  The most recent time the user interacted with the Partners site.

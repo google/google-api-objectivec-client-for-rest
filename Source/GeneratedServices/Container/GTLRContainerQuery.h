@@ -28,6 +28,7 @@
 @class GTLRContainer_SetLegacyAbacRequest;
 @class GTLRContainer_SetMasterAuthRequest;
 @class GTLRContainer_SetNodePoolManagementRequest;
+@class GTLRContainer_SetNodePoolSizeRequest;
 @class GTLRContainer_StartIPRotationRequest;
 @class GTLRContainer_UpdateClusterRequest;
 
@@ -698,6 +699,64 @@ NS_ASSUME_NONNULL_BEGIN
  *  @returns GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetManagement
  */
 + (instancetype)queryWithObject:(GTLRContainer_SetNodePoolManagementRequest *)object
+                      projectId:(NSString *)projectId
+                   zoneProperty:(NSString *)zoneProperty
+                      clusterId:(NSString *)clusterId
+                     nodePoolId:(NSString *)nodePoolId;
+
+@end
+
+/**
+ *  Sets the size of a specific node pool.
+ *
+ *  Method: container.projects.zones.clusters.nodePools.setSize
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetSize : GTLRContainerQuery
+// Previous library name was
+//   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsSetSizeWithObject:projectId:zoneProperty:clusterId:nodePoolId:]
+
+/** The name of the cluster to update. */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/** The name of the node pool to update. */
+@property(nonatomic, copy, nullable) NSString *nodePoolId;
+
+/**
+ *  The Google Developers Console [project ID or project
+ *  number](https://support.google.com/cloud/answer/6158840).
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  The name of the Google Compute Engine
+ *  [zone](/compute/docs/zones#available) in which the cluster
+ *  resides.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRContainer_Operation.
+ *
+ *  Sets the size of a specific node pool.
+ *
+ *  @param object The @c GTLRContainer_SetNodePoolSizeRequest to include in the
+ *    query.
+ *  @param projectId The Google Developers Console [project ID or project
+ *    number](https://support.google.com/cloud/answer/6158840).
+ *  @param zoneProperty The name of the Google Compute Engine
+ *    [zone](/compute/docs/zones#available) in which the cluster
+ *    resides.
+ *  @param clusterId The name of the cluster to update.
+ *  @param nodePoolId The name of the node pool to update.
+ *
+ *  @returns GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetSize
+ */
++ (instancetype)queryWithObject:(GTLRContainer_SetNodePoolSizeRequest *)object
                       projectId:(NSString *)projectId
                    zoneProperty:(NSString *)zoneProperty
                       clusterId:(NSString *)clusterId

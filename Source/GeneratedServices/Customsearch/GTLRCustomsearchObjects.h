@@ -4,7 +4,7 @@
 // API:
 //   CustomSearch API (customsearch/v1)
 // Description:
-//   Lets you search over a website or collection of websites
+//   Searches over a website or collection of websites
 // Documentation:
 //   https://developers.google.com/custom-search/v1/using_rest
 
@@ -124,7 +124,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 @property(nonatomic, copy, nullable) NSString *cr;
-@property(nonatomic, copy, nullable) NSString *cref;
 @property(nonatomic, copy, nullable) NSString *cx;
 @property(nonatomic, copy, nullable) NSString *dateRestrict;
 @property(nonatomic, copy, nullable) NSString *disableCnTwTranslation;

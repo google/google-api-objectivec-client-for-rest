@@ -286,7 +286,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Associates a list of `members` to a `role`.
- *  Multiple `bindings` must not be specified for the same `role`.
  *  `bindings` with no members will result in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPubsub_Binding *> *bindings;

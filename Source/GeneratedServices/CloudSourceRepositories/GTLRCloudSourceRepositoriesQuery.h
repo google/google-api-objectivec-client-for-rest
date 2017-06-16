@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a repo in the given project with the given name..
+ *  Creates a repo in the given project with the given name.
  *  If the named repository already exists, `CreateRepo` returns
  *  `ALREADY_EXISTS`.
  *
@@ -43,6 +43,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposCreate : GTLRCloudSourceRepositoriesQuery
 // Previous library name was
@@ -57,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSourceRepositories_Repo.
  *
- *  Creates a repo in the given project with the given name..
+ *  Creates a repo in the given project with the given name.
  *  If the named repository already exists, `CreateRepo` returns
  *  `ALREADY_EXISTS`.
  *
@@ -81,6 +83,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposDelete : GTLRCloudSourceRepositoriesQuery
 // Previous library name was
@@ -113,6 +117,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposGet : GTLRCloudSourceRepositoriesQuery
 // Previous library name was
@@ -147,6 +153,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposGetIamPolicy : GTLRCloudSourceRepositoriesQuery
 // Previous library name was
@@ -176,12 +184,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns all repos belonging to a project.
+ *  Returns all repos belonging to a project. The sizes of the repos are
+ *  not set by ListRepos. To get the size of a repo, use GetRepo.
  *
  *  Method: sourcerepo.projects.repos.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposList : GTLRCloudSourceRepositoriesQuery
 // Previous library name was
@@ -209,7 +220,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSourceRepositories_ListReposResponse.
  *
- *  Returns all repos belonging to a project.
+ *  Returns all repos belonging to a project. The sizes of the repos are
+ *  not set by ListRepos. To get the size of a repo, use GetRepo.
  *
  *  @param name The project ID whose repos should be listed. Values are of the
  *    form
@@ -233,6 +245,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposSetIamPolicy : GTLRCloudSourceRepositoriesQuery
 // Previous library name was
@@ -272,6 +286,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly
+ *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposTestIamPermissions : GTLRCloudSourceRepositoriesQuery
 // Previous library name was

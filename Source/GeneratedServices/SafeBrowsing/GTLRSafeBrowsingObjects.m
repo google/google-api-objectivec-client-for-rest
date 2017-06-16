@@ -43,6 +43,7 @@ NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_ThreatEntry
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Url = @"URL";
 
 // GTLRSafeBrowsing_ListUpdateRequest.threatType
+NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_MaliciousBinary = @"MALICIOUS_BINARY";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Malware = @"MALWARE";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_PotentiallyHarmfulApplication = @"POTENTIALLY_HARMFUL_APPLICATION";
 NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineering = @"SOCIAL_ENGINEERING";
@@ -75,6 +76,7 @@ NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_ThreatEntr
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Url = @"URL";
 
 // GTLRSafeBrowsing_ListUpdateResponse.threatType
+NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_MaliciousBinary = @"MALICIOUS_BINARY";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Malware = @"MALWARE";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_PotentiallyHarmfulApplication = @"POTENTIALLY_HARMFUL_APPLICATION";
 NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineering = @"SOCIAL_ENGINEERING";
@@ -107,6 +109,7 @@ NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_ThreatEntryTypeUn
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Url = @"URL";
 
 // GTLRSafeBrowsing_ThreatInfo.threatTypes
+NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_MaliciousBinary = @"MALICIOUS_BINARY";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Malware = @"MALWARE";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_PotentiallyHarmfulApplication = @"POTENTIALLY_HARMFUL_APPLICATION";
 NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngineering = @"SOCIAL_ENGINEERING";
@@ -134,6 +137,7 @@ NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_ThreatEn
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Url = @"URL";
 
 // GTLRSafeBrowsing_ThreatListDescriptor.threatType
+NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_MaliciousBinary = @"MALICIOUS_BINARY";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Malware = @"MALWARE";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_PotentiallyHarmfulApplication = @"POTENTIALLY_HARMFUL_APPLICATION";
 NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineering = @"SOCIAL_ENGINEERING";
@@ -161,6 +165,7 @@ NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_ThreatEntryTypeUn
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Url = @"URL";
 
 // GTLRSafeBrowsing_ThreatMatch.threatType
+NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_MaliciousBinary = @"MALICIOUS_BINARY";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_Malware = @"MALWARE";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_PotentiallyHarmfulApplication = @"POTENTIALLY_HARMFUL_APPLICATION";
 NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineering = @"SOCIAL_ENGINEERING";

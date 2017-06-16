@@ -70,4 +70,39 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Fetches analytics stats of a short Dynamic Link for a given
+ *  duration. Metrics include number of clicks, redirects, installs,
+ *  app first opens, and app reopens.
+ *
+ *  Method: firebasedynamiclinks.getLinkStats
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDynamicLinksFirebase
+ */
+@interface GTLRFirebaseDynamicLinksQuery_V1GetLinkStats : GTLRFirebaseDynamicLinksQuery
+// Previous library name was
+//   +[GTLQueryFirebaseDynamicLinks queryForGetLinkStatsWithdynamicLink:]
+
+/** The span of time requested in days. */
+@property(nonatomic, assign) long long durationDays;
+
+/** Dynamic Link URL. e.g. https://abcd.app.goo.gl/wxyz */
+@property(nonatomic, copy, nullable) NSString *dynamicLink;
+
+/**
+ *  Fetches a @c GTLRFirebaseDynamicLinks_DynamicLinkStats.
+ *
+ *  Fetches analytics stats of a short Dynamic Link for a given
+ *  duration. Metrics include number of clicks, redirects, installs,
+ *  app first opens, and app reopens.
+ *
+ *  @param dynamicLink Dynamic Link URL. e.g. https://abcd.app.goo.gl/wxyz
+ *
+ *  @returns GTLRFirebaseDynamicLinksQuery_V1GetLinkStats
+ */
++ (instancetype)queryWithDynamicLink:(NSString *)dynamicLink;
+
+@end
+
 NS_ASSUME_NONNULL_END

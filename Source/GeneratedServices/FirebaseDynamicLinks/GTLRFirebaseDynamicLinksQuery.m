@@ -37,3 +37,22 @@
 }
 
 @end
+
+@implementation GTLRFirebaseDynamicLinksQuery_V1GetLinkStats
+
+@dynamic durationDays, dynamicLink;
+
++ (instancetype)queryWithDynamicLink:(NSString *)dynamicLink {
+  NSArray *pathParams = @[ @"dynamicLink" ];
+  NSString *pathURITemplate = @"v1/{dynamicLink}/linkStats";
+  GTLRFirebaseDynamicLinksQuery_V1GetLinkStats *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.dynamicLink = dynamicLink;
+  query.expectedObjectClass = [GTLRFirebaseDynamicLinks_DynamicLinkStats class];
+  query.loggingName = @"firebasedynamiclinks.getLinkStats";
+  return query;
+}
+
+@end

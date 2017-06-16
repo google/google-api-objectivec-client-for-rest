@@ -24,6 +24,7 @@
 @class GTLRDLP_CloudStorageKey;
 @class GTLRDLP_CloudStorageOptions;
 @class GTLRDLP_CloudStoragePath;
+@class GTLRDLP_Color;
 @class GTLRDLP_ContentItem;
 @class GTLRDLP_DatastoreKey;
 @class GTLRDLP_DatastoreOptions;
@@ -31,6 +32,7 @@
 @class GTLRDLP_FileSet;
 @class GTLRDLP_Finding;
 @class GTLRDLP_ImageLocation;
+@class GTLRDLP_ImageRedactionConfig;
 @class GTLRDLP_InfoType;
 @class GTLRDLP_InfoTypeDescription;
 @class GTLRDLP_InspectConfig;
@@ -179,6 +181,35 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
 
 /** The url, in the format of `gs://bucket/<path>`. */
 @property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  Represents a color in the RGB color space.
+ */
+@interface GTLRDLP_Color : GTLRObject
+
+/**
+ *  The amount of blue in the color as a value in the interval [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blue;
+
+/**
+ *  The amount of green in the color as a value in the interval [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *green;
+
+/**
+ *  The amount of red in the color as a value in the interval [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *red;
 
 @end
 
@@ -389,11 +420,46 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
 
 
 /**
+ *  Configuration for determing how redaction of images should occur.
+ */
+@interface GTLRDLP_ImageRedactionConfig : GTLRObject
+
+/**
+ *  Only one per info_type should be provided per request. If not
+ *  specified, and redact_all_text is false, the DLP API will redact all
+ *  text that it matches against all info_types that are found, but not
+ *  specified in another ImageRedactionConfig.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_InfoType *infoType;
+
+/**
+ *  If true, all text found in the image, regardless if it matches an
+ *  info_type, will be redacted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *redactAllText;
+
+/**
+ *  The color to use when redacting content from an image. If not specified,
+ *  the default is black.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_Color *redactionColor;
+
+@end
+
+
+/**
  *  Type of information detected by the API.
  */
 @interface GTLRDLP_InfoType : GTLRObject
 
-/** Name of the information type, provided by the API call ListInfoTypes. */
+/**
+ *  Name of the information type. For built-in info types, this is provided by
+ *  the API call ListInfoTypes. For user-defined info types, this is
+ *  provided by the user. All user-defined info types must have unique names,
+ *  and cannot conflict with built-in info type names.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -683,7 +749,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
 /** The error result of the operation in case of failure or cancellation. */
 @property(nonatomic, strong, nullable) GTLRDLP_Status *error;
 
-/** This field will contain an `InspectOperationMetdata` object. */
+/** This field will contain an `InspectOperationMetadata` object. */
 @property(nonatomic, strong, nullable) GTLRDLP_Operation_Metadata *metadata;
 
 /**
@@ -699,7 +765,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
 
 
 /**
- *  This field will contain an `InspectOperationMetdata` object.
+ *  This field will contain an `InspectOperationMetadata` object.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -855,6 +921,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
  */
 @interface GTLRDLP_RedactContentRequest : GTLRCollectionObject
 
+/** The configuration for specifying what content to redact from images. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_ImageRedactionConfig *> *imageRedactionConfigs;
+
 /** Configuration for the inspector. */
 @property(nonatomic, strong, nullable) GTLRDLP_InspectConfig *inspectConfig;
 
@@ -866,7 +935,10 @@ GTLR_EXTERN NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_ContentItem *> *items;
 
-/** The strings to replace findings with. Must specify at least one. */
+/**
+ *  The strings to replace findings text findings with. Must specify at least
+ *  one of these or one ImageRedactionConfig if redacting images.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_ReplaceConfig *> *replaceConfigs;
 
 @end

@@ -393,7 +393,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  there is no change to the sink's writer_identity.
  *  If the old value is false and the new value is true, then writer_identity is
  *  changed to a unique service account.
- *  It is an error if the old value is true and the new value is false.
+ *  It is an error if the old value is true and the new value is set to false or
+ *  defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -840,7 +841,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  there is no change to the sink's writer_identity.
  *  If the old value is false and the new value is true, then writer_identity is
  *  changed to a unique service account.
- *  It is an error if the old value is true and the new value is false.
+ *  It is an error if the old value is true and the new value is set to false or
+ *  defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -1275,7 +1277,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  there is no change to the sink's writer_identity.
  *  If the old value is false and the new value is true, then writer_identity is
  *  changed to a unique service account.
- *  It is an error if the old value is true and the new value is false.
+ *  It is an error if the old value is true and the new value is set to false or
+ *  defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -1867,7 +1870,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  there is no change to the sink's writer_identity.
  *  If the old value is false and the new value is true, then writer_identity is
  *  changed to a unique service account.
- *  It is an error if the old value is true and the new value is false.
+ *  It is an error if the old value is true and the new value is set to false or
+ *  defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 

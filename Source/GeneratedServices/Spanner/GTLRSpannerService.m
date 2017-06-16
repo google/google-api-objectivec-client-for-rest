@@ -12,9 +12,11 @@
 #import "GTLRSpanner.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeSpannerAdmin         = @"https://www.googleapis.com/auth/spanner.admin";
 NSString * const kGTLRAuthScopeSpannerCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeSpannerData          = @"https://www.googleapis.com/auth/spanner.data";
 
 // ----------------------------------------------------------------------------
 //   GTLRSpannerService

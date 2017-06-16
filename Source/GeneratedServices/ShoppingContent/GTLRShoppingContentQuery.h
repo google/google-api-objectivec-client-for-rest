@@ -784,8 +784,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Deletes a datafeed from your Merchant Center account. This method can only
- *  be called for non-multi-client accounts.
+ *  Deletes a datafeed configuration from your Merchant Center account. This
+ *  method can only be called for non-multi-client accounts.
  *
  *  Method: content.datafeeds.delete
  *
@@ -807,8 +807,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes a datafeed from your Merchant Center account. This method can only
- *  be called for non-multi-client accounts.
+ *  Deletes a datafeed configuration from your Merchant Center account. This
+ *  method can only be called for non-multi-client accounts.
  *
  *  @param merchantId unsigned long long
  *  @param datafeedId unsigned long long
@@ -821,8 +821,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Retrieves a datafeed from your Merchant Center account. This method can only
- *  be called for non-multi-client accounts.
+ *  Retrieves a datafeed configuration from your Merchant Center account. This
+ *  method can only be called for non-multi-client accounts.
  *
  *  Method: content.datafeeds.get
  *
@@ -840,8 +840,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Fetches a @c GTLRShoppingContent_Datafeed.
  *
- *  Retrieves a datafeed from your Merchant Center account. This method can only
- *  be called for non-multi-client accounts.
+ *  Retrieves a datafeed configuration from your Merchant Center account. This
+ *  method can only be called for non-multi-client accounts.
  *
  *  @param merchantId unsigned long long
  *  @param datafeedId unsigned long long
@@ -854,8 +854,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Registers a datafeed with your Merchant Center account. This method can only
- *  be called for non-multi-client accounts.
+ *  Registers a datafeed configuration with your Merchant Center account. This
+ *  method can only be called for non-multi-client accounts.
  *
  *  Method: content.datafeeds.insert
  *
@@ -874,8 +874,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Fetches a @c GTLRShoppingContent_Datafeed.
  *
- *  Registers a datafeed with your Merchant Center account. This method can only
- *  be called for non-multi-client accounts.
+ *  Registers a datafeed configuration with your Merchant Center account. This
+ *  method can only be called for non-multi-client accounts.
  *
  *  @param object The @c GTLRShoppingContent_Datafeed to include in the query.
  *  @param merchantId unsigned long long
@@ -930,8 +930,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Updates a datafeed of your Merchant Center account. This method can only be
- *  called for non-multi-client accounts. This method supports patch semantics.
+ *  Updates a datafeed configuration of your Merchant Center account. This
+ *  method can only be called for non-multi-client accounts. This method
+ *  supports patch semantics.
  *
  *  Method: content.datafeeds.patch
  *
@@ -952,8 +953,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Fetches a @c GTLRShoppingContent_Datafeed.
  *
- *  Updates a datafeed of your Merchant Center account. This method can only be
- *  called for non-multi-client accounts. This method supports patch semantics.
+ *  Updates a datafeed configuration of your Merchant Center account. This
+ *  method can only be called for non-multi-client accounts. This method
+ *  supports patch semantics.
  *
  *  @param object The @c GTLRShoppingContent_Datafeed to include in the query.
  *  @param merchantId unsigned long long
@@ -1067,8 +1069,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Updates a datafeed of your Merchant Center account. This method can only be
- *  called for non-multi-client accounts.
+ *  Updates a datafeed configuration of your Merchant Center account. This
+ *  method can only be called for non-multi-client accounts.
  *
  *  Method: content.datafeeds.update
  *
@@ -1089,8 +1091,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Fetches a @c GTLRShoppingContent_Datafeed.
  *
- *  Updates a datafeed of your Merchant Center account. This method can only be
- *  called for non-multi-client accounts.
+ *  Updates a datafeed configuration of your Merchant Center account. This
+ *  method can only be called for non-multi-client accounts.
  *
  *  @param object The @c GTLRShoppingContent_Datafeed to include in the query.
  *  @param merchantId unsigned long long

@@ -1576,13 +1576,13 @@
          displayAdsTitle, displayAdsValue, energyEfficiencyClass,
          expirationDate, gender, googleProductCategory, gtin, identifier,
          identifierExists, imageLink, installment, isBundle, itemGroupId, kind,
-         link, loyaltyPoints, material, mobileLink, mpn, multipack, offerId,
-         onlineOnly, pattern, price, productType, promotionIds, salePrice,
-         salePriceEffectiveDate, sellOnGoogleQuantity, shipping, shippingHeight,
-         shippingLabel, shippingLength, shippingWeight, shippingWidth, sizes,
-         sizeSystem, sizeType, targetCountry, taxes, title,
-         unitPricingBaseMeasure, unitPricingMeasure, validatedDestinations,
-         warnings;
+         link, loyaltyPoints, material, maxHandlingTime, minHandlingTime,
+         mobileLink, mpn, multipack, offerId, onlineOnly, pattern, price,
+         productType, promotionIds, salePrice, salePriceEffectiveDate,
+         sellOnGoogleQuantity, shipping, shippingHeight, shippingLabel,
+         shippingLength, shippingWeight, shippingWidth, sizes, sizeSystem,
+         sizeType, targetCountry, taxes, title, unitPricingBaseMeasure,
+         unitPricingMeasure, validatedDestinations, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

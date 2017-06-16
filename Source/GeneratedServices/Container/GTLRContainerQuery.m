@@ -407,6 +407,43 @@
 
 @end
 
+@implementation GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetSize
+
+@dynamic clusterId, nodePoolId, projectId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRContainer_SetNodePoolSizeRequest *)object
+                      projectId:(NSString *)projectId
+                   zoneProperty:(NSString *)zoneProperty
+                      clusterId:(NSString *)clusterId
+                     nodePoolId:(NSString *)nodePoolId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"clusterId", @"nodePoolId", @"projectId", @"zone"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/setSize";
+  GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetSize *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.zoneProperty = zoneProperty;
+  query.clusterId = clusterId;
+  query.nodePoolId = nodePoolId;
+  query.expectedObjectClass = [GTLRContainer_Operation class];
+  query.loggingName = @"container.projects.zones.clusters.nodePools.setSize";
+  return query;
+}
+
+@end
+
 @implementation GTLRContainerQuery_ProjectsZonesClustersResourceLabels
 
 @dynamic clusterId, projectId, zoneProperty;

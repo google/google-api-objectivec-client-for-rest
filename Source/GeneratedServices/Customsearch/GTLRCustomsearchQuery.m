@@ -4,7 +4,7 @@
 // API:
 //   CustomSearch API (customsearch/v1)
 // Description:
-//   Lets you search over a website or collection of websites
+//   Searches over a website or collection of websites
 // Documentation:
 //   https://developers.google.com/custom-search/v1/using_rest
 
@@ -113,7 +113,7 @@ NSString * const kGTLRCustomsearchSiteSearchFilterI = @"i";
 
 @implementation GTLRCustomsearchQuery_CseList
 
-@dynamic c2coff, cr, cref, cx, dateRestrict, exactTerms, excludeTerms, fileType,
+@dynamic c2coff, cr, cx, dateRestrict, exactTerms, excludeTerms, fileType,
          filter, gl, googlehost, highRange, hl, hq, imgColorType,
          imgDominantColor, imgSize, imgType, linkSite, lowRange, lr, num,
          orTerms, q, relatedSite, rights, safe, searchType, siteSearch,

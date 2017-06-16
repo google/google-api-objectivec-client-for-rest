@@ -19,6 +19,11 @@ NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_DataRead = 
 NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudSourceRepositories_CloudAuditOptions.logName
+NSString * const kGTLRCloudSourceRepositories_CloudAuditOptions_LogName_AdminActivity = @"ADMIN_ACTIVITY";
+NSString * const kGTLRCloudSourceRepositories_CloudAuditOptions_LogName_DataAccess = @"DATA_ACCESS";
+NSString * const kGTLRCloudSourceRepositories_CloudAuditOptions_LogName_UnspecifiedLogName = @"UNSPECIFIED_LOG_NAME";
+
 // GTLRCloudSourceRepositories_Condition.iam
 NSString * const kGTLRCloudSourceRepositories_Condition_Iam_Approver = @"APPROVER";
 NSString * const kGTLRCloudSourceRepositories_Condition_Iam_Attribution = @"ATTRIBUTION";
@@ -110,6 +115,7 @@ NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction = @"NO_ACTION
 //
 
 @implementation GTLRCloudSourceRepositories_CloudAuditOptions
+@dynamic logName;
 @end
 
 

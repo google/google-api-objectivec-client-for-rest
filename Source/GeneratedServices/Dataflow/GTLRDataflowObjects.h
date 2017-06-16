@@ -4854,16 +4854,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @interface GTLRDataflow_TemplateMetadata : GTLRObject
 
 /**
- *  If true, will bypass the validation that the temp directory is
- *  writable. This should only be used with templates for pipelines
- *  that are guaranteed not to need to write to the temp directory,
- *  which is subject to change based on the optimizer.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *bypassTempDirValidation;
-
-/**
  *  Optional. A description of the template.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.

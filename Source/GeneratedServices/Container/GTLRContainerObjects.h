@@ -21,6 +21,7 @@
 
 @class GTLRContainer_AddonsConfig;
 @class GTLRContainer_AutoUpgradeOptions;
+@class GTLRContainer_ClientCertificateConfig;
 @class GTLRContainer_Cluster;
 @class GTLRContainer_Cluster_ResourceLabels;
 @class GTLRContainer_ClusterUpdate;
@@ -203,6 +204,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMasterAut
  */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolManagement;
 /**
+ *  Set node pool size.
+ *
+ *  Value: "SET_NODE_POOL_SIZE"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolSize;
+/**
  *  Not set.
  *
  *  Value: "TYPE_UNSPECIFIED"
@@ -333,6 +340,21 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  CancelOperationRequest cancels a single operation.
  */
 @interface GTLRContainer_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Configuration for client certificates on the cluster.
+ */
+@interface GTLRContainer_ClientCertificateConfig : GTLRObject
+
+/**
+ *  Issue a client certificate.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *issueClientCertificate;
+
 @end
 
 
@@ -519,8 +541,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_NodePool *> *nodePools;
 
 /**
- *  The resource labels for the cluster to use to annotate any related GCE
- *  resources.
+ *  The resource labels for the cluster to use to annotate any related
+ *  Google Compute Engine resources.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_Cluster_ResourceLabels *resourceLabels;
 
@@ -586,8 +608,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 
 /**
- *  The resource labels for the cluster to use to annotate any related GCE
- *  resources.
+ *  The resource labels for the cluster to use to annotate any related
+ *  Google Compute Engine resources.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -828,6 +850,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 @property(nonatomic, copy, nullable) NSString *clientCertificate;
 
 /**
+ *  Configuration for client certificate authentication on the cluster. If no
+ *  configuration is specified, a client certificate is issued.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ClientCertificateConfig *clientCertificateConfig;
+
+/**
  *  [Output only] Base64-encoded private key used by clients to authenticate
  *  to the cluster endpoint.
  */
@@ -941,7 +969,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 /**
  *  Whether the nodes are created as preemptible VM instances. See:
  *  https://cloud.google.com/compute/docs/instances/preemptible for more
- *  inforamtion about preemptible VM instances.
+ *  information about preemptible VM instances.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1188,6 +1216,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *        master auth materials (Value: "SET_MASTER_AUTH")
  *    @arg @c kGTLRContainer_Operation_OperationType_SetNodePoolManagement Set
  *        node pool management. (Value: "SET_NODE_POOL_MANAGEMENT")
+ *    @arg @c kGTLRContainer_Operation_OperationType_SetNodePoolSize Set node
+ *        pool size. (Value: "SET_NODE_POOL_SIZE")
  *    @arg @c kGTLRContainer_Operation_OperationType_TypeUnspecified Not set.
  *        (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRContainer_Operation_OperationType_UpdateCluster Cluster
@@ -1354,6 +1384,22 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /** NodeManagement configuration for the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
+
+@end
+
+
+/**
+ *  SetNodePoolSizeRequest sets the size a node
+ *  pool.
+ */
+@interface GTLRContainer_SetNodePoolSizeRequest : GTLRObject
+
+/**
+ *  The desired node count for the pool.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodeCount;
 
 @end
 

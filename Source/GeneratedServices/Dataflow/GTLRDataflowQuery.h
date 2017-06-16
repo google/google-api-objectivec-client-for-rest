@@ -96,6 +96,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsCreate : GTLRDataflowQuery
@@ -146,6 +147,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsDebugGetConfig : GTLRDataflowQuery
@@ -184,6 +186,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsDebugSendCapture : GTLRDataflowQuery
@@ -222,6 +225,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsGet : GTLRDataflowQuery
@@ -272,6 +276,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsGetMetrics : GTLRDataflowQuery
@@ -316,6 +321,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsList : GTLRDataflowQuery
@@ -384,6 +390,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsMessagesList : GTLRDataflowQuery
@@ -467,6 +474,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsUpdate : GTLRDataflowQuery
@@ -508,6 +516,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsWorkItemsLease : GTLRDataflowQuery
@@ -546,6 +555,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsWorkItemsReportStatus : GTLRDataflowQuery
@@ -584,6 +594,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsCreate : GTLRDataflowQuery
@@ -636,6 +647,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsDebugGetConfig : GTLRDataflowQuery
@@ -679,6 +691,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsDebugSendCapture : GTLRDataflowQuery
@@ -722,6 +735,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsGet : GTLRDataflowQuery
@@ -774,6 +788,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsGetMetrics : GTLRDataflowQuery
@@ -820,6 +835,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsList : GTLRDataflowQuery
@@ -890,6 +906,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsMessagesList : GTLRDataflowQuery
@@ -975,6 +992,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsUpdate : GTLRDataflowQuery
@@ -1018,6 +1036,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsLease : GTLRDataflowQuery
@@ -1061,6 +1080,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsReportStatus : GTLRDataflowQuery
@@ -1104,6 +1124,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsTemplatesCreate : GTLRDataflowQuery
@@ -1143,6 +1164,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsTemplatesGet : GTLRDataflowQuery
@@ -1194,6 +1216,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsTemplatesLaunch : GTLRDataflowQuery
@@ -1246,6 +1269,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsWorkerMessages : GTLRDataflowQuery
@@ -1284,6 +1308,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsTemplatesCreate : GTLRDataflowQuery
@@ -1318,6 +1343,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsTemplatesGet : GTLRDataflowQuery
@@ -1367,6 +1393,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsTemplatesLaunch : GTLRDataflowQuery
@@ -1417,6 +1444,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
  *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsWorkerMessages : GTLRDataflowQuery

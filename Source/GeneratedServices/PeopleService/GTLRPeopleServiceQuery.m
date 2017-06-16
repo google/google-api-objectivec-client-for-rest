@@ -32,8 +32,8 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 
 @implementation GTLRPeopleServiceQuery_PeopleConnectionsList
 
-@dynamic pageSize, pageToken, requestMaskIncludeField, requestSyncToken,
-         resourceName, sortOrder, syncToken;
+@dynamic pageSize, pageToken, personFields, requestMaskIncludeField,
+         requestSyncToken, resourceName, sortOrder, syncToken;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"requestMaskIncludeField" : @"requestMask.includeField" };
@@ -56,7 +56,7 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 
 @implementation GTLRPeopleServiceQuery_PeopleGet
 
-@dynamic requestMaskIncludeField, resourceName;
+@dynamic personFields, requestMaskIncludeField, resourceName;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"requestMaskIncludeField" : @"requestMask.includeField" };
@@ -79,7 +79,7 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 
 @implementation GTLRPeopleServiceQuery_PeopleGetBatchGet
 
-@dynamic requestMaskIncludeField, resourceNames;
+@dynamic personFields, requestMaskIncludeField, resourceNames;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"requestMaskIncludeField" : @"requestMask.includeField" };

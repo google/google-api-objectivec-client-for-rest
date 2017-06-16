@@ -4,7 +4,7 @@
 // API:
 //   CustomSearch API (customsearch/v1)
 // Description:
-//   Lets you search over a website or collection of websites
+//   Searches over a website or collection of websites
 // Documentation:
 //   https://developers.google.com/custom-search/v1/using_rest
 
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Service for executing CustomSearch API queries.
  *
- *  Lets you search over a website or collection of websites
+ *  Searches over a website or collection of websites
  */
 @interface GTLRCustomsearchService : GTLRService
 

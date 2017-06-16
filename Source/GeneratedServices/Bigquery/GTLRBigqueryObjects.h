@@ -790,9 +790,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *cacheHit;
 
 /**
- *  [Output-only] All errors and warnings encountered during the running of the
- *  job. Errors here do not necessarily mean that the job has completed or was
- *  unsuccessful.
+ *  [Output-only] The first errors or warnings encountered during the running of
+ *  the job. The final message includes the number of errors that caused the
+ *  process to stop. Errors here do not necessarily mean that the job has
+ *  completed or was unsuccessful.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ErrorProto *> *errors;
 
@@ -1256,7 +1257,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Optional] If true and query uses legacy SQL dialect, allows the query to
  *  produce arbitrarily large result tables at a slight cost in performance.
  *  Requires destinationTable to be set. For standard SQL queries, this flag is
- *  ignored and large results are always allowed.
+ *  ignored and large results are always allowed. However, you must still set
+ *  destinationTable when result size exceeds the allowed maximum response size.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1280,7 +1282,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  [Optional] Describes the table where the query results should be stored. If
- *  not present, a new table will be created to store the results.
+ *  not present, a new table will be created to store the results. This property
+ *  must be set for large results that exceed the maximum response size.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *destinationTable;
 
@@ -1735,8 +1738,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBigquery_ErrorProto *errorResult;
 
 /**
- *  [Output-only] All errors encountered during the running of the job. Errors
- *  here do not necessarily mean that the job has completed or was unsuccessful.
+ *  [Output-only] The first errors encountered during the running of the job.
+ *  The final message includes the number of errors that caused the process to
+ *  stop. Errors here do not necessarily mean that the job has completed or was
+ *  unsuccessful.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ErrorProto *> *errors;
 
@@ -2043,9 +2048,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *cacheHit;
 
 /**
- *  [Output-only] All errors and warnings encountered during the running of the
- *  job. Errors here do not necessarily mean that the job has completed or was
- *  unsuccessful.
+ *  [Output-only] The first errors or warnings encountered during the running of
+ *  the job. The final message includes the number of errors that caused the
+ *  process to stop. Errors here do not necessarily mean that the job has
+ *  completed or was unsuccessful.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ErrorProto *> *errors;
 
@@ -2445,7 +2451,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_TableFieldSchema : GTLRObject
 
 /**
- *  [Optional] The field description. The maximum length is 512 characters.
+ *  [Optional] The field description. The maximum length is 1,024 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */

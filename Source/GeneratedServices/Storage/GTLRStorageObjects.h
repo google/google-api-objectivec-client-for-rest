@@ -21,6 +21,7 @@
 @class GTLRStorage_Bucket;
 @class GTLRStorage_Bucket_Billing;
 @class GTLRStorage_Bucket_Cors_Item;
+@class GTLRStorage_Bucket_Encryption;
 @class GTLRStorage_Bucket_Labels;
 @class GTLRStorage_Bucket_Lifecycle;
 @class GTLRStorage_Bucket_Lifecycle_Rule_Item;
@@ -65,6 +66,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Default access controls to apply to new objects when no ACL is provided.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorage_ObjectAccessControl *> *defaultObjectAcl;
+
+/**
+ *  Encryption configuration used by default for newly inserted objects, when no
+ *  encryption config is specified.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_Encryption *encryption;
 
 /** HTTP 1.1 Entity tag for the bucket. */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -200,6 +207,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  permission for the user-agent to share across domains.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *responseHeader;
+
+@end
+
+
+/**
+ *  Encryption configuration used by default for newly inserted objects, when no
+ *  encryption config is specified.
+ */
+@interface GTLRStorage_Bucket_Encryption : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *defaultKmsKeyName;
 
 @end
 
@@ -817,6 +835,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The kind of item this is. For objects, this is always storage#object. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Cloud KMS Key used to encrypt this object, if the object is encrypted by
+ *  such a key.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
  *  MD5 hash of the data; encoded using base64. For more information about using

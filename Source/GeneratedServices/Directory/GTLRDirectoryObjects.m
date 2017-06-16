@@ -878,11 +878,11 @@
          creationTime, customerId, customSchemas, deletionTime, emails, ETag,
          externalIds, hashFunction, identifier, ims, includeInGlobalAddressList,
          ipWhitelisted, isAdmin, isDelegatedAdmin, isEnforcedIn2Sv,
-         isEnrolledIn2Sv, isMailboxSetup, kind, lastLoginTime, locations, name,
-         nonEditableAliases, notes, organizations, orgUnitPath, password,
-         phones, posixAccounts, primaryEmail, relations, sshPublicKeys,
-         suspended, suspensionReason, thumbnailPhotoEtag, thumbnailPhotoUrl,
-         websites;
+         isEnrolledIn2Sv, isMailboxSetup, kind, languages, lastLoginTime,
+         locations, name, nonEditableAliases, notes, organizations, orgUnitPath,
+         password, phones, posixAccounts, primaryEmail, relations,
+         sshPublicKeys, suspended, suspensionReason, thumbnailPhotoEtag,
+         thumbnailPhotoUrl, websites;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -985,6 +985,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_UserLanguage
+//
+
+@implementation GTLRDirectory_UserLanguage
+@dynamic customLanguage, languageCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_UserLocation
 //
 
@@ -1020,7 +1030,7 @@
 
 @implementation GTLRDirectory_UserOrganization
 @dynamic costCenter, customType, department, descriptionProperty, domain,
-         location, name, primary, symbol, title, type;
+         fullTimeEquivalent, location, name, primary, symbol, title, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

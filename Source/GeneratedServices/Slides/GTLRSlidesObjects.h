@@ -5214,7 +5214,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @interface GTLRSlides_LayoutProperties : GTLRObject
 
-/** The human readable name of the layout in the presentation's locale. */
+/** The human-readable name of the layout. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The object ID of the master that this layout is based on. */

@@ -61,18 +61,6 @@ NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Off 
 NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Trace = @"TRACE";
 NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn = @"WARN";
 
-// GTLRDataproc_OperationMetadata.state
-NSString * const kGTLRDataproc_OperationMetadata_State_Done    = @"DONE";
-NSString * const kGTLRDataproc_OperationMetadata_State_Pending = @"PENDING";
-NSString * const kGTLRDataproc_OperationMetadata_State_Running = @"RUNNING";
-NSString * const kGTLRDataproc_OperationMetadata_State_Unknown = @"UNKNOWN";
-
-// GTLRDataproc_OperationStatus.state
-NSString * const kGTLRDataproc_OperationStatus_State_Done    = @"DONE";
-NSString * const kGTLRDataproc_OperationStatus_State_Pending = @"PENDING";
-NSString * const kGTLRDataproc_OperationStatus_State_Running = @"RUNNING";
-NSString * const kGTLRDataproc_OperationStatus_State_Unknown = @"UNKNOWN";
-
 // GTLRDataproc_YarnApplication.state
 NSString * const kGTLRDataproc_YarnApplication_State_Accepted  = @"ACCEPTED";
 NSString * const kGTLRDataproc_YarnApplication_State_Failed    = @"FAILED";
@@ -248,16 +236,6 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_ClusterStatus
 @dynamic detail, state, stateStartTime, substate;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataproc_DiagnoseClusterOutputLocation
-//
-
-@implementation GTLRDataproc_DiagnoseClusterOutputLocation
-@dynamic outputUri;
 @end
 
 
@@ -656,41 +634,6 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataproc_OperationMetadata
-//
-
-@implementation GTLRDataproc_OperationMetadata
-@dynamic clusterName, clusterUuid, descriptionProperty, details, endTime,
-         innerState, insertTime, operationType, startTime, state, status,
-         statusHistory, warnings;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"statusHistory" : [GTLRDataproc_OperationStatus class],
-    @"warnings" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataproc_OperationStatus
-//
-
-@implementation GTLRDataproc_OperationStatus
-@dynamic details, innerState, state, stateStartTime;
 @end
 
 

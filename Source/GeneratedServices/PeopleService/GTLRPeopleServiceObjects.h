@@ -721,8 +721,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, strong, nullable) NSNumber *totalItems;
 
 /**
- *  DEPRECATED(Please use total_items). The total number of people in the list
- *  without pagination.
+ *  **DEPRECATED** (Please use totalItems)
+ *  The total number of people in the list without pagination.
  *
  *  Uses NSNumber of intValue.
  */
@@ -951,7 +951,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Address *> *addresses;
 
 /**
- *  DEPRECATED(Please read person.age_ranges instead). The person's age range.
+ *  **DEPRECATED** (Please use `person.ageRanges` instead)**
+ *  The person's read-only age range.
  *
  *  Likely values:
  *    @arg @c kGTLRPeopleService_Person_AgeRange_AgeRangeUnspecified
@@ -965,7 +966,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  */
 @property(nonatomic, copy, nullable) NSString *ageRange;
 
-/** The person's age ranges. */
+/** The person's read-only age ranges. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_AgeRangeType *> *ageRanges;
 
 /** The person's biographies. */
@@ -977,7 +978,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's bragging rights. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_BraggingRights *> *braggingRights;
 
-/** The person's cover photos. */
+/** The person's read-only cover photos. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_CoverPhoto *> *coverPhotos;
 
 /** The person's email addresses. */
@@ -1004,10 +1005,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's locale preferences. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Locale *> *locales;
 
-/** The person's group memberships. */
+/** The person's read-only group memberships. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Membership *> *memberships;
 
-/** Metadata about the person. */
+/** Read-only metadata about the person. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_PersonMetadata *metadata;
 
 /** The person's names. */
@@ -1025,16 +1026,16 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's phone numbers. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_PhoneNumber *> *phoneNumbers;
 
-/** The person's photos. */
+/** The person's read-only photos. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Photo *> *photos;
 
 /** The person's relations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Relation *> *relations;
 
-/** The kind of relationship the person is looking for. */
+/** The person's read-only relationship interests. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_RelationshipInterest *> *relationshipInterests;
 
-/** The person's relationship statuses. */
+/** The person's read-only relationship statuses. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_RelationshipStatus *> *relationshipStatuses;
 
 /** The person's residences. */
@@ -1049,7 +1050,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's skills. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Skill *> *skills;
 
-/** The person's taglines. */
+/** The person's read-only taglines. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Tagline *> *taglines;
 
 /** The person's associated URLs. */
@@ -1076,7 +1077,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, strong, nullable) NSArray<NSString *> *linkedPeopleResourceNames;
 
 /**
- *  DEPRECATED(Please read person.metadata.sources.profile_metadata instead).
+ *  **DEPRECATED** (Please use
+ *  `person.metadata.sources.profileMetadata.objectType` instead)
  *  The type of the person object.
  *
  *  Likely values:
@@ -1111,9 +1113,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @interface GTLRPeopleService_PersonResponse : GTLRObject
 
 /**
- *  DEPRECATED(Please use status instead).
- *  [HTTP 1.1 status
- *  code](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+ *  **DEPRECATED** (Please use status instead)
+ *  [HTTP 1.1 status code]
+ *  (http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
  *
  *  Uses NSNumber of intValue.
  */
@@ -1151,7 +1153,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /**
  *  The read-only type of the phone number translated and formatted in the
- *  viewer's account locale or the the `Accept-Language` HTTP header locale.
+ *  viewer's account locale or the `Accept-Language` HTTP header locale.
  */
 @property(nonatomic, copy, nullable) NSString *formattedType;
 

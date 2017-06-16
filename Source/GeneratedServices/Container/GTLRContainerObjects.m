@@ -42,6 +42,7 @@ NSString * const kGTLRContainer_Operation_OperationType_RepairCluster = @"REPAIR
 NSString * const kGTLRContainer_Operation_OperationType_SetLabels = @"SET_LABELS";
 NSString * const kGTLRContainer_Operation_OperationType_SetMasterAuth = @"SET_MASTER_AUTH";
 NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolManagement = @"SET_NODE_POOL_MANAGEMENT";
+NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolSize = @"SET_NODE_POOL_SIZE";
 NSString * const kGTLRContainer_Operation_OperationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRContainer_Operation_OperationType_UpdateCluster = @"UPDATE_CLUSTER";
 NSString * const kGTLRContainer_Operation_OperationType_UpgradeMaster = @"UPGRADE_MASTER";
@@ -90,6 +91,16 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 //
 
 @implementation GTLRContainer_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ClientCertificateConfig
+//
+
+@implementation GTLRContainer_ClientCertificateConfig
+@dynamic issueClientCertificate;
 @end
 
 
@@ -292,7 +303,8 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 //
 
 @implementation GTLRContainer_MasterAuth
-@dynamic clientCertificate, clientKey, clusterCaCertificate, password, username;
+@dynamic clientCertificate, clientCertificateConfig, clientKey,
+         clusterCaCertificate, password, username;
 @end
 
 
@@ -480,6 +492,16 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 @implementation GTLRContainer_SetNodePoolManagementRequest
 @dynamic management;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_SetNodePoolSizeRequest
+//
+
+@implementation GTLRContainer_SetNodePoolSizeRequest
+@dynamic nodeCount;
 @end
 
 

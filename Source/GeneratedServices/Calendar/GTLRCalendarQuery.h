@@ -1382,8 +1382,11 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
- *  Maximum number of events returned on one result page. By default the value
- *  is 250 events. The page size can never be larger than 2500 events. Optional.
+ *  Maximum number of events returned on one result page. The number of events
+ *  in the resulting page may be less than this value, or none at all, even if
+ *  there are more events matching the query. Incomplete pages can be detected
+ *  by a non-empty nextPageToken field in the response. By default the value is
+ *  250 events. The page size can never be larger than 2500 events. Optional.
  *
  *  @note If not set, the documented server-side default will be 250.
  */
@@ -1798,8 +1801,11 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
- *  Maximum number of events returned on one result page. By default the value
- *  is 250 events. The page size can never be larger than 2500 events. Optional.
+ *  Maximum number of events returned on one result page. The number of events
+ *  in the resulting page may be less than this value, or none at all, even if
+ *  there are more events matching the query. Incomplete pages can be detected
+ *  by a non-empty nextPageToken field in the response. By default the value is
+ *  250 events. The page size can never be larger than 2500 events. Optional.
  *
  *  @note If not set, the documented server-side default will be 250.
  */

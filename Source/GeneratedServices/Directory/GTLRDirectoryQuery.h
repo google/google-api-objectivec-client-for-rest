@@ -488,6 +488,9 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
+/** Full path of the organization unit or its Id */
+@property(nonatomic, copy, nullable) NSString *orgUnitPath;
+
 /** Token to specify next page in the list */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

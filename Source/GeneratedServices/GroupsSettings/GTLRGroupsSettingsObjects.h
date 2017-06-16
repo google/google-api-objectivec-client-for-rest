@@ -148,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Permissions to post messages to the group. Possible values are:
- *  NONE_CAN_POST ALL_MANAGERS_CAN_POST ALL_MEMBERS_CAN_POST
+ *  NONE_CAN_POST ALL_MANAGERS_CAN_POST ALL_MEMBERS_CAN_POST ALL_OWNERS_CAN_POST
  *  ALL_IN_DOMAIN_CAN_POST ANYONE_CAN_POST
  */
 @property(nonatomic, copy, nullable) NSString *whoCanPostMessage;

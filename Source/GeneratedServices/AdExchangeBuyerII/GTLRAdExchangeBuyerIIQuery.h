@@ -25,6 +25,7 @@
 @class GTLRAdExchangeBuyerII_ClientUser;
 @class GTLRAdExchangeBuyerII_ClientUserInvitation;
 @class GTLRAdExchangeBuyerII_Creative;
+@class GTLRAdExchangeBuyerII_FilterSet;
 @class GTLRAdExchangeBuyerII_RemoveDealAssociationRequest;
 @class GTLRAdExchangeBuyerII_StopWatchingCreativeRequest;
 @class GTLRAdExchangeBuyerII_WatchCreativeRequest;
@@ -977,6 +978,814 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_WatchCreativeRequest *)object
                       accountId:(NSString *)accountId
                      creativeId:(NSString *)creativeId;
+
+@end
+
+/**
+ *  Lists all metrics that are measured in terms of number of bids.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.bidMetrics.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidMetricsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsBidMetricsListWithaccountId:filterSetId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/** The ID of the filter set to apply. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Requested page size. The server may return fewer than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListBidMetricsResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.filterSets.bidMetrics.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListBidMetricsResponse.
+ *
+ *  Lists all metrics that are measured in terms of number of bids.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to apply.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidMetricsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId;
+
+@end
+
+/**
+ *  List all errors that occurred in bid responses, with the number of bid
+ *  responses affected for each reason.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.bidResponseErrors.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidResponseErrorsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsBidResponseErrorsListWithaccountId:filterSetId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/** The ID of the filter set to apply. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Requested page size. The server may return fewer than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListBidResponseErrorsResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.filterSets.bidResponseErrors.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListBidResponseErrorsResponse.
+ *
+ *  List all errors that occurred in bid responses, with the number of bid
+ *  responses affected for each reason.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to apply.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidResponseErrorsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId;
+
+@end
+
+/**
+ *  List all reasons for which bid responses were considered to have no
+ *  applicable bids, with the number of bid responses affected for each reason.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.bidResponsesWithoutBids.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidResponsesWithoutBidsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsBidResponsesWithoutBidsListWithaccountId:filterSetId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/** The ID of the filter set to apply. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Requested page size. The server may return fewer than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListBidResponsesWithoutBidsResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.filterSets.bidResponsesWithoutBids.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListBidResponsesWithoutBidsResponse.
+ *
+ *  List all reasons for which bid responses were considered to have no
+ *  applicable bids, with the number of bid responses affected for each reason.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to apply.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsBidResponsesWithoutBidsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId;
+
+@end
+
+/**
+ *  Creates the specified filter set for the account with the given account ID.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsCreate : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsCreateWithObject:accountId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Whether the filter set is transient, or should be persisted indefinitely.
+ *  By default, filter sets are not transient.
+ *  If transient, it will be available for at least 1 hour after creation.
+ */
+@property(nonatomic, assign) BOOL isTransient;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_FilterSet.
+ *
+ *  Creates the specified filter set for the account with the given account ID.
+ *
+ *  @param object The @c GTLRAdExchangeBuyerII_FilterSet to include in the
+ *    query.
+ *  @param accountId Account ID of the buyer.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_FilterSet *)object
+                      accountId:(long long)accountId;
+
+@end
+
+/**
+ *  Deletes the requested filter set from the account with the given account
+ *  ID.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsDelete : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsDeleteWithaccountId:filterSetId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/** The ID of the filter set to delete. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_Empty.
+ *
+ *  Deletes the requested filter set from the account with the given account
+ *  ID.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to delete.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsDelete
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId;
+
+@end
+
+/**
+ *  List all reasons that caused a bid request not to be sent for an
+ *  impression, with the number of bid requests not sent for each reason.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.filteredBidRequests.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidRequestsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidRequestsListWithaccountId:filterSetId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/** The ID of the filter set to apply. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Requested page size. The server may return fewer than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListFilteredBidRequestsResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.filterSets.filteredBidRequests.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListFilteredBidRequestsResponse.
+ *
+ *  List all reasons that caused a bid request not to be sent for an
+ *  impression, with the number of bid requests not sent for each reason.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to apply.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidRequestsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId;
+
+@end
+
+/**
+ *  List all details associated with a specific reason for which bids were
+ *  filtered and a specific creative that was filtered for that reason, with
+ *  the number of bids filtered for each detail.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.filteredBids.creatives.details.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesDetailsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidsCreativesDetailsListWithaccountId:filterSetId:creativeStatusId:creativeId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/** The creative ID for which to retrieve a breakdown by detail. */
+@property(nonatomic, copy, nullable) NSString *creativeId;
+
+/**
+ *  The ID of the creative status for which to retrieve a breakdown by detail.
+ *  See
+ *  [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
+ */
+@property(nonatomic, assign) NSInteger creativeStatusId;
+
+/** The ID of the filter set to apply. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Requested page size. The server may return fewer than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListCreativeStatusAndCreativeBreakdownByDetailResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.filterSets.filteredBids.creatives.details.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse.
+ *
+ *  List all details associated with a specific reason for which bids were
+ *  filtered and a specific creative that was filtered for that reason, with
+ *  the number of bids filtered for each detail.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to apply.
+ *  @param creativeStatusId The ID of the creative status for which to retrieve
+ *    a breakdown by detail.
+ *    See
+ *    [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
+ *  @param creativeId The creative ID for which to retrieve a breakdown by
+ *    detail.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesDetailsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId
+                  creativeStatusId:(NSInteger)creativeStatusId
+                        creativeId:(NSString *)creativeId;
+
+@end
+
+/**
+ *  List all creatives associated with a specific reason for which bids were
+ *  filtered, with the number of bids filtered for each creative.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.filteredBids.creatives.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidsCreativesListWithaccountId:filterSetId:creativeStatusId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  The ID of the creative status for which to retrieve a breakdown by
+ *  creative.
+ *  See
+ *  [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
+ */
+@property(nonatomic, assign) NSInteger creativeStatusId;
+
+/** The ID of the filter set to apply. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Requested page size. The server may return fewer than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListCreativeStatusBreakdownByCreativeResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.filterSets.filteredBids.creatives.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByCreativeResponse.
+ *
+ *  List all creatives associated with a specific reason for which bids were
+ *  filtered, with the number of bids filtered for each creative.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to apply.
+ *  @param creativeStatusId The ID of the creative status for which to retrieve
+ *    a breakdown by
+ *    creative.
+ *    See
+ *    [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId
+                  creativeStatusId:(NSInteger)creativeStatusId;
+
+@end
+
+/**
+ *  List all details associated with a specific reason for which bids were
+ *  filtered, with the number of bids filtered for each detail.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.filteredBids.details.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsDetailsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidsDetailsListWithaccountId:filterSetId:creativeStatusId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  The ID of the creative status for which to retrieve a breakdown by detail.
+ *  See
+ *  [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
+ */
+@property(nonatomic, assign) NSInteger creativeStatusId;
+
+/** The ID of the filter set to apply. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Requested page size. The server may return fewer than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListCreativeStatusBreakdownByDetailResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.filterSets.filteredBids.details.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse.
+ *
+ *  List all details associated with a specific reason for which bids were
+ *  filtered, with the number of bids filtered for each detail.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to apply.
+ *  @param creativeStatusId The ID of the creative status for which to retrieve
+ *    a breakdown by detail.
+ *    See
+ *    [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsDetailsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId
+                  creativeStatusId:(NSInteger)creativeStatusId;
+
+@end
+
+/**
+ *  List all reasons for which bids were filtered, with the number of bids
+ *  filtered for each reason.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.filteredBids.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidsListWithaccountId:filterSetId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/** The ID of the filter set to apply. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Requested page size. The server may return fewer than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListFilteredBidsResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.filterSets.filteredBids.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListFilteredBidsResponse.
+ *
+ *  List all reasons for which bids were filtered, with the number of bids
+ *  filtered for each reason.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to apply.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId;
+
+@end
+
+/**
+ *  List all reasons that caused an impression to be filtered (i.e. not
+ *  considered as an inventory match), with the number of impressions that were
+ *  filtered for each reason.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.filteredImpressions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredImpressionsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredImpressionsListWithaccountId:filterSetId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/** The ID of the filter set to apply. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Requested page size. The server may return fewer than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListFilteredImpressionsResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.filterSets.filteredImpressions.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListFilteredImpressionsResponse.
+ *
+ *  List all reasons that caused an impression to be filtered (i.e. not
+ *  considered as an inventory match), with the number of impressions that were
+ *  filtered for each reason.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to apply.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredImpressionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId;
+
+@end
+
+/**
+ *  Retrieves the requested filter set for the account with the given account
+ *  ID.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsGet : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsGetWithaccountId:filterSetId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/** The ID of the filter set to get. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_FilterSet.
+ *
+ *  Retrieves the requested filter set for the account with the given account
+ *  ID.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to get.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsGet
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId;
+
+@end
+
+/**
+ *  Lists all metrics that are measured in terms of number of impressions.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.impressionMetrics.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsImpressionMetricsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsImpressionMetricsListWithaccountId:filterSetId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/** The ID of the filter set to apply. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Requested page size. The server may return fewer than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListImpressionMetricsResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.filterSets.impressionMetrics.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListImpressionMetricsResponse.
+ *
+ *  Lists all metrics that are measured in terms of number of impressions.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to apply.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsImpressionMetricsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId;
+
+@end
+
+/**
+ *  Lists all filter sets for the account with the given account ID.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsListWithaccountId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Requested page size. The server may return fewer than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListFilterSetsResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.rtbBreakout.filterSets.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListFilterSetsResponse.
+ *
+ *  Lists all filter sets for the account with the given account ID.
+ *
+ *  @param accountId Account ID of the buyer.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId;
+
+@end
+
+/**
+ *  List all reasons for which bids lost in the auction, with the number of
+ *  bids that lost for each reason.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.losingBids.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsLosingBidsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsLosingBidsListWithaccountId:filterSetId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/** The ID of the filter set to apply. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Requested page size. The server may return fewer than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListLosingBidsResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.filterSets.losingBids.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListLosingBidsResponse.
+ *
+ *  List all reasons for which bids lost in the auction, with the number of
+ *  bids that lost for each reason.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to apply.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsLosingBidsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId;
 
 @end
 

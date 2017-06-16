@@ -65,6 +65,28 @@ GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType
 GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSourceRepositories_CloudAuditOptions.logName
+
+/**
+ *  Corresponds to "cloudaudit.googleapis.com/activity"
+ *
+ *  Value: "ADMIN_ACTIVITY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_CloudAuditOptions_LogName_AdminActivity;
+/**
+ *  Corresponds to "cloudaudit.googleapis.com/data_access"
+ *
+ *  Value: "DATA_ACCESS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_CloudAuditOptions_LogName_DataAccess;
+/**
+ *  Default. Should not be used.
+ *
+ *  Value: "UNSPECIFIED_LOG_NAME"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_CloudAuditOptions_LogName_UnspecifiedLogName;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSourceRepositories_Condition.iam
 
 /**
@@ -382,6 +404,22 @@ GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction;
  *  Write a Cloud Audit log
  */
 @interface GTLRCloudSourceRepositories_CloudAuditOptions : GTLRObject
+
+/**
+ *  The log_name to populate in the Cloud Audit Record.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSourceRepositories_CloudAuditOptions_LogName_AdminActivity
+ *        Corresponds to "cloudaudit.googleapis.com/activity" (Value:
+ *        "ADMIN_ACTIVITY")
+ *    @arg @c kGTLRCloudSourceRepositories_CloudAuditOptions_LogName_DataAccess
+ *        Corresponds to "cloudaudit.googleapis.com/data_access" (Value:
+ *        "DATA_ACCESS")
+ *    @arg @c kGTLRCloudSourceRepositories_CloudAuditOptions_LogName_UnspecifiedLogName
+ *        Default. Should not be used. (Value: "UNSPECIFIED_LOG_NAME")
+ */
+@property(nonatomic, copy, nullable) NSString *logName;
+
 @end
 
 
@@ -508,7 +546,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction;
 
 
 /**
- *  Response for ListRepos.
+ *  Response for ListRepos. The size is not set in the returned repositories.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "repos" property. If returned as the result of a query, it should
@@ -677,7 +715,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_Rule_Action_NoAction;
 
 /**
  *  Resource name of the repository, of the form
- *  `projects/<project>/repos/<repo>`.
+ *  `projects/<project>/repos/<repo>`. The repo name may contain slashes.
+ *  eg, `projects/myproject/repos/name/with/slash`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

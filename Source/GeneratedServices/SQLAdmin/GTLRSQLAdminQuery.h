@@ -764,7 +764,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySQLAdmin queryForInstancesListWithproject:]
 
-/** Reserved for future use. */
+/**
+ *  An expression for filtering the results of the request, such as by name or
+ *  label.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The maximum number of results to return per response. */

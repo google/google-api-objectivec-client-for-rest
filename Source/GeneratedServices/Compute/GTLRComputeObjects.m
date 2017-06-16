@@ -13,8 +13,32 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCompute_AcceleratorTypesScopedList_Warning.code
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
 // GTLRCompute_AccessConfig.type
 NSString * const kGTLRCompute_AccessConfig_Type_OneToOneNat = @"ONE_TO_ONE_NAT";
+
+// GTLRCompute_Address.ipVersion
+NSString * const kGTLRCompute_Address_IpVersion_Ipv4           = @"IPV4";
+NSString * const kGTLRCompute_Address_IpVersion_Ipv6           = @"IPV6";
+NSString * const kGTLRCompute_Address_IpVersion_UnspecifiedVersion = @"UNSPECIFIED_VERSION";
 
 // GTLRCompute_Address.status
 NSString * const kGTLRCompute_Address_Status_InUse    = @"IN_USE";
@@ -174,6 +198,11 @@ NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Icmp = @"ICMP";
 NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Sctp = @"SCTP";
 NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Tcp  = @"TCP";
 NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Udp  = @"UDP";
+
+// GTLRCompute_ForwardingRule.ipVersion
+NSString * const kGTLRCompute_ForwardingRule_IpVersion_Ipv4    = @"IPV4";
+NSString * const kGTLRCompute_ForwardingRule_IpVersion_Ipv6    = @"IPV6";
+NSString * const kGTLRCompute_ForwardingRule_IpVersion_UnspecifiedVersion = @"UNSPECIFIED_VERSION";
 
 // GTLRCompute_ForwardingRule.loadBalancingScheme
 NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_External = @"EXTERNAL";
@@ -354,6 +383,10 @@ NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Suspended = @"SUSPE
 NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Suspending = @"SUSPENDING";
 NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Terminated = @"TERMINATED";
 
+// GTLRCompute_NetworkPeering.state
+NSString * const kGTLRCompute_NetworkPeering_State_Active   = @"ACTIVE";
+NSString * const kGTLRCompute_NetworkPeering_State_Inactive = @"INACTIVE";
+
 // GTLRCompute_Operation.status
 NSString * const kGTLRCompute_Operation_Status_Done    = @"DONE";
 NSString * const kGTLRCompute_Operation_Status_Pending = @"PENDING";
@@ -405,6 +438,7 @@ NSString * const kGTLRCompute_Project_XpnProjectStatus_UnspecifiedXpnProjectStat
 NSString * const kGTLRCompute_Quota_Metric_Autoscalers         = @"AUTOSCALERS";
 NSString * const kGTLRCompute_Quota_Metric_BackendBuckets      = @"BACKEND_BUCKETS";
 NSString * const kGTLRCompute_Quota_Metric_BackendServices     = @"BACKEND_SERVICES";
+NSString * const kGTLRCompute_Quota_Metric_Commitments         = @"COMMITMENTS";
 NSString * const kGTLRCompute_Quota_Metric_Cpus                = @"CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CpusAllRegions      = @"CPUS_ALL_REGIONS";
 NSString * const kGTLRCompute_Quota_Metric_DisksTotalGb        = @"DISKS_TOTAL_GB";
@@ -419,6 +453,7 @@ NSString * const kGTLRCompute_Quota_Metric_InstanceTemplates   = @"INSTANCE_TEMP
 NSString * const kGTLRCompute_Quota_Metric_InUseAddresses      = @"IN_USE_ADDRESSES";
 NSString * const kGTLRCompute_Quota_Metric_LocalSsdTotalGb     = @"LOCAL_SSD_TOTAL_GB";
 NSString * const kGTLRCompute_Quota_Metric_Networks            = @"NETWORKS";
+NSString * const kGTLRCompute_Quota_Metric_NvidiaK80Gpus       = @"NVIDIA_K80_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleCpus     = @"PREEMPTIBLE_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_RegionalAutoscalers = @"REGIONAL_AUTOSCALERS";
 NSString * const kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers = @"REGIONAL_INSTANCE_GROUP_MANAGERS";
@@ -583,6 +618,14 @@ NSString * const kGTLRCompute_TargetSslProxiesSetProxyHeaderRequest_ProxyHeader_
 NSString * const kGTLRCompute_TargetSslProxy_ProxyHeader_None  = @"NONE";
 NSString * const kGTLRCompute_TargetSslProxy_ProxyHeader_ProxyV1 = @"PROXY_V1";
 
+// GTLRCompute_TargetTcpProxiesSetProxyHeaderRequest.proxyHeader
+NSString * const kGTLRCompute_TargetTcpProxiesSetProxyHeaderRequest_ProxyHeader_None = @"NONE";
+NSString * const kGTLRCompute_TargetTcpProxiesSetProxyHeaderRequest_ProxyHeader_ProxyV1 = @"PROXY_V1";
+
+// GTLRCompute_TargetTcpProxy.proxyHeader
+NSString * const kGTLRCompute_TargetTcpProxy_ProxyHeader_None  = @"NONE";
+NSString * const kGTLRCompute_TargetTcpProxy_ProxyHeader_ProxyV1 = @"PROXY_V1";
+
 // GTLRCompute_TargetVpnGateway.status
 NSString * const kGTLRCompute_TargetVpnGateway_Status_Creating = @"CREATING";
 NSString * const kGTLRCompute_TargetVpnGateway_Status_Deleting = @"DELETING";
@@ -655,6 +698,134 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_AcceleratorConfig
+//
+
+@implementation GTLRCompute_AcceleratorConfig
+@dynamic acceleratorCount, acceleratorType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AcceleratorType
+//
+
+@implementation GTLRCompute_AcceleratorType
+@dynamic creationTimestamp, deprecated, descriptionProperty, identifier, kind,
+         maximumCardsPerInstance, name, selfLink, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AcceleratorTypeAggregatedList
+//
+
+@implementation GTLRCompute_AcceleratorTypeAggregatedList
+@dynamic identifier, items, kind, nextPageToken, selfLink;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AcceleratorTypeAggregatedList_Items
+//
+
+@implementation GTLRCompute_AcceleratorTypeAggregatedList_Items
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_AcceleratorTypesScopedList class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AcceleratorTypeList
+//
+
+@implementation GTLRCompute_AcceleratorTypeList
+@dynamic identifier, items, kind, nextPageToken, selfLink;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_AcceleratorType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AcceleratorTypesScopedList
+//
+
+@implementation GTLRCompute_AcceleratorTypesScopedList
+@dynamic acceleratorTypes, warning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"acceleratorTypes" : [GTLRCompute_AcceleratorType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AcceleratorTypesScopedList_Warning
+//
+
+@implementation GTLRCompute_AcceleratorTypesScopedList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_AcceleratorTypesScopedList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AcceleratorTypesScopedList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_AcceleratorTypesScopedList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_AccessConfig
 //
 
@@ -669,8 +840,8 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_Address
-@dynamic address, creationTimestamp, descriptionProperty, identifier, kind,
-         name, region, selfLink, status, users;
+@dynamic address, creationTimestamp, descriptionProperty, identifier, ipVersion,
+         kind, name, region, selfLink, status, users;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1284,10 +1455,11 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_Disk
 @dynamic creationTimestamp, descriptionProperty, diskEncryptionKey, identifier,
-         kind, labels, lastAttachTimestamp, lastDetachTimestamp, licenses, name,
-         options, selfLink, sizeGb, sourceImage, sourceImageEncryptionKey,
-         sourceImageId, sourceSnapshot, sourceSnapshotEncryptionKey,
-         sourceSnapshotId, status, type, users, zoneProperty;
+         kind, labelFingerprint, labels, lastAttachTimestamp,
+         lastDetachTimestamp, licenses, name, options, selfLink, sizeGb,
+         sourceImage, sourceImageEncryptionKey, sourceImageId, sourceSnapshot,
+         sourceSnapshotEncryptionKey, sourceSnapshotId, status, type, users,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1635,8 +1807,8 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_ForwardingRule
 @dynamic backendService, creationTimestamp, descriptionProperty, identifier,
-         IPAddress, IPProtocol, kind, loadBalancingScheme, name, network,
-         portRange, ports, region, selfLink, subnetwork, target;
+         IPAddress, IPProtocol, ipVersion, kind, loadBalancingScheme, name,
+         network, portRange, ports, region, selfLink, subnetwork, target;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1987,8 +2159,8 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 @implementation GTLRCompute_Image
 @dynamic archiveSizeBytes, creationTimestamp, deprecated, descriptionProperty,
          diskSizeGb, family, guestOsFeatures, identifier, imageEncryptionKey,
-         kind, labels, licenses, name, rawDisk, selfLink, sourceDisk,
-         sourceDiskEncryptionKey, sourceDiskId, sourceType, status;
+         kind, labelFingerprint, labels, licenses, name, rawDisk, selfLink,
+         sourceDisk, sourceDiskEncryptionKey, sourceDiskId, sourceType, status;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2062,9 +2234,10 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_Instance
 @dynamic canIpForward, cpuPlatform, creationTimestamp, descriptionProperty,
-         disks, identifier, kind, labels, machineType, metadata, name,
-         networkInterfaces, scheduling, selfLink, serviceAccounts, status,
-         statusMessage, tags, zoneProperty;
+         disks, guestAccelerators, identifier, kind, labelFingerprint, labels,
+         machineType, metadata, name, networkInterfaces, scheduling, selfLink,
+         serviceAccounts, startRestricted, status, statusMessage, tags,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2078,6 +2251,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"disks" : [GTLRCompute_AttachedDisk class],
+    @"guestAccelerators" : [GTLRCompute_AcceleratorConfig class],
     @"networkInterfaces" : [GTLRCompute_NetworkInterface class],
     @"serviceAccounts" : [GTLRCompute_ServiceAccount class]
   };
@@ -2619,8 +2793,9 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_InstanceProperties
-@dynamic canIpForward, descriptionProperty, disks, labels, machineType,
-         metadata, networkInterfaces, scheduling, serviceAccounts, tags;
+@dynamic canIpForward, descriptionProperty, disks, guestAccelerators, labels,
+         machineType, metadata, networkInterfaces, scheduling, serviceAccounts,
+         tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2629,6 +2804,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"disks" : [GTLRCompute_AttachedDisk class],
+    @"guestAccelerators" : [GTLRCompute_AcceleratorConfig class],
     @"networkInterfaces" : [GTLRCompute_NetworkInterface class],
     @"serviceAccounts" : [GTLRCompute_ServiceAccount class]
   };
@@ -2727,6 +2903,24 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstancesSetMachineResourcesRequest
+//
+
+@implementation GTLRCompute_InstancesSetMachineResourcesRequest
+@dynamic guestAccelerators;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"guestAccelerators" : [GTLRCompute_AcceleratorConfig class]
+  };
+  return map;
 }
 
 @end
@@ -3083,7 +3277,8 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_Network
 @dynamic autoCreateSubnetworks, creationTimestamp, descriptionProperty,
-         gatewayIPv4, identifier, IPv4Range, kind, name, selfLink, subnetworks;
+         gatewayIPv4, identifier, IPv4Range, kind, name, peerings, selfLink,
+         subnetworks;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -3095,6 +3290,7 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"peerings" : [GTLRCompute_NetworkPeering class],
     @"subnetworks" : [NSString class]
   };
   return map;
@@ -3140,6 +3336,36 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworkPeering
+//
+
+@implementation GTLRCompute_NetworkPeering
+@dynamic autoCreateRoutes, name, network, state, stateDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworksAddPeeringRequest
+//
+
+@implementation GTLRCompute_NetworksAddPeeringRequest
+@dynamic autoCreateRoutes, name, peerNetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworksRemovePeeringRequest
+//
+
+@implementation GTLRCompute_NetworksRemovePeeringRequest
+@dynamic name;
 @end
 
 
@@ -3742,7 +3968,8 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 @implementation GTLRCompute_Route
 @dynamic creationTimestamp, descriptionProperty, destRange, identifier, kind,
          name, network, nextHopGateway, nextHopInstance, nextHopIp,
-         nextHopNetwork, nextHopVpnTunnel, priority, selfLink, tags, warnings;
+         nextHopNetwork, nextHopPeering, nextHopVpnTunnel, priority, selfLink,
+         tags, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -4073,9 +4300,9 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_Snapshot
 @dynamic creationTimestamp, descriptionProperty, diskSizeGb, identifier, kind,
-         labels, licenses, name, selfLink, snapshotEncryptionKey, sourceDisk,
-         sourceDiskEncryptionKey, sourceDiskId, status, storageBytes,
-         storageBytesStatus;
+         labelFingerprint, labels, licenses, name, selfLink,
+         snapshotEncryptionKey, sourceDisk, sourceDiskEncryptionKey,
+         sourceDiskId, status, storageBytes, storageBytesStatus;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -4872,6 +5099,68 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"items" : [GTLRCompute_TargetSslProxy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_TargetTcpProxiesSetBackendServiceRequest
+//
+
+@implementation GTLRCompute_TargetTcpProxiesSetBackendServiceRequest
+@dynamic service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_TargetTcpProxiesSetProxyHeaderRequest
+//
+
+@implementation GTLRCompute_TargetTcpProxiesSetProxyHeaderRequest
+@dynamic proxyHeader;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_TargetTcpProxy
+//
+
+@implementation GTLRCompute_TargetTcpProxy
+@dynamic creationTimestamp, descriptionProperty, identifier, kind, name,
+         proxyHeader, selfLink, service;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_TargetTcpProxyList
+//
+
+@implementation GTLRCompute_TargetTcpProxyList
+@dynamic identifier, items, kind, nextPageToken, selfLink;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_TargetTcpProxy class]
   };
   return map;
 }

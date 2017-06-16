@@ -116,10 +116,10 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 //
 
 @implementation GTLRClassroom_Course
-@dynamic alternateLink, courseGroupEmail, courseMaterialSets, courseState,
-         creationTime, descriptionProperty, descriptionHeading, enrollmentCode,
-         guardiansEnabled, identifier, name, ownerId, room, section,
-         teacherFolder, teacherGroupEmail, updateTime;
+@dynamic alternateLink, calendarId, courseGroupEmail, courseMaterialSets,
+         courseState, creationTime, descriptionProperty, descriptionHeading,
+         enrollmentCode, guardiansEnabled, identifier, name, ownerId, room,
+         section, teacherFolder, teacherGroupEmail, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -185,7 +185,7 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 @implementation GTLRClassroom_CourseWork
 @dynamic alternateLink, assignment, associatedWithDeveloper, courseId,
          creationTime, descriptionProperty, dueDate, dueTime, identifier,
-         materials, maxPoints, multipleChoiceQuestion, state,
+         materials, maxPoints, multipleChoiceQuestion, scheduledTime, state,
          submissionModificationMode, title, updateTime, workType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -685,7 +685,7 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 //
 
 @implementation GTLRClassroom_UserProfile
-@dynamic emailAddress, identifier, name, permissions, photoUrl;
+@dynamic emailAddress, identifier, name, permissions, photoUrl, verifiedTeacher;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

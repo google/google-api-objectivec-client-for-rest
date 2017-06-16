@@ -20,6 +20,8 @@
 
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody;
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomaticScaling;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutomaticScaling;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ManualScaling;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput;
@@ -35,11 +37,22 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version;
+@class GTLRCloudMachineLearningEngine_GoogleIamV1AuditConfig;
+@class GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig;
+@class GTLRCloudMachineLearningEngine_GoogleIamV1Binding;
+@class GTLRCloudMachineLearningEngine_GoogleIamV1Condition;
+@class GTLRCloudMachineLearningEngine_GoogleIamV1LogConfig;
+@class GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions;
+@class GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCounterOptions;
+@class GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigDataAccessOptions;
+@class GTLRCloudMachineLearningEngine_GoogleIamV1Policy;
+@class GTLRCloudMachineLearningEngine_GoogleIamV1Rule;
 @class GTLRCloudMachineLearningEngine_GoogleLongrunningOperation;
 @class GTLRCloudMachineLearningEngine_GoogleLongrunningOperation_Metadata;
 @class GTLRCloudMachineLearningEngine_GoogleLongrunningOperation_Response;
 @class GTLRCloudMachineLearningEngine_GoogleRpcStatus;
 @class GTLRCloudMachineLearningEngine_GoogleRpcStatus_Details_Item;
+@class GTLRCloudMachineLearningEngine_GoogleTypeExpr;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -73,6 +86,28 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta
  *  Value: "OPERATION_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1OperationMetadata_OperationType_OperationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version.state
+
+/**
+ *  The version is still in the process of creation.
+ *
+ *  Value: "CREATING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Creating;
+/**
+ *  The version is ready for prediction.
+ *
+ *  Value: "READY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Ready;
+/**
+ *  / The version state is unspecified.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.goal
@@ -331,6 +366,243 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Standard1;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.state
+
+/**
+ *  The version is still in the process of creation.
+ *
+ *  Value: "CREATING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Creating;
+/**
+ *  The version is ready for prediction.
+ *
+ *  Value: "READY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Ready;
+/**
+ *  The version state is unspecified.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig.logType
+
+/**
+ *  Admin reads. Example: CloudIAM getIamPolicy
+ *
+ *  Value: "ADMIN_READ"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_AdminRead;
+/**
+ *  Data reads. Example: CloudSQL Users list
+ *
+ *  Value: "DATA_READ"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_DataRead;
+/**
+ *  Data writes. Example: CloudSQL Users create
+ *
+ *  Value: "DATA_WRITE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_DataWrite;
+/**
+ *  Default case. Should never be this.
+ *
+ *  Value: "LOG_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleIamV1Condition.iam
+
+/**
+ *  An approver (distinct from the requester) that has authorized this
+ *  request.
+ *  When used with IN, the condition indicates that one of the approvers
+ *  associated with the request matches the specified principal, or is a
+ *  member of the specified group. Approvers can only grant additional
+ *  access, and are thus only used in a strictly positive context
+ *  (e.g. ALLOW/IN or DENY/NOT_IN).
+ *
+ *  Value: "APPROVER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_Approver;
+/**
+ *  The principal (even if an authority selector is present), which
+ *  must only be used for attribution, not authorization.
+ *
+ *  Value: "ATTRIBUTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_Attribution;
+/**
+ *  Either principal or (if present) authority selector.
+ *
+ *  Value: "AUTHORITY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_Authority;
+/**
+ *  What types of justifications have been supplied with this request.
+ *  String values should match enum names from tech.iam.JustificationType,
+ *  e.g. "MANUAL_STRING". It is not permitted to grant access based on
+ *  the *absence* of a justification, so justification conditions can only
+ *  be used in a "positive" context (e.g., ALLOW/IN or DENY/NOT_IN).
+ *  Multiple justifications, e.g., a Buganizer ID and a manually-entered
+ *  reason, are normal and supported.
+ *
+ *  Value: "JUSTIFICATION_TYPE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_JustificationType;
+/**
+ *  Default non-attribute.
+ *
+ *  Value: "NO_ATTR"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_NoAttr;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleIamV1Condition.op
+
+/**
+ *  Subject is discharged
+ *
+ *  Value: "DISCHARGED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_Discharged;
+/**
+ *  DEPRECATED. Use IN instead.
+ *
+ *  Value: "EQUALS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_Equals;
+/**
+ *  The condition is true if the subject (or any element of it if it is
+ *  a set) matches any of the supplied values.
+ *
+ *  Value: "IN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_In;
+/**
+ *  Default no-op.
+ *
+ *  Value: "NO_OP"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_NoOp;
+/**
+ *  DEPRECATED. Use NOT_IN instead.
+ *
+ *  Value: "NOT_EQUALS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_NotEquals;
+/**
+ *  The condition is true if the subject (or every element of it if it is
+ *  a set) matches none of the supplied values.
+ *
+ *  Value: "NOT_IN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_NotIn;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleIamV1Condition.sys
+
+/**
+ *  IP address of the caller
+ *
+ *  Value: "IP"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_Ip;
+/**
+ *  Resource name
+ *
+ *  Value: "NAME"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_Name;
+/**
+ *  Default non-attribute type
+ *
+ *  Value: "NO_ATTR"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_NoAttr;
+/**
+ *  Region of the resource
+ *
+ *  Value: "REGION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_Region;
+/**
+ *  Service name
+ *
+ *  Value: "SERVICE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_Service;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions.logName
+
+/**
+ *  Corresponds to "cloudaudit.googleapis.com/activity"
+ *
+ *  Value: "ADMIN_ACTIVITY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions_LogName_AdminActivity;
+/**
+ *  Corresponds to "cloudaudit.googleapis.com/data_access"
+ *
+ *  Value: "DATA_ACCESS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions_LogName_DataAccess;
+/**
+ *  Default. Should not be used.
+ *
+ *  Value: "UNSPECIFIED_LOG_NAME"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions_LogName_UnspecifiedLogName;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleIamV1Rule.action
+
+/**
+ *  Matching 'Entries' grant access.
+ *
+ *  Value: "ALLOW"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_Allow;
+/**
+ *  Matching 'Entries' grant access and the caller promises to log
+ *  the request per the returned log_configs.
+ *
+ *  Value: "ALLOW_WITH_LOG"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_AllowWithLog;
+/**
+ *  Matching 'Entries' deny access.
+ *
+ *  Value: "DENY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_Deny;
+/**
+ *  Matching 'Entries' deny access and the caller promises to log
+ *  the request per the returned log_configs.
+ *
+ *  Value: "DENY_WITH_LOG"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_DenyWithLog;
+/**
+ *  Matching 'Entries' tell IAM.Check callers to generate logs.
+ *
+ *  Value: "LOG"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_Log;
+/**
+ *  Default no action.
+ *
+ *  Value: "NO_ACTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction;
+
 /**
  *  Message that represents an arbitrary HTTP body. It should only be used for
  *  payload formats that can't be represented as JSON, such as raw binary or
@@ -396,6 +668,66 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
 
 
 /**
+ *  Options for automatically scaling a model.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomaticScaling : GTLRObject
+
+/**
+ *  Optional. The minimum number of nodes to allocate for this model. These
+ *  nodes are always up, starting from the time the model is deployed, so the
+ *  cost of operating this model will be at least
+ *  `rate` * `min_nodes` * number of hours since last billing cycle,
+ *  where `rate` is the cost per node-hour as documented in
+ *  [pricing](https://cloud.google.com/ml-engine/pricing#prediction_pricing),
+ *  even if no predictions are performed. There is additional cost for each
+ *  prediction performed.
+ *  Unlike manual scaling, if the load gets too heavy for the nodes
+ *  that are up, the service will automatically add nodes to handle the
+ *  increased load as well as scale back as traffic drops, always maintaining
+ *  at least `min_nodes`. You will be charged for the time in which additional
+ *  nodes are used.
+ *  If not specified, `min_nodes` defaults to 0, in which case, when traffic
+ *  to a model stops (and after a cool-down period), nodes will be shut down
+ *  and no charges will be incurred until traffic to the model resumes.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNodes;
+
+@end
+
+
+/**
+ *  Options for automatically scaling a model.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutomaticScaling : GTLRObject
+
+/**
+ *  Optional. The minimum number of nodes to allocate for this model. These
+ *  nodes are always up, starting from the time the model is deployed, so the
+ *  cost of operating this model will be at least
+ *  `rate` * `min_nodes` * number of hours since last billing cycle,
+ *  where `rate` is the cost per node-hour as documented in
+ *  [pricing](https://cloud.google.com/ml-engine/pricing#prediction_pricing),
+ *  even if no predictions are performed. There is additional cost for each
+ *  prediction performed.
+ *  Unlike manual scaling, if the load gets too heavy for the nodes
+ *  that are up, the service will automatically add nodes to handle the
+ *  increased load as well as scale back as traffic drops, always maintaining
+ *  at least `min_nodes`. You will be charged for the time in which additional
+ *  nodes are used.
+ *  If not specified, `min_nodes` defaults to 0, in which case, when traffic
+ *  to a model stops (and after a cool-down period), nodes will be shut down
+ *  and no charges will be incurred until traffic to the model resumes.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNodes;
+
+@end
+
+
+/**
  *  Options for manually scaling a model.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ManualScaling : GTLRObject
@@ -403,8 +735,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
 /**
  *  The number of nodes to allocate for this model. These nodes are always up,
  *  starting from the time the model is deployed, so the cost of operating
- *  this model will be proportional to nodes * number of hours since
- *  deployment.
+ *  this model will be proportional to `nodes` * number of hours since
+ *  last billing cycle.
  *
  *  Uses NSNumber of intValue.
  */
@@ -467,6 +799,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version : GTLRObject
 
+/**
+ *  Automatically scale the number of nodes used to serve the model in
+ *  response to increases and decreases in traffic. Care should be
+ *  taken to ramp up traffic according to the model's ability to scale
+ *  or you will start seeing increases in latency and 429 response codes.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutomaticScaling *automaticScaling;
+
 /** Output only. The time the version was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -506,12 +846,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUseTime;
 
 /**
- *  Optional. Manually select the number of nodes to use for serving the
- *  model. If unset (i.e., by default), the number of nodes used to serve
- *  the model automatically scales with traffic. However, care should be
- *  taken to ramp up traffic according to the model's ability to scale. If
- *  your model needs to handle bursts of traffic beyond it's ability to
- *  scale, it is recommended you set this field appropriately.
+ *  Manually select the number of nodes to use for serving the
+ *  model. You should generally use `automatic_scaling` with an appropriate
+ *  `min_nodes` instead, but this option is available if you want predictable
+ *  billing. Beware that latency and error rates will increase if the
+ *  traffic exceeds that capability of the system to serve it based on
+ *  the selected number of nodes.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ManualScaling *manualScaling;
 
@@ -526,6 +866,19 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *  If not set, Google Cloud ML will choose a version.
  */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
+
+/**
+ *  Output only. The state of a version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Creating
+ *        The version is still in the process of creation. (Value: "CREATING")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Ready
+ *        The version is ready for prediction. (Value: "READY")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Unknown
+ *        / The version state is unspecified. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -824,8 +1177,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
 /**
  *  The number of nodes to allocate for this model. These nodes are always up,
  *  starting from the time the model is deployed, so the cost of operating
- *  this model will be proportional to nodes * number of hours since
- *  deployment.
+ *  this model will be proportional to `nodes` * number of hours since
+ *  last billing cycle plus the cost for each prediction performed.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1555,6 +1908,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version : GTLRObject
 
+/**
+ *  Automatically scale the number of nodes used to serve the model in
+ *  response to increases and decreases in traffic. Care should be
+ *  taken to ramp up traffic according to the model's ability to scale
+ *  or you will start seeing increases in latency and 429 response codes.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomaticScaling *automaticScaling;
+
 /** Output only. The time the version was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1594,12 +1955,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUseTime;
 
 /**
- *  Optional. Manually select the number of nodes to use for serving the
- *  model. If unset (i.e., by default), the number of nodes used to serve
- *  the model automatically scales with traffic. However, care should be
- *  taken to ramp up traffic according to the model's ability to scale. If
- *  your model needs to handle bursts of traffic beyond it's ability to
- *  scale, it is recommended you set this field appropriately.
+ *  Manually select the number of nodes to use for serving the
+ *  model. You should generally use `automatic_scaling` with an appropriate
+ *  `min_nodes` instead, but this option is available if you want more
+ *  predictable billing. Beware that latency and error rates will increase
+ *  if the traffic exceeds that capability of the system to serve it based
+ *  on the selected number of nodes.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ManualScaling *manualScaling;
 
@@ -1614,6 +1975,538 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *  If not set, Google Cloud ML will choose a version.
  */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
+
+/**
+ *  Output only. The state of a version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Creating
+ *        The version is still in the process of creation. (Value: "CREATING")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Ready
+ *        The version is ready for prediction. (Value: "READY")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Unknown
+ *        The version state is unspecified. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Specifies the audit configuration for a service.
+ *  The configuration determines which permission types are logged, and what
+ *  identities, if any, are exempted from logging.
+ *  An AuditConfig must have one or more AuditLogConfigs.
+ *  If there are AuditConfigs for both `allServices` and a specific service,
+ *  the union of the two AuditConfigs is used for that service: the log_types
+ *  specified in each AuditConfig are enabled, and the exempted_members in each
+ *  AuditConfig are exempted.
+ *  Example Policy with multiple AuditConfigs:
+ *  {
+ *  "audit_configs": [
+ *  {
+ *  "service": "allServices"
+ *  "audit_log_configs": [
+ *  {
+ *  "log_type": "DATA_READ",
+ *  "exempted_members": [
+ *  "user:foo\@gmail.com"
+ *  ]
+ *  },
+ *  {
+ *  "log_type": "DATA_WRITE",
+ *  },
+ *  {
+ *  "log_type": "ADMIN_READ",
+ *  }
+ *  ]
+ *  },
+ *  {
+ *  "service": "fooservice.googleapis.com"
+ *  "audit_log_configs": [
+ *  {
+ *  "log_type": "DATA_READ",
+ *  },
+ *  {
+ *  "log_type": "DATA_WRITE",
+ *  "exempted_members": [
+ *  "user:bar\@gmail.com"
+ *  ]
+ *  }
+ *  ]
+ *  }
+ *  ]
+ *  }
+ *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
+ *  bar\@gmail.com from DATA_WRITE logging.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleIamV1AuditConfig : GTLRObject
+
+/**
+ *  The configuration for logging of each type of permission.
+ *  Next ID: 4
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig *> *auditLogConfigs;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/**
+ *  Specifies a service that will be enabled for audit logging.
+ *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
+ *  `allServices` is a special value that covers all services.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Provides the configuration for logging a type of permissions.
+ *  Example:
+ *  {
+ *  "audit_log_configs": [
+ *  {
+ *  "log_type": "DATA_READ",
+ *  "exempted_members": [
+ *  "user:foo\@gmail.com"
+ *  ]
+ *  },
+ *  {
+ *  "log_type": "DATA_WRITE",
+ *  }
+ *  ]
+ *  }
+ *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
+ *  foo\@gmail.com from DATA_READ logging.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig : GTLRObject
+
+/**
+ *  Specifies the identities that do not cause logging for this type of
+ *  permission.
+ *  Follows the same format of Binding.members.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/**
+ *  The log type that this config enables.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_AdminRead
+ *        Admin reads. Example: CloudIAM getIamPolicy (Value: "ADMIN_READ")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_DataRead
+ *        Data reads. Example: CloudSQL Users list (Value: "DATA_READ")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_DataWrite
+ *        Data writes. Example: CloudSQL Users create (Value: "DATA_WRITE")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified
+ *        Default case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *logType;
+
+@end
+
+
+/**
+ *  Associates `members` with a `role`.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleIamV1Binding : GTLRObject
+
+/**
+ *  The condition that is associated with this binding.
+ *  NOTE: an unsatisfied condition will not allow user access via current
+ *  binding. Different bindings, including their conditions, are examined
+ *  independently.
+ *  This field is GOOGLE_INTERNAL.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleTypeExpr *condition;
+
+/**
+ *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  `members` can have the following values:
+ *  * `allUsers`: A special identifier that represents anyone who is
+ *  on the internet; with or without a Google account.
+ *  * `allAuthenticatedUsers`: A special identifier that represents anyone
+ *  who is authenticated with a Google account or a service account.
+ *  * `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@gmail.com` or `joe\@example.com`.
+ *  * `serviceAccount:{emailid}`: An email address that represents a service
+ *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
+ *  * `group:{emailid}`: An email address that represents a Google group.
+ *  For example, `admins\@example.com`.
+ *  * `domain:{domain}`: A Google Apps domain name that represents all the
+ *  users of that domain. For example, `google.com` or `example.com`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *members;
+
+/**
+ *  Role that is assigned to `members`.
+ *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Required
+ */
+@property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  A condition to be met.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleIamV1Condition : GTLRObject
+
+/**
+ *  Trusted attributes supplied by the IAM system.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_Approver
+ *        An approver (distinct from the requester) that has authorized this
+ *        request.
+ *        When used with IN, the condition indicates that one of the approvers
+ *        associated with the request matches the specified principal, or is a
+ *        member of the specified group. Approvers can only grant additional
+ *        access, and are thus only used in a strictly positive context
+ *        (e.g. ALLOW/IN or DENY/NOT_IN). (Value: "APPROVER")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_Attribution
+ *        The principal (even if an authority selector is present), which
+ *        must only be used for attribution, not authorization. (Value:
+ *        "ATTRIBUTION")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_Authority
+ *        Either principal or (if present) authority selector. (Value:
+ *        "AUTHORITY")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_JustificationType
+ *        What types of justifications have been supplied with this request.
+ *        String values should match enum names from tech.iam.JustificationType,
+ *        e.g. "MANUAL_STRING". It is not permitted to grant access based on
+ *        the *absence* of a justification, so justification conditions can only
+ *        be used in a "positive" context (e.g., ALLOW/IN or DENY/NOT_IN).
+ *        Multiple justifications, e.g., a Buganizer ID and a manually-entered
+ *        reason, are normal and supported. (Value: "JUSTIFICATION_TYPE")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_NoAttr
+ *        Default non-attribute. (Value: "NO_ATTR")
+ */
+@property(nonatomic, copy, nullable) NSString *iam;
+
+/**
+ *  An operator to apply the subject with.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_Discharged
+ *        Subject is discharged (Value: "DISCHARGED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_Equals
+ *        DEPRECATED. Use IN instead. (Value: "EQUALS")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_In The
+ *        condition is true if the subject (or any element of it if it is
+ *        a set) matches any of the supplied values. (Value: "IN")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_NoOp
+ *        Default no-op. (Value: "NO_OP")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_NotEquals
+ *        DEPRECATED. Use NOT_IN instead. (Value: "NOT_EQUALS")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_NotIn The
+ *        condition is true if the subject (or every element of it if it is
+ *        a set) matches none of the supplied values. (Value: "NOT_IN")
+ */
+@property(nonatomic, copy, nullable) NSString *op;
+
+/** Trusted attributes discharged by the service. */
+@property(nonatomic, copy, nullable) NSString *svc;
+
+/**
+ *  Trusted attributes supplied by any service that owns resources and uses
+ *  the IAM system for access control.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_Ip IP
+ *        address of the caller (Value: "IP")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_Name
+ *        Resource name (Value: "NAME")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_NoAttr
+ *        Default non-attribute type (Value: "NO_ATTR")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_Region
+ *        Region of the resource (Value: "REGION")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_Service
+ *        Service name (Value: "SERVICE")
+ */
+@property(nonatomic, copy, nullable) NSString *sys;
+
+/** DEPRECATED. Use 'values' instead. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+/** The objects of the condition. This is mutually exclusive with 'value'. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Specifies what kind of log the caller must write
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleIamV1LogConfig : GTLRObject
+
+/** Cloud audit options. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions *cloudAudit;
+
+/** Counter options. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCounterOptions *counter;
+
+/** Data access options. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigDataAccessOptions *dataAccess;
+
+@end
+
+
+/**
+ *  Write a Cloud Audit log
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions : GTLRObject
+
+/**
+ *  The log_name to populate in the Cloud Audit Record.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions_LogName_AdminActivity
+ *        Corresponds to "cloudaudit.googleapis.com/activity" (Value:
+ *        "ADMIN_ACTIVITY")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions_LogName_DataAccess
+ *        Corresponds to "cloudaudit.googleapis.com/data_access" (Value:
+ *        "DATA_ACCESS")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions_LogName_UnspecifiedLogName
+ *        Default. Should not be used. (Value: "UNSPECIFIED_LOG_NAME")
+ */
+@property(nonatomic, copy, nullable) NSString *logName;
+
+@end
+
+
+/**
+ *  Options for counters
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCounterOptions : GTLRObject
+
+/** The field value to attribute. */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/** The metric to update. */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+@end
+
+
+/**
+ *  Write a Data Access (Gin) log
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigDataAccessOptions : GTLRObject
+@end
+
+
+/**
+ *  Defines an Identity and Access Management (IAM) policy. It is used to
+ *  specify access control policies for Cloud Platform resources.
+ *  A `Policy` consists of a list of `bindings`. A `Binding` binds a list of
+ *  `members` to a `role`, where the members can be user accounts, Google
+ *  groups,
+ *  Google domains, and service accounts. A `role` is a named list of
+ *  permissions
+ *  defined by IAM.
+ *  **Example**
+ *  {
+ *  "bindings": [
+ *  {
+ *  "role": "roles/owner",
+ *  "members": [
+ *  "user:mike\@example.com",
+ *  "group:admins\@example.com",
+ *  "domain:google.com",
+ *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com",
+ *  ]
+ *  },
+ *  {
+ *  "role": "roles/viewer",
+ *  "members": ["user:sean\@example.com"]
+ *  }
+ *  ]
+ *  }
+ *  For a description of IAM and its features, see the
+ *  [IAM developer's guide](https://cloud.google.com/iam).
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleIamV1Policy : GTLRObject
+
+/** Specifies cloud audit logging configuration for this policy. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleIamV1AuditConfig *> *auditConfigs;
+
+/**
+ *  Associates a list of `members` to a `role`.
+ *  `bindings` with no members will result in an error.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleIamV1Binding *> *bindings;
+
+/**
+ *  `etag` is used for optimistic concurrency control as a way to help
+ *  prevent simultaneous updates of a policy from overwriting each other.
+ *  It is strongly suggested that systems make use of the `etag` in the
+ *  read-modify-write cycle to perform policy updates in order to avoid race
+ *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
+ *  systems are expected to put that etag in the request to `setIamPolicy` to
+ *  ensure that their change will be applied to the same version of the policy.
+ *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
+ *  policy is overwritten blindly.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  iamOwned
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *iamOwned;
+
+/**
+ *  If more than one rule is specified, the rules are applied in the following
+ *  manner:
+ *  - All matching LOG rules are always applied.
+ *  - If any DENY/DENY_WITH_LOG rule matches, permission is denied.
+ *  Logging will be applied if one or more matching rule requires logging.
+ *  - Otherwise, if any ALLOW/ALLOW_WITH_LOG rule matches, permission is
+ *  granted.
+ *  Logging will be applied if one or more matching rule requires logging.
+ *  - Otherwise, if no rule applies, permission is denied.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleIamV1Rule *> *rules;
+
+/**
+ *  Version of the `Policy`. The default version is 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  A rule to be applied in a Policy.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleIamV1Rule : GTLRObject
+
+/**
+ *  Required
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_Allow
+ *        Matching 'Entries' grant access. (Value: "ALLOW")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_AllowWithLog
+ *        Matching 'Entries' grant access and the caller promises to log
+ *        the request per the returned log_configs. (Value: "ALLOW_WITH_LOG")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_Deny
+ *        Matching 'Entries' deny access. (Value: "DENY")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_DenyWithLog
+ *        Matching 'Entries' deny access and the caller promises to log
+ *        the request per the returned log_configs. (Value: "DENY_WITH_LOG")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_Log
+ *        Matching 'Entries' tell IAM.Check callers to generate logs. (Value:
+ *        "LOG")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction
+ *        Default no action. (Value: "NO_ACTION")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Additional restrictions that must be met */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleIamV1Condition *> *conditions;
+
+/**
+ *  Human-readable description of the rule.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  If one or more 'in' clauses are specified, the rule matches if
+ *  the PRINCIPAL/AUTHORITY_SELECTOR is in at least one of these entries.
+ *
+ *  Remapped to 'inProperty' to avoid language reserved word 'in'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *inProperty;
+
+/**
+ *  The config returned to callers of tech.iam.IAM.CheckPolicy for any entries
+ *  that match the LOG action.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleIamV1LogConfig *> *logConfig;
+
+/**
+ *  If one or more 'not_in' clauses are specified, the rule matches
+ *  if the PRINCIPAL/AUTHORITY_SELECTOR is in none of the entries.
+ *  The format for in and not_in entries is the same as for members in a
+ *  Binding (see google/iam/v1/policy.proto).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *notIn;
+
+/**
+ *  A permission is a string of form '<service>.<resource type>.<verb>'
+ *  (e.g., 'storage.buckets.list'). A value of '*' matches all permissions,
+ *  and a verb part of '*' (e.g., 'storage.buckets.*') matches all verbs.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Request message for `SetIamPolicy` method.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleIamV1SetIamPolicyRequest : GTLRObject
+
+/**
+ *  REQUIRED: The complete policy to be applied to the `resource`. The size of
+ *  the policy is limited to a few 10s of KB. An empty policy is a
+ *  valid policy but certain Cloud Platform services (such as Projects)
+ *  might reject them.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleIamV1Policy *policy;
+
+/**
+ *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
+ *  the fields in the mask will be modified. If no mask is provided, the
+ *  following default mask is used:
+ *  paths: "bindings, etag"
+ *  This field is only used by Cloud IAM.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Request message for `TestIamPermissions` method.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsRequest : GTLRObject
+
+/**
+ *  The set of permissions to check for the `resource`. Permissions with
+ *  wildcards (such as '*' or 'storage.*') are not allowed. For more
+ *  information see
+ *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Response message for `TestIamPermissions` method.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsResponse : GTLRObject
+
+/**
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is
+ *  allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 
@@ -1816,6 +2709,46 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleRpcStatus_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Represents an expression text. Example:
+ *  title: "User account presence"
+ *  description: "Determines whether the request has a user account"
+ *  expression: "size(request.user) > 0"
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleTypeExpr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in
+ *  Common Expression Language syntax.
+ *  The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing
+ *  its purpose. This can be used e.g. in UIs which allow to enter the
+ *  expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -593,6 +593,24 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_OperationMetadataV1Alpha
+//
+
+@implementation GTLRAppengine_OperationMetadataV1Alpha
+@dynamic endTime, ephemeralMessage, insertTime, method, target, user, warning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warning" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_OperationMetadataV1Beta
 //
 
@@ -804,8 +822,8 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
          endpointsApiService, env, envVariables, errorHandlers, handlers,
          healthCheck, identifier, inboundServices, instanceClass, libraries,
          livenessCheck, manualScaling, name, network, nobuildFilesRegex,
-         readinessCheck, resources, runtime, servingStatus, threadsafe,
-         versionUrl, vm;
+         readinessCheck, resources, runtime, runtimeApiVersion, servingStatus,
+         threadsafe, versionUrl, vm;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
