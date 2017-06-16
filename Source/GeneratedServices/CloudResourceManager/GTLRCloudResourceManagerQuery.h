@@ -1289,12 +1289,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  they must be sent only using the Cloud Platform Console.
  *  + Membership changes that leave the project without any owners that have
  *  accepted the Terms of Service (ToS) will be rejected.
- *  + There must be at least one owner who has accepted the Terms of
- *  Service (ToS) agreement in the policy. Calling `setIamPolicy()` to
- *  remove the last ToS-accepted owner from the policy will fail. This
- *  restriction also applies to legacy projects that no longer have owners
- *  who have accepted the ToS. Edits to IAM policies will be rejected until
- *  the lack of a ToS-accepting owner is rectified.
+ *  + If the project is not part of an organization, there must be at least
+ *  one owner who has accepted the Terms of Service (ToS) agreement in the
+ *  policy. Calling `setIamPolicy()` to remove the last ToS-accepted owner
+ *  from the policy will fail. This restriction also applies to legacy
+ *  projects that no longer have owners who have accepted the ToS. Edits to
+ *  IAM policies will be rejected until the lack of a ToS-accepting owner is
+ *  rectified.
  *  + Calling this method requires enabling the App Engine Admin API.
  *  Note: Removing service accounts from policies or changing their roles
  *  can render services completely inoperable. It is important to understand
@@ -1336,12 +1337,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  they must be sent only using the Cloud Platform Console.
  *  + Membership changes that leave the project without any owners that have
  *  accepted the Terms of Service (ToS) will be rejected.
- *  + There must be at least one owner who has accepted the Terms of
- *  Service (ToS) agreement in the policy. Calling `setIamPolicy()` to
- *  remove the last ToS-accepted owner from the policy will fail. This
- *  restriction also applies to legacy projects that no longer have owners
- *  who have accepted the ToS. Edits to IAM policies will be rejected until
- *  the lack of a ToS-accepting owner is rectified.
+ *  + If the project is not part of an organization, there must be at least
+ *  one owner who has accepted the Terms of Service (ToS) agreement in the
+ *  policy. Calling `setIamPolicy()` to remove the last ToS-accepted owner
+ *  from the policy will fail. This restriction also applies to legacy
+ *  projects that no longer have owners who have accepted the ToS. Edits to
+ *  IAM policies will be rejected until the lack of a ToS-accepting owner is
+ *  rectified.
  *  + Calling this method requires enabling the App Engine Admin API.
  *  Note: Removing service accounts from policies or changing their roles
  *  can render services completely inoperable. It is important to understand

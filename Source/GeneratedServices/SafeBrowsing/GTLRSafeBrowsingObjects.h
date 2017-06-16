@@ -161,6 +161,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType
 // GTLRSafeBrowsing_ListUpdateRequest.threatType
 
 /**
+ *  Malicious binary threat type.
+ *
+ *  Value: "MALICIOUS_BINARY"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_MaliciousBinary;
+/**
  *  Malware threat type.
  *
  *  Value: "MALWARE"
@@ -323,6 +329,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryTyp
 // GTLRSafeBrowsing_ListUpdateResponse.threatType
 
 /**
+ *  Malicious binary threat type.
+ *
+ *  Value: "MALICIOUS_BINARY"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_MaliciousBinary;
+/**
  *  Malware threat type.
  *
  *  Value: "MALWARE"
@@ -418,6 +430,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Url;
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatInfo.threatTypes
 
+/** Value: "MALICIOUS_BINARY" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_MaliciousBinary;
 /** Value: "MALWARE" */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Malware;
 /** Value: "POTENTIALLY_HARMFUL_APPLICATION" */
@@ -536,6 +550,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryT
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatListDescriptor.threatType
 
+/**
+ *  Malicious binary threat type.
+ *
+ *  Value: "MALICIOUS_BINARY"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_MaliciousBinary;
 /**
  *  Malware threat type.
  *
@@ -674,6 +694,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Url;
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatMatch.threatType
 
+/**
+ *  Malicious binary threat type.
+ *
+ *  Value: "MALICIOUS_BINARY"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_MaliciousBinary;
 /**
  *  Malware threat type.
  *
@@ -966,6 +992,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The type of threat posed by entries present in the list.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_MaliciousBinary
+ *        Malicious binary threat type. (Value: "MALICIOUS_BINARY")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Malware Malware
  *        threat type. (Value: "MALWARE")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_PotentiallyHarmfulApplication
@@ -1085,6 +1113,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The threat type for which data is returned.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_MaliciousBinary
+ *        Malicious binary threat type. (Value: "MALICIOUS_BINARY")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Malware Malware
  *        threat type. (Value: "MALWARE")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_PotentiallyHarmfulApplication
@@ -1382,6 +1412,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The threat type posed by the list's entries.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_MaliciousBinary
+ *        Malicious binary threat type. (Value: "MALICIOUS_BINARY")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Malware Malware
  *        threat type. (Value: "MALWARE")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_PotentiallyHarmfulApplication
@@ -1467,6 +1499,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The threat type matching this threat.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_MaliciousBinary Malicious
+ *        binary threat type. (Value: "MALICIOUS_BINARY")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_Malware Malware threat
  *        type. (Value: "MALWARE")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_PotentiallyHarmfulApplication

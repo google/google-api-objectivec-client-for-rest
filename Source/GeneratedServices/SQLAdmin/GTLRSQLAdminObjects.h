@@ -37,7 +37,6 @@
 @class GTLRSQLAdmin_ImportContext_CsvImportOptions;
 @class GTLRSQLAdmin_IpConfiguration;
 @class GTLRSQLAdmin_IpMapping;
-@class GTLRSQLAdmin_Labels;
 @class GTLRSQLAdmin_LocationPreference;
 @class GTLRSQLAdmin_MaintenanceWindow;
 @class GTLRSQLAdmin_MySqlReplicaConfiguration;
@@ -48,6 +47,7 @@
 @class GTLRSQLAdmin_ReplicaConfiguration;
 @class GTLRSQLAdmin_RestoreBackupContext;
 @class GTLRSQLAdmin_Settings;
+@class GTLRSQLAdmin_Settings_UserLabels;
 @class GTLRSQLAdmin_SslCert;
 @class GTLRSQLAdmin_SslCertDetail;
 @class GTLRSQLAdmin_Tier;
@@ -883,20 +883,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Reserved for future use.
- */
-@interface GTLRSQLAdmin_Labels : GTLRObject
-
-/** Reserved for future use. */
-@property(nonatomic, copy, nullable) NSString *key;
-
-/** Reserved for future use. */
-@property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
  *  Preferred location. This specifies where a Cloud SQL instance should
  *  preferably be located, either in a specific Compute Engine zone, or
  *  co-located with an App Engine application. Note that if the preferred
@@ -1298,9 +1284,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** This is always sql#settings. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Reserved for future use. */
-@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Labels *> *labels;
-
 /**
  *  The location preference settings. This allows the instance to be located as
  *  near as possible to either an App Engine app or GCE zone for better
@@ -1362,6 +1345,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *tier;
 
+/**
+ *  User-provided labels, represented as a dictionary where each label is a
+ *  single key value pair.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_Settings_UserLabels *userLabels;
+
+@end
+
+
+/**
+ *  User-provided labels, represented as a dictionary where each label is a
+ *  single key value pair.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSQLAdmin_Settings_UserLabels : GTLRObject
 @end
 
 

@@ -1748,6 +1748,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  languages
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id languages;
+
 /** User's last login time. (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastLoginTime;
 
@@ -2033,14 +2040,35 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  JSON template for a language entry.
+ */
+@interface GTLRDirectory_UserLanguage : GTLRObject
+
+/**
+ *  Other language. User can provide own language name if there is no
+ *  corresponding Google III language code. If this is set LanguageCode can't be
+ *  set
+ */
+@property(nonatomic, copy, nullable) NSString *customLanguage;
+
+/**
+ *  Language Code. Should be used for storing Google III LanguageCode string
+ *  representation for language. Illegal values cause SchemaException.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
  *  JSON template for a location entry.
  */
 @interface GTLRDirectory_UserLocation : GTLRObject
 
 /**
  *  Textual location. This is most useful for display purposes to concisely
- *  describe the location. E.g. "Mountain View, CA", "Near Seattle", "US-NYC-9TH
- *  9A209A".
+ *  describe the location. For example, "Mountain View, CA", "Near Seattle",
+ *  "US-NYC-9TH 9A209A".
  */
 @property(nonatomic, copy, nullable) NSString *area;
 
@@ -2057,9 +2085,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *floorName;
 
 /**
- *  Floor Section. More specific location within the floor. E.g. if a floor is
- *  divided into sections "A", "B", and "C", this field would identify one of
- *  those values.
+ *  Floor section. More specific location within the floor. For example, if a
+ *  floor is divided into sections "A", "B", and "C", this field would identify
+ *  one of those values.
  */
 @property(nonatomic, copy, nullable) NSString *floorSection;
 
@@ -2130,6 +2158,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The domain to which the organization belongs to. */
 @property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  The full-time equivalent percent within the organization (100000 = 100%).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fullTimeEquivalent;
 
 /** Location of the organization. This need not be fully qualified address. */
 @property(nonatomic, copy, nullable) NSString *location;

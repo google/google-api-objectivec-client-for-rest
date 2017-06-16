@@ -82,6 +82,16 @@ NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_Color
+//
+
+@implementation GTLRDLP_Color
+@dynamic blue, green, red;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_ContentItem
 //
 
@@ -174,6 +184,16 @@ NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLI
 
 @implementation GTLRDLP_ImageLocation
 @dynamic height, left, top, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_ImageRedactionConfig
+//
+
+@implementation GTLRDLP_ImageRedactionConfig
+@dynamic infoType, redactAllText, redactionColor;
 @end
 
 
@@ -516,10 +536,11 @@ NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLI
 //
 
 @implementation GTLRDLP_RedactContentRequest
-@dynamic inspectConfig, items, replaceConfigs;
+@dynamic imageRedactionConfigs, inspectConfig, items, replaceConfigs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"imageRedactionConfigs" : [GTLRDLP_ImageRedactionConfig class],
     @"items" : [GTLRDLP_ContentItem class],
     @"replaceConfigs" : [GTLRDLP_ReplaceConfig class]
   };

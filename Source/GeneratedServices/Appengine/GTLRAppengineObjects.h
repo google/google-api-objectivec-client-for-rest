@@ -538,7 +538,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /**
  *  An Application resource contains the top-level configuration of an App
- *  Engine application.
+ *  Engine application. Next tag: 19
  */
 @interface GTLRAppengine_Application : GTLRObject
 
@@ -1671,6 +1671,44 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 /**
  *  Metadata for the given google.longrunning.Operation.
  */
+@interface GTLRAppengine_OperationMetadataV1Alpha : GTLRObject
+
+/** Time that this operation completed.\@OutputOnly */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Ephemeral message that may change every time the operation is polled.
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *ephemeralMessage;
+
+/** Time that this operation was created.\@OutputOnly */
+@property(nonatomic, strong, nullable) GTLRDateTime *insertTime;
+
+/**
+ *  API method that initiated this operation. Example:
+ *  google.appengine.v1alpha.Versions.CreateVersion.\@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *method;
+
+/**
+ *  Name of the resource that this operation is acting on. Example:
+ *  apps/myapp/services/default.\@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** User who requested this operation.\@OutputOnly */
+@property(nonatomic, copy, nullable) NSString *user;
+
+/** Durable messages that persist on every operation poll. \@OutputOnly */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warning;
+
+@end
+
+
+/**
+ *  Metadata for the given google.longrunning.Operation.
+ */
 @interface GTLRAppengine_OperationMetadataV1Beta : GTLRObject
 
 /** Time that this operation completed.\@OutputOnly */
@@ -2386,6 +2424,13 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /** Desired runtime. Example: python27. */
 @property(nonatomic, copy, nullable) NSString *runtime;
+
+/**
+ *  The version of the API in the given runtime environment. Please see the
+ *  app.yaml reference for valid values at
+ *  https://cloud.google.com/appengine/docs/standard/<language>/config/appref
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeApiVersion;
 
 /**
  *  Current serving status of this version. Only the versions with a SERVING

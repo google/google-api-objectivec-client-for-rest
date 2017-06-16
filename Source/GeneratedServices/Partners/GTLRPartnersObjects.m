@@ -627,9 +627,10 @@ NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializationState_Bad
 //
 
 @implementation GTLRPartners_CompanyRelation
-@dynamic address, badgeTier, companyAdmin, companyId, creationTime, isPending,
-         logoUrl, managerAccount, name, phoneNumber, resolvedTimestamp, segment,
-         specializationStatus, state, website;
+@dynamic address, badgeTier, companyAdmin, companyId, creationTime,
+         internalCompanyId, isPending, logoUrl, managerAccount, name,
+         phoneNumber, primaryAddress, primaryCountryCode, primaryLanguageCode,
+         resolvedTimestamp, segment, specializationStatus, state, website;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1157,8 +1158,8 @@ NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializationState_Bad
 
 @implementation GTLRPartners_User
 @dynamic availableAdwordsManagerAccounts, certificationStatus, company,
-         companyVerificationEmail, examStatus, identifier, lastAccessTime,
-         primaryEmails, profile, publicProfile;
+         companyVerificationEmail, examStatus, identifier, internalId,
+         lastAccessTime, primaryEmails, profile, publicProfile;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

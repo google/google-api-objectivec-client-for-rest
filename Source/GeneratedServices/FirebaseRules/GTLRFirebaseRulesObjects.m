@@ -20,10 +20,25 @@ NSString * const kGTLRFirebaseRules_Issue_Severity_Error       = @"ERROR";
 NSString * const kGTLRFirebaseRules_Issue_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 NSString * const kGTLRFirebaseRules_Issue_Severity_Warning     = @"WARNING";
 
+// GTLRFirebaseRules_TestCase.expectation
+NSString * const kGTLRFirebaseRules_TestCase_Expectation_Allow = @"ALLOW";
+NSString * const kGTLRFirebaseRules_TestCase_Expectation_Deny  = @"DENY";
+NSString * const kGTLRFirebaseRules_TestCase_Expectation_ExpectationUnspecified = @"EXPECTATION_UNSPECIFIED";
+
 // GTLRFirebaseRules_TestResult.state
 NSString * const kGTLRFirebaseRules_TestResult_State_Failure   = @"FAILURE";
 NSString * const kGTLRFirebaseRules_TestResult_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseRules_Arg
+//
+
+@implementation GTLRFirebaseRules_Arg
+@dynamic anyValue, exactValue;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -55,6 +70,24 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"args" : [NSObject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseRules_FunctionMock
+//
+
+@implementation GTLRFirebaseRules_FunctionMock
+@dynamic args, function, result;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"args" : [GTLRFirebaseRules_Arg class]
   };
   return map;
 }
@@ -133,6 +166,16 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseRules_Result
+//
+
+@implementation GTLRFirebaseRules_Result
+@dynamic undefined, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseRules_Ruleset
 //
 
@@ -171,6 +214,24 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseRules_TestCase
+//
+
+@implementation GTLRFirebaseRules_TestCase
+@dynamic expectation, functionMocks, request, resource;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"functionMocks" : [GTLRFirebaseRules_FunctionMock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseRules_TestResult
 //
 
@@ -194,7 +255,7 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 //
 
 @implementation GTLRFirebaseRules_TestRulesetRequest
-@dynamic source;
+@dynamic source, testSuite;
 @end
 
 
@@ -210,6 +271,24 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
   NSDictionary<NSString *, Class> *map = @{
     @"issues" : [GTLRFirebaseRules_Issue class],
     @"testResults" : [GTLRFirebaseRules_TestResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseRules_TestSuite
+//
+
+@implementation GTLRFirebaseRules_TestSuite
+@dynamic testCases;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"testCases" : [GTLRFirebaseRules_TestCase class]
   };
   return map;
 }

@@ -882,7 +882,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Datafeed data.
+ *  Datafeed configuration data.
  */
 @interface GTLRShoppingContent_Datafeed : GTLRObject
 
@@ -3359,6 +3359,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The material of which the item is made. */
 @property(nonatomic, copy, nullable) NSString *material;
+
+/**
+ *  Maximal product handling time (in business days).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxHandlingTime;
+
+/**
+ *  Minimal product handling time (in business days).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minHandlingTime;
 
 /** Link to a mobile-optimized version of the landing page. */
 @property(nonatomic, copy, nullable) NSString *mobileLink;

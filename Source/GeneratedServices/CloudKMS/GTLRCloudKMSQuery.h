@@ -4,7 +4,7 @@
 // API:
 //   Google Cloud Key Management Service (KMS) API (cloudkms/v1)
 // Description:
-//   Manages encryption for your cloud services the same way you do on-premise.
+//   Manages encryption for your cloud services the same way you do on-premises.
 //   You can generate, use, rotate, and destroy AES256 encryption keys.
 // Documentation:
 //   https://cloud.google.com/kms/
@@ -418,7 +418,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Decrypt data that was protected by Encrypt.
+ *  Decrypts data that was protected by Encrypt.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.decrypt
  *
@@ -438,7 +438,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudKMS_DecryptResponse.
  *
- *  Decrypt data that was protected by Encrypt.
+ *  Decrypts data that was protected by Encrypt.
  *
  *  @param object The @c GTLRCloudKMS_DecryptRequest to include in the query.
  *  @param name Required. The resource name of the CryptoKey to use for
@@ -453,7 +453,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Encrypt data, so that it can only be recovered by a call to Decrypt.
+ *  Encrypts data, so that it can only be recovered by a call to Decrypt.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.encrypt
  *
@@ -475,7 +475,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudKMS_EncryptResponse.
  *
- *  Encrypt data, so that it can only be recovered by a call to Decrypt.
+ *  Encrypts data, so that it can only be recovered by a call to Decrypt.
  *
  *  @param object The @c GTLRCloudKMS_EncryptRequest to include in the query.
  *  @param name Required. The resource name of the CryptoKey or CryptoKeyVersion

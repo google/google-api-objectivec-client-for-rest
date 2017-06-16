@@ -188,6 +188,25 @@
 
 @end
 
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRCloudMachineLearningEngineQuery_ProjectsModelsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleIamV1Policy class];
+  query.loggingName = @"ml.projects.models.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsList
 
 @dynamic pageSize, pageToken, parent;
@@ -202,6 +221,56 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListModelsResponse class];
   query.loggingName = @"ml.projects.models.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRCloudMachineLearningEngineQuery_ProjectsModelsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleIamV1Policy class];
+  query.loggingName = @"ml.projects.models.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRCloudMachineLearningEngineQuery_ProjectsModelsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"ml.projects.models.testIamPermissions";
   return query;
 }
 

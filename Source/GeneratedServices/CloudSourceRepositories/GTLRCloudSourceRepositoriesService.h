@@ -21,7 +21,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
@@ -30,6 +30,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform;
+/**
+ *  Authorization scope: View the contents of your source code repositories
+ *
+ *  Value "https://www.googleapis.com/auth/source.read_only"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly;
+/**
+ *  Authorization scope: Manage the contents of your source code repositories
+ *
+ *  Value "https://www.googleapis.com/auth/source.read_write"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudSourceRepositoriesService

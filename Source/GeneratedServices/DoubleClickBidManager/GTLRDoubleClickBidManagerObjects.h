@@ -41,8 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Value: "EWF" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FileSpec_Ewf;
-/** Value: "SDF" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FileSpec_Sdf;
 
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_DownloadLineItemsRequest.filterType
@@ -103,6 +101,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAg
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBrandsafeChannelId;
 /** Value: "FILTER_BROWSER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBrowser;
+/** Value: "FILTER_BUDGET_SEGMENT_DESCRIPTION" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentDescription;
 /** Value: "FILTER_CAMPAIGN_DAILY_FREQUENCY" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCampaignDailyFrequency;
 /** Value: "FILTER_CARRIER" */
@@ -341,6 +341,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBrandsafeChannelId;
 /** Value: "FILTER_BROWSER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBrowser;
+/** Value: "FILTER_BUDGET_SEGMENT_DESCRIPTION" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBudgetSegmentDescription;
 /** Value: "FILTER_CAMPAIGN_DAILY_FREQUENCY" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCampaignDailyFrequency;
 /** Value: "FILTER_CARRIER" */
@@ -945,6 +947,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_Metri
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricProfitViewableEcpmPartner;
 /** Value: "METRIC_PROFIT_VIEWABLE_ECPM_USD" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricProfitViewableEcpmUsd;
+/** Value: "METRIC_REACH_COOKIE_FREQUENCY" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricReachCookieFrequency;
 /** Value: "METRIC_REACH_COOKIE_REACH" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricReachCookieReach;
 /** Value: "METRIC_REVENUE_ADVERTISER" */
@@ -1422,8 +1426,6 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FileSpec_Ewf
  *        Value "EWF"
- *    @arg @c kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FileSpec_Sdf
- *        Value "SDF"
  */
 @property(nonatomic, copy, nullable) NSString *fileSpec;
 
@@ -1562,6 +1564,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "FILTER_BRANDSAFE_CHANNEL_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterBrowser Value
  *        "FILTER_BROWSER"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentDescription
+ *        Value "FILTER_BUDGET_SEGMENT_DESCRIPTION"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCampaignDailyFrequency
  *        Value "FILTER_CAMPAIGN_DAILY_FREQUENCY"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCarrier Value

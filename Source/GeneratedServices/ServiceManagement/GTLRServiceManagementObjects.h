@@ -55,6 +55,7 @@
 @class GTLRServiceManagement_Enum;
 @class GTLRServiceManagement_EnumValue;
 @class GTLRServiceManagement_Experimental;
+@class GTLRServiceManagement_Expr;
 @class GTLRServiceManagement_Field;
 @class GTLRServiceManagement_GenerateConfigReportRequest_NewConfig;
 @class GTLRServiceManagement_GenerateConfigReportRequest_OldConfig;
@@ -189,7 +190,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_CloudAuditOptions_LogName_Un
  *  member of the specified group. Approvers can only grant additional
  *  access, and are thus only used in a strictly positive context
  *  (e.g. ALLOW/IN or DENY/NOT_IN).
- *  See: go/rpc-security-policy-dynamicauth.
  *
  *  Value: "APPROVER"
  */
@@ -1266,6 +1266,15 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceManagement_Binding : GTLRObject
 
 /**
+ *  The condition that is associated with this binding.
+ *  NOTE: an unsatisfied condition will not allow user access via current
+ *  binding. Different bindings, including their conditions, are examined
+ *  independently.
+ *  This field is GOOGLE_INTERNAL.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceManagement_Expr *condition;
+
+/**
  *  Specifies the identities requesting access for a Cloud Platform resource.
  *  `members` can have the following values:
  *  * `allUsers`: A special identifier that represents anyone who is
@@ -1351,8 +1360,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *        associated with the request matches the specified principal, or is a
  *        member of the specified group. Approvers can only grant additional
  *        access, and are thus only used in a strictly positive context
- *        (e.g. ALLOW/IN or DENY/NOT_IN).
- *        See: go/rpc-security-policy-dynamicauth. (Value: "APPROVER")
+ *        (e.g. ALLOW/IN or DENY/NOT_IN). (Value: "APPROVER")
  *    @arg @c kGTLRServiceManagement_Condition_Iam_Attribution The principal
  *        (even if an authority selector is present), which
  *        must only be used for attribution, not authorization. (Value:
@@ -2050,6 +2058,46 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Represents an expression text. Example:
+ *  title: "User account presence"
+ *  description: "Determines whether the request has a user account"
+ *  expression: "size(request.user) > 0"
+ */
+@interface GTLRServiceManagement_Expr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in
+ *  Common Expression Language syntax.
+ *  The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing
+ *  its purpose. This can be used e.g. in UIs which allow to enter the
+ *  expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
  *  A single field of a message type.
  */
 @interface GTLRServiceManagement_Field : GTLRObject
@@ -2305,7 +2353,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Defines the HTTP configuration for a service. It contains a list of
+ *  Defines the HTTP configuration for an API service. It contains a list of
  *  HttpRule, each specifying the mapping of an RPC method
  *  to one or more HTTP REST API methods.
  */
@@ -2333,11 +2381,11 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 /**
  *  `HttpRule` defines the mapping of an RPC method to one or more HTTP
- *  REST APIs. The mapping determines what portions of the request
- *  message are populated from the path, query parameters, or body of
- *  the HTTP request. The mapping is typically specified as an
- *  `google.api.http` annotation, see "google/api/annotations.proto"
- *  for details.
+ *  REST API methods. The mapping specifies how different portions of the RPC
+ *  request message are mapped to URL path, URL query parameters, and
+ *  HTTP request body. The mapping is typically specified as an
+ *  `google.api.http` annotation on the RPC method,
+ *  see "google/api/annotations.proto" for details.
  *  The mapping consists of a field specifying the path template and
  *  method kind. The path template can refer to fields in the request
  *  message, as in the example below which describes a REST GET
@@ -2375,6 +2423,11 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  Any fields in the request message which are not bound by the path
  *  pattern automatically become (optional) HTTP query
  *  parameters. Assume the following definition of the request message:
+ *  service Messaging {
+ *  rpc GetMessage(GetMessageRequest) returns (Message) {
+ *  option (google.api.http).get = "/v1/messages/{message_id}";
+ *  }
+ *  }
  *  message GetMessageRequest {
  *  message SubMessage {
  *  string subfield = 1;
@@ -2468,7 +2521,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  The rules for mapping HTTP path, query parameters, and body fields
  *  to the request message are as follows:
  *  1. The `body` field specifies either `*` or a field path, or is
- *  omitted. If omitted, it assumes there is no HTTP body.
+ *  omitted. If omitted, it indicates there is no HTTP request body.
  *  2. Leaf fields (recursive expansion of nested messages in the
  *  request) can be classified into three types:
  *  (a) Matched in the URL template.
@@ -2484,25 +2537,31 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  Variable = "{" FieldPath [ "=" Segments ] "}" ;
  *  FieldPath = IDENT { "." IDENT } ;
  *  Verb = ":" LITERAL ;
- *  The syntax `*` matches a single path segment. It follows the semantics of
- *  [RFC 6570](https://tools.ietf.org/html/rfc6570) Section 3.2.2 Simple String
- *  Expansion.
- *  The syntax `**` matches zero or more path segments. It follows the semantics
- *  of [RFC 6570](https://tools.ietf.org/html/rfc6570) Section 3.2.3 Reserved
- *  Expansion. NOTE: it must be the last segment in the path except the Verb.
- *  The syntax `LITERAL` matches literal text in the URL path.
- *  The syntax `Variable` matches the entire path as specified by its template;
- *  this nested template must not contain further variables. If a variable
+ *  The syntax `*` matches a single path segment. The syntax `**` matches zero
+ *  or more path segments, which must be the last part of the path except the
+ *  `Verb`. The syntax `LITERAL` matches literal text in the path.
+ *  The syntax `Variable` matches part of the URL path as specified by its
+ *  template. A variable template must not contain other variables. If a
+ *  variable
  *  matches a single path segment, its template may be omitted, e.g. `{var}`
  *  is equivalent to `{var=*}`.
+ *  If a variable contains exactly one path segment, such as `"{var}"` or
+ *  `"{var=*}"`, when such a variable is expanded into a URL path, all
+ *  characters
+ *  except `[-_.~0-9a-zA-Z]` are percent-encoded. Such variables show up in the
+ *  Discovery Document as `{var}`.
+ *  If a variable contains one or more path segments, such as `"{var=foo/ *}"`
+ *  or `"{var=**}"`, when such a variable is expanded into a URL path, all
+ *  characters except `[-_.~/0-9a-zA-Z]` are percent-encoded. Such variables
+ *  show up in the Discovery Document as `{+var}`.
+ *  NOTE: While the single segment variable matches the semantics of
+ *  [RFC 6570](https://tools.ietf.org/html/rfc6570) Section 3.2.2
+ *  Simple String Expansion, the multi segment variable **does not** match
+ *  RFC 6570 Reserved Expansion. The reason is that the Reserved Expansion
+ *  does not expand special characters like `?` and `#`, which would lead
+ *  to invalid URLs.
  *  NOTE: the field paths in variables and in the `body` must not refer to
  *  repeated fields or map fields.
- *  Use CustomHttpPattern to specify any HTTP method that is not included in the
- *  `pattern` field, such as HEAD, or "*" to leave the HTTP method unspecified
- *  for
- *  a given URL path rule. The wild-card rule is useful for services that
- *  provide
- *  content to Web (HTML) clients.
  */
 @interface GTLRServiceManagement_HttpRule : GTLRObject
 
@@ -2521,7 +2580,12 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *body;
 
-/** Custom pattern is used for defining custom verbs. */
+/**
+ *  The custom pattern is used for specifying an HTTP method that is not
+ *  included in the `pattern` field, such as HEAD, or "*" to leave the
+ *  HTTP method unspecified for this rule. The wild-card rule is useful
+ *  for services that provide content to Web (HTML) clients.
+ */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_CustomHttpPattern *custom;
 
 /**
@@ -2584,6 +2648,23 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  field is configured to override the derived collection name.
  */
 @property(nonatomic, copy, nullable) NSString *restCollection;
+
+/**
+ *  Optional. The rest method name is by default derived from the URL
+ *  pattern. If specified, this field overrides the default method name.
+ *  Example:
+ *  rpc CreateResource(CreateResourceRequest)
+ *  returns (CreateResourceResponse) {
+ *  option (google.api.http) = {
+ *  post: "/v1/resources",
+ *  body: "resource",
+ *  rest_method_name: "insert"
+ *  };
+ *  }
+ *  This method has the automatically derived rest method name "create", but
+ *  for backwards compatability with apiary, it is specified as insert.
+ */
+@property(nonatomic, copy, nullable) NSString *restMethodName;
 
 /**
  *  Selects methods to which this rule applies.
@@ -3188,9 +3269,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 /**
  *  Bind API methods to metrics. Binding a method to a metric causes that
- *  metric's configured quota, billing, and monitoring behaviors to apply to the
- *  method call.
- *  Used by metric-based quotas only.
+ *  metric's configured quota behaviors to apply to the method call.
  */
 @interface GTLRServiceManagement_MetricRule : GTLRObject
 
@@ -3696,7 +3775,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 /**
  *  Associates a list of `members` to a `role`.
- *  Multiple `bindings` must not be specified for the same `role`.
  *  `bindings` with no members will result in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Binding *> *bindings;
@@ -3790,16 +3868,12 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  */
 @interface GTLRServiceManagement_Quota : GTLRObject
 
-/**
- *  List of `QuotaLimit` definitions for the service.
- *  Used by metric-based quotas only.
- */
+/** List of `QuotaLimit` definitions for the service. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_QuotaLimit *> *limits;
 
 /**
  *  List of `MetricRule` definitions, each one mapping a selected method to one
  *  or more metrics.
- *  Used by metric-based quotas only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_MetricRule *> *metricRules;
 
@@ -3890,9 +3964,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 /**
  *  Name of the quota limit. The name is used to refer to the limit when
  *  overriding the default limit on per-consumer basis.
- *  For group-based quota limits, the name must be unique within the quota
- *  group. If a name is not provided, it will be generated from the limit_by
- *  and duration fields.
  *  For metric-based quota limits, the name must be provided, and it must be
  *  unique within the service. The name can only include alphanumeric
  *  characters as well as '-'.
@@ -3916,84 +3987,23 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  * "/d" for quota every 24 hours, starting 00:00 US Pacific Time.
  *  * Otherwise the quota won't be reset by time, such as storage limit.
  *  * One and only one of the granted containers:
- *  * "/{organization}" quota for an organization.
- *  * "/{project}" quota for a project.
- *  * "/{folder}" quota for a folder.
- *  * "/{resource}" quota for a universal resource.
- *  * Zero or more quota segmentation dimension. Not all combos are valid.
- *  * "/{region}" quota for every region. Not to be used with time intervals.
- *  * Otherwise the resources granted on the target is not segmented.
- *  * "/{zone}" quota for every zone. Not to be used with time intervals.
- *  * Otherwise the resources granted on the target is not segmented.
- *  * "/{resource}" quota for a resource associated with a project or org.
+ *  * "/{project}" quota for a project
  *  Here are some examples:
  *  * "1/min/{project}" for quota per minute per project.
- *  * "1/min/{user}" for quota per minute per user.
- *  * "1/min/{organization}" for quota per minute per organization.
  *  Note: the order of unit components is insignificant.
  *  The "1" at the beginning is required to follow the metric unit syntax.
  *  Used by metric-based quotas only.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
-/**
- *  Tiered limit values. Also allows for regional or zone overrides for these
- *  values if "/{region}" or "/{zone}" is specified in the unit field.
- *  Currently supported tiers from low to high:
- *  VERY_LOW, LOW, STANDARD, HIGH, VERY_HIGH
- *  To apply different limit values for users according to their tiers, specify
- *  the values for the tiers you want to differentiate. For example:
- *  {LOW:100, STANDARD:500, HIGH:1000, VERY_HIGH:5000}
- *  The limit value for each tier is optional except for the tier STANDARD.
- *  The limit value for an unspecified tier falls to the value of its next
- *  tier towards tier STANDARD. For the above example, the limit value for tier
- *  STANDARD is 500.
- *  To apply the same limit value for all users, just specify limit value for
- *  tier STANDARD. For example: {STANDARD:500}.
- *  To apply a regional overide for a tier, add a map entry with key
- *  "<TIER>/<region>", where <region> is a region name. Similarly, for a zone
- *  override, add a map entry with key "<TIER>/{zone}".
- *  Further, a wildcard can be used at the end of a zone name in order to
- *  specify zone level overrides. For example:
- *  LOW: 10, STANDARD: 50, HIGH: 100,
- *  LOW/us-central1: 20, STANDARD/us-central1: 60, HIGH/us-central1: 200,
- *  LOW/us-central1-*: 10, STANDARD/us-central1-*: 20, HIGH/us-central1-*: 80
- *  The regional overrides tier set for each region must be the same as
- *  the tier set for default limit values. Same rule applies for zone overrides
- *  tier as well.
- *  Used by metric-based quotas only.
- */
+/** Tiered limit values, currently only STANDARD is supported. */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_QuotaLimit_Values *values;
 
 @end
 
 
 /**
- *  Tiered limit values. Also allows for regional or zone overrides for these
- *  values if "/{region}" or "/{zone}" is specified in the unit field.
- *  Currently supported tiers from low to high:
- *  VERY_LOW, LOW, STANDARD, HIGH, VERY_HIGH
- *  To apply different limit values for users according to their tiers, specify
- *  the values for the tiers you want to differentiate. For example:
- *  {LOW:100, STANDARD:500, HIGH:1000, VERY_HIGH:5000}
- *  The limit value for each tier is optional except for the tier STANDARD.
- *  The limit value for an unspecified tier falls to the value of its next
- *  tier towards tier STANDARD. For the above example, the limit value for tier
- *  STANDARD is 500.
- *  To apply the same limit value for all users, just specify limit value for
- *  tier STANDARD. For example: {STANDARD:500}.
- *  To apply a regional overide for a tier, add a map entry with key
- *  "<TIER>/<region>", where <region> is a region name. Similarly, for a zone
- *  override, add a map entry with key "<TIER>/{zone}".
- *  Further, a wildcard can be used at the end of a zone name in order to
- *  specify zone level overrides. For example:
- *  LOW: 10, STANDARD: 50, HIGH: 100,
- *  LOW/us-central1: 20, STANDARD/us-central1: 60, HIGH/us-central1: 200,
- *  LOW/us-central1-*: 10, STANDARD/us-central1-*: 20, HIGH/us-central1-*: 80
- *  The regional overrides tier set for each region must be the same as
- *  the tier set for default limit values. Same rule applies for zone overrides
- *  tier as well.
- *  Used by metric-based quotas only.
+ *  Tiered limit values, currently only STANDARD is supported.
  *
  *  @note This class is documented as having more properties of NSNumber (Uses
  *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
@@ -4260,11 +4270,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  The id of the Google developer project that owns the service.
- *  Members of this project can manage the service configuration,
- *  manage consumption of the service, etc.
- */
+/** The Google project that owns this service. */
 @property(nonatomic, copy, nullable) NSString *producerProjectId;
 
 /** Quota configuration. */
@@ -4287,7 +4293,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Type *> *systemTypes;
 
-/** The product title associated with this service. */
+/** The product title for this service. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
@@ -4646,9 +4652,10 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Strategy that specifies how Google Service Control should select
- *  different
- *  versions of service configurations based on traffic percentage.
+ *  Strategy that specifies how clients of Google Service Controller want to
+ *  send traffic to use different config versions. This is generally
+ *  used by API proxy to split traffic based on your configured precentage for
+ *  each config version.
  *  One example of how to gradually rollout a new service configuration using
  *  this
  *  strategy:

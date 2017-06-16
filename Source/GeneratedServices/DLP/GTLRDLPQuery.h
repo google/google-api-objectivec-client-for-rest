@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Find potentially sensitive info in a list of strings.
+ *  Finds potentially sensitive info in a list of strings.
  *  This method has limits on input size, processing time, and output size.
  *
  *  Method: dlp.content.inspect
@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDLP_InspectContentResponse.
  *
- *  Find potentially sensitive info in a list of strings.
+ *  Finds potentially sensitive info in a list of strings.
  *  This method has limits on input size, processing time, and output size.
  *
  *  @param object The @c GTLRDLP_InspectContentRequest to include in the query.
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Redact potentially sensitive info from a list of strings.
+ *  Redacts potentially sensitive info from a list of strings.
  *  This method has limits on input size, processing time, and output size.
  *
  *  Method: dlp.content.redact
@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDLP_RedactContentResponse.
  *
- *  Redact potentially sensitive info from a list of strings.
+ *  Redacts potentially sensitive info from a list of strings.
  *  This method has limits on input size, processing time, and output size.
  *
  *  @param object The @c GTLRDLP_RedactContentRequest to include in the query.
@@ -124,7 +124,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Schedule a job scanning content in a Google Cloud Platform data repository.
+ *  Schedules a job scanning content in a Google Cloud Platform data
+ *  repository.
  *
  *  Method: dlp.inspect.operations.create
  *
@@ -138,7 +139,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDLP_Operation.
  *
- *  Schedule a job scanning content in a Google Cloud Platform data repository.
+ *  Schedules a job scanning content in a Google Cloud Platform data
+ *  repository.
  *
  *  @param object The @c GTLRDLP_CreateInspectOperationRequest to include in the
  *    query.
@@ -212,8 +214,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Lists operations that match the specified filter in the request. If the
  *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding below allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`.
+ *  NOTE: the `name` binding allows API services to override the binding
+ *  to use different resource name schemes, such as `users/ * /operations`. To
+ *  override the binding, API services can add a binding such as
+ *  `"/v1/{name=users/ *}/operations"` to their service configuration.
+ *  For backwards compatibility, the default name includes the operations
+ *  collection id, however overriding users must ensure the name binding
+ *  is the parent resource, without the operations collection id.
  *
  *  Method: dlp.inspect.operations.list
  *
@@ -227,7 +234,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** This parameter supports filtering by done, ie done=true or done=false. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The name of the operation collection. */
+/** The name of the operation's parent resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The list page size. The max allowed value is 256 and default is 100. */
@@ -241,10 +248,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists operations that match the specified filter in the request. If the
  *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding below allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`.
+ *  NOTE: the `name` binding allows API services to override the binding
+ *  to use different resource name schemes, such as `users/ * /operations`. To
+ *  override the binding, API services can add a binding such as
+ *  `"/v1/{name=users/ *}/operations"` to their service configuration.
+ *  For backwards compatibility, the default name includes the operations
+ *  collection id, however overriding users must ensure the name binding
+ *  is the parent resource, without the operations collection id.
  *
- *  @param name The name of the operation collection.
+ *  @param name The name of the operation's parent resource.
  *
  *  @returns GTLRDLPQuery_InspectOperationsList
  *

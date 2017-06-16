@@ -4,7 +4,7 @@
 // API:
 //   CustomSearch API (customsearch/v1)
 // Description:
-//   Lets you search over a website or collection of websites
+//   Searches over a website or collection of websites
 // Documentation:
 //   https://developers.google.com/custom-search/v1/using_rest
 
@@ -496,9 +496,6 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
 
 /** Country restrict(s). */
 @property(nonatomic, copy, nullable) NSString *cr;
-
-/** The URL of a linked custom search engine */
-@property(nonatomic, copy, nullable) NSString *cref;
 
 /** The custom search engine ID to scope this search query */
 @property(nonatomic, copy, nullable) NSString *cx;

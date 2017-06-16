@@ -788,7 +788,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Exports a Google Doc to the requested MIME type and returns the exported
- *  content.
+ *  content. Please note that the exported content is limited to 10MB.
  *
  *  Method: drive.files.export
  *
@@ -811,7 +811,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
  *  Exports a Google Doc to the requested MIME type and returns the exported
- *  content.
+ *  content. Please note that the exported content is limited to 10MB.
  *
  *  @param fileId The ID of the file.
  *  @param mimeType The MIME type of the format requested for this export.

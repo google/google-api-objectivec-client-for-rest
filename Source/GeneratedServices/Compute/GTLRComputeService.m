@@ -40,6 +40,9 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
 
 + (NSDictionary<NSString *, Class> *)kindStringToClassMap {
   return @{
+    @"compute#acceleratorType" : [GTLRCompute_AcceleratorType class],
+    @"compute#acceleratorTypeAggregatedList" : [GTLRCompute_AcceleratorTypeAggregatedList class],
+    @"compute#acceleratorTypeList" : [GTLRCompute_AcceleratorTypeList class],
     @"compute#accessConfig" : [GTLRCompute_AccessConfig class],
     @"compute#address" : [GTLRCompute_Address class],
     @"compute#addressAggregatedList" : [GTLRCompute_AddressAggregatedList class],
@@ -131,6 +134,8 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#targetPoolList" : [GTLRCompute_TargetPoolList class],
     @"compute#targetSslProxy" : [GTLRCompute_TargetSslProxy class],
     @"compute#targetSslProxyList" : [GTLRCompute_TargetSslProxyList class],
+    @"compute#targetTcpProxy" : [GTLRCompute_TargetTcpProxy class],
+    @"compute#targetTcpProxyList" : [GTLRCompute_TargetTcpProxyList class],
     @"compute#targetVpnGateway" : [GTLRCompute_TargetVpnGateway class],
     @"compute#targetVpnGatewayAggregatedList" : [GTLRCompute_TargetVpnGatewayAggregatedList class],
     @"compute#targetVpnGatewayList" : [GTLRCompute_TargetVpnGatewayList class],

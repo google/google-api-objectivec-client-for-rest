@@ -74,6 +74,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricTy
 // ----------------------------------------------------------------------------
 // GTLRToolResults_BasicPerfSampleSeries.perfUnit
 
+/** Value: "byte" */
+GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Byte;
 /** Value: "bytesPerSecond" */
 GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_BytesPerSecond;
 /** Value: "framesPerSecond" */
@@ -261,6 +263,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  perfUnit
  *
  *  Likely values:
+ *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Byte Value "byte"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_BytesPerSecond
  *        Value "bytesPerSecond"
  *    @arg @c kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_FramesPerSecond

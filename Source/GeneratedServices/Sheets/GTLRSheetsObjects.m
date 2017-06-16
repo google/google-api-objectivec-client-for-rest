@@ -38,6 +38,7 @@ NSString * const kGTLRSheets_BasicChartSeries_Type_Column      = @"COLUMN";
 NSString * const kGTLRSheets_BasicChartSeries_Type_Combo       = @"COMBO";
 NSString * const kGTLRSheets_BasicChartSeries_Type_Line        = @"LINE";
 NSString * const kGTLRSheets_BasicChartSeries_Type_Scatter     = @"SCATTER";
+NSString * const kGTLRSheets_BasicChartSeries_Type_SteppedArea = @"STEPPED_AREA";
 
 // GTLRSheets_BasicChartSpec.chartType
 NSString * const kGTLRSheets_BasicChartSpec_ChartType_Area     = @"AREA";
@@ -47,6 +48,7 @@ NSString * const kGTLRSheets_BasicChartSpec_ChartType_Column   = @"COLUMN";
 NSString * const kGTLRSheets_BasicChartSpec_ChartType_Combo    = @"COMBO";
 NSString * const kGTLRSheets_BasicChartSpec_ChartType_Line     = @"LINE";
 NSString * const kGTLRSheets_BasicChartSpec_ChartType_Scatter  = @"SCATTER";
+NSString * const kGTLRSheets_BasicChartSpec_ChartType_SteppedArea = @"STEPPED_AREA";
 
 // GTLRSheets_BasicChartSpec.legendPosition
 NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_BasicChartLegendPositionUnspecified = @"BASIC_CHART_LEGEND_POSITION_UNSPECIFIED";
@@ -55,6 +57,12 @@ NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_LeftLegend = @"LEFT_L
 NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_NoLegend = @"NO_LEGEND";
 NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_RightLegend = @"RIGHT_LEGEND";
 NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_TopLegend = @"TOP_LEGEND";
+
+// GTLRSheets_BasicChartSpec.stackedType
+NSString * const kGTLRSheets_BasicChartSpec_StackedType_BasicChartStackedTypeUnspecified = @"BASIC_CHART_STACKED_TYPE_UNSPECIFIED";
+NSString * const kGTLRSheets_BasicChartSpec_StackedType_NotStacked = @"NOT_STACKED";
+NSString * const kGTLRSheets_BasicChartSpec_StackedType_PercentStacked = @"PERCENT_STACKED";
+NSString * const kGTLRSheets_BasicChartSpec_StackedType_Stacked = @"STACKED";
 
 // GTLRSheets_BatchUpdateValuesRequest.responseDateTimeRenderOption
 NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseDateTimeRenderOption_FormattedString = @"FORMATTED_STRING";
@@ -110,6 +118,15 @@ NSString * const kGTLRSheets_Border_Style_Solid            = @"SOLID";
 NSString * const kGTLRSheets_Border_Style_SolidMedium      = @"SOLID_MEDIUM";
 NSString * const kGTLRSheets_Border_Style_SolidThick       = @"SOLID_THICK";
 NSString * const kGTLRSheets_Border_Style_StyleUnspecified = @"STYLE_UNSPECIFIED";
+
+// GTLRSheets_BubbleChartSpec.legendPosition
+NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_BottomLegend = @"BOTTOM_LEGEND";
+NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_BubbleChartLegendPositionUnspecified = @"BUBBLE_CHART_LEGEND_POSITION_UNSPECIFIED";
+NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_InsideLegend = @"INSIDE_LEGEND";
+NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_LeftLegend = @"LEFT_LEGEND";
+NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_NoLegend = @"NO_LEGEND";
+NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_RightLegend = @"RIGHT_LEGEND";
+NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_TopLegend = @"TOP_LEGEND";
 
 // GTLRSheets_CellFormat.horizontalAlignment
 NSString * const kGTLRSheets_CellFormat_HorizontalAlignment_Center = @"CENTER";
@@ -200,6 +217,15 @@ NSString * const kGTLRSheets_ErrorValue_Type_Num               = @"NUM";
 NSString * const kGTLRSheets_ErrorValue_Type_Ref               = @"REF";
 NSString * const kGTLRSheets_ErrorValue_Type_Value             = @"VALUE";
 
+// GTLRSheets_HistogramChartSpec.legendPosition
+NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_BottomLegend = @"BOTTOM_LEGEND";
+NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_HistogramChartLegendPositionUnspecified = @"HISTOGRAM_CHART_LEGEND_POSITION_UNSPECIFIED";
+NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_InsideLegend = @"INSIDE_LEGEND";
+NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_LeftLegend = @"LEFT_LEGEND";
+NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_NoLegend = @"NO_LEGEND";
+NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_RightLegend = @"RIGHT_LEGEND";
+NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_TopLegend = @"TOP_LEGEND";
+
 // GTLRSheets_InsertRangeRequest.shiftDimension
 NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_Columns = @"COLUMNS";
 NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
@@ -228,6 +254,12 @@ NSString * const kGTLRSheets_NumberFormat_Type_Percent         = @"PERCENT";
 NSString * const kGTLRSheets_NumberFormat_Type_Scientific      = @"SCIENTIFIC";
 NSString * const kGTLRSheets_NumberFormat_Type_Text            = @"TEXT";
 NSString * const kGTLRSheets_NumberFormat_Type_Time            = @"TIME";
+
+// GTLRSheets_OrgChartSpec.nodeSize
+NSString * const kGTLRSheets_OrgChartSpec_NodeSize_Large       = @"LARGE";
+NSString * const kGTLRSheets_OrgChartSpec_NodeSize_Medium      = @"MEDIUM";
+NSString * const kGTLRSheets_OrgChartSpec_NodeSize_OrgChartLabelSizeUnspecified = @"ORG_CHART_LABEL_SIZE_UNSPECIFIED";
+NSString * const kGTLRSheets_OrgChartSpec_NodeSize_Small       = @"SMALL";
 
 // GTLRSheets_PasteDataRequest.type
 NSString * const kGTLRSheets_PasteDataRequest_Type_PasteConditionalFormatting = @"PASTE_CONDITIONAL_FORMATTING";
@@ -531,7 +563,7 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 //
 
 @implementation GTLRSheets_BasicChartDomain
-@dynamic domain;
+@dynamic domain, reversed;
 @end
 
 
@@ -551,7 +583,8 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 //
 
 @implementation GTLRSheets_BasicChartSpec
-@dynamic axis, chartType, domains, headerCount, legendPosition, series;
+@dynamic axis, chartType, domains, headerCount, interpolateNulls,
+         legendPosition, lineSmoothing, series, stackedType, threeDimensional;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -777,6 +810,66 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_BubbleChartSpec
+//
+
+@implementation GTLRSheets_BubbleChartSpec
+@dynamic bubbleBorderColor, bubbleLabels, bubbleMaxRadiusSize,
+         bubbleMinRadiusSize, bubbleOpacity, bubbleSizes, bubbleTextStyle,
+         domain, groupIds, legendPosition, series;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_CandlestickChartSpec
+//
+
+@implementation GTLRSheets_CandlestickChartSpec
+@dynamic data, domain;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRSheets_CandlestickData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_CandlestickData
+//
+
+@implementation GTLRSheets_CandlestickData
+@dynamic closeSeries, highSeries, lowSeries, openSeries;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_CandlestickDomain
+//
+
+@implementation GTLRSheets_CandlestickDomain
+@dynamic data;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_CandlestickSeries
+//
+
+@implementation GTLRSheets_CandlestickSeries
+@dynamic data;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_CellData
 //
 
@@ -841,7 +934,9 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 //
 
 @implementation GTLRSheets_ChartSpec
-@dynamic basicChart, hiddenDimensionStrategy, pieChart, title;
+@dynamic backgroundColor, basicChart, bubbleChart, candlestickChart, fontName,
+         hiddenDimensionStrategy, histogramChart, maximized, orgChart, pieChart,
+         title, titleTextFormat;
 @end
 
 
@@ -1306,6 +1401,35 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_HistogramChartSpec
+//
+
+@implementation GTLRSheets_HistogramChartSpec
+@dynamic bucketSize, legendPosition, outlierPercentile, series,
+         showItemDividers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"series" : [GTLRSheets_HistogramSeries class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_HistogramSeries
+//
+
+@implementation GTLRSheets_HistogramSeries
+@dynamic barColor, data;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_InsertDimensionRequest
 //
 
@@ -1381,6 +1505,16 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 @implementation GTLRSheets_NumberFormat
 @dynamic pattern, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_OrgChartSpec
+//
+
+@implementation GTLRSheets_OrgChartSpec
+@dynamic labels, nodeColor, nodeSize, parentLabels, selectedNodeColor, tooltips;
 @end
 
 

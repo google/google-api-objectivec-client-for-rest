@@ -397,7 +397,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ApiKeyExpired;
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ApiKeyInvalid;
 /**
- *  Consumer cannot access the service because billing is disabled.
+ *  Consumer cannot access the service because the service requires active
+ *  billing.
  *
  *  Value: "BILLING_NOT_ACTIVE"
  */
@@ -408,20 +409,6 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_BillingNotActiv
  *  Value: "BILLING_STATUS_UNAVAILABLE"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_BillingStatusUnavailable;
-/**
- *  Client application of the consumer request is invalid for the
- *  specific consumer project.
- *
- *  Value: "CLIENT_APP_BLOCKED"
- */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ClientAppBlocked;
-/**
- *  IP address of the consumer is invalid for the specific consumer
- *  project.
- *
- *  Value: "IP_ADDRESS_BLOCKED"
- */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_IpAddressBlocked;
 /**
  *  The consumer's LOAS role is invalid.
  *
@@ -441,23 +428,11 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_NoLoasProject;
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectDeleted;
 /**
- *  Consumer's project number or ID does not represent a valid project.
- *
- *  Value: "PROJECT_INVALID"
- */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectInvalid;
-/**
  *  The backend server for looking up project id/number is unavailable.
  *
  *  Value: "PROJECT_STATUS_UNAVAILABLE"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectStatusUnavailable;
-/**
- *  Consumer project has been suspended.
- *
- *  Value: "PROJECT_SUSPENDED"
- */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectSuspended;
 /**
  *  The backend server for checking quota limits is unavailable.
  *
@@ -465,25 +440,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectSuspende
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_QuotaSystemUnavailable;
 /**
- *  Referer address of the consumer request is invalid for the specific
- *  consumer project.
- *
- *  Value: "REFERER_BLOCKED"
- */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_RefererBlocked;
-/**
  *  Quota allocation failed.
  *  Same as google.rpc.Code.RESOURCE_EXHAUSTED.
  *
  *  Value: "RESOURCE_EXHAUSTED"
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ResourceExhausted;
-/**
- *  Consumer has not enabled the service.
- *
- *  Value: "SERVICE_NOT_ENABLED"
- */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ServiceNotEnabled;
 /**
  *  The backend server for checking service status is unavailable.
  *
@@ -1671,17 +1633,11 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *    @arg @c kGTLRServiceControl_QuotaError_Code_ApiKeyInvalid Specified API
  *        key is invalid. (Value: "API_KEY_INVALID")
  *    @arg @c kGTLRServiceControl_QuotaError_Code_BillingNotActive Consumer
- *        cannot access the service because billing is disabled. (Value:
- *        "BILLING_NOT_ACTIVE")
+ *        cannot access the service because the service requires active
+ *        billing. (Value: "BILLING_NOT_ACTIVE")
  *    @arg @c kGTLRServiceControl_QuotaError_Code_BillingStatusUnavailable The
  *        backend server for checking billing status is unavailable. (Value:
  *        "BILLING_STATUS_UNAVAILABLE")
- *    @arg @c kGTLRServiceControl_QuotaError_Code_ClientAppBlocked Client
- *        application of the consumer request is invalid for the
- *        specific consumer project. (Value: "CLIENT_APP_BLOCKED")
- *    @arg @c kGTLRServiceControl_QuotaError_Code_IpAddressBlocked IP address of
- *        the consumer is invalid for the specific consumer
- *        project. (Value: "IP_ADDRESS_BLOCKED")
  *    @arg @c kGTLRServiceControl_QuotaError_Code_LoasRoleInvalid The consumer's
  *        LOAS role is invalid. (Value: "LOAS_ROLE_INVALID")
  *    @arg @c kGTLRServiceControl_QuotaError_Code_NoLoasProject The consumer's
@@ -1689,26 +1645,16 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *    @arg @c kGTLRServiceControl_QuotaError_Code_ProjectDeleted Consumer's
  *        project has been marked as deleted (soft deletion). (Value:
  *        "PROJECT_DELETED")
- *    @arg @c kGTLRServiceControl_QuotaError_Code_ProjectInvalid Consumer's
- *        project number or ID does not represent a valid project. (Value:
- *        "PROJECT_INVALID")
  *    @arg @c kGTLRServiceControl_QuotaError_Code_ProjectStatusUnavailable The
  *        backend server for looking up project id/number is unavailable.
  *        (Value: "PROJECT_STATUS_UNAVAILABLE")
- *    @arg @c kGTLRServiceControl_QuotaError_Code_ProjectSuspended Consumer
- *        project has been suspended. (Value: "PROJECT_SUSPENDED")
  *    @arg @c kGTLRServiceControl_QuotaError_Code_QuotaSystemUnavailable The
  *        backend server for checking quota limits is unavailable. (Value:
  *        "QUOTA_SYSTEM_UNAVAILABLE")
- *    @arg @c kGTLRServiceControl_QuotaError_Code_RefererBlocked Referer address
- *        of the consumer request is invalid for the specific
- *        consumer project. (Value: "REFERER_BLOCKED")
  *    @arg @c kGTLRServiceControl_QuotaError_Code_ResourceExhausted Quota
  *        allocation failed.
  *        Same as google.rpc.Code.RESOURCE_EXHAUSTED. (Value:
  *        "RESOURCE_EXHAUSTED")
- *    @arg @c kGTLRServiceControl_QuotaError_Code_ServiceNotEnabled Consumer has
- *        not enabled the service. (Value: "SERVICE_NOT_ENABLED")
  *    @arg @c kGTLRServiceControl_QuotaError_Code_ServiceStatusUnavailable The
  *        backend server for checking service status is unavailable. (Value:
  *        "SERVICE_STATUS_UNAVAILABLE")
@@ -2137,6 +2083,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  + `AppEngine-Google; (+http://code.google.com/appengine; appid:
  *  s~my-project`:
  *  The request was made from the `my-project` App Engine app.
+ *  NOLINT
  */
 @property(nonatomic, copy, nullable) NSString *callerSuppliedUserAgent;
 

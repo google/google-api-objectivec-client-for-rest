@@ -50,7 +50,6 @@
 @class GTLRDataproc_Operation;
 @class GTLRDataproc_Operation_Metadata;
 @class GTLRDataproc_Operation_Response;
-@class GTLRDataproc_OperationStatus;
 @class GTLRDataproc_PigJob;
 @class GTLRDataproc_PigJob_Properties;
 @class GTLRDataproc_PigJob_ScriptVariables;
@@ -278,62 +277,6 @@ GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverL
 GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Trace;
 /** Value: "WARN" */
 GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn;
-
-// ----------------------------------------------------------------------------
-// GTLRDataproc_OperationMetadata.state
-
-/**
- *  The operation is done, either cancelled or completed.
- *
- *  Value: "DONE"
- */
-GTLR_EXTERN NSString * const kGTLRDataproc_OperationMetadata_State_Done;
-/**
- *  The operation has been created.
- *
- *  Value: "PENDING"
- */
-GTLR_EXTERN NSString * const kGTLRDataproc_OperationMetadata_State_Pending;
-/**
- *  The operation is currently running.
- *
- *  Value: "RUNNING"
- */
-GTLR_EXTERN NSString * const kGTLRDataproc_OperationMetadata_State_Running;
-/**
- *  Unused.
- *
- *  Value: "UNKNOWN"
- */
-GTLR_EXTERN NSString * const kGTLRDataproc_OperationMetadata_State_Unknown;
-
-// ----------------------------------------------------------------------------
-// GTLRDataproc_OperationStatus.state
-
-/**
- *  The operation is done; either cancelled or completed.
- *
- *  Value: "DONE"
- */
-GTLR_EXTERN NSString * const kGTLRDataproc_OperationStatus_State_Done;
-/**
- *  The operation has been created.
- *
- *  Value: "PENDING"
- */
-GTLR_EXTERN NSString * const kGTLRDataproc_OperationStatus_State_Pending;
-/**
- *  The operation is running.
- *
- *  Value: "RUNNING"
- */
-GTLR_EXTERN NSString * const kGTLRDataproc_OperationStatus_State_Running;
-/**
- *  Unused.
- *
- *  Value: "UNKNOWN"
- */
-GTLR_EXTERN NSString * const kGTLRDataproc_OperationStatus_State_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_YarnApplication.state
@@ -722,20 +665,6 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *        "UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *substate;
-
-@end
-
-
-/**
- *  The location where output from diagnostic command can be found.
- */
-@interface GTLRDataproc_DiagnoseClusterOutputLocation : GTLRObject
-
-/**
- *  Output-only The Google Cloud Storage URI of the diagnostic output. This will
- *  be a plain text file with summary of collected diagnostics.
- */
-@property(nonatomic, copy, nullable) NSString *outputUri;
 
 @end
 
@@ -1555,101 +1484,6 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDataproc_Operation_Response : GTLRObject
-@end
-
-
-/**
- *  Metadata describing the operation.
- */
-@interface GTLRDataproc_OperationMetadata : GTLRObject
-
-/** Name of the cluster for the operation. */
-@property(nonatomic, copy, nullable) NSString *clusterName;
-
-/** Cluster UUId for the operation. */
-@property(nonatomic, copy, nullable) NSString *clusterUuid;
-
-/**
- *  Output-only Short description of operation.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** A message containing any operation metadata details. */
-@property(nonatomic, copy, nullable) NSString *details;
-
-/** The time that the operation completed. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/** A message containing the detailed operation state. */
-@property(nonatomic, copy, nullable) NSString *innerState;
-
-/** The time that the operation was requested. */
-@property(nonatomic, strong, nullable) GTLRDateTime *insertTime;
-
-/** Output-only The operation type. */
-@property(nonatomic, copy, nullable) NSString *operationType;
-
-/** The time that the operation was started by the server. */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-/**
- *  A message containing the operation state.
- *
- *  Likely values:
- *    @arg @c kGTLRDataproc_OperationMetadata_State_Done The operation is done,
- *        either cancelled or completed. (Value: "DONE")
- *    @arg @c kGTLRDataproc_OperationMetadata_State_Pending The operation has
- *        been created. (Value: "PENDING")
- *    @arg @c kGTLRDataproc_OperationMetadata_State_Running The operation is
- *        currently running. (Value: "RUNNING")
- *    @arg @c kGTLRDataproc_OperationMetadata_State_Unknown Unused. (Value:
- *        "UNKNOWN")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** Output-only Current operation status. */
-@property(nonatomic, strong, nullable) GTLRDataproc_OperationStatus *status;
-
-/** Output-only Previous operation status. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_OperationStatus *> *statusHistory;
-
-/** Output-only Errors encountered during operation execution. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
-
-@end
-
-
-/**
- *  The status of the operation.
- */
-@interface GTLRDataproc_OperationStatus : GTLRObject
-
-/** A message containing any operation metadata details. */
-@property(nonatomic, copy, nullable) NSString *details;
-
-/** A message containing the detailed operation state. */
-@property(nonatomic, copy, nullable) NSString *innerState;
-
-/**
- *  A message containing the operation state.
- *
- *  Likely values:
- *    @arg @c kGTLRDataproc_OperationStatus_State_Done The operation is done;
- *        either cancelled or completed. (Value: "DONE")
- *    @arg @c kGTLRDataproc_OperationStatus_State_Pending The operation has been
- *        created. (Value: "PENDING")
- *    @arg @c kGTLRDataproc_OperationStatus_State_Running The operation is
- *        running. (Value: "RUNNING")
- *    @arg @c kGTLRDataproc_OperationStatus_State_Unknown Unused. (Value:
- *        "UNKNOWN")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** The time this state was entered. */
-@property(nonatomic, strong, nullable) GTLRDateTime *stateStartTime;
-
 @end
 
 

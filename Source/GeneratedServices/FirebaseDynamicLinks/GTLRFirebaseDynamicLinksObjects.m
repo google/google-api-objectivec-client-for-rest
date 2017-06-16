@@ -13,6 +13,20 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRFirebaseDynamicLinks_DynamicLinkEventStat.event
+NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_AppFirstOpen = @"APP_FIRST_OPEN";
+NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_AppInstall = @"APP_INSTALL";
+NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_AppReOpen = @"APP_RE_OPEN";
+NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_Click = @"CLICK";
+NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_DynamicLinkEventUnspecified = @"DYNAMIC_LINK_EVENT_UNSPECIFIED";
+NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_Redirect = @"REDIRECT";
+
+// GTLRFirebaseDynamicLinks_DynamicLinkEventStat.platform
+NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Android = @"ANDROID";
+NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Desktop = @"DESKTOP";
+NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_DynamicLinkPlatformUnspecified = @"DYNAMIC_LINK_PLATFORM_UNSPECIFIED";
+NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Ios = @"IOS";
+
 // GTLRFirebaseDynamicLinks_DynamicLinkWarning.warningCode
 NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadAdParam = @"BAD_AD_PARAM";
 NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadDebugParam = @"BAD_DEBUG_PARAM";
@@ -100,12 +114,40 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseDynamicLinks_DynamicLinkEventStat
+//
+
+@implementation GTLRFirebaseDynamicLinks_DynamicLinkEventStat
+@dynamic count, event, platform;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseDynamicLinks_DynamicLinkInfo
 //
 
 @implementation GTLRFirebaseDynamicLinks_DynamicLinkInfo
 @dynamic analyticsInfo, androidInfo, dynamicLinkDomain, iosInfo, link,
          navigationInfo, socialMetaTagInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDynamicLinks_DynamicLinkStats
+//
+
+@implementation GTLRFirebaseDynamicLinks_DynamicLinkStats
+@dynamic linkEventStats;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"linkEventStats" : [GTLRFirebaseDynamicLinks_DynamicLinkEventStat class]
+  };
+  return map;
+}
+
 @end
 
 

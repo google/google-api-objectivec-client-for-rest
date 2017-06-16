@@ -2024,7 +2024,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_TemplateMetadata
-@dynamic bypassTempDirValidation, descriptionProperty, name, parameters;
+@dynamic descriptionProperty, name, parameters;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

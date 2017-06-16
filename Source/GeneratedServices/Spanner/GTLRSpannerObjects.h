@@ -98,6 +98,28 @@ GTLR_EXTERN NSString * const kGTLRSpanner_AuditLogConfig_LogType_DataWrite;
 GTLR_EXTERN NSString * const kGTLRSpanner_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSpanner_CloudAuditOptions.logName
+
+/**
+ *  Corresponds to "cloudaudit.googleapis.com/activity"
+ *
+ *  Value: "ADMIN_ACTIVITY"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_CloudAuditOptions_LogName_AdminActivity;
+/**
+ *  Corresponds to "cloudaudit.googleapis.com/data_access"
+ *
+ *  Value: "DATA_ACCESS"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_CloudAuditOptions_LogName_DataAccess;
+/**
+ *  Default. Should not be used.
+ *
+ *  Value: "UNSPECIFIED_LOG_NAME"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_CloudAuditOptions_LogName_UnspecifiedLogName;
+
+// ----------------------------------------------------------------------------
 // GTLRSpanner_Condition.iam
 
 /**
@@ -447,7 +469,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Specifies the audit configuration for a service.
  *  The configuration determines which permission types are logged, and what
  *  identities, if any, are exempted from logging.
- *  An AuditConifg must have one or more AuditLogConfigs.
+ *  An AuditConfig must have one or more AuditLogConfigs.
  *  If there are AuditConfigs for both `allServices` and a specific service,
  *  the union of the two AuditConfigs is used for that service: the log_types
  *  specified in each AuditConfig are enabled, and the exempted_members in each
@@ -642,6 +664,20 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Write a Cloud Audit log
  */
 @interface GTLRSpanner_CloudAuditOptions : GTLRObject
+
+/**
+ *  The log_name to populate in the Cloud Audit Record.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_CloudAuditOptions_LogName_AdminActivity Corresponds
+ *        to "cloudaudit.googleapis.com/activity" (Value: "ADMIN_ACTIVITY")
+ *    @arg @c kGTLRSpanner_CloudAuditOptions_LogName_DataAccess Corresponds to
+ *        "cloudaudit.googleapis.com/data_access" (Value: "DATA_ACCESS")
+ *    @arg @c kGTLRSpanner_CloudAuditOptions_LogName_UnspecifiedLogName Default.
+ *        Should not be used. (Value: "UNSPECIFIED_LOG_NAME")
+ */
+@property(nonatomic, copy, nullable) NSString *logName;
+
 @end
 
 
@@ -1159,7 +1195,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The number of nodes allocated to this instance.
+ *  Required. The number of nodes allocated to this instance. This may be zero
+ *  in API responses for instances that are not yet in state `READY`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1939,7 +1976,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
- *  Options for read-only transactions.
+ *  Message type to initiate a read-only transaction.
  */
 @interface GTLRSpanner_ReadOnly : GTLRObject
 
@@ -2076,7 +2113,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
- *  Options for read-write transactions.
+ *  Message type to initiate a read-write transaction. Currently this
+ *  transaction type has no options.
  */
 @interface GTLRSpanner_ReadWrite : GTLRObject
 @end
@@ -2360,7 +2398,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  error message is needed, put the localized message in the error details or
  *  localize it in the client. The optional error details may contain arbitrary
  *  information about the error. There is a predefined set of error detail types
- *  in the package `google.rpc` which can be used for common error conditions.
+ *  in the package `google.rpc` that can be used for common error conditions.
  *  # Language mapping
  *  The `Status` message is the logical representation of the error model, but
  *  it
@@ -2378,7 +2416,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  it may embed the `Status` in the normal response to indicate the partial
  *  errors.
  *  - Workflow errors. A typical workflow has multiple steps. Each step may
- *  have a `Status` message for error reporting purpose.
+ *  have a `Status` message for error reporting.
  *  - Batch operations. If a client uses batch request and batch response, the
  *  `Status` message should be used directly inside batch response, one for
  *  each error sub-response.

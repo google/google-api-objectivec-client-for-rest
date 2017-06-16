@@ -4,7 +4,7 @@
 // API:
 //   Google Cloud Key Management Service (KMS) API (cloudkms/v1)
 // Description:
-//   Manages encryption for your cloud services the same way you do on-premise.
+//   Manages encryption for your cloud services the same way you do on-premises.
 //   You can generate, use, rotate, and destroy AES256 encryption keys.
 // Documentation:
 //   https://cloud.google.com/kms/
@@ -109,7 +109,7 @@ NSString * const kGTLRCloudKMS_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRCloudKMS_Binding
-@dynamic members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -234,6 +234,21 @@ NSString * const kGTLRCloudKMS_Rule_Action_NoAction     = @"NO_ACTION";
 
 @implementation GTLRCloudKMS_EncryptResponse
 @dynamic ciphertext, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_Expr
+//
+
+@implementation GTLRCloudKMS_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

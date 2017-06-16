@@ -796,8 +796,13 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 /**
  *  Lists operations that match the specified filter in the request. If the
  *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding below allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations.
+ *  binding allows API services to override the binding to use different
+ *  resource name schemes, such as users/ * /operations. To override the
+ *  binding, API services can add a binding such as "/v1/{name=users/
+ *  *}/operations" to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: dataproc.projects.regions.operations.list
  *
@@ -811,7 +816,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The name of the operation collection. */
+/** The name of the operation's parent resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The standard list page size. */
@@ -825,10 +830,15 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  Lists operations that match the specified filter in the request. If the
  *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding below allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations.
+ *  binding allows API services to override the binding to use different
+ *  resource name schemes, such as users/ * /operations. To override the
+ *  binding, API services can add a binding such as "/v1/{name=users/
+ *  *}/operations" to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
- *  @param name The name of the operation collection.
+ *  @param name The name of the operation's parent resource.
  *
  *  @returns GTLRDataprocQuery_ProjectsRegionsOperationsList
  *

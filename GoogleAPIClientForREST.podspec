@@ -46,6 +46,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AdExchangeSeller/*.{h,m}'
   end
+  s.subspec 'AdExperienceReport' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/AdExperienceReport/*.{h,m}'
+  end
   s.subspec 'AdSense' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AdSense/*.{h,m}'
@@ -81,6 +85,10 @@ Pod::Spec.new do |s|
   s.subspec 'Appsactivity' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Appsactivity/*.{h,m}'
+  end
+  s.subspec 'BigQueryDataTransfer' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/BigQueryDataTransfer/*.{h,m}'
   end
   s.subspec 'Bigquery' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

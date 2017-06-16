@@ -24,6 +24,8 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictRequest;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1SetDefaultVersionRequest;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version;
+@class GTLRCloudMachineLearningEngine_GoogleIamV1SetIamPolicyRequest;
+@class GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsRequest;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -349,6 +351,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource.
+ *  Returns an empty policy if the resource exists and does not have a policy
+ *  set.
+ *
+ *  Method: ml.projects.models.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ */
+@interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsGetIamPolicy : GTLRCloudMachineLearningEngineQuery
+// Previous library name was
+//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsGetIamPolicyWithresource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource.
+ *  Returns an empty policy if the resource exists and does not have a policy
+ *  set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists the models in a project.
  *  Each project can contain multiple models, and each model can have multiple
  *  versions.
@@ -402,6 +441,93 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: ml.projects.models.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ */
+@interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsSetIamPolicy : GTLRCloudMachineLearningEngineQuery
+// Previous library name was
+//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsSetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c
+ *    GTLRCloudMachineLearningEngine_GoogleIamV1SetIamPolicyRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *  If the resource does not exist, this will return an empty set of
+ *  permissions, not a NOT_FOUND error.
+ *  Note: This operation is designed to be used for building permission-aware
+ *  UIs and command-line tools, not for authorization checking. This operation
+ *  may "fail open" without warning.
+ *
+ *  Method: ml.projects.models.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ */
+@interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsTestIamPermissions : GTLRCloudMachineLearningEngineQuery
+// Previous library name was
+//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsTestIamPermissionsWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *  If the resource does not exist, this will return an empty set of
+ *  permissions, not a NOT_FOUND error.
+ *  Note: This operation is designed to be used for building permission-aware
+ *  UIs and command-line tools, not for authorization checking. This operation
+ *  may "fail open" without warning.
+ *
+ *  @param object The @c
+ *    GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -761,8 +887,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Lists operations that match the specified filter in the request. If the
  *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding below allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`.
+ *  NOTE: the `name` binding allows API services to override the binding
+ *  to use different resource name schemes, such as `users/ * /operations`. To
+ *  override the binding, API services can add a binding such as
+ *  `"/v1/{name=users/ *}/operations"` to their service configuration.
+ *  For backwards compatibility, the default name includes the operations
+ *  collection id, however overriding users must ensure the name binding
+ *  is the parent resource, without the operations collection id.
  *
  *  Method: ml.projects.operations.list
  *
@@ -776,7 +907,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The name of the operation collection. */
+/** The name of the operation's parent resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The standard list page size. */
@@ -791,10 +922,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists operations that match the specified filter in the request. If the
  *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding below allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`.
+ *  NOTE: the `name` binding allows API services to override the binding
+ *  to use different resource name schemes, such as `users/ * /operations`. To
+ *  override the binding, API services can add a binding such as
+ *  `"/v1/{name=users/ *}/operations"` to their service configuration.
+ *  For backwards compatibility, the default name includes the operations
+ *  collection id, however overriding users must ensure the name binding
+ *  is the parent resource, without the operations collection id.
  *
- *  @param name The name of the operation collection.
+ *  @param name The name of the operation's parent resource.
  *
  *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsOperationsList
  *

@@ -1326,10 +1326,8 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_EntityAnnotation : GTLRObject
 
 /**
- *  Image region to which this entity belongs. Currently not produced
- *  for `LABEL_DETECTION` features. For `TEXT_DETECTION` (OCR), `boundingPoly`s
- *  are produced for the entire text detected in an image region, followed by
- *  `boundingPoly`s for each word within the detected text.
+ *  Image region to which this entity belongs. Not produced
+ *  for `LABEL_DETECTION` features.
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
 

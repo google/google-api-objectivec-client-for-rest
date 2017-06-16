@@ -22,8 +22,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: Administer your Spanner databases
+ *
+ *  Value "https://www.googleapis.com/auth/spanner.admin"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeSpannerAdmin;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
@@ -31,6 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeSpannerCloudPlatform;
+/**
+ *  Authorization scope: View and manage the contents of your Spanner databases
+ *
+ *  Value "https://www.googleapis.com/auth/spanner.data"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeSpannerData;
 
 // ----------------------------------------------------------------------------
 //   GTLRSpannerService

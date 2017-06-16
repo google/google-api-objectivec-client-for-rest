@@ -47,6 +47,11 @@
 @class GTLRSheets_BooleanRule;
 @class GTLRSheets_Border;
 @class GTLRSheets_Borders;
+@class GTLRSheets_BubbleChartSpec;
+@class GTLRSheets_CandlestickChartSpec;
+@class GTLRSheets_CandlestickData;
+@class GTLRSheets_CandlestickDomain;
+@class GTLRSheets_CandlestickSeries;
 @class GTLRSheets_CellData;
 @class GTLRSheets_CellFormat;
 @class GTLRSheets_ChartData;
@@ -90,6 +95,8 @@
 @class GTLRSheets_GridData;
 @class GTLRSheets_GridProperties;
 @class GTLRSheets_GridRange;
+@class GTLRSheets_HistogramChartSpec;
+@class GTLRSheets_HistogramSeries;
 @class GTLRSheets_InsertDimensionRequest;
 @class GTLRSheets_InsertRangeRequest;
 @class GTLRSheets_InterpolationPoint;
@@ -98,6 +105,7 @@
 @class GTLRSheets_MoveDimensionRequest;
 @class GTLRSheets_NamedRange;
 @class GTLRSheets_NumberFormat;
+@class GTLRSheets_OrgChartSpec;
 @class GTLRSheets_OverlayPosition;
 @class GTLRSheets_Padding;
 @class GTLRSheets_PasteDataRequest;
@@ -285,6 +293,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Line;
  *  Value: "SCATTER"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Scatter;
+/**
+ *  A <a href="/chart/interactive/docs/gallery/steppedareachart">stepped area
+ *  chart</a>.
+ *
+ *  Value: "STEPPED_AREA"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_SteppedArea;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BasicChartSpec.chartType
@@ -331,6 +346,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Line;
  *  Value: "SCATTER"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Scatter;
+/**
+ *  A <a href="/chart/interactive/docs/gallery/steppedareachart">stepped area
+ *  chart</a>.
+ *
+ *  Value: "STEPPED_AREA"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_SteppedArea;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BasicChartSpec.legendPosition
@@ -371,6 +393,36 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_RightLege
  *  Value: "TOP_LEGEND"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_TopLegend;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_BasicChartSpec.stackedType
+
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "BASIC_CHART_STACKED_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_BasicChartStackedTypeUnspecified;
+/**
+ *  Series are not stacked.
+ *
+ *  Value: "NOT_STACKED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_NotStacked;
+/**
+ *  Vertical stacks are stretched to reach the top of the chart, with
+ *  values laid out as percentages of each other.
+ *
+ *  Value: "PERCENT_STACKED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_PercentStacked;
+/**
+ *  Series values are stacked, each value is rendered vertically beginning
+ *  from the top of the value below it.
+ *
+ *  Value: "STACKED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_Stacked;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BatchUpdateValuesRequest.responseDateTimeRenderOption
@@ -747,6 +799,52 @@ GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_SolidThick;
  *  Value: "STYLE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_StyleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_BubbleChartSpec.legendPosition
+
+/**
+ *  The legend is rendered on the bottom of the chart.
+ *
+ *  Value: "BOTTOM_LEGEND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_BottomLegend;
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "BUBBLE_CHART_LEGEND_POSITION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_BubbleChartLegendPositionUnspecified;
+/**
+ *  The legend is rendered inside the chart area.
+ *
+ *  Value: "INSIDE_LEGEND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_InsideLegend;
+/**
+ *  The legend is rendered on the left of the chart.
+ *
+ *  Value: "LEFT_LEGEND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_LeftLegend;
+/**
+ *  No legend is rendered.
+ *
+ *  Value: "NO_LEGEND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_NoLegend;
+/**
+ *  The legend is rendered on the right of the chart.
+ *
+ *  Value: "RIGHT_LEGEND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_RightLegend;
+/**
+ *  The legend is rendered on the top of the chart.
+ *
+ *  Value: "TOP_LEGEND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_TopLegend;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_CellFormat.horizontalAlignment
@@ -1203,6 +1301,52 @@ GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Ref;
 GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Value;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_HistogramChartSpec.legendPosition
+
+/**
+ *  The legend is rendered on the bottom of the chart.
+ *
+ *  Value: "BOTTOM_LEGEND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_BottomLegend;
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "HISTOGRAM_CHART_LEGEND_POSITION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_HistogramChartLegendPositionUnspecified;
+/**
+ *  The legend is rendered inside the chart area.
+ *
+ *  Value: "INSIDE_LEGEND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_InsideLegend;
+/**
+ *  The legend is rendered on the left of the chart.
+ *
+ *  Value: "LEFT_LEGEND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_LeftLegend;
+/**
+ *  No legend is rendered.
+ *
+ *  Value: "NO_LEGEND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_NoLegend;
+/**
+ *  The legend is rendered on the right of the chart.
+ *
+ *  Value: "RIGHT_LEGEND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_RightLegend;
+/**
+ *  The legend is rendered on the top of the chart.
+ *
+ *  Value: "TOP_LEGEND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_TopLegend;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_InsertRangeRequest.shiftDimension
 
 /**
@@ -1357,6 +1501,34 @@ GTLR_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Text;
  *  Value: "TIME"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Time;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_OrgChartSpec.nodeSize
+
+/**
+ *  The large org chart node size.
+ *
+ *  Value: "LARGE"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_OrgChartSpec_NodeSize_Large;
+/**
+ *  The medium org chart node size.
+ *
+ *  Value: "MEDIUM"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_OrgChartSpec_NodeSize_Medium;
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "ORG_CHART_LABEL_SIZE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_OrgChartSpec_NodeSize_OrgChartLabelSizeUnspecified;
+/**
+ *  The small org chart node size.
+ *
+ *  Value: "SMALL"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_OrgChartSpec_NodeSize_Small;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_PasteDataRequest.type
@@ -2183,6 +2355,15 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *domain;
 
+/**
+ *  True to reverse the order of the domain values (horizontal axis).
+ *  Not applicable to Gauge, Geo, Histogram, Org, Pie, Radar, and Treemap
+ *  charts.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reversed;
+
 @end
 
 
@@ -2253,6 +2434,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_BasicChartSeries_Type_Scatter A
  *        <a href="/chart/interactive/docs/gallery/scatterchart">scatter
  *        chart</a>. (Value: "SCATTER")
+ *    @arg @c kGTLRSheets_BasicChartSeries_Type_SteppedArea A
+ *        <a href="/chart/interactive/docs/gallery/steppedareachart">stepped
+ *        area chart</a>. (Value: "STEPPED_AREA")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2292,6 +2476,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *    @arg @c kGTLRSheets_BasicChartSpec_ChartType_Scatter A
  *        <a href="/chart/interactive/docs/gallery/scatterchart">scatter
  *        chart</a>. (Value: "SCATTER")
+ *    @arg @c kGTLRSheets_BasicChartSpec_ChartType_SteppedArea A
+ *        <a href="/chart/interactive/docs/gallery/steppedareachart">stepped
+ *        area chart</a>. (Value: "STEPPED_AREA")
  */
 @property(nonatomic, copy, nullable) NSString *chartType;
 
@@ -2313,6 +2500,16 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @property(nonatomic, strong, nullable) NSNumber *headerCount;
 
 /**
+ *  If some values in a series are missing, gaps may appear in the chart (e.g,
+ *  segments of lines in a line chart will be missing). To eliminate these
+ *  gaps set this to true.
+ *  Applies to Line, Area, and Combo charts.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *interpolateNulls;
+
+/**
  *  The position of the chart legend.
  *
  *  Likely values:
@@ -2332,8 +2529,44 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  */
 @property(nonatomic, copy, nullable) NSString *legendPosition;
 
+/**
+ *  Gets whether all lines should be rendered smooth or straight by default.
+ *  Applies to Line charts.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineSmoothing;
+
 /** The data this chart is visualizing. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_BasicChartSeries *> *series;
+
+/**
+ *  The stacked type for charts that support vertical stacking.
+ *  Applies to Area, Bar, Column, and Stepped Area charts.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_BasicChartSpec_StackedType_BasicChartStackedTypeUnspecified
+ *        Default value, do not use. (Value:
+ *        "BASIC_CHART_STACKED_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_BasicChartSpec_StackedType_NotStacked Series are not
+ *        stacked. (Value: "NOT_STACKED")
+ *    @arg @c kGTLRSheets_BasicChartSpec_StackedType_PercentStacked Vertical
+ *        stacks are stretched to reach the top of the chart, with
+ *        values laid out as percentages of each other. (Value:
+ *        "PERCENT_STACKED")
+ *    @arg @c kGTLRSheets_BasicChartSpec_StackedType_Stacked Series values are
+ *        stacked, each value is rendered vertically beginning
+ *        from the top of the value below it. (Value: "STACKED")
+ */
+@property(nonatomic, copy, nullable) NSString *stackedType;
+
+/**
+ *  True to make the chart 3D.
+ *  Applies to Bar and Column charts.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threeDimensional;
 
 @end
 
@@ -2857,6 +3090,179 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 
 /**
+ *  A <a href="/chart/interactive/docs/gallery/bubblechart">bubble chart</a>.
+ */
+@interface GTLRSheets_BubbleChartSpec : GTLRObject
+
+/** The bubble border color. */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *bubbleBorderColor;
+
+/** The data containing the bubble labels. These do not need to be unique. */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *bubbleLabels;
+
+/**
+ *  The max radius size of the bubbles, in pixels.
+ *  If specified, the field must be a positive value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bubbleMaxRadiusSize;
+
+/**
+ *  The minimum radius size of the bubbles, in pixels.
+ *  If specific, the field must be a positive value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bubbleMinRadiusSize;
+
+/**
+ *  The opacity of the bubbles between 0 and 1.0.
+ *  0 is fully transparent and 1 is fully opaque.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bubbleOpacity;
+
+/**
+ *  The data contianing the bubble sizes. Bubble sizes are used to draw
+ *  the bubbles at different sizes relative to each other.
+ *  If specified, group_ids must also be specified. This field is
+ *  optional.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *bubbleSizes;
+
+/**
+ *  The format of the text inside the bubbles.
+ *  Underline and Strikethrough are not supported.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_TextFormat *bubbleTextStyle;
+
+/**
+ *  The data containing the bubble x-values. These values locate the bubbles
+ *  in the chart horizontally.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *domain;
+
+/**
+ *  The data containing the bubble group IDs. All bubbles with the same group
+ *  ID will be drawn in the same color. If bubble_sizes is specified then
+ *  this field must also be specified but may contain blank values.
+ *  This field is optional.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *groupIds;
+
+/**
+ *  Where the legend of the chart should be drawn.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_BubbleChartSpec_LegendPosition_BottomLegend The legend
+ *        is rendered on the bottom of the chart. (Value: "BOTTOM_LEGEND")
+ *    @arg @c kGTLRSheets_BubbleChartSpec_LegendPosition_BubbleChartLegendPositionUnspecified
+ *        Default value, do not use. (Value:
+ *        "BUBBLE_CHART_LEGEND_POSITION_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_BubbleChartSpec_LegendPosition_InsideLegend The legend
+ *        is rendered inside the chart area. (Value: "INSIDE_LEGEND")
+ *    @arg @c kGTLRSheets_BubbleChartSpec_LegendPosition_LeftLegend The legend
+ *        is rendered on the left of the chart. (Value: "LEFT_LEGEND")
+ *    @arg @c kGTLRSheets_BubbleChartSpec_LegendPosition_NoLegend No legend is
+ *        rendered. (Value: "NO_LEGEND")
+ *    @arg @c kGTLRSheets_BubbleChartSpec_LegendPosition_RightLegend The legend
+ *        is rendered on the right of the chart. (Value: "RIGHT_LEGEND")
+ *    @arg @c kGTLRSheets_BubbleChartSpec_LegendPosition_TopLegend The legend is
+ *        rendered on the top of the chart. (Value: "TOP_LEGEND")
+ */
+@property(nonatomic, copy, nullable) NSString *legendPosition;
+
+/**
+ *  The data contianing the bubble y-values. These values locate the bubbles
+ *  in the chart vertically.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *series;
+
+@end
+
+
+/**
+ *  A <a href="/chart/interactive/docs/gallery/candlestickchart">candlestick
+ *  chart</a>.
+ */
+@interface GTLRSheets_CandlestickChartSpec : GTLRObject
+
+/**
+ *  The Candlestick chart data.
+ *  Only one CandlestickData is supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_CandlestickData *> *data;
+
+/**
+ *  The domain data (horizontal axis) for the candlestick chart. String data
+ *  will be treated as discrete labels, other data will be treated as
+ *  continuous values.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_CandlestickDomain *domain;
+
+@end
+
+
+/**
+ *  The Candlestick chart data, each containing the low, open, close, and high
+ *  values for a series.
+ */
+@interface GTLRSheets_CandlestickData : GTLRObject
+
+/**
+ *  The range data (vertical axis) for the close/final value for each candle.
+ *  This is the top of the candle body. If greater than the open value the
+ *  candle will be filled. Otherwise the candle will be hollow.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_CandlestickSeries *closeSeries;
+
+/**
+ *  The range data (vertical axis) for the high/maximum value for each
+ *  candle. This is the top of the candle's center line.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_CandlestickSeries *highSeries;
+
+/**
+ *  The range data (vertical axis) for the low/minimum value for each candle.
+ *  This is the bottom of the candle's center line.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_CandlestickSeries *lowSeries;
+
+/**
+ *  The range data (vertical axis) for the open/initial value for each
+ *  candle. This is the bottom of the candle body. If less than the close
+ *  value the candle will be filled. Otherwise the candle will be hollow.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_CandlestickSeries *openSeries;
+
+@end
+
+
+/**
+ *  The domain of a CandlestickChart.
+ */
+@interface GTLRSheets_CandlestickDomain : GTLRObject
+
+/** The data of the CandlestickDomain. */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *data;
+
+@end
+
+
+/**
+ *  The series of a CandlestickData.
+ */
+@interface GTLRSheets_CandlestickSeries : GTLRObject
+
+/** The data of the CandlestickSeries. */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *data;
+
+@end
+
+
+/**
  *  Data about a specific cell.
  */
 @interface GTLRSheets_CellData : GTLRObject
@@ -3114,11 +3520,30 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_ChartSpec : GTLRObject
 
 /**
+ *  The background color of the entire chart.
+ *  Not applicable to Org charts.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor;
+
+/**
  *  A basic chart specification, can be one of many kinds of charts.
  *  See BasicChartType for the list of all
  *  charts this supports.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_BasicChartSpec *basicChart;
+
+/** A bubble chart specification. */
+@property(nonatomic, strong, nullable) GTLRSheets_BubbleChartSpec *bubbleChart;
+
+/** A candlestick chart specification. */
+@property(nonatomic, strong, nullable) GTLRSheets_CandlestickChartSpec *candlestickChart;
+
+/**
+ *  The name of the font to use by default for all chart text (e.g. title,
+ *  axis labels, legend). If a font is specified for a specific part of the
+ *  chart it will override this font name.
+ */
+@property(nonatomic, copy, nullable) NSString *fontName;
 
 /**
  *  Determines how the charts will use hidden rows or columns.
@@ -3139,11 +3564,32 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  */
 @property(nonatomic, copy, nullable) NSString *hiddenDimensionStrategy;
 
+/** A histogram chart specification. */
+@property(nonatomic, strong, nullable) GTLRSheets_HistogramChartSpec *histogramChart;
+
+/**
+ *  True to make a chart fill the entire space in which it's rendered with
+ *  minimum padding. False to use the default padding.
+ *  (Not applicable to Geo and Org charts.)
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maximized;
+
+/** An org chart specification. */
+@property(nonatomic, strong, nullable) GTLRSheets_OrgChartSpec *orgChart;
+
 /** A pie chart specification. */
 @property(nonatomic, strong, nullable) GTLRSheets_PieChartSpec *pieChart;
 
 /** The title of the chart. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  The title text format.
+ *  Strikethrough and underline are not supported.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_TextFormat *titleTextFormat;
 
 @end
 
@@ -4374,6 +4820,97 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 
 /**
+ *  A <a href="/chart/interactive/docs/gallery/histogram">histogram chart</a>.
+ *  A histogram chart groups data items into bins, displaying each bin as a
+ *  column of stacked items. Histograms are used to display the distribution
+ *  of a dataset. Each column of items represents a range into which those
+ *  items fall. The number of bins can be chosen automatically or specified
+ *  explicitly.
+ */
+@interface GTLRSheets_HistogramChartSpec : GTLRObject
+
+/**
+ *  By default the bucket size (the range of values stacked in a single
+ *  column) is chosen automatically, but it may be overridden here.
+ *  E.g., A bucket size of 1.5 results in buckets from 0 - 1.5, 1.5 - 3.0, etc.
+ *  Cannot be negative.
+ *  This field is optional.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bucketSize;
+
+/**
+ *  The position of the chart legend.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_HistogramChartSpec_LegendPosition_BottomLegend The
+ *        legend is rendered on the bottom of the chart. (Value:
+ *        "BOTTOM_LEGEND")
+ *    @arg @c kGTLRSheets_HistogramChartSpec_LegendPosition_HistogramChartLegendPositionUnspecified
+ *        Default value, do not use. (Value:
+ *        "HISTOGRAM_CHART_LEGEND_POSITION_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_HistogramChartSpec_LegendPosition_InsideLegend The
+ *        legend is rendered inside the chart area. (Value: "INSIDE_LEGEND")
+ *    @arg @c kGTLRSheets_HistogramChartSpec_LegendPosition_LeftLegend The
+ *        legend is rendered on the left of the chart. (Value: "LEFT_LEGEND")
+ *    @arg @c kGTLRSheets_HistogramChartSpec_LegendPosition_NoLegend No legend
+ *        is rendered. (Value: "NO_LEGEND")
+ *    @arg @c kGTLRSheets_HistogramChartSpec_LegendPosition_RightLegend The
+ *        legend is rendered on the right of the chart. (Value: "RIGHT_LEGEND")
+ *    @arg @c kGTLRSheets_HistogramChartSpec_LegendPosition_TopLegend The legend
+ *        is rendered on the top of the chart. (Value: "TOP_LEGEND")
+ */
+@property(nonatomic, copy, nullable) NSString *legendPosition;
+
+/**
+ *  The outlier percentile is used to ensure that outliers do not adversely
+ *  affect the calculation of bucket sizes. For example, setting an outlier
+ *  percentile of 0.05 indicates that the top and bottom 5% of values when
+ *  calculating buckets. The values are still included in the chart, they will
+ *  be added to the first or last buckets instead of their own buckets.
+ *  Must be between 0.0 and 0.5.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outlierPercentile;
+
+/**
+ *  The series for a histogram may be either a single series of values to be
+ *  bucketed or multiple series, each of the same length, containing the name
+ *  of the series followed by the values to be bucketed for that series.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_HistogramSeries *> *series;
+
+/**
+ *  Whether horizontal divider lines should be displayed between items in each
+ *  column.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *showItemDividers;
+
+@end
+
+
+/**
+ *  A histogram series containing the series color and data.
+ */
+@interface GTLRSheets_HistogramSeries : GTLRObject
+
+/**
+ *  The color of the column representing this series in each bucket.
+ *  This field is optional.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *barColor;
+
+/** The data for this histogram series. */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *data;
+
+@end
+
+
+/**
  *  Inserts rows or columns in a sheet at a particular index.
  */
 @interface GTLRSheets_InsertDimensionRequest : GTLRObject
@@ -4617,6 +5154,65 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *        PM` (Value: "TIME")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  An <a href="/chart/interactive/docs/gallery/orgchart">org chart</a>.
+ *  Org charts require a unique set of labels in labels and may
+ *  optionally include parent_labels and tooltips.
+ *  parent_labels contain, for each node, the label identifying the parent
+ *  node. tooltips contain, for each node, an optional tooltip.
+ *  For example, to describe an OrgChart with Alice as the CEO, Bob as the
+ *  President (reporting to Alice) and Cathy as VP of Sales (also reporting to
+ *  Alice), have labels contain "Alice", "Bob", "Cathy",
+ *  parent_labels contain "", "Alice", "Alice" and tooltips contain
+ *  "CEO", "President", "VP Sales".
+ */
+@interface GTLRSheets_OrgChartSpec : GTLRObject
+
+/**
+ *  The data containing the labels for all the nodes in the chart. Labels
+ *  must be unique.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *labels;
+
+/** The color of the org chart nodes. */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *nodeColor;
+
+/**
+ *  The size of the org chart nodes.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_OrgChartSpec_NodeSize_Large The large org chart node
+ *        size. (Value: "LARGE")
+ *    @arg @c kGTLRSheets_OrgChartSpec_NodeSize_Medium The medium org chart node
+ *        size. (Value: "MEDIUM")
+ *    @arg @c kGTLRSheets_OrgChartSpec_NodeSize_OrgChartLabelSizeUnspecified
+ *        Default value, do not use. (Value: "ORG_CHART_LABEL_SIZE_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_OrgChartSpec_NodeSize_Small The small org chart node
+ *        size. (Value: "SMALL")
+ */
+@property(nonatomic, copy, nullable) NSString *nodeSize;
+
+/**
+ *  The data containing the label of the parent for the corresponding node.
+ *  A blank value indicates that the node has no parent and is a top-level
+ *  node.
+ *  This field is optional.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *parentLabels;
+
+/** The color of the selected org chart nodes. */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *selectedNodeColor;
+
+/**
+ *  The data containing the tooltip for the corresponding node. A blank value
+ *  results in no tooltip being displayed for the node.
+ *  This field is optional.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *tooltips;
 
 @end
 

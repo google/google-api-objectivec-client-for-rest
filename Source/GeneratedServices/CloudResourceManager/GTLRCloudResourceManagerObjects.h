@@ -933,8 +933,8 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 @interface GTLRCloudResourceManager_ListPolicy : GTLRObject
 
 /**
- *  List of values allowed at this resource. an only be set if no values are
- *  set for `denied_values` and `all_values` is set to
+ *  List of values allowed at this resource. Can only be set if no values
+ *  are set for `denied_values` and `all_values` is set to
  *  `ALL_VALUES_UNSPECIFIED`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedValues;
@@ -1336,7 +1336,6 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Project_LifecycleState_Li
 
 /**
  *  Associates a list of `members` to a `role`.
- *  Multiple `bindings` must not be specified for the same `role`.
  *  `bindings` with no members will result in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Binding *> *bindings;

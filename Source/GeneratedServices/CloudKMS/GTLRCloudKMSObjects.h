@@ -4,7 +4,7 @@
 // API:
 //   Google Cloud Key Management Service (KMS) API (cloudkms/v1)
 // Description:
-//   Manages encryption for your cloud services the same way you do on-premise.
+//   Manages encryption for your cloud services the same way you do on-premises.
 //   You can generate, use, rotate, and destroy AES256 encryption keys.
 // Documentation:
 //   https://cloud.google.com/kms/
@@ -28,6 +28,7 @@
 @class GTLRCloudKMS_CryptoKey;
 @class GTLRCloudKMS_CryptoKeyVersion;
 @class GTLRCloudKMS_DataAccessOptions;
+@class GTLRCloudKMS_Expr;
 @class GTLRCloudKMS_KeyRing;
 @class GTLRCloudKMS_Location;
 @class GTLRCloudKMS_Location_Labels;
@@ -102,7 +103,6 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CloudAuditOptions_LogName_Unspecified
  *  member of the specified group. Approvers can only grant additional
  *  access, and are thus only used in a strictly positive context
  *  (e.g. ALLOW/IN or DENY/NOT_IN).
- *  See: go/rpc-security-policy-dynamicauth.
  *
  *  Value: "APPROVER"
  */
@@ -436,6 +436,15 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
 @interface GTLRCloudKMS_Binding : GTLRObject
 
 /**
+ *  The condition that is associated with this binding.
+ *  NOTE: an unsatisfied condition will not allow user access via current
+ *  binding. Different bindings, including their conditions, are examined
+ *  independently.
+ *  This field is GOOGLE_INTERNAL.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_Expr *condition;
+
+/**
  *  Specifies the identities requesting access for a Cloud Platform resource.
  *  `members` can have the following values:
  *  * `allUsers`: A special identifier that represents anyone who is
@@ -500,8 +509,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
  *        associated with the request matches the specified principal, or is a
  *        member of the specified group. Approvers can only grant additional
  *        access, and are thus only used in a strictly positive context
- *        (e.g. ALLOW/IN or DENY/NOT_IN).
- *        See: go/rpc-security-policy-dynamicauth. (Value: "APPROVER")
+ *        (e.g. ALLOW/IN or DENY/NOT_IN). (Value: "APPROVER")
  *    @arg @c kGTLRCloudKMS_Condition_Iam_Attribution The principal (even if an
  *        authority selector is present), which
  *        must only be used for attribution, not authorization. (Value:
@@ -807,6 +815,46 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
 
 
 /**
+ *  Represents an expression text. Example:
+ *  title: "User account presence"
+ *  description: "Determines whether the request has a user account"
+ *  expression: "size(request.user) > 0"
+ */
+@interface GTLRCloudKMS_Expr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in
+ *  [Common Expression Language](http://go/api-expr) syntax.
+ *  The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing
+ *  its purpose. This can be used e.g. in UIs which allow to enter the
+ *  expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
  *  A KeyRing is a toplevel logical grouping of CryptoKeys.
  */
 @interface GTLRCloudKMS_KeyRing : GTLRObject
@@ -1060,7 +1108,6 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
 
 /**
  *  Associates a list of `members` to a `role`.
- *  Multiple `bindings` must not be specified for the same `role`.
  *  `bindings` with no members will result in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_Binding *> *bindings;
