@@ -597,8 +597,19 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
 }
 
 - (BOOL)collectAPIFromURL:(NSURL *)url
+            reportingName:(NSString *)reportingName {
+  return [self collectAPIFromURL:url
+                   reportingName:reportingName
+                  reportProgress:YES
+             expectedServiceName:nil
+                  serviceVersion:nil];
+}
+
+- (BOOL)collectAPIFromURL:(NSURL *)url
             reportingName:(NSString *)reportingName
-           reportProgress:(BOOL)reportProgress {
+           reportProgress:(BOOL)reportProgress
+      expectedServiceName:(NSString *)serviceName
+           serviceVersion:(NSString *)serviceVersion {
   if (reportProgress) {
     [self maybePrint:@" + Fetching %@", reportingName];
   }
@@ -679,6 +690,13 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     if (![api isKindOfClass:[GTLRDiscovery_RestDescription class]]) {
       [self reportError:@"The api description doesn't appear to be a discovery REST description"];
       self.state = SGMain_Done;
+      return;
+    }
+
+    if (serviceName &&
+        (![serviceName isEqual:api.name] || ![serviceVersion isEqual:api.version])) {
+      [self reportWarning:@"Fetching %@ returned the discovery document for %@(%@), dropping it.",
+       reportingName, api.name, api.version];
       return;
     }
 
@@ -1073,7 +1091,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         self.state = SGMain_Done;
         return;
       }
-      if ([self collectAPIFromURL:asURL reportingName:urlString reportProgress:YES]) {
+      if ([self collectAPIFromURL:asURL reportingName:urlString]) {
         if (self.state != SGMain_Wait) {
           self.postWaitState = self.state;
           self.state = SGMain_Wait;
@@ -1089,7 +1107,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     for (NSString *fullPath in filesToLoad) {
       NSString *shortPath = [fullPath stringByAbbreviatingWithTildeInPath];
       NSURL *asURL = [NSURL fileURLWithPath:fullPath];
-      if ([self collectAPIFromURL:asURL reportingName:shortPath reportProgress:YES]) {
+      if ([self collectAPIFromURL:asURL reportingName:shortPath]) {
         if (self.state != SGMain_Wait) {
           self.postWaitState = self.state;
           self.state = SGMain_Wait;
@@ -1227,7 +1245,11 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         NSString *reportingName =
           [NSString stringWithFormat:@"%@:%@ (%@)",
            serviceName, serviceVersion, discoveryRestURLString];
-        if ([self collectAPIFromURL:discoveryRestURL reportingName:reportingName reportProgress:NO]) {
+        if ([self collectAPIFromURL:discoveryRestURL
+                      reportingName:reportingName
+                     reportProgress:NO
+                expectedServiceName:serviceName
+                     serviceVersion:serviceVersion]) {
           // We'll go into wait state beow.
         } else {
           // -collectAPIFromURL:reportingName: can't really fail to start the fetch.
@@ -1238,7 +1260,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     } else {
       GTLRDiscoveryQuery_ApisGetRest *query =
         [GTLRDiscoveryQuery_ApisGetRest queryWithApi:serviceName
-                                            version:serviceVersion];
+                                             version:serviceVersion];
       query.completionBlock = ^(GTLRServiceTicket *ticket, id object, NSError *error) {
         if (error) {
           GTLRErrorObject *errObj = [GTLRErrorObject underlyingObjectForError:error];
@@ -1254,10 +1276,15 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
           }
         } else {
           GTLRDiscovery_RestDescription *api = (GTLRDiscovery_RestDescription *)object;
-          [self.collectedApis addObject:api];
-          // If logging the API files, do it now so a fetch failure doesn't
-          // prevent the other ones from being logged.
-          [self maybeLogAPI:api];
+          if ([serviceName isEqual:api.name] && [serviceVersion isEqual:api.version]) {
+            [self.collectedApis addObject:api];
+            // If logging the API files, do it now so a fetch failure doesn't
+            // prevent the other ones from being logged.
+            [self maybeLogAPI:api];
+          } else {
+            [self reportWarning:@"Fetching %@(%@) returned the discovery document for %@(%@), dropping it.",
+             serviceName, serviceVersion, api.name, api.version];
+          }
         }
       };
       [batchQuery addQuery:query];
