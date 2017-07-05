@@ -497,6 +497,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     [method.response.sg_resolvedSchema sg_setProperty:@YES
                                                forKey:kReturnsSchemaParameterKey];
 
+    [method.request sg_setProperty:[methodName stringByAppendingString:@"-Request"]
+                            forKey:kNameKey];
     [method.request sg_setProperty:generatorAsValue forKey:kWrappedGeneratorKey];
 
     // Spin over the parameters
@@ -4604,7 +4606,7 @@ static SGTypeInfo *LookupTypeInfo(NSString *typeString,
       result = schema.sg_resolvedSchema;
     } else {
       [NSException raise:kFatalGeneration
-                  format:@"Resolving schema '%@', referenced an undefined schema '%@'",
+                  format:@"Resolving request schema '%@', referenced an undefined schema '%@'",
        [self sg_propertyForKey:kNameKey], self.xRef];
     }
 
@@ -4627,7 +4629,7 @@ static SGTypeInfo *LookupTypeInfo(NSString *typeString,
       result = schema.sg_resolvedSchema;
     } else {
       [NSException raise:kFatalGeneration
-                  format:@"Resolving schema '%@', referenced an undefined schema '%@'",
+                  format:@"Resolving response schema '%@', referenced an undefined schema '%@'",
        [self sg_propertyForKey:kNameKey], self.xRef];
     }
 
