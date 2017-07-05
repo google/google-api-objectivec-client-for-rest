@@ -49,7 +49,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
 /**
  *  Provides a list of the authenticated user's contacts merged with any
- *  linked profiles.
+ *  connected profiles.
+ *  <br>
  *  The request throws a 400 error if 'personFields' is not specified.
  *
  *  Method: people.people.connections.list
@@ -72,7 +73,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. A field mask to restrict which fields on each person are
+ *  **Required.** A field mask to restrict which fields on each person are
  *  returned. Valid values are:
  *  * addresses
  *  * ageRanges
@@ -107,7 +108,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *personFields;
 
 /**
- *  Required. Comma-separated list of person fields to be included in the
+ *  **Required.** Comma-separated list of person fields to be included in the
  *  response. Each path should start with `person.`: for example,
  *  `person.names` or `person.photos`.
  *
@@ -148,7 +149,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Fetches a @c GTLRPeopleService_ListConnectionsResponse.
  *
  *  Provides a list of the authenticated user's contacts merged with any
- *  linked profiles.
+ *  connected profiles.
+ *  <br>
  *  The request throws a 400 error if 'personFields' is not specified.
  *
  *  @param resourceName The resource name to return connections for. Only
@@ -167,6 +169,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 /**
  *  Provides information about a person by specifying a resource name. Use
  *  `people/me` to indicate the authenticated user.
+ *  <br>
  *  The request throws a 400 error if 'personFields' is not specified.
  *
  *  Method: people.people.get
@@ -187,106 +190,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 //   +[GTLQueryPeopleService queryForPeopleGetWithresourceName:]
 
 /**
- *  Required. A field mask to restrict which fields on the person are returned.
- *  Valid values are:
- *  * addresses
- *  * ageRanges
- *  * biographies
- *  * birthdays
- *  * braggingRights
- *  * coverPhotos
- *  * emailAddresses
- *  * events
- *  * genders
- *  * imClients
- *  * interests
- *  * locales
- *  * memberships
- *  * metadata
- *  * names
- *  * nicknames
- *  * occupations
- *  * organizations
- *  * phoneNumbers
- *  * photos
- *  * relations
- *  * relationshipInterests
- *  * relationshipStatuses
- *  * residences
- *  * skills
- *  * taglines
- *  * urls
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *personFields;
-
-/**
- *  Required. Comma-separated list of person fields to be included in the
- *  response. Each path should start with `person.`: for example,
- *  `person.names` or `person.photos`.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
-
-/**
- *  The resource name of the person to provide information about.
- *  - To get information about the authenticated user, specify `people/me`.
- *  - To get information about a google account, specify `people/<account_id>`.
- *  - To get information about a contact, specify the resource name that
- *  identifies the contact as returned by
- *  [`people.connections.list`](/people/api/rest/v1/people.connections/list).
- */
-@property(nonatomic, copy, nullable) NSString *resourceName;
-
-/**
- *  Fetches a @c GTLRPeopleService_Person.
- *
- *  Provides information about a person by specifying a resource name. Use
- *  `people/me` to indicate the authenticated user.
- *  The request throws a 400 error if 'personFields' is not specified.
- *
- *  @param resourceName The resource name of the person to provide information
- *    about.
- *    - To get information about the authenticated user, specify `people/me`.
- *    - To get information about a google account, specify
- *    `people/<account_id>`.
- *    - To get information about a contact, specify the resource name that
- *    identifies the contact as returned by
- *    [`people.connections.list`](/people/api/rest/v1/people.connections/list).
- *
- *  @returns GTLRPeopleServiceQuery_PeopleGet
- */
-+ (instancetype)queryWithResourceName:(NSString *)resourceName;
-
-@end
-
-/**
- *  Provides information about a list of specific people by specifying a list
- *  of requested resource names. Use `people/me` to indicate the authenticated
- *  user.
- *  The request throws a 400 error if 'personFields' is not specified.
- *
- *  Method: people.people.getBatchGet
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopePeopleServiceContacts
- *    @c kGTLRAuthScopePeopleServiceContactsReadonly
- *    @c kGTLRAuthScopePeopleServicePlusLogin
- *    @c kGTLRAuthScopePeopleServiceUserAddressesRead
- *    @c kGTLRAuthScopePeopleServiceUserBirthdayRead
- *    @c kGTLRAuthScopePeopleServiceUserEmailsRead
- *    @c kGTLRAuthScopePeopleServiceUserinfoEmail
- *    @c kGTLRAuthScopePeopleServiceUserinfoProfile
- *    @c kGTLRAuthScopePeopleServiceUserPhonenumbersRead
- */
-@interface GTLRPeopleServiceQuery_PeopleGetBatchGet : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleGetBatchGet]
-
-/**
- *  Required. A field mask to restrict which fields on each person are
+ *  **Required.** A field mask to restrict which fields on the person are
  *  returned. Valid values are:
  *  * addresses
  *  * ageRanges
@@ -321,7 +225,108 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *personFields;
 
 /**
- *  Required. Comma-separated list of person fields to be included in the
+ *  **Required.** Comma-separated list of person fields to be included in the
+ *  response. Each path should start with `person.`: for example,
+ *  `person.names` or `person.photos`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
+
+/**
+ *  The resource name of the person to provide information about.
+ *  - To get information about the authenticated user, specify `people/me`.
+ *  - To get information about a google account, specify `people/<account_id>`.
+ *  - To get information about a contact, specify the resource name that
+ *  identifies the contact as returned by
+ *  [`people.connections.list`](/people/api/rest/v1/people.connections/list).
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Fetches a @c GTLRPeopleService_Person.
+ *
+ *  Provides information about a person by specifying a resource name. Use
+ *  `people/me` to indicate the authenticated user.
+ *  <br>
+ *  The request throws a 400 error if 'personFields' is not specified.
+ *
+ *  @param resourceName The resource name of the person to provide information
+ *    about.
+ *    - To get information about the authenticated user, specify `people/me`.
+ *    - To get information about a google account, specify
+ *    `people/<account_id>`.
+ *    - To get information about a contact, specify the resource name that
+ *    identifies the contact as returned by
+ *    [`people.connections.list`](/people/api/rest/v1/people.connections/list).
+ *
+ *  @returns GTLRPeopleServiceQuery_PeopleGet
+ */
++ (instancetype)queryWithResourceName:(NSString *)resourceName;
+
+@end
+
+/**
+ *  Provides information about a list of specific people by specifying a list
+ *  of requested resource names. Use `people/me` to indicate the authenticated
+ *  user.
+ *  <br>
+ *  The request throws a 400 error if 'personFields' is not specified.
+ *
+ *  Method: people.people.getBatchGet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePeopleServiceContacts
+ *    @c kGTLRAuthScopePeopleServiceContactsReadonly
+ *    @c kGTLRAuthScopePeopleServicePlusLogin
+ *    @c kGTLRAuthScopePeopleServiceUserAddressesRead
+ *    @c kGTLRAuthScopePeopleServiceUserBirthdayRead
+ *    @c kGTLRAuthScopePeopleServiceUserEmailsRead
+ *    @c kGTLRAuthScopePeopleServiceUserinfoEmail
+ *    @c kGTLRAuthScopePeopleServiceUserinfoProfile
+ *    @c kGTLRAuthScopePeopleServiceUserPhonenumbersRead
+ */
+@interface GTLRPeopleServiceQuery_PeopleGetBatchGet : GTLRPeopleServiceQuery
+// Previous library name was
+//   +[GTLQueryPeopleService queryForPeopleGetBatchGet]
+
+/**
+ *  **Required.** A field mask to restrict which fields on each person are
+ *  returned. Valid values are:
+ *  * addresses
+ *  * ageRanges
+ *  * biographies
+ *  * birthdays
+ *  * braggingRights
+ *  * coverPhotos
+ *  * emailAddresses
+ *  * events
+ *  * genders
+ *  * imClients
+ *  * interests
+ *  * locales
+ *  * memberships
+ *  * metadata
+ *  * names
+ *  * nicknames
+ *  * occupations
+ *  * organizations
+ *  * phoneNumbers
+ *  * photos
+ *  * relations
+ *  * relationshipInterests
+ *  * relationshipStatuses
+ *  * residences
+ *  * skills
+ *  * taglines
+ *  * urls
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *personFields;
+
+/**
+ *  **Required.** Comma-separated list of person fields to be included in the
  *  response. Each path should start with `person.`: for example,
  *  `person.names` or `person.photos`.
  *
@@ -343,6 +348,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Provides information about a list of specific people by specifying a list
  *  of requested resource names. Use `people/me` to indicate the authenticated
  *  user.
+ *  <br>
  *  The request throws a 400 error if 'personFields' is not specified.
  *
  *  @returns GTLRPeopleServiceQuery_PeopleGetBatchGet

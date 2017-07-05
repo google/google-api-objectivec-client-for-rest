@@ -3281,6 +3281,14 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *selector;
 
+/**
+ *  True, if the method should skip service control. If so, no control plane
+ *  feature (like quota and billing) will be enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipServiceControl;
+
 @end
 
 

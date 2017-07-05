@@ -1777,7 +1777,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_UsageRule
-@dynamic allowUnregisteredCalls, selector;
+@dynamic allowUnregisteredCalls, selector, skipServiceControl;
 @end
 
 

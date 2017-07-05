@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Trace API (cloudtrace/v1)
+//   Stackdriver Trace API (cloudtrace/v2)
 // Description:
 //   Send and retrieve trace data from Stackdriver Trace. Data is generated and
 //   available by default for all App Engine applications. Data from other
@@ -16,10 +16,82 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRCloudTrace_TraceSpan.kind
-NSString * const kGTLRCloudTrace_TraceSpan_Kind_RpcClient      = @"RPC_CLIENT";
-NSString * const kGTLRCloudTrace_TraceSpan_Kind_RpcServer      = @"RPC_SERVER";
-NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified = @"SPAN_KIND_UNSPECIFIED";
+// GTLRCloudTrace_Link.type
+NSString * const kGTLRCloudTrace_Link_Type_Child           = @"CHILD";
+NSString * const kGTLRCloudTrace_Link_Type_Parent          = @"PARENT";
+NSString * const kGTLRCloudTrace_Link_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRCloudTrace_NetworkEvent.type
+NSString * const kGTLRCloudTrace_NetworkEvent_Type_Recv        = @"RECV";
+NSString * const kGTLRCloudTrace_NetworkEvent_Type_Sent        = @"SENT";
+NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_Annotation
+//
+
+@implementation GTLRCloudTrace_Annotation
+@dynamic attributes, descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_Attributes
+//
+
+@implementation GTLRCloudTrace_Attributes
+@dynamic attributeMap, droppedAttributesCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_Attributes_AttributeMap
+//
+
+@implementation GTLRCloudTrace_Attributes_AttributeMap
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudTrace_AttributeValue class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_AttributeValue
+//
+
+@implementation GTLRCloudTrace_AttributeValue
+@dynamic boolValue, intValue, stringValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_BatchWriteSpansRequest
+//
+
+@implementation GTLRCloudTrace_BatchWriteSpansRequest
+@dynamic spans;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"spans" : [GTLRCloudTrace_Span class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -27,6 +99,56 @@ NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified = @"SPAN_KIN
 //
 
 @implementation GTLRCloudTrace_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_Link
+//
+
+@implementation GTLRCloudTrace_Link
+@dynamic attributes, spanId, traceId, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_Links
+//
+
+@implementation GTLRCloudTrace_Links
+@dynamic droppedLinksCount, link;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"link" : [GTLRCloudTrace_Link class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_ListSpansResponse
+//
+
+@implementation GTLRCloudTrace_ListSpansResponse
+@dynamic nextPageToken, spans;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"spans" : [GTLRCloudTrace_Span class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"spans";
+}
+
 @end
 
 
@@ -54,66 +176,150 @@ NSString * const kGTLRCloudTrace_TraceSpan_Kind_SpanKindUnspecified = @"SPAN_KIN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudTrace_Module
+//
+
+@implementation GTLRCloudTrace_Module
+@dynamic buildId, module;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_NetworkEvent
+//
+
+@implementation GTLRCloudTrace_NetworkEvent
+@dynamic messageId, messageSize, time, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_Span
+//
+
+@implementation GTLRCloudTrace_Span
+@dynamic attributes, childSpanCount, displayName, endTime, links, name,
+         parentSpanId, sameProcessAsParentSpan, spanId, stackTrace, startTime,
+         status, timeEvents;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_StackFrame
+//
+
+@implementation GTLRCloudTrace_StackFrame
+@dynamic columnNumber, fileName, functionName, lineNumber, loadModule,
+         originalFunctionName, sourceVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_StackFrames
+//
+
+@implementation GTLRCloudTrace_StackFrames
+@dynamic droppedFramesCount, frame;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"frame" : [GTLRCloudTrace_StackFrame class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_StackTrace
+//
+
+@implementation GTLRCloudTrace_StackTrace
+@dynamic stackFrames, stackTraceHashId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_Status
+//
+
+@implementation GTLRCloudTrace_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRCloudTrace_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_Status_Details_Item
+//
+
+@implementation GTLRCloudTrace_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_TimeEvent
+//
+
+@implementation GTLRCloudTrace_TimeEvent
+@dynamic annotation, networkEvent, time;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTrace_TimeEvents
+//
+
+@implementation GTLRCloudTrace_TimeEvents
+@dynamic droppedAnnotationsCount, droppedNetworkEventsCount, timeEvent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeEvent" : [GTLRCloudTrace_TimeEvent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudTrace_Trace
 //
 
 @implementation GTLRCloudTrace_Trace
-@dynamic projectId, spans, traceId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"spans" : [GTLRCloudTrace_TraceSpan class]
-  };
-  return map;
-}
-
+@dynamic name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTrace_Traces
+//   GTLRCloudTrace_TruncatableString
 //
 
-@implementation GTLRCloudTrace_Traces
-@dynamic traces;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"traces" : [GTLRCloudTrace_Trace class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTrace_TraceSpan
-//
-
-@implementation GTLRCloudTrace_TraceSpan
-@dynamic endTime, kind, labels, name, parentSpanId, spanId, startTime;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTrace_TraceSpan_Labels
-//
-
-@implementation GTLRCloudTrace_TraceSpan_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
+@implementation GTLRCloudTrace_TruncatableString
+@dynamic truncatedByteCount, value;
 @end

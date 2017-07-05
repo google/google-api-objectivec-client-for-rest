@@ -37,6 +37,7 @@
 @class GTLRCompute_AutoscalersScopedList;
 @class GTLRCompute_AutoscalersScopedList_Warning;
 @class GTLRCompute_AutoscalersScopedList_Warning_Data_Item;
+@class GTLRCompute_AutoscalerStatusDetails;
 @class GTLRCompute_AutoscalingPolicy;
 @class GTLRCompute_AutoscalingPolicyCpuUtilization;
 @class GTLRCompute_AutoscalingPolicyCustomMetricUtilization;
@@ -51,6 +52,11 @@
 @class GTLRCompute_BackendServicesScopedList_Warning;
 @class GTLRCompute_BackendServicesScopedList_Warning_Data_Item;
 @class GTLRCompute_CacheKeyPolicy;
+@class GTLRCompute_Commitment;
+@class GTLRCompute_CommitmentAggregatedList_Items;
+@class GTLRCompute_CommitmentsScopedList;
+@class GTLRCompute_CommitmentsScopedList_Warning;
+@class GTLRCompute_CommitmentsScopedList_Warning_Data_Item;
 @class GTLRCompute_ConnectionDraining;
 @class GTLRCompute_CustomerEncryptionKey;
 @class GTLRCompute_CustomerEncryptionKeyProtectedDisk;
@@ -139,6 +145,7 @@
 @class GTLRCompute_Project;
 @class GTLRCompute_Quota;
 @class GTLRCompute_Region;
+@class GTLRCompute_ResourceCommitment;
 @class GTLRCompute_Route;
 @class GTLRCompute_Route_Warnings_Item;
 @class GTLRCompute_Route_Warnings_Item_Data_Item;
@@ -328,6 +335,18 @@ GTLR_EXTERN NSString * const kGTLRCompute_AttachedDisk_Type_Persistent;
 GTLR_EXTERN NSString * const kGTLRCompute_AttachedDisk_Type_Scratch;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_Autoscaler.status
+
+/** Value: "ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRCompute_Autoscaler_Status_Active;
+/** Value: "DELETING" */
+GTLR_EXTERN NSString * const kGTLRCompute_Autoscaler_Status_Deleting;
+/** Value: "ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_Autoscaler_Status_Error;
+/** Value: "PENDING" */
+GTLR_EXTERN NSString * const kGTLRCompute_Autoscaler_Status_Pending;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_AutoscalersScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -364,6 +383,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_Res
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_AutoscalerStatusDetails.type
+
+/** Value: "ALL_INSTANCES_UNHEALTHY" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_AllInstancesUnhealthy;
+/** Value: "BACKEND_SERVICE_DOES_NOT_EXIST" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_BackendServiceDoesNotExist;
+/** Value: "CAPPED_AT_MAX_NUM_REPLICAS" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_CappedAtMaxNumReplicas;
+/** Value: "CUSTOM_METRIC_DATA_POINTS_TOO_SPARSE" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_CustomMetricDataPointsTooSparse;
+/** Value: "CUSTOM_METRIC_INVALID" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_CustomMetricInvalid;
+/** Value: "MIN_EQUALS_MAX" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MinEqualsMax;
+/** Value: "MISSING_CUSTOM_METRIC_DATA_POINTS" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MissingCustomMetricDataPoints;
+/** Value: "MISSING_LOAD_BALANCING_DATA_POINTS" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MissingLoadBalancingDataPoints;
+/** Value: "MORE_THAN_ONE_BACKEND_SERVICE" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MoreThanOneBackendService;
+/** Value: "NOT_ENOUGH_QUOTA_AVAILABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_NotEnoughQuotaAvailable;
+/** Value: "REGION_RESOURCE_STOCKOUT" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_RegionResourceStockout;
+/** Value: "SCALING_TARGET_DOES_NOT_EXIST" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_ScalingTargetDoesNotExist;
+/** Value: "UNKNOWN" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_Unknown;
+/** Value: "UNSUPPORTED_MAX_RATE_LOAD_BALANCING_CONFIGURATION" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_UnsupportedMaxRateLoadBalancingConfiguration;
+/** Value: "ZONE_RESOURCE_STOCKOUT" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_ZoneResourceStockout;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AutoscalingPolicyCustomMetricUtilization.utilizationTargetType
@@ -460,6 +513,66 @@ GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Commitment.plan
+
+/** Value: "INVALID" */
+GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Plan_Invalid;
+/** Value: "THIRTY_SIX_MONTH" */
+GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Plan_ThirtySixMonth;
+/** Value: "TWELVE_MONTH" */
+GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Plan_TwelveMonth;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Commitment.status
+
+/** Value: "ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Status_Active;
+/** Value: "CREATING" */
+GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Status_Creating;
+/** Value: "EXPIRED" */
+GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Status_Expired;
+/** Value: "NOT_YET_ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Status_NotYetActive;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_CommitmentsScopedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_DeprecationStatus.state
@@ -1138,6 +1251,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_Region_Status_Up;
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstancesRequest_InstanceState_All;
 /** Value: "RUNNING" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstancesRequest_InstanceState_Running;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_ResourceCommitment.type
+
+/** Value: "MEMORY" */
+GTLR_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_Memory;
+/** Value: "UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_Unspecified;
+/** Value: "VCPU" */
+GTLR_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_Vcpu;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Route_Warnings_Item.code
@@ -2414,6 +2537,24 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/**
+ *  [Output Only] The status of the autoscaler configuration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Autoscaler_Status_Active Value "ACTIVE"
+ *    @arg @c kGTLRCompute_Autoscaler_Status_Deleting Value "DELETING"
+ *    @arg @c kGTLRCompute_Autoscaler_Status_Error Value "ERROR"
+ *    @arg @c kGTLRCompute_Autoscaler_Status_Pending Value "PENDING"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  [Output Only] Human-readable details about the current state of the
+ *  autoscaler. Read the documentation for Commonly returned status messages for
+ *  examples of status messages you might encounter.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_AutoscalerStatusDetails *> *statusDetails;
+
 /** URL of the managed instance group that this autoscaler will scale. */
 @property(nonatomic, copy, nullable) NSString *target;
 
@@ -2619,6 +2760,53 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_AutoscalerStatusDetails
+ */
+@interface GTLRCompute_AutoscalerStatusDetails : GTLRObject
+
+/** The status message. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  The type of error returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_AllInstancesUnhealthy
+ *        Value "ALL_INSTANCES_UNHEALTHY"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_BackendServiceDoesNotExist
+ *        Value "BACKEND_SERVICE_DOES_NOT_EXIST"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_CappedAtMaxNumReplicas
+ *        Value "CAPPED_AT_MAX_NUM_REPLICAS"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_CustomMetricDataPointsTooSparse
+ *        Value "CUSTOM_METRIC_DATA_POINTS_TOO_SPARSE"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_CustomMetricInvalid
+ *        Value "CUSTOM_METRIC_INVALID"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_MinEqualsMax Value
+ *        "MIN_EQUALS_MAX"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_MissingCustomMetricDataPoints
+ *        Value "MISSING_CUSTOM_METRIC_DATA_POINTS"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_MissingLoadBalancingDataPoints
+ *        Value "MISSING_LOAD_BALANCING_DATA_POINTS"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_MoreThanOneBackendService
+ *        Value "MORE_THAN_ONE_BACKEND_SERVICE"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_NotEnoughQuotaAvailable
+ *        Value "NOT_ENOUGH_QUOTA_AVAILABLE"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_RegionResourceStockout
+ *        Value "REGION_RESOURCE_STOCKOUT"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_ScalingTargetDoesNotExist
+ *        Value "SCALING_TARGET_DOES_NOT_EXIST"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_Unknown Value "UNKNOWN"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_UnsupportedMaxRateLoadBalancingConfiguration
+ *        Value "UNSUPPORTED_MAX_RATE_LOAD_BALANCING_CONFIGURATION"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_ZoneResourceStockout
+ *        Value "ZONE_RESOURCE_STOCKOUT"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -3014,7 +3202,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /**
  *  The list of URLs to the HttpHealthCheck or HttpsHealthCheck resource for
  *  health checking this BackendService. Currently at most one health check can
- *  be specified, and a health check is required.
+ *  be specified, and a health check is required for GCE backend services. A
+ *  health check must not be specified for GAE app backend and Cloud Function
+ *  backend.
  *  For internal load balancing, a URL to a HealthCheck resource must be
  *  specified instead.
  */
@@ -3430,6 +3620,302 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  not treated as delimiters.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *queryStringWhitelist;
+
+@end
+
+
+/**
+ *  Represents a Commitment resource. Creating a Commitment resource means that
+ *  you are purchasing a committed use contract with an explicit start and end
+ *  time. You can create commitments based on vCPUs and memory usage and receive
+ *  discounted rates. For full details, read Signing Up for Committed Use
+ *  Discounts.
+ *  Committed use discounts are subject to Google Cloud Platform's Service
+ *  Specific Terms. By purchasing a committed use discount, you agree to these
+ *  terms. Committed use discounts will not renew, so you must purchase a new
+ *  commitment to continue receiving discounts.
+ */
+@interface GTLRCompute_Commitment : GTLRObject
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  An optional description of this resource. Provide this property when you
+ *  create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** [Output Only] Commitment end time in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *endTimestamp;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  [Output Only] Type of the resource. Always compute#commitment for
+ *  commitments.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Name of the resource. Provided by the client when the resource is created.
+ *  The name must be 1-63 characters long, and comply with RFC1035.
+ *  Specifically, the name must be 1-63 characters long and match the regular
+ *  expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must
+ *  be a lowercase letter, and all following characters must be a dash,
+ *  lowercase letter, or digit, except the last character, which cannot be a
+ *  dash.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The plan for this commitment, which determines duration and discount rate.
+ *  The currently supported plans are TWELVE_MONTH (1 year), and
+ *  THIRTY_SIX_MONTH (3 years).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Commitment_Plan_Invalid Value "INVALID"
+ *    @arg @c kGTLRCompute_Commitment_Plan_ThirtySixMonth Value
+ *        "THIRTY_SIX_MONTH"
+ *    @arg @c kGTLRCompute_Commitment_Plan_TwelveMonth Value "TWELVE_MONTH"
+ */
+@property(nonatomic, copy, nullable) NSString *plan;
+
+/** [Output Only] URL of the region where this commitment may be used. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  List of commitment amounts for particular resources. Note that VCPU and
+ *  MEMORY resource commitments must occur together.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_ResourceCommitment *> *resources;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Commitment start time in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *startTimestamp;
+
+/**
+ *  [Output Only] Status of the commitment with regards to eventual expiration
+ *  (each commitment has an end date defined). One of the following values:
+ *  NOT_YET_ACTIVE, ACTIVE, EXPIRED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Commitment_Status_Active Value "ACTIVE"
+ *    @arg @c kGTLRCompute_Commitment_Status_Creating Value "CREATING"
+ *    @arg @c kGTLRCompute_Commitment_Status_Expired Value "EXPIRED"
+ *    @arg @c kGTLRCompute_Commitment_Status_NotYetActive Value "NOT_YET_ACTIVE"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** [Output Only] An optional, human-readable explanation of the status. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+@end
+
+
+/**
+ *  GTLRCompute_CommitmentAggregatedList
+ */
+@interface GTLRCompute_CommitmentAggregatedList : GTLRObject
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Commitments by scope. */
+@property(nonatomic, strong, nullable) GTLRCompute_CommitmentAggregatedList_Items *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#commitmentAggregatedList for
+ *  aggregated lists of commitments.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  Commitments by scope.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_CommitmentsScopedList. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCompute_CommitmentAggregatedList_Items : GTLRObject
+@end
+
+
+/**
+ *  Contains a list of Commitment resources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_CommitmentList : GTLRCollectionObject
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of Commitment resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Commitment *> *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#commitmentList for lists of
+ *  commitments.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  GTLRCompute_CommitmentsScopedList
+ */
+@interface GTLRCompute_CommitmentsScopedList : GTLRObject
+
+/** [Output Only] List of commitments contained in this scope. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Commitment *> *commitments;
+
+/**
+ *  [Output Only] Informational warning which replaces the list of commitments
+ *  when the list is empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_CommitmentsScopedList_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning which replaces the list of commitments
+ *  when the list is empty.
+ */
+@interface GTLRCompute_CommitmentsScopedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_CommitmentsScopedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_CommitmentsScopedList_Warning_Data_Item
+ */
+@interface GTLRCompute_CommitmentsScopedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -9383,6 +9869,37 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  Commitment for a particular resource (a Commitment is composed of one or
+ *  more of these).
+ */
+@interface GTLRCompute_ResourceCommitment : GTLRObject
+
+/**
+ *  The amount of the resource purchased (in a type-dependent unit, such as
+ *  bytes). For vCPUs, this can just be an integer. For memory, this must be
+ *  provided in MB. Memory must be a multiple of 256 MB, with up to 6.5GB of
+ *  memory per every vCPU.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *amount;
+
+/**
+ *  Type of resource for which this commitment applies. Possible values are VCPU
+ *  and MEMORY
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_ResourceCommitment_Type_Memory Value "MEMORY"
+ *    @arg @c kGTLRCompute_ResourceCommitment_Type_Unspecified Value
+ *        "UNSPECIFIED"
+ *    @arg @c kGTLRCompute_ResourceCommitment_Type_Vcpu Value "VCPU"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

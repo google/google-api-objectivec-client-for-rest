@@ -18,6 +18,29 @@
 
 @end
 
+@implementation GTLRManufacturerCenterQuery_AccountsProductsDelete
+
+@dynamic name, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent
+                           name:(NSString *)name {
+  NSArray *pathParams = @[
+    @"name", @"parent"
+  ];
+  NSString *pathURITemplate = @"v1/{+parent}/products/{+name}";
+  GTLRManufacturerCenterQuery_AccountsProductsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.name = name;
+  query.expectedObjectClass = [GTLRManufacturerCenter_Empty class];
+  query.loggingName = @"manufacturers.accounts.products.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRManufacturerCenterQuery_AccountsProductsGet
 
 @dynamic name, parent;
@@ -55,6 +78,35 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRManufacturerCenter_ListProductsResponse class];
   query.loggingName = @"manufacturers.accounts.products.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManufacturerCenterQuery_AccountsProductsUpdate
+
+@dynamic name, parent;
+
++ (instancetype)queryWithObject:(GTLRManufacturerCenter_Product *)object
+                         parent:(NSString *)parent
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"name", @"parent"
+  ];
+  NSString *pathURITemplate = @"v1/{+parent}/products/{+name}";
+  GTLRManufacturerCenterQuery_AccountsProductsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.name = name;
+  query.expectedObjectClass = [GTLRManufacturerCenter_Product class];
+  query.loggingName = @"manufacturers.accounts.products.update";
   return query;
 }
 

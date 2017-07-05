@@ -146,6 +146,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudNaturalLanguage/*.{h,m}'
   end
+  s.subspec 'CloudOSLogin' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudOSLogin/*.{h,m}'
+  end
   s.subspec 'CloudResourceManager' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudResourceManager/*.{h,m}'

@@ -25,6 +25,7 @@
 @class GTLRCompute_BackendBucket;
 @class GTLRCompute_BackendService;
 @class GTLRCompute_CacheInvalidationRule;
+@class GTLRCompute_Commitment;
 @class GTLRCompute_DeprecationStatus;
 @class GTLRCompute_Disk;
 @class GTLRCompute_DiskMoveRequest;
@@ -940,7 +941,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates an autoscaler in the specified project using the data included in
- *  the request. This method supports patch semantics.
+ *  the request. This method supports PATCH semantics and uses the JSON merge
+ *  patch format and processing rules.
  *
  *  Method: compute.autoscalers.patch
  *
@@ -970,7 +972,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates an autoscaler in the specified project using the data included in
- *  the request. This method supports patch semantics.
+ *  the request. This method supports PATCH semantics and uses the JSON merge
+ *  patch format and processing rules.
  *
  *  @param object The @c GTLRCompute_Autoscaler to include in the query.
  *  @param project Project ID for this request.
@@ -1223,7 +1226,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the specified BackendBucket resource with the data included in the
- *  request. This method supports patch semantics.
+ *  request. This method supports PATCH semantics and uses the JSON merge patch
+ *  format and processing rules.
  *
  *  Method: compute.backendBuckets.patch
  *
@@ -1246,7 +1250,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified BackendBucket resource with the data included in the
- *  request. This method supports patch semantics.
+ *  request. This method supports PATCH semantics and uses the JSON merge patch
+ *  format and processing rules.
  *
  *  @param object The @c GTLRCompute_BackendBucket to include in the query.
  *  @param project Project ID for this request.
@@ -1622,7 +1627,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Patches the specified BackendService resource with the data included in the
  *  request. There are several restrictions and guidelines to keep in mind when
  *  updating a backend service. Read Restrictions and Guidelines for more
- *  information. This method supports patch semantics.
+ *  information. This method supports PATCH semantics and uses the JSON merge
+ *  patch format and processing rules.
  *
  *  Method: compute.backendServices.patch
  *
@@ -1647,7 +1653,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Patches the specified BackendService resource with the data included in the
  *  request. There are several restrictions and guidelines to keep in mind when
  *  updating a backend service. Read Restrictions and Guidelines for more
- *  information. This method supports patch semantics.
+ *  information. This method supports PATCH semantics and uses the JSON merge
+ *  patch format and processing rules.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -3852,7 +3859,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a HealthCheck resource in the specified project using the data
- *  included in the request. This method supports patch semantics.
+ *  included in the request. This method supports PATCH semantics and uses the
+ *  JSON merge patch format and processing rules.
  *
  *  Method: compute.healthChecks.patch
  *
@@ -3875,7 +3883,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates a HealthCheck resource in the specified project using the data
- *  included in the request. This method supports patch semantics.
+ *  included in the request. This method supports PATCH semantics and uses the
+ *  JSON merge patch format and processing rules.
  *
  *  @param object The @c GTLRCompute_HealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -4121,7 +4130,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a HttpHealthCheck resource in the specified project using the data
- *  included in the request. This method supports patch semantics.
+ *  included in the request. This method supports PATCH semantics and uses the
+ *  JSON merge patch format and processing rules.
  *
  *  Method: compute.httpHealthChecks.patch
  *
@@ -4144,7 +4154,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates a HttpHealthCheck resource in the specified project using the data
- *  included in the request. This method supports patch semantics.
+ *  included in the request. This method supports PATCH semantics and uses the
+ *  JSON merge patch format and processing rules.
  *
  *  @param object The @c GTLRCompute_HttpHealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -4390,7 +4401,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a HttpsHealthCheck resource in the specified project using the data
- *  included in the request. This method supports patch semantics.
+ *  included in the request. This method supports PATCH semantics and uses the
+ *  JSON merge patch format and processing rules.
  *
  *  Method: compute.httpsHealthChecks.patch
  *
@@ -4413,7 +4425,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates a HttpsHealthCheck resource in the specified project using the data
- *  included in the request. This method supports patch semantics.
+ *  included in the request. This method supports PATCH semantics and uses the
+ *  JSON merge patch format and processing rules.
  *
  *  @param object The @c GTLRCompute_HttpsHealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -8221,7 +8234,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ProjectsGetXpnHost : GTLRComputeQuery
 // Previous library name was
@@ -8252,7 +8264,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ProjectsGetXpnResources : GTLRComputeQuery
 // Previous library name was
@@ -8299,7 +8310,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ProjectsListXpnHosts : GTLRComputeQuery
 // Previous library name was
@@ -8688,7 +8698,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates an autoscaler in the specified project using the data included in
- *  the request. This method supports patch semantics.
+ *  the request. This method supports PATCH semantics and uses the JSON merge
+ *  patch format and processing rules.
  *
  *  Method: compute.regionAutoscalers.patch
  *
@@ -8714,7 +8725,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates an autoscaler in the specified project using the data included in
- *  the request. This method supports patch semantics.
+ *  the request. This method supports PATCH semantics and uses the JSON merge
+ *  patch format and processing rules.
  *
  *  @param object The @c GTLRCompute_Autoscaler to include in the query.
  *  @param project Project ID for this request.
@@ -9032,7 +9044,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the specified regional BackendService resource with the data
  *  included in the request. There are several restrictions and guidelines to
  *  keep in mind when updating a backend service. Read Restrictions and
- *  Guidelines for more information. This method supports patch semantics.
+ *  Guidelines for more information. This method supports PATCH semantics and
+ *  uses the JSON merge patch format and processing rules.
  *
  *  Method: compute.regionBackendServices.patch
  *
@@ -9060,7 +9073,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the specified regional BackendService resource with the data
  *  included in the request. There are several restrictions and guidelines to
  *  keep in mind when updating a backend service. Read Restrictions and
- *  Guidelines for more information. This method supports patch semantics.
+ *  Guidelines for more information. This method supports PATCH semantics and
+ *  uses the JSON merge patch format and processing rules.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -9120,6 +9134,259 @@ NS_ASSUME_NONNULL_BEGIN
                         project:(NSString *)project
                          region:(NSString *)region
                  backendService:(NSString *)backendService;
+
+@end
+
+/**
+ *  Retrieves an aggregated list of commitments.
+ *
+ *  Method: compute.regionCommitments.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionCommitmentsAggregatedList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionCommitmentsAggregatedListWithproject:]
+
+/**
+ *  Sets a filter {expression} for filtering listed resources. Your {expression}
+ *  must be in the format: field_name comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_CommitmentAggregatedList.
+ *
+ *  Retrieves an aggregated list of commitments.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @returns GTLRComputeQuery_RegionCommitmentsAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Returns the specified commitment resource. Get a list of available
+ *  commitments by making a list() request.
+ *
+ *  Method: compute.regionCommitments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionCommitmentsGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionCommitmentsGetWithproject:region:commitment:]
+
+/** Name of the commitment to return. */
+@property(nonatomic, copy, nullable) NSString *commitment;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Commitment.
+ *
+ *  Returns the specified commitment resource. Get a list of available
+ *  commitments by making a list() request.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param commitment Name of the commitment to return.
+ *
+ *  @returns GTLRComputeQuery_RegionCommitmentsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                      commitment:(NSString *)commitment;
+
+@end
+
+/**
+ *  Creates a commitment in the specified project using the data included in the
+ *  request.
+ *
+ *  Method: compute.regionCommitments.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionCommitmentsInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionCommitmentsInsertWithObject:project:region:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a commitment in the specified project using the data included in the
+ *  request.
+ *
+ *  @param object The @c GTLRCompute_Commitment to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @returns GTLRComputeQuery_RegionCommitmentsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Commitment *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Retrieves a list of commitments contained within the specified region.
+ *
+ *  Method: compute.regionCommitments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionCommitmentsList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionCommitmentsListWithproject:region:]
+
+/**
+ *  Sets a filter {expression} for filtering listed resources. Your {expression}
+ *  must be in the format: field_name comparison_string literal_string.
+ *  The field_name is the name of the field you want to compare. Only atomic
+ *  field types are supported (string, number, boolean). The comparison_string
+ *  must be either eq (equals) or ne (not equals). The literal_string is the
+ *  string value to filter to. The literal value must be valid for the type of
+ *  field you are filtering by (string, number, boolean). For string fields, the
+ *  literal value is interpreted as a regular expression using RE2 syntax. The
+ *  literal value must match the entire field.
+ *  For example, to filter for instances that do not have a name of
+ *  example-instance, you would use name ne example-instance.
+ *  You can filter on nested fields. For example, you could filter on instances
+ *  that have set the scheduling.automaticRestart field to true. Use filtering
+ *  on nested fields to take advantage of labels to organize and search for
+ *  results based on label values.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+ *  us-central1-f). Multiple expressions are treated as AND expressions, meaning
+ *  that resources must match all expressions to pass the filters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_CommitmentList.
+ *
+ *  Retrieves a list of commitments contained within the specified region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @returns GTLRComputeQuery_RegionCommitmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
 
 @end
 
@@ -14218,7 +14485,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Patches the specified UrlMap resource with the data included in the request.
- *  This method supports patch semantics.
+ *  This method supports PATCH semantics and uses the JSON merge patch format
+ *  and processing rules.
  *
  *  Method: compute.urlMaps.patch
  *
@@ -14241,7 +14509,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches the specified UrlMap resource with the data included in the request.
- *  This method supports patch semantics.
+ *  This method supports PATCH semantics and uses the JSON merge patch format
+ *  and processing rules.
  *
  *  @param object The @c GTLRCompute_UrlMap to include in the query.
  *  @param project Project ID for this request.

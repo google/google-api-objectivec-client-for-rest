@@ -41,6 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeVisionCloudPlatform
+ *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ImagesAnnotate : GTLRVisionQuery
 // Previous library name was

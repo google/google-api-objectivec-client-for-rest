@@ -513,6 +513,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the access control policy for an Organization resource. May be empty
  *  if no such policy or resource exists. The `resource` field should be the
  *  organization's resource name, e.g. "organizations/123".
+ *  Authorization requires the Google IAM permission
+ *  `resourcemanager.organizations.getIamPolicy` on the specified organization
  *
  *  Method: cloudresourcemanager.organizations.getIamPolicy
  *
@@ -536,6 +538,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the access control policy for an Organization resource. May be empty
  *  if no such policy or resource exists. The `resource` field should be the
  *  organization's resource name, e.g. "organizations/123".
+ *  Authorization requires the Google IAM permission
+ *  `resourcemanager.organizations.getIamPolicy` on the specified organization
  *
  *  @param object The @c GTLRCloudResourceManager_GetIamPolicyRequest to include
  *    in the query.
@@ -661,6 +665,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  the specified filter. This method returns Organizations in an unspecified
  *  order. New Organizations do not necessarily appear at the end of the
  *  results.
+ *  Search will only return organizations on which the user has the permission
+ *  `resourcemanager.organizations.get`
  *
  *  Method: cloudresourcemanager.organizations.search
  *
@@ -679,6 +685,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  the specified filter. This method returns Organizations in an unspecified
  *  order. New Organizations do not necessarily appear at the end of the
  *  results.
+ *  Search will only return organizations on which the user has the permission
+ *  `resourcemanager.organizations.get`
  *
  *  @param object The @c GTLRCloudResourceManager_SearchOrganizationsRequest to
  *    include in the query.
@@ -693,6 +701,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Sets the access control policy on an Organization resource. Replaces any
  *  existing policy. The `resource` field should be the organization's resource
  *  name, e.g. "organizations/123".
+ *  Authorization requires the Google IAM permission
+ *  `resourcemanager.organizations.setIamPolicy` on the specified organization
  *
  *  Method: cloudresourcemanager.organizations.setIamPolicy
  *
@@ -715,6 +725,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Sets the access control policy on an Organization resource. Replaces any
  *  existing policy. The `resource` field should be the organization's resource
  *  name, e.g. "organizations/123".
+ *  Authorization requires the Google IAM permission
+ *  `resourcemanager.organizations.setIamPolicy` on the specified organization
  *
  *  @param object The @c GTLRCloudResourceManager_SetIamPolicyRequest to include
  *    in the query.
@@ -770,6 +782,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns permissions that a caller has on the specified Organization.
  *  The `resource` field should be the organization's resource name,
  *  e.g. "organizations/123".
+ *  There are no permissions required for making this API call.
  *
  *  Method: cloudresourcemanager.organizations.testIamPermissions
  *
@@ -793,6 +806,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns permissions that a caller has on the specified Organization.
  *  The `resource` field should be the organization's resource name,
  *  e.g. "organizations/123".
+ *  There are no permissions required for making this API call.
  *
  *  @param object The @c GTLRCloudResourceManager_TestIamPermissionsRequest to
  *    include in the query.
@@ -846,6 +860,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  percentile. As of 2016-08-29, we are observing 6 seconds 50th percentile
  *  latency. 95th percentile latency is around 11 seconds. We recommend
  *  polling at the 5th second with an exponential backoff.
+ *  Authorization requires the Google IAM permission
+ *  `resourcemanager.projects.create` on the specified parent for the new
+ *  project.
  *
  *  Method: cloudresourcemanager.projects.create
  *
@@ -866,6 +883,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  percentile. As of 2016-08-29, we are observing 6 seconds 50th percentile
  *  latency. 95th percentile latency is around 11 seconds. We recommend
  *  polling at the 5th second with an exponential backoff.
+ *  Authorization requires the Google IAM permission
+ *  `resourcemanager.projects.create` on the specified parent for the new
+ *  project.
  *
  *  @param object The @c GTLRCloudResourceManager_Project to include in the
  *    query.
@@ -1061,6 +1081,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Returns the IAM access control policy for the specified Project.
  *  Permission is denied if the policy or the resource does not exist.
+ *  Authorization requires the Google IAM permission
+ *  `resourcemanager.projects.getIamPolicy` on the project
  *
  *  Method: cloudresourcemanager.projects.getIamPolicy
  *
@@ -1083,6 +1105,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns the IAM access control policy for the specified Project.
  *  Permission is denied if the policy or the resource does not exist.
+ *  Authorization requires the Google IAM permission
+ *  `resourcemanager.projects.getIamPolicy` on the project
  *
  *  @param object The @c GTLRCloudResourceManager_GetIamPolicyRequest to include
  *    in the query.
@@ -1169,6 +1193,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  |labels.color:red|The project's label `color` has the value `red`.|
  *  |labels.color:red&nbsp;labels.size:big|The project's label `color` has the
  *  value `red` and its label `size` has the value `big`.
+ *  If you specify a filter that has both `parent.type` and `parent.id`, then
+ *  the `resourcemanager.projects.list` permission is checked on the parent.
+ *  If the user has this permission, all projects under the parent will be
+ *  returned after remaining filters have been applied. If the user lacks this
+ *  permission, then all projects for which the user has the
+ *  `resourcemanager.projects.get` permission will be returned after remaining
+ *  filters have been applied. If no filter is specified, the call will return
+ *  projects for which the user has `resourcemanager.projects.get` permissions.
  *  Optional.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1301,6 +1333,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  can render services completely inoperable. It is important to understand
  *  how the service account is being used before removing or updating its
  *  roles.
+ *  Authorization requires the Google IAM permission
+ *  `resourcemanager.projects.setIamPolicy` on the project
  *
  *  Method: cloudresourcemanager.projects.setIamPolicy
  *
@@ -1349,6 +1383,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  can render services completely inoperable. It is important to understand
  *  how the service account is being used before removing or updating its
  *  roles.
+ *  Authorization requires the Google IAM permission
+ *  `resourcemanager.projects.setIamPolicy` on the project
  *
  *  @param object The @c GTLRCloudResourceManager_SetIamPolicyRequest to include
  *    in the query.
@@ -1402,6 +1438,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns permissions that a caller has on the specified Project.
+ *  There are no permissions required for making this API call.
  *
  *  Method: cloudresourcemanager.projects.testIamPermissions
  *
@@ -1423,6 +1460,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudResourceManager_TestIamPermissionsResponse.
  *
  *  Returns permissions that a caller has on the specified Project.
+ *  There are no permissions required for making this API call.
  *
  *  @param object The @c GTLRCloudResourceManager_TestIamPermissionsRequest to
  *    include in the query.

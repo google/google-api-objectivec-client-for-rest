@@ -227,10 +227,6 @@ NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_Daily = 
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_Hourly = @"HOURLY";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_IntervalUnspecified = @"INTERVAL_UNSPECIFIED";
 
-// GTLRAdExchangeBuyerII_ImpressionStatusRow.status
-NSString * const kGTLRAdExchangeBuyerII_ImpressionStatusRow_Status_PretargetingConfigurations = @"PRETARGETING_CONFIGURATIONS";
-NSString * const kGTLRAdExchangeBuyerII_ImpressionStatusRow_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
-
 // GTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse.detailType
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse_DetailType_CreativeAttribute = @"CREATIVE_ATTRIBUTE";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse_DetailType_ProductCategory = @"PRODUCT_CATEGORY";
@@ -244,6 +240,11 @@ NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailRespo
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_SensitiveCategory = @"SENSITIVE_CATEGORY";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_Vendor = @"VENDOR";
+
+// GTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow.status
+NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_AdNotRendered = @"AD_NOT_RENDERED";
+NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_InvalidImpression = @"INVALID_IMPRESSION";
+NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRAdExchangeBuyerII_PlatformContext.platforms
 NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Android = @"ANDROID";
@@ -324,8 +325,8 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
 //
 
 @implementation GTLRAdExchangeBuyerII_BidMetricsRow
-@dynamic bids, bidsInAuction, billedImpressions, impressionsWon, rowDimensions,
-         viewableImpressions;
+@dynamic bids, bidsInAuction, billedImpressions, impressionsWon,
+         measurableImpressions, rowDimensions, viewableImpressions;
 @end
 
 
@@ -582,16 +583,6 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
 @implementation GTLRAdExchangeBuyerII_ImpressionMetricsRow
 @dynamic availableImpressions, bidRequests, inventoryMatches, responsesWithBids,
          rowDimensions, successfulResponses;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAdExchangeBuyerII_ImpressionStatusRow
-//
-
-@implementation GTLRAdExchangeBuyerII_ImpressionStatusRow
-@dynamic impressionCount, rowDimensions, status;
 @end
 
 
@@ -883,28 +874,6 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAdExchangeBuyerII_ListFilteredImpressionsResponse
-//
-
-@implementation GTLRAdExchangeBuyerII_ListFilteredImpressionsResponse
-@dynamic impressionsStatusRows, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"impressionsStatusRows" : [GTLRAdExchangeBuyerII_ImpressionStatusRow class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"impressionsStatusRows";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAdExchangeBuyerII_ListFilterSetsResponse
 //
 
@@ -971,6 +940,28 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAdExchangeBuyerII_ListNonBillableWinningBidsResponse
+//
+
+@implementation GTLRAdExchangeBuyerII_ListNonBillableWinningBidsResponse
+@dynamic nextPageToken, nonBillableWinningBidStatusRows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nonBillableWinningBidStatusRows" : [GTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"nonBillableWinningBidStatusRows";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAdExchangeBuyerII_LocationContext
 //
 
@@ -1006,6 +997,16 @@ NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecif
 @dynamic advertiserName, appIcon, body, callToAction, clickLinkUrl,
          clickTrackingUrl, headline, image, logo, priceDisplayText, starRating,
          storeUrl, videoUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow
+//
+
+@implementation GTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow
+@dynamic bidCount, rowDimensions, status;
 @end
 
 

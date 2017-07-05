@@ -54,7 +54,7 @@
 //
 
 @implementation GTLRDeploymentManager_Binding
-@dynamic members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -207,6 +207,21 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeploymentManager_Expr
+//
+
+@implementation GTLRDeploymentManager_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeploymentManager_ImportFile
 //
 
@@ -221,7 +236,17 @@
 //
 
 @implementation GTLRDeploymentManager_LogConfig
-@dynamic counter;
+@dynamic cloudAudit, counter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_LogConfigCloudAuditOptions
+//
+
+@implementation GTLRDeploymentManager_LogConfigCloudAuditOptions
+@dynamic logName;
 @end
 
 

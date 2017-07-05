@@ -42,10 +42,10 @@
 @class GTLRAdExchangeBuyerII_HtmlContent;
 @class GTLRAdExchangeBuyerII_Image;
 @class GTLRAdExchangeBuyerII_ImpressionMetricsRow;
-@class GTLRAdExchangeBuyerII_ImpressionStatusRow;
 @class GTLRAdExchangeBuyerII_LocationContext;
 @class GTLRAdExchangeBuyerII_MetricValue;
 @class GTLRAdExchangeBuyerII_NativeContent;
+@class GTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow;
 @class GTLRAdExchangeBuyerII_PlatformContext;
 @class GTLRAdExchangeBuyerII_RealtimeTimeRange;
 @class GTLRAdExchangeBuyerII_Reason;
@@ -1097,24 +1097,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranular
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_IntervalUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRAdExchangeBuyerII_ImpressionStatusRow.status
-
-/**
- *  The impression was filtered because it did not match the buyer's
- *  pretargeting configurations.
- *
- *  Value: "PRETARGETING_CONFIGURATIONS"
- */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ImpressionStatusRow_Status_PretargetingConfigurations;
-/**
- *  A placeholder for an undefined status.
- *  This value will never be returned in responses.
- *
- *  Value: "STATUS_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ImpressionStatusRow_Status_StatusUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse.detailType
 
 /**
@@ -1191,6 +1173,31 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownB
  *  Value: "VENDOR"
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_Vendor;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow.status
+
+/**
+ *  The buyer was not billed because the ad was not rendered by the
+ *  publisher.
+ *
+ *  Value: "AD_NOT_RENDERED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_AdNotRendered;
+/**
+ *  The buyer was not billed because the impression won by the bid was
+ *  determined to be invalid.
+ *
+ *  Value: "INVALID_IMPRESSION"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_InvalidImpression;
+/**
+ *  A placeholder for an undefined status.
+ *  This value will never be returned in responses.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_PlatformContext.platforms
@@ -1321,6 +1328,12 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 /** The number of bids that won an impression. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *impressionsWon;
 
+/**
+ *  The number of bids for which the corresponding impression was measurable
+ *  for viewability (as defined by Active View).
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *measurableImpressions;
+
 /** The values of all dimensions associated with metric values in this row. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_RowDimensions *rowDimensions;
 
@@ -1349,7 +1362,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_RowDimensions *rowDimensions;
 
 /**
- *  The status that caused the bid response to be considered to have no
+ *  The status specifying why the bid responses were considered to have no
  *  applicable bids.
  *
  *  Likely values:
@@ -2522,35 +2535,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
- *  The number of impressions with the specified dimension values that were
- *  filtered due to the specified filtering status.
- */
-@interface GTLRAdExchangeBuyerII_ImpressionStatusRow : GTLRObject
-
-/** The number of impressions that were filtered with the specified status. */
-@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *impressionCount;
-
-/** The values of all dimensions associated with metric values in this row. */
-@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_RowDimensions *rowDimensions;
-
-/**
- *  The status for which impressions were filtered.
- *
- *  Likely values:
- *    @arg @c kGTLRAdExchangeBuyerII_ImpressionStatusRow_Status_PretargetingConfigurations
- *        The impression was filtered because it did not match the buyer's
- *        pretargeting configurations. (Value: "PRETARGETING_CONFIGURATIONS")
- *    @arg @c kGTLRAdExchangeBuyerII_ImpressionStatusRow_Status_StatusUnspecified
- *        A placeholder for an undefined status.
- *        This value will never be returned in responses. (Value:
- *        "STATUS_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *status;
-
-@end
-
-
-/**
  *  Response message for listing the metrics that are measured in number of
  *  bids.
  *
@@ -3024,39 +3008,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
- *  Response message for listing all reasons that impressions were filtered
- *  (i.e.
- *  not considered as an inventory match) for the buyer.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "impressionsStatusRows" property. If returned as the result of a
- *        query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
- */
-@interface GTLRAdExchangeBuyerII_ListFilteredImpressionsResponse : GTLRCollectionObject
-
-/**
- *  List of rows, with counts of filtered impressions aggregated by status.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ImpressionStatusRow *> *impressionsStatusRows;
-
-/**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListFilteredImpressionsRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.filterSets.filteredImpressions.list
- *  method to retrieve the next page of results.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  Response message for listing filter sets.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3147,6 +3098,39 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for listing all reasons for which a buyer was not billed
+ *  for
+ *  a winning bid.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "nonBillableWinningBidStatusRows" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAdExchangeBuyerII_ListNonBillableWinningBidsResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve the next page of results.
+ *  Pass this value in the
+ *  ListNonBillableWinningBidsRequest.pageToken
+ *  field in the subsequent call to the
+ *  accounts.filterSets.nonBillableWinningBids.list
+ *  method to retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of rows, with counts of bids not billed aggregated by reason.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow *> *nonBillableWinningBidStatusRows;
 
 @end
 
@@ -3247,6 +3231,38 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 /** The URL to fetch a native video ad. */
 @property(nonatomic, copy, nullable) NSString *videoUrl;
+
+@end
+
+
+/**
+ *  The number of winning bids with the specified dimension values for which the
+ *  buyer was not billed, as described by the specified status.
+ */
+@interface GTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow : GTLRObject
+
+/** The number of bids with the specified status. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *bidCount;
+
+/** The values of all dimensions associated with metric values in this row. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_RowDimensions *rowDimensions;
+
+/**
+ *  The status specifying why the winning bids were not billed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_AdNotRendered
+ *        The buyer was not billed because the ad was not rendered by the
+ *        publisher. (Value: "AD_NOT_RENDERED")
+ *    @arg @c kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_InvalidImpression
+ *        The buyer was not billed because the impression won by the bid was
+ *        determined to be invalid. (Value: "INVALID_IMPRESSION")
+ *    @arg @c kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_StatusUnspecified
+ *        A placeholder for an undefined status.
+ *        This value will never be returned in responses. (Value:
+ *        "STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 

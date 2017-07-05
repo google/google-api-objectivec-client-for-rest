@@ -388,7 +388,6 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 /**
  *  Associates a list of `members` to a `role`.
- *  Multiple `bindings` must not be specified for the same `role`.
  *  `bindings` with no members will result in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRIam_Binding *> *bindings;
@@ -616,7 +615,8 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 /**
  *  The private key data. Only provided in `CreateServiceAccountKey`
- *  responses.
+ *  responses. Make sure to keep the private key data secure because it
+ *  allows for the assertion of the service account identity.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

@@ -2,13 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Vision API (vision/v1)
+//   Google Cloud OS Login API (oslogin/v1alpha)
 // Description:
-//   Integrates Google Vision features, including image labeling, face, logo,
-//   and landmark detection, optical character recognition (OCR), and detection
-//   of explicit content, into applications.
+//   A Google Cloud API for managing OS login configuration for Directory API
+//   users.
 // Documentation:
-//   https://cloud.google.com/vision/
+//   https://developers.google.com/apis-explorer/#p/oslogin/v1alpha/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -31,32 +30,30 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeVisionCloudPlatform;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCloudPlatform;
 /**
- *  Authorization scope: Apply machine learning models to understand and label
- *  images
+ *  Authorization scope: View your data across Google Cloud Platform services
  *
- *  Value "https://www.googleapis.com/auth/cloud-vision"
+ *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeVisionCloudVision;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCloudPlatformReadOnly;
 
 // ----------------------------------------------------------------------------
-//   GTLRVisionService
+//   GTLRCloudOSLoginService
 //
 
 /**
- *  Service for executing Google Cloud Vision API queries.
+ *  Service for executing Google Cloud OS Login API queries.
  *
- *  Integrates Google Vision features, including image labeling, face, logo, and
- *  landmark detection, optical character recognition (OCR), and detection of
- *  explicit content, into applications.
+ *  A Google Cloud API for managing OS login configuration for Directory API
+ *  users.
  */
-@interface GTLRVisionService : GTLRService
+@interface GTLRCloudOSLoginService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRVisionQuery.h. The query can the be sent with GTLRService's execute
+// GTLRCloudOSLoginQuery.h. The query can the be sent with GTLRService's execute
 // methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

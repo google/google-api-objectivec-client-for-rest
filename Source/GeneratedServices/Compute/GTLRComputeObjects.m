@@ -75,6 +75,12 @@ NSString * const kGTLRCompute_AttachedDisk_Mode_ReadWrite = @"READ_WRITE";
 NSString * const kGTLRCompute_AttachedDisk_Type_Persistent = @"PERSISTENT";
 NSString * const kGTLRCompute_AttachedDisk_Type_Scratch    = @"SCRATCH";
 
+// GTLRCompute_Autoscaler.status
+NSString * const kGTLRCompute_Autoscaler_Status_Active   = @"ACTIVE";
+NSString * const kGTLRCompute_Autoscaler_Status_Deleting = @"DELETING";
+NSString * const kGTLRCompute_Autoscaler_Status_Error    = @"ERROR";
+NSString * const kGTLRCompute_Autoscaler_Status_Pending  = @"PENDING";
+
 // GTLRCompute_AutoscalersScopedList_Warning.code
 NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -93,6 +99,23 @@ NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ResourceInUseBy
 NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
 NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_AutoscalerStatusDetails.type
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_AllInstancesUnhealthy = @"ALL_INSTANCES_UNHEALTHY";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_BackendServiceDoesNotExist = @"BACKEND_SERVICE_DOES_NOT_EXIST";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_CappedAtMaxNumReplicas = @"CAPPED_AT_MAX_NUM_REPLICAS";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_CustomMetricDataPointsTooSparse = @"CUSTOM_METRIC_DATA_POINTS_TOO_SPARSE";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_CustomMetricInvalid = @"CUSTOM_METRIC_INVALID";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MinEqualsMax = @"MIN_EQUALS_MAX";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MissingCustomMetricDataPoints = @"MISSING_CUSTOM_METRIC_DATA_POINTS";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MissingLoadBalancingDataPoints = @"MISSING_LOAD_BALANCING_DATA_POINTS";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MoreThanOneBackendService = @"MORE_THAN_ONE_BACKEND_SERVICE";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_NotEnoughQuotaAvailable = @"NOT_ENOUGH_QUOTA_AVAILABLE";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_RegionResourceStockout = @"REGION_RESOURCE_STOCKOUT";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_ScalingTargetDoesNotExist = @"SCALING_TARGET_DOES_NOT_EXIST";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_Unknown = @"UNKNOWN";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_UnsupportedMaxRateLoadBalancingConfiguration = @"UNSUPPORTED_MAX_RATE_LOAD_BALANCING_CONFIGURATION";
+NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_ZoneResourceStockout = @"ZONE_RESOURCE_STOCKOUT";
 
 // GTLRCompute_AutoscalingPolicyCustomMetricUtilization.utilizationTargetType
 NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_UtilizationTargetType_DeltaPerMinute = @"DELTA_PER_MINUTE";
@@ -141,6 +164,36 @@ NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ResourceInU
 NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
 NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_Commitment.plan
+NSString * const kGTLRCompute_Commitment_Plan_Invalid        = @"INVALID";
+NSString * const kGTLRCompute_Commitment_Plan_ThirtySixMonth = @"THIRTY_SIX_MONTH";
+NSString * const kGTLRCompute_Commitment_Plan_TwelveMonth    = @"TWELVE_MONTH";
+
+// GTLRCompute_Commitment.status
+NSString * const kGTLRCompute_Commitment_Status_Active       = @"ACTIVE";
+NSString * const kGTLRCompute_Commitment_Status_Creating     = @"CREATING";
+NSString * const kGTLRCompute_Commitment_Status_Expired      = @"EXPIRED";
+NSString * const kGTLRCompute_Commitment_Status_NotYetActive = @"NOT_YET_ACTIVE";
+
+// GTLRCompute_CommitmentsScopedList_Warning.code
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_DeprecationStatus.state
 NSString * const kGTLRCompute_DeprecationStatus_State_Deleted  = @"DELETED";
@@ -480,6 +533,11 @@ NSString * const kGTLRCompute_Region_Status_Up   = @"UP";
 // GTLRCompute_RegionInstanceGroupsListInstancesRequest.instanceState
 NSString * const kGTLRCompute_RegionInstanceGroupsListInstancesRequest_InstanceState_All = @"ALL";
 NSString * const kGTLRCompute_RegionInstanceGroupsListInstancesRequest_InstanceState_Running = @"RUNNING";
+
+// GTLRCompute_ResourceCommitment.type
+NSString * const kGTLRCompute_ResourceCommitment_Type_Memory   = @"MEMORY";
+NSString * const kGTLRCompute_ResourceCommitment_Type_Unspecified = @"UNSPECIFIED";
+NSString * const kGTLRCompute_ResourceCommitment_Type_Vcpu     = @"VCPU";
 
 // GTLRCompute_Route_Warnings_Item.code
 NSString * const kGTLRCompute_Route_Warnings_Item_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -994,13 +1052,21 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_Autoscaler
 @dynamic autoscalingPolicy, creationTimestamp, descriptionProperty, identifier,
-         kind, name, region, selfLink, target, zoneProperty;
+         kind, name, region, selfLink, status, statusDetails, target,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
     @"identifier" : @"id",
     @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"statusDetails" : [GTLRCompute_AutoscalerStatusDetails class]
   };
   return map;
 }
@@ -1102,6 +1168,16 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 @implementation GTLRCompute_AutoscalersScopedList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AutoscalerStatusDetails
+//
+
+@implementation GTLRCompute_AutoscalerStatusDetails
+@dynamic message, type;
 @end
 
 
@@ -1405,6 +1481,131 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_Commitment
+//
+
+@implementation GTLRCompute_Commitment
+@dynamic creationTimestamp, descriptionProperty, endTimestamp, identifier, kind,
+         name, plan, region, resources, selfLink, startTimestamp, status,
+         statusMessage;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRCompute_ResourceCommitment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CommitmentAggregatedList
+//
+
+@implementation GTLRCompute_CommitmentAggregatedList
+@dynamic identifier, items, kind, nextPageToken, selfLink;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CommitmentAggregatedList_Items
+//
+
+@implementation GTLRCompute_CommitmentAggregatedList_Items
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_CommitmentsScopedList class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CommitmentList
+//
+
+@implementation GTLRCompute_CommitmentList
+@dynamic identifier, items, kind, nextPageToken, selfLink;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_Commitment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CommitmentsScopedList
+//
+
+@implementation GTLRCompute_CommitmentsScopedList
+@dynamic commitments, warning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"commitments" : [GTLRCompute_Commitment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CommitmentsScopedList_Warning
+//
+
+@implementation GTLRCompute_CommitmentsScopedList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_CommitmentsScopedList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CommitmentsScopedList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_CommitmentsScopedList_Warning_Data_Item
+@dynamic key, value;
 @end
 
 
@@ -3947,6 +4148,16 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ResourceCommitment
+//
+
+@implementation GTLRCompute_ResourceCommitment
+@dynamic amount, type;
 @end
 
 

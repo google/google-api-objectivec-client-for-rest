@@ -2552,6 +2552,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** A reference uniquely identifying the table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;
 
+/** [Experimental] The time-based partitioning for this table. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
+
 /** The type of table. Possible values are: TABLE, VIEW. */
 @property(nonatomic, copy, nullable) NSString *type;
 

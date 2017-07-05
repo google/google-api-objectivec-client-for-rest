@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRToolResults_Any;
+@class GTLRToolResults_AppStartTime;
 @class GTLRToolResults_BasicPerfSampleSeries;
 @class GTLRToolResults_CPUInfo;
 @class GTLRToolResults_Duration;
@@ -232,6 +233,29 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRToolResults_AppStartTime
+ */
+@interface GTLRToolResults_AppStartTime : GTLRObject
+
+/**
+ *  Optional. The time from app start to reaching the developer-reported "fully
+ *  drawn" time. This is only stored if the app includes a call to
+ *  Activity.reportFullyDrawn(). See
+ *  https://developer.android.com/topic/performance/launch-time.html#time-full
+ */
+@property(nonatomic, strong, nullable) GTLRToolResults_Duration *fullyDrawnTime;
+
+/**
+ *  The time from app start to the first displayed activity being drawn, as
+ *  reported in Logcat. See
+ *  https://developer.android.com/topic/performance/launch-time.html#time-initial
+ */
+@property(nonatomic, strong, nullable) GTLRToolResults_Duration *initialDisplayTime;
 
 @end
 
@@ -893,6 +917,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  *  A summary of perf metrics collected and performance environment info
  */
 @interface GTLRToolResults_PerfMetricsSummary : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRToolResults_AppStartTime *appStartTime;
 
 /** A tool results execution ID. */
 @property(nonatomic, copy, nullable) NSString *executionId;

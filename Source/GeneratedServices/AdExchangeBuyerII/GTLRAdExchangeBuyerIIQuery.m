@@ -759,29 +759,6 @@ NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates = @"NO_DUPLIC
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredImpressionsList
-
-@dynamic accountId, filterSetId, pageSize, pageToken;
-
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId {
-  NSArray *pathParams = @[
-    @"accountId", @"filterSetId"
-  ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}/filteredImpressions";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredImpressionsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
-  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListFilteredImpressionsResponse class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.filteredImpressions.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsGet
 
 @dynamic accountId, filterSetId;
@@ -865,6 +842,29 @@ NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates = @"NO_DUPLIC
   query.filterSetId = filterSetId;
   query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListLosingBidsResponse class];
   query.loggingName = @"adexchangebuyer2.accounts.filterSets.losingBids.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsNonBillableWinningBidsList
+
+@dynamic accountId, filterSetId, pageSize, pageToken;
+
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId {
+  NSArray *pathParams = @[
+    @"accountId", @"filterSetId"
+  ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}/nonBillableWinningBids";
+  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsNonBillableWinningBidsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.filterSetId = filterSetId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListNonBillableWinningBidsResponse class];
+  query.loggingName = @"adexchangebuyer2.accounts.filterSets.nonBillableWinningBids.list";
   return query;
 }
 

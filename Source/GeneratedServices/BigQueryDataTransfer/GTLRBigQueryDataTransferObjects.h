@@ -780,6 +780,13 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  */
 @property(nonatomic, strong, nullable) NSNumber *dataRefreshWindowDays;
 
+/**
+ *  Region in which BigQuery dataset is located. Currently possible values are:
+ *  "US" and "EU".
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *datasetRegion;
+
 /** Data source id. Cannot be changed once data transfer is created. */
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
 
@@ -858,6 +865,16 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/**
+ *  GaiaID of the user on whose behalf transfer is done. Applicable only
+ *  to data sources that do not support service accounts. When set to 0,
+ *  the data source service account credentials are used.
+ *  \@OutputOnly
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userId;
+
 @end
 
 
@@ -908,6 +925,13 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
 @interface GTLRBigQueryDataTransfer_TransferRun : GTLRObject
 
 /**
+ *  Region in which BigQuery dataset is located. Currently possible values are:
+ *  "US" and "EU".
+ *  \@OutputOnly
+ */
+@property(nonatomic, copy, nullable) NSString *datasetRegion;
+
+/**
  *  Data source id.
  *  \@OutputOnly
  */
@@ -926,7 +950,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
 /**
  *  The resource name of the transfer run.
  *  Transfer run names have the form
- *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`.
+ *  `projects/{project_id}/locations/{location}/transferConfigs/{config_id}/runs/{run_id}`.
  *  The name is ignored when creating a transfer run.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -988,6 +1012,14 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  *  \@OutputOnly
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  The user id for this transfer run.
+ *  \@OutputOnly
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userId;
 
 @end
 

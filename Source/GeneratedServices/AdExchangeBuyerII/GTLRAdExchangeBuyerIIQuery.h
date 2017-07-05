@@ -1000,7 +1000,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @property(nonatomic, assign) long long filterSetId;
 
 /**
- *  Requested page size. The server may return fewer than requested.
+ *  Requested page size. The server may return fewer results than requested.
  *  If unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1054,7 +1054,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @property(nonatomic, assign) long long filterSetId;
 
 /**
- *  Requested page size. The server may return fewer than requested.
+ *  Requested page size. The server may return fewer results than requested.
  *  If unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1109,7 +1109,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @property(nonatomic, assign) long long filterSetId;
 
 /**
- *  Requested page size. The server may return fewer than requested.
+ *  Requested page size. The server may return fewer results than requested.
  *  If unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1237,7 +1237,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @property(nonatomic, assign) long long filterSetId;
 
 /**
- *  Requested page size. The server may return fewer than requested.
+ *  Requested page size. The server may return fewer results than requested.
  *  If unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1303,7 +1303,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @property(nonatomic, assign) long long filterSetId;
 
 /**
- *  Requested page size. The server may return fewer than requested.
+ *  Requested page size. The server may return fewer results than requested.
  *  If unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1376,7 +1376,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @property(nonatomic, assign) long long filterSetId;
 
 /**
- *  Requested page size. The server may return fewer than requested.
+ *  Requested page size. The server may return fewer results than requested.
  *  If unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1445,7 +1445,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @property(nonatomic, assign) long long filterSetId;
 
 /**
- *  Requested page size. The server may return fewer than requested.
+ *  Requested page size. The server may return fewer results than requested.
  *  If unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1506,7 +1506,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @property(nonatomic, assign) long long filterSetId;
 
 /**
- *  Requested page size. The server may return fewer than requested.
+ *  Requested page size. The server may return fewer results than requested.
  *  If unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1531,63 +1531,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  @param filterSetId The ID of the filter set to apply.
  *
  *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId;
-
-@end
-
-/**
- *  List all reasons that caused an impression to be filtered (i.e. not
- *  considered as an inventory match), with the number of impressions that were
- *  filtered for each reason.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.filteredImpressions.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredImpressionsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredImpressionsListWithaccountId:filterSetId:]
-
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
-
-/** The ID of the filter set to apply. */
-@property(nonatomic, assign) long long filterSetId;
-
-/**
- *  Requested page size. The server may return fewer than requested.
- *  If unspecified, the server will pick an appropriate default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A token identifying a page of results the server should return.
- *  Typically, this is the value of
- *  ListFilteredImpressionsResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.filterSets.filteredImpressions.list
- *  method.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRAdExchangeBuyerII_ListFilteredImpressionsResponse.
- *
- *  List all reasons that caused an impression to be filtered (i.e. not
- *  considered as an inventory match), with the number of impressions that were
- *  filtered for each reason.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredImpressionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1652,7 +1595,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @property(nonatomic, assign) long long filterSetId;
 
 /**
- *  Requested page size. The server may return fewer than requested.
+ *  Requested page size. The server may return fewer results than requested.
  *  If unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1702,7 +1645,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @property(nonatomic, assign) long long accountId;
 
 /**
- *  Requested page size. The server may return fewer than requested.
+ *  Requested page size. The server may return fewer results than requested.
  *  If unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1712,7 +1655,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  Typically, this is the value of
  *  ListFilterSetsResponse.nextPageToken
  *  returned from the previous call to the
- *  accounts.rtbBreakout.filterSets.list
+ *  accounts.filterSets.list
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1754,7 +1697,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @property(nonatomic, assign) long long filterSetId;
 
 /**
- *  Requested page size. The server may return fewer than requested.
+ *  Requested page size. The server may return fewer results than requested.
  *  If unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1779,6 +1722,61 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  @param filterSetId The ID of the filter set to apply.
  *
  *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsLosingBidsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                       filterSetId:(long long)filterSetId;
+
+@end
+
+/**
+ *  List all reasons for which winning bids were not billable, with the number
+ *  of bids not billed for each reason.
+ *
+ *  Method: adexchangebuyer2.accounts.filterSets.nonBillableWinningBids.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsNonBillableWinningBidsList : GTLRAdExchangeBuyerIIQuery
+// Previous library name was
+//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsNonBillableWinningBidsListWithaccountId:filterSetId:]
+
+/** Account ID of the buyer. */
+@property(nonatomic, assign) long long accountId;
+
+/** The ID of the filter set to apply. */
+@property(nonatomic, assign) long long filterSetId;
+
+/**
+ *  Requested page size. The server may return fewer results than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListNonBillableWinningBidsResponse.nextPageToken
+ *  returned from the previous call to the
+ *  accounts.filterSets.nonBillableWinningBids.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_ListNonBillableWinningBidsResponse.
+ *
+ *  List all reasons for which winning bids were not billable, with the number
+ *  of bids not billed for each reason.
+ *
+ *  @param accountId Account ID of the buyer.
+ *  @param filterSetId The ID of the filter set to apply.
+ *
+ *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsNonBillableWinningBidsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

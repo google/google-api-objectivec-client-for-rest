@@ -276,9 +276,8 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 //   +[GTLQueryDeploymentManager queryForDeploymentsListWithproject:]
 
 /**
- *  Sets a filter expression for filtering listed resources, in the form
- *  filter={expression}. Your {expression} must be in the format: field_name
- *  comparison_string literal_string.
+ *  Sets a filter {expression} for filtering listed resources. Your {expression}
+ *  must be in the format: field_name comparison_string literal_string.
  *  The field_name is the name of the field you want to compare. Only atomic
  *  field types are supported (string, number, boolean). The comparison_string
  *  must be either eq (equals) or ne (not equals). The literal_string is the
@@ -287,7 +286,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  literal value is interpreted as a regular expression using RE2 syntax. The
  *  literal value must match the entire field.
  *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use filter=name ne example-instance.
+ *  example-instance, you would use name ne example-instance.
  *  You can filter on nested fields. For example, you could filter on instances
  *  that have set the scheduling.automaticRestart field to true. Use filtering
  *  on nested fields to take advantage of labels to organize and search for
@@ -682,9 +681,8 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 @property(nonatomic, copy, nullable) NSString *deployment;
 
 /**
- *  Sets a filter expression for filtering listed resources, in the form
- *  filter={expression}. Your {expression} must be in the format: field_name
- *  comparison_string literal_string.
+ *  Sets a filter {expression} for filtering listed resources. Your {expression}
+ *  must be in the format: field_name comparison_string literal_string.
  *  The field_name is the name of the field you want to compare. Only atomic
  *  field types are supported (string, number, boolean). The comparison_string
  *  must be either eq (equals) or ne (not equals). The literal_string is the
@@ -693,7 +691,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  literal value is interpreted as a regular expression using RE2 syntax. The
  *  literal value must match the entire field.
  *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use filter=name ne example-instance.
+ *  example-instance, you would use name ne example-instance.
  *  You can filter on nested fields. For example, you could filter on instances
  *  that have set the scheduling.automaticRestart field to true. Use filtering
  *  on nested fields to take advantage of labels to organize and search for
@@ -808,9 +806,8 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 //   +[GTLQueryDeploymentManager queryForOperationsListWithproject:]
 
 /**
- *  Sets a filter expression for filtering listed resources, in the form
- *  filter={expression}. Your {expression} must be in the format: field_name
- *  comparison_string literal_string.
+ *  Sets a filter {expression} for filtering listed resources. Your {expression}
+ *  must be in the format: field_name comparison_string literal_string.
  *  The field_name is the name of the field you want to compare. Only atomic
  *  field types are supported (string, number, boolean). The comparison_string
  *  must be either eq (equals) or ne (not equals). The literal_string is the
@@ -819,7 +816,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  literal value is interpreted as a regular expression using RE2 syntax. The
  *  literal value must match the entire field.
  *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use filter=name ne example-instance.
+ *  example-instance, you would use name ne example-instance.
  *  You can filter on nested fields. For example, you could filter on instances
  *  that have set the scheduling.automaticRestart field to true. Use filtering
  *  on nested fields to take advantage of labels to organize and search for
@@ -940,9 +937,8 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 @property(nonatomic, copy, nullable) NSString *deployment;
 
 /**
- *  Sets a filter expression for filtering listed resources, in the form
- *  filter={expression}. Your {expression} must be in the format: field_name
- *  comparison_string literal_string.
+ *  Sets a filter {expression} for filtering listed resources. Your {expression}
+ *  must be in the format: field_name comparison_string literal_string.
  *  The field_name is the name of the field you want to compare. Only atomic
  *  field types are supported (string, number, boolean). The comparison_string
  *  must be either eq (equals) or ne (not equals). The literal_string is the
@@ -951,7 +947,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  literal value is interpreted as a regular expression using RE2 syntax. The
  *  literal value must match the entire field.
  *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use filter=name ne example-instance.
+ *  example-instance, you would use name ne example-instance.
  *  You can filter on nested fields. For example, you could filter on instances
  *  that have set the scheduling.automaticRestart field to true. Use filtering
  *  on nested fields to take advantage of labels to organize and search for
@@ -1030,9 +1026,8 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 //   +[GTLQueryDeploymentManager queryForTypesListWithproject:]
 
 /**
- *  Sets a filter expression for filtering listed resources, in the form
- *  filter={expression}. Your {expression} must be in the format: field_name
- *  comparison_string literal_string.
+ *  Sets a filter {expression} for filtering listed resources. Your {expression}
+ *  must be in the format: field_name comparison_string literal_string.
  *  The field_name is the name of the field you want to compare. Only atomic
  *  field types are supported (string, number, boolean). The comparison_string
  *  must be either eq (equals) or ne (not equals). The literal_string is the
@@ -1041,7 +1036,7 @@ GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  literal value is interpreted as a regular expression using RE2 syntax. The
  *  literal value must match the entire field.
  *  For example, to filter for instances that do not have a name of
- *  example-instance, you would use filter=name ne example-instance.
+ *  example-instance, you would use name ne example-instance.
  *  You can filter on nested fields. For example, you could filter on instances
  *  that have set the scheduling.automaticRestart field to true. Use filtering
  *  on nested fields to take advantage of labels to organize and search for

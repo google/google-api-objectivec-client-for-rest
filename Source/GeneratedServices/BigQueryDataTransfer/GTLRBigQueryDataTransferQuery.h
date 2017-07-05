@@ -90,6 +90,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsDataSourcesCheckValidCreds : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -127,6 +129,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsDataSourcesGet : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -162,6 +166,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsDataSourcesList : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -212,6 +218,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsIsEnabled : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -248,6 +256,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesCheckValidCreds : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -285,6 +295,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesGet : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -320,6 +332,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesList : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -370,6 +384,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsIsEnabled : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -405,6 +421,9 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *  to manage the cloud project permissions.
  *
  *  Method: bigquerydatatransfer.projects.locations.setEnabled
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsSetEnabled : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -443,6 +462,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsCreate : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -469,6 +489,11 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
 
 /**
  *  The BigQuery project id where the transfer configuration should be created.
+ *  Must be in the format /projects/{project_id}/locations/{location_id}
+ *  or
+ *  /projects/{project_id}/locations/-
+ *  In case when '-' is specified as location_id, location is infered from
+ *  the destination dataset region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -481,6 +506,11 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *    the query.
  *  @param parent The BigQuery project id where the transfer configuration
  *    should be created.
+ *    Must be in the format /projects/{project_id}/locations/{location_id}
+ *    or
+ *    /projects/{project_id}/locations/-
+ *    In case when '-' is specified as location_id, location is infered from
+ *    the destination dataset region.
  *
  *  @returns GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsCreate
  */
@@ -497,6 +527,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsDelete : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -531,6 +562,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsGet : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -564,6 +597,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsList : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -618,6 +653,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsPatch : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -686,6 +722,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsDelete : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -719,6 +756,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsGet : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -752,6 +791,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsList : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -828,6 +869,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsTransferLogsList : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -892,6 +935,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsScheduleRuns : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -930,6 +974,9 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *  to manage the cloud project permissions.
  *
  *  Method: bigquerydatatransfer.projects.setEnabled
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsSetEnabled : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -968,6 +1015,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsCreate : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -994,6 +1042,11 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
 
 /**
  *  The BigQuery project id where the transfer configuration should be created.
+ *  Must be in the format /projects/{project_id}/locations/{location_id}
+ *  or
+ *  /projects/{project_id}/locations/-
+ *  In case when '-' is specified as location_id, location is infered from
+ *  the destination dataset region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1006,6 +1059,11 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *    the query.
  *  @param parent The BigQuery project id where the transfer configuration
  *    should be created.
+ *    Must be in the format /projects/{project_id}/locations/{location_id}
+ *    or
+ *    /projects/{project_id}/locations/-
+ *    In case when '-' is specified as location_id, location is infered from
+ *    the destination dataset region.
  *
  *  @returns GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsCreate
  */
@@ -1022,6 +1080,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsDelete : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -1056,6 +1115,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsGet : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -1089,6 +1150,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsList : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -1143,6 +1206,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsPatch : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -1211,6 +1275,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsDelete : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -1244,6 +1309,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsGet : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -1277,6 +1344,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsList : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -1353,6 +1422,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsTransferLogsList : GTLRBigQueryDataTransferQuery
 // Previous library name was
@@ -1417,6 +1488,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsScheduleRuns : GTLRBigQueryDataTransferQuery
 // Previous library name was

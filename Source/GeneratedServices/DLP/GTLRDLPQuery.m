@@ -22,7 +22,7 @@
 
 @implementation GTLRDLPQuery_ContentInspect
 
-+ (instancetype)queryWithObject:(GTLRDLP_InspectContentRequest *)object {
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta1InspectContentRequest *)object {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
@@ -33,7 +33,7 @@
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRDLP_InspectContentResponse class];
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2beta1InspectContentResponse class];
   query.loggingName = @"dlp.content.inspect";
   return query;
 }
@@ -42,7 +42,7 @@
 
 @implementation GTLRDLPQuery_ContentRedact
 
-+ (instancetype)queryWithObject:(GTLRDLP_RedactContentRequest *)object {
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta1RedactContentRequest *)object {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
@@ -53,7 +53,7 @@
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRDLP_RedactContentResponse class];
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2beta1RedactContentResponse class];
   query.loggingName = @"dlp.content.redact";
   return query;
 }
@@ -64,7 +64,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRDLP_CancelOperationRequest *)object
++ (instancetype)queryWithObject:(GTLRDLP_GoogleLongrunningCancelOperationRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -78,7 +78,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDLP_Empty class];
+  query.expectedObjectClass = [GTLRDLP_GoogleProtobufEmpty class];
   query.loggingName = @"dlp.inspect.operations.cancel";
   return query;
 }
@@ -87,7 +87,7 @@
 
 @implementation GTLRDLPQuery_InspectOperationsCreate
 
-+ (instancetype)queryWithObject:(GTLRDLP_CreateInspectOperationRequest *)object {
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2beta1CreateInspectOperationRequest *)object {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
@@ -98,7 +98,7 @@
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRDLP_Operation class];
+  query.expectedObjectClass = [GTLRDLP_GoogleLongrunningOperation class];
   query.loggingName = @"dlp.inspect.operations.create";
   return query;
 }
@@ -117,7 +117,7 @@
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDLP_Empty class];
+  query.expectedObjectClass = [GTLRDLP_GoogleProtobufEmpty class];
   query.loggingName = @"dlp.inspect.operations.delete";
   return query;
 }
@@ -136,7 +136,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDLP_Operation class];
+  query.expectedObjectClass = [GTLRDLP_GoogleLongrunningOperation class];
   query.loggingName = @"dlp.inspect.operations.get";
   return query;
 }
@@ -155,7 +155,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDLP_ListOperationsResponse class];
+  query.expectedObjectClass = [GTLRDLP_GoogleLongrunningListOperationsResponse class];
   query.loggingName = @"dlp.inspect.operations.list";
   return query;
 }
@@ -174,7 +174,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDLP_ListInspectFindingsResponse class];
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2beta1ListInspectFindingsResponse class];
   query.loggingName = @"dlp.inspect.results.findings.list";
   return query;
 }
@@ -193,7 +193,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.category = category;
-  query.expectedObjectClass = [GTLRDLP_ListInfoTypesResponse class];
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2beta1ListInfoTypesResponse class];
   query.loggingName = @"dlp.rootCategories.infoTypes.list";
   return query;
 }
@@ -210,7 +210,7 @@
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRDLP_ListRootCategoriesResponse class];
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2beta1ListRootCategoriesResponse class];
   query.loggingName = @"dlp.rootCategories.list";
   return query;
 }
