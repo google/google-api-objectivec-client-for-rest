@@ -31,6 +31,7 @@
 @class GTLRSpanner_Delete;
 @class GTLRSpanner_ExecuteSqlRequest_Params;
 @class GTLRSpanner_ExecuteSqlRequest_ParamTypes;
+@class GTLRSpanner_Expr;
 @class GTLRSpanner_Field;
 @class GTLRSpanner_Instance;
 @class GTLRSpanner_Instance_Labels;
@@ -130,7 +131,6 @@ GTLR_EXTERN NSString * const kGTLRSpanner_CloudAuditOptions_LogName_UnspecifiedL
  *  member of the specified group. Approvers can only grant additional
  *  access, and are thus only used in a strictly positive context
  *  (e.g. ALLOW/IN or DENY/NOT_IN).
- *  See: go/rpc-security-policy-dynamicauth.
  *
  *  Value: "APPROVER"
  */
@@ -597,6 +597,15 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @interface GTLRSpanner_Binding : GTLRObject
 
 /**
+ *  The condition that is associated with this binding.
+ *  NOTE: an unsatisfied condition will not allow user access via current
+ *  binding. Different bindings, including their conditions, are examined
+ *  independently.
+ *  This field is GOOGLE_INTERNAL.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_Expr *condition;
+
+/**
  *  Specifies the identities requesting access for a Cloud Platform resource.
  *  `members` can have the following values:
  *  * `allUsers`: A special identifier that represents anyone who is
@@ -744,8 +753,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        associated with the request matches the specified principal, or is a
  *        member of the specified group. Approvers can only grant additional
  *        access, and are thus only used in a strictly positive context
- *        (e.g. ALLOW/IN or DENY/NOT_IN).
- *        See: go/rpc-security-policy-dynamicauth. (Value: "APPROVER")
+ *        (e.g. ALLOW/IN or DENY/NOT_IN). (Value: "APPROVER")
  *    @arg @c kGTLRSpanner_Condition_Iam_Attribution The principal (even if an
  *        authority selector is present), which
  *        must only be used for attribution, not authorization. (Value:
@@ -1099,6 +1107,46 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRSpanner_ExecuteSqlRequest_ParamTypes : GTLRObject
+@end
+
+
+/**
+ *  Represents an expression text. Example:
+ *  title: "User account presence"
+ *  description: "Determines whether the request has a user account"
+ *  expression: "size(request.user) > 0"
+ */
+@interface GTLRSpanner_Expr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in
+ *  [Common Expression Language](http://go/api-expr) syntax.
+ *  The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing
+ *  its purpose. This can be used e.g. in UIs which allow to enter the
+ *  expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
 @end
 
 
@@ -1909,7 +1957,6 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
  *  Associates a list of `members` to a `role`.
- *  Multiple `bindings` must not be specified for the same `role`.
  *  `bindings` with no members will result in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Binding *> *bindings;

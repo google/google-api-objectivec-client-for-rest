@@ -229,8 +229,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_Perso
 GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_Account;
 /**
  *  [Google contact](https://contacts.google.com). You can view the
- *  contact at https://contact.google.com/<id> where <id> is the source
- *  id.
+ *  contact at https://contact.google.com/<var>id</var> where <var>id</var>
+ *  is the source id.
  *
  *  Value: "CONTACT"
  */
@@ -243,8 +243,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_Contact;
 GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_DomainProfile;
 /**
  *  [Google profile](https://profiles.google.com). You can view the
- *  profile at https://profiles.google.com/<id> where <id> is the source
- *  id.
+ *  profile at https://profiles.google.com/<var>id</var> where
+ *  <var>id</var> is the source id.
  *
  *  Value: "PROFILE"
  */
@@ -1392,18 +1392,22 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  *        Account](https://accounts.google.com). (Value: "ACCOUNT")
  *    @arg @c kGTLRPeopleService_Source_Type_Contact [Google
  *        contact](https://contacts.google.com). You can view the
- *        contact at https://contact.google.com/<id> where <id> is the source
- *        id. (Value: "CONTACT")
+ *        contact at https://contact.google.com/<var>id</var> where
+ *        <var>id</var>
+ *        is the source id. (Value: "CONTACT")
  *    @arg @c kGTLRPeopleService_Source_Type_DomainProfile [Google Apps domain
  *        profile](https://admin.google.com). (Value: "DOMAIN_PROFILE")
  *    @arg @c kGTLRPeopleService_Source_Type_Profile [Google
  *        profile](https://profiles.google.com). You can view the
- *        profile at https://profiles.google.com/<id> where <id> is the source
- *        id. (Value: "PROFILE")
+ *        profile at https://profiles.google.com/<var>id</var> where
+ *        <var>id</var> is the source id. (Value: "PROFILE")
  *    @arg @c kGTLRPeopleService_Source_Type_SourceTypeUnspecified Unspecified.
  *        (Value: "SOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/** Last update timestamp of this source. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

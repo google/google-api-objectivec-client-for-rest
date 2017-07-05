@@ -91,6 +91,15 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManufacturerCenter_Empty
+//
+
+@implementation GTLRManufacturerCenter_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManufacturerCenter_FeatureDescription
 //
 

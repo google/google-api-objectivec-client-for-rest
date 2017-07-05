@@ -22,6 +22,10 @@ NSString * const kGTLRContainer_Cluster_Status_Running         = @"RUNNING";
 NSString * const kGTLRContainer_Cluster_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRContainer_Cluster_Status_Stopping        = @"STOPPING";
 
+// GTLRContainer_NetworkPolicy.provider
+NSString * const kGTLRContainer_NetworkPolicy_Provider_Calico  = @"CALICO";
+NSString * const kGTLRContainer_NetworkPolicy_Provider_Unknown = @"UNKNOWN";
+
 // GTLRContainer_NodePool.status
 NSString * const kGTLRContainer_NodePool_Status_Error          = @"ERROR";
 NSString * const kGTLRContainer_NodePool_Status_Provisioning   = @"PROVISIONING";
@@ -41,6 +45,7 @@ NSString * const kGTLRContainer_Operation_OperationType_DeleteNodePool = @"DELET
 NSString * const kGTLRContainer_Operation_OperationType_RepairCluster = @"REPAIR_CLUSTER";
 NSString * const kGTLRContainer_Operation_OperationType_SetLabels = @"SET_LABELS";
 NSString * const kGTLRContainer_Operation_OperationType_SetMasterAuth = @"SET_MASTER_AUTH";
+NSString * const kGTLRContainer_Operation_OperationType_SetNetworkPolicy = @"SET_NETWORK_POLICY";
 NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolManagement = @"SET_NODE_POOL_MANAGEMENT";
 NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolSize = @"SET_NODE_POOL_SIZE";
 NSString * const kGTLRContainer_Operation_OperationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
@@ -113,11 +118,11 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 @dynamic addonsConfig, clusterIpv4Cidr, createTime, currentMasterVersion,
          currentNodeCount, currentNodeVersion, descriptionProperty,
          enableKubernetesAlpha, endpoint, expireTime, initialClusterVersion,
-         initialNodeCount, instanceGroupUrls, labelFingerprint, legacyAbac,
-         locations, loggingService, masterAuth, monitoringService, name,
-         network, nodeConfig, nodeIpv4CidrSize, nodePools, resourceLabels,
-         selfLink, servicesIpv4Cidr, status, statusMessage, subnetwork,
-         zoneProperty;
+         initialNodeCount, instanceGroupUrls, ipAllocationPolicy,
+         labelFingerprint, legacyAbac, locations, loggingService, masterAuth,
+         monitoringService, name, network, networkPolicy, nodeConfig,
+         nodeIpv4CidrSize, nodePools, resourceLabels, selfLink,
+         servicesIpv4Cidr, status, statusMessage, subnetwork, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -233,6 +238,17 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_IPAllocationPolicy
+//
+
+@implementation GTLRContainer_IPAllocationPolicy
+@dynamic clusterIpv4Cidr, createSubnetwork, nodeIpv4Cidr, servicesIpv4Cidr,
+         subnetworkName, useIpAliases;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_LegacyAbac
 //
 
@@ -305,6 +321,16 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 @implementation GTLRContainer_MasterAuth
 @dynamic clientCertificate, clientCertificateConfig, clientKey,
          clusterCaCertificate, password, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NetworkPolicy
+//
+
+@implementation GTLRContainer_NetworkPolicy
+@dynamic enabled, provider;
 @end
 
 
@@ -443,6 +469,16 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_SetAddonsConfigRequest
+//
+
+@implementation GTLRContainer_SetAddonsConfigRequest
+@dynamic addonsConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_SetLabelsRequest
 //
 
@@ -477,11 +513,69 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_SetLocationsRequest
+//
+
+@implementation GTLRContainer_SetLocationsRequest
+@dynamic locations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_SetLoggingServiceRequest
+//
+
+@implementation GTLRContainer_SetLoggingServiceRequest
+@dynamic loggingService;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_SetMasterAuthRequest
 //
 
 @implementation GTLRContainer_SetMasterAuthRequest
 @dynamic action, update;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_SetMonitoringServiceRequest
+//
+
+@implementation GTLRContainer_SetMonitoringServiceRequest
+@dynamic monitoringService;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_SetNetworkPolicyRequest
+//
+
+@implementation GTLRContainer_SetNetworkPolicyRequest
+@dynamic networkPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_SetNodePoolAutoscalingRequest
+//
+
+@implementation GTLRContainer_SetNodePoolAutoscalingRequest
+@dynamic autoscaling;
 @end
 
 
@@ -521,4 +615,24 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN"
 
 @implementation GTLRContainer_UpdateClusterRequest
 @dynamic update;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_UpdateMasterRequest
+//
+
+@implementation GTLRContainer_UpdateMasterRequest
+@dynamic masterVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_UpdateNodePoolRequest
+//
+
+@implementation GTLRContainer_UpdateNodePoolRequest
+@dynamic imageType, nodeVersion;
 @end

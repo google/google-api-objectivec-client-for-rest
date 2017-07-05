@@ -1159,7 +1159,7 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUser_UsageRule
-@dynamic allowUnregisteredCalls, selector;
+@dynamic allowUnregisteredCalls, selector, skipServiceControl;
 @end
 
 

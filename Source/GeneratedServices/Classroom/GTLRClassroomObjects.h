@@ -1809,7 +1809,9 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, copy, nullable) NSString *photoUrl;
 
 /**
- *  Whether or not the user is a verified teacher
+ *  Represents whether a G Suite for Education user's domain administrator has
+ *  explicitly verified them as being a teacher. If the user is not a member of
+ *  a G Suite for Education domain, than this field will always be false.
  *  Read-only
  *
  *  Uses NSNumber of boolValue.

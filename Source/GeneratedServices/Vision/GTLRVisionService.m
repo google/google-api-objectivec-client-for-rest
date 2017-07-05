@@ -13,9 +13,10 @@
 #import "GTLRVision.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 NSString * const kGTLRAuthScopeVisionCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeVisionCloudVision   = @"https://www.googleapis.com/auth/cloud-vision";
 
 // ----------------------------------------------------------------------------
 //   GTLRVisionService

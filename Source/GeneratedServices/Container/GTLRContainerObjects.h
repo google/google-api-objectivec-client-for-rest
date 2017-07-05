@@ -27,8 +27,10 @@
 @class GTLRContainer_ClusterUpdate;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpLoadBalancing;
+@class GTLRContainer_IPAllocationPolicy;
 @class GTLRContainer_LegacyAbac;
 @class GTLRContainer_MasterAuth;
+@class GTLRContainer_NetworkPolicy;
 @class GTLRContainer_NodeConfig;
 @class GTLRContainer_NodeConfig_Labels;
 @class GTLRContainer_NodeConfig_Metadata;
@@ -86,6 +88,22 @@ GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_StatusUnspecified;
  *  Value: "STOPPING"
  */
 GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Stopping;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_NetworkPolicy.provider
+
+/**
+ *  Tigera (Calico Felix).
+ *
+ *  Value: "CALICO"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_NetworkPolicy_Provider_Calico;
+/**
+ *  Not set
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_NetworkPolicy_Provider_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NodePool.status
@@ -197,6 +215,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetLabels;
  *  Value: "SET_MASTER_AUTH"
  */
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMasterAuth;
+/**
+ *  Updates network policy for a cluster.
+ *
+ *  Value: "SET_NETWORK_POLICY"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNetworkPolicy;
 /**
  *  Set node pool management.
  *
@@ -460,6 +484,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceGroupUrls;
 
+/** Configuration for cluster IP allocation. */
+@property(nonatomic, strong, nullable) GTLRContainer_IPAllocationPolicy *ipAllocationPolicy;
+
 /** The fingerprint of the set of labels for this cluster. */
 @property(nonatomic, copy, nullable) NSString *labelFingerprint;
 
@@ -510,6 +537,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  will be used.
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/** Configuration options for the NetworkPolicy feature. */
+@property(nonatomic, strong, nullable) GTLRContainer_NetworkPolicy *networkPolicy;
 
 /**
  *  Parameters used in creating the cluster's nodes.
@@ -770,6 +800,77 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 
 /**
+ *  Configuration for controlling how IPs are allocated in the cluster.
+ */
+@interface GTLRContainer_IPAllocationPolicy : GTLRObject
+
+/**
+ *  The IP address range for the cluster pod IPs. If this field is set, then
+ *  `cluster.cluster_ipv4_cidr` must be left blank.
+ *  This field is only applicable when `use_ip_aliases` is true.
+ *  Set to blank to have a range will be chosen with the default size.
+ *  Set to /netmask (e.g. `/14`) to have a range be chosen with a specific
+ *  netmask.
+ *  Set to a [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
+ *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
+ *  to use.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterIpv4Cidr;
+
+/**
+ *  Whether a new subnetwork will be created automatically for the cluster.
+ *  This field is only applicable when `use_ip_aliases` is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createSubnetwork;
+
+/**
+ *  The IP address range of the instance IPs in this cluster.
+ *  This is applicable only if `create_subnetwork` is true.
+ *  Set to blank to have a range will be chosen with the default size.
+ *  Set to /netmask (e.g. `/14`) to have a range be chosen with a specific
+ *  netmask.
+ *  Set to a [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
+ *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
+ *  to use.
+ */
+@property(nonatomic, copy, nullable) NSString *nodeIpv4Cidr;
+
+/**
+ *  The IP address range of the services IPs in this cluster. If blank, a range
+ *  will be automatically chosen with the default size.
+ *  This field is only applicable when `use_ip_aliases` is true.
+ *  Set to blank to have a range will be chosen with the default size.
+ *  Set to /netmask (e.g. `/14`) to have a range be chosen with a specific
+ *  netmask.
+ *  Set to a [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
+ *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
+ *  to use.
+ */
+@property(nonatomic, copy, nullable) NSString *servicesIpv4Cidr;
+
+/**
+ *  A custom subnetwork name to be used if `create_subnetwork` is true. If
+ *  this field is empty, then an automatic name will choosen for the new
+ *  subnetwork.
+ */
+@property(nonatomic, copy, nullable) NSString *subnetworkName;
+
+/**
+ *  Whether alias IPs will be used for pod IPs in the cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useIpAliases;
+
+@end
+
+
+/**
  *  Configuration for the legacy Attribute Based Access Control authorization
  *  mode.
  */
@@ -881,6 +982,33 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *  providing an empty username.
  */
 @property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Configuration options for the NetworkPolicy feature.
+ *  https://kubernetes.io/docs/concepts/services-networking/networkpolicies/
+ */
+@interface GTLRContainer_NetworkPolicy : GTLRObject
+
+/**
+ *  Whether network policy is enabled on the cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The selected network policy provider.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NetworkPolicy_Provider_Calico Tigera (Calico
+ *        Felix). (Value: "CALICO")
+ *    @arg @c kGTLRContainer_NetworkPolicy_Provider_Unknown Not set (Value:
+ *        "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *provider;
 
 @end
 
@@ -1214,6 +1342,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *        (Value: "SET_LABELS")
  *    @arg @c kGTLRContainer_Operation_OperationType_SetMasterAuth Set/generate
  *        master auth materials (Value: "SET_MASTER_AUTH")
+ *    @arg @c kGTLRContainer_Operation_OperationType_SetNetworkPolicy Updates
+ *        network policy for a cluster. (Value: "SET_NETWORK_POLICY")
  *    @arg @c kGTLRContainer_Operation_OperationType_SetNodePoolManagement Set
  *        node pool management. (Value: "SET_NODE_POOL_MANAGEMENT")
  *    @arg @c kGTLRContainer_Operation_OperationType_SetNodePoolSize Set node
@@ -1300,6 +1430,20 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 
 /**
+ *  SetAddonsConfigRequest sets the addons associated with the cluster.
+ */
+@interface GTLRContainer_SetAddonsConfigRequest : GTLRObject
+
+/**
+ *  The desired configurations for the various addons available to run in the
+ *  cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *addonsConfig;
+
+@end
+
+
+/**
  *  SetLabelsRequest sets the Google Cloud Platform labels on a Google Container
  *  Engine cluster, which will in turn set them for Google Compute Engine
  *  resources used by that cluster
@@ -1352,6 +1496,40 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 
 /**
+ *  SetLocationsRequest sets the locations of the cluster.
+ */
+@interface GTLRContainer_SetLocationsRequest : GTLRObject
+
+/**
+ *  The desired list of Google Compute Engine
+ *  [locations](/compute/docs/zones#available) in which the cluster's nodes
+ *  should be located. Changing the locations a cluster is in will result
+ *  in nodes being either created or removed from the cluster, depending on
+ *  whether locations are being added or removed.
+ *  This list must always include the cluster's primary zone.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
+
+@end
+
+
+/**
+ *  SetLoggingServiceRequest sets the logging service of a cluster.
+ */
+@interface GTLRContainer_SetLoggingServiceRequest : GTLRObject
+
+/**
+ *  The logging service the cluster should use to write metrics.
+ *  Currently available options:
+ *  * "logging.googleapis.com" - the Google Cloud Logging service
+ *  * "none" - no metrics will be exported from the cluster
+ */
+@property(nonatomic, copy, nullable) NSString *loggingService;
+
+@end
+
+
+/**
  *  SetMasterAuthRequest updates the admin password of a cluster.
  */
 @interface GTLRContainer_SetMasterAuthRequest : GTLRObject
@@ -1372,6 +1550,44 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /** A description of the update. */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuth *update;
+
+@end
+
+
+/**
+ *  SetMonitoringServiceRequest sets the monitoring service of a cluster.
+ */
+@interface GTLRContainer_SetMonitoringServiceRequest : GTLRObject
+
+/**
+ *  The monitoring service the cluster should use to write metrics.
+ *  Currently available options:
+ *  * "monitoring.googleapis.com" - the Google Cloud Monitoring service
+ *  * "none" - no metrics will be exported from the cluster
+ */
+@property(nonatomic, copy, nullable) NSString *monitoringService;
+
+@end
+
+
+/**
+ *  SetNetworkPolicyRequest enables/disables network policy for a cluster.
+ */
+@interface GTLRContainer_SetNetworkPolicyRequest : GTLRObject
+
+/** Configuration options for the NetworkPolicy feature. */
+@property(nonatomic, strong, nullable) GTLRContainer_NetworkPolicy *networkPolicy;
+
+@end
+
+
+/**
+ *  SetNodePoolAutoscalingRequest sets the autoscaler settings of a node pool.
+ */
+@interface GTLRContainer_SetNodePoolAutoscalingRequest : GTLRObject
+
+/** Autoscaling configuration for the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodePoolAutoscaling *autoscaling;
 
 @end
 
@@ -1419,6 +1635,39 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /** A description of the update. */
 @property(nonatomic, strong, nullable) GTLRContainer_ClusterUpdate *update;
+
+@end
+
+
+/**
+ *  UpdateMasterRequest updates the master of the cluster.
+ */
+@interface GTLRContainer_UpdateMasterRequest : GTLRObject
+
+/**
+ *  The Kubernetes version to change the master to. The only valid value is the
+ *  latest supported version. Use "-" to have the server automatically select
+ *  the latest version.
+ */
+@property(nonatomic, copy, nullable) NSString *masterVersion;
+
+@end
+
+
+/**
+ *  UpdateNodePoolRequests update a node pool's image and/or version.
+ */
+@interface GTLRContainer_UpdateNodePoolRequest : GTLRObject
+
+/** The desired image type for the node pool. */
+@property(nonatomic, copy, nullable) NSString *imageType;
+
+/**
+ *  The Kubernetes version to change the nodes to (typically an
+ *  upgrade). Use `-` to upgrade to the latest version supported by
+ *  the server.
+ */
+@property(nonatomic, copy, nullable) NSString *nodeVersion;
 
 @end
 

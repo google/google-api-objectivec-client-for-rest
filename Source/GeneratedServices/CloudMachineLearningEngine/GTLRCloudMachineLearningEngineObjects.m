@@ -21,6 +21,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1OperationMe
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version.state
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Creating = @"CREATING";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Failed = @"FAILED";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Ready = @"READY";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Unknown = @"UNKNOWN";
 
@@ -73,6 +74,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_Sc
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.state
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Creating = @"CREATING";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Failed = @"FAILED";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Ready = @"READY";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Unknown = @"UNKNOWN";
 
@@ -197,7 +199,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version
 @dynamic automaticScaling, createTime, deploymentUri, descriptionProperty,
-         isDefault, lastUseTime, manualScaling, name, runtimeVersion, state;
+         errorMessage, isDefault, lastUseTime, manualScaling, name,
+         runtimeVersion, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -521,7 +524,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version
 @dynamic automaticScaling, createTime, deploymentUri, descriptionProperty,
-         isDefault, lastUseTime, manualScaling, name, runtimeVersion, state;
+         errorMessage, isDefault, lastUseTime, manualScaling, name,
+         runtimeVersion, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

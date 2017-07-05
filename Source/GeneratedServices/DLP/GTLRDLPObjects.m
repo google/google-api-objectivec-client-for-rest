@@ -15,355 +15,42 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRDLP_Finding.likelihood
-NSString * const kGTLRDLP_Finding_Likelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
-NSString * const kGTLRDLP_Finding_Likelihood_Likely            = @"LIKELY";
-NSString * const kGTLRDLP_Finding_Likelihood_Possible          = @"POSSIBLE";
-NSString * const kGTLRDLP_Finding_Likelihood_Unlikely          = @"UNLIKELY";
-NSString * const kGTLRDLP_Finding_Likelihood_VeryLikely        = @"VERY_LIKELY";
-NSString * const kGTLRDLP_Finding_Likelihood_VeryUnlikely      = @"VERY_UNLIKELY";
+// GTLRDLP_GooglePrivacyDlpV2beta1Finding.likelihood
+NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Finding_Likelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Finding_Likelihood_Likely = @"LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Finding_Likelihood_Possible = @"POSSIBLE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Finding_Likelihood_Unlikely = @"UNLIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Finding_Likelihood_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1Finding_Likelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
-// GTLRDLP_InspectConfig.minLikelihood
-NSString * const kGTLRDLP_InspectConfig_MinLikelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
-NSString * const kGTLRDLP_InspectConfig_MinLikelihood_Likely   = @"LIKELY";
-NSString * const kGTLRDLP_InspectConfig_MinLikelihood_Possible = @"POSSIBLE";
-NSString * const kGTLRDLP_InspectConfig_MinLikelihood_Unlikely = @"UNLIKELY";
-NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryLikely = @"VERY_LIKELY";
-NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
+// GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig.minLikelihood
+NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Likely = @"LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Possible = @"POSSIBLE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Unlikely = @"UNLIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_CancelOperationRequest
+//   GTLRDLP_GoogleLongrunningCancelOperationRequest
 //
 
-@implementation GTLRDLP_CancelOperationRequest
+@implementation GTLRDLP_GoogleLongrunningCancelOperationRequest
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_CategoryDescription
+//   GTLRDLP_GoogleLongrunningListOperationsResponse
 //
 
-@implementation GTLRDLP_CategoryDescription
-@dynamic displayName, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_CloudStorageKey
-//
-
-@implementation GTLRDLP_CloudStorageKey
-@dynamic filePath, startOffset;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_CloudStorageOptions
-//
-
-@implementation GTLRDLP_CloudStorageOptions
-@dynamic fileSet;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_CloudStoragePath
-//
-
-@implementation GTLRDLP_CloudStoragePath
-@dynamic path;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_Color
-//
-
-@implementation GTLRDLP_Color
-@dynamic blue, green, red;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_ContentItem
-//
-
-@implementation GTLRDLP_ContentItem
-@dynamic data, type, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_CreateInspectOperationRequest
-//
-
-@implementation GTLRDLP_CreateInspectOperationRequest
-@dynamic inspectConfig, outputConfig, storageConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_DatastoreKey
-//
-
-@implementation GTLRDLP_DatastoreKey
-@dynamic entityKey;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_DatastoreOptions
-//
-
-@implementation GTLRDLP_DatastoreOptions
-@dynamic kind, partitionId, projection;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"projection" : [GTLRDLP_Projection class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_Empty
-//
-
-@implementation GTLRDLP_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_FieldId
-//
-
-@implementation GTLRDLP_FieldId
-@dynamic columnName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_FileSet
-//
-
-@implementation GTLRDLP_FileSet
-@dynamic url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_Finding
-//
-
-@implementation GTLRDLP_Finding
-@dynamic createTime, infoType, likelihood, location, quote;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_ImageLocation
-//
-
-@implementation GTLRDLP_ImageLocation
-@dynamic height, left, top, width;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_ImageRedactionConfig
-//
-
-@implementation GTLRDLP_ImageRedactionConfig
-@dynamic infoType, redactAllText, redactionColor;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_InfoType
-//
-
-@implementation GTLRDLP_InfoType
-@dynamic name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_InfoTypeDescription
-//
-
-@implementation GTLRDLP_InfoTypeDescription
-@dynamic categories, displayName, name;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"categories" : [GTLRDLP_CategoryDescription class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_InspectConfig
-//
-
-@implementation GTLRDLP_InspectConfig
-@dynamic excludeTypes, includeQuote, infoTypes, maxFindings, minLikelihood;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"infoTypes" : [GTLRDLP_InfoType class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_InspectContentRequest
-//
-
-@implementation GTLRDLP_InspectContentRequest
-@dynamic inspectConfig, items;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRDLP_ContentItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_InspectContentResponse
-//
-
-@implementation GTLRDLP_InspectContentResponse
-@dynamic results;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"results" : [GTLRDLP_InspectResult class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_InspectResult
-//
-
-@implementation GTLRDLP_InspectResult
-@dynamic findings, findingsTruncated;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"findings" : [GTLRDLP_Finding class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_Key
-//
-
-@implementation GTLRDLP_Key
-@dynamic partitionId, path;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"path" : [GTLRDLP_PathElement class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_KindExpression
-//
-
-@implementation GTLRDLP_KindExpression
-@dynamic name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_ListInfoTypesResponse
-//
-
-@implementation GTLRDLP_ListInfoTypesResponse
-@dynamic infoTypes;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"infoTypes" : [GTLRDLP_InfoTypeDescription class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_ListInspectFindingsResponse
-//
-
-@implementation GTLRDLP_ListInspectFindingsResponse
-@dynamic nextPageToken, result;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_ListOperationsResponse
-//
-
-@implementation GTLRDLP_ListOperationsResponse
+@implementation GTLRDLP_GoogleLongrunningListOperationsResponse
 @dynamic nextPageToken, operations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRDLP_Operation class]
+    @"operations" : [GTLRDLP_GoogleLongrunningOperation class]
   };
   return map;
 }
@@ -377,56 +64,20 @@ NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_ListRootCategoriesResponse
+//   GTLRDLP_GoogleLongrunningOperation
 //
 
-@implementation GTLRDLP_ListRootCategoriesResponse
-@dynamic categories;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"categories" : [GTLRDLP_CategoryDescription class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_Location
-//
-
-@implementation GTLRDLP_Location
-@dynamic byteRange, codepointRange, fieldId, imageBoxes, recordKey;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"imageBoxes" : [GTLRDLP_ImageLocation class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_Operation
-//
-
-@implementation GTLRDLP_Operation
+@implementation GTLRDLP_GoogleLongrunningOperation
 @dynamic done, error, metadata, name, response;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_Operation_Metadata
+//   GTLRDLP_GoogleLongrunningOperation_Metadata
 //
 
-@implementation GTLRDLP_Operation_Metadata
+@implementation GTLRDLP_GoogleLongrunningOperation_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -437,10 +88,10 @@ NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_Operation_Response
+//   GTLRDLP_GoogleLongrunningOperation_Response
 //
 
-@implementation GTLRDLP_Operation_Response
+@implementation GTLRDLP_GoogleLongrunningOperation_Response
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -451,30 +102,409 @@ NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_OutputStorageConfig
+//   GTLRDLP_GooglePrivacyDlpV2beta1CategoryDescription
 //
 
-@implementation GTLRDLP_OutputStorageConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1CategoryDescription
+@dynamic displayName, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1CloudStorageKey
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1CloudStorageKey
+@dynamic filePath, startOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1CloudStorageOptions
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1CloudStorageOptions
+@dynamic fileSet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1CloudStoragePath
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1CloudStoragePath
+@dynamic path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1Color
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1Color
+@dynamic blue, green, red;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1ContentItem
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1ContentItem
+@dynamic data, type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1CreateInspectOperationRequest
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1CreateInspectOperationRequest
+@dynamic inspectConfig, outputConfig, storageConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1DatastoreKey
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1DatastoreKey
+@dynamic entityKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1DatastoreOptions
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1DatastoreOptions
+@dynamic kind, partitionId, projection;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"projection" : [GTLRDLP_GooglePrivacyDlpV2beta1Projection class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1FieldId
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1FieldId
+@dynamic columnName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1FileSet
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1FileSet
+@dynamic url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1Finding
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1Finding
+@dynamic createTime, infoType, likelihood, location, quote;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1ImageLocation
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1ImageLocation
+@dynamic height, left, top, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1ImageRedactionConfig
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1ImageRedactionConfig
+@dynamic infoType, redactAllText, redactionColor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1InfoType
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1InfoType
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeDescription
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeDescription
+@dynamic categories, displayName, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categories" : [GTLRDLP_GooglePrivacyDlpV2beta1CategoryDescription class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeStatistics
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeStatistics
+@dynamic count, infoType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig
+@dynamic excludeTypes, includeQuote, infoTypes, maxFindings, minLikelihood;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2beta1InfoType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1InspectContentRequest
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1InspectContentRequest
+@dynamic inspectConfig, items;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRDLP_GooglePrivacyDlpV2beta1ContentItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1InspectContentResponse
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1InspectContentResponse
+@dynamic results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRDLP_GooglePrivacyDlpV2beta1InspectResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1InspectOperationMetadata
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1InspectOperationMetadata
+@dynamic createTime, infoTypeStats, processedBytes, requestInspectConfig,
+         requestOutputConfig, requestStorageConfig, totalEstimatedBytes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"infoTypeStats" : [GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeStatistics class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1InspectOperationResult
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1InspectOperationResult
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1InspectResult
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1InspectResult
+@dynamic findings, findingsTruncated;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"findings" : [GTLRDLP_GooglePrivacyDlpV2beta1Finding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1Key
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1Key
+@dynamic partitionId, path;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"path" : [GTLRDLP_GooglePrivacyDlpV2beta1PathElement class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1KindExpression
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1KindExpression
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1ListInfoTypesResponse
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1ListInfoTypesResponse
+@dynamic infoTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeDescription class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1ListInspectFindingsResponse
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1ListInspectFindingsResponse
+@dynamic nextPageToken, result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1ListRootCategoriesResponse
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1ListRootCategoriesResponse
+@dynamic categories;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categories" : [GTLRDLP_GooglePrivacyDlpV2beta1CategoryDescription class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1Location
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1Location
+@dynamic byteRange, codepointRange, fieldId, imageBoxes, recordKey;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"imageBoxes" : [GTLRDLP_GooglePrivacyDlpV2beta1ImageLocation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1OutputStorageConfig
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1OutputStorageConfig
 @dynamic storagePath;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_PartitionId
+//   GTLRDLP_GooglePrivacyDlpV2beta1PartitionId
 //
 
-@implementation GTLRDLP_PartitionId
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1PartitionId
 @dynamic namespaceId, projectId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_PathElement
+//   GTLRDLP_GooglePrivacyDlpV2beta1PathElement
 //
 
-@implementation GTLRDLP_PathElement
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1PathElement
 @dynamic identifier, kind, name;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -492,57 +522,57 @@ NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_Projection
+//   GTLRDLP_GooglePrivacyDlpV2beta1Projection
 //
 
-@implementation GTLRDLP_Projection
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1Projection
 @dynamic property;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_PropertyReference
+//   GTLRDLP_GooglePrivacyDlpV2beta1PropertyReference
 //
 
-@implementation GTLRDLP_PropertyReference
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1PropertyReference
 @dynamic name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_Range
+//   GTLRDLP_GooglePrivacyDlpV2beta1Range
 //
 
-@implementation GTLRDLP_Range
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1Range
 @dynamic end, start;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_RecordKey
+//   GTLRDLP_GooglePrivacyDlpV2beta1RecordKey
 //
 
-@implementation GTLRDLP_RecordKey
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1RecordKey
 @dynamic cloudStorageKey, datastoreKey;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_RedactContentRequest
+//   GTLRDLP_GooglePrivacyDlpV2beta1RedactContentRequest
 //
 
-@implementation GTLRDLP_RedactContentRequest
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1RedactContentRequest
 @dynamic imageRedactionConfigs, inspectConfig, items, replaceConfigs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"imageRedactionConfigs" : [GTLRDLP_ImageRedactionConfig class],
-    @"items" : [GTLRDLP_ContentItem class],
-    @"replaceConfigs" : [GTLRDLP_ReplaceConfig class]
+    @"imageRedactionConfigs" : [GTLRDLP_GooglePrivacyDlpV2beta1ImageRedactionConfig class],
+    @"items" : [GTLRDLP_GooglePrivacyDlpV2beta1ContentItem class],
+    @"replaceConfigs" : [GTLRDLP_GooglePrivacyDlpV2beta1ReplaceConfig class]
   };
   return map;
 }
@@ -552,15 +582,15 @@ NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_RedactContentResponse
+//   GTLRDLP_GooglePrivacyDlpV2beta1RedactContentResponse
 //
 
-@implementation GTLRDLP_RedactContentResponse
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1RedactContentResponse
 @dynamic items;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRDLP_ContentItem class]
+    @"items" : [GTLRDLP_GooglePrivacyDlpV2beta1ContentItem class]
   };
   return map;
 }
@@ -570,25 +600,44 @@ NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_ReplaceConfig
+//   GTLRDLP_GooglePrivacyDlpV2beta1ReplaceConfig
 //
 
-@implementation GTLRDLP_ReplaceConfig
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1ReplaceConfig
 @dynamic infoType, replaceWith;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_Status
+//   GTLRDLP_GooglePrivacyDlpV2beta1StorageConfig
 //
 
-@implementation GTLRDLP_Status
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1StorageConfig
+@dynamic cloudStorageOptions, datastoreOptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GoogleProtobufEmpty
+//
+
+@implementation GTLRDLP_GoogleProtobufEmpty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GoogleRpcStatus
+//
+
+@implementation GTLRDLP_GoogleRpcStatus
 @dynamic code, details, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRDLP_Status_Details_Item class]
+    @"details" : [GTLRDLP_GoogleRpcStatus_Details_Item class]
   };
   return map;
 }
@@ -598,23 +647,13 @@ NSString * const kGTLRDLP_InspectConfig_MinLikelihood_VeryUnlikely = @"VERY_UNLI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_Status_Details_Item
+//   GTLRDLP_GoogleRpcStatus_Details_Item
 //
 
-@implementation GTLRDLP_Status_Details_Item
+@implementation GTLRDLP_GoogleRpcStatus_Details_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDLP_StorageConfig
-//
-
-@implementation GTLRDLP_StorageConfig
-@dynamic cloudStorageOptions, datastoreOptions;
 @end

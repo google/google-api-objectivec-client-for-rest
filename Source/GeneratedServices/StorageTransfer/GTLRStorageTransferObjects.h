@@ -1253,14 +1253,17 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 /**
  *  Whether objects should be deleted from the source after they are
- *  transferred to the sink.
+ *  transferred to the sink. Note that this option and
+ *  `deleteObjectsUniqueInSink` are mutually exclusive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deleteObjectsFromSourceAfterTransfer;
 
 /**
- *  Whether objects that exist only in the sink should be deleted.
+ *  Whether objects that exist only in the sink should be deleted. Note that
+ *  this option and `deleteObjectsFromSourceAfterTransfer` are mutually
+ *  exclusive.
  *
  *  Uses NSNumber of boolValue.
  */

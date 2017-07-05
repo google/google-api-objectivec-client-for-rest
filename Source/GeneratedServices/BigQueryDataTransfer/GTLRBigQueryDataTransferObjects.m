@@ -293,8 +293,9 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_TransferStatusUnsp
 //
 
 @implementation GTLRBigQueryDataTransfer_TransferConfig
-@dynamic dataRefreshWindowDays, dataSourceId, destinationDatasetId, disabled,
-         displayName, name, nextRunTime, params, schedule, status, updateTime;
+@dynamic dataRefreshWindowDays, datasetRegion, dataSourceId,
+         destinationDatasetId, disabled, displayName, name, nextRunTime, params,
+         schedule, status, updateTime, userId;
 @end
 
 
@@ -328,8 +329,9 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_TransferStatusUnsp
 //
 
 @implementation GTLRBigQueryDataTransfer_TransferRun
-@dynamic dataSourceId, destinationDatasetId, endTime, name, params, runTime,
-         schedule, scheduleTime, startTime, status, updateTime;
+@dynamic datasetRegion, dataSourceId, destinationDatasetId, endTime, name,
+         params, runTime, schedule, scheduleTime, startTime, status, updateTime,
+         userId;
 @end
 
 

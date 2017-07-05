@@ -97,6 +97,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Creating;
 /**
+ *  The version failed to be created, possibly cancelled.
+ *  `error_message` should contain the details of the failure.
+ *
+ *  Value: "FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Failed;
+/**
  *  The version is ready for prediction.
  *
  *  Value: "READY"
@@ -375,6 +382,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *  Value: "CREATING"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Creating;
+/**
+ *  The version failed to be created, possibly cancelled.
+ *  `error_message` should contain the details of the failure.
+ *
+ *  Value: "FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Failed;
 /**
  *  The version is ready for prediction.
  *
@@ -832,6 +846,9 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Output only. The details of a failure or a cancellation. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
 /**
  *  Output only. If true, this version will be used to handle prediction
  *  requests that do not specify a version.
@@ -873,6 +890,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Creating
  *        The version is still in the process of creation. (Value: "CREATING")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Failed
+ *        The version failed to be created, possibly cancelled.
+ *        `error_message` should contain the details of the failure. (Value:
+ *        "FAILED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Ready
  *        The version is ready for prediction. (Value: "READY")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Unknown
@@ -1941,6 +1962,9 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Output only. The details of a failure or a cancellation. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
 /**
  *  Output only. If true, this version will be used to handle prediction
  *  requests that do not specify a version.
@@ -1982,6 +2006,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Creating
  *        The version is still in the process of creation. (Value: "CREATING")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Failed
+ *        The version failed to be created, possibly cancelled.
+ *        `error_message` should contain the details of the failure. (Value:
+ *        "FAILED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Ready
  *        The version is ready for prediction. (Value: "READY")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Unknown
@@ -2239,6 +2267,23 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
 
 /**
  *  Specifies what kind of log the caller must write
+ *  Increment a streamz counter with the specified metric and field names.
+ *  Metric names should start with a '/', generally be lowercase-only,
+ *  and end in "_count". Field names should not contain an initial slash.
+ *  The actual exported metric names will have "/iam/policy" prepended.
+ *  Field names correspond to IAM request parameters and field values are
+ *  their respective values.
+ *  At present the only supported field names are
+ *  - "iam_principal", corresponding to IAMContext.principal;
+ *  - "" (empty string), resulting in one aggretated counter with no field.
+ *  Examples:
+ *  counter { metric: "/debug_access_count" field: "iam_principal" }
+ *  ==> increment counter /iam/policy/backend_debug_access_count
+ *  {iam_principal=[value of IAMContext.principal]}
+ *  At this time we do not support:
+ *  * multiple field names (though this may be supported in the future)
+ *  * decrementing the counter
+ *  * incrementing it by anything other than 1
  */
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1LogConfig : GTLRObject
 

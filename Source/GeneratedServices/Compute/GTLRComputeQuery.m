@@ -4634,6 +4634,102 @@
 
 @end
 
+@implementation GTLRComputeQuery_RegionCommitmentsAggregatedList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/aggregated/commitments";
+  GTLRComputeQuery_RegionCommitmentsAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_CommitmentAggregatedList class];
+  query.loggingName = @"compute.regionCommitments.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionCommitmentsGet
+
+@dynamic commitment, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                      commitment:(NSString *)commitment {
+  NSArray *pathParams = @[
+    @"commitment", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/commitments/{commitment}";
+  GTLRComputeQuery_RegionCommitmentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.commitment = commitment;
+  query.expectedObjectClass = [GTLRCompute_Commitment class];
+  query.loggingName = @"compute.regionCommitments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionCommitmentsInsert
+
+@dynamic project, region;
+
++ (instancetype)queryWithObject:(GTLRCompute_Commitment *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/commitments";
+  GTLRComputeQuery_RegionCommitmentsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionCommitments.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionCommitmentsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/commitments";
+  GTLRComputeQuery_RegionCommitmentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_CommitmentList class];
+  query.loggingName = @"compute.regionCommitments.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersAbandonInstances
 
 @dynamic instanceGroupManager, project, region;

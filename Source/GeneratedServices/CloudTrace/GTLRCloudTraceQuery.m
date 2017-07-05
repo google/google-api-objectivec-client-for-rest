@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Trace API (cloudtrace/v1)
+//   Stackdriver Trace API (cloudtrace/v2)
 // Description:
 //   Send and retrieve trace data from Stackdriver Trace. Data is generated and
 //   available by default for all App Engine applications. Data from other
@@ -15,68 +15,32 @@
 
 #import "GTLRCloudTraceObjects.h"
 
-// ----------------------------------------------------------------------------
-// Constants
-
-// view
-NSString * const kGTLRCloudTraceViewComplete            = @"COMPLETE";
-NSString * const kGTLRCloudTraceViewMinimal             = @"MINIMAL";
-NSString * const kGTLRCloudTraceViewRootspan            = @"ROOTSPAN";
-NSString * const kGTLRCloudTraceViewViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 @implementation GTLRCloudTraceQuery
 
 @dynamic fields;
 
 @end
 
-@implementation GTLRCloudTraceQuery_ProjectsPatchTraces
+@implementation GTLRCloudTraceQuery_ProjectsTracesBatchWrite
 
-@dynamic projectId;
+@dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRCloudTrace_Traces *)object
-                      projectId:(NSString *)projectId {
++ (instancetype)queryWithObject:(GTLRCloudTrace_BatchWriteSpansRequest *)object
+                           name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"v1/projects/{projectId}/traces";
-  GTLRCloudTraceQuery_ProjectsPatchTraces *query =
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/traces:batchWrite";
+  GTLRCloudTraceQuery_ProjectsTracesBatchWrite *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
+                               HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.projectId = projectId;
+  query.name = name;
   query.expectedObjectClass = [GTLRCloudTrace_Empty class];
-  query.loggingName = @"cloudtrace.projects.patchTraces";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudTraceQuery_ProjectsTracesGet
-
-@dynamic projectId, traceId;
-
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                           traceId:(NSString *)traceId {
-  NSArray *pathParams = @[
-    @"projectId", @"traceId"
-  ];
-  NSString *pathURITemplate = @"v1/projects/{projectId}/traces/{traceId}";
-  GTLRCloudTraceQuery_ProjectsTracesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.projectId = projectId;
-  query.traceId = traceId;
-  query.expectedObjectClass = [GTLRCloudTrace_Trace class];
-  query.loggingName = @"cloudtrace.projects.traces.get";
+  query.loggingName = @"cloudtrace.projects.traces.batchWrite";
   return query;
 }
 
@@ -84,19 +48,62 @@ NSString * const kGTLRCloudTraceViewViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIE
 
 @implementation GTLRCloudTraceQuery_ProjectsTracesList
 
-@dynamic endTime, filter, orderBy, pageSize, pageToken, projectId, startTime,
-         view;
+@dynamic endTime, filter, orderBy, pageSize, pageToken, parent, startTime;
 
-+ (instancetype)queryWithProjectId:(NSString *)projectId {
-  NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"v1/projects/{projectId}/traces";
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/traces";
   GTLRCloudTraceQuery_ProjectsTracesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.projectId = projectId;
+  query.parent = parent;
   query.expectedObjectClass = [GTLRCloudTrace_ListTracesResponse class];
   query.loggingName = @"cloudtrace.projects.traces.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudTraceQuery_ProjectsTracesListSpans
+
+@dynamic pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}:listSpans";
+  GTLRCloudTraceQuery_ProjectsTracesListSpans *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudTrace_ListSpansResponse class];
+  query.loggingName = @"cloudtrace.projects.traces.listSpans";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudTraceQuery_ProjectsTracesSpansCreate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudTrace_Span *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudTraceQuery_ProjectsTracesSpansCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudTrace_Span class];
+  query.loggingName = @"cloudtrace.projects.traces.spans.create";
   return query;
 }
 

@@ -81,6 +81,16 @@ NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRToolResults_AppStartTime
+//
+
+@implementation GTLRToolResults_AppStartTime
+@dynamic fullyDrawnTime, initialDisplayTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRToolResults_BasicPerfSampleSeries
 //
 
@@ -371,8 +381,8 @@ NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 //
 
 @implementation GTLRToolResults_PerfMetricsSummary
-@dynamic executionId, historyId, perfEnvironment, perfMetrics, projectId,
-         stepId;
+@dynamic appStartTime, executionId, historyId, perfEnvironment, perfMetrics,
+         projectId, stepId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
