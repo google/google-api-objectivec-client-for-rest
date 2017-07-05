@@ -121,6 +121,23 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_N
 GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Sha256;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudBuild_BuildOptions.substitutionOption
+
+/**
+ *  Do not fail the build if error in substitutions checks.
+ *
+ *  Value: "ALLOW_LOOSE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_AllowLoose;
+/**
+ *  Fails the build if error in substitutions checks, like missing
+ *  a substitution in the template or in the map.
+ *
+ *  Value: "MUST_MATCH"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_MustMatch;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudBuild_Hash.type
 
 /**
@@ -327,6 +344,19 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 /** Requested hash for SourceProvenance. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceProvenanceHash;
+
+/**
+ *  SubstitutionOption to allow unmatch substitutions.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_BuildOptions_SubstitutionOption_AllowLoose Do not
+ *        fail the build if error in substitutions checks. (Value:
+ *        "ALLOW_LOOSE")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_SubstitutionOption_MustMatch Fails
+ *        the build if error in substitutions checks, like missing
+ *        a substitution in the template or in the map. (Value: "MUST_MATCH")
+ */
+@property(nonatomic, copy, nullable) NSString *substitutionOption;
 
 @end
 

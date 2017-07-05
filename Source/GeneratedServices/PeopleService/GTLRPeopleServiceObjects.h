@@ -23,7 +23,10 @@
 @class GTLRPeopleService_Biography;
 @class GTLRPeopleService_Birthday;
 @class GTLRPeopleService_BraggingRights;
+@class GTLRPeopleService_ContactGroup;
 @class GTLRPeopleService_ContactGroupMembership;
+@class GTLRPeopleService_ContactGroupMetadata;
+@class GTLRPeopleService_ContactGroupResponse;
 @class GTLRPeopleService_CoverPhoto;
 @class GTLRPeopleService_Date;
 @class GTLRPeopleService_DomainMembership;
@@ -110,6 +113,28 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Biography_ContentType_TextHtml;
  *  Value: "TEXT_PLAIN"
  */
 GTLR_EXTERN NSString * const kGTLRPeopleService_Biography_ContentType_TextPlain;
+
+// ----------------------------------------------------------------------------
+// GTLRPeopleService_ContactGroup.groupType
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "GROUP_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRPeopleService_ContactGroup_GroupType_GroupTypeUnspecified;
+/**
+ *  System defined contact group.
+ *
+ *  Value: "SYSTEM_CONTACT_GROUP"
+ */
+GTLR_EXTERN NSString * const kGTLRPeopleService_ContactGroup_GroupType_SystemContactGroup;
+/**
+ *  User defined contact group.
+ *
+ *  Value: "USER_CONTACT_GROUP"
+ */
+GTLR_EXTERN NSString * const kGTLRPeopleService_ContactGroup_GroupType_UserContactGroup;
 
 // ----------------------------------------------------------------------------
 // GTLRPeopleService_Nickname.type
@@ -343,6 +368,17 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
+ *  The response to a batch get contact groups request.
+ */
+@interface GTLRPeopleService_BatchGetContactGroupsResponse : GTLRObject
+
+/** The list of responses for each requested contact group resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_ContactGroupResponse *> *responses;
+
+@end
+
+
+/**
  *  A person's short biography.
  */
 @interface GTLRPeopleService_Biography : GTLRObject
@@ -403,6 +439,71 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
+ *  A contact group.
+ */
+@interface GTLRPeopleService_ContactGroup : GTLRObject
+
+/**
+ *  The [HTTP entity tag](https://en.wikipedia.org/wiki/HTTP_ETag) of the
+ *  resource. Used for web cache validation.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The read-only name translated and formatted in the viewer's account locale
+ *  or the `Accept-Language` HTTP header locale for system groups names.
+ *  Group names set by the owner are the same as name.
+ */
+@property(nonatomic, copy, nullable) NSString *formattedName;
+
+/**
+ *  The read-only contact group type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPeopleService_ContactGroup_GroupType_GroupTypeUnspecified
+ *        Unspecified. (Value: "GROUP_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPeopleService_ContactGroup_GroupType_SystemContactGroup
+ *        System defined contact group. (Value: "SYSTEM_CONTACT_GROUP")
+ *    @arg @c kGTLRPeopleService_ContactGroup_GroupType_UserContactGroup User
+ *        defined contact group. (Value: "USER_CONTACT_GROUP")
+ */
+@property(nonatomic, copy, nullable) NSString *groupType;
+
+/**
+ *  The total number of contacts in the group irrespective of max members in
+ *  specified in the request.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memberCount;
+
+/**
+ *  The list of contact person resource names that are members of the contact
+ *  group. The field is not populated for LIST requests and can only be updated
+ *  through the
+ *  [ModifyContactGroupMembers](/people/api/rest/v1/contactgroups/members/modify).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *memberResourceNames;
+
+/** Metadata about the contact group. */
+@property(nonatomic, strong, nullable) GTLRPeopleService_ContactGroupMetadata *metadata;
+
+/**
+ *  The contact group name set by the group owner or a system provided name
+ *  for system groups.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The resource name for the contact group, assigned by the server. An ASCII
+ *  string, in the form of `contactGroups/<contact_group_id>`.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
  *  A Google contact group membership.
  */
 @interface GTLRPeopleService_ContactGroupMembership : GTLRObject
@@ -416,6 +517,43 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  *  * A numerical ID for user-created groups.
  */
 @property(nonatomic, copy, nullable) NSString *contactGroupId;
+
+@end
+
+
+/**
+ *  The read-only metadata about a contact group.
+ */
+@interface GTLRPeopleService_ContactGroupMetadata : GTLRObject
+
+/**
+ *  True if the contact group resource has been deleted. Populated only for
+ *  [`ListContactGroups`](/people/api/rest/v1/contactgroups/list) requests
+ *  that include a sync token.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleted;
+
+/** The time the group was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The response for a specific contact group.
+ */
+@interface GTLRPeopleService_ContactGroupResponse : GTLRObject
+
+/** The contact group. */
+@property(nonatomic, strong, nullable) GTLRPeopleService_ContactGroup *contactGroup;
+
+/** The original requested resource name. */
+@property(nonatomic, copy, nullable) NSString *requestedResourceName;
+
+/** The status of the response. */
+@property(nonatomic, strong, nullable) GTLRPeopleService_Status *status;
 
 @end
 
@@ -441,6 +579,17 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /** The URL of the cover photo. */
 @property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  A request to create a new contact group.
+ */
+@interface GTLRPeopleService_CreateContactGroupRequest : GTLRObject
+
+/** The contact group to create. */
+@property(nonatomic, strong, nullable) GTLRPeopleService_ContactGroup *contactGroup;
 
 @end
 
@@ -527,6 +676,19 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The email address. */
 @property(nonatomic, copy, nullable) NSString *value;
 
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRPeopleService_Empty : GTLRObject
 @end
 
 
@@ -732,6 +894,41 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
+ *  The response to a list contact groups request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "contactGroups" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPeopleService_ListContactGroupsResponse : GTLRCollectionObject
+
+/**
+ *  The list of contact groups. Members of the contact groups are not
+ *  populated.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_ContactGroup *> *contactGroups;
+
+/** The token that can be used to retrieve the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** The token that can be used to retrieve changes since the last request. */
+@property(nonatomic, copy, nullable) NSString *nextSyncToken;
+
+/**
+ *  The total number of items in the list without pagination.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalItems;
+
+@end
+
+
+/**
  *  A person's locale preference.
  */
 @interface GTLRPeopleService_Locale : GTLRObject
@@ -761,6 +958,37 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /** Metadata about the membership. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_FieldMetadata *metadata;
+
+@end
+
+
+/**
+ *  A request to modify an existing contact group's members.
+ */
+@interface GTLRPeopleService_ModifyContactGroupMembersRequest : GTLRObject
+
+/**
+ *  The resource names of the contact people to add in the form of in the form
+ *  `people/<person_id>`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNamesToAdd;
+
+/**
+ *  The resource names of the contact people to remove in the form of in the
+ *  form of `people/<person_id>`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNamesToRemove;
+
+@end
+
+
+/**
+ *  The response to a modify contact group members request.
+ */
+@interface GTLRPeopleService_ModifyContactGroupMembersResponse : GTLRObject
+
+/** The contact people resource names that were not found. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *notFoundResourceNames;
 
 @end
 
@@ -1504,6 +1732,17 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /** The tagline. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  A request to update an existing contact group. Only the name can be updated.
+ */
+@interface GTLRPeopleService_UpdateContactGroupRequest : GTLRObject
+
+/** The contact group to update. */
+@property(nonatomic, strong, nullable) GTLRPeopleService_ContactGroup *contactGroup;
 
 @end
 

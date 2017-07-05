@@ -31,6 +31,10 @@ NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_Verified = @
 NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_None = @"NONE";
 NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Sha256 = @"SHA256";
 
+// GTLRCloudBuild_BuildOptions.substitutionOption
+NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_AllowLoose = @"ALLOW_LOOSE";
+NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_MustMatch = @"MUST_MATCH";
+
 // GTLRCloudBuild_Hash.type
 NSString * const kGTLRCloudBuild_Hash_Type_None   = @"NONE";
 NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
@@ -91,7 +95,7 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_BuildOptions
-@dynamic requestedVerifyOption, sourceProvenanceHash;
+@dynamic requestedVerifyOption, sourceProvenanceHash, substitutionOption;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
