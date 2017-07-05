@@ -1309,6 +1309,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     self.numberOfActiveNetworkActions += 1;
   }
 
+  [self printSubsection:@" + Waiting for discovery documents"];
   self.state = SGMain_Wait;
   self.postWaitState = SGMain_Generate;
 }
