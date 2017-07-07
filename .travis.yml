@@ -7,6 +7,8 @@ env:
   - TEST_TYPE=Xcode MODE=iOSCore CFG=Release
   - TEST_TYPE=Xcode MODE=tvOSCore CFG=Debug
   - TEST_TYPE=Xcode MODE=tvOSCore CFG=Release
+  - TEST_TYPE=Xcode MODE=watchOSCore CFG=Debug
+  - TEST_TYPE=Xcode MODE=watchOSCore CFG=Release
   - TEST_TYPE=Xcode MODE=ServiceGenerator CFG=Both
   - TEST_TYPE=Xcode MODE=Example_CalendarSample CFG=Both
   - TEST_TYPE=Xcode MODE=Example_DriveSample CFG=Both

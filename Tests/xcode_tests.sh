@@ -40,6 +40,13 @@ case "${BUILD_MODE}" in
       -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest"
     )
     ;;
+  watchOSCore)
+    CMD_BUILDER+=(
+      -project Source/GTLRCore.xcodeproj
+      -scheme "watchOS Framework"
+    )
+    XCODEBUILD_ACTION="build"
+    ;;
   ServiceGenerator)
     CMD_BUILDER+=(
       -project "Source/Tools/ServiceGenerator/ServiceGenerator.xcodeproj"
