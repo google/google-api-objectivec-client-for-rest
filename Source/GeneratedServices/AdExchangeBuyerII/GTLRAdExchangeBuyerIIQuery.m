@@ -658,34 +658,6 @@ NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates = @"NO_DUPLIC
 
 @end
 
-@implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesDetailsList
-
-@dynamic accountId, creativeId, creativeStatusId, filterSetId, pageSize,
-         pageToken;
-
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId
-                  creativeStatusId:(NSInteger)creativeStatusId
-                        creativeId:(NSString *)creativeId {
-  NSArray *pathParams = @[
-    @"accountId", @"creativeId", @"creativeStatusId", @"filterSetId"
-  ];
-  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/filterSets/{filterSetId}/filteredBids/{creativeStatusId}/creatives/{creativeId}/details";
-  GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesDetailsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.accountId = accountId;
-  query.filterSetId = filterSetId;
-  query.creativeStatusId = creativeStatusId;
-  query.creativeId = creativeId;
-  query.expectedObjectClass = [GTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse class];
-  query.loggingName = @"adexchangebuyer2.accounts.filterSets.filteredBids.creatives.details.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesList
 
 @dynamic accountId, creativeStatusId, filterSetId, pageSize, pageToken;

@@ -1128,6 +1128,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_MasterProperties
+//
+
+@implementation GTLRSlides_MasterProperties
+@dynamic displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_NestingLevel
 //
 
@@ -1192,8 +1202,8 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_Page
-@dynamic layoutProperties, notesProperties, objectId, pageElements,
-         pageProperties, pageType, revisionId, slideProperties;
+@dynamic layoutProperties, masterProperties, notesProperties, objectId,
+         pageElements, pageProperties, pageType, revisionId, slideProperties;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

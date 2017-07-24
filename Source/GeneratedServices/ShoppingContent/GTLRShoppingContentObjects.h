@@ -3794,6 +3794,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The link to the product. */
 @property(nonatomic, copy, nullable) NSString *link;
 
+/** Product data after applying all the join inputs. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Product *product;
+
 /** The id of the product for which status is reported. */
 @property(nonatomic, copy, nullable) NSString *productId;
 
@@ -3881,6 +3884,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *batchId;
+
+/**
+ *  includeAttributes
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeAttributes;
 
 /**
  *  The ID of the managing account.

@@ -273,6 +273,25 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 @end
 
+@implementation GTLRAndroidEnterpriseQuery_EnterprisesGetAndroidDevicePolicyConfig
+
+@dynamic enterpriseId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
+  NSArray *pathParams = @[ @"enterpriseId" ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/androidDevicePolicyConfig";
+  GTLRAndroidEnterpriseQuery_EnterprisesGetAndroidDevicePolicyConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_AndroidDevicePolicyConfig class];
+  query.loggingName = @"androidenterprise.enterprises.getAndroidDevicePolicyConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidEnterpriseQuery_EnterprisesGetServiceAccount
 
 @dynamic enterpriseId, keyType;
@@ -409,6 +428,31 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   query.enterpriseId = enterpriseId;
   query.expectedObjectClass = [GTLRAndroidEnterprise_EnterpriseAccount class];
   query.loggingName = @"androidenterprise.enterprises.setAccount";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_EnterprisesSetAndroidDevicePolicyConfig
+
+@dynamic enterpriseId;
+
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_AndroidDevicePolicyConfig *)object
+                   enterpriseId:(NSString *)enterpriseId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"enterpriseId" ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/androidDevicePolicyConfig";
+  GTLRAndroidEnterpriseQuery_EnterprisesSetAndroidDevicePolicyConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.enterpriseId = enterpriseId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_AndroidDevicePolicyConfig class];
+  query.loggingName = @"androidenterprise.enterprises.setAndroidDevicePolicyConfig";
   return query;
 }
 

@@ -554,7 +554,7 @@
 //
 
 @implementation GTLRBigquery_JobStatistics3
-@dynamic inputFileBytes, inputFiles, outputBytes, outputRows;
+@dynamic badRecords, inputFileBytes, inputFiles, outputBytes, outputRows;
 @end
 
 

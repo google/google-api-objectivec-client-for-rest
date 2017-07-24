@@ -17,9 +17,9 @@
 // Constants
 
 // GTLRCloudTrace_Link.type
-NSString * const kGTLRCloudTrace_Link_Type_Child           = @"CHILD";
-NSString * const kGTLRCloudTrace_Link_Type_Parent          = @"PARENT";
-NSString * const kGTLRCloudTrace_Link_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudTrace_Link_Type_ChildLinkedSpan  = @"CHILD_LINKED_SPAN";
+NSString * const kGTLRCloudTrace_Link_Type_ParentLinkedSpan = @"PARENT_LINKED_SPAN";
+NSString * const kGTLRCloudTrace_Link_Type_TypeUnspecified  = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudTrace_NetworkEvent.type
 NSString * const kGTLRCloudTrace_NetworkEvent_Type_Recv        = @"RECV";

@@ -1201,6 +1201,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Networks;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaK80Gpus;
 /** Value: "PREEMPTIBLE_CPUS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleCpus;
+/** Value: "PREEMPTIBLE_LOCAL_SSD_GB" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleLocalSsdGb;
 /** Value: "REGIONAL_AUTOSCALERS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalAutoscalers;
 /** Value: "REGIONAL_INSTANCE_GROUP_MANAGERS" */
@@ -9417,6 +9419,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *    @arg @c kGTLRCompute_Quota_Metric_Networks Value "NETWORKS"
  *    @arg @c kGTLRCompute_Quota_Metric_NvidiaK80Gpus Value "NVIDIA_K80_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleCpus Value "PREEMPTIBLE_CPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleLocalSsdGb Value
+ *        "PREEMPTIBLE_LOCAL_SSD_GB"
  *    @arg @c kGTLRCompute_Quota_Metric_RegionalAutoscalers Value
  *        "REGIONAL_AUTOSCALERS"
  *    @arg @c kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers Value

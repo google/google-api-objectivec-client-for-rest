@@ -113,6 +113,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  The Android Device Policy configuration of an enterprise.
+ */
+@interface GTLRAndroidEnterprise_AndroidDevicePolicyConfig : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "androidenterprise#androidDevicePolicyConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The state of Android Device Policy. "enabled" indicates that Android Device
+ *  Policy is enabled for the enterprise and the EMM is allowed to manage
+ *  devices with Android Device Policy, while "disabled" means that it cannot.
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Represents the list of app restrictions available to be pre-configured for
  *  the product.
  */

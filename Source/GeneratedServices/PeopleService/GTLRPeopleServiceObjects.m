@@ -52,6 +52,12 @@ NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_ObjectTypeUnspeci
 NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_Page = @"PAGE";
 NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_Person = @"PERSON";
 
+// GTLRPeopleService_ProfileMetadata.userTypes
+NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_GoogleAppsUser = @"GOOGLE_APPS_USER";
+NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_GoogleUser = @"GOOGLE_USER";
+NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_GplusUser = @"GPLUS_USER";
+NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_UserTypeUnknown = @"USER_TYPE_UNKNOWN";
+
 // GTLRPeopleService_Source.type
 NSString * const kGTLRPeopleService_Source_Type_Account        = @"ACCOUNT";
 NSString * const kGTLRPeopleService_Source_Type_Contact        = @"CONTACT";
@@ -568,7 +574,15 @@ NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecified = @"SOURCE
 //
 
 @implementation GTLRPeopleService_ProfileMetadata
-@dynamic objectType;
+@dynamic objectType, userTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userTypes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

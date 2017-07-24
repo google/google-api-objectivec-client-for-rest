@@ -969,9 +969,8 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The log entry format to use for this sink's exported log entries.
- *  The v2 format is used by default. The v1 format is deprecated and should be
- *  used only as part of a migration effort to v2. See Migration to the v2 API.
+ *  Deprecated. The log entry format to use for this sink's exported log
+ *  entries. The v2 format is used by default and cannot be changed.
  *
  *  Likely values:
  *    @arg @c kGTLRLogging_LogSink_OutputVersionFormat_V1 LogEntry version 1

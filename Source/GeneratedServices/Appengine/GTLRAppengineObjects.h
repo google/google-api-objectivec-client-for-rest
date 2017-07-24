@@ -538,7 +538,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /**
  *  An Application resource contains the top-level configuration of an App
- *  Engine application. Next tag: 19
+ *  Engine application. Next tag: 20
  */
 @interface GTLRAppengine_Application : GTLRObject
 
@@ -1779,6 +1779,13 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  */
 @interface GTLRAppengine_ReadinessCheck : GTLRObject
 
+/**
+ *  A maximum time limit on application initialization, measured from moment the
+ *  application successfully replies to a healthcheck until it is ready to serve
+ *  traffic.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *appStartTimeout;
+
 /** Interval between health checks. */
 @property(nonatomic, strong, nullable) GTLRDuration *checkInterval;
 
@@ -2034,8 +2041,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a common set
- *  of message types for APIs to use.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAppengine_Status_Details_Item *> *details;
 

@@ -198,12 +198,13 @@
 //
 
 @implementation GTLRIdentityToolkit_RelyingpartyGetAccountInfoRequest
-@dynamic delegatedProjectNumber, email, idToken, localId;
+@dynamic delegatedProjectNumber, email, idToken, localId, phoneNumber;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"email" : [NSString class],
-    @"localId" : [NSString class]
+    @"localId" : [NSString class],
+    @"phoneNumber" : [NSString class]
   };
   return map;
 }
@@ -266,7 +267,7 @@
 @dynamic captchaChallenge, captchaResponse, createdAt, delegatedProjectNumber,
          deleteAttribute, deleteProvider, disableUser, displayName, email,
          emailVerified, idToken, instanceId, lastLoginAt, localId, oobCode,
-         password, photoUrl, provider, returnSecureToken,
+         password, phoneNumber, photoUrl, provider, returnSecureToken,
          upgradeToFederatedLogin, validSince;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -340,7 +341,8 @@
 
 @implementation GTLRIdentityToolkit_RelyingpartySignupNewUserRequest
 @dynamic captchaChallenge, captchaResponse, disabled, displayName, email,
-         emailVerified, idToken, instanceId, localId, password, photoUrl;
+         emailVerified, idToken, instanceId, localId, password, phoneNumber,
+         photoUrl;
 @end
 
 

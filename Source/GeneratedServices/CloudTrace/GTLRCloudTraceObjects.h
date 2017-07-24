@@ -49,17 +49,17 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudTrace_Link.type
 
 /**
- *  The current span is a child of the linked span.
+ *  The linked span is a child of the current span.
  *
- *  Value: "CHILD"
+ *  Value: "CHILD_LINKED_SPAN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_Link_Type_Child;
+GTLR_EXTERN NSString * const kGTLRCloudTrace_Link_Type_ChildLinkedSpan;
 /**
- *  The current span is the parent of the linked span.
+ *  The linked span is a parent of the current span.
  *
- *  Value: "PARENT"
+ *  Value: "PARENT_LINKED_SPAN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_Link_Type_Parent;
+GTLR_EXTERN NSString * const kGTLRCloudTrace_Link_Type_ParentLinkedSpan;
 /**
  *  The relationship of the two spans is unknown.
  *
@@ -230,10 +230,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
  *  The relationship of the current span relative to the linked span.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudTrace_Link_Type_Child The current span is a child of the
- *        linked span. (Value: "CHILD")
- *    @arg @c kGTLRCloudTrace_Link_Type_Parent The current span is the parent of
- *        the linked span. (Value: "PARENT")
+ *    @arg @c kGTLRCloudTrace_Link_Type_ChildLinkedSpan The linked span is a
+ *        child of the current span. (Value: "CHILD_LINKED_SPAN")
+ *    @arg @c kGTLRCloudTrace_Link_Type_ParentLinkedSpan The linked span is a
+ *        parent of the current span. (Value: "PARENT_LINKED_SPAN")
  *    @arg @c kGTLRCloudTrace_Link_Type_TypeUnspecified The relationship of the
  *        two spans is unknown. (Value: "TYPE_UNSPECIFIED")
  */
@@ -622,8 +622,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_NetworkEvent_Type_TypeUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a
- *  common set of message types for APIs to use.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTrace_Status_Details_Item *> *details;
 

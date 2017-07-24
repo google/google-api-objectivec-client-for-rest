@@ -529,12 +529,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1InfoType : GTLRObject
 
-/**
- *  Name of the information type. For built-in info types, this is provided by
- *  the API call ListInfoTypes. For user-defined info types, this is
- *  provided by the user. All user-defined info types must have unique names,
- *  and cannot conflict with built-in info type names.
- */
+/** Name of the information type. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -1129,8 +1124,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a
- *  common set of message types for APIs to use.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GoogleRpcStatus_Details_Item *> *details;
 

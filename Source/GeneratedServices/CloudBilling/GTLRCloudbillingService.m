@@ -10,18 +10,18 @@
 // Documentation:
 //   https://cloud.google.com/billing/
 
-#import "GTLRCloudBilling.h"
+#import "GTLRCloudbilling.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeCloudBillingCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudbillingCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudBillingService
+//   GTLRCloudbillingService
 //
 
-@implementation GTLRCloudBillingService
+@implementation GTLRCloudbillingService
 
 - (instancetype)init {
   self = [super init];

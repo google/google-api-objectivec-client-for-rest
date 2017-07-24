@@ -118,6 +118,7 @@
 @class GTLRSheets_PivotTable_Criteria;
 @class GTLRSheets_PivotValue;
 @class GTLRSheets_ProtectedRange;
+@class GTLRSheets_RandomizeRangeRequest;
 @class GTLRSheets_RepeatCellRequest;
 @class GTLRSheets_Request;
 @class GTLRSheets_Response;
@@ -2357,8 +2358,6 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /**
  *  True to reverse the order of the domain values (horizontal axis).
- *  Not applicable to Gauge, Geo, Histogram, Org, Pie, Radar, and Treemap
- *  charts.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3247,6 +3246,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /** The data of the CandlestickDomain. */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *data;
+
+/**
+ *  True to reverse the order of the domain values (horizontal axis).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reversed;
 
 @end
 
@@ -5709,6 +5715,17 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 
 /**
+ *  Randomizes the order of the rows in a range.
+ */
+@interface GTLRSheets_RandomizeRangeRequest : GTLRObject
+
+/** The range to randomize. */
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
+
+@end
+
+
+/**
  *  Updates all cells in the range to the values in the given Cell object.
  *  Only the fields listed in the fields field are updated; others are
  *  unchanged.
@@ -5841,6 +5858,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 /** Pastes data (HTML or delimited) into a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_PasteDataRequest *pasteData;
+
+/** Randomizes the order of the rows in a range. */
+@property(nonatomic, strong, nullable) GTLRSheets_RandomizeRangeRequest *randomizeRange;
 
 /** Repeats a single cell across a range. */
 @property(nonatomic, strong, nullable) GTLRSheets_RepeatCellRequest *repeatCell;
