@@ -20,6 +20,7 @@
 // aggregationCrossSeriesReducer
 NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCount = @"REDUCE_COUNT";
 NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCountTrue = @"REDUCE_COUNT_TRUE";
+NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceFractionLessThan = @"REDUCE_FRACTION_LESS_THAN";
 NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceFractionTrue = @"REDUCE_FRACTION_TRUE";
 NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceMax = @"REDUCE_MAX";
 NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceMean = @"REDUCE_MEAN";
@@ -38,6 +39,7 @@ NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCountTrue = @"AL
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignDelta = @"ALIGN_DELTA";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignFractionTrue = @"ALIGN_FRACTION_TRUE";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignInterpolate = @"ALIGN_INTERPOLATE";
+NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMakeDistribution = @"ALIGN_MAKE_DISTRIBUTION";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMax = @"ALIGN_MAX";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMean = @"ALIGN_MEAN";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMin = @"ALIGN_MIN";
@@ -373,9 +375,10 @@ NSString * const kGTLRMonitoringViewHeaders = @"HEADERS";
 @implementation GTLRMonitoringQuery_ProjectsTimeSeriesList
 
 @dynamic aggregationAlignmentPeriod, aggregationCrossSeriesReducer,
-         aggregationGroupByFields, aggregationPerSeriesAligner, filter,
-         intervalEndTime, intervalStartTime, name, orderBy, pageSize, pageToken,
-         view;
+         aggregationGroupByFields, aggregationPerSeriesAligner,
+         aggregationReduceFractionLessThanParamsThreshold, filter,
+         intervalEndTime, intervalStartTime, name, orderBy, outputPeriod,
+         pageSize, pageToken, view;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -383,6 +386,7 @@ NSString * const kGTLRMonitoringViewHeaders = @"HEADERS";
     @"aggregationCrossSeriesReducer" : @"aggregation.crossSeriesReducer",
     @"aggregationGroupByFields" : @"aggregation.groupByFields",
     @"aggregationPerSeriesAligner" : @"aggregation.perSeriesAligner",
+    @"aggregationReduceFractionLessThanParamsThreshold" : @"aggregation.reduceFractionLessThanParams.threshold",
     @"intervalEndTime" : @"interval.endTime",
     @"intervalStartTime" : @"interval.startTime"
   };

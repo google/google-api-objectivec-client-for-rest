@@ -244,6 +244,18 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_Page;
 GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_Person;
 
 // ----------------------------------------------------------------------------
+// GTLRPeopleService_ProfileMetadata.userTypes
+
+/** Value: "GOOGLE_APPS_USER" */
+GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_GoogleAppsUser;
+/** Value: "GOOGLE_USER" */
+GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_GoogleUser;
+/** Value: "GPLUS_USER" */
+GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_GplusUser;
+/** Value: "USER_TYPE_UNKNOWN" */
+GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_UserTypeUnknown;
+
+// ----------------------------------------------------------------------------
 // GTLRPeopleService_Source.type
 
 /**
@@ -496,7 +508,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /**
  *  The resource name for the contact group, assigned by the server. An ASCII
- *  string, in the form of `contactGroups/<contact_group_id>`.
+ *  string, in the form of `contactGroups/`<var>contact_group_id</var>.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -969,13 +981,13 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /**
  *  The resource names of the contact people to add in the form of in the form
- *  `people/<person_id>`.
+ *  `people/`<var>person_id</var>.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNamesToAdd;
 
 /**
  *  The resource names of the contact people to remove in the form of in the
- *  form of `people/<person_id>`.
+ *  form of `people/`<var>person_id</var>.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNamesToRemove;
 
@@ -1000,14 +1012,14 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /**
  *  The read-only display name formatted according to the locale specified by
- *  the viewer's account or the <code>Accept-Language</code> HTTP header.
+ *  the viewer's account or the `Accept-Language` HTTP header.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The read-only display name with the last name first formatted according to
  *  the locale specified by the viewer's account or the
- *  <code>Accept-Language</code> HTTP header.
+ *  `Accept-Language` HTTP header.
  */
 @property(nonatomic, copy, nullable) NSString *displayNameLastFirst;
 
@@ -1271,7 +1283,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /**
  *  The resource name for the person, assigned by the server. An ASCII string
- *  with a max length of 27 characters, in the form of `people/<person_id>`.
+ *  with a max length of 27 characters, in the form of
+ *  `people/`<var>person_id</var>.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -1423,7 +1436,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /**
  *  The URL of the photo. You can change the desired size by appending a query
- *  parameter `sz=<size>` at the end of the url. Example:
+ *  parameter `sz=`<var>size</var> at the end of the url. Example:
  *  `https://lh3.googleusercontent.com/-T_wVWLlmg7w/AAAAAAAAAAI/AAAAAAAABa8/00gzXvDBYqw/s100/photo.jpg?sz=50`
  */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -1448,6 +1461,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  *        (Value: "PERSON")
  */
 @property(nonatomic, copy, nullable) NSString *objectType;
+
+/** The user types. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userTypes;
 
 @end
 
@@ -1596,9 +1612,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @interface GTLRPeopleService_Source : GTLRObject
 
 /**
+ *  **Only populated in `person.metadata.sources`.**
  *  The [HTTP entity tag](https://en.wikipedia.org/wiki/HTTP_ETag) of the
- *  source. Used for web cache validation. Only populated in
- *  person.metadata.sources.
+ *  source. Used for web cache validation.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -1609,7 +1625,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Metadata about a source of type PROFILE. */
+/**
+ *  **Only populated in `person.metadata.sources`.**
+ *  Metadata about a source of type PROFILE.
+ */
 @property(nonatomic, strong, nullable) GTLRPeopleService_ProfileMetadata *profileMetadata;
 
 /**
@@ -1634,7 +1653,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** Last update timestamp of this source. */
+/**
+ *  **Only populated in `person.metadata.sources`.**
+ *  Last update timestamp of this source.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -1695,8 +1717,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a
- *  common set of message types for APIs to use.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Status_Details_Item *> *details;
 

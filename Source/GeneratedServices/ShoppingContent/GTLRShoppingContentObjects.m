@@ -1779,7 +1779,8 @@
 
 @implementation GTLRShoppingContent_ProductStatus
 @dynamic creationDate, dataQualityIssues, destinationStatuses,
-         googleExpirationDate, kind, lastUpdateDate, link, productId, title;
+         googleExpirationDate, kind, lastUpdateDate, link, product, productId,
+         title;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1842,7 +1843,7 @@
 //
 
 @implementation GTLRShoppingContent_ProductstatusesCustomBatchRequestEntry
-@dynamic batchId, merchantId, method, productId;
+@dynamic batchId, includeAttributes, merchantId, method, productId;
 @end
 
 

@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpec;
+@class GTLRAndroidEnterprise_AndroidDevicePolicyConfig;
 @class GTLRAndroidEnterprise_DeviceState;
 @class GTLRAndroidEnterprise_Enterprise;
 @class GTLRAndroidEnterprise_EnterpriseAccount;
@@ -465,6 +466,34 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
+ *  Returns the Android Device Policy config resource.
+ *
+ *  Method: androidenterprise.enterprises.getAndroidDevicePolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_EnterprisesGetAndroidDevicePolicyConfig : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForEnterprisesGetAndroidDevicePolicyConfigWithenterpriseId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_AndroidDevicePolicyConfig.
+ *
+ *  Returns the Android Device Policy config resource.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_EnterprisesGetAndroidDevicePolicyConfig
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId;
+
+@end
+
+/**
  *  Returns a service account and credentials. The service account can be bound
  *  to the enterprise by calling setAccount. The service account is unique to
  *  this enterprise and EMM, and will be deleted if the enterprise is unbound.
@@ -751,6 +780,41 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  @returns GTLRAndroidEnterpriseQuery_EnterprisesSetAccount
  */
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_EnterpriseAccount *)object
+                   enterpriseId:(NSString *)enterpriseId;
+
+@end
+
+/**
+ *  Sets the Android Device Policy config resource. EMM may use this API to
+ *  enable or disable Android Device Policy support for the specified
+ *  enterprise.
+ *
+ *  Method: androidenterprise.enterprises.setAndroidDevicePolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_EnterprisesSetAndroidDevicePolicyConfig : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForEnterprisesSetAndroidDevicePolicyConfigWithObject:enterpriseId:]
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_AndroidDevicePolicyConfig.
+ *
+ *  Sets the Android Device Policy config resource. EMM may use this API to
+ *  enable or disable Android Device Policy support for the specified
+ *  enterprise.
+ *
+ *  @param object The @c GTLRAndroidEnterprise_AndroidDevicePolicyConfig to
+ *    include in the query.
+ *  @param enterpriseId The ID of the enterprise.
+ *
+ *  @returns GTLRAndroidEnterpriseQuery_EnterprisesSetAndroidDevicePolicyConfig
+ */
++ (instancetype)queryWithObject:(GTLRAndroidEnterprise_AndroidDevicePolicyConfig *)object
                    enterpriseId:(NSString *)enterpriseId;
 
 @end

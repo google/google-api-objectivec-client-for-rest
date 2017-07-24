@@ -342,6 +342,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/PlayMovies/*.{h,m}'
   end
+  s.subspec 'Playcustomapp' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Playcustomapp/*.{h,m}'
+  end
   s.subspec 'Plus' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Plus/*.{h,m}'
@@ -449,6 +453,10 @@ Pod::Spec.new do |s|
   s.subspec 'StorageTransfer' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/StorageTransfer/*.{h,m}'
+  end
+  s.subspec 'StreetViewPublish' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/StreetViewPublish/*.{h,m}'
   end
   s.subspec 'Surveys' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

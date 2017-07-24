@@ -667,7 +667,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  List of breakpoints matching the request.
  *  The fields `id` and `location` are guaranteed to be set on each breakpoint.
  *  The fields: `stack_frames`, `evaluated_expressions` and `variable_table`
- *  are cleared on each breakpoint regardless of it's status.
+ *  are cleared on each breakpoint regardless of its status.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Breakpoint *> *breakpoints;
 
@@ -893,7 +893,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 
 /**
  *  Updated breakpoint information.
- *  The field 'id' must be set.
+ *  The field `id` must be set.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_Breakpoint *breakpoint;
 

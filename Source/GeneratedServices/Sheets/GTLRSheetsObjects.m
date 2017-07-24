@@ -854,7 +854,7 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 //
 
 @implementation GTLRSheets_CandlestickDomain
-@dynamic data;
+@dynamic data, reversed;
 @end
 
 
@@ -1691,6 +1691,16 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_RandomizeRangeRequest
+//
+
+@implementation GTLRSheets_RandomizeRangeRequest
+@dynamic range;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_RepeatCellRequest
 //
 
@@ -1712,9 +1722,9 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
          deleteDimension, deleteEmbeddedObject, deleteFilterView,
          deleteNamedRange, deleteProtectedRange, deleteRange, deleteSheet,
          duplicateFilterView, duplicateSheet, findReplace, insertDimension,
-         insertRange, mergeCells, moveDimension, pasteData, repeatCell,
-         setBasicFilter, setDataValidation, sortRange, textToColumns,
-         unmergeCells, updateBanding, updateBorders, updateCells,
+         insertRange, mergeCells, moveDimension, pasteData, randomizeRange,
+         repeatCell, setBasicFilter, setDataValidation, sortRange,
+         textToColumns, unmergeCells, updateBanding, updateBorders, updateCells,
          updateChartSpec, updateConditionalFormatRule,
          updateDimensionProperties, updateEmbeddedObjectPosition,
          updateFilterView, updateNamedRange, updateProtectedRange,

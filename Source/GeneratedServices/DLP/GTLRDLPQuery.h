@@ -282,7 +282,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Identifier of the results set returned as metadata of
  *  the longrunning operation created by a call to CreateInspectOperation.
- *  Should be in the format of `inspect/results/{id}.
+ *  Should be in the format of `inspect/results/{id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -306,7 +306,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Identifier of the results set returned as metadata of
  *    the longrunning operation created by a call to CreateInspectOperation.
- *    Should be in the format of `inspect/results/{id}.
+ *    Should be in the format of `inspect/results/{id}`.
  *
  *  @returns GTLRDLPQuery_InspectResultsFindingsList
  */

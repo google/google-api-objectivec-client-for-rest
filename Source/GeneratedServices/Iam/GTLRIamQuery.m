@@ -27,6 +27,10 @@ NSString * const kGTLRIamPublicKeyTypeTypeNone         = @"TYPE_NONE";
 NSString * const kGTLRIamPublicKeyTypeTypeRawPublicKey = @"TYPE_RAW_PUBLIC_KEY";
 NSString * const kGTLRIamPublicKeyTypeTypeX509PemFile  = @"TYPE_X509_PEM_FILE";
 
+// view
+NSString * const kGTLRIamViewBasic = @"BASIC";
+NSString * const kGTLRIamViewFull  = @"FULL";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -34,6 +38,298 @@ NSString * const kGTLRIamPublicKeyTypeTypeX509PemFile  = @"TYPE_X509_PEM_FILE";
 @implementation GTLRIamQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRIamQuery_OrganizationsRolesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRIam_CreateRoleRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/roles";
+  GTLRIamQuery_OrganizationsRolesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRIam_Role class];
+  query.loggingName = @"iam.organizations.roles.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_OrganizationsRolesDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_OrganizationsRolesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Role class];
+  query.loggingName = @"iam.organizations.roles.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_OrganizationsRolesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_OrganizationsRolesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Role class];
+  query.loggingName = @"iam.organizations.roles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_OrganizationsRolesList
+
+@dynamic pageSize, pageToken, parent, showDeleted, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/roles";
+  GTLRIamQuery_OrganizationsRolesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRIam_ListRolesResponse class];
+  query.loggingName = @"iam.organizations.roles.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_OrganizationsRolesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRIam_Role *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_OrganizationsRolesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Role class];
+  query.loggingName = @"iam.organizations.roles.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_OrganizationsRolesUndelete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIam_UndeleteRoleRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:undelete";
+  GTLRIamQuery_OrganizationsRolesUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Role class];
+  query.loggingName = @"iam.organizations.roles.undelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_PermissionsQueryTestablePermissions
+
++ (instancetype)queryWithObject:(GTLRIam_QueryTestablePermissionsRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/permissions:queryTestablePermissions";
+  GTLRIamQuery_PermissionsQueryTestablePermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRIam_QueryTestablePermissionsResponse class];
+  query.loggingName = @"iam.permissions.queryTestablePermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsRolesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRIam_CreateRoleRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/roles";
+  GTLRIamQuery_ProjectsRolesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRIam_Role class];
+  query.loggingName = @"iam.projects.roles.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsRolesDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_ProjectsRolesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Role class];
+  query.loggingName = @"iam.projects.roles.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsRolesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_ProjectsRolesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Role class];
+  query.loggingName = @"iam.projects.roles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsRolesList
+
+@dynamic pageSize, pageToken, parent, showDeleted, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/roles";
+  GTLRIamQuery_ProjectsRolesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRIam_ListRolesResponse class];
+  query.loggingName = @"iam.projects.roles.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsRolesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRIam_Role *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_ProjectsRolesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Role class];
+  query.loggingName = @"iam.projects.roles.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsRolesUndelete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIam_UndeleteRoleRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:undelete";
+  GTLRIamQuery_ProjectsRolesUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Role class];
+  query.loggingName = @"iam.projects.roles.undelete";
+  return query;
+}
 
 @end
 
@@ -347,6 +643,42 @@ NSString * const kGTLRIamPublicKeyTypeTypeX509PemFile  = @"TYPE_X509_PEM_FILE";
   query.name = name;
   query.expectedObjectClass = [GTLRIam_ServiceAccount class];
   query.loggingName = @"iam.projects.serviceAccounts.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_RolesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_RolesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Role class];
+  query.loggingName = @"iam.roles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_RolesList
+
+@dynamic pageSize, pageToken, parent, showDeleted, view;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/roles";
+  GTLRIamQuery_RolesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRIam_ListRolesResponse class];
+  query.loggingName = @"iam.roles.list";
   return query;
 }
 

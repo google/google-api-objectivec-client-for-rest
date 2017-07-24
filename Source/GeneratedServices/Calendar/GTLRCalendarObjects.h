@@ -26,7 +26,6 @@
 @class GTLRCalendar_ColorDefinition;
 @class GTLRCalendar_Colors_Calendar;
 @class GTLRCalendar_Colors_Event;
-@class GTLRCalendar_DisplayInfo;
 @class GTLRCalendar_Error;
 @class GTLRCalendar_Event;
 @class GTLRCalendar_Event_Creator;
@@ -47,9 +46,6 @@
 @class GTLRCalendar_FreeBusyRequestItem;
 @class GTLRCalendar_FreeBusyResponse_Calendars;
 @class GTLRCalendar_FreeBusyResponse_Groups;
-@class GTLRCalendar_HabitInstanceData;
-@class GTLRCalendar_LaunchInfo;
-@class GTLRCalendar_Link;
 @class GTLRCalendar_Notification;
 @class GTLRCalendar_Setting;
 @class GTLRCalendar_TimePeriod;
@@ -525,31 +521,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCalendar_DeepLinkData
- */
-@interface GTLRCalendar_DeepLinkData : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_Link *> *links;
-@property(nonatomic, copy, nullable) NSString *url;
-
-@end
-
-
-/**
- *  GTLRCalendar_DisplayInfo
- */
-@interface GTLRCalendar_DisplayInfo : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *appIconUrl;
-@property(nonatomic, copy, nullable) NSString *appShortTitle;
-@property(nonatomic, copy, nullable) NSString *appTitle;
-@property(nonatomic, copy, nullable) NSString *linkShortTitle;
-@property(nonatomic, copy, nullable) NSString *linkTitle;
-
-@end
-
-
-/**
  *  GTLRCalendar_Error
  */
 @interface GTLRCalendar_Error : GTLRObject
@@ -811,9 +782,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Whether the event blocks time on the calendar. Optional. Possible values
  *  are:
- *  - "opaque" - The event blocks time on the calendar. This is the default
- *  value.
- *  - "transparent" - The event does not block time on the calendar.
+ *  - "opaque" - Default value. The event does block time on the calendar. This
+ *  is equivalent to setting Show me as to Busy in the Calendar UI.
+ *  - "transparent" - The event does not block time on the calendar. This is
+ *  equivalent to setting Show me as to Available in the Calendar UI.
  */
 @property(nonatomic, copy, nullable) NSString *transparency;
 
@@ -1197,20 +1169,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCalendar_EventHabitInstance
- */
-@interface GTLRCalendar_EventHabitInstance : GTLRObject
-
-/** Metadata specific to this instance. */
-@property(nonatomic, strong, nullable) GTLRCalendar_HabitInstanceData *data;
-
-/** Id of the habit this instance belongs to. */
-@property(nonatomic, copy, nullable) NSString *parentId;
-
-@end
-
-
-/**
  *  GTLRCalendar_EventReminder
  */
 @interface GTLRCalendar_EventReminder : GTLRObject
@@ -1450,52 +1408,6 @@ NS_ASSUME_NONNULL_BEGIN
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRCalendar_FreeBusyResponse_Groups : GTLRObject
-@end
-
-
-/**
- *  GTLRCalendar_HabitInstanceData
- */
-@interface GTLRCalendar_HabitInstanceData : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *status;
-
-/**
- *  statusInferred
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *statusInferred;
-
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  GTLRCalendar_LaunchInfo
- */
-@interface GTLRCalendar_LaunchInfo : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *appId;
-@property(nonatomic, copy, nullable) NSString *installUrl;
-@property(nonatomic, copy, nullable) NSString *intentAction;
-@property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  GTLRCalendar_Link
- */
-@interface GTLRCalendar_Link : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *applinkingSource;
-@property(nonatomic, strong, nullable) GTLRCalendar_DisplayInfo *displayInfo;
-@property(nonatomic, strong, nullable) GTLRCalendar_LaunchInfo *launchInfo;
-@property(nonatomic, copy, nullable) NSString *platform;
-@property(nonatomic, copy, nullable) NSString *url;
-
 @end
 
 

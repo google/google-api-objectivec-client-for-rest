@@ -77,6 +77,7 @@ NSString * const kGTLRServiceControl_QuotaError_Code_BillingNotActive = @"BILLIN
 NSString * const kGTLRServiceControl_QuotaError_Code_BillingStatusUnavailable = @"BILLING_STATUS_UNAVAILABLE";
 NSString * const kGTLRServiceControl_QuotaError_Code_LoasRoleInvalid = @"LOAS_ROLE_INVALID";
 NSString * const kGTLRServiceControl_QuotaError_Code_NoLoasProject = @"NO_LOAS_PROJECT";
+NSString * const kGTLRServiceControl_QuotaError_Code_OutOfRange = @"OUT_OF_RANGE";
 NSString * const kGTLRServiceControl_QuotaError_Code_ProjectDeleted = @"PROJECT_DELETED";
 NSString * const kGTLRServiceControl_QuotaError_Code_ProjectStatusUnavailable = @"PROJECT_STATUS_UNAVAILABLE";
 NSString * const kGTLRServiceControl_QuotaError_Code_QuotaSystemUnavailable = @"QUOTA_SYSTEM_UNAVAILABLE";
@@ -224,7 +225,7 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_CheckInfo
-@dynamic unusedArguments;
+@dynamic consumerInfo, unusedArguments;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -262,6 +263,16 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_ConsumerInfo
+//
+
+@implementation GTLRServiceControl_ConsumerInfo
+@dynamic projectNumber;
 @end
 
 

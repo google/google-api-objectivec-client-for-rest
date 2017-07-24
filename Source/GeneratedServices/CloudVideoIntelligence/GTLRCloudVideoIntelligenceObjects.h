@@ -20,6 +20,7 @@
 
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1LabelAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1LabelLocation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoAnnotationProgress;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoAnnotationResults;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoContext;
@@ -47,6 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1AnnotateVideoRequest_Features_FeatureUnspecified;
 /** Value: "LABEL_DETECTION" */
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1AnnotateVideoRequest_Features_LabelDetection;
+/** Value: "SAFE_SEARCH_DETECTION" */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1AnnotateVideoRequest_Features_SafeSearchDetection;
 /** Value: "SHOT_CHANGE_DETECTION" */
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1AnnotateVideoRequest_Features_ShotChangeDetection;
 
@@ -84,6 +87,206 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  Value: "VIDEO_LEVEL"
  */
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1LabelLocation_Level_VideoLevel;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation.adult
+
+/**
+ *  Likely.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_Likely;
+/**
+ *  Possible.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_Unknown;
+/**
+ *  Unlikely.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_Unlikely;
+/**
+ *  Very likely.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_VeryLikely;
+/**
+ *  Very unlikely.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation.medical
+
+/**
+ *  Likely.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_Likely;
+/**
+ *  Possible.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_Unknown;
+/**
+ *  Unlikely.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_Unlikely;
+/**
+ *  Very likely.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_VeryLikely;
+/**
+ *  Very unlikely.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation.racy
+
+/**
+ *  Likely.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_Likely;
+/**
+ *  Possible.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_Unknown;
+/**
+ *  Unlikely.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_Unlikely;
+/**
+ *  Very likely.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_VeryLikely;
+/**
+ *  Very unlikely.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation.spoof
+
+/**
+ *  Likely.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_Likely;
+/**
+ *  Possible.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_Unknown;
+/**
+ *  Unlikely.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_Unlikely;
+/**
+ *  Very likely.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_VeryLikely;
+/**
+ *  Very unlikely.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation.violent
+
+/**
+ *  Likely.
+ *
+ *  Value: "LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_Likely;
+/**
+ *  Possible.
+ *
+ *  Value: "POSSIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_Possible;
+/**
+ *  Unknown likelihood.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_Unknown;
+/**
+ *  Unlikely.
+ *
+ *  Value: "UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_Unlikely;
+/**
+ *  Very likely.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_VeryLikely;
+/**
+ *  Very unlikely.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoContext.labelDetectionMode
@@ -357,6 +560,121 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  Safe search annotation (based on per-frame visual signals only).
+ *  If no unsafe content has been detected in a frame, no annotations
+ *  are present for that frame. If only some types of unsafe content
+ *  have been detected in a frame, the likelihood is set to `UNKNOWN`
+ *  for all other types of unsafe content.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation : GTLRObject
+
+/**
+ *  Likelihood of adult content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_Likely
+ *        Likely. (Value: "LIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_Possible
+ *        Possible. (Value: "POSSIBLE")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_Unlikely
+ *        Unlikely. (Value: "UNLIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_VeryLikely
+ *        Very likely. (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_VeryUnlikely
+ *        Very unlikely. (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *adult;
+
+/**
+ *  Likelihood of medical content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_Likely
+ *        Likely. (Value: "LIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_Possible
+ *        Possible. (Value: "POSSIBLE")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_Unlikely
+ *        Unlikely. (Value: "UNLIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_VeryLikely
+ *        Very likely. (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_VeryUnlikely
+ *        Very unlikely. (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *medical;
+
+/**
+ *  Likelihood of racy content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_Likely
+ *        Likely. (Value: "LIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_Possible
+ *        Possible. (Value: "POSSIBLE")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_Unlikely
+ *        Unlikely. (Value: "UNLIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_VeryLikely
+ *        Very likely. (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_VeryUnlikely
+ *        Very unlikely. (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *racy;
+
+/**
+ *  Likelihood that an obvious modification was made to the original
+ *  version to make it appear funny or offensive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_Likely
+ *        Likely. (Value: "LIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_Possible
+ *        Possible. (Value: "POSSIBLE")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_Unlikely
+ *        Unlikely. (Value: "UNLIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_VeryLikely
+ *        Very likely. (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_VeryUnlikely
+ *        Very unlikely. (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *spoof;
+
+/**
+ *  Video time offset in microseconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timeOffset;
+
+/**
+ *  Likelihood of violent content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_Likely
+ *        Likely. (Value: "LIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_Possible
+ *        Possible. (Value: "POSSIBLE")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_Unknown
+ *        Unknown likelihood. (Value: "UNKNOWN")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_Unlikely
+ *        Unlikely. (Value: "UNLIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_VeryLikely
+ *        Very likely. (Value: "VERY_LIKELY")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_VeryUnlikely
+ *        Very unlikely. (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *violent;
+
+@end
+
+
+/**
  *  Annotation progress for a single video.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoAnnotationProgress : GTLRObject
@@ -404,6 +722,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** Label annotations. There is exactly one element for each unique label. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1LabelAnnotation *> *labelAnnotations;
 
+/** Safe search annotations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation *> *safeSearchAnnotations;
+
 /** Shot annotations. Each shot is represented as a video segment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoSegment *> *shotAnnotations;
 
@@ -440,6 +761,12 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, copy, nullable) NSString *labelDetectionModel;
 
 /**
+ *  Model to use for safe search detection.
+ *  Supported values: "latest" and "stable" (the default).
+ */
+@property(nonatomic, copy, nullable) NSString *safeSearchDetectionModel;
+
+/**
  *  Video segments to annotate. The segments may overlap and are not required
  *  to be contiguous or span the whole video. If unspecified, each video
  *  is treated as a single segment.
@@ -451,6 +778,14 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  Supported values: "latest" and "stable" (the default).
  */
 @property(nonatomic, copy, nullable) NSString *shotChangeDetectionModel;
+
+/**
+ *  Whether the video has been shot from a stationary (i.e. non-moving) camera.
+ *  When set to true, might improve detection accuracy for moving objects.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stationaryCamera;
 
 @end
 
@@ -791,8 +1126,8 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a
- *  common set of message types for APIs to use.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleRpcStatus_Details_Item *> *details;
 

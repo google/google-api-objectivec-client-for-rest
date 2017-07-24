@@ -32,12 +32,15 @@
 @class GTLRCloudBuild_Operation_Response;
 @class GTLRCloudBuild_RepoSource;
 @class GTLRCloudBuild_Results;
+@class GTLRCloudBuild_Secret;
+@class GTLRCloudBuild_Secret_SecretEnv;
 @class GTLRCloudBuild_Source;
 @class GTLRCloudBuild_SourceProvenance;
 @class GTLRCloudBuild_SourceProvenance_FileHashes;
 @class GTLRCloudBuild_Status;
 @class GTLRCloudBuild_Status_Details_Item;
 @class GTLRCloudBuild_StorageSource;
+@class GTLRCloudBuild_Volume;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -238,6 +241,9 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Results *results;
 
+/** Secrets to decrypt using Cloud KMS. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Secret *> *secrets;
+
 /** Describes where to find the source files to build. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Source *source;
 
@@ -418,6 +424,22 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  later build step.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A list of environment variables which are encrypted using a Cloud KMS
+ *  crypto key. These values must be specified in the build's secrets.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secretEnv;
+
+/**
+ *  List of volumes to mount into the build step.
+ *  Each volume will be created as an empty volume prior to execution of the
+ *  build step. Upon completion of the build, volumes and their contents will
+ *  be discarded.
+ *  Using a named volume in only one step is not valid as it is indicative
+ *  of a mis-configured build request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Volume *> *volumes;
 
 /**
  *  The ID(s) of the step(s) that this build step depends on.
@@ -767,6 +789,44 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 
 /**
+ *  Secret pairs a set of secret environment variables containing encrypted
+ *  values with the Cloud KMS key to use to decrypt the value.
+ */
+@interface GTLRCloudBuild_Secret : GTLRObject
+
+/** Cloud KMS key name to use to decrypt these envs. */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  Map of environment variable name to its encrypted value.
+ *  Secret environment variables must be unique across all of a build's
+ *  secrets, and must be used by at least one build step. Values can be at most
+ *  1 KB in size. There can be at most ten secret values across all of a
+ *  build's secrets.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Secret_SecretEnv *secretEnv;
+
+@end
+
+
+/**
+ *  Map of environment variable name to its encrypted value.
+ *  Secret environment variables must be unique across all of a build's
+ *  secrets, and must be used by at least one build step. Values can be at most
+ *  1 KB in size. There can be at most ten secret values across all of a
+ *  build's secrets.
+ *
+ *  @note This class is documented as having more properties of NSString
+ *        (Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *        web-safe format).). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudBuild_Secret_SecretEnv : GTLRObject
+@end
+
+
+/**
  *  Source describes the location of the source in a supported storage
  *  service.
  */
@@ -891,8 +951,8 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a
- *  common set of message types for APIs to use.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Status_Details_Item *> *details;
 
@@ -945,6 +1005,29 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *  build.
  */
 @property(nonatomic, copy, nullable) NSString *object;
+
+@end
+
+
+/**
+ *  Volume describes a Docker container volume which is mounted into build steps
+ *  in order to persist files across build step execution.
+ */
+@interface GTLRCloudBuild_Volume : GTLRObject
+
+/**
+ *  Name of the volume to mount.
+ *  Volume names must be unique per build step and must be valid names for
+ *  Docker volumes. Each named volume must be used by at least two build steps.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Path at which to mount the volume.
+ *  Paths must be absolute and cannot conflict with other volume paths on the
+ *  same build step or with certain reserved volume paths.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 @end
 

@@ -50,6 +50,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_AndroidDevicePolicyConfig
+//
+
+@implementation GTLRAndroidEnterprise_AndroidDevicePolicyConfig
+@dynamic kind, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_AppRestrictionsSchema
 //
 

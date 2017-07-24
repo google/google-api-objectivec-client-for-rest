@@ -1273,82 +1273,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 @end
 
 /**
- *  List all details associated with a specific reason for which bids were
- *  filtered and a specific creative that was filtered for that reason, with
- *  the number of bids filtered for each detail.
- *
- *  Method: adexchangebuyer2.accounts.filterSets.filteredBids.creatives.details.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
- */
-@interface GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesDetailsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFilterSetsFilteredBidsCreativesDetailsListWithaccountId:filterSetId:creativeStatusId:creativeId:]
-
-/** Account ID of the buyer. */
-@property(nonatomic, assign) long long accountId;
-
-/** The creative ID for which to retrieve a breakdown by detail. */
-@property(nonatomic, copy, nullable) NSString *creativeId;
-
-/**
- *  The ID of the creative status for which to retrieve a breakdown by detail.
- *  See
- *  [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
- */
-@property(nonatomic, assign) NSInteger creativeStatusId;
-
-/** The ID of the filter set to apply. */
-@property(nonatomic, assign) long long filterSetId;
-
-/**
- *  Requested page size. The server may return fewer results than requested.
- *  If unspecified, the server will pick an appropriate default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A token identifying a page of results the server should return.
- *  Typically, this is the value of
- *  ListCreativeStatusAndCreativeBreakdownByDetailResponse.nextPageToken
- *  returned from the previous call to the
- *  accounts.filterSets.filteredBids.creatives.details.list
- *  method.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c
- *  GTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse.
- *
- *  List all details associated with a specific reason for which bids were
- *  filtered and a specific creative that was filtered for that reason, with
- *  the number of bids filtered for each detail.
- *
- *  @param accountId Account ID of the buyer.
- *  @param filterSetId The ID of the filter set to apply.
- *  @param creativeStatusId The ID of the creative status for which to retrieve
- *    a breakdown by detail.
- *    See
- *    [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
- *  @param creativeId The creative ID for which to retrieve a breakdown by
- *    detail.
- *
- *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsCreativesDetailsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithAccountId:(long long)accountId
-                       filterSetId:(long long)filterSetId
-                  creativeStatusId:(NSInteger)creativeStatusId
-                        creativeId:(NSString *)creativeId;
-
-@end
-
-/**
  *  List all creatives associated with a specific reason for which bids were
  *  filtered, with the number of bids filtered for each creative.
  *
@@ -1438,6 +1362,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  The ID of the creative status for which to retrieve a breakdown by detail.
  *  See
  *  [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
+ *  Details are only available for statuses 14, 15, 17, 18, 19, 86, and 87.
  */
 @property(nonatomic, assign) NSInteger creativeStatusId;
 
@@ -1473,6 +1398,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    a breakdown by detail.
  *    See
  *    [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
+ *    Details are only available for statuses 14, 15, 17, 18, 19, 86, and 87.
  *
  *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsDetailsList
  *

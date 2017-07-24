@@ -208,7 +208,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_MoreResults_MoreRes
  */
 GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_MoreResults_MoreResultsTypeUnspecified;
 /**
- *  The query has been exhausted.
+ *  The query is finished, and there are no more results.
  *
  *  Value: "NO_MORE_RESULTS"
  */
@@ -1075,7 +1075,8 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        Unspecified. This value is never used. (Value:
  *        "MORE_RESULTS_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDatastore_QueryResultBatch_MoreResults_NoMoreResults The
- *        query has been exhausted. (Value: "NO_MORE_RESULTS")
+ *        query is finished, and there are no more results. (Value:
+ *        "NO_MORE_RESULTS")
  *    @arg @c kGTLRDatastore_QueryResultBatch_MoreResults_NotFinished There may
  *        be additional batches to fetch from this query. (Value:
  *        "NOT_FINISHED")

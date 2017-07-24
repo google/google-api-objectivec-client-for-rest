@@ -46,7 +46,7 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
 @implementation GTLRCloudBuild_Build
 @dynamic buildTriggerId, createTime, finishTime, identifier, images, logsBucket,
-         logUrl, options, projectId, results, source, sourceProvenance,
+         logUrl, options, projectId, results, secrets, source, sourceProvenance,
          startTime, status, statusDetail, steps, substitutions, tags, timeout;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -56,6 +56,7 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"images" : [NSString class],
+    @"secrets" : [GTLRCloudBuild_Secret class],
     @"steps" : [GTLRCloudBuild_BuildStep class],
     @"tags" : [NSString class]
   };
@@ -113,7 +114,8 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 //
 
 @implementation GTLRCloudBuild_BuildStep
-@dynamic args, dir, entrypoint, env, identifier, name, waitFor;
+@dynamic args, dir, entrypoint, env, identifier, name, secretEnv, volumes,
+         waitFor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -123,6 +125,8 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
   NSDictionary<NSString *, Class> *map = @{
     @"args" : [NSString class],
     @"env" : [NSString class],
+    @"secretEnv" : [NSString class],
+    @"volumes" : [GTLRCloudBuild_Volume class],
     @"waitFor" : [NSString class]
   };
   return map;
@@ -361,6 +365,30 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_Secret
+//
+
+@implementation GTLRCloudBuild_Secret
+@dynamic kmsKeyName, secretEnv;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Secret_SecretEnv
+//
+
+@implementation GTLRCloudBuild_Secret_SecretEnv
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_Source
 //
 
@@ -432,4 +460,14 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
 @implementation GTLRCloudBuild_StorageSource
 @dynamic bucket, generation, object;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Volume
+//
+
+@implementation GTLRCloudBuild_Volume
+@dynamic name, path;
 @end

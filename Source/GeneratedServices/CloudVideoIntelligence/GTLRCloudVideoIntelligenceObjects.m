@@ -16,6 +16,7 @@
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1AnnotateVideoRequest.features
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1AnnotateVideoRequest_Features_FeatureUnspecified = @"FEATURE_UNSPECIFIED";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1AnnotateVideoRequest_Features_LabelDetection = @"LABEL_DETECTION";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1AnnotateVideoRequest_Features_SafeSearchDetection = @"SAFE_SEARCH_DETECTION";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1AnnotateVideoRequest_Features_ShotChangeDetection = @"SHOT_CHANGE_DETECTION";
 
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1LabelLocation.level
@@ -24,6 +25,46 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1LabelLocation_Level_SegmentLevel = @"SEGMENT_LEVEL";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1LabelLocation_Level_ShotLevel = @"SHOT_LEVEL";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1LabelLocation_Level_VideoLevel = @"VIDEO_LEVEL";
+
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation.adult
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_Likely = @"LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_Possible = @"POSSIBLE";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_Unknown = @"UNKNOWN";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_Unlikely = @"UNLIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Adult_VeryUnlikely = @"VERY_UNLIKELY";
+
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation.medical
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_Likely = @"LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_Possible = @"POSSIBLE";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_Unknown = @"UNKNOWN";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_Unlikely = @"UNLIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Medical_VeryUnlikely = @"VERY_UNLIKELY";
+
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation.racy
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_Likely = @"LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_Possible = @"POSSIBLE";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_Unknown = @"UNKNOWN";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_Unlikely = @"UNLIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Racy_VeryUnlikely = @"VERY_UNLIKELY";
+
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation.spoof
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_Likely = @"LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_Possible = @"POSSIBLE";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_Unknown = @"UNKNOWN";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_Unlikely = @"UNLIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Spoof_VeryUnlikely = @"VERY_UNLIKELY";
+
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation.violent
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_Likely = @"LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_Possible = @"POSSIBLE";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_Unknown = @"UNKNOWN";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_Unlikely = @"UNLIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation_Violent_VeryUnlikely = @"VERY_UNLIKELY";
 
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoContext.labelDetectionMode
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoContext_LabelDetectionMode_FrameMode = @"FRAME_MODE";
@@ -170,6 +211,16 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation
+@dynamic adult, medical, racy, spoof, timeOffset, violent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoAnnotationProgress
 //
 
@@ -184,11 +235,13 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeS
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoAnnotationResults
-@dynamic error, inputUri, labelAnnotations, shotAnnotations;
+@dynamic error, inputUri, labelAnnotations, safeSearchAnnotations,
+         shotAnnotations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"labelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1LabelAnnotation class],
+    @"safeSearchAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation class],
     @"shotAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoSegment class]
   };
   return map;
@@ -203,8 +256,8 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SafeS
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoContext
-@dynamic labelDetectionMode, labelDetectionModel, segments,
-         shotChangeDetectionModel;
+@dynamic labelDetectionMode, labelDetectionModel, safeSearchDetectionModel,
+         segments, shotChangeDetectionModel, stationaryCamera;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

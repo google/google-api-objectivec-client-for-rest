@@ -2205,8 +2205,8 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a
- *  common set of message types for APIs to use.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_Status_Details_Item *> *details;
 
