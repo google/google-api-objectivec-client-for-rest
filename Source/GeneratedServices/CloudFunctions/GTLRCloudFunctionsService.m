@@ -11,6 +11,15 @@
 
 #import "GTLRCloudFunctions.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopeCloudFunctionsCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+
+// ----------------------------------------------------------------------------
+//   GTLRCloudFunctionsService
+//
+
 @implementation GTLRCloudFunctionsService
 
 - (instancetype)init {

@@ -2305,13 +2305,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions : GTLRObject
 
 /**
- *  True if the log is for a permission of type DATA_READ or ADMIN_READ.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isReadPermissionType;
-
-/**
  *  The log_name to populate in the Cloud Audit Record.
  *
  *  Likely values:

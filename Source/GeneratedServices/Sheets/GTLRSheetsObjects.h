@@ -3526,6 +3526,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 @interface GTLRSheets_ChartSpec : GTLRObject
 
 /**
+ *  The alternative text that describes the chart. This is often used
+ *  for accessibility.
+ */
+@property(nonatomic, copy, nullable) NSString *altText;
+
+/**
  *  The background color of the entire chart.
  *  Not applicable to Org charts.
  */

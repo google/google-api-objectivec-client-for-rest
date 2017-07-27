@@ -2,12 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Functions API (cloudfunctions/v1)
+//   Android Device Provisioning Partner API (androiddeviceprovisioning/v1)
 // Description:
-//   API for managing lightweight user-provided functions executed in response
-//   to events.
+//   Android Device Provisioning Partner API
 // Documentation:
-//   https://cloud.google.com/functions
+//   https://developers.google.com/zero-touch/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -21,34 +20,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Authorization scope
-
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Service for executing Android Device Provisioning Partner API queries.
  *
- *  Value "https://www.googleapis.com/auth/cloud-platform"
+ *  Android Device Provisioning Partner API
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudFunctionsCloudPlatform;
-
-// ----------------------------------------------------------------------------
-//   GTLRCloudFunctionsService
-//
-
-/**
- *  Service for executing Google Cloud Functions API queries.
- *
- *  API for managing lightweight user-provided functions executed in response to
- *  events.
- */
-@interface GTLRCloudFunctionsService : GTLRService
+@interface GTLRAndroidProvisioningPartnerService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudFunctionsQuery.h. The query can the be sent with GTLRService's
-// execute methods,
+// GTLRAndroidProvisioningPartnerQuery.h. The query can the be sent with
+// GTLRService's execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

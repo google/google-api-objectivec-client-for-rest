@@ -70,6 +70,14 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AndroidEnterprise/*.{h,m}'
   end
+  s.subspec 'AndroidManagement' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/AndroidManagement/*.{h,m}'
+  end
+  s.subspec 'AndroidProvisioningPartner' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/AndroidProvisioningPartner/*.{h,m}'
+  end
   s.subspec 'AndroidPublisher' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AndroidPublisher/*.{h,m}'
@@ -113,10 +121,6 @@ Pod::Spec.new do |s|
   s.subspec 'Classroom' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Classroom/*.{h,m}'
-  end
-  s.subspec 'CloudBilling' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/CloudBilling/*.{h,m}'
   end
   s.subspec 'CloudBuild' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -173,6 +177,10 @@ Pod::Spec.new do |s|
   s.subspec 'CloudVideoIntelligence' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudVideoIntelligence/*.{h,m}'
+  end
+  s.subspec 'Cloudbilling' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Cloudbilling/*.{h,m}'
   end
   s.subspec 'Clouderrorreporting' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -489,6 +497,10 @@ Pod::Spec.new do |s|
   s.subspec 'URLShortener' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/URLShortener/*.{h,m}'
+  end
+  s.subspec 'Vault' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Vault/*.{h,m}'
   end
   s.subspec 'Vision' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

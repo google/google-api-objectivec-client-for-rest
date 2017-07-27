@@ -398,7 +398,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1FieldId : GTLRObject
 
-/** Column name describing the field. */
+/** Name describing the field. */
 @property(nonatomic, copy, nullable) NSString *columnName;
 
 @end

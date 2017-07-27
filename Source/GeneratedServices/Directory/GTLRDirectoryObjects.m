@@ -878,11 +878,11 @@
          creationTime, customerId, customSchemas, deletionTime, emails, ETag,
          externalIds, hashFunction, identifier, ims, includeInGlobalAddressList,
          ipWhitelisted, isAdmin, isDelegatedAdmin, isEnforcedIn2Sv,
-         isEnrolledIn2Sv, isMailboxSetup, kind, languages, lastLoginTime,
-         locations, name, nonEditableAliases, notes, organizations, orgUnitPath,
-         password, phones, posixAccounts, primaryEmail, relations,
-         sshPublicKeys, suspended, suspensionReason, thumbnailPhotoEtag,
-         thumbnailPhotoUrl, websites;
+         isEnrolledIn2Sv, isMailboxSetup, keywords, kind, languages,
+         lastLoginTime, locations, name, nonEditableAliases, notes,
+         organizations, orgUnitPath, password, phones, posixAccounts,
+         primaryEmail, relations, sshPublicKeys, suspended, suspensionReason,
+         thumbnailPhotoEtag, thumbnailPhotoUrl, websites;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -980,6 +980,16 @@
 
 @implementation GTLRDirectory_UserIm
 @dynamic customProtocol, customType, im, primary, protocol, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_UserKeyword
+//
+
+@implementation GTLRDirectory_UserKeyword
+@dynamic customType, type, value;
 @end
 
 

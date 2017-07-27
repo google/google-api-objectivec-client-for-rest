@@ -1019,6 +1019,16 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_AliasIpRange
+//
+
+@implementation GTLRCompute_AliasIpRange
+@dynamic ipCidrRange, subnetworkRangeName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_AttachedDisk
 //
 
@@ -3507,11 +3517,13 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_NetworkInterface
-@dynamic accessConfigs, kind, name, network, networkIP, subnetwork;
+@dynamic accessConfigs, aliasIpRanges, kind, name, network, networkIP,
+         subnetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"accessConfigs" : [GTLRCompute_AccessConfig class]
+    @"accessConfigs" : [GTLRCompute_AccessConfig class],
+    @"aliasIpRanges" : [GTLRCompute_AliasIpRange class]
   };
   return map;
 }
@@ -4630,12 +4642,19 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 @implementation GTLRCompute_Subnetwork
 @dynamic creationTimestamp, descriptionProperty, gatewayAddress, identifier,
          ipCidrRange, kind, name, network, privateIpGoogleAccess, region,
-         selfLink;
+         secondaryIpRanges, selfLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
     @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"secondaryIpRanges" : [GTLRCompute_SubnetworkSecondaryRange class]
   };
   return map;
 }
@@ -4691,6 +4710,16 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SubnetworkSecondaryRange
+//
+
+@implementation GTLRCompute_SubnetworkSecondaryRange
+@dynamic ipCidrRange, rangeName;
 @end
 
 
