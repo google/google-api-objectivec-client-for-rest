@@ -934,9 +934,9 @@ NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows    = @"ROWS";
 //
 
 @implementation GTLRSheets_ChartSpec
-@dynamic backgroundColor, basicChart, bubbleChart, candlestickChart, fontName,
-         hiddenDimensionStrategy, histogramChart, maximized, orgChart, pieChart,
-         title, titleTextFormat;
+@dynamic altText, backgroundColor, basicChart, bubbleChart, candlestickChart,
+         fontName, hiddenDimensionStrategy, histogramChart, maximized, orgChart,
+         pieChart, title, titleTextFormat;
 @end
 
 

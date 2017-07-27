@@ -623,7 +623,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions
-@dynamic isReadPermissionType, logName;
+@dynamic logName;
 @end
 
 

@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Functions API (cloudfunctions/v1)
+//   Android Management API (androidmanagement/v1)
 // Description:
-//   API for managing lightweight user-provided functions executed in response
-//   to events.
+//   The Android Management API provides remote enterprise management of Android
+//   devices and apps.
 // Documentation:
-//   https://cloud.google.com/functions
+//   https://developers.google.com/android/management
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -21,33 +21,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Authorization scope
-
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Service for executing Android Management API queries.
  *
- *  Value "https://www.googleapis.com/auth/cloud-platform"
+ *  The Android Management API provides remote enterprise management of Android
+ *  devices and apps.
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudFunctionsCloudPlatform;
-
-// ----------------------------------------------------------------------------
-//   GTLRCloudFunctionsService
-//
-
-/**
- *  Service for executing Google Cloud Functions API queries.
- *
- *  API for managing lightweight user-provided functions executed in response to
- *  events.
- */
-@interface GTLRCloudFunctionsService : GTLRService
+@interface GTLRAndroidManagementService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudFunctionsQuery.h. The query can the be sent with GTLRService's
+// GTLRAndroidManagementQuery.h. The query can the be sent with GTLRService's
 // execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

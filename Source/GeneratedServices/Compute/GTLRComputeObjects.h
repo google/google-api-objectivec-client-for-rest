@@ -30,6 +30,7 @@
 @class GTLRCompute_AddressesScopedList;
 @class GTLRCompute_AddressesScopedList_Warning;
 @class GTLRCompute_AddressesScopedList_Warning_Data_Item;
+@class GTLRCompute_AliasIpRange;
 @class GTLRCompute_AttachedDisk;
 @class GTLRCompute_AttachedDiskInitializeParams;
 @class GTLRCompute_Autoscaler;
@@ -167,6 +168,7 @@
 @class GTLRCompute_SSLHealthCheck;
 @class GTLRCompute_Subnetwork;
 @class GTLRCompute_SubnetworkAggregatedList_Items;
+@class GTLRCompute_SubnetworkSecondaryRange;
 @class GTLRCompute_SubnetworksScopedList;
 @class GTLRCompute_SubnetworksScopedList_Warning;
 @class GTLRCompute_SubnetworksScopedList_Warning_Data_Item;
@@ -1782,14 +1784,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_AcceleratorTypeAggregatedList : GTLRObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** [Output Only] A map of scoped accelerator type lists. */
+/** A list of AcceleratorTypesScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_AcceleratorTypeAggregatedList_Items *items;
 
 /**
@@ -1814,7 +1815,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  [Output Only] A map of scoped accelerator type lists.
+ *  A list of AcceleratorTypesScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_AcceleratorTypesScopedList. Use @c -additionalJSONKeys and
@@ -1856,7 +1857,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** [Output Only] A token used to continue a truncated list request. */
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** [Output Only] Server-defined URL for this resource. */
@@ -2099,7 +2106,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** [Output Only] A map of scoped address lists. */
+/** A list of AddressesScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_AddressAggregatedList_Items *items;
 
 /**
@@ -2124,7 +2131,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  [Output Only] A map of scoped address lists.
+ *  A list of AddressesScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_AddressesScopedList. Use @c -additionalJSONKeys and @c
@@ -2245,15 +2252,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_AddressList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of addresses.
+ *  A list of Address resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2275,8 +2281,32 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** [Output Only] Server-defined URL for the resource. */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  An alias IP range attached to an instance's network interface.
+ */
+@interface GTLRCompute_AliasIpRange : GTLRObject
+
+/**
+ *  The IP CIDR range represented by this alias IP range. This IP CIDR range
+ *  must belong to the specified subnetwork and cannot contain IP addresses
+ *  reserved by system or used by other network interfaces. This range may be a
+ *  single IP address (e.g. 10.2.3.4), a netmask (e.g. /24) or a CIDR format
+ *  string (e.g. 10.1.2.0/24).
+ */
+@property(nonatomic, copy, nullable) NSString *ipCidrRange;
+
+/**
+ *  Optional subnetwork secondary range name specifying the secondary range from
+ *  which to allocate the IP CIDR range for this alias IP range. If left
+ *  unspecified, the primary range of the subnetwork will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *subnetworkRangeName;
 
 @end
 
@@ -2577,14 +2607,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_AutoscalerAggregatedList : GTLRObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** A map of scoped autoscaler lists. */
+/** A list of AutoscalersScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_AutoscalerAggregatedList_Items *items;
 
 /**
@@ -2609,7 +2638,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  A map of scoped autoscaler lists.
+ *  A list of AutoscalersScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_AutoscalersScopedList. Use @c -additionalJSONKeys and @c
@@ -2631,8 +2660,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_AutoscalerList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2987,15 +3015,15 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The fully-qualified URL of a zonal Instance Group resource. This instance
- *  group defines the list of instances that serve traffic. Member virtual
- *  machine instances from each instance group must live in the same zone as the
+ *  The fully-qualified URL of a Instance Group resource. This instance group
+ *  defines the list of instances that serve traffic. Member virtual machine
+ *  instances from each instance group must live in the same zone as the
  *  instance group itself. No two backends in a backend service are allowed to
  *  use same Instance Group resource.
  *  Note that you must specify an Instance Group resource using the
  *  fully-qualified URL, rather than a partial URL.
  *  When the BackendService has load balancing scheme INTERNAL, the instance
- *  group must be in a zone within the same region as the BackendService.
+ *  group must be within the same region as the BackendService.
  */
 @property(nonatomic, copy, nullable) NSString *group;
 
@@ -3137,7 +3165,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** [Output Only] A token used to continue a truncated list request. */
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** [Output Only] Server-defined URL for this resource. */
@@ -3339,13 +3373,19 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** A map of scoped BackendService lists. */
+/** A list of BackendServicesScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_BackendServiceAggregatedList_Items *items;
 
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** [Output Only] A token used to continue a truncated list request. */
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** [Output Only] Server-defined URL for this resource. */
@@ -3355,7 +3395,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  A map of scoped BackendService lists.
+ *  A list of BackendServicesScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_BackendServicesScopedList. Use @c -additionalJSONKeys and
@@ -3733,14 +3773,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_CommitmentAggregatedList : GTLRObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Commitments by scope. */
+/** A list of CommitmentsScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_CommitmentAggregatedList_Items *items;
 
 /**
@@ -3765,7 +3804,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  Commitments by scope.
+ *  A list of CommitmentsScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_CommitmentsScopedList. Use @c -additionalJSONKeys and @c
@@ -3787,8 +3826,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_CommitmentList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -4239,14 +4277,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_DiskAggregatedList : GTLRObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** [Output Only] A map of scoped disk lists. */
+/** A list of DisksScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_DiskAggregatedList_Items *items;
 
 /**
@@ -4260,8 +4297,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  requests. If the number of results is larger than maxResults, use the
  *  nextPageToken as a value for the query parameter pageToken in the next list
  *  request. Subsequent list requests will have their own nextPageToken to
- *  continue paging through the results. Acceptable values are 0 to 500,
- *  inclusive. (Default: 500)
+ *  continue paging through the results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4272,7 +4308,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  [Output Only] A map of scoped disk lists.
+ *  A list of DisksScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_DisksScopedList. Use @c -additionalJSONKeys and @c
@@ -4314,11 +4350,11 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  This token allows you to get the next page of results for list requests. If
- *  the number of results is larger than maxResults, use the nextPageToken as a
- *  value for the query parameter pageToken in the next list request. Subsequent
- *  list requests will have their own nextPageToken to continue paging through
- *  the results.
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4537,14 +4573,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_DiskTypeAggregatedList : GTLRObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** [Output Only] A map of scoped disk type lists. */
+/** A list of DiskTypesScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_DiskTypeAggregatedList_Items *items;
 
 /** [Output Only] Type of resource. Always compute#diskTypeAggregatedList. */
@@ -4566,7 +4601,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  [Output Only] A map of scoped disk type lists.
+ *  A list of DiskTypesScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_DiskTypesScopedList. Use @c -additionalJSONKeys and @c
@@ -4588,15 +4623,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_DiskTypeList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of Disk Type resources.
+ *  A list of DiskType resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4799,15 +4833,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceRanges;
 
 /**
- *  If source tags are specified, the firewall will apply only to traffic with
- *  source IP that belongs to a tag listed in source tags. Source tags cannot be
- *  used to control traffic to an instance's external IP address. Because tags
- *  are associated with an instance, not an IP address. One or both of
- *  sourceRanges and sourceTags may be set. If both properties are set, the
- *  firewall will apply to traffic that has source IP address within
- *  sourceRanges OR the source IP that belongs to a tag listed in the sourceTags
- *  property. The connection does not need to match both properties for the
- *  firewall to apply.
+ *  If source tags are specified, the firewall will apply only to traffic from
+ *  VM instances in the same virtual network with a tag listed in the source
+ *  tags. Source tags cannot be used to control traffic to an instance's
+ *  external IP address, it only applies to traffic between instances in the
+ *  same virtual network. Because tags are associated with instances, not IP
+ *  addresses. One or both of sourceRanges and sourceTags may be set. If both
+ *  properties are set, the firewall will apply to traffic that has source IP
+ *  address within sourceRanges OR the source IP that belongs to a tag listed in
+ *  the sourceTags property. The connection does not need to match both
+ *  properties for the firewall to apply.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceTags;
 
@@ -4858,15 +4893,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_FirewallList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of Firewall resources.
+ *  A list of Firewall resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -5024,8 +5058,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Some types of forwarding target have constraints on the acceptable ports:
  *  - TargetHttpProxy: 80, 8080
  *  - TargetHttpsProxy: 443
- *  - TargetTcpProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995
- *  - TargetSslProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995
+ *  - TargetTcpProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995, 5222
+ *  - TargetSslProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995, 5222
  *  - TargetVpnGateway: 500, 4500
  *  -
  */
@@ -5080,14 +5114,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_ForwardingRuleAggregatedList : GTLRObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** A map of scoped forwarding rule lists. */
+/** A list of ForwardingRulesScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_ForwardingRuleAggregatedList_Items *items;
 
 /**
@@ -5112,7 +5145,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  A map of scoped forwarding rule lists.
+ *  A list of ForwardingRulesScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_ForwardingRulesScopedList. Use @c -additionalJSONKeys and
@@ -5134,7 +5167,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_ForwardingRuleList : GTLRCollectionObject
 
 /**
- *  [Output Only] Unique identifier for the resource. Set by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5450,8 +5483,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_HealthCheckList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5716,7 +5748,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_HttpHealthCheckList : GTLRCollectionObject
 
 /**
- *  [Output Only] Unique identifier for the resource. Defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -6159,15 +6191,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_ImageList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of Image resources.
+ *  A list of Image resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -6387,14 +6418,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_InstanceAggregatedList : GTLRObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** [Output Only] A map of scoped instance lists. */
+/** A list of InstancesScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceAggregatedList_Items *items;
 
 /**
@@ -6419,7 +6449,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  [Output Only] A map of scoped instance lists.
+ *  A list of InstancesScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_InstancesScopedList. Use @c -additionalJSONKeys and @c
@@ -6537,14 +6567,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_InstanceGroupAggregatedList : GTLRObject
 
 /**
- *  [Output Only] A unique identifier for this aggregated list of instance
- *  groups. The server generates this identifier.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** A map of scoped instance group lists. */
+/** A list of InstanceGroupsScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupAggregatedList_Items *items;
 
 /**
@@ -6562,16 +6591,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/**
- *  [Output Only] The URL for this resource type. The server generates this URL.
- */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
 
 /**
- *  A map of scoped instance group lists.
+ *  A list of InstanceGroupsScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_InstanceGroupsScopedList. Use @c -additionalJSONKeys and
@@ -6593,15 +6620,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_InstanceGroupList : GTLRCollectionObject
 
 /**
- *  [Output Only] A unique identifier for this list of instance groups. The
- *  server generates this identifier.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  A list of instance groups.
+ *  A list of InstanceGroup resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -6623,9 +6649,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/**
- *  [Output Only] The URL for this resource type. The server generates this URL.
- */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
@@ -6839,14 +6863,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_InstanceGroupManagerAggregatedList : GTLRObject
 
 /**
- *  [Output Only] A unique identifier for this aggregated list of managed
- *  instance groups. The server generates this identifier.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** [Output Only] A map of filtered managed instance group lists. */
+/** A list of InstanceGroupManagersScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerAggregatedList_Items *items;
 
 /**
@@ -6865,16 +6888,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/**
- *  [Output Only] The URL for this resource type. The server generates this URL.
- */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
 
 /**
- *  [Output Only] A map of filtered managed instance group lists.
+ *  A list of InstanceGroupManagersScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_InstanceGroupManagersScopedList. Use @c
@@ -6897,15 +6918,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_InstanceGroupManagerList : GTLRCollectionObject
 
 /**
- *  [Output Only] A unique identifier for this resource type. The server
- *  generates this identifier.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of managed instance groups.
+ *  A list of InstanceGroupManager resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -7153,16 +7173,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_InstanceGroupsListInstances : GTLRCollectionObject
 
 /**
- *  [Output Only] A unique identifier for this list of instances in the
- *  specified instance group. The server generates this identifier.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of instances and any named ports that are assigned to
- *  those instances.
+ *  A list of InstanceWithNamedPorts resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -7185,10 +7203,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/**
- *  [Output Only] The URL for this list of instances in the specified instance
- *  groups. The server generates this URL.
- */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
@@ -7362,15 +7377,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_InstanceList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of instances.
+ *  A list of Instance resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -7788,15 +7802,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_InstanceTemplateList : GTLRCollectionObject
 
 /**
- *  [Output Only] A unique identifier for this instance template. The server
- *  defines this identifier.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] list of InstanceTemplate resources.
+ *  A list of InstanceTemplate resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -7818,10 +7831,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/**
- *  [Output Only] The URL for this instance template list. The server defines
- *  this URL.
- */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
@@ -8009,14 +8019,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_MachineTypeAggregatedList : GTLRObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** [Output Only] A map of scoped machine type lists. */
+/** A list of MachineTypesScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_MachineTypeAggregatedList_Items *items;
 
 /**
@@ -8041,7 +8050,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  [Output Only] A map of scoped machine type lists.
+ *  A list of MachineTypesScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_MachineTypesScopedList. Use @c -additionalJSONKeys and @c
@@ -8063,15 +8072,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_MachineTypeList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of Machine Type resources.
+ *  A list of MachineType resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -8395,7 +8403,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Value for the metadata entry. These are free-form strings, and only have
  *  meaning as interpreted by the image running in the instance. The only
  *  restriction placed on values is that their size must be less than or equal
- *  to 32768 bytes.
+ *  to 262144 bytes (256 KiB).
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -8518,6 +8526,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_AccessConfig *> *accessConfigs;
 
 /**
+ *  An array of alias IP ranges for this network interface. Can only be
+ *  specified for network interfaces on subnet-mode networks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_AliasIpRange *> *aliasIpRanges;
+
+/**
  *  [Output Only] Type of the resource. Always compute#networkInterface for
  *  network interfaces.
  */
@@ -8580,15 +8594,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_NetworkList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of Network resources.
+ *  A list of Network resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -9294,8 +9307,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, strong, nullable) GTLRCompute_UsageExportLocation *usageExportLocation;
 
 /**
- *  [Output Only] The role this project has in a Cross Project Network (XPN)
- *  configuration. Currently only HOST projects are differentiated.
+ *  [Output Only] The role this project has in a shared VPC configuration.
+ *  Currently only HOST projects are differentiated.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Project_XpnProjectStatus_Host Value "HOST"
@@ -9312,7 +9325,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @interface GTLRCompute_ProjectsDisableXpnResourceRequest : GTLRObject
 
-/** XPN resource ID. */
+/** Service resource (a.k.a service project) ID. */
 @property(nonatomic, strong, nullable) GTLRCompute_XpnResourceId *xpnResource;
 
 @end
@@ -9323,7 +9336,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @interface GTLRCompute_ProjectsEnableXpnResourceRequest : GTLRObject
 
-/** XPN resource ID. */
+/** Service resource (a.k.a service project) ID. */
 @property(nonatomic, strong, nullable) GTLRCompute_XpnResourceId *xpnResource;
 
 @end
@@ -9341,7 +9354,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /**
  *  [Output Only] Type of resource. Always compute#projectsGetXpnResources for
- *  lists of XPN resources.
+ *  lists of service resources (a.k.a service projects)
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -9355,7 +9368,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  XPN resources attached to this project as their XPN host.
+ *  Serive resources (a.k.a service projects) attached to this project as their
+ *  shared VPC host.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -9372,8 +9386,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /**
  *  Optional organization ID managed by Cloud Resource Manager, for which to
- *  list XPN host projects. If not specified, the organization will be inferred
- *  from the project.
+ *  list shared VPC host projects. If not specified, the organization will be
+ *  inferred from the project.
  */
 @property(nonatomic, copy, nullable) NSString *organization;
 
@@ -9526,15 +9540,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_RegionAutoscalerList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  A list of autoscalers.
+ *  A list of Autoscaler resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -9544,7 +9557,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** [Output Only] A token used to continue a truncated list request. */
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** [Output Only] Server-defined URL for this resource. */
@@ -9564,8 +9583,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_RegionInstanceGroupList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -9591,9 +9609,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/**
- *  [Output Only] The URL for this resource type. The server generates this URL.
- */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
@@ -9610,15 +9626,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_RegionInstanceGroupManagerList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  A list of managed instance groups.
+ *  A list of InstanceGroupManager resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -9632,12 +9647,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** [Output only] A token used to continue a truncated list request. */
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/**
- *  [Output only] The URL for this resource type. The server generates this URL.
- */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
@@ -9746,15 +9765,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_RegionInstanceGroupsListInstances : GTLRCollectionObject
 
 /**
- *  [Output Only] Unique identifier for the resource. Defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  A list of instances and any named ports that are assigned to those
- *  instances.
+ *  A list of InstanceWithNamedPorts resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -9773,7 +9791,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** [Output Only] Server-defined URL for the resource. */
+/** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
@@ -9841,15 +9859,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_RegionList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of Region resources.
+ *  A list of Region resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -10135,14 +10152,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_RouteList : GTLRCollectionObject
 
 /**
- *  [Output Only] Unique identifier for the resource. Defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of Route resources.
+ *  A list of Route resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -10242,14 +10259,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_RouterAggregatedList : GTLRObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** A map of scoped router lists. */
+/** A list of Router resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_RouterAggregatedList_Items *items;
 
 /** Type of resource. */
@@ -10271,7 +10287,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  A map of scoped router lists.
+ *  A list of Router resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_RoutersScopedList. Use @c -additionalJSONKeys and @c
@@ -10385,8 +10401,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_RouterList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -10878,15 +10893,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_SnapshotList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of Snapshot resources.
+ *  A list of Snapshot resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -10986,7 +11000,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_SslCertificateList : GTLRCollectionObject
 
 /**
- *  [Output Only] Unique identifier for the resource. Defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -11147,6 +11161,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
+/**
+ *  An array of configurations for secondary IP ranges for VM instances
+ *  contained in this subnetwork. The primary IP of such VM must belong to the
+ *  primary ipCidrRange of the subnetwork. The alias IPs may belong to either
+ *  primary or secondary ranges.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SubnetworkSecondaryRange *> *secondaryIpRanges;
+
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -11159,14 +11181,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_SubnetworkAggregatedList : GTLRObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** [Output] A map of scoped Subnetwork lists. */
+/** A list of SubnetworksScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_SubnetworkAggregatedList_Items *items;
 
 /**
@@ -11191,7 +11212,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  [Output] A map of scoped Subnetwork lists.
+ *  A list of SubnetworksScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_SubnetworksScopedList. Use @c -additionalJSONKeys and @c
@@ -11213,15 +11234,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_SubnetworkList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The Subnetwork resources.
+ *  A list of Subnetwork resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -11245,6 +11265,29 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  Represents a secondary IP range of a subnetwork.
+ */
+@interface GTLRCompute_SubnetworkSecondaryRange : GTLRObject
+
+/**
+ *  The range of IP addresses belonging to this subnetwork secondary range.
+ *  Provide this property when you create the subnetwork. Ranges must be unique
+ *  and non-overlapping with all primary and secondary IP ranges within a
+ *  network. Only IPv4 is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *ipCidrRange;
+
+/**
+ *  The name associated with this subnetwork secondary range, used when adding
+ *  an alias IP range to a VM instance. The name must be 1-63 characters long,
+ *  and comply with RFC1035. The name must be unique within the subnetwork.
+ */
+@property(nonatomic, copy, nullable) NSString *rangeName;
 
 @end
 
@@ -11470,8 +11513,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_TargetHttpProxyList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -11597,8 +11639,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_TargetHttpsProxyList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -11723,7 +11764,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** A map of scoped target instance lists. */
+/** A list of TargetInstance resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_TargetInstanceAggregatedList_Items *items;
 
 /** Type of resource. */
@@ -11745,7 +11786,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  A map of scoped target instance lists.
+ *  A list of TargetInstance resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_TargetInstancesScopedList. Use @c -additionalJSONKeys and
@@ -11767,8 +11808,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_TargetInstanceList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -12027,13 +12067,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_TargetPoolAggregatedList : GTLRObject
 
 /**
- *  [Output Only] Unique identifier for the resource. Defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** [Output Only] A map of scoped target pool lists. */
+/** A list of TargetPool resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_TargetPoolAggregatedList_Items *items;
 
 /**
@@ -12058,7 +12098,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  [Output Only] A map of scoped target pool lists.
+ *  A list of TargetPool resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_TargetPoolsScopedList. Use @c -additionalJSONKeys and @c
@@ -12096,7 +12136,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_TargetPoolList : GTLRCollectionObject
 
 /**
- *  [Output Only] Unique identifier for the resource. Defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -12422,8 +12462,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_TargetSslProxyList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -12559,8 +12598,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_TargetTcpProxyList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -12680,14 +12718,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_TargetVpnGatewayAggregatedList : GTLRObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** A map of scoped target vpn gateway lists. */
+/** A list of TargetVpnGateway resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_TargetVpnGatewayAggregatedList_Items *items;
 
 /**
@@ -12712,7 +12749,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  A map of scoped target vpn gateway lists.
+ *  A list of TargetVpnGateway resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_TargetVpnGatewaysScopedList. Use @c -additionalJSONKeys
@@ -12735,15 +12772,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_TargetVpnGatewayList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of TargetVpnGateway resources.
+ *  A list of TargetVpnGateway resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -13017,7 +13053,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_UrlMapList : GTLRCollectionObject
 
 /**
- *  [Output Only] Unique identifier for the resource. Set by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -13288,14 +13324,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_VpnTunnelAggregatedList : GTLRObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** [Output Only] A map of scoped vpn tunnel lists. */
+/** A list of VpnTunnelsScopedList resources. */
 @property(nonatomic, strong, nullable) GTLRCompute_VpnTunnelAggregatedList_Items *items;
 
 /**
@@ -13319,7 +13354,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  [Output Only] A map of scoped vpn tunnel lists.
+ *  A list of VpnTunnelsScopedList resources.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCompute_VpnTunnelsScopedList. Use @c -additionalJSONKeys and @c
@@ -13341,15 +13376,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_VpnTunnelList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of VpnTunnel resources.
+ *  A list of VpnTunnel resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -13486,15 +13520,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @interface GTLRCompute_XpnHostList : GTLRCollectionObject
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
- *  defined by the server.
+ *  [Output Only] Unique identifier for the resource; defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of XPN host project URLs.
+ *  [Output Only] A list of shared VPC host project URLs.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -13502,8 +13535,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_Project *> *items;
 
 /**
- *  [Output Only] Type of resource. Always compute#xpnHostList for lists of XPN
- *  hosts.
+ *  [Output Only] Type of resource. Always compute#xpnHostList for lists of
+ *  shared VPC hosts.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -13523,20 +13556,20 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 
 /**
- *  XpnResourceId
+ *  Service resource (a.k.a service project) ID.
  */
 @interface GTLRCompute_XpnResourceId : GTLRObject
 
 /**
- *  The ID of the XPN resource. In the case of projects, this field matches the
- *  project's name, not the canonical ID.
+ *  The ID of the service resource. In the case of projects, this field matches
+ *  the project ID (e.g., my-project), not the project number (e.g., 12345678).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The type of the XPN resource.
+ *  The type of the service resource.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_XpnResourceId_Type_Project Value "PROJECT"
@@ -13618,7 +13651,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output Only] A list of Zone resources.
+ *  A list of Zone resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.

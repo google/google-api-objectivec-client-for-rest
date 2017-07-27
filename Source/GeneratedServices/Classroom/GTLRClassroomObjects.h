@@ -356,7 +356,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Drive folder where attachments from student submissions are placed.
- *  This is only populated for course teachers.
+ *  This is only populated for course teachers and administrators.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_DriveFolder *studentWorkFolder;
 

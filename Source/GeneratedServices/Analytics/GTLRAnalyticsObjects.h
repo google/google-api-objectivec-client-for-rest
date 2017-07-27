@@ -2572,7 +2572,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** The status of this foreign account link. */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/** The type of the foreign account. For example `ADWORDS_LINKS`. */
+/**
+ *  The type of the foreign account. For example, `ADWORDS_LINKS`, `DBM_LINKS`,
+ *  `MCC_LINKS` or `OPTIMIZE`.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**

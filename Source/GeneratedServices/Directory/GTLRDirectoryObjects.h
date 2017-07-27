@@ -1745,6 +1745,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *isMailboxSetup;
 
+/**
+ *  keywords
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id keywords;
+
 /** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2035,6 +2042,29 @@ NS_ASSUME_NONNULL_BEGIN
  *  types should have the CUSTOM value as type and also have a customType value.
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  JSON template for a keyword entry.
+ */
+@interface GTLRDirectory_UserKeyword : GTLRObject
+
+/** Custom Type. */
+@property(nonatomic, copy, nullable) NSString *customType;
+
+/**
+ *  Each entry can have a type which indicates standard type of that entry. For
+ *  example, keyword could be of type occupation or outlook. In addition to the
+ *  standard type, an entry can have a custom type and can give it any name.
+ *  Such types should have the CUSTOM value as type and also have a customType
+ *  value.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Keyword. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

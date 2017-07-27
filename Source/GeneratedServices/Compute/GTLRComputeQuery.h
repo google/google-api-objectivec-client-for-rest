@@ -8070,7 +8070,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Disable this project as an XPN host project.
+ *  Disable this project as a shared VPC host project.
  *
  *  Method: compute.projects.disableXpnHost
  *
@@ -8088,7 +8088,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Disable this project as an XPN host project.
+ *  Disable this project as a shared VPC host project.
  *
  *  @param project Project ID for this request.
  *
@@ -8099,7 +8099,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Disable an XPN resource associated with this host project.
+ *  Disable a serivce resource (a.k.a service project) associated with this host
+ *  project.
  *
  *  Method: compute.projects.disableXpnResource
  *
@@ -8117,7 +8118,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Disable an XPN resource associated with this host project.
+ *  Disable a serivce resource (a.k.a service project) associated with this host
+ *  project.
  *
  *  @param object The @c GTLRCompute_ProjectsDisableXpnResourceRequest to
  *    include in the query.
@@ -8131,7 +8133,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Enable this project as an XPN host project.
+ *  Enable this project as a shared VPC host project.
  *
  *  Method: compute.projects.enableXpnHost
  *
@@ -8149,7 +8151,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Enable this project as an XPN host project.
+ *  Enable this project as a shared VPC host project.
  *
  *  @param project Project ID for this request.
  *
@@ -8160,9 +8162,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Enable XPN resource (a.k.a service project or service folder in the future)
- *  for a host project, so that subnetworks in the host project can be used by
- *  instances in the service project or folder.
+ *  Enable service resource (a.k.a service project) for a host project, so that
+ *  subnets in the host project can be used by instances in the service project.
  *
  *  Method: compute.projects.enableXpnResource
  *
@@ -8180,9 +8181,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Enable XPN resource (a.k.a service project or service folder in the future)
- *  for a host project, so that subnetworks in the host project can be used by
- *  instances in the service project or folder.
+ *  Enable service resource (a.k.a service project) for a host project, so that
+ *  subnets in the host project can be used by instances in the service project.
  *
  *  @param object The @c GTLRCompute_ProjectsEnableXpnResourceRequest to include
  *    in the query.
@@ -8226,8 +8226,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get the XPN host project that this project links to. May be empty if no link
- *  exists.
+ *  Get the shared VPC host project that this project links to. May be empty if
+ *  no link exists.
  *
  *  Method: compute.projects.getXpnHost
  *
@@ -8245,8 +8245,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Project.
  *
- *  Get the XPN host project that this project links to. May be empty if no link
- *  exists.
+ *  Get the shared VPC host project that this project links to. May be empty if
+ *  no link exists.
  *
  *  @param project Project ID for this request.
  *
@@ -8257,7 +8257,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get XPN resources associated with this host project.
+ *  Get service resources (a.k.a service project) associated with this host
+ *  project.
  *
  *  Method: compute.projects.getXpnResources
  *
@@ -8288,7 +8289,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_ProjectsGetXpnResources.
  *
- *  Get XPN resources associated with this host project.
+ *  Get service resources (a.k.a service project) associated with this host
+ *  project.
  *
  *  @param project Project ID for this request.
  *
@@ -8303,7 +8305,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List all XPN host projects visible to the user in an organization.
+ *  List all shared VPC host projects visible to the user in an organization.
  *
  *  Method: compute.projects.listXpnHosts
  *
@@ -8334,7 +8336,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_XpnHostList.
  *
- *  List all XPN host projects visible to the user in an organization.
+ *  List all shared VPC host projects visible to the user in an organization.
  *
  *  @param object The @c GTLRCompute_ProjectsListXpnHostsRequest to include in
  *    the query.

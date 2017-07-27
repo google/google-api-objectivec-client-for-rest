@@ -11,8 +11,65 @@
 
 #import "GTLRCloudFunctionsQuery.h"
 
+#import "GTLRCloudFunctionsObjects.h"
+
 @implementation GTLRCloudFunctionsQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_OperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudFunctionsQuery_OperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFunctions_Operation class];
+  query.loggingName = @"cloudfunctions.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_OperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/operations";
+  GTLRCloudFunctionsQuery_OperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudFunctions_ListOperationsResponse class];
+  query.loggingName = @"cloudfunctions.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/locations";
+  GTLRCloudFunctionsQuery_ProjectsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFunctions_ListLocationsResponse class];
+  query.loggingName = @"cloudfunctions.projects.locations.list";
+  return query;
+}
 
 @end

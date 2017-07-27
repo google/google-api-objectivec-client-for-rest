@@ -2061,6 +2061,12 @@ GTLR_EXTERN NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbVi
  */
 GTLR_EXTERN NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedAPartnerProfile;
 /**
+ *  Advertiser viewed Digital Sales certificate.
+ *
+ *  Value: "SMB_VIEWED_DIGITAL_SALES_CERTIFICATE"
+ */
+GTLR_EXTERN NSString * const kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedDigitalSalesCertificate;
+/**
  *  Advertiser viewed DoubleClick certificate.
  *
  *  Value: "SMB_VIEWED_DOUBLECLICK_CERTIFICATE"
@@ -4358,6 +4364,9 @@ GTLR_EXTERN NSString * const kGTLRPartners_SpecializationStatus_BadgeSpecializat
  *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedAPartnerProfile
  *        Advertiser viewed a partner profile. (Value:
  *        "SMB_VIEWED_A_PARTNER_PROFILE")
+ *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedDigitalSalesCertificate
+ *        Advertiser viewed Digital Sales certificate. (Value:
+ *        "SMB_VIEWED_DIGITAL_SALES_CERTIFICATE")
  *    @arg @c kGTLRPartners_LogUserEventRequest_EventAction_SmbViewedDoubleclickCertificate
  *        Advertiser viewed DoubleClick certificate. (Value:
  *        "SMB_VIEWED_DOUBLECLICK_CERTIFICATE")
