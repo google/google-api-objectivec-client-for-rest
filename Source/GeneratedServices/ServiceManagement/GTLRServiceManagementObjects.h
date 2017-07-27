@@ -1327,6 +1327,13 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceManagement_CloudAuditOptions : GTLRObject
 
 /**
+ *  True if the log is for a permission of type DATA_READ or ADMIN_READ.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isReadPermissionType;
+
+/**
  *  The log_name to populate in the Cloud Audit Record.
  *
  *  Likely values:
@@ -4453,8 +4460,8 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a
- *  common set of message types for APIs to use.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Status_Details_Item *> *details;
 

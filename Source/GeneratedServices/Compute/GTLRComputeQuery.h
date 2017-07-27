@@ -10925,7 +10925,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Patches the specified Router resource with the data included in the request.
- *  This method supports patch semantics.
+ *  This method supports PATCH semantics and uses JSON merge patch format and
+ *  processing rules.
  *
  *  Method: compute.routers.patch
  *
@@ -10951,7 +10952,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches the specified Router resource with the data included in the request.
- *  This method supports patch semantics.
+ *  This method supports PATCH semantics and uses JSON merge patch format and
+ *  processing rules.
  *
  *  @param object The @c GTLRCompute_Router to include in the query.
  *  @param project Project ID for this request.

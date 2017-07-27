@@ -20,8 +20,8 @@
 
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody;
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomaticScaling;
-@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutomaticScaling;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutoScaling;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ManualScaling;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput;
@@ -110,7 +110,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Ready;
 /**
- *  / The version state is unspecified.
+ *  The version state is unspecified.
  *
  *  Value: "UNKNOWN"
  */
@@ -684,7 +684,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
 /**
  *  Options for automatically scaling a model.
  */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomaticScaling : GTLRObject
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling : GTLRObject
 
 /**
  *  Optional. The minimum number of nodes to allocate for this model. These
@@ -714,7 +714,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
 /**
  *  Options for automatically scaling a model.
  */
-@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutomaticScaling : GTLRObject
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutoScaling : GTLRObject
 
 /**
  *  Optional. The minimum number of nodes to allocate for this model. These
@@ -750,7 +750,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
  *  The number of nodes to allocate for this model. These nodes are always up,
  *  starting from the time the model is deployed, so the cost of operating
  *  this model will be proportional to `nodes` * number of hours since
- *  last billing cycle.
+ *  last billing cycle plus the cost for each prediction performed.
  *
  *  Uses NSNumber of intValue.
  */
@@ -819,7 +819,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
  *  taken to ramp up traffic according to the model's ability to scale
  *  or you will start seeing increases in latency and 429 response codes.
  */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutomaticScaling *automaticScaling;
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutoScaling *autoScaling;
 
 /** Output only. The time the version was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -829,7 +829,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
  *  create the version. See the
  *  [overview of model
  *  deployment](/ml-engine/docs/concepts/deployment-overview) for more
- *  informaiton.
+ *  information.
  *  When passing Version to
  *  [projects.models.versions.create](/ml-engine/reference/rest/v1beta1/projects.models.versions/create)
  *  the model service uses the specified location as the source of the model.
@@ -864,11 +864,11 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
 
 /**
  *  Manually select the number of nodes to use for serving the
- *  model. You should generally use `automatic_scaling` with an appropriate
- *  `min_nodes` instead, but this option is available if you want predictable
- *  billing. Beware that latency and error rates will increase if the
- *  traffic exceeds that capability of the system to serve it based on
- *  the selected number of nodes.
+ *  model. You should generally use `auto_scaling` with an appropriate
+ *  `min_nodes` instead, but this option is available if you want more
+ *  predictable billing. Beware that latency and error rates will increase
+ *  if the traffic exceeds that capability of the system to serve it based
+ *  on the selected number of nodes.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ManualScaling *manualScaling;
 
@@ -897,7 +897,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Ready
  *        The version is ready for prediction. (Value: "READY")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Unknown
- *        / The version state is unspecified. (Value: "UNKNOWN")
+ *        The version state is unspecified. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1935,7 +1935,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
  *  taken to ramp up traffic according to the model's ability to scale
  *  or you will start seeing increases in latency and 429 response codes.
  */
-@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomaticScaling *automaticScaling;
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling *autoScaling;
 
 /** Output only. The time the version was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -1945,7 +1945,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
  *  create the version. See the
  *  [overview of model
  *  deployment](/ml-engine/docs/concepts/deployment-overview) for more
- *  informaiton.
+ *  information.
  *  When passing Version to
  *  [projects.models.versions.create](/ml-engine/reference/rest/v1/projects.models.versions/create)
  *  the model service uses the specified location as the source of the model.
@@ -1980,7 +1980,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
 
 /**
  *  Manually select the number of nodes to use for serving the
- *  model. You should generally use `automatic_scaling` with an appropriate
+ *  model. You should generally use `auto_scaling` with an appropriate
  *  `min_nodes` instead, but this option is available if you want more
  *  predictable billing. Beware that latency and error rates will increase
  *  if the traffic exceeds that capability of the system to serve it based
@@ -2303,6 +2303,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
  *  Write a Cloud Audit log
  */
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions : GTLRObject
+
+/**
+ *  True if the log is for a permission of type DATA_READ or ADMIN_READ.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isReadPermissionType;
 
 /**
  *  The log_name to populate in the Cloud Audit Record.
@@ -2730,8 +2737,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Act
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a
- *  common set of message types for APIs to use.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleRpcStatus_Details_Item *> *details;
 

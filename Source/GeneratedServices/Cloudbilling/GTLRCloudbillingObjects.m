@@ -10,29 +10,29 @@
 // Documentation:
 //   https://cloud.google.com/billing/
 
-#import "GTLRCloudBillingObjects.h"
+#import "GTLRCloudbillingObjects.h"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBilling_BillingAccount
+//   GTLRCloudbilling_BillingAccount
 //
 
-@implementation GTLRCloudBilling_BillingAccount
+@implementation GTLRCloudbilling_BillingAccount
 @dynamic displayName, name, open;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBilling_ListBillingAccountsResponse
+//   GTLRCloudbilling_ListBillingAccountsResponse
 //
 
-@implementation GTLRCloudBilling_ListBillingAccountsResponse
+@implementation GTLRCloudbilling_ListBillingAccountsResponse
 @dynamic billingAccounts, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"billingAccounts" : [GTLRCloudBilling_BillingAccount class]
+    @"billingAccounts" : [GTLRCloudbilling_BillingAccount class]
   };
   return map;
 }
@@ -46,15 +46,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBilling_ListProjectBillingInfoResponse
+//   GTLRCloudbilling_ListProjectBillingInfoResponse
 //
 
-@implementation GTLRCloudBilling_ListProjectBillingInfoResponse
+@implementation GTLRCloudbilling_ListProjectBillingInfoResponse
 @dynamic nextPageToken, projectBillingInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"projectBillingInfo" : [GTLRCloudBilling_ProjectBillingInfo class]
+    @"projectBillingInfo" : [GTLRCloudbilling_ProjectBillingInfo class]
   };
   return map;
 }
@@ -68,9 +68,9 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBilling_ProjectBillingInfo
+//   GTLRCloudbilling_ProjectBillingInfo
 //
 
-@implementation GTLRCloudBilling_ProjectBillingInfo
+@implementation GTLRCloudbilling_ProjectBillingInfo
 @dynamic billingAccountName, billingEnabled, name, projectId;
 @end

@@ -26,6 +26,7 @@
 @class GTLRServiceControl_AuthorizationInfo;
 @class GTLRServiceControl_CheckError;
 @class GTLRServiceControl_CheckInfo;
+@class GTLRServiceControl_ConsumerInfo;
 @class GTLRServiceControl_Distribution;
 @class GTLRServiceControl_ExplicitBuckets;
 @class GTLRServiceControl_ExponentialBuckets;
@@ -422,6 +423,18 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_LoasRoleInvalid
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_NoLoasProject;
 /**
+ *  Quota release failed. This error is ONLY returned on a NORMAL release.
+ *  More formally: if a user requests a release of 10 tokens, but only
+ *  5 tokens were previously allocated, in a BEST_EFFORT release, this will
+ *  be considered a success, 5 tokens will be released, and the result will
+ *  be "Ok". If this is done in NORMAL mode, no tokens will be released,
+ *  and an OUT_OF_RANGE error will be returned.
+ *  Same as google.rpc.Code.OUT_OF_RANGE.
+ *
+ *  Value: "OUT_OF_RANGE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_OutOfRange;
+/**
  *  Consumer's project has been marked as deleted (soft deletion).
  *
  *  Value: "PROJECT_DELETED"
@@ -792,7 +805,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /**
  *  The resource being accessed, as a REST-style string. For example:
- *  bigquery.googlapis.com/projects/PROJECTID/datasets/DATASETID
+ *  bigquery.googleapis.com/projects/PROJECTID/datasets/DATASETID
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -912,6 +925,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  */
 @interface GTLRServiceControl_CheckInfo : GTLRObject
 
+/** Consumer info of this check. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_ConsumerInfo *consumerInfo;
+
 /**
  *  A list of fields and label keys that are ignored by the server.
  *  The client doesn't need to send them for following requests to improve
@@ -985,6 +1001,22 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /** The actual config id used to process the request. */
 @property(nonatomic, copy, nullable) NSString *serviceConfigId;
+
+@end
+
+
+/**
+ *  `ConsumerInfo` provides information about the consumer project.
+ */
+@interface GTLRServiceControl_ConsumerInfo : GTLRObject
+
+/**
+ *  The Google cloud project number, e.g. 1234567890. A value of 0 indicates
+ *  no project number is found.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *projectNumber;
 
 @end
 
@@ -1642,6 +1674,16 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *        LOAS role is invalid. (Value: "LOAS_ROLE_INVALID")
  *    @arg @c kGTLRServiceControl_QuotaError_Code_NoLoasProject The consumer's
  *        LOAS role has no associated project. (Value: "NO_LOAS_PROJECT")
+ *    @arg @c kGTLRServiceControl_QuotaError_Code_OutOfRange Quota release
+ *        failed. This error is ONLY returned on a NORMAL release.
+ *        More formally: if a user requests a release of 10 tokens, but only
+ *        5 tokens were previously allocated, in a BEST_EFFORT release, this
+ *        will
+ *        be considered a success, 5 tokens will be released, and the result
+ *        will
+ *        be "Ok". If this is done in NORMAL mode, no tokens will be released,
+ *        and an OUT_OF_RANGE error will be returned.
+ *        Same as google.rpc.Code.OUT_OF_RANGE. (Value: "OUT_OF_RANGE")
  *    @arg @c kGTLRServiceControl_QuotaError_Code_ProjectDeleted Consumer's
  *        project has been marked as deleted (soft deletion). (Value:
  *        "PROJECT_DELETED")
@@ -2069,7 +2111,16 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  */
 @interface GTLRServiceControl_RequestMetadata : GTLRObject
 
-/** The IP address of the caller. */
+/**
+ *  The IP address of the caller.
+ *  For caller from internet, this will be public IPv4 or IPv6 address.
+ *  For caller from GCE VM with external IP address, this will be the VM's
+ *  external IP address. For caller from GCE VM without external IP address, if
+ *  the VM is in the same GCP organization (or project) as the accessed
+ *  resource, `caller_ip` will be the GCE VM's internal IPv4 address, otherwise
+ *  it will be redacted to "gce-internal-ip".
+ *  See https://cloud.google.com/compute/docs/vpc/ for more information.
+ */
 @property(nonatomic, copy, nullable) NSString *callerIp;
 
 /**
@@ -2195,8 +2246,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a
- *  common set of message types for APIs to use.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_Status_Details_Item *> *details;
 

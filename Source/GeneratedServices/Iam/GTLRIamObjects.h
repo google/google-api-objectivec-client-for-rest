@@ -22,6 +22,7 @@
 
 @class GTLRIam_Binding;
 @class GTLRIam_BindingDelta;
+@class GTLRIam_Permission;
 @class GTLRIam_Policy;
 @class GTLRIam_PolicyDelta;
 @class GTLRIam_Role;
@@ -100,6 +101,114 @@ GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyT
  *  Value: "TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRIam_Permission.customRolesSupportLevel
+
+/**
+ *  Permission is not supported for custom role use.
+ *
+ *  Value: "NOT_SUPPORTED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_NotSupported;
+/**
+ *  Permission is fully supported for custom role use.
+ *
+ *  Value: "SUPPORTED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_Supported;
+/**
+ *  Permission is being tested to check custom role compatibility.
+ *
+ *  Value: "TESTING"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_Testing;
+
+// ----------------------------------------------------------------------------
+// GTLRIam_Permission.stage
+
+/**
+ *  The permission is currently in an alpha phase.
+ *
+ *  Value: "ALPHA"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_Permission_Stage_Alpha;
+/**
+ *  The permission is currently in a beta phase.
+ *
+ *  Value: "BETA"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_Permission_Stage_Beta;
+/**
+ *  The permission is being deprecated.
+ *
+ *  Value: "DEPRECATED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_Permission_Stage_Deprecated;
+/**
+ *  The permission is generally available.
+ *
+ *  Value: "GA"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_Permission_Stage_Ga;
+
+// ----------------------------------------------------------------------------
+// GTLRIam_QueryGrantableRolesRequest.view
+
+/**
+ *  Omits the `included_permissions` field.
+ *  This is the default value.
+ *
+ *  Value: "BASIC"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_QueryGrantableRolesRequest_View_Basic;
+/**
+ *  Returns all fields.
+ *
+ *  Value: "FULL"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_QueryGrantableRolesRequest_View_Full;
+
+// ----------------------------------------------------------------------------
+// GTLRIam_Role.stage
+
+/**
+ *  The user has indicated this role is currently in an alpha phase.
+ *
+ *  Value: "ALPHA"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Alpha;
+/**
+ *  The user has indicated this role is currently in a beta phase.
+ *
+ *  Value: "BETA"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Beta;
+/**
+ *  The user has indicated this role is being deprecated.
+ *
+ *  Value: "DEPRECATED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Deprecated;
+/**
+ *  This role is disabled and will not contribute permissions to any members
+ *  it is granted to in policies.
+ *
+ *  Value: "DISABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Disabled;
+/**
+ *  The user has indicated this role is currently in an eap phase.
+ *
+ *  Value: "EAP"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Eap;
+/**
+ *  The user has indicated this role is generally available.
+ *
+ *  Value: "GA"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Ga;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_ServiceAccountKey.keyAlgorithm
@@ -231,6 +340,20 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 
 /**
+ *  The request to create a new role.
+ */
+@interface GTLRIam_CreateRoleRequest : GTLRObject
+
+/** The Role resource to create. */
+@property(nonatomic, strong, nullable) GTLRIam_Role *role;
+
+/** The role id to use for this role. */
+@property(nonatomic, copy, nullable) NSString *roleId;
+
+@end
+
+
+/**
  *  The service account key create request.
  */
 @interface GTLRIam_CreateServiceAccountKeyRequest : GTLRObject
@@ -316,6 +439,33 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 
 /**
+ *  The response containing the roles defined under a resource.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "roles" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRIam_ListRolesResponse : GTLRCollectionObject
+
+/**
+ *  To retrieve the next page of results, set
+ *  `ListRolesRequest.page_token` to this value.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The Roles defined on this resource.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRIam_Role *> *roles;
+
+@end
+
+
+/**
  *  The service account keys list response.
  */
 @interface GTLRIam_ListServiceAccountKeysResponse : GTLRObject
@@ -350,6 +500,63 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  to this value.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  A permission which can be included by a role.
+ */
+@interface GTLRIam_Permission : GTLRObject
+
+/**
+ *  The current custom role support level.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIam_Permission_CustomRolesSupportLevel_NotSupported
+ *        Permission is not supported for custom role use. (Value:
+ *        "NOT_SUPPORTED")
+ *    @arg @c kGTLRIam_Permission_CustomRolesSupportLevel_Supported Permission
+ *        is fully supported for custom role use. (Value: "SUPPORTED")
+ *    @arg @c kGTLRIam_Permission_CustomRolesSupportLevel_Testing Permission is
+ *        being tested to check custom role compatibility. (Value: "TESTING")
+ */
+@property(nonatomic, copy, nullable) NSString *customRolesSupportLevel;
+
+/**
+ *  A brief description of what this Permission is used for.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The name of this Permission. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  This permission can ONLY be used in predefined roles.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *onlyInPredefinedRoles;
+
+/**
+ *  The current launch stage of the permission.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIam_Permission_Stage_Alpha The permission is currently in an
+ *        alpha phase. (Value: "ALPHA")
+ *    @arg @c kGTLRIam_Permission_Stage_Beta The permission is currently in a
+ *        beta phase. (Value: "BETA")
+ *    @arg @c kGTLRIam_Permission_Stage_Deprecated The permission is being
+ *        deprecated. (Value: "DEPRECATED")
+ *    @arg @c kGTLRIam_Permission_Stage_Ga The permission is generally
+ *        available. (Value: "GA")
+ */
+@property(nonatomic, copy, nullable) NSString *stage;
+
+/** The title of this Permission. */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -455,6 +662,18 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
+/**
+ *  view
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIam_QueryGrantableRolesRequest_View_Basic Omits the
+ *        `included_permissions` field.
+ *        This is the default value. (Value: "BASIC")
+ *    @arg @c kGTLRIam_QueryGrantableRolesRequest_View_Full Returns all fields.
+ *        (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
 @end
 
 
@@ -486,9 +705,74 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 
 /**
+ *  A request to get permissions which can be tested on a resource.
+ */
+@interface GTLRIam_QueryTestablePermissionsRequest : GTLRObject
+
+/**
+ *  Required. The full resource name to query from the list of testable
+ *  permissions.
+ *  The name follows the Google Cloud Platform resource format.
+ *  For example, a Cloud Platform project with id `my-project` will be named
+ *  `//cloudresourcemanager.googleapis.com/projects/my-project`.
+ */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/**
+ *  Optional limit on the number of permissions to include in the response.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional pagination token returned in an earlier
+ *  QueryTestablePermissionsRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+@end
+
+
+/**
+ *  The response containing permissions which can be tested on a resource.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "permissions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRIam_QueryTestablePermissionsResponse : GTLRCollectionObject
+
+/**
+ *  To retrieve the next page of results, set
+ *  `QueryTestableRolesRequest.page_token` to this value.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The Permissions testable on the requested resource.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRIam_Permission *> *permissions;
+
+@end
+
+
+/**
  *  A role in the Identity and Access Management API.
  */
 @interface GTLRIam_Role : GTLRObject
+
+/**
+ *  The current deleted state of the role. This field is read only.
+ *  It will be ignored in calls to CreateRole and UpdateRole.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleted;
 
 /**
  *  Optional. A human-readable description for the role.
@@ -498,6 +782,19 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Used to perform a consistent read-modify-write.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The names of the permissions this role grants when bound in an IAM policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includedPermissions;
+
+/**
  *  The name of the role.
  *  When Role is used in CreateRole, the role name must not be set.
  *  When Role is used in output and other input such as UpdateRole, the role
@@ -505,6 +802,26 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  and organizations/{ORGANIZATION_ID}/roles/logging.viewer for custom roles.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The current launch stage of the role.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIam_Role_Stage_Alpha The user has indicated this role is
+ *        currently in an alpha phase. (Value: "ALPHA")
+ *    @arg @c kGTLRIam_Role_Stage_Beta The user has indicated this role is
+ *        currently in a beta phase. (Value: "BETA")
+ *    @arg @c kGTLRIam_Role_Stage_Deprecated The user has indicated this role is
+ *        being deprecated. (Value: "DEPRECATED")
+ *    @arg @c kGTLRIam_Role_Stage_Disabled This role is disabled and will not
+ *        contribute permissions to any members
+ *        it is granted to in policies. (Value: "DISABLED")
+ *    @arg @c kGTLRIam_Role_Stage_Eap The user has indicated this role is
+ *        currently in an eap phase. (Value: "EAP")
+ *    @arg @c kGTLRIam_Role_Stage_Ga The user has indicated this role is
+ *        generally available. (Value: "GA")
+ */
+@property(nonatomic, copy, nullable) NSString *stage;
 
 /**
  *  Optional. A human-readable title for the role. Typically this
@@ -617,6 +934,10 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  The private key data. Only provided in `CreateServiceAccountKey`
  *  responses. Make sure to keep the private key data secure because it
  *  allows for the assertion of the service account identity.
+ *  When decoded, the private key data can be used to authenticate with
+ *  Google API client libraries and with
+ *  <a href="/sdk/gcloud/reference/auth/activate-service-account">gcloud
+ *  auth activate-service-account</a>.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -764,6 +1085,22 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  The request to undelete an existing role.
+ */
+@interface GTLRIam_UndeleteRoleRequest : GTLRObject
+
+/**
+ *  Used to perform a consistent read-modify-write.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 @end
 

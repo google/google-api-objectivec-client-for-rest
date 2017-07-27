@@ -4,7 +4,7 @@
 // API:
 //   Accelerated Mobile Pages (AMP) URL API (acceleratedmobilepageurl/v1)
 // Description:
-//   Retrieves the list of AMP URL (and equivalent AMP Cache URL) for a given
+//   Retrieves the list of AMP URLs (and equivalent AMP Cache URLs) for a given
 //   list of public URL(s).
 // Documentation:
 //   https://developers.google.com/amp/cache/
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Service for executing Accelerated Mobile Pages (AMP) URL API queries.
  *
- *  Retrieves the list of AMP URL (and equivalent AMP Cache URL) for a given
+ *  Retrieves the list of AMP URLs (and equivalent AMP Cache URLs) for a given
  *  list of public URL(s).
  */
 @interface GTLRAcceleratedmobilepageurlService : GTLRService

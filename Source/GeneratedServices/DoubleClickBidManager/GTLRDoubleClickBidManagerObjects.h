@@ -1468,8 +1468,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 @interface GTLRDoubleClickBidManager_DownloadLineItemsResponse : GTLRObject
 
 /**
- *  Retrieved line items in CSV format. Refer to Entity Write File Format or
- *  Structured Data File Format for more information on file formats.
+ *  Retrieved line items in CSV format. For more information about file formats,
+ *  see Entity Write File Format.
  */
 @property(nonatomic, copy, nullable) NSString *lineItems;
 

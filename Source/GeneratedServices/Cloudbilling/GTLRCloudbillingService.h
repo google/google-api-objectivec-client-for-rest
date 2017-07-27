@@ -31,10 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudBillingCloudPlatform;
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudbillingCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudBillingService
+//   GTLRCloudbillingService
 //
 
 /**
@@ -43,12 +43,12 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudBillingCloudPlatform;
  *  Allows developers to manage billing for their Google Cloud Platform projects
  *  programmatically.
  */
-@interface GTLRCloudBillingService : GTLRService
+@interface GTLRCloudbillingService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudBillingQuery.h. The query can the be sent with GTLRService's execute
+// GTLRCloudbillingQuery.h. The query can the be sent with GTLRService's execute
 // methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

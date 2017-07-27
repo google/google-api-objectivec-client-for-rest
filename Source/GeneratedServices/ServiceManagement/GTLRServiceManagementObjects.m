@@ -372,7 +372,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_CloudAuditOptions
-@dynamic logName;
+@dynamic isReadPermissionType, logName;
 @end
 
 

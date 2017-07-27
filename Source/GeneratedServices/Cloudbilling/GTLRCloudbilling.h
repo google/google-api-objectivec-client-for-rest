@@ -10,6 +10,6 @@
 // Documentation:
 //   https://cloud.google.com/billing/
 
-#import "GTLRCloudBillingObjects.h"
-#import "GTLRCloudBillingQuery.h"
-#import "GTLRCloudBillingService.h"
+#import "GTLRCloudbillingObjects.h"
+#import "GTLRCloudbillingQuery.h"
+#import "GTLRCloudbillingService.h"

@@ -459,7 +459,7 @@ NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 //
 
 @implementation GTLRToolResults_StackTrace
-@dynamic exception;
+@dynamic clusterId, exception, reportId;
 @end
 
 

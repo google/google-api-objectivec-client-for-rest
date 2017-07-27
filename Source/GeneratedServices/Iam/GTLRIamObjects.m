@@ -30,6 +30,29 @@ NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypeGoog
 NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypePkcs12File = @"TYPE_PKCS12_FILE";
 NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRIam_Permission.customRolesSupportLevel
+NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_NotSupported = @"NOT_SUPPORTED";
+NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_Supported = @"SUPPORTED";
+NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_Testing = @"TESTING";
+
+// GTLRIam_Permission.stage
+NSString * const kGTLRIam_Permission_Stage_Alpha      = @"ALPHA";
+NSString * const kGTLRIam_Permission_Stage_Beta       = @"BETA";
+NSString * const kGTLRIam_Permission_Stage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRIam_Permission_Stage_Ga         = @"GA";
+
+// GTLRIam_QueryGrantableRolesRequest.view
+NSString * const kGTLRIam_QueryGrantableRolesRequest_View_Basic = @"BASIC";
+NSString * const kGTLRIam_QueryGrantableRolesRequest_View_Full = @"FULL";
+
+// GTLRIam_Role.stage
+NSString * const kGTLRIam_Role_Stage_Alpha      = @"ALPHA";
+NSString * const kGTLRIam_Role_Stage_Beta       = @"BETA";
+NSString * const kGTLRIam_Role_Stage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRIam_Role_Stage_Disabled   = @"DISABLED";
+NSString * const kGTLRIam_Role_Stage_Eap        = @"EAP";
+NSString * const kGTLRIam_Role_Stage_Ga         = @"GA";
+
 // GTLRIam_ServiceAccountKey.keyAlgorithm
 NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa1024 = @"KEY_ALG_RSA_1024";
 NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa2048 = @"KEY_ALG_RSA_2048";
@@ -80,6 +103,16 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_CreateRoleRequest
+//
+
+@implementation GTLRIam_CreateRoleRequest
+@dynamic role, roleId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_CreateServiceAccountKeyRequest
 //
 
@@ -104,6 +137,28 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_ListRolesResponse
+//
+
+@implementation GTLRIam_ListRolesResponse
+@dynamic nextPageToken, roles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"roles" : [GTLRIam_Role class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"roles";
+}
+
 @end
 
 
@@ -142,6 +197,22 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 + (NSString *)collectionItemsKey {
   return @"accounts";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_Permission
+//
+
+@implementation GTLRIam_Permission
+@dynamic customRolesSupportLevel, descriptionProperty, name,
+         onlyInPredefinedRoles, stage, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -193,7 +264,7 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_QueryGrantableRolesRequest
-@dynamic fullResourceName, pageSize, pageToken;
+@dynamic fullResourceName, pageSize, pageToken, view;
 @end
 
 
@@ -221,14 +292,58 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_QueryTestablePermissionsRequest
+//
+
+@implementation GTLRIam_QueryTestablePermissionsRequest
+@dynamic fullResourceName, pageSize, pageToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_QueryTestablePermissionsResponse
+//
+
+@implementation GTLRIam_QueryTestablePermissionsResponse
+@dynamic nextPageToken, permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [GTLRIam_Permission class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"permissions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_Role
 //
 
 @implementation GTLRIam_Role
-@dynamic descriptionProperty, name, title;
+@dynamic deleted, descriptionProperty, ETag, includedPermissions, name, stage,
+         title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"includedPermissions" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -341,6 +456,21 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
     @"permissions" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_UndeleteRoleRequest
+//
+
+@implementation GTLRIam_UndeleteRoleRequest
+@dynamic ETag;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
 }
 
 @end

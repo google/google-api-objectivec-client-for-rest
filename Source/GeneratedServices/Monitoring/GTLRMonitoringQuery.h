@@ -37,6 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCount;
 /** Value: "REDUCE_COUNT_TRUE" */
 GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCountTrue;
+/** Value: "REDUCE_FRACTION_LESS_THAN" */
+GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceFractionLessThan;
 /** Value: "REDUCE_FRACTION_TRUE" */
 GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceFractionTrue;
 /** Value: "REDUCE_MAX" */
@@ -73,6 +75,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignDelt
 GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignFractionTrue;
 /** Value: "ALIGN_INTERPOLATE" */
 GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignInterpolate;
+/** Value: "ALIGN_MAKE_DISTRIBUTION" */
+GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMakeDistribution;
 /** Value: "ALIGN_MAX" */
 GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMax;
 /** Value: "ALIGN_MEAN" */
@@ -825,6 +829,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *        Value "REDUCE_PERCENTILE_50"
  *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile05
  *        Value "REDUCE_PERCENTILE_05"
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceFractionLessThan
+ *        Value "REDUCE_FRACTION_LESS_THAN"
  */
 @property(nonatomic, copy, nullable) NSString *aggregationCrossSeriesReducer;
 
@@ -887,8 +893,15 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *        "ALIGN_PERCENTILE_50"
  *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile05 Value
  *        "ALIGN_PERCENTILE_05"
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignMakeDistribution
+ *        Value "ALIGN_MAKE_DISTRIBUTION"
  */
 @property(nonatomic, copy, nullable) NSString *aggregationPerSeriesAligner;
+
+/**
+ *  The threshold used by the REDUCE_FRACTION_LESS_THAN cross-series reducer.
+ */
+@property(nonatomic, assign) double aggregationReduceFractionLessThanParamsThreshold;
 
 /**
  *  A monitoring filter that specifies which time series should be returned. The
@@ -921,6 +934,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  left blank.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  If outputPeriod is specified, the data in the response will have the given
+ *  period. Must be equal to or longer than alignmentPeriod. Must not be used
+ *  when view is HEADERS. Only used when interval describes an interval longer
+ *  than a single point.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *outputPeriod;
 
 /**
  *  A positive number that is the maximum number of results to return. When view

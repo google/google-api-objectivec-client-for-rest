@@ -472,6 +472,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The list of local ID's of the users to inquiry. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *localId;
 
+/** Privileged caller can query users by specified phone number. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *phoneNumber;
+
 @end
 
 
@@ -635,6 +638,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The new password of the user. */
 @property(nonatomic, copy, nullable) NSString *password;
+
+/** Privileged caller can update user with specified phone number. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
 
 /** The photo url of the user. */
 @property(nonatomic, copy, nullable) NSString *photoUrl;
@@ -802,6 +808,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The new password of the user. */
 @property(nonatomic, copy, nullable) NSString *password;
+
+/** Privileged caller can create user with specified phone number. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
 
 /** The photo url of the user. */
 @property(nonatomic, copy, nullable) NSString *photoUrl;

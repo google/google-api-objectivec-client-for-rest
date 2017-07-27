@@ -503,7 +503,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  TestExecution Matrix ID that the Test Service uses.
+ *  TestExecution Matrix ID that the TestExecutionService uses.
  *  - In response: present if set by create - In create: optional - In update:
  *  never set
  */
@@ -1058,11 +1058,17 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
  */
 @interface GTLRToolResults_StackTrace : GTLRObject
 
+/** Exception cluster ID */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
 /**
  *  The stack trace message.
  *  Required
  */
 @property(nonatomic, copy, nullable) NSString *exception;
+
+/** Exception report ID */
+@property(nonatomic, copy, nullable) NSString *reportId;
 
 @end
 
@@ -1118,8 +1124,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a common set
- *  of message types for APIs to use.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_Any *> *details;
 

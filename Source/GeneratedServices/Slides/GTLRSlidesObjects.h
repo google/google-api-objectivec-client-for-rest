@@ -63,6 +63,7 @@
 @class GTLRSlides_Link;
 @class GTLRSlides_List;
 @class GTLRSlides_List_NestingLevel;
+@class GTLRSlides_MasterProperties;
 @class GTLRSlides_NestingLevel;
 @class GTLRSlides_NotesProperties;
 @class GTLRSlides_OpaqueColor;
@@ -5522,6 +5523,18 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
+ *  The properties of Page that are only
+ *  relevant for pages with page_type MASTER.
+ */
+@interface GTLRSlides_MasterProperties : GTLRObject
+
+/** The human-readable name of the master. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
  *  Contains properties describing the look and feel of a list bullet at a given
  *  level of nesting.
  */
@@ -5717,6 +5730,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** Layout specific properties. Only set if page_type = LAYOUT. */
 @property(nonatomic, strong, nullable) GTLRSlides_LayoutProperties *layoutProperties;
+
+/** Master specific properties. Only set if page_type = MASTER. */
+@property(nonatomic, strong, nullable) GTLRSlides_MasterProperties *masterProperties;
 
 /** Notes specific properties. Only set if page_type = NOTES. */
 @property(nonatomic, strong, nullable) GTLRSlides_NotesProperties *notesProperties;

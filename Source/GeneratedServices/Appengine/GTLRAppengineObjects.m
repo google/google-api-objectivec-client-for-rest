@@ -643,7 +643,8 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_ReadinessCheck
-@dynamic checkInterval, failureThreshold, host, path, successThreshold, timeout;
+@dynamic appStartTimeout, checkInterval, failureThreshold, host, path,
+         successThreshold, timeout;
 @end
 
 

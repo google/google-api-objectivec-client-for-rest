@@ -153,20 +153,20 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomaticScaling
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling
 //
 
-@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomaticScaling
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling
 @dynamic minNodes;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutomaticScaling
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutoScaling
 //
 
-@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutomaticScaling
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutoScaling
 @dynamic minNodes;
 @end
 
@@ -198,7 +198,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version
-@dynamic automaticScaling, createTime, deploymentUri, descriptionProperty,
+@dynamic autoScaling, createTime, deploymentUri, descriptionProperty,
          errorMessage, isDefault, lastUseTime, manualScaling, name,
          runtimeVersion, state;
 
@@ -523,7 +523,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version
-@dynamic automaticScaling, createTime, deploymentUri, descriptionProperty,
+@dynamic autoScaling, createTime, deploymentUri, descriptionProperty,
          errorMessage, isDefault, lastUseTime, manualScaling, name,
          runtimeVersion, state;
 
@@ -623,7 +623,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions
-@dynamic logName;
+@dynamic isReadPermissionType, logName;
 @end
 
 

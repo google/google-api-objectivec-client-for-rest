@@ -10,95 +10,95 @@
 // Documentation:
 //   https://cloud.google.com/billing/
 
-#import "GTLRCloudBillingQuery.h"
+#import "GTLRCloudbillingQuery.h"
 
-#import "GTLRCloudBillingObjects.h"
+#import "GTLRCloudbillingObjects.h"
 
-@implementation GTLRCloudBillingQuery
+@implementation GTLRCloudbillingQuery
 
 @dynamic fields;
 
 @end
 
-@implementation GTLRCloudBillingQuery_BillingAccountsGet
+@implementation GTLRCloudbillingQuery_BillingAccountsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudBillingQuery_BillingAccountsGet *query =
+  GTLRCloudbillingQuery_BillingAccountsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudBilling_BillingAccount class];
+  query.expectedObjectClass = [GTLRCloudbilling_BillingAccount class];
   query.loggingName = @"cloudbilling.billingAccounts.get";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudBillingQuery_BillingAccountsList
+@implementation GTLRCloudbillingQuery_BillingAccountsList
 
 @dynamic pageSize, pageToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/billingAccounts";
-  GTLRCloudBillingQuery_BillingAccountsList *query =
+  GTLRCloudbillingQuery_BillingAccountsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRCloudBilling_ListBillingAccountsResponse class];
+  query.expectedObjectClass = [GTLRCloudbilling_ListBillingAccountsResponse class];
   query.loggingName = @"cloudbilling.billingAccounts.list";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudBillingQuery_BillingAccountsProjectsList
+@implementation GTLRCloudbillingQuery_BillingAccountsProjectsList
 
 @dynamic name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}/projects";
-  GTLRCloudBillingQuery_BillingAccountsProjectsList *query =
+  GTLRCloudbillingQuery_BillingAccountsProjectsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudBilling_ListProjectBillingInfoResponse class];
+  query.expectedObjectClass = [GTLRCloudbilling_ListProjectBillingInfoResponse class];
   query.loggingName = @"cloudbilling.billingAccounts.projects.list";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudBillingQuery_ProjectsGetBillingInfo
+@implementation GTLRCloudbillingQuery_ProjectsGetBillingInfo
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}/billingInfo";
-  GTLRCloudBillingQuery_ProjectsGetBillingInfo *query =
+  GTLRCloudbillingQuery_ProjectsGetBillingInfo *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudBilling_ProjectBillingInfo class];
+  query.expectedObjectClass = [GTLRCloudbilling_ProjectBillingInfo class];
   query.loggingName = @"cloudbilling.projects.getBillingInfo";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudBillingQuery_ProjectsUpdateBillingInfo
+@implementation GTLRCloudbillingQuery_ProjectsUpdateBillingInfo
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRCloudBilling_ProjectBillingInfo *)object
++ (instancetype)queryWithObject:(GTLRCloudbilling_ProjectBillingInfo *)object
                            name:(NSString *)name {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -106,13 +106,13 @@
   }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}/billingInfo";
-  GTLRCloudBillingQuery_ProjectsUpdateBillingInfo *query =
+  GTLRCloudbillingQuery_ProjectsUpdateBillingInfo *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudBilling_ProjectBillingInfo class];
+  query.expectedObjectClass = [GTLRCloudbilling_ProjectBillingInfo class];
   query.loggingName = @"cloudbilling.projects.updateBillingInfo";
   return query;
 }

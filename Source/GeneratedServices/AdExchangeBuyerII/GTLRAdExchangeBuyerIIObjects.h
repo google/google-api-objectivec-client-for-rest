@@ -1092,48 +1092,9 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranular
  *  A placeholder for an unspecified interval; no time series is applied.
  *  All rows in response will contain data for the entire requested time range.
  *
- *  Value: "INTERVAL_UNSPECIFIED"
+ *  Value: "TIME_SERIES_GRANULARITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_IntervalUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse.detailType
-
-/**
- *  Indicates that the detail ID refers to a creative attribute; see
- *  [publisher-excludable-creative-attributes](https://developers.google.com/ad-exchange/rtb/downloads/publisher-excludable-creative-attributes).
- *
- *  Value: "CREATIVE_ATTRIBUTE"
- */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse_DetailType_CreativeAttribute;
-/**
- *  Indicates that the detail ID refers to a product category; see
- *  [ad-product-categories](https://developers.google.com/ad-exchange/rtb/downloads/ad-product-categories).
- *
- *  Value: "PRODUCT_CATEGORY"
- */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse_DetailType_ProductCategory;
-/**
- *  Indicates that the detail ID refers to a sensitive category; see
- *  [ad-sensitive-categories](https://developers.google.com/ad-exchange/rtb/downloads/ad-sensitive-categories).
- *
- *  Value: "SENSITIVE_CATEGORY"
- */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse_DetailType_SensitiveCategory;
-/**
- *  A placeholder for an undefined status.
- *  This value will never be returned in responses.
- *
- *  Value: "TYPE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse_DetailType_TypeUnspecified;
-/**
- *  Indicates that the detail ID refers to a vendor; see
- *  [vendors](https://developers.google.com/ad-exchange/rtb/downloads/vendors).
- *
- *  Value: "VENDOR"
- */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse_DetailType_Vendor;
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_TimeSeriesGranularityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse.detailType
@@ -1145,6 +1106,13 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusAndCreativ
  *  Value: "CREATIVE_ATTRIBUTE"
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_CreativeAttribute;
+/**
+ *  A placeholder for an undefined status.
+ *  This value will never be returned in responses.
+ *
+ *  Value: "DETAIL_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DetailTypeUnspecified;
 /**
  *  Indicates that the detail ID refers to a product category; see
  *  [ad-product-categories](https://developers.google.com/ad-exchange/rtb/downloads/ad-product-categories).
@@ -1159,13 +1127,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownB
  *  Value: "SENSITIVE_CATEGORY"
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_SensitiveCategory;
-/**
- *  A placeholder for an undefined status.
- *  This value will never be returned in responses.
- *
- *  Value: "TYPE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_TypeUnspecified;
 /**
  *  Indicates that the detail ID refers to a vendor; see
  *  [vendors](https://developers.google.com/ad-exchange/rtb/downloads/vendors).
@@ -2431,10 +2392,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *        Indicates that data will be broken down by the day. (Value: "DAILY")
  *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_Hourly
  *        Indicates that data will be broken down by the hour. (Value: "HOURLY")
- *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_IntervalUnspecified
+ *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_TimeSeriesGranularityUnspecified
  *        A placeholder for an unspecified interval; no time series is applied.
  *        All rows in response will contain data for the entire requested time
- *        range. (Value: "INTERVAL_UNSPECIFIED")
+ *        range. (Value: "TIME_SERIES_GRANULARITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *timeSeriesGranularity;
 
@@ -2757,67 +2718,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
 
 
 /**
- *  Response message for listing all details associated with a given filtered
- *  bid
- *  reason and a given creative.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "filteredBidDetailRows" property. If returned as the result of a
- *        query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
- */
-@interface GTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse : GTLRCollectionObject
-
-/**
- *  The type of detail that the detail IDs represent.
- *
- *  Likely values:
- *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse_DetailType_CreativeAttribute
- *        Indicates that the detail ID refers to a creative attribute; see
- *        [publisher-excludable-creative-attributes](https://developers.google.com/ad-exchange/rtb/downloads/publisher-excludable-creative-attributes).
- *        (Value: "CREATIVE_ATTRIBUTE")
- *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse_DetailType_ProductCategory
- *        Indicates that the detail ID refers to a product category; see
- *        [ad-product-categories](https://developers.google.com/ad-exchange/rtb/downloads/ad-product-categories).
- *        (Value: "PRODUCT_CATEGORY")
- *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse_DetailType_SensitiveCategory
- *        Indicates that the detail ID refers to a sensitive category; see
- *        [ad-sensitive-categories](https://developers.google.com/ad-exchange/rtb/downloads/ad-sensitive-categories).
- *        (Value: "SENSITIVE_CATEGORY")
- *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse_DetailType_TypeUnspecified
- *        A placeholder for an undefined status.
- *        This value will never be returned in responses. (Value:
- *        "TYPE_UNSPECIFIED")
- *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusAndCreativeBreakdownByDetailResponse_DetailType_Vendor
- *        Indicates that the detail ID refers to a vendor; see
- *        [vendors](https://developers.google.com/ad-exchange/rtb/downloads/vendors).
- *        (Value: "VENDOR")
- */
-@property(nonatomic, copy, nullable) NSString *detailType;
-
-/**
- *  List of rows, with counts of bids with a given creative status and
- *  creative, aggregated by detail.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_FilteredBidDetailRow *> *filteredBidDetailRows;
-
-/**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListCreativeStatusAndCreativeBreakdownByDetailRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.filterSets.filteredBids.creatives.details.list
- *  method to retrieve the next page of results.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  Response message for listing all creatives associated with a given filtered
  *  bid reason.
  *
@@ -2870,6 +2770,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *        Indicates that the detail ID refers to a creative attribute; see
  *        [publisher-excludable-creative-attributes](https://developers.google.com/ad-exchange/rtb/downloads/publisher-excludable-creative-attributes).
  *        (Value: "CREATIVE_ATTRIBUTE")
+ *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DetailTypeUnspecified
+ *        A placeholder for an undefined status.
+ *        This value will never be returned in responses. (Value:
+ *        "DETAIL_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_ProductCategory
  *        Indicates that the detail ID refers to a product category; see
  *        [ad-product-categories](https://developers.google.com/ad-exchange/rtb/downloads/ad-product-categories).
@@ -2878,10 +2782,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *        Indicates that the detail ID refers to a sensitive category; see
  *        [ad-sensitive-categories](https://developers.google.com/ad-exchange/rtb/downloads/ad-sensitive-categories).
  *        (Value: "SENSITIVE_CATEGORY")
- *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_TypeUnspecified
- *        A placeholder for an undefined status.
- *        This value will never be returned in responses. (Value:
- *        "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_Vendor
  *        Indicates that the detail ID refers to a vendor; see
  *        [vendors](https://developers.google.com/ad-exchange/rtb/downloads/vendors).
