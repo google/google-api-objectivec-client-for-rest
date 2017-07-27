@@ -202,7 +202,7 @@ static NSUInteger const kGTLRDateComponentBits = (NSCalendarUnitYear | NSCalenda
       }
       NSInteger mins = offsetVal % 60;
       NSInteger hours = (offsetVal - mins) / 60;
-      offsetStr = [NSString stringWithFormat:@"%c%02zd:%02zd",
+      offsetStr = [NSString stringWithFormat:@"%c%02ld:%02ld",
                    isNegative ? '-' : '+', (long)hours, (long)mins];
 
       // Adjust date components back to account for the offset.
@@ -224,7 +224,7 @@ static NSUInteger const kGTLRDateComponentBits = (NSCalendarUnitYear | NSCalenda
   }
 
   // full dateString like "2006-11-17T15:10:46-08:00"
-  NSString *dateString = [NSString stringWithFormat:@"%04zd-%02zd-%02zd%@",
+  NSString *dateString = [NSString stringWithFormat:@"%04ld-%02ld-%02ld%@",
     (long)dateComponents.year, (long)dateComponents.month,
     (long)dateComponents.day, timeString];
 
