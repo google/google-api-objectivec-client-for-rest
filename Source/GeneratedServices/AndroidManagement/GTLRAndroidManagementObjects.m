@@ -93,6 +93,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureR
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotEnrolled = @"NOT_ENROLLED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotFound = @"NOT_FOUND";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_PermissionsNotAccepted = @"PERMISSIONS_NOT_ACCEPTED";
+NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_UserInvalid = @"USER_INVALID";
 
 // GTLRAndroidManagement_NonComplianceDetail.nonComplianceReason
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AdminType = @"ADMIN_TYPE";
@@ -653,13 +654,13 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 @dynamic addUserDisabled, adjustVolumeDisabled, applications,
          blockApplicationsEnabled, cameraDisabled, complianceRules,
          debuggingFeaturesAllowed, defaultPermissionPolicy,
-         factoryResetDisabled, frpAdminEmails, installUnknownSourcesAllowed,
-         keyguardDisabled, maximumTimeToLock, modifyAccountsDisabled, name,
-         networkEscapeHatchEnabled, openNetworkConfiguration,
-         passwordRequirements, persistentPreferredActivities,
-         removeUserDisabled, safeBootDisabled, screenCaptureDisabled,
-         statusBarDisabled, statusReportingSettings, stayOnPluggedModes,
-         systemUpdate, unmuteMicrophoneDisabled, version;
+         factoryResetDisabled, frpAdminEmails, funDisabled,
+         installUnknownSourcesAllowed, keyguardDisabled, maximumTimeToLock,
+         modifyAccountsDisabled, name, networkEscapeHatchEnabled,
+         openNetworkConfiguration, passwordRequirements,
+         persistentPreferredActivities, removeUserDisabled, safeBootDisabled,
+         screenCaptureDisabled, statusBarDisabled, statusReportingSettings,
+         stayOnPluggedModes, systemUpdate, unmuteMicrophoneDisabled, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

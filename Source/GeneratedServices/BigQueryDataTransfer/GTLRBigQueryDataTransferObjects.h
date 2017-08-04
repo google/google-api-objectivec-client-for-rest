@@ -21,6 +21,9 @@
 
 @class GTLRBigQueryDataTransfer_DataSource;
 @class GTLRBigQueryDataTransfer_DataSourceParameter;
+@class GTLRBigQueryDataTransfer_Location;
+@class GTLRBigQueryDataTransfer_Location_Labels;
+@class GTLRBigQueryDataTransfer_Location_Metadata;
 @class GTLRBigQueryDataTransfer_TransferConfig;
 @class GTLRBigQueryDataTransfer_TransferConfig_Params;
 @class GTLRBigQueryDataTransfer_TransferMessage;
@@ -626,6 +629,30 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
 
 
 /**
+ *  The response message for Locations.ListLocations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "locations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRBigQueryDataTransfer_ListLocationsResponse : GTLRCollectionObject
+
+/**
+ *  A list of locations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryDataTransfer_Location *> *locations;
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The returned list of pipelines in the project.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -715,6 +742,61 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_Transf
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigQueryDataTransfer_TransferRun *> *transferRuns;
 
+@end
+
+
+/**
+ *  A resource that represents Google Cloud Platform location.
+ */
+@interface GTLRBigQueryDataTransfer_Location : GTLRObject
+
+/**
+ *  Cross-service attributes for the location. For example
+ *  {"cloud.googleapis.com/region": "us-east1"}
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_Location_Labels *labels;
+
+/** The canonical id for this location. For example: `"us-east1"`. */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  Service-specific metadata. For example the available capacity at the given
+ *  location.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_Location_Metadata *metadata;
+
+/**
+ *  Resource name for the location, which may vary between implementations.
+ *  For example: `"projects/example-project/locations/us-east1"`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Cross-service attributes for the location. For example
+ *  {"cloud.googleapis.com/region": "us-east1"}
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBigQueryDataTransfer_Location_Labels : GTLRObject
+@end
+
+
+/**
+ *  Service-specific metadata. For example the available capacity at the given
+ *  location.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBigQueryDataTransfer_Location_Metadata : GTLRObject
 @end
 
 

@@ -102,6 +102,34 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Ver
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2beta1BigQueryOptions
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1BigQueryOptions
+@dynamic identifyingFields, tableReference;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"identifyingFields" : [GTLRDLP_GooglePrivacyDlpV2beta1FieldId class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable
+@dynamic datasetId, projectId, tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2beta1CategoryDescription
 //
 
@@ -485,7 +513,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Ver
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta1OutputStorageConfig
-@dynamic storagePath;
+@dynamic storagePath, table;
 @end
 
 
@@ -614,7 +642,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Ver
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta1StorageConfig
-@dynamic cloudStorageOptions, datastoreOptions;
+@dynamic bigQueryOptions, cloudStorageOptions, datastoreOptions;
 @end
 
 

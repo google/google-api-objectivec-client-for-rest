@@ -238,6 +238,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_ChromeOsMoveDevicesToOu
+//
+
+@implementation GTLRDirectory_ChromeOsMoveDevicesToOu
+@dynamic deviceIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_Customer
 //
 

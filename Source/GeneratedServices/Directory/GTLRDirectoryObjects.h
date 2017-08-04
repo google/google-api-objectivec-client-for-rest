@@ -492,6 +492,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  JSON request template for moving ChromeOs Device to given OU in Directory
+ *  Devices API.
+ */
+@interface GTLRDirectory_ChromeOsMoveDevicesToOu : GTLRObject
+
+/** ChromeOs Devices to be moved to OU */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deviceIds;
+
+@end
+
+
+/**
  *  JSON template for Customer Resource object in Directory API.
  */
 @interface GTLRDirectory_Customer : GTLRObject

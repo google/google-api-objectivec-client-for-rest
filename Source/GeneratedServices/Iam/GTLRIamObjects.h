@@ -22,6 +22,7 @@
 
 @class GTLRIam_Binding;
 @class GTLRIam_BindingDelta;
+@class GTLRIam_Expr;
 @class GTLRIam_Permission;
 @class GTLRIam_Policy;
 @class GTLRIam_PolicyDelta;
@@ -323,6 +324,14 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
+ *  The condition that is associated with this binding.
+ *  This field is GOOGLE_INTERNAL.
+ *  This field is not logged in IAM side because it's only for audit logging.
+ *  Optional
+ */
+@property(nonatomic, strong, nullable) GTLRIam_Expr *condition;
+
+/**
  *  A single identity requesting access for a Cloud Platform resource.
  *  Follows the same format of Binding.members.
  *  Required
@@ -435,6 +444,46 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRIam_Empty : GTLRObject
+@end
+
+
+/**
+ *  Represents an expression text. Example:
+ *  title: "User account presence"
+ *  description: "Determines whether the request has a user account"
+ *  expression: "size(request.user) > 0"
+ */
+@interface GTLRIam_Expr : GTLRObject
+
+/**
+ *  An optional description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in
+ *  Common Expression Language syntax.
+ *  The application context of the containing message determines which
+ *  well-known feature set of CEL is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  An optional string indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  An optional title for the expression, i.e. a short string describing
+ *  its purpose. This can be used e.g. in UIs which allow to enter the
+ *  expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
 @end
 
 

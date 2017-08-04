@@ -23,6 +23,8 @@
 @class GTLRDLP_GoogleLongrunningOperation;
 @class GTLRDLP_GoogleLongrunningOperation_Metadata;
 @class GTLRDLP_GoogleLongrunningOperation_Response;
+@class GTLRDLP_GooglePrivacyDlpV2beta1BigQueryOptions;
+@class GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable;
 @class GTLRDLP_GooglePrivacyDlpV2beta1CategoryDescription;
 @class GTLRDLP_GooglePrivacyDlpV2beta1CloudStorageKey;
 @class GTLRDLP_GooglePrivacyDlpV2beta1CloudStorageOptions;
@@ -214,6 +216,44 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDLP_GoogleLongrunningOperation_Response : GTLRObject
+@end
+
+
+/**
+ *  Options defining BigQuery table and row identifiers.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1BigQueryOptions : GTLRObject
+
+/**
+ *  References to fields uniquely identifying rows within the table.
+ *  Nested fields in the format like person.birthdate.year are allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1FieldId *> *identifyingFields;
+
+/** Complete BigQuery table reference. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable *tableReference;
+
+@end
+
+
+/**
+ *  Message defining the location of a BigQuery table. A table is uniquely
+ *  identified by its project_id, dataset_id, and table_name.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable : GTLRObject
+
+/** Dataset ID of the table. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/**
+ *  The GCP project id of the project containing the table.
+ *  If omitted, project id is inferred from the API call.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Name of the table. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
 @end
 
 
@@ -856,6 +896,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 /** The path to a Google Cloud Storage location to store output. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CloudStoragePath *storagePath;
 
+/** Store findings in a new table in the dataset. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable *table;
+
 @end
 
 
@@ -1046,6 +1089,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
  *  Shared message indicating Cloud storage type.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1StorageConfig : GTLRObject
+
+/** BigQuery options specification. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1BigQueryOptions *bigQueryOptions;
 
 /** Google Cloud Storage options specification. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1CloudStorageOptions *cloudStorageOptions;

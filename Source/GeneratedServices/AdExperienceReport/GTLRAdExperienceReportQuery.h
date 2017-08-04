@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a summary of the ads rating of a site.
+ *  Gets a summary of the ad experience rating of a site.
  *
  *  Method: adexperiencereport.sites.get
  *
@@ -44,21 +44,29 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExperienceReport queryForSitesGetWithname:]
 
 /**
- *  The required site name. It should be a site property registered in Search
- *  Console. The server will return an error of BAD_REQUEST if this field is
- *  not filled in.
+ *  The required site name. It should be the site property whose ad experiences
+ *  may have been reviewed, and it should be URL encoded. For example,
+ *  https%3A%2F%2Fwww.google.com. The server will return an error of
+ *  BAD_REQUEST if this field is not filled in. Note that if the site property
+ *  is not yet verified in Search Console, the reportUrl field returned by the
+ *  API will lead to the verification page, prompting the user to go through
+ *  that process before they can gain access to the Ad Experience Report.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAdExperienceReport_SiteSummaryResponse.
  *
- *  Gets a summary of the ads rating of a site.
+ *  Gets a summary of the ad experience rating of a site.
  *
- *  @param name The required site name. It should be a site property registered
- *    in Search
- *    Console. The server will return an error of BAD_REQUEST if this field is
- *    not filled in.
+ *  @param name The required site name. It should be the site property whose ad
+ *    experiences
+ *    may have been reviewed, and it should be URL encoded. For example,
+ *    https%3A%2F%2Fwww.google.com. The server will return an error of
+ *    BAD_REQUEST if this field is not filled in. Note that if the site property
+ *    is not yet verified in Search Console, the reportUrl field returned by the
+ *    API will lead to the verification page, prompting the user to go through
+ *    that process before they can gain access to the Ad Experience Report.
  *
  *  @returns GTLRAdExperienceReportQuery_SitesGet
  */

@@ -58,6 +58,10 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_DestroyScheduled = @"DESTR
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Disabled = @"DISABLED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled  = @"ENABLED";
 
+// GTLRCloudKMS_DataAccessOptions.logMode
+NSString * const kGTLRCloudKMS_DataAccessOptions_LogMode_LogFailClosed = @"LOG_FAIL_CLOSED";
+NSString * const kGTLRCloudKMS_DataAccessOptions_LogMode_LogModeUnspecified = @"LOG_MODE_UNSPECIFIED";
+
 // GTLRCloudKMS_Rule.action
 NSString * const kGTLRCloudKMS_Rule_Action_Allow        = @"ALLOW";
 NSString * const kGTLRCloudKMS_Rule_Action_AllowWithLog = @"ALLOW_WITH_LOG";
@@ -185,6 +189,7 @@ NSString * const kGTLRCloudKMS_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRCloudKMS_DataAccessOptions
+@dynamic logMode;
 @end
 
 

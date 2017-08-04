@@ -274,6 +274,32 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Disabled;
 GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudKMS_DataAccessOptions.logMode
+
+/**
+ *  The application's operation in the context of which this authorization
+ *  check is being made may only be performed if it is successfully logged
+ *  to Gin. For instance, the authorization library may satisfy this
+ *  obligation by emitting a partial log entry at authorization check time
+ *  and only returning ALLOW to the application if it succeeds.
+ *  If a matching Rule has this directive, but the client has not indicated
+ *  that it will honor such requirements, then the IAM check will result in
+ *  authorization failure by setting CheckPolicyResponse.success=false.
+ *
+ *  Value: "LOG_FAIL_CLOSED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_DataAccessOptions_LogMode_LogFailClosed;
+/**
+ *  Client is not required to write a partial Gin log immediately after
+ *  the authorization check. If client chooses to write one and it fails,
+ *  client may either fail open (allow the operation to continue) or
+ *  fail closed (handle as a DENY outcome).
+ *
+ *  Value: "LOG_MODE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_DataAccessOptions_LogMode_LogModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudKMS_Rule.action
 
 /**
@@ -579,7 +605,23 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
 
 
 /**
- *  Options for counters
+ *  Increment a streamz counter with the specified metric and field names.
+ *  Metric names should start with a '/', generally be lowercase-only,
+ *  and end in "_count". Field names should not contain an initial slash.
+ *  The actual exported metric names will have "/iam/policy" prepended.
+ *  Field names correspond to IAM request parameters and field values are
+ *  their respective values.
+ *  At present the only supported field names are
+ *  - "iam_principal", corresponding to IAMContext.principal;
+ *  - "" (empty string), resulting in one aggretated counter with no field.
+ *  Examples:
+ *  counter { metric: "/debug_access_count" field: "iam_principal" }
+ *  ==> increment counter /iam/policy/backend_debug_access_count
+ *  {iam_principal=[value of IAMContext.principal]}
+ *  At this time we do not support:
+ *  * multiple field names (though this may be supported in the future)
+ *  * decrementing the counter
+ *  * incrementing it by anything other than 1
  */
 @interface GTLRCloudKMS_CounterOptions : GTLRObject
 
@@ -717,6 +759,33 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
  *  Write a Data Access (Gin) log
  */
 @interface GTLRCloudKMS_DataAccessOptions : GTLRObject
+
+/**
+ *  Whether Gin logging should happen in a fail-closed manner at the caller.
+ *  This is relevant only in the LocalIAM implementation, for now.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_DataAccessOptions_LogMode_LogFailClosed The
+ *        application's operation in the context of which this authorization
+ *        check is being made may only be performed if it is successfully logged
+ *        to Gin. For instance, the authorization library may satisfy this
+ *        obligation by emitting a partial log entry at authorization check time
+ *        and only returning ALLOW to the application if it succeeds.
+ *        If a matching Rule has this directive, but the client has not
+ *        indicated
+ *        that it will honor such requirements, then the IAM check will result
+ *        in
+ *        authorization failure by setting CheckPolicyResponse.success=false.
+ *        (Value: "LOG_FAIL_CLOSED")
+ *    @arg @c kGTLRCloudKMS_DataAccessOptions_LogMode_LogModeUnspecified Client
+ *        is not required to write a partial Gin log immediately after
+ *        the authorization check. If client chooses to write one and it fails,
+ *        client may either fail open (allow the operation to continue) or
+ *        fail closed (handle as a DENY outcome). (Value:
+ *        "LOG_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *logMode;
+
 @end
 
 
@@ -1056,23 +1125,6 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
 
 /**
  *  Specifies what kind of log the caller must write
- *  Increment a streamz counter with the specified metric and field names.
- *  Metric names should start with a '/', generally be lowercase-only,
- *  and end in "_count". Field names should not contain an initial slash.
- *  The actual exported metric names will have "/iam/policy" prepended.
- *  Field names correspond to IAM request parameters and field values are
- *  their respective values.
- *  At present the only supported field names are
- *  - "iam_principal", corresponding to IAMContext.principal;
- *  - "" (empty string), resulting in one aggretated counter with no field.
- *  Examples:
- *  counter { metric: "/debug_access_count" field: "iam_principal" }
- *  ==> increment counter /iam/policy/backend_debug_access_count
- *  {iam_principal=[value of IAMContext.principal]}
- *  At this time we do not support:
- *  * multiple field names (though this may be supported in the future)
- *  * decrementing the counter
- *  * incrementing it by anything other than 1
  */
 @interface GTLRCloudKMS_LogConfig : GTLRObject
 

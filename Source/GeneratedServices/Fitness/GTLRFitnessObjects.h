@@ -609,8 +609,8 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  type:dataType.name:developer project
  *  number:device.manufacturer:device.model:device.uid:dataStreamName
  *  When any of the optional fields that comprise of the data stream ID are
- *  blank, they will be omitted from the data stream ID. The minnimum viable
- *  data stream ID would be: type:dataType.name:developer project number
+ *  blank, they will be omitted from the data stream ID. The minimum viable data
+ *  stream ID would be: type:dataType.name:developer project number
  *  Finally, the developer project number is obfuscated when read by any REST or
  *  Android client that did not create the data source. Only the data source
  *  creator will see the developer project number in clear and normal form.

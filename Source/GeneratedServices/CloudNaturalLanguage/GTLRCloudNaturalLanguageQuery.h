@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: language.documents.analyzeEntities
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNaturalLanguageCloudLanguage
  *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
  */
 @interface GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntities : GTLRCloudNaturalLanguageQuery
@@ -73,6 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: language.documents.analyzeSentiment
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNaturalLanguageCloudLanguage
  *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
  */
 @interface GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSentiment : GTLRCloudNaturalLanguageQuery
@@ -101,6 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: language.documents.analyzeSyntax
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNaturalLanguageCloudLanguage
  *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
  */
 @interface GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSyntax : GTLRCloudNaturalLanguageQuery
@@ -130,6 +133,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: language.documents.annotateText
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNaturalLanguageCloudLanguage
  *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
  */
 @interface GTLRCloudNaturalLanguageQuery_DocumentsAnnotateText : GTLRCloudNaturalLanguageQuery

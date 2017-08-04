@@ -434,6 +434,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_Installa
  *  Value: "PERMISSIONS_NOT_ACCEPTED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_PermissionsNotAccepted;
+/**
+ *  The user is no longer valid. The user may have been deleted or disabled.
+ *
+ *  Value: "USER_INVALID"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_UserInvalid;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_NonComplianceDetail.nonComplianceReason
@@ -1920,6 +1926,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_PermissionsNotAccepted
  *        The app has new permissions that have not been accepted by the admin.
  *        (Value: "PERMISSIONS_NOT_ACCEPTED")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_UserInvalid
+ *        The user is no longer valid. The user may have been deleted or
+ *        disabled. (Value: "USER_INVALID")
  */
 @property(nonatomic, copy, nullable) NSString *installationFailureReason;
 
@@ -2390,6 +2399,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  protection.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *frpAdminEmails;
+
+/**
+ *  Whether the user is allowed to have fun. Controls whether the Easter egg
+ *  game in Settings is disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *funDisabled;
 
 /**
  *  Whether the user is allowed to enable the "Unknown Sources" setting,

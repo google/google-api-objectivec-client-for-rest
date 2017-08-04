@@ -23,8 +23,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: Apply machine learning models to reveal the structure
+ *  and meaning of text
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-language"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudNaturalLanguageCloudLanguage;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services

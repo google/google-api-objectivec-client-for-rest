@@ -222,6 +222,32 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @end
 
+@implementation GTLRDirectoryQuery_ChromeosdevicesMoveDevicesToOu
+
+@dynamic customerId, orgUnitPath;
+
++ (instancetype)queryWithObject:(GTLRDirectory_ChromeOsMoveDevicesToOu *)object
+                     customerId:(NSString *)customerId
+                    orgUnitPath:(NSString *)orgUnitPath {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customerId" ];
+  NSString *pathURITemplate = @"customer/{customerId}/devices/chromeos/moveDevicesToOu";
+  GTLRDirectoryQuery_ChromeosdevicesMoveDevicesToOu *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customerId = customerId;
+  query.orgUnitPath = orgUnitPath;
+  query.loggingName = @"directory.chromeosdevices.moveDevicesToOu";
+  return query;
+}
+
+@end
+
 @implementation GTLRDirectoryQuery_ChromeosdevicesPatch
 
 @dynamic customerId, deviceId, projection;

@@ -1213,6 +1213,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalInstanceGroupMana
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Routers;
 /** Value: "ROUTES" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Routes;
+/** Value: "SECURITY_POLICIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicies;
+/** Value: "SECURITY_POLICY_RULES" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyRules;
 /** Value: "SNAPSHOTS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Snapshots;
 /** Value: "SSD_TOTAL_GB" */
@@ -2985,7 +2989,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Specifies the balancing mode for this backend. For global HTTP(S) or TCP/SSL
  *  load balancing, the default is UTILIZATION. Valid values are UTILIZATION,
  *  RATE (for HTTP(S)) and CONNECTION (for TCP/SSL).
- *  This cannot be used for internal load balancing.
+ *  For Internal Load Balancing, the default and only supported mode is
+ *  CONNECTION.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Backend_BalancingMode_Connection Value "CONNECTION"
@@ -4159,7 +4164,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  parameter, or specify it alone to create an empty persistent disk.
  *  If you specify this field along with sourceImage or sourceSnapshot, the
  *  value of sizeGb must not be less than the size of the sourceImage or the
- *  size of the snapshot.
+ *  size of the snapshot. Acceptable values are 1 to 65536, inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4833,16 +4838,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceRanges;
 
 /**
- *  If source tags are specified, the firewall will apply only to traffic from
- *  VM instances in the same virtual network with a tag listed in the source
- *  tags. Source tags cannot be used to control traffic to an instance's
- *  external IP address, it only applies to traffic between instances in the
- *  same virtual network. Because tags are associated with instances, not IP
- *  addresses. One or both of sourceRanges and sourceTags may be set. If both
- *  properties are set, the firewall will apply to traffic that has source IP
- *  address within sourceRanges OR the source IP that belongs to a tag listed in
- *  the sourceTags property. The connection does not need to match both
- *  properties for the firewall to apply.
+ *  If source tags are specified, the firewall rule applies only to traffic with
+ *  source IPs that match the primary network interfaces of VM instances that
+ *  have the tag and are in the same VPC network. Source tags cannot be used to
+ *  control traffic to an instance's external IP address, it only applies to
+ *  traffic between instances in the same virtual network. Because tags are
+ *  associated with instances, not IP addresses. One or both of sourceRanges and
+ *  sourceTags may be set. If both properties are set, the firewall will apply
+ *  to traffic that has source IP address within sourceRanges OR the source IP
+ *  that belongs to a tag listed in the sourceTags property. The connection does
+ *  not need to match both properties for the firewall to apply.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceTags;
 
@@ -4865,7 +4870,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /**
  *  The IP protocol to which this rule applies. The protocol type is required
  *  when creating a firewall rule. This value can either be one of the following
- *  well known protocol strings (tcp, udp, icmp, esp, ah, sctp), or the IP
+ *  well known protocol strings (tcp, udp, icmp, esp, ah, ipip, sctp), or the IP
  *  protocol number.
  */
 @property(nonatomic, copy, nullable) NSString *IPProtocol;
@@ -5058,8 +5063,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  Some types of forwarding target have constraints on the acceptable ports:
  *  - TargetHttpProxy: 80, 8080
  *  - TargetHttpsProxy: 443
- *  - TargetTcpProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995, 5222
- *  - TargetSslProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995, 5222
+ *  - TargetTcpProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995, 1883,
+ *  5222
+ *  - TargetSslProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995, 1883,
+ *  5222
  *  - TargetVpnGateway: 500, 4500
  *  -
  */
@@ -6363,8 +6370,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 /**
  *  [Output Only] The status of the instance. One of the following values:
- *  PROVISIONING, STAGING, RUNNING, STOPPING, SUSPENDING, SUSPENDED, and
- *  TERMINATED.
+ *  PROVISIONING, STAGING, RUNNING, STOPPING, STOPPED, SUSPENDING, SUSPENDED,
+ *  and TERMINATED.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Instance_Status_Provisioning Value "PROVISIONING"
@@ -9441,6 +9448,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        "REGIONAL_INSTANCE_GROUP_MANAGERS"
  *    @arg @c kGTLRCompute_Quota_Metric_Routers Value "ROUTERS"
  *    @arg @c kGTLRCompute_Quota_Metric_Routes Value "ROUTES"
+ *    @arg @c kGTLRCompute_Quota_Metric_SecurityPolicies Value
+ *        "SECURITY_POLICIES"
+ *    @arg @c kGTLRCompute_Quota_Metric_SecurityPolicyRules Value
+ *        "SECURITY_POLICY_RULES"
  *    @arg @c kGTLRCompute_Quota_Metric_Snapshots Value "SNAPSHOTS"
  *    @arg @c kGTLRCompute_Quota_Metric_SsdTotalGb Value "SSD_TOTAL_GB"
  *    @arg @c kGTLRCompute_Quota_Metric_SslCertificates Value "SSL_CERTIFICATES"

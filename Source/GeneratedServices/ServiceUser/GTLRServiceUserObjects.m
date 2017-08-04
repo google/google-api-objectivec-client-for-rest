@@ -159,7 +159,7 @@ NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUser_AuthProvider
-@dynamic audiences, identifier, issuer, jwksUri;
+@dynamic audiences, authorizationUrl, identifier, issuer, jwksUri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

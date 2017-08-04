@@ -46,6 +46,25 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @end
 
+@implementation GTLRDataflowQuery_ProjectsJobsAggregated
+
+@dynamic filter, location, pageSize, pageToken, projectId, view;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId {
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/jobs:aggregated";
+  GTLRDataflowQuery_ProjectsJobsAggregated *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRDataflow_ListJobsResponse class];
+  query.loggingName = @"dataflow.projects.jobs.aggregated";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataflowQuery_ProjectsJobsCreate
 
 @dynamic location, projectId, replaceJobId, view;

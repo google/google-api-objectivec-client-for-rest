@@ -169,7 +169,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_CloudAuditOptions
-@dynamic logName;
+@dynamic isReadPermissionType, logName;
 @end
 
 

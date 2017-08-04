@@ -71,6 +71,56 @@ NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRToolResults_AndroidAppInfo
+//
+
+@implementation GTLRToolResults_AndroidAppInfo
+@dynamic name, packageName, versionCode, versionName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_AndroidInstrumentationTest
+//
+
+@implementation GTLRToolResults_AndroidInstrumentationTest
+@dynamic testPackageId, testRunnerClass, testTargets, useOrchestrator;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"testTargets" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_AndroidRoboTest
+//
+
+@implementation GTLRToolResults_AndroidRoboTest
+@dynamic appInitialActivity, bootstrapPackageId, bootstrapRunnerClass, maxDepth,
+         maxSteps;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_AndroidTest
+//
+
+@implementation GTLRToolResults_AndroidTest
+@dynamic androidAppInfo, androidInstrumentationTest, androidRoboTest,
+         testTimeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRToolResults_Any
 //
 
@@ -161,8 +211,8 @@ NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 //
 
 @implementation GTLRToolResults_Execution
-@dynamic completionTime, creationTime, executionId, outcome, state,
-         testExecutionMatrixId;
+@dynamic completionTime, creationTime, executionId, outcome, specification,
+         state, testExecutionMatrixId;
 @end
 
 
@@ -450,6 +500,16 @@ NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 
 @implementation GTLRToolResults_SkippedDetail
 @dynamic incompatibleAppVersion, incompatibleArchitecture, incompatibleDevice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_Specification
+//
+
+@implementation GTLRToolResults_Specification
+@dynamic androidTest;
 @end
 
 

@@ -13,8 +13,9 @@
 #import "GTLRCloudNaturalLanguage.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeCloudNaturalLanguageCloudLanguage = @"https://www.googleapis.com/auth/cloud-language";
 NSString * const kGTLRAuthScopeCloudNaturalLanguageCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------

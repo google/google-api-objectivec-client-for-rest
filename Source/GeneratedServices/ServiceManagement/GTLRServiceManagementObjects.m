@@ -65,6 +65,10 @@ NSString * const kGTLRServiceManagement_ConfigFile_FileType_OpenApiJson = @"OPEN
 NSString * const kGTLRServiceManagement_ConfigFile_FileType_OpenApiYaml = @"OPEN_API_YAML";
 NSString * const kGTLRServiceManagement_ConfigFile_FileType_ServiceConfigYaml = @"SERVICE_CONFIG_YAML";
 
+// GTLRServiceManagement_DataAccessOptions.logMode
+NSString * const kGTLRServiceManagement_DataAccessOptions_LogMode_LogFailClosed = @"LOG_FAIL_CLOSED";
+NSString * const kGTLRServiceManagement_DataAccessOptions_LogMode_LogModeUnspecified = @"LOG_MODE_UNSPECIFIED";
+
 // GTLRServiceManagement_Diagnostic.kind
 NSString * const kGTLRServiceManagement_Diagnostic_Kind_Error  = @"ERROR";
 NSString * const kGTLRServiceManagement_Diagnostic_Kind_Warning = @"WARNING";
@@ -283,7 +287,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_AuthProvider
-@dynamic audiences, identifier, issuer, jwksUri;
+@dynamic audiences, authorizationUrl, identifier, issuer, jwksUri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -372,7 +376,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_CloudAuditOptions
-@dynamic isReadPermissionType, logName;
+@dynamic logName;
 @end
 
 
@@ -573,6 +577,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_DataAccessOptions
+@dynamic logMode;
 @end
 
 
@@ -876,8 +881,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_HttpRule
 @dynamic additionalBindings, body, custom, deleteProperty, get, mediaDownload,
-         mediaUpload, patch, post, put, responseBody, restCollection,
-         restMethodName, selector;
+         mediaUpload, patch, post, put, responseBody, selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };

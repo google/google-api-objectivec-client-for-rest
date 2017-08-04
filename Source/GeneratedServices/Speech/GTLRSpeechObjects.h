@@ -28,6 +28,7 @@
 @class GTLRSpeech_RecognitionResult;
 @class GTLRSpeech_Status;
 @class GTLRSpeech_Status_Details_Item;
+@class GTLRSpeech_WordInfo;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -291,6 +292,11 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  */
 @property(nonatomic, copy, nullable) NSString *transcript;
 
+/**
+ *  *Output-only* A list of word-specific information for each recognized word.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpeech_WordInfo *> *words;
+
 @end
 
 
@@ -330,6 +336,16 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *  request.
  */
 @interface GTLRSpeech_RecognitionConfig : GTLRObject
+
+/**
+ *  *Optional* If `true`, the top result includes a list of words and
+ *  the start and end time offsets (timestamps) for those words. If
+ *  `false`, no word-level time offset information is returned. The default is
+ *  `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableWordTimeOffsets;
 
 /**
  *  *Required* Encoding of audio data sent in all `RecognitionAudio` messages.
@@ -436,7 +452,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 /**
  *  *Output-only* May contain one or more recognition hypotheses (up to the
  *  maximum specified in `max_alternatives`).
- *  These alternatives are ordered in terms of accuracy, with the first/top
+ *  These alternatives are ordered in terms of accuracy, with the top (first)
  *  alternative being the most probable, as ranked by the recognizer.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionAlternative *> *alternatives;
@@ -532,8 +548,8 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a
- *  common set of message types for APIs to use.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_Status_Details_Item *> *details;
 
@@ -556,6 +572,39 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRSpeech_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Word-specific information for recognized words. Word information is only
+ *  included in the response when certain request parameters are set, such
+ *  as `enable_word_time_offsets`.
+ */
+@interface GTLRSpeech_WordInfo : GTLRObject
+
+/**
+ *  *Output-only* Time offset relative to the beginning of the audio,
+ *  and corresponding to the end of the spoken word.
+ *  This field is only set if `enable_word_time_offsets=true` and only
+ *  in the top hypothesis.
+ *  This is an experimental feature and the accuracy of the time offset can
+ *  vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *endTime;
+
+/**
+ *  *Output-only* Time offset relative to the beginning of the audio,
+ *  and corresponding to the start of the spoken word.
+ *  This field is only set if `enable_word_time_offsets=true` and only
+ *  in the top hypothesis.
+ *  This is an experimental feature and the accuracy of the time offset can
+ *  vary.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *startTime;
+
+/** *Output-only* The word corresponding to this set of information. */
+@property(nonatomic, copy, nullable) NSString *word;
+
 @end
 
 NS_ASSUME_NONNULL_END
