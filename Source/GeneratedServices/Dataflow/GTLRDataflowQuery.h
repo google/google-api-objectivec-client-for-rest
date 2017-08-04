@@ -89,6 +89,75 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
+ *  List the jobs of a project across all regions.
+ *
+ *  Method: dataflow.projects.jobs.aggregated
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsJobsAggregated : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsJobsAggregatedWithprojectId:]
+
+/**
+ *  The kind of filter to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflowFilterUnknown Value "UNKNOWN"
+ *    @arg @c kGTLRDataflowFilterAll Value "ALL"
+ *    @arg @c kGTLRDataflowFilterTerminated Value "TERMINATED"
+ *    @arg @c kGTLRDataflowFilterActive Value "ACTIVE"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The location that contains this job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  If there are many jobs, limit response to at most this many.
+ *  The actual number of jobs returned will be the lesser of max_responses
+ *  and an unspecified server-defined limit.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Set this to the 'next_page_token' field of a previous response
+ *  to request additional results in a long list.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** The project which owns the jobs. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Level of information requested in response. Default is `JOB_VIEW_SUMMARY`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
+ *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
+ *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
+ *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRDataflow_ListJobsResponse.
+ *
+ *  List the jobs of a project across all regions.
+ *
+ *  @param projectId The project which owns the jobs.
+ *
+ *  @returns GTLRDataflowQuery_ProjectsJobsAggregated
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId;
+
+@end
+
+/**
  *  Creates a Cloud Dataflow job.
  *
  *  Method: dataflow.projects.jobs.create
@@ -314,7 +383,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  List the jobs of a project.
+ *  List the jobs of a project in a given region.
  *
  *  Method: dataflow.projects.jobs.list
  *
@@ -372,7 +441,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_ListJobsResponse.
  *
- *  List the jobs of a project.
+ *  List the jobs of a project in a given region.
  *
  *  @param projectId The project which owns the jobs.
  *
@@ -828,7 +897,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  List the jobs of a project.
+ *  List the jobs of a project in a given region.
  *
  *  Method: dataflow.projects.locations.jobs.list
  *
@@ -886,7 +955,7 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_ListJobsResponse.
  *
- *  List the jobs of a project.
+ *  List the jobs of a project in a given region.
  *
  *  @param projectId The project which owns the jobs.
  *  @param location The location that contains this job.

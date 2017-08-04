@@ -692,8 +692,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The name of the version to make the default for the model. You
  *  can get the names of all the versions of a model by calling
  *  [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
- *  Authorization: `ml.models.update` permission is required on the parent
- *  model.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -714,8 +712,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    model. You
  *    can get the names of all the versions of a model by calling
  *    [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
- *    Authorization: `ml.models.update` permission is required on the parent
- *    model.
  *
  *  @returns GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsSetDefault
  */

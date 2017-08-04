@@ -8,7 +8,7 @@
 //   Bidding configurations and auction metrics, and Marketplace programmatic
 //   deals.
 // Documentation:
-//   https://developers.google.com/ad-exchange/buyer-rest/guides/client-access/
+//   https://developers.google.com/ad-exchange/buyer-rest/reference/rest/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

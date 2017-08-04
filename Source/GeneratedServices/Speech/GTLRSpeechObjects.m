@@ -135,7 +135,15 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
 //
 
 @implementation GTLRSpeech_RecognitionAlternative
-@dynamic confidence, transcript;
+@dynamic confidence, transcript, words;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"words" : [GTLRSpeech_WordInfo class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -155,8 +163,8 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
 //
 
 @implementation GTLRSpeech_RecognitionConfig
-@dynamic encoding, languageCode, maxAlternatives, profanityFilter,
-         sampleRateHertz, speechContexts;
+@dynamic enableWordTimeOffsets, encoding, languageCode, maxAlternatives,
+         profanityFilter, sampleRateHertz, speechContexts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -243,4 +251,14 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_WordInfo
+//
+
+@implementation GTLRSpeech_WordInfo
+@dynamic endTime, startTime, word;
 @end

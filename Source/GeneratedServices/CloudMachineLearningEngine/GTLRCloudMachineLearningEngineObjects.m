@@ -111,6 +111,10 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditO
 NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions_LogName_DataAccess = @"DATA_ACCESS";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions_LogName_UnspecifiedLogName = @"UNSPECIFIED_LOG_NAME";
 
+// GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigDataAccessOptions.logMode
+NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigDataAccessOptions_LogMode_LogFailClosed = @"LOG_FAIL_CLOSED";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigDataAccessOptions_LogMode_LogModeUnspecified = @"LOG_MODE_UNSPECIFIED";
+
 // GTLRCloudMachineLearningEngine_GoogleIamV1Rule.action
 NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_Allow = @"ALLOW";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_AllowWithLog = @"ALLOW_WITH_LOG";
@@ -435,8 +439,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput
-@dynamic dataFormat, inputPaths, maxWorkerCount, modelName, outputPath, region,
-         runtimeVersion, uri, versionName;
+@dynamic batchSize, dataFormat, inputPaths, maxWorkerCount, modelName,
+         outputPath, region, runtimeVersion, uri, versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -643,6 +647,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigDataAccessOptions
+@dynamic logMode;
 @end
 
 

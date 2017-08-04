@@ -97,7 +97,7 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_BindingDelta
-@dynamic action, member, role;
+@dynamic action, condition, member, role;
 @end
 
 
@@ -137,6 +137,21 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_Expr
+//
+
+@implementation GTLRIam_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

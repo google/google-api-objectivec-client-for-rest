@@ -378,6 +378,36 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
 @end
 
 /**
+ *  Get information about a location.
+ *
+ *  Method: bigquerydatatransfer.projects.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
+ */
+@interface GTLRBigQueryDataTransferQuery_ProjectsLocationsGet : GTLRBigQueryDataTransferQuery
+// Previous library name was
+//   +[GTLQueryBigQueryDataTransfer queryForProjectsLocationsGetWithname:]
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigQueryDataTransfer_Location.
+ *
+ *  Get information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @returns GTLRBigQueryDataTransferQuery_ProjectsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Returns true if data transfer is enabled for a project.
  *
  *  Method: bigquerydatatransfer.projects.locations.isEnabled
@@ -411,6 +441,49 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnsp
  */
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_IsEnabledRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: bigquerydatatransfer.projects.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
+ */
+@interface GTLRBigQueryDataTransferQuery_ProjectsLocationsList : GTLRBigQueryDataTransferQuery
+// Previous library name was
+//   +[GTLQueryBigQueryDataTransfer queryForProjectsLocationsListWithname:]
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRBigQueryDataTransfer_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @returns GTLRBigQueryDataTransferQuery_ProjectsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

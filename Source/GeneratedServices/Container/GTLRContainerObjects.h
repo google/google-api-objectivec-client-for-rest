@@ -909,7 +909,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 /**
  *  A custom subnetwork name to be used if `create_subnetwork` is true. If
- *  this field is empty, then an automatic name will choosen for the new
+ *  this field is empty, then an automatic name will be chosen for the new
  *  subnetwork.
  */
 @property(nonatomic, copy, nullable) NSString *subnetworkName;

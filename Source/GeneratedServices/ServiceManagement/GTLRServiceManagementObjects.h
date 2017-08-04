@@ -372,6 +372,32 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_ConfigFile_FileType_OpenApiY
 GTLR_EXTERN NSString * const kGTLRServiceManagement_ConfigFile_FileType_ServiceConfigYaml;
 
 // ----------------------------------------------------------------------------
+// GTLRServiceManagement_DataAccessOptions.logMode
+
+/**
+ *  The application's operation in the context of which this authorization
+ *  check is being made may only be performed if it is successfully logged
+ *  to Gin. For instance, the authorization library may satisfy this
+ *  obligation by emitting a partial log entry at authorization check time
+ *  and only returning ALLOW to the application if it succeeds.
+ *  If a matching Rule has this directive, but the client has not indicated
+ *  that it will honor such requirements, then the IAM check will result in
+ *  authorization failure by setting CheckPolicyResponse.success=false.
+ *
+ *  Value: "LOG_FAIL_CLOSED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_DataAccessOptions_LogMode_LogFailClosed;
+/**
+ *  Client is not required to write a partial Gin log immediately after
+ *  the authorization check. If client chooses to write one and it fails,
+ *  client may either fail open (allow the operation to continue) or
+ *  fail closed (handle as a DENY outcome).
+ *
+ *  Value: "LOG_MODE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_DataAccessOptions_LogMode_LogModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRServiceManagement_Diagnostic.kind
 
 /**
@@ -856,23 +882,32 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Api is a light-weight descriptor for a protocol buffer service.
+ *  Api is a light-weight descriptor for an API Interface.
+ *  Interfaces are also described as "protocol buffer services" in some
+ *  contexts,
+ *  such as by the "service" keyword in a .proto file, but they are different
+ *  from API Services, which represent a concrete implementation of an interface
+ *  as opposed to simply a description of methods and bindings. They are also
+ *  sometimes simply referred to as "APIs" in other contexts, such as the name
+ *  of
+ *  this message itself. See https://cloud.google.com/apis/design/glossary for
+ *  detailed terminology.
  */
 @interface GTLRServiceManagement_Api : GTLRObject
 
-/** The methods of this api, in unspecified order. */
+/** The methods of this interface, in unspecified order. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Method *> *methods;
 
-/** Included APIs. See Mixin. */
+/** Included interfaces. See Mixin. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Mixin *> *mixins;
 
 /**
- *  The fully qualified name of this api, including package name
- *  followed by the api's simple name.
+ *  The fully qualified name of this interface, including package name
+ *  followed by the interface's simple name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Any metadata attached to the API. */
+/** Any metadata attached to the interface. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Option *> *options;
 
 /**
@@ -893,13 +928,12 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *syntax;
 
 /**
- *  A version string for this api. If specified, must have the form
- *  `major-version.minor-version`, as in `1.10`. If the minor version
- *  is omitted, it defaults to zero. If the entire version field is
- *  empty, the major version is derived from the package name, as
- *  outlined below. If the field is not empty, the version in the
- *  package name will be verified to be consistent with what is
- *  provided here.
+ *  A version string for this interface. If specified, must have the form
+ *  `major-version.minor-version`, as in `1.10`. If the minor version is
+ *  omitted, it defaults to zero. If the entire version field is empty, the
+ *  major version is derived from the package name, as outlined below. If the
+ *  field is not empty, the version in the package name will be verified to be
+ *  consistent with what is provided here.
  *  The versioning schema uses [semantic
  *  versioning](http://semver.org) where the major version number
  *  indicates a breaking change and the minor version an additive,
@@ -907,10 +941,10 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  what to expect from different versions, and should be carefully
  *  chosen based on the product plan.
  *  The major version is also reflected in the package name of the
- *  API, which must end in `v<major-version>`, as in
+ *  interface, which must end in `v<major-version>`, as in
  *  `google.feature.v1`. For major versions 0 and 1, the suffix can
  *  be omitted. Zero major versions must only be used for
- *  experimental, none-GA apis.
+ *  experimental, non-GA interfaces.
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -1144,6 +1178,12 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *audiences;
 
 /**
+ *  Redirect URL if JWT token is required but no present or is expired.
+ *  Implement authorizationUrl of securityDefinitions in OpenAPI spec.
+ */
+@property(nonatomic, copy, nullable) NSString *authorizationUrl;
+
+/**
  *  The unique identifier of the auth provider. It will be referred to by
  *  `AuthRequirement.provider_id`.
  *  Example: "bookstore_auth".
@@ -1325,13 +1365,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  Write a Cloud Audit log
  */
 @interface GTLRServiceManagement_CloudAuditOptions : GTLRObject
-
-/**
- *  True if the log is for a permission of type DATA_READ or ADMIN_READ.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isReadPermissionType;
 
 /**
  *  The log_name to populate in the Cloud Audit Record.
@@ -1643,7 +1676,23 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Options for counters
+ *  Increment a streamz counter with the specified metric and field names.
+ *  Metric names should start with a '/', generally be lowercase-only,
+ *  and end in "_count". Field names should not contain an initial slash.
+ *  The actual exported metric names will have "/iam/policy" prepended.
+ *  Field names correspond to IAM request parameters and field values are
+ *  their respective values.
+ *  At present the only supported field names are
+ *  - "iam_principal", corresponding to IAMContext.principal;
+ *  - "" (empty string), resulting in one aggretated counter with no field.
+ *  Examples:
+ *  counter { metric: "/debug_access_count" field: "iam_principal" }
+ *  ==> increment counter /iam/policy/backend_debug_access_count
+ *  {iam_principal=[value of IAMContext.principal]}
+ *  At this time we do not support:
+ *  * multiple field names (though this may be supported in the future)
+ *  * decrementing the counter
+ *  * incrementing it by anything other than 1
  */
 @interface GTLRServiceManagement_CounterOptions : GTLRObject
 
@@ -1737,6 +1786,33 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  Write a Data Access (Gin) log
  */
 @interface GTLRServiceManagement_DataAccessOptions : GTLRObject
+
+/**
+ *  Whether Gin logging should happen in a fail-closed manner at the caller.
+ *  This is relevant only in the LocalIAM implementation, for now.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceManagement_DataAccessOptions_LogMode_LogFailClosed The
+ *        application's operation in the context of which this authorization
+ *        check is being made may only be performed if it is successfully logged
+ *        to Gin. For instance, the authorization library may satisfy this
+ *        obligation by emitting a partial log entry at authorization check time
+ *        and only returning ALLOW to the application if it succeeds.
+ *        If a matching Rule has this directive, but the client has not
+ *        indicated
+ *        that it will honor such requirements, then the IAM check will result
+ *        in
+ *        authorization failure by setting CheckPolicyResponse.success=false.
+ *        (Value: "LOG_FAIL_CLOSED")
+ *    @arg @c kGTLRServiceManagement_DataAccessOptions_LogMode_LogModeUnspecified
+ *        Client is not required to write a partial Gin log immediately after
+ *        the authorization check. If client chooses to write one and it fails,
+ *        client may either fail open (allow the operation to continue) or
+ *        fail closed (handle as a DENY outcome). (Value:
+ *        "LOG_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *logMode;
+
 @end
 
 
@@ -2639,41 +2715,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *responseBody;
 
 /**
- *  Optional. The REST collection name is by default derived from the URL
- *  pattern. If specified, this field overrides the default collection name.
- *  Example:
- *  rpc AddressesAggregatedList(AddressesAggregatedListRequest)
- *  returns (AddressesAggregatedListResponse) {
- *  option (google.api.http) = {
- *  get: "/v1/projects/{project_id}/aggregated/addresses"
- *  rest_collection: "projects.addresses"
- *  };
- *  }
- *  This method has the automatically derived collection name
- *  "projects.aggregated". Because, semantically, this rpc is actually an
- *  operation on the "projects.addresses" collection, the `rest_collection`
- *  field is configured to override the derived collection name.
- */
-@property(nonatomic, copy, nullable) NSString *restCollection;
-
-/**
- *  Optional. The rest method name is by default derived from the URL
- *  pattern. If specified, this field overrides the default method name.
- *  Example:
- *  rpc CreateResource(CreateResourceRequest)
- *  returns (CreateResourceResponse) {
- *  option (google.api.http) = {
- *  post: "/v1/resources",
- *  body: "resource",
- *  rest_method_name: "insert"
- *  };
- *  }
- *  This method has the automatically derived rest method name "create", but
- *  for backwards compatability with apiary, it is specified as insert.
- */
-@property(nonatomic, copy, nullable) NSString *restMethodName;
-
-/**
  *  Selects methods to which this rule applies.
  *  Refer to selector for syntax details.
  */
@@ -2811,23 +2852,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 /**
  *  Specifies what kind of log the caller must write
- *  Increment a streamz counter with the specified metric and field names.
- *  Metric names should start with a '/', generally be lowercase-only,
- *  and end in "_count". Field names should not contain an initial slash.
- *  The actual exported metric names will have "/iam/policy" prepended.
- *  Field names correspond to IAM request parameters and field values are
- *  their respective values.
- *  At present the only supported field names are
- *  - "iam_principal", corresponding to IAMContext.principal;
- *  - "" (empty string), resulting in one aggretated counter with no field.
- *  Examples:
- *  counter { metric: "/debug_access_count" field: "iam_principal" }
- *  ==> increment counter /iam/policy/backend_debug_access_count
- *  {iam_principal=[value of IAMContext.principal]}
- *  At this time we do not support:
- *  * multiple field names (though this may be supported in the future)
- *  * decrementing the counter
- *  * incrementing it by anything other than 1
  */
 @interface GTLRServiceManagement_LogConfig : GTLRObject
 
@@ -3093,7 +3117,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Method represents a method of an api.
+ *  Method represents a method of an API interface.
  */
 @interface GTLRServiceManagement_Method : GTLRObject
 
@@ -3332,9 +3356,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Declares an API to be included in this API. The including API must
- *  redeclare all the methods from the included API, but documentation
- *  and options are inherited as follows:
+ *  Declares an API Interface to be included in this interface. The including
+ *  interface must redeclare all the methods from the included interface, but
+ *  documentation and options are inherited as follows:
  *  - If after comment and whitespace stripping, the documentation
  *  string of the redeclared method is empty, it will be inherited
  *  from the original method.
@@ -3343,7 +3367,8 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  inherited.
  *  - If an http annotation is inherited, the path pattern will be
  *  modified as follows. Any version prefix will be replaced by the
- *  version of the including API plus the root path if specified.
+ *  version of the including interface plus the root path if
+ *  specified.
  *  Example of a simple mixin:
  *  package google.acl.v1;
  *  service AccessControl {
@@ -3396,7 +3421,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  */
 @interface GTLRServiceManagement_Mixin : GTLRObject
 
-/** The fully qualified name of the API which is included. */
+/** The fully qualified name of the interface which is included. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4217,10 +4242,10 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) GTLRServiceManagement_Backend *backend;
 
 /**
- *  The version of the service configuration. The config version may
- *  influence interpretation of the configuration, for example, to
- *  determine defaults. This is documented together with applicable
- *  options. The current default for the config version itself is `3`.
+ *  The semantic version of the service configuration. The config version
+ *  affects the interpretation of the service configuration. For example,
+ *  certain features are enabled by default for certain config versions.
+ *  The latest config version is `3`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */

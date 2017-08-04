@@ -122,7 +122,7 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_Regi
 GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionUnknown;
 
 /**
- *  Summary of the ads rating of a site for a specific platform.
+ *  Summary of the ad experience rating of a site for a specific platform.
  */
 @interface GTLRAdExperienceReport_PlatformSummary : GTLRObject
 

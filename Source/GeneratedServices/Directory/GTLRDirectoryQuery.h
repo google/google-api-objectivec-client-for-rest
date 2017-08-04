@@ -25,6 +25,7 @@
 @class GTLRDirectory_Channel;
 @class GTLRDirectory_ChromeOsDevice;
 @class GTLRDirectory_ChromeOsDeviceAction;
+@class GTLRDirectory_ChromeOsMoveDevicesToOu;
 @class GTLRDirectory_Customer;
 @class GTLRDirectory_DomainAlias;
 @class GTLRDirectory_Domains;
@@ -538,6 +539,43 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *        information.
  */
 + (instancetype)queryWithCustomerId:(NSString *)customerId;
+
+@end
+
+/**
+ *  Move or insert multiple Chrome OS Devices to Organization Unit
+ *
+ *  Method: directory.chromeosdevices.moveDevicesToOu
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeos
+ */
+@interface GTLRDirectoryQuery_ChromeosdevicesMoveDevicesToOu : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForChromeosdevicesMoveDevicesToOuWithObject:customerId:orgUnitPath:]
+
+/** Immutable ID of the G Suite account */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/** Full path of the target organization unit or its Id */
+@property(nonatomic, copy, nullable) NSString *orgUnitPath;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Move or insert multiple Chrome OS Devices to Organization Unit
+ *
+ *  @param object The @c GTLRDirectory_ChromeOsMoveDevicesToOu to include in the
+ *    query.
+ *  @param customerId Immutable ID of the G Suite account
+ *  @param orgUnitPath Full path of the target organization unit or its Id
+ *
+ *  @returns GTLRDirectoryQuery_ChromeosdevicesMoveDevicesToOu
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_ChromeOsMoveDevicesToOu *)object
+                     customerId:(NSString *)customerId
+                    orgUnitPath:(NSString *)orgUnitPath;
 
 @end
 

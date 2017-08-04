@@ -31,6 +31,7 @@
 @class GTLRClassroom_DriveFolder;
 @class GTLRClassroom_Form;
 @class GTLRClassroom_GlobalPermission;
+@class GTLRClassroom_GradeHistory;
 @class GTLRClassroom_Guardian;
 @class GTLRClassroom_GuardianInvitation;
 @class GTLRClassroom_Invitation;
@@ -41,8 +42,10 @@
 @class GTLRClassroom_Name;
 @class GTLRClassroom_SharedDriveFile;
 @class GTLRClassroom_ShortAnswerSubmission;
+@class GTLRClassroom_StateHistory;
 @class GTLRClassroom_Student;
 @class GTLRClassroom_StudentSubmission;
+@class GTLRClassroom_SubmissionHistory;
 @class GTLRClassroom_Teacher;
 @class GTLRClassroom_TimeOfDay;
 @class GTLRClassroom_UserProfile;
@@ -208,6 +211,34 @@ GTLR_EXTERN NSString * const kGTLRClassroom_GlobalPermission_Permission_CreateCo
 GTLR_EXTERN NSString * const kGTLRClassroom_GlobalPermission_Permission_PermissionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRClassroom_GradeHistory.gradeChangeType
+
+/**
+ *  A change in the numerator of the assigned grade.
+ *
+ *  Value: "ASSIGNED_GRADE_POINTS_EARNED_CHANGE"
+ */
+GTLR_EXTERN NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_AssignedGradePointsEarnedChange;
+/**
+ *  A change in the numerator of the draft grade.
+ *
+ *  Value: "DRAFT_GRADE_POINTS_EARNED_CHANGE"
+ */
+GTLR_EXTERN NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_DraftGradePointsEarnedChange;
+/**
+ *  A change in the denominator of the grade.
+ *
+ *  Value: "MAX_POINTS_CHANGE"
+ */
+GTLR_EXTERN NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_MaxPointsChange;
+/**
+ *  No grade change type specified. This should never be returned.
+ *
+ *  Value: "UNKNOWN_GRADE_CHANGE_TYPE"
+ */
+GTLR_EXTERN NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_UnknownGradeChangeType;
+
+// ----------------------------------------------------------------------------
 // GTLRClassroom_GuardianInvitation.state
 
 /**
@@ -239,6 +270,12 @@ GTLR_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_Pending;
  *  Value: "COURSE_ROLE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRClassroom_Invitation_Role_CourseRoleUnspecified;
+/**
+ *  Owner of the course.
+ *
+ *  Value: "OWNER"
+ */
+GTLR_EXTERN NSString * const kGTLRClassroom_Invitation_Role_Owner;
 /**
  *  Student in the course.
  *
@@ -279,6 +316,50 @@ GTLR_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_UnknownSha
  *  Value: "VIEW"
  */
 GTLR_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_View;
+
+// ----------------------------------------------------------------------------
+// GTLRClassroom_StateHistory.state
+
+/**
+ *  The Submission has been created.
+ *
+ *  Value: "CREATED"
+ */
+GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_Created;
+/**
+ *  The student turned in the assigned document, and then chose to
+ *  "unsubmit" the assignment, giving the student control again as the
+ *  owner.
+ *
+ *  Value: "RECLAIMED_BY_STUDENT"
+ */
+GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_ReclaimedByStudent;
+/**
+ *  The teacher has returned the assigned document to the student.
+ *
+ *  Value: "RETURNED"
+ */
+GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_Returned;
+/**
+ *  No state specified. This should never be returned.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_StateUnspecified;
+/**
+ *  The student edited their submission after turning it in. Currently,
+ *  only used by Questions, when the student edits their answer.
+ *
+ *  Value: "STUDENT_EDITED_AFTER_TURN_IN"
+ */
+GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_StudentEditedAfterTurnIn;
+/**
+ *  The student has turned in an assigned document, which may or may not be
+ *  a template.
+ *
+ *  Value: "TURNED_IN"
+ */
+GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_TurnedIn;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_StudentSubmission.courseWorkType
@@ -992,6 +1073,53 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 
 /**
+ *  The history of each grade on this submission.
+ */
+@interface GTLRClassroom_GradeHistory : GTLRObject
+
+/** The teacher who made the grade change. */
+@property(nonatomic, copy, nullable) NSString *actorUserId;
+
+/**
+ *  The type of grade change at this time in the submission grade history.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRClassroom_GradeHistory_GradeChangeType_AssignedGradePointsEarnedChange
+ *        A change in the numerator of the assigned grade. (Value:
+ *        "ASSIGNED_GRADE_POINTS_EARNED_CHANGE")
+ *    @arg @c kGTLRClassroom_GradeHistory_GradeChangeType_DraftGradePointsEarnedChange
+ *        A change in the numerator of the draft grade. (Value:
+ *        "DRAFT_GRADE_POINTS_EARNED_CHANGE")
+ *    @arg @c kGTLRClassroom_GradeHistory_GradeChangeType_MaxPointsChange A
+ *        change in the denominator of the grade. (Value: "MAX_POINTS_CHANGE")
+ *    @arg @c kGTLRClassroom_GradeHistory_GradeChangeType_UnknownGradeChangeType
+ *        No grade change type specified. This should never be returned. (Value:
+ *        "UNKNOWN_GRADE_CHANGE_TYPE")
+ */
+@property(nonatomic, copy, nullable) NSString *gradeChangeType;
+
+/** When the grade of the submission was changed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *gradeTimestamp;
+
+/**
+ *  The denominator of the grade at this time in the submission grade
+ *  history.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxPoints;
+
+/**
+ *  The numerator of the grade at this time in the submission grade history.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pointsEarned;
+
+@end
+
+
+/**
  *  Association between a student and a guardian of that student. The guardian
  *  may receive information about the student's course work.
  */
@@ -1084,6 +1212,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  *  Likely values:
  *    @arg @c kGTLRClassroom_Invitation_Role_CourseRoleUnspecified No course
  *        role. (Value: "COURSE_ROLE_UNSPECIFIED")
+ *    @arg @c kGTLRClassroom_Invitation_Role_Owner Owner of the course. (Value:
+ *        "OWNER")
  *    @arg @c kGTLRClassroom_Invitation_Role_Student Student in the course.
  *        (Value: "STUDENT")
  *    @arg @c kGTLRClassroom_Invitation_Role_Teacher Teacher of the course.
@@ -1515,6 +1645,44 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 
 /**
+ *  The history of each state this submission has been in.
+ */
+@interface GTLRClassroom_StateHistory : GTLRObject
+
+/** The teacher or student who made the change */
+@property(nonatomic, copy, nullable) NSString *actorUserId;
+
+/**
+ *  The workflow pipeline stage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRClassroom_StateHistory_State_Created The Submission has been
+ *        created. (Value: "CREATED")
+ *    @arg @c kGTLRClassroom_StateHistory_State_ReclaimedByStudent The student
+ *        turned in the assigned document, and then chose to
+ *        "unsubmit" the assignment, giving the student control again as the
+ *        owner. (Value: "RECLAIMED_BY_STUDENT")
+ *    @arg @c kGTLRClassroom_StateHistory_State_Returned The teacher has
+ *        returned the assigned document to the student. (Value: "RETURNED")
+ *    @arg @c kGTLRClassroom_StateHistory_State_StateUnspecified No state
+ *        specified. This should never be returned. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRClassroom_StateHistory_State_StudentEditedAfterTurnIn The
+ *        student edited their submission after turning it in. Currently,
+ *        only used by Questions, when the student edits their answer. (Value:
+ *        "STUDENT_EDITED_AFTER_TURN_IN")
+ *    @arg @c kGTLRClassroom_StateHistory_State_TurnedIn The student has turned
+ *        in an assigned document, which may or may not be
+ *        a template. (Value: "TURNED_IN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** When the submission entered this state. */
+@property(nonatomic, strong, nullable) GTLRDateTime *stateTimestamp;
+
+@end
+
+
+/**
  *  Student in a course.
  */
 @interface GTLRClassroom_Student : GTLRObject
@@ -1679,6 +1847,12 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
+ *  The history of the submission (includes state and grade histories).
+ *  Read-only.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_SubmissionHistory *> *submissionHistory;
+
+/**
  *  Last update time of this submission.
  *  This may be unset if the student has not accessed this item.
  *  Read-only.
@@ -1690,6 +1864,21 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  *  Read-only.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  The history of the submission. This currently includes state and grade
+ *  histories.
+ */
+@interface GTLRClassroom_SubmissionHistory : GTLRObject
+
+/** The grade history information of the submission, if present. */
+@property(nonatomic, strong, nullable) GTLRClassroom_GradeHistory *gradeHistory;
+
+/** The state history information of the submission, if present. */
+@property(nonatomic, strong, nullable) GTLRClassroom_StateHistory *stateHistory;
 
 @end
 

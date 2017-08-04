@@ -42,6 +42,12 @@ NSString * const kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuestion = @"SHOR
 NSString * const kGTLRClassroom_GlobalPermission_Permission_CreateCourse = @"CREATE_COURSE";
 NSString * const kGTLRClassroom_GlobalPermission_Permission_PermissionUnspecified = @"PERMISSION_UNSPECIFIED";
 
+// GTLRClassroom_GradeHistory.gradeChangeType
+NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_AssignedGradePointsEarnedChange = @"ASSIGNED_GRADE_POINTS_EARNED_CHANGE";
+NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_DraftGradePointsEarnedChange = @"DRAFT_GRADE_POINTS_EARNED_CHANGE";
+NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_MaxPointsChange = @"MAX_POINTS_CHANGE";
+NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_UnknownGradeChangeType = @"UNKNOWN_GRADE_CHANGE_TYPE";
+
 // GTLRClassroom_GuardianInvitation.state
 NSString * const kGTLRClassroom_GuardianInvitation_State_Complete = @"COMPLETE";
 NSString * const kGTLRClassroom_GuardianInvitation_State_GuardianInvitationStateUnspecified = @"GUARDIAN_INVITATION_STATE_UNSPECIFIED";
@@ -49,6 +55,7 @@ NSString * const kGTLRClassroom_GuardianInvitation_State_Pending = @"PENDING";
 
 // GTLRClassroom_Invitation.role
 NSString * const kGTLRClassroom_Invitation_Role_CourseRoleUnspecified = @"COURSE_ROLE_UNSPECIFIED";
+NSString * const kGTLRClassroom_Invitation_Role_Owner          = @"OWNER";
 NSString * const kGTLRClassroom_Invitation_Role_Student        = @"STUDENT";
 NSString * const kGTLRClassroom_Invitation_Role_Teacher        = @"TEACHER";
 
@@ -57,6 +64,14 @@ NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_Edit = @"EDIT";
 NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_StudentCopy = @"STUDENT_COPY";
 NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_UnknownShareMode = @"UNKNOWN_SHARE_MODE";
 NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_View = @"VIEW";
+
+// GTLRClassroom_StateHistory.state
+NSString * const kGTLRClassroom_StateHistory_State_Created     = @"CREATED";
+NSString * const kGTLRClassroom_StateHistory_State_ReclaimedByStudent = @"RECLAIMED_BY_STUDENT";
+NSString * const kGTLRClassroom_StateHistory_State_Returned    = @"RETURNED";
+NSString * const kGTLRClassroom_StateHistory_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRClassroom_StateHistory_State_StudentEditedAfterTurnIn = @"STUDENT_EDITED_AFTER_TURN_IN";
+NSString * const kGTLRClassroom_StateHistory_State_TurnedIn    = @"TURNED_IN";
 
 // GTLRClassroom_StudentSubmission.courseWorkType
 NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_Assignment = @"ASSIGNMENT";
@@ -272,6 +287,16 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_GlobalPermission
 @dynamic permission;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_GradeHistory
+//
+
+@implementation GTLRClassroom_GradeHistory
+@dynamic actorUserId, gradeChangeType, gradeTimestamp, maxPoints, pointsEarned;
 @end
 
 
@@ -624,6 +649,16 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_StateHistory
+//
+
+@implementation GTLRClassroom_StateHistory
+@dynamic actorUserId, state, stateTimestamp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Student
 //
 
@@ -641,12 +676,29 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 @dynamic alternateLink, assignedGrade, assignmentSubmission,
          associatedWithDeveloper, courseId, courseWorkId, courseWorkType,
          creationTime, draftGrade, identifier, late, multipleChoiceSubmission,
-         shortAnswerSubmission, state, updateTime, userId;
+         shortAnswerSubmission, state, submissionHistory, updateTime, userId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
 }
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"submissionHistory" : [GTLRClassroom_SubmissionHistory class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_SubmissionHistory
+//
+
+@implementation GTLRClassroom_SubmissionHistory
+@dynamic gradeHistory, stateHistory;
 @end
 
 

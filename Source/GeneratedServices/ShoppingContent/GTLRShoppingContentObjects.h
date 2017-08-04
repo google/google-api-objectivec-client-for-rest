@@ -25,6 +25,7 @@
 @class GTLRShoppingContent_AccountsCustomBatchRequestEntry;
 @class GTLRShoppingContent_AccountsCustomBatchResponseEntry;
 @class GTLRShoppingContent_AccountStatus;
+@class GTLRShoppingContent_AccountStatusAccountLevelIssue;
 @class GTLRShoppingContent_AccountStatusDataQualityIssue;
 @class GTLRShoppingContent_AccountstatusesCustomBatchRequestEntry;
 @class GTLRShoppingContent_AccountstatusesCustomBatchResponseEntry;
@@ -411,6 +412,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The ID of the account for which the status is reported. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
+/** A list of account level issues. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountStatusAccountLevelIssue *> *accountLevelIssues;
+
 /** A list of data quality issues. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountStatusDataQualityIssue *> *dataQualityIssues;
 
@@ -426,6 +430,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *websiteClaimed;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_AccountStatusAccountLevelIssue
+ */
+@interface GTLRShoppingContent_AccountStatusAccountLevelIssue : GTLRObject
+
+/** Country for which this issue is reported. */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/** Additional details about the issue. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/**
+ *  Issue identifier.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Severity of the issue. */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/** Short description of the issue. */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -985,6 +1016,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** An optional password for fetch_url. */
 @property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Whether the scheduled fetch is paused or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *paused;
 
 /**
  *  Time zone used for schedule. UTC by default. E.g., "America/Los_Angeles".
@@ -3683,7 +3721,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Fixed shipping price, represented as a number. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
-/** The geographic region to which a shipping rate applies (e.g. zip code). */
+/** The geographic region to which a shipping rate applies. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /** A free-form description of the service class or delivery speed. */

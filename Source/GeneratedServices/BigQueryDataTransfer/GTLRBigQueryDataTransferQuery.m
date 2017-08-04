@@ -196,6 +196,25 @@ NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnspecified = @"
 
 @end
 
+@implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBigQueryDataTransferQuery_ProjectsLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigQueryDataTransfer_Location class];
+  query.loggingName = @"bigquerydatatransfer.projects.locations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsIsEnabled
 
 @dynamic name;
@@ -216,6 +235,25 @@ NSString * const kGTLRBigQueryDataTransferStatusesTransferStatusUnspecified = @"
   query.name = name;
   query.expectedObjectClass = [GTLRBigQueryDataTransfer_IsEnabledResponse class];
   query.loggingName = @"bigquerydatatransfer.projects.locations.isEnabled";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/locations";
+  GTLRBigQueryDataTransferQuery_ProjectsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigQueryDataTransfer_ListLocationsResponse class];
+  query.loggingName = @"bigquerydatatransfer.projects.locations.list";
   return query;
 }
 

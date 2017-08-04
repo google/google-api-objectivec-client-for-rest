@@ -167,13 +167,29 @@
 //
 
 @implementation GTLRShoppingContent_AccountStatus
-@dynamic accountId, dataQualityIssues, kind, websiteClaimed;
+@dynamic accountId, accountLevelIssues, dataQualityIssues, kind, websiteClaimed;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"accountLevelIssues" : [GTLRShoppingContent_AccountStatusAccountLevelIssue class],
     @"dataQualityIssues" : [GTLRShoppingContent_AccountStatusDataQualityIssue class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountStatusAccountLevelIssue
+//
+
+@implementation GTLRShoppingContent_AccountStatusAccountLevelIssue
+@dynamic country, detail, identifier, severity, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
 }
 
 @end
@@ -465,8 +481,8 @@
 //
 
 @implementation GTLRShoppingContent_DatafeedFetchSchedule
-@dynamic dayOfMonth, fetchUrl, hour, minuteOfHour, password, timeZone, username,
-         weekday;
+@dynamic dayOfMonth, fetchUrl, hour, minuteOfHour, password, paused, timeZone,
+         username, weekday;
 @end
 
 

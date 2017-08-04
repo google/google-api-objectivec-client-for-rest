@@ -136,8 +136,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Claims the website of a Merchant Center sub-account. This method can only be
  *  called for accounts to which the managing account has access: either the
- *  managing account itself or sub-accounts if the managing account is a
- *  multi-client account.
+ *  managing account itself for any Merchant Center account, or any sub-account
+ *  when the managing account is a multi-client account.
  *
  *  Method: content.accounts.claimwebsite
  *
@@ -165,8 +165,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Claims the website of a Merchant Center sub-account. This method can only be
  *  called for accounts to which the managing account has access: either the
- *  managing account itself or sub-accounts if the managing account is a
- *  multi-client account.
+ *  managing account itself for any Merchant Center account, or any sub-account
+ *  when the managing account is a multi-client account.
  *
  *  @param merchantId The ID of the managing account.
  *  @param accountId The ID of the account whose website is claimed.
@@ -251,8 +251,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Retrieves a Merchant Center account. This method can only be called for
  *  accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account.
  *
  *  Method: content.accounts.get
  *
@@ -274,8 +274,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Retrieves a Merchant Center account. This method can only be called for
  *  accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account.
  *
  *  @param merchantId The ID of the managing account.
  *  @param accountId The ID of the account.
@@ -367,8 +367,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Updates a Merchant Center account. This method can only be called for
  *  accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account. This method supports patch semantics.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account. This method supports patch
+ *  semantics.
  *
  *  Method: content.accounts.patch
  *
@@ -393,8 +394,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Updates a Merchant Center account. This method can only be called for
  *  accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account. This method supports patch semantics.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRShoppingContent_Account to include in the query.
  *  @param merchantId The ID of the managing account.
@@ -435,8 +437,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Retrieves the status of a Merchant Center account. This method can only be
  *  called for accounts to which the managing account has access: either the
- *  managing account itself or sub-accounts if the managing account is a
- *  multi-client account.
+ *  managing account itself for any Merchant Center account, or any sub-account
+ *  when the managing account is a multi-client account.
  *
  *  Method: content.accountstatuses.get
  *
@@ -458,8 +460,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Retrieves the status of a Merchant Center account. This method can only be
  *  called for accounts to which the managing account has access: either the
- *  managing account itself or sub-accounts if the managing account is a
- *  multi-client account.
+ *  managing account itself for any Merchant Center account, or any sub-account
+ *  when the managing account is a multi-client account.
  *
  *  @param merchantId The ID of the managing account.
  *  @param accountId The ID of the account.
@@ -517,8 +519,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Updates a Merchant Center account. This method can only be called for
  *  accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account.
  *
  *  Method: content.accounts.update
  *
@@ -543,8 +545,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Updates a Merchant Center account. This method can only be called for
  *  accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account.
  *
  *  @param object The @c GTLRShoppingContent_Account to include in the query.
  *  @param merchantId The ID of the managing account.
@@ -590,8 +592,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Retrieves the tax settings of the account. This method can only be called
  *  for accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account.
  *
  *  Method: content.accounttax.get
  *
@@ -613,8 +615,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Retrieves the tax settings of the account. This method can only be called
  *  for accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account.
  *
  *  @param merchantId The ID of the managing account.
  *  @param accountId The ID of the account for which to get/update account tax
@@ -673,8 +675,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Updates the tax settings of the account. This method can only be called for
  *  accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account. This method supports patch semantics.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account. This method supports patch
+ *  semantics.
  *
  *  Method: content.accounttax.patch
  *
@@ -699,8 +702,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Updates the tax settings of the account. This method can only be called for
  *  accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account. This method supports patch semantics.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRShoppingContent_AccountTax to include in the query.
  *  @param merchantId The ID of the managing account.
@@ -718,8 +722,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Updates the tax settings of the account. This method can only be called for
  *  accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account.
  *
  *  Method: content.accounttax.update
  *
@@ -744,8 +748,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Updates the tax settings of the account. This method can only be called for
  *  accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account.
  *
  *  @param object The @c GTLRShoppingContent_AccountTax to include in the query.
  *  @param merchantId The ID of the managing account.
@@ -2183,8 +2187,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Retrieves the shipping settings of the account. This method can only be
  *  called for accounts to which the managing account has access: either the
- *  managing account itself or sub-accounts if the managing account is a
- *  multi-client account.
+ *  managing account itself for any Merchant Center account, or any sub-account
+ *  when the managing account is a multi-client account.
  *
  *  Method: content.shippingsettings.get
  *
@@ -2206,8 +2210,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Retrieves the shipping settings of the account. This method can only be
  *  called for accounts to which the managing account has access: either the
- *  managing account itself or sub-accounts if the managing account is a
- *  multi-client account.
+ *  managing account itself for any Merchant Center account, or any sub-account
+ *  when the managing account is a multi-client account.
  *
  *  @param merchantId The ID of the managing account.
  *  @param accountId The ID of the account for which to get/update shipping
@@ -2296,8 +2300,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Updates the shipping settings of the account. This method can only be called
  *  for accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account. This method supports patch semantics.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account. This method supports patch
+ *  semantics.
  *
  *  Method: content.shippingsettings.patch
  *
@@ -2322,8 +2327,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Updates the shipping settings of the account. This method can only be called
  *  for accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account. This method supports patch semantics.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRShoppingContent_ShippingSettings to include in the
  *    query.
@@ -2342,8 +2348,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Updates the shipping settings of the account. This method can only be called
  *  for accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account.
  *
  *  Method: content.shippingsettings.update
  *
@@ -2368,8 +2374,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *
  *  Updates the shipping settings of the account. This method can only be called
  *  for accounts to which the managing account has access: either the managing
- *  account itself or sub-accounts if the managing account is a multi-client
- *  account.
+ *  account itself for any Merchant Center account, or any sub-account when the
+ *  managing account is a multi-client account.
  *
  *  @param object The @c GTLRShoppingContent_ShippingSettings to include in the
  *    query.

@@ -185,6 +185,28 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_TransferStatusUnsp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_ListLocationsResponse
+//
+
+@implementation GTLRBigQueryDataTransfer_ListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRBigQueryDataTransfer_Location class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_ListTransferConfigsResponse
 //
 
@@ -244,6 +266,44 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_Status_TransferStatusUnsp
 
 + (NSString *)collectionItemsKey {
   return @"transferRuns";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_Location
+//
+
+@implementation GTLRBigQueryDataTransfer_Location
+@dynamic labels, locationId, metadata, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_Location_Labels
+//
+
+@implementation GTLRBigQueryDataTransfer_Location_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_Location_Metadata
+//
+
+@implementation GTLRBigQueryDataTransfer_Location_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
