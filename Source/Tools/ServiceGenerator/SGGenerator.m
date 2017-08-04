@@ -82,6 +82,7 @@ typedef enum {
 
 - (void)sg_setProperty:(id)obj forKey:(NSString *)key;
 - (id)sg_propertyForKey:(NSString *)key;
++ (NSArray *)sg_acceptedUnknowns;
 @end
 
 @interface GTLRDiscovery_RestDescription (SGGeneratorAdditions)
@@ -202,6 +203,17 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   Class additionalPropClass = [[obj class] classForAdditionalProperties];
   if (additionalPropClass == Nil) {
     NSArray *apiUnknowns = [obj additionalJSONKeys];
+
+    // The OP servers have added a few keys that aren't documented, this
+    // support allows some of them to be stripped from the audit report
+    // since they are noise.
+    NSArray *acceptedUnknowns = [[obj class] sg_acceptedUnknowns];
+    if (acceptedUnknowns.count) {
+      NSMutableArray *worker = [apiUnknowns mutableCopy];
+      [worker removeObjectsInArray:acceptedUnknowns];
+      apiUnknowns = worker.count ? worker : nil;
+    }
+
     if (apiUnknowns != nil) {
       apiUnknowns = [apiUnknowns sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
       NSString *info =
@@ -3005,6 +3017,10 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
   return [self.userProperties objectForKey:key];
 }
 
++ (NSArray *)sg_acceptedUnknowns {
+  return nil;
+}
+
 @end
 
 @implementation GTLRDiscovery_RestDescription (SGGeneratorAdditions)
@@ -4584,6 +4600,13 @@ static SGTypeInfo *LookupTypeInfo(NSString *typeString,
   // Set in sg_calculateMediaPaths.
   NSString *result = [self sg_propertyForKey:kSimpleUploadPathOverrideKey];
   return result;
+}
+
++ (NSArray *)sg_acceptedUnknowns {
+  // "flatPath" has never been documented but is on every method of every
+  // OP api. There have been some indications it might get removed since
+  // it never was used.
+  return @[@"flatPath"];
 }
 
 @end
