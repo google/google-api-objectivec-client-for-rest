@@ -684,8 +684,6 @@
 		4FEE17CA1C03DB9E00A38758 /* GTMHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMHTTPServer.m; path = UnitTests/GTMHTTPServer.m; sourceTree = "<group>"; };
 		4FEE17CB1C03DB9E00A38758 /* GTMSessionFetcherTestServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMSessionFetcherTestServer.h; path = UnitTests/GTMSessionFetcherTestServer.h; sourceTree = "<group>"; };
 		4FEE17CC1C03DB9E00A38758 /* GTMSessionFetcherTestServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcherTestServer.m; path = UnitTests/GTMSessionFetcherTestServer.m; sourceTree = "<group>"; };
-		F407F0FE136F948A005A4866 /* GTLRTasksConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRTasksConstants.h; path = Generated/GTLRTasksConstants.h; sourceTree = "<group>"; };
-		F407F0FF136F948A005A4866 /* GTLRTasksConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRTasksConstants.m; path = Generated/GTLRTasksConstants.m; sourceTree = "<group>"; };
 		F41BA4361E7AD482004F6E95 /* CompiledTestNoARC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompiledTestNoARC.m; path = Tests/CompiledTestNoARC.m; sourceTree = "<group>"; };
 		F4368F721B8233BF00E17643 /* GTLRiOSUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GTLRiOSUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4469DB41C40229D00BCFAA1 /* GTLR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTLR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -708,19 +706,6 @@
 		F4469DFE1C45757E00BCFAA1 /* URITemplateExtraTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = URITemplateExtraTests.json; path = Tests/Data/URITemplateExtraTests.json; sourceTree = "<group>"; };
 		F4469DFF1C45757E00BCFAA1 /* URITemplateRFCTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = URITemplateRFCTests.json; path = Tests/Data/URITemplateRFCTests.json; sourceTree = "<group>"; };
 		F45D6A4012F0B2140091E9D9 /* GTLRObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRObjectTest.m; path = Tests/GTLRObjectTest.m; sourceTree = "<group>"; };
-		F47C37F6134B08EF00CCF631 /* GTLRQueryTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRQueryTasks.h; path = Generated/GTLRQueryTasks.h; sourceTree = "<group>"; };
-		F47C37F7134B08EF00CCF631 /* GTLRQueryTasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRQueryTasks.m; path = Generated/GTLRQueryTasks.m; sourceTree = "<group>"; };
-		F47C37F8134B08EF00CCF631 /* GTLRServiceTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRServiceTasks.h; path = Generated/GTLRServiceTasks.h; sourceTree = "<group>"; };
-		F47C37F9134B08EF00CCF631 /* GTLRServiceTasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRServiceTasks.m; path = Generated/GTLRServiceTasks.m; sourceTree = "<group>"; };
-		F47C37FA134B08EF00CCF631 /* GTLRTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRTasks.h; path = Generated/GTLRTasks.h; sourceTree = "<group>"; };
-		F47C37FB134B08EF00CCF631 /* GTLRTasksTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRTasksTask.h; path = Generated/GTLRTasksTask.h; sourceTree = "<group>"; };
-		F47C37FC134B08EF00CCF631 /* GTLRTasksTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRTasksTask.m; path = Generated/GTLRTasksTask.m; sourceTree = "<group>"; };
-		F47C37FD134B08EF00CCF631 /* GTLRTasksTaskList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRTasksTaskList.h; path = Generated/GTLRTasksTaskList.h; sourceTree = "<group>"; };
-		F47C37FE134B08EF00CCF631 /* GTLRTasksTaskList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRTasksTaskList.m; path = Generated/GTLRTasksTaskList.m; sourceTree = "<group>"; };
-		F47C37FF134B08EF00CCF631 /* GTLRTasksTaskLists.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRTasksTaskLists.h; path = Generated/GTLRTasksTaskLists.h; sourceTree = "<group>"; };
-		F47C3800134B08EF00CCF631 /* GTLRTasksTaskLists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRTasksTaskLists.m; path = Generated/GTLRTasksTaskLists.m; sourceTree = "<group>"; };
-		F47C3801134B08EF00CCF631 /* GTLRTasksTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRTasksTasks.h; path = Generated/GTLRTasksTasks.h; sourceTree = "<group>"; };
-		F47C3802134B08EF00CCF631 /* GTLRTasksTasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRTasksTasks.m; path = Generated/GTLRTasksTasks.m; sourceTree = "<group>"; };
 		F4A07B1B1E4293990035678A /* Drive1ParamErrorAsList.response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Drive1ParamErrorAsList.response.txt; path = Tests/Data/Drive1ParamErrorAsList.response.txt; sourceTree = "<group>"; };
 		F4A8723C1DAD1AA400D69E09 /* GTLR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTLR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A872441DAD1BEF00D69E09 /* GTLRtvOSFramework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GTLRtvOSFramework-Info.plist"; path = "Resources/GTLRtvOSFramework-Info.plist"; sourceTree = "<group>"; };
@@ -1067,14 +1052,6 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
-		4F5CC8921381ED1F00D1D4CF /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				F47C37F5134B08C500CCF631 /* Tasks */,
-			);
-			name = Services;
-			sourceTree = "<group>";
-		};
 		4FA9C7410B72AB1600DA5920 /* Test Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -1123,7 +1100,6 @@
 				F4469DF61C4573D700BCFAA1 /* GTLRURITemplateTest.m */,
 				4F9F7E3B11F510430033A2C1 /* GTLRUtilitiesTest.m */,
 				4FCC7A3E11EFDB7E0097924C /* Data */,
-				4F5CC8921381ED1F00D1D4CF /* Services */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -1173,29 +1149,6 @@
 				F4469DD01C402BB000BCFAA1 /* SystemConfiguration.framework */,
 			);
 			name = "OS X Frameworks";
-			sourceTree = "<group>";
-		};
-		F47C37F5134B08C500CCF631 /* Tasks */ = {
-			isa = PBXGroup;
-			children = (
-				F47C37F6134B08EF00CCF631 /* GTLRQueryTasks.h */,
-				F47C37F7134B08EF00CCF631 /* GTLRQueryTasks.m */,
-				F47C37F8134B08EF00CCF631 /* GTLRServiceTasks.h */,
-				F47C37F9134B08EF00CCF631 /* GTLRServiceTasks.m */,
-				F47C37FA134B08EF00CCF631 /* GTLRTasks.h */,
-				F407F0FE136F948A005A4866 /* GTLRTasksConstants.h */,
-				F407F0FF136F948A005A4866 /* GTLRTasksConstants.m */,
-				F47C37FB134B08EF00CCF631 /* GTLRTasksTask.h */,
-				F47C37FC134B08EF00CCF631 /* GTLRTasksTask.m */,
-				F47C37FD134B08EF00CCF631 /* GTLRTasksTaskList.h */,
-				F47C37FE134B08EF00CCF631 /* GTLRTasksTaskList.m */,
-				F47C37FF134B08EF00CCF631 /* GTLRTasksTaskLists.h */,
-				F47C3800134B08EF00CCF631 /* GTLRTasksTaskLists.m */,
-				F47C3801134B08EF00CCF631 /* GTLRTasksTasks.h */,
-				F47C3802134B08EF00CCF631 /* GTLRTasksTasks.m */,
-			);
-			name = Tasks;
-			path = Services/Tasks;
 			sourceTree = "<group>";
 		};
 		F4A872741DAD1ED800D69E09 /* Frameworks */ = {
