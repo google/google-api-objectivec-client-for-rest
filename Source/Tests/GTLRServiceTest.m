@@ -334,7 +334,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   NSString *timeParam = @"2011-05-04T23:28:20.888Z";
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind,name,webViewLink,thumbnailLink,trashed)";
   query.pageSize = 10;
   query.requestID = @"gtlr_1234";
@@ -362,17 +362,17 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   __block GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             // Verify the top-level object and one of its items.
-            XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+            XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList class]);
             XCTAssertNil(error);
 
             XCTAssertEqualObjects(object.kind, @"drive#fileList");
             XCTAssertEqual(object.files.count, 2U, @"%@", object.files);
 
-            Test_GTLRDrive_File *item0 = object.files[0];
+            GTLRTestingSvc_File *item0 = object.files[0];
 
-            XCTAssertEqualObjects([item0 class], [Test_GTLRDrive_File class]);
+            XCTAssertEqualObjects([item0 class], [GTLRTestingSvc_File class]);
             XCTAssertEqualObjects(item0.kind, @"drive#file");
 
             XCTAssertEqualObjects(object.timeFieldForTesting.RFC3339String,
@@ -453,7 +453,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   NSString *timeParam = @"2011-05-04T23:28:20.888Z";
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind,name,webViewLink,thumbnailLink,trashed)";
   query.pageSize = 10;
   query.requestID = @"gtlr_1234";
@@ -493,17 +493,17 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   __block GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             // Verify the top-level object and one of its items.
-            XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+            XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList class]);
             XCTAssertNil(error);
 
             XCTAssertEqualObjects(object.kind, @"drive#fileList");
             XCTAssertEqual(object.files.count, 2U, @"%@", object.files);
 
-            Test_GTLRDrive_File *item0 = object.files[0];
+            GTLRTestingSvc_File *item0 = object.files[0];
 
-            XCTAssertEqualObjects([item0 class], [Test_GTLRDrive_File class]);
+            XCTAssertEqualObjects([item0 class], [GTLRTestingSvc_File class]);
             XCTAssertEqualObjects(item0.kind, @"drive#file");
 
             XCTAssertEqualObjects(object.timeFieldForTesting.RFC3339String,
@@ -586,7 +586,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   [self expectTicketAndParsingNotifications];
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind,name)";
 
   XCTestExpectation *queryFinished = [self expectationWithDescription:@"queryFinished"];
@@ -594,10 +594,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   // We'll put the callback tests in a block in the ticket properties.
   query.executionParameters.ticketProperties =
     @{ @"callback tests" : ^(GTLRServiceTicket *callbackTicket,
-                             Test_GTLRDrive_FileList *object,
+                             GTLRTestingSvc_FileList *object,
                              NSError *error){
       // Verify the top-level object and one of its items.
-      XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+      XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList class]);
       XCTAssertNil(error);
 
       XCTAssertEqualObjects(object.kind, @"drive#fileList");
@@ -632,7 +632,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 //
 // The ticket properties have a block to be executed.
 - (void)serviceTicket:(GTLRServiceTicket *)callbackTicket
-   finishedWithObject:(Test_GTLRDrive_FileList *)object
+   finishedWithObject:(GTLRTestingSvc_FileList *)object
                 error:(NSError *)callbackError {
   GTLRServiceCompletionHandler block = callbackTicket.ticketProperties[@"callback tests"];
   block(callbackTicket, object, callbackError);
@@ -646,7 +646,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   [self expectTicketAndParsingNotifications];
 
-  Test_GTLRDriveQuery_FilesList *templateQuery = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *templateQuery = [GTLRTestingSvcQuery_FilesList query];
   templateQuery.fields = @"kind,files(id,kind,name)";
 
   // Set a specific request URL by getting the actual query URL.
@@ -657,13 +657,13 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   GTLRServiceTicket *queryTicket =
       [service fetchObjectWithURL:requestURL
-                      objectClass:[Test_GTLRDrive_FileList class]
+                      objectClass:[GTLRTestingSvc_FileList class]
               executionParameters:nil
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object,
+                              GTLRTestingSvc_FileList *object,
                               NSError *callbackError) {
     // Verify the top-level object and one of its items.
-    XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+    XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList class]);
     XCTAssertNil(callbackError);
 
     XCTAssertEqualObjects(object.kind, @"drive#fileList");
@@ -698,7 +698,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
                                numberOfStatusErrors:1
                                   multipartBoundary:nil];
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind)";
 
   XCTestExpectation *completionExp = [self expectationWithDescription:@"completionExp"];
@@ -706,7 +706,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             [completionExp fulfill];
           }];
 
@@ -765,7 +765,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   [self expectTicketAndParsingNotifications];
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind,name,trashed)";
   query.pageSize = 3;
 
@@ -790,23 +790,23 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   queryTicket = [service executeQuery:query
                     completionHandler:^(GTLRServiceTicket *callbackTicket,
-                                        Test_GTLRDrive_FileList *object, NSError *error) {
+                                        GTLRTestingSvc_FileList *object, NSError *error) {
     XCTAssertEqual(pageCounter, 3);
 
     // Verify the top-level object and one of its items.
-    XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+    XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList class]);
     XCTAssertNil(error);
 
     XCTAssertEqualObjects(object.kind, @"drive#fileList");
     XCTAssertEqual(object.files.count, 8U, @"%@", object.files);
 
-    Test_GTLRDrive_File *item0 = object.files[0];
-    XCTAssertEqualObjects([item0 class], [Test_GTLRDrive_File class]);
+    GTLRTestingSvc_File *item0 = object.files[0];
+    XCTAssertEqualObjects([item0 class], [GTLRTestingSvc_File class]);
     XCTAssertEqualObjects(item0.kind, @"drive#file");
     XCTAssertEqualObjects(item0.identifier, @"1_tKaUhjk3YkF3RYk1d");
 
-    Test_GTLRDrive_File *item7 = object.files[7];
-    XCTAssertEqualObjects([item7 class], [Test_GTLRDrive_File class]);
+    GTLRTestingSvc_File *item7 = object.files[7];
+    XCTAssertEqualObjects([item7 class], [GTLRTestingSvc_File class]);
     XCTAssertEqualObjects(item7.kind, @"drive#file");
     XCTAssertEqualObjects(item7.identifier, @"1M0XYjGhEbY1BzHs5srOpQ");
 
@@ -836,7 +836,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
       [self fetcherTestBlockWithResponseForFileName:@"Drive1.response.txt" status:200];
 
   // Request with an auth error.
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(id,kind,name)";
   query.requestID = @"gtlr_1234";
   query.shouldSkipAuthorization = YES;
@@ -846,8 +846,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
-            XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+                              GTLRTestingSvc_FileList *object, NSError *error) {
+            XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList class]);
             XCTAssertNil(error);
 
             [queryFinished fulfill];
@@ -873,7 +873,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
       [self fetcherTestBlockWithResponseForFileName:responseFileName status:400];
 
   // Request an invalid page.
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(id,kind,name)";
   query.pageToken = @"NotARealToken";
   query.requestID = @"gtlr_1234";
@@ -896,7 +896,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             XCTAssertNil(object);
             XCTAssertEqualObjects(error.domain, kGTLRErrorObjectDomain);
             XCTAssertEqual(error.code, 400);
@@ -948,7 +948,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
       [self fetcherTestBlockWithResponseForFileName:@"Drive1AuthError.response.txt" status:401];
 
   // Request with an auth error.
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(id,kind,name)";
   query.requestID = @"gtlr_1234";
 
@@ -957,7 +957,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             XCTAssertNil(object);
             XCTAssertEqualObjects(error.domain, kGTLRErrorObjectDomain);
             XCTAssertEqual(error.code, 401);
@@ -980,7 +980,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   service.fetcherService.testBlock =
       [self fetcherTestBlockWithResponseForFileName:@"Drive1Corrupt.response.txt" status:200];
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind,name)";
   query.requestID = @"gtlr_1234";
 
@@ -996,7 +996,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   __block GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             // Verify the top-level object and one of its items.
             XCTAssertNil(object);
             // NSPropertyListReadCorruptError = 3840
@@ -1033,7 +1033,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
                                numberOfStatusErrors:1
                                   multipartBoundary:nil];
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind)";
 
   if (useExecutionParams) {
@@ -1058,7 +1058,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             XCTAssert(IsCurrentQueue(myCallbackQueue));
             [completionExp fulfill];
           }];
@@ -1082,7 +1082,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   [self expectTicketAndParsingNotifications];
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind,name,webViewLink,thumbnailLink,trashed)";
   query.pageSize = 10;
   query.requestID = @"gtlr_1234";
@@ -1123,7 +1123,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     });
   };
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind,name)";
   query.completionBlock = ^(GTLRServiceTicket *callbackTicket, GTLRObject *callbackObj,
                             NSError *callbackError) {
@@ -1139,7 +1139,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   queryTicket = [service executeQuery:query
                     completionHandler:^(GTLRServiceTicket *callbackTicket,
-                                        Test_GTLRDrive_FileList *object, NSError *error) {
+                                        GTLRTestingSvc_FileList *object, NSError *error) {
                       XCTFail(@"Cancel should skip callbacks");
                     }];
 
@@ -1176,7 +1176,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [parseExp fulfill];
   }];
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind,name)";
   query.completionBlock = ^(GTLRServiceTicket *callbackTicket, GTLRObject *callbackObj,
                             NSError *callbackError) {
@@ -1192,7 +1192,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   queryTicket = [service executeQuery:query
                     completionHandler:^(GTLRServiceTicket *callbackTicket,
-                                        Test_GTLRDrive_FileList *object, NSError *error) {
+                                        GTLRTestingSvc_FileList *object, NSError *error) {
                       XCTFail(@"Cancel should skip callbacks");
                     }];
 
@@ -1215,8 +1215,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   service.fetcherService.testBlock =
       [self fetcherTestBlockWithResponseForFileName:nil status:204];
 
-  Test_GTLRDriveQuery_FilesDelete *query =
-      [Test_GTLRDriveQuery_FilesDelete queryWithFileId:@"1234"];
+  GTLRTestingSvcQuery_FilesDelete *query =
+      [GTLRTestingSvcQuery_FilesDelete queryWithFileId:@"1234"];
   query.fields = @"kind,nextPageToken";
   query.requestID = @"gtlr_1234";
 
@@ -1244,7 +1244,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   [self waitForExpectationsWithTimeout:10 handler:nil];
 }
 
-- (void)performBodyObjectTestWithQuery:(Test_GTLRDriveQuery_PermissionsCreate *)query
+- (void)performBodyObjectTestWithQuery:(GTLRTestingSvcQuery_PermissionsCreate *)query
                           expectedBody:(NSDictionary *)expectedJSONBody {
   XCTestExpectation *fetchExp = [self expectationWithDescription:@"Fetched"];
   XCTestExpectation *executeCompletionExp = [self expectationWithDescription:@"Execute block"];
@@ -1273,7 +1273,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   GTLRServiceTicket *queryTicket = [service executeQuery:query
                                        completionHandler:^(GTLRServiceTicket *callbackTicket,
-                                                           Test_GTLRDrive_File *uploadedFile,
+                                                           GTLRTestingSvc_File *uploadedFile,
                                                            NSError *error) {
     [executeCompletionExp fulfill];
   }];
@@ -1285,11 +1285,11 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 }
 
 - (void)testService_BodyObject {
-  Test_GTLRDrive_Permission *permissionObj = [Test_GTLRDrive_Permission object];
+  GTLRTestingSvc_Permission *permissionObj = [GTLRTestingSvc_Permission object];
   permissionObj.displayName = @"Rex the Tyrannosaurus";
   permissionObj.type = @"reader";
-  Test_GTLRDriveQuery_PermissionsCreate *query =
-      [Test_GTLRDriveQuery_PermissionsCreate queryWithObject:permissionObj
+  GTLRTestingSvcQuery_PermissionsCreate *query =
+      [GTLRTestingSvcQuery_PermissionsCreate queryWithObject:permissionObj
                                                       fileId:@"12345"];
   NSDictionary *expectedJSON = @{ @"type" : @"reader", @"displayName" : @"Rex the Tyrannosaurus" };
   [self performBodyObjectTestWithQuery:query
@@ -1298,9 +1298,9 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
 - (void)testService_EmptyBodyObject {
   // Verify that a non-nil but empty body object creates an empty JSON request body.
-  Test_GTLRDrive_Permission *emptyPermissionObj = [Test_GTLRDrive_Permission object];
-  Test_GTLRDriveQuery_PermissionsCreate *query =
-      [Test_GTLRDriveQuery_PermissionsCreate queryWithObject:emptyPermissionObj
+  GTLRTestingSvc_Permission *emptyPermissionObj = [GTLRTestingSvc_Permission object];
+  GTLRTestingSvcQuery_PermissionsCreate *query =
+      [GTLRTestingSvcQuery_PermissionsCreate queryWithObject:emptyPermissionObj
                                                       fileId:@"12345"];
 
   NSDictionary *expectedJSON = [NSDictionary dictionary];
@@ -1313,9 +1313,9 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   // We need to force a query to have a nil body object, so create a query with a non-nil
   // body object and then remove it.
-  Test_GTLRDrive_Permission *emptyPermissionObj = [Test_GTLRDrive_Permission object];
-  Test_GTLRDriveQuery_PermissionsCreate *query =
-      [Test_GTLRDriveQuery_PermissionsCreate queryWithObject:emptyPermissionObj
+  GTLRTestingSvc_Permission *emptyPermissionObj = [GTLRTestingSvc_Permission object];
+  GTLRTestingSvcQuery_PermissionsCreate *query =
+      [GTLRTestingSvcQuery_PermissionsCreate queryWithObject:emptyPermissionObj
                                                       fileId:@"12345"];
   query.bodyObject = nil;
 
@@ -1331,7 +1331,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   service.fetcherService.testBlock =
       [self fetcherTestBlockWithResponseForFileName:@"Drive1Empty.response.txt" status:200];
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"";
 
   XCTestExpectation *queryFinished = [self expectationWithDescription:@"queryFinished"];
@@ -1339,9 +1339,9 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             // Verify a bare object with no JSON was returned.
-            XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+            XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList class]);
             XCTAssertNil(object.JSON);
             XCTAssertNil(error);
 
@@ -1379,7 +1379,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     testResponse(response, responseData, nil);
   };
 
-  Test_GTLRDriveQuery_FilesGet *query = [Test_GTLRDriveQuery_FilesGet queryForMediaWithFileId:@"abcde"];
+  GTLRTestingSvcQuery_FilesGet *query = [GTLRTestingSvcQuery_FilesGet queryForMediaWithFileId:@"abcde"];
   query.useMediaDownloadService = useMediaService;
 
   XCTestExpectation *queryFinished = [self expectationWithDescription:@"queryFinished"];
@@ -1449,10 +1449,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTestExpectation *parentsExp = [self expectationWithDescription:@"parentsCallback"];
   XCTestExpectation *batchFinished = [self expectationWithDescription:@"batchFinished"];
 
-  Test_GTLRDriveQuery_PermissionsList *permissionQuery =
-      [Test_GTLRDriveQuery_PermissionsList queryWithFileId:@"badID"];
+  GTLRTestingSvcQuery_PermissionsList *permissionQuery =
+      [GTLRTestingSvcQuery_PermissionsList queryWithFileId:@"badID"];
   permissionQuery.requestID = @"gtlr_4";
-  permissionQuery.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_PermissionList *obj,
+  permissionQuery.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_PermissionList *obj,
                                       NSError *permissionError) {
     XCTAssertNil(obj);
     XCTAssertEqual(permissionError.code, 404);
@@ -1464,12 +1464,12 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [permissionExp fulfill];
   };
 
-  Test_GTLRDriveQuery_FilesList *childQuery = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *childQuery = [GTLRTestingSvcQuery_FilesList query];
   childQuery.q = [NSString stringWithFormat:@"'0B7svZDDwtKrhS2FDS2JZclU1U0E' in parents"];
   childQuery.requestID = @"gtlr_5";
-  childQuery.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_FileList *fileList,
+  childQuery.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_FileList *fileList,
                                  NSError *childError) {
-    XCTAssertEqualObjects([fileList class], [Test_GTLRDrive_FileList class]);
+    XCTAssertEqualObjects([fileList class], [GTLRTestingSvc_FileList class]);
     XCTAssertEqualObjects(fileList.kind, @"drive#fileList");
     XCTAssertNil(childError);
 
@@ -1478,13 +1478,13 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [childExp fulfill];
   };
 
-  Test_GTLRDriveQuery_FilesGet *parentsQuery =
-      [Test_GTLRDriveQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
+  GTLRTestingSvcQuery_FilesGet *parentsQuery =
+      [GTLRTestingSvcQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
   parentsQuery.fields = @"parents";
   parentsQuery.requestID = @"gtlr_6";
-  parentsQuery.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_File *file,
+  parentsQuery.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_File *file,
                                    NSError *parentsError) {
-    XCTAssertEqualObjects([file class], [Test_GTLRDrive_File class]);
+    XCTAssertEqualObjects([file class], [GTLRTestingSvc_File class]);
     XCTAssertEqualObjects(file.parents, @[ @"0ALsvZDDwtKrhUk9PVA" ]);
     XCTAssertNil(parentsError);
 
@@ -1543,15 +1543,15 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             XCTAssertEqualObjects(responseHeaderGTLR_4[@"X-Rejected-Reason"],
                            @"Failed to remove Excalibur from stone");
 
-            Test_GTLRDrive_FileList *fileList = batchResult.successes[@"gtlr_5"];
-            XCTAssertEqualObjects([fileList class], [Test_GTLRDrive_FileList class]);
+            GTLRTestingSvc_FileList *fileList = batchResult.successes[@"gtlr_5"];
+            XCTAssertEqualObjects([fileList class], [GTLRTestingSvc_FileList class]);
             XCTAssertEqualObjects(fileList.kind, @"drive#fileList");
 
             NSDictionary *responseHeaderGTLR_5 = batchResult.responseHeaders[@"gtlr_5"];
             XCTAssertEqual(((NSNumber *)responseHeaderGTLR_5[@"Retry-After"]).intValue, 300);
 
-            Test_GTLRDrive_File *file = batchResult.successes[@"gtlr_6"];
-            XCTAssertEqualObjects([file class], [Test_GTLRDrive_File class]);
+            GTLRTestingSvc_File *file = batchResult.successes[@"gtlr_6"];
+            XCTAssertEqualObjects([file class], [GTLRTestingSvc_File class]);
             XCTAssertEqualObjects(file.parents, @[ @"0ALsvZDDwtKrhUk9PVA" ]);
             // As with a single query, the batch ticket's query should be a copy of the original;
             // query execution leaves the original unmolested so the client can modify and reuse it.
@@ -1670,12 +1670,12 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   // Third query succeeds on first page but fails on second.
   // Fourth query succeeds on first page.
 
-  Test_GTLRDriveQuery_FilesList *childQuery1 = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *childQuery1 = [GTLRTestingSvcQuery_FilesList query];
   childQuery1.q = [NSString stringWithFormat:@"'0B7svZDDwtKrhS2FDS2JZclU1U0E' in parents"];
   childQuery1.requestID = @"gtlr_5";
-  childQuery1.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_FileList *fileList,
+  childQuery1.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_FileList *fileList,
                                  NSError *childError) {
-    XCTAssertEqualObjects([fileList class], [Test_GTLRDrive_FileList class]);
+    XCTAssertEqualObjects([fileList class], [GTLRTestingSvc_FileList class]);
     XCTAssertEqualObjects(fileList.kind, @"drive#fileList");
     XCTAssertEqual(fileList.files.count, (NSUInteger)8);
     XCTAssertEqualObjects(fileList.files[7].name, @"Mouse Types.pdf");
@@ -1687,10 +1687,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [query1Exp fulfill];
   };
 
-  Test_GTLRDriveQuery_FilesList *childQuery2 = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *childQuery2 = [GTLRTestingSvcQuery_FilesList query];
   childQuery2.q = [NSString stringWithFormat:@"'0B7svZABCtKrhS2FDS2JZclU1U0E' in parents"];
   childQuery2.requestID = @"gtlr_6";
-  childQuery2.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_FileList *fileList,
+  childQuery2.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_FileList *fileList,
                                  NSError *childError) {
     XCTAssertNil(fileList);
     XCTAssertEqual(childError.code, 404);
@@ -1700,10 +1700,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [query2Exp fulfill];
   };
 
-  Test_GTLRDriveQuery_FilesList *childQuery3 = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *childQuery3 = [GTLRTestingSvcQuery_FilesList query];
   childQuery3.q = [NSString stringWithFormat:@"'0B7svZDEFtKrhS2FDS2JZclU1U0E' in parents"];
   childQuery3.requestID = @"gtlr_7";
-  childQuery3.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_FileList *fileList,
+  childQuery3.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_FileList *fileList,
                                  NSError *childError) {
     XCTAssertNil(fileList);
     XCTAssertEqual(childError.code, 400);
@@ -1713,13 +1713,13 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [query3Exp fulfill];
   };
 
-  Test_GTLRDriveQuery_FilesGet *parentsQuery =
-      [Test_GTLRDriveQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
+  GTLRTestingSvcQuery_FilesGet *parentsQuery =
+      [GTLRTestingSvcQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
   parentsQuery.fields = @"parents";
   parentsQuery.requestID = @"gtlr_8";
-  parentsQuery.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_File *file,
+  parentsQuery.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_File *file,
                                    NSError *parentsError) {
-    XCTAssertEqualObjects([file class], [Test_GTLRDrive_File class]);
+    XCTAssertEqualObjects([file class], [GTLRTestingSvc_File class]);
     XCTAssertEqualObjects(file.parents, @[ @"0ALsvZDDwtKrhUk9PVA" ]);
     XCTAssertNil(parentsError);
 
@@ -1748,8 +1748,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             XCTAssertEqual(callbackTicket.pagesFetchedCounter, 3U);
 
             // The first query, gtlr_5, requires all three pages to fetch the full file list.
-            Test_GTLRDrive_FileList *fileList = batchResult.successes[@"gtlr_5"];
-            XCTAssertEqualObjects([fileList class], [Test_GTLRDrive_FileList class]);
+            GTLRTestingSvc_FileList *fileList = batchResult.successes[@"gtlr_5"];
+            XCTAssertEqualObjects([fileList class], [GTLRTestingSvc_FileList class]);
             XCTAssertEqualObjects(fileList.kind, @"drive#fileList");
             XCTAssertEqual(fileList.files.count, (NSUInteger)8);
 
@@ -1759,8 +1759,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             errorObj = batchResult.failures[@"gtlr_7"];
             errorObj.code = @400;
 
-            Test_GTLRDrive_File *file = batchResult.successes[@"gtlr_8"];
-            XCTAssertEqualObjects([file class], [Test_GTLRDrive_File class]);
+            GTLRTestingSvc_File *file = batchResult.successes[@"gtlr_8"];
+            XCTAssertEqualObjects([file class], [GTLRTestingSvc_File class]);
             XCTAssertEqualObjects(file.parents, @[ @"0ALsvZDDwtKrhUk9PVA" ]);
 
             // As with a single query, the batch ticket's query should be a copy of the original;
@@ -1810,10 +1810,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTestExpectation *parentsExp = [self expectationWithDescription:@"parentsCallback"];
   XCTestExpectation *batchFinished = [self expectationWithDescription:@"batchFinished"];
 
-  Test_GTLRDriveQuery_PermissionsList *permissionQuery =
-      [Test_GTLRDriveQuery_PermissionsList queryWithFileId:@"badID"];
+  GTLRTestingSvcQuery_PermissionsList *permissionQuery =
+      [GTLRTestingSvcQuery_PermissionsList queryWithFileId:@"badID"];
   permissionQuery.requestID = @"gtlr_4";
-  permissionQuery.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_PermissionList *obj,
+  permissionQuery.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_PermissionList *obj,
                                       NSError *permissionError) {
     XCTAssertNil(obj);
     XCTAssertEqual(permissionError.code, 404);
@@ -1824,10 +1824,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   };
 
   // The second part has corrupt JSON.
-  Test_GTLRDriveQuery_FilesList *childQuery = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *childQuery = [GTLRTestingSvcQuery_FilesList query];
   childQuery.q = [NSString stringWithFormat:@"'0B7svZDDwtKrhS2FDS2JZclU1U0E' in parents"];
   childQuery.requestID = @"gtlr_5";
-  childQuery.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_FileList *fileList,
+  childQuery.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_FileList *fileList,
                                  NSError *childError) {
     XCTAssertNil(fileList);
     XCTAssertEqual(childError.code, NSPropertyListReadCorruptError);
@@ -1835,13 +1835,13 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [childExp fulfill];
   };
 
-  Test_GTLRDriveQuery_FilesGet *parentsQuery =
-      [Test_GTLRDriveQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
+  GTLRTestingSvcQuery_FilesGet *parentsQuery =
+      [GTLRTestingSvcQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
   parentsQuery.fields = @"parents";
   parentsQuery.requestID = @"gtlr_6";
-  parentsQuery.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_File *file,
+  parentsQuery.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_File *file,
                                    NSError *parentsError) {
-    XCTAssertEqualObjects([file class], [Test_GTLRDrive_File class]);
+    XCTAssertEqualObjects([file class], [GTLRTestingSvc_File class]);
     XCTAssertEqualObjects(file.parents, @[ @"0ALsvZDDwtKrhUk9PVA" ]);
     XCTAssertNil(parentsError);
 
@@ -1881,8 +1881,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             GTLRErrorObject *fileListError = batchResult.failures[@"gtlr_5"];
             XCTAssertEqual(fileListError.code.intValue, NSPropertyListReadCorruptError);
 
-            Test_GTLRDrive_File *file = batchResult.successes[@"gtlr_6"];
-            XCTAssertEqualObjects([file class], [Test_GTLRDrive_File class]);
+            GTLRTestingSvc_File *file = batchResult.successes[@"gtlr_6"];
+            XCTAssertEqualObjects([file class], [GTLRTestingSvc_File class]);
             XCTAssertEqualObjects(file.parents, @[ @"0ALsvZDDwtKrhUk9PVA" ]);
 
             // As with a single query, the batch ticket's query should be a copy of the original;
@@ -1926,29 +1926,29 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTestExpectation *parentsExp = [self expectationWithDescription:@"parentsCallback"];
   XCTestExpectation *batchFinished = [self expectationWithDescription:@"batchFinished"];
 
-  Test_GTLRDriveQuery_PermissionsList *permissionQuery =
-      [Test_GTLRDriveQuery_PermissionsList queryWithFileId:@"badID"];
+  GTLRTestingSvcQuery_PermissionsList *permissionQuery =
+      [GTLRTestingSvcQuery_PermissionsList queryWithFileId:@"badID"];
   permissionQuery.requestID = @"gtlr_4";
-  permissionQuery.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_PermissionList *obj,
+  permissionQuery.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_PermissionList *obj,
                                       NSError *permissionError) {
     XCTAssert(IsCurrentQueue(myCallbackQueue));
     [permissionExp fulfill];
   };
 
-  Test_GTLRDriveQuery_FilesList *childQuery = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *childQuery = [GTLRTestingSvcQuery_FilesList query];
   childQuery.q = [NSString stringWithFormat:@"'0B7svZDDwtKrhS2FDS2JZclU1U0E' in parents"];
   childQuery.requestID = @"gtlr_5";
-  childQuery.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_FileList *fileList,
+  childQuery.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_FileList *fileList,
                                  NSError *childError) {
     XCTAssert(IsCurrentQueue(myCallbackQueue));
     [childExp fulfill];
   };
 
-  Test_GTLRDriveQuery_FilesGet *parentsQuery =
-      [Test_GTLRDriveQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
+  GTLRTestingSvcQuery_FilesGet *parentsQuery =
+      [GTLRTestingSvcQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
   parentsQuery.fields = @"parents";
   parentsQuery.requestID = @"gtlr_6";
-  parentsQuery.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_File *file,
+  parentsQuery.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_File *file,
                                    NSError *parentsError) {
     XCTAssert(IsCurrentQueue(myCallbackQueue));
     [parentsExp fulfill];
@@ -2007,12 +2007,12 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   service.fetcherService.testBlock =
       [self fetcherTestBlockWithResponseForFileName:@"Drive1.response.txt" status:200];
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind)";
 
   NSDictionary *serviceSurrogates = @{
-    (id<NSCopying>)[Test_GTLRDrive_File class]     : [Test_GTLRDrive_File_Surrogate class],
-    (id<NSCopying>)[Test_GTLRDrive_FileList class] : [Test_GTLRDrive_FileList_Surrogate class]
+    (id<NSCopying>)[GTLRTestingSvc_File class]     : [GTLRTestingSvc_File_Surrogate class],
+    (id<NSCopying>)[GTLRTestingSvc_FileList class] : [GTLRTestingSvc_FileList_Surrogate class]
   };
   [service setSurrogates:serviceSurrogates];
 
@@ -2020,8 +2020,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   // Override a resolver in the query's executionParameters.
   NSDictionary *querySurrogates = @{
-    (id<NSCopying>)[Test_GTLRDrive_File class]     : [Test_GTLRDrive_File_Surrogate class],
-    (id<NSCopying>)[Test_GTLRDrive_FileList class] : [Test_GTLRDrive_FileList_Surrogate2 class]
+    (id<NSCopying>)[GTLRTestingSvc_File class]     : [GTLRTestingSvc_File_Surrogate class],
+    (id<NSCopying>)[GTLRTestingSvc_FileList class] : [GTLRTestingSvc_FileList_Surrogate2 class]
   };
   NSDictionary *kindMap = [[service class] kindStringToClassMap];
   query.executionParameters.objectClassResolver =
@@ -2030,9 +2030,9 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   __block GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             // Verify the top-level object and one of its items.
-            XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList_Surrogate2 class]);
+            XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList_Surrogate2 class]);
             XCTAssertNil(error);
 
             XCTAssertEqualObjects(object.kind, @"drive#fileList");
@@ -2064,16 +2064,16 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   XCTestExpectation *batchFinished = [self expectationWithDescription:@"batchFinished"];
 
-  Test_GTLRDriveQuery_PermissionsList *permissionQuery =
-      [Test_GTLRDriveQuery_PermissionsList queryWithFileId:@"badID"];
+  GTLRTestingSvcQuery_PermissionsList *permissionQuery =
+      [GTLRTestingSvcQuery_PermissionsList queryWithFileId:@"badID"];
   permissionQuery.requestID = @"gtlr_4";
 
-  Test_GTLRDriveQuery_FilesList *childQuery = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *childQuery = [GTLRTestingSvcQuery_FilesList query];
   childQuery.q = [NSString stringWithFormat:@"'0B7svZDDwtKrhS2FDS2JZclU1U0E' in parents"];
   childQuery.requestID = @"gtlr_5";
 
-  Test_GTLRDriveQuery_FilesGet *parentsQuery =
-      [Test_GTLRDriveQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
+  GTLRTestingSvcQuery_FilesGet *parentsQuery =
+      [GTLRTestingSvcQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
   parentsQuery.fields = @"parents";
   parentsQuery.requestID = @"gtlr_6";
 
@@ -2085,8 +2085,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   NSDictionary *kindMap = [[service class] kindStringToClassMap];
   NSDictionary *surrogates = @{
-    (id<NSCopying>)[Test_GTLRDrive_File class] : [Test_GTLRDrive_File_Surrogate class],
-    (id<NSCopying>)[Test_GTLRDrive_FileList class] : [Test_GTLRDrive_FileList_Surrogate class]
+    (id<NSCopying>)[GTLRTestingSvc_File class] : [GTLRTestingSvc_File_Surrogate class],
+    (id<NSCopying>)[GTLRTestingSvc_FileList class] : [GTLRTestingSvc_FileList_Surrogate class]
   };
   batchQuery.executionParameters.objectClassResolver =
     [GTLRObjectClassResolver resolverWithKindMap:kindMap surrogates:surrogates];
@@ -2107,12 +2107,12 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             XCTAssertEqualObjects([failureError class], [GTLRErrorObject class]);
             XCTAssertEqual(failureError.code.intValue, 404);
 
-            Test_GTLRDrive_FileList *fileList = batchResult.successes[@"gtlr_5"];
-            XCTAssertEqualObjects([fileList class], [Test_GTLRDrive_FileList_Surrogate class]);
+            GTLRTestingSvc_FileList *fileList = batchResult.successes[@"gtlr_5"];
+            XCTAssertEqualObjects([fileList class], [GTLRTestingSvc_FileList_Surrogate class]);
             XCTAssertEqualObjects(fileList.kind, @"drive#fileList");
 
-            Test_GTLRDrive_File *file = batchResult.successes[@"gtlr_6"];
-            XCTAssertEqualObjects([file class], [Test_GTLRDrive_File_Surrogate class]);
+            GTLRTestingSvc_File *file = batchResult.successes[@"gtlr_6"];
+            XCTAssertEqualObjects([file class], [GTLRTestingSvc_File_Surrogate class]);
             XCTAssertEqualObjects(file.parents, @[ @"0ALsvZDDwtKrhUk9PVA" ]);
 
             // As with a single query, the batch ticket's query should be a copy of the original;
@@ -2149,7 +2149,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
                                   multipartBoundary:nil];
 
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind)";
 
   XCTestExpectation *queryFinished = [self expectationWithDescription:@"queryFinished"];
@@ -2171,9 +2171,9 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             // Verify the top-level object and one of its items.
-            XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+            XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList class]);
             XCTAssertNil(error);
 
             XCTAssertEqualObjects(object.kind, @"drive#fileList");
@@ -2209,7 +2209,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
                                   multipartBoundary:nil];
 
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(mimeType,id,kind)";
 
   XCTestExpectation *queryFinished = [self expectationWithDescription:@"queryFinished"];
@@ -2233,7 +2233,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             XCTAssertNil(object);
             XCTAssertEqual(error.code, 456);
 
@@ -2278,7 +2278,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
                                     multipartBoundary:nil];
 
 
-    Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+    GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
     query.fields = @"kind,nextPageToken,files(mimeType,id,kind)";
 
     // Create a retain cycle in the query callback.
@@ -2306,7 +2306,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     __block GTLRServiceTicket *queryTicket =
         [service executeQuery:query
             completionHandler:^(GTLRServiceTicket *callbackTicket,
-                                Test_GTLRDrive_FileList *resultObject, NSError *error) {
+                                GTLRTestingSvc_FileList *resultObject, NSError *error) {
               // Retain the original query and original ticket in the completion handler
               // to try to create a cycle.
               XCTAssertNotNil(query);
@@ -2368,10 +2368,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     // Third query succeeds on first page but fails on second.
     // Fourth query succeeds on first page.
 
-    Test_GTLRDriveQuery_FilesList *childQuery1 = [Test_GTLRDriveQuery_FilesList query];
+    GTLRTestingSvcQuery_FilesList *childQuery1 = [GTLRTestingSvcQuery_FilesList query];
     childQuery1.q = [NSString stringWithFormat:@"'0B7svZDDwtKrhS2FDS2JZclU1U0E' in parents"];
     childQuery1.requestID = @"gtlr_5";
-    childQuery1.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_FileList *fileList,
+    childQuery1.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_FileList *fileList,
                                    NSError *childError) {
       XCTAssertNotNil(fileList);
       XCTAssertNil(childError);
@@ -2382,10 +2382,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
       [query1Exp fulfill];
     };
 
-    Test_GTLRDriveQuery_FilesList *childQuery2 = [Test_GTLRDriveQuery_FilesList query];
+    GTLRTestingSvcQuery_FilesList *childQuery2 = [GTLRTestingSvcQuery_FilesList query];
     childQuery2.q = [NSString stringWithFormat:@"'0B7svZABCtKrhS2FDS2JZclU1U0E' in parents"];
     childQuery2.requestID = @"gtlr_6";
-    childQuery2.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_FileList *fileList,
+    childQuery2.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_FileList *fileList,
                                    NSError *childError) {
       XCTAssertNil(fileList);
       XCTAssertNotNil(childError);
@@ -2393,10 +2393,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
       [query2Exp fulfill];
     };
 
-    Test_GTLRDriveQuery_FilesList *childQuery3 = [Test_GTLRDriveQuery_FilesList query];
+    GTLRTestingSvcQuery_FilesList *childQuery3 = [GTLRTestingSvcQuery_FilesList query];
     childQuery3.q = [NSString stringWithFormat:@"'0B7svZDEFtKrhS2FDS2JZclU1U0E' in parents"];
     childQuery3.requestID = @"gtlr_7";
-    childQuery3.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_FileList *fileList,
+    childQuery3.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_FileList *fileList,
                                    NSError *childError) {
       XCTAssertNil(fileList);
       XCTAssertNotNil(childError);
@@ -2404,11 +2404,11 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
       [query3Exp fulfill];
     };
 
-    Test_GTLRDriveQuery_FilesGet *parentsQuery =
-        [Test_GTLRDriveQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
+    GTLRTestingSvcQuery_FilesGet *parentsQuery =
+        [GTLRTestingSvcQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
     parentsQuery.fields = @"parents";
     parentsQuery.requestID = @"gtlr_8";
-    parentsQuery.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_File *file,
+    parentsQuery.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_File *file,
                                      NSError *parentsError) {
       XCTAssertNotNil(file);
       XCTAssertNil(parentsError);
@@ -2452,7 +2452,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
       XCTAssertEqual(batchResult.failures.count, (NSUInteger)2);
       XCTAssertEqual(callbackTicket.pagesFetchedCounter, 3U);
 
-      Test_GTLRDrive_FileList *fileList = batchResult.successes[@"gtlr_5"];
+      GTLRTestingSvc_FileList *fileList = batchResult.successes[@"gtlr_5"];
       XCTAssertEqual(fileList.files.count, (NSUInteger)8);
 
       [GTLRTestLifetimeObject trackLifetimeOfObject:callbackTicket
@@ -2610,7 +2610,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     progressExp = [self expectationWithDescription:@"Upload progress"];
   }
 
-  Test_GTLRDrive_File *newFile = [Test_GTLRDrive_File object];
+  GTLRTestingSvc_File *newFile = [GTLRTestingSvc_File object];
   newFile.name = @"File de Feline";
 
   GTLRService *service = [self driveServiceForTest];
@@ -2677,10 +2677,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     testResponse(response, responseData, responseError);
   };
 
-  Test_GTLRDriveQuery_FilesCreate *query =
-      [Test_GTLRDriveQuery_FilesCreate queryWithObject:newFile
+  GTLRTestingSvcQuery_FilesCreate *query =
+      [GTLRTestingSvcQuery_FilesCreate queryWithObject:newFile
                                       uploadParameters:uploadParameters];
-  query.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_File *uploadedFile,
+  query.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_File *uploadedFile,
                             NSError *permissionError) {
     XCTAssertEqualObjects(uploadedFile.name, @"abcdefg.txt");
     XCTAssertEqualObjects(uploadedFile.kind, @"drive#file");
@@ -2697,7 +2697,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   GTLRServiceTicket *queryTicket = [service executeQuery:query
                                        completionHandler:^(GTLRServiceTicket *callbackTicket,
-                                                           Test_GTLRDrive_File *uploadedFile,
+                                                           GTLRTestingSvc_File *uploadedFile,
                                                            NSError *error) {
     XCTAssertEqualObjects(uploadedFile.name, @"abcdefg.txt");
     XCTAssertEqualObjects(uploadedFile.kind, @"drive#file");
@@ -2713,25 +2713,25 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
 #pragma mark - testBlock Tests
 
-- (Test_GTLRDrive_FileList *)fileListObjectForTest {
-  Test_GTLRDrive_File *item0 = [Test_GTLRDrive_File object];
+- (GTLRTestingSvc_FileList *)fileListObjectForTest {
+  GTLRTestingSvc_File *item0 = [GTLRTestingSvc_File object];
   item0.kind = @"drive#file";
   item0.name = @"frogfile";
-  Test_GTLRDrive_File *item1 = [Test_GTLRDrive_File object];
+  GTLRTestingSvc_File *item1 = [GTLRTestingSvc_File object];
   item1.kind = @"drive#file";
   item1.name = @"possumfile";
 
-  Test_GTLRDrive_FileList *object = [Test_GTLRDrive_FileList object];
+  GTLRTestingSvc_FileList *object = [GTLRTestingSvc_FileList object];
   object.kind = @"drive#fileList";
   object.files = @[ item0, item1 ];
   return object;
 }
 
 - (void)testService_MockService_Succeeding {
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(id,kind,name)";
 
-  Test_GTLRDrive_FileList *fileObj = [self fileListObjectForTest];
+  GTLRTestingSvc_FileList *fileObj = [self fileListObjectForTest];
   GTLRService *service = [GTLRService mockServiceWithFakedObject:fileObj
                                                       fakedError:nil];
 
@@ -2740,9 +2740,9 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             // Verify the top-level object and one of its items.
-            XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+            XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList class]);
             XCTAssertNil(error);
 
             XCTAssertEqualObjects(object.kind, @"drive#fileList");
@@ -2759,7 +2759,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 }
 
 - (void)testService_MockService_Failing {
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(id,kind,name)";
 
   NSError *expectedError = [NSError errorWithDomain:NSURLErrorDomain
@@ -2774,7 +2774,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             XCTAssertNil(object);
             XCTAssertEqual(error.code, NSURLErrorResourceUnavailable);
 
@@ -2792,7 +2792,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   // No need for a fetcher testBlock.
   [self expectTicketAndParsingNotifications];
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(id,kind,name)";
   query.requestID = @"gtlr_1234";
 
@@ -2806,7 +2806,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
                           @"fields=kind%2CnextPageToken%2Cfiles%28id%2Ckind%2Cname%29&"
                           @"prettyPrint=false");
 
-    Test_GTLRDrive_FileList *obj = [self fileListObjectForTest];
+    GTLRTestingSvc_FileList *obj = [self fileListObjectForTest];
 
     testResponse(obj, nil);
   };
@@ -2828,17 +2828,17 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   __block GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             // Verify the top-level object and one of its items.
-            XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+            XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList class]);
             XCTAssertNil(error);
 
             XCTAssertEqualObjects(object.kind, @"drive#fileList");
             XCTAssertEqual(object.files.count, 2U, @"%@", object.files);
 
-            Test_GTLRDrive_File *item0 = object.files[0];
+            GTLRTestingSvc_File *item0 = object.files[0];
 
-            XCTAssertEqualObjects([item0 class], [Test_GTLRDrive_File class]);
+            XCTAssertEqualObjects([item0 class], [GTLRTestingSvc_File class]);
             XCTAssertEqualObjects(item0.kind, @"drive#file");
 
             XCTAssertEqualObjects(callbackTicket, queryTicket);
@@ -2866,7 +2866,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 - (void)testService_testBlock_Failing {
   [self expectTicketNotifications];
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(id,kind,name)";
   query.requestID = @"gtlr_1234";
 
@@ -2894,7 +2894,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             // Verify the top-level object and one of its items.
             XCTAssertNil(object);
             XCTAssertEqualObjects(error, expectedError);
@@ -2914,14 +2914,14 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   dispatch_queue_t myCallbackQueue = dispatch_queue_create("myCallbackQueue",
                                                            DISPATCH_QUEUE_SERIAL);
 
-  Test_GTLRDriveQuery_FilesList *query = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *query = [GTLRTestingSvcQuery_FilesList query];
   query.fields = @"kind,nextPageToken,files(id,kind,name)";
   query.requestID = @"gtlr_1234";
 
   GTLRService *service = [self driveServiceForTest];
   service.rootURLString = @"https://example.invalid/";
   service.testBlock = ^(GTLRServiceTicket *ticket, GTLRServiceTestResponse testResponse) {
-    Test_GTLRDrive_FileList *obj = [self fileListObjectForTest];
+    GTLRTestingSvc_FileList *obj = [self fileListObjectForTest];
     testResponse(obj, nil);
   };
   service.callbackQueue = myCallbackQueue;
@@ -2931,9 +2931,9 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRServiceTicket *queryTicket =
       [service executeQuery:query
           completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              Test_GTLRDrive_FileList *object, NSError *error) {
+                              GTLRTestingSvc_FileList *object, NSError *error) {
             // Verify the top-level object and one of its items.
-            XCTAssertEqualObjects([object class], [Test_GTLRDrive_FileList class]);
+            XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList class]);
             XCTAssertNil(error);
 
             XCTAssert(IsCurrentQueue(myCallbackQueue));
@@ -2957,8 +2957,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   GTLRService *service = [self driveServiceForTest];
 
-  Test_GTLRDriveQuery_FilesGet *query =
-      [Test_GTLRDriveQuery_FilesGet queryForMediaWithFileId:@"abcde"];
+  GTLRTestingSvcQuery_FilesGet *query =
+      [GTLRTestingSvcQuery_FilesGet queryForMediaWithFileId:@"abcde"];
 
   // For variety, we'll attach the testBlock to the query's service execution parameters.
   query.executionParameters.testBlock = ^(GTLRServiceTicket *ticket,
@@ -3008,12 +3008,12 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTestExpectation *parentsExp = [self expectationWithDescription:@"parentsCallback"];
   XCTestExpectation *batchFinished = [self expectationWithDescription:@"batchFinished"];
 
-  Test_GTLRDriveQuery_FilesList *childQuery = [Test_GTLRDriveQuery_FilesList query];
+  GTLRTestingSvcQuery_FilesList *childQuery = [GTLRTestingSvcQuery_FilesList query];
   childQuery.q = [NSString stringWithFormat:@"'ABCDE' in parents"];
   childQuery.requestID = @"gtlr_5";
-  childQuery.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_FileList *fileList,
+  childQuery.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_FileList *fileList,
                                  NSError *childError) {
-    XCTAssertEqualObjects([fileList class], [Test_GTLRDrive_FileList class]);
+    XCTAssertEqualObjects([fileList class], [GTLRTestingSvc_FileList class]);
     XCTAssertEqualObjects(fileList.kind, @"drive#fileList");
     XCTAssertNil(childError);
 
@@ -3025,11 +3025,11 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
                                            userInfo:nil];
   GTLRErrorObject *expectedErrorObject = [GTLRErrorObject objectWithFoundationError:expectedError];
 
-  Test_GTLRDriveQuery_FilesGet *parentsQuery =
-      [Test_GTLRDriveQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
+  GTLRTestingSvcQuery_FilesGet *parentsQuery =
+      [GTLRTestingSvcQuery_FilesGet queryWithFileId:@"0B7svZDDwtKrhS2FDS2JZclU1U0E"];
   parentsQuery.fields = @"parents";
   parentsQuery.requestID = @"gtlr_6";
-  parentsQuery.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_File *file,
+  parentsQuery.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_File *file,
                                    NSError *parentsError) {
     XCTAssertNil(file);
     XCTAssertEqualObjects(parentsError.domain, expectedError.domain);
@@ -3051,7 +3051,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   service.testBlock = ^(GTLRServiceTicket *ticket, GTLRServiceTestResponse testResponse) {
     XCTAssert([ticket.fetchRequest.URL.absoluteString hasPrefix:@"https://example.invalid/"],
               @"%@", ticket.fetchRequest);
-    Test_GTLRDrive_FileList *fileList = [self fileListObjectForTest];
+    GTLRTestingSvc_FileList *fileList = [self fileListObjectForTest];
 
     GTLRBatchResult *batchResult = [GTLRBatchResult object];
     batchResult.successes = @{ childQuery.requestID : fileList };
@@ -3090,8 +3090,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
             XCTAssertEqual(batchResult.failures.count, 1U);
             XCTAssertEqual(batchResult.responseHeaders.count, 2U);
 
-            Test_GTLRDrive_FileList *fileList = batchResult.successes[@"gtlr_5"];
-            XCTAssertEqualObjects([fileList class], [Test_GTLRDrive_FileList class]);
+            GTLRTestingSvc_FileList *fileList = batchResult.successes[@"gtlr_5"];
+            XCTAssertEqualObjects([fileList class], [GTLRTestingSvc_FileList class]);
             XCTAssertEqualObjects(fileList.kind, @"drive#fileList");
 
             GTLRErrorObject *failureObject = batchResult.failures[@"gtlr_6"];
@@ -3160,7 +3160,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTestExpectation *progressExp = [self expectationWithDescription:@"Upload progress"];
   XCTestExpectation *testBlockExp = [self expectationWithDescription:@"testBlock"];
 
-  Test_GTLRDrive_File *newFile = [Test_GTLRDrive_File object];
+  GTLRTestingSvc_File *newFile = [GTLRTestingSvc_File object];
   newFile.name = @"File de Feline";
 
   GTLRService *service = [self driveServiceForTest];
@@ -3175,7 +3175,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     NSString *headerETag = ticket.fetchRequest.allHTTPHeaderFields[@"If-Match"];
     XCTAssertEqualObjects(headerETag, newFile.ETag);
 
-    Test_GTLRDrive_File *fileObj = [Test_GTLRDrive_File object];
+    GTLRTestingSvc_File *fileObj = [GTLRTestingSvc_File object];
     fileObj.kind = @"drive#file";
     fileObj.name = @"abcdefg.txt";
     fileObj.identifier = @"0svZDDwtKrhcHh2dmcyZ05MZWc";
@@ -3184,10 +3184,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     [testBlockExp fulfill];
   };
 
-  Test_GTLRDriveQuery_FilesCreate *query =
-      [Test_GTLRDriveQuery_FilesCreate queryWithObject:newFile
+  GTLRTestingSvcQuery_FilesCreate *query =
+      [GTLRTestingSvcQuery_FilesCreate queryWithObject:newFile
                                       uploadParameters:uploadParameters];
-  query.completionBlock = ^(GTLRServiceTicket *ticket, Test_GTLRDrive_File *uploadedFile,
+  query.completionBlock = ^(GTLRServiceTicket *ticket, GTLRTestingSvc_File *uploadedFile,
                             NSError *permissionError) {
     XCTAssertEqualObjects(uploadedFile.name, @"abcdefg.txt");
     XCTAssertEqualObjects(uploadedFile.kind, @"drive#file");
@@ -3212,7 +3212,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   GTLRServiceTicket *queryTicket = [service executeQuery:query
                                        completionHandler:^(GTLRServiceTicket *callbackTicket,
-                                                           Test_GTLRDrive_File *uploadedFile,
+                                                           GTLRTestingSvc_File *uploadedFile,
                                                            NSError *error) {
     XCTAssertEqualObjects(uploadedFile.name, @"abcdefg.txt");
     XCTAssertEqualObjects(uploadedFile.kind, @"drive#file");
@@ -3313,8 +3313,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 }
 
 - (void)testRequestForQuery_MediaDownload {
-  Test_GTLRDriveQuery_FilesGet *query =
-      [Test_GTLRDriveQuery_FilesGet queryForMediaWithFileId:@"abcde"];
+  GTLRTestingSvcQuery_FilesGet *query =
+      [GTLRTestingSvcQuery_FilesGet queryForMediaWithFileId:@"abcde"];
   query.useMediaDownloadService = NO;
 
   GTLRService *service = [self driveServiceForTest];

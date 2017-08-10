@@ -15,7 +15,7 @@
 
 #import "GTLRService.h"
 
-@interface Test_GTLRDrive_File : GTLRObject
+@interface GTLRTestingSvc_File : GTLRObject
 
 @property(nonatomic, copy) NSString *kind;
 @property(nonatomic, strong) NSArray <NSString *>*parents;
@@ -27,13 +27,13 @@
 
 @end
 
-@interface Test_GTLRDrive_File_Surrogate : Test_GTLRDrive_File
+@interface GTLRTestingSvc_File_Surrogate : GTLRTestingSvc_File
 @end
 
 #pragma mark Test Object Classes
 
-@interface Test_GTLRDrive_FileList : GTLRCollectionObject
-@property(nonatomic, strong) NSArray<Test_GTLRDrive_File *> *files;
+@interface GTLRTestingSvc_FileList : GTLRCollectionObject
+@property(nonatomic, strong) NSArray<GTLRTestingSvc_File *> *files;
 @property(nonatomic, copy) NSString *kind;
 @property(nonatomic, copy) NSString *nextPageToken;
 
@@ -41,13 +41,13 @@
 
 @end
 
-@interface Test_GTLRDrive_FileList_Surrogate : Test_GTLRDrive_FileList
+@interface GTLRTestingSvc_FileList_Surrogate : GTLRTestingSvc_FileList
 @end
 
-@interface Test_GTLRDrive_FileList_Surrogate2 : Test_GTLRDrive_FileList
+@interface GTLRTestingSvc_FileList_Surrogate2 : GTLRTestingSvc_FileList
 @end
 
-@interface Test_GTLRDrive_Permission : GTLRObject
+@interface GTLRTestingSvc_Permission : GTLRObject
 @property(nonatomic, strong) NSNumber *allowFileDiscovery;  // boolValue
 @property(nonatomic, copy) NSString *displayName;
 @property(nonatomic, copy) NSString *domain;
@@ -59,20 +59,20 @@
 @property(nonatomic, copy) NSString *type;
 @end
 
-@interface Test_GTLRDrive_PermissionList : GTLRObject
+@interface GTLRTestingSvc_PermissionList : GTLRObject
 @property(nonatomic, copy) NSString *kind;
-@property(nonatomic, strong) NSArray<Test_GTLRDrive_Permission *> *permissions;
+@property(nonatomic, strong) NSArray<GTLRTestingSvc_Permission *> *permissions;
 @end
 
 
 #pragma mark Test Query Classes
 
-@interface Test_GTLRDriveQuery : GTLRQuery
+@interface GTLRTestingSvcQuery : GTLRQuery
 @property(nonatomic, copy) NSString *fields;
 @end
 
 
-@interface Test_GTLRDriveQuery_FilesGet : Test_GTLRDriveQuery
+@interface GTLRTestingSvcQuery_FilesGet : GTLRTestingSvcQuery
 @property(nonatomic, assign) BOOL acknowledgeAbuse;
 @property(nonatomic, copy) NSString *fileId;
 + (instancetype)queryWithFileId:(NSString *)fileId;
@@ -80,7 +80,7 @@
 @end
 
 
-@interface Test_GTLRDriveQuery_FilesList : Test_GTLRDriveQuery
+@interface GTLRTestingSvcQuery_FilesList : GTLRTestingSvcQuery
 @property(nonatomic, copy) NSString *corpus;
 @property(nonatomic, copy) NSString *orderBy;
 @property(nonatomic, assign) NSInteger pageSize;
@@ -95,37 +95,37 @@
 @end
 
 
-@interface Test_GTLRDriveQuery_FilesDelete : Test_GTLRDriveQuery
+@interface GTLRTestingSvcQuery_FilesDelete : GTLRTestingSvcQuery
 @property(nonatomic, copy) NSString *fileId;
 + (instancetype)queryWithFileId:(NSString *)fileId;
 @end
 
 
 
-@interface Test_GTLRDriveQuery_PermissionsList : Test_GTLRDriveQuery
+@interface GTLRTestingSvcQuery_PermissionsList : GTLRTestingSvcQuery
 @property(nonatomic, copy) NSString *fileId;
 + (instancetype)queryWithFileId:(NSString *)fileId;
 @end
 
-@interface Test_GTLRDriveQuery_FilesCreate : Test_GTLRDriveQuery
+@interface GTLRTestingSvcQuery_FilesCreate : GTLRTestingSvcQuery
 
 @property(nonatomic, assign) BOOL ignoreDefaultVisibility;
 @property(nonatomic, assign) BOOL keepRevisionForever;
 @property(nonatomic, copy) NSString *ocrLanguage;
 @property(nonatomic, assign) BOOL useContentAsIndexableText;
 
-+ (instancetype)queryWithObject:(Test_GTLRDrive_File *)object
++ (instancetype)queryWithObject:(GTLRTestingSvc_File *)object
                uploadParameters:(GTLRUploadParameters *)uploadParametersOrNil;
 @end
 
-@interface Test_GTLRDriveQuery_PermissionsCreate : Test_GTLRDriveQuery
+@interface GTLRTestingSvcQuery_PermissionsCreate : GTLRTestingSvcQuery
 
 @property(nonatomic, copy) NSString *emailMessage;
 @property(nonatomic, copy) NSString *fileId;
 @property(nonatomic, assign) BOOL sendNotificationEmail;
 @property(nonatomic, assign) BOOL transferOwnership;
 
-+ (instancetype)queryWithObject:(Test_GTLRDrive_Permission *)object
++ (instancetype)queryWithObject:(GTLRTestingSvc_Permission *)object
                          fileId:(NSString *)fileId;
 
 @end
