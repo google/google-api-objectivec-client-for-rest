@@ -20,7 +20,7 @@
 // actual Drive interfaces.
 //
 
-@implementation Test_GTLRDrive_File
+@implementation GTLRTestingSvc_File
 
 @dynamic kind, parents, name, identifier, ETag;
 
@@ -36,7 +36,7 @@
 + (NSDictionary *)arrayPropertyToClassMap {
   NSDictionary *map = @{
     @"parents" : [NSString class],
-    @"permissions" : [Test_GTLRDrive_Permission class],
+    @"permissions" : [GTLRTestingSvc_Permission class],
     @"spaces" : [NSString class]
   };
   return map;
@@ -44,17 +44,17 @@
 
 @end
 
-@implementation Test_GTLRDrive_File_Surrogate
+@implementation GTLRTestingSvc_File_Surrogate
 @end
 
 #pragma mark Test Object Classes
 
-@implementation Test_GTLRDrive_FileList
+@implementation GTLRTestingSvc_FileList
 @dynamic files, kind, nextPageToken, timeFieldForTesting;
 
 + (NSDictionary *)arrayPropertyToClassMap {
   NSDictionary *map = @{
-    @"files" : [Test_GTLRDrive_File class]
+    @"files" : [GTLRTestingSvc_File class]
   };
   return map;
 }
@@ -65,14 +65,14 @@
 
 @end
 
-@implementation Test_GTLRDrive_FileList_Surrogate
+@implementation GTLRTestingSvc_FileList_Surrogate
 @end
 
-@implementation Test_GTLRDrive_FileList_Surrogate2
+@implementation GTLRTestingSvc_FileList_Surrogate2
 @end
 
 
-@implementation Test_GTLRDrive_Permission
+@implementation GTLRTestingSvc_Permission
 @dynamic allowFileDiscovery, displayName, domain, emailAddress, identifier,
          kind, photoLink, role, type;
 + (NSDictionary *)propertyToJSONKeyMap {
@@ -81,11 +81,11 @@
 @end
 
 
-@implementation Test_GTLRDrive_PermissionList
+@implementation GTLRTestingSvc_PermissionList
 @dynamic kind, permissions;
 + (NSDictionary *)arrayPropertyToClassMap {
   NSDictionary *map = @{
-    @"permissions" : [Test_GTLRDrive_Permission class]
+    @"permissions" : [GTLRTestingSvc_Permission class]
   };
   return map;
 }
@@ -94,36 +94,36 @@
 #pragma mark Test Query Classes
 
 
-@implementation Test_GTLRDriveQuery
+@implementation GTLRTestingSvcQuery
 @dynamic fields;
 
 + (NSDictionary<NSString *, Class> *)kindStringToClassMap {
   return @{
-    @"drive#file" : [Test_GTLRDrive_File class],
-    @"drive#fileList" : [Test_GTLRDrive_FileList class],
-    @"drive#permission" : [Test_GTLRDrive_Permission class],
-    @"drive#permissionList" : [Test_GTLRDrive_PermissionList class],
+    @"drive#file" : [GTLRTestingSvc_File class],
+    @"drive#fileList" : [GTLRTestingSvc_FileList class],
+    @"drive#permission" : [GTLRTestingSvc_Permission class],
+    @"drive#permissionList" : [GTLRTestingSvc_PermissionList class],
   };
 }
 @end
 
 
-@implementation Test_GTLRDriveQuery_FilesGet
+@implementation GTLRTestingSvcQuery_FilesGet
 @dynamic acknowledgeAbuse, fileId;
 + (instancetype)queryWithFileId:(NSString *)fileId {
   NSArray *pathParams = @[ @"fileId" ];
   NSString *pathURITemplate = @"files/{fileId}";
-  Test_GTLRDriveQuery_FilesGet *query =
+  GTLRTestingSvcQuery_FilesGet *query =
       [[self alloc] initWithPathURITemplate:pathURITemplate
                                  HTTPMethod:nil
                          pathParameterNames:pathParams];
   query.fileId = fileId;
-  query.expectedObjectClass = [Test_GTLRDrive_File class];
+  query.expectedObjectClass = [GTLRTestingSvc_File class];
   query.loggingName = @"drive.files.get";
   return query;
 }
 + (instancetype)queryForMediaWithFileId:(NSString *)fileId {
-  Test_GTLRDriveQuery_FilesGet *query =
+  GTLRTestingSvcQuery_FilesGet *query =
     [self queryWithFileId:fileId];
   query.downloadAsDataObjectType = @"media";
   query.loggingName = @"Download drive.files.get";
@@ -132,29 +132,29 @@
 @end
 
 
-@implementation Test_GTLRDriveQuery_FilesList
+@implementation GTLRTestingSvcQuery_FilesList
 @dynamic corpus, extras, orderBy, pageSize, pageToken, q, spaces, timeParamForTesting;
 + (instancetype)query {
   NSString *pathURITemplate = @"files";
-  Test_GTLRDriveQuery_FilesList *query =
+  GTLRTestingSvcQuery_FilesList *query =
       [[self alloc] initWithPathURITemplate:pathURITemplate
                                  HTTPMethod:nil
                          pathParameterNames:nil];
-  query.expectedObjectClass = [Test_GTLRDrive_FileList class];
+  query.expectedObjectClass = [GTLRTestingSvc_FileList class];
   query.loggingName = @"drive.files.list";
   return query;
 }
 @end
 
 
-@implementation Test_GTLRDriveQuery_FilesDelete
+@implementation GTLRTestingSvcQuery_FilesDelete
 
 @dynamic fileId;
 
 + (instancetype)queryWithFileId:(NSString *)fileId {
   NSArray *pathParams = @[ @"fileId" ];
   NSString *pathURITemplate = @"files/{fileId}";
-  Test_GTLRDriveQuery_FilesDelete *query =
+  GTLRTestingSvcQuery_FilesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
@@ -166,52 +166,52 @@
 @end
 
 
-@implementation Test_GTLRDriveQuery_PermissionsList
+@implementation GTLRTestingSvcQuery_PermissionsList
 
 @dynamic fileId;
 + (instancetype)queryWithFileId:(NSString *)fileId {
   NSArray *pathParams = @[ @"fileId" ];
   NSString *pathURITemplate = @"files/{fileId}/permissions";
-  Test_GTLRDriveQuery_PermissionsList *query =
+  GTLRTestingSvcQuery_PermissionsList *query =
   [[self alloc] initWithPathURITemplate:pathURITemplate
                              HTTPMethod:nil
                      pathParameterNames:pathParams];
   query.fileId = fileId;
-  query.expectedObjectClass = [Test_GTLRDrive_PermissionList class];
+  query.expectedObjectClass = [GTLRTestingSvc_PermissionList class];
   query.loggingName = @"drive.permissions.list";
   return query;
 }
 @end
 
-@implementation Test_GTLRDriveQuery_FilesCreate
+@implementation GTLRTestingSvcQuery_FilesCreate
 
 @dynamic ignoreDefaultVisibility, keepRevisionForever, ocrLanguage, useContentAsIndexableText;
 
-+ (instancetype)queryWithObject:(Test_GTLRDrive_File *)object
++ (instancetype)queryWithObject:(GTLRTestingSvc_File *)object
                uploadParameters:(GTLRUploadParameters *)uploadParametersOrNil {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"%@ got a nil object", NSStringFromSelector(_cmd));
     return nil;
   }
   NSString *pathURITemplate = @"files";
-  Test_GTLRDriveQuery_FilesCreate *query =
+  GTLRTestingSvcQuery_FilesCreate *query =
   [[self alloc] initWithPathURITemplate:pathURITemplate
                              HTTPMethod:@"POST"
                      pathParameterNames:nil];
   query.bodyObject = object;
   query.uploadParameters = uploadParametersOrNil;
-  query.expectedObjectClass = [Test_GTLRDrive_File class];
+  query.expectedObjectClass = [GTLRTestingSvc_File class];
   query.loggingName = @"drive.files.create";
   return query;
 }
 
 @end
 
-@implementation Test_GTLRDriveQuery_PermissionsCreate
+@implementation GTLRTestingSvcQuery_PermissionsCreate
 
 @dynamic emailMessage, fileId, sendNotificationEmail, transferOwnership;
 
-+ (instancetype)queryWithObject:(Test_GTLRDrive_Permission *)object
++ (instancetype)queryWithObject:(GTLRTestingSvc_Permission *)object
                          fileId:(NSString *)fileId {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"%@ got a nil object", NSStringFromSelector(_cmd));
@@ -219,13 +219,13 @@
   }
   NSArray *pathParams = @[ @"fileId" ];
   NSString *pathURITemplate = @"files/{fileId}/permissions";
-  Test_GTLRDriveQuery_PermissionsCreate *query =
+  GTLRTestingSvcQuery_PermissionsCreate *query =
       [[self alloc] initWithPathURITemplate:pathURITemplate
                                  HTTPMethod:@"POST"
                          pathParameterNames:pathParams];
   query.bodyObject = object;
   query.fileId = fileId;
-  query.expectedObjectClass = [Test_GTLRDrive_Permission class];
+  query.expectedObjectClass = [GTLRTestingSvc_Permission class];
   query.loggingName = @"drive.permissions.create";
   return query;
 }
