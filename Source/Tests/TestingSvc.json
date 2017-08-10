@@ -1,0 +1,342 @@
+{
+  "basePath" : "\/drive\/v3\/",
+  "baseUrl" : "https:\/\/www.googleapis.com\/drive\/v3\/",
+  "batchPath" : "batch",
+  "description" : "Service for the GTLRService tests, based on Drive. Allows us to avoid break when Drive changes.",
+  "discoveryVersion" : "v1",
+  "id" : "drive:v3",
+  "kind" : "discovery#restDescription",
+  "name" : "testing_svc",
+  "ownerDomain" : "google.com",
+  "ownerName" : "Google",
+  "protocol" : "rest",
+  "revision" : "20170804",
+  "rootUrl" : "https:\/\/www.googleapis.com\/",
+  "servicePath" : "drive\/v3\/",
+  "title" : "Testing Svc",
+  "version" : "v3",
+  "parameters" : {
+    "fields" : {
+      "type" : "string",
+      "location" : "query",
+    },
+    "prettyPrint" : {
+      "default" : "true",
+      "type" : "boolean",
+      "location" : "query"
+    }
+  },
+  "schemas" : {
+    "File" : {
+      "id" : "File",
+      "properties" : {
+        "kind" : {
+          "type" : "string",
+          "default" : "drive#file",
+        },
+        "name" : {
+          "type" : "string",
+        },
+        "etag" : {
+          "type" : "string",
+        },
+        "id" : {
+          "type" : "string",
+        },
+        "parents" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+        },
+      },
+      "type" : "object",
+    },
+    "FileList" : {
+      "id" : "FileList",
+      "properties" : {
+        "incompleteSearch" : {
+          "type" : "boolean",
+        },
+        "kind" : {
+          "type" : "string",
+          "default" : "drive#fileList",
+        },
+        "files" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "File"
+          },
+        },
+        "nextPageToken" : {
+          "type" : "string",
+        },
+        "timeFieldForTesting" : {
+          "type" : "string",
+          "format" : "date-time",
+        },
+      },
+      "type" : "object",
+    },
+    "Permission" : {
+      "id" : "Permission",
+      "properties" : {
+        "displayName" : {
+          "type" : "string",
+        },
+        "allowFileDiscovery" : {
+          "type" : "boolean",
+        },
+        "domain" : {
+          "type" : "string",
+        },
+        "emailAddress" : {
+          "type" : "string",
+        },
+        "id" : {
+          "type" : "string",
+        },
+        "kind" : {
+          "type" : "string",
+          "default" : "drive#permission",
+        },
+        "photoLink" : {
+          "type" : "string",
+        },
+        "role" : {
+          "type" : "string",
+        },
+        "type" : {
+          "type" : "string",
+        },
+      },
+      "type" : "object",
+    },
+    "PermissionList" : {
+      "id" : "PermissionList",
+      "properties" : {
+        "kind" : {
+          "type" : "string",
+          "default" : "drive#permissionList",
+        },
+        "permissions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "Permission"
+          },
+        }
+      },
+      "type" : "object",
+    },
+  },
+  "resources" : {
+    "files" : {
+      "methods" : {
+        "get" : {
+          "httpMethod" : "GET",
+          "response" : {
+            "$ref" : "File"
+          },
+          "id" : "drive.files.get",
+          "supportsMediaDownload" : true,
+          "useMediaDownloadService" : true,
+          "path" : "files\/{fileId}",
+          "parameterOrder" : [
+            "fileId"
+          ],
+          "parameters" : {
+            "acknowledgeAbuse" : {
+              "default" : "false",
+              "type" : "boolean",
+              "location" : "query"
+            },
+            "fileId" : {
+              "location" : "path",
+              "type" : "string",
+              "required" : true
+            }
+          }
+        },
+        "list" : {
+          "httpMethod" : "GET",
+          "id" : "drive.files.list",
+          "path" : "files",
+          "response" : {
+            "$ref" : "FileList"
+          },
+          "parameters" : {
+            "corpus" : {
+              "location" : "query",
+              "enum" : [
+                "domain",
+                "user"
+              ],
+              "type" : "string",
+              "enumDescriptions" : [
+                "Files shared to the user's domain.",
+                "Files owned by or shared to the user."
+              ]
+            },
+            "orderBy" : {
+              "type" : "string",
+              "location" : "query",
+            },
+            "pageSize" : {
+              "format" : "int32",
+              "minimum" : "1",
+              "maximum" : "1000",
+              "location" : "query",
+              "type" : "integer",
+              "default" : "100"
+            },
+            "pageToken" : {
+              "type" : "string",
+              "location" : "query",
+            },
+            "spaces" : {
+              "default" : "drive",
+              "type" : "string",
+              "location" : "query"
+            },
+            "q" : {
+              "type" : "string",
+              "location" : "query",
+            },
+            "extras" : {
+              "type" : "array",
+              "location" : "query",
+              "items" : {
+                "type" : "string"
+              },
+            },
+            "timeParamForTesting" : {
+              "type" : "string",
+              "location" : "query",
+              "format" : "date-time",
+            }
+          }
+        },
+        "delete" : {
+          "httpMethod" : "DELETE",
+          "id" : "drive.files.delete",
+          "path" : "files\/{fileId}",
+          "parameterOrder" : [
+            "fileId"
+          ],
+          "parameters" : {
+            "fileId" : {
+              "location" : "path",
+              "type" : "string",
+              "required" : true
+            }
+          }
+        },
+        "create" : {
+          "httpMethod" : "POST",
+          "id" : "drive.files.create",
+          "supportsMediaUpload" : true,
+          "mediaUpload" : {
+            "maxSize" : "5120GB",
+            "accept" : [
+              "*\/*"
+            ],
+            "protocols" : {
+              "resumable" : {
+                "path" : "\/resumable\/upload\/drive\/v3\/files",
+                "multipart" : true
+              },
+              "simple" : {
+                "path" : "\/upload\/drive\/v3\/files",
+                "multipart" : true
+              }
+            }
+          },
+          "request" : {
+            "$ref" : "File"
+          },
+          "path" : "files",
+          "response" : {
+            "$ref" : "File"
+          },
+          "parameters" : {
+            "ignoreDefaultVisibility" : {
+              "default" : "false",
+              "type" : "boolean",
+              "location" : "query"
+            },
+            "ocrLanguage" : {
+              "type" : "string",
+              "location" : "query",
+            },
+            "useContentAsIndexableText" : {
+              "default" : "false",
+              "type" : "boolean",
+              "location" : "query"
+            },
+            "keepRevisionForever" : {
+              "default" : "false",
+              "type" : "boolean",
+              "location" : "query"
+            }
+          }
+        },
+      }
+    },
+    "permissions" : {
+      "methods" : {
+        "list" : {
+          "httpMethod" : "GET",
+          "response" : {
+            "$ref" : "PermissionList"
+          },
+          "id" : "drive.permissions.list",
+          "path" : "files\/{fileId}\/permissions",
+          "parameterOrder" : [
+            "fileId"
+          ],
+          "parameters" : {
+            "fileId" : {
+              "location" : "path",
+              "type" : "string",
+              "required" : true
+            },
+          },
+        },
+        "create" : {
+          "httpMethod" : "POST",
+          "response" : {
+            "$ref" : "Permission"
+          },
+          "id" : "drive.permissions.create",
+          "request" : {
+            "$ref" : "Permission"
+          },
+          "path" : "files\/{fileId}\/permissions",
+          "parameterOrder" : [
+            "fileId"
+          ],
+          "parameters" : {
+            "emailMessage" : {
+              "type" : "string",
+              "location" : "query",
+            },
+            "fileId" : {
+              "location" : "path",
+              "type" : "string",
+              "required" : true
+            },
+            "sendNotificationEmail" : {
+              "type" : "boolean",
+              "location" : "query",
+            },
+            "transferOwnership" : {
+              "default" : "false",
+              "type" : "boolean",
+              "location" : "query"
+            }
+          }
+        }
+      }
+    }
+  }
+}
