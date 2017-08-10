@@ -26,7 +26,7 @@
 //
 
 @implementation GTLRAndroidPublisher_ApkBinary
-@dynamic sha1;
+@dynamic sha1, sha256;
 @end
 
 
@@ -549,7 +549,7 @@
 //
 
 @implementation GTLRAndroidPublisher_ProductPurchase
-@dynamic consumptionState, developerPayload, kind, purchaseState,
+@dynamic consumptionState, developerPayload, kind, orderId, purchaseState,
          purchaseTimeMillis;
 @end
 
@@ -665,7 +665,7 @@
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchase
 @dynamic autoRenewing, cancelReason, countryCode, developerPayload,
-         expiryTimeMillis, kind, paymentState, priceAmountMicros,
+         expiryTimeMillis, kind, orderId, paymentState, priceAmountMicros,
          priceCurrencyCode, startTimeMillis, userCancellationTimeMillis;
 @end
 

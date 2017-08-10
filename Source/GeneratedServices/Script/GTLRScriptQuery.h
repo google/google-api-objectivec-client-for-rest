@@ -4,7 +4,7 @@
 // API:
 //   Google Apps Script Execution API (script/v1)
 // Description:
-//   Executes Google Apps Script projects.
+//   Executes functions in Google Apps Script projects.
 // Documentation:
 //   https://developers.google.com/apps-script/execution/rest/v1/scripts/run
 
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryScript queryForScriptsRunWithObject:scriptId:]
 
 /**
- *  The project key of the script to be executed. To find the project key, open
+ *  The script ID of the script to be executed. To find the script ID, open
  *  the project in the script editor and select **File > Project properties**.
  */
 @property(nonatomic, copy, nullable) NSString *scriptId;
@@ -80,8 +80,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  **File > Project properties** and click the **Scopes** tab.
  *
  *  @param object The @c GTLRScript_ExecutionRequest to include in the query.
- *  @param scriptId The project key of the script to be executed. To find the
- *    project key, open
+ *  @param scriptId The script ID of the script to be executed. To find the
+ *    script ID, open
  *    the project in the script editor and select **File > Project properties**.
  *
  *  @returns GTLRScriptQuery_ScriptsRun

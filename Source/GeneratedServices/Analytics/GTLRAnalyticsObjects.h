@@ -525,6 +525,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** IDs of views (profiles) linked to the custom data source. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *profilesLinked;
 
+/** Collection of schema headers of the custom data source. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *schema;
+
 /** Link for this Analytics custom data source. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -534,6 +537,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Time this custom data source was last modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
+/** Upload type of the custom data source. */
 @property(nonatomic, copy, nullable) NSString *uploadType;
 
 /**
@@ -3861,6 +3865,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  DELETED.
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+/** Time this file is uploaded. */
+@property(nonatomic, strong, nullable) GTLRDateTime *uploadTime;
 
 @end
 

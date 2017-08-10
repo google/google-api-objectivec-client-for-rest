@@ -42,21 +42,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets info about an application.
  *
  *  Method: androidmanagement.enterprises.applications.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesApplicationsGet : GTLRAndroidManagementQuery
 // Previous library name was
 //   +[GTLQueryAndroidManagement queryForEnterprisesApplicationsGetWithname:]
 
 /**
- *  The preferred language for localized application info, as a BCP47 tag
- *  (e.g. "en-US", "de"). If not specified the default language of the
- *  application will be used.
+ *  The preferred language for localized application info, as a BCP47 tag (e.g.
+ *  "en-US", "de"). If not specified the default language of the application
+ *  will be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  The name of the application in the form
- *  `enterprises/{enterpriseId}/applications/{package_name}`
+ *  enterprises/{enterpriseId}/applications/{package_name}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -66,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets info about an application.
  *
  *  @param name The name of the application in the form
- *    `enterprises/{enterpriseId}/applications/{package_name}`
+ *    enterprises/{enterpriseId}/applications/{package_name}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesApplicationsGet
  */
@@ -78,6 +81,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates an enterprise by completing the enterprise signup flow.
  *
  *  Method: androidmanagement.enterprises.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesCreate : GTLRAndroidManagementQuery
 // Previous library name was
@@ -91,11 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/**
- *  The name of the
- *  [`SignupUrl`](/android/management/reference/rest/v1/signupUrls#SignupUrl)
- *  used to sign up for the enterprise.
- */
+/** The name of the SignupUrl used to sign up for the enterprise. */
 @property(nonatomic, copy, nullable) NSString *signupUrlName;
 
 /**
@@ -116,6 +118,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a device, which causes the device to be wiped.
  *
  *  Method: androidmanagement.enterprises.devices.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesDelete : GTLRAndroidManagementQuery
 // Previous library name was
@@ -123,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the device in the form
- *  `enterprises/{enterpriseId}/devices/{deviceId}`
+ *  enterprises/{enterpriseId}/devices/{deviceId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -133,7 +138,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a device, which causes the device to be wiped.
  *
  *  @param name The name of the device in the form
- *    `enterprises/{enterpriseId}/devices/{deviceId}`
+ *    enterprises/{enterpriseId}/devices/{deviceId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesDelete
  */
@@ -145,6 +150,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a device.
  *
  *  Method: androidmanagement.enterprises.devices.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesGet : GTLRAndroidManagementQuery
 // Previous library name was
@@ -152,7 +160,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the device in the form
- *  `enterprises/{enterpriseId}/devices/{deviceId}`
+ *  enterprises/{enterpriseId}/devices/{deviceId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -162,7 +170,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a device.
  *
  *  @param name The name of the device in the form
- *    `enterprises/{enterpriseId}/devices/{deviceId}`
+ *    enterprises/{enterpriseId}/devices/{deviceId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesGet
  */
@@ -171,17 +179,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Issues a command to a device. The
- *  [`Operation`](/android/management/reference/rest/v1/enterprises.devices.operations#Operation)
- *  resource returned contains a
- *  [`Command`](/android/management/reference/rest/v1/enterprises.devices/issueCommand#Command)
- *  in its `metadata` field.
- *  Use the
- *  [get operation
- *  method](/android/management/reference/rest/v1/enterprises.devices.operations/get)
- *  to get the status of the command.
+ *  Issues a command to a device. The Operation resource returned contains a
+ *  Command in its metadata field. Use the get operation method to get the
+ *  status of the command.
  *
  *  Method: androidmanagement.enterprises.devices.issueCommand
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesIssueCommand : GTLRAndroidManagementQuery
 // Previous library name was
@@ -189,26 +194,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the device in the form
- *  `enterprises/{enterpriseId}/devices/{deviceId}`
+ *  enterprises/{enterpriseId}/devices/{deviceId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAndroidManagement_Operation.
  *
- *  Issues a command to a device. The
- *  [`Operation`](/android/management/reference/rest/v1/enterprises.devices.operations#Operation)
- *  resource returned contains a
- *  [`Command`](/android/management/reference/rest/v1/enterprises.devices/issueCommand#Command)
- *  in its `metadata` field.
- *  Use the
- *  [get operation
- *  method](/android/management/reference/rest/v1/enterprises.devices.operations/get)
- *  to get the status of the command.
+ *  Issues a command to a device. The Operation resource returned contains a
+ *  Command in its metadata field. Use the get operation method to get the
+ *  status of the command.
  *
  *  @param object The @c GTLRAndroidManagement_Command to include in the query.
  *  @param name The name of the device in the form
- *    `enterprises/{enterpriseId}/devices/{deviceId}`
+ *    enterprises/{enterpriseId}/devices/{deviceId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesIssueCommand
  */
@@ -221,6 +220,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists devices for a given enterprise.
  *
  *  Method: androidmanagement.enterprises.devices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesList : GTLRAndroidManagementQuery
 // Previous library name was
@@ -235,10 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/**
- *  The name of the enterprise in the form
- *  `enterprises/{enterpriseId}`
- */
+/** The name of the enterprise in the form enterprises/{enterpriseId} */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -247,7 +246,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists devices for a given enterprise.
  *
  *  @param parent The name of the enterprise in the form
- *    `enterprises/{enterpriseId}`
+ *    enterprises/{enterpriseId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesList
  *
@@ -261,17 +260,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Code.CANCELLED.
  *
  *  Method: androidmanagement.enterprises.devices.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesOperationsCancel : GTLRAndroidManagementQuery
 // Previous library name was
@@ -284,15 +285,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAndroidManagement_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Code.CANCELLED.
  *
  *  @param name The name of the operation resource to be cancelled.
  *
@@ -306,9 +306,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a long-running operation. This method indicates that the client is
  *  no longer interested in the operation result. It does not cancel the
  *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
+ *  google.rpc.Code.UNIMPLEMENTED.
  *
  *  Method: androidmanagement.enterprises.devices.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesOperationsDelete : GTLRAndroidManagementQuery
 // Previous library name was
@@ -323,7 +326,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a long-running operation. This method indicates that the client is
  *  no longer interested in the operation result. It does not cancel the
  *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
+ *  google.rpc.Code.UNIMPLEMENTED.
  *
  *  @param name The name of the operation resource to be deleted.
  *
@@ -339,6 +342,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  service.
  *
  *  Method: androidmanagement.enterprises.devices.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesOperationsGet : GTLRAndroidManagementQuery
 // Previous library name was
@@ -364,16 +370,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
+ *  binding allows API services to override the binding to use different
+ *  resource name schemes, such as users/ * /operations. To override the
+ *  binding, API services can add a binding such as "/v1/{name=users/
+ *  *}/operations" to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: androidmanagement.enterprises.devices.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesOperationsList : GTLRAndroidManagementQuery
 // Previous library name was
@@ -395,14 +404,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAndroidManagement_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
+ *  binding allows API services to override the binding to use different
+ *  resource name schemes, such as users/ * /operations. To override the
+ *  binding, API services can add a binding such as "/v1/{name=users/
+ *  *}/operations" to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -420,6 +429,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a device.
  *
  *  Method: androidmanagement.enterprises.devices.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesPatch : GTLRAndroidManagementQuery
 // Previous library name was
@@ -427,13 +439,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the device in the form
- *  `enterprises/{enterpriseId}/devices/{deviceId}`
+ *  enterprises/{enterpriseId}/devices/{deviceId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The field mask indicating the fields to update.
- *  If not set, all modifiable fields will be modified.
+ *  The field mask indicating the fields to update. If not set, all modifiable
+ *  fields will be modified.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -446,7 +458,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAndroidManagement_Device to include in the query.
  *  @param name The name of the device in the form
- *    `enterprises/{enterpriseId}/devices/{deviceId}`
+ *    enterprises/{enterpriseId}/devices/{deviceId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesDevicesPatch
  */
@@ -459,15 +471,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates an enrollment token for a given enterprise.
  *
  *  Method: androidmanagement.enterprises.enrollmentTokens.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensCreate : GTLRAndroidManagementQuery
 // Previous library name was
 //   +[GTLQueryAndroidManagement queryForEnterprisesEnrollmentTokensCreateWithObject:parent:]
 
-/**
- *  The name of the enterprise in the form
- *  `enterprises/{enterpriseId}`
- */
+/** The name of the enterprise in the form enterprises/{enterpriseId} */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -478,7 +490,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRAndroidManagement_EnrollmentToken to include in the
  *    query.
  *  @param parent The name of the enterprise in the form
- *    `enterprises/{enterpriseId}`
+ *    enterprises/{enterpriseId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensCreate
  */
@@ -491,6 +503,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an enrollment token, which prevents future use of the token.
  *
  *  Method: androidmanagement.enterprises.enrollmentTokens.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensDelete : GTLRAndroidManagementQuery
 // Previous library name was
@@ -498,7 +513,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the enrollment token in the form
- *  `enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}`
+ *  enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -508,7 +523,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an enrollment token, which prevents future use of the token.
  *
  *  @param name The name of the enrollment token in the form
- *    `enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}`
+ *    enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensDelete
  */
@@ -520,15 +535,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets an enterprise.
  *
  *  Method: androidmanagement.enterprises.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesGet : GTLRAndroidManagementQuery
 // Previous library name was
 //   +[GTLQueryAndroidManagement queryForEnterprisesGetWithname:]
 
-/**
- *  The name of the enterprise in the form
- *  `enterprises/{enterpriseId}`
- */
+/** The name of the enterprise in the form enterprises/{enterpriseId} */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -537,7 +552,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets an enterprise.
  *
  *  @param name The name of the enterprise in the form
- *    `enterprises/{enterpriseId}`
+ *    enterprises/{enterpriseId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesGet
  */
@@ -549,20 +564,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates an enterprise.
  *
  *  Method: androidmanagement.enterprises.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesPatch : GTLRAndroidManagementQuery
 // Previous library name was
 //   +[GTLQueryAndroidManagement queryForEnterprisesPatchWithObject:name:]
 
-/**
- *  The name of the enterprise in the form
- *  `enterprises/{enterpriseId}`
- */
+/** The name of the enterprise in the form enterprises/{enterpriseId} */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The field mask indicating the fields to update.
- *  If not set, all modifiable fields will be modified.
+ *  The field mask indicating the fields to update. If not set, all modifiable
+ *  fields will be modified.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -576,7 +591,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRAndroidManagement_Enterprise to include in the
  *    query.
  *  @param name The name of the enterprise in the form
- *    `enterprises/{enterpriseId}`
+ *    enterprises/{enterpriseId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesPatch
  */
@@ -590,6 +605,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  currently referencing the policy.
  *
  *  Method: androidmanagement.enterprises.policies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesPoliciesDelete : GTLRAndroidManagementQuery
 // Previous library name was
@@ -597,7 +615,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the policy in the form
- *  `enterprises/{enterpriseId}/policies/{policyId}`
+ *  enterprises/{enterpriseId}/policies/{policyId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -608,7 +626,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  currently referencing the policy.
  *
  *  @param name The name of the policy in the form
- *    `enterprises/{enterpriseId}/policies/{policyId}`
+ *    enterprises/{enterpriseId}/policies/{policyId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesPoliciesDelete
  */
@@ -620,6 +638,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a policy.
  *
  *  Method: androidmanagement.enterprises.policies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesPoliciesGet : GTLRAndroidManagementQuery
 // Previous library name was
@@ -627,7 +648,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the policy in the form
- *  `enterprises/{enterpriseId}/policies/{policyId}`
+ *  enterprises/{enterpriseId}/policies/{policyId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -637,7 +658,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a policy.
  *
  *  @param name The name of the policy in the form
- *    `enterprises/{enterpriseId}/policies/{policyId}`
+ *    enterprises/{enterpriseId}/policies/{policyId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesPoliciesGet
  */
@@ -649,6 +670,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists policies for a given enterprise.
  *
  *  Method: androidmanagement.enterprises.policies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesPoliciesList : GTLRAndroidManagementQuery
 // Previous library name was
@@ -663,10 +687,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/**
- *  The name of the enterprise in the form
- *  `enterprises/{enterpriseId}`
- */
+/** The name of the enterprise in the form enterprises/{enterpriseId} */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -675,7 +696,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists policies for a given enterprise.
  *
  *  @param parent The name of the enterprise in the form
- *    `enterprises/{enterpriseId}`
+ *    enterprises/{enterpriseId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesPoliciesList
  *
@@ -691,6 +712,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates or creates a policy.
  *
  *  Method: androidmanagement.enterprises.policies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesPoliciesPatch : GTLRAndroidManagementQuery
 // Previous library name was
@@ -698,13 +722,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the policy in the form
- *  `enterprises/{enterpriseId}/policies/{policyId}`
+ *  enterprises/{enterpriseId}/policies/{policyId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The field mask indicating the fields to update.
- *  If not set, all modifiable fields will be modified.
+ *  The field mask indicating the fields to update. If not set, all modifiable
+ *  fields will be modified.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -717,7 +741,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAndroidManagement_Policy to include in the query.
  *  @param name The name of the policy in the form
- *    `enterprises/{enterpriseId}/policies/{policyId}`
+ *    enterprises/{enterpriseId}/policies/{policyId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesPoliciesPatch
  */
@@ -727,30 +751,30 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a web token to access an embeddable managed Google Play web UI for
- *  a given enterprise.
+ *  Creates a web token to access an embeddable managed Google Play web UI for a
+ *  given enterprise.
  *
  *  Method: androidmanagement.enterprises.webTokens.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesWebTokensCreate : GTLRAndroidManagementQuery
 // Previous library name was
 //   +[GTLQueryAndroidManagement queryForEnterprisesWebTokensCreateWithObject:parent:]
 
-/**
- *  The name of the enterprise in the form
- *  `enterprises/{enterpriseId}`
- */
+/** The name of the enterprise in the form enterprises/{enterpriseId} */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAndroidManagement_WebToken.
  *
- *  Creates a web token to access an embeddable managed Google Play web UI for
- *  a given enterprise.
+ *  Creates a web token to access an embeddable managed Google Play web UI for a
+ *  given enterprise.
  *
  *  @param object The @c GTLRAndroidManagement_WebToken to include in the query.
  *  @param parent The name of the enterprise in the form
- *    `enterprises/{enterpriseId}`
+ *    enterprises/{enterpriseId}
  *
  *  @returns GTLRAndroidManagementQuery_EnterprisesWebTokensCreate
  */
@@ -763,6 +787,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates an enterprise signup URL.
  *
  *  Method: androidmanagement.signupUrls.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_SignupUrlsCreate : GTLRAndroidManagementQuery
 // Previous library name was
@@ -770,13 +797,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The callback URL to which the admin will be redirected after successfully
- *  creating an enterprise. Before redirecting there the system will add a
- *  query parameter to this URL named `enterpriseToken` which will
- *  contain an opaque token to be used for the
- *  [create
- *  enterprise](/android/management/reference/rest/v1/enterprises/create)
- *  request. The URL will be parsed then reformatted in order to add the
- *  `enterpriseToken` parameter, so there may be some minor formatting changes.
+ *  creating an enterprise. Before redirecting there the system will add a query
+ *  parameter to this URL named enterpriseToken which will contain an opaque
+ *  token to be used for the create enterprise request. The URL will be parsed
+ *  then reformatted in order to add the enterpriseToken parameter, so there may
+ *  be some minor formatting changes.
  */
 @property(nonatomic, copy, nullable) NSString *callbackUrl;
 

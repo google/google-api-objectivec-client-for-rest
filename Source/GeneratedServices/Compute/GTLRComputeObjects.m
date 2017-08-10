@@ -244,6 +244,10 @@ NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ResourceNotDelete
 NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_Firewall.direction
+NSString * const kGTLRCompute_Firewall_Direction_Egress  = @"EGRESS";
+NSString * const kGTLRCompute_Firewall_Direction_Ingress = @"INGRESS";
+
 // GTLRCompute_ForwardingRule.IPProtocol
 NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Ah   = @"AH";
 NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Esp  = @"ESP";
@@ -1950,8 +1954,9 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_Firewall
-@dynamic allowed, creationTimestamp, descriptionProperty, identifier, kind,
-         name, network, selfLink, sourceRanges, sourceTags, targetTags;
+@dynamic allowed, creationTimestamp, denied, descriptionProperty,
+         destinationRanges, direction, identifier, kind, name, network,
+         priority, selfLink, sourceRanges, sourceTags, targetTags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1964,6 +1969,8 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"allowed" : [GTLRCompute_Firewall_Allowed_Item class],
+    @"denied" : [GTLRCompute_Firewall_Denied_Item class],
+    @"destinationRanges" : [NSString class],
     @"sourceRanges" : [NSString class],
     @"sourceTags" : [NSString class],
     @"targetTags" : [NSString class]
@@ -1980,6 +1987,24 @@ NSString * const kGTLRCompute_Zone_Status_Up   = @"UP";
 //
 
 @implementation GTLRCompute_Firewall_Allowed_Item
+@dynamic IPProtocol, ports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ports" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_Firewall_Denied_Item
+//
+
+@implementation GTLRCompute_Firewall_Denied_Item
 @dynamic IPProtocol, ports;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

@@ -14,16 +14,16 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAdExperienceReport_PlatformSummary.abusiveStatus
+NSString * const kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Failing = @"FAILING";
+NSString * const kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Passing = @"PASSING";
+NSString * const kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Unknown = @"UNKNOWN";
+
 // GTLRAdExperienceReport_PlatformSummary.betterAdsStatus
 NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Failing = @"FAILING";
 NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Passing = @"PASSING";
 NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Unknown = @"UNKNOWN";
 NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Warning = @"WARNING";
-
-// GTLRAdExperienceReport_PlatformSummary.egregiousStatus
-NSString * const kGTLRAdExperienceReport_PlatformSummary_EgregiousStatus_Failing = @"FAILING";
-NSString * const kGTLRAdExperienceReport_PlatformSummary_EgregiousStatus_Passing = @"PASSING";
-NSString * const kGTLRAdExperienceReport_PlatformSummary_EgregiousStatus_Unknown = @"UNKNOWN";
 
 // GTLRAdExperienceReport_PlatformSummary.filterStatus
 NSString * const kGTLRAdExperienceReport_PlatformSummary_FilterStatus_Off = @"OFF";
@@ -43,7 +43,7 @@ NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionUnknown = 
 //
 
 @implementation GTLRAdExperienceReport_PlatformSummary
-@dynamic betterAdsStatus, egregiousStatus, enforcementTime, filterStatus,
+@dynamic abusiveStatus, betterAdsStatus, enforcementTime, filterStatus,
          lastChangeTime, region, reportUrl, underReview;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

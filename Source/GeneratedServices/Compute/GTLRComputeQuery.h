@@ -949,7 +949,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_AutoscalersPatch : GTLRComputeQuery
 // Previous library name was
@@ -1234,7 +1233,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_BackendBucketsPatch : GTLRComputeQuery
 // Previous library name was
@@ -1635,7 +1633,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_BackendServicesPatch : GTLRComputeQuery
 // Previous library name was
@@ -2586,9 +2583,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the specified firewall rule with the data included in the request.
- *  Using PUT method, can only update following fields of firewall rule:
- *  allowed, description, sourceRanges, sourceTags, targetTags. This method
- *  supports patch semantics.
+ *  This method supports PATCH semantics and uses the JSON merge patch format
+ *  and processing rules.
  *
  *  Method: compute.firewalls.patch
  *
@@ -2600,7 +2596,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCompute queryForFirewallsPatchWithObject:project:firewall:]
 
-/** Name of the firewall rule to update. */
+/** Name of the firewall rule to patch. */
 @property(nonatomic, copy, nullable) NSString *firewall;
 
 /** Project ID for this request. */
@@ -2610,13 +2606,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified firewall rule with the data included in the request.
- *  Using PUT method, can only update following fields of firewall rule:
- *  allowed, description, sourceRanges, sourceTags, targetTags. This method
- *  supports patch semantics.
+ *  This method supports PATCH semantics and uses the JSON merge patch format
+ *  and processing rules.
  *
  *  @param object The @c GTLRCompute_Firewall to include in the query.
  *  @param project Project ID for this request.
- *  @param firewall Name of the firewall rule to update.
+ *  @param firewall Name of the firewall rule to patch.
  *
  *  @returns GTLRComputeQuery_FirewallsPatch
  */
@@ -3867,7 +3862,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_HealthChecksPatch : GTLRComputeQuery
 // Previous library name was
@@ -4138,7 +4132,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_HttpHealthChecksPatch : GTLRComputeQuery
 // Previous library name was
@@ -4409,7 +4402,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_HttpsHealthChecksPatch : GTLRComputeQuery
 // Previous library name was
@@ -8708,7 +8700,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionAutoscalersPatch : GTLRComputeQuery
 // Previous library name was
@@ -9054,7 +9045,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionBackendServicesPatch : GTLRComputeQuery
 // Previous library name was
@@ -10935,7 +10925,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RoutersPatch : GTLRComputeQuery
 // Previous library name was
@@ -14497,7 +14486,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_UrlMapsPatch : GTLRComputeQuery
 // Previous library name was

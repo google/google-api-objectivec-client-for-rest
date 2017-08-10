@@ -86,6 +86,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *sha1;
 
+/**
+ *  A sha256 hash of the APK payload, encoded as a hex string and matching the
+ *  output of the sha256sum command.
+ */
+@property(nonatomic, copy, nullable) NSString *sha256;
+
 @end
 
 
@@ -897,6 +903,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** The order id associated with the purchase of the inapp product. */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
 /**
  *  The purchase state of the order. Possible values are:
  *  - Purchased
@@ -1103,9 +1112,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  The order id of the latest recurring order associated with the purchase of
+ *  the subscription.
+ */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
  *  The payment state of the subscription. Possible values are:
  *  - Payment pending
  *  - Payment received
+ *  - Free trial
  *
  *  Uses NSNumber of intValue.
  */

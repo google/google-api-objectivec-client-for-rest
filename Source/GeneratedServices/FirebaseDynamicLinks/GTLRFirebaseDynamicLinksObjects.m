@@ -157,7 +157,7 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 //
 
 @implementation GTLRFirebaseDynamicLinks_DynamicLinkWarning
-@dynamic warningCode, warningMessage;
+@dynamic warningCode, warningDocumentLink, warningMessage;
 @end
 
 

@@ -4,11 +4,8 @@
 // API:
 //   Google Safe Browsing API (safebrowsing/v4)
 // Description:
-//   The Safe Browsing API is an experimental API that allows client
-//   applications to check URLs against Google's constantly-updated blacklists
-//   of suspected phishing and malware pages. Your client application can use
-//   the API to download an encrypted table for local, client-side lookups of
-//   URLs.
+//   Enables client applications to check web resources (most commonly URLs)
+//   against Google-generated lists of unsafe web resources.
 // Documentation:
 //   https://developers.google.com/safe-browsing/
 

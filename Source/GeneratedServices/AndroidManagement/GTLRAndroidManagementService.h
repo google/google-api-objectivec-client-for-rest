@@ -21,6 +21,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: Manage Android devices and apps for your customers
+ *
+ *  Value "https://www.googleapis.com/auth/androidmanagement"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeAndroidManagement;
+
+// ----------------------------------------------------------------------------
+//   GTLRAndroidManagementService
+//
+
 /**
  *  Service for executing Android Management API queries.
  *

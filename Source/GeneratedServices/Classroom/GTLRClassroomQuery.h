@@ -760,7 +760,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifer of the student work to request.
+ *  Identifier of the student work to request.
  *  This may be set to the string literal `"-"` to request student work for
  *  all course work in the specified course.
  */
@@ -840,7 +840,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param courseId Identifier of the course.
  *    This identifier can be either the Classroom-assigned identifier or an
  *    alias.
- *  @param courseWorkId Identifer of the student work to request.
+ *  @param courseWorkId Identifier of the student work to request.
  *    This may be set to the string literal `"-"` to request student work for
  *    all course work in the specified course.
  *
@@ -1404,7 +1404,8 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Returns a list of courses that the requesting user is permitted to view,
- *  restricted to those that match the request.
+ *  restricted to those that match the request. Returned courses are ordered by
+ *  creation time, with the most recently created coming first.
  *  This method returns the following error codes:
  *  * `PERMISSION_DENIED` for access errors.
  *  * `INVALID_ARGUMENT` if the query argument is malformed.
@@ -1474,7 +1475,8 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Fetches a @c GTLRClassroom_ListCoursesResponse.
  *
  *  Returns a list of courses that the requesting user is permitted to view,
- *  restricted to those that match the request.
+ *  restricted to those that match the request. Returned courses are ordered by
+ *  creation time, with the most recently created coming first.
  *  This method returns the following error codes:
  *  * `PERMISSION_DENIED` for access errors.
  *  * `INVALID_ARGUMENT` if the query argument is malformed.
@@ -1529,6 +1531,10 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  * `description`
  *  * `room`
  *  * `courseState`
+ *  * `ownerId`
+ *  Note: patches to ownerId are treated as being effective immediately, but in
+ *  practice it may take some time for the ownership transfer of all affected
+ *  resources to complete.
  *  When set in a query parameter, this field should be specified as
  *  `updateMask=<field1>,<field2>,...`
  *

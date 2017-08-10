@@ -213,8 +213,8 @@
 
 @implementation GTLRAnalytics_CustomDataSource
 @dynamic accountId, childLink, created, descriptionProperty, identifier,
-         importBehavior, kind, name, parentLink, profilesLinked, selfLink, type,
-         updated, uploadType, webPropertyId;
+         importBehavior, kind, name, parentLink, profilesLinked, schema,
+         selfLink, type, updated, uploadType, webPropertyId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -226,7 +226,8 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"profilesLinked" : [NSString class]
+    @"profilesLinked" : [NSString class],
+    @"schema" : [NSString class]
   };
   return map;
 }
@@ -1513,7 +1514,8 @@
 //
 
 @implementation GTLRAnalytics_Upload
-@dynamic accountId, customDataSourceId, errors, identifier, kind, status;
+@dynamic accountId, customDataSourceId, errors, identifier, kind, status,
+         uploadTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

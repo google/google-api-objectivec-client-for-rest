@@ -344,9 +344,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *currentDiskSize;
 
 /**
- *  The database engine type and version. The databaseVersion can not be changed
- *  after instance creation. Can be MYSQL_5_5, MYSQL_5_6 or MYSQL_5_7. Defaults
- *  to MYSQL_5_6. MYSQL_5_7 is applicable only to Second Generation instances.
+ *  The database engine type and version. The databaseVersion field can not be
+ *  changed after instance creation. MySQL Second Generation instances:
+ *  MYSQL_5_7 (default) or MYSQL_5_6. PostgreSQL instances: POSTGRES_9_6 MySQL
+ *  First Generation instances: MYSQL_5_6 (default) or MYSQL_5_5
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -358,6 +359,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  only to Second Generation instances.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DatabaseInstance_FailoverReplica *failoverReplica;
+
+/**
+ *  The GCE zone that the instance is serving from. In case when the instance is
+ *  failed over to standby zone, this value may be different with what user
+ *  specified in the settings.
+ */
+@property(nonatomic, copy, nullable) NSString *gceZone;
 
 /**
  *  The instance type. This can be one of the following.
@@ -696,8 +704,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *fileType;
 
 /**
- *  The PostgreSQL user to use for this import operation. Defaults to
- *  cloudsqlsuperuser. Does not apply to MySQL instances.
+ *  The PostgreSQL user for this import operation. Defaults to
+ *  cloudsqlsuperuser. Used only for PostgreSQL instances.
  */
 @property(nonatomic, copy, nullable) NSString *importUser;
 
@@ -847,8 +855,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *ipv4Enabled;
 
 /**
- *  Whether the mysqld should default to 'REQUIRE X509' for users connecting
- *  over IP.
+ *  Whether SSL connections over IP should be enforced or not.
  *
  *  Uses NSNumber of boolValue.
  */

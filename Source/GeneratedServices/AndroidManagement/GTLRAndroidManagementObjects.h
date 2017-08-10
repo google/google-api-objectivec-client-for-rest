@@ -75,7 +75,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPer
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Grant;
 /**
  *  Policy not specified. If no policy is specified for a permission at any
- *  level, then the `PROMPT` behavior is used by default.
+ *  level, then the PROMPT behavior is used by default.
  *
  *  Value: "PERMISSION_POLICY_UNSPECIFIED"
  */
@@ -105,8 +105,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallTyp
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_InstallTypeUnspecified;
 /**
- *  The application is automatically installed and can be removed by the
- *  user.
+ *  The application is automatically installed and can be removed by the user.
  *
  *  Value: "PREINSTALLED"
  */
@@ -294,9 +293,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_BundleA
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Choice;
 /**
- *  A hidden restriction of string type (the default value can be used
- *  to pass along information that cannot be modified, such as a version
- *  code).
+ *  A hidden restriction of string type (the default value can be used to pass
+ *  along information that cannot be modified, such as a version code).
  *
  *  Value: "HIDDEN"
  */
@@ -330,8 +328,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_String;
 // GTLRAndroidManagement_MemoryEvent.eventType
 
 /**
- *  A new external storage medium was detected. The reported byte count is
- *  the total capacity of the storage medium.
+ *  A new external storage medium was detected. The reported byte count is the
+ *  total capacity of the storage medium.
  *
  *  Value: "EXTERNAL_STORAGE_DETECTED"
  */
@@ -490,15 +488,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonCompl
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_NonComplianceReasonUnspecified;
 /**
- *  The setting was not applied yet at the time of the report, but is
- *  expected to be applied shortly.
+ *  The setting was not applied yet at the time of the report, but is expected
+ *  to be applied shortly.
  *
  *  Value: "PENDING"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Pending;
 /**
- *  The policy is not supported by the version of Android Device Policy on
- *  the device.
+ *  The policy is not supported by the version of Android Device Policy on the
+ *  device.
  *
  *  Value: "UNSUPPORTED"
  */
@@ -559,15 +557,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_NonComplianceReasonUnspecified;
 /**
- *  The setting was not applied yet at the time of the report, but is
- *  expected to be applied shortly.
+ *  The setting was not applied yet at the time of the report, but is expected
+ *  to be applied shortly.
  *
  *  Value: "PENDING"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Pending;
 /**
- *  The policy is not supported by the version of Android Device Policy on
- *  the device.
+ *  The policy is not supported by the version of Android Device Policy on the
+ *  device.
  *
  *  Value: "UNSUPPORTED"
  */
@@ -596,9 +594,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_Passwor
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphanumeric;
 /**
- *  The password must contain at least a letter, a numerical digit and a
- *  special symbol. Other password constraints, for example,
- *  `password_minimum_letters` are enforced.
+ *  The password must contain at least a letter, a numerical digit and a special
+ *  symbol. Other password constraints, for example, password_minimum_letters
+ *  are enforced.
  *
  *  Value: "COMPLEX"
  */
@@ -623,8 +621,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_Passwor
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_PasswordQualityUnspecified;
 /**
- *  There must be a password, but there are no restrictions on its
- *  characters.
+ *  There must be a password, but there are no restrictions on its characters.
  *
  *  Value: "SOMETHING"
  */
@@ -647,7 +644,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Deny;
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Grant;
 /**
  *  Policy not specified. If no policy is specified for a permission at any
- *  level, then the `PROMPT` behavior is used by default.
+ *  level, then the PROMPT behavior is used by default.
  *
  *  Value: "PERMISSION_POLICY_UNSPECIFIED"
  */
@@ -676,7 +673,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPoli
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Grant;
 /**
  *  Policy not specified. If no policy is specified for a permission at any
- *  level, then the `PROMPT` behavior is used by default.
+ *  level, then the PROMPT behavior is used by default.
  *
  *  Value: "PERMISSION_POLICY_UNSPECIFIED"
  */
@@ -768,18 +765,17 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Automatic;
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Postpone;
 /**
- *  Follow the default update behavior for the device, which typically
- *  requires the user to accept system updates.
+ *  Follow the default update behavior for the device, which typically requires
+ *  the user to accept system updates.
  *
  *  Value: "SYSTEM_UPDATE_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_SystemUpdateTypeUnspecified;
 /**
- *  Install automatically within a daily maintenance window. If the device
- *  has a device account, this also configures Play apps to be updated within
- *  the window. This is strongly recommended for kiosk devices because this
- *  is the only way apps persistently pinned to the foreground can be updated
- *  by Play.
+ *  Install automatically within a daily maintenance window. If the device has a
+ *  device account, this also configures Play apps to be updated within the
+ *  window. This is strongly recommended for kiosk devices because this is the
+ *  only way apps persistently pinned to the foreground can be updated by Play.
  *
  *  Value: "WINDOWED"
  */
@@ -801,9 +797,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_ApiLevelCondition : GTLRObject
 
 /**
- *  The minimum desired Android Framework API level. If the device does not
- *  meet the minimum requirement, this condition is satisfied. Must be greater
- *  than zero.
+ *  The minimum desired Android Framework API level. If the device does not meet
+ *  the minimum requirement, this condition is satisfied. Must be greater than
+ *  zero.
  *
  *  Uses NSNumber of intValue.
  */
@@ -825,7 +821,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  The name of the application in the form
- *  `enterprises/{enterpriseId}/applications/{package_name}`
+ *  enterprises/{enterpriseId}/applications/{package_name}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -844,8 +840,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_ApplicationPermission : GTLRObject
 
 /**
- *  A longer description of the permission, giving more details of
- *  what it affects. Localized.
+ *  A longer description of the permission, giving more details of what it
+ *  affects. Localized.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -867,8 +863,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  The default policy for all permissions requested by the app. If specified,
- *  this overrides the policy-level `default_permission_policy` which applies
- *  to all apps.
+ *  this overrides the policy-level default_permission_policy which applies to
+ *  all apps.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Deny
@@ -877,8 +873,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        Automatically grant a permission. (Value: "GRANT")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_PermissionPolicyUnspecified
  *        Policy not specified. If no policy is specified for a permission at
- *        any
- *        level, then the `PROMPT` behavior is used by default. (Value:
+ *        any level, then the PROMPT behavior is used by default. (Value:
  *        "PERMISSION_POLICY_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Prompt
  *        Prompt the user to grant a permission. (Value: "PROMPT")
@@ -891,8 +886,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled
  *        The application is automatically installed and cannot be removed by
- *        the
- *        user. (Value: "FORCE_INSTALLED")
+ *        the user. (Value: "FORCE_INSTALLED")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_InstallTypeUnspecified
  *        No automatic installation is performed. Any other app policies will be
  *        applied if the user installs the app. (Value:
@@ -912,33 +906,28 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Managed configuration applied to the app. The format for the configuration
- *  is dictated by the
- *  [`ManagedProperty`](/android/management/reference/rest/v1/enterprises.applications#ManagedProperty)
- *  values supported by the app. Each field name in the managed configuration
- *  must match the `key` field of the `ManagedProperty`. The field value must
- *  be compatible with the `type` of the `ManagedProperty`:
- *  <table>
- *  <tr><td><i>type</i></td><td><i>JSON value</i></td></tr>
- *  <tr><td>`BOOL`</td><td>`true` or `false`</td></tr>
- *  <tr><td>`STRING`</td><td>string</td></tr>
- *  <tr><td>`INTEGER`</td><td>number</td></tr>
- *  <tr><td>`CHOICE`</td><td>string</td></tr>
- *  <tr><td>`MULTISELECT`</td><td>array of strings</td></tr>
- *  <tr><td>`HIDDEN`</td><td>string</td></tr>
- *  <tr><td>`BUNDLE_ARRAY`</td><td>array of objects</td></tr>
- *  </table>
+ *  is dictated by the ManagedProperty values supported by the app. Each field
+ *  name in the managed configuration must match the key field of the
+ *  ManagedProperty. The field value must be compatible with the type of the
+ *  ManagedProperty: <table> <tr><td><i>type</i></td><td><i>JSON
+ *  value</i></td></tr> <tr><td>BOOL</td><td>true or false</td></tr>
+ *  <tr><td>STRING</td><td>string</td></tr>
+ *  <tr><td>INTEGER</td><td>number</td></tr>
+ *  <tr><td>CHOICE</td><td>string</td></tr> <tr><td>MULTISELECT</td><td>array of
+ *  strings</td></tr> <tr><td>HIDDEN</td><td>string</td></tr>
+ *  <tr><td>BUNDLE_ARRAY</td><td>array of objects</td></tr> </table>
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ApplicationPolicy_ManagedConfiguration *managedConfiguration;
 
 /**
- *  The package name of the app, e.g. `com.google.android.youtube` for the
- *  YouTube app.
+ *  The package name of the app, e.g. com.google.android.youtube for the YouTube
+ *  app.
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
- *  Explicit permission grants or denials for the app. These values override
- *  the `default_permission_policy`.
+ *  Explicit permission grants or denials for the app. These values override the
+ *  default_permission_policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PermissionGrant *> *permissionGrants;
 
@@ -947,21 +936,16 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Managed configuration applied to the app. The format for the configuration
- *  is dictated by the
- *  [`ManagedProperty`](/android/management/reference/rest/v1/enterprises.applications#ManagedProperty)
- *  values supported by the app. Each field name in the managed configuration
- *  must match the `key` field of the `ManagedProperty`. The field value must
- *  be compatible with the `type` of the `ManagedProperty`:
- *  <table>
- *  <tr><td><i>type</i></td><td><i>JSON value</i></td></tr>
- *  <tr><td>`BOOL`</td><td>`true` or `false`</td></tr>
- *  <tr><td>`STRING`</td><td>string</td></tr>
- *  <tr><td>`INTEGER`</td><td>number</td></tr>
- *  <tr><td>`CHOICE`</td><td>string</td></tr>
- *  <tr><td>`MULTISELECT`</td><td>array of strings</td></tr>
- *  <tr><td>`HIDDEN`</td><td>string</td></tr>
- *  <tr><td>`BUNDLE_ARRAY`</td><td>array of objects</td></tr>
- *  </table>
+ *  is dictated by the ManagedProperty values supported by the app. Each field
+ *  name in the managed configuration must match the key field of the
+ *  ManagedProperty. The field value must be compatible with the type of the
+ *  ManagedProperty: <table> <tr><td><i>type</i></td><td><i>JSON
+ *  value</i></td></tr> <tr><td>BOOL</td><td>true or false</td></tr>
+ *  <tr><td>STRING</td><td>string</td></tr>
+ *  <tr><td>INTEGER</td><td>number</td></tr>
+ *  <tr><td>CHOICE</td><td>string</td></tr> <tr><td>MULTISELECT</td><td>array of
+ *  strings</td></tr> <tr><td>HIDDEN</td><td>string</td></tr>
+ *  <tr><td>BUNDLE_ARRAY</td><td>array of objects</td></tr> </table>
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -985,18 +969,17 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  The duration for which the command is valid. The command will expire if not
- *  executed by the device during this time. The default duration if
- *  unspecified is ten minutes. There is no maximum duration.
+ *  executed by the device during this time. The default duration if unspecified
+ *  is ten minutes. There is no maximum duration.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
- *  For commands of type `RESET_PASSWORD`, optionally specifies the new
- *  password.
+ *  For commands of type RESET_PASSWORD, optionally specifies the new password.
  */
 @property(nonatomic, copy, nullable) NSString *newPassword NS_RETURNS_NOT_RETAINED;
 
-/** For commands of type `RESET_PASSWORD`, optionally specifies flags. */
+/** For commands of type RESET_PASSWORD, optionally specifies flags. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resetPasswordFlags;
 
 /**
@@ -1020,11 +1003,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /**
  *  A rule declaring which mitigating actions to take when a device is not
  *  compliant with its policy. For every rule, there is always an implicit
- *  mitigating action to set `policy_compliant` to false for the
- *  [`Device`](/android/management/reference/rest/v1/enterprises.devices#Device)
- *  resource, and display a message on the device indicating that the device is
- *  not compliant with its policy. Other mitigating actions may optionally be
- *  taken as well, depending on the field values in the rule.
+ *  mitigating action to set policy_compliant to false for the Device resource,
+ *  and display a message on the device indicating that the device is not
+ *  compliant with its policy. Other mitigating actions may optionally be taken
+ *  as well, depending on the field values in the rule.
  */
 @interface GTLRAndroidManagement_ComplianceRule : GTLRObject
 
@@ -1046,9 +1028,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSNumber *disableApps;
 
 /**
- *  A condition which is satisfied if there exists *any* matching
- *  [`NonComplianceDetail`](/android/management/reference/rest/v1/enterprises.devices#NonComplianceDetail)
- *  for the device.
+ *  A condition which is satisfied if there exists any matching
+ *  NonComplianceDetail for the device.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_NonComplianceDetailCondition *nonComplianceDetailCondition;
 
@@ -1056,9 +1037,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 
 /**
- *  A device owned by an enterprise.
- *  Unless otherwise noted, all fields are read-only and cannot be modified by
- *  an update device request.
+ *  A device owned by an enterprise. Unless otherwise noted, all fields are
+ *  read-only and cannot be modified by an update device request.
  */
 @interface GTLRAndroidManagement_Device : GTLRObject
 
@@ -1086,22 +1066,21 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Active The device is
  *        active. (Value: "ACTIVE")
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Deleted The device was
- *        deleted. This state will never be returned by an API call,
- *        but will be used in the final policy compliance report published to
- *        Cloud
- *        Pub/Sub when the device acknowledges the deletion. (Value: "DELETED")
+ *        deleted. This state will never be returned by an API call, but will be
+ *        used in the final policy compliance report published to Cloud Pub/Sub
+ *        when the device acknowledges the deletion. (Value: "DELETED")
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_DeviceStateUnspecified
  *        This value is disallowed. (Value: "DEVICE_STATE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Disabled The device is
  *        disabled. (Value: "DISABLED")
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Provisioning The device
- *        is being provisioned. Newly enrolled devices will be in this
- *        state until they have applied policy. (Value: "PROVISIONING")
+ *        is being provisioned. Newly enrolled devices will be in this state
+ *        until they have applied policy. (Value: "PROVISIONING")
  */
 @property(nonatomic, copy, nullable) NSString *appliedState;
 
 /**
- *  If the device state is `DISABLED`, an optional message that is displayed on
+ *  If the device state is DISABLED, an optional message that is displayed on
  *  the device indicating the reason the device is disabled. This field may be
  *  modified by an update request.
  */
@@ -1109,7 +1088,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Displays on the device. This information is only available when
- *  `displayInfoEnabled` is true in the device's policy.
+ *  displayInfoEnabled is true in the device's policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_Display *> *displays;
 
@@ -1133,7 +1112,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Hardware status samples in chronological order. This information is only
- *  available when `hardwareStatusEnabled` is true in the device's policy.
+ *  available when hardwareStatusEnabled is true in the device's policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_HardwareStatus *> *hardwareStatusSamples;
 
@@ -1148,26 +1127,26 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Events related to memory and storage measurements in chronological order.
- *  This information is only available when `memoryInfoEnabled` is true in the
+ *  This information is only available when memoryInfoEnabled is true in the
  *  device's policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_MemoryEvent *> *memoryEvents;
 
 /**
  *  Memory information. This information is only available when
- *  `memoryInfoEnabled` is true in the device's policy.
+ *  memoryInfoEnabled is true in the device's policy.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_MemoryInfo *memoryInfo;
 
 /**
  *  The name of the device in the form
- *  `enterprises/{enterpriseId}/devices/{deviceId}`
+ *  enterprises/{enterpriseId}/devices/{deviceId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Device network information. This information is only available when
- *  `networkInfoEnabled` is true in the device's policy.
+ *  networkInfoEnabled is true in the device's policy.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_NetworkInfo *networkInfo;
 
@@ -1185,68 +1164,63 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  The name of the policy that is intended to be applied to the device. If
- *  empty, the policy with id `default` is applied.
- *  This field may be modified by an update request.
- *  The name of the policy is in the form
- *  `enterprises/{enterpriseId}/policies/{policyId}`.
- *  It is also permissible to only specify the `policyId` when updating this
- *  field as long as the `policyId` contains no slashes since the rest of the
- *  policy name can be inferred from context.
+ *  empty, the policy with id default is applied. This field may be modified by
+ *  an update request. The name of the policy is in the form
+ *  enterprises/{enterpriseId}/policies/{policyId}. It is also permissible to
+ *  only specify the policyId when updating this field as long as the policyId
+ *  contains no slashes since the rest of the policy name can be inferred from
+ *  context.
  */
 @property(nonatomic, copy, nullable) NSString *policyName;
 
 /**
  *  Power management events on the device in chronological order. This
- *  information is only available when `powerManagementEventsEnabled` is true
- *  in the device's policy.
+ *  information is only available when powerManagementEventsEnabled is true in
+ *  the device's policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PowerManagementEvent *> *powerManagementEvents;
 
 /**
- *  The previous device names used for the same physical device when it has
- *  been enrolled multiple times. The serial number is used as the unique
- *  identifier to determine if the same physical device has enrolled
- *  previously. The names are in chronological order.
+ *  The previous device names used for the same physical device when it has been
+ *  enrolled multiple times. The serial number is used as the unique identifier
+ *  to determine if the same physical device has enrolled previously. The names
+ *  are in chronological order.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *previousDeviceNames;
 
 /**
  *  Detailed information about the device software. This information is only
- *  available when `softwareInfoEnabled` is true in the device's policy.
+ *  available when softwareInfoEnabled is true in the device's policy.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_SoftwareInfo *softwareInfo;
 
 /**
  *  The state that is intended to be applied to the device. This field may be
- *  modified by an update request.
- *  Note that UpdateDevice only handles toggling between `ACTIVE` and
- *  `DISABLED` states. Use the
- *  [delete device
- *  method](/android/management/reference/rest/v1/enterprises.devices/delete)
- *  to cause the device to enter the `DELETED` state.
+ *  modified by an update request. Note that UpdateDevice only handles toggling
+ *  between ACTIVE and DISABLED states. Use the delete device method to cause
+ *  the device to enter the DELETED state.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Device_State_Active The device is active.
  *        (Value: "ACTIVE")
  *    @arg @c kGTLRAndroidManagement_Device_State_Deleted The device was
- *        deleted. This state will never be returned by an API call,
- *        but will be used in the final policy compliance report published to
- *        Cloud
- *        Pub/Sub when the device acknowledges the deletion. (Value: "DELETED")
+ *        deleted. This state will never be returned by an API call, but will be
+ *        used in the final policy compliance report published to Cloud Pub/Sub
+ *        when the device acknowledges the deletion. (Value: "DELETED")
  *    @arg @c kGTLRAndroidManagement_Device_State_DeviceStateUnspecified This
  *        value is disallowed. (Value: "DEVICE_STATE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Device_State_Disabled The device is
  *        disabled. (Value: "DISABLED")
  *    @arg @c kGTLRAndroidManagement_Device_State_Provisioning The device is
- *        being provisioned. Newly enrolled devices will be in this
- *        state until they have applied policy. (Value: "PROVISIONING")
+ *        being provisioned. Newly enrolled devices will be in this state until
+ *        they have applied policy. (Value: "PROVISIONING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  The resource name of the user of the device in the form
- *  `enterprises/{enterpriseId}/users/{userId}`. This is the name of the
- *  device account automatically created for this device.
+ *  enterprises/{enterpriseId}/users/{userId}. This is the name of the device
+ *  account automatically created for this device.
  */
 @property(nonatomic, copy, nullable) NSString *userName;
 
@@ -1323,7 +1297,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  service Foo {
  *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
  *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  The JSON representation for Empty is empty JSON object {}.
  */
 @interface GTLRAndroidManagement_Empty : GTLRObject
 @end
@@ -1335,14 +1309,11 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_EnrollmentToken : GTLRObject
 
 /**
- *  Optional, arbitrary data associated with the enrollment token.
- *  This could contain, for example, the id of an org unit to which the device
- *  is assigned after enrollment.
- *  After a device enrolls with the token, this data will be exposed in the
- *  `enrollment_token_data` field of the
- *  [`Device`](/android/management/reference/rest/v1/enterprises.devices#Device)
- *  resource. The data must be 1024 characters or less; otherwise, the creation
- *  request will fail.
+ *  Optional, arbitrary data associated with the enrollment token. This could
+ *  contain, for example, the id of an org unit to which the device is assigned
+ *  after enrollment. After a device enrolls with the token, this data will be
+ *  exposed in the enrollment_token_data field of the Device resource. The data
+ *  must be 1024 characters or less; otherwise, the creation request will fail.
  */
 @property(nonatomic, copy, nullable) NSString *additionalData;
 
@@ -1353,33 +1324,33 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
- *  The expiration time of the token. This is a read-only field generated by
- *  the server.
+ *  The expiration time of the token. This is a read-only field generated by the
+ *  server.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTimestamp;
 
 /**
  *  The name of the enrollment token, which is generated by the server during
  *  creation, in the form
- *  `enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}`
+ *  enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The name of the policy that will be initially applied to the enrolled
- *  device in the form `enterprises/{enterpriseId}/policies/{policyId}`.
- *  If not specified, the policy with id `default` is applied.
- *  It is permissible to only specify the `policyId` when updating this
- *  field as long as the `policyId` contains no slashes since the rest of the
- *  policy name can be inferred from context.
+ *  The name of the policy that will be initially applied to the enrolled device
+ *  in the form enterprises/{enterpriseId}/policies/{policyId}. If not
+ *  specified, the policy with id default is applied. It is permissible to only
+ *  specify the policyId when updating this field as long as the policyId
+ *  contains no slashes since the rest of the policy name can be inferred from
+ *  context.
  */
 @property(nonatomic, copy, nullable) NSString *policyName;
 
 /**
  *  A JSON string whose UTF-8 representation can be used to generate a QR code
- *  to enroll a device with this enrollment token. To enroll a device using
- *  NFC, the NFC record must contain a serialized `java.util.Properties`
- *  representation of the properties in the JSON.
+ *  to enroll a device with this enrollment token. To enroll a device using NFC,
+ *  the NFC record must contain a serialized java.util.Properties representation
+ *  of the properties in the JSON.
  */
 @property(nonatomic, copy, nullable) NSString *qrCode;
 
@@ -1399,8 +1370,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Whether app auto-approval is enabled. When enabled, apps installed via
- *  policy for this enterprise have all permissions automatically approved.
- *  When enabled, it is the caller's responsibility to display the permissions
+ *  policy for this enterprise have all permissions automatically approved. When
+ *  enabled, it is the caller's responsibility to display the permissions
  *  required by an app to the enterprise admin before setting the app to be
  *  installed in a policy.
  *
@@ -1422,17 +1393,16 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ExternalData *logo;
 
 /**
- *  The name of the enterprise which is generated by the server during
- *  creation, in the form
- *  `enterprises/{enterpriseId}`
+ *  The name of the enterprise which is generated by the server during creation,
+ *  in the form enterprises/{enterpriseId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  A color in RGB format indicating the predominant color to display in the
- *  device management app UI. The color components are stored as follows:
- *  `(red << 16) | (green << 8) | blue`, where each component may take a value
- *  between 0 and 255 inclusive.
+ *  device management app UI. The color components are stored as follows: (red
+ *  << 16) | (green << 8) | blue, where each component may take a value between
+ *  0 and 255 inclusive.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1441,7 +1411,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /**
  *  When Cloud Pub/Sub notifications are enabled, this field is required to
  *  indicate the topic to which the notifications will be published. The format
- *  of this field is `projects/{project}/topics/{topic}`. You must have granted
+ *  of this field is projects/{project}/topics/{topic}. You must have granted
  *  the publish permission on this topic to
  *  android-cloud-policy\@system.gserviceaccount.com
  */
@@ -1491,14 +1461,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *batteryShutdownTemperatures;
 
 /**
- *  Battery throttling temperature thresholds in Celsius for each battery on
- *  the device.
+ *  Battery throttling temperature thresholds in Celsius for each battery on the
+ *  device.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *batteryThrottlingTemperatures;
 
-/** Brand of the device, e.g. `Google`. */
+/** Brand of the device, e.g. Google. */
 @property(nonatomic, copy, nullable) NSString *brand;
 
 /**
@@ -1509,14 +1479,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *cpuShutdownTemperatures;
 
 /**
- *  CPU throttling temperature thresholds in Celsius for each CPU on the
- *  device.
+ *  CPU throttling temperature thresholds in Celsius for each CPU on the device.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *cpuThrottlingTemperatures;
 
-/** Baseband version, e.g. `MDM9625_104662.22.05.34p`. */
+/** Baseband version, e.g. MDM9625_104662.22.05.34p. */
 @property(nonatomic, copy, nullable) NSString *deviceBasebandVersion;
 
 /**
@@ -1527,20 +1496,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *gpuShutdownTemperatures;
 
 /**
- *  GPU throttling temperature thresholds in Celsius for each GPU on the
- *  device.
+ *  GPU throttling temperature thresholds in Celsius for each GPU on the device.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *gpuThrottlingTemperatures;
 
-/** Name of the hardware, e.g. `Angler`. */
+/** Name of the hardware, e.g. Angler. */
 @property(nonatomic, copy, nullable) NSString *hardware;
 
-/** Manufacturer, e.g. `Motorola`. */
+/** Manufacturer, e.g. Motorola. */
 @property(nonatomic, copy, nullable) NSString *manufacturer;
 
-/** The model of the device, e.g. `Asus Nexus 7`. */
+/** The model of the device, e.g. Asus Nexus 7. */
 @property(nonatomic, copy, nullable) NSString *model;
 
 /** The device serial number. */
@@ -1565,7 +1533,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Hardware status. Temperatures may be compared to the temperature thresholds
- *  available in `hardwareInfo` to determine hardware health.
+ *  available in hardwareInfo to determine hardware health.
  */
 @interface GTLRAndroidManagement_HardwareStatus : GTLRObject
 
@@ -1584,9 +1552,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *cpuTemperatures;
 
 /**
- *  CPU usages in percentage for each core available on the device.
- *  Usage is 0 for each unplugged core. Empty array implies that CPU usage
- *  is not supported in the system.
+ *  CPU usages in percentage for each core available on the device. Usage is 0
+ *  for each unplugged core. Empty array implies that CPU usage is not supported
+ *  in the system.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -1698,36 +1666,33 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_ManagedProperty : GTLRObject
 
 /**
- *  The default value of the properties. `BUNDLE_ARRAY` properties
- *  never have a default value.
+ *  The default value of the properties. BUNDLE_ARRAY properties never have a
+ *  default value.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id defaultValue;
 
 /**
- *  A longer description of the property, giving more detail of what it
- *  affects. Localized.
+ *  A longer description of the property, giving more detail of what it affects.
+ *  Localized.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/**
- *  For `CHOICE` or `MULTISELECT` properties, the list
- *  of possible entries.
- */
+/** For CHOICE or MULTISELECT properties, the list of possible entries. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ManagedPropertyEntry *> *entries;
 
 /**
- *  The unique key that the application uses to identify the property,
- *  e.g. "com.google.android.gm.fieldname".
+ *  The unique key that the application uses to identify the property, e.g.
+ *  "com.google.android.gm.fieldname".
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  For `BUNDLE_ARRAY` properties, the list of nested properties. A
- *  `BUNDLE_ARRAY` property is at most two levels deep.
+ *  For BUNDLE_ARRAY properties, the list of nested properties. A BUNDLE_ARRAY
+ *  property is at most two levels deep.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ManagedProperty *> *nestedProperties;
 
@@ -1745,9 +1710,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *    @arg @c kGTLRAndroidManagement_ManagedProperty_Type_Choice A choice of one
  *        item from a set. (Value: "CHOICE")
  *    @arg @c kGTLRAndroidManagement_ManagedProperty_Type_Hidden A hidden
- *        restriction of string type (the default value can be used
- *        to pass along information that cannot be modified, such as a version
- *        code). (Value: "HIDDEN")
+ *        restriction of string type (the default value can be used to pass
+ *        along information that cannot be modified, such as a version code).
+ *        (Value: "HIDDEN")
  *    @arg @c kGTLRAndroidManagement_ManagedProperty_Type_Integer A property of
  *        integer type. (Value: "INTEGER")
  *    @arg @c kGTLRAndroidManagement_ManagedProperty_Type_ManagedPropertyTypeUnspecified
@@ -1785,7 +1750,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_MemoryEvent : GTLRObject
 
 /**
- *  The number of free bytes in the medium, or for `EXTERNAL_STORAGE_DETECTED`,
+ *  The number of free bytes in the medium, or for EXTERNAL_STORAGE_DETECTED,
  *  the total capacity in bytes of the storage medium.
  *
  *  Uses NSNumber of longLongValue.
@@ -1850,13 +1815,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @interface GTLRAndroidManagement_NetworkInfo : GTLRObject
 
-/** IMEI number of the GSM device, e.g. `A1000031212`. */
+/** IMEI number of the GSM device, e.g. A1000031212. */
 @property(nonatomic, copy, nullable) NSString *imei;
 
-/** MEID number of the CDMA device, e.g. `A00000292788E1`. */
+/** MEID number of the CDMA device, e.g. A00000292788E1. */
 @property(nonatomic, copy, nullable) NSString *meid;
 
-/** WiFi MAC address of the device, e.g. `7c:11:11:11:11:11`. */
+/** WiFi MAC address of the device, e.g. 7c:11:11:11:11:11. */
 @property(nonatomic, copy, nullable) NSString *wifiMacAddress;
 
 @end
@@ -1868,8 +1833,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_NonComplianceDetail : GTLRObject
 
 /**
- *  If the policy setting could not be applied, the current value of the
- *  setting on the device.
+ *  If the policy setting could not be applied, the current value of the setting
+ *  on the device.
  *
  *  Can be any valid JSON type.
  */
@@ -1877,22 +1842,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  For settings with nested fields, if a particular nested field is out of
- *  compliance, this specifies the full path to the offending field. The path
- *  is formatted in the same way the policy JSON field would be referenced in
- *  JavaScript, that is:
- *  1) For object-typed fields, the field name is followed by a dot then by a
- *  subfield name.
- *  2) For array-typed fields, the field name is followed by the array index
- *  enclosed in brackets.
- *  For example, to indicate a problem with the `url` field in the
- *  `externalData` field in the 3rd application, the path would be
- *  `applications[2].externalData.url`
+ *  compliance, this specifies the full path to the offending field. The path is
+ *  formatted in the same way the policy JSON field would be referenced in
+ *  JavaScript, that is: 1) For object-typed fields, the field name is followed
+ *  by a dot then by a subfield name. 2) For array-typed fields, the field name
+ *  is followed by the array index enclosed in brackets. For example, to
+ *  indicate a problem with the url field in the externalData field in the 3rd
+ *  application, the path would be applications[2].externalData.url
  */
 @property(nonatomic, copy, nullable) NSString *fieldPath;
 
 /**
- *  If `package_name` is set and the non-compliance reason is
- *  `APP_NOT_INSTALLED`, the detailed reason the app cannot be installed.
+ *  If package_name is set and the non-compliance reason is APP_NOT_INSTALLED,
+ *  the detailed reason the app cannot be installed.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InProgress
@@ -1919,8 +1881,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        "NOT_COMPATIBLE_WITH_DEVICE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotEnrolled
  *        The enterprise is no longer enrolled with Play for Work or Android
- *        Device
- *        Policy is not enabled for the enterprise. (Value: "NOT_ENROLLED")
+ *        Device Policy is not enabled for the enterprise. (Value:
+ *        "NOT_ENROLLED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotFound
  *        The app was not found in Play. (Value: "NOT_FOUND")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_PermissionsNotAccepted
@@ -1938,16 +1900,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AdminType
  *        The admin type (profile owner, device owner, etc.) does not support
- *        the
- *        setting. (Value: "ADMIN_TYPE")
+ *        the setting. (Value: "ADMIN_TYPE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ApiLevel
  *        The setting is not supported in the API level of Android OS version
- *        the
- *        device is running. (Value: "API_LEVEL")
+ *        the device is running. (Value: "API_LEVEL")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppIncompatible
  *        The setting cannot be applied to the application because its target
- *        SDK
- *        version is not high enough. (Value: "APP_INCOMPATIBLE")
+ *        SDK version is not high enough. (Value: "APP_INCOMPATIBLE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppInstalled
  *        A blocked application is installed. (Value: "APP_INSTALLED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotInstalled
@@ -1977,8 +1936,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  The name of the policy setting. This is the JSON field name of a top-level
- *  [`Policy`](/android/management/reference/rest/v1/enterprises.policies#Policy)
- *  field.
+ *  Policy field.
  */
 @property(nonatomic, copy, nullable) NSString *settingName;
 
@@ -1986,12 +1944,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 
 /**
- *  A compliance rule condition which is satisfied if there exists *any*
- *  matching
- *  [`NonComplianceDetail`](/android/management/reference/rest/v1/enterprises.devices#NonComplianceDetail)
- *  for the device. A `NonComplianceDetail` matches a
- *  `NonComplianceDetailCondition` if *all* the fields which are set within the
- *  `NonComplianceDetailCondition` match the corresponding `NonComplianceDetail`
+ *  A compliance rule condition which is satisfied if there exists any matching
+ *  NonComplianceDetail for the device. A NonComplianceDetail matches a
+ *  NonComplianceDetailCondition if all the fields which are set within the
+ *  NonComplianceDetailCondition match the corresponding NonComplianceDetail
  *  fields.
  */
 @interface GTLRAndroidManagement_NonComplianceDetailCondition : GTLRObject
@@ -2003,16 +1959,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AdminType
  *        The admin type (profile owner, device owner, etc.) does not support
- *        the
- *        setting. (Value: "ADMIN_TYPE")
+ *        the setting. (Value: "ADMIN_TYPE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ApiLevel
  *        The setting is not supported in the API level of Android OS version
- *        the
- *        device is running. (Value: "API_LEVEL")
+ *        the device is running. (Value: "API_LEVEL")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppIncompatible
  *        The setting cannot be applied to the application because its target
- *        SDK
- *        version is not high enough. (Value: "APP_INCOMPATIBLE")
+ *        SDK version is not high enough. (Value: "APP_INCOMPATIBLE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppInstalled
  *        A blocked application is installed. (Value: "APP_INSTALLED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotInstalled
@@ -2037,15 +1990,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /**
  *  The package name indicating which application is out of compliance. If not
  *  set, then this condition matches any package name. If this field is set,
- *  then `setting_name` must be unset or set to `applications`; otherwise, the
+ *  then setting_name must be unset or set to applications; otherwise, the
  *  condition would never be satisfied.
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  The name of the policy setting. This is the JSON field name of a top-level
- *  [`Policy`](/android/management/reference/rest/v1/enterprises.policies#Policy)
- *  field. If not set, then this condition matches any setting name.
+ *  Policy field. If not set, then this condition matches any setting name.
  */
 @property(nonatomic, copy, nullable) NSString *settingName;
 
@@ -2059,9 +2011,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If true, the operation is completed, and either `error` or `response` is
- *  available.
+ *  If the value is false, it means the operation is still in progress. If true,
+ *  the operation is completed, and either error or response is available.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2072,28 +2023,27 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  originally returns it. If you use the default HTTP mapping, the name should
+ *  have the format of operations/some/unique/name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
- *  `google.protobuf.Empty`. If the original method is standard
- *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  method returns no data on success, such as Delete, the response is
+ *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
+ *  the response should be the resource. For other methods, the response should
+ *  have the type XxxResponse, where Xxx is the original method name. For
+ *  example, if the original method name is TakeSnapshot(), the inferred
+ *  response type is TakeSnapshotResponse.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_Operation_Response *response;
 
@@ -2102,8 +2052,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -2117,13 +2067,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
- *  `google.protobuf.Empty`. If the original method is standard
- *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  method returns no data on success, such as Delete, the response is
+ *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
+ *  the response should be the resource. For other methods, the response should
+ *  have the type XxxResponse, where Xxx is the original method name. For
+ *  example, if the original method name is TakeSnapshot(), the inferred
+ *  response type is TakeSnapshotResponse.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2140,8 +2089,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_PasswordRequirements : GTLRObject
 
 /**
- *  A device will be wiped after too many incorrect device-unlock passwords
- *  have been entered. A value of 0 means there is no restriction.
+ *  A device will be wiped after too many incorrect device-unlock passwords have
+ *  been entered. A value of 0 means there is no restriction.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2151,9 +2100,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) GTLRDuration *passwordExpirationTimeout;
 
 /**
- *  The length of the password history. After setting this, the user will
- *  not be able to enter a new password that is the same as any password in
- *  the history. A value of 0 means there is no restriction.
+ *  The length of the password history. After setting this, the user will not be
+ *  able to enter a new password that is the same as any password in the
+ *  history. A value of 0 means there is no restriction.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2161,25 +2110,24 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  The minimum allowed password length. A value of 0 means there is no
- *  restriction.
- *  Only enforced when `password_quality` is `NUMERIC`, `NUMERIC_COMPLEX`,
- *  `ALPHABETIC`, `ALPHANUMERIC`, or `COMPLEX`.
+ *  restriction. Only enforced when password_quality is NUMERIC,
+ *  NUMERIC_COMPLEX, ALPHABETIC, ALPHANUMERIC, or COMPLEX.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passwordMinimumLength;
 
 /**
- *  Minimum number of letters required in the password.
- *  Only enforced when `password_quality` is `COMPLEX`.
+ *  Minimum number of letters required in the password. Only enforced when
+ *  password_quality is COMPLEX.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passwordMinimumLetters;
 
 /**
- *  Minimum number of lower case letters required in the password.
- *  Only enforced when `password_quality` is `COMPLEX`.
+ *  Minimum number of lower case letters required in the password. Only enforced
+ *  when password_quality is COMPLEX.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2187,32 +2135,31 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Minimum number of non-letter characters (numerical digits or symbols)
- *  required in the password.
- *  Only enforced when `password_quality` is `COMPLEX`.
+ *  required in the password. Only enforced when password_quality is COMPLEX.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passwordMinimumNonLetter;
 
 /**
- *  Minimum number of numerical digits required in the password.
- *  Only enforced when `password_quality` is `COMPLEX`.
+ *  Minimum number of numerical digits required in the password. Only enforced
+ *  when password_quality is COMPLEX.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passwordMinimumNumeric;
 
 /**
- *  Minimum number of symbols required in the password.
- *  Only enforced when `password_quality` is `COMPLEX`.
+ *  Minimum number of symbols required in the password. Only enforced when
+ *  password_quality is COMPLEX.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passwordMinimumSymbols;
 
 /**
- *  Minimum number of upper case letters required in the password.
- *  Only enforced when `password_quality` is `COMPLEX`.
+ *  Minimum number of upper case letters required in the password. Only enforced
+ *  when password_quality is COMPLEX.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2231,13 +2178,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Complex
  *        The password must contain at least a letter, a numerical digit and a
  *        special symbol. Other password constraints, for example,
- *        `password_minimum_letters` are enforced. (Value: "COMPLEX")
+ *        password_minimum_letters are enforced. (Value: "COMPLEX")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Numeric
  *        The password must contain numeric characters. (Value: "NUMERIC")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_NumericComplex
  *        The password must contain numeric characters with no repeating (4444)
- *        or
- *        ordered (1234, 4321, 2468) sequences. (Value: "NUMERIC_COMPLEX")
+ *        or ordered (1234, 4321, 2468) sequences. (Value: "NUMERIC_COMPLEX")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_PasswordQualityUnspecified
  *        There are no requirements for the password. (Value:
  *        "PASSWORD_QUALITY_UNSPECIFIED")
@@ -2255,7 +2201,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @interface GTLRAndroidManagement_PermissionGrant : GTLRObject
 
-/** The android permission, e.g. `android.permission.READ_CALENDAR`. */
+/** The android permission, e.g. android.permission.READ_CALENDAR. */
 @property(nonatomic, copy, nullable) NSString *permission;
 
 /**
@@ -2268,8 +2214,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        grant a permission. (Value: "GRANT")
  *    @arg @c kGTLRAndroidManagement_PermissionGrant_Policy_PermissionPolicyUnspecified
  *        Policy not specified. If no policy is specified for a permission at
- *        any
- *        level, then the `PROMPT` behavior is used by default. (Value:
+ *        any level, then the PROMPT behavior is used by default. (Value:
  *        "PERMISSION_POLICY_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_PermissionGrant_Policy_Prompt Prompt the
  *        user to grant a permission. (Value: "PROMPT")
@@ -2302,7 +2247,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  The activity that should be the default intent handler. This should be an
- *  Android component name, e.g. `com.android.enterprise.app/.MainActivity`.
+ *  Android component name, e.g. com.android.enterprise.app/.MainActivity.
  *  Alternatively, the value may be the package name of an app, which causes
  *  Android Device Policy to choose an appropriate activity from the app to
  *  handle the intent.
@@ -2335,10 +2280,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationPolicy *> *applications;
 
 /**
- *  Whether applications other than the ones configured in `applications` are
- *  blocked from being installed. When set, applications that were
- *  installed under a previous policy but no longer appear in the policy are
- *  automatically uninstalled.
+ *  Whether applications other than the ones configured in applications are
+ *  blocked from being installed. When set, applications that were installed
+ *  under a previous policy but no longer appear in the policy are automatically
+ *  uninstalled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2354,8 +2299,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /**
  *  Rules declaring which mitigating actions to take when a device is not
  *  compliant with its policy. When the conditions for multiple rules are
- *  satisfied, all of the mitigating actions for the rules are taken. There is
- *  a maximum limit of 100 rules.
+ *  satisfied, all of the mitigating actions for the rules are taken. There is a
+ *  maximum limit of 100 rules.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ComplianceRule *> *complianceRules;
 
@@ -2376,8 +2321,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        Automatically grant a permission. (Value: "GRANT")
  *    @arg @c kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_PermissionPolicyUnspecified
  *        Policy not specified. If no policy is specified for a permission at
- *        any
- *        level, then the `PROMPT` behavior is used by default. (Value:
+ *        any level, then the PROMPT behavior is used by default. (Value:
  *        "PERMISSION_POLICY_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Prompt
  *        Prompt the user to grant a permission. (Value: "PROMPT")
@@ -2392,11 +2336,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSNumber *factoryResetDisabled;
 
 /**
- *  Email addresses of device administrators for factory reset protection.
- *  When the device is factory reset, it will require one of these admins to
- *  log in with the Google account email and password to unlock the device.
- *  If no admins are specified, the device will not provide factory reset
- *  protection.
+ *  Email addresses of device administrators for factory reset protection. When
+ *  the device is factory reset, it will require one of these admins to log in
+ *  with the Google account email and password to unlock the device. If no
+ *  admins are specified, the device will not provide factory reset protection.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *frpAdminEmails;
 
@@ -2409,8 +2352,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSNumber *funDisabled;
 
 /**
- *  Whether the user is allowed to enable the "Unknown Sources" setting,
- *  which allows installation of apps from unknown sources.
+ *  Whether the user is allowed to enable the "Unknown Sources" setting, which
+ *  allows installation of apps from unknown sources.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2424,8 +2367,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSNumber *keyguardDisabled;
 
 /**
- *  Maximum time in milliseconds for user activity until the device will lock.
- *  A value of 0 means there is no restriction.
+ *  Maximum time in milliseconds for user activity until the device will lock. A
+ *  value of 0 means there is no restriction.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2440,7 +2383,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  The name of the policy in the form
- *  `enterprises/{enterpriseId}/policies/{policyId}`
+ *  enterprises/{enterpriseId}/policies/{policyId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2457,9 +2400,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSNumber *networkEscapeHatchEnabled;
 
 /**
- *  Network configuration for the device. See
- *  [configure networks](/android/management/configure-networks)
- *  for more information.
+ *  Network configuration for the device. See configure networks for more
+ *  information.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_Policy_OpenNetworkConfiguration *openNetworkConfiguration;
 
@@ -2503,21 +2445,20 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  The battery plugged in modes for which the device stays on. When using this
- *  setting, it is recommended to clear `maximum_time_to_lock` so that the
- *  device doesn't lock itself while it stays on.
+ *  setting, it is recommended to clear maximum_time_to_lock so that the device
+ *  doesn't lock itself while it stays on.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *stayOnPluggedModes;
 
 /**
  *  The system update policy, which controls how OS updates are applied. If the
- *  update type is `WINDOWED` and the device has a device account, the update
+ *  update type is WINDOWED and the device has a device account, the update
  *  window will automatically apply to Play app updates as well.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_SystemUpdate *systemUpdate;
 
 /**
- *  Whether the microphone is muted and adjusting microphone volume is
- *  disabled.
+ *  Whether the microphone is muted and adjusting microphone volume is disabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2535,9 +2476,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 
 /**
- *  Network configuration for the device. See
- *  [configure networks](/android/management/configure-networks)
- *  for more information.
+ *  Network configuration for the device. See configure networks for more
+ *  information.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2554,7 +2494,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_PowerManagementEvent : GTLRObject
 
 /**
- *  For `BATTERY_LEVEL_COLLECTED` events, the battery level as a percentage.
+ *  For BATTERY_LEVEL_COLLECTED events, the battery level as a percentage.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2596,16 +2536,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_SignupUrl : GTLRObject
 
 /**
- *  The name of the resource. This must be included in the
- *  [create
- *  enterprise](/android/management/reference/rest/v1/enterprises/create)
+ *  The name of the resource. This must be included in the create enterprise
  *  request at the end of the signup flow.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A URL under which the Admin can sign up for an enterprise.
- *  The page pointed to cannot be rendered in an iframe.
+ *  A URL under which the Admin can sign up for an enterprise. The page pointed
+ *  to cannot be rendered in an iframe.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -2618,73 +2556,65 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_SoftwareInfo : GTLRObject
 
 /**
- *  Android build Id string meant for displaying to the user,
- *  e.g. `shamu-userdebug 6.0.1 MOB30I 2756745 dev-keys`.
+ *  Android build Id string meant for displaying to the user, e.g.
+ *  shamu-userdebug 6.0.1 MOB30I 2756745 dev-keys.
  */
 @property(nonatomic, copy, nullable) NSString *androidBuildNumber;
 
 /** Build time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *androidBuildTime;
 
-/** The user visible Android version string, e.g. `6.0.1`. */
+/** The user visible Android version string, e.g. 6.0.1. */
 @property(nonatomic, copy, nullable) NSString *androidVersion;
 
-/** The system bootloader version number, e.g. `0.6.7`. */
+/** The system bootloader version number, e.g. 0.6.7. */
 @property(nonatomic, copy, nullable) NSString *bootloaderVersion;
 
-/** Kernel version, e.g. `2.6.32.9-g103d848`. */
+/** Kernel version, e.g. 2.6.32.9-g103d848. */
 @property(nonatomic, copy, nullable) NSString *deviceKernelVersion;
 
-/** Security patch level, e.g. `2016-05-01`. */
+/** Security patch level, e.g. 2016-05-01. */
 @property(nonatomic, copy, nullable) NSString *securityPatchLevel;
 
 @end
 
 
 /**
- *  The `Status` type defines a logical error model that is suitable for
- *  different
+ *  The Status type defines a logical error model that is suitable for different
  *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
- *  - Simple to use and understand for most users
- *  - Flexible enough to meet unexpected needs
- *  # Overview
- *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
- *  google.rpc.Code, but it may accept additional error codes if needed. The
- *  error message should be a developer-facing English message that helps
- *  developers *understand* and *resolve* the error. If a localized user-facing
- *  error message is needed, put the localized message in the error details or
- *  localize it in the client. The optional error details may contain arbitrary
- *  information about the error. There is a predefined set of error detail types
- *  in the package `google.rpc` that can be used for common error conditions.
- *  # Language mapping
- *  The `Status` message is the logical representation of the error model, but
- *  it
- *  is not necessarily the actual wire format. When the `Status` message is
- *  exposed in different client libraries and different wire protocols, it can
- *  be
- *  mapped differently. For example, it will likely be mapped to some exceptions
- *  in Java, but more likely mapped to some error codes in C.
- *  # Other uses
- *  The error model and the `Status` message can be used in a variety of
- *  environments, either with or without APIs, to provide a
- *  consistent developer experience across different environments.
- *  Example uses of this error model include:
- *  - Partial errors. If a service needs to return partial errors to the client,
- *  it may embed the `Status` in the normal response to indicate the partial
+ *  gRPC (https://github.com/grpc). The error model is designed to be:
+ *  Simple to use and understand for most users
+ *  Flexible enough to meet unexpected needsOverviewThe Status message contains
+ *  three pieces of data: error code, error message, and error details. The
+ *  error code should be an enum value of google.rpc.Code, but it may accept
+ *  additional error codes if needed. The error message should be a
+ *  developer-facing English message that helps developers understand and
+ *  resolve the error. If a localized user-facing error message is needed, put
+ *  the localized message in the error details or localize it in the client. The
+ *  optional error details may contain arbitrary information about the error.
+ *  There is a predefined set of error detail types in the package google.rpc
+ *  that can be used for common error conditions.Language mappingThe Status
+ *  message is the logical representation of the error model, but it is not
+ *  necessarily the actual wire format. When the Status message is exposed in
+ *  different client libraries and different wire protocols, it can be mapped
+ *  differently. For example, it will likely be mapped to some exceptions in
+ *  Java, but more likely mapped to some error codes in C.Other usesThe error
+ *  model and the Status message can be used in a variety of environments,
+ *  either with or without APIs, to provide a consistent developer experience
+ *  across different environments.Example uses of this error model include:
+ *  Partial errors. If a service needs to return partial errors to the client,
+ *  it may embed the Status in the normal response to indicate the partial
  *  errors.
- *  - Workflow errors. A typical workflow has multiple steps. Each step may
- *  have a `Status` message for error reporting.
- *  - Batch operations. If a client uses batch request and batch response, the
- *  `Status` message should be used directly inside batch response, one for
- *  each error sub-response.
- *  - Asynchronous operations. If an API call embeds asynchronous operation
+ *  Workflow errors. A typical workflow has multiple steps. Each step may have a
+ *  Status message for error reporting.
+ *  Batch operations. If a client uses batch request and batch response, the
+ *  Status message should be used directly inside batch response, one for each
+ *  error sub-response.
+ *  Asynchronous operations. If an API call embeds asynchronous operation
  *  results in its response, the status of those operations should be
- *  represented directly using the `Status` message.
- *  - Logging. If some API errors are stored in logs, the message `Status` could
- *  be used directly after any stripping needed for security/privacy reasons.
+ *  represented directly using the Status message.
+ *  Logging. If some API errors are stored in logs, the message Status could be
+ *  used directly after any stripping needed for security/privacy reasons.
  */
 @interface GTLRAndroidManagement_Status : GTLRObject
 
@@ -2779,19 +2709,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_SystemUpdate : GTLRObject
 
 /**
- *  If the type is `WINDOWED`, the end of the maintenance window, measured as
- *  the number of minutes after midnight in device local time. This value must
- *  be between 0 and 1439, inclusive. If this value is less than
- *  `start_minutes`, then the maintenance window spans midnight. If the
- *  maintenance window specified is smaller than 30 minutes, the actual window
- *  is extended to 30 minutes beyond the start time.
+ *  If the type is WINDOWED, the end of the maintenance window, measured as the
+ *  number of minutes after midnight in device local time. This value must be
+ *  between 0 and 1439, inclusive. If this value is less than start_minutes,
+ *  then the maintenance window spans midnight. If the maintenance window
+ *  specified is smaller than 30 minutes, the actual window is extended to 30
+ *  minutes beyond the start time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *endMinutes;
 
 /**
- *  If the type is `WINDOWED`, the start of the maintenance window, measured as
+ *  If the type is WINDOWED, the start of the maintenance window, measured as
  *  the number of minutes after midnight in device local time. This value must
  *  be between 0 and 1439, inclusive.
  *
@@ -2812,14 +2742,11 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        requires the user to accept system updates. (Value:
  *        "SYSTEM_UPDATE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_SystemUpdate_Type_Windowed Install
- *        automatically within a daily maintenance window. If the device
- *        has a device account, this also configures Play apps to be updated
- *        within
+ *        automatically within a daily maintenance window. If the device has a
+ *        device account, this also configures Play apps to be updated within
  *        the window. This is strongly recommended for kiosk devices because
- *        this
- *        is the only way apps persistently pinned to the foreground can be
- *        updated
- *        by Play. (Value: "WINDOWED")
+ *        this is the only way apps persistently pinned to the foreground can be
+ *        updated by Play. (Value: "WINDOWED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2841,8 +2768,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, copy, nullable) NSString *defaultMessage;
 
 /**
- *  A map which contains <locale, message> pairs.
- *  The locale is a BCP 47 language code, e.g. en-US, es-ES, fr.
+ *  A map which contains <locale, message> pairs. The locale is a BCP 47
+ *  language code, e.g. en-US, es-ES, fr.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage_LocalizedMessages *localizedMessages;
 
@@ -2850,8 +2777,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 
 /**
- *  A map which contains <locale, message> pairs.
- *  The locale is a BCP 47 language code, e.g. en-US, es-ES, fr.
+ *  A map which contains <locale, message> pairs. The locale is a BCP 47
+ *  language code, e.g. en-US, es-ES, fr.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2868,9 +2795,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_WebToken : GTLRObject
 
 /**
- *  The name of the web token, which is generated by the server during
- *  creation, in the form
- *  `enterprises/{enterpriseId}/webTokens/{webTokenId}`.
+ *  The name of the web token, which is generated by the server during creation,
+ *  in the form enterprises/{enterpriseId}/webTokens/{webTokenId}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

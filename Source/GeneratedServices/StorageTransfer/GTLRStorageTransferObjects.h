@@ -1325,7 +1325,10 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  The job to update.
+ *  The job to update. `transferJob` is expected to specify only three fields:
+ *  `description`, `transferSpec`, and `status`. An UpdateTransferJobRequest
+ *  that specifies other fields will be rejected with an error
+ *  `INVALID_ARGUMENT`.
  *  Required.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferJob *transferJob;

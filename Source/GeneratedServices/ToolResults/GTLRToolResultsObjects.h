@@ -175,6 +175,30 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_Pending;
 /** Value: "unknownState" */
 GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
 
+// ----------------------------------------------------------------------------
+// GTLRToolResults_TestIssue.severity
+
+/** Value: "info" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Info;
+/** Value: "severe" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Severe;
+/** Value: "unspecifiedSeverity" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_UnspecifiedSeverity;
+/** Value: "warning" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRToolResults_TestIssue.type
+
+/** Value: "anr" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_Anr;
+/** Value: "fatalException" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FatalException;
+/** Value: "nativeCrash" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash;
+/** Value: "unspecifiedType" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
+
 /**
  *  Android app information.
  */
@@ -1551,18 +1575,46 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
 
 
 /**
- *  An abnormal event observed during the test execution.
+ *  An issue detected occurring during a test execution.
  */
 @interface GTLRToolResults_TestIssue : GTLRObject
 
-/**
- *  A brief human-readable message describing the abnormal event.
- *  Required.
- */
+/** A brief human-readable message describing the issue. Required. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
-/** Optional. */
+/**
+ *  Severity of issue. Required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRToolResults_TestIssue_Severity_Info Value "info"
+ *    @arg @c kGTLRToolResults_TestIssue_Severity_Severe Value "severe"
+ *    @arg @c kGTLRToolResults_TestIssue_Severity_UnspecifiedSeverity Value
+ *        "unspecifiedSeverity"
+ *    @arg @c kGTLRToolResults_TestIssue_Severity_Warning Value "warning"
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/** Deprecated in favor of stack trace fields inside specific warnings. */
 @property(nonatomic, strong, nullable) GTLRToolResults_StackTrace *stackTrace;
+
+/**
+ *  Type of issue. Required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRToolResults_TestIssue_Type_Anr Value "anr"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_FatalException Value
+ *        "fatalException"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_NativeCrash Value "nativeCrash"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_UnspecifiedType Value
+ *        "unspecifiedType"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Warning message with additional details of the issue. Should always be a
+ *  message from com.google.devtools.toolresults.v1.warnings Required.
+ */
+@property(nonatomic, strong, nullable) GTLRToolResults_Any *warning;
 
 @end
 

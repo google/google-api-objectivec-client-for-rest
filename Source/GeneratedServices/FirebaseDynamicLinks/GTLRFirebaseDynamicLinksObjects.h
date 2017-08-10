@@ -602,6 +602,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
  */
 @property(nonatomic, copy, nullable) NSString *warningCode;
 
+/** The document describing the warning, and helps resolve. */
+@property(nonatomic, copy, nullable) NSString *warningDocumentLink;
+
 /** The warning message to help developers improve their requests. */
 @property(nonatomic, copy, nullable) NSString *warningMessage;
 

@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The default group ID.
  *
- *  Uses NSNumber of intValue.
+ *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *gid;
 
@@ -123,7 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The user ID.
  *
- *  Uses NSNumber of intValue.
+ *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *uid;
 

@@ -341,6 +341,14 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
 @property(nonatomic, strong, nullable) GTLRManufacturerCenter_Price *suggestedRetailPrice;
 
 /**
+ *  The target account id. Should only be used in the accounts of the data
+ *  partners.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetAccountId;
+
+/**
  *  The theme of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#theme.
  */

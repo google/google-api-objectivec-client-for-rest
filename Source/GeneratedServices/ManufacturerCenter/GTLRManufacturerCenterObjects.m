@@ -48,7 +48,7 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
          format, gender, gtin, imageLink, itemGroupId, material, mpn, pattern,
          productDetail, productLine, productName, productPageUrl, productType,
          releaseDate, scent, size, sizeSystem, sizeType, suggestedRetailPrice,
-         theme, title, videoLink;
+         targetAccountId, theme, title, videoLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

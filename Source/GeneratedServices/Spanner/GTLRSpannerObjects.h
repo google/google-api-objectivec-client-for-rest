@@ -21,6 +21,7 @@
 
 @class GTLRSpanner_AuditConfig;
 @class GTLRSpanner_AuditLogConfig;
+@class GTLRSpanner_AuthorizationLoggingOptions;
 @class GTLRSpanner_Binding;
 @class GTLRSpanner_ChildLink;
 @class GTLRSpanner_CloudAuditOptions;
@@ -97,6 +98,40 @@ GTLR_EXTERN NSString * const kGTLRSpanner_AuditLogConfig_LogType_DataWrite;
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRSpanner_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_AuthorizationLoggingOptions.permissionType
+
+/**
+ *  A read of admin (meta) data.
+ *
+ *  Value: "ADMIN_READ"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_AdminRead;
+/**
+ *  A write of admin (meta) data.
+ *
+ *  Value: "ADMIN_WRITE"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_AdminWrite;
+/**
+ *  A read of standard data.
+ *
+ *  Value: "DATA_READ"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_DataRead;
+/**
+ *  A write of standard data.
+ *
+ *  Value: "DATA_WRITE"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_DataWrite;
+/**
+ *  Default. Should not be used.
+ *
+ *  Value: "PERMISSION_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_CloudAuditOptions.logName
@@ -581,6 +616,31 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  Authorization-related information used by Cloud Audit Logging.
+ */
+@interface GTLRSpanner_AuthorizationLoggingOptions : GTLRObject
+
+/**
+ *  The type of the permission that was checked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_AdminRead
+ *        A read of admin (meta) data. (Value: "ADMIN_READ")
+ *    @arg @c kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_AdminWrite
+ *        A write of admin (meta) data. (Value: "ADMIN_WRITE")
+ *    @arg @c kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_DataRead A
+ *        read of standard data. (Value: "DATA_READ")
+ *    @arg @c kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_DataWrite
+ *        A write of standard data. (Value: "DATA_WRITE")
+ *    @arg @c kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified
+ *        Default. Should not be used. (Value: "PERMISSION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *permissionType;
+
+@end
+
+
+/**
  *  The request for BeginTransaction.
  */
 @interface GTLRSpanner_BeginTransactionRequest : GTLRObject
@@ -674,12 +734,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @interface GTLRSpanner_CloudAuditOptions : GTLRObject
 
-/**
- *  True if the log is for a permission of type DATA_READ or ADMIN_READ.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isReadPermissionType;
+/** Information used by the Cloud Audit Logging pipeline. */
+@property(nonatomic, strong, nullable) GTLRSpanner_AuthorizationLoggingOptions *authorizationLoggingOptions;
 
 /**
  *  The log_name to populate in the Cloud Audit Record.
@@ -2518,8 +2574,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  A list of messages that carry the error details. There will be a
- *  common set of message types for APIs to use.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Status_Details_Item *> *details;
 

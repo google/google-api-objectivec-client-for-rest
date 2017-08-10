@@ -1808,10 +1808,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, copy, nullable) NSString *methodName;
 
 /**
- *  Identity of the operation. This must be unique within the scope of the
- *  service that generated the operation. If the service calls AllocateQuota
- *  and ReleaseQuota on the same operation, the two calls should carry the
- *  same ID.
+ *  Identity of the operation. This is expected to be unique within the scope
+ *  of the service that generated the operation, and guarantees idempotency in
+ *  case of retries.
  *  UUID version 4 is recommended, though not required. In scenarios where an
  *  operation is computed from existing information and an idempotent id is
  *  desirable for deduplication purpose, UUID version 5 is recommended. See

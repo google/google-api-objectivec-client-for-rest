@@ -11,6 +11,15 @@
 
 #import "GTLRAndroidManagement.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopeAndroidManagement = @"https://www.googleapis.com/auth/androidmanagement";
+
+// ----------------------------------------------------------------------------
+//   GTLRAndroidManagementService
+//
+
 @implementation GTLRAndroidManagementService
 
 - (instancetype)init {
