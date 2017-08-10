@@ -20,12 +20,29 @@
 #import "GTLRUtilities.h"
 #import "GTMMIMEDocument.h"
 
-#import "GTLRServiceTestServiceClasses.h"
+#import "GTLRTestingSvc.h"
 
 #import "GTMSessionFetcherService.h"
 
 @interface GTLRServiceTest : XCTestCase
 @end
+
+
+// Surrogates for testing.
+
+@interface GTLRTestingSvc_File_Surrogate : GTLRTestingSvc_File
+@end
+@interface GTLRTestingSvc_FileList_Surrogate : GTLRTestingSvc_FileList
+@end
+@interface GTLRTestingSvc_FileList_Surrogate2 : GTLRTestingSvc_FileList
+@end
+@implementation GTLRTestingSvc_File_Surrogate
+@end
+@implementation GTLRTestingSvc_FileList_Surrogate
+@end
+@implementation GTLRTestingSvc_FileList_Surrogate2
+@end
+
 
 // Internal methods redeclared for testing.
 
@@ -250,12 +267,8 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
 - (GTLRService *)driveServiceForTest {
   // Has valid authorization.
-  GTLRService *service = [[GTLRService alloc] init];
+  GTLRService *service = [[GTLRTestingSvcService alloc] init];
   service.authorizer = [GTLRTestAuthorizer authorizerWithValue:@"catpaws"];
-  service.rootURLString = @"https://www.googleapis.com/";
-  service.servicePath = @"drive/v3/";
-  service.batchPath = @"batch";
-  service.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   return service;
 }
 
