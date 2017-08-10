@@ -71,6 +71,11 @@
 @class GTLRBigquery_UserDefinedFunctionResource;
 @class GTLRBigquery_ViewDefinition;
 
+// Generated comments include content from the discovery document; avoid them
+// causing warnings since clang's checks are some what arbitrary.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdocumentation"
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -584,6 +589,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_ExplainQueryStage : GTLRObject
 
 /**
+ *  Milliseconds the average shard spent on CPU-bound tasks.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *computeMsAvg;
+
+/**
+ *  Milliseconds the slowest shard spent on CPU-bound tasks.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *computeMsMax;
+
+/**
  *  Relative amount of time the average shard spent on CPU-bound tasks.
  *
  *  Uses NSNumber of doubleValue.
@@ -608,6 +627,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Human-readable name for stage. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Milliseconds the average shard spent reading input.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readMsAvg;
+
+/**
+ *  Milliseconds the slowest shard spent reading input.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readMsMax;
 
 /**
  *  Relative amount of time the average shard spent reading input.
@@ -637,6 +670,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *recordsWritten;
 
+/**
+ *  Total number of bytes written to shuffle.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shuffleOutputBytes;
+
+/**
+ *  Total number of bytes written to shuffle and spilled to disk.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shuffleOutputBytesSpilled;
+
 /** Current status for the stage. */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -645,6 +692,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  chronological).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ExplainQueryStep *> *steps;
+
+/**
+ *  Milliseconds the average shard spent waiting to be scheduled.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *waitMsAvg;
+
+/**
+ *  Milliseconds the slowest shard spent waiting to be scheduled.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *waitMsMax;
 
 /**
  *  Relative amount of time the average shard spent waiting to be scheduled.
@@ -659,6 +720,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *waitRatioMax;
+
+/**
+ *  Milliseconds the average shard spent on writing output.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeMsAvg;
+
+/**
+ *  Milliseconds the slowest shard spent on writing output.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeMsMax;
 
 /**
  *  Relative amount of time the average shard spent on writing output.
@@ -769,8 +844,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  load jobs apply to external data sources. For Google Cloud Bigtable URIs:
  *  Exactly one URI can be specified and it has be a fully specified and valid
  *  HTTPS URL for a Google Cloud Bigtable table. For Google Cloud Datastore
- *  backups, exactly one URI can be specified, and it must end with
- *  '.backup_info'. Also, the '*' wildcard character is not allowed.
+ *  backups, exactly one URI can be specified. Also, the '*' wildcard character
+ *  is not allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceUris;
 
@@ -1233,10 +1308,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  load jobs apply to external data sources. For Google Cloud Bigtable URIs:
  *  Exactly one URI can be specified and it has be a fully specified and valid
  *  HTTPS URL for a Google Cloud Bigtable table. For Google Cloud Datastore
- *  backups: Exactly one URI can be specified, and it must end with
- *  '.backup_info'. Also, the '*' wildcard character is not allowed.
+ *  backups: Exactly one URI can be specified. Also, the '*' wildcard character
+ *  is not allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceUris;
+
+/**
+ *  [Experimental] If specified, configures time-based partitioning for the
+ *  destination table.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
  *  [Optional] Specifies the action that occurs if the destination table already
@@ -1369,6 +1450,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  were a standard BigQuery table.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationQuery_TableDefinitions *tableDefinitions;
+
+/**
+ *  [Experimental] If specified, configures time-based partitioning for the
+ *  destination table.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
  *  Specifies whether to use BigQuery's legacy SQL dialect for this query. The
@@ -2717,3 +2804,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#pragma clang diagnostic pop

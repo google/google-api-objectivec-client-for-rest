@@ -46,6 +46,11 @@
 @class GTLRMonitoring_TimeSeries;
 @class GTLRMonitoring_TypedValue;
 
+// Generated comments include content from the discovery document; avoid them
+// causing warnings since clang's checks are some what arbitrary.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdocumentation"
+
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
@@ -1670,3 +1675,5 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 @end
 
 NS_ASSUME_NONNULL_END
+
+#pragma clang diagnostic pop

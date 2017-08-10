@@ -37,6 +37,11 @@
 @class GTLRCloudKMS_Policy;
 @class GTLRCloudKMS_Rule;
 
+// Generated comments include content from the discovery document; avoid them
+// causing warnings since clang's checks are some what arbitrary.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdocumentation"
+
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
@@ -1370,3 +1375,5 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
 @end
 
 NS_ASSUME_NONNULL_END
+
+#pragma clang diagnostic pop

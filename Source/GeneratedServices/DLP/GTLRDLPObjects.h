@@ -54,9 +54,20 @@
 @class GTLRDLP_GooglePrivacyDlpV2beta1Range;
 @class GTLRDLP_GooglePrivacyDlpV2beta1RecordKey;
 @class GTLRDLP_GooglePrivacyDlpV2beta1ReplaceConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1Row;
 @class GTLRDLP_GooglePrivacyDlpV2beta1StorageConfig;
+@class GTLRDLP_GooglePrivacyDlpV2beta1Table;
+@class GTLRDLP_GooglePrivacyDlpV2beta1TableLocation;
+@class GTLRDLP_GooglePrivacyDlpV2beta1Value;
 @class GTLRDLP_GoogleRpcStatus;
 @class GTLRDLP_GoogleRpcStatus_Details_Item;
+@class GTLRDLP_GoogleTypeDate;
+@class GTLRDLP_GoogleTypeTimeOfDay;
+
+// Generated comments include content from the discovery document; avoid them
+// causing warnings since clang's checks are some what arbitrary.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -226,7 +237,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 /**
  *  References to fields uniquely identifying rows within the table.
- *  Nested fields in the format like person.birthdate.year are allowed.
+ *  Nested fields in the format, like `person.birthdate.year`, are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1FieldId *> *identifyingFields;
 
@@ -238,7 +249,10 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 /**
  *  Message defining the location of a BigQuery table. A table is uniquely
- *  identified by its project_id, dataset_id, and table_name.
+ *  identified by its project_id, dataset_id, and table_name. Within a query
+ *  a table is often referenced with a string in the format of:
+ *  `<project_id>:<dataset_id>.<table_id>` or
+ *  `<project_id>.<dataset_id>.<table_id>`.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1BigQueryTable : GTLRObject
 
@@ -246,8 +260,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /**
- *  The GCP project id of the project containing the table.
- *  If omitted, project id is inferred from the API call.
+ *  The Google Cloud Platform project ID of the project containing the table.
+ *  If omitted, project ID is inferred from the API call.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -353,6 +367,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
  */
 @property(nonatomic, copy, nullable) NSString *data;
 
+/** Structured content for inspection. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1Table *table;
+
 /**
  *  Type of the content, as defined in Content-Type HTTP header.
  *  Supported types are: all "text" types, octet streams, PNG images,
@@ -385,11 +402,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
  *  identifier for the Operation, and the `count` is a counter used for
  *  tracking the number of files written. <p>The CSV file(s) contain the
  *  following columns regardless of storage type scanned: <li>id <li>info_type
- *  <li>likelihood <li>byte size of finding <li>quote <li>time_stamp<br/>
+ *  <li>likelihood <li>byte size of finding <li>quote <li>timestamp<br/>
  *  <p>For Cloud Storage the next columns are: <li>file_path
  *  <li>start_offset<br/>
  *  <p>For Cloud Datastore the next columns are: <li>project_id
- *  <li>namespace_id <li>path <li>column_name <li>offset
+ *  <li>namespace_id <li>path <li>column_name <li>offset<br/>
+ *  <p>For BigQuery the next columns are: <li>row_number <li>project_id
+ *  <li>dataset_id <li>table_id
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1OutputStorageConfig *outputConfig;
 
@@ -541,14 +560,14 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 /**
  *  Only one per info_type should be provided per request. If not
- *  specified, and redact_all_text is false, the DLP API will redacts all
+ *  specified, and redact_all_text is false, the DLP API will redact all
  *  text that it matches against all info_types that are found, but not
  *  specified in another ImageRedactionConfig.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InfoType *infoType;
 
 /**
- *  If true, all text found in the image, regardless if it matches an
+ *  If true, all text found in the image, regardless whether it matches an
  *  info_type, is redacted.
  *
  *  Uses NSNumber of boolValue.
@@ -885,6 +904,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 /** Key of the finding. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1RecordKey *recordKey;
 
+/** Location within a `ContentItem.Table`. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1TableLocation *tableLocation;
+
 @end
 
 
@@ -1086,6 +1108,16 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 
 /**
+ *  GTLRDLP_GooglePrivacyDlpV2beta1Row
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1Row : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1Value *> *values;
+
+@end
+
+
+/**
  *  Shared message indicating Cloud storage type.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1StorageConfig : GTLRObject
@@ -1098,6 +1130,67 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 /** Google Cloud Datastore options specification. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1DatastoreOptions *datastoreOptions;
+
+@end
+
+
+/**
+ *  Structured content to inspect. Up to 50,000 `Value`'s per request allowed.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1Table : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1FieldId *> *headers;
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1Row *> *rows;
+
+@end
+
+
+/**
+ *  Location of a finding within a `ContentItem.Table`.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1TableLocation : GTLRObject
+
+/**
+ *  The index, zero based, of the row where the finding is located.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowIndex;
+
+@end
+
+
+/**
+ *  Set of primitive values supported by the system.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1Value : GTLRObject
+
+/**
+ *  booleanValue
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *booleanValue;
+
+@property(nonatomic, strong, nullable) GTLRDLP_GoogleTypeDate *dateValue;
+
+/**
+ *  floatValue
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *floatValue;
+
+/**
+ *  integerValue
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *integerValue;
+
+@property(nonatomic, copy, nullable) NSString *stringValue;
+@property(nonatomic, strong, nullable) GTLRDateTime *timestampValue;
+@property(nonatomic, strong, nullable) GTLRDLP_GoogleTypeTimeOfDay *timeValue;
 
 @end
 
@@ -1196,4 +1289,84 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 @interface GTLRDLP_GoogleRpcStatus_Details_Item : GTLRObject
 @end
 
+
+/**
+ *  Represents a whole calendar date, e.g. date of birth. The time of day and
+ *  time zone are either specified elsewhere or are not significant. The date
+ *  is relative to the Proleptic Gregorian Calendar. The day may be 0 to
+ *  represent a year and month where the day is not significant, e.g. credit
+ *  card
+ *  expiration date. The year may be 0 to represent a month and day independent
+ *  of year, e.g. anniversary date. Related types are google.type.TimeOfDay
+ *  and `google.protobuf.Timestamp`.
+ */
+@interface GTLRDLP_GoogleTypeDate : GTLRObject
+
+/**
+ *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  if specifying a year/month where the day is not significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of year. Must be from 1 to 12.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without
+ *  a year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
+ *  Represents a time of day. The date and time zone are either not significant
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and `google.protobuf.Timestamp`.
+ */
+@interface GTLRDLP_GoogleTypeTimeOfDay : GTLRObject
+
+/**
+ *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+ *  to allow the value "24:00:00" for scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Minutes of hour of day. Must be from 0 to 59.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+ *  allow the value 60 if it allows leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
+
+@end
+
 NS_ASSUME_NONNULL_END
+
+#pragma clang diagnostic pop

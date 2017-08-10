@@ -202,9 +202,12 @@
 //
 
 @implementation GTLRBigquery_ExplainQueryStage
-@dynamic computeRatioAvg, computeRatioMax, identifier, name, readRatioAvg,
-         readRatioMax, recordsRead, recordsWritten, status, steps, waitRatioAvg,
-         waitRatioMax, writeRatioAvg, writeRatioMax;
+@dynamic computeMsAvg, computeMsMax, computeRatioAvg, computeRatioMax,
+         identifier, name, readMsAvg, readMsMax, readRatioAvg, readRatioMax,
+         recordsRead, recordsWritten, shuffleOutputBytes,
+         shuffleOutputBytesSpilled, status, steps, waitMsAvg, waitMsMax,
+         waitRatioAvg, waitRatioMax, writeMsAvg, writeMsMax, writeRatioAvg,
+         writeRatioMax;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -388,7 +391,7 @@
          destinationTable, encoding, fieldDelimiter, ignoreUnknownValues,
          maxBadRecords, nullMarker, projectionFields, quote, schema,
          schemaInline, schemaInlineFormat, schemaUpdateOptions, skipLeadingRows,
-         sourceFormat, sourceUris, writeDisposition;
+         sourceFormat, sourceUris, timePartitioning, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -411,7 +414,7 @@
 @dynamic allowLargeResults, createDisposition, defaultDataset, destinationTable,
          flattenResults, maximumBillingTier, maximumBytesBilled, parameterMode,
          preserveNulls, priority, query, queryParameters, schemaUpdateOptions,
-         tableDefinitions, useLegacySql, useQueryCache,
+         tableDefinitions, timePartitioning, useLegacySql, useQueryCache,
          userDefinedFunctionResources, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

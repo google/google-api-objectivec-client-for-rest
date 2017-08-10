@@ -64,6 +64,11 @@
 @class GTLRAppengine_Volume;
 @class GTLRAppengine_ZipInfo;
 
+// Generated comments include content from the discovery document; avoid them
+// causing warnings since clang's checks are some what arbitrary.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdocumentation"
+
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
@@ -2550,3 +2555,5 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @end
 
 NS_ASSUME_NONNULL_END
+
+#pragma clang diagnostic pop
