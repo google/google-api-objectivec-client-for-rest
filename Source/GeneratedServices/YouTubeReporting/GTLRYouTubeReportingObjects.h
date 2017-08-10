@@ -23,6 +23,11 @@
 @class GTLRYouTubeReporting_Report;
 @class GTLRYouTubeReporting_ReportType;
 
+// Generated comments include content from the discovery document; avoid them
+// causing warnings since clang's checks are some what arbitrary.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdocumentation"
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -251,3 +256,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#pragma clang diagnostic pop

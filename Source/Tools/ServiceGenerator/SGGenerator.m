@@ -64,6 +64,15 @@ static NSString *kCommonQueryParamsKey            = @"commonQueryParam";
 static NSString *kCommonPrettyPrintQueryParamsKey = @"commonPrettyPrintQueryParams";
 static NSString *kEnumMapKey                      = @"enumMap";
 
+
+static NSString *kSuppressDocumentationWarningsBegin =
+  @"// Generated comments include content from the discovery document; avoid them\n"
+  @"// causing warnings since clang's checks are some what arbitrary.\n"
+  @"#pragma clang diagnostic push\n"
+  @"#pragma clang diagnostic ignored \"-Wdocumentation\"\n";
+static NSString *kSuppressDocumentationWarningsEnd =
+  @"#pragma clang diagnostic pop\n";
+
 typedef enum {
   kGenerateInterface = 1,
   kGenerateImplementation
@@ -843,6 +852,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   NSString *versionCheck = [self headerVersionCheck];
   [parts addObject:versionCheck];
 
+  [parts addObject:kSuppressDocumentationWarningsBegin];
+
   [parts addObject:@"NS_ASSUME_NONNULL_BEGIN\n"];
 
   NSArray *scopesConstants =
@@ -903,6 +914,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   [parts addObject:@"@end\n"];
 
   [parts addObject:@"NS_ASSUME_NONNULL_END\n"];
+
+  [parts addObject:kSuppressDocumentationWarningsEnd];
 
   return [parts componentsJoinedByString:@"\n"];
 }
@@ -1115,6 +1128,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     [parts addObject:classForwards];
   }
 
+  [parts addObject:kSuppressDocumentationWarningsBegin];
+
   [parts addObject:@"NS_ASSUME_NONNULL_BEGIN\n"];
 
   NSString *commentExtra = @"For some of the query classes' properties below.";
@@ -1141,6 +1156,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   }
 
   [parts addObject:@"NS_ASSUME_NONNULL_END\n"];
+
+  [parts addObject:kSuppressDocumentationWarningsEnd];
 
   return [parts componentsJoinedByString:@"\n"];
 }
@@ -1242,6 +1259,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     [parts addObject:[subParts componentsJoinedByString:@""]];
   }
 
+  [parts addObject:kSuppressDocumentationWarningsBegin];
+
   [parts addObject:@"NS_ASSUME_NONNULL_BEGIN\n"];
 
   NSString *commentExtra = @"For some of the classes' properties below.";
@@ -1272,6 +1291,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   [parts addObject:[classParts componentsJoinedByString:@"\n\n"]];
 
   [parts addObject:@"NS_ASSUME_NONNULL_END\n"];
+
+  [parts addObject:kSuppressDocumentationWarningsEnd];
 
   return [parts componentsJoinedByString:@"\n"];
 }

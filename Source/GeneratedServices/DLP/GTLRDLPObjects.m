@@ -184,7 +184,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Ver
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta1ContentItem
-@dynamic data, type, value;
+@dynamic data, table, type, value;
 @end
 
 
@@ -495,7 +495,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Ver
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta1Location
-@dynamic byteRange, codepointRange, fieldId, imageBoxes, recordKey;
+@dynamic byteRange, codepointRange, fieldId, imageBoxes, recordKey,
+         tableLocation;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -638,11 +639,69 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Ver
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2beta1Row
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1Row
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRDLP_GooglePrivacyDlpV2beta1Value class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2beta1StorageConfig
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta1StorageConfig
 @dynamic bigQueryOptions, cloudStorageOptions, datastoreOptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1Table
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1Table
+@dynamic headers, rows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"headers" : [GTLRDLP_GooglePrivacyDlpV2beta1FieldId class],
+    @"rows" : [GTLRDLP_GooglePrivacyDlpV2beta1Row class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1TableLocation
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1TableLocation
+@dynamic rowIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1Value
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1Value
+@dynamic booleanValue, dateValue, floatValue, integerValue, stringValue,
+         timestampValue, timeValue;
 @end
 
 
@@ -684,4 +743,24 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Ver
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GoogleTypeDate
+//
+
+@implementation GTLRDLP_GoogleTypeDate
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GoogleTypeTimeOfDay
+//
+
+@implementation GTLRDLP_GoogleTypeTimeOfDay
+@dynamic hours, minutes, nanos, seconds;
 @end

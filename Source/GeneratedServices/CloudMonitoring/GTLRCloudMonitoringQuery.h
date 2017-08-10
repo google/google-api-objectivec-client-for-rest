@@ -24,6 +24,11 @@
 @class GTLRCloudMonitoring_MetricDescriptor;
 @class GTLRCloudMonitoring_WriteTimeseriesRequest;
 
+// Generated comments include content from the discovery document; avoid them
+// causing warnings since clang's checks are some what arbitrary.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdocumentation"
+
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
@@ -531,3 +536,5 @@ GTLR_EXTERN NSString * const kGTLRCloudMonitoringAggregatorSum;
 @end
 
 NS_ASSUME_NONNULL_END
+
+#pragma clang diagnostic pop

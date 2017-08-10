@@ -117,7 +117,7 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_CreateServiceAccountKeyRequest
-@dynamic includePublicKeyData, keyAlgorithm, privateKeyType;
+@dynamic keyAlgorithm, privateKeyType;
 @end
 
 
