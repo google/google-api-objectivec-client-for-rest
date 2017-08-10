@@ -20,6 +20,13 @@ NSString * const kGTLRSpanner_AuditLogConfig_LogType_DataRead  = @"DATA_READ";
 NSString * const kGTLRSpanner_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRSpanner_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRSpanner_AuthorizationLoggingOptions.permissionType
+NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_AdminWrite = @"ADMIN_WRITE";
+NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_DataRead = @"DATA_READ";
+NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified = @"PERMISSION_TYPE_UNSPECIFIED";
+
 // GTLRSpanner_CloudAuditOptions.logName
 NSString * const kGTLRSpanner_CloudAuditOptions_LogName_AdminActivity = @"ADMIN_ACTIVITY";
 NSString * const kGTLRSpanner_CloudAuditOptions_LogName_DataAccess = @"DATA_ACCESS";
@@ -127,6 +134,16 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_AuthorizationLoggingOptions
+//
+
+@implementation GTLRSpanner_AuthorizationLoggingOptions
+@dynamic permissionType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_BeginTransactionRequest
 //
 
@@ -169,7 +186,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_CloudAuditOptions
-@dynamic isReadPermissionType, logName;
+@dynamic authorizationLoggingOptions, logName;
 @end
 
 

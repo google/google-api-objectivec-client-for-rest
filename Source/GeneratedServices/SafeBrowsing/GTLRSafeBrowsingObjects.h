@@ -4,11 +4,8 @@
 // API:
 //   Google Safe Browsing API (safebrowsing/v4)
 // Description:
-//   The Safe Browsing API is an experimental API that allows client
-//   applications to check URLs against Google's constantly-updated blacklists
-//   of suspected phishing and malware pages. Your client application can use
-//   the API to download an encrypted table for local, client-side lookups of
-//   URLs.
+//   Enables client applications to check web resources (most commonly URLs)
+//   against Google-generated lists of unsafe web resources.
 // Documentation:
 //   https://developers.google.com/safe-browsing/
 
@@ -161,6 +158,43 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType
 // GTLRSafeBrowsing_ListUpdateRequest.threatType
 
 /**
+ *  API abuse threat type.
+ *
+ *  Value: "API_ABUSE"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ApiAbuse;
+/**
+ *  List used for offline APK checks in PAM.
+ *
+ *  Value: "APK_MALWARE_OFFLINE"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ApkMalwareOffline;
+/**
+ *  Client incident threat type.
+ *
+ *  Value: "CLIENT_INCIDENT"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ClientIncident;
+/**
+ *  Whitelist used when detecting client incident threats.
+ *  This enum was never launched and should be re-used for the next list.
+ *
+ *  Value: "CLIENT_INCIDENT_WHITELIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ClientIncidentWhitelist;
+/**
+ *  Client side download detection whitelist threat type.
+ *
+ *  Value: "CSD_DOWNLOAD_WHITELIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_CsdDownloadWhitelist;
+/**
+ *  Client side detection whitelist threat type.
+ *
+ *  Value: "CSD_WHITELIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_CsdWhitelist;
+/**
  *  Malicious binary threat type.
  *
  *  Value: "MALICIOUS_BINARY"
@@ -184,6 +218,19 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Pote
  *  Value: "SOCIAL_ENGINEERING"
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineering;
+/**
+ *  Social engineering threat type for internal use.
+ *
+ *  Value: "SOCIAL_ENGINEERING_INTERNAL"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineeringInternal;
+/**
+ *  Patterns to be used for activating the subresource filter. Interstitial
+ *  will not be shown for patterns from this list.
+ *
+ *  Value: "SUBRESOURCE_FILTER"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SubresourceFilter;
 /**
  *  Unknown.
  *
@@ -329,6 +376,43 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryTyp
 // GTLRSafeBrowsing_ListUpdateResponse.threatType
 
 /**
+ *  API abuse threat type.
+ *
+ *  Value: "API_ABUSE"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ApiAbuse;
+/**
+ *  List used for offline APK checks in PAM.
+ *
+ *  Value: "APK_MALWARE_OFFLINE"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ApkMalwareOffline;
+/**
+ *  Client incident threat type.
+ *
+ *  Value: "CLIENT_INCIDENT"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ClientIncident;
+/**
+ *  Whitelist used when detecting client incident threats.
+ *  This enum was never launched and should be re-used for the next list.
+ *
+ *  Value: "CLIENT_INCIDENT_WHITELIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ClientIncidentWhitelist;
+/**
+ *  Client side download detection whitelist threat type.
+ *
+ *  Value: "CSD_DOWNLOAD_WHITELIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_CsdDownloadWhitelist;
+/**
+ *  Client side detection whitelist threat type.
+ *
+ *  Value: "CSD_WHITELIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_CsdWhitelist;
+/**
  *  Malicious binary threat type.
  *
  *  Value: "MALICIOUS_BINARY"
@@ -352,6 +436,19 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Pot
  *  Value: "SOCIAL_ENGINEERING"
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineering;
+/**
+ *  Social engineering threat type for internal use.
+ *
+ *  Value: "SOCIAL_ENGINEERING_INTERNAL"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineeringInternal;
+/**
+ *  Patterns to be used for activating the subresource filter. Interstitial
+ *  will not be shown for patterns from this list.
+ *
+ *  Value: "SUBRESOURCE_FILTER"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SubresourceFilter;
 /**
  *  Unknown.
  *
@@ -430,6 +527,18 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Url;
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatInfo.threatTypes
 
+/** Value: "API_ABUSE" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ApiAbuse;
+/** Value: "APK_MALWARE_OFFLINE" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ApkMalwareOffline;
+/** Value: "CLIENT_INCIDENT" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ClientIncident;
+/** Value: "CLIENT_INCIDENT_WHITELIST" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ClientIncidentWhitelist;
+/** Value: "CSD_DOWNLOAD_WHITELIST" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_CsdDownloadWhitelist;
+/** Value: "CSD_WHITELIST" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_CsdWhitelist;
 /** Value: "MALICIOUS_BINARY" */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_MaliciousBinary;
 /** Value: "MALWARE" */
@@ -438,6 +547,10 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Malware;
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_PotentiallyHarmfulApplication;
 /** Value: "SOCIAL_ENGINEERING" */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngineering;
+/** Value: "SOCIAL_ENGINEERING_INTERNAL" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngineeringInternal;
+/** Value: "SUBRESOURCE_FILTER" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SubresourceFilter;
 /** Value: "THREAT_TYPE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ThreatTypeUnspecified;
 /** Value: "UNWANTED_SOFTWARE" */
@@ -551,6 +664,43 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryT
 // GTLRSafeBrowsing_ThreatListDescriptor.threatType
 
 /**
+ *  API abuse threat type.
+ *
+ *  Value: "API_ABUSE"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ApiAbuse;
+/**
+ *  List used for offline APK checks in PAM.
+ *
+ *  Value: "APK_MALWARE_OFFLINE"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ApkMalwareOffline;
+/**
+ *  Client incident threat type.
+ *
+ *  Value: "CLIENT_INCIDENT"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ClientIncident;
+/**
+ *  Whitelist used when detecting client incident threats.
+ *  This enum was never launched and should be re-used for the next list.
+ *
+ *  Value: "CLIENT_INCIDENT_WHITELIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ClientIncidentWhitelist;
+/**
+ *  Client side download detection whitelist threat type.
+ *
+ *  Value: "CSD_DOWNLOAD_WHITELIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_CsdDownloadWhitelist;
+/**
+ *  Client side detection whitelist threat type.
+ *
+ *  Value: "CSD_WHITELIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_CsdWhitelist;
+/**
  *  Malicious binary threat type.
  *
  *  Value: "MALICIOUS_BINARY"
@@ -574,6 +724,19 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_P
  *  Value: "SOCIAL_ENGINEERING"
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineering;
+/**
+ *  Social engineering threat type for internal use.
+ *
+ *  Value: "SOCIAL_ENGINEERING_INTERNAL"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineeringInternal;
+/**
+ *  Patterns to be used for activating the subresource filter. Interstitial
+ *  will not be shown for patterns from this list.
+ *
+ *  Value: "SUBRESOURCE_FILTER"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SubresourceFilter;
 /**
  *  Unknown.
  *
@@ -695,6 +858,43 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Url;
 // GTLRSafeBrowsing_ThreatMatch.threatType
 
 /**
+ *  API abuse threat type.
+ *
+ *  Value: "API_ABUSE"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ApiAbuse;
+/**
+ *  List used for offline APK checks in PAM.
+ *
+ *  Value: "APK_MALWARE_OFFLINE"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ApkMalwareOffline;
+/**
+ *  Client incident threat type.
+ *
+ *  Value: "CLIENT_INCIDENT"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ClientIncident;
+/**
+ *  Whitelist used when detecting client incident threats.
+ *  This enum was never launched and should be re-used for the next list.
+ *
+ *  Value: "CLIENT_INCIDENT_WHITELIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ClientIncidentWhitelist;
+/**
+ *  Client side download detection whitelist threat type.
+ *
+ *  Value: "CSD_DOWNLOAD_WHITELIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_CsdDownloadWhitelist;
+/**
+ *  Client side detection whitelist threat type.
+ *
+ *  Value: "CSD_WHITELIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_CsdWhitelist;
+/**
  *  Malicious binary threat type.
  *
  *  Value: "MALICIOUS_BINARY"
@@ -718,6 +918,19 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_Potentiall
  *  Value: "SOCIAL_ENGINEERING"
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineering;
+/**
+ *  Social engineering threat type for internal use.
+ *
+ *  Value: "SOCIAL_ENGINEERING_INTERNAL"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineeringInternal;
+/**
+ *  Patterns to be used for activating the subresource filter. Interstitial
+ *  will not be shown for patterns from this list.
+ *
+ *  Value: "SUBRESOURCE_FILTER"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SubresourceFilter;
 /**
  *  Unknown.
  *
@@ -992,6 +1205,22 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The type of threat posed by entries present in the list.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ApiAbuse API abuse
+ *        threat type. (Value: "API_ABUSE")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ApkMalwareOffline
+ *        List used for offline APK checks in PAM. (Value:
+ *        "APK_MALWARE_OFFLINE")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ClientIncident
+ *        Client incident threat type. (Value: "CLIENT_INCIDENT")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ClientIncidentWhitelist
+ *        Whitelist used when detecting client incident threats.
+ *        This enum was never launched and should be re-used for the next list.
+ *        (Value: "CLIENT_INCIDENT_WHITELIST")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_CsdDownloadWhitelist
+ *        Client side download detection whitelist threat type. (Value:
+ *        "CSD_DOWNLOAD_WHITELIST")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_CsdWhitelist Client
+ *        side detection whitelist threat type. (Value: "CSD_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_MaliciousBinary
  *        Malicious binary threat type. (Value: "MALICIOUS_BINARY")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Malware Malware
@@ -1001,6 +1230,14 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *        "POTENTIALLY_HARMFUL_APPLICATION")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineering
  *        Social engineering threat type. (Value: "SOCIAL_ENGINEERING")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineeringInternal
+ *        Social engineering threat type for internal use. (Value:
+ *        "SOCIAL_ENGINEERING_INTERNAL")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SubresourceFilter
+ *        Patterns to be used for activating the subresource filter.
+ *        Interstitial
+ *        will not be shown for patterns from this list. (Value:
+ *        "SUBRESOURCE_FILTER")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_UnwantedSoftware
@@ -1113,6 +1350,22 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The threat type for which data is returned.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ApiAbuse API abuse
+ *        threat type. (Value: "API_ABUSE")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ApkMalwareOffline
+ *        List used for offline APK checks in PAM. (Value:
+ *        "APK_MALWARE_OFFLINE")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ClientIncident
+ *        Client incident threat type. (Value: "CLIENT_INCIDENT")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ClientIncidentWhitelist
+ *        Whitelist used when detecting client incident threats.
+ *        This enum was never launched and should be re-used for the next list.
+ *        (Value: "CLIENT_INCIDENT_WHITELIST")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_CsdDownloadWhitelist
+ *        Client side download detection whitelist threat type. (Value:
+ *        "CSD_DOWNLOAD_WHITELIST")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_CsdWhitelist
+ *        Client side detection whitelist threat type. (Value: "CSD_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_MaliciousBinary
  *        Malicious binary threat type. (Value: "MALICIOUS_BINARY")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Malware Malware
@@ -1122,6 +1375,14 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *        "POTENTIALLY_HARMFUL_APPLICATION")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineering
  *        Social engineering threat type. (Value: "SOCIAL_ENGINEERING")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineeringInternal
+ *        Social engineering threat type for internal use. (Value:
+ *        "SOCIAL_ENGINEERING_INTERNAL")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SubresourceFilter
+ *        Patterns to be used for activating the subresource filter.
+ *        Interstitial
+ *        will not be shown for patterns from this list. (Value:
+ *        "SUBRESOURCE_FILTER")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_UnwantedSoftware
@@ -1412,6 +1673,22 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The threat type posed by the list's entries.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ApiAbuse API
+ *        abuse threat type. (Value: "API_ABUSE")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ApkMalwareOffline
+ *        List used for offline APK checks in PAM. (Value:
+ *        "APK_MALWARE_OFFLINE")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ClientIncident
+ *        Client incident threat type. (Value: "CLIENT_INCIDENT")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ClientIncidentWhitelist
+ *        Whitelist used when detecting client incident threats.
+ *        This enum was never launched and should be re-used for the next list.
+ *        (Value: "CLIENT_INCIDENT_WHITELIST")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_CsdDownloadWhitelist
+ *        Client side download detection whitelist threat type. (Value:
+ *        "CSD_DOWNLOAD_WHITELIST")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_CsdWhitelist
+ *        Client side detection whitelist threat type. (Value: "CSD_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_MaliciousBinary
  *        Malicious binary threat type. (Value: "MALICIOUS_BINARY")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Malware Malware
@@ -1421,6 +1698,14 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *        "POTENTIALLY_HARMFUL_APPLICATION")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineering
  *        Social engineering threat type. (Value: "SOCIAL_ENGINEERING")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineeringInternal
+ *        Social engineering threat type for internal use. (Value:
+ *        "SOCIAL_ENGINEERING_INTERNAL")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SubresourceFilter
+ *        Patterns to be used for activating the subresource filter.
+ *        Interstitial
+ *        will not be shown for patterns from this list. (Value:
+ *        "SUBRESOURCE_FILTER")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_UnwantedSoftware
@@ -1499,6 +1784,21 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *  The threat type matching this threat.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_ApiAbuse API abuse threat
+ *        type. (Value: "API_ABUSE")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_ApkMalwareOffline List
+ *        used for offline APK checks in PAM. (Value: "APK_MALWARE_OFFLINE")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_ClientIncident Client
+ *        incident threat type. (Value: "CLIENT_INCIDENT")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_ClientIncidentWhitelist
+ *        Whitelist used when detecting client incident threats.
+ *        This enum was never launched and should be re-used for the next list.
+ *        (Value: "CLIENT_INCIDENT_WHITELIST")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_CsdDownloadWhitelist
+ *        Client side download detection whitelist threat type. (Value:
+ *        "CSD_DOWNLOAD_WHITELIST")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_CsdWhitelist Client side
+ *        detection whitelist threat type. (Value: "CSD_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_MaliciousBinary Malicious
  *        binary threat type. (Value: "MALICIOUS_BINARY")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_Malware Malware threat
@@ -1508,6 +1808,14 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *        "POTENTIALLY_HARMFUL_APPLICATION")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineering Social
  *        engineering threat type. (Value: "SOCIAL_ENGINEERING")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineeringInternal
+ *        Social engineering threat type for internal use. (Value:
+ *        "SOCIAL_ENGINEERING_INTERNAL")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_SubresourceFilter
+ *        Patterns to be used for activating the subresource filter.
+ *        Interstitial
+ *        will not be shown for patterns from this list. (Value:
+ *        "SUBRESOURCE_FILTER")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_ThreatTypeUnspecified
  *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSoftware Unwanted

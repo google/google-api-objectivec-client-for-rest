@@ -4,7 +4,8 @@
 // API:
 //   Android Device Provisioning Partner API (androiddeviceprovisioning/v1)
 // Description:
-//   Android Device Provisioning Partner API
+//   Automates reseller integration into Zero Touch Provisioning by assigning
+//   devices to customers and creating device reports.
 // Documentation:
 //   https://developers.google.com/zero-touch/
 
@@ -360,14 +361,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 /** IMEI (either IMEI or MEID is required). */
 @property(nonatomic, copy, nullable) NSString *imei;
 
-/** Manufacturer to match android.os.Build.MANUFACTURER (required). */
+/**
+ *  Manufacturer name to match `android.os.Build.MANUFACTURER` (required).
+ *  Allowed values listed in
+ *  [manufacturer names](/zero-touch/resources/manufacturer-names).
+ */
 @property(nonatomic, copy, nullable) NSString *manufacturer;
 
 /** MEID */
 @property(nonatomic, copy, nullable) NSString *meid;
-
-/** Model to match android.os.Build.MODEL (required). */
-@property(nonatomic, copy, nullable) NSString *model;
 
 /** Serial number (optional) */
 @property(nonatomic, copy, nullable) NSString *serialNumber;

@@ -625,8 +625,9 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  *  * the numeric identifier for the user
  *  * the email address of the user
  *  * the string literal `"me"`, indicating the requesting user
- *  This must be set in a create request. Specifying this field in a course
- *  update mask results in an `INVALID_ARGUMENT` error.
+ *  This must be set in a create request. Admins can also specify this field
+ *  in a patch course request to
+ *  transfer ownership. In other contexts, it is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *ownerId;
 
@@ -1735,7 +1736,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Optional grade. If unset, no grade was set.
- *  This must be a non-negative integer value.
+ *  This value must be non-negative. Decimal (i.e. non-integer) values are
+ *  allowed, but will be rounded to two decimal places.
  *  This may be modified only by course teachers.
  *
  *  Uses NSNumber of doubleValue.
@@ -1794,7 +1796,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Optional pending grade. If unset, no grade was set.
- *  This must be a non-negative integer value.
+ *  This value must be non-negative. Decimal (i.e. non-integer) values are
+ *  allowed, but will be rounded to two decimal places.
  *  This is only visible to and modifiable by course teachers.
  *
  *  Uses NSNumber of doubleValue.

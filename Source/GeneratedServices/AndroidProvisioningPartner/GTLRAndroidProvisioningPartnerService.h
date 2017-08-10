@@ -4,7 +4,8 @@
 // API:
 //   Android Device Provisioning Partner API (androiddeviceprovisioning/v1)
 // Description:
-//   Android Device Provisioning Partner API
+//   Automates reseller integration into Zero Touch Provisioning by assigning
+//   devices to customers and creating device reports.
 // Documentation:
 //   https://developers.google.com/zero-touch/
 
@@ -23,7 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Service for executing Android Device Provisioning Partner API queries.
  *
- *  Android Device Provisioning Partner API
+ *  Automates reseller integration into Zero Touch Provisioning by assigning
+ *  devices to customers and creating device reports.
  */
 @interface GTLRAndroidProvisioningPartnerService : GTLRService
 

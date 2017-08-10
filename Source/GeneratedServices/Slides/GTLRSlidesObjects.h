@@ -257,7 +257,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPre
  */
 GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletLefttriangleDiamondDisc;
 /**
- *  A bulleted list with a `STAR`, `CIRCLE` and `DISC` bullet glyph for
+ *  A bulleted list with a `STAR`, `CIRCLE` and `SQUARE` bullet glyph for
  *  the first 3 list nesting levels.
  *
  *  Value: "BULLET_STAR_CIRCLE_SQUARE"
@@ -3962,7 +3962,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        for the first 3 list nesting levels. (Value:
  *        "BULLET_LEFTTRIANGLE_DIAMOND_DISC")
  *    @arg @c kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletStarCircleSquare
- *        A bulleted list with a `STAR`, `CIRCLE` and `DISC` bullet glyph for
+ *        A bulleted list with a `STAR`, `CIRCLE` and `SQUARE` bullet glyph for
  *        the first 3 list nesting levels. (Value: "BULLET_STAR_CIRCLE_SQUARE")
  *    @arg @c kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedDigitAlphaRoman
  *        A numbered list with `DIGIT`, `ALPHA` and `ROMAN` numeric glyphs for

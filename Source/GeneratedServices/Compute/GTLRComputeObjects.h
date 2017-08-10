@@ -75,6 +75,7 @@
 @class GTLRCompute_DiskTypesScopedList_Warning_Data_Item;
 @class GTLRCompute_Firewall;
 @class GTLRCompute_Firewall_Allowed_Item;
+@class GTLRCompute_Firewall_Denied_Item;
 @class GTLRCompute_ForwardingRule;
 @class GTLRCompute_ForwardingRuleAggregatedList_Items;
 @class GTLRCompute_ForwardingRulesScopedList;
@@ -673,6 +674,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_Resou
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Firewall.direction
+
+/** Value: "EGRESS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Firewall_Direction_Egress;
+/** Value: "INGRESS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Firewall_Direction_Ingress;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ForwardingRule.IPProtocol
@@ -4776,12 +4785,37 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
 /**
+ *  The list of DENY rules specified by this firewall. Each rule specifies a
+ *  protocol and port-range tuple that describes a permitted connection.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Firewall_Denied_Item *> *denied;
+
+/**
  *  An optional description of this resource. Provide this property when you
  *  create the resource.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  If destination ranges are specified, the firewall will apply only to traffic
+ *  that has destination IP address in these ranges. These ranges must be
+ *  expressed in CIDR format. Only IPv4 is supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinationRanges;
+
+/**
+ *  Direction of traffic to which this firewall applies; default is INGRESS.
+ *  Note: For INGRESS traffic, it is NOT supported to specify destinationRanges;
+ *  For EGRESS traffic, it is NOT supported to specify sourceRanges OR
+ *  sourceTags.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Firewall_Direction_Egress Value "EGRESS"
+ *    @arg @c kGTLRCompute_Firewall_Direction_Ingress Value "INGRESS"
+ */
+@property(nonatomic, copy, nullable) NSString *direction;
 
 /**
  *  [Output Only] The unique identifier for the resource. This identifier is
@@ -4822,6 +4856,18 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  - global/networks/default
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Priority for this rule. This is an integer between 0 and 65535, both
+ *  inclusive. When not specified, the value assumed is 1000. Relative
+ *  priorities determine precedence of conflicting rules. Lower value of
+ *  priority implies higher precedence (eg, a rule with priority 0 has higher
+ *  precedence than a rule with priority 1). DENY rules take precedence over
+ *  ALLOW rules having equal priority.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -4866,6 +4912,31 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *  GTLRCompute_Firewall_Allowed_Item
  */
 @interface GTLRCompute_Firewall_Allowed_Item : GTLRObject
+
+/**
+ *  The IP protocol to which this rule applies. The protocol type is required
+ *  when creating a firewall rule. This value can either be one of the following
+ *  well known protocol strings (tcp, udp, icmp, esp, ah, ipip, sctp), or the IP
+ *  protocol number.
+ */
+@property(nonatomic, copy, nullable) NSString *IPProtocol;
+
+/**
+ *  An optional list of ports to which this rule applies. This field is only
+ *  applicable for UDP or TCP protocol. Each entry must be either an integer or
+ *  a range. If not specified, this rule applies to connections through any
+ *  port.
+ *  Example inputs include: ["22"], ["80","443"], and ["12345-12349"].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ports;
+
+@end
+
+
+/**
+ *  GTLRCompute_Firewall_Denied_Item
+ */
+@interface GTLRCompute_Firewall_Denied_Item : GTLRObject
 
 /**
  *  The IP protocol to which this rule applies. The protocol type is required
@@ -6339,9 +6410,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  An array of configurations for this interface. This specifies how this
- *  interface is configured to interact with other network services, such as
- *  connecting to the internet. Only one interface is supported per instance.
+ *  An array of network configurations for this instance. These specify how
+ *  interfaces are configured to interact with other network services, such as
+ *  connecting to the internet. Multiple interfaces are supported per instance.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_NetworkInterface *> *networkInterfaces;
 

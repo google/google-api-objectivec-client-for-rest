@@ -121,7 +121,7 @@
 
 @implementation GTLRSQLAdmin_DatabaseInstance
 @dynamic backendType, connectionName, currentDiskSize, databaseVersion, ETag,
-         failoverReplica, instanceType, ipAddresses, ipv6Address, kind,
+         failoverReplica, gceZone, instanceType, ipAddresses, ipv6Address, kind,
          masterInstanceName, maxDiskSize, name, onPremisesConfiguration,
          project, region, replicaConfiguration, replicaNames, selfLink,
          serverCaCert, serviceAccountEmailAddress, settings, state,

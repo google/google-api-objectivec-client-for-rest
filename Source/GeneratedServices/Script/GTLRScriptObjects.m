@@ -4,7 +4,7 @@
 // API:
 //   Google Apps Script Execution API (script/v1)
 // Description:
-//   Executes Google Apps Script projects.
+//   Executes functions in Google Apps Script projects.
 // Documentation:
 //   https://developers.google.com/apps-script/execution/rest/v1/scripts/run
 
@@ -53,48 +53,6 @@
 
 @implementation GTLRScript_ExecutionResponse
 @dynamic result;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRScript_JoinAsyncRequest
-//
-
-@implementation GTLRScript_JoinAsyncRequest
-@dynamic names, scriptId, timeout;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"names" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRScript_JoinAsyncResponse
-//
-
-@implementation GTLRScript_JoinAsyncResponse
-@dynamic results;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRScript_JoinAsyncResponse_Results
-//
-
-@implementation GTLRScript_JoinAsyncResponse_Results
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRScript_Operation class];
-}
-
 @end
 
 

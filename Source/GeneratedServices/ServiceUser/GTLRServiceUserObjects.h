@@ -24,6 +24,7 @@
 @class GTLRServiceUser_Authentication;
 @class GTLRServiceUser_AuthenticationRule;
 @class GTLRServiceUser_AuthorizationConfig;
+@class GTLRServiceUser_AuthorizationRule;
 @class GTLRServiceUser_AuthProvider;
 @class GTLRServiceUser_AuthRequirement;
 @class GTLRServiceUser_Backend;
@@ -597,6 +598,42 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  firebaserules.googleapis.com.
  */
 @property(nonatomic, copy, nullable) NSString *provider;
+
+@end
+
+
+/**
+ *  Authorization rule for API services.
+ *  It specifies the permission(s) required for an API element for the overall
+ *  API request to succeed. It is typically used to mark request message fields
+ *  that contain the name of the resource and indicates the permissions that
+ *  will be checked on that resource.
+ *  For example:
+ *  package google.storage.v1;
+ *  message CopyObjectRequest {
+ *  string source = 1 [
+ *  (google.api.authz).permissions = "storage.objects.get"];
+ *  string destination = 2 [
+ *  (google.api.authz).permissions =
+ *  "storage.objects.create,storage.objects.update"];
+ *  }
+ */
+@interface GTLRServiceUser_AuthorizationRule : GTLRObject
+
+/**
+ *  The required permissions. The acceptable values vary depend on the
+ *  authorization system used. For Google APIs, it should be a comma-separated
+ *  Google IAM permission values. When multiple permissions are listed, the
+ *  semantics is not defined by the system. Additional documentation must
+ *  be provided manually.
+ */
+@property(nonatomic, copy, nullable) NSString *permissions;
+
+/**
+ *  Selects the API elements to which this rule applies.
+ *  Refer to selector for syntax details.
+ */
+@property(nonatomic, copy, nullable) NSString *selector;
 
 @end
 
@@ -1482,6 +1519,14 @@ GTLR_EXTERN NSString * const kGTLRServiceUser_Type_Syntax_SyntaxProto3;
  *  the nesting may only be one level deep).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUser_HttpRule *> *additionalBindings;
+
+/**
+ *  Specifies the permission(s) required for an API element for the overall
+ *  API request to succeed. It is typically used to mark request message fields
+ *  that contain the name of the resource and indicates the permissions that
+ *  will be checked on that resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUser_AuthorizationRule *> *authorizations;
 
 /**
  *  The name of the request field whose value is mapped to the HTTP body, or

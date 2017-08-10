@@ -28,6 +28,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRAdExperienceReport_PlatformSummary.abusiveStatus
+
+/**
+ *  Failing.
+ *
+ *  Value: "FAILING"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Failing;
+/**
+ *  Passing.
+ *
+ *  Value: "PASSING"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Passing;
+/**
+ *  Not reviewed.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRAdExperienceReport_PlatformSummary.betterAdsStatus
 
 /**
@@ -54,28 +76,6 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsSt
  *  Value: "WARNING"
  */
 GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Warning;
-
-// ----------------------------------------------------------------------------
-// GTLRAdExperienceReport_PlatformSummary.egregiousStatus
-
-/**
- *  Failing.
- *
- *  Value: "FAILING"
- */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_EgregiousStatus_Failing;
-/**
- *  Passing.
- *
- *  Value: "PASSING"
- */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_EgregiousStatus_Passing;
-/**
- *  Not reviewed.
- *
- *  Value: "UNKNOWN"
- */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_EgregiousStatus_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExperienceReport_PlatformSummary.filterStatus
@@ -127,6 +127,19 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_Regi
 @interface GTLRAdExperienceReport_PlatformSummary : GTLRObject
 
 /**
+ *  The status of the site reviewed for abusive ads.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Failing
+ *        Failing. (Value: "FAILING")
+ *    @arg @c kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Passing
+ *        Passing. (Value: "PASSING")
+ *    @arg @c kGTLRAdExperienceReport_PlatformSummary_AbusiveStatus_Unknown Not
+ *        reviewed. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *abusiveStatus;
+
+/**
  *  The status of the site reviewed for the Better Ads Standards.
  *
  *  Likely values:
@@ -140,19 +153,6 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_Regi
  *        Warning. (Value: "WARNING")
  */
 @property(nonatomic, copy, nullable) NSString *betterAdsStatus;
-
-/**
- *  The status of the site reviewed for egregious ads.
- *
- *  Likely values:
- *    @arg @c kGTLRAdExperienceReport_PlatformSummary_EgregiousStatus_Failing
- *        Failing. (Value: "FAILING")
- *    @arg @c kGTLRAdExperienceReport_PlatformSummary_EgregiousStatus_Passing
- *        Passing. (Value: "PASSING")
- *    @arg @c kGTLRAdExperienceReport_PlatformSummary_EgregiousStatus_Unknown
- *        Not reviewed. (Value: "UNKNOWN")
- */
-@property(nonatomic, copy, nullable) NSString *egregiousStatus;
 
 /** The date on which ad filtering begins. */
 @property(nonatomic, strong, nullable) GTLRDateTime *enforcementTime;
