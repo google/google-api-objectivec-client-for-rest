@@ -539,12 +539,13 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
 
 /**
  *  If this service supports pretty printing the JSON on the wire, these are
- *  the names of the query params that enable it. The library disables
- *  pretty printing to save on bandwidth.
+ *  the names of the query params that enable it. If there are any values,
+ *  the library disables pretty printing to save on bandwidth.
  *
- *  Applications should typically not change this.
+ *  Applications should typically not need change this; the ServiceGenerator
+ *  will set this up when generating the custom subclass.
  */
-@property(nonatomic, strong) NSArray<NSString *> *prettyPrintQueryParameterNames;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *prettyPrintQueryParameterNames;
 
 /**
  *  This indicates if the API requires a "data" JSON element to wrap the payload
