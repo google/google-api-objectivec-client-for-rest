@@ -76,6 +76,58 @@ NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified = @"perfMetricT
 
 @end
 
+@implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersGet
+
+@dynamic clusterId, executionId, historyId, projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                         clusterId:(NSString *)clusterId {
+  NSArray *pathParams = @[
+    @"clusterId", @"executionId", @"historyId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"{projectId}/histories/{historyId}/executions/{executionId}/clusters/{clusterId}";
+  GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.historyId = historyId;
+  query.executionId = executionId;
+  query.clusterId = clusterId;
+  query.expectedObjectClass = [GTLRToolResults_ScreenshotCluster class];
+  query.loggingName = @"toolresults.projects.histories.executions.clusters.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersList
+
+@dynamic executionId, historyId, projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId {
+  NSArray *pathParams = @[
+    @"executionId", @"historyId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"{projectId}/histories/{historyId}/executions/{executionId}/clusters";
+  GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.historyId = historyId;
+  query.executionId = executionId;
+  query.expectedObjectClass = [GTLRToolResults_ListScreenshotClustersResponse class];
+  query.loggingName = @"toolresults.projects.histories.executions.clusters.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRToolResultsQuery_ProjectsHistoriesExecutionsCreate
 
 @dynamic historyId, projectId, requestId;

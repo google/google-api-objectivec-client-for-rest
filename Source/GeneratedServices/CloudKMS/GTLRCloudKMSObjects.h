@@ -706,6 +706,10 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_Rule_Action_NoAction;
  *  It can be used for cryptographic operations either directly, or via its
  *  parent CryptoKey, in which case the server will choose the appropriate
  *  version for the operation.
+ *  For security reasons, the raw cryptographic key material represented by a
+ *  CryptoKeyVersion can never be viewed or exported. It can only be used to
+ *  encrypt or decrypt data when an authorized user or application invokes Cloud
+ *  KMS.
  */
 @interface GTLRCloudKMS_CryptoKeyVersion : GTLRObject
 

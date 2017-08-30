@@ -3849,6 +3849,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  display inside the presentation. Images must be less than 50MB in size,
  *  cannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF
  *  format.
+ *  The provided URL can be at maximum 2K bytes large.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -5797,7 +5798,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The background fill property state.
- *  Updating the the fill on a page will implicitly update this field to
+ *  Updating the fill on a page will implicitly update this field to
  *  `RENDERED`, unless another value is specified in the same request. To
  *  have no fill on a page, set this field to `NOT_RENDERED`. In this case,
  *  any other fill fields set in the same request will be ignored.
@@ -5890,7 +5891,16 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** The transform of the page element. */
+/**
+ *  The transform of the page element.
+ *  The visual appearance of the page element is determined by its absolute
+ *  transform. To compute the absolute transform, preconcatenate a page
+ *  element's transform with the transforms of all of its parent groups. If the
+ *  page element is not in a group, its absolute transform is the same as the
+ *  value in this field.
+ *  The initial transform for the newly created Group is always the identity
+ *  transform.
+ */
 @property(nonatomic, strong, nullable) GTLRSlides_AffineTransform *transform;
 
 /** A video page element. */
@@ -6379,6 +6389,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  display inside the presentation. Images must be less than 50MB in size,
  *  cannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF
  *  format.
+ *  The provided URL can be at maximum 2K bytes large.
  */
 @property(nonatomic, copy, nullable) NSString *imageUrl;
 
@@ -7434,6 +7445,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  display inside the presentation. Pictures must be less than 50MB in size,
  *  cannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF
  *  format.
+ *  The provided URL can be at maximum 2K bytes large.
  */
 @property(nonatomic, copy, nullable) NSString *contentUrl;
 
@@ -8071,6 +8083,9 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  Updates the transform of a page element.
+ *  Updating the transform of a group will change the absolute transform of the
+ *  page elements in that group, which can change their visual appearance. See
+ *  the documentation for PageElement.transform for more details.
  */
 @interface GTLRSlides_UpdatePageElementTransformRequest : GTLRObject
 

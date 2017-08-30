@@ -118,3 +118,39 @@
 }
 
 @end
+
+@implementation GTLRCloudbillingQuery_ServicesList
+
+@dynamic pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/services";
+  GTLRCloudbillingQuery_ServicesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudbilling_ListServicesResponse class];
+  query.loggingName = @"cloudbilling.services.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_ServicesSkusList
+
+@dynamic currencyCode, endTime, pageSize, pageToken, parent, startTime;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/skus";
+  GTLRCloudbillingQuery_ServicesSkusList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudbilling_ListSkusResponse class];
+  query.loggingName = @"cloudbilling.services.skus.list";
+  return query;
+}
+
+@end

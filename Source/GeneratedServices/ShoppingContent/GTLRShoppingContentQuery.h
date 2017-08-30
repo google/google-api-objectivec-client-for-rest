@@ -160,8 +160,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, assign) unsigned long long merchantId;
 
 /**
- *  Flag to remove any existing claim on the requested website by another
- *  account and replace it with a claim from this account.
+ *  Only available to selected merchants. When set to True, this flag removes
+ *  any existing claim on the requested website by another account and replaces
+ *  it with a claim from this account.
  */
 @property(nonatomic, assign) BOOL overwrite;
 
@@ -232,6 +233,14 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 
 /** Flag to run the request in dry-run mode. */
 @property(nonatomic, assign) BOOL dryRun;
+
+/**
+ *  Flag to delete sub-accounts with products. The default value of false will
+ *  become active on September 28, 2017.
+ *
+ *  @note If not set, the documented server-side default will be true.
+ */
+@property(nonatomic, assign) BOOL force;
 
 /** The ID of the managing account. */
 @property(nonatomic, assign) unsigned long long merchantId;

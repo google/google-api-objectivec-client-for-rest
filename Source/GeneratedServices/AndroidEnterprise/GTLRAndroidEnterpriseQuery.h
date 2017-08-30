@@ -726,8 +726,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Sends a test push notification to validate the EMM integration with the
- *  Google Cloud Pub/Sub service for this enterprise.
+ *  Sends a test notification to validate the EMM integration with the Google
+ *  Cloud Pub/Sub service for this enterprise.
  *
  *  Method: androidenterprise.enterprises.sendTestPushNotification
  *
@@ -745,8 +745,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
  *  Fetches a @c
  *  GTLRAndroidEnterprise_EnterprisesSendTestPushNotificationResponse.
  *
- *  Sends a test push notification to validate the EMM integration with the
- *  Google Cloud Pub/Sub service for this enterprise.
+ *  Sends a test notification to validate the EMM integration with the Google
+ *  Cloud Pub/Sub service for this enterprise.
  *
  *  @param enterpriseId The ID of the enterprise.
  *

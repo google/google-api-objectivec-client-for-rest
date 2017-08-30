@@ -4765,9 +4765,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 
 /**
  *  The alphanumeric encrypted user ID. When set, encryptionInfo should also be
- *  specified. This field is mutually exclusive with encryptedUserIdCandidates[]
- *  and mobileDeviceId. This or encryptedUserIdCandidates[] or mobileDeviceId is
- *  a required field.
+ *  specified. This field is mutually exclusive with
+ *  encryptedUserIdCandidates[], mobileDeviceId and gclid. This or
+ *  encryptedUserIdCandidates[] or mobileDeviceId or gclid is a required field.
  */
 @property(nonatomic, copy, nullable) NSString *encryptedUserId;
 
@@ -4778,8 +4778,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
  *  NO_COOKIE_MATCH_FOUND error. When set, encryptionInfo should also be
  *  specified. This field may only be used when calling batchinsert; it is not
  *  supported by batchupdate. This field is mutually exclusive with
- *  encryptedUserId and mobileDeviceId. This or encryptedUserId or
- *  mobileDeviceId is a required field.
+ *  encryptedUserId, mobileDeviceId and gclid. This or encryptedUserId or
+ *  mobileDeviceId or gclid is a required field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *encryptedUserIdCandidates;
 
@@ -4798,6 +4798,13 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 @property(nonatomic, strong, nullable) NSNumber *floodlightConfigurationId;
 
 /**
+ *  The Google click ID. This field is mutually exclusive with encryptedUserId,
+ *  encryptedUserIdCandidates[] and mobileDeviceId. This or encryptedUserId or
+ *  encryptedUserIdCandidates[] or mobileDeviceId is a required field.
+ */
+@property(nonatomic, copy, nullable) NSString *gclid;
+
+/**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "dfareporting#conversion".
  */
@@ -4812,9 +4819,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 @property(nonatomic, strong, nullable) NSNumber *limitAdTracking;
 
 /**
- *  The mobile device ID. This field is mutually exclusive with encryptedUserId
- *  and encryptedUserIdCandidates[]. This or encryptedUserId or
- *  encryptedUserIdCandidates[] is a required field.
+ *  The mobile device ID. This field is mutually exclusive with encryptedUserId,
+ *  encryptedUserIdCandidates[] and gclid. This or encryptedUserId or
+ *  encryptedUserIdCandidates[] or gclid is a required field.
  */
 @property(nonatomic, copy, nullable) NSString *mobileDeviceId;
 
@@ -5327,7 +5334,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 
 /**
  *  HTML code for the creative. This is a required field when applicable. This
- *  field is ignored if htmlCodeLocked is false. Applicable to the following
+ *  field is ignored if htmlCodeLocked is true. Applicable to the following
  *  creative types: all CUSTOM, FLASH_INPAGE, and HTML5_BANNER, and all
  *  RICH_MEDIA.
  */
@@ -7774,7 +7781,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 
 /**
  *  Whether this directory site has disabled active view for in-stream video
- *  creatives.
+ *  creatives. This is a read-only field.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8557,28 +8564,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 
 /**
  *  List of the user-defined variables used by this conversion tag. These map to
- *  the "u[1-20]=" in the tags. Each of these can have a user defined type.
- *  Acceptable values are:
- *  - "U1"
- *  - "U2"
- *  - "U3"
- *  - "U4"
- *  - "U5"
- *  - "U6"
- *  - "U7"
- *  - "U8"
- *  - "U9"
- *  - "U10"
- *  - "U11"
- *  - "U12"
- *  - "U13"
- *  - "U14"
- *  - "U15"
- *  - "U16"
- *  - "U17"
- *  - "U18"
- *  - "U19"
- *  - "U20"
+ *  the "u[1-100]=" in the tags. Each of these can have a user defined type.
+ *  Acceptable values are U1 to U100, inclusive.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *userDefinedVariableTypes;
 
@@ -10623,6 +10610,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
  *  VPAID adapter setting for this placement. Controls which VPAID format the
  *  measurement adapter will use for in-stream video creatives assigned to this
  *  placement.
+ *  Note: Flash is no longer supported. This field now defaults to HTML5 when
+ *  the following values are provided: FLASH, BOTH.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_Placement_VpaidAdapterChoice_Both Value "BOTH"
@@ -12809,8 +12798,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
  *  format the measurement adapter will use for in-stream video creatives
  *  assigned to the placement. The publisher's specifications will typically
  *  determine this setting. For VPAID creatives, the adapter format will match
- *  the VPAID format (HTML5 VPAID creatives use the HTML5 adapter, and Flash
- *  VPAID creatives use the Flash adapter).
+ *  the VPAID format (HTML5 VPAID creatives use the HTML5 adapter).
+ *  Note: Flash is no longer supported. This field now defaults to HTML5 when
+ *  the following values are provided: FLASH, BOTH.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Both

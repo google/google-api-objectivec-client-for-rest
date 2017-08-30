@@ -364,6 +364,24 @@ NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType = @"unspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRToolResults_ListScreenshotClustersResponse
+//
+
+@implementation GTLRToolResults_ListScreenshotClustersResponse
+@dynamic clusters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"clusters" : [GTLRToolResults_ScreenshotCluster class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRToolResults_ListStepsResponse
 //
 
@@ -498,6 +516,34 @@ NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType = @"unspecified
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"xunitXmlFiles" : [GTLRToolResults_FileReference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_Screen
+//
+
+@implementation GTLRToolResults_Screen
+@dynamic fileReference, locale, model, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_ScreenshotCluster
+//
+
+@implementation GTLRToolResults_ScreenshotCluster
+@dynamic activity, clusterId, keyScreen, screens;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"screens" : [GTLRToolResults_Screen class]
   };
   return map;
 }

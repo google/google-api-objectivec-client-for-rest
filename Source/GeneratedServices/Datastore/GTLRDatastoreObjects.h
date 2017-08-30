@@ -48,9 +48,12 @@
 @class GTLRDatastore_PropertyReference;
 @class GTLRDatastore_Query;
 @class GTLRDatastore_QueryResultBatch;
+@class GTLRDatastore_ReadOnly;
 @class GTLRDatastore_ReadOptions;
+@class GTLRDatastore_ReadWrite;
 @class GTLRDatastore_Status;
 @class GTLRDatastore_Status_Details_Item;
+@class GTLRDatastore_TransactionOptions;
 @class GTLRDatastore_Value;
 
 // Generated comments include content from the discovery document; avoid them
@@ -401,6 +404,10 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The request for Datastore.BeginTransaction.
  */
 @interface GTLRDatastore_BeginTransactionRequest : GTLRObject
+
+/** Options for a new transaction. */
+@property(nonatomic, strong, nullable) GTLRDatastore_TransactionOptions *transactionOptions;
+
 @end
 
 
@@ -1547,6 +1554,13 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
+ *  Options specific to read-only transactions.
+ */
+@interface GTLRDatastore_ReadOnly : GTLRObject
+@end
+
+
+/**
  *  The options shared by read requests.
  */
 @interface GTLRDatastore_ReadOptions : GTLRObject
@@ -1575,6 +1589,22 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *transaction;
+
+@end
+
+
+/**
+ *  Options specific to read / write transactions.
+ */
+@interface GTLRDatastore_ReadWrite : GTLRObject
+
+/**
+ *  The transaction identifier of the transaction being retried.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *previousTransaction;
 
 @end
 
@@ -1722,6 +1752,23 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDatastore_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Options for beginning a new transaction.
+ *  Transactions can be created explicitly with calls to
+ *  Datastore.BeginTransaction or implicitly by setting
+ *  ReadOptions.new_transaction in read requests.
+ */
+@interface GTLRDatastore_TransactionOptions : GTLRObject
+
+/** The transaction should only allow reads. */
+@property(nonatomic, strong, nullable) GTLRDatastore_ReadOnly *readOnly;
+
+/** The transaction should allow both reads and writes. */
+@property(nonatomic, strong, nullable) GTLRDatastore_ReadWrite *readWrite;
+
 @end
 
 

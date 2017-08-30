@@ -138,6 +138,31 @@
 
 @end
 
+@implementation GTLRLoggingQuery_BillingAccountsSinksPatch
+
+@dynamic sinkName, uniqueWriterIdentity;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                       sinkName:(NSString *)sinkName {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"sinkName" ];
+  NSString *pathURITemplate = @"v2/{+sinkName}";
+  GTLRLoggingQuery_BillingAccountsSinksPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.sinkName = sinkName;
+  query.expectedObjectClass = [GTLRLogging_LogSink class];
+  query.loggingName = @"logging.billingAccounts.sinks.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_BillingAccountsSinksUpdate
 
 @dynamic sinkName, uniqueWriterIdentity;
@@ -323,6 +348,31 @@
 
 @end
 
+@implementation GTLRLoggingQuery_FoldersSinksPatch
+
+@dynamic sinkName, uniqueWriterIdentity;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                       sinkName:(NSString *)sinkName {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"sinkName" ];
+  NSString *pathURITemplate = @"v2/{+sinkName}";
+  GTLRLoggingQuery_FoldersSinksPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.sinkName = sinkName;
+  query.expectedObjectClass = [GTLRLogging_LogSink class];
+  query.loggingName = @"logging.folders.sinks.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_FoldersSinksUpdate
 
 @dynamic sinkName, uniqueWriterIdentity;
@@ -480,6 +530,31 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRLogging_ListSinksResponse class];
   query.loggingName = @"logging.organizations.sinks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsSinksPatch
+
+@dynamic sinkName, uniqueWriterIdentity;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                       sinkName:(NSString *)sinkName {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"sinkName" ];
+  NSString *pathURITemplate = @"v2/{+sinkName}";
+  GTLRLoggingQuery_OrganizationsSinksPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.sinkName = sinkName;
+  query.expectedObjectClass = [GTLRLogging_LogSink class];
+  query.loggingName = @"logging.organizations.sinks.patch";
   return query;
 }
 
@@ -732,6 +807,31 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRLogging_ListSinksResponse class];
   query.loggingName = @"logging.projects.sinks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsSinksPatch
+
+@dynamic sinkName, uniqueWriterIdentity;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                       sinkName:(NSString *)sinkName {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"sinkName" ];
+  NSString *pathURITemplate = @"v2/{+sinkName}";
+  GTLRLoggingQuery_ProjectsSinksPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.sinkName = sinkName;
+  query.expectedObjectClass = [GTLRLogging_LogSink class];
+  query.loggingName = @"logging.projects.sinks.patch";
   return query;
 }
 

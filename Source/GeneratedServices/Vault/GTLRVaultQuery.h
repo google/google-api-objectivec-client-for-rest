@@ -271,8 +271,8 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 
 /**
  *  Lists HeldAccounts for a hold. This will only list individually specified
- *  held accounts. If the hold is on an OU, then use the
- *  <ahref="https://developers.google.com/admin-sdk/">Admin SDK</a>
+ *  held accounts. If the hold is on an OU, then use
+ *  <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
  *  to enumerate its members.
  *
  *  Method: vault.matters.holds.accounts.list
@@ -291,8 +291,8 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Fetches a @c GTLRVault_ListHeldAccountsResponse.
  *
  *  Lists HeldAccounts for a hold. This will only list individually specified
- *  held accounts. If the hold is on an OU, then use the
- *  <ahref="https://developers.google.com/admin-sdk/">Admin SDK</a>
+ *  held accounts. If the hold is on an OU, then use
+ *  <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
  *  to enumerate its members.
  *
  *  @param matterId The matter ID.

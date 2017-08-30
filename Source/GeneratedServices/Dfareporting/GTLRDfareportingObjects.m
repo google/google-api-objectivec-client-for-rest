@@ -1947,8 +1947,8 @@ NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm   = @"WEBM";
 @implementation GTLRDfareporting_Conversion
 @dynamic childDirectedTreatment, customVariables, encryptedUserId,
          encryptedUserIdCandidates, floodlightActivityId,
-         floodlightConfigurationId, kind, limitAdTracking, mobileDeviceId,
-         ordinal, quantity, timestampMicros, value;
+         floodlightConfigurationId, gclid, kind, limitAdTracking,
+         mobileDeviceId, ordinal, quantity, timestampMicros, value;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

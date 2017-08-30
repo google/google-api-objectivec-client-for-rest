@@ -786,7 +786,11 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  */
 @property(nonatomic, copy, nullable) NSString *authoritySelector;
 
-/** The email address of the authenticated user making the request. */
+/**
+ *  The email address of the authenticated user making the request.
+ *  For privacy reasons, the principal email address is redacted for all
+ *  read-only operations that fail with a "permission denied" error.
+ */
 @property(nonatomic, copy, nullable) NSString *principalEmail;
 
 @end
@@ -1287,8 +1291,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /**
  *  The log entry payload, represented as a protocol buffer that is
- *  expressed as a JSON object. You can only pass `protoPayload`
- *  values that belong to a set of approved types.
+ *  expressed as a JSON object. The only accepted type currently is
+ *  AuditLog.
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_LogEntry_ProtoPayload *protoPayload;
 
@@ -1352,8 +1356,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /**
  *  The log entry payload, represented as a protocol buffer that is
- *  expressed as a JSON object. You can only pass `protoPayload`
- *  values that belong to a set of approved types.
+ *  expressed as a JSON object. The only accepted type currently is
+ *  AuditLog.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1606,6 +1610,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  */
 @property(nonatomic, copy, nullable) NSString *resourceContainer;
 
+/**
+ *  DO NOT USE.
+ *  This field is not ready for use yet.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceContainers;
+
 /** Required. Start time of the operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -1748,7 +1758,10 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  Map of quota group name to the actual number of tokens consumed. If the
  *  quota check was not successful, then this will not be populated due to no
  *  quota consumption.
- *  Deprecated: Use quota_metrics to get per quota group usage.
+ *  We are not merging this field with 'quota_metrics' field because of the
+ *  complexity of scaling in Chemist client code base. For simplicity, we will
+ *  keep this field for Castor (that scales quota usage) and 'quota_metrics'
+ *  for SuperQuota (that doesn't scale quota usage).
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_QuotaInfo_QuotaConsumed *quotaConsumed;
 
@@ -1774,7 +1787,10 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  Map of quota group name to the actual number of tokens consumed. If the
  *  quota check was not successful, then this will not be populated due to no
  *  quota consumption.
- *  Deprecated: Use quota_metrics to get per quota group usage.
+ *  We are not merging this field with 'quota_metrics' field because of the
+ *  complexity of scaling in Chemist client code base. For simplicity, we will
+ *  keep this field for Castor (that scales quota usage) and 'quota_metrics'
+ *  for SuperQuota (that doesn't scale quota usage).
  *
  *  @note This class is documented as having more properties of NSNumber (Uses
  *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
@@ -2017,14 +2033,14 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 
 /**
- *  Represents the processing error of one `Operation` in the request.
+ *  Represents the processing error of one Operation in the request.
  */
 @interface GTLRServiceControl_ReportError : GTLRObject
 
 /** The Operation.operation_id value from the request. */
 @property(nonatomic, copy, nullable) NSString *operationId;
 
-/** Details of the error when processing the `Operation`. */
+/** Details of the error when processing the Operation. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Status *status;
 
 @end

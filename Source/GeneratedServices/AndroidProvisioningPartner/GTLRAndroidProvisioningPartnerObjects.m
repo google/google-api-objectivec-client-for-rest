@@ -98,7 +98,16 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_Company
-@dynamic companyId, companyName;
+@dynamic adminEmails, companyId, companyName, name, ownerEmails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adminEmails" : [NSString class],
+    @"ownerEmails" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -108,7 +117,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_Device
-@dynamic claims, deviceId, deviceIdentifier, deviceMetadata, name;
+@dynamic claims, configuration, deviceId, deviceIdentifier, deviceMetadata,
+         name;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

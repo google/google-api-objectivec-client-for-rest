@@ -407,18 +407,18 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 
 
 /**
- *  Represents the application to debug. The application may include one or more
+ *  Represents the debugged application. The application may include one or more
  *  replicated processes executing the same code. Each of these processes is
  *  attached with a debugger agent, carrying out the debugging commands.
- *  The agents attached to the same debuggee are identified by using exactly the
- *  same field values when registering.
+ *  Agents attached to the same debuggee identify themselves as such by using
+ *  exactly the same Debuggee message value when registering.
  */
 @interface GTLRCloudDebugger_Debuggee : GTLRObject
 
 /**
- *  Version ID of the agent release. The version ID is structured as
- *  following: `domain/type/vmajor.minor` (for example
- *  `google.com/gcp-java/v1.1`).
+ *  Version ID of the agent.
+ *  Schema: `domain/language-platform/vmajor.minor` (for example
+ *  `google.com/java-gcp/v1.1`).
  */
 @property(nonatomic, copy, nullable) NSString *agentVersion;
 
@@ -434,9 +434,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 /**
  *  References to the locations and revisions of the source code used in the
  *  deployed application.
- *  Contexts describing a remote repo related to the source code
- *  have a `category` label of `remote_repo`. Source snapshot source
- *  contexts have a `category` of `snapshot`.
+ *  NOTE: this field is experimental and can be ignored.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_ExtendedSourceContext *> *extSourceContexts;
 
@@ -456,8 +454,8 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @property(nonatomic, strong, nullable) NSNumber *isDisabled;
 
 /**
- *  If set to `true`, indicates that the debuggee is considered as inactive by
- *  the Controller service.
+ *  If set to `true`, indicates that Controller service does not detect any
+ *  activity from the debuggee agents and the application is possibly stopped.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -471,16 +469,13 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 
 /**
  *  Project the debuggee is associated with.
- *  Use the project number when registering a Google Cloud Platform project.
+ *  Use project number or id when registering a Google Cloud Platform project.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  References to the locations and revisions of the source code used in the
  *  deployed application.
- *  NOTE: This field is deprecated. Consumers should use
- *  `ext_source_contexts` if it is not empty. Debug agents should populate
- *  both this field and `ext_source_contexts`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_SourceContext *> *sourceContexts;
 
@@ -492,9 +487,12 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_StatusMessage *status;
 
 /**
- *  Debuggee uniquifier within the project.
- *  Any string that identifies the application within the project can be used.
- *  Including environment and version or build IDs is recommended.
+ *  Uniquifier to further distiguish the application.
+ *  It is possible that different applications might have identical values in
+ *  the debuggee message, thus, incorrectly identified as a single application
+ *  by the Controller service. This field adds salt to further distiguish the
+ *  application. Agents should consider seeding this field with value that
+ *  identifies the code, binary, configuration and environment.
  */
 @property(nonatomic, copy, nullable) NSString *uniquifier;
 
@@ -647,14 +645,15 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Breakpoint *> *breakpoints;
 
 /**
- *  A wait token that can be used in the next method call to block until
+ *  A token that can be used in the next method call to block until
  *  the list of breakpoints changes.
  */
 @property(nonatomic, copy, nullable) NSString *nextWaitToken;
 
 /**
- *  The `wait_expired` field is set to true by the server when the
- *  request times out and the field `success_on_timeout` is set to true.
+ *  If set to `true`, indicates that there is no change to the
+ *  list of active breakpoints and the server-selected timeout has expired.
+ *  The `breakpoints` field would be empty and should be ignored.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -692,10 +691,9 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 
 /**
  *  List of debuggees accessible to the calling user.
- *  Note that the `description` field is the only human readable field
- *  that should be displayed to the user.
- *  The fields `debuggee.id` and `description` fields are guaranteed to be
- *  set on each debuggee.
+ *  The fields `debuggee.id` and `description` are guaranteed to be set.
+ *  The `description` field is a human readable field provided by agents and
+ *  can be displayed to users.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Debuggee *> *debuggees;
 
@@ -740,6 +738,9 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 /**
  *  Debuggee resource.
  *  The field `id` is guranteed to be set (in addition to the echoed fields).
+ *  If the field `is_disabled` is set to `true`, the agent should disable
+ *  itself by removing all breakpoints and detaching from the application.
+ *  It should however continue to poll `RegisterDebuggee` until reenabled.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_Debuggee *debuggee;
 
@@ -899,6 +900,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 /**
  *  Updated breakpoint information.
  *  The field `id` must be set.
+ *  The agent must echo all Breakpoint specification fields in the update.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_Breakpoint *breakpoint;
 

@@ -1405,7 +1405,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 // Previous library name was
 //   +[GTLQueryStorage queryForNotificationsListWithbucket:]
 
-/** Name of a GCS bucket. */
+/** Name of a Google Cloud Storage bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /** The project to be billed for this request, for Requester Pays buckets. */
@@ -1416,7 +1416,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  Retrieves a list of notification subscriptions for a given bucket.
  *
- *  @param bucket Name of a GCS bucket.
+ *  @param bucket Name of a Google Cloud Storage bucket.
  *
  *  @returns GTLRStorageQuery_NotificationsList
  */
@@ -1809,7 +1809,8 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
- *  matches the given value.
+ *  matches the given value. Setting to 0 makes the operation succeed only if
+ *  there are no live versions of the object.
  */
 @property(nonatomic, assign) long long ifGenerationMatch;
 
@@ -1921,13 +1922,16 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Makes the operation conditional on whether the destination object's current
- *  generation matches the given value.
+ *  generation matches the given value. Setting to 0 makes the operation succeed
+ *  only if there are no live versions of the object.
  */
 @property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the destination object's current
- *  generation does not match the given value.
+ *  generation does not match the given value. If no live object exists, the
+ *  precondition fails. Setting to 0 makes the operation succeed only if there
+ *  is a live version of the object.
  */
 @property(nonatomic, assign) long long ifGenerationNotMatch;
 
@@ -1944,14 +1948,14 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
- *  Makes the operation conditional on whether the source object's generation
- *  matches the given value.
+ *  Makes the operation conditional on whether the source object's current
+ *  generation matches the given value.
  */
 @property(nonatomic, assign) long long ifSourceGenerationMatch;
 
 /**
- *  Makes the operation conditional on whether the source object's generation
- *  does not match the given value.
+ *  Makes the operation conditional on whether the source object's current
+ *  generation does not match the given value.
  */
 @property(nonatomic, assign) long long ifSourceGenerationNotMatch;
 
@@ -2076,13 +2080,16 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
- *  matches the given value.
+ *  matches the given value. Setting to 0 makes the operation succeed only if
+ *  there are no live versions of the object.
  */
 @property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
- *  does not match the given value.
+ *  does not match the given value. If no live object exists, the precondition
+ *  fails. Setting to 0 makes the operation succeed only if there is a live
+ *  version of the object.
  */
 @property(nonatomic, assign) long long ifGenerationNotMatch;
 
@@ -2151,14 +2158,17 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, assign) long long generation;
 
 /**
- *  Makes the operation conditional on whether the object's generation matches
- *  the given value.
+ *  Makes the operation conditional on whether the object's current generation
+ *  matches the given value. Setting to 0 makes the operation succeed only if
+ *  there are no live versions of the object.
  */
 @property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
- *  Makes the operation conditional on whether the object's generation does not
- *  match the given value.
+ *  Makes the operation conditional on whether the object's current generation
+ *  does not match the given value. If no live object exists, the precondition
+ *  fails. Setting to 0 makes the operation succeed only if there is a live
+ *  version of the object.
  */
 @property(nonatomic, assign) long long ifGenerationNotMatch;
 
@@ -2303,13 +2313,16 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
- *  matches the given value.
+ *  matches the given value. Setting to 0 makes the operation succeed only if
+ *  there are no live versions of the object.
  */
 @property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
- *  does not match the given value.
+ *  does not match the given value. If no live object exists, the precondition
+ *  fails. Setting to 0 makes the operation succeed only if there is a live
+ *  version of the object.
  */
 @property(nonatomic, assign) long long ifGenerationNotMatch;
 
@@ -2521,13 +2534,16 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
- *  matches the given value.
+ *  matches the given value. Setting to 0 makes the operation succeed only if
+ *  there are no live versions of the object.
  */
 @property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
- *  does not match the given value.
+ *  does not match the given value. If no live object exists, the precondition
+ *  fails. Setting to 0 makes the operation succeed only if there is a live
+ *  version of the object.
  */
 @property(nonatomic, assign) long long ifGenerationNotMatch;
 
@@ -2664,14 +2680,17 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *destinationPredefinedAcl;
 
 /**
- *  Makes the operation conditional on whether the destination object's current
- *  generation matches the given value.
+ *  Makes the operation conditional on whether the object's current generation
+ *  matches the given value. Setting to 0 makes the operation succeed only if
+ *  there are no live versions of the object.
  */
 @property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
- *  Makes the operation conditional on whether the destination object's current
- *  generation does not match the given value.
+ *  Makes the operation conditional on whether the object's current generation
+ *  does not match the given value. If no live object exists, the precondition
+ *  fails. Setting to 0 makes the operation succeed only if there is a live
+ *  version of the object.
  */
 @property(nonatomic, assign) long long ifGenerationNotMatch;
 
@@ -2688,14 +2707,14 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, assign) long long ifMetagenerationNotMatch;
 
 /**
- *  Makes the operation conditional on whether the source object's generation
- *  matches the given value.
+ *  Makes the operation conditional on whether the source object's current
+ *  generation matches the given value.
  */
 @property(nonatomic, assign) long long ifSourceGenerationMatch;
 
 /**
- *  Makes the operation conditional on whether the source object's generation
- *  does not match the given value.
+ *  Makes the operation conditional on whether the source object's current
+ *  generation does not match the given value.
  */
 @property(nonatomic, assign) long long ifSourceGenerationNotMatch;
 
@@ -2918,13 +2937,16 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
- *  matches the given value.
+ *  matches the given value. Setting to 0 makes the operation succeed only if
+ *  there are no live versions of the object.
  */
 @property(nonatomic, assign) long long ifGenerationMatch;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
- *  does not match the given value.
+ *  does not match the given value. If no live object exists, the precondition
+ *  fails. Setting to 0 makes the operation succeed only if there is a live
+ *  version of the object.
  */
 @property(nonatomic, assign) long long ifGenerationNotMatch;
 
@@ -3098,7 +3120,8 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
- *  Get the email address of this project's GCS service account.
+ *  Get the email address of this project's Google Cloud Storage service
+ *  account.
  *
  *  Method: storage.projects.serviceAccount.get
  *
@@ -3119,7 +3142,8 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /**
  *  Fetches a @c GTLRStorage_ServiceAccount.
  *
- *  Get the email address of this project's GCS service account.
+ *  Get the email address of this project's Google Cloud Storage service
+ *  account.
  *
  *  @param projectId Project ID
  *

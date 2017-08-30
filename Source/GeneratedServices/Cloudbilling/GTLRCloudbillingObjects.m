@@ -13,12 +13,45 @@
 #import "GTLRCloudbillingObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRCloudbilling_AggregationInfo.aggregationInterval
+NSString * const kGTLRCloudbilling_AggregationInfo_AggregationInterval_AggregationIntervalUnspecified = @"AGGREGATION_INTERVAL_UNSPECIFIED";
+NSString * const kGTLRCloudbilling_AggregationInfo_AggregationInterval_Daily = @"DAILY";
+NSString * const kGTLRCloudbilling_AggregationInfo_AggregationInterval_Monthly = @"MONTHLY";
+
+// GTLRCloudbilling_AggregationInfo.aggregationLevel
+NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_Account = @"ACCOUNT";
+NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_AggregationLevelUnspecified = @"AGGREGATION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_Project = @"PROJECT";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AggregationInfo
+//
+
+@implementation GTLRCloudbilling_AggregationInfo
+@dynamic aggregationCount, aggregationInterval, aggregationLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRCloudbilling_BillingAccount
 //
 
 @implementation GTLRCloudbilling_BillingAccount
 @dynamic displayName, name, open;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Category
+//
+
+@implementation GTLRCloudbilling_Category
+@dynamic resourceFamily, resourceGroup, serviceDisplayName, usageType;
 @end
 
 
@@ -68,9 +101,137 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudbilling_ListServicesResponse
+//
+
+@implementation GTLRCloudbilling_ListServicesResponse
+@dynamic nextPageToken, services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"services" : [GTLRCloudbilling_Service class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"services";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_ListSkusResponse
+//
+
+@implementation GTLRCloudbilling_ListSkusResponse
+@dynamic nextPageToken, skus;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"skus" : [GTLRCloudbilling_Sku class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"skus";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Money
+//
+
+@implementation GTLRCloudbilling_Money
+@dynamic currencyCode, nanos, units;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_PricingExpression
+//
+
+@implementation GTLRCloudbilling_PricingExpression
+@dynamic baseUnit, baseUnitConversionFactor, baseUnitDescription,
+         displayQuantity, tieredRates, usageUnit, usageUnitDescription;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tieredRates" : [GTLRCloudbilling_TierRate class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_PricingInfo
+//
+
+@implementation GTLRCloudbilling_PricingInfo
+@dynamic aggregationInfo, currencyConversionRate, effectiveTime,
+         pricingExpression, summary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudbilling_ProjectBillingInfo
 //
 
 @implementation GTLRCloudbilling_ProjectBillingInfo
 @dynamic billingAccountName, billingEnabled, name, projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Service
+//
+
+@implementation GTLRCloudbilling_Service
+@dynamic displayName, name, serviceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Sku
+//
+
+@implementation GTLRCloudbilling_Sku
+@dynamic category, descriptionProperty, name, pricingInfo, serviceProviderName,
+         serviceRegions, skuId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pricingInfo" : [GTLRCloudbilling_PricingInfo class],
+    @"serviceRegions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_TierRate
+//
+
+@implementation GTLRCloudbilling_TierRate
+@dynamic startUsageAmount, unitPrice;
 @end

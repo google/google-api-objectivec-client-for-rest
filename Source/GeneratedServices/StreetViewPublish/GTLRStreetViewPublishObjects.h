@@ -324,7 +324,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStreetViewPublish_PhotoId : GTLRObject
 
 /**
- *  Required. A base64 encoded identifier.
+ *  Required. A unique identifier for a photo.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -521,13 +521,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Photo object containing the
- *  new metadata. Only the fields specified in
- *  updateMask
- *  field are used. If `updateMask` is not present, the update applies to all
- *  fields. <aside class="note"><b>Note:</b> To update
- *  Pose.altitude,
- *  Pose.latLngPair has to be
- *  filled as well. Otherwise, the request will fail.
+ *  new metadata.
  */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_Photo *photo;
 
@@ -538,7 +532,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  specified. Multiple fields can be specified in a comma-delimited list.
  *  The following fields are valid:
  *  * `pose.heading`
- *  * `pose.latlngpair`
+ *  * `pose.latLngPair`
  *  * `pose.pitch`
  *  * `pose.roll`
  *  * `pose.level`
@@ -550,9 +544,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  mean the entire set of repeated values will be replaced with the new
  *  contents. For example, if
  *  updateMask
- *  contains `connections` and
- *  google.streetview.publish.v1.UpdatePhotoRequest.photo.connections is
- *  empty, all connections will be removed.</aside>
+ *  contains `connections` and `UpdatePhotoRequest.photo.connections` is empty,
+ *  all connections will be removed.</aside>
  *
  *  String format is a comma-separated list of fields.
  */

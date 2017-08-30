@@ -43,6 +43,7 @@
 @class GTLRAndroidEnterprise_ProductApprovalEvent;
 @class GTLRAndroidEnterprise_ProductAvailabilityChangeEvent;
 @class GTLRAndroidEnterprise_ProductPermission;
+@class GTLRAndroidEnterprise_ProductSigningCertificate;
 @class GTLRAndroidEnterprise_ServiceAccountKey;
 @class GTLRAndroidEnterprise_StoreCluster;
 @class GTLRAndroidEnterprise_StorePage;
@@ -1196,6 +1197,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *requiresContainerApp;
 
+/** The certificate used to sign this product. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ProductSigningCertificate *signingCertificate;
+
 /**
  *  A link to a smaller image that can be used as an icon for the product. This
  *  image is suitable for use at up to 128px x 128px.
@@ -1368,6 +1372,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  accepted.
  */
 @property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  GTLRAndroidEnterprise_ProductSigningCertificate
+ */
+@interface GTLRAndroidEnterprise_ProductSigningCertificate : GTLRObject
+
+/**
+ *  The base64 urlsafe encoded SHA1 hash of the certificate. (This field is
+ *  deprecated in favor of SHA2-256. It should not be used and may be removed at
+ *  any time.)
+ */
+@property(nonatomic, copy, nullable) NSString *certificateHashSha1;
+
+/** The base64 urlsafe encoded SHA2-256 hash of the certificate. */
+@property(nonatomic, copy, nullable) NSString *certificateHashSha256;
 
 @end
 

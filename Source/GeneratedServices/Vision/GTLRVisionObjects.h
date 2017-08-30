@@ -2389,8 +2389,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_WebImage : GTLRObject
 
 /**
- *  Overall relevancy score for the image.
- *  Not normalized and not comparable across different image queries.
+ *  (Deprecated) Overall relevancy score for the image.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2408,8 +2407,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @interface GTLRVision_WebPage : GTLRObject
 
 /**
- *  Overall relevancy score for the web page.
- *  Not normalized and not comparable across different image queries.
+ *  (Deprecated) Overall relevancy score for the web page.
  *
  *  Uses NSNumber of floatValue.
  */

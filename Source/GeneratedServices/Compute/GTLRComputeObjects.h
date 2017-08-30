@@ -1215,6 +1215,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_LocalSsdTotalGb;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Networks;
 /** Value: "NVIDIA_K80_GPUS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaK80Gpus;
+/** Value: "NVIDIA_P100_GPUS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP100Gpus;
 /** Value: "PREEMPTIBLE_CPUS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleCpus;
 /** Value: "PREEMPTIBLE_LOCAL_SSD_GB" */
@@ -1251,6 +1253,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetInstances;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetPools;
 /** Value: "TARGET_SSL_PROXIES" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetSslProxies;
+/** Value: "TARGET_TCP_PROXIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetTcpProxies;
 /** Value: "TARGET_VPN_GATEWAYS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetVpnGateways;
 /** Value: "URL_MAPS" */
@@ -3257,9 +3261,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 /**
  *  The list of URLs to the HttpHealthCheck or HttpsHealthCheck resource for
  *  health checking this BackendService. Currently at most one health check can
- *  be specified, and a health check is required for GCE backend services. A
- *  health check must not be specified for GAE app backend and Cloud Function
- *  backend.
+ *  be specified, and a health check is required for Compute Engine backend
+ *  services. A health check must not be specified for App Engine backend and
+ *  Cloud Function backend.
  *  For internal load balancing, a URL to a HealthCheck resource must be
  *  specified instead.
  */
@@ -3284,7 +3288,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  loadBalancingScheme
+ *  Indicates whether the backend service will be used with internal or external
+ *  load balancing. A backend service created for one type of load balancing
+ *  cannot be used with the other. Possible values are INTERNAL and EXTERNAL.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_External Value
@@ -9451,7 +9457,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Serive resources (a.k.a service projects) attached to this project as their
+ *  Service resources (a.k.a service projects) attached to this project as their
  *  shared VPC host.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
@@ -9515,6 +9521,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *        "LOCAL_SSD_TOTAL_GB"
  *    @arg @c kGTLRCompute_Quota_Metric_Networks Value "NETWORKS"
  *    @arg @c kGTLRCompute_Quota_Metric_NvidiaK80Gpus Value "NVIDIA_K80_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_NvidiaP100Gpus Value "NVIDIA_P100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleCpus Value "PREEMPTIBLE_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleLocalSsdGb Value
  *        "PREEMPTIBLE_LOCAL_SSD_GB"
@@ -9541,6 +9548,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
  *    @arg @c kGTLRCompute_Quota_Metric_TargetPools Value "TARGET_POOLS"
  *    @arg @c kGTLRCompute_Quota_Metric_TargetSslProxies Value
  *        "TARGET_SSL_PROXIES"
+ *    @arg @c kGTLRCompute_Quota_Metric_TargetTcpProxies Value
+ *        "TARGET_TCP_PROXIES"
  *    @arg @c kGTLRCompute_Quota_Metric_TargetVpnGateways Value
  *        "TARGET_VPN_GATEWAYS"
  *    @arg @c kGTLRCompute_Quota_Metric_UrlMaps Value "URL_MAPS"

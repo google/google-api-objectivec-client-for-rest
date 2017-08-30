@@ -1119,6 +1119,14 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownB
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DetailTypeUnspecified;
 /**
+ *  Indicates that the detail ID refers to a disapproval reason; see
+ *  DisapprovalReason enum in
+ *  [snippet-status-report-proto](https://developers.google.com/ad-exchange/rtb/downloads/snippet-status-report-proto).
+ *
+ *  Value: "DISAPPROVAL_REASON"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DisapprovalReason;
+/**
  *  Indicates that the detail ID refers to a product category; see
  *  [ad-product-categories](https://developers.google.com/ad-exchange/rtb/downloads/ad-product-categories).
  *
@@ -2779,6 +2787,11 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_St
  *        A placeholder for an undefined status.
  *        This value will never be returned in responses. (Value:
  *        "DETAIL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DisapprovalReason
+ *        Indicates that the detail ID refers to a disapproval reason; see
+ *        DisapprovalReason enum in
+ *        [snippet-status-report-proto](https://developers.google.com/ad-exchange/rtb/downloads/snippet-status-report-proto).
+ *        (Value: "DISAPPROVAL_REASON")
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_ProductCategory
  *        Indicates that the detail ID refers to a product category; see
  *        [ad-product-categories](https://developers.google.com/ad-exchange/rtb/downloads/ad-product-categories).

@@ -7154,6 +7154,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 
 /**
  *  Tag formats to generate for these placements.
+ *  Note: PLACEMENT_TAG_STANDARD can only be generated for 1x1 placements.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareportingTagFormatsPlacementTagClickCommands Value

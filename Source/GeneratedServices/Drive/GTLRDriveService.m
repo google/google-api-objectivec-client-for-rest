@@ -37,7 +37,7 @@ NSString * const kGTLRAuthScopeDriveScripts          = @"https://www.googleapis.
     self.servicePath = @"drive/v3/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch";
+    self.batchPath = @"batch/drive/v3";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
