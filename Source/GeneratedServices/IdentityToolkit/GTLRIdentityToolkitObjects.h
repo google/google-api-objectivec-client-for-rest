@@ -571,6 +571,37 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Request for Identitytoolkit-SendVerificationCode
+ */
+@interface GTLRIdentityToolkit_RelyingpartySendVerificationCodeRequest : GTLRObject
+
+/** Receipt of successful app token validation with APNS. */
+@property(nonatomic, copy, nullable) NSString *iosReceipt;
+
+/** Secret delivered to iOS app via APNS. */
+@property(nonatomic, copy, nullable) NSString *iosSecret;
+
+/** The phone number to send the verification code to in E.164 format. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/** Recaptcha solution. */
+@property(nonatomic, copy, nullable) NSString *recaptchaToken;
+
+@end
+
+
+/**
+ *  Response for Identitytoolkit-SendVerificationCode
+ */
+@interface GTLRIdentityToolkit_RelyingpartySendVerificationCodeResponse : GTLRObject
+
+/** Encrypted session information */
+@property(nonatomic, copy, nullable) NSString *sessionInfo;
+
+@end
+
+
+/**
  *  Request to set the account information.
  */
 @interface GTLRIdentityToolkit_RelyingpartySetAccountInfoRequest : GTLRObject
@@ -587,6 +618,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *createdAt;
+
+/** The custom attributes to be set in the user's id token. */
+@property(nonatomic, copy, nullable) NSString *customAttributes;
 
 /**
  *  GCP project number of the requesting delegated app. Currently only intended
@@ -1046,6 +1080,73 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Request for Identitytoolkit-VerifyPhoneNumber
+ */
+@interface GTLRIdentityToolkit_RelyingpartyVerifyPhoneNumberRequest : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *idToken;
+@property(nonatomic, copy, nullable) NSString *operation;
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/**
+ *  The session info previously returned by
+ *  IdentityToolkit-SendVerificationCode.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionInfo;
+
+@property(nonatomic, copy, nullable) NSString *temporaryProof;
+@property(nonatomic, copy, nullable) NSString *verificationProof;
+
+@end
+
+
+/**
+ *  Response for Identitytoolkit-VerifyPhoneNumber
+ */
+@interface GTLRIdentityToolkit_RelyingpartyVerifyPhoneNumberResponse : GTLRObject
+
+/**
+ *  expiresIn
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiresIn;
+
+@property(nonatomic, copy, nullable) NSString *idToken;
+
+/**
+ *  isNewUser
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isNewUser;
+
+@property(nonatomic, copy, nullable) NSString *localId;
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+@property(nonatomic, copy, nullable) NSString *refreshToken;
+@property(nonatomic, copy, nullable) NSString *temporaryProof;
+
+/**
+ *  temporaryProofExpiresIn
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *temporaryProofExpiresIn;
+
+@property(nonatomic, copy, nullable) NSString *verificationProof;
+
+/**
+ *  verificationProofExpiresIn
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verificationProofExpiresIn;
+
+@end
+
+
+/**
  *  Response of resetting the password.
  */
 @interface GTLRIdentityToolkit_ResetPasswordResponse : GTLRObject
@@ -1228,6 +1329,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *createdAt;
+
+/** The custom attributes to be set in the user's id token. */
+@property(nonatomic, copy, nullable) NSString *customAttributes;
 
 /**
  *  Whether the user is authenticated by the developer.
@@ -1552,6 +1656,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The GITKit token for authenticated user. */
 @property(nonatomic, copy, nullable) NSString *idToken;
+
+/**
+ *  True if it's a new user sign-in, false if it's a returning user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isNewUser;
 
 /** The fixed string "identitytoolkit#VerifyCustomTokenResponse". */
 @property(nonatomic, copy, nullable) NSString *kind;

@@ -574,8 +574,8 @@
 
 @implementation GTLRAndroidEnterprise_Product
 @dynamic appVersion, authorName, detailsUrl, distributionChannel, iconUrl, kind,
-         productId, productPricing, requiresContainerApp, smallIconUrl, title,
-         workDetailsUrl;
+         productId, productPricing, requiresContainerApp, signingCertificate,
+         smallIconUrl, title, workDetailsUrl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -670,6 +670,16 @@
 
 @implementation GTLRAndroidEnterprise_ProductsGenerateApprovalUrlResponse
 @dynamic url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_ProductSigningCertificate
+//
+
+@implementation GTLRAndroidEnterprise_ProductSigningCertificate
+@dynamic certificateHashSha1, certificateHashSha256;
 @end
 
 

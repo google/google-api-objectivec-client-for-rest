@@ -14,47 +14,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRSpanner_AuditLogConfig.logType
-NSString * const kGTLRSpanner_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
-NSString * const kGTLRSpanner_AuditLogConfig_LogType_DataRead  = @"DATA_READ";
-NSString * const kGTLRSpanner_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
-NSString * const kGTLRSpanner_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
-
-// GTLRSpanner_AuthorizationLoggingOptions.permissionType
-NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_AdminRead = @"ADMIN_READ";
-NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_AdminWrite = @"ADMIN_WRITE";
-NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_DataRead = @"DATA_READ";
-NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_DataWrite = @"DATA_WRITE";
-NSString * const kGTLRSpanner_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified = @"PERMISSION_TYPE_UNSPECIFIED";
-
-// GTLRSpanner_CloudAuditOptions.logName
-NSString * const kGTLRSpanner_CloudAuditOptions_LogName_AdminActivity = @"ADMIN_ACTIVITY";
-NSString * const kGTLRSpanner_CloudAuditOptions_LogName_DataAccess = @"DATA_ACCESS";
-NSString * const kGTLRSpanner_CloudAuditOptions_LogName_UnspecifiedLogName = @"UNSPECIFIED_LOG_NAME";
-
-// GTLRSpanner_Condition.iam
-NSString * const kGTLRSpanner_Condition_Iam_Approver          = @"APPROVER";
-NSString * const kGTLRSpanner_Condition_Iam_Attribution       = @"ATTRIBUTION";
-NSString * const kGTLRSpanner_Condition_Iam_Authority         = @"AUTHORITY";
-NSString * const kGTLRSpanner_Condition_Iam_JustificationType = @"JUSTIFICATION_TYPE";
-NSString * const kGTLRSpanner_Condition_Iam_NoAttr            = @"NO_ATTR";
-NSString * const kGTLRSpanner_Condition_Iam_SecurityRealm     = @"SECURITY_REALM";
-
-// GTLRSpanner_Condition.op
-NSString * const kGTLRSpanner_Condition_Op_Discharged = @"DISCHARGED";
-NSString * const kGTLRSpanner_Condition_Op_Equals     = @"EQUALS";
-NSString * const kGTLRSpanner_Condition_Op_In         = @"IN";
-NSString * const kGTLRSpanner_Condition_Op_NoOp       = @"NO_OP";
-NSString * const kGTLRSpanner_Condition_Op_NotEquals  = @"NOT_EQUALS";
-NSString * const kGTLRSpanner_Condition_Op_NotIn      = @"NOT_IN";
-
-// GTLRSpanner_Condition.sys
-NSString * const kGTLRSpanner_Condition_Sys_Ip      = @"IP";
-NSString * const kGTLRSpanner_Condition_Sys_Name    = @"NAME";
-NSString * const kGTLRSpanner_Condition_Sys_NoAttr  = @"NO_ATTR";
-NSString * const kGTLRSpanner_Condition_Sys_Region  = @"REGION";
-NSString * const kGTLRSpanner_Condition_Sys_Service = @"SERVICE";
-
 // GTLRSpanner_Database.state
 NSString * const kGTLRSpanner_Database_State_Creating         = @"CREATING";
 NSString * const kGTLRSpanner_Database_State_Ready            = @"READY";
@@ -75,14 +34,6 @@ NSString * const kGTLRSpanner_PlanNode_Kind_KindUnspecified = @"KIND_UNSPECIFIED
 NSString * const kGTLRSpanner_PlanNode_Kind_Relational      = @"RELATIONAL";
 NSString * const kGTLRSpanner_PlanNode_Kind_Scalar          = @"SCALAR";
 
-// GTLRSpanner_Rule.action
-NSString * const kGTLRSpanner_Rule_Action_Allow        = @"ALLOW";
-NSString * const kGTLRSpanner_Rule_Action_AllowWithLog = @"ALLOW_WITH_LOG";
-NSString * const kGTLRSpanner_Rule_Action_Deny         = @"DENY";
-NSString * const kGTLRSpanner_Rule_Action_DenyWithLog  = @"DENY_WITH_LOG";
-NSString * const kGTLRSpanner_Rule_Action_Log          = @"LOG";
-NSString * const kGTLRSpanner_Rule_Action_NoAction     = @"NO_ACTION";
-
 // GTLRSpanner_Type.code
 NSString * const kGTLRSpanner_Type_Code_Array               = @"ARRAY";
 NSString * const kGTLRSpanner_Type_Code_Bool                = @"BOOL";
@@ -94,53 +45,6 @@ NSString * const kGTLRSpanner_Type_Code_String              = @"STRING";
 NSString * const kGTLRSpanner_Type_Code_Struct              = @"STRUCT";
 NSString * const kGTLRSpanner_Type_Code_Timestamp           = @"TIMESTAMP";
 NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSpanner_AuditConfig
-//
-
-@implementation GTLRSpanner_AuditConfig
-@dynamic auditLogConfigs, exemptedMembers, service;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRSpanner_AuditLogConfig class],
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSpanner_AuditLogConfig
-//
-
-@implementation GTLRSpanner_AuditLogConfig
-@dynamic exemptedMembers, logType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSpanner_AuthorizationLoggingOptions
-//
-
-@implementation GTLRSpanner_AuthorizationLoggingOptions
-@dynamic permissionType;
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -158,7 +62,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_Binding
-@dynamic condition, members, role;
+@dynamic members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -177,16 +81,6 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 @implementation GTLRSpanner_ChildLink
 @dynamic childIndex, type, variable;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSpanner_CloudAuditOptions
-//
-
-@implementation GTLRSpanner_CloudAuditOptions
-@dynamic authorizationLoggingOptions, logName;
 @end
 
 
@@ -215,34 +109,6 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 @implementation GTLRSpanner_CommitResponse
 @dynamic commitTimestamp;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSpanner_Condition
-//
-
-@implementation GTLRSpanner_Condition
-@dynamic iam, op, svc, sys, value, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSpanner_CounterOptions
-//
-
-@implementation GTLRSpanner_CounterOptions
-@dynamic field, metric;
 @end
 
 
@@ -291,15 +157,6 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 @implementation GTLRSpanner_CreateInstanceRequest
 @dynamic instance, instanceId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSpanner_DataAccessOptions
-//
-
-@implementation GTLRSpanner_DataAccessOptions
 @end
 
 
@@ -365,21 +222,6 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 + (Class)classForAdditionalProperties {
   return [GTLRSpanner_Type class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSpanner_Expr
-//
-
-@implementation GTLRSpanner_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -586,16 +428,6 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSpanner_LogConfig
-//
-
-@implementation GTLRSpanner_LogConfig
-@dynamic cloudAudit, counter, dataAccess;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSpanner_Mutation
 //
 
@@ -724,7 +556,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_Policy
-@dynamic auditConfigs, bindings, ETag, iamOwned, rules, version;
+@dynamic bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -732,9 +564,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditConfigs" : [GTLRSpanner_AuditConfig class],
-    @"bindings" : [GTLRSpanner_Binding class],
-    @"rules" : [GTLRSpanner_Rule class]
+    @"bindings" : [GTLRSpanner_Binding class]
   };
   return map;
 }
@@ -862,37 +692,6 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSpanner_Rule
-//
-
-@implementation GTLRSpanner_Rule
-@dynamic action, conditions, descriptionProperty, inProperty, logConfig, notIn,
-         permissions;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"inProperty" : @"in"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRSpanner_Condition class],
-    @"in" : [NSString class],
-    @"logConfig" : [GTLRSpanner_LogConfig class],
-    @"notIn" : [NSString class],
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSpanner_Session
 //
 
@@ -907,7 +706,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_SetIamPolicyRequest
-@dynamic policy, updateMask;
+@dynamic policy;
 @end
 
 

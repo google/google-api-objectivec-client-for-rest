@@ -62,7 +62,7 @@
 //
 
 @implementation GTLRScript_Operation
-@dynamic done, error, metadata, name, response;
+@dynamic done, error, metadata, response;
 @end
 
 

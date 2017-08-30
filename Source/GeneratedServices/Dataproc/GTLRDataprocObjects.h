@@ -1705,7 +1705,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  mapred: mapred-site.xml
  *  pig: pig.properties
  *  spark: spark-defaults.conf
- *  yarn: yarn-site.xml
+ *  yarn: yarn-site.xmlFor more information, see Cluster properties.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_SoftwareConfig_Properties *properties;
 
@@ -1724,7 +1724,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  mapred: mapred-site.xml
  *  pig: pig.properties
  *  spark: spark-defaults.conf
- *  yarn: yarn-site.xml
+ *  yarn: yarn-site.xmlFor more information, see Cluster properties.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

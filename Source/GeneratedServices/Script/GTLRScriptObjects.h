@@ -180,13 +180,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRScript_Operation_Metadata *metadata;
 
 /**
- *  This field is only used with asynchronous executions and contains a unique
- *  identifier that can be used to subsequently invoke a `get` `cancel` or
- *  `join` on the asynchronous script execution identified by this name.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
  *  If the script function returns successfully, this field will contain an
  *  `ExecutionResponse` object with the function's return value as the object's
  *  `result` field.

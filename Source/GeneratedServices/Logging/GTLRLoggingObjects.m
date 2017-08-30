@@ -65,8 +65,8 @@ NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecifi
 
 @implementation GTLRLogging_HttpRequest
 @dynamic cacheFillBytes, cacheHit, cacheLookup, cacheValidatedWithOriginServer,
-         latency, referer, remoteIp, requestMethod, requestSize, requestUrl,
-         responseSize, serverIp, status, userAgent;
+         latency, protocol, referer, remoteIp, requestMethod, requestSize,
+         requestUrl, responseSize, serverIp, status, userAgent;
 @end
 
 

@@ -2510,7 +2510,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAdExchangeBuyer_PublisherProfileApiProto : GTLRObject
 
-/** The account id of the seller. */
+/** Deprecated: use the seller.account_id. The account id of the seller. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /** Publisher provided info on its audience. */

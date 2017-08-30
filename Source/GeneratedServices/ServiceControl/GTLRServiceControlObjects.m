@@ -476,12 +476,13 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 @implementation GTLRServiceControl_Operation
 @dynamic consumerId, endTime, importance, labels, logEntries, metricValueSets,
          operationId, operationName, quotaProperties, resourceContainer,
-         startTime, userLabels;
+         resourceContainers, startTime, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"logEntries" : [GTLRServiceControl_LogEntry class],
-    @"metricValueSets" : [GTLRServiceControl_MetricValueSet class]
+    @"metricValueSets" : [GTLRServiceControl_MetricValueSet class],
+    @"resourceContainers" : [NSString class]
   };
   return map;
 }

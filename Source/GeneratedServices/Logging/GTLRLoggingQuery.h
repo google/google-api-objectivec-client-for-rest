@@ -362,12 +362,74 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a sink. If the named sink doesn't exist, then this method is
- *  identical to sinks.create. If the named sink does exist, then this method
- *  replaces the following fields in the existing sink with values from the new
- *  sink: destination, filter, output_version_format, start_time, and end_time.
- *  The updated filter might also have a new writer_identity; see the
- *  unique_writer_identity field.
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
+ *
+ *  Method: logging.billingAccounts.sinks.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsSinksPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsSinksPatchWithObject:sinkName:]
+
+/**
+ *  Required. The full resource name of the sink to update, including the parent
+ *  resource and the sink identifier:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
+ *  Example: "projects/my-project-id/sinks/my-sink-id".
+ */
+@property(nonatomic, copy, nullable) NSString *sinkName;
+
+/**
+ *  Optional. See sinks.create for a description of this field. When updating a
+ *  sink, the effect of this field on the value of writer_identity in the
+ *  updated sink depends on both the old and new values of this field:
+ *  If the old and new values of this field are both false or both true, then
+ *  there is no change to the sink's writer_identity.
+ *  If the old value is false and the new value is true, then writer_identity is
+ *  changed to a unique service account.
+ *  It is an error if the old value is true and the new value is set to false or
+ *  defaulted to false.
+ */
+@property(nonatomic, assign) BOOL uniqueWriterIdentity;
+
+/**
+ *  Fetches a @c GTLRLogging_LogSink.
+ *
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
+ *
+ *  @param object The @c GTLRLogging_LogSink to include in the query.
+ *  @param sinkName Required. The full resource name of the sink to update,
+ *    including the parent resource and the sink identifier:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
+ *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *
+ *  @returns GTLRLoggingQuery_BillingAccountsSinksPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                       sinkName:(NSString *)sinkName;
+
+@end
+
+/**
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
  *
  *  Method: logging.billingAccounts.sinks.update
  *
@@ -406,12 +468,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates a sink. If the named sink doesn't exist, then this method is
- *  identical to sinks.create. If the named sink does exist, then this method
- *  replaces the following fields in the existing sink with values from the new
- *  sink: destination, filter, output_version_format, start_time, and end_time.
- *  The updated filter might also have a new writer_identity; see the
- *  unique_writer_identity field.
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -810,12 +870,74 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a sink. If the named sink doesn't exist, then this method is
- *  identical to sinks.create. If the named sink does exist, then this method
- *  replaces the following fields in the existing sink with values from the new
- *  sink: destination, filter, output_version_format, start_time, and end_time.
- *  The updated filter might also have a new writer_identity; see the
- *  unique_writer_identity field.
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
+ *
+ *  Method: logging.folders.sinks.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersSinksPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersSinksPatchWithObject:sinkName:]
+
+/**
+ *  Required. The full resource name of the sink to update, including the parent
+ *  resource and the sink identifier:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
+ *  Example: "projects/my-project-id/sinks/my-sink-id".
+ */
+@property(nonatomic, copy, nullable) NSString *sinkName;
+
+/**
+ *  Optional. See sinks.create for a description of this field. When updating a
+ *  sink, the effect of this field on the value of writer_identity in the
+ *  updated sink depends on both the old and new values of this field:
+ *  If the old and new values of this field are both false or both true, then
+ *  there is no change to the sink's writer_identity.
+ *  If the old value is false and the new value is true, then writer_identity is
+ *  changed to a unique service account.
+ *  It is an error if the old value is true and the new value is set to false or
+ *  defaulted to false.
+ */
+@property(nonatomic, assign) BOOL uniqueWriterIdentity;
+
+/**
+ *  Fetches a @c GTLRLogging_LogSink.
+ *
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
+ *
+ *  @param object The @c GTLRLogging_LogSink to include in the query.
+ *  @param sinkName Required. The full resource name of the sink to update,
+ *    including the parent resource and the sink identifier:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
+ *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *
+ *  @returns GTLRLoggingQuery_FoldersSinksPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                       sinkName:(NSString *)sinkName;
+
+@end
+
+/**
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
  *
  *  Method: logging.folders.sinks.update
  *
@@ -854,12 +976,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates a sink. If the named sink doesn't exist, then this method is
- *  identical to sinks.create. If the named sink does exist, then this method
- *  replaces the following fields in the existing sink with values from the new
- *  sink: destination, filter, output_version_format, start_time, and end_time.
- *  The updated filter might also have a new writer_identity; see the
- *  unique_writer_identity field.
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -1246,12 +1366,74 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a sink. If the named sink doesn't exist, then this method is
- *  identical to sinks.create. If the named sink does exist, then this method
- *  replaces the following fields in the existing sink with values from the new
- *  sink: destination, filter, output_version_format, start_time, and end_time.
- *  The updated filter might also have a new writer_identity; see the
- *  unique_writer_identity field.
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
+ *
+ *  Method: logging.organizations.sinks.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsSinksPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsSinksPatchWithObject:sinkName:]
+
+/**
+ *  Required. The full resource name of the sink to update, including the parent
+ *  resource and the sink identifier:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
+ *  Example: "projects/my-project-id/sinks/my-sink-id".
+ */
+@property(nonatomic, copy, nullable) NSString *sinkName;
+
+/**
+ *  Optional. See sinks.create for a description of this field. When updating a
+ *  sink, the effect of this field on the value of writer_identity in the
+ *  updated sink depends on both the old and new values of this field:
+ *  If the old and new values of this field are both false or both true, then
+ *  there is no change to the sink's writer_identity.
+ *  If the old value is false and the new value is true, then writer_identity is
+ *  changed to a unique service account.
+ *  It is an error if the old value is true and the new value is set to false or
+ *  defaulted to false.
+ */
+@property(nonatomic, assign) BOOL uniqueWriterIdentity;
+
+/**
+ *  Fetches a @c GTLRLogging_LogSink.
+ *
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
+ *
+ *  @param object The @c GTLRLogging_LogSink to include in the query.
+ *  @param sinkName Required. The full resource name of the sink to update,
+ *    including the parent resource and the sink identifier:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
+ *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *
+ *  @returns GTLRLoggingQuery_OrganizationsSinksPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                       sinkName:(NSString *)sinkName;
+
+@end
+
+/**
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
  *
  *  Method: logging.organizations.sinks.update
  *
@@ -1290,12 +1472,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates a sink. If the named sink doesn't exist, then this method is
- *  identical to sinks.create. If the named sink does exist, then this method
- *  replaces the following fields in the existing sink with values from the new
- *  sink: destination, filter, output_version_format, start_time, and end_time.
- *  The updated filter might also have a new writer_identity; see the
- *  unique_writer_identity field.
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -1839,12 +2019,74 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a sink. If the named sink doesn't exist, then this method is
- *  identical to sinks.create. If the named sink does exist, then this method
- *  replaces the following fields in the existing sink with values from the new
- *  sink: destination, filter, output_version_format, start_time, and end_time.
- *  The updated filter might also have a new writer_identity; see the
- *  unique_writer_identity field.
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
+ *
+ *  Method: logging.projects.sinks.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsSinksPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsSinksPatchWithObject:sinkName:]
+
+/**
+ *  Required. The full resource name of the sink to update, including the parent
+ *  resource and the sink identifier:
+ *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
+ *  Example: "projects/my-project-id/sinks/my-sink-id".
+ */
+@property(nonatomic, copy, nullable) NSString *sinkName;
+
+/**
+ *  Optional. See sinks.create for a description of this field. When updating a
+ *  sink, the effect of this field on the value of writer_identity in the
+ *  updated sink depends on both the old and new values of this field:
+ *  If the old and new values of this field are both false or both true, then
+ *  there is no change to the sink's writer_identity.
+ *  If the old value is false and the new value is true, then writer_identity is
+ *  changed to a unique service account.
+ *  It is an error if the old value is true and the new value is set to false or
+ *  defaulted to false.
+ */
+@property(nonatomic, assign) BOOL uniqueWriterIdentity;
+
+/**
+ *  Fetches a @c GTLRLogging_LogSink.
+ *
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
+ *
+ *  @param object The @c GTLRLogging_LogSink to include in the query.
+ *  @param sinkName Required. The full resource name of the sink to update,
+ *    including the parent resource and the sink identifier:
+ *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
+ *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *
+ *  @returns GTLRLoggingQuery_ProjectsSinksPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
+                       sinkName:(NSString *)sinkName;
+
+@end
+
+/**
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
  *
  *  Method: logging.projects.sinks.update
  *
@@ -1883,12 +2125,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates a sink. If the named sink doesn't exist, then this method is
- *  identical to sinks.create. If the named sink does exist, then this method
- *  replaces the following fields in the existing sink with values from the new
- *  sink: destination, filter, output_version_format, start_time, and end_time.
- *  The updated filter might also have a new writer_identity; see the
- *  unique_writer_identity field.
+ *  Updates a sink. This method replaces the following fields in the existing
+ *  sink with values from the new sink: destination, filter,
+ *  output_version_format, start_time, and end_time. The updated sink might also
+ *  have a new writer_identity; see the unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,

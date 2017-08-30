@@ -38,6 +38,8 @@
 @class GTLRToolResults_PerfEnvironment;
 @class GTLRToolResults_PerfSample;
 @class GTLRToolResults_PerfSampleSeries;
+@class GTLRToolResults_Screen;
+@class GTLRToolResults_ScreenshotCluster;
 @class GTLRToolResults_SkippedDetail;
 @class GTLRToolResults_Specification;
 @class GTLRToolResults_StackTrace;
@@ -913,6 +915,17 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
 
 
 /**
+ *  GTLRToolResults_ListScreenshotClustersResponse
+ */
+@interface GTLRToolResults_ListScreenshotClustersResponse : GTLRObject
+
+/** The set of clustres associated with an execution Always set */
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_ScreenshotCluster *> *clusters;
+
+@end
+
+
+/**
  *  Response message for StepService.List.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1170,6 +1183,51 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
  *  Required.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_FileReference *> *xunitXmlFiles;
+
+@end
+
+
+/**
+ *  GTLRToolResults_Screen
+ */
+@interface GTLRToolResults_Screen : GTLRObject
+
+/** File reference of the png file. Required. */
+@property(nonatomic, copy, nullable) NSString *fileReference;
+
+/** Locale of the device that the screenshot was taken on. Required. */
+@property(nonatomic, copy, nullable) NSString *locale;
+
+/** Model of the device that the screenshot was taken on. Required. */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/** OS version of the device that the screenshot was taken on. Required. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  GTLRToolResults_ScreenshotCluster
+ */
+@interface GTLRToolResults_ScreenshotCluster : GTLRObject
+
+/** A string that describes the activity of every screen in the cluster. */
+@property(nonatomic, copy, nullable) NSString *activity;
+
+/** A unique identifier for the cluster. */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  A singular screen that represents the cluster as a whole. This screen will
+ *  act as the "cover" of the entire cluster. When users look at the clusters,
+ *  only the key screen from each cluster will be shown. Which screen is the key
+ *  screen is determined by the ClusteringAlgorithm
+ */
+@property(nonatomic, strong, nullable) GTLRToolResults_Screen *keyScreen;
+
+/** Full list of screens. */
+@property(nonatomic, strong, nullable) NSArray<GTLRToolResults_Screen *> *screens;
 
 @end
 

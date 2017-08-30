@@ -1367,7 +1367,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *  The ID of the creative status for which to retrieve a breakdown by detail.
  *  See
  *  [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
- *  Details are only available for statuses 14, 15, 17, 18, 19, 86, and 87.
+ *  Details are only available for statuses 10, 14, 15, 17, 18, 19, 86, and 87.
  */
 @property(nonatomic, assign) NSInteger creativeStatusId;
 
@@ -1403,7 +1403,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
  *    a breakdown by detail.
  *    See
  *    [creative-status-codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-status-codes).
- *    Details are only available for statuses 14, 15, 17, 18, 19, 86, and 87.
+ *    Details are only available for statuses 10, 14, 15, 17, 18, 19, 86, and
+ *    87.
  *
  *  @returns GTLRAdExchangeBuyerIIQuery_AccountsFilterSetsFilteredBidsDetailsList
  *

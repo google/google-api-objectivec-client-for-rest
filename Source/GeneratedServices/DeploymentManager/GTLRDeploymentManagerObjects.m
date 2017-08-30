@@ -50,6 +50,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeploymentManager_AuthorizationLoggingOptions
+//
+
+@implementation GTLRDeploymentManager_AuthorizationLoggingOptions
+@dynamic permissionType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeploymentManager_Binding
 //
 
@@ -236,7 +246,7 @@
 //
 
 @implementation GTLRDeploymentManager_LogConfig
-@dynamic cloudAudit, counter;
+@dynamic cloudAudit, counter, dataAccess;
 @end
 
 
@@ -246,7 +256,7 @@
 //
 
 @implementation GTLRDeploymentManager_LogConfigCloudAuditOptions
-@dynamic logName;
+@dynamic authorizationLoggingOptions, logName;
 @end
 
 
@@ -257,6 +267,16 @@
 
 @implementation GTLRDeploymentManager_LogConfigCounterOptions
 @dynamic field, metric;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_LogConfigDataAccessOptions
+//
+
+@implementation GTLRDeploymentManager_LogConfigDataAccessOptions
+@dynamic logMode;
 @end
 
 

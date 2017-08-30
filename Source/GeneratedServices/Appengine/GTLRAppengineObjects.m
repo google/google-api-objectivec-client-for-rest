@@ -124,8 +124,8 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 @implementation GTLRAppengine_Application
 @dynamic authDomain, codeBucket, defaultBucket, defaultCookieExpiration,
-         defaultHostname, dispatchRules, gcrDomain, iap, identifier, locationId,
-         name, servingStatus;
+         defaultHostname, dispatchRules, featureSettings, gcrDomain, iap,
+         identifier, locationId, name, servingStatus;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -246,6 +246,16 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 @implementation GTLRAppengine_ErrorHandler
 @dynamic errorCode, mimeType, staticFile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_FeatureSettings
+//
+
+@implementation GTLRAppengine_FeatureSettings
+@dynamic splitHealthChecks;
 @end
 
 

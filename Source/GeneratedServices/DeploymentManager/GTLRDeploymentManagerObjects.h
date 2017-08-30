@@ -21,6 +21,7 @@
 
 @class GTLRDeploymentManager_AuditConfig;
 @class GTLRDeploymentManager_AuditLogConfig;
+@class GTLRDeploymentManager_AuthorizationLoggingOptions;
 @class GTLRDeploymentManager_Binding;
 @class GTLRDeploymentManager_Condition;
 @class GTLRDeploymentManager_ConfigFile;
@@ -33,6 +34,7 @@
 @class GTLRDeploymentManager_LogConfig;
 @class GTLRDeploymentManager_LogConfigCloudAuditOptions;
 @class GTLRDeploymentManager_LogConfigCounterOptions;
+@class GTLRDeploymentManager_LogConfigDataAccessOptions;
 @class GTLRDeploymentManager_Manifest;
 @class GTLRDeploymentManager_Operation;
 @class GTLRDeploymentManager_Operation_Error;
@@ -113,6 +115,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The log type that this config enables. */
 @property(nonatomic, copy, nullable) NSString *logType;
+
+@end
+
+
+/**
+ *  Authorization-related information used by Cloud Audit Logging.
+ */
+@interface GTLRDeploymentManager_AuthorizationLoggingOptions : GTLRObject
+
+/** The type of the permission that was checked. */
+@property(nonatomic, copy, nullable) NSString *permissionType;
 
 @end
 
@@ -480,6 +493,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Counter options. */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_LogConfigCounterOptions *counter;
 
+/** Data access options. */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_LogConfigDataAccessOptions *dataAccess;
+
 @end
 
 
@@ -488,6 +504,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDeploymentManager_LogConfigCloudAuditOptions : GTLRObject
 
+/** Information used by the Cloud Audit Logging pipeline. */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_AuthorizationLoggingOptions *authorizationLoggingOptions;
+
 /** The log_name to populate in the Cloud Audit Record. */
 @property(nonatomic, copy, nullable) NSString *logName;
 
@@ -495,7 +514,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Options for counters
+ *  Increment a streamz counter with the specified metric and field names.
+ *  Metric names should start with a '/', generally be lowercase-only, and end
+ *  in "_count". Field names should not contain an initial slash. The actual
+ *  exported metric names will have "/iam/policy" prepended.
+ *  Field names correspond to IAM request parameters and field values are their
+ *  respective values.
+ *  At present the only supported field names are - "iam_principal",
+ *  corresponding to IAMContext.principal; - "" (empty string), resulting in one
+ *  aggretated counter with no field.
+ *  Examples: counter { metric: "/debug_access_count" field: "iam_principal" }
+ *  ==> increment counter /iam/policy/backend_debug_access_count
+ *  {iam_principal=[value of IAMContext.principal]}
+ *  At this time we do not support: * multiple field names (though this may be
+ *  supported in the future) * decrementing the counter * incrementing it by
+ *  anything other than 1
  */
 @interface GTLRDeploymentManager_LogConfigCounterOptions : GTLRObject
 
@@ -504,6 +537,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The metric to update. */
 @property(nonatomic, copy, nullable) NSString *metric;
+
+@end
+
+
+/**
+ *  Write a Data Access (Gin) log
+ */
+@interface GTLRDeploymentManager_LogConfigDataAccessOptions : GTLRObject
+
+/**
+ *  Whether Gin logging should happen in a fail-closed manner at the caller.
+ *  This is relevant only in the LocalIAM implementation, for now.
+ */
+@property(nonatomic, copy, nullable) NSString *logMode;
 
 @end
 

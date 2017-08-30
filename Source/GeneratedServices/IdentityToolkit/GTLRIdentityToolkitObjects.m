@@ -260,15 +260,35 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIdentityToolkit_RelyingpartySendVerificationCodeRequest
+//
+
+@implementation GTLRIdentityToolkit_RelyingpartySendVerificationCodeRequest
+@dynamic iosReceipt, iosSecret, phoneNumber, recaptchaToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIdentityToolkit_RelyingpartySendVerificationCodeResponse
+//
+
+@implementation GTLRIdentityToolkit_RelyingpartySendVerificationCodeResponse
+@dynamic sessionInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIdentityToolkit_RelyingpartySetAccountInfoRequest
 //
 
 @implementation GTLRIdentityToolkit_RelyingpartySetAccountInfoRequest
-@dynamic captchaChallenge, captchaResponse, createdAt, delegatedProjectNumber,
-         deleteAttribute, deleteProvider, disableUser, displayName, email,
-         emailVerified, idToken, instanceId, lastLoginAt, localId, oobCode,
-         password, phoneNumber, photoUrl, provider, returnSecureToken,
-         upgradeToFederatedLogin, validSince;
+@dynamic captchaChallenge, captchaResponse, createdAt, customAttributes,
+         delegatedProjectNumber, deleteAttribute, deleteProvider, disableUser,
+         displayName, email, emailVerified, idToken, instanceId, lastLoginAt,
+         localId, oobCode, password, phoneNumber, photoUrl, provider,
+         returnSecureToken, upgradeToFederatedLogin, validSince;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -400,6 +420,29 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIdentityToolkit_RelyingpartyVerifyPhoneNumberRequest
+//
+
+@implementation GTLRIdentityToolkit_RelyingpartyVerifyPhoneNumberRequest
+@dynamic code, idToken, operation, phoneNumber, sessionInfo, temporaryProof,
+         verificationProof;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIdentityToolkit_RelyingpartyVerifyPhoneNumberResponse
+//
+
+@implementation GTLRIdentityToolkit_RelyingpartyVerifyPhoneNumberResponse
+@dynamic expiresIn, idToken, isNewUser, localId, phoneNumber, refreshToken,
+         temporaryProof, temporaryProofExpiresIn, verificationProof,
+         verificationProofExpiresIn;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIdentityToolkit_ResetPasswordResponse
 //
 
@@ -481,10 +524,10 @@
 //
 
 @implementation GTLRIdentityToolkit_UserInfo
-@dynamic createdAt, customAuth, disabled, displayName, email, emailVerified,
-         lastLoginAt, localId, passwordHash, passwordUpdatedAt, phoneNumber,
-         photoUrl, providerUserInfo, rawPassword, salt, screenName, validSince,
-         version;
+@dynamic createdAt, customAttributes, customAuth, disabled, displayName, email,
+         emailVerified, lastLoginAt, localId, passwordHash, passwordUpdatedAt,
+         phoneNumber, photoUrl, providerUserInfo, rawPassword, salt, screenName,
+         validSince, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -538,7 +581,7 @@
 //
 
 @implementation GTLRIdentityToolkit_VerifyCustomTokenResponse
-@dynamic expiresIn, idToken, kind, refreshToken;
+@dynamic expiresIn, idToken, isNewUser, kind, refreshToken;
 @end
 
 

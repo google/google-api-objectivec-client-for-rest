@@ -50,8 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The required site name. It should be the site property whose ad experiences
- *  may have been reviewed, and it should be URL encoded. For example,
- *  https%3A%2F%2Fwww.google.com. The server will return an error of
+ *  may have been reviewed, and it should be URL-encoded. For example,
+ *  sites/https%3A%2F%2Fwww.google.com. The server will return an error of
  *  BAD_REQUEST if this field is not filled in. Note that if the site property
  *  is not yet verified in Search Console, the reportUrl field returned by the
  *  API will lead to the verification page, prompting the user to go through
@@ -66,8 +66,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The required site name. It should be the site property whose ad
  *    experiences
- *    may have been reviewed, and it should be URL encoded. For example,
- *    https%3A%2F%2Fwww.google.com. The server will return an error of
+ *    may have been reviewed, and it should be URL-encoded. For example,
+ *    sites/https%3A%2F%2Fwww.google.com. The server will return an error of
  *    BAD_REQUEST if this field is not filled in. Note that if the site property
  *    is not yet verified in Search Console, the reportUrl field returned by the
  *    API will lead to the verification page, prompting the user to go through

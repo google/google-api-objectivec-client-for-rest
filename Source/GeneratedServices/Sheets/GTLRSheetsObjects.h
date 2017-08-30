@@ -2222,10 +2222,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  */
 @interface GTLRSheets_AutoResizeDimensionsRequest : GTLRObject
 
-/**
- *  The dimensions to automatically resize.
- *  Only COLUMNS are supported.
- */
+/** The dimensions to automatically resize. */
 @property(nonatomic, strong, nullable) GTLRSheets_DimensionRange *dimensions;
 
 @end

@@ -30,6 +30,7 @@
 @class GTLRAppengine_DiskUtilization;
 @class GTLRAppengine_EndpointsApiService;
 @class GTLRAppengine_ErrorHandler;
+@class GTLRAppengine_FeatureSettings;
 @class GTLRAppengine_FileInfo;
 @class GTLRAppengine_HealthCheck;
 @class GTLRAppengine_IdentityAwareProxy;
@@ -582,6 +583,9 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAppengine_UrlDispatchRule *> *dispatchRules;
 
+/** The feature specific settings to be used in the application. */
+@property(nonatomic, strong, nullable) GTLRAppengine_FeatureSettings *featureSettings;
+
 /**
  *  The Google Container Registry domain used for storing managed build docker
  *  images for this application.
@@ -916,6 +920,26 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /** Static file content to be served for this error. */
 @property(nonatomic, copy, nullable) NSString *staticFile;
+
+@end
+
+
+/**
+ *  The feature specific settings to be used in the application. These define
+ *  behaviors that are user configurable.
+ */
+@interface GTLRAppengine_FeatureSettings : GTLRObject
+
+/**
+ *  Boolean value indicating if split health checks should be used instead of
+ *  the legacy health checks. At an app.yaml level, this means defaulting to
+ *  'readiness_check' and 'liveness_check' values instead of 'health_check'
+ *  ones. Once the legacy 'health_check' behavior is deprecated, and this value
+ *  is always true, this setting can be removed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *splitHealthChecks;
 
 @end
 
@@ -1416,21 +1440,26 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
- *  Extra network settings. Only applicable for VM runtimes.
+ *  Extra network settings. Only applicable for App Engine flexible environment
+ *  versions
  */
 @interface GTLRAppengine_Network : GTLRObject
 
 /**
  *  List of ports, or port pairs, to forward from the virtual machine to the
- *  application container.
+ *  application container. Only applicable for App Engine flexible environment
+ *  versions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *forwardedPorts;
 
-/** Tag to apply to the VM instance during creation. */
+/**
+ *  Tag to apply to the VM instance during creation. Only applicable for for App
+ *  Engine flexible environment versions.
+ */
 @property(nonatomic, copy, nullable) NSString *instanceTag;
 
 /**
- *  Google Cloud Platform network where the virtual machines are created.
+ *  Google Compute Engine network where the virtual machines are created.
  *  Specify the short name, not the resource path.Defaults to default.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1449,7 +1478,8 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  If the network the VM instance is being created in is a custom Subnet Mode
  *  Network, then the subnetwork_name must be specified and the IP address is
  *  created from the IPCidrRange of the subnetwork.If specified, the subnetwork
- *  must exist in the same region as the Flex app.
+ *  must exist in the same region as the App Engine flexible environment
+ *  application.
  */
 @property(nonatomic, copy, nullable) NSString *subnetworkName;
 
@@ -2414,7 +2444,10 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Extra network settings. Only applicable for VM runtimes. */
+/**
+ *  Extra network settings. Only applicable for App Engine flexible environment
+ *  versions.
+ */
 @property(nonatomic, strong, nullable) GTLRAppengine_Network *network;
 
 /**

@@ -188,7 +188,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @end
 
 /**
- *  Deletes a list of Photos and their metadata.
+ *  Deletes a list of Photos and their
+ *  metadata.
  *  Note that if
  *  BatchDeletePhotos
  *  fails, either critical fields are missing or there was an authentication
@@ -215,7 +216,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 /**
  *  Fetches a @c GTLRStreetViewPublish_BatchDeletePhotosResponse.
  *
- *  Deletes a list of Photos and their metadata.
+ *  Deletes a list of Photos and their
+ *  metadata.
  *  Note that if
  *  BatchDeletePhotos
  *  fails, either critical fields are missing or there was an authentication
@@ -325,6 +327,14 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  See
  *  UpdatePhoto
  *  for specific failures that can occur per photo.
+ *  Only the fields specified in
+ *  updateMask
+ *  field are used. If `updateMask` is not present, the update applies to all
+ *  fields.
+ *  <aside class="note"><b>Note:</b> To update
+ *  Pose.altitude,
+ *  Pose.latLngPair has to be
+ *  filled as well. Otherwise, the request will fail.</aside>
  *
  *  Method: streetviewpublish.photos.batchUpdate
  *
@@ -354,6 +364,14 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  See
  *  UpdatePhoto
  *  for specific failures that can occur per photo.
+ *  Only the fields specified in
+ *  updateMask
+ *  field are used. If `updateMask` is not present, the update applies to all
+ *  fields.
+ *  <aside class="note"><b>Note:</b> To update
+ *  Pose.altitude,
+ *  Pose.latLngPair has to be
+ *  filled as well. Otherwise, the request will fail.</aside>
  *
  *  @param object The @c GTLRStreetViewPublish_BatchUpdatePhotosRequest to
  *    include in the query.
@@ -365,7 +383,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @end
 
 /**
- *  Lists all the Photos that belong to the user.
+ *  Lists all the Photos that belong to
+ *  the user.
  *
  *  Method: streetviewpublish.photos.list
  *
@@ -413,7 +432,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 /**
  *  Fetches a @c GTLRStreetViewPublish_ListPhotosResponse.
  *
- *  Lists all the Photos that belong to the user.
+ *  Lists all the Photos that belong to
+ *  the user.
  *
  *  @returns GTLRStreetViewPublishQuery_PhotosList
  *
@@ -484,6 +504,14 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  Updates the metadata of a Photo, such
  *  as pose, place association, connections, etc. Changing the pixels of a
  *  photo is not supported.
+ *  Only the fields specified in
+ *  updateMask
+ *  field are used. If `updateMask` is not present, the update applies to all
+ *  fields.
+ *  <aside class="note"><b>Note:</b> To update
+ *  Pose.altitude,
+ *  Pose.latLngPair has to be
+ *  filled as well. Otherwise, the request will fail.</aside>
  *  This method returns the following error codes:
  *  * google.rpc.Code.PERMISSION_DENIED if the requesting user did not
  *  create the requested photo.
@@ -500,7 +528,7 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 //   +[GTLQueryStreetViewPublish queryForPhotoUpdateWithObject:identifier:]
 
 /**
- *  Required. A base64 encoded identifier.
+ *  Required. A unique identifier for a photo.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -513,7 +541,7 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  specified. Multiple fields can be specified in a comma-delimited list.
  *  The following fields are valid:
  *  * `pose.heading`
- *  * `pose.latlngpair`
+ *  * `pose.latLngPair`
  *  * `pose.pitch`
  *  * `pose.roll`
  *  * `pose.level`
@@ -525,9 +553,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  mean the entire set of repeated values will be replaced with the new
  *  contents. For example, if
  *  updateMask
- *  contains `connections` and
- *  google.streetview.publish.v1.UpdatePhotoRequest.photo.connections is
- *  empty, all connections will be removed.</aside>
+ *  contains `connections` and `UpdatePhotoRequest.photo.connections` is empty,
+ *  all connections will be removed.</aside>
  *
  *  String format is a comma-separated list of fields.
  */
@@ -539,6 +566,14 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  Updates the metadata of a Photo, such
  *  as pose, place association, connections, etc. Changing the pixels of a
  *  photo is not supported.
+ *  Only the fields specified in
+ *  updateMask
+ *  field are used. If `updateMask` is not present, the update applies to all
+ *  fields.
+ *  <aside class="note"><b>Note:</b> To update
+ *  Pose.altitude,
+ *  Pose.latLngPair has to be
+ *  filled as well. Otherwise, the request will fail.</aside>
  *  This method returns the following error codes:
  *  * google.rpc.Code.PERMISSION_DENIED if the requesting user did not
  *  create the requested photo.
@@ -546,7 +581,7 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  * google.rpc.Code.NOT_FOUND if the requested photo does not exist.
  *
  *  @param object The @c GTLRStreetViewPublish_Photo to include in the query.
- *  @param identifier Required. A base64 encoded identifier.
+ *  @param identifier Required. A unique identifier for a photo.
  *
  *  @returns GTLRStreetViewPublishQuery_PhotoUpdate
  */

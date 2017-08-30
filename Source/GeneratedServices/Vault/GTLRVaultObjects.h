@@ -200,8 +200,7 @@ GTLR_EXTERN NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified;
 
 /**
  *  The account's ID as provided by the
- *  <a 
- href="https://developers.google.com/admin-sdk/">Admin SDK</a>.
+ *  <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>.
  */
 @property(nonatomic, copy, nullable) NSString *accountId;
 

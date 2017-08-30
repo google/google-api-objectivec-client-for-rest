@@ -299,6 +299,108 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Lists all public cloud services.
+ *
+ *  Method: cloudbilling.services.list
+ */
+@interface GTLRCloudbillingQuery_ServicesList : GTLRCloudbillingQuery
+// Previous library name was
+//   +[GTLQueryCloudbilling queryForServicesList]
+
+/** Requested page size. Defaults to 5000. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results to return. This should be a
+ *  `next_page_token` value returned from a previous `ListServices`
+ *  call. If unspecified, the first page of results is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_ListServicesResponse.
+ *
+ *  Lists all public cloud services.
+ *
+ *  @returns GTLRCloudbillingQuery_ServicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Lists all publicly available SKUs for a given cloud service.
+ *
+ *  Method: cloudbilling.services.skus.list
+ */
+@interface GTLRCloudbillingQuery_ServicesSkusList : GTLRCloudbillingQuery
+// Previous library name was
+//   +[GTLQueryCloudbilling queryForServicesSkusListWithparent:]
+
+/**
+ *  The ISO 4217 currency code for the pricing info in the response proto.
+ *  Will use the conversion rate as of start_time.
+ *  Optional. If not specified USD will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Optional exclusive end time of the time range for which the pricing
+ *  versions will be returned. Timestamps in the future are not allowed.
+ *  Maximum allowable time range is 1 month (31 days). Time range as a whole
+ *  is optional. If not specified, the latest pricing will be returned (up to
+ *  12 hours old at most).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Requested page size. Defaults to 5000. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results to return. This should be a
+ *  `next_page_token` value returned from a previous `ListSkus`
+ *  call. If unspecified, the first page of results is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The name of the service.
+ *  Example: "services/DA34-426B-A397"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional inclusive start time of the time range for which the pricing
+ *  versions will be returned. Timestamps in the future are not allowed.
+ *  Maximum allowable time range is 1 month (31 days). Time range as a whole
+ *  is optional. If not specified, the latest pricing will be returned (up to
+ *  12 hours old at most).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_ListSkusResponse.
+ *
+ *  Lists all publicly available SKUs for a given cloud service.
+ *
+ *  @param parent The name of the service.
+ *    Example: "services/DA34-426B-A397"
+ *
+ *  @returns GTLRCloudbillingQuery_ServicesSkusList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

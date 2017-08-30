@@ -293,6 +293,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_Company : GTLRObject
 
 /**
+ *  Admin email.
+ *  Admins will be able to operate on the portal.
+ *  This field is a WRITE-only field at creation time.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *adminEmails;
+
+/**
  *  company id
  *
  *  Uses NSNumber of longLongValue.
@@ -301,6 +308,16 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 /** company name */
 @property(nonatomic, copy, nullable) NSString *companyName;
+
+/** REST Resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Owner email.
+ *  Owner is able to operate on the portal, and modify admins and other owners.
+ *  This field is a WRITE-only field at creation time.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ownerEmails;
 
 @end
 
@@ -312,6 +329,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 /** claims */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_DeviceClaim *> *claims;
+
+/**
+ *  The resource name of the configuration.
+ *  Only set for customers.
+ */
+@property(nonatomic, copy, nullable) NSString *configuration;
 
 /**
  *  Device id
@@ -363,7 +386,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @interface GTLRAndroidProvisioningPartner_DeviceIdentifier : GTLRObject
 
-/** IMEI (either IMEI or MEID is required). */
+/** IMEI */
 @property(nonatomic, copy, nullable) NSString *imei;
 
 /**
@@ -383,7 +406,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 
 /**
- *  metadata
+ *  A key value pair of the device metadata.
  */
 @interface GTLRAndroidProvisioningPartner_DeviceMetadata : GTLRObject
 
@@ -604,7 +627,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 
 /**
  *  If the value is `false`, it means the operation is still in progress.
- *  If true, the operation is completed, and either `error` or `response` is
+ *  If `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.

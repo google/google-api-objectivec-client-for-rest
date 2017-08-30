@@ -135,6 +135,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_BeginTransactionRequest
+@dynamic transactionOptions;
 @end
 
 
@@ -655,11 +656,30 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastore_ReadOnly
+//
+
+@implementation GTLRDatastore_ReadOnly
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastore_ReadOptions
 //
 
 @implementation GTLRDatastore_ReadOptions
 @dynamic readConsistency, transaction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_ReadWrite
+//
+
+@implementation GTLRDatastore_ReadWrite
+@dynamic previousTransaction;
 @end
 
 
@@ -731,6 +751,16 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_TransactionOptions
+//
+
+@implementation GTLRDatastore_TransactionOptions
+@dynamic readOnly, readWrite;
 @end
 
 

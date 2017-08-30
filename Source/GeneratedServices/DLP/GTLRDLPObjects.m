@@ -194,7 +194,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Ver
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta1CreateInspectOperationRequest
-@dynamic inspectConfig, outputConfig, storageConfig;
+@dynamic inspectConfig, operationConfig, outputConfig, storageConfig;
 @end
 
 
@@ -306,6 +306,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Ver
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeLimit
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeLimit
+@dynamic infoType, maxFindings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeStatistics
 //
 
@@ -320,10 +330,12 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Ver
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig
-@dynamic excludeTypes, includeQuote, infoTypes, maxFindings, minLikelihood;
+@dynamic excludeTypes, includeQuote, infoTypeLimits, infoTypes, maxFindings,
+         minLikelihood;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"infoTypeLimits" : [GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeLimit class],
     @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2beta1InfoType class]
   };
   return map;
@@ -505,6 +517,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLikelihood_Ver
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2beta1OperationConfig
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2beta1OperationConfig
+@dynamic maxItemFindings;
 @end
 
 

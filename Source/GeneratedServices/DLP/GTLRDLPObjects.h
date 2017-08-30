@@ -40,12 +40,14 @@
 @class GTLRDLP_GooglePrivacyDlpV2beta1ImageRedactionConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1InfoType;
 @class GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeDescription;
+@class GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeLimit;
 @class GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeStatistics;
 @class GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1InspectResult;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Key;
 @class GTLRDLP_GooglePrivacyDlpV2beta1KindExpression;
 @class GTLRDLP_GooglePrivacyDlpV2beta1Location;
+@class GTLRDLP_GooglePrivacyDlpV2beta1OperationConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1OutputStorageConfig;
 @class GTLRDLP_GooglePrivacyDlpV2beta1PartitionId;
 @class GTLRDLP_GooglePrivacyDlpV2beta1PathElement;
@@ -392,6 +394,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 /** Configuration for the inspector. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InspectConfig *inspectConfig;
 
+/** Additional configuration settings for long running operations. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1OperationConfig *operationConfig;
+
 /**
  *  Optional location to store findings. The bucket must already exist and
  *  the Google APIs service account for DLP must have write permission to
@@ -612,6 +617,30 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 
 /**
+ *  Max findings configuration per info type, per content item or long running
+ *  operation.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeLimit : GTLRObject
+
+/**
+ *  Type of information the findings limit applies to. Only one limit per
+ *  info_type should be provided. If InfoTypeLimit does not have an
+ *  info_type, the DLP API applies the limit against all info_types that are
+ *  found but not specified in another InfoTypeLimit.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2beta1InfoType *infoType;
+
+/**
+ *  Max findings limit for the given infoType.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxFindings;
+
+@end
+
+
+/**
  *  Statistics regarding a specific InfoType.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeStatistics : GTLRObject
@@ -651,6 +680,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *includeQuote;
+
+/** Configuration of findings limit given for specified info types. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2beta1InfoTypeLimit *> *infoTypeLimits;
 
 /**
  *  Restricts what info_types to look for. The values must correspond to
@@ -911,6 +943,21 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 
 /**
+ *  Additional configuration for inspect long running operations.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2beta1OperationConfig : GTLRObject
+
+/**
+ *  Max number of findings per file, Datastore entity, or database row.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxItemFindings;
+
+@end
+
+
+/**
  *  Cloud repository for storing output.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1OutputStorageConfig : GTLRObject
@@ -1135,7 +1182,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 
 
 /**
- *  Structured content to inspect. Up to 50,000 `Value`'s per request allowed.
+ *  Structured content to inspect. Up to 50,000 `Value`s per request allowed.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2beta1Table : GTLRObject
 
@@ -1151,7 +1198,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2beta1InspectConfig_MinLi
 @interface GTLRDLP_GooglePrivacyDlpV2beta1TableLocation : GTLRObject
 
 /**
- *  The index, zero based, of the row where the finding is located.
+ *  The zero-based index of the row where the finding is located.
  *
  *  Uses NSNumber of longLongValue.
  */

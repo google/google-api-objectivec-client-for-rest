@@ -281,6 +281,11 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @property(nonatomic, strong, nullable) GTLRDuration *latency;
 
 /**
+ *  Protocol used for the request. Examples: "HTTP/1.1", "HTTP/2", "websocket"
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+/**
  *  The referer URL of the request, as defined in HTTP/1.1 Header Field
  *  Definitions (http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
  */
@@ -446,7 +451,9 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @interface GTLRLogging_ListLogEntriesResponse : GTLRCollectionObject
 
 /**
- *  A list of log entries.
+ *  A list of log entries. If entries is empty, nextPageToken may still be
+ *  returned, indicating that more entries may exist. See nextPageToken for more
+ *  information.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -894,9 +901,8 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The API version that created or updated this metric. The
- *  version also dictates the syntax of the filter expression. When a value for
- *  this field is missing, the default value of V2 should be assumed.
+ *  Deprecated. The API version that created or updated this metric. The v2
+ *  format is used by default and cannot be changed.
  *
  *  Likely values:
  *    @arg @c kGTLRLogging_LogMetric_Version_V1 Stackdriver Logging API v1.

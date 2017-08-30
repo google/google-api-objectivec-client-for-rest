@@ -13,18 +13,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1OperationMetadata.operationType
-NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1OperationMetadata_OperationType_CreateVersion = @"CREATE_VERSION";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1OperationMetadata_OperationType_DeleteModel = @"DELETE_MODEL";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1OperationMetadata_OperationType_DeleteVersion = @"DELETE_VERSION";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1OperationMetadata_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
-
-// GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version.state
-NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Creating = @"CREATING";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Failed = @"FAILED";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Ready = @"READY";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version_State_Unknown = @"UNKNOWN";
-
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.goal
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_GoalTypeUnspecified = @"GOAL_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_Maximize = @"MAXIMIZE";
@@ -45,6 +33,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadat
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_DeleteModel = @"DELETE_MODEL";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_DeleteVersion = @"DELETE_VERSION";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_UpdateModel = @"UPDATE_MODEL";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_UpdateVersion = @"UPDATE_VERSION";
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec.scaleType
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_None = @"NONE";
@@ -74,6 +64,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_Sc
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.state
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Creating = @"CREATING";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Deleting = @"DELETING";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Failed = @"FAILED";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Ready = @"READY";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Unknown = @"UNKNOWN";
@@ -83,45 +74,6 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
-
-// GTLRCloudMachineLearningEngine_GoogleIamV1Condition.iam
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_Approver = @"APPROVER";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_Attribution = @"ATTRIBUTION";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_Authority = @"AUTHORITY";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_JustificationType = @"JUSTIFICATION_TYPE";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Iam_NoAttr = @"NO_ATTR";
-
-// GTLRCloudMachineLearningEngine_GoogleIamV1Condition.op
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_Discharged = @"DISCHARGED";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_Equals = @"EQUALS";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_In = @"IN";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_NoOp = @"NO_OP";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_NotEquals = @"NOT_EQUALS";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Op_NotIn = @"NOT_IN";
-
-// GTLRCloudMachineLearningEngine_GoogleIamV1Condition.sys
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_Ip = @"IP";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_Name = @"NAME";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_NoAttr = @"NO_ATTR";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_Region = @"REGION";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Condition_Sys_Service = @"SERVICE";
-
-// GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions.logName
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions_LogName_AdminActivity = @"ADMIN_ACTIVITY";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions_LogName_DataAccess = @"DATA_ACCESS";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions_LogName_UnspecifiedLogName = @"UNSPECIFIED_LOG_NAME";
-
-// GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigDataAccessOptions.logMode
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigDataAccessOptions_LogMode_LogFailClosed = @"LOG_FAIL_CLOSED";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1LogConfigDataAccessOptions_LogMode_LogModeUnspecified = @"LOG_MODE_UNSPECIFIED";
-
-// GTLRCloudMachineLearningEngine_GoogleIamV1Rule.action
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_Allow = @"ALLOW";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_AllowWithLog = @"ALLOW_WITH_LOG";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_Deny = @"DENY";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_DenyWithLog = @"DENY_WITH_LOG";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_Log = @"LOG";
-NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction = @"NO_ACTION";
 
 // ----------------------------------------------------------------------------
 //
@@ -162,54 +114,6 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling
 @dynamic minNodes;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutoScaling
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1AutoScaling
-@dynamic minNodes;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ManualScaling
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1ManualScaling
-@dynamic nodes;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1OperationMetadata
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1OperationMetadata
-@dynamic createTime, endTime, isCancellationRequested, modelName, operationType,
-         startTime, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1beta1Version
-@dynamic autoScaling, createTime, deploymentUri, descriptionProperty,
-         errorMessage, isDefault, lastUseTime, manualScaling, name,
-         runtimeVersion, state;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
 @end
 
 
@@ -595,69 +499,11 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMachineLearningEngine_GoogleIamV1Condition
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleIamV1Condition
-@dynamic iam, op, svc, sys, value, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMachineLearningEngine_GoogleIamV1LogConfig
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleIamV1LogConfig
-@dynamic cloudAudit, counter, dataAccess;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCloudAuditOptions
-@dynamic logName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCounterOptions
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigCounterOptions
-@dynamic field, metric;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigDataAccessOptions
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleIamV1LogConfigDataAccessOptions
-@dynamic logMode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudMachineLearningEngine_GoogleIamV1Policy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleIamV1Policy
-@dynamic auditConfigs, bindings, ETag, iamOwned, rules, version;
+@dynamic auditConfigs, bindings, ETag, iamOwned, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -666,39 +512,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Rule_Action_NoAction
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"auditConfigs" : [GTLRCloudMachineLearningEngine_GoogleIamV1AuditConfig class],
-    @"bindings" : [GTLRCloudMachineLearningEngine_GoogleIamV1Binding class],
-    @"rules" : [GTLRCloudMachineLearningEngine_GoogleIamV1Rule class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMachineLearningEngine_GoogleIamV1Rule
-//
-
-@implementation GTLRCloudMachineLearningEngine_GoogleIamV1Rule
-@dynamic action, conditions, descriptionProperty, inProperty, logConfig, notIn,
-         permissions;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"inProperty" : @"in"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRCloudMachineLearningEngine_GoogleIamV1Condition class],
-    @"in" : [NSString class],
-    @"logConfig" : [GTLRCloudMachineLearningEngine_GoogleIamV1LogConfig class],
-    @"notIn" : [NSString class],
-    @"permissions" : [NSString class]
+    @"bindings" : [GTLRCloudMachineLearningEngine_GoogleIamV1Binding class]
   };
   return map;
 }

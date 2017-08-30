@@ -152,6 +152,121 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
 @end
 
 /**
+ *  Retrieves a single screenshot cluster by its ID
+ *
+ *  Method: toolresults.projects.histories.executions.clusters.get
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersGet : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsClustersGetWithprojectId:historyId:executionId:clusterId:]
+
+/**
+ *  A Cluster id
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  An Execution id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  A History id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/**
+ *  A Project id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRToolResults_ScreenshotCluster.
+ *
+ *  Retrieves a single screenshot cluster by its ID
+ *
+ *  @param projectId A Project id.
+ *    Required.
+ *  @param historyId A History id.
+ *    Required.
+ *  @param executionId An Execution id.
+ *    Required.
+ *  @param clusterId A Cluster id
+ *    Required.
+ *
+ *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                         clusterId:(NSString *)clusterId;
+
+@end
+
+/**
+ *  Lists Screenshot Clusters
+ *  Returns the list of screenshot clusters corresponding to an execution.
+ *  Screenshot clusters are created after the execution is finished. Clusters
+ *  are created from a set of screenshots. Between any two screenshots, a
+ *  matching score is calculated based off their metadata that determines how
+ *  similar they are. Screenshots are placed in the cluster that has screens
+ *  which have the highest matching scores.
+ *
+ *  Method: toolresults.projects.histories.executions.clusters.list
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersList : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsClustersListWithprojectId:historyId:executionId:]
+
+/**
+ *  An Execution id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  A History id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/**
+ *  A Project id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRToolResults_ListScreenshotClustersResponse.
+ *
+ *  Lists Screenshot Clusters
+ *  Returns the list of screenshot clusters corresponding to an execution.
+ *  Screenshot clusters are created after the execution is finished. Clusters
+ *  are created from a set of screenshots. Between any two screenshots, a
+ *  matching score is calculated based off their metadata that determines how
+ *  similar they are. Screenshots are placed in the cluster that has screens
+ *  which have the highest matching scores.
+ *
+ *  @param projectId A Project id.
+ *    Required.
+ *  @param historyId A History id.
+ *    Required.
+ *  @param executionId An Execution id.
+ *    Required.
+ *
+ *  @returns GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersList
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId;
+
+@end
+
+/**
  *  Creates an Execution.
  *  The returned Execution will have the id set.
  *  May return any of the following canonical error codes:
