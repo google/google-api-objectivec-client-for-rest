@@ -1699,64 +1699,68 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
   testBlock(ticket, ^(id testObject, NSError *testError) {
     dispatch_group_async(ticket.callbackGroup, ticket.callbackQueue, ^{
-      if (testError) {
-        // During simulation, we invoke any retry block, but ignore the result.
-        const BOOL willRetry = NO;
-        GTLRServiceRetryBlock retryBlock = ticket.retryBlock;
-        if (retryBlock) {
-          (void)retryBlock(ticket, willRetry, testError);
-        }
-      } else {
-        // Simulate upload progress, calling back up to three times.
-        if (ticket.uploadProgressBlock) {
-          GTLRQuery *query = (GTLRQuery *)ticket.originalQuery;
-          unsigned long long uploadLength = [self simulatedUploadLengthForQuery:query
-                                                                     dataToPost:dataToPost];
-          unsigned long long sendReportSize = uploadLength / 3 + 1;
-          unsigned long long totalSentSoFar = 0;
-          while (totalSentSoFar < uploadLength) {
-            unsigned long long bytesRemaining = uploadLength - totalSentSoFar;
-            sendReportSize = MIN(sendReportSize, bytesRemaining);
-            totalSentSoFar += sendReportSize;
-
-            [self invokeProgressCallbackForTicket:ticket
-                                   deliveredBytes:(unsigned long long)totalSentSoFar
-                                       totalBytes:(unsigned long long)uploadLength];
+      if (!ticket.cancelled) {
+        if (testError) {
+          // During simulation, we invoke any retry block, but ignore the result.
+          const BOOL willRetry = NO;
+          GTLRServiceRetryBlock retryBlock = ticket.retryBlock;
+          if (retryBlock) {
+            (void)retryBlock(ticket, willRetry, testError);
           }
-          [ticket postNotificationOnMainThreadWithName:kGTLRServiceTicketParsingStartedNotification
-                                                object:ticket
-                                              userInfo:nil];
-          [ticket postNotificationOnMainThreadWithName:kGTLRServiceTicketParsingStoppedNotification
-                                                object:ticket
-                                              userInfo:nil];
+        } else {
+          // Simulate upload progress, calling back up to three times.
+          if (ticket.uploadProgressBlock) {
+            GTLRQuery *query = (GTLRQuery *)ticket.originalQuery;
+            unsigned long long uploadLength = [self simulatedUploadLengthForQuery:query
+                                                                       dataToPost:dataToPost];
+            unsigned long long sendReportSize = uploadLength / 3 + 1;
+            unsigned long long totalSentSoFar = 0;
+            while (totalSentSoFar < uploadLength) {
+              unsigned long long bytesRemaining = uploadLength - totalSentSoFar;
+              sendReportSize = MIN(sendReportSize, bytesRemaining);
+              totalSentSoFar += sendReportSize;
+
+              [self invokeProgressCallbackForTicket:ticket
+                                     deliveredBytes:(unsigned long long)totalSentSoFar
+                                         totalBytes:(unsigned long long)uploadLength];
+            }
+            [ticket postNotificationOnMainThreadWithName:kGTLRServiceTicketParsingStartedNotification
+                                                  object:ticket
+                                                userInfo:nil];
+            [ticket postNotificationOnMainThreadWithName:kGTLRServiceTicketParsingStoppedNotification
+                                                  object:ticket
+                                                userInfo:nil];
+          }
         }
-      }
 
-      if (![originalQuery isBatchQuery]) {
-        // Single query
-        GTLRServiceCompletionHandler completionBlock = originalQuery.completionBlock;
-        if (completionBlock) {
-          completionBlock(ticket, testObject, testError);
+        if (![originalQuery isBatchQuery]) {
+          // Single query
+          GTLRServiceCompletionHandler completionBlock = originalQuery.completionBlock;
+          if (completionBlock) {
+            completionBlock(ticket, testObject, testError);
+          }
+        } else {
+          // Batch query
+          GTLR_DEBUG_ASSERT(!testObject || [testObject isKindOfClass:[GTLRBatchResult class]],
+              @"Batch queries should have result objects of type GTLRBatchResult (not %@)",
+              [testObject class]);
+
+          [self invokeBatchCompletionsWithTicket:ticket
+                                      batchQuery:(GTLRBatchQuery *)originalQuery
+                                     batchResult:(GTLRBatchResult *)testObject
+                                           error:testError];
+        } // isBatchQuery
+
+        if (completionHandler) {
+          completionHandler(ticket, testObject, testError);
         }
-      } else {
-        // Batch query
-        GTLR_DEBUG_ASSERT(!testObject || [testObject isKindOfClass:[GTLRBatchResult class]],
-            @"Batch queries should have result objects of type GTLRBatchResult (not %@)",
-            [testObject class]);
+        ticket.hasCalledCallback = YES;
+      }  // !ticket.cancelled
 
-        [self invokeBatchCompletionsWithTicket:ticket
-                                    batchQuery:(GTLRBatchQuery *)originalQuery
-                                   batchResult:(GTLRBatchResult *)testObject
-                                         error:testError];
-      } // isBatchQuery
-
-      if (completionHandler) {
-        completionHandler(ticket, testObject, testError);
-      }
-      ticket.hasCalledCallback = YES;
-
+      // Even if the ticket has been cancelled, it should notify that it's stopped.
       [ticket notifyStarting:NO];
 
+      // Release query callback blocks.
       [originalQuery invalidateQuery];
     });  // dispatch_group_async
   });  // testBlock
