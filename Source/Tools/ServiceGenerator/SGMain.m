@@ -17,13 +17,6 @@
 #error "This file needs to be compiled with ARC enabled."
 #endif
 
-#ifndef STRIP_GTM_FETCH_LOGGING
- #error Logging should always be enabled so the --httpLogDir option will work.
-#endif
-#if STRIP_GTM_FETCH_LOGGING
- #error Logging should always be enabled so the --httpLogDir option will work.
-#endif
-
 // This tool attempts to generate as much as possible for services from the
 // Google APIs Discovery Service documents.
 
@@ -72,10 +65,12 @@ static ArgInfo optionalFlags[] = {
     "Write out a file into DIR for each JSON API description processed.  These"
     " can be useful for reporting bugs if generation fails with an error."
   },
+#if !STRIP_GTM_FETCH_LOGGING
   { "--httpLogDir PATH",
     "Turn on the HTTP fetcher logging and set it to write to PATH.  This"
     " can be useful for diagnosing errors on discovery fetches."
   },
+#endif
   { "--generatePreferred",
     "Causes the list of services to be collected, and all preferred"
     " services to be generated."
@@ -742,7 +737,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     { "gtlrFrameworkName",   required_argument, NULL,                 'n' },
     { "gtlrImportPrefix",    required_argument, NULL,                 'i' },
     { "apiLogDir",           required_argument, NULL,                 'a' },
+#if !STRIP_GTM_FETCH_LOGGING
     { "httpLogDir",          required_argument, NULL,                 'h' },
+#endif
     { "generatePreferred",   no_argument,       &generatePreferred,   1 },
     { "httpHeader",          required_argument, NULL,                 'w' },
     { "formattedName",       required_argument, NULL,                 't' },
@@ -946,6 +943,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     }
   }
 
+#if !STRIP_GTM_FETCH_LOGGING
   // If a http log dir was provided, make sure it exists, and turn on the
   // fetcher's logging support.
   if (self.httpLogDir.length > 0) {
@@ -961,6 +959,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
        shortHTTPLogDir, err];
     }
   }
+#endif  // STRIP_GTM_FETCH_LOGGING
 
   if (self.generatePreferred) {
     [self maybePrint:@"  Generate Preferred Services: YES"];
